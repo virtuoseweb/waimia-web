@@ -1127,22 +1127,23 @@ const moleculesRendered = 12;
   <script>
     (() => {
       const root = document.documentElement;
-      const knobs = Array.from(document.querySelectorAll('[data-fl-knob]'));
+      const knobs = Array.from(document.querySelectorAll('[data-fl-knob]')) as HTMLInputElement[];
       if (!knobs.length) return;
       const defaults = new Map(knobs.map((el) => [el, el.value]));
       const frame = document.getElementById('fl-frame');
       const frameW = document.getElementById('fl-frame-w');
-      const bars = Array.from(document.querySelectorAll('[data-fl-spec]'));
-      const pxOut = Array.from(document.querySelectorAll('[data-fl-px]'));
+      const bars = Array.from(document.querySelectorAll('[data-fl-spec]')) as HTMLElement[];
+      const pxOut = Array.from(document.querySelectorAll('[data-fl-px]')) as HTMLElement[];
 
       // Borne supérieure pour normaliser la largeur des barres (256px = --space-15 desktop).
       const SCALE_MAX = 256;
 
       const measure = () => {
         const cs = getComputedStyle(root);
-        const computed = {};
+        const computed: Record<string, number | null> = {};
         for (const el of pxOut) {
           const token = el.getAttribute('data-fl-px');
+          if (!token) continue;
           const raw = cs.getPropertyValue(token).trim();
           const val = parseFloat(raw);
           computed[token] = Number.isFinite(val) ? val : null;
@@ -1150,15 +1151,17 @@ const moleculesRendered = 12;
         }
         for (const bar of bars) {
           const token = bar.getAttribute('data-fl-spec');
+          if (!token) continue;
           const val = computed[token];
-          const pct = Number.isFinite(val) ? Math.max(1, Math.min(100, (val / SCALE_MAX) * 100)) : 0;
+          const pct = val != null ? Math.max(1, Math.min(100, (val / SCALE_MAX) * 100)) : 0;
           bar.style.width = `${pct}%`;
         }
         if (frame && frameW) frameW.textContent = `cadre : ${Math.round(frame.clientWidth)}px`;
       };
 
-      const syncKnob = (el) => {
+      const syncKnob = (el: HTMLInputElement) => {
         const token = el.getAttribute('data-fl-knob');
+        if (!token) return;
         root.style.setProperty(token, el.value);
         const out = document.getElementById(`${el.id}-out`);
         if (out) out.textContent = el.value;
@@ -1171,10 +1174,10 @@ const moleculesRendered = 12;
       if (resetBtn) {
         resetBtn.addEventListener('click', () => {
           for (const el of knobs) {
-            const def = defaults.get(el);
+            const def = defaults.get(el) ?? '';
             el.value = def;
             const token = el.getAttribute('data-fl-knob');
-            root.style.removeProperty(token);
+            if (token) root.style.removeProperty(token);
             const out = document.getElementById(`${el.id}-out`);
             if (out) out.textContent = def;
           }

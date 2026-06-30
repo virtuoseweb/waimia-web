@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Waimia Design System : builder visuel de composition de page (BuilderCanvas React + types du PageDocument). Consomme @waimia/ds-kernel (page-document-frontmatter pur, 0 astro:content runtime). Surface consommee par la page library/builder de l'app hote.",
   "exports": {
+    "./types": "./src/types.ts",
     "./*.tsx": "./src/*.tsx",
     "./*.ts": "./src/*.ts",
     "./*": "./src/*.tsx"

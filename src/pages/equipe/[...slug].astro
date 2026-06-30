@@ -22,10 +22,8 @@ export async function getStaticPaths() {
     }));
 }
 
-type AuthorLinkedEntry =
-  | CollectionEntry<'blog'>
-  | CollectionEntry<'cookbooks'>
-  | CollectionEntry<'livresBlancs'>;
+// SEO état final : collections cookbooks + livresBlancs supprimées ; il reste le blog in-silo.
+type AuthorLinkedEntry = CollectionEntry<'blog'>;
 
 type AuthorRef = string | { id?: string; slug?: string; name?: string };
 type Props = { entry: CollectionEntry<'authors'> };

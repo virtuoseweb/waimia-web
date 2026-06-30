@@ -104,7 +104,9 @@ const PAGE_ROUTE_PREFIX: Record<string, string> = {
 
 const pageGroups = await Promise.all(
   Object.entries(PAGE_ROUTE_PREFIX).map(async ([collection, prefix]) => {
-    const entries = await getCollection(collection as Parameters<typeof getCollection>[0]);
+    const entries = (await getCollection(
+      collection as Parameters<typeof getCollection>[0],
+    )) as Array<{ id: string; data: Record<string, unknown> }>;
     return entries
       .filter((entry) => Array.isArray((entry.data as any).sections) && (entry.data as any).sections.length > 0)
       .map((entry): BuilderPage => {

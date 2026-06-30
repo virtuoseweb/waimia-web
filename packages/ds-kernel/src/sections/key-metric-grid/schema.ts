@@ -26,5 +26,5 @@ export const schema = z.object({
       }),
     )
     .min(2),
-  ...sectionBaseSchema.shape,
+  ...sectionBaseSchema.omit({ columns: true }).shape,
 });

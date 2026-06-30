@@ -37,10 +37,12 @@ const reassurance = data.reassurance ?? [];
     </div>
 
     <div class="booking-embed__widget">
+      {/* CalEmbed n'expose pas de prop `namespace` : il dérive calLink de username/eventType
+          et CalEmbedReact applique le namespace par défaut ('audit', non-vide → URL Cal valide).
+          On ne passe donc que les props supportées. Comportement de l'embed inchangé. */}
       <CalEmbed
         username={data.cal_username}
         eventType={data.cal_event_type}
-        namespace={data.cal_namespace}
       />
     </div>
   </div>

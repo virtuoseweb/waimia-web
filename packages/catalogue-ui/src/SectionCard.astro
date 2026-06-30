@@ -70,10 +70,10 @@ const MAX_BADGES = 3;
 const labelFor = (kind: FacetKind, tag: string): string =>
   (FACET_LABELS_FR[kind] as Record<string, string>)[tag] ?? tag;
 const facetBadges: string[] = [
-  ...effects.filter((t) => t !== 'static').map((t) => labelFor('effects', t)),
-  ...interactions.filter((t) => t !== 'none').map((t) => labelFor('interactions', t)),
-  ...elements.map((t) => labelFor('elements', t)),
-  ...layoutFacets.map((t) => labelFor('layoutFacets', t)),
+  ...effects.filter((t: string) => t !== 'static').map((t: string) => labelFor('effects', t)),
+  ...interactions.filter((t: string) => t !== 'none').map((t: string) => labelFor('interactions', t)),
+  ...elements.map((t: string) => labelFor('elements', t)),
+  ...layoutFacets.map((t: string) => labelFor('layoutFacets', t)),
 ];
 const shownBadges = facetBadges.slice(0, MAX_BADGES);
 const extraBadges = Math.max(0, facetBadges.length - shownBadges.length);

@@ -121,7 +121,7 @@ const layers = [
           <ul class="part-grid">
             {layer.items.map((item) => (
               <li class="part-card">
-                {item.href ? (
+                {'href' in item && item.href ? (
                   <a class="part-card-name part-card-name--link" href={item.href}>
                     {item.name}
                     <span class="part-card-arrow" aria-hidden="true">→</span>

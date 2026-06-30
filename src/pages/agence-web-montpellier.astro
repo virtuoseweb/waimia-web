@@ -160,6 +160,9 @@ export const agenceWebMontpellierSections: SectionData[] = [
   },
 
   // 6 · PRICING (paper-2) : grille canonique, Essentiel 2 000 € en vedette (featured), « Sur mesure » en footnote.
+  // `as SectionData` : les champs `.default()` du schéma pricing-cards (columns, tiers[].featured)
+  // sont requis dans le type _output → l'objet en entrée (sans ces défauts) casse la discrimination
+  // de l'union. Cast aligné sur l'idiome repo (cf src/pages/index.astro pricingCardsC). Données inchangées.
   {
     type: 'pricing-cards',
     background: 'paper-2',
@@ -257,7 +260,7 @@ export const agenceWebMontpellierSections: SectionData[] = [
     ],
     footnote_fr: 'Sur mesure · sur devis : ETI, besoins spécifiques, app dédiée, multi-sites ou intégrations lourdes. On bascule alors vers le Growth System IA. Parlons-en via le formulaire de contact.',
     footnote_en: 'Custom · on quote: larger firms, specific needs, dedicated app, multi-site or heavy integrations. We then move to the Growth System IA. Let us talk via the contact form.',
-  },
+  } as SectionData,
 
   // 7 · FAQ LOCALE (paper) : questions concrètes d'un prospect montpelliérain. Statique 2 colonnes.
   {

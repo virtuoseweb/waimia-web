@@ -93,12 +93,12 @@ const slots: SectionSlot[] = getSlots(section.type);
 
 // Facettes ORTHOGONALES filtrées (mêmes règles que SectionCard : on retire les valeurs vides).
 type FacetGroup = { kind: FacetKind; label: string; tags: string[] };
-const facetGroups: FacetGroup[] = [
+const facetGroups: FacetGroup[] = ([
   { kind: 'effects', label: 'Effets', tags: section.effects.filter((t) => t !== 'static') },
   { kind: 'interactions', label: 'Interactions', tags: section.interactions.filter((t) => t !== 'none') },
   { kind: 'elements', label: 'Éléments', tags: section.elements },
   { kind: 'layoutFacets', label: 'Mise en page', tags: section.layoutFacets },
-].filter((g) => g.tags.length > 0);
+] satisfies FacetGroup[]).filter((g) => g.tags.length > 0);
 const facetLabel = (kind: FacetKind, tag: string): string =>
   (FACET_LABELS_FR[kind] as Record<string, string>)[tag] ?? tag;
 

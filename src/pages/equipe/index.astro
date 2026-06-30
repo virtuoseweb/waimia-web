@@ -16,10 +16,8 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
 import TeamCardGrid from '../../components/sections/TeamCardGrid.astro';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
 
-type AuthorLinkedEntry =
-  | CollectionEntry<'blog'>
-  | CollectionEntry<'cookbooks'>
-  | CollectionEntry<'livresBlancs'>;
+// SEO état final : collections cookbooks + livresBlancs supprimées ; auteurs reliés au blog in-silo.
+type AuthorLinkedEntry = CollectionEntry<'blog'>;
 
 type AuthorRef = string | { id?: string; slug?: string; name?: string };
 

@@ -3,6 +3,7 @@
 // z vient d'astro:content (build Astro + pattern codegen). Imports partages reresolus.
 
 import { z } from 'zod';
+import { placementSchema } from '../_shared/base';
 import { featureSplitPointSchema } from '../_shared/locals';
 
 export const schema = z.object({
@@ -28,6 +29,7 @@ export const schema = z.object({
   contentAlign: z.enum(['start', 'center', 'end']).optional(),
   actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
   density: z.enum(['compact', 'base', 'ample']).optional(),
+  placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),

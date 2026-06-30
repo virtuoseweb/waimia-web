@@ -44,11 +44,11 @@ const t = TARGETS[scope];
 const items =
   scope === 'library'
     ? ([
-        { key: 'catalogue', label: 'Catalogue', href: t.catalogue, hint: 'bibliothèque des composants' },
-        { key: 'studio', label: 'DS Studio', href: t.studio, hint: 'personnaliser les tokens' },
-        { key: 'hero-lab', label: 'Hero Lab', href: t['hero-lab'], hint: 'variantes de hero comparées' },
-        { key: 'family', label: 'Familles', href: t.family, hint: 'index des familles transverses' },
-        { key: 'manifest', label: 'MCP', href: t.manifest, hint: 'graine lisible par les agents' },
+        { key: 'catalogue', label: 'Catalogue', href: TARGETS.library.catalogue, hint: 'bibliothèque des composants' },
+        { key: 'studio', label: 'DS Studio', href: TARGETS.library.studio, hint: 'personnaliser les tokens' },
+        { key: 'hero-lab', label: 'Hero Lab', href: TARGETS.library['hero-lab'], hint: 'variantes de hero comparées' },
+        { key: 'family', label: 'Familles', href: TARGETS.library.family, hint: 'index des familles transverses' },
+        { key: 'manifest', label: 'MCP', href: TARGETS.library.manifest, hint: 'graine lisible par les agents' },
       ] as const)
     : ([
         { key: 'studio', label: 'DS Studio', href: t.studio, hint: 'personnaliser les tokens' },

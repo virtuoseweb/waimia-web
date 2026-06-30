@@ -73,7 +73,7 @@ export const pageMetaSchema = z.object({
    * Passe-plat des champs propres à la collection (price_from_eur, faq_fr, category…).
    * Validés ensuite par le schéma de la collection cible, PAS ici.
    */
-  collectionExtra: z.record(z.unknown()).default({}),
+  collectionExtra: z.record(z.string(), z.unknown()).default({}),
 });
 
 export type PageMeta = z.infer<typeof pageMetaSchema>;

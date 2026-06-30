@@ -2143,6 +2143,12 @@
     "description_en": "Editorial six-column case-study table (index, client, sector, stack, impact, arrow) styled like an audit report.",
     "schemaFields": [
       {
+        "name": "actionsAlign",
+        "type": "enum",
+        "required": false,
+        "constraint": "start | center | end | spread"
+      },
+      {
         "name": "all_href",
         "type": "string",
         "required": false
@@ -2481,19 +2487,19 @@
       "row-lines"
     ],
     "hardcodedLiterals": {
-      "count": 21,
+      "count": 33,
       "samples": [
         "-0.015em",
         "-2px",
         ".14em",
         ".16em",
         ".1em",
-        "100%",
-        "1080px",
-        "10px"
+        "0.375rem",
+        "0.625rem",
+        "0.875rem"
       ]
     },
-    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 21 litteral(s) hardcode(s) (-0.015em, -2px, .14em)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 33 litteral(s) hardcode(s) (-0.015em, -2px, .14em)."
   },
   {
     "id": "case-featured-grid",
@@ -3893,6 +3899,7 @@
       "commitments-grid__grid",
       "commitments-grid__h2",
       "commitments-grid__kicker",
+      "css",
       "deliverables-grid",
       "deliverables-grid__art",
       "deliverables-grid__card",
@@ -3904,6 +3911,8 @@
       "deliverables-grid__title",
       "feature-grid",
       "feature-grid__cta",
+      "feature-grid__fill",
+      "feature-grid__fill-art",
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
@@ -4051,6 +4060,10 @@
         "value": "2px"
       },
       {
+        "name": "--sec-col-min",
+        "value": ""
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
@@ -4135,13 +4148,17 @@
         "value": "0.08em"
       },
       {
+        "name": "--wrap-prose",
+        "value": "720px"
+      },
+      {
         "name": "--wrap-read",
         "value": "900px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 19,
+      "count": 23,
       "samples": [
         "-.01em",
         "-0.018em",
@@ -4153,7 +4170,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "comparison-duo",
@@ -7120,6 +7137,7 @@
       "commitments-grid__grid",
       "commitments-grid__h2",
       "commitments-grid__kicker",
+      "css",
       "deliverables-grid",
       "deliverables-grid__art",
       "deliverables-grid__card",
@@ -7131,6 +7149,8 @@
       "deliverables-grid__title",
       "feature-grid",
       "feature-grid__cta",
+      "feature-grid__fill",
+      "feature-grid__fill-art",
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
@@ -7278,6 +7298,10 @@
         "value": "2px"
       },
       {
+        "name": "--sec-col-min",
+        "value": ""
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
@@ -7362,13 +7386,17 @@
         "value": "0.08em"
       },
       {
+        "name": "--wrap-prose",
+        "value": "720px"
+      },
+      {
         "name": "--wrap-read",
         "value": "900px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 19,
+      "count": 23,
       "samples": [
         "-.01em",
         "-0.018em",
@@ -7380,7 +7408,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "department-cta",
@@ -11292,6 +11320,11 @@
         "constraint": "min:3 max:8"
       },
       {
+        "name": "fillMedia",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "h2_en",
         "type": "string",
         "required": true
@@ -11363,6 +11396,7 @@
       "commitments-grid__grid",
       "commitments-grid__h2",
       "commitments-grid__kicker",
+      "css",
       "deliverables-grid",
       "deliverables-grid__art",
       "deliverables-grid__card",
@@ -11374,6 +11408,8 @@
       "deliverables-grid__title",
       "feature-grid",
       "feature-grid__cta",
+      "feature-grid__fill",
+      "feature-grid__fill-art",
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
@@ -11521,6 +11557,10 @@
         "value": "2px"
       },
       {
+        "name": "--sec-col-min",
+        "value": ""
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
@@ -11605,13 +11645,17 @@
         "value": "0.08em"
       },
       {
+        "name": "--wrap-prose",
+        "value": "720px"
+      },
+      {
         "name": "--wrap-read",
         "value": "900px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 19,
+      "count": 23,
       "samples": [
         "-.01em",
         "-0.018em",
@@ -11623,7 +11667,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "feature-split-media",
@@ -11757,6 +11801,11 @@
         "type": "enum",
         "required": false,
         "constraint": "left | right"
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
       },
       {
         "name": "points",
@@ -12684,6 +12733,11 @@
         "type": "enum",
         "required": false,
         "constraint": "inline | stacked"
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
       },
       {
         "name": "rounded",
@@ -28248,6 +28302,7 @@
       "commitments-grid__grid",
       "commitments-grid__h2",
       "commitments-grid__kicker",
+      "css",
       "deliverables-grid",
       "deliverables-grid__art",
       "deliverables-grid__card",
@@ -28259,6 +28314,8 @@
       "deliverables-grid__title",
       "feature-grid",
       "feature-grid__cta",
+      "feature-grid__fill",
+      "feature-grid__fill-art",
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
@@ -28406,6 +28463,10 @@
         "value": "2px"
       },
       {
+        "name": "--sec-col-min",
+        "value": ""
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
@@ -28490,13 +28551,17 @@
         "value": "0.08em"
       },
       {
+        "name": "--wrap-prose",
+        "value": "720px"
+      },
+      {
         "name": "--wrap-read",
         "value": "900px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 19,
+      "count": 23,
       "samples": [
         "-.01em",
         "-0.018em",
@@ -28508,7 +28573,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "inclusions-list",
@@ -31463,6 +31528,10 @@
         "value": "#C94F2E"
       },
       {
+        "name": "--accent-sur-sombre",
+        "value": "#D96A47"
+      },
+      {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
       },
@@ -31513,6 +31582,14 @@
       {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
       },
       {
         "name": "--radius-full",
@@ -31598,7 +31675,7 @@
         "780px"
       ]
     },
-    "agentGuide": "Layout : `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (100%, 14rem, 1px)."
+    "agentGuide": "Layout : `columns` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (100%, 14rem, 1px)."
   },
   {
     "id": "method-timeline",
@@ -34297,6 +34374,7 @@
         "name": "columns",
         "type": "enum",
         "required": false,
+        "default": "auto",
         "constraint": "auto | 2 | 3 | 4 | 5 | 6"
       },
       {
@@ -34399,6 +34477,7 @@
       "pricing-cards__price-k",
       "sec-collection",
       "sec-grid",
+      "sec-item",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -34413,10 +34492,6 @@
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
-      },
-      {
-        "name": "--col-count",
-        "value": ""
       },
       {
         "name": "--dur-hover",
@@ -34495,6 +34570,10 @@
         "value": "999px"
       },
       {
+        "name": "--sec-col-min",
+        "value": ""
+      },
+      {
         "name": "--space-1",
         "value": "0.25rem"
       },
@@ -34557,7 +34636,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 14,
+      "count": 18,
       "samples": [
         "-12px",
         "-3px",
@@ -34566,10 +34645,10 @@
         "0.14em",
         "100%",
         "14px",
-        "1px"
+        "15rem"
       ]
     },
-    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-12px, -3px, 0.04em)."
   },
   {
     "id": "pricing-comparison-matrix",
@@ -35797,6 +35876,7 @@
       "commitments-grid__grid",
       "commitments-grid__h2",
       "commitments-grid__kicker",
+      "css",
       "deliverables-grid",
       "deliverables-grid__art",
       "deliverables-grid__card",
@@ -35808,6 +35888,8 @@
       "deliverables-grid__title",
       "feature-grid",
       "feature-grid__cta",
+      "feature-grid__fill",
+      "feature-grid__fill-art",
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
@@ -35955,6 +36037,10 @@
         "value": "2px"
       },
       {
+        "name": "--sec-col-min",
+        "value": ""
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
@@ -36039,13 +36125,17 @@
         "value": "0.08em"
       },
       {
+        "name": "--wrap-prose",
+        "value": "720px"
+      },
+      {
         "name": "--wrap-read",
         "value": "900px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 19,
+      "count": 23,
       "samples": [
         "-.01em",
         "-0.018em",
@@ -36057,7 +36147,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-.01em, -0.018em, -1px)."
   },
   {
     "id": "process-steps",
@@ -36519,19 +36609,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 11,
       "samples": [
         "-1px",
         "0.1em",
-        "140px",
+        "14rem",
+        "16rem",
         "1px",
         "2px",
         "480px",
-        "6px",
-        "768px"
+        "6px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-1px, 0.1em, 140px)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-1px, 0.1em, 14rem)."
   },
   {
     "id": "pull-quote-block",
@@ -38963,19 +39053,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 11,
       "samples": [
         "-1px",
         "0.1em",
-        "140px",
+        "14rem",
+        "16rem",
         "1px",
         "2px",
         "480px",
-        "6px",
-        "768px"
+        "6px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-1px, 0.1em, 140px)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-1px, 0.1em, 14rem)."
   },
   {
     "id": "stat-counter",

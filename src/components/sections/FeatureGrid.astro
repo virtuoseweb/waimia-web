@@ -45,6 +45,7 @@ const isFr = lang === 'fr';
 // (aucune prop de variation) = rendu actuel (grille hairline 3 colonnes). Chaque prop du
 // mixin n'est posée en data-attr QUE si elle est définie (sinon rien → défaut moteur).
 const fg = data.type === 'feature-grid' ? data : undefined;
+type FgFeature = NonNullable<typeof fg>['features'][number];
 const fgCols = fg ? (fg.columns ?? '3') : '3';
 // Mode moteur : si une recette `layout` du lexique est demandée, on pilote la grille par
 // le moteur (data-layout) ; sinon on garde la grille hairline bespoke (data-cols).
@@ -120,7 +121,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
   <section class="problems-grid wrap-wide reveal-blur-clip" data-bg={data.background}>
     <h2 class="problems-grid__h2 reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
     <div class="problems-grid__cards">
-      {data.problems.map((p, i) => {
+      {data.problems.map((p: (typeof data.problems)[number], i: number) => {
         const art = inlineLineArt(p.illustration_src);
         const alt = isFr ? p.illustration_alt_fr : p.illustration_alt_en;
         return (
@@ -168,7 +169,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
         data-body-hide={dgBodyHide}
         data-body-justify={dgBodyJustify}
       >
-        {data.items.map((item) => {
+        {data.items.map((item: (typeof data.items)[number]) => {
           const format = isFr ? item.format_fr : item.format_en;
           const duration = isFr ? item.duration_fr : item.duration_en;
           const tag = [format, duration].filter(Boolean).join(' · ');
@@ -205,7 +206,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
       )}
 
       <div class="commitments-grid__grid reveal-stagger">
-        {data.commitments.map((c) => (
+        {data.commitments.map((c: (typeof data.commitments)[number]) => (
           <div class="commitments-grid__cell">
             <h3 class="commitments-grid__cell-title" set:html={isFr ? c.title_fr : c.title_en} />
             <p class="commitments-grid__cell-body">{isFr ? c.body_fr : c.body_en}</p>
@@ -288,7 +289,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
       data-card-align={fgCardAlign}
       data-color-distribution={fgColorDistribution}
     >
-      {fg!.features.map((f, i) => {
+      {fg!.features.map((f: FgFeature, i: number) => {
         const cta = f.cta_href ? { label: isFr ? f.cta_label_fr : f.cta_label_en, href: f.cta_href } : undefined;
         const cardCellBg = f.bg ?? (fgCellCycle.length > 0 ? fgCellCycle[i % fgCellCycle.length] : undefined);
         const meta = isFr ? f.meta_fr : f.meta_en;

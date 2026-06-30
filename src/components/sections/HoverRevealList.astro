@@ -31,7 +31,7 @@ const revealMode = data.reveal_mode ?? 'cursor';
     </div>
 
     <ul class="hrl__list" aria-label={isFr ? 'Réalisations' : 'Work'}>
-      {data.items.map((item, i) => {
+      {data.items.map((item: (typeof data.items)[number], i: number) => {
         const label = isFr ? item.label_fr : item.label_en;
         const meta = isFr ? item.meta_fr : item.meta_en;
         const alt = (isFr ? item.media_alt_fr : item.media_alt_en) ?? '';
@@ -64,7 +64,7 @@ const revealMode = data.reveal_mode ?? 'cursor';
   </div>
 
   <div class="hrl__reveal" aria-hidden="true">
-    {data.items.map((item, i) => {
+    {data.items.map((item: (typeof data.items)[number], i: number) => {
       const alt = (isFr ? item.media_alt_fr : item.media_alt_en) ?? '';
       return (
         <img

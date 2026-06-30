@@ -123,7 +123,7 @@ function buildCitations(sources: any[]) {
   }));
 }
 
-function buildFAQPage(faqItems: any[]) {
+function buildFAQPage(faqItems: any[] | undefined) {
   if (!faqItems || faqItems.length === 0) return null;
 
   return {

@@ -29,6 +29,7 @@ export const schema = z.object({
   density: z.enum(['compact', 'base', 'ample']).optional(),
   //  - contentAlign : alignement du header (titre + ligne spec). start (défaut) | center | end.
   contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
   // Couche atomique (Batch 2) : placement par région (header + body + actions=lien « tous »).
   placement: placementSchema,
   fig_num: z.string(),
