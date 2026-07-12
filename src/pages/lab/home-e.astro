@@ -22,17 +22,18 @@ export const prerender = true;
  *   07 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, paper-2) · media sticky
  *      crossfade au scroll, contenu c.json TEL QUEL (4 steps), layout differencie de SWI par axes
  *   08 Temoignages · testimonial-wall CATALOGUE (SectionsRenderer, paper) · 6 avis de SWI, en-tete home
- *   09 Dashboard media interne · media-bento CATALOGUE (SectionsRenderer, paper-2) · hub de decouverte
+ *   09 Tableau de bord media · eeat-panel variant media (SectionsRenderer, ink) · profil/reperes/secteurs
  *      des contenus (cas/blog/ressources/cas-usages/services), liens internes reels verifies
- *   10 Tableau de bord media · 2e stats-bento de C (SectionsRenderer, ink) · CLIMAX chiffre, pre-FAQ
+ *   10 Climax chiffre · 2e stats-bento de C (SectionsRenderer, paper-2) · pre-FAQ
  *   11 FAQ · 6 questions, prix garde (FaqAccordion, paper) · SEULE mention de prix
  *   12 Action · BookSession (ink) + FooterMarquee
  *
  * Gate B iter 3 (demandes Simon 2026-07-12) : ajout de deux sections catalogue. `statement-orbit`
  * (slot 04) reintroduit le liant conceptuel perdu avec l'ArchitectureDiagram (les 2 offres forment
  * UNE boucle d'amelioration continue), avec un COPY neuf adapte home (0 reprise du copy SWI). Le
- * `media-bento` « dashboard media interne » (slot 09) ajoute un hub de decouverte des contenus du
- * site vers leurs vraies routes. Tout passe par <SectionsRenderer> (0 markup inline neuf, 0 fork).
+ * `eeat-panel` variant media « tableau de bord media » (slot 09, correction Simon : c'etait CE
+ * dashboard qui etait voulu) remplace le media-bento initial ; contenu + liens internes GLOBAUX
+ * portes par le composant. Tout passe par <SectionsRenderer> (0 markup inline neuf, 0 fork).
  *
  * Gate B iter 2 (verdict Simon 2026-07-12) : la methode redevient RICHE via le composant catalogue
  * `sticky-scroll-storytelling` (la frise inline condensee + son SVG rail sont SUPPRIMES), les
@@ -68,10 +69,11 @@ const logoMarquee = {
   kicker_fr: "§ L’écosystème qu’on opère",
 } as SectionData;
 
-// 10 · tableau de bord media = 2e stats-bento de C (layout bento : tuile vedette ink + KPI) · DEPLACE pre-FAQ.
+// 10 · climax chiffre = 2e stats-bento de C (layout bento : tuile vedette + KPI) · pre-FAQ.
+// paper-2 (couleur du live) : l'eeat-panel ink du slot 09 le precede, jamais 2 ink adjacents.
 const statsBentoDashboard = {
   ...sectionsC.filter((s) => s.type === 'stats-bento')[1],
-  background: 'ink',
+  background: 'paper-2',
   kicker_fr: '§ Ce que ça change',
 } as SectionData;
 
@@ -138,8 +140,8 @@ const services = SIX_SERVICES.map((s) => ({
 // -> pleine largeur au scroll (motion signature du composant). media = globe filaire line-art
 // `orbit-network.svg` INLINE par le composant (import ?raw) -> currentColor = paper sur ink :
 // traits clairs, PAS de footgun <img>/currentColor-noir (le SVG n'est jamais servi en <img>).
-// Pas de CTA : le hero + la ligne cas clients + BookSession couvrent deja /contact, et le
-// dashboard media (slot 09) porte la nav vers /services -> un CTA ici serait redondant.
+// Pas de CTA : le hero + la ligne cas clients + BookSession couvrent deja /contact, et la
+// rangee 6 services du money slot porte deja la nav /services -> un CTA ici serait redondant.
 const statementOrbit = {
   type: 'statement-orbit',
   background: 'paper',
@@ -154,28 +156,14 @@ const statementOrbit = {
   media_alt_en: 'Wireframe globe with nodes linked by arcs: site, CRM, content and agents turn as one acquisition loop.',
 } as SectionData;
 
-// 09 · media-bento CATALOGUE « dashboard media interne » · hub de decouverte des contenus du site.
-// layout feature-2 (tuile vedette + secondaires) sur paper-2 (alternance : temoignages paper ->
-// stats-bento ink). Chaque tuile = une famille de contenus vers sa ROUTE REELLE (verifiee via
-// ls dist/client). Visuels = illustrations DS -ink (media riche sur section claire, titre paper
-// lisible via l'overlay). 0 chiffre/preuve repris des autres slots : les tuiles renvoient, ne resument pas.
+// 09 · eeat-panel variant media (INK) = le « TABLEAU DE BORD MÉDIA » de SWI (kicker litteral du
+// composant) : profil auteur, reperes, secteurs, badges E-E-A-T. Contenu + liens internes GLOBAUX
+// portes par le composant (source unique, meme rendu que SWI). Correction Simon 2026-07-12 :
+// c'etait CE dashboard qui etait demande, pas un media-bento de decouverte (retire).
 const mediaDashboard = {
-  type: 'media-bento',
-  background: 'paper-2',
-  layout: 'feature-2',
-  kicker_fr: '§ Explorer',
-  kicker_en: '§ Explore',
-  h2_fr: 'Ce qu’on publie, ce qu’on <i>documente</i>.',
-  h2_en: 'What we publish, what we <i>document</i>.',
-  lede_fr: 'Les cas, les guides et les scénarios qu’on met en ligne, à lire quand vous voulez creuser.',
-  lede_en: 'The cases, guides and scenarios we put online, to read whenever you want to dig in.',
-  tiles: [
-    { title_fr: 'Cas clients', title_en: 'Client cases', tag_fr: 'Preuves', tag_en: 'Proof', media_src: '/images/illustrations/ds/money-money-ink.webp', media_alt_fr: 'Resultats chiffres de projets clients', media_alt_en: 'Measured results from client projects', span: '2', link_href: '/cas-clients' },
-    { title_fr: 'Le blog', title_en: 'The blog', tag_fr: 'Terrain', tag_en: 'Field notes', media_src: '/images/illustrations/ds/woman-computer-ink.webp', media_alt_fr: 'Notes de terrain sur l’acquisition et l’IA', media_alt_en: 'Field notes on acquisition and AI', span: '1', link_href: '/blog' },
-    { title_fr: 'Ressources', title_en: 'Resources', tag_fr: 'Boîte à outils', tag_en: 'Toolbox', media_src: '/images/illustrations/ds/chess-ink.webp', media_alt_fr: 'Guides et modeles a telecharger', media_alt_en: 'Guides and templates to download', span: '1', link_href: '/ressources' },
-    { title_fr: 'Cas d’usage', title_en: 'Use cases', tag_fr: 'Scénarios', tag_en: 'Scenarios', media_src: '/images/illustrations/ds/no-no-yes-ink.webp', media_alt_fr: 'Scenarios concrets d’usage par metier', media_alt_en: 'Concrete use scenarios by role', span: '1', link_href: '/cas-usages' },
-    { title_fr: 'Services', title_en: 'Services', tag_fr: 'Le studio', tag_en: 'The studio', media_src: '/images/illustrations/ds/men-on-hand-ink.webp', media_alt_fr: 'Les six services du studio', media_alt_en: 'The studio’s six services', span: '1', link_href: '/services' },
-  ],
+  type: 'eeat-panel',
+  variant: 'media',
+  background: 'ink',
 } as SectionData;
 ---
 <Base
@@ -316,10 +304,10 @@ const mediaDashboard = {
   {/* 08 · Temoignages · testimonial-wall CATALOGUE (paper) · 6 avis de SWI, en-tete home */}
   <SectionsRenderer sections={[testimonialsHome]} lang="fr" />
 
-  {/* 09 · Dashboard media interne · media-bento CATALOGUE (paper-2) · hub de decouverte des contenus */}
+  {/* 09 · Tableau de bord media · eeat-panel variant media (ink) · profil, reperes, secteurs, liens globaux */}
   <SectionsRenderer sections={[mediaDashboard]} lang="fr" />
 
-  {/* 10 · Tableau de bord media · CLIMAX chiffre (2e stats-bento de C, ink) · DEPLACE pre-FAQ */}
+  {/* 10 · Climax chiffre (2e stats-bento de C, paper-2) · pre-FAQ */}
   <SectionsRenderer sections={[statsBentoDashboard]} lang="fr" />
 
   {/* 11 · FAQ · 6 questions · Q.01 prix ouverte (SEULE mention de prix de la page) */}
