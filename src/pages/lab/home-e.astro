@@ -11,18 +11,28 @@ export const prerender = true;
  * dur (100 % var(--token) ; hairlines = box-shadow --shadow-card-rest + global
  * .hline ; pas de literal px hors @media / viewBox SVG) + SVG dessines au scroll.
  *
- * Sequence (10 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
+ * Sequence (12 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
  *   01 Hero (live, paper, composant INTOUCHE)
  *   02 Ecosysteme opere · logo-marquee (SectionsRenderer, ink + grayscale) · bande courte
  *   03 Les deux offres (#offres) · MONEY SLOT · diptyque + rangee 6 services + dorsale SVG (paper)
- *   04 La tension · 3 douleurs sobres (direct, paper-2)
- *   05 Cas clients · 3 cartes compactes + ligne CTA discrete (direct, paper)
- *   06 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, paper-2) · media sticky
+ *   04 La boucle · statement-orbit CATALOGUE (SectionsRenderer, carte ink dans paper) · PIVOT
+ *      conceptuel : les 2 offres = une boucle lire/mesurer/reinjecter · globe filaire line-art
+ *   05 La tension · 3 douleurs sobres (direct, paper-2)
+ *   06 Cas clients · 3 cartes compactes + ligne CTA discrete (direct, paper)
+ *   07 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, paper-2) · media sticky
  *      crossfade au scroll, contenu c.json TEL QUEL (4 steps), layout differencie de SWI par axes
- *   07 Temoignages · testimonial-wall CATALOGUE (SectionsRenderer, paper) · 6 avis de SWI, en-tete home
- *   08 Tableau de bord media · 2e stats-bento de C (SectionsRenderer, ink) · CLIMAX chiffre, pre-FAQ
- *   09 FAQ · 6 questions, prix garde (FaqAccordion, paper) · SEULE mention de prix
- *   10 Action · BookSession (ink) + FooterMarquee
+ *   08 Temoignages · testimonial-wall CATALOGUE (SectionsRenderer, paper) · 6 avis de SWI, en-tete home
+ *   09 Dashboard media interne · media-bento CATALOGUE (SectionsRenderer, paper-2) · hub de decouverte
+ *      des contenus (cas/blog/ressources/cas-usages/services), liens internes reels verifies
+ *   10 Tableau de bord media · 2e stats-bento de C (SectionsRenderer, ink) · CLIMAX chiffre, pre-FAQ
+ *   11 FAQ · 6 questions, prix garde (FaqAccordion, paper) · SEULE mention de prix
+ *   12 Action · BookSession (ink) + FooterMarquee
+ *
+ * Gate B iter 3 (demandes Simon 2026-07-12) : ajout de deux sections catalogue. `statement-orbit`
+ * (slot 04) reintroduit le liant conceptuel perdu avec l'ArchitectureDiagram (les 2 offres forment
+ * UNE boucle d'amelioration continue), avec un COPY neuf adapte home (0 reprise du copy SWI). Le
+ * `media-bento` « dashboard media interne » (slot 09) ajoute un hub de decouverte des contenus du
+ * site vers leurs vraies routes. Tout passe par <SectionsRenderer> (0 markup inline neuf, 0 fork).
  *
  * Gate B iter 2 (verdict Simon 2026-07-12) : la methode redevient RICHE via le composant catalogue
  * `sticky-scroll-storytelling` (la frise inline condensee + son SVG rail sont SUPPRIMES), les
@@ -58,14 +68,14 @@ const logoMarquee = {
   kicker_fr: "§ L’écosystème qu’on opère",
 } as SectionData;
 
-// 08 · tableau de bord media = 2e stats-bento de C (layout bento : tuile vedette ink + KPI) · DEPLACE pre-FAQ.
+// 10 · tableau de bord media = 2e stats-bento de C (layout bento : tuile vedette ink + KPI) · DEPLACE pre-FAQ.
 const statsBentoDashboard = {
   ...sectionsC.filter((s) => s.type === 'stats-bento')[1],
   background: 'ink',
   kicker_fr: '§ Ce que ça change',
 } as SectionData;
 
-// 04 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
+// 05 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
 const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
   severity: it.severity as string,
   title: it.title_fr as string,
@@ -74,7 +84,7 @@ const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
 }));
 const sevLabel: Record<string, string> = { critical: 'Critique', high: 'Élevé', medium: 'Moyen' };
 
-// 05 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
+// 06 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
 const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
   client: c.client as string,
   meta: `${c.sector_fr} · ${c.duration}`,
@@ -82,7 +92,7 @@ const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
   href: c.href as string,
 }));
 
-// 06 · Methode · sticky-scroll-storytelling CATALOGUE · contenu c.json TEL QUEL (4 steps home,
+// 07 · Methode · sticky-scroll-storytelling CATALOGUE · contenu c.json TEL QUEL (4 steps home,
 // media_src illustrations, media sticky crossfade au scroll). Layout DIFFERENCIE de SWI via les
 // SEULS axes existants du schema (V1 gate B ; swappable en une ligne vers V2/V3/V4 apres choix Simon).
 const methodStory = {
@@ -96,7 +106,7 @@ const methodStory = {
   numbering: 'serif',
 } as SectionData;
 
-// 07 · Temoignages · testimonial-wall CATALOGUE · les 6 avis de SWI TELS QUELS (0 avis reinvente).
+// 08 · Temoignages · testimonial-wall CATALOGUE · les 6 avis de SWI TELS QUELS (0 avis reinvente).
 // En-tete ADAPTE a la home (parle du systeme/du studio, pas seulement du site qui qualifie).
 const testimonialsHome = {
   ...swiTestimonials,
@@ -109,7 +119,7 @@ const testimonialsHome = {
   subtitle_en: 'Leaders and teams who stopped enduring their tools and put their acquisition system to work.',
 } as SectionData;
 
-// 09 · FAQ · 6 questions (sous-ensemble des 8 de C) · Q.01 = prix (SEULE mention de prix), ouverte.
+// 11 · FAQ · 6 questions (sous-ensemble des 8 de C) · Q.01 = prix (SEULE mention de prix), ouverte.
 const faqAll = (cByType('faq-accordion').items as any[]);
 const faqItems = [0, 1, 2, 3, 4, 6].map((i) => ({ q: faqAll[i].q_fr, a: faqAll[i].a_fr }));
 
@@ -120,6 +130,52 @@ const services = SIX_SERVICES.map((s) => ({
   sub: s.connectors.fr,
   href: s.href,
 }));
+
+// 04 · statement-orbit CATALOGUE · PIVOT apres le money slot · liant conceptuel : les 2 offres
+// forment UNE boucle d'amelioration continue (lire/mesurer/reinjecter). Copy NEUF adapte home,
+// 0 reprise du copy SWI (« Chaque brique... » sert de TON, pas de source). Carte ink contenue
+// -> pleine largeur au scroll (motion signature du composant). media = globe filaire line-art
+// `orbit-network.svg` INLINE par le composant (import ?raw) -> currentColor = paper sur ink :
+// traits clairs, PAS de footgun <img>/currentColor-noir (le SVG n'est jamais servi en <img>).
+// Pas de CTA : le hero + la ligne cas clients + BookSession couvrent deja /contact, et le
+// dashboard media (slot 09) porte la nav vers /services -> un CTA ici serait redondant.
+const statementOrbit = {
+  type: 'statement-orbit',
+  background: 'paper',
+  kicker_fr: '§ La boucle',
+  kicker_en: '§ The loop',
+  h2_fr: 'Les deux offres forment une <i class="acc">boucle</i> : lire, mesurer, réinjecter.',
+  h2_en: 'Both offers form one <i class="acc">loop</i>: read, measure, feed back.',
+  lede_fr: 'Votre site qualifie chaque visite, les agents traitent et mesurent, ce qui remonte nourrit le cycle suivant. Un dispositif qui gagne en justesse à chaque tour, sans refonte à chaque palier.',
+  lede_en: 'Your site qualifies every visit, the agents process and measure, what comes back feeds the next cycle. A setup that sharpens with every turn, with no rebuild at each tier.',
+  media_src: '/images/line-art/orbit-network.svg',
+  media_alt_fr: 'Globe filaire aux nœuds relies par des arcs : le site, le CRM, le contenu et les agents tournent en une seule boucle d’acquisition.',
+  media_alt_en: 'Wireframe globe with nodes linked by arcs: site, CRM, content and agents turn as one acquisition loop.',
+} as SectionData;
+
+// 09 · media-bento CATALOGUE « dashboard media interne » · hub de decouverte des contenus du site.
+// layout feature-2 (tuile vedette + secondaires) sur paper-2 (alternance : temoignages paper ->
+// stats-bento ink). Chaque tuile = une famille de contenus vers sa ROUTE REELLE (verifiee via
+// ls dist/client). Visuels = illustrations DS -ink (media riche sur section claire, titre paper
+// lisible via l'overlay). 0 chiffre/preuve repris des autres slots : les tuiles renvoient, ne resument pas.
+const mediaDashboard = {
+  type: 'media-bento',
+  background: 'paper-2',
+  layout: 'feature-2',
+  kicker_fr: '§ Explorer',
+  kicker_en: '§ Explore',
+  h2_fr: 'Ce qu’on publie, ce qu’on <i>documente</i>.',
+  h2_en: 'What we publish, what we <i>document</i>.',
+  lede_fr: 'Les cas, les guides et les scénarios qu’on met en ligne, à lire quand vous voulez creuser.',
+  lede_en: 'The cases, guides and scenarios we put online, to read whenever you want to dig in.',
+  tiles: [
+    { title_fr: 'Cas clients', title_en: 'Client cases', tag_fr: 'Preuves', tag_en: 'Proof', media_src: '/images/illustrations/ds/money-money-ink.webp', media_alt_fr: 'Resultats chiffres de projets clients', media_alt_en: 'Measured results from client projects', span: '2', link_href: '/cas-clients' },
+    { title_fr: 'Le blog', title_en: 'The blog', tag_fr: 'Terrain', tag_en: 'Field notes', media_src: '/images/illustrations/ds/woman-computer-ink.webp', media_alt_fr: 'Notes de terrain sur l’acquisition et l’IA', media_alt_en: 'Field notes on acquisition and AI', span: '1', link_href: '/blog' },
+    { title_fr: 'Ressources', title_en: 'Resources', tag_fr: 'Boîte à outils', tag_en: 'Toolbox', media_src: '/images/illustrations/ds/chess-ink.webp', media_alt_fr: 'Guides et modeles a telecharger', media_alt_en: 'Guides and templates to download', span: '1', link_href: '/ressources' },
+    { title_fr: 'Cas d’usage', title_en: 'Use cases', tag_fr: 'Scénarios', tag_en: 'Scenarios', media_src: '/images/illustrations/ds/no-no-yes-ink.webp', media_alt_fr: 'Scenarios concrets d’usage par metier', media_alt_en: 'Concrete use scenarios by role', span: '1', link_href: '/cas-usages' },
+    { title_fr: 'Services', title_en: 'Services', tag_fr: 'Le studio', tag_en: 'The studio', media_src: '/images/illustrations/ds/men-on-hand-ink.webp', media_alt_fr: 'Les six services du studio', media_alt_en: 'The studio’s six services', span: '1', link_href: '/services' },
+  ],
+} as SectionData;
 ---
 <Base
   title="Home variante E · maquette design-lab · Waimia"
@@ -205,7 +261,10 @@ const services = SIX_SERVICES.map((s) => ({
     </div>
   </section>
 
-  {/* 04 · La tension · 3 douleurs sobres (paper-2) */}
+  {/* 04 · La boucle · statement-orbit CATALOGUE (carte ink dans paper) · PIVOT conceptuel */}
+  <SectionsRenderer sections={[statementOrbit]} lang="fr" />
+
+  {/* 05 · La tension · 3 douleurs sobres (paper-2) */}
   <section class="he-sec he-tension" aria-labelledby="he-tension-h2">
     <div class="wrap-wide">
       <header class="he-head reveal">
@@ -226,7 +285,7 @@ const services = SIX_SERVICES.map((s) => ({
     </div>
   </section>
 
-  {/* 05 · Cas clients · 3 cartes compactes + ligne CTA discrete (paper) */}
+  {/* 06 · Cas clients · 3 cartes compactes + ligne CTA discrete (paper) */}
   <section class="he-sec he-cases" aria-labelledby="he-cases-h2">
     <div class="wrap-wide">
       <header class="he-head reveal">
@@ -250,16 +309,19 @@ const services = SIX_SERVICES.map((s) => ({
     </div>
   </section>
 
-  {/* 06 · Methode · sticky-scroll-storytelling CATALOGUE (paper-2) · media sticky crossfade au scroll */}
+  {/* 07 · Methode · sticky-scroll-storytelling CATALOGUE (paper-2) · media sticky crossfade au scroll */}
   <SectionsRenderer sections={[methodStory]} lang="fr" />
 
-  {/* 07 · Temoignages · testimonial-wall CATALOGUE (paper) · 6 avis de SWI, en-tete home */}
+  {/* 08 · Temoignages · testimonial-wall CATALOGUE (paper) · 6 avis de SWI, en-tete home */}
   <SectionsRenderer sections={[testimonialsHome]} lang="fr" />
 
-  {/* 08 · Tableau de bord media · CLIMAX chiffre (2e stats-bento de C, ink) · DEPLACE pre-FAQ */}
+  {/* 09 · Dashboard media interne · media-bento CATALOGUE (paper-2) · hub de decouverte des contenus */}
+  <SectionsRenderer sections={[mediaDashboard]} lang="fr" />
+
+  {/* 10 · Tableau de bord media · CLIMAX chiffre (2e stats-bento de C, ink) · DEPLACE pre-FAQ */}
   <SectionsRenderer sections={[statsBentoDashboard]} lang="fr" />
 
-  {/* 09 · FAQ · 6 questions · Q.01 prix ouverte (SEULE mention de prix de la page) */}
+  {/* 11 · FAQ · 6 questions · Q.01 prix ouverte (SEULE mention de prix de la page) */}
   <FaqAccordion
     items={faqItems}
     heading="Ce qu’on écrit par mail avant de se parler."
@@ -268,7 +330,7 @@ const services = SIX_SERVICES.map((s) => ({
     openFirst
   />
 
-  {/* 10 · Action · BookSession (ink) + FooterMarquee */}
+  {/* 12 · Action · BookSession (ink) + FooterMarquee */}
   <BookSession />
   <FooterMarquee />
 </Base>
