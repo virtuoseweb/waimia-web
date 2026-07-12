@@ -178,6 +178,7 @@ import { demo as asymmetricServicesDemo } from '../sections/asymmetric-services/
 import { demo as terminalMockupDemo } from '../sections/terminal-mockup/demo';
 import { demo as terminalMetricsStripDemo } from '../sections/terminal-metrics-strip/demo';
 import { demo as pricingCardsDemo } from '../sections/pricing-cards/demo';
+import { demo as pricingTabsShowcaseDemo } from '../sections/pricing-tabs-showcase/demo';
 import { demo as pricingToggleDemo } from '../sections/pricing-toggle/demo';
 import { demo as pricingSingleHighlightDemo } from '../sections/pricing-single-highlight/demo';
 import { demo as teamBioGridDemo } from '../sections/team-bio-grid/demo';
@@ -384,6 +385,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'terminal-mockup': terminalMockupDemo,
   'terminal-metrics-strip': terminalMetricsStripDemo,
   'pricing-cards': pricingCardsDemo,
+  'pricing-tabs-showcase': pricingTabsShowcaseDemo,
   'pricing-toggle': pricingToggleDemo,
   'pricing-single-highlight': pricingSingleHighlightDemo,
   'team-bio-grid': teamBioGridDemo,

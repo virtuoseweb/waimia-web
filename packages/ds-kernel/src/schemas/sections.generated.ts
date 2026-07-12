@@ -155,6 +155,7 @@ import { schema as pricingCardsSchema } from '../sections/pricing-cards/schema';
 import { schema as pricingComparisonMatrixSchema } from '../sections/pricing-comparison-matrix/schema';
 import { schema as pricingSingleHighlightSchema } from '../sections/pricing-single-highlight/schema';
 import { schema as pricingTableSchema } from '../sections/pricing-table/schema';
+import { schema as pricingTabsShowcaseSchema } from '../sections/pricing-tabs-showcase/schema';
 import { schema as pricingToggleSchema } from '../sections/pricing-toggle/schema';
 import { schema as problemStatementSchema } from '../sections/problem-statement/schema';
 import { schema as problemsGridSchema } from '../sections/problems-grid/schema';
@@ -361,6 +362,7 @@ export {
   pricingComparisonMatrixSchema,
   pricingSingleHighlightSchema,
   pricingTableSchema,
+  pricingTabsShowcaseSchema,
   pricingToggleSchema,
   problemStatementSchema,
   problemsGridSchema,
@@ -568,6 +570,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   pricingComparisonMatrixSchema,
   pricingSingleHighlightSchema,
   pricingTableSchema,
+  pricingTabsShowcaseSchema,
   pricingToggleSchema,
   problemStatementSchema,
   problemsGridSchema,

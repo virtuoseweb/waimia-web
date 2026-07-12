@@ -156,6 +156,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'pricing-comparison-matrix': 'table',
   'pricing-single-highlight': 'card-grid',
   'pricing-table': 'table',
+  'pricing-tabs-showcase': 'tabs',
   'pricing-toggle': 'card-grid',
   'problem-statement': 'prose',
   'problems-grid': 'card-grid',

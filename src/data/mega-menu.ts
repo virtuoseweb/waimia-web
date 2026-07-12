@@ -315,6 +315,67 @@ const SOLUTIONS: MegaMenuSection = {
   },
 };
 
+const FORMULES: MegaMenuSection = {
+  parent: 'formules',
+  label: { fr: 'Nos formules', en: 'Plans' },
+  parentHref: '/tarifs',
+  matchPrefixes: ['/tarifs'],
+  lead: {
+    fr: 'Choisir le bon niveau d’engagement : projet, équipe dédiée, SEO/GEO ou sur mesure.',
+    en: 'Choose the right engagement level: project, dedicated team, SEO/GEO or custom.',
+  },
+  columns: [
+    {
+      kicker: { fr: 'PROJET', en: 'PROJECT' },
+      title: { fr: 'Un projet', en: 'One project' },
+      goal: { fr: 'Livrer un actif précis', en: 'Ship a precise asset' },
+      links: [
+        { label: { fr: 'Lancement', en: 'Launch' }, href: '/tarifs#formules' },
+        { label: { fr: 'Refonte', en: 'Rebuild' }, href: '/tarifs#formules' },
+        { label: { fr: 'Migration', en: 'Migration' }, href: '/tarifs#formules' },
+      ],
+      footer: {
+        label: { fr: 'Voir les forfaits projet →', en: 'See project packages →' },
+        href: '/tarifs#formules',
+      },
+    },
+    {
+      kicker: { fr: 'ÉQUIPE DÉDIÉE', en: 'DEDICATED TEAM' },
+      title: { fr: 'Équipe dédiée', en: 'Dedicated team' },
+      goal: { fr: 'Garder le rythme chaque mois', en: 'Keep momentum every month' },
+      links: [
+        { label: { fr: 'Kick start', en: 'Kick start' }, href: '/tarifs#formules' },
+        { label: { fr: 'Boost', en: 'Boost' }, href: '/tarifs#formules' },
+        { label: { fr: 'Growth', en: 'Growth' }, href: '/tarifs#formules', badge: { fr: 'Recommandé', en: 'Recommended' } },
+        { label: { fr: 'Scale', en: 'Scale' }, href: '/tarifs#formules' },
+        { label: { fr: 'Elevate', en: 'Elevate' }, href: '/tarifs#formules' },
+      ],
+    },
+    {
+      kicker: { fr: 'SEO/GEO', en: 'SEO/GEO' },
+      title: { fr: 'Visibilité', en: 'Visibility' },
+      goal: { fr: 'Être trouvé, compris, cité', en: 'Be found, understood, cited' },
+      links: [
+        { label: { fr: 'Audit GEO', en: 'GEO audit' }, href: '/tarifs#formules' },
+        { label: { fr: 'Sprint contenu', en: 'Content sprint' }, href: '/tarifs#formules' },
+        { label: { fr: 'Pilotage visibilité', en: 'Visibility steering' }, href: '/tarifs#formules' },
+        { label: { fr: 'Demander une recommandation', en: 'Request a recommendation' }, href: '/contact?intent=pricing' },
+      ],
+    },
+  ],
+  featured: {
+    kicker: { fr: 'RECOMMANDATION', en: 'RECOMMENDATION' },
+    label: { fr: 'Ne choisissez pas au hasard', en: 'Do not choose blindly' },
+    body: {
+      fr: 'Un échange de cadrage suffit à sélectionner la formule la plus simple qui couvre le besoin.',
+      en: 'One scoping call is enough to select the simplest plan that covers the need.',
+    },
+    cta: { fr: 'Voir les formules →', en: 'See plans →' },
+    href: '/tarifs',
+    image: '/images/editorial/image-style-12.webp',
+  },
+};
+
 // ─── CAS CLIENTS · v7 (strategy/10 §4) : les /secteurs/* (noindex placeholders) QUITTENT
 // le menu (directive v7) → 1 colonne « Études de cas » vers les 5 cas RÉELS indexables.
 // Featured corrigé : l'ancien « premiers cas en préparation » était FAUX (5 cas existent,
@@ -498,6 +559,7 @@ const AGENCE: MegaMenuSection = {
 
 export const MEGA_MENU: MegaMenuSection[] = [
   SOLUTIONS,
+  FORMULES,
   CAS,
   RESSOURCES,
   AGENCE,

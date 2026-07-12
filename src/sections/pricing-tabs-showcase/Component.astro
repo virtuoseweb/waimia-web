@@ -1,0 +1,419 @@
+---
+import type { SectionByType } from '@waimia/ds-kernel';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import Button from '../../components/ui/atoms/Button.astro';
+
+interface Props {
+  data: SectionByType<'pricing-tabs-showcase'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const title = isFr ? (data.h1_fr ?? data.h2_fr) : (data.h1_en ?? data.h2_en);
+const lede = isFr ? data.lede_fr : data.lede_en;
+const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<section class="pricing-tabs sec-base" data-bg={data.background} aria-labelledby={`${sectionId}-title`}>
+  <div class="wrap-wide">
+    <div class="pricing-tabs__header reveal-up">
+      {(isFr ? data.kicker_fr : data.kicker_en) && <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>}
+      {title && <h1 id={`${sectionId}-title`} class="pricing-tabs__title" set:html={title} />}
+      {lede && <p class="pricing-tabs__lede">{lede}</p>}
+    </div>
+
+    <div class="pricing-tabs__shell reveal-up" data-pricing-tabs>
+      <div class="pricing-tabs__tablist" role="tablist" aria-label={isFr ? 'Catégories de formules' : 'Plan categories'}>
+        {data.tabs.map((tab, index) => (
+          <button
+            class="pricing-tabs__tab"
+            type="button"
+            role="tab"
+            id={`${sectionId}-tab-${index}`}
+            aria-controls={`${sectionId}-panel-${index}`}
+            aria-selected={index === 0 ? 'true' : 'false'}
+            tabindex={index === 0 ? 0 : -1}
+            data-tab-index={index}
+          >
+            {isFr ? tab.label_fr : tab.label_en}
+          </button>
+        ))}
+      </div>
+
+      <div class="pricing-tabs__panels">
+        {data.tabs.map((tab, tabIndex) => (
+          <div
+            class:list={['pricing-tabs__panel', tabIndex === 0 && 'is-active']}
+            role="tabpanel"
+            id={`${sectionId}-panel-${tabIndex}`}
+            aria-labelledby={`${sectionId}-tab-${tabIndex}`}
+            data-panel-index={tabIndex}
+            hidden={tabIndex !== 0}
+          >
+            <div class="pricing-tabs__grid">
+              {tab.cards.map((card) => {
+                const imageAlt = isFr ? card.image_alt_fr : card.image_alt_en;
+                return (
+                  <article class:list={['pricing-tabs__card', card.featured && 'is-featured']}>
+                    {card.image && (
+                      <div class="pricing-tabs__media" aria-hidden={imageAlt ? 'false' : 'true'}>
+                        <img src={card.image} alt={imageAlt ?? ''} loading="lazy" decoding="async" />
+                      </div>
+                    )}
+                    <div class="pricing-tabs__content">
+                      {(isFr ? card.eyebrow_fr : card.eyebrow_en) && (
+                        <span class="pricing-tabs__eyebrow">{isFr ? card.eyebrow_fr : card.eyebrow_en}</span>
+                      )}
+                      <h3>{isFr ? card.title_fr : card.title_en}</h3>
+                      <p>{isFr ? card.body_fr : card.body_en}</p>
+                      {card.price && (
+                        <div class="pricing-tabs__price">
+                          <strong>{card.price}</strong>
+                          {(isFr ? card.period_fr : card.period_en) && <span>{isFr ? card.period_fr : card.period_en}</span>}
+                        </div>
+                      )}
+                    </div>
+                    <Button href={card.cta.href} variant={card.featured ? 'accent' : (card.cta.variant ?? 'ghost')} size="md" class="pricing-tabs__cta">
+                      {isFr ? card.cta.label_fr : card.cta.label_en}
+                    </Button>
+                    <ul class="pricing-tabs__features" data-list="check">
+                      {(isFr ? card.features_fr : card.features_en).map((feature) => (
+                        <li><span>{feature}</span></li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {data.highlight && (
+      <aside class="pricing-tabs__highlight reveal-up">
+        <div>
+          {(isFr ? data.highlight.kicker_fr : data.highlight.kicker_en) && (
+            <span class="pricing-tabs__highlight-kicker">{isFr ? data.highlight.kicker_fr : data.highlight.kicker_en}</span>
+          )}
+          <h2 set:html={isFr ? data.highlight.h2_fr : data.highlight.h2_en} />
+          {(isFr ? data.highlight.body_fr : data.highlight.body_en) && <p>{isFr ? data.highlight.body_fr : data.highlight.body_en}</p>}
+        </div>
+        <Button href={data.highlight.cta.href} variant={data.highlight.cta.variant ?? 'primary'} size="lg">
+          {isFr ? data.highlight.cta.label_fr : data.highlight.cta.label_en}
+        </Button>
+      </aside>
+    )}
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    document.querySelectorAll('[data-pricing-tabs]').forEach((root) => {
+      const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(root.querySelectorAll('[role="tabpanel"]'));
+      const activate = (index) => {
+        tabs.forEach((tab, i) => {
+          const active = i === index;
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          tab.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((panel, i) => {
+          const active = i === index;
+          panel.toggleAttribute('hidden', !active);
+          panel.classList.toggle('is-active', active);
+        });
+      };
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(index));
+        tab.addEventListener('keydown', (event) => {
+          const total = tabs.length;
+          if (event.key === 'ArrowRight') { event.preventDefault(); activate((index + 1) % total); tabs[(index + 1) % total].focus(); }
+          if (event.key === 'ArrowLeft') { event.preventDefault(); activate((index - 1 + total) % total); tabs[(index - 1 + total) % total].focus(); }
+          if (event.key === 'Home') { event.preventDefault(); activate(0); tabs[0].focus(); }
+          if (event.key === 'End') { event.preventDefault(); activate(total - 1); tabs[total - 1].focus(); }
+        });
+      });
+    });
+  })();
+</script>
+
+<style>
+  .pricing-tabs {
+    overflow: clip;
+  }
+
+  .pricing-tabs__header {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-4);
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+    max-width: min(980px, 100%);
+    text-align: center;
+  }
+
+  .pricing-tabs__title {
+    margin: 0;
+    max-width: 18ch;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .pricing-tabs__lede {
+    margin: 0;
+    max-width: 68ch;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    text-wrap: pretty;
+  }
+
+  .pricing-tabs__shell {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .pricing-tabs__tablist {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 5px;
+    gap: 4px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--paper-2) 88%, transparent);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .pricing-tabs__tablist::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pricing-tabs__tab {
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: var(--fw-medium);
+    padding: 12px clamp(16px, 2vw, 28px);
+    white-space: nowrap;
+    transition: background var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease), box-shadow var(--dur-trim) var(--ease);
+  }
+
+  .pricing-tabs__tab[aria-selected='true'] {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 10px 28px rgba(20, 20, 18, .08);
+  }
+
+  .pricing-tabs__panel {
+    display: none;
+  }
+
+  .pricing-tabs__panel.is-active {
+    display: block;
+    animation: pricing-tabs-panel .28s var(--ease) both;
+  }
+
+  .pricing-tabs__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .pricing-tabs__card {
+    display: flex;
+    min-width: 0;
+    min-height: 100%;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: clamp(22px, 3vw, 34px);
+    border: 1px dashed color-mix(in srgb, var(--ink) 18%, transparent);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    transition: border-color var(--dur-hover) var(--ease), transform var(--dur-hover) var(--ease), background var(--dur-hover) var(--ease);
+  }
+
+  .pricing-tabs__card:hover,
+  .pricing-tabs__card.is-featured {
+    border-style: solid;
+    border-color: var(--accent-text);
+    background: var(--paper);
+    transform: translateY(-4px);
+  }
+
+  .pricing-tabs__media {
+    display: grid;
+    min-height: 144px;
+    place-items: center;
+  }
+
+  .pricing-tabs__media img {
+    width: min(156px, 56%);
+    height: auto;
+    filter: drop-shadow(0 18px 28px rgba(20, 20, 18, .14));
+  }
+
+  .pricing-tabs__content {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .pricing-tabs__eyebrow,
+  .pricing-tabs__highlight-kicker {
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .pricing-tabs__card h3 {
+    margin: 0;
+    color: var(--ink);
+    font-size: var(--text-h3);
+    overflow-wrap: anywhere;
+  }
+
+  .pricing-tabs__card p {
+    margin: 0;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    text-wrap: pretty;
+  }
+
+  .pricing-tabs__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding-top: var(--space-2);
+  }
+
+  .pricing-tabs__price strong {
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-h3);
+    line-height: 1;
+  }
+
+  .pricing-tabs__price span {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+
+  .pricing-tabs__cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pricing-tabs__features {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0;
+    padding: var(--space-3) 0 0;
+    list-style: none;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .pricing-tabs__features li {
+    display: flex;
+    gap: var(--space-2);
+    align-items: baseline;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    overflow-wrap: anywhere;
+  }
+
+  .pricing-tabs__highlight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+    padding: clamp(28px, 5vw, 52px);
+    border: 1px solid color-mix(in srgb, var(--accent-text) 34%, transparent);
+    border-radius: 8px;
+    background:
+      radial-gradient(44rem 18rem at 92% 20%, rgba(var(--accent-rgb), .14), transparent 70%),
+      var(--paper-2);
+  }
+
+  .pricing-tabs__highlight h2 {
+    margin: var(--space-2) 0 0;
+    max-width: 20ch;
+    color: var(--ink);
+    font-size: var(--text-h2);
+    text-wrap: balance;
+  }
+
+  .pricing-tabs__highlight p {
+    margin: var(--space-3) 0 0;
+    max-width: 54ch;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+  }
+
+  @keyframes pricing-tabs-panel {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 980px) {
+    .pricing-tabs__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-tabs__card {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .pricing-tabs__header {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .pricing-tabs__title {
+      max-width: 16ch;
+    }
+
+    .pricing-tabs__tablist {
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 8px;
+    }
+
+    .pricing-tabs__tab {
+      flex: 1 0 auto;
+      border-radius: 6px;
+      padding-inline: 14px;
+    }
+
+    .pricing-tabs__media {
+      min-height: 112px;
+    }
+
+    .pricing-tabs__highlight {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

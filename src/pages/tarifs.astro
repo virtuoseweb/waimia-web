@@ -1,0 +1,22 @@
+---
+export const prerender = true;
+
+// Page SSG · /tarifs · 100 % composable.
+// Source = JSON local `src/data/pages/tarifs.json`, rendu par SectionsRenderer.
+
+import Base from '../layouts/Base.astro';
+import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
+import data from '../data/pages/tarifs.json';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const description = lang === 'en' ? data.description_en : data.description_fr;
+
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error('tarifs : `sections` requis (page composable, anti-orphelin).');
+}
+---
+
+<Base title={title} description={description} alternate={false}>
+  <SectionsRenderer sections={data.sections as any} lang={lang} />
+</Base>

@@ -1,0 +1,82 @@
+import type { DemoData } from '../../lib/section-demos';
+
+export const demo: DemoData = {
+  type: 'pricing-tabs-showcase',
+  background: 'paper',
+  kicker_fr: '§ Nos formules',
+  kicker_en: '§ Plans',
+  h2_fr: 'Des formules adaptées à vos <i>besoins</i>.',
+  h2_en: 'Plans adapted to your <i>needs</i>.',
+  lede_fr: 'Choisissez une base claire, puis ajustez le périmètre au diagnostic.',
+  lede_en: 'Choose a clear base, then adjust the scope through diagnosis.',
+  tabs: [
+    {
+      label_fr: 'Un projet',
+      label_en: 'One project',
+      cards: [
+        {
+          title_fr: 'Lancement',
+          title_en: 'Launch',
+          body_fr: 'Pour partir de zéro avec une présence claire.',
+          body_en: 'To start from zero with a clear presence.',
+          features_fr: ['Landing page', 'Copywriting', 'SEO de base'],
+          features_en: ['Landing page', 'Copywriting', 'Base SEO'],
+          cta: { label_fr: 'Choisir lancement', label_en: 'Choose launch', href: '/contact?offer=lancement', variant: 'ghost' },
+        },
+        {
+          title_fr: 'Refonte',
+          title_en: 'Rebuild',
+          body_fr: 'Pour remettre un site existant au niveau.',
+          body_en: 'To bring an existing site up to standard.',
+          features_fr: ['Audit', 'Direction artistique', 'Tracking'],
+          features_en: ['Audit', 'Art direction', 'Tracking'],
+          cta: { label_fr: 'Choisir refonte', label_en: 'Choose rebuild', href: '/contact?offer=refonte', variant: 'primary' },
+          featured: true,
+        },
+        {
+          title_fr: 'Migration',
+          title_en: 'Migration',
+          body_fr: 'Pour changer de socle sans perdre l’acquis.',
+          body_en: 'To change foundation without losing what works.',
+          features_fr: ['Redirections', 'Performance', 'Formation'],
+          features_en: ['Redirects', 'Performance', 'Training'],
+          cta: { label_fr: 'Choisir migration', label_en: 'Choose migration', href: '/contact?offer=migration', variant: 'ghost' },
+        },
+      ],
+    },
+    {
+      label_fr: 'Équipe dédiée',
+      label_en: 'Dedicated team',
+      cards: [
+        {
+          title_fr: 'Kick start',
+          title_en: 'Kick start',
+          body_fr: 'Un rythme léger pour tenir le cap.',
+          body_en: 'A light rhythm to keep momentum.',
+          features_fr: ['Priorités', 'Correctifs', 'Reporting'],
+          features_en: ['Priorities', 'Fixes', 'Reporting'],
+          cta: { label_fr: 'Démarrer', label_en: 'Start', href: '/contact?plan=kick-start', variant: 'ghost' },
+        },
+        {
+          title_fr: 'Boost',
+          title_en: 'Boost',
+          body_fr: 'Des itérations régulières sur acquisition et site.',
+          body_en: 'Regular iterations on acquisition and site.',
+          features_fr: ['SEO/GEO', 'Landing pages', 'Dashboard'],
+          features_en: ['SEO/GEO', 'Landing pages', 'Dashboard'],
+          cta: { label_fr: 'Accélérer', label_en: 'Accelerate', href: '/contact?plan=boost', variant: 'ghost' },
+        },
+        {
+          title_fr: 'Growth',
+          title_en: 'Growth',
+          body_fr: 'La formule de pilotage recommandée.',
+          body_en: 'The recommended steering plan.',
+          features_fr: ['Roadmap', 'CRM', 'Pilotage'],
+          features_en: ['Roadmap', 'CRM', 'Steering'],
+          cta: { label_fr: 'Choisir Growth', label_en: 'Choose Growth', href: '/contact?plan=growth', variant: 'primary' },
+          featured: true,
+        },
+      ],
+    },
+  ],
+};
