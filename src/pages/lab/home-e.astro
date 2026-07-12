@@ -11,23 +11,29 @@ export const prerender = true;
  * dur (100 % var(--token) ; hairlines = box-shadow --shadow-card-rest + global
  * .hline ; pas de literal px hors @media / viewBox SVG) + SVG dessines au scroll.
  *
- * Sequence (9 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
+ * Sequence (10 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
  *   01 Hero (live, paper, composant INTOUCHE)
  *   02 Ecosysteme opere · logo-marquee (SectionsRenderer, ink + grayscale) · bande courte
  *   03 Les deux offres (#offres) · MONEY SLOT · diptyque + rangee 6 services + dorsale SVG (paper)
- *   05 La tension · 3 douleurs sobres (direct, paper-2)
- *   06 Tableau de bord media · 2e stats-bento de C (SectionsRenderer, ink) · CLIMAX chiffre
- *   07 Cas clients · 3 cartes compactes + ligne CTA discrete (direct, paper)
- *   08 Methode · frise 3 paliers condenses + path SVG (direct, paper-2)
+ *   04 La tension · 3 douleurs sobres (direct, paper-2)
+ *   05 Cas clients · 3 cartes compactes + ligne CTA discrete (direct, paper)
+ *   06 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, paper-2) · media sticky
+ *      crossfade au scroll, contenu c.json TEL QUEL (4 steps), layout differencie de SWI par axes
+ *   07 Temoignages · testimonial-wall CATALOGUE (SectionsRenderer, paper) · 6 avis de SWI, en-tete home
+ *   08 Tableau de bord media · 2e stats-bento de C (SectionsRenderer, ink) · CLIMAX chiffre, pre-FAQ
  *   09 FAQ · 6 questions, prix garde (FaqAccordion, paper) · SEULE mention de prix
  *   10 Action · BookSession (ink) + FooterMarquee
  *
+ * Gate B iter 2 (verdict Simon 2026-07-12) : la methode redevient RICHE via le composant catalogue
+ * `sticky-scroll-storytelling` (la frise inline condensee + son SVG rail sont SUPPRIMES), les
+ * temoignages `testimonial-wall` de SWI s'ajoutent, et le tableau de bord media se DEPLACE juste
+ * au-dessus de la FAQ. Tout passe par <SectionsRenderer> (0 markup inline neuf, 0 fork).
+ *
  * Doublons du live supprimes (a NE PAS reintroduire) : feature-zigzag (absorbe slot 03),
- * ServicesGrid (absorbe slot 03), sticky-scroll (condense slot 08), pricing-cards
- * (directive : pas de prix hors FAQ), CtaBand accent (remplace par la ligne CTA slot 07),
- * SectionTransition (hierarchie par le design), 1er stats-bento Acte I, bento-grid,
- * eeat-panel, hero-masthead-card (Hero live garde), ArchitectureDiagram (gate B E :
- * doublon du recit systeme deja porte par le money slot 03, verdict Simon 2026-07-12).
+ * ServicesGrid (absorbe slot 03), pricing-cards (directive : pas de prix hors FAQ), CtaBand
+ * accent (remplace par la ligne CTA slot 05), SectionTransition (hierarchie par le design),
+ * 1er stats-bento Acte I, bento-grid, eeat-panel, hero-masthead-card (Hero live garde),
+ * ArchitectureDiagram (doublon du recit systeme deja porte par le money slot 03).
  */
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/ui/organisms/Hero.astro';
@@ -36,11 +42,13 @@ import FaqAccordion from '../../components/sections/FaqAccordion.astro';
 import BookSession from '../../components/ui/organisms/BookSession.astro';
 import FooterMarquee from '../../components/ui/organisms/FooterMarquee.astro';
 import homeVariantC from '../../data/page-variants/home/c.json';
+import swiContent from '../../content/services/site-web-intelligent.json';
 import { SIX_SERVICES } from '../../data/sitemap';
 import type { SectionData } from '@waimia/ds-kernel';
 
 const sectionsC = homeVariantC.sections as any[];
 const cByType = (t: string) => sectionsC.find((s) => s.type === t);
+const swiTestimonials = (swiContent.sections as any[]).find((s) => s.type === 'testimonial-wall');
 
 // 02 · ecosysteme opere · logo-marquee sur fond ink + grayscale (config C, bande courte).
 const logoMarquee = {
@@ -50,14 +58,14 @@ const logoMarquee = {
   kicker_fr: "§ L’écosystème qu’on opère",
 } as SectionData;
 
-// 06 · tableau de bord media = 2e stats-bento de C (layout bento : tuile vedette ink + KPI).
+// 08 · tableau de bord media = 2e stats-bento de C (layout bento : tuile vedette ink + KPI) · DEPLACE pre-FAQ.
 const statsBentoDashboard = {
   ...sectionsC.filter((s) => s.type === 'stats-bento')[1],
   background: 'ink',
   kicker_fr: '§ Ce que ça change',
 } as SectionData;
 
-// 05 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
+// 04 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
 const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
   severity: it.severity as string,
   title: it.title_fr as string,
@@ -66,7 +74,7 @@ const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
 }));
 const sevLabel: Record<string, string> = { critical: 'Critique', high: 'Élevé', medium: 'Moyen' };
 
-// 07 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
+// 05 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
 const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
   client: c.client as string,
   meta: `${c.sector_fr} · ${c.duration}`,
@@ -74,27 +82,32 @@ const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
   href: c.href as string,
 }));
 
-// 08 · Methode · frise 3 paliers CONDENSES des 4 steps du sticky-scroll de C (remplace la section haute).
-const methodSteps = [
-  {
-    num: 'I',
-    eyebrow: 'Activation rapide',
-    title: 'Identifier le levier et livrer vite',
-    body: 'Audit process en 5 jours, formation de l’équipe, premier workflow en production. On part du concret, pas d’un PowerPoint.',
-  },
-  {
-    num: 'II',
-    eyebrow: 'Productivité opérationnelle',
-    title: 'Supprimer les tâches récurrentes',
-    body: 'On retire les tâches répétitives ; les workflows internes tournent sans relance quotidienne.',
-  },
-  {
-    num: 'III',
-    eyebrow: 'Acquisition & infrastructure',
-    title: 'Connecter, industrialiser, passer la main',
-    body: 'Site, CRM et contenu reliés, puis systèmes connectés et passation : vous gardez la main et la stack.',
-  },
-];
+// 06 · Methode · sticky-scroll-storytelling CATALOGUE · contenu c.json TEL QUEL (4 steps home,
+// media_src illustrations, media sticky crossfade au scroll). Layout DIFFERENCIE de SWI via les
+// SEULS axes existants du schema (V1 gate B ; swappable en une ligne vers V2/V3/V4 apres choix Simon).
+const methodStory = {
+  ...cByType('sticky-scroll-storytelling'),
+  background: 'paper-2',
+  kicker_fr: '§ Méthode · la maturité se construit',
+  textSide: 'right',
+  proportion: 'media-wide',
+  mediaRatio: '3-2',
+  density: 'compact',
+  numbering: 'serif',
+} as SectionData;
+
+// 07 · Temoignages · testimonial-wall CATALOGUE · les 6 avis de SWI TELS QUELS (0 avis reinvente).
+// En-tete ADAPTE a la home (parle du systeme/du studio, pas seulement du site qui qualifie).
+const testimonialsHome = {
+  ...swiTestimonials,
+  background: 'paper',
+  kicker_fr: '§ Ils ont mis leur système au travail',
+  kicker_en: '§ They put their system to work',
+  h2_fr: 'Ce que disent les équipes qui ont mis leur <i>système au travail</i>',
+  h2_en: 'What teams who put their <i>system to work</i> are saying',
+  subtitle_fr: 'Des dirigeants et des équipes qui ont arrêté de subir leurs outils et fait travailler leur système d’acquisition.',
+  subtitle_en: 'Leaders and teams who stopped enduring their tools and put their acquisition system to work.',
+} as SectionData;
 
 // 09 · FAQ · 6 questions (sous-ensemble des 8 de C) · Q.01 = prix (SEULE mention de prix), ouverte.
 const faqAll = (cByType('faq-accordion').items as any[]);
@@ -192,7 +205,7 @@ const services = SIX_SERVICES.map((s) => ({
     </div>
   </section>
 
-  {/* 05 · La tension · 3 douleurs sobres (paper-2) */}
+  {/* 04 · La tension · 3 douleurs sobres (paper-2) */}
   <section class="he-sec he-tension" aria-labelledby="he-tension-h2">
     <div class="wrap-wide">
       <header class="he-head reveal">
@@ -213,10 +226,7 @@ const services = SIX_SERVICES.map((s) => ({
     </div>
   </section>
 
-  {/* 06 · Tableau de bord media · CLIMAX chiffre (2e stats-bento de C, ink) */}
-  <SectionsRenderer sections={[statsBentoDashboard]} lang="fr" />
-
-  {/* 07 · Cas clients · 3 cartes compactes + ligne CTA discrete (paper) */}
+  {/* 05 · Cas clients · 3 cartes compactes + ligne CTA discrete (paper) */}
   <section class="he-sec he-cases" aria-labelledby="he-cases-h2">
     <div class="wrap-wide">
       <header class="he-head reveal">
@@ -240,37 +250,14 @@ const services = SIX_SERVICES.map((s) => ({
     </div>
   </section>
 
-  {/* 08 · Methode · frise 3 paliers condenses + path SVG dessine au scroll (paper-2) */}
-  <section class="he-sec he-method" aria-labelledby="he-method-h2">
-    <div class="wrap-wide">
-      <header class="he-head reveal">
-        <p class="he-kicker">§ Méthode</p>
-        <h2 id="he-method-h2" class="he-h2 u-serif-accent">Du <i>diagnostic</i> à l’infrastructure.</h2>
-        <p class="he-lede">Chaque palier prépare le suivant : vous montez quand vous êtes prêt, et vous savez avant de signer quel levier on attaque en premier.</p>
-      </header>
+  {/* 06 · Methode · sticky-scroll-storytelling CATALOGUE (paper-2) · media sticky crossfade au scroll */}
+  <SectionsRenderer sections={[methodStory]} lang="fr" />
 
-      <div class="he-frieze hd-draw">
-        <div class="he-frieze__rail" aria-hidden="true">
-          <svg class="he-frieze__svg" viewBox="0 0 1000 40" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
-            <path class="hd-line" pathLength="1" d="M167 20 L833 20" stroke="var(--hairline-strong)" stroke-width="1"/>
-            <circle class="hd-node" cx="167" cy="20" r="4" fill="var(--accent)"/>
-            <circle class="hd-node" cx="500" cy="20" r="4" fill="var(--accent)"/>
-            <circle class="hd-node" cx="833" cy="20" r="4" fill="var(--accent)"/>
-          </svg>
-        </div>
-        <ol class="he-steps">
-          {methodSteps.map((s) => (
-            <li class="he-step">
-              <span class="he-step__num">{s.num}</span>
-              <p class="he-step__eyebrow">{s.eyebrow}</p>
-              <h3 class="he-step__title">{s.title}</h3>
-              <p class="he-step__body">{s.body}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </div>
-  </section>
+  {/* 07 · Temoignages · testimonial-wall CATALOGUE (paper) · 6 avis de SWI, en-tete home */}
+  <SectionsRenderer sections={[testimonialsHome]} lang="fr" />
+
+  {/* 08 · Tableau de bord media · CLIMAX chiffre (2e stats-bento de C, ink) · DEPLACE pre-FAQ */}
+  <SectionsRenderer sections={[statsBentoDashboard]} lang="fr" />
 
   {/* 09 · FAQ · 6 questions · Q.01 prix ouverte (SEULE mention de prix de la page) */}
   <FaqAccordion
@@ -290,8 +277,7 @@ const services = SIX_SERVICES.map((s) => ({
   /* ── Rythme de section · hierarchie par l'echelle (money/proof amples, soutien compacts) ── */
   .he-sec { padding-block: var(--section-base); }
   .he-offres { padding-block: var(--section-loose); } /* MONEY SLOT : poids visuel maximal */
-  .he-tension,
-  .he-method { background: var(--paper-2); }
+  .he-tension { background: var(--paper-2); }
 
   /* ── En-tete de chapitre (kicker mono § + h2 + lede) ── */
   .he-head {
@@ -610,57 +596,7 @@ const services = SIX_SERVICES.map((s) => ({
   }
   .he-cases__cta a:hover { color: var(--accent); }
 
-  /* ── 08 · Methode · frise 3 paliers + rail SVG ── */
-  .he-frieze { display: flex; flex-direction: column; gap: var(--space-6); }
-  .he-frieze__rail { width: 100%; }
-  .he-frieze__svg { width: 100%; height: auto; display: block; }
-  .he-steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--gut);
-  }
-  .he-step {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    text-align: center;
-    align-items: center;
-  }
-  .he-step__num {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: var(--text-numeral-md);
-    line-height: 1;
-    color: var(--accent-text);
-  }
-  .he-step__eyebrow {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0;
-  }
-  .he-step__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-semibold);
-    color: var(--ink);
-    margin: 0;
-  }
-  .he-step__body {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-relaxed);
-    color: var(--muted);
-    margin: 0;
-    max-width: var(--wrap-prose);
-  }
-
-  /* ── SVG dessines au scroll · dorsale (03) + rail methode (08) ──
+  /* ── SVG dessine au scroll · dorsale du money slot (03) ──
      pathLength=1 -> dasharray:1 ; l'IntersectionObserver ajoute .is-drawn (offset -> 0). */
   .hd-line {
     stroke-dasharray: 1;
@@ -688,15 +624,11 @@ const services = SIX_SERVICES.map((s) => ({
   @media (max-width: 900px) {
     .he-diptych,
     .he-pains,
-    .he-cases__grid,
-    .he-steps { grid-template-columns: 1fr; }
+    .he-cases__grid { grid-template-columns: 1fr; }
     .he-services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .he-step { text-align: left; align-items: flex-start; }
-    .he-step__body { max-width: none; }
   }
   @media (max-width: 760px) {
-    .he-rail,
-    .he-frieze__rail { display: none; } /* la dorsale/rail n'a de sens qu'en grille large */
+    .he-rail { display: none; } /* la dorsale n'a de sens qu'en grille large */
   }
   @media (max-width: 560px) {
     .he-services { grid-template-columns: 1fr; }
