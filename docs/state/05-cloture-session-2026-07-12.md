@@ -18,6 +18,7 @@ Fixes de process capitalisés : worker Sonnet thrash sur gros JSON → missions 
 
 ## 2. VERDICT Simon gate B (home variante D) : à retenir pour l'itération suivante
 
+- **Décision Simon 2026-07-12 (post-clôture) : la home LIVE actuelle est VALIDÉE telle quelle pour le moment.** Aucune preview/maquette n'est validée ; ne rien remplacer sur la home en prod. L'itération E (brief ci-dessous) reste un chantier à lancer sur décision explicite de Simon, pas une urgence de reprise.
 - **La home LIVE est MEILLEURE que la maquette D.** Ne pas repartir de D telle quelle.
 - Défauts du LIVE à corriger (c'est LE brief de la prochaine itération) :
   1. **Trop longue** : raccourcir.
