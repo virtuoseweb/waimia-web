@@ -38,10 +38,14 @@ const {
 const P = EEAT_PACK;
 const IMG = EEAT_IMAGES;
 const img = (id: string) => IMG.find((i) => i.id === id)!;
-const sectors = linkMode === 'compact' ? P.sectors.slice(0, 2) : P.sectors;
-const articles = linkMode === 'compact' ? P.articles.slice(0, 2) : P.articles;
-const services = linkMode === 'compact' ? P.services.slice(0, 2) : P.services;
+// Maillage interne : en mode default, chaque bloc est ramené à 3 items max, le lien de hub
+// (« Tous les … → ») compensant la réduction. Le mode compact garde sa mécanique (2 / 0).
+const MAX_DEFAULT = 3;
+const sectors = linkMode === 'compact' ? P.sectors.slice(0, 2) : P.sectors.slice(0, MAX_DEFAULT);
+const articles = linkMode === 'compact' ? P.articles.slice(0, 2) : P.articles.slice(0, MAX_DEFAULT);
+const services = linkMode === 'compact' ? P.services.slice(0, 2) : P.services.slice(0, MAX_DEFAULT);
 const tools = linkMode === 'compact' ? [] : P.tools;
+const hubs = P.hubs;
 
 // Fond dérivé du variant si non forcé : light → paper, sinon ink.
 const bg: 'ink' | 'paper' = background ?? (variant === 'light' ? 'paper' : 'ink');
@@ -114,6 +118,11 @@ const credentials = P.credentials;
               <ul class="eep-exp">
                 {P.expertise.map((e) => (<li class="eep-exp__item">{e}</li>))}
               </ul>
+              <div class="eep-hubs">
+                <a class="eep-hub" href={hubs.sectors.href}>
+                  {hubs.sectors.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -141,6 +150,17 @@ const credentials = P.credentials;
                   </li>
                 ))}
               </ul>
+              <div class="eep-hubs">
+                <a class="eep-hub" href={hubs.articles.href}>
+                  {hubs.articles.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+                </a>
+                <a class="eep-hub" href={hubs.services.href}>
+                  {hubs.services.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+                </a>
+                <a class="eep-hub" href={hubs.tools.href}>
+                  {hubs.tools.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -217,6 +237,11 @@ const credentials = P.credentials;
               <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
             ))}
           </ul>
+          <div class="eep-hubs">
+            <a class="eep-hub" href={hubs.sectors.href}>
+              {hubs.sectors.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+          </div>
         </article>
 
         <figure class="eep-cell eep-cell--media eep-cell--media-b">
@@ -243,6 +268,11 @@ const credentials = P.credentials;
               </li>
             ))}
           </ul>
+          <div class="eep-hubs">
+            <a class="eep-hub" href={hubs.articles.href}>
+              {hubs.articles.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+          </div>
         </article>
 
         <article class="eep-cell eep-cell--commit">
@@ -273,6 +303,14 @@ const credentials = P.credentials;
               </li>
             ))}
           </ul>
+          <div class="eep-hubs eep-hubs--row">
+            <a class="eep-hub" href={hubs.services.href}>
+              {hubs.services.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+            <a class="eep-hub" href={hubs.tools.href}>
+              {hubs.tools.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+          </div>
         </article>
       </div>
     )}
@@ -320,6 +358,11 @@ const credentials = P.credentials;
               <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
             ))}
           </ul>
+          <div class="eep-hubs">
+            <a class="eep-hub" href={hubs.sectors.href}>
+              {hubs.sectors.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+          </div>
         </article>
 
         <article class="eep-cell eep-cell--read">
@@ -334,6 +377,11 @@ const credentials = P.credentials;
               </li>
             ))}
           </ul>
+          <div class="eep-hubs">
+            <a class="eep-hub" href={hubs.articles.href}>
+              {hubs.articles.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+          </div>
         </article>
 
         <article class="eep-cell eep-cell--commit">
@@ -364,6 +412,14 @@ const credentials = P.credentials;
               </li>
             ))}
           </ul>
+          <div class="eep-hubs eep-hubs--row">
+            <a class="eep-hub" href={hubs.services.href}>
+              {hubs.services.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+            <a class="eep-hub" href={hubs.tools.href}>
+              {hubs.tools.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
+            </a>
+          </div>
         </article>
       </div>
     )}
@@ -772,6 +828,31 @@ const credentials = P.credentials;
   .eep--light .eep-link:hover .eep-link__label,
   .eep--light .eep-link--flat:hover { color: var(--accent-text); }
 
+  /* Hub links (maillage : « Tous les … → » en pied de bloc) */
+  .eep-hubs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-top: auto;
+  }
+  .eep-hubs--row { flex-direction: row; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+  .eep-hub {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-sur-sombre);
+    text-decoration: none;
+    transition: gap var(--dur-trim) var(--ease);
+  }
+  .eep--light .eep-hub { color: var(--accent-text); }
+  .eep-hub:hover { gap: var(--space-3); }
+  .eep-hub__glyph { line-height: 1; }
+
   /* Engagements / avis honnête */
   .eep-commits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-4); }
   .eep--hero .eep-commits { gap: var(--space-3); }
@@ -987,6 +1068,6 @@ const credentials = P.credentials;
 
   @media (prefers-reduced-motion: reduce) {
     .reveal-stagger > * { transition: none; }
-    .eep-cta, .eep-chip, .eep-link, .eep-cell--cta { transition: none; }
+    .eep-cta, .eep-chip, .eep-link, .eep-cell--cta, .eep-hub { transition: none; }
   }
 </style>

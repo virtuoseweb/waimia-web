@@ -41,6 +41,16 @@ export interface EeatPack {
   articles: EeatLink[];
   tools: EeatLink[];
   services: EeatLink[];
+  /**
+   * Liens de hub par famille (maillage interne) : chaque bloc secteurs/articles/services/outils
+   * gagne un lien « voir tous » vers sa page d'index. Routes RÉELLES (vérifiées dans dist/client).
+   */
+  hubs: {
+    sectors: { label: string; href: string };
+    articles: { label: string; href: string };
+    services: { label: string; href: string };
+    tools: { label: string; href: string };
+  };
   /** Bloc « avis » honnête : engagements d'offre, PAS de témoignage client. */
   commitments: { label: string; detail: string }[];
   /** Note d'honnêteté à afficher près du bloc avis/preuves. */
@@ -125,6 +135,12 @@ export const EEAT_PACK: EeatPack = {
     { label: 'Agents IA', href: '/services/agents-ia', kicker: 'Service' },
     { label: 'Consultant IA Claude', href: '/services/consultant-ia-claude', kicker: 'Service' },
   ],
+  hubs: {
+    sectors: { label: 'Tous les secteurs', href: '/secteurs' },
+    articles: { label: 'Tous les articles', href: '/blog' },
+    services: { label: 'Tous les services', href: '/services' },
+    tools: { label: 'Tous les outils', href: '/ressources/outils' },
+  },
   commitments: [
     { label: 'Audit 5 jours', detail: 'Diagnostic du parcours, livrable chiffré avant tout engagement.' },
     { label: 'Prix fixe transparent', detail: 'Périmètre et budget connus avant de signer, pas de dérive.' },
