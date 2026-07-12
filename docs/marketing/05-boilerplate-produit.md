@@ -1,5 +1,7 @@
 # 05 — Waimia : le socle produit (service → boilerplate → système modulaire)
 
+> ⚠️ Framing antérieur au positionnement V8 (2026-07-12). La mécanique (funnel/canaux/éditorial) reste valable ; le récit de marque canonique = `strategy/10 §0bis` + `docs/synthese-v1/SYNTHESE.md`.
+
 > **Vision produit.** Waimia n'est pas un site vitrine : c'est le **socle marketing IA augmenté**
 > — un système modulaire (quasi-OS) avec agents IA, CMS lite, dashboard et automations.
 > On le **vend « site web IA »** pour la simplicité de compréhension ; la démo + les pages

@@ -4,8 +4,11 @@
 > Complète `marketing/` (stratégie marketing/comms/produit) et `strategy/` (SEO/site).
 > Exécution outillée par les skills `sales:*`, `marketing:*` + MCP Vibe Prospecting.
 
+> ⚠️ Framing antérieur au positionnement V8 (2026-07-12) : one-liner + H1 « cabinet » / « site web intelligent » à re-synchroniser sur `strategy/10 §0bis`. La substance (offre ladder, pricing, personas, marché, concurrence) reste valable.
+
 | Doc | Sujet | Pour quoi faire |
 |---|---|---|
+| `00-references.md` | Références canoniques business DRY (offer ladder, keywords 2 couches, clients, one-liner) | Source unique citée par les autres docs |
 | `01-business-plan.md` | Résumé exécutif, marché TAM/SAM/SOM, modèle, finances, risques | Vision business + pilotage |
 | `02-etude-de-marche.md` | Taille, segments/personas, tendances, concurrence, pricing, opportunités | Comprendre le terrain, se positionner |
 | `03-plan-prospection.md` | ICP/BANT, ciblage en vagues, workflow Vibe Prospecting, séquence multicanal, RGPD, KPIs | Outbound opérationnel |
@@ -14,6 +17,13 @@
 | `06-fiches-offres.md` | Fiche par offre (audit, site IA, growth, agents) : inclus, bénéfices, prix, objections, qualif, upsell | Vendre chaque offre |
 | `07-pitch-rdv.md` | Trame deck (découverte/démo/closing) + one-pager + checklist de prép | Présenter en RDV |
 | `08-quick-wins-revenue.md` | Quick wins, plan CA 90 j / 6 mois / 12-24 mois, leviers, KPIs hebdo | Générer leads & CA, court et long terme |
+| `09-leadsourcing-scoring.md` | Spec outil lead sourcing Firecrawl + scoring maison 0-100 (P3) | Industrialiser enrichir→prioriser→exporter (chantier à construire) |
+| `10-presentations-offres-core.md` | 3 decks autoportants (Audit / Site Web IA / Growth System IA), slide par slide | Présenter les offres cœur (pptx/html) |
+| `11-cash-first-90-jours.md` | Plan cash 90 j (Piste A Cash now vs Piste B Asset) | Encaisser vite en parallèle du chantier site |
+| `12-competitive-brief.md` | Brief concurrentiel axe positionnement-prix (zone blanche Limova↔ClaudIn, battlecards) | Se différencier sur le prix/positionnement |
+| `13-modele-financier.md` | Modèle financier (unit economics, régime fiscal réel EI/BNC, hypothèses) | Piloter la rentabilité |
+| `14-marche-donnees-reelles.md` | Données marché sourcées [RÉEL]/[ESTIMÉ]/[À VALIDER] (INSEE, adoption IA, AI Overview FR) | Source de vérité des chiffres marché |
+| `15-validation-client.md` | Kit customer discovery (The Mom Test), board d'hypothèses | Dé-risquer la stratégie sur le terrain |
 
 **Ordre de lecture** : `01`+`02` (cadre) → `06` (ce qu'on vend) → `03`+`05`+`07` (prospecter, convaincre, conclure) → `04` (rayonner) → `08` (piloter le CA).
 

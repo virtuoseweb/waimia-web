@@ -1,5 +1,7 @@
 # 📣 marketing/ — Stratégie marketing, communication & produit
 
+> ⚠️ Framing antérieur au positionnement V8 (2026-07-12). La mécanique (funnel/canaux/éditorial) reste valable ; le récit de marque canonique = `strategy/10 §0bis` + `docs/synthese-v1/SYNTHESE.md`.
+
 > Suite complète, à enchaîner **après** le chantier site (`strategy/site-final`). Cohérente
 > avec le positionnement agence et le produit Waimia (socle marketing IA forkable). Lecture à
 > la demande ; l'exécution s'appuie sur les skills `marketing:*`, `sales:*`, `design:*` et les

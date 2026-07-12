@@ -1,5 +1,7 @@
 # 02 — Go-to-market & funnel
 
+> ⚠️ Framing antérieur au positionnement V8 (2026-07-12). La mécanique (funnel/canaux/éditorial) reste valable ; le récit de marque canonique = `strategy/10 §0bis` + `docs/synthese-v1/SYNTHESE.md`.
+
 > Comment Waimia transforme un inconnu en client qui paie, puis en compte qui s'étend.
 > Aligné `marketing/01-positionnement` (offre/pricing) + `04-acquisition-canaux` (canaux) +
 > `03-content-editorial` (contenu) + `05-boilerplate-produit` (le produit vendu).

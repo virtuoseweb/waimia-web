@@ -1,15 +1,16 @@
 # 📒 docs/ — Index maître Waimia (START HERE)
 
-> ⭐ **TRAVAIL EN COURS (2026-06-26) = V7-FOLD.** Plan d'exécution : `~/.claude/plans/flickering-squishing-eagle.md` · reprise : `tasks/RESUME-NEXT.md` · archi cible : `docs/strategy/10` + `11`. Branche `feat/v7-foundations` (GATE, NON mergé `main`). **Le board `state/00-BOARD` + le backlog `state/02` (P0-P4) sont GELÉS sous V7** (cadre 3-piliers superseded) : valides sur le fond, à réinterpréter sous V7, pas à reprendre tels quels. Donc le point 4 ci-dessous (« source de vérité des tâches ») est gelé : le quoi-faire courant vit dans le plan V7.
+> ⭐ **ÉTAT COURANT (2026-07-12) = V8 acté, prod = `main`.** V7-FOLD est mergée (plus de branche `feat/v7-foundations` en gate). **Positionnement V8 tranché** : ingénierie de systèmes business, `strategy/10 §0bis` (cf §Positionnement ci-dessous). **Home LIVE validée telle quelle** (verdict Simon gate B) ; la maquette D est rejetée ; itération **variante E** en cours sur `/lab/home-e` (raccourcir/hiérarchiser/dédoublonner, décision explicite Simon requise avant tout remplacement de la home). Reprise détaillée : `state/05-cloture-session-2026-07-12.md`. **Le board `state/00-BOARD` + le backlog `state/02` (P0-P4) restent GELÉS sous V7** (cadre 3-piliers superseded) : valides sur le fond, à réinterpréter sous V7/V8, pas à reprendre tels quels. Le point 5 ci-dessous (« source de vérité des tâches ») est donc gelé.
 
 > **Point d'entrée unique pour tout agent IA.** Lis ce fichier en premier.
 > Il dit quoi lire selon la mission, l'état des chantiers, et où vit chaque chose.
 > Hiérarchie des sources de vérité :
 > 1. **`CLAUDE.md`** (racine) = garde-fous GF-1..GF-6 + règles projet (non négociable).
 > 2. **Ce `README.md`** = carte des docs + ordre de lecture.
-> 3. **`docs/state/00-BOARD.md`** = board de progression **généré** (Phase / chantier / done-total / % / reste) — vue d'un coup d'œil, sync auto sur git. NE PAS éditer à la main.
-> 4. **`docs/state/02-plan-execution-claude-code.md`** = source de vérité des **tâches** (cases `[x]` + tag `<!-- sb commit=… -->`). Le board en dérive.
-> 5. **git** (log + branches) = vérité d'exécution. *(`tasks/ORCH-STATE.md` = journal narratif d'orchestration, désormais secondaire.)*
+> 3. **`docs/synthese-v1/SYNTHESE.md`** = synthèse unique de TOUS les docs (carte de lecture express + fiche condensée par document + conflits ouverts). Lire juste après ce README pour comprendre le projet sans ouvrir 100 fichiers.
+> 4. **`docs/state/00-BOARD.md`** = board de progression **généré** (Phase / chantier / done-total / % / reste) — vue d'un coup d'œil, sync auto sur git. NE PAS éditer à la main.
+> 5. **`docs/state/02-plan-execution-claude-code.md`** = source de vérité des **tâches** (cases `[x]` + tag `<!-- sb commit=… -->`). Le board en dérive.
+> 6. **git** (log + branches) = vérité d'exécution. *(`tasks/ORCH-STATE.md` = journal narratif d'orchestration, désormais secondaire.)*
 
 ### 📐 Compteurs canoniques (figés 2026-06-15, mesurés ; GF-4)
 > Source unique. Périme toute autre valeur croisée ailleurs (58/67/87/123/147/151). Re-mesurer via `node scripts/gen-section-manifest.mjs`.
@@ -42,15 +43,15 @@
 ### 🎯 Mission ACTUELLE prioritaire — Refonte SEO/GEO + base propre
 Le chantier n°1. Domaine neuf → silo unique « Site web IA » + suppression du fictif/thin.
 Ordre de lecture :
-0. ⭐ **`strategy/10-architecture-finale-v7.md`** — **ARCHITECTURE COURANTE (2026-06-18)** : 2 offres,
+0. ⭐ **`strategy/10-architecture-finale-v7.md`** — **ARCHITECTURE COURANTE (2026-06-18) + positionnement V8 §0bis** : 2 offres,
    nav 4 méga-menus, collections élargies, **politique d'indexation index-on-quality**. SUPERSEDE
-   l'archi 3-piliers de `02`/`06`. **Lire EN PREMIER pour toute question d'architecture/URL.**
-1. **`strategy/01-silo-site-web-ia.md`** — la stratégie (Cheval de Troie, pourquoi ce silo).
+   l'archi 3-piliers. **Lire EN PREMIER pour toute question d'architecture/URL/positionnement.**
+1. **`strategy/11 strat complète.md`** — nav / méga-menus / 6 services / templates / maillage / indexation (V7-FOLD, à lire avec l'affinage V8 de `10 §0bis`).
 2. **`strategy/02-site-etat-final.md`** — spec d'état final : whitelist E-E-A-T + suppressions
    fictif/thin + ordre sections conversion. *(Archi 3-piliers SUPERSEDED par `10`.)*
-3. **`strategy/03-case-study-sector-system.md`** : blueprint système case study + hubs sectoriels (taxonomie 6 secteurs, template `/cas` conversion/GEO, double-label, données marché sourcées). Chantier #18.
-4. **`archive/50-SILO-RUNBOOK-EXECUTION.md`** — détail du maillage silo + batchs techniques.
-5. **`state/01-chantiers.md`** — état réel du projet, pending, pièges.
+3. **`strategy/03-case-study-sector-system.md`** : blueprint système case study + hubs sectoriels (taxonomie secteurs, template `/cas` conversion/GEO, double-label, données marché sourcées). Chantier #18.
+4. **`archive/50-SILO-RUNBOOK-EXECUTION.md`** — détail du maillage silo + batchs techniques (archivé, référence).
+5. **`docs/synthese-v1/SYNTHESE.md`** — synthèse de tous les docs + conflits ouverts. *(La stratégie « Cheval de Troie / silo unique » = `archive/01-silo-site-web-ia.md`, superseded par `10`.)*
 
 ### 🧱 Mission Design System (secondaire)
 1. `design-system/01-contrat.md` — le contrat figé.
@@ -65,25 +66,25 @@ Ordre de lecture :
 
 `architecture/01-standards-patterns.md`, `archive/07-component-patterns.md`,
 `architecture/02-content-models.md`, `architecture/03-integrations.md`,
-`architecture/05-url-redirects.md`, `architecture/36-TINA-ASTRO-*.md`.
+`architecture/05-url-redirects.md`. *(Tina : `archive/06-tina-astro.md`, historique — Tina abandonné.)*
 
 ### 🔁 Reprise de session
-`state/01-chantiers.md` + `tasks/ORCH-STATE.md` + dernier `session-reports/SR-*`.
+`state/05-cloture-session-2026-07-12.md` (dernière clôture) + `tasks/SESSION-HANDOFF-CURRENT.md` + `docs/synthese-v1/SYNTHESE.md`. *(L'audit d'état `01-chantiers.md` = `archive/01-chantiers.md`, daté 2026-06-11.)*
 
 ---
 
-## 2. Board des chantiers (synthèse — détail dans `state/01`)
+## 2. Board des chantiers (synthèse — détail dans `state/00-BOARD.md` + reprise `state/05-cloture-session-2026-07-12.md`)
 
 > Numérotation unique **P0→P4** = `state/02-plan-execution-claude-code.md` (backlog maître, 71 tâches). Ce board en est la synthèse.
 
 | Phase / chantier | Statut | Doc |
 |---|---|---|
-| **P0 — Cash & base propre** : site honnête (grille pricing 2/4/7/10k, suppr. fictif/thin, légal) + 3 piliers + silo | 🟢 specé, **prioritaire** | `state/02` P0 · `strategy/01,02` |
+| **P0 — Cash & base propre** : site honnête (grille pricing 2/4/7/10k, suppr. fictif/thin, légal) + 3 piliers + silo | 🟢 specé, **prioritaire** | `state/02` P0 · `strategy/02,10` |
 | **P1 — SEO/GEO** : recherche KW **gratuite** → H1, cluster blog silo, GEO (schema/llms.txt/GBP) | 🟢 non bloqué | `state/02` P1 · `strategy/03` |
 | **P2 — DESIGN / refonte DS** (ACTIF, multi-passes) : captures, socle DS, @theme, V-TYPO, awwwards, #14 presets, passe Claude Design | 🟢 actif | `state/02` P2 · `state/05-design-refonte` |
 | **P3 — Outils** : lead sourcing + scoring (Firecrawl) | ⚪ à venir | `state/02` P3 · `business/09` |
 | **P4 — Long terme (figé)** : boilerplate forkable, CMS lite + TinaCMS, dashboard/agents | ⚪ figé | `state/02` P4 · `marketing/05` |
-| **Backlog hérité T-1..T-8** : migration SolutionsDetail, GF-1 sweep previews, hygiène git, VISION FINALE, 301 fintech | 🟡 à intercaler | `state/02` backlog · `state/01` · `audits/01` |
+| **Backlog hérité T-1..T-8** : migration SolutionsDetail, GF-1 sweep previews, hygiène git, VISION FINALE, 301 fintech | 🟡 à intercaler | `state/02` backlog · `audits/01` |
 
 **Stratégie marketing, business & vente** (à enchaîner après le chantier site) :
 - `marketing/` (6) — positionnement zone blanche, funnel 3-temps, contenu/GEO, canaux, **produit boilerplate**.
@@ -109,15 +110,15 @@ EN archivé (lancement FR monolingue).
 ```
 docs/
 ├── README.md              ← CE FICHIER (index, seul .md « libre » à la racine docs/)
-├── strategy/   (11)       SEO / site / GEO (LIVE) — 00 synthèse lancement · 01 silo · 02 état final site (archi 3-piliers SUPERSEDED par 10) · 03 recherche SEO/GEO · 04 GEO-AIO · 05 stack · 06 doctrine positionnement/archi/SEO (positionnement LIVE ; archi 3-piliers SUPERSEDED par 10) · 07 benchmark Digidop (concurrent terrain) · 08 IA templates pages V1 · 09 blueprint contenu V1 · **10 ARCHITECTURE FINALE v7 (SOURCE CANONIQUE d'architecture + politique d'indexation index-on-quality, 2026-06-18)**
+├── strategy/            SEO / site / positionnement (LIVE) — 02 état final site (whitelist E-E-A-T ; archi 3-piliers SUPERSEDED par 10) · 03 recherche SEO/GEO · 03 case-study-sector-system · 04 GEO-AIO · 05 stack · 07 benchmark Digidop (concurrent terrain) · 09 blueprint contenu V1 · **10 ARCHITECTURE FINALE v7 + §0bis POSITIONNEMENT V8 (SOURCE CANONIQUE archi + indexation index-on-quality)** · 11 strat complète (nav/méga-menus/templates V7-FOLD) · 12 décision CMS (FIGÉ) · 13 vision dashboard + système forkable. *(Archivés → archive/ : 00 synthèse lancement, 01 silo, 06 doctrine, 08 IA templates.)*
 ├── marketing/  (6)        01 positionnement · 02 GTM · 03 contenu · 04 canaux · 05 boilerplate produit (LIVE)
 ├── business/  (16)        00 références canoniques (voix manifeste, offer ladder, clients) · 01 business plan · 02 étude marché · 03 prospection · 04 comm · 05 sales enablement · 06 fiches offres · 07 pitch RDV · 08 quick wins · 09 leadsourcing+scoring (Firecrawl) · 10 présentations offres · 11 cash-first 90j · 12 competitive brief · 13 modèle financier · 14 marché données réelles · 15 validation client (LIVE)
-├── architecture/ (9)      standards, content-models, intégrations, déploiement, redirects, tina-astro, images, archi, cms (RÉFÉRENCE)
+├── architecture/          01 standards · 02 content-models · 03 intégrations · 04 déploiement · 05 redirects · 07 images-pipeline · 08 archi (RÉFÉRENCE). *(Archivés → archive/ : 06 tina-astro, 09 cms-autonome — Tina abandonné, cf strategy/12.)*
 ├── design-system/ (8)     01 contrat · 02 catalogue · 03 library-strategy · 04 agent-ds · 05 design-os · 06 motion · 07 health · brand-contract (RÉFÉRENCE)
 ├── directives/  (3)       01 typo · 02 dark · 03 awwwards (LIVE court)
-├── state/       (9)       01 chantiers · 02 plan-execution-claude-code (BACKLOG MAÎTRE, phases P0→P4) · 03 critique · 04 brand-review · 05 design-refonte (détail PHASE P2) · 08 plan-refonte-site-web-intelligent-v6 · 09 plan-harmonisation-ds-page (LIVE, chantier DS+page courant) · RESUME-CLAUDE-CODE · prochain-chantier (LIVE volatile)
-├── audits/      (5)       01 template-registry-migration · 02 token-coherence (RÉFÉRENCE) · 02-section-colocation-38 (modules co-localisés src/sections/, gate check:section-modules) · 03 audit-consolidé-2026-06-15 (5 axes, P0→P3, RÉFÉRENCE état avant cutover) · 04 packages-monorepo-40 (BLUEPRINT #40 : frontières packages ds-kernel/sections/catalogue-ui/builder/mcp + plan d'extraction pilote-first, reco #40 APRÈS #38 T5)
-├── specs/       (4)       01 ecosystem-partners · 02 adr-architecture-site (ADR-002) · 03 adr-ouverture-silo-acquerir (ADR-003, ouvre Acquérir en silo) · 04 copy minée ex-tunnel site-web-ia (préservée Phase C)
+├── state/                02 plan-execution-claude-code (BACKLOG MAÎTRE P0→P4, GELÉ sous V7) · 03 critique · 03 revue-compositions-preview · 04 brand-review · 04 build-strat11-gap · 05 clôtures (06-29 · 06-30 · **07-12 = reprise courante**) · 05 design-refonte (détail P2) · 07 template-page-service · 08 plan-refonte-site-web-intelligent-v6 · 09 plan-harmonisation-ds-page · 10 audit-catalogue-interaction-v7 · 11 asset-illustrations · 12 design-direction-service-template · RECONCILIATION-REPORT (7 décisions) · night-sessions/. *(Archivés → archive/ : 01 chantiers, 06 mapping-migration, PROCHAIN-CHANTIER, RESUME-CLAUDE-CODE.)* Board généré = state/00-BOARD.
+├── audits/      (6)       01 template-registry-migration · 02-section-colocation-38 (modules co-localisés src/sections/, gate check:section-modules) · 03 audit-consolidé-2026-06-15 (RÉFÉRENCE état avant cutover) · 04 packages-monorepo-40 (BLUEPRINT #40, clôturé 4 packages) · 05 media-inventory (ex-audit/, dossier singulier supprimé) · 06 token-coherence (ex-02, renuméroté pour lever la collision, RÉFÉRENCE)
+├── specs/       (6)       01 ecosystem-partners · 04 copy minée ex-tunnel site-web-ia (préservée Phase C) · 05 builder-vision-reference · 06 builder-architecture. *(Archivés → archive/ : 02 adr-architecture-site ADR-002, 03 adr-ouverture-silo-acquerir ADR-003.)*
 ├── archive/               périmé / superseded (~60 docs : cartography/ (23), audit-refonte/ (5), audits consommés, DS périmés…)
 ├── session-reports/       journaux de session horodatés (SR-*)
 ├── visual-audit/          (mémoire visuelle, preuves GF-1, cf son README) · cartography/ + audit-refonte/ → archivés 2026-06-15

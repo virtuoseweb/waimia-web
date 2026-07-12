@@ -1,5 +1,7 @@
 # 04 — Playbook des canaux d'acquisition
 
+> ⚠️ Framing antérieur au positionnement V8 (2026-07-12). La mécanique (funnel/canaux/éditorial) reste valable ; le récit de marque canonique = `strategy/10 §0bis` + `docs/synthese-v1/SYNTHESE.md`.
+
 > **Comment Waimia génère ses premiers RDV qualifiés en solo, budget quasi nul.** Un canal
 > par section : objectif, audience, tactique concrète, cadence soutenable, outils (gratuit
 > d'abord), KPI, effort. Le détail keyword/GEO n'est PAS refait ici → voir

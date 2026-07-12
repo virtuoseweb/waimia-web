@@ -1,5 +1,7 @@
 # 01 — Positionnement & messaging
 
+> ⚠️ Framing antérieur au positionnement V8 (2026-07-12). La mécanique (funnel/canaux/éditorial) reste valable ; le récit de marque canonique = `strategy/10 §0bis` + `docs/synthese-v1/SYNTHESE.md`.
+
 > Socle de marque Waimia. Toute communication (site, LinkedIn, offres, pitch) en découle.
 > Aligné `strategy/site-final` + `marketing/03-content-editorial` (voix) + `marketing/02-go-to-market`.
 

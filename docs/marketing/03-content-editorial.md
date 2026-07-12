@@ -1,5 +1,7 @@
 # 03 — Stratégie de contenu & éditoriale
 
+> ⚠️ Framing antérieur au positionnement V8 (2026-07-12). La mécanique (funnel/canaux/éditorial) reste valable ; le récit de marque canonique = `strategy/10 §0bis` + `docs/synthese-v1/SYNTHESE.md`.
+
 > Source de vérité contenu pour Waimia. Aligné sur le silo « Site web IA »
 > (`strategy/silo`, `strategy/site-final`), la recherche SEO/GEO gratuite
 > (`strategy/recherche-seo-geo`) et le positionnement « zone blanche » (Limova ↔ ClaudIn).
