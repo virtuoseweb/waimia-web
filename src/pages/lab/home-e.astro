@@ -11,11 +11,10 @@ export const prerender = true;
  * dur (100 % var(--token) ; hairlines = box-shadow --shadow-card-rest + global
  * .hline ; pas de literal px hors @media / viewBox SVG) + SVG dessines au scroll.
  *
- * Sequence (10 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
+ * Sequence (9 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
  *   01 Hero (live, paper, composant INTOUCHE)
  *   02 Ecosysteme opere · logo-marquee (SectionsRenderer, ink + grayscale) · bande courte
  *   03 Les deux offres (#offres) · MONEY SLOT · diptyque + rangee 6 services + dorsale SVG (paper)
- *   04 Le systeme · ArchitectureDiagram (live, ink) · SEUL recit « une architecture / six entrees / boucle »
  *   05 La tension · 3 douleurs sobres (direct, paper-2)
  *   06 Tableau de bord media · 2e stats-bento de C (SectionsRenderer, ink) · CLIMAX chiffre
  *   07 Cas clients · 3 cartes compactes + ligne CTA discrete (direct, paper)
@@ -27,18 +26,18 @@ export const prerender = true;
  * ServicesGrid (absorbe slot 03), sticky-scroll (condense slot 08), pricing-cards
  * (directive : pas de prix hors FAQ), CtaBand accent (remplace par la ligne CTA slot 07),
  * SectionTransition (hierarchie par le design), 1er stats-bento Acte I, bento-grid,
- * eeat-panel, hero-masthead-card (Hero live garde). « Couche continue » = slot 04 seul.
+ * eeat-panel, hero-masthead-card (Hero live garde), ArchitectureDiagram (gate B E :
+ * doublon du recit systeme deja porte par le money slot 03, verdict Simon 2026-07-12).
  */
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/ui/organisms/Hero.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
-import ArchitectureDiagram from '../../components/sections/ArchitectureDiagram.astro';
 import FaqAccordion from '../../components/sections/FaqAccordion.astro';
 import BookSession from '../../components/ui/organisms/BookSession.astro';
 import FooterMarquee from '../../components/ui/organisms/FooterMarquee.astro';
 import homeVariantC from '../../data/page-variants/home/c.json';
 import { SIX_SERVICES } from '../../data/sitemap';
-import type { SectionByType, SectionData } from '@waimia/ds-kernel';
+import type { SectionData } from '@waimia/ds-kernel';
 
 const sectionsC = homeVariantC.sections as any[];
 const cByType = (t: string) => sectionsC.find((s) => s.type === t);
@@ -50,42 +49,6 @@ const logoMarquee = {
   grayscale: true,
   kicker_fr: "§ L’écosystème qu’on opère",
 } as SectionData;
-
-// 04 · Le systeme · ArchitectureDiagram · objet COPIE tel quel de index.astro (live).
-const architectureDiagramData = {
-  type: 'architecture-diagram' as const,
-  background: 'ink' as const,
-  fig_num: 'FIG II · 2.0',
-  fig_title_fr: 'Acte II : Le système', fig_title_en: 'Act II: The system',
-  spec_fr: 'CANAUX · SYSTÈME · ACTIONS', spec_en: 'CHANNELS · SYSTEM · ACTIONS',
-  h2_fr: 'Une seule <i>architecture</i>.<br/>Six entrées, quatre sorties, mille décisions.',
-  h2_en: 'One <i>architecture</i>.<br/>Six inputs, four outputs, a thousand decisions.',
-  inputs_fr: ['Ads', 'Contenu', 'Site', 'CRM', 'Analytics', 'Marque'],
-  inputs_en: ['Ads', 'Content', 'Site', 'CRM', 'Analytics', 'Brand'],
-  input_examples_fr: [
-    'Google Ads, Meta, LinkedIn reliés au pipeline',
-    'Articles SEO/GEO produits et indexés',
-    'Landing, tunnel, CMS branchés au CRM',
-    'Relances, qualification, alertes automatiques',
-    'GA4 et Search Console lus en tableaux de bord',
-    'Design system, decks, PDF alignés',
-  ],
-  input_examples_en: [
-    'Google Ads, Meta, LinkedIn wired to the pipeline',
-    'SEO/GEO articles produced and indexed',
-    'Landing, funnel, CMS plugged into the CRM',
-    'Follow-ups, qualification, automatic alerts',
-    'GA4 and Search Console read as dashboards',
-    'Design system, decks, PDF aligned',
-  ],
-  outputs_fr: ['Actions', 'Supports', 'Reporting', 'Pipeline'],
-  outputs_en: ['Actions', 'Assets', 'Reports', 'Pipeline'],
-  system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
-  show_loop: true,
-  loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
-  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
-  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
-} satisfies SectionByType<'architecture-diagram'>;
 
 // 06 · tableau de bord media = 2e stats-bento de C (layout bento : tuile vedette ink + KPI).
 const statsBentoDashboard = {
@@ -228,9 +191,6 @@ const services = SIX_SERVICES.map((s) => ({
       </div>
     </div>
   </section>
-
-  {/* 04 · Le systeme · ArchitectureDiagram · UN seul recit « une architecture / six entrees / boucle » (ink) */}
-  <ArchitectureDiagram data={architectureDiagramData} lang="fr" />
 
   {/* 05 · La tension · 3 douleurs sobres (paper-2) */}
   <section class="he-sec he-tension" aria-labelledby="he-tension-h2">
