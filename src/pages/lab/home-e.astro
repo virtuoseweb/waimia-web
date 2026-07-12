@@ -9,7 +9,9 @@ export const prerender = true;
  * en gardant la richesse visuelle du live (SVG line-art, animations au scroll).
  * Corrige la variante D (rejetee : trop plate + ~20 px en dur) : ici 0 valeur en
  * dur (100 % var(--token) ; hairlines = box-shadow --shadow-card-rest + global
- * .hline ; pas de literal px hors @media / viewBox SVG) + SVG dessines au scroll.
+ * .hline + barre de tabs en 1px var(--hairline)/2px var(--accent-text), idiome DS
+ * canonique et exception hairline rule 60 ; pas d'AUTRE literal px hors @media /
+ * viewBox SVG) + SVG dessines au scroll.
  *
  * Sequence (12 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
  *   01 Hero (live, paper, composant INTOUCHE)
@@ -27,6 +29,18 @@ export const prerender = true;
  *   10 Climax chiffre · 2e stats-bento de C (SectionsRenderer, paper-2) · pre-FAQ
  *   11 FAQ · 6 questions, prix garde (FaqAccordion, paper) · SEULE mention de prix
  *   12 Action · BookSession (ink) + FooterMarquee
+ *
+ * Gate B iter 4 (demande Simon 2026-07-12) : le MONEY SLOT 03 gagne un niveau de TABS (etage
+ * FAMILLES du positionnement V8, cf strategy/10 §0bis) : onglet 1 « Systeme marketing » ACTIF
+ * (contient toute la matiere du slot : intro d'offre + diptyque + dorsale + rangee 6 services),
+ * onglet 2 « Systeme commercial » DESACTIVE (badge « bientot », aria-disabled, non focusable, sans
+ * panel) pour materialiser l'extensibilite. Idiome tabs repris de FeatureTabs/pricing-tabs-showcase
+ * (aria role tablist/tab/tabpanel + clavier ←/→/Home/End + re-init astro:page-load), style hairline
+ * sobre (PAS de pills). Repositionnement INGENIERIE IA : le header du slot pose « Waimia, agence
+ * d'ingenierie IA et d'applications pour PME » (kicker) + la definition-citation Simon en lede
+ * (« Un systeme metier IA n'est pas une automatisation isolee... »), et la carte 02 devient
+ * « Automation & IA » (multi-modeles Claude/ChatGPT/Mistral via MCP, PAS anthropic-first). Touches
+ * « ingenierie » legeres ailleurs : lede statement-orbit (04) + kicker methode (07). Hero INTOUCHE.
  *
  * Gate B iter 3 (demandes Simon 2026-07-12) : ajout de deux sections catalogue. `statement-orbit`
  * (slot 04) reintroduit le liant conceptuel perdu avec l'ArchitectureDiagram (les 2 offres forment
@@ -101,7 +115,7 @@ const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
 const methodStory = {
   ...cByType('sticky-scroll-storytelling'),
   background: 'paper-2',
-  kicker_fr: '§ Méthode · la maturité se construit',
+  kicker_fr: '§ Méthode · l’ingénierie se construit par paliers',
   textSide: 'right',
   proportion: 'media-wide',
   mediaRatio: '3-2',
@@ -149,7 +163,7 @@ const statementOrbit = {
   kicker_en: '§ The loop',
   h2_fr: 'Les deux offres forment une <i class="acc">boucle</i> : lire, mesurer, réinjecter.',
   h2_en: 'Both offers form one <i class="acc">loop</i>: read, measure, feed back.',
-  lede_fr: 'Votre site qualifie chaque visite, les agents traitent et mesurent, ce qui remonte nourrit le cycle suivant. Un dispositif qui gagne en justesse à chaque tour, sans refonte à chaque palier.',
+  lede_fr: 'Votre site qualifie chaque visite, les agents traitent et mesurent, ce qui remonte nourrit le cycle suivant. Une ingénierie qui gagne en justesse à chaque tour, sans refonte à chaque palier.',
   lede_en: 'Your site qualifies every visit, the agents process and measure, what comes back feeds the next cycle. A setup that sharpens with every turn, with no rebuild at each tier.',
   media_src: '/images/line-art/orbit-network.svg',
   media_alt_fr: 'Globe filaire aux nœuds relies par des arcs : le site, le CRM, le contenu et les agents tournent en une seule boucle d’acquisition.',
@@ -181,41 +195,82 @@ const mediaDashboard = {
   <section class="he-sec he-offres" id="offres" aria-labelledby="he-offres-h2">
     <div class="wrap-wide">
       <header class="he-head reveal">
-        <p class="he-kicker">§ Deux offres</p>
-        <h2 id="he-offres-h2" class="he-h2 he-h2--xl u-serif-accent">Un <i>site qui travaille</i>, des agents qui <i>agissent</i>.</h2>
-        <p class="he-lede">Deux portes d’entrée, un même système connecté. On active celle qui sert votre maturité, on branche le reste quand c’est rentable.</p>
+        <p class="he-kicker">§ Agence d’ingénierie IA &amp; applications</p>
+        <h2 id="he-offres-h2" class="he-h2 he-h2--xl u-serif-accent">On <i>conçoit le système</i>, pas juste l’outil.</h2>
+        <p class="he-lede">Un système métier IA n’est pas une automatisation isolée, c’est un ensemble cohérent d’applications, de données, de workflows et d’agents conçu autour de vos opérations.</p>
       </header>
 
-      <div class="he-diptych reveal-stagger">
-        <article class="he-offer">
-          <p class="he-offer__tag">Offre 01</p>
-          <h3 class="he-offer__title">Site web intelligent</h3>
-          <p class="he-offer__body">Un site Astro + IA, rapide, indexé par Google ET par les moteurs IA, branché à votre CRM. Vitrine et acquisition dans un même canal : landing, tunnel et pages évolutives reliés au pipeline, pas une plaquette figée.</p>
-          <div class="hline"></div>
-          <ul class="he-offer__points">
-            <li>Astro + IA, trouvé par Google et les IA</li>
-            <li>Landing, tunnel et pages branchés au CRM</li>
-            <li>Vitrine et acquisition dans un même canal</li>
-          </ul>
-          <a class="he-offer__link" href="/services/site-web-intelligent">Voir l’offre →</a>
-        </article>
+      {/* Niveau FAMILLES · tabs (etage V8) · tab 1 « Systeme marketing » actif, tab 2 « commercial » inerte */}
+      <div class="he-tabs" data-he-tabs>
+        <div class="he-tabs__list" role="tablist" aria-label="Familles de systèmes">
+          <button
+            class="he-tab is-active"
+            role="tab"
+            id="he-tab-marketing"
+            aria-controls="he-panel-marketing"
+            aria-selected="true"
+            tabindex="0"
+            type="button"
+          >
+            <span class="he-tab__label">Système marketing</span>
+          </button>
+          <button
+            class="he-tab is-disabled"
+            role="tab"
+            id="he-tab-commercial"
+            aria-selected="false"
+            aria-disabled="true"
+            tabindex="-1"
+            type="button"
+            disabled
+          >
+            <span class="he-tab__label">Système commercial</span>
+            <span class="he-tab__badge">bientôt</span>
+          </button>
+        </div>
 
-        <article class="he-offer">
-          <p class="he-offer__tag">Offre 02</p>
-          <h3 class="he-offer__title">Intégration Claude</h3>
-          <p class="he-offer__body">On déploie Claude et ses agents dans votre entreprise et on les branche à vos outils via MCP : CRM, e-mail, base de données, dépôt Git. Ce qui fait passer un assistant de la conversation à l’action, sur vos données réelles.</p>
-          <div class="hline"></div>
-          <ul class="he-offer__points">
-            <li>Claude et ses agents en production</li>
-            <li>Serveurs MCP propres vers vos outils</li>
-            <li>Gouvernance, mesure et passation incluses</li>
-          </ul>
-          <a class="he-offer__link" href="/services/integrateur-claude">Voir l’offre →</a>
-        </article>
-      </div>
+        <div
+          class="he-tab-panel is-active"
+          role="tabpanel"
+          id="he-panel-marketing"
+          aria-labelledby="he-tab-marketing"
+          tabindex="0"
+        >
+          <div class="he-tabintro reveal">
+            <p class="he-tabintro__eyebrow">§ Système marketing · équipes marketing de PME</p>
+            <p class="he-tabintro__lede">Un inbound et un outbound qui rapportent vraiment : le site qualifie chaque visite, les agents relancent et mesurent. Deux briques d’un même système, à un early pricing de lancement.</p>
+          </div>
 
-      {/* Dorsale line-art · relie visuellement les 2 cartes puis les 6 services · dessinee au scroll */}
-      <div class="he-rail hd-draw" aria-hidden="true">
+          <div class="he-diptych reveal-stagger">
+            <article class="he-offer">
+              <p class="he-offer__tag">Offre 01</p>
+              <h3 class="he-offer__title">Site web intelligent</h3>
+              <p class="he-offer__body">Un site Astro + IA, rapide, indexé par Google ET par les moteurs IA, branché à votre CRM. Vitrine et acquisition dans un même canal : landing, tunnel et pages évolutives reliés au pipeline, pas une plaquette figée.</p>
+              <div class="hline"></div>
+              <ul class="he-offer__points">
+                <li>Astro + IA, trouvé par Google et les IA</li>
+                <li>Landing, tunnel et pages branchés au CRM</li>
+                <li>Vitrine et acquisition dans un même canal</li>
+              </ul>
+              <a class="he-offer__link" href="/services/site-web-intelligent">Voir l’offre →</a>
+            </article>
+
+            <article class="he-offer">
+              <p class="he-offer__tag">Offre 02</p>
+              <h3 class="he-offer__title">Automation &amp; IA</h3>
+              <p class="he-offer__body">On déploie et configure Claude, ChatGPT (Codex d’OpenAI) ou encore Mistral et leurs agents dans votre entreprise, et on les branche à vos outils via MCP : CRM, e-mail, base de données, dépôt Git. Ce qui fait passer un assistant de la conversation à l’action, sur vos données réelles.</p>
+              <div class="hline"></div>
+              <ul class="he-offer__points">
+                <li>Claude, ChatGPT ou Mistral en production</li>
+                <li>Serveurs MCP propres vers vos outils</li>
+                <li>Gouvernance, mesure et passation incluses</li>
+              </ul>
+              <a class="he-offer__link" href="/services/integrateur-claude">Voir l’offre →</a>
+            </article>
+          </div>
+
+          {/* Dorsale line-art · relie visuellement les 2 cartes puis les 6 services · dessinee au scroll */}
+          <div class="he-rail hd-draw" aria-hidden="true">
         <svg class="he-rail__svg" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
           <path class="hd-line hd-line--2" pathLength="1" d="M300 4 C 300 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
           <path class="hd-line hd-line--2" pathLength="1" d="M900 4 C 900 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
@@ -235,17 +290,19 @@ const mediaDashboard = {
           <circle class="hd-node" cx="900" cy="146" r="3" fill="var(--accent)"/>
           <circle class="hd-node" cx="1100" cy="146" r="3" fill="var(--accent)"/>
         </svg>
-      </div>
+          </div>
 
-      <p class="he-services__intro reveal">§ Six services, une seule équipe. On active celui qui sert d’abord.</p>
-      <div class="he-services reveal-stagger">
-        {services.map((s) => (
-          <a class="he-svc" href={s.href}>
-            <span class="he-svc__k">{s.metric}</span>
-            <span class="he-svc__label">{s.label}</span>
-            <span class="he-svc__sub">{s.sub}</span>
-          </a>
-        ))}
+          <p class="he-services__intro reveal">§ Six services, une seule équipe. On active celui qui sert d’abord.</p>
+          <div class="he-services reveal-stagger">
+            {services.map((s) => (
+              <a class="he-svc" href={s.href}>
+                <span class="he-svc__k">{s.metric}</span>
+                <span class="he-svc__label">{s.label}</span>
+                <span class="he-svc__sub">{s.sub}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -361,6 +418,79 @@ const mediaDashboard = {
     line-height: var(--leading-lede);
     color: var(--muted);
     margin: var(--space-5) 0 0;
+    max-width: var(--wrap-prose);
+  }
+
+  /* ── 03 · Tabs familles (etage V8) · barre hairline sobre, PAS de pills ──
+     Idiome repris de FeatureTabs (underline hairline + segment actif accent). */
+  .he-tabs { margin-bottom: var(--space-9); }
+  .he-tabs__list {
+    display: flex;
+    gap: var(--space-6);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .he-tabs__list::-webkit-scrollbar { display: none; }
+  .he-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    margin-bottom: -1px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    white-space: nowrap;
+    transition:
+      color var(--dur-trim) var(--ease),
+      border-color var(--dur-trim) var(--ease);
+  }
+  .he-tab.is-active {
+    color: var(--ink);
+    border-bottom-color: var(--accent-text);
+  }
+  .he-tab:not(.is-disabled):not(.is-active):hover { color: var(--ink); }
+  .he-tab.is-disabled { cursor: not-allowed; color: var(--muted); }
+  .he-tab__badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card-rest);
+  }
+  .he-tab-panel { display: none; }
+  .he-tab-panel.is-active { display: block; }
+  .he-tab-panel:focus-visible { outline: 2px solid var(--accent-text); outline-offset: var(--space-2); }
+
+  /* ── 03 · Intro du tab 1 (cible + promesse) ── */
+  .he-tabintro {
+    max-width: var(--wrap-read);
+    margin-bottom: var(--space-8);
+  }
+  .he-tabintro__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-3);
+  }
+  .he-tabintro__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
     max-width: var(--wrap-prose);
   }
 
@@ -715,6 +845,54 @@ const mediaDashboard = {
       initHeDraw();
     }
     document.addEventListener('astro:page-load', initHeDraw);
+  })();
+</script>
+
+<script is:inline>
+  /* Tabs familles (money slot 03) · aria tablist/tab/tabpanel + clavier ←/→/Home/End.
+     Idiome FeatureTabs/pricing-tabs, adapte : les onglets desactives (aria-disabled) sont
+     ignores (non focusables, sans panel). 1 seul onglet actif ici, structure prete pour N.
+     Re-init compatible ClientRouter (astro:page-load) + garde anti double-binding. */
+  (() => {
+    if (typeof window === 'undefined') return;
+    function initHeTabs() {
+      const root = document.querySelector('[data-he-tabs]');
+      if (!root || root.dataset.tabsBound === '1') return;
+      const tabs = Array.from(root.querySelectorAll('[role="tab"]'))
+        .filter((t) => t.getAttribute('aria-disabled') !== 'true' && !t.hasAttribute('disabled'));
+      if (!tabs.length) return;
+      root.dataset.tabsBound = '1';
+      function activate(idx) {
+        tabs.forEach((tab, i) => {
+          const active = i === idx;
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          tab.tabIndex = active ? 0 : -1;
+          tab.classList.toggle('is-active', active);
+          const pid = tab.getAttribute('aria-controls');
+          const panel = pid && document.getElementById(pid);
+          if (panel) {
+            panel.classList.toggle('is-active', active);
+            panel.toggleAttribute('hidden', !active);
+          }
+        });
+      }
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => { activate(i); tab.focus(); });
+        tab.addEventListener('keydown', (e) => {
+          const total = tabs.length;
+          if (e.key === 'ArrowRight') { e.preventDefault(); activate((i + 1) % total); tabs[(i + 1) % total].focus(); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); activate((i - 1 + total) % total); tabs[(i - 1 + total) % total].focus(); }
+          if (e.key === 'Home') { e.preventDefault(); activate(0); tabs[0].focus(); }
+          if (e.key === 'End')  { e.preventDefault(); activate(total - 1); tabs[total - 1].focus(); }
+        });
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeTabs);
+    } else {
+      initHeTabs();
+    }
+    document.addEventListener('astro:page-load', initHeTabs);
   })();
 </script>
 </Base>
