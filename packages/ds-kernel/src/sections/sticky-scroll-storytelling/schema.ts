@@ -26,6 +26,26 @@ export const stickyScrollStorytellingSchema = z.object({
   //  - numbering : style du compteur d'étape (numéral serif | aucun).
   numbering: z.enum(['serif', 'none']).optional(),
 
+  // ── Axes de LAYOUT optionnels (défaut absent = rendu signature inchangé) ──
+  //  - frame : cadre optionnel de la section entière. 'expand-ink' = carte ink contenue
+  //      (80 %) qui s'étend à pleine largeur au scroll (idiome StatementOrbit `so-expand`,
+  //      CSS scroll-driven, 0 JS ; fallback + reduced-motion = carte contenue). Aucun axe
+  //      existant ne pilote ce comportement (proportion/mediaRatio = grille interne ;
+  //      background = teinte plate). Rôle distinct → nouvel axe.
+  frame: z.enum(['expand-ink']).optional(),
+  //  - mediaMode : 'sticky' (défaut) = colonne média sticky + crossfade au scroll ;
+  //      'inline' = colonne média supprimée, l'image de chaque étape est tissée dans le
+  //      rail (long-form éditorial, image alternée). Aucun axe existant ne décide de la
+  //      PRÉSENCE/du couplage de la colonne média → nouvel axe.
+  mediaMode: z.enum(['sticky', 'inline']).optional(),
+  //  - mediaTreatment : 'card' (défaut) = cadre média bordé/arrondi ; 'bleed' = panneau
+  //      média immersif sans chrome (bord à bord dans sa colonne). mediaRatio ne gère que
+  //      le ratio, pas le chrome → nouvel axe.
+  mediaTreatment: z.enum(['card', 'bleed']).optional(),
+  //  - railStyle : 'plain' (défaut) = rail aéré ; 'ledger' = étapes séparées par un filet
+  //      (registre / sommaire structuré). density gère le gap, pas les séparateurs → nouvel axe.
+  railStyle: z.enum(['plain', 'ledger']).optional(),
+
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   h2_fr: z.string(),
