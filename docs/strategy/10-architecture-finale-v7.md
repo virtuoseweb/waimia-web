@@ -100,8 +100,13 @@ d'acquisition**.
    méga menu** (ancre ou lien vers hub, règle 0-lien-mort inchangée).
    - Le **SEO-GEO-AIO** a pour hub `/services/content-marketing-intelligent` (la page entre dans
      la nav, colonne Système marketing).
-   - Le hub **site web** porte les déclinaisons en cards : site web WordPress · site web sur
-     mesure · application/MVP · Webflow.
+   - Le hub **site web** porte les déclinaisons en cards **LIÉES aux pages enfants existantes**
+     (`/services/site-web-ia/{wordpress,webflow,sur-mesure}` : contenus déjà présents dans
+     `src/content/services/site-web-ia/`, à désorpheliniser) ; la card Application/MVP reste
+     sans lien tant que sa page n'existe pas (0 lien mort). **Maillage parent/enfant fort
+     obligatoire** : la section dashboard/media du hub affiche les liens vers les services
+     parent/enfant, et chaque page enfant lie son hub parent + ses sœurs (via internal-mesh /
+     related-links, jamais de liens hardcodés).
    - La **formation IA / référent IA** = cards dans le hub Intégration IA.
 2. **Retitrages + 301** :
    - `/services/site-web-intelligent` → slug **`/services/site-web-ia`** (301), H1 « Un site
