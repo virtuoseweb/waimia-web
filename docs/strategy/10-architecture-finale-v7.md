@@ -71,12 +71,26 @@ copy de marque et architecture d'offre, **JAMAIS un `<title>`/H1 ciblé SEO**. �
 intelligent » et « intégrateur Claude » ne sont pas recherchés non plus (concepts de marque, pas
 requêtes). RH et direction/pilotage = requêtes mortes (territoire SIRH / Excel / coaching).
 
-**Familles (étage 2)** : Système marketing (complet aujourd'hui ; la page
-`/services/systeme-complet` est repositionnée comme son bundle) · Intégration IA (couche
-transversale vendable : audit → feuille de route → build agents/automatisations → formation →
-référent IA) · Système commercial (PLUS TARD, angle « OWN » : le client possède son système, vs
-agences prospection « RUN » au RDV) · Système RH / direction : **upsell relationnel uniquement,
-jamais de pages d'acquisition**.
+**Familles (étage 2)** : Système marketing · Intégration IA (couche transversale vendable :
+audit → feuille de route → build agents/automatisations → formation → référent IA) · Système
+commercial (PLUS TARD, angle « OWN » : le client possède son système, vs agences prospection
+« RUN » au RDV) · Système RH / direction : **upsell relationnel uniquement, jamais de pages
+d'acquisition**.
+
+**Système marketing = « système d'exploitation professionnel des équipes marketing »
+(précision Simon 2026-07-12)** :
+- **La page hub du système = `/services/site-web-ia`** (ex-SWI) : elle raconte le système
+  entier ET vend le produit d'entrée. Le SEO/GEO appartient à content-marketing-intelligent,
+  qui appartient au système ; tout converge vers le système final.
+- **Échelle d'upsell (le récit de la page hub)** : site web intelligent → + pack SEO/GEO (un
+  des packs de `/services/content-marketing-intelligent`) → + tunnel de qualification
+  intelligent → + CRM / RevOps = le système business marketing complet.
+- **Grille de la page site-web-ia (5 cards, remplace les 4 paliers actuels)** : Landing page
+  simple · Site web classique · Site web premium (design) · **Site web vitrine intelligent**
+  (sur mesure : système complet avec fonctionnalités IA, dashboard intégrant Google Analytics
+  + Google Search Console, CRM, Stripe, autres intégrations) · Site web sur mesure.
+- Copywriting du hub à adapter en conséquence (chiffres exacts, listes de périmètre complètes
+  par card, rien d'oublié) : **vague 2**.
 
 ### 0bis.3 Décisions d'exécution (Simon 2026-07-12)
 
