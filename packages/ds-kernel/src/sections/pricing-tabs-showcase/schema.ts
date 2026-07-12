@@ -41,6 +41,18 @@ export const schema = z.object({
     label_fr: z.string(),
     label_en: z.string(),
     cards: z.array(offerCardSchema).min(3).max(5),
+    note: z.object({
+      kicker_fr: z.string().optional(),
+      kicker_en: z.string().optional(),
+      title_fr: z.string(),
+      title_en: z.string(),
+      body_fr: z.string(),
+      body_en: z.string(),
+      price: z.string().optional(),
+      period_fr: z.string().optional(),
+      period_en: z.string().optional(),
+      cta: ctaSchema.optional(),
+    }).optional(),
   })).min(2).max(4),
   highlight: z.object({
     kicker_fr: z.string().optional(),
