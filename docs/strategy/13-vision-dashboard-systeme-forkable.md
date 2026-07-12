@@ -63,6 +63,26 @@ besoin/contraintes » devient ici un principe produit, pas seulement un discours
 commercial. 0 captivité (passation incluse) reste un invariant : le fork appartient
 au client.
 
+## 4bis. App SEO autonome branchée au dashboard (ajout Simon 2026-07-12, même session)
+
+C'est sur cette app dashboard que se branchera **notre app SEO / test A/B / amélioration
+continue** : une fois correctement programmée avec les fonctions IA, elle travaille **en
+autonomie** sur le site :
+
+- **SEO continu** : mesure, itération, optimisation sans intervention manuelle ;
+- **Tests A/B** pilotés par l'IA ;
+- **Création générative** : landing pages (et autres surfaces) « parfaites », assemblées
+  avec **toutes les bonnes pièces du puzzle** : le catalogue de sections composables,
+  le DS, le maillage interne, les données de conversion. C'est la continuité directe
+  du serveur MCP catalogue (#41 : `catalogue_search` / `page_compose` / `preview_render`)
+  et de la couche métadonnées sémantiques (C2 : intent/pageRole/slots).
+
+Le dashboard accueille de la même façon **les autres apps/plugins du boilerplate de
+software product** : le repo est pensé comme boilerplate forkable (cf. cadrage builder
+2026-06-29, `docs/specs/05` : features = « plugins standalone », futurs upsell/abo).
+L'app SEO autonome est donc UN plugin du boilerplate parmi d'autres, le premier à forte
+valeur récurrente (il justifie l'abonnement : le site s'améliore tout seul).
+
 ## 5. Ce que ça implique (repères, pas décisions)
 
 - L'existant est déjà orienté dans ce sens : monorepo #40 (packages `ds-tokens`,
