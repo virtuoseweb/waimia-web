@@ -761,7 +761,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 23,
+    "count": 24,
     "pages": [
       "/audit-ia-pme",
       "/audit-maturite-ia",
@@ -782,6 +782,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme",
       "/services/machine-outbound",
+      "/services/site-web-ia",
       "/services/site-web-ia/sur-mesure",
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",

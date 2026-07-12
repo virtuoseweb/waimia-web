@@ -16,7 +16,7 @@ export const prerender = true;
  *   04 ArchitectureDiagram (live, ink) · 05 ServicesGrid 6 services (live, paper)
  *   06 sticky-scroll (C, paper-2) · 07 pain-severity (C, ink)
  *   09 case-card-grid (C, ink) · 10 stats-bento climax (C, paper-2 recoloré)
- *   11 CtaBand (live, accent) · 12 pricing-cards (C, paper)
+ *   11 CtaBand (live, accent) · 12 points d'entrée (related-cards-band inline : 2 grilles + audit, paper)
  *   13 FaqAccordion (live, contenu C, paper-2) · 14 BookSession (live, ink, épuré) · 15 FooterMarquee
  *
  * Retirés (vs V-F2 / variante C) : Acte I StatBlock+SocialProof (doublon de chiffres),
@@ -63,7 +63,43 @@ const statsBentoClimaxC = {
   ...(homeVariantC.sections as any[]).filter((s) => s.type === 'stats-bento')[1],
   background: 'paper-2',
 } as SectionData;
-const pricingCardsC = { ...cByType('pricing-cards'), background: 'paper' } as SectionData;        // 12
+// 12 · points d'entrée (V8 vague 2) · la home ne montre plus de grille détaillée :
+// 2 grilles (site-web-ia · systeme-complet) + audit gratuit. La grille par paliers vit sur les pages service.
+const entryPointsData = {
+  type: 'related-cards-band' as const,
+  background: 'paper' as const,
+  kicker_fr: "§ Points d'entrée",
+  kicker_en: '§ Entry points',
+  cards: [
+    {
+      kicker_fr: 'À PARTIR DE 2 000 € HT',
+      kicker_en: 'FROM 2,000 € EX VAT',
+      title_fr: 'Le système marketing',
+      title_en: 'The marketing system',
+      lead_fr: 'Site web intelligent, contenu et tunnel : la grille détaillée, formule par formule.',
+      lead_en: 'Intelligent website, content and funnel: the detailed grid, plan by plan.',
+      href: localizeHref('/services/site-web-ia', 'fr'),
+    },
+    {
+      kicker_fr: 'SUR DEVIS · TARIF DÉGRESSIF',
+      kicker_en: 'ON QUOTE · DEGRESSIVE RATE',
+      title_fr: 'Le système complet',
+      title_en: 'The complete system',
+      lead_fr: "Inbound et outbound assemblés autour d'une seule base pilotée. La grille du bundle.",
+      lead_en: 'Inbound and outbound assembled around one piloted base. The bundle grid.',
+      href: localizeHref('/services/systeme-complet', 'fr'),
+    },
+    {
+      kicker_fr: 'GRATUIT · 45 MIN',
+      kicker_en: 'FREE · 45 MIN',
+      title_fr: 'Un audit pour se situer',
+      title_en: 'An audit to place yourself',
+      lead_fr: 'Pas sûr du point de départ ? On chiffre le périmètre au diagnostic, sans engagement.',
+      lead_en: 'Not sure where to start? We cost the scope at the diagnosis, no commitment.',
+      href: localizeHref('/contact', 'fr'),
+    },
+  ],
+} satisfies SectionByType<'related-cards-band'>;
 
 // ── Acte II · FIG 2.0 Le système (absorbe le rôle de FeatureGrid) ──────────────
 // Exemples par canal dérivés du copy existant (hero mini-map + SIX_SERVICES) : 0 invention.
@@ -194,8 +230,8 @@ const faqItems = (cByType('faq-accordion').items as any[]).map((it) => ({
     {/* 11 · CtaBand · porte de sortie au moment-prix · frame accent qui casse le run clair */}
     <CtaBandSection data={ctaInlineData} lang="fr" />
 
-    {/* 12 · pricing-cards · points d'entrée (paper) */}
-    <SectionsRenderer sections={[pricingCardsC]} lang="fr" />
+    {/* 12 · points d'entrée · 2 grilles (service + bundle) + audit gratuit, plus de grille détaillée (paper) */}
+    <SectionsRenderer sections={[entryPointsData]} lang="fr" />
 
     {/* 13 · FaqAccordion · 8 questions PME-first · Q.01 ouverte (contenu transcrit de C) */}
     <FaqAccordion
