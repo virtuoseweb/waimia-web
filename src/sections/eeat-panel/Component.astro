@@ -22,13 +22,26 @@ interface Props {
   eyebrow?: string;
   title?: string;
   lead?: string;
+  linkMode?: 'default' | 'compact';
 }
 
-const { variant = 'media', background, eyebrow, title, lead } = Astro.props;
+const rawProps = Astro.props.data ?? Astro.props;
+const {
+  variant = 'media',
+  background,
+  eyebrow,
+  title,
+  lead,
+  linkMode = 'default',
+} = rawProps as Props;
 
 const P = EEAT_PACK;
 const IMG = EEAT_IMAGES;
 const img = (id: string) => IMG.find((i) => i.id === id)!;
+const sectors = linkMode === 'compact' ? P.sectors.slice(0, 2) : P.sectors;
+const articles = linkMode === 'compact' ? P.articles.slice(0, 2) : P.articles;
+const services = linkMode === 'compact' ? P.services.slice(0, 2) : P.services;
+const tools = linkMode === 'compact' ? [] : P.tools;
 
 // Fond dérivé du variant si non forcé : light → paper, sinon ink.
 const bg: 'ink' | 'paper' = background ?? (variant === 'light' ? 'paper' : 'ink');
@@ -94,7 +107,7 @@ const credentials = P.credentials;
             <header class="eep-colhd"><span class="eep-collabel">Secteurs</span></header>
             <div class="eep-colbody">
               <ul class="eep-chips">
-                {P.sectors.map((s) => (
+                {sectors.map((s) => (
                   <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
                 ))}
               </ul>
@@ -108,7 +121,7 @@ const credentials = P.credentials;
             <header class="eep-colhd"><span class="eep-collabel">À lire &amp; services</span></header>
             <div class="eep-colbody">
               <ul class="eep-links">
-                {P.articles.map((a) => (
+                {articles.map((a) => (
                   <li>
                     <a class="eep-link" href={a.href}>
                       <span class="eep-link__kicker">{a.kicker}</span>
@@ -116,10 +129,10 @@ const credentials = P.credentials;
                     </a>
                   </li>
                 ))}
-                {P.services.map((s) => (
+                {services.map((s) => (
                   <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
                 ))}
-                {P.tools.map((t) => (
+                {tools.map((t) => (
                   <li>
                     <a class="eep-link" href={t.href}>
                       <span class="eep-link__kicker">{t.kicker}</span>
@@ -200,7 +213,7 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--sectors">
           <span class="eep-celllabel">Secteurs</span>
           <ul class="eep-chips">
-            {P.sectors.map((s) => (
+            {sectors.map((s) => (
               <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
             ))}
           </ul>
@@ -221,7 +234,7 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--read">
           <span class="eep-celllabel">À lire</span>
           <ul class="eep-links">
-            {P.articles.map((a) => (
+            {articles.map((a) => (
               <li>
                 <a class="eep-link" href={a.href}>
                   <span class="eep-link__kicker">{a.kicker}</span>
@@ -248,10 +261,10 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--services">
           <span class="eep-celllabel">Services &amp; outil</span>
           <ul class="eep-links">
-            {P.services.map((s) => (
+            {services.map((s) => (
               <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
             ))}
-            {P.tools.map((t) => (
+            {tools.map((t) => (
               <li>
                 <a class="eep-link" href={t.href}>
                   <span class="eep-link__kicker">{t.kicker}</span>
@@ -303,7 +316,7 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--sectors">
           <span class="eep-celllabel">Secteurs</span>
           <ul class="eep-chips">
-            {P.sectors.map((s) => (
+            {sectors.map((s) => (
               <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
             ))}
           </ul>
@@ -312,7 +325,7 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--read">
           <span class="eep-celllabel">À lire</span>
           <ul class="eep-links">
-            {P.articles.map((a) => (
+            {articles.map((a) => (
               <li>
                 <a class="eep-link" href={a.href}>
                   <span class="eep-link__kicker">{a.kicker}</span>
@@ -339,10 +352,10 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--services">
           <span class="eep-celllabel">Services &amp; outil</span>
           <ul class="eep-links">
-            {P.services.map((s) => (
+            {services.map((s) => (
               <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
             ))}
-            {P.tools.map((t) => (
+            {tools.map((t) => (
               <li>
                 <a class="eep-link" href={t.href}>
                   <span class="eep-link__kicker">{t.kicker}</span>
