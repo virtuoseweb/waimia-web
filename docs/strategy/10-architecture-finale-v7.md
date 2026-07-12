@@ -27,6 +27,122 @@
 
 ---
 
+## 0bis. ADDENDUM V8 (2026-07-12) — Positionnement « systèmes business » + architecture 3 étages (VALIDÉ Simon)
+
+> **Statut : VALIDÉ Simon 2026-07-12** (décisions 1-4 explicites en session). Supersede le §4
+> ci-dessous pour le positionnement, le nom des offres et la colonne Solutions de la nav.
+> Fondé sur 4 recherches empiriques (audit prod live + docs, intentions de recherche FR via
+> autocomplete/SERP, benchmark 12 concurrents FR + 8 studios EN, vocabulaire par fonction).
+
+### 0bis.1 Positionnement final
+
+Le métier = **ingénierie de systèmes business** (analyser les process → concevoir → construire
+→ intégrer → opérer/former). Ni cabinet de conseil, ni ESN, ni agence marketing, ni « agence IA ».
+
+| Niveau | Formulation canonique | Rôle |
+|---|---|---|
+| **Signature (H1 home)** | « Le studio qui construit les *systèmes* qui font tourner votre *PME*. » | Mémorisation (évolution douce du H1 précédent) |
+| **Définition GEO (extractible)** | « Waimia est un studio d'ingénierie français basé à Montpellier qui conçoit, développe et intègre les systèmes business des PME : site, tunnel de conversion, CRM, automatisations et agents IA, connectés en un seul système que l'entreprise possède. » | Ce que les LLM citent |
+| **Sous-titre classable** | « Agence d'automatisation et d'intégration IA pour PME » | Label des comparatifs/LLM ; metadata, footer, à-propos, JAMAIS en signature |
+| **Pitch** | « Votre PME tourne sur des systèmes : un qui trouve des clients, un qui vend, un qui produit. Nous les construisons, nous les connectons, et vous les possédez. » | Oral, à-propos |
+
+Trois verbes structurants : **concevoir** (audit process, feuille de route : le conseil est DANS
+le métier), **construire** (software engineering, cœur véridique), **opérer** (run, maintenance,
+formation, récurrent).
+
+**Différenciation révisée (remplace « anthropic-first »)** : on **adapte la solution au besoin
+et aux contraintes** : Claude / GPT / Mistral ; Astro-React-Next sur mesure OU WordPress /
+Webflow ; Make / Zapier / n8n OU sur-mesure. Claude reste la **lance SEO/GEO** (case quasi
+vierge côté prestataires FR), pas l'identité. On n'est PAS anti no-code : on l'intègre quand
+c'est le bon composant. Le différenciateur constant : **production (pas POC), système possédé
+par le client (0 captivité), interlocuteur direct.**
+
+### 0bis.2 Architecture 3 étages (la règle de nommage)
+
+| Étage | Rôle | Langage |
+|---|---|---|
+| 1 · Marque | mémorisation + classement GEO | « studio », « systèmes business » |
+| 2 · Systèmes par fonction | modèle mental + nav + pages bundle | « Système marketing », « Intégration IA »… (récit, PAS cibles SEO) |
+| 3 · Portes d'entrée | capter les requêtes réelles | 1 page = 1 requête (grammaire : outcome + agence/consultant/formation/outil) |
+
+**Données verrouillées (recherche 2026-07-12)** : les formulations « système X » ont **0 demande
+de recherche FR** (autocomplete dérive vers l'académique/« vente pyramidale ») → « système » =
+copy de marque et architecture d'offre, **JAMAIS un `<title>`/H1 ciblé SEO**. « Site web
+intelligent » et « intégrateur Claude » ne sont pas recherchés non plus (concepts de marque, pas
+requêtes). RH et direction/pilotage = requêtes mortes (territoire SIRH / Excel / coaching).
+
+**Familles (étage 2)** : Système marketing · Intégration IA (couche transversale vendable :
+audit → feuille de route → build agents/automatisations → formation → référent IA) · Système
+commercial (PLUS TARD, angle « OWN » : le client possède son système, vs agences prospection
+« RUN » au RDV) · Système RH / direction : **upsell relationnel uniquement, jamais de pages
+d'acquisition**.
+
+**Système marketing = « système d'exploitation professionnel des équipes marketing »
+(précision Simon 2026-07-12)** :
+- **La page hub du système = `/services/site-web-ia`** (ex-SWI) : elle raconte le système
+  entier ET vend le produit d'entrée. Le SEO/GEO appartient à content-marketing-intelligent,
+  qui appartient au système ; tout converge vers le système final.
+- **Échelle d'upsell (le récit de la page hub)** : site web intelligent → + pack SEO/GEO (un
+  des packs de `/services/content-marketing-intelligent`) → + tunnel de qualification
+  intelligent → + CRM / RevOps = le système business marketing complet.
+- **Grille de la page site-web-ia (4 cards, remplace les 4 paliers actuels)** : Landing page ·
+  Site vitrine · Site premium (design) · **Sur mesure** (le complet du système marketing, prix
+  « à partir de X » : fonctionnalités IA, dashboard intégrant Google Analytics + Google Search
+  Console, CRM, Stripe, autres intégrations). ⚠️ « Intelligent » qualifie TOUTE la gamme
+  (chaque offre est un site web intelligent) : aucune card ne porte le nom « site web
+  intelligent ».
+- Copywriting du hub à adapter en conséquence (chiffres exacts, listes de périmètre complètes
+  par card, rien d'oublié) : **vague 2**.
+
+### 0bis.3 Décisions d'exécution (Simon 2026-07-12)
+
+1. **Pas de nouvelles pages** « formation IA » / « GEO » : des **cards dans les hubs + entrées
+   méga menu** (ancre ou lien vers hub, règle 0-lien-mort inchangée).
+   - Le **SEO-GEO-AIO** a pour hub `/services/content-marketing-intelligent` (la page entre dans
+     la nav, colonne Système marketing).
+   - Le hub **site web** porte les déclinaisons en cards **LIÉES aux pages enfants existantes**
+     (`/services/site-web-ia/{wordpress,webflow,sur-mesure}` : contenus déjà présents dans
+     `src/content/services/site-web-ia/`, à désorpheliniser) ; la card Application/MVP reste
+     sans lien tant que sa page n'existe pas (0 lien mort). **Maillage parent/enfant fort
+     obligatoire** : la section dashboard/media du hub affiche les liens vers les services
+     parent/enfant, et chaque page enfant lie son hub parent + ses sœurs (via internal-mesh /
+     related-links, jamais de liens hardcodés).
+   - La **formation IA / référent IA** = cards dans le hub Intégration IA.
+2. **Retitrages + 301** :
+   - `/services/site-web-intelligent` → slug **`/services/site-web-ia`** (301), H1 « Un site
+     web IA pour PME » ; « site web intelligent » reste le **concept propriétaire** (définition
+     extractible dans le corps : « nous appelons ça un site web intelligent »).
+   - `/services/integrateur-claude` → slug **`/services/integration-claude`** (301), H1
+     « Intégration Claude en entreprise » (pattern de requête réel ; « intégrateur » attire les
+     candidats, pas les clients).
+   - 301 des URLs nues `/site-web-intelligent` et `/integrateur-claude` (404 aujourd'hui) vers
+     les pages services.
+3. **Hiérarchie pricing 3 niveaux** (répare l'incohérence prod relevée en audit) : home =
+   points d'entrée seulement (« à partir de… ») · page système = prix du bundle (+ économie vs
+   briques) · page service = SA grille 3-4 paliers. **Noms de paliers distincts par niveau**
+   (les paliers d'un service ne portent jamais les mêmes noms que ceux du bundle). Page =
+   requête, palier = périmètre, feature (tracking, consentement, GSC/GSA, hébergement,
+   maintenance, chatbot…) = ligne de tableau.
+4. **Nav Solutions v8** : col 1 **Système marketing** (tête → bundle ; liens : site web IA ·
+   tunnel de qualification · content marketing & SEO-GEO-AIO · maintenance-growth) · col 2
+   **Intégration IA** (tête → intégration Claude ; liens : intégration Claude · agents IA ·
+   consultant IA + cards formation/référent) · col 3 Résoudre un problème (inchangée) · col 4 /
+   featured : audits. Les **titres de colonnes** portent le récit « système », les **liens**
+   portent les requêtes.
+
+### 0bis.4 Interdits (anti-scénarios, validés par les données)
+
+- ❌ Pages d'acquisition « Système RH » / « Système direction » (0 requête, dilution).
+- ❌ « Système X » ou « site web intelligent » ou « intégrateur Claude » comme title/H1 ciblé SEO.
+- ❌ « agence GEO » seul (autocomplete pollué par Geodis) → toujours « generative engine
+  optimization », « GEO SEO », « visibilité ChatGPT ».
+- ❌ Attaque frontale « agence prospection B2B » (catégorie la plus commoditisée du lot) tant
+  que l'angle OWN + preuve n'existent pas.
+- ❌ 1 page par outil (Mistral, Webflow, Make…) sans cas réel : les outils vivent en cards,
+  briques et tableaux comparatifs DANS les hubs (index-on-quality inchangé).
+
+---
+
 ## 1. La doctrine anti-dilution, correctement appliquée (le cœur)
 
 **Ce que `strategy/02` a vu juste** : sur un domaine sans Domain Authority, le crawl budget et
@@ -95,12 +211,17 @@ convertir via `/audit-ia-pme` et `/audit-site-web-intelligent`.
 
 ## 4. Positionnement (2 offres) & nav
 
-**Positionnement** (cf `strategy/02 §0ter`, conservé) : cabinet d'orchestration IA / conseil en
-transformation IA. **PAS une agence web.** Deux offres porteuses :
-- **Site Web Intelligent** — porte d'entrée tangible (preuve, pas produit). Marque = « site web
-  **intelligent** » ; « site web IA / IA-native » = mots-clés de support dans le corps.
-- **Intégration Claude** — intégrateur/consultant Claude & Claude Code, agents, gouvernance IA.
-  C'est le **flagship SEO #1** (`/services/integrateur-claude`).
+> ⚠️ **SUPERSEDED par §0bis (V8, 2026-07-12)** pour le positionnement, le nom des offres et la
+> colonne Solutions. Le « cabinet d'orchestration IA » de `strategy/02 §0ter` était déjà écarté
+> le 2026-06-15 (cf `README.md` §Positionnement + `state/RECONCILIATION-REPORT.md` §1) : la
+> marque est « **studio** ». Le reste de ce §4 (menus Cas clients / Ressources / Agence, règle
+> 0-lien-mort, footer) reste valide.
+
+Positionnement courant : voir **§0bis.1**. Deux offres porteuses (étage 3, portes d'entrée) :
+- **Site web IA** (ex « Site Web Intelligent », retitré + 301, cf §0bis.3) — porte d'entrée
+  tangible ; « site web intelligent » = concept propriétaire dans le corps.
+- **Intégration Claude en entreprise** (ex « Intégrateur Claude », retitré + 301) — flagship
+  GEO #1 (case quasi vierge côté prestataires FR).
 
 **Nav = 4 méga-menus** (réinjectés data-driven dans `src/data/mega-menu.ts`, 0 markup touché) :
 

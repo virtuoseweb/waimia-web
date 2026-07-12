@@ -192,17 +192,15 @@ const RESSOURCES: MegaMenuSection = {
     : undefined,
 };
 
-// ─── SOLUTIONS · refonte Phase 1 V7-FOLD 2026-06-22 : on REDUIT le nombre de pages
-// service. Les sous-capacités ne sont plus des pages satellites mais des sections
-// `feature-zigzag` DANS leur page parente. 4 colonnes : Site web intelligent (3 pages :
-// site-web-intelligent, landing-page-scoring, maintenance-growth) · Intégration Claude
-// (3 pages : integrateur-claude, consultant-ia-claude, agents-ia) · Résoudre un problème
-// (cas-usages, soon). La colonne Audits est supprimée → le panneau featured devient le
-// PANNEAU AUDIT (image stylée + CTA bouton vers /contact). Les ex-satellites (geo, seo-ia, crm-intelligent,
-// lead-scoring-ia, integrateur-claude-code, referent-ia, gouvernance-ia) sont repliés en
-// sections et retirés de la nav. content-marketing-intelligent reste une page indexée,
-// atteinte depuis la brique « Content Marketing » de site-web-intelligent (hors nav).
-// Liens cols 1-2 = 100% réels + indexables. Featured = Growth System IA.
+// ─── SOLUTIONS · refonte V8 2026-07-12 (docs/strategy/10 §0bis, décisions Simon) :
+// les titres de colonnes portent le récit « système », les liens portent les requêtes réelles.
+// Col 1 « Système marketing » (4 pages : site-web-ia [renommé depuis site-web-intelligent],
+// landing-page-scoring, content-marketing-intelligent [entre en nav], maintenance-growth ;
+// tête + footer → /services/site-web-ia, hub du système marketing). Col 2 « Intégration IA »
+// (3 pages : integration-claude [renommé depuis integrateur-claude], agents-ia,
+// consultant-ia-claude ; footer → /services/integration-claude). Col 3 « Résoudre un problème »
+// (cas-usages, footer /cas-usages cliquable). Featured « Système complet » INCHANGÉ (vague 2).
+// Liens cols 1-2 = 100% réels + indexables.
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
@@ -214,20 +212,25 @@ const SOLUTIONS: MegaMenuSection = {
   },
   columns: [
     {
-      kicker: { fr: 'SITE WEB INTELLIGENT', en: 'SMART WEBSITE' },
-      title: { fr: 'Site web intelligent', en: 'Smart website' },
-      goal: { fr: 'Générer plus de leads, alléger le marketing', en: 'Generate more leads, lighten marketing' },
+      kicker: { fr: 'SYSTÈME MARKETING', en: 'MARKETING SYSTEM' },
+      title: { fr: 'Système marketing', en: 'Marketing system' },
+      goal: { fr: 'Générer des clients, alléger le marketing', en: 'Generate customers, lighten marketing' },
       links: [
         {
-          label: { fr: 'Site web intelligent', en: 'Smart website' },
-          href: '/services/site-web-intelligent',
+          label: { fr: 'Site web IA', en: 'AI website' },
+          href: '/services/site-web-ia',
           description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
           badge: { fr: 'Offre phare', en: 'Flagship' },
         },
         {
-          label: { fr: 'Tunnel de qualification intelligent', en: 'Smart qualification funnel' },
+          label: { fr: 'Tunnel de qualification', en: 'Qualification funnel' },
           href: '/services/landing-page-scoring',
           description: { fr: 'Landing pages qui convertissent et scoring qui priorise vos leads.', en: 'Landing pages that convert and scoring that prioritises your leads.' },
+        },
+        {
+          label: { fr: 'Content marketing & SEO-GEO', en: 'Content marketing & SEO-GEO' },
+          href: '/services/content-marketing-intelligent',
+          description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
         },
         {
           label: { fr: 'Maintenance & growth', en: 'Maintenance & growth' },
@@ -237,34 +240,34 @@ const SOLUTIONS: MegaMenuSection = {
       ],
       footer: {
         label: { fr: 'Découvrir l\'offre →', en: 'Explore the offer →' },
-        href: '/services/site-web-intelligent',
+        href: '/services/site-web-ia',
       },
     },
     {
-      kicker: { fr: 'INTÉGRATION CLAUDE', en: 'CLAUDE INTEGRATION' },
-      title: { fr: 'Intégration Claude', en: 'Claude integration' },
+      kicker: { fr: 'INTÉGRATION IA', en: 'AI INTEGRATION' },
+      title: { fr: 'Intégration IA', en: 'AI integration' },
       goal: { fr: 'Standardiser, gagner du temps, exploiter le savoir', en: 'Standardize, save time, leverage knowledge' },
       links: [
         {
-          label: { fr: 'Intégrateur Claude', en: 'Claude integrator' },
-          href: '/services/integrateur-claude',
+          label: { fr: 'Intégration Claude', en: 'Claude integration' },
+          href: '/services/integration-claude',
           description: { fr: 'Claude en entreprise, Claude Code, gouvernance et formation, en production.', en: 'Claude in the enterprise, Claude Code, governance and training, in production.' },
           badge: { fr: 'Offre phare', en: 'Flagship' },
-        },
-        {
-          label: { fr: 'Consultant IA Claude', en: 'Claude AI consultant' },
-          href: '/services/consultant-ia-claude',
-          description: { fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter.', en: 'Audit, frame and prioritise your AI use cases, then drive adoption.' },
         },
         {
           label: { fr: 'Agents IA', en: 'AI agents' },
           href: '/services/agents-ia',
           description: { fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision.', en: 'Autonomous agents wired to your tools via MCP, under supervision.' },
         },
+        {
+          label: { fr: 'Consultant IA Claude', en: 'Claude AI consultant' },
+          href: '/services/consultant-ia-claude',
+          description: { fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter.', en: 'Audit, frame and prioritise your AI use cases, then drive adoption.' },
+        },
       ],
       footer: {
         label: { fr: 'Voir le service →', en: 'See the service →' },
-        href: '/services/integrateur-claude',
+        href: '/services/integration-claude',
       },
     },
     {
@@ -289,9 +292,10 @@ const SOLUTIONS: MegaMenuSection = {
           href: '/contact',
         },
       ],
-      // V7-FOLD 2026-06-22 : 3 problèmes pour équilibrer avec les colonnes 1-2
-      // (3 liens + footer). Footer « Voir tous les problèmes » en soon (le hub
-      // /cas-usages n'existe pas encore, Phase B) → non-cliquable, 0 lien mort.
+      // V7-FOLD 2026-06-22 · MAJ V8 2026-07-12 : 3 problèmes pour équilibrer avec les
+      // colonnes 1-2 (3 liens + footer). Le hub /cas-usages EXISTE et répond 200 (page
+      // src/pages/cas-usages/index.astro) → footer « Voir tous les problèmes » cliquable
+      // (plus de `soon`), 0 lien mort.
       footer: {
         label: { fr: 'Voir tous les problèmes →', en: 'See all problems →' },
         href: '/cas-usages',
@@ -513,7 +517,7 @@ const AGENCE: MegaMenuSection = {
         },
         {
           label: { fr: 'Expertise Claude', en: 'Claude expertise' },
-          href: '/services/integrateur-claude',
+          href: '/services/integration-claude',
           description: {
             fr: 'Anthropic-first : un modèle par tâche.',
             en: 'Anthropic-first: one model per task.',

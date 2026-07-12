@@ -1,7 +1,7 @@
-# Session handoff — 1782505856-86810
+# Session handoff — 1783828383-19702
 
 > Auto-snapshot par `session-snapshot.sh` (rule 35 anti-perte de flow).
-> Date : 2026-06-26 22:45:09
+> Date : 2026-07-12 06:42:35
 
 
 
@@ -9,16 +9,12 @@
 
 ## Git state
 
-- Branche : `worktree-1782505856-86810`
-- Dernier commit : b3effb6 docs(v7): réconciliation des sources de vérité, gel du backlog P0-P4 sous V7
+- Branche : `worktree-1783828383-19702`
+- Dernier commit : d6ad006a fix(types): résorber les 59 erreurs astro check (dette baseline)
 - Working tree :
 
 ```
- M scripts/check-internal-links.mjs
- M src/components/header/Header.astro
- M src/content/services/consultant-ia-claude.mdx
- M src/content/services/integrateur-claude.mdx
- M src/content/services/maintenance-growth.mdx
+ M docs/SESSION-HANDOFF-CURRENT.md
 ```
 
 ## Workers actifs au snapshot
@@ -30,7 +26,7 @@
 
 ## CWD
 
-`/Users/simonberos/waimia-web/.worktrees/1782505856-86810`
+`/Users/simonberos/waimia-web/.worktrees/1783828383-19702`
 
 ## Reprendre la session
 
