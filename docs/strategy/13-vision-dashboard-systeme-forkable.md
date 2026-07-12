@@ -83,6 +83,26 @@ software product** : le repo est pensé comme boilerplate forkable (cf. cadrage 
 L'app SEO autonome est donc UN plugin du boilerplate parmi d'autres, le premier à forte
 valeur récurrente (il justifie l'abonnement : le site s'améliore tout seul).
 
+**Compléments (Simon 2026-07-12, suite)** :
+
+- **Données branchées** : on y connecte **GSC** (Google Search Console) et les autres
+  outils de tracking (Analytics, etc.). L'amélioration continue s'appuie sur la donnée
+  réelle, pas sur des heuristiques.
+- **E-commerce** : le dashboard gère « tout un tas de choses » pour les e-commerçants
+  (périmètre à détailler : catalogue, fiches produit, SEO produit, flux).
+- **Automatisation du support** client.
+- **Réduction des clics par jour** : des workflows étudiés pour réduire le travail
+  manuel quotidien de l'équipe. Le « nombre de clics économisés par jour » est une
+  métrique produit en soi.
+- **L'agent IA opère comme une équipe marketing complète (ou presque)** : organisation
+  simple et efficace, **workflows + SOP ultra clean**. Le produit n'est pas un outil de
+  plus : c'est une équipe marketing packagée (analyse, création, test, itération) avec
+  ses procédures opératoires standardisées.
+
+Cohérence commerciale : ça matérialise exactement la promesse V8 de la famille
+« Système marketing » (strategy/10) : le système marketing vendu en prestation devient,
+à terme, un produit qui tourne seul dans le dashboard.
+
 ## 5. Ce que ça implique (repères, pas décisions)
 
 - L'existant est déjà orienté dans ce sens : monorepo #40 (packages `ds-tokens`,
