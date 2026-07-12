@@ -1,0 +1,777 @@
+---
+export const prerender = true;
+
+/**
+ * Home · variante E · MAQUETTE design-lab (etapes 0 a 2, arret GATE B).
+ * noindex, hors nav, hors sitemap. Ne remplace PAS la home live.
+ *
+ * Objectif E = la home LIVE raccourcie, hierarchisee, dedoublonnee, clarifiee,
+ * en gardant la richesse visuelle du live (SVG line-art, animations au scroll).
+ * Corrige la variante D (rejetee : trop plate + ~20 px en dur) : ici 0 valeur en
+ * dur (100 % var(--token) ; hairlines = box-shadow --shadow-card-rest + global
+ * .hline ; pas de literal px hors @media / viewBox SVG) + SVG dessines au scroll.
+ *
+ * Sequence (10 slots) · alternance paper/ink stricte, jamais 2 ink adjacents :
+ *   01 Hero (live, paper, composant INTOUCHE)
+ *   02 Ecosysteme opere · logo-marquee (SectionsRenderer, ink + grayscale) · bande courte
+ *   03 Les deux offres (#offres) · MONEY SLOT · diptyque + rangee 6 services + dorsale SVG (paper)
+ *   04 Le systeme · ArchitectureDiagram (live, ink) · SEUL recit « une architecture / six entrees / boucle »
+ *   05 La tension · 3 douleurs sobres (direct, paper-2)
+ *   06 Tableau de bord media · 2e stats-bento de C (SectionsRenderer, ink) · CLIMAX chiffre
+ *   07 Cas clients · 3 cartes compactes + ligne CTA discrete (direct, paper)
+ *   08 Methode · frise 3 paliers condenses + path SVG (direct, paper-2)
+ *   09 FAQ · 6 questions, prix garde (FaqAccordion, paper) · SEULE mention de prix
+ *   10 Action · BookSession (ink) + FooterMarquee
+ *
+ * Doublons du live supprimes (a NE PAS reintroduire) : feature-zigzag (absorbe slot 03),
+ * ServicesGrid (absorbe slot 03), sticky-scroll (condense slot 08), pricing-cards
+ * (directive : pas de prix hors FAQ), CtaBand accent (remplace par la ligne CTA slot 07),
+ * SectionTransition (hierarchie par le design), 1er stats-bento Acte I, bento-grid,
+ * eeat-panel, hero-masthead-card (Hero live garde). « Couche continue » = slot 04 seul.
+ */
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/ui/organisms/Hero.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import ArchitectureDiagram from '../../components/sections/ArchitectureDiagram.astro';
+import FaqAccordion from '../../components/sections/FaqAccordion.astro';
+import BookSession from '../../components/ui/organisms/BookSession.astro';
+import FooterMarquee from '../../components/ui/organisms/FooterMarquee.astro';
+import homeVariantC from '../../data/page-variants/home/c.json';
+import { SIX_SERVICES } from '../../data/sitemap';
+import type { SectionByType, SectionData } from '@waimia/ds-kernel';
+
+const sectionsC = homeVariantC.sections as any[];
+const cByType = (t: string) => sectionsC.find((s) => s.type === t);
+
+// 02 · ecosysteme opere · logo-marquee sur fond ink + grayscale (config C, bande courte).
+const logoMarquee = {
+  ...cByType('logo-marquee'),
+  background: 'ink',
+  grayscale: true,
+  kicker_fr: "§ L’écosystème qu’on opère",
+} as SectionData;
+
+// 04 · Le systeme · ArchitectureDiagram · objet COPIE tel quel de index.astro (live).
+const architectureDiagramData = {
+  type: 'architecture-diagram' as const,
+  background: 'ink' as const,
+  fig_num: 'FIG II · 2.0',
+  fig_title_fr: 'Acte II : Le système', fig_title_en: 'Act II: The system',
+  spec_fr: 'CANAUX · SYSTÈME · ACTIONS', spec_en: 'CHANNELS · SYSTEM · ACTIONS',
+  h2_fr: 'Une seule <i>architecture</i>.<br/>Six entrées, quatre sorties, mille décisions.',
+  h2_en: 'One <i>architecture</i>.<br/>Six inputs, four outputs, a thousand decisions.',
+  inputs_fr: ['Ads', 'Contenu', 'Site', 'CRM', 'Analytics', 'Marque'],
+  inputs_en: ['Ads', 'Content', 'Site', 'CRM', 'Analytics', 'Brand'],
+  input_examples_fr: [
+    'Google Ads, Meta, LinkedIn reliés au pipeline',
+    'Articles SEO/GEO produits et indexés',
+    'Landing, tunnel, CMS branchés au CRM',
+    'Relances, qualification, alertes automatiques',
+    'GA4 et Search Console lus en tableaux de bord',
+    'Design system, decks, PDF alignés',
+  ],
+  input_examples_en: [
+    'Google Ads, Meta, LinkedIn wired to the pipeline',
+    'SEO/GEO articles produced and indexed',
+    'Landing, funnel, CMS plugged into the CRM',
+    'Follow-ups, qualification, automatic alerts',
+    'GA4 and Search Console read as dashboards',
+    'Design system, decks, PDF aligned',
+  ],
+  outputs_fr: ['Actions', 'Supports', 'Reporting', 'Pipeline'],
+  outputs_en: ['Actions', 'Assets', 'Reports', 'Pipeline'],
+  system_label: 'Waimia', system_kicker: 'AI SYSTEM', system_subtitle: 'multi-agent',
+  show_loop: true,
+  loop_label_fr: 'BOUCLE D’AMÉLIORATION CONTINUE', loop_label_en: 'CONTINUOUS IMPROVEMENT LOOP',
+  caption_fr: "Six canaux entrent. Quatre familles d'<i>actions</i> sortent. Au milieu, un système multi-agents qui mesure, apprend et réinjecte, sans relance manuelle.",
+  caption_en: 'Six channels in. Four families of <i>actions</i> out. In between, a multi-agent system that measures, learns and reinjects, without manual chasing.',
+} satisfies SectionByType<'architecture-diagram'>;
+
+// 06 · tableau de bord media = 2e stats-bento de C (layout bento : tuile vedette ink + KPI).
+const statsBentoDashboard = {
+  ...sectionsC.filter((s) => s.type === 'stats-bento')[1],
+  background: 'ink',
+  kicker_fr: '§ Ce que ça change',
+} as SectionData;
+
+// 05 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
+const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
+  severity: it.severity as string,
+  title: it.title_fr as string,
+  desc: it.desc_fr as string,
+  fix: it.fix_fr as string,
+}));
+const sevLabel: Record<string, string> = { critical: 'Critique', high: 'Élevé', medium: 'Moyen' };
+
+// 07 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
+const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
+  client: c.client as string,
+  meta: `${c.sector_fr} · ${c.duration}`,
+  impact: c.impact_fr as string,
+  href: c.href as string,
+}));
+
+// 08 · Methode · frise 3 paliers CONDENSES des 4 steps du sticky-scroll de C (remplace la section haute).
+const methodSteps = [
+  {
+    num: 'I',
+    eyebrow: 'Activation rapide',
+    title: 'Identifier le levier et livrer vite',
+    body: 'Audit process en 5 jours, formation de l’équipe, premier workflow en production. On part du concret, pas d’un PowerPoint.',
+  },
+  {
+    num: 'II',
+    eyebrow: 'Productivité opérationnelle',
+    title: 'Supprimer les tâches récurrentes',
+    body: 'On retire les tâches répétitives ; les workflows internes tournent sans relance quotidienne.',
+  },
+  {
+    num: 'III',
+    eyebrow: 'Acquisition & infrastructure',
+    title: 'Connecter, industrialiser, passer la main',
+    body: 'Site, CRM et contenu reliés, puis systèmes connectés et passation : vous gardez la main et la stack.',
+  },
+];
+
+// 09 · FAQ · 6 questions (sous-ensemble des 8 de C) · Q.01 = prix (SEULE mention de prix), ouverte.
+const faqAll = (cByType('faq-accordion').items as any[]);
+const faqItems = [0, 1, 2, 3, 4, 6].map((i) => ({ q: faqAll[i].q_fr, a: faqAll[i].a_fr }));
+
+// 03 · 6 services (label + mini-lead + lien) · ABSORPTION de ServicesGrid · source SIX_SERVICES.
+const services = SIX_SERVICES.map((s) => ({
+  metric: s.metric.fr,
+  label: s.label.fr,
+  sub: s.connectors.fr,
+  href: s.href,
+}));
+---
+<Base
+  title="Home variante E · maquette design-lab · Waimia"
+  description="Maquette interne de la home variante E. Page de laboratoire, non indexée."
+  noindex
+>
+  {/* 01 · Hero live · promesse + mini-map 6 territoires + CTAs · INTOUCHE (reference qualite) */}
+  <Hero />
+
+  {/* 02 · Ecosysteme opere · logo-marquee ink + grayscale · bande courte */}
+  <SectionsRenderer sections={[logoMarquee]} lang="fr" />
+
+  {/* 03 · Les deux offres · MONEY SLOT · diptyque + dorsale SVG + rangee 6 services */}
+  <section class="he-sec he-offres" id="offres" aria-labelledby="he-offres-h2">
+    <div class="wrap-wide">
+      <header class="he-head reveal">
+        <p class="he-kicker">§ Deux offres</p>
+        <h2 id="he-offres-h2" class="he-h2 he-h2--xl u-serif-accent">Un <i>site qui travaille</i>, des agents qui <i>agissent</i>.</h2>
+        <p class="he-lede">Deux portes d’entrée, un même système connecté. On active celle qui sert votre maturité, on branche le reste quand c’est rentable.</p>
+      </header>
+
+      <div class="he-diptych reveal-stagger">
+        <article class="he-offer">
+          <p class="he-offer__tag">Offre 01</p>
+          <h3 class="he-offer__title">Site web intelligent</h3>
+          <p class="he-offer__body">Un site Astro + IA, rapide, indexé par Google ET par les moteurs IA, branché à votre CRM. Vitrine et acquisition dans un même canal : landing, tunnel et pages évolutives reliés au pipeline, pas une plaquette figée.</p>
+          <div class="hline"></div>
+          <ul class="he-offer__points">
+            <li>Astro + IA, trouvé par Google et les IA</li>
+            <li>Landing, tunnel et pages branchés au CRM</li>
+            <li>Vitrine et acquisition dans un même canal</li>
+          </ul>
+          <a class="he-offer__link" href="/services/site-web-intelligent">Voir l’offre →</a>
+        </article>
+
+        <article class="he-offer">
+          <p class="he-offer__tag">Offre 02</p>
+          <h3 class="he-offer__title">Intégration Claude</h3>
+          <p class="he-offer__body">On déploie Claude et ses agents dans votre entreprise et on les branche à vos outils via MCP : CRM, e-mail, base de données, dépôt Git. Ce qui fait passer un assistant de la conversation à l’action, sur vos données réelles.</p>
+          <div class="hline"></div>
+          <ul class="he-offer__points">
+            <li>Claude et ses agents en production</li>
+            <li>Serveurs MCP propres vers vos outils</li>
+            <li>Gouvernance, mesure et passation incluses</li>
+          </ul>
+          <a class="he-offer__link" href="/services/integrateur-claude">Voir l’offre →</a>
+        </article>
+      </div>
+
+      {/* Dorsale line-art · relie visuellement les 2 cartes puis les 6 services · dessinee au scroll */}
+      <div class="he-rail hd-draw" aria-hidden="true">
+        <svg class="he-rail__svg" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
+          <path class="hd-line hd-line--2" pathLength="1" d="M300 4 C 300 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
+          <path class="hd-line hd-line--2" pathLength="1" d="M900 4 C 900 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M600 62 L600 108" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.6"/>
+          <path class="hd-line" pathLength="1" d="M100 108 L1100 108" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M100 108 L100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M300 108 L300 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M500 108 L500 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M700 108 L700 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M900 108 L900 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M1100 108 L1100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <circle class="hd-node" cx="600" cy="62" r="4" fill="var(--accent)"/>
+          <circle class="hd-node" cx="100" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="300" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="500" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="700" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="900" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="1100" cy="146" r="3" fill="var(--accent)"/>
+        </svg>
+      </div>
+
+      <p class="he-services__intro reveal">§ Six services, une seule équipe. On active celui qui sert d’abord.</p>
+      <div class="he-services reveal-stagger">
+        {services.map((s) => (
+          <a class="he-svc" href={s.href}>
+            <span class="he-svc__k">{s.metric}</span>
+            <span class="he-svc__label">{s.label}</span>
+            <span class="he-svc__sub">{s.sub}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* 04 · Le systeme · ArchitectureDiagram · UN seul recit « une architecture / six entrees / boucle » (ink) */}
+  <ArchitectureDiagram data={architectureDiagramData} lang="fr" />
+
+  {/* 05 · La tension · 3 douleurs sobres (paper-2) */}
+  <section class="he-sec he-tension" aria-labelledby="he-tension-h2">
+    <div class="wrap-wide">
+      <header class="he-head reveal">
+        <p class="he-kicker">§ La tension</p>
+        <h2 id="he-tension-h2" class="he-h2 u-serif-accent">Là où l’argent <i>fuit</i> en interne.</h2>
+      </header>
+      <ul class="he-pains reveal-stagger">
+        {painItems.map((p) => (
+          <li class="he-pain">
+            <span class="he-pain__sev" data-sev={p.severity}>{sevLabel[p.severity] ?? p.severity}</span>
+            <h3 class="he-pain__title">{p.title}</h3>
+            <p class="he-pain__desc">{p.desc}</p>
+            <div class="hline"></div>
+            <p class="he-pain__fix">{p.fix}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {/* 06 · Tableau de bord media · CLIMAX chiffre (2e stats-bento de C, ink) */}
+  <SectionsRenderer sections={[statsBentoDashboard]} lang="fr" />
+
+  {/* 07 · Cas clients · 3 cartes compactes + ligne CTA discrete (paper) */}
+  <section class="he-sec he-cases" aria-labelledby="he-cases-h2">
+    <div class="wrap-wide">
+      <header class="he-head reveal">
+        <p class="he-kicker">§ Cas clients</p>
+        <h2 id="he-cases-h2" class="he-h2 u-serif-accent"><i>Promesse</i> vérifiable, pas discours.</h2>
+      </header>
+      <div class="he-cases__grid reveal-stagger">
+        {caseItems.map((c) => (
+          <a class="he-case" href={c.href}>
+            <p class="he-case__client">{c.client}</p>
+            <p class="he-case__meta">{c.meta}</p>
+            <p class="he-case__impact">{c.impact}</p>
+            <span class="he-case__link">Lire le cas →</span>
+          </a>
+        ))}
+      </div>
+      <div class="he-cases__foot reveal">
+        <a class="he-cases__all" href="/cas-clients">Voir tous les cas →</a>
+        <p class="he-cases__cta">Pas sûr du point de départ ? <a href="/contact">Réserver un audit →</a></p>
+      </div>
+    </div>
+  </section>
+
+  {/* 08 · Methode · frise 3 paliers condenses + path SVG dessine au scroll (paper-2) */}
+  <section class="he-sec he-method" aria-labelledby="he-method-h2">
+    <div class="wrap-wide">
+      <header class="he-head reveal">
+        <p class="he-kicker">§ Méthode</p>
+        <h2 id="he-method-h2" class="he-h2 u-serif-accent">Du <i>diagnostic</i> à l’infrastructure.</h2>
+        <p class="he-lede">Chaque palier prépare le suivant : vous montez quand vous êtes prêt, et vous savez avant de signer quel levier on attaque en premier.</p>
+      </header>
+
+      <div class="he-frieze hd-draw">
+        <div class="he-frieze__rail" aria-hidden="true">
+          <svg class="he-frieze__svg" viewBox="0 0 1000 40" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
+            <path class="hd-line" pathLength="1" d="M167 20 L833 20" stroke="var(--hairline-strong)" stroke-width="1"/>
+            <circle class="hd-node" cx="167" cy="20" r="4" fill="var(--accent)"/>
+            <circle class="hd-node" cx="500" cy="20" r="4" fill="var(--accent)"/>
+            <circle class="hd-node" cx="833" cy="20" r="4" fill="var(--accent)"/>
+          </svg>
+        </div>
+        <ol class="he-steps">
+          {methodSteps.map((s) => (
+            <li class="he-step">
+              <span class="he-step__num">{s.num}</span>
+              <p class="he-step__eyebrow">{s.eyebrow}</p>
+              <h3 class="he-step__title">{s.title}</h3>
+              <p class="he-step__body">{s.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  {/* 09 · FAQ · 6 questions · Q.01 prix ouverte (SEULE mention de prix de la page) */}
+  <FaqAccordion
+    items={faqItems}
+    heading="Ce qu’on écrit par mail avant de se parler."
+    intro="Six réponses nettes, pas des slides, pas du jargon."
+    background="paper"
+    openFirst
+  />
+
+  {/* 10 · Action · BookSession (ink) + FooterMarquee */}
+  <BookSession />
+  <FooterMarquee />
+</Base>
+
+<style>
+  /* ── Rythme de section · hierarchie par l'echelle (money/proof amples, soutien compacts) ── */
+  .he-sec { padding-block: var(--section-base); }
+  .he-offres { padding-block: var(--section-loose); } /* MONEY SLOT : poids visuel maximal */
+  .he-tension,
+  .he-method { background: var(--paper-2); }
+
+  /* ── En-tete de chapitre (kicker mono § + h2 + lede) ── */
+  .he-head {
+    max-width: var(--wrap-read);
+    margin-bottom: var(--space-9);
+  }
+  .he-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-4);
+  }
+  .he-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  /* Money/proof : cran display superieur (varie l'echelle typographique) */
+  .he-h2--xl { font-size: var(--text-h1); line-height: var(--leading-h1); }
+  .he-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    color: var(--muted);
+    margin: var(--space-5) 0 0;
+    max-width: var(--wrap-prose);
+  }
+
+  /* ── 03 · Diptyque des offres ── */
+  .he-diptych {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-offer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-9);
+    background: var(--paper-2);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-offer:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-offer__tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0;
+  }
+  .he-offer__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-title-lg);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-offer__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-offer__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .he-offer__points li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+  }
+  .he-offer__points li::before {
+    content: "";
+    flex: none;
+    inline-size: var(--space-2);
+    block-size: var(--space-2);
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    transform: translateY(0.5em);
+  }
+  .he-offer__link {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--accent-text);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .he-offer__link:hover { color: var(--accent); }
+
+  /* ── 03 · Dorsale line-art (relie 2 cartes -> 6 services) ── */
+  .he-rail {
+    margin: var(--space-6) 0 var(--space-4);
+  }
+  .he-rail__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ── 03 · Rangee compacte des 6 services (absorption ServicesGrid) ── */
+  .he-services__intro {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+  .he-services {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+  .he-svc {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card-rest);
+    background: var(--paper);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-svc:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-svc__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .he-svc__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+  }
+  .he-svc__sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin-top: auto;
+  }
+
+  /* ── 05 · La tension · 3 douleurs graduees, sobres ── */
+  .he-pains {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-pain {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-8);
+    background: var(--paper);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+  }
+  .he-pain__sev {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card-rest);
+    color: var(--muted);
+  }
+  .he-pain__sev[data-sev="critical"] {
+    color: var(--accent-text);
+    background: rgba(var(--accent-rgb), 0.08);
+  }
+  .he-pain__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-pain__desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-pain__fix {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  .he-pain__fix::before {
+    content: "→";
+    color: var(--accent-text);
+    margin-right: var(--space-2);
+  }
+
+  /* ── 07 · Cas clients · 3 cartes ── */
+  .he-cases__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-case {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-8);
+    background: var(--paper-2);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-case:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-case__client {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-case__meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-case__impact {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: var(--space-2) 0 0;
+  }
+  .he-case__link {
+    margin-top: auto;
+    padding-top: var(--space-5);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--accent-text);
+  }
+  .he-cases__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+  .he-cases__all {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--ink);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .he-cases__all:hover { color: var(--accent-text); }
+  .he-cases__cta {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-cases__cta a {
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .he-cases__cta a:hover { color: var(--accent); }
+
+  /* ── 08 · Methode · frise 3 paliers + rail SVG ── */
+  .he-frieze { display: flex; flex-direction: column; gap: var(--space-6); }
+  .he-frieze__rail { width: 100%; }
+  .he-frieze__svg { width: 100%; height: auto; display: block; }
+  .he-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+    align-items: center;
+  }
+  .he-step__num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-numeral-md);
+    line-height: 1;
+    color: var(--accent-text);
+  }
+  .he-step__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-step__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-step__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+    max-width: var(--wrap-prose);
+  }
+
+  /* ── SVG dessines au scroll · dorsale (03) + rail methode (08) ──
+     pathLength=1 -> dasharray:1 ; l'IntersectionObserver ajoute .is-drawn (offset -> 0). */
+  .hd-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset var(--dur-slow) var(--ease-out);
+  }
+  .hd-line--2 { transition-delay: var(--dur-base); }
+  .hd-line--3 { transition-delay: var(--dur-panel); }
+  .hd-draw.is-drawn .hd-line { stroke-dashoffset: 0; }
+  .hd-node {
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease-out) var(--dur-panel);
+  }
+  .hd-draw.is-drawn .hd-node { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hd-line { stroke-dashoffset: 0; transition: none; }
+    .hd-node { opacity: 1; transition: none; }
+    .he-offer:hover,
+    .he-svc:hover,
+    .he-case:hover { transform: none; }
+  }
+
+  /* ── Responsive · litteraux px en @media UNIQUEMENT (var() interdit en condition) ── */
+  @media (max-width: 900px) {
+    .he-diptych,
+    .he-pains,
+    .he-cases__grid,
+    .he-steps { grid-template-columns: 1fr; }
+    .he-services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .he-step { text-align: left; align-items: flex-start; }
+    .he-step__body { max-width: none; }
+  }
+  @media (max-width: 760px) {
+    .he-rail,
+    .he-frieze__rail { display: none; } /* la dorsale/rail n'a de sens qu'en grille large */
+  }
+  @media (max-width: 560px) {
+    .he-services { grid-template-columns: 1fr; }
+    .he-cases__foot { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<script is:inline>
+  /* Dessin des SVG au scroll · IntersectionObserver -> .is-drawn (stroke-dashoffset).
+     Reduced-motion : le CSS montre deja l'etat final. Re-init compatible ClientRouter. */
+  (() => {
+    if (typeof window === 'undefined') return;
+    function initHeDraw() {
+      const nodes = document.querySelectorAll('.hd-draw');
+      if (!nodes.length) return;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-drawn');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      nodes.forEach((n) => {
+        if (n.dataset.drawBound === '1') return;
+        n.dataset.drawBound = '1';
+        io.observe(n);
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeDraw);
+    } else {
+      initHeDraw();
+    }
+    document.addEventListener('astro:page-load', initHeDraw);
+  })();
+</script>
+</Base>
