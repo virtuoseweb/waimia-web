@@ -85,10 +85,12 @@ d'acquisition**.
 - **Échelle d'upsell (le récit de la page hub)** : site web intelligent → + pack SEO/GEO (un
   des packs de `/services/content-marketing-intelligent`) → + tunnel de qualification
   intelligent → + CRM / RevOps = le système business marketing complet.
-- **Grille de la page site-web-ia (5 cards, remplace les 4 paliers actuels)** : Landing page
-  simple · Site web classique · Site web premium (design) · **Site web vitrine intelligent**
-  (sur mesure : système complet avec fonctionnalités IA, dashboard intégrant Google Analytics
-  + Google Search Console, CRM, Stripe, autres intégrations) · Site web sur mesure.
+- **Grille de la page site-web-ia (4 cards, remplace les 4 paliers actuels)** : Landing page ·
+  Site vitrine · Site premium (design) · **Sur mesure** (le complet du système marketing, prix
+  « à partir de X » : fonctionnalités IA, dashboard intégrant Google Analytics + Google Search
+  Console, CRM, Stripe, autres intégrations). ⚠️ « Intelligent » qualifie TOUTE la gamme
+  (chaque offre est un site web intelligent) : aucune card ne porte le nom « site web
+  intelligent ».
 - Copywriting du hub à adapter en conséquence (chiffres exacts, listes de périmètre complètes
   par card, rien d'oublié) : **vague 2**.
 
