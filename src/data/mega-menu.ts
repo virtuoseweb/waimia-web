@@ -194,8 +194,8 @@ const RESSOURCES: MegaMenuSection = {
 
 // ─── SOLUTIONS · refonte Phase 1 V7-FOLD 2026-06-22 : on REDUIT le nombre de pages
 // service. Les sous-capacités ne sont plus des pages satellites mais des sections
-// `feature-zigzag` DANS leur page parente. 4 colonnes : Site web intelligent (3 pages :
-// site-web-intelligent, landing-page-scoring, maintenance-growth) · Intégration Claude
+// `feature-zigzag` DANS leur page parente. 4 colonnes : Systèmes métier (renommage V8 2026-07-12, ex-Site web intelligent ; 3 pages :
+// site-web-intelligent, landing-page-scoring, maintenance-growth) · Intégration IA (ex-Intégration Claude)
 // (3 pages : integrateur-claude, consultant-ia-claude, agents-ia) · Résoudre un problème
 // (cas-usages, soon). La colonne Audits est supprimée → le panneau featured devient le
 // PANNEAU AUDIT (image stylée + CTA bouton vers /contact). Les ex-satellites (geo, seo-ia, crm-intelligent,
@@ -209,14 +209,14 @@ const SOLUTIONS: MegaMenuSection = {
   parentHref: '/services',
   matchPrefixes: ['/services'],
   lead: {
-    fr: 'Deux offres porteuses, les services qui les composent, et l\'audit pour savoir par où commencer.',
-    en: 'Two flagship offers, the services that compose them, and the audit to know where to start.',
+    fr: 'De l\'ingénierie IA et applicative pour PME : des systèmes métier cohérents, l\'intégration IA qui les anime, et l\'audit pour savoir par où commencer.',
+    en: 'AI and application engineering for SMBs: coherent business systems, the AI integration that powers them, and the audit to know where to start.',
   },
   columns: [
     {
-      kicker: { fr: 'SITE WEB INTELLIGENT', en: 'SMART WEBSITE' },
-      title: { fr: 'Site web intelligent', en: 'Smart website' },
-      goal: { fr: 'Générer plus de leads, alléger le marketing', en: 'Generate more leads, lighten marketing' },
+      kicker: { fr: 'SYSTÈMES MÉTIER', en: 'BUSINESS SYSTEMS' },
+      title: { fr: 'Systèmes métier', en: 'Business systems' },
+      goal: { fr: 'Le système marketing complet : générer et qualifier des leads', en: 'The complete marketing system: generate and qualify leads' },
       links: [
         {
           label: { fr: 'Site web intelligent', en: 'Smart website' },
@@ -241,9 +241,9 @@ const SOLUTIONS: MegaMenuSection = {
       },
     },
     {
-      kicker: { fr: 'INTÉGRATION CLAUDE', en: 'CLAUDE INTEGRATION' },
-      title: { fr: 'Intégration Claude', en: 'Claude integration' },
-      goal: { fr: 'Standardiser, gagner du temps, exploiter le savoir', en: 'Standardize, save time, leverage knowledge' },
+      kicker: { fr: 'INTÉGRATION IA', en: 'AI INTEGRATION' },
+      title: { fr: 'Intégration IA', en: 'AI integration' },
+      goal: { fr: 'Claude, ChatGPT ou Mistral, branchés à vos outils', en: 'Claude, ChatGPT or Mistral, wired to your tools' },
       links: [
         {
           label: { fr: 'Intégrateur Claude', en: 'Claude integrator' },
