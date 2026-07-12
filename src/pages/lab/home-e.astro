@@ -21,10 +21,10 @@ export const prerender = true;
  *   03 Les deux offres (#offres) · MONEY SLOT · tabs familles + diptyque + rangee 6 services + dorsale SVG (paper)
  *   04 La boucle · statement-orbit CATALOGUE (SectionsRenderer, carte ink dans paper) · PIVOT
  *      conceptuel : les 2 offres = une boucle lire/mesurer/reinjecter · globe filaire line-art
- *   05 La tension · 3 douleurs sobres (direct, paper-2)
+ *   05 La tension · 3 douleurs sobres (direct, INK iter 6 · cartes surface-ink) · section dramatique
  *   06 Cas clients · 3 cartes compactes + 1 CTA discret (direct, paper) · CTA « audit » retire (iter 5 :
  *      la bande quiz 08 + BookSession 13 couvrent deja « pas sur du point de depart »)
- *   07 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, paper-2) · media sticky crossfade
+ *   07 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, INK iter 6 · illustrations -ink) · media sticky crossfade
  *   08 Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (SectionsRenderer, paper ; carte quiz
  *      TOUJOURS ink) · 5 stades de maturite SYSTEME/IA d'une PME (current = stade 2, typique) · bande quiz ->
  *      /lp/diagnostic-maturite-ia · AJOUT iter 5 (axe quizCta de la mission F consomme ici)
@@ -35,6 +35,18 @@ export const prerender = true;
  *      « 0 captivite / passation incluse / autonomie » (formation) DEJA portee par la base c.json (voir slot)
  *   12 FAQ · 6 questions reformulees en requetes conversationnelles AIO, prix garde (FaqAccordion, paper)
  *   13 Action · BookSession (ink) + FooterMarquee
+ *
+ * Gate B iter 6 (demande Simon 2026-07-12 : COMPACTION + RYTHME INK) :
+ *  - COMPACTION par le design (0 amputation de contenu) : money slot 03 --section-loose -> --section-base,
+ *    en-tetes/marges internes space-9/8 -> space-7/6, cartes offres/tension/cas space-9/8 -> space-7,
+ *    dorsale SVG resserree, statement-orbit 04 density 'compact', climax stats-bento 11 density
+ *    'ample' -> 'base'. Tout en var(--space-*) existants (0 valeur magique). Respiration DANS les
+ *    blocs gardee ; le gain vient des vides interblocs et des cartes surdimensionnees.
+ *  - RYTHME INK alterne (jamais 2 ink pleins adjacents) : passe de 3 ink pleins (02/10/13) a 5
+ *    (02/05/07/10/13). 05 tension INK (direct, cartes surface-ink idiome DS TestimonialWall) ;
+ *    07 methode INK (illustrations basculees sur variantes -ink existantes). Sequence des fonds :
+ *    01P 02I 03P 04P 05I 06P 07I 08P 09P 10I 11P 12P 13I. 11 reste paper (10 eeat-panel media est
+ *    ink par design → 11 ink creerait 2 ink adjacents : contrainte dure respectee, cf rapport).
  *
  * Gate B iter 5 (verdict Simon 2026-07-12 : « la meilleure version possible ») :
  *  - AJOUT slot 08 « Ou en etes-vous » (diagnostic-stages + bande CTA quiz) entre methode et
@@ -106,6 +118,9 @@ const logoMarquee = {
 const statsBentoDashboard = {
   ...sectionsC.filter((s) => s.type === 'stats-bento')[1],
   background: 'paper-2',
+  density: 'base', // iter 6 : la base c.json etait 'ample' (header space-12, gap space-8, cellules
+  // space-9/12) -> 'base' retire le surdimensionnement (gap space-6, header/cellules par defaut)
+  // sans amputer le contenu : climax compacte, digne. Reste paper-2 (10 eeat-panel ink le precede).
   kicker_fr: '§ Ce que ça change',
 } as SectionData;
 
@@ -130,9 +145,17 @@ const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
 // media_src illustrations, media sticky crossfade au scroll). Layout DIFFERENCIE de SWI via les
 // SEULS axes existants du schema. Layout V1 CHOISI (verdict Simon 2026-07-12, gate B iter 3 :
 // « je garde la mise en page actuelle pour méthode ») ; V2/V3/V4 restent au catalogue (lab/home-e-method).
+const methodBase = cByType('sticky-scroll-storytelling');
 const methodStory = {
-  ...cByType('sticky-scroll-storytelling'),
-  background: 'paper-2',
+  ...methodBase,
+  // 07 INK (rythme iter 6) : la methode passe sur fond ink. Les 4 illustrations basculent sur
+  // leur variante `-ink.webp` (memes visuels, theme sombre deja produit au catalogue DS) pour
+  // rester lisibles ; l'idiome data-bg='ink' du composant remappe deja h2/titres/corps en paper.
+  steps: (methodBase.steps as any[]).map((st) => ({
+    ...st,
+    media_src: typeof st.media_src === 'string' ? st.media_src.replace('-paper.webp', '-ink.webp') : st.media_src,
+  })),
+  background: 'ink',
   kicker_fr: '§ Méthode · l’ingénierie se construit par paliers',
   textSide: 'right',
   proportion: 'media-wide',
@@ -251,6 +274,8 @@ const services = SIX_SERVICES.map((s) => ({
 const statementOrbit = {
   type: 'statement-orbit',
   background: 'paper',
+  density: 'compact', // iter 6 : la carte ink garde sa presence mais son inner padding passe
+  // space-11 -> space-9 (gap space-10 -> space-8) : compaction sans perte, section .so reste paper.
   kicker_fr: '§ La boucle',
   kicker_en: '§ The loop',
   h2_fr: 'Les deux offres forment une <i class="acc">boucle</i> : lire, mesurer, réinjecter.',
@@ -402,8 +427,8 @@ const mediaDashboard = {
   {/* 04 · La boucle · statement-orbit CATALOGUE (carte ink dans paper) · PIVOT conceptuel */}
   <SectionsRenderer sections={[statementOrbit]} lang="fr" />
 
-  {/* 05 · La tension · 3 douleurs sobres (paper-2) */}
-  <section class="he-sec he-tension" aria-labelledby="he-tension-h2">
+  {/* 05 · La tension · 3 douleurs sobres · INK (rythme iter 6, section dramatique) */}
+  <section class="he-sec he-tension" data-bg="ink" aria-labelledby="he-tension-h2">
     <div class="wrap-wide">
       <header class="he-head reveal">
         <p class="he-kicker">§ La tension</p>
@@ -477,15 +502,33 @@ const mediaDashboard = {
 </Base>
 
 <style>
-  /* ── Rythme de section · hierarchie par l'echelle (money/proof amples, soutien compacts) ── */
+  /* ── Rythme de section · hierarchie par l'echelle (compaction iter 6 : gagner sur les vides) ── */
   .he-sec { padding-block: var(--section-base); }
-  .he-offres { padding-block: var(--section-loose); } /* MONEY SLOT : poids visuel maximal */
-  .he-tension { background: var(--paper-2); }
+  /* MONEY SLOT : iter 6 passe --section-loose -> --section-base (poids porte par he-h2--xl + la
+     densite du contenu, pas par 160px de vide). Reste le slot le plus riche de la page. */
+  .he-offres { padding-block: var(--section-base); }
+
+  /* 05 · La tension INK (rythme iter 6) · idiome DS carte-sur-ink (repris de TestimonialWall) :
+     fond ink, header en paper, cartes en surface ink elevee (rgba paper) + hairline clair.
+     Le contexte [data-bg='ink'] remappe deja --muted/--hairline/--accent-text (global.css) →
+     desc/severite/hairlines passent clairs automatiquement. 0 nouveau token. */
+  .he-tension[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .he-tension[data-bg='ink'] .he-h2 { color: var(--paper); }
+  .he-tension[data-bg='ink'] .he-pain {
+    background: rgba(var(--paper-rgb), 0.04);
+    border: 1px solid rgba(var(--paper-rgb), 0.12);
+    box-shadow: none;
+  }
+  .he-tension[data-bg='ink'] .he-pain__title,
+  .he-tension[data-bg='ink'] .he-pain__fix { color: var(--paper); }
 
   /* ── En-tete de chapitre (kicker mono § + h2 + lede) ── */
   .he-head {
     max-width: var(--wrap-read);
-    margin-bottom: var(--space-9);
+    margin-bottom: var(--space-7); /* iter 6 : space-9 -> space-7 (respiration gardee, vide reduit) */
   }
   .he-kicker {
     font-family: var(--font-mono);
@@ -518,12 +561,12 @@ const mediaDashboard = {
 
   /* ── 03 · Tabs familles (etage V8) · barre hairline sobre, PAS de pills ──
      Idiome repris de FeatureTabs (underline hairline + segment actif accent). */
-  .he-tabs { margin-bottom: var(--space-9); }
+  .he-tabs { margin-bottom: var(--space-7); } /* iter 6 : space-9 -> space-7 */
   .he-tabs__list {
     display: flex;
     gap: var(--space-6);
     border-bottom: 1px solid var(--hairline);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-6); /* iter 6 : space-8 -> space-6 */
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -570,7 +613,7 @@ const mediaDashboard = {
   /* ── 03 · Intro du tab 1 (cible + promesse) ── */
   .he-tabintro {
     max-width: var(--wrap-read);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-6); /* iter 6 : space-8 -> space-6 */
   }
   .he-tabintro__eyebrow {
     font-family: var(--font-mono);
@@ -599,7 +642,7 @@ const mediaDashboard = {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    padding: var(--space-9);
+    padding: var(--space-7); /* iter 6 : space-9 -> space-7 (cartes moins hautes, contenu intact) */
     background: var(--paper-2);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card-rest);
@@ -672,7 +715,7 @@ const mediaDashboard = {
 
   /* ── 03 · Dorsale line-art (relie 2 cartes -> 6 services) ── */
   .he-rail {
-    margin: var(--space-6) 0 var(--space-4);
+    margin: var(--space-4) 0 var(--space-3); /* iter 6 : resserre le vide autour de la dorsale */
   }
   .he-rail__svg {
     width: 100%;
@@ -686,7 +729,7 @@ const mediaDashboard = {
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono-tight);
     color: var(--muted);
-    margin: 0 0 var(--space-5);
+    margin: 0 0 var(--space-4); /* iter 6 : space-5 -> space-4 */
   }
   .he-services {
     display: grid;
@@ -745,7 +788,7 @@ const mediaDashboard = {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    padding: var(--space-8);
+    padding: var(--space-7); /* iter 6 : space-8 -> space-7 */
     background: var(--paper);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card-rest);
@@ -802,7 +845,7 @@ const mediaDashboard = {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    padding: var(--space-8);
+    padding: var(--space-7); /* iter 6 : space-8 -> space-7 */
     background: var(--paper-2);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card-rest);
@@ -849,7 +892,7 @@ const mediaDashboard = {
     justify-content: space-between;
     align-items: baseline;
     gap: var(--space-4);
-    margin-top: var(--space-8);
+    margin-top: var(--space-6); /* iter 6 : space-8 -> space-6 */
   }
   .he-cases__all {
     font-family: var(--font-mono);
