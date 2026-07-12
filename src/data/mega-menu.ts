@@ -351,8 +351,6 @@ const FORMULES: MegaMenuSection = {
         { label: { fr: 'Kick start', en: 'Kick start' }, href: '/tarifs#formules' },
         { label: { fr: 'Boost', en: 'Boost' }, href: '/tarifs#formules' },
         { label: { fr: 'Growth', en: 'Growth' }, href: '/tarifs#formules', badge: { fr: 'Recommandé', en: 'Recommended' } },
-        { label: { fr: 'Scale', en: 'Scale' }, href: '/tarifs#formules' },
-        { label: { fr: 'Elevate', en: 'Elevate' }, href: '/tarifs#formules' },
       ],
     },
     {
