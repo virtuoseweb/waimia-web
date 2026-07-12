@@ -1,10 +1,10 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Intégrateur Claude · déployer Claude et ses agents dans votre PME",
-  "title_en": "Claude integrator · deploying Claude and its agents in your SMB",
-  "description_fr": "Intégrateur Claude pour PME : déploiement de Claude, Claude Code et MCP, formation du référent IA et gouvernance. En production, pas en POC. Montpellier.",
-  "description_en": "Claude integrator for SMBs: deploying Claude, Claude Code and MCP, AI lead training and governance. In production, not in POC. Studio in Montpellier.",
-  "slug": "integrateur-claude",
+  "title_fr": "Intégration Claude en entreprise · déployer Claude et ses agents",
+  "title_en": "Claude integration in the enterprise · deploy Claude and its agents",
+  "description_fr": "Intégration Claude en entreprise : déploiement de Claude, Claude Code et MCP, formation du référent IA et gouvernance. En production, pas en POC. Montpellier.",
+  "description_en": "Claude integration in the enterprise: deploying Claude, Claude Code and MCP, AI lead training and governance. In production, not in POC. Montpellier.",
+  "slug": "integration-claude",
   "publishedAt": "2026-06-18T00:00:00.000Z",
   "updatedAt": "2026-06-22T00:00:00.000Z",
   "category": "productivite",
@@ -97,10 +97,10 @@
       "media_src": "/images/line-art/dispositif-flow.svg",
       "media_alt_fr": "Schéma : outils dispersés, orchestration centrale via Claude, résultat mesuré",
       "media_alt_en": "Diagram: scattered tools, central orchestration via Claude, measured result",
-      "kicker_fr": "§ Intégrateur Claude",
-      "kicker_en": "§ Claude integrator",
-      "h1_fr": "Intégrateur <i class=\"acc\">Claude</i>.",
-      "h1_en": "Claude <i class=\"acc\">integrator</i>.",
+      "kicker_fr": "§ Intégration Claude",
+      "kicker_en": "§ Claude integration",
+      "h1_fr": "Intégration <i class=\"acc\">Claude</i> en entreprise.",
+      "h1_en": "Claude <i class=\"acc\">integration</i> in the enterprise.",
       "lede_fr": "Waimia déploie Claude et ses agents dans votre entreprise et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort.",
       "lede_en": "Waimia deploys Claude and its agents in your company and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry and no POC left asleep.",
       "badges": [
@@ -959,6 +959,41 @@
         {
           "text_fr": "Un référent IA formé fait évoluer le système : vous restez autonome et maître de la stack.",
           "text_en": "A trained AI lead evolves the system: you stay autonomous and own the stack."
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "anchor": "formation-referent",
+      "background": "paper-3",
+      "kicker_fr": "§ Formation et autonomie",
+      "kicker_en": "§ Training and autonomy",
+      "h2_fr": "La compétence <i>reste chez vous</i>",
+      "h2_en": "The skill <i>stays with you</i>",
+      "lede_fr": "L'intégration ne tient que si vos équipes la portent. On forme, on outille et on adapte le modèle à votre besoin.",
+      "lede_en": "Integration only holds if your teams carry it. We train, we equip, and we adapt the model to your need.",
+      "columns": "3",
+      "features": [
+        {
+          "icon": "ia",
+          "title_fr": "Formation IA de vos équipes",
+          "title_en": "AI training for your teams",
+          "body_fr": "On acculture vos équipes aux bons réflexes : formuler une demande, vérifier une réponse, savoir ce qu'on ne colle jamais dans un outil. L'adoption suit la compétence.",
+          "body_en": "We skill up your teams on the right reflexes : phrasing a request, checking a response, knowing what you never paste into a tool. Adoption follows skill."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Référent IA interne",
+          "title_en": "Internal AI lead",
+          "body_fr": "On forme et on outille une personne en interne comme point de contact IA de l'entreprise. La compétence reste chez vous, pas chez un prestataire.",
+          "body_en": "We train and equip an in-house person as the company's AI point of contact. The skill stays with you, not with a provider."
+        },
+        {
+          "icon": "design",
+          "title_fr": "Claude, GPT ou Mistral selon le besoin",
+          "title_en": "Claude, GPT or Mistral as needed",
+          "body_fr": "On déploie le modèle adapté à chaque tâche et à vos contraintes : Claude, GPT ou Mistral. Le système que nous construisons reste le vôtre.",
+          "body_en": "We deploy the model fit for each task and your constraints : Claude, GPT or Mistral. The system we build stays yours."
         }
       ]
     },

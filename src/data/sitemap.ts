@@ -55,7 +55,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       // SEO état final (§0ter) : pages /solutions/* supprimées → services réels + ancres — tous les cas dirigés vers /cas-clients.
       items: [
         { href: '/services/content-marketing-intelligent', label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' }, lead: { en: 'Editorial line + SEO/GEO found by Google AND AI engines.', fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.' } },
-        { href: '/services/site-web-intelligent', label: { en: 'Smart website', fr: 'Site web intelligent' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
+        { href: '/services/site-web-ia', label: { en: 'Smart website', fr: 'Site web intelligent' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
         { href: '/services/landing-page-scoring', label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
       ],
     },
@@ -96,7 +96,7 @@ export const MM_OFFRES_NEW: MegaMenu = {
       tint: '#C94F2E',
       items: [
         { href: '/services', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards: all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux : tout connecté." }, featured: true },
-        { href: '/services/site-web-intelligent', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
+        { href: '/services/site-web-ia', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
         { href: '/audit-maturite-ia', label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' }, lead: { en: 'Process mapping, priority AI levers, costed roadmap.', fr: 'Cartographie des process, leviers IA prioritaires, feuille de route chiffrée.' } },
       ],
     },
@@ -313,11 +313,11 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Outbound machine', fr: 'Machine outbound' },
       },
       {
-        href: '/services/site-web-intelligent',
+        href: '/services/site-web-ia',
         label: { en: 'Smart website', fr: 'Site web intelligent' },
       },
       {
-        href: '/services/integrateur-claude',
+        href: '/services/integration-claude',
         label: { en: 'Claude integration', fr: 'Intégration Claude' },
       },
       {
@@ -520,7 +520,7 @@ export const SIX_SERVICES = [
     label: { en: 'Smart website', fr: 'Site web intelligent' },
     body: { en: 'A web app wired to AI and your data: it reads its KPIs, optimises its SEO and qualifies every visitor.', fr: "Une web app branchée à l'IA et à vos données : elle lit ses KPI, optimise son SEO et qualifie chaque visiteur." },
     connectors: { en: 'SEO/GEO · Analytics · CRM · Funnel', fr: 'SEO/GEO · Analytics · CRM · Tunnel' },
-    href: '/services/site-web-intelligent',
+    href: '/services/site-web-ia',
   },
   {
     k: '02',
@@ -544,7 +544,7 @@ export const SIX_SERVICES = [
     label: { en: 'Claude integrator', fr: 'Intégrateur Claude' },
     body: { en: 'Deploy Claude, Claude Code and MCP wired to your tools, with AI-lead training and governance. In production, not in a POC.', fr: "Déployer Claude, Claude Code et MCP branchés à vos outils, avec formation du référent IA et gouvernance. En production, pas en POC." },
     connectors: { en: 'Claude · Claude Code · MCP · Governance', fr: 'Claude · Claude Code · MCP · Gouvernance' },
-    href: '/services/integrateur-claude',
+    href: '/services/integration-claude',
   },
   {
     k: '05',

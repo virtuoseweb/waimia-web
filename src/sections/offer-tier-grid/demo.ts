@@ -58,7 +58,7 @@ export const demo: DemoData = {
         lead_en: 'A conversion-focused website, measured and linked to your CRM. Not a static brochure.',
         cta_fr: "Voir l'offre →",
         cta_en: 'View offer →',
-        href: '/services/site-web-intelligent',
+        href: '/services/site-web-ia',
       },
     ],
   };

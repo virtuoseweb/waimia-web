@@ -118,6 +118,19 @@ export default defineConfig({
     // (prod-live, indexée) est renommée /landing-page-scoring et absorbe le scoring.
     // 301 obligatoire pour préserver le ranking de l'ancienne URL.
     '/services/tunnel-conversion-intelligent': '/services/landing-page-scoring',
+    // Refonte V8 2026-07-12 · retitrage + renommage de slugs des 2 offres phares
+    // (docs/strategy/10 §0bis.3, décisions Simon). Les anciennes URLs prod-live indexées
+    // sont 301 vers les nouveaux slugs orientés requête réelle. Les URLs nues
+    // /site-web-intelligent et /integrateur-claude (404 en prod) captent les liens entrants.
+    '/services/site-web-intelligent': '/services/site-web-ia',
+    '/services/integrateur-claude': '/services/integration-claude',
+    '/site-web-intelligent': '/services/site-web-ia',
+    '/integrateur-claude': '/services/integration-claude',
+    // Pages enfants (déclinaisons) du hub : le dossier de contenu passe de
+    // site-web-intelligent/ à site-web-ia/ → 301 des anciennes routes enfants.
+    '/services/site-web-intelligent/wordpress': '/services/wordpress',
+    '/services/site-web-intelligent/webflow': '/services/webflow',
+    '/services/site-web-intelligent/sur-mesure': '/services/sur-mesure-headless',
     // Wave #34 2026-06-28 · nettoyage taxonomie dégénérée du catalogue DS.
     // Catégories dé-dupliquées (slug singleton fusionné dans son équivalent) et
     // familles singleton repliées sur leur cible même-archétype. 301 pour préserver
@@ -135,8 +148,8 @@ export default defineConfig({
     '/offres': '/services',
     '/offres/audit-maturite-ia': '/audit-maturite-ia',
     '/offres/growth-system-ia': '/services',
-    '/offres/site-web-ia': '/services/site-web-intelligent',
-    '/offres/site-web-ia-landing': '/services/site-web-intelligent',
+    '/offres/site-web-ia': '/services/site-web-ia',
+    '/offres/site-web-ia-landing': '/services/site-web-ia',
     '/offres/growth-intelligence': '/services',
     '/offres/revops': '/services',
     '/offres/conseil': '/services',

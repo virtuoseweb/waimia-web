@@ -38,7 +38,7 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // Cartographie d'audit interne (toutes les pages réelles + statut SEO, outil de
   // décision garder/supprimer) : noindex (prop Base) → hors sitemap pour cohérence.
   "/agence/cartographie",
-  // (P1.3 2026-06-29) `/services/site-web-intelligent` RETIRÉ de l'exclusion : le contenu réel
+  // (P1.3 2026-06-29) `/services/site-web-ia` RETIRÉ de l'exclusion : le contenu réel
   // est posé (seo.noindex:false, 0 placeholder vérifié) → money page #2 indexable + dans le
   // sitemap. Le commentaire « DÉMO placeholders / fiche 0004 » était stale.
   // Page locale Montpellier : seo.noindex tant que le NAP/GBP/avis réels ne sont pas posés

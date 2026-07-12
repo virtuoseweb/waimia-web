@@ -1,10 +1,10 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Site web intelligent · création, refonte et instrumentation",
-  "title_en": "Intelligent website · build, rebuild and instrumentation",
-  "description_fr": "Site web intelligent : une web app branchée à l'IA et à vos données qui lit ses KPI, optimise son SEO et qualifie chaque visiteur. Studio à Montpellier.",
-  "description_en": "Intelligent website: a web app wired to AI and your data that reads its KPIs, optimises SEO and qualifies every visitor. Studio in Montpellier.",
-  "slug": "site-web-intelligent",
+  "title_fr": "Site web IA pour PME · création, refonte et instrumentation",
+  "title_en": "AI website for SMEs · build, rebuild and instrumentation",
+  "description_fr": "Site web IA pour PME : une web app branchée à l'IA et à vos données qui lit ses KPI, optimise son SEO et qualifie chaque visiteur. Studio à Montpellier.",
+  "description_en": "AI website for SMEs: a web app wired to AI and your data that reads its KPIs, optimises SEO and qualifies every visitor. Studio in Montpellier.",
+  "slug": "site-web-ia",
   "publishedAt": "2026-06-13T00:00:00.000Z",
   "updatedAt": "2026-06-29T00:00:00.000Z",
   "category": "acquisition",
@@ -17,7 +17,7 @@
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Création de site web intelligent piloté par l'IA",
+    "serviceType": "Création de site web IA pour PME piloté par l'IA",
     "priceRange": "2000-10000€",
     "priceMin": 2000,
     "priceMax": 10000
@@ -94,10 +94,10 @@
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Site web intelligent",
-      "kicker_en": "§ Intelligent website",
-      "h1_fr": "Un site web <i class=\"acc\">intelligent</i> pour PME.",
-      "h1_en": "An intelligent <i class=\"acc\">website</i> for SMEs.",
+      "kicker_fr": "§ Site web IA",
+      "kicker_en": "§ AI website",
+      "h1_fr": "Un site web <i class=\"acc\">IA</i> pour PME.",
+      "h1_en": "An <i class=\"acc\">AI</i> website for SMEs.",
       "lede_fr": "Waimia conçoit des sites rapides, structurés pour le SEO/GEO, connectés à vos outils, pensés pour transformer votre présence en système d'acquisition.",
       "lede_en": "Waimia builds fast websites, structured for SEO/GEO and wired to your tools, designed to turn your presence into an acquisition system.",
       "badges": [
@@ -200,8 +200,8 @@
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">site web intelligent</i> est une web app branchée à l'IA et à vos données qui lit ses KPI en temps réel, optimise son SEO et son GEO, et qualifie chaque visiteur pour alimenter le CRM, sans refondre le site à chaque évolution.",
-      "statement_en": "An <i class=\"acc\">intelligent website</i> is a web app wired to AI and your data that reads its KPIs in real time, optimises its SEO and GEO, and qualifies every visitor to feed the CRM, without rebuilding the site at each change.",
+      "statement_fr": "Un <i class=\"acc\">site web intelligent</i> est le nom que nous donnons à un site web IA : une web app branchée à l'IA et à vos données qui lit ses KPI en temps réel, optimise son SEO et son GEO, et qualifie chaque visiteur pour alimenter le CRM, sans refondre le site à chaque évolution.",
+      "statement_en": "An <i class=\"acc\">intelligent website</i> is the name we give to an AI website: a web app wired to AI and your data that reads its KPIs in real time, optimises its SEO and GEO, and qualifies every visitor to feed the CRM, without rebuilding the site at each change.",
       "pills": [
         { "label_fr": "Branché à l'IA", "label_en": "Wired to AI" },
         { "label_fr": "SEO + GEO", "label_en": "SEO + GEO" },
@@ -514,6 +514,57 @@
           "title_en": "Steering",
           "body_fr": "Tableau de bord, attribution multi-touch et alertes : vous reliez chaque dépense web à un lead concret.",
           "body_en": "Dashboard, multi-touch attribution and alerts : you link every web spend to a concrete lead."
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "anchor": "declinaisons",
+      "background": "paper-3",
+      "kicker_fr": "§ Déclinaisons",
+      "kicker_en": "§ Variants",
+      "h2_fr": "Quatre déclinaisons, une même <i>base</i>",
+      "h2_en": "Four variants, one shared <i>base</i>",
+      "lede_fr": "On adapte la stack au besoin et aux contraintes. Le socle composable et l'instrumentation restent les mêmes.",
+      "lede_en": "We adapt the stack to the need and the constraints. The composable base and the instrumentation stay the same.",
+      "columns": "4",
+      "features": [
+        {
+          "icon": "contenu",
+          "title_fr": "Site web WordPress",
+          "title_en": "WordPress website",
+          "body_fr": "On garde WordPress quand l'équipe le maîtrise, et on l'instrumente : SEO/GEO, tracking et CRM branchés, sans tout reconstruire.",
+          "body_en": "We keep WordPress when the team masters it, and we instrument it : SEO/GEO, tracking and CRM wired in, without rebuilding everything.",
+          "cta_label_fr": "Voir la déclinaison WordPress →",
+          "cta_label_en": "See the WordPress variant →",
+          "cta_href": "/services/wordpress"
+        },
+        {
+          "icon": "design",
+          "title_fr": "Site web sur mesure",
+          "title_en": "Bespoke website",
+          "body_fr": "Astro, React ou Next pour une app dédiée, multi-sites ou à forte contrainte : performance et composabilité maximales.",
+          "body_en": "Astro, React or Next for a dedicated app, multi-site or high-constraint : maximum performance and composability.",
+          "cta_label_fr": "Voir la déclinaison sur mesure →",
+          "cta_label_en": "See the bespoke variant →",
+          "cta_href": "/services/sur-mesure-headless"
+        },
+        {
+          "icon": "ia",
+          "title_fr": "Application / MVP",
+          "title_en": "Application / MVP",
+          "body_fr": "Un produit à valider vite : on construit l'application ou le MVP qui teste l'idée, prêt à instrumenter dès le départ.",
+          "body_en": "A product to validate fast : we build the application or MVP that tests the idea, ready to instrument from the start."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Webflow",
+          "title_en": "Webflow",
+          "body_fr": "Vous venez du no-code : même chemin de migration et d'instrumentation depuis Webflow, sans repartir de zéro.",
+          "body_en": "Coming from no-code : the same migration and instrumentation path from Webflow, without starting over.",
+          "cta_label_fr": "Voir la déclinaison Webflow →",
+          "cta_label_en": "See the Webflow variant →",
+          "cta_href": "/services/webflow"
         }
       ]
     },

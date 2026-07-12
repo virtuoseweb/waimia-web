@@ -30,12 +30,12 @@ interface MeshLink {
 /** Hubs services (les 2 offres). */
 const SERVICES: Record<string, MeshLink> = {
   'site-web-intelligent': {
-    href: '/services/site-web-intelligent',
+    href: '/services/site-web-ia',
     label_fr: 'Site Web Intelligent',
     label_en: 'Intelligent Website',
   },
   'integrateur-claude': {
-    href: '/services/integrateur-claude',
+    href: '/services/integration-claude',
     label_fr: 'Intégrateur Claude',
     label_en: 'Claude Integrator',
   },

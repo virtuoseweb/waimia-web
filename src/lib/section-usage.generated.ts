@@ -19,7 +19,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "architecture-diagram": {
     "count": 4,
     "pages": [
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/systeme-complet",
       "src/pages/en/index.astro",
       "src/pages/index.astro"
@@ -45,7 +45,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/standardiser-processus",
       "/services/agents-ia",
       "/services/consultant-ia-claude",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth"
     ]
@@ -55,10 +55,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
+      "/services/site-web-ia",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro",
       "src/pages/en/index.astro",
@@ -95,13 +95,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/standardiser-processus",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress",
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/template-service-ref"
     ]
   },
@@ -171,13 +171,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress"
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress"
     ]
   },
   "deliverables-grid": {
@@ -189,10 +189,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
+      "/services/site-web-ia",
       "/services/template-service-ref"
     ]
   },
@@ -276,10 +276,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
+      "/services/site-web-ia",
       "/services/systeme-complet"
     ]
   },
@@ -321,14 +321,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress",
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-complet",
       "/services/template-service-ref",
       "src/pages/en/index.astro",
@@ -336,9 +336,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 3,
+    "count": 5,
     "pages": [
-      "/services/site-web-intelligent",
+      "/services/integration-claude",
+      "/services/site-web-ia",
       "src/pages/en/index.astro",
       "src/pages/index.astro"
     ]
@@ -382,14 +383,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress",
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-complet"
     ]
   },
@@ -430,14 +431,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress",
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-complet",
       "/services/template-service-ref"
     ]
@@ -516,14 +517,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress",
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-complet"
     ]
   },
@@ -583,10 +584,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "/services/agents-ia",
       "/services/consultant-ia-claude",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent"
+      "/services/site-web-ia"
     ]
   },
   "maturity-pyramid": {
@@ -605,8 +606,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "method-stepline": {
     "count": 2,
     "pages": [
-      "/services/integrateur-claude",
-      "/services/site-web-intelligent"
+      "/services/integration-claude",
+      "/services/site-web-ia"
     ]
   },
   "method-timeline": {
@@ -640,13 +641,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress"
+      "/services/site-web-ia",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress"
     ]
   },
   "persona-attributes-grid": {
@@ -670,10 +671,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
+      "/services/site-web-ia",
       "/services/template-service-ref"
     ]
   },
@@ -745,14 +746,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/lp/site-web-intelligent",
       "/lp/tunnel-conversion-intelligent",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress",
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-complet",
       "/services/template-service-ref",
       "src/pages/en/index.astro",
@@ -781,9 +782,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme",
       "/services/machine-outbound",
-      "/services/site-web-intelligent/sur-mesure",
-      "/services/site-web-intelligent/webflow",
-      "/services/site-web-intelligent/wordpress",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-complet"
     ]
   },
@@ -816,11 +817,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent",
+      "/services/site-web-ia",
       "/services/systeme-complet"
     ]
   },
@@ -830,11 +831,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/machine-outbound",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent/sur-mesure",
+      "/services/site-web-ia/sur-mesure",
       "/services/systeme-complet",
       "/services/template-service-ref"
     ]
@@ -853,18 +854,18 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/consultant-ia-claude",
       "/services/content-marketing-intelligent",
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/landing-page-scoring",
       "/services/maintenance-growth",
-      "/services/site-web-intelligent"
+      "/services/site-web-ia"
     ]
   },
   "system-flow": {
     "count": 4,
     "pages": [
-      "/services/integrateur-claude",
+      "/services/integration-claude",
       "/services/machine-outbound",
-      "/services/site-web-intelligent",
+      "/services/site-web-ia",
       "/services/systeme-complet"
     ]
   },
@@ -901,8 +902,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "testimonial-wall": {
     "count": 2,
     "pages": [
-      "/services/integrateur-claude",
-      "/services/site-web-intelligent"
+      "/services/integration-claude",
+      "/services/site-web-ia"
     ]
   },
   "use-case-index": {

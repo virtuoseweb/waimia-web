@@ -18,14 +18,14 @@ export const demo: DemoData = {
         {
           label_fr: 'Site Web Intelligent',
           label_en: 'Intelligent Website',
-          href: '/services/site-web-intelligent',
+          href: '/services/site-web-ia',
           desc_fr: 'Un site qui convertit, mesuré et outillé IA.',
           desc_en: 'A site that converts, measured and AI-tooled.',
         },
         {
           label_fr: 'Intégrateur Claude',
           label_en: 'Claude Integrator',
-          href: '/services/integrateur-claude',
+          href: '/services/integration-claude',
           desc_fr: 'Vos processus câblés à Claude, de bout en bout.',
           desc_en: 'Your processes wired to Claude, end to end.',
         },
