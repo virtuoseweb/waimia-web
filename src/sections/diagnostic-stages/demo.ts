@@ -19,4 +19,22 @@ export const demo: DemoData = {
       { glyph: '◕', title_fr: 'Mise à l’échelle', title_en: 'Scaling', body_fr: 'Plusieurs agents en production, une gouvernance et une trace de chaque décision.', body_en: 'Several agents in production, governance and a trace for every decision.', phase_fr: 'Phase 3', phase_en: 'Phase 3' },
       { glyph: '●', title_fr: 'Organisation augmentée', title_en: 'Augmented org', body_fr: 'Vos équipes composent leurs propres agents, l’IA est un réflexe de chaque métier.', body_en: 'Your teams compose their own agents, AI is a reflex across every function.', phase_fr: 'Phase 4', phase_en: 'Phase 4', href: '/agence' },
     ],
+    // Déclinaison cataloguée « bande CTA quiz » : rendue SOUS la piste de stades pour pousser
+    // au quiz d’auto-positionnement. Absente sur la page live content-marketing (rétro-compat).
+    quizCta: {
+      eyebrow_fr: '§ Quiz de maturité',
+      eyebrow_en: '§ Maturity quiz',
+      title_fr: 'Dans quel stade <i>êtes-vous</i> vraiment ?',
+      title_en: 'Which stage are <i>you</i> really in?',
+      body_fr: 'Six questions, deux minutes : situez votre organisation avec précision et repartez avec les trois leviers concrets pour monter d’un stade.',
+      body_en: 'Six questions, two minutes: place your organisation precisely and leave with the three concrete levers to climb one stage.',
+      cta_label_fr: 'Faire le quiz →',
+      cta_label_en: 'Take the quiz →',
+      cta_href: '/lp/diagnostic-maturite-ia',
+      media_src: '/images/illustrations/ds/no-no-yes-ink.webp',
+      media_alt_fr: 'Illustration : évaluer des options et trancher pour avancer',
+      media_alt_en: 'Illustration: weighing options and deciding to move forward',
+      note_fr: 'Gratuit · 2 min · résultat immédiat',
+      note_en: 'Free · 2 min · instant result',
+    },
   };

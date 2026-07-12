@@ -1,8 +1,153 @@
 ---
 // Waimia · Co-location DS (Wave #38, T5) · module `diagnostic-stages` · Component WRAPPER.
-// Le markup vit dans src/components/sections/DiagnosticStages.astro (source unique, importe aussi
-// directement par des pages). Ce wrapper pass-through (data+lang, 0 slot) co-localise le
-// composant cote module sans dupliquer ni casser les imports existants (rule 60).
+// Le markup de la PISTE DE STADES vit dans src/components/sections/DiagnosticStages.astro
+// (source unique, importée aussi directement par des pages) : ce wrapper le rend à l’identique.
+// Il ajoute par-dessus la DÉCLINAISON CATALOGUÉE « bande CTA quiz » (data.quizCta), rendue SOUS
+// la piste : carte ink contenue (illustration + accroche serif accent + bouton) qui pousse au
+// quiz d’auto-positionnement. quizCta ABSENT ⇒ seul <Shared> est rendu, la CSS `.dgq` ne matche
+// aucun élément ⇒ rendu actuel inchangé au pixel (rétro-compat stricte, cf schema).
 import Shared from '../../components/sections/DiagnosticStages.astro';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import Button from '../../components/ui/atoms/Button.astro';
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const q = data.quizCta;
+const qEyebrow = q ? (isFr ? q.eyebrow_fr : q.eyebrow_en) : undefined;
+const qTitle = q ? (isFr ? q.title_fr : q.title_en) : undefined;
+const qBody = q ? (isFr ? q.body_fr : q.body_en) : undefined;
+const qLabel = q ? (isFr ? q.cta_label_fr : q.cta_label_en) : undefined;
+const qNote = q ? (isFr ? q.note_fr : q.note_en) : undefined;
+// Carte toujours ink ⇒ illustration webp variante `-ink` (couleurs cuites, 0 currentColor).
+const qMedia = q?.media_src ?? '/images/illustrations/ds/no-no-yes-ink.webp';
+const qAlt = q ? (isFr ? (q.media_alt_fr ?? '') : (q.media_alt_en ?? q.media_alt_fr ?? '')) : '';
 ---
-<Shared data={Astro.props.data} lang={Astro.props.lang} />
+<Shared data={data} lang={lang} />
+{q && (
+  <section class="dgq" data-bg={data.background}>
+    <div class="wrap-wide">
+      <div class="dgq__card reveal" data-bg="ink">
+        <div class="dgq__copy">
+          <span class="dgq__q" aria-hidden="true"><i>?</i></span>
+          {qEyebrow && <Kicker tone="accent" class="dgq__eyebrow">{qEyebrow}</Kicker>}
+          {qTitle && <h3 class="dgq__title" set:html={qTitle} />}
+          {qBody && <p class="dgq__body">{qBody}</p>}
+          <div class="dgq__actions">
+            <Button href={q.cta_href} variant="primary" size="lg">{qLabel}</Button>
+            {qNote && <span class="dgq__note">{qNote}</span>}
+          </div>
+        </div>
+        <figure class="dgq__media">
+          <img src={qMedia} alt={qAlt} loading="lazy" decoding="async" width="520" height="390" />
+        </figure>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  /* ── Déclinaison « bande CTA quiz » · scopée .dgq (namespace propre, jamais .diag) ⇒ 0 effet
+     sur la piste de stades quand quizCta est absent (rétro-compat). La bande reprend le fond de
+     la section stades (data-bg identique) pour une continuité sans couture ; la carte ink
+     contenue contraste dessus et attire l’œil. Tokens DS uniquement. ── */
+  .dgq {
+    /* Le haut du gap vient de la marge basse de la section stades (padding-block section-base) :
+       la carte s’ancre sous la piste. Bas = respiration de section standard. */
+    padding-block: 0 var(--section-base);
+  }
+  .dgq[data-bg='paper-2'] { background: var(--paper-2); }
+  .dgq[data-bg='paper-3'] { background: var(--paper-3); }
+  .dgq[data-bg='ink'] { background: var(--ink); }
+
+  .dgq__card {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: clamp(var(--space-6), 4vw, var(--space-10));
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: var(--radius-band);
+    padding: clamp(var(--space-7), 4vw, var(--space-11));
+    overflow: hidden;
+    position: relative;
+  }
+  /* Fond stades ink (cas rare) : bord net pour détacher la carte du fond même couleur. */
+  .dgq[data-bg='ink'] .dgq__card { border: 1px solid rgba(var(--paper-rgb), 0.14); }
+
+  .dgq__copy { display: flex; flex-direction: column; align-items: flex-start; }
+
+  /* Aimant visuel : « ? » serif géant en accent (le geste éditorial de la bande = le quiz). */
+  .dgq__q {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-h1);
+    line-height: 0.8;
+    color: var(--accent-text);
+    margin-bottom: var(--space-4);
+  }
+  .dgq__q i { font-style: italic; }
+
+  :global(.dgq__eyebrow) { margin-bottom: var(--space-3); }
+
+  .dgq__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-regular);
+    color: var(--paper);
+    max-width: 20ch;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .dgq__title :global(i) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); }
+
+  .dgq__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-lede);
+    color: var(--muted);
+    max-width: 46ch;
+    margin: var(--space-4) 0 0;
+    text-wrap: pretty;
+  }
+
+  .dgq__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+  .dgq__note {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .dgq__media {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dgq__media img {
+    width: 100%;
+    height: auto;
+    max-width: 26rem;
+    display: block;
+  }
+
+  /* Mobile : empilement propre (copy puis illustration), 0 débordement. */
+  @media (max-width: 860px) {
+    .dgq__card {
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+    }
+    .dgq__media { order: 1; }
+    .dgq__media img { max-width: 20rem; }
+  }
+</style>
