@@ -27,6 +27,30 @@ export const schema = z.object({
   density: z.enum(['compact', 'base', 'ample']).optional(),
   // contentAlign (data-content-align) : alignement du header (start défaut | center | end).
   contentAlign: z.enum(['start', 'center', 'end']).optional(),
+  // Déclinaison cataloguée « bande CTA quiz » : bloc optionnel rendu SOUS la piste de stades
+  // (carte ink contenue = illustration + accroche serif accent + bouton), pour pousser au quiz
+  //  d’auto-positionnement (« dans quel stade êtes-vous ? »). ABSENT = rendu actuel inchangé
+  //  (rétro-compat stricte). Bilingue comme le reste du module ; libellé + href CTA requis.
+  quizCta: z
+    .object({
+      eyebrow_fr: z.string().optional(),
+      eyebrow_en: z.string().optional(),
+      title_fr: z.string().optional(),
+      title_en: z.string().optional(),
+      body_fr: z.string().optional(),
+      body_en: z.string().optional(),
+      cta_label_fr: z.string(),
+      cta_label_en: z.string(),
+      cta_href: z.string(),
+      // Illustration line-art DS (webp, couleurs cuites). Défaut = variante `-ink` (carte ink).
+      media_src: z.string().optional(),
+      media_alt_fr: z.string().optional(),
+      media_alt_en: z.string().optional(),
+      // Note discrète sous le bouton (mono) : durée du quiz, gratuité, etc.
+      note_fr: z.string().optional(),
+      note_en: z.string().optional(),
+    })
+    .optional(),
   // Couche atomique : placement par région (header + body). Forme = placementSchema.
   placement: placementSchema,
 });

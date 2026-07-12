@@ -1,0 +1,993 @@
+---
+export const prerender = true;
+
+/**
+ * Home · variante E · MAQUETTE design-lab (etapes 0 a 2, arret GATE B).
+ * noindex, hors nav, hors sitemap. Ne remplace PAS la home live.
+ *
+ * Objectif E = la home LIVE raccourcie, hierarchisee, dedoublonnee, clarifiee,
+ * en gardant la richesse visuelle du live (SVG line-art, animations au scroll).
+ * Corrige la variante D (rejetee : trop plate + ~20 px en dur) : ici 0 valeur en
+ * dur (100 % var(--token) ; hairlines = box-shadow --shadow-card-rest + global
+ * .hline + barre de tabs en 1px var(--hairline)/2px var(--accent-text), idiome DS
+ * canonique et exception hairline rule 60 ; pas d'AUTRE literal px hors @media /
+ * viewBox SVG) + SVG dessines au scroll.
+ *
+ * Sequence (13 slots) · alternance paper/ink stricte, jamais 2 ink pleins adjacents.
+ * Fil narratif des kickers « § » : constat -> offres -> boucle -> tension -> preuves ->
+ * methode -> ou en etes-vous -> confiance -> resultats -> questions -> action :
+ *   01 Hero (live, paper, composant INTOUCHE)
+ *   02 Ecosysteme opere · logo-marquee (SectionsRenderer, ink + grayscale) · bande courte
+ *   03 Les deux offres (#offres) · MONEY SLOT · tabs familles + diptyque + rangee 6 services + dorsale SVG (paper)
+ *   04 La boucle · statement-orbit CATALOGUE (SectionsRenderer, carte ink dans paper) · PIVOT
+ *      conceptuel : les 2 offres = une boucle lire/mesurer/reinjecter · globe filaire line-art
+ *   05 La tension · 3 douleurs sobres (direct, paper-2)
+ *   06 Cas clients · 3 cartes compactes + 1 CTA discret (direct, paper) · CTA « audit » retire (iter 5 :
+ *      la bande quiz 08 + BookSession 13 couvrent deja « pas sur du point de depart »)
+ *   07 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, paper-2) · media sticky crossfade
+ *   08 Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (SectionsRenderer, paper ; carte quiz
+ *      TOUJOURS ink) · 5 stades de maturite SYSTEME/IA d'une PME (current = stade 2, typique) · bande quiz ->
+ *      /lp/diagnostic-maturite-ia · AJOUT iter 5 (axe quizCta de la mission F consomme ici)
+ *   09 Temoignages · testimonial-wall CATALOGUE (SectionsRenderer, paper) · 6 avis de SWI, en-tete home
+ *   10 Tableau de bord media · eeat-panel variant media (SectionsRenderer, ink) · profil/reperes/secteurs
+ *      des contenus (cas/blog/ressources/cas-usages/services), liens internes reels verifies
+ *   11 Climax chiffre · 2e stats-bento de C (SectionsRenderer, paper-2) · pre-FAQ · 4 cellules dont
+ *      « 0 captivite / passation incluse / autonomie » (formation) DEJA portee par la base c.json (voir slot)
+ *   12 FAQ · 6 questions reformulees en requetes conversationnelles AIO, prix garde (FaqAccordion, paper)
+ *   13 Action · BookSession (ink) + FooterMarquee
+ *
+ * Gate B iter 5 (verdict Simon 2026-07-12 : « la meilleure version possible ») :
+ *  - AJOUT slot 08 « Ou en etes-vous » (diagnostic-stages + bande CTA quiz) entre methode et
+ *    temoignages = le point du fil narratif « ou en etes-vous » (auto-positionnement -> conversion vers
+ *    le diagnostic). 5 stades adaptes home (systeme/IA d'une PME), current sur le stade 2 (prospect type).
+ *  - REFONTE COPY SEO/AIO : courte traine tissee (site web IA, integration IA, systeme marketing,
+ *    agence IA PME, automatisation IA) + longue traine predictive AIO (« faire travailler l'IA sur ses
+ *    donnees reelles », « agents branches au CRM via MCP », « passer de l'assistant IA a l'action »,
+ *    « site web qui genere des leads », « PME IA-ready »...). FAQ reformulee en questions naturelles
+ *    (surface citable n°1), reponses c.json gardees. Definition-citation du money slot = 1 seul exemplaire.
+ *    Metaphore « systeme d'exploitation de l'entreprise » = 1 occurrence (lede stades 08), jamais en H1/title.
+ *  - DEGRAISSAGE (page ~14 500 px -> cible ~12-13 k) : CTA « audit » du slot 06 retire, ledes/bodies
+ *    resserres (offres, tab intro), bullets non-paraphrasantes, densite compacte sur les stades. Hero INTOUCHE.
+ *
+ * Gate B iter 4 (demande Simon 2026-07-12) : le MONEY SLOT 03 gagne un niveau de TABS (etage
+ * FAMILLES du positionnement V8, cf strategy/10 §0bis) : onglet 1 « Systeme marketing » ACTIF
+ * (contient toute la matiere du slot : intro d'offre + diptyque + dorsale + rangee 6 services),
+ * onglet 2 « Systeme commercial » DESACTIVE (badge « bientot », aria-disabled, non focusable, sans
+ * panel) pour materialiser l'extensibilite. Idiome tabs repris de FeatureTabs/pricing-tabs-showcase
+ * (aria role tablist/tab/tabpanel + clavier ←/→/Home/End + re-init astro:page-load), style hairline
+ * sobre (PAS de pills). Repositionnement INGENIERIE IA : le header du slot pose « agence d'ingenierie
+ * IA et d'applications pour PME » (kicker) + la definition-citation Simon en lede, et la carte 02
+ * « Automation & IA » (multi-modeles Claude/ChatGPT/Mistral via MCP, PAS anthropic-first). Hero INTOUCHE.
+ *
+ * Gate B iter 3 (demandes Simon 2026-07-12) : ajout de deux sections catalogue. `statement-orbit`
+ * (slot 04) reintroduit le liant conceptuel (les 2 offres forment UNE boucle d'amelioration continue),
+ * COPY neuf adapte home. Le `eeat-panel` variant media « tableau de bord media » (slot 10). Tout passe
+ * par <SectionsRenderer> (0 markup inline neuf, 0 fork).
+ *
+ * Gate B iter 2 (verdict Simon 2026-07-12) : la methode redevient RICHE via `sticky-scroll-storytelling`,
+ * les temoignages `testimonial-wall` de SWI s'ajoutent, le tableau de bord media se deplace pre-FAQ.
+ *
+ * Doublons du live supprimes (a NE PAS reintroduire) : feature-zigzag (absorbe slot 03),
+ * ServicesGrid (absorbe slot 03), pricing-cards (directive : pas de prix hors FAQ), CtaBand
+ * accent (remplace par la ligne CTA slot 05), SectionTransition (hierarchie par le design),
+ * 1er stats-bento Acte I, bento-grid, eeat-panel, hero-masthead-card (Hero live garde),
+ * ArchitectureDiagram (doublon du recit systeme deja porte par le money slot 03).
+ */
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/ui/organisms/Hero.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import FaqAccordion from '../../components/sections/FaqAccordion.astro';
+import BookSession from '../../components/ui/organisms/BookSession.astro';
+import FooterMarquee from '../../components/ui/organisms/FooterMarquee.astro';
+import homeVariantC from '../../data/page-variants/home/c.json';
+import swiContent from '../../content/services/site-web-intelligent.json';
+import { SIX_SERVICES } from '../../data/sitemap';
+import type { SectionData } from '@waimia/ds-kernel';
+
+const sectionsC = homeVariantC.sections as any[];
+const cByType = (t: string) => sectionsC.find((s) => s.type === t);
+const swiTestimonials = (swiContent.sections as any[]).find((s) => s.type === 'testimonial-wall');
+
+// 02 · ecosysteme opere · logo-marquee sur fond ink + grayscale (config C, bande courte).
+const logoMarquee = {
+  ...cByType('logo-marquee'),
+  background: 'ink',
+  grayscale: true,
+  kicker_fr: "§ L’écosystème qu’on opère",
+} as SectionData;
+
+// 11 · climax chiffre = 2e stats-bento de C (layout bento : tuile vedette + 3 KPI) · pre-FAQ.
+// paper-2 (couleur du live) : l'eeat-panel ink du slot 10 le precede, jamais 2 ink adjacents.
+// Mission B (cellule formation/autonomie) : la 4e cellule « 0 captivite / passation incluse /
+// architecture, stack et systemes transferes... vos equipes restent autonomes » est DEJA portee
+// par la base c.json (home/c.json stats-bento[1].stats[3], verifie 2026-07-12). Le spread la rend
+// donc telle quelle -> aucune cellule a AJOUTER (l'ajouter dupliquerait). Grille EQUILIBREE a 4
+// cellules : bento content-driven (1 vedette span-lg + 3 span-sm, .bento-fluid dense, 0 trou).
+const statsBentoDashboard = {
+  ...sectionsC.filter((s) => s.type === 'stats-bento')[1],
+  background: 'paper-2',
+  kicker_fr: '§ Ce que ça change',
+} as SectionData;
+
+// 05 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
+const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
+  severity: it.severity as string,
+  title: it.title_fr as string,
+  desc: it.desc_fr as string,
+  fix: it.fix_fr as string,
+}));
+const sevLabel: Record<string, string> = { critical: 'Critique', high: 'Élevé', medium: 'Moyen' };
+
+// 06 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
+const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
+  client: c.client as string,
+  meta: `${c.sector_fr} · ${c.duration}`,
+  impact: c.impact_fr as string,
+  href: c.href as string,
+}));
+
+// 07 · Methode · sticky-scroll-storytelling CATALOGUE · contenu c.json TEL QUEL (4 steps home,
+// media_src illustrations, media sticky crossfade au scroll). Layout DIFFERENCIE de SWI via les
+// SEULS axes existants du schema. Layout V1 CHOISI (verdict Simon 2026-07-12, gate B iter 3 :
+// « je garde la mise en page actuelle pour méthode ») ; V2/V3/V4 restent au catalogue (lab/home-e-method).
+const methodStory = {
+  ...cByType('sticky-scroll-storytelling'),
+  background: 'paper-2',
+  kicker_fr: '§ Méthode · l’ingénierie se construit par paliers',
+  textSide: 'right',
+  proportion: 'media-wide',
+  mediaRatio: '3-2',
+  density: 'compact',
+  numbering: 'serif',
+} as SectionData;
+
+// 08 · Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (axe quizCta mission F).
+// 5 stades de maturite SYSTEME/IA d'une PME (adaptes home, PAS la maturite editoriale de CMI),
+// du tout-manuel a l'entreprise qui tourne sur ses systemes. current = stade 2 (prospect type).
+// Fond paper (differe du paper-2 methode 07) ; la carte quiz est TOUJOURS ink (rendue par le
+// composant) -> ponctuation ink avant temoignages 09, alternance respectee. density compact pour
+// garder la NOUVELLE section lean (compense le degraissage global). Bande quiz -> route reelle
+// /lp/diagnostic-maturite-ia. media_src omis = defaut DS `no-no-yes-ink.webp` (carte ink).
+const maturityStages = {
+  type: 'diagnostic-stages',
+  background: 'paper',
+  density: 'compact',
+  kicker_fr: '§ Où en êtes-vous ?',
+  kicker_en: '§ Where do you stand?',
+  h2_fr: 'Cinq stades, du <i class="acc">tout-manuel</i> à l’entreprise qui tourne sur ses systèmes.',
+  h2_en: 'Five stages, from <i class="acc">all-manual</i> to a company that runs on its systems.',
+  lede_fr: 'Situez votre PME sur la trajectoire des systèmes métier IA, jusqu’à ce qu’ils deviennent le système d’exploitation de votre entreprise. La plupart démarrent au stade 2 : des outils, mais rien qui pilote l’ensemble.',
+  lede_en: 'Place your SME on the business-AI-system path, up to the point where it becomes your company’s operating system. Most start at stage 2: tools, but nothing steering the whole.',
+  stages: [
+    {
+      glyph: '○', phase_fr: 'Stade 1', phase_en: 'Stage 1',
+      title_fr: 'Tout à la main', title_en: 'All by hand',
+      body_fr: 'Les tâches répétitives à faible valeur monopolisent vos équipes. Rien n’est outillé, tout repose sur des personnes et un temps qu’elles n’ont pas.',
+      body_en: 'Low-value repetitive tasks monopolise your teams. Nothing is tooled, everything rests on people and time they don’t have.',
+    },
+    {
+      glyph: '◔', phase_fr: 'Stade 2', phase_en: 'Stage 2', current: true,
+      title_fr: 'Outils dispersés', title_en: 'Scattered tools',
+      body_fr: 'Un CRM, des SaaS, des tableurs, mais déconnectés. La donnée se ressaisit à la main et personne ne pilote l’ensemble.',
+      body_en: 'A CRM, SaaS apps, spreadsheets, but disconnected. Data is re-keyed by hand and no one steers the whole.',
+    },
+    {
+      glyph: '◑', phase_fr: 'Stade 3', phase_en: 'Stage 3',
+      title_fr: 'Premières automatisations', title_en: 'First automations',
+      body_fr: 'Vous commencez à déléguer les tâches répétitives à l’IA : quelques workflows, un premier agent sur une tâche ciblée, des résultats que vous suivez.',
+      body_en: 'You start delegating repetitive tasks to AI: a few workflows, a first agent on a targeted task, results you track.',
+    },
+    {
+      glyph: '◕', phase_fr: 'Stade 4', phase_en: 'Stage 4',
+      title_fr: 'Système connecté', title_en: 'Connected system',
+      body_fr: 'Applications et agents branchés à vos outils via MCP. La donnée circule, les coûts opérationnels baissent, chaque décision est mesurée.',
+      body_en: 'Applications and agents wired to your tools via MCP. Data flows, operating costs drop, every decision is measured.',
+    },
+    {
+      glyph: '●', phase_fr: 'Stade 5', phase_en: 'Stage 5',
+      title_fr: 'L’entreprise-système', title_en: 'The system-company',
+      body_fr: 'L’équipe pilote, l’IA exécute. Votre entreprise tourne sur ses systèmes : une PME IA-ready, qui gagne en justesse à chaque cycle.',
+      body_en: 'The team steers, AI executes. Your company runs on its systems: an AI-ready SME that sharpens with every cycle.',
+    },
+  ],
+  quizCta: {
+    eyebrow_fr: '§ Diagnostic de maturité', eyebrow_en: '§ Maturity diagnostic',
+    title_fr: 'À quel stade est <i>votre PME</i> aujourd’hui ?',
+    title_en: 'Which stage is <i>your company</i> at today?',
+    body_fr: 'Faites le diagnostic : dix questions, situez votre stade avec précision et repartez avec les trois prochaines étapes concrètes pour monter d’un cran.',
+    body_en: 'Run the diagnostic: ten questions, pinpoint your stage and leave with the three concrete next steps to climb one level.',
+    cta_label_fr: 'Faire le diagnostic →', cta_label_en: 'Run the diagnostic →',
+    cta_href: '/lp/diagnostic-maturite-ia',
+    media_alt_fr: 'Illustration : évaluer des options et trancher pour avancer d’un stade.',
+    media_alt_en: 'Illustration: weighing options and deciding to move up a stage.',
+    note_fr: 'Gratuit · 5 min · résultat immédiat', note_en: 'Free · 5 min · instant result',
+  },
+} as SectionData;
+
+// 09 · Temoignages · testimonial-wall CATALOGUE · les 6 avis de SWI TELS QUELS (0 avis reinvente).
+// En-tete ADAPTE a la home (parle du systeme/du studio, pas seulement du site qui qualifie).
+const testimonialsHome = {
+  ...swiTestimonials,
+  background: 'paper',
+  kicker_fr: '§ Ils ont mis leur système au travail',
+  kicker_en: '§ They put their system to work',
+  h2_fr: 'Ce que disent les équipes qui ont mis leur <i>système au travail</i>',
+  h2_en: 'What teams who put their <i>system to work</i> are saying',
+  subtitle_fr: 'Des dirigeants et des équipes qui ont arrêté de subir leurs outils et fait travailler leur système d’acquisition.',
+  subtitle_en: 'Leaders and teams who stopped enduring their tools and put their acquisition system to work.',
+} as SectionData;
+
+// 12 · FAQ · 6 questions (sous-ensemble des 8 de C) · Q.01 = prix (SEULE mention de prix), ouverte.
+// Surface AIO citable n°1 : les QUESTIONS sont reformulees en requetes conversationnelles reelles
+// (celles qu'un dirigeant tape/dicte a un assistant IA), les REPONSES restent celles de c.json (0 desync).
+const faqAll = (cByType('faq-accordion').items as any[]);
+const faqIdx = [0, 1, 2, 3, 4, 6];
+const faqQuestions = [
+  'Combien coûte un système IA pour une PME ?',
+  'À quelle taille d’entreprise s’adresse un système métier IA ?',
+  'En combien de temps une PME voit-elle un retour sur l’IA ?',
+  'Faut-il remplacer nos outils pour intégrer l’IA ?',
+  'L’IA peut-elle se brancher à notre CRM et à nos outils existants ?',
+  'Nos équipes restent-elles autonomes après la livraison ?',
+];
+const faqItems = faqIdx.map((i, k) => ({ q: faqQuestions[k], a: faqAll[i].a_fr }));
+
+// 03 · 6 services (label + mini-lead + lien) · ABSORPTION de ServicesGrid · source SIX_SERVICES.
+const services = SIX_SERVICES.map((s) => ({
+  metric: s.metric.fr,
+  label: s.label.fr,
+  sub: s.connectors.fr,
+  href: s.href,
+}));
+
+// 04 · statement-orbit CATALOGUE · PIVOT apres le money slot · liant conceptuel : les 2 offres
+// forment UNE boucle d'amelioration continue (lire/mesurer/reinjecter). Copy NEUF adapte home,
+// 0 reprise du copy SWI (« Chaque brique... » sert de TON, pas de source). Carte ink contenue
+// -> pleine largeur au scroll (motion signature du composant). media = globe filaire line-art
+// `orbit-network.svg` INLINE par le composant (import ?raw) -> currentColor = paper sur ink :
+// traits clairs, PAS de footgun <img>/currentColor-noir (le SVG n'est jamais servi en <img>).
+// Pas de CTA : le hero + la ligne cas clients + BookSession couvrent deja /contact, et la
+// rangee 6 services du money slot porte deja la nav /services -> un CTA ici serait redondant.
+const statementOrbit = {
+  type: 'statement-orbit',
+  background: 'paper',
+  kicker_fr: '§ La boucle',
+  kicker_en: '§ The loop',
+  h2_fr: 'Les deux offres forment une <i class="acc">boucle</i> : lire, mesurer, réinjecter.',
+  h2_en: 'Both offers form one <i class="acc">loop</i>: read, measure, feed back.',
+  lede_fr: 'Votre site qualifie chaque visite, les agents traitent et mesurent, ce qui remonte nourrit le cycle suivant. Une ingénierie qui gagne en justesse à chaque tour, sans refonte à chaque palier.',
+  lede_en: 'Your site qualifies every visit, the agents process and measure, what comes back feeds the next cycle. A setup that sharpens with every turn, with no rebuild at each tier.',
+  media_src: '/images/line-art/orbit-network.svg',
+  media_alt_fr: 'Globe filaire aux nœuds relies par des arcs : le site, le CRM, le contenu et les agents tournent en une seule boucle d’acquisition.',
+  media_alt_en: 'Wireframe globe with nodes linked by arcs: site, CRM, content and agents turn as one acquisition loop.',
+} as SectionData;
+
+// 10 · eeat-panel variant media (INK) = le « TABLEAU DE BORD MÉDIA » de SWI (kicker litteral du
+// composant) : profil auteur, reperes, secteurs, badges E-E-A-T. Contenu + liens internes GLOBAUX
+// portes par le composant (source unique, meme rendu que SWI). Correction Simon 2026-07-12 :
+// c'etait CE dashboard qui etait demande, pas un media-bento de decouverte (retire).
+const mediaDashboard = {
+  type: 'eeat-panel',
+  variant: 'media',
+  background: 'ink',
+} as SectionData;
+---
+<Base
+  title="Home variante E · maquette design-lab · Waimia"
+  description="Maquette interne de la home variante E. Page de laboratoire, non indexée."
+  noindex
+>
+  {/* 01 · Hero live · promesse + mini-map 6 territoires + CTAs · INTOUCHE (reference qualite) */}
+  <Hero />
+
+  {/* 02 · Ecosysteme opere · logo-marquee ink + grayscale · bande courte */}
+  <SectionsRenderer sections={[logoMarquee]} lang="fr" />
+
+  {/* 03 · Les deux offres · MONEY SLOT · diptyque + dorsale SVG + rangee 6 services */}
+  <section class="he-sec he-offres" id="offres" aria-labelledby="he-offres-h2">
+    <div class="wrap-wide">
+      <header class="he-head reveal">
+        <p class="he-kicker">§ Agence d’ingénierie IA &amp; applications pour PME</p>
+        <h2 id="he-offres-h2" class="he-h2 he-h2--xl u-serif-accent">On <i>conçoit le système</i>, pas juste l’outil.</h2>
+        <p class="he-lede">Un système métier IA n’est pas une automatisation isolée, c’est un ensemble cohérent d’applications, de données, de workflows et d’agents conçu autour de vos opérations.</p>
+      </header>
+
+      {/* Niveau FAMILLES · tabs (etage V8) · tab 1 « Systeme marketing » actif, tab 2 « commercial » inerte */}
+      <div class="he-tabs" data-he-tabs>
+        <div class="he-tabs__list" role="tablist" aria-label="Familles de systèmes">
+          <button
+            class="he-tab is-active"
+            role="tab"
+            id="he-tab-marketing"
+            aria-controls="he-panel-marketing"
+            aria-selected="true"
+            tabindex="0"
+            type="button"
+          >
+            <span class="he-tab__label">Système marketing</span>
+          </button>
+          <button
+            class="he-tab is-disabled"
+            role="tab"
+            id="he-tab-commercial"
+            aria-selected="false"
+            aria-disabled="true"
+            tabindex="-1"
+            type="button"
+            disabled
+          >
+            <span class="he-tab__label">Système commercial</span>
+            <span class="he-tab__badge">bientôt</span>
+          </button>
+        </div>
+
+        <div
+          class="he-tab-panel is-active"
+          role="tabpanel"
+          id="he-panel-marketing"
+          aria-labelledby="he-tab-marketing"
+          tabindex="0"
+        >
+          <div class="he-tabintro reveal">
+            <p class="he-tabintro__eyebrow">§ Système marketing · équipes marketing de PME</p>
+            <p class="he-tabintro__lede">Un inbound et un outbound qui rapportent : le site qualifie chaque visite, les agents relancent et mesurent. Deux briques d’un même système marketing, à un pricing de lancement.</p>
+          </div>
+
+          <div class="he-diptych reveal-stagger">
+            <article class="he-offer">
+              <p class="he-offer__tag">Offre 01</p>
+              <h3 class="he-offer__title">Site web intelligent</h3>
+              <p class="he-offer__body">Un site web IA sur Astro, rapide, indexé par Google et par les moteurs IA, branché à votre CRM. Il qualifie chaque visite et alimente le pipeline en continu : une vitrine qui génère des leads, pas une plaquette figée.</p>
+              <div class="hline"></div>
+              <ul class="he-offer__points">
+                <li>Astro + IA, trouvé par Google et par les IA</li>
+                <li>Landing et tunnels reliés au CRM</li>
+                <li>Pages éditables, mesurées à la conversion</li>
+              </ul>
+              <a class="he-offer__link" href="/services/site-web-intelligent">Voir l’offre →</a>
+            </article>
+
+            <article class="he-offer">
+              <p class="he-offer__tag">Offre 02</p>
+              <h3 class="he-offer__title">Automation &amp; IA</h3>
+              <p class="he-offer__body">Intégration IA de bout en bout : on déploie Claude, ChatGPT ou Mistral et leurs agents dans votre entreprise, branchés à vos outils via MCP (CRM, e-mail, base de données, dépôt Git). De quoi faire travailler l’IA sur vos données réelles et la faire passer de la conversation à l’action.</p>
+              <div class="hline"></div>
+              <ul class="he-offer__points">
+                <li>Claude, ChatGPT ou Mistral en production</li>
+                <li>Serveurs MCP propres vers vos outils</li>
+                <li>Gouvernance, mesure et passation incluses</li>
+              </ul>
+              <a class="he-offer__link" href="/services/integrateur-claude">Voir l’offre →</a>
+            </article>
+          </div>
+
+          {/* Dorsale line-art · relie visuellement les 2 cartes puis les 6 services · dessinee au scroll */}
+          <div class="he-rail hd-draw" aria-hidden="true">
+        <svg class="he-rail__svg" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
+          <path class="hd-line hd-line--2" pathLength="1" d="M300 4 C 300 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
+          <path class="hd-line hd-line--2" pathLength="1" d="M900 4 C 900 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M600 62 L600 108" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.6"/>
+          <path class="hd-line" pathLength="1" d="M100 108 L1100 108" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M100 108 L100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M300 108 L300 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M500 108 L500 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M700 108 L700 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M900 108 L900 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <path class="hd-line hd-line--3" pathLength="1" d="M1100 108 L1100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+          <circle class="hd-node" cx="600" cy="62" r="4" fill="var(--accent)"/>
+          <circle class="hd-node" cx="100" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="300" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="500" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="700" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="900" cy="146" r="3" fill="var(--accent)"/>
+          <circle class="hd-node" cx="1100" cy="146" r="3" fill="var(--accent)"/>
+        </svg>
+          </div>
+
+          <p class="he-services__intro reveal">§ Six services, une seule équipe. On active celui qui sert d’abord.</p>
+          <div class="he-services reveal-stagger">
+            {services.map((s) => (
+              <a class="he-svc" href={s.href}>
+                <span class="he-svc__k">{s.metric}</span>
+                <span class="he-svc__label">{s.label}</span>
+                <span class="he-svc__sub">{s.sub}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* 04 · La boucle · statement-orbit CATALOGUE (carte ink dans paper) · PIVOT conceptuel */}
+  <SectionsRenderer sections={[statementOrbit]} lang="fr" />
+
+  {/* 05 · La tension · 3 douleurs sobres (paper-2) */}
+  <section class="he-sec he-tension" aria-labelledby="he-tension-h2">
+    <div class="wrap-wide">
+      <header class="he-head reveal">
+        <p class="he-kicker">§ La tension</p>
+        <h2 id="he-tension-h2" class="he-h2 u-serif-accent">Là où l’argent <i>fuit</i> en interne.</h2>
+      </header>
+      <ul class="he-pains reveal-stagger">
+        {painItems.map((p) => (
+          <li class="he-pain">
+            <span class="he-pain__sev" data-sev={p.severity}>{sevLabel[p.severity] ?? p.severity}</span>
+            <h3 class="he-pain__title">{p.title}</h3>
+            <p class="he-pain__desc">{p.desc}</p>
+            <div class="hline"></div>
+            <p class="he-pain__fix">{p.fix}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {/* 06 · Cas clients · 3 cartes compactes + 1 lien « tous les cas » + micro-preuve (paper) · CTA audit retire */}
+  <section class="he-sec he-cases" aria-labelledby="he-cases-h2">
+    <div class="wrap-wide">
+      <header class="he-head reveal">
+        <p class="he-kicker">§ Cas clients</p>
+        <h2 id="he-cases-h2" class="he-h2 u-serif-accent"><i>Promesse</i> vérifiable, pas discours.</h2>
+      </header>
+      <div class="he-cases__grid reveal-stagger">
+        {caseItems.map((c) => (
+          <a class="he-case" href={c.href}>
+            <p class="he-case__client">{c.client}</p>
+            <p class="he-case__meta">{c.meta}</p>
+            <p class="he-case__impact">{c.impact}</p>
+            <span class="he-case__link">Lire le cas →</span>
+          </a>
+        ))}
+      </div>
+      <div class="he-cases__foot reveal">
+        <a class="he-cases__all" href="/cas-clients">Voir tous les cas →</a>
+        <p class="he-cases__cta">Des chiffres relevés sur les données du client, jamais une moyenne inventée.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* 07 · Methode · sticky-scroll-storytelling CATALOGUE (paper-2) · media sticky crossfade au scroll */}
+  <SectionsRenderer sections={[methodStory]} lang="fr" />
+
+  {/* 08 · Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (paper ; carte quiz ink) */}
+  <SectionsRenderer sections={[maturityStages]} lang="fr" />
+
+  {/* 09 · Temoignages · testimonial-wall CATALOGUE (paper) · 6 avis de SWI, en-tete home */}
+  <SectionsRenderer sections={[testimonialsHome]} lang="fr" />
+
+  {/* 10 · Tableau de bord media · eeat-panel variant media (ink) · profil, reperes, secteurs, liens globaux */}
+  <SectionsRenderer sections={[mediaDashboard]} lang="fr" />
+
+  {/* 11 · Climax chiffre (2e stats-bento de C, paper-2) · pre-FAQ · cellule autonomie deja dans la base */}
+  <SectionsRenderer sections={[statsBentoDashboard]} lang="fr" />
+
+  {/* 12 · FAQ · 6 questions reformulees AIO · Q.01 prix ouverte (SEULE mention de prix de la page) */}
+  <FaqAccordion
+    items={faqItems}
+    heading="Ce qu’on écrit par mail avant de se parler."
+    intro="Six réponses nettes, pas des slides, pas du jargon."
+    background="paper"
+    openFirst
+  />
+
+  {/* 13 · Action · BookSession (ink) + FooterMarquee */}
+  <BookSession />
+  <FooterMarquee />
+</Base>
+
+<style>
+  /* ── Rythme de section · hierarchie par l'echelle (money/proof amples, soutien compacts) ── */
+  .he-sec { padding-block: var(--section-base); }
+  .he-offres { padding-block: var(--section-loose); } /* MONEY SLOT : poids visuel maximal */
+  .he-tension { background: var(--paper-2); }
+
+  /* ── En-tete de chapitre (kicker mono § + h2 + lede) ── */
+  .he-head {
+    max-width: var(--wrap-read);
+    margin-bottom: var(--space-9);
+  }
+  .he-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-4);
+  }
+  .he-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  /* Money/proof : cran display superieur (varie l'echelle typographique) */
+  .he-h2--xl { font-size: var(--text-h1); line-height: var(--leading-h1); }
+  .he-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    color: var(--muted);
+    margin: var(--space-5) 0 0;
+    max-width: var(--wrap-prose);
+  }
+
+  /* ── 03 · Tabs familles (etage V8) · barre hairline sobre, PAS de pills ──
+     Idiome repris de FeatureTabs (underline hairline + segment actif accent). */
+  .he-tabs { margin-bottom: var(--space-9); }
+  .he-tabs__list {
+    display: flex;
+    gap: var(--space-6);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-8);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .he-tabs__list::-webkit-scrollbar { display: none; }
+  .he-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    margin-bottom: -1px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    white-space: nowrap;
+    transition:
+      color var(--dur-trim) var(--ease),
+      border-color var(--dur-trim) var(--ease);
+  }
+  .he-tab.is-active {
+    color: var(--ink);
+    border-bottom-color: var(--accent-text);
+  }
+  .he-tab:not(.is-disabled):not(.is-active):hover { color: var(--ink); }
+  .he-tab.is-disabled { cursor: not-allowed; color: var(--muted); }
+  .he-tab__badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card-rest);
+  }
+  .he-tab-panel { display: none; }
+  .he-tab-panel.is-active { display: block; }
+  .he-tab-panel:focus-visible { outline: 2px solid var(--accent-text); outline-offset: var(--space-2); }
+
+  /* ── 03 · Intro du tab 1 (cible + promesse) ── */
+  .he-tabintro {
+    max-width: var(--wrap-read);
+    margin-bottom: var(--space-8);
+  }
+  .he-tabintro__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-3);
+  }
+  .he-tabintro__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+    max-width: var(--wrap-prose);
+  }
+
+  /* ── 03 · Diptyque des offres ── */
+  .he-diptych {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-offer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-9);
+    background: var(--paper-2);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-offer:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-offer__tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0;
+  }
+  .he-offer__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-title-lg);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-offer__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-offer__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .he-offer__points li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+  }
+  .he-offer__points li::before {
+    content: "";
+    flex: none;
+    inline-size: var(--space-2);
+    block-size: var(--space-2);
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    transform: translateY(0.5em);
+  }
+  .he-offer__link {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--accent-text);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .he-offer__link:hover { color: var(--accent); }
+
+  /* ── 03 · Dorsale line-art (relie 2 cartes -> 6 services) ── */
+  .he-rail {
+    margin: var(--space-6) 0 var(--space-4);
+  }
+  .he-rail__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ── 03 · Rangee compacte des 6 services (absorption ServicesGrid) ── */
+  .he-services__intro {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    margin: 0 0 var(--space-5);
+  }
+  .he-services {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+  .he-svc {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card-rest);
+    background: var(--paper);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-svc:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-svc__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .he-svc__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+  }
+  .he-svc__sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin-top: auto;
+  }
+
+  /* ── 05 · La tension · 3 douleurs graduees, sobres ── */
+  .he-pains {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-pain {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-8);
+    background: var(--paper);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+  }
+  .he-pain__sev {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card-rest);
+    color: var(--muted);
+  }
+  .he-pain__sev[data-sev="critical"] {
+    color: var(--accent-text);
+    background: rgba(var(--accent-rgb), 0.08);
+  }
+  .he-pain__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-pain__desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-pain__fix {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  .he-pain__fix::before {
+    content: "→";
+    color: var(--accent-text);
+    margin-right: var(--space-2);
+  }
+
+  /* ── 07 · Cas clients · 3 cartes ── */
+  .he-cases__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-case {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-8);
+    background: var(--paper-2);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-case:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-case__client {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-case__meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-case__impact {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: var(--space-2) 0 0;
+  }
+  .he-case__link {
+    margin-top: auto;
+    padding-top: var(--space-5);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--accent-text);
+  }
+  .he-cases__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+  .he-cases__all {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--ink);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .he-cases__all:hover { color: var(--accent-text); }
+  .he-cases__cta {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-cases__cta a {
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .he-cases__cta a:hover { color: var(--accent); }
+
+  /* ── SVG dessine au scroll · dorsale du money slot (03) ──
+     pathLength=1 -> dasharray:1 ; l'IntersectionObserver ajoute .is-drawn (offset -> 0). */
+  .hd-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset var(--dur-slow) var(--ease-out);
+  }
+  .hd-line--2 { transition-delay: var(--dur-base); }
+  .hd-line--3 { transition-delay: var(--dur-panel); }
+  .hd-draw.is-drawn .hd-line { stroke-dashoffset: 0; }
+  .hd-node {
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease-out) var(--dur-panel);
+  }
+  .hd-draw.is-drawn .hd-node { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hd-line { stroke-dashoffset: 0; transition: none; }
+    .hd-node { opacity: 1; transition: none; }
+    .he-offer:hover,
+    .he-svc:hover,
+    .he-case:hover { transform: none; }
+  }
+
+  /* ── Responsive · litteraux px en @media UNIQUEMENT (var() interdit en condition) ── */
+  @media (max-width: 900px) {
+    .he-diptych,
+    .he-pains,
+    .he-cases__grid { grid-template-columns: 1fr; }
+    .he-services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .he-rail { display: none; } /* la dorsale n'a de sens qu'en grille large */
+  }
+  @media (max-width: 560px) {
+    .he-services { grid-template-columns: 1fr; }
+    .he-cases__foot { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<script is:inline>
+  /* Dessin des SVG au scroll · IntersectionObserver -> .is-drawn (stroke-dashoffset).
+     Reduced-motion : le CSS montre deja l'etat final. Re-init compatible ClientRouter. */
+  (() => {
+    if (typeof window === 'undefined') return;
+    function initHeDraw() {
+      const nodes = document.querySelectorAll('.hd-draw');
+      if (!nodes.length) return;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-drawn');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      nodes.forEach((n) => {
+        if (n.dataset.drawBound === '1') return;
+        n.dataset.drawBound = '1';
+        io.observe(n);
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeDraw);
+    } else {
+      initHeDraw();
+    }
+    document.addEventListener('astro:page-load', initHeDraw);
+  })();
+</script>
+
+<script is:inline>
+  /* Tabs familles (money slot 03) · aria tablist/tab/tabpanel + clavier ←/→/Home/End.
+     Idiome FeatureTabs/pricing-tabs, adapte : les onglets desactives (aria-disabled) sont
+     ignores (non focusables, sans panel). 1 seul onglet actif ici, structure prete pour N.
+     Re-init compatible ClientRouter (astro:page-load) + garde anti double-binding. */
+  (() => {
+    if (typeof window === 'undefined') return;
+    function initHeTabs() {
+      const root = document.querySelector('[data-he-tabs]');
+      if (!root || root.dataset.tabsBound === '1') return;
+      const tabs = Array.from(root.querySelectorAll('[role="tab"]'))
+        .filter((t) => t.getAttribute('aria-disabled') !== 'true' && !t.hasAttribute('disabled'));
+      if (!tabs.length) return;
+      root.dataset.tabsBound = '1';
+      function activate(idx) {
+        tabs.forEach((tab, i) => {
+          const active = i === idx;
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          tab.tabIndex = active ? 0 : -1;
+          tab.classList.toggle('is-active', active);
+          const pid = tab.getAttribute('aria-controls');
+          const panel = pid && document.getElementById(pid);
+          if (panel) {
+            panel.classList.toggle('is-active', active);
+            panel.toggleAttribute('hidden', !active);
+          }
+        });
+      }
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => { activate(i); tab.focus(); });
+        tab.addEventListener('keydown', (e) => {
+          const total = tabs.length;
+          if (e.key === 'ArrowRight') { e.preventDefault(); activate((i + 1) % total); tabs[(i + 1) % total].focus(); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); activate((i - 1 + total) % total); tabs[(i - 1 + total) % total].focus(); }
+          if (e.key === 'Home') { e.preventDefault(); activate(0); tabs[0].focus(); }
+          if (e.key === 'End')  { e.preventDefault(); activate(total - 1); tabs[total - 1].focus(); }
+        });
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeTabs);
+    } else {
+      initHeTabs();
+    }
+    document.addEventListener('astro:page-load', initHeTabs);
+  })();
+</script>
+</Base>

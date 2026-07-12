@@ -194,27 +194,27 @@ const RESSOURCES: MegaMenuSection = {
 
 // ─── SOLUTIONS · refonte V8 2026-07-12 (docs/strategy/10 §0bis, décisions Simon) :
 // les titres de colonnes portent le récit « système », les liens portent les requêtes réelles.
-// Col 1 « Système marketing » (4 pages : site-web-ia [renommé depuis site-web-intelligent],
-// landing-page-scoring, content-marketing-intelligent [entre en nav], maintenance-growth ;
-// tête + footer → /services/site-web-ia, hub du système marketing). Col 2 « Intégration IA »
-// (3 pages : integration-claude [renommé depuis integrateur-claude], agents-ia,
-// consultant-ia-claude ; footer → /services/integration-claude). Col 3 « Résoudre un problème »
-// (cas-usages, footer /cas-usages cliquable). Featured « Système complet » INCHANGÉ (vague 2).
-// Liens cols 1-2 = 100% réels + indexables.
+// Col 1 « Systèmes métier » (renommage Simon 2026-07-12, post-vague V8 ; 4 pages : site-web-ia
+// [renommé depuis site-web-intelligent], landing-page-scoring, content-marketing-intelligent
+// [entre en nav], maintenance-growth ; tête + footer → /services/site-web-ia, hub du système
+// marketing). Col 2 « Intégration IA » (3 pages : integration-claude [renommé depuis
+// integrateur-claude], agents-ia, consultant-ia-claude ; footer → /services/integration-claude).
+// Col 3 « Résoudre un problème » (cas-usages, footer /cas-usages cliquable). Featured
+// « Système complet » INCHANGÉ (vague 2). Liens cols 1-2 = 100% réels + indexables.
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
   parentHref: '/services',
   matchPrefixes: ['/services'],
   lead: {
-    fr: 'Deux offres porteuses, les services qui les composent, et l\'audit pour savoir par où commencer.',
-    en: 'Two flagship offers, the services that compose them, and the audit to know where to start.',
+    fr: 'De l\'ingénierie IA et applicative pour PME : des systèmes métier cohérents, l\'intégration IA qui les anime, et l\'audit pour savoir par où commencer.',
+    en: 'AI and application engineering for SMBs: coherent business systems, the AI integration that powers them, and the audit to know where to start.',
   },
   columns: [
     {
-      kicker: { fr: 'SYSTÈME MARKETING', en: 'MARKETING SYSTEM' },
-      title: { fr: 'Système marketing', en: 'Marketing system' },
-      goal: { fr: 'Générer des clients, alléger le marketing', en: 'Generate customers, lighten marketing' },
+      kicker: { fr: 'SYSTÈMES MÉTIER', en: 'BUSINESS SYSTEMS' },
+      title: { fr: 'Systèmes métier', en: 'Business systems' },
+      goal: { fr: 'Le système marketing complet : générer et qualifier des leads', en: 'The complete marketing system: generate and qualify leads' },
       links: [
         {
           label: { fr: 'Site web IA', en: 'AI website' },
@@ -246,7 +246,7 @@ const SOLUTIONS: MegaMenuSection = {
     {
       kicker: { fr: 'INTÉGRATION IA', en: 'AI INTEGRATION' },
       title: { fr: 'Intégration IA', en: 'AI integration' },
-      goal: { fr: 'Standardiser, gagner du temps, exploiter le savoir', en: 'Standardize, save time, leverage knowledge' },
+      goal: { fr: 'Claude, ChatGPT ou Mistral, branchés à vos outils', en: 'Claude, ChatGPT or Mistral, wired to your tools' },
       links: [
         {
           label: { fr: 'Intégration Claude', en: 'Claude integration' },

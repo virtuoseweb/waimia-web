@@ -22,6 +22,10 @@ const textSide = data.textSide ?? 'left';
 const proportion = data.proportion ?? 'media-led';
 const mediaRatio = data.mediaRatio ?? '4-5';
 const numbering = data.numbering ?? 'serif';
+// Axes de layout optionnels : on passe le prop BRUT en attribut (undefined => attribut
+// omis => chemin par defaut identique). data-bg='ink' sur le wrap uniquement en frame
+// expand-ink (idiome global : remappe --muted/--hairline/--accent-text dans la carte).
+const frame = data.frame;
 ---
 
 <section
@@ -32,8 +36,12 @@ const numbering = data.numbering ?? 'serif';
   data-media-ratio={mediaRatio}
   data-density={data.density}
   data-numbering={numbering}
+  data-frame={frame}
+  data-media-mode={data.mediaMode}
+  data-media-treatment={data.mediaTreatment}
+  data-rail-style={data.railStyle}
 >
-  <div class="wrap-wide">
+  <div class="wrap-wide" data-bg={frame === 'expand-ink' ? 'ink' : undefined}>
     {(isFr ? data.kicker_fr : data.kicker_en) || (isFr ? data.lede_fr : data.lede_en) ? (
       <div class="sss__header reveal">
         {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -119,7 +127,7 @@ const numbering = data.numbering ?? 'serif';
     flex-direction: column;
     gap: var(--space-4);
     margin-bottom: var(--spacing-block);
-    max-width: 720px;
+    max-width: var(--wrap-prose);
   }
   .sss__header h2 :global(i) {
     font-style: italic;
@@ -350,6 +358,98 @@ const numbering = data.numbering ?? 'serif';
   }
   .sss[data-bg='ink'] .sss__inline-img {
     border-color: rgba(var(--paper-rgb), 0.16);
+  }
+
+  /* ── V2 · frame expand-ink ──────────────────────────────────────────────────
+     La section entiere vit dans une carte ink contenue (80 %) qui s'etend a pleine
+     largeur (100 %) au scroll. MEME technique que StatementOrbit `so-expand` : CSS
+     scroll-driven (animation-timeline: view()), 0 JS. Pas d'overflow:hidden -> le media
+     sticky continue de fonctionner. Le wrap porte data-bg='ink' (idiome global) : on peint
+     la surface ink + le titre, l'idiome remappe --muted/--hairline/--accent-text. Fallback
+     (0 support) + reduced-motion : la carte reste contenue (80 %). Defaut (frame absent) :
+     0 selecteur ci-dessous ne matche -> rendu identique. */
+  .sss[data-frame='expand-ink'] .wrap-wide {
+    width: 80%;
+    max-width: none;
+    margin-inline: auto;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: var(--radius-lg);
+    padding-block: var(--space-11);
+  }
+  .sss[data-frame='expand-ink'] .sss__title,
+  .sss[data-frame='expand-ink'] .sec-base-h2 {
+    color: var(--paper);
+  }
+  .sss[data-frame='expand-ink'] .sss__lede,
+  .sss[data-frame='expand-ink'] .sss__body {
+    color: rgba(var(--paper-rgb), 0.72);
+  }
+  .sss[data-frame='expand-ink'] .sss__step[data-active='false'] {
+    opacity: 0.4;
+  }
+  .sss[data-frame='expand-ink'] .sss__frame {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+  .sss[data-frame='expand-ink'] .sss__inline-img {
+    border-color: rgba(var(--paper-rgb), 0.16);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .sss[data-frame='expand-ink'] .wrap-wide {
+        animation: sss-expand linear both;
+        animation-timeline: view();
+        animation-range: entry 8% cover 38%;
+      }
+      @keyframes sss-expand {
+        from { width: 80%; border-radius: var(--radius-lg); }
+        to   { width: 100%; border-radius: 0; }
+      }
+    }
+  }
+
+  /* ── V3/V4 · axes de layout desktop (mobile = stepper empile inchange) ──────────
+     Toutes ces regles sont scopees par data-attribute ET confinees au >= 860px : sans
+     l'axe, aucune ne matche ; en mobile, le stepper empile reste le fallback. */
+  @media (min-width: 860px) {
+    /* V3 · mediaMode inline : colonne media sticky supprimee, image de chaque etape
+       tissee dans le rail (image alternee gauche/droite, long-form editorial). */
+    .sss[data-media-mode='inline'] .sss__grid { grid-template-columns: 1fr; }
+    .sss[data-media-mode='inline'] .sss__media { display: none; }
+    .sss[data-media-mode='inline'] .sss__rail { gap: var(--space-15); }
+    .sss[data-media-mode='inline'] .sss__step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: var(--space-11);
+      row-gap: var(--space-4);
+      align-items: center;
+      min-height: 0;
+    }
+    .sss[data-media-mode='inline'] .sss__step[data-active='false'] { opacity: 1; }
+    .sss[data-media-mode='inline'] .sss__inline-img {
+      display: block;
+      grid-column: 2;
+      grid-row: 1 / -1;
+      margin-top: 0;
+      align-self: center;
+    }
+    .sss[data-media-mode='inline'] .sss__step:nth-child(even) .sss__inline-img {
+      grid-column: 1;
+    }
+
+    /* V4 · media bleed (panneau immersif sans chrome) + rail ledger (filets separateurs). */
+    .sss[data-media-treatment='bleed'] .sss__frame {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: var(--paper-2);
+    }
+    .sss[data-rail-style='ledger'] .sss__rail { gap: 0; }
+    .sss[data-rail-style='ledger'] .sss__step {
+      border-top: 1px solid var(--hairline-strong);
+      padding-top: var(--space-9);
+    }
   }
 
   /* ── Reduced motion : swap instantané, pas de scale, sticky conservé ── */
