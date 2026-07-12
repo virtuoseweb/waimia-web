@@ -12,6 +12,8 @@ Code via le tool `Skill`.
 | `newsletter-mensuelle` | Agrège veille IA mensuelle + envoi Resend | ⏳ B10 |
 | `post-linkedin` | Génère variantes LinkedIn (texte + carousel + video) | ⏳ B11 |
 | `calendrier-editorial` | Détecte trous éditoriaux + propose sujets | ⏳ B12 |
+| `waimia-web-patterns` | Patterns du repo extraits du git (catalogue sections, gates, commits GF-1) | ✅ auto-genere |
+| `design-lab` | Cycle iteratif de design de pages : lab HTML/CSS, variantes A/B, alimentation library, recomposition | ✅ v1 |
 
 ## Installation
 
