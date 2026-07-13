@@ -61,6 +61,12 @@ const bodyHide = pl?.body?.hideOn;
 const actionsJustify =
   pl?.actions?.justify ?? (data.actionsAlign === 'spread' ? 'between' : data.actionsAlign);
 const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : undefined;
+
+// ── Reveal desktop (enrichissement inspiré de hover-reveal-list). Actif seulement si
+// reveal_mode est défini ET qu'au moins un cas porte une illustration. Sinon hasReveal=false
+// → 0 attribut / 0 markup en plus (rendu strictement identique aux pages sans ces champs). ──
+const revealMode = data.reveal_mode;
+const hasReveal = Boolean(revealMode) && resolvedCases.some((c) => c.media_src);
 ---
 <section
   id="act-4"
@@ -69,6 +75,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
   data-density={data.density}
   data-content-align={data.contentAlign}
   data-layout={data.layout}
+  data-reveal-mode={hasReveal ? revealMode : undefined}
   aria-labelledby="cases-h2"
 >
   <div class="wrap-wide">
@@ -92,7 +99,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     ) : (
     <div class="cases-tbl row-lines reveal-stagger" data-columns={data.columns} data-col-ratio={colRatio} data-item-height={data.itemHeight} data-body-hide={bodyHide}>
       {resolvedCases.map((c, i) => (
-        <a class="cases-row" href={c.href}>
+        <a class="cases-row" href={c.href} data-idx={hasReveal ? i : undefined}>
           <span class="cases-idx">{isFr ? data.case_label_fr : data.case_label_en} 0{i + 1}</span>
           <span class="cases-client">{c.client}</span>
           <span class="cases-col">
@@ -121,6 +128,25 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
       </div>
     )}
   </div>
+
+  {hasReveal && (
+    <div class="cases-reveal" aria-hidden="true">
+      {resolvedCases.map((c, i) =>
+        c.media_src ? (
+          <img
+            class="cases-reveal__img"
+            data-idx={i}
+            src={c.media_src}
+            alt={(isFr ? c.media_alt_fr : c.media_alt_en) ?? ''}
+            loading="lazy"
+            decoding="async"
+            width="1000"
+            height="750"
+          />
+        ) : null,
+      )}
+    </div>
+  )}
 </section>
 
 <style>
@@ -302,4 +328,127 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
   /* hover : voile clair subtil au lieu du paper-2 clair ; impact en texte clair lisible. */
   #act-4[data-bg='ink'] .cases-row:hover{background:rgba(var(--paper-rgb),0.05)}
   #act-4[data-bg='ink'] .cases-impact{color:var(--paper)}
+
+  /* ── REVEAL desktop (enrichissement, idiome hover-reveal-list) ──────────────────────────
+     Cadre flottant unique : illustrations empilées, opacity 0 par défaut. Activé UNIQUEMENT
+     sur pointeur fin + desktop (JS pose data-reveal-active sur la section). Tokens DS seuls
+     (rule 60). Défaut (pas de data-reveal-active) = display:none → 0 impact, jamais inline. ── */
+  .cases-reveal{display:none}
+  #act-4[data-reveal-active='true'] .cases-reveal{
+    display:block;
+    position:fixed;
+    top:0;
+    left:0;
+    width:clamp(220px,22vw,340px);
+    aspect-ratio:4 / 3;
+    pointer-events:none;
+    z-index:60;
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    box-shadow:var(--shadow-lift);
+    opacity:0;
+    transition:opacity var(--dur-reveal) var(--ease);
+  }
+  #act-4[data-reveal-active='true'] .cases-reveal.is-on{opacity:1}
+  /* Mode fixe : cadre centré, pas de suivi curseur (le JS n'écrit pas de transform inline). */
+  #act-4[data-reveal-active='true'][data-reveal-mode='fixed'] .cases-reveal{
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .cases-reveal__img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity var(--dur-reveal) var(--ease);
+  }
+  .cases-reveal__img[data-active='true']{opacity:1}
+  /* (a) Titre du cas en accent au survol quand le reveal est actif (paper ET ink). L'id porte
+     la spécificité nécessaire pour battre l'override ink de .cases-client. */
+  #act-4[data-reveal-active='true'] .cases-row[data-hover='true'] .cases-client{color:var(--accent-text)}
+  @media (prefers-reduced-motion: reduce){
+    #act-4[data-reveal-active='true'] .cases-reveal,
+    .cases-reveal__img{transition:none}
+  }
 </style>
+
+<script>
+  // Reveal desktop : au survol d'une ligne, son titre passe en accent (data-hover) et son
+  // illustration se révèle dans un cadre flottant qui suit le curseur (mode 'cursor') ou reste
+  // centré (mode 'fixed'). Gate stricte : pointeur fin + >=768px → aucun effet en tactile/mobile.
+  // Idempotent + ré-init View Transitions (astro:page-load), pattern ScrollGallery du repo.
+  function initCaseCardReveal() {
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const wide = window.matchMedia('(min-width: 768px)').matches;
+    if (!fine || !wide) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll<HTMLElement>('.cases-reveal').forEach((reveal) => {
+      if (reveal.dataset.ccgBound === '1') return;
+      const root = reveal.closest<HTMLElement>('section');
+      if (!root) return;
+      const tbl = root.querySelector<HTMLElement>('.cases-tbl');
+      const rows = Array.from(root.querySelectorAll<HTMLElement>('.cases-row'));
+      const imgs = Array.from(reveal.querySelectorAll<HTMLElement>('.cases-reveal__img'));
+      if (!tbl || rows.length === 0 || imgs.length === 0) return;
+
+      reveal.dataset.ccgBound = '1';
+      root.dataset.revealActive = 'true';
+      const mode = root.dataset.revealMode === 'fixed' ? 'fixed' : 'cursor';
+      const margin = 16; // px · marge anti-débordement viewport (structurel)
+      let frame = 0;
+      let px = 0;
+      let py = 0;
+
+      const place = () => {
+        frame = 0;
+        const w = reveal.offsetWidth;
+        const h = reveal.offsetHeight;
+        const maxX = window.innerWidth - w - margin;
+        const maxY = window.innerHeight - h - margin;
+        const x = Math.max(margin, Math.min(px + margin, maxX));
+        const y = Math.max(margin, Math.min(py - h / 2, maxY));
+        reveal.style.transform = `translate(${x}px, ${y}px)`;
+      };
+
+      const setActive = (idx: number | null) => {
+        rows.forEach((el) => {
+          el.dataset.hover = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+        imgs.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+        reveal.classList.toggle('is-on', idx !== null);
+      };
+
+      rows.forEach((el) => {
+        el.addEventListener('pointerenter', () => {
+          const idx = Number(el.dataset.idx);
+          if (!Number.isNaN(idx)) setActive(idx);
+        });
+      });
+
+      tbl.addEventListener('pointerleave', () => setActive(null));
+
+      if (mode === 'cursor' && !reduce) {
+        tbl.addEventListener('pointermove', (e) => {
+          px = e.clientX;
+          py = e.clientY;
+          if (!frame) frame = requestAnimationFrame(place);
+        });
+      }
+    });
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCaseCardReveal);
+    } else {
+      initCaseCardReveal();
+    }
+    document.addEventListener('astro:page-load', initCaseCardReveal);
+  }
+</script>

@@ -30,6 +30,12 @@ export const schema = z.object({
   //  - contentAlign : alignement du header (titre + ligne spec). start (défaut) | center | end.
   contentAlign: z.enum(['start', 'center', 'end']).optional(),
   actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
+  //  - reveal_mode : enrichissement DESKTOP (pointeur fin + >=768px) inspiré de `hover-reveal-list`.
+  //    Optionnel → défaut = table éditoriale actuelle, 0 markup actif. Si défini ET qu'au moins un
+  //    cas porte `media_src`, au survol d'une ligne son titre passe en accent et un cadre flottant
+  //    révèle l'illustration du cas. 'cursor' : l'image suit le curseur. 'fixed' : cadre centré, fondu.
+  //    Tactile / mobile : aucun effet ni vignette inline (la table dense reste inchangée).
+  reveal_mode: z.enum(['cursor', 'fixed']).optional(),
   // Couche atomique (Batch 2) : placement par région (header + body + actions=lien « tous »).
   placement: placementSchema,
   fig_num: z.string(),
@@ -60,6 +66,11 @@ export const schema = z.object({
         impact_fr: z.string(),
         impact_en: z.string(),
         href: z.string(),
+        // Média du reveal desktop : illustration révélée au survol de la ligne. Optionnels →
+        // absents = ligne sans reveal (rétrocompat). N'a d'effet que si `reveal_mode` est défini.
+        media_src: z.string().optional(),
+        media_alt_fr: z.string().optional(),
+        media_alt_en: z.string().optional(),
       }),
     )
     .max(6)

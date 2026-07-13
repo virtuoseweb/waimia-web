@@ -336,7 +336,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 5,
+    "count": 4,
     "pages": [
       "/services/integration-claude",
       "/services/site-web-ia",
@@ -565,6 +565,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "count": 1,
     "pages": [
       "src/components/templates/UtilityTemplate.astro"
+    ]
+  },
+  "hover-reveal-list": {
+    "count": 1,
+    "pages": [
+      "/services/site-web-ia"
     ]
   },
   "integrations-grid": {
