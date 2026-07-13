@@ -8,7 +8,7 @@
 //
 // Cf docs/07-component-patterns.md · Pattern 2 (Astro + <script> interne)
 
-import { MEGA_MENU } from '../../data/mega-menu';
+import { MEGA_MENU, type MegaMenuCategory } from '../../data/mega-menu';
 import { langFromPath, alternateHref, t, hasBilingualMirror, localizeHref } from '../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -111,9 +111,135 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     >
       <div class="mega-inner" data-cols={cols}>
         {item.columns.map((col) => {
-          // Hiérarchie « par besoin » (maquette Simon 2026-06) : une colonne
-          // portant goal/quote = titre serif grand + but accent + citation +
-          // listing flèches/hairlines (descriptions non rendues).
+          // ── Colonne PANNEAU DYNAMIQUE (systemsPanel, directive Simon 2026-07-13) :
+          //    rend TOUS les groupes de modules côté serveur (indexable SEO/LLM) ;
+          //    le sélecteur jumeau bascule la visibilité (data-*, aucun fetch). Un
+          //    seul visible, défaut = 1er système sélectionnable. Pas d'en-tête/
+          //    footer propres (l'en-tête vit dans chaque groupe). ──────────────
+          if (col.systemsPanel) {
+            const sysCol = item.columns.find((c) => c.systems);
+            const sysList = (sysCol?.systems ?? []).filter(
+              (s) =>
+                s.key &&
+                ((s.links && s.links.length > 0) || (s.groups && s.groups.length > 0)),
+            );
+            return (
+              /* data-need : hérite de l'idiome flèche/hairline existant des .mega-link. */
+              <div class="mega-col mega-col--panel" data-need>
+                <div class="mega-sys-panel" data-sys-panel>
+                  {sysList.map((sys, i) => {
+                    // Modules à plat OU sous-groupes titrés (Inbound/Outbound) :
+                    // on unifie en « blocs » (intertitre optionnel + liens).
+                    const blocks = sys.groups && sys.groups.length
+                      ? sys.groups
+                      : [{ label: undefined, links: sys.links ?? [] }];
+                    return (
+                    <div
+                      class:list={['mega-sys-group', { 'is-active': i === 0 }]}
+                      data-sys-group={sys.key}
+                      id={`sys-panel-${item.parent}-${sys.key}`}
+                      aria-label={t(sys.label, lang)}
+                    >
+                      <div class="mega-sys-hd">
+                        <span class="t">{t(sys.label, lang)}</span>
+                        {sys.description && <span class="d">{t(sys.description, lang)}</span>}
+                      </div>
+                      {blocks.map((block) => (
+                        <div class="mega-sys-block">
+                          {block.label && <div class="mega-sys-k">{t(block.label, lang)}</div>}
+                          <ul>
+                            {block.links.map((sub) => (
+                              <li>
+                                {sub.soon ? (
+                                  <span class="mega-link is-soon">
+                                    <span class="arr" aria-hidden="true">→</span>
+                                    <span class="t">{t(sub.label, lang)}</span>
+                                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                  </span>
+                                ) : (
+                                  <a class="mega-link" href={lh(sub.href)}>
+                                    <span class="arr" aria-hidden="true">→</span>
+                                    <span class="t">{t(sub.label, lang)}</span>
+                                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                  </a>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      {sys.href && (
+                        <a class="mega-sys-cta" href={lh(sys.href)}>
+                          {lang === 'fr' ? 'Voir le système →' : 'See the system →'}
+                        </a>
+                      )}
+                    </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          }
+
+          // ── Colonne SÉLECTEUR « Nos systèmes » (systems) : chaque système est
+          //    une entrée focusable. Sélectionnable (avec key + links) → <a> si
+          //    href (le clic suit le lien, le survol bascule le panneau) sinon
+          //    <button>. « À venir » → <span> muted non-interactif. ────────────
+          if (col.systems) {
+            const isSelectable = (s: MegaMenuCategory) =>
+              !s.soon &&
+              Boolean(s.key) &&
+              Boolean((s.links && s.links.length) || (s.groups && s.groups.length));
+            const defaultKey = col.systems.find(isSelectable)?.key;
+            return (
+              <div class="mega-col mega-col--systems">
+                <div class="mega-col-hd">
+                  <div class="t">{t(col.title, lang)}</div>
+                </div>
+                <div class="mega-sys-list">
+                  {col.systems.map((sys) => {
+                    if (!isSelectable(sys)) {
+                      return (
+                        <span class="mega-sys-opt is-soon">
+                          <span class="t">{t(sys.label, lang)}</span>
+                          {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
+                        </span>
+                      );
+                    }
+                    const groupId = `sys-panel-${item.parent}-${sys.key}`;
+                    const isActive = sys.key === defaultKey;
+                    return sys.href ? (
+                      <a
+                        class:list={['mega-sys-opt', { 'is-active': isActive }]}
+                        href={lh(sys.href)}
+                        data-sys-key={sys.key}
+                        aria-controls={groupId}
+                        aria-current={isActive ? 'true' : undefined}
+                      >
+                        <span class="t">{t(sys.label, lang)}</span>
+                        {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
+                        <span class="ind" aria-hidden="true">›</span>
+                      </a>
+                    ) : (
+                      <button
+                        class:list={['mega-sys-opt', { 'is-active': isActive }]}
+                        type="button"
+                        data-sys-key={sys.key}
+                        aria-controls={groupId}
+                        aria-current={isActive ? 'true' : undefined}
+                      >
+                        <span class="t">{t(sys.label, lang)}</span>
+                        {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
+                        <span class="ind" aria-hidden="true">›</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          }
+
+          // ── Colonnes classiques (links / data-need « par besoin ») — inchangé. ──
           const isNeed = Boolean(col.goal || col.quote);
           return (
           <div class="mega-col" data-need={isNeed ? '' : undefined}>
@@ -125,70 +251,27 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               {col.goal && <div class="goal">{t(col.goal, lang)}</div>}
             </div>
             {col.quote && <p class="mega-quote">{t(col.quote, lang)}</p>}
-            {col.categories ? (
-              /* Niveau « catégorie » (directive Simon 2026-07-13) : chaque système
-                 = un en-tête cliquable (<a>) OU « à venir » (span muted + badge
-                 hairline), suivi de ses liens flèches enfants. Les .mega-link
-                 enfants héritent de l'idiome flèche via .mega-col[data-need]. */
-              col.categories.map((cat) => (
-                <div class="mega-cat-group">
-                  {cat.href && !cat.soon ? (
-                    <a class="mega-cat" href={lh(cat.href)}>
-                      <span class="t">{t(cat.label, lang)}</span>
-                      {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
-                    </a>
-                  ) : (
-                    <span class="mega-cat is-soon">
-                      <span class="t">{t(cat.label, lang)}</span>
-                      {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
+            <ul>
+              {col.links.map((sub) => (
+                <li>
+                  {sub.soon ? (
+                    <span class="mega-link is-soon">
+                      {isNeed && <span class="arr" aria-hidden="true">→</span>}
+                      <span class="t">{t(sub.label, lang)}</span>
+                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                      {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
                     </span>
+                  ) : (
+                    <a class="mega-link" href={lh(sub.href)}>
+                      {isNeed && <span class="arr" aria-hidden="true">→</span>}
+                      <span class="t">{t(sub.label, lang)}</span>
+                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                      {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                    </a>
                   )}
-                  {cat.links && cat.links.length > 0 && (
-                    <ul>
-                      {cat.links.map((sub) => (
-                        <li>
-                          {sub.soon ? (
-                            <span class="mega-link is-soon">
-                              <span class="arr" aria-hidden="true">→</span>
-                              <span class="t">{t(sub.label, lang)}</span>
-                              {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                            </span>
-                          ) : (
-                            <a class="mega-link" href={lh(sub.href)}>
-                              <span class="arr" aria-hidden="true">→</span>
-                              <span class="t">{t(sub.label, lang)}</span>
-                              {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                            </a>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))
-            ) : (
-              <ul>
-                {col.links.map((sub) => (
-                  <li>
-                    {sub.soon ? (
-                      <span class="mega-link is-soon">
-                        {isNeed && <span class="arr" aria-hidden="true">→</span>}
-                        <span class="t">{t(sub.label, lang)}</span>
-                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                        {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
-                      </span>
-                    ) : (
-                      <a class="mega-link" href={lh(sub.href)}>
-                        {isNeed && <span class="arr" aria-hidden="true">→</span>}
-                        <span class="t">{t(sub.label, lang)}</span>
-                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                        {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
+                </li>
+              ))}
+            </ul>
             {col.footer && (
               col.footer.soon ? (
                 <span class="mega-col-footer is-soon">{t(col.footer.label, lang)}</span>
@@ -254,43 +337,76 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
         </button>
         <div class="m-sheet-acc-body" id={`m-acc-body-${item.parent}`}>
           <div class="m-sheet-acc-inner">
-            {item.columns.map((col) => (
+            {item.columns.map((col) => {
+              // Colonne PANNEAU : ses modules vivent déjà dans les sous-accordéons
+              // du sélecteur (col `systems`) → rien à rendre côté mobile.
+              if (col.systemsPanel) return null;
+              return (
               <div class="m-sheet-acc-col" data-need={col.goal || col.quote ? '' : undefined}>
                 {/* Kicker de colonne retiré (répétait le titre), cf desktop. */}
                 <div class="t">{t(col.title, lang)}</div>
                 {col.goal && <div class="g">{t(col.goal, lang)}</div>}
                 {col.quote && <p class="q">{t(col.quote, lang)}</p>}
-                {col.categories ? (
-                  /* Mobile : la catégorie = ligne de groupe simple + badge
-                     (directive Simon 2026-07-13), suivie de ses liens enfants. */
-                  col.categories.map((cat) => (
-                    <Fragment>
-                      {cat.href && !cat.soon ? (
-                        <a class="m-cat" href={lh(cat.href)}>
-                          {t(cat.label, lang)}
-                          {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
-                        </a>
-                      ) : (
-                        <span class="m-cat is-soon">
-                          {t(cat.label, lang)}
-                          {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
+                {col.systems ? (
+                  /* Sous-niveau mobile (directive Simon 2026-07-13) : chaque système
+                     = une ligne à chevron qui déplie ses modules (sous-accordéon
+                     indépendant, ouvrable/refermable, l'accordéon parent continue de
+                     fonctionner). Sous-groupes = simples intertitres. « À venir » =
+                     ligne muette non dépliable. */
+                  col.systems.map((sys) => {
+                    const selectable =
+                      !sys.soon &&
+                      Boolean(sys.key) &&
+                      Boolean((sys.links && sys.links.length) || (sys.groups && sys.groups.length));
+                    if (!selectable) {
+                      return (
+                        <span class="m-sys-soon">
+                          {t(sys.label, lang)}
+                          {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
                         </span>
-                      )}
-                      {cat.links && cat.links.map((sub) => (
-                        sub.soon ? (
-                          <span class="is-soon m-cat-link">
-                            {t(sub.label, lang)}
-                            {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                          </span>
-                        ) : (
-                          <a class="m-cat-link" href={lh(sub.href)}>
-                            {t(sub.label, lang)}
-                            {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                          </a>
-                        )
-                      ))}
-                    </Fragment>
-                  ))
+                      );
+                    }
+                    const blocks = sys.groups && sys.groups.length
+                      ? sys.groups
+                      : [{ label: undefined, links: sys.links ?? [] }];
+                    const bodyId = `m-sys-body-${item.parent}-${sys.key}`;
+                    return (
+                      <div class="m-sys" data-sys-acc={sys.key}>
+                        <button class="m-sys-head" type="button" data-sys-acc-trigger={sys.key} aria-expanded="false" aria-controls={bodyId}>
+                          <span class="l">{t(sys.label, lang)}</span>
+                          {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
+                          <span class="chev" aria-hidden="true">+</span>
+                        </button>
+                        <div class="m-sys-body" id={bodyId}>
+                          <div class="m-sys-body-inner">
+                            {blocks.map((block) => (
+                              <Fragment>
+                                {block.label && <div class="m-sys-k">{t(block.label, lang)}</div>}
+                                {block.links.map((sub) => (
+                                  sub.soon ? (
+                                    <span class="is-soon m-cat-link">
+                                      {t(sub.label, lang)}
+                                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                    </span>
+                                  ) : (
+                                    <a class="m-cat-link" href={lh(sub.href)}>
+                                      {t(sub.label, lang)}
+                                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                    </a>
+                                  )
+                                ))}
+                              </Fragment>
+                            ))}
+                            {sys.href && (
+                              <a class="m-sys-hub" href={lh(sys.href)}>
+                                {lang === 'fr' ? 'Voir le système →' : 'See the system →'}
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
                 ) : (
                   col.links.map((sub) => (
                     sub.soon ? (
@@ -310,7 +426,8 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                   ? <span class="is-soon">{t(col.footer.label, lang)}</span>
                   : <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>)}
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
@@ -479,7 +596,11 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       panel.addEventListener('mouseleave', scheduleClose);
       panel.addEventListener('keydown', (e) => {
         const key = panel.getAttribute('data-mega-panel') || '';
-        const links = Array.from(panel.querySelectorAll('a[href]'));
+        // Exclut les liens des groupes systèmes masqués (visibility:hidden,
+        // panneau dynamique) : la nav flèches ne doit parcourir que le visible.
+        const links = Array.from(panel.querySelectorAll('a[href]')).filter(
+          (l) => getComputedStyle(l).visibility !== 'hidden',
+        );
         const activeIndex = e.target instanceof HTMLAnchorElement ? links.indexOf(e.target) : -1;
         if (e.key === 'Escape') {
           setOpen('');
@@ -501,6 +622,35 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
           }
         }
       });
+    }
+
+    // ─── 4bis. Sélecteur de systèmes (panneau dynamique Solutions) ──────
+    // Chaque panneau `[data-sys-panel]` a des groupes `[data-sys-group]` ;
+    // le sélecteur jumeau porte des entrées `[data-sys-key]`. Survol/focus/clic
+    // d'une entrée → active le groupe correspondant (visibilité CSS, aucun
+    // fetch). Idempotent (toute la fonction est gardée par headerBound).
+    for (const sysPanel of document.querySelectorAll('[data-sys-panel]')) {
+      const groups = Array.from(sysPanel.querySelectorAll('[data-sys-group]'));
+      const scope = sysPanel.closest('[data-mega-panel]') || document;
+      const opts = Array.from(scope.querySelectorAll('[data-sys-key]'));
+      const activateSys = (key) => {
+        if (!key) return;
+        for (const g of groups) {
+          g.classList.toggle('is-active', g.getAttribute('data-sys-group') === key);
+        }
+        for (const o of opts) {
+          const on = o.getAttribute('data-sys-key') === key;
+          o.classList.toggle('is-active', on);
+          if (on) o.setAttribute('aria-current', 'true');
+          else o.removeAttribute('aria-current');
+        }
+      };
+      for (const o of opts) {
+        const key = o.getAttribute('data-sys-key') || '';
+        o.addEventListener('pointerenter', () => activateSys(key));
+        o.addEventListener('focus', () => activateSys(key));
+        o.addEventListener('click', () => activateSys(key));
+      }
     }
 
     // ─── 5. Scrim + global keyboard ─────────────────────────────────────
@@ -593,6 +743,17 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       });
     }
 
+    // Sous-accordéon mobile « système » (sous-niveau, directive Simon 2026-07-13) :
+    // chaque système se déplie/replie indépendamment ; l'accordéon parent reste
+    // pleinement fonctionnel. Scopé via closest (robuste aux clés dupliquées).
+    for (const tr of document.querySelectorAll('[data-sys-acc-trigger]')) {
+      tr.addEventListener('click', () => {
+        const acc = tr.closest('[data-sys-acc]');
+        const isOpen = acc ? acc.classList.toggle('is-open') : false;
+        tr.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
     if (sheet) for (const link of sheet.querySelectorAll('a')) {
       link.addEventListener('click', () => setSheetOpen(false));
     }
@@ -653,33 +814,67 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   /* V7-FOLD : footer de colonne « à venir » (ex. Voir tous les problèmes) non-cliquable. */
   .mega-col-footer.is-soon { cursor: default; opacity: 0.55; border-bottom-color: transparent; }
 
-  /* ─ Niveau « catégorie » (directive Simon 2026-07-13) ─────────────────────
-     Le système = un en-tête au-dessus des liens flèches. Cliquable (<a>) ou
-     « à venir » (span muted + badge hairline). 100% tokens DS existants. */
-  .mega-cat-group { margin-bottom: var(--space-3); }
-  .mega-cat-group:last-child { margin-bottom: 0; }
-  .mega-cat {
+  /* ─ Mega menu « systèmes → modules » (directive Simon 2026-07-13) ─────────
+     Col 1 = sélecteur d'entrées système ; col 2 = panneau dynamique (tous les
+     groupes rendus SSR, un seul visible : switch data-* piloté par le script).
+     100% tokens DS existants, 0 nouvelle variable. */
+
+  /* Sélecteur · entrées système (a / button / span « à venir »). */
+  .mega-sys-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .mega-sys-opt {
     display: flex;
     align-items: baseline;
     gap: var(--space-2);
-    padding: 6px 0;
+    width: 100%;
+    padding: 10px var(--space-3);
+    margin-left: calc(var(--space-3) * -1);
+    border-radius: var(--radius-sm);
+    text-align: left;
     font-family: var(--font-sans);
-    font-size: var(--text-body);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
-    letter-spacing: -0.01em;
+    letter-spacing: var(--tracking-body);
     color: var(--ink);
-    transition: color var(--dur-trim) var(--ease);
+    cursor: pointer;
+    transition:
+      color var(--dur-trim) var(--ease),
+      background-color var(--dur-trim) var(--ease);
   }
-  a.mega-cat:hover { color: var(--accent-text); }
-  .mega-cat .t { display: block; }
-  /* Catégorie « à venir » : discrète, non-cliquable (n'hérite PAS du .is-soon
-     accent des liens ; règle dédiée pour éviter le pill accent). */
-  .mega-cat.is-soon { color: var(--muted); cursor: default; }
-  .mega-cat.is-soon:hover { color: var(--muted); }
-  /* Badge « à venir » de catégorie : petit, hairline, muted, aucune interaction
-     (distinct du pill accent « Offre phare » des liens). */
-  .mega-cat .flag {
-    margin-left: auto;
+  .mega-sys-opt:hover { color: var(--accent-text); }
+  .mega-sys-opt.is-active {
+    background: var(--paper-2);
+    color: var(--accent-text);
+  }
+  .mega-sys-opt .t { flex: 1; }
+  /* Chevron indicateur : discret, révélé sur hover/actif. */
+  .mega-sys-opt .ind {
+    flex: none;
+    color: var(--accent-text);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition:
+      opacity var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease);
+  }
+  .mega-sys-opt:hover .ind,
+  .mega-sys-opt.is-active .ind {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  /* Système « à venir » : muted, non-interactif, badge hairline (pas le pill
+     accent des offres phares). */
+  .mega-sys-opt.is-soon {
+    color: var(--muted);
+    cursor: default;
+    opacity: 1;
+  }
+  .mega-sys-opt.is-soon:hover { color: var(--muted); opacity: 1; }
+  .mega-sys-opt .flag {
+    flex: none;
     padding: 1px var(--space-2);
     border: 1px solid var(--hairline);
     border-radius: var(--radius-pill);
@@ -689,23 +884,191 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     color: var(--muted);
     white-space: nowrap;
   }
+  .mega-sys-opt:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    background: var(--paper-2);
+  }
 
-  /* Mobile · catégorie = ligne de groupe simple + badge. */
-  .m-sheet-acc-col .m-cat {
+  /* Panneau dynamique · stack grid (groupes superposés en 1/1) : la colonne
+     réserve la hauteur du plus GRAND groupe → zéro saut de layout au switch. */
+  .mega-sys-panel { display: grid; }
+  .mega-sys-group {
+    grid-area: 1 / 1;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease),
+      visibility 0s linear var(--dur-trim);
+  }
+  .mega-sys-group.is-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease),
+      visibility 0s;
+  }
+  /* En-tête du panneau : même idiome que les en-têtes de colonnes existants
+     (titre sans-serif accent + hairline), desc discrète type .goal. */
+  .mega-sys-hd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .mega-sys-hd .t {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    letter-spacing: -0.01em;
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-medium);
+    color: var(--accent-text);
+  }
+  .mega-sys-hd .d {
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-body);
+    line-height: var(--leading-body);
+    color: var(--muted);
+  }
+  /* Sous-groupes titrés (Inbound / Outbound) : intertitre mono caps muted. */
+  .mega-sys-block + .mega-sys-block { margin-top: var(--space-3); }
+  .mega-sys-k {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--space-1);
+  }
+  /* « Voir le système → » : même idiome que .mega-col-footer. */
+  .mega-sys-cta {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 1px;
+    transition: color var(--dur-trim) var(--ease), border-color var(--dur-trim) var(--ease);
+  }
+  .mega-sys-cta:hover {
+    color: var(--accent-text);
+    border-bottom-color: var(--accent-text);
+  }
+
+  /* ─ Mobile · sous-niveau « système » dans l'accordéon Solutions ──────────
+     Chaque système = ligne à chevron → dropdown de ses modules (animation
+     grid-template-rows 0fr→1fr, easing du sheet). Indépendant du toggle
+     parent : on peut ouvrir/fermer chaque système et revenir en arrière. */
+  .m-sys { border-bottom: 1px solid var(--hairline); }
+  .m-sys-head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-3) 0;
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
     font-weight: var(--fw-medium);
     color: var(--ink);
   }
-  .m-sheet-acc-col span.m-cat.is-soon {
-    display: block;
-    padding: var(--space-2) 0;
+  .m-sys-head .l { flex: 1; }
+  .m-sys-head .chev {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    color: var(--muted);
+    transition: transform var(--dur-hover) var(--ease);
+  }
+  .m-sys.is-open .m-sys-head .chev {
+    transform: rotate(45deg);
+    color: var(--accent-text);
+  }
+  .m-sys-head .flag,
+  .m-sys-soon .flag {
+    flex: none;
+    padding: 1px var(--space-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    background: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .m-sys-head:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    background: var(--paper-2);
+  }
+  .m-sys-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-panel) var(--ease-out);
+  }
+  .m-sys.is-open .m-sys-body { grid-template-rows: 1fr; }
+  .m-sys-body-inner {
+    overflow: hidden;
+    min-height: 0;
+    padding-bottom: 0;
+    transition: padding-bottom var(--dur-panel) var(--ease-out);
+  }
+  .m-sys.is-open .m-sys-body-inner { padding-bottom: var(--space-3); }
+  /* Intertitre de sous-groupe (Inbound/Outbound) dans le dropdown. */
+  .m-sys-k {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: var(--space-2) 0 2px var(--space-3);
+  }
+  /* « Voir le système → » mobile : idiome lien mono souligné hairline. */
+  .m-sheet-acc-col a.m-sys-hub {
+    display: inline-block;
+    margin: var(--space-2) 0 0 var(--space-3);
+    padding: 0 0 1px;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  /* Système « à venir » mobile : ligne muette badgée, non dépliable. */
+  .m-sys-soon {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
     color: var(--muted);
     border-bottom: 1px solid var(--hairline);
   }
-  .m-sheet-acc-col .m-cat .flag {
-    border: 1px solid var(--hairline);
-    background: none;
-    color: var(--muted);
-  }
-  /* Liens flèches enfants d'une catégorie · léger retrait pour la hiérarchie. */
+  .m-sys-soon:last-of-type { border-bottom: none; }
+  /* Liens modules du dropdown · léger retrait pour la hiérarchie. */
   .m-sheet-acc-col .m-cat-link { padding-left: var(--space-3); }
+
+  /* Mouvement réduit : switch et dropdown instantanés (a11y). */
+  @media (prefers-reduced-motion: reduce) {
+    .mega-sys-group,
+    .mega-sys-opt .ind,
+    .m-sys-body,
+    .m-sys-body-inner,
+    .m-sys-head .chev {
+      transition: none;
+    }
+  }
 </style>

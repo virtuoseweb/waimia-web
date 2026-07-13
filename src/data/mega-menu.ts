@@ -40,6 +40,17 @@ export interface MegaMenuLink {
 export interface MegaMenuCategory {
   label: BiText;
   href?: string;
+  /**
+   * Clé stable de switch (sélecteur desktop ↔ panneau dynamique, sous-accordéon
+   * mobile). Obligatoire sur un système SÉLECTIONNABLE (avec `links`) ; inutile
+   * sur un système « à venir » (non-sélectionnable). Ex. `marketing`, `ia`.
+   */
+  key?: string;
+  /**
+   * Description courte rendue dans l'en-tête du panneau dynamique (desktop) sous
+   * le nom du système actif. Facultative.
+   */
+  description?: BiText;
   badge?: BiText;
   /**
    * Catégorie « à venir » : le système existe dans l'architecture mais pas
@@ -48,6 +59,20 @@ export interface MegaMenuCategory {
    */
   soon?: boolean;
   links?: MegaMenuLink[];
+  /**
+   * Sous-groupes titrés de modules (directive Simon 2026-07-13). Alternative aux
+   * `links` plats : le panneau rend un petit intertitre (kicker mono/muted) par
+   * groupe suivi de ses liens. Ex. Système d'acquisition → Inbound / Outbound.
+   * En mobile, l'intertitre reste un simple libellé dans le dropdown (pas un 3e
+   * niveau de toggle). Une catégorie utilise SOIT `links` SOIT `groups`.
+   */
+  groups?: MegaMenuGroup[];
+}
+
+/** Sous-groupe titré de modules dans le panneau dynamique (Inbound/Outbound…). */
+export interface MegaMenuGroup {
+  label: BiText;
+  links: MegaMenuLink[];
 }
 
 export interface MegaMenuColumn {
@@ -65,12 +90,21 @@ export interface MegaMenuColumn {
   goal?: BiText;
   quote?: BiText;
   /**
-   * Regroupement optionnel « catégorie » (directive Simon 2026-07-13). Quand
-   * présent, la colonne rend ses `categories` (système cliquable + flèches
-   * enfants, systèmes « à venir » discrets) AU LIEU du listing plat `links`.
-   * Une colonne SANS `categories` rend `links` comme aujourd'hui (rétrocompat).
+   * Colonne « sélecteur de systèmes » (directive Simon 2026-07-13). Liste les
+   * systèmes (catégories) : survol/clic/focus d'un système → le panneau jumeau
+   * (`systemsPanel`) de la même section affiche ses modules. Le premier système
+   * SÉLECTIONNABLE (avec `links`) est actif par défaut. Systèmes « à venir »
+   * (`soon`) = muted, non-sélectionnables. Rendu desktop (sélecteur) ET mobile
+   * (sous-accordéon). Remplace l'ancien `categories` statique.
    */
-  categories?: MegaMenuCategory[];
+  systems?: MegaMenuCategory[];
+  /**
+   * Colonne « panneau dynamique » jumelle du sélecteur : rend TOUS les groupes
+   * de modules côté serveur (indexable SEO/LLM), un seul visible à la fois
+   * (switch en visibilité CSS piloté par `data-*`, aucun fetch/innerHTML). Lit
+   * les systèmes de la colonne sœur `systems` de la même section.
+   */
+  systemsPanel?: boolean;
   links: MegaMenuLink[];
   footer?: MegaMenuLink;
   tint?: string;
@@ -220,15 +254,17 @@ const RESSOURCES: MegaMenuSection = {
     : undefined,
 };
 
-// ─── SOLUTIONS · refonte V8 2026-07-12 (docs/strategy/10 §0bis, décisions Simon) :
-// les titres de colonnes portent le récit « système », les liens portent les requêtes réelles.
-// Col 1 « Systèmes métier » (renommage Simon 2026-07-12, post-vague V8 ; 4 pages : site-web-ia
-// [renommé depuis site-web-intelligent], landing-page-scoring, content-marketing-intelligent
-// [entre en nav], maintenance-growth ; tête + footer → /services/site-web-ia, hub du système
-// marketing). Col 2 « Intégration IA » (3 pages : integration-claude [renommé depuis
-// integrateur-claude], agents-ia, consultant-ia-claude ; footer → /services/integration-claude).
-// Col 3 « Résoudre un problème » (cas-usages, footer /cas-usages cliquable). Featured
-// « Système complet » INCHANGÉ (vague 2). Liens cols 1-2 = 100% réels + indexables.
+// ─── SOLUTIONS · mega menu « systèmes → modules » (directive Simon 2026-07-13) :
+// Col 1 = SÉLECTEUR « Nos systèmes » : Système d'acquisition [défaut actif, hub
+// /services/systeme-complet] · Systèmes opérationnels & IA [sélectionnable, sans
+// hub] · Systèmes commerciaux [« à venir »]. Col 2 = PANNEAU DYNAMIQUE jumeau :
+// au survol/clic/focus d'un système, il affiche ses modules. L'acquisition a deux
+// sous-groupes titrés (Inbound : site-web-ia [phare], content-marketing, landing-
+// page-scoring, maintenance-growth ; Outbound : machine-outbound). Opérationnels &
+// IA : integration-claude [phare], agents-ia, consultant-ia-claude (sans sous-groupe).
+// Tous les groupes rendus côté serveur (indexable SEO/LLM), un seul visible (switch
+// CSS `data-*`, aucun fetch). Col 3 « Résoudre un problème » INCHANGÉE. Featured
+// « Système complet » INCHANGÉ. Tous les liens = 100% réels + indexables.
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
@@ -239,80 +275,97 @@ const SOLUTIONS: MegaMenuSection = {
     en: 'AI and application engineering for SMBs: coherent business systems, the AI integration that powers them, and the audit to know where to start.',
   },
   columns: [
+    // Col 1 · SÉLECTEUR « Nos systèmes » (directive Simon 2026-07-13) : la colonne
+    // liste les systèmes ; survol/clic/focus d'un système → le panneau jumeau
+    // (col 2) affiche ses modules. « Système marketing » (défaut actif) est
+    // cliquable (hub /services/systeme-complet, URL live actuelle — rename plus
+    // tard, ne pas l'anticiper). « Système IA » est sélectionnable mais SANS hub
+    // aujourd'hui → en-tête non cliquable (pas de href). Suivent 4 systèmes
+    // « à venir » discrets, non-sélectionnables (extension future = plus de hubs).
     {
-      kicker: { fr: 'SYSTÈMES MÉTIER', en: 'BUSINESS SYSTEMS' },
-      title: { fr: 'Systèmes métier', en: 'Business systems' },
-      goal: { fr: 'Le système marketing complet : générer et qualifier des leads', en: 'The complete marketing system: generate and qualify leads' },
-      // Niveau « catégorie » (directive Simon 2026-07-13) : le système EST la
-      // catégorie, à l'intérieur les liens flèches. « Système marketing » est
-      // cliquable (hub /services/systeme-complet, URL live actuelle — un rename
-      // viendra plus tard, ne pas l'anticiper) ; suivent 4 systèmes « à venir »
-      // discrets et non-cliquables (extension future = d'autres systèmes cliquables).
-      categories: [
+      kicker: { fr: 'NOS SYSTÈMES', en: 'OUR SYSTEMS' },
+      title: { fr: 'Nos systèmes', en: 'Our systems' },
+      systems: [
         {
-          label: { fr: 'Système marketing', en: 'Marketing system' },
+          label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
+          key: 'acquisition',
           href: '/services/systeme-complet',
-          links: [
+          description: { fr: 'Générer et qualifier des leads, de bout en bout.', en: 'Generate and qualify leads, end to end.' },
+          // Deux sous-groupes titrés (intertitres kicker) dans le panneau : Inbound / Outbound.
+          groups: [
             {
-              label: { fr: 'Site web IA', en: 'AI website' },
-              href: '/services/site-web-ia',
-              description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
-              badge: { fr: 'Offre phare', en: 'Flagship' },
+              label: { fr: 'Inbound', en: 'Inbound' },
+              links: [
+                {
+                  label: { fr: 'Site web IA', en: 'AI website' },
+                  href: '/services/site-web-ia',
+                  description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
+                  badge: { fr: 'Offre phare', en: 'Flagship' },
+                },
+                {
+                  label: { fr: 'Content marketing & SEO-GEO', en: 'Content marketing & SEO-GEO' },
+                  href: '/services/content-marketing-intelligent',
+                  description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
+                },
+                {
+                  label: { fr: 'Tunnel de qualification', en: 'Qualification funnel' },
+                  href: '/services/landing-page-scoring',
+                  description: { fr: 'Landing pages qui convertissent et scoring qui priorise vos leads.', en: 'Landing pages that convert and scoring that prioritises your leads.' },
+                },
+                {
+                  label: { fr: 'Maintenance & growth', en: 'Maintenance & growth' },
+                  href: '/services/maintenance-growth',
+                  description: { fr: 'Faire vivre et croître le site après la mise en ligne, au forfait.', en: 'Keep the site alive and growing after launch, on a retainer.' },
+                },
+              ],
             },
             {
-              label: { fr: 'Tunnel de qualification', en: 'Qualification funnel' },
-              href: '/services/landing-page-scoring',
-              description: { fr: 'Landing pages qui convertissent et scoring qui priorise vos leads.', en: 'Landing pages that convert and scoring that prioritises your leads.' },
-            },
-            {
-              label: { fr: 'Content marketing & SEO-GEO', en: 'Content marketing & SEO-GEO' },
-              href: '/services/content-marketing-intelligent',
-              description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
-            },
-            {
-              label: { fr: 'Maintenance & growth', en: 'Maintenance & growth' },
-              href: '/services/maintenance-growth',
-              description: { fr: 'Faire vivre et croître le site après la mise en ligne, au forfait.', en: 'Keep the site alive and growing after launch, on a retainer.' },
+              label: { fr: 'Outbound', en: 'Outbound' },
+              links: [
+                {
+                  label: { fr: 'Machine outbound', en: 'Outbound machine' },
+                  href: '/services/machine-outbound',
+                  description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, wired to your CRM.' },
+                },
+              ],
             },
           ],
         },
-        { label: { fr: 'Système prospection & ventes', en: 'Sales & prospecting system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Système communication', en: 'Communication system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Système immobilier', en: 'Real estate system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Système RH', en: 'HR system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        {
+          label: { fr: 'Systèmes opérationnels & IA', en: 'Operational & AI systems' },
+          key: 'ia',
+          description: { fr: 'Claude, ChatGPT ou Mistral, branchés à vos outils.', en: 'Claude, ChatGPT or Mistral, wired to your tools.' },
+          links: [
+            {
+              label: { fr: 'Intégration Claude', en: 'Claude integration' },
+              href: '/services/integration-claude',
+              description: { fr: 'Claude en entreprise, Claude Code, gouvernance et formation, en production.', en: 'Claude in the enterprise, Claude Code, governance and training, in production.' },
+              badge: { fr: 'Offre phare', en: 'Flagship' },
+            },
+            {
+              label: { fr: 'Agents IA', en: 'AI agents' },
+              href: '/services/agents-ia',
+              description: { fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision.', en: 'Autonomous agents wired to your tools via MCP, under supervision.' },
+            },
+            {
+              label: { fr: 'Consultant IA Claude', en: 'Claude AI consultant' },
+              href: '/services/consultant-ia-claude',
+              description: { fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter.', en: 'Audit, frame and prioritise your AI use cases, then drive adoption.' },
+            },
+          ],
+        },
+        { label: { fr: 'Systèmes commerciaux', en: 'Sales systems' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
       ],
       links: [],
-      footer: {
-        label: { fr: 'Découvrir l\'offre →', en: 'Explore the offer →' },
-        href: '/services/site-web-ia',
-      },
     },
+    // Col 2 · PANNEAU DYNAMIQUE jumeau du sélecteur. Rend tous les groupes de
+    // modules côté serveur ; le survol du sélecteur bascule la visibilité.
+    // Défaut = Système d'acquisition. `title` non rendu (l'en-tête du panneau
+    // = le nom du système actif) mais requis par MegaMenuColumn.
     {
-      kicker: { fr: 'INTÉGRATION IA', en: 'AI INTEGRATION' },
-      title: { fr: 'Intégration IA', en: 'AI integration' },
-      goal: { fr: 'Claude, ChatGPT ou Mistral, branchés à vos outils', en: 'Claude, ChatGPT or Mistral, wired to your tools' },
-      links: [
-        {
-          label: { fr: 'Intégration Claude', en: 'Claude integration' },
-          href: '/services/integration-claude',
-          description: { fr: 'Claude en entreprise, Claude Code, gouvernance et formation, en production.', en: 'Claude in the enterprise, Claude Code, governance and training, in production.' },
-          badge: { fr: 'Offre phare', en: 'Flagship' },
-        },
-        {
-          label: { fr: 'Agents IA', en: 'AI agents' },
-          href: '/services/agents-ia',
-          description: { fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision.', en: 'Autonomous agents wired to your tools via MCP, under supervision.' },
-        },
-        {
-          label: { fr: 'Consultant IA Claude', en: 'Claude AI consultant' },
-          href: '/services/consultant-ia-claude',
-          description: { fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter.', en: 'Audit, frame and prioritise your AI use cases, then drive adoption.' },
-        },
-      ],
-      footer: {
-        label: { fr: 'Voir le service →', en: 'See the service →' },
-        href: '/services/integration-claude',
-      },
+      systemsPanel: true,
+      title: { fr: 'Modules du système', en: 'System modules' },
+      links: [],
     },
     {
       kicker: { fr: 'RÉSOUDRE UN PROBLÈME', en: 'SOLVE A PROBLEM' },
