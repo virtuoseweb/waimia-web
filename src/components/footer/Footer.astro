@@ -57,9 +57,9 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  {/* Tier 1 — 5 colonnes */}
+  {/* Tier 1 : colonnes pilotées par FOOTER_COLS (6 avec la colonne temporaire « À placer ») */}
   <div class="wrap hline" style="padding-top:var(--space-9);padding-bottom:var(--space-11)">
-    <div class="ft-tier1-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-8)">
+    <div class="ft-tier1-grid" style={`display:grid;grid-template-columns:repeat(${FOOTER_COLS.length},1fr);gap:var(--space-8)`}>
       {FOOTER_COLS.map((col) => (
         <div>
           <h3 style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin-bottom:18px;font-weight:var(--fw-medium)">
