@@ -125,27 +125,70 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               {col.goal && <div class="goal">{t(col.goal, lang)}</div>}
             </div>
             {col.quote && <p class="mega-quote">{t(col.quote, lang)}</p>}
-            <ul>
-              {col.links.map((sub) => (
-                <li>
-                  {sub.soon ? (
-                    <span class="mega-link is-soon">
-                      {isNeed && <span class="arr" aria-hidden="true">→</span>}
-                      <span class="t">{t(sub.label, lang)}</span>
-                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                      {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
-                    </span>
-                  ) : (
-                    <a class="mega-link" href={lh(sub.href)}>
-                      {isNeed && <span class="arr" aria-hidden="true">→</span>}
-                      <span class="t">{t(sub.label, lang)}</span>
-                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                      {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+            {col.categories ? (
+              /* Niveau « catégorie » (directive Simon 2026-07-13) : chaque système
+                 = un en-tête cliquable (<a>) OU « à venir » (span muted + badge
+                 hairline), suivi de ses liens flèches enfants. Les .mega-link
+                 enfants héritent de l'idiome flèche via .mega-col[data-need]. */
+              col.categories.map((cat) => (
+                <div class="mega-cat-group">
+                  {cat.href && !cat.soon ? (
+                    <a class="mega-cat" href={lh(cat.href)}>
+                      <span class="t">{t(cat.label, lang)}</span>
+                      {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
                     </a>
+                  ) : (
+                    <span class="mega-cat is-soon">
+                      <span class="t">{t(cat.label, lang)}</span>
+                      {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
+                    </span>
                   )}
-                </li>
-              ))}
-            </ul>
+                  {cat.links && cat.links.length > 0 && (
+                    <ul>
+                      {cat.links.map((sub) => (
+                        <li>
+                          {sub.soon ? (
+                            <span class="mega-link is-soon">
+                              <span class="arr" aria-hidden="true">→</span>
+                              <span class="t">{t(sub.label, lang)}</span>
+                              {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                            </span>
+                          ) : (
+                            <a class="mega-link" href={lh(sub.href)}>
+                              <span class="arr" aria-hidden="true">→</span>
+                              <span class="t">{t(sub.label, lang)}</span>
+                              {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                            </a>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))
+            ) : (
+              <ul>
+                {col.links.map((sub) => (
+                  <li>
+                    {sub.soon ? (
+                      <span class="mega-link is-soon">
+                        {isNeed && <span class="arr" aria-hidden="true">→</span>}
+                        <span class="t">{t(sub.label, lang)}</span>
+                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                        {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                      </span>
+                    ) : (
+                      <a class="mega-link" href={lh(sub.href)}>
+                        {isNeed && <span class="arr" aria-hidden="true">→</span>}
+                        <span class="t">{t(sub.label, lang)}</span>
+                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                        {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
             {col.footer && (
               col.footer.soon ? (
                 <span class="mega-col-footer is-soon">{t(col.footer.label, lang)}</span>
@@ -217,19 +260,52 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                 <div class="t">{t(col.title, lang)}</div>
                 {col.goal && <div class="g">{t(col.goal, lang)}</div>}
                 {col.quote && <p class="q">{t(col.quote, lang)}</p>}
-                {col.links.map((sub) => (
-                  sub.soon ? (
-                    <span class="is-soon">
-                      {t(sub.label, lang)}
-                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                    </span>
-                  ) : (
-                    <a href={lh(sub.href)}>
-                      {t(sub.label, lang)}
-                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                    </a>
-                  )
-                ))}
+                {col.categories ? (
+                  /* Mobile : la catégorie = ligne de groupe simple + badge
+                     (directive Simon 2026-07-13), suivie de ses liens enfants. */
+                  col.categories.map((cat) => (
+                    <Fragment>
+                      {cat.href && !cat.soon ? (
+                        <a class="m-cat" href={lh(cat.href)}>
+                          {t(cat.label, lang)}
+                          {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
+                        </a>
+                      ) : (
+                        <span class="m-cat is-soon">
+                          {t(cat.label, lang)}
+                          {cat.badge && <span class="flag">{t(cat.badge, lang)}</span>}
+                        </span>
+                      )}
+                      {cat.links && cat.links.map((sub) => (
+                        sub.soon ? (
+                          <span class="is-soon m-cat-link">
+                            {t(sub.label, lang)}
+                            {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                          </span>
+                        ) : (
+                          <a class="m-cat-link" href={lh(sub.href)}>
+                            {t(sub.label, lang)}
+                            {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                          </a>
+                        )
+                      ))}
+                    </Fragment>
+                  ))
+                ) : (
+                  col.links.map((sub) => (
+                    sub.soon ? (
+                      <span class="is-soon">
+                        {t(sub.label, lang)}
+                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                      </span>
+                    ) : (
+                      <a href={lh(sub.href)}>
+                        {t(sub.label, lang)}
+                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                      </a>
+                    )
+                  ))
+                )}
                 {col.footer && (col.footer.soon
                   ? <span class="is-soon">{t(col.footer.label, lang)}</span>
                   : <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>)}
@@ -576,4 +652,60 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   .mega-link.is-soon:hover, .m-sheet-acc-col .is-soon:hover { opacity: 0.55; }
   /* V7-FOLD : footer de colonne « à venir » (ex. Voir tous les problèmes) non-cliquable. */
   .mega-col-footer.is-soon { cursor: default; opacity: 0.55; border-bottom-color: transparent; }
+
+  /* ─ Niveau « catégorie » (directive Simon 2026-07-13) ─────────────────────
+     Le système = un en-tête au-dessus des liens flèches. Cliquable (<a>) ou
+     « à venir » (span muted + badge hairline). 100% tokens DS existants. */
+  .mega-cat-group { margin-bottom: var(--space-3); }
+  .mega-cat-group:last-child { margin-bottom: 0; }
+  .mega-cat {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: 6px 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  a.mega-cat:hover { color: var(--accent-text); }
+  .mega-cat .t { display: block; }
+  /* Catégorie « à venir » : discrète, non-cliquable (n'hérite PAS du .is-soon
+     accent des liens ; règle dédiée pour éviter le pill accent). */
+  .mega-cat.is-soon { color: var(--muted); cursor: default; }
+  .mega-cat.is-soon:hover { color: var(--muted); }
+  /* Badge « à venir » de catégorie : petit, hairline, muted, aucune interaction
+     (distinct du pill accent « Offre phare » des liens). */
+  .mega-cat .flag {
+    margin-left: auto;
+    padding: 1px var(--space-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* Mobile · catégorie = ligne de groupe simple + badge. */
+  .m-sheet-acc-col .m-cat {
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  .m-sheet-acc-col span.m-cat.is-soon {
+    display: block;
+    padding: var(--space-2) 0;
+    color: var(--muted);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .m-sheet-acc-col .m-cat .flag {
+    border: 1px solid var(--hairline);
+    background: none;
+    color: var(--muted);
+  }
+  /* Liens flèches enfants d'une catégorie · léger retrait pour la hiérarchie. */
+  .m-sheet-acc-col .m-cat-link { padding-left: var(--space-3); }
 </style>

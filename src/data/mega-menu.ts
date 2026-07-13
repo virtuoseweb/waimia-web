@@ -29,6 +29,27 @@ export interface MegaMenuLink {
   soon?: boolean;
 }
 
+/**
+ * Niveau de regroupement « catégorie » au-dessus des liens flèches (directive
+ * Simon 2026-07-13 : « le système est la catégorie, à l'intérieur les flèches »).
+ * Une catégorie = un « système » : soit CLIQUABLE (`href` → hub du système),
+ * soit « à venir » (`soon` : rendue muted, non-cliquable, badge). Ses `links`
+ * sont les liens flèches enfants (facultatif : une catégorie « à venir » n'en a
+ * pas). Rendu dans le mega panel desktop ET le sheet mobile.
+ */
+export interface MegaMenuCategory {
+  label: BiText;
+  href?: string;
+  badge?: BiText;
+  /**
+   * Catégorie « à venir » : le système existe dans l'architecture mais pas
+   * encore de page. Rendu NON-cliquable (span, pas <a>), discret (muted) —
+   * même idiome que les liens `soon`. 0 lien mort / 0 crawl vers 404.
+   */
+  soon?: boolean;
+  links?: MegaMenuLink[];
+}
+
 export interface MegaMenuColumn {
   title: BiText;
   kicker?: BiText;
@@ -43,6 +64,13 @@ export interface MegaMenuColumn {
    */
   goal?: BiText;
   quote?: BiText;
+  /**
+   * Regroupement optionnel « catégorie » (directive Simon 2026-07-13). Quand
+   * présent, la colonne rend ses `categories` (système cliquable + flèches
+   * enfants, systèmes « à venir » discrets) AU LIEU du listing plat `links`.
+   * Une colonne SANS `categories` rend `links` comme aujourd'hui (rétrocompat).
+   */
+  categories?: MegaMenuCategory[];
   links: MegaMenuLink[];
   footer?: MegaMenuLink;
   tint?: string;
@@ -215,29 +243,45 @@ const SOLUTIONS: MegaMenuSection = {
       kicker: { fr: 'SYSTÈMES MÉTIER', en: 'BUSINESS SYSTEMS' },
       title: { fr: 'Systèmes métier', en: 'Business systems' },
       goal: { fr: 'Le système marketing complet : générer et qualifier des leads', en: 'The complete marketing system: generate and qualify leads' },
-      links: [
+      // Niveau « catégorie » (directive Simon 2026-07-13) : le système EST la
+      // catégorie, à l'intérieur les liens flèches. « Système marketing » est
+      // cliquable (hub /services/systeme-complet, URL live actuelle — un rename
+      // viendra plus tard, ne pas l'anticiper) ; suivent 4 systèmes « à venir »
+      // discrets et non-cliquables (extension future = d'autres systèmes cliquables).
+      categories: [
         {
-          label: { fr: 'Site web IA', en: 'AI website' },
-          href: '/services/site-web-ia',
-          description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
-          badge: { fr: 'Offre phare', en: 'Flagship' },
+          label: { fr: 'Système marketing', en: 'Marketing system' },
+          href: '/services/systeme-complet',
+          links: [
+            {
+              label: { fr: 'Site web IA', en: 'AI website' },
+              href: '/services/site-web-ia',
+              description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
+              badge: { fr: 'Offre phare', en: 'Flagship' },
+            },
+            {
+              label: { fr: 'Tunnel de qualification', en: 'Qualification funnel' },
+              href: '/services/landing-page-scoring',
+              description: { fr: 'Landing pages qui convertissent et scoring qui priorise vos leads.', en: 'Landing pages that convert and scoring that prioritises your leads.' },
+            },
+            {
+              label: { fr: 'Content marketing & SEO-GEO', en: 'Content marketing & SEO-GEO' },
+              href: '/services/content-marketing-intelligent',
+              description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
+            },
+            {
+              label: { fr: 'Maintenance & growth', en: 'Maintenance & growth' },
+              href: '/services/maintenance-growth',
+              description: { fr: 'Faire vivre et croître le site après la mise en ligne, au forfait.', en: 'Keep the site alive and growing after launch, on a retainer.' },
+            },
+          ],
         },
-        {
-          label: { fr: 'Tunnel de qualification', en: 'Qualification funnel' },
-          href: '/services/landing-page-scoring',
-          description: { fr: 'Landing pages qui convertissent et scoring qui priorise vos leads.', en: 'Landing pages that convert and scoring that prioritises your leads.' },
-        },
-        {
-          label: { fr: 'Content marketing & SEO-GEO', en: 'Content marketing & SEO-GEO' },
-          href: '/services/content-marketing-intelligent',
-          description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
-        },
-        {
-          label: { fr: 'Maintenance & growth', en: 'Maintenance & growth' },
-          href: '/services/maintenance-growth',
-          description: { fr: 'Faire vivre et croître le site après la mise en ligne, au forfait.', en: 'Keep the site alive and growing after launch, on a retainer.' },
-        },
+        { label: { fr: 'Système prospection & ventes', en: 'Sales & prospecting system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Système communication', en: 'Communication system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Système immobilier', en: 'Real estate system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Système RH', en: 'HR system' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
       ],
+      links: [],
       footer: {
         label: { fr: 'Découvrir l\'offre →', en: 'Explore the offer →' },
         href: '/services/site-web-ia',
