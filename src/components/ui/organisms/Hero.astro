@@ -162,7 +162,9 @@ const pageTransitionId = Astro.url.pathname
     position: relative;
     /* Sticky-aware · header fixed 79px + respiration éditoriale densifiée
        (V6 brief Simon : faire passer plus de contenu dans la section) */
-    padding: var(--section-base) 0 0;
+    /* Le header fixed mesure ~79px au top : le padding DOIT l'inclure sinon le
+       masthead (Accueil · FR) passe sous la barre (rogné mobile, vu 2026-07-13) */
+    padding: calc(var(--header-height) + var(--space-6)) 0 0;
     border-bottom: 1px solid var(--hairline);
     overflow: hidden;
     display: flex;
@@ -404,7 +406,6 @@ const pageTransitionId = Astro.url.pathname
      sans toucher à l'identité typographique (breakpoint élargi 850→920px pour
      couvrir 1440×900 avec marge de sécurité) */
   @media (max-height: 920px) and (min-width: 900px) {
-    .hero-a { padding-top: var(--space-10); }
     .hero-sub { margin-top: var(--space-5); padding: var(--space-4) 0 var(--space-7); }
     .hero-headline { font-size: var(--text-h1); }
   }
