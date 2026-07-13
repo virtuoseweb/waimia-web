@@ -125,15 +125,15 @@ const ctaSecondary = data.cta_secondary;
 
     /* Titre serif · accent terracotta */
     .hem-title {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-h1);
       line-height: var(--leading-h1);
-      letter-spacing: var(--tracking-display);
-      font-weight: var(--fw-regular);
+      letter-spacing: -0.015em;
+      font-weight: var(--fw-semibold);
       max-width: 16ch;
       margin: var(--space-7) 0 var(--space-7);
     }
-    .hem-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hem-title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; color: var(--accent-text); }
 
     /* Rangée 2 colonnes · lede+CTA / KPI · hairline top */
     .hem-row {

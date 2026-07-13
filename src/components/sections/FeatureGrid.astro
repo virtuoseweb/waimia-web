@@ -543,9 +543,10 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
   .problems-grid__cards { max-width: 1200px; }
   .problems-grid { padding-block: var(--section-base); border-top: 1px solid rgba(var(--ink-rgb), .07); }
   .problems-grid__h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
     font-size: var(--text-h2);
-    letter-spacing: -.01em;
+    letter-spacing: -0.015em;
     margin-bottom: var(--space-9);
     color: var(--ink);
   }
@@ -619,7 +620,9 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
     margin-bottom: var(--space-3);
   }
   .problems-grid__card h3 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.015em;
     font-size: var(--text-h3);
     line-height: 1.25;
     margin-bottom: var(--space-4);

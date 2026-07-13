@@ -310,12 +310,12 @@ const cfMediaRegister =
   :global(.hero-hub-stats__meta) { display: inline-flex; gap: var(--space-2); margin-bottom: var(--space-5); }
   :global(.hero-hub-stats__num) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-stats__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: 0.88;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.015em;
     text-wrap: balance;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     margin: 0;
   }
   .hero-hub-stats__lede {
@@ -345,7 +345,9 @@ const cfMediaRegister =
   }
   .hero-hub-stats__cell:last-child { border-right: none; }
   .hero-hub-stats__value {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.015em;
     font-size: var(--text-h2);
     line-height: 1;
     color: var(--ink);
@@ -516,7 +518,8 @@ const cfMediaRegister =
   .hero-conversion-funnel__benefits li {
     position: relative;
     padding-left: 18px;
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-small);
     line-height: 1.42;
     color: var(--ink);
@@ -553,7 +556,9 @@ const cfMediaRegister =
     padding-top: 28px;
   }
   .hero-conversion-funnel__stat-value {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.015em;
     font-size: var(--text-h1);
     line-height: 1;
     color: var(--ink);
@@ -770,7 +775,9 @@ const cfMediaRegister =
   }
   .hero-cf-minimal__stat { display: flex; flex-direction: column; gap: var(--space-1); }
   .hero-cf-minimal__stat-value {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.015em;
     font-size: var(--text-h3);
     line-height: 1;
     color: var(--ink);

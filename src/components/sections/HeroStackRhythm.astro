@@ -127,14 +127,14 @@ const ctaSecondary = data.cta_secondary;
     .hsr-title {
       margin: 0 0 var(--space-7);
       max-width: 18ch;
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-display);
       line-height: var(--leading-h1);
-      letter-spacing: var(--tracking-display);
-      font-weight: var(--fw-regular);
+      letter-spacing: -0.015em;
+      font-weight: var(--fw-semibold);
       text-wrap: balance;
     }
-    .hsr-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hsr-title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; color: var(--accent-text); }
     .hsr-lede {
       margin: 0 0 var(--space-9);
       max-width: 52ch;

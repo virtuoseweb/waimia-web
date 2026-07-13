@@ -70,10 +70,11 @@ const variant = data.variant ?? 'quote-left';
 
   /* La citation EST le relevé serif (directive : serif = signature/relevé) */
   .tmet__quote {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h2);
     line-height: 1.18;
     letter-spacing: -0.01em;
+    font-weight: var(--fw-medium);
     color: var(--ink);
     margin: 0;
     text-wrap: balance;
@@ -109,10 +110,11 @@ const variant = data.variant ?? 'quote-left';
   }
   .tmet__metric { display: flex; flex-direction: column; gap: var(--space-2); }
   .tmet__metric-k {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: 0.9;
     letter-spacing: -0.03em;
+    font-weight: var(--fw-semibold);
     color: var(--accent-text);
   }
   .tmet__metric-l {

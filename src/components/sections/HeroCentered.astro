@@ -402,7 +402,9 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     text-align: left;
   }
   .hero-centered h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.015em;
     font-size: var(--text-h1);
     line-height: var(--leading-h2);
     color: var(--ink);
@@ -440,11 +442,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-hub-masthead .wrap-wide { max-width: 1200px; margin-inline: auto; }
   :global(.hero-hub-masthead__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-masthead__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-display);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     line-height: 0.92;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.015em;
     margin: 0;
   }
   .hero-hub-masthead__lede {
@@ -481,11 +483,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   :global(.hero-hub-listing__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-hub-listing__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-display);
     line-height: 0.92;
-    letter-spacing: -0.03em;
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-semibold);
     text-wrap: balance;
     color: var(--ink);
     margin: 0;
@@ -527,11 +529,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-problem-index .wrap-wide { max-width: 1200px; margin-inline: auto; position: relative; z-index: 1; }
   :global(.hero-problem-index__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-problem-index__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-display);
     line-height: 0.92;
-    letter-spacing: -0.03em;
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-semibold);
     text-wrap: balance;
     margin: 0;
   }
@@ -571,11 +573,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-utility--centered :global(.hero-utility__kicker) { display: inline-block; }
 
   .hero-utility__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-display);
     line-height: 0.92;
-    letter-spacing: -0.03em;
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-semibold);
     text-wrap: balance;
     margin: 0;
   }
@@ -589,7 +591,8 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
 
   .hero-utility__lede {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h3);
     color: var(--ink-2);
     margin: var(--space-6) 0 0;
@@ -638,8 +641,9 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-academy-hub__kicker) { margin: 0 0 var(--space-5); }
   .hero-academy-hub__heading {
     font-size: var(--text-h1);
-    font-family: var(--font-display);
-    font-weight: var(--fw-regular);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.015em;
     line-height: 1.05;
     margin: 0 0 var(--space-5);
   }
@@ -681,9 +685,10 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     border-bottom: 1px solid var(--hairline);
   }
   .hero-course__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h1);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.015em;
     line-height: 1.05;
     margin: var(--space-4) 0 20px;
   }
@@ -787,16 +792,17 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   :global(.hero-detail-menu__parent) { display: block; margin-bottom: var(--space-4); }
   :global(.hero-detail-menu__num) { display: block; margin-bottom: var(--space-5); }
   .hero-detail-menu__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-display);
     line-height: 0.92;
-    letter-spacing: -0.028em;
+    letter-spacing: -0.015em;
     text-wrap: balance;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     margin: 0 0 var(--space-6);
   }
   .hero-detail-menu__lede {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h3);
     line-height: 1.45;
     max-width: 880px;
@@ -817,18 +823,19 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   :global(.hero-essay__kicker) { display: block; margin-bottom: var(--space-5); }
   .hero-essay__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: var(--leading-h1);
-    letter-spacing: -0.026em;
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-semibold);
     text-wrap: balance;
     color: var(--ink);
     margin: 0;
     max-width: 1200px;
   }
   .hero-essay__lede {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h3);
     line-height: var(--leading-lede);
     color: var(--muted);
@@ -895,14 +902,14 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   :global(.hero-case-study__num) { display: block; margin-bottom: var(--space-5); }
   .hero-case-study__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-display);
     line-height: 0.92;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.015em;
     text-wrap: balance;
     overflow-wrap: break-word;
     hyphens: auto;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     color: var(--ink);
     margin: 0 0 var(--hcs-h1-gap, 0);
   }
@@ -919,7 +926,8 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-case-study__spec[data-last='true'] { border-right: none; }
   :global(.hero-case-study__spec-l) { display: block; margin-bottom: 6px; }
   .hero-case-study__spec-v {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h3);
     letter-spacing: -0.01em;
     color: var(--ink);
@@ -956,7 +964,8 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     margin: 0 0 var(--space-6);
   }
   .hero-service-detail__lede {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h3);
     line-height: 1.45;
     max-width: 880px;
@@ -980,7 +989,8 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-service-detail__metric:last-child { border-right: none; }
   .hero-service-detail__metric-v {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
     font-size: var(--text-h2);
     line-height: 0.92;
     letter-spacing: -0.02em;
@@ -1022,7 +1032,8 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     margin: 0 0 var(--space-6);
   }
   .hero-service-masthead__lede {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-h3);
     line-height: 1.45;
     max-width: 880px;

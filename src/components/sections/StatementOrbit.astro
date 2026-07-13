@@ -139,17 +139,17 @@ const actionsHide = pl?.actions?.hideOn;
     :global(.so-kicker) { margin-bottom: var(--space-4); }
 
     .so-title {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-h2);
       line-height: var(--leading-h2);
-      letter-spacing: var(--tracking-display);
-      font-weight: var(--fw-regular);
+      letter-spacing: -0.015em;
+      font-weight: var(--fw-semibold);
       color: var(--paper);
       max-width: 18ch;
       margin: 0 0 var(--space-5);
       text-wrap: balance;
     }
-    .so-title :global(i) { font-style: italic; }
+    .so-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; }
     .so-title :global(i.acc), .so-title :global(.acc) {
       font-family: var(--font-display);
       font-style: italic;

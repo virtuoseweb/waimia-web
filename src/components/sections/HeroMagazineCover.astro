@@ -95,14 +95,14 @@ const ctaPrimary = data.cta_primary;
       margin: 0;
       max-width: 16ch;
       margin-inline: auto;
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-display);
       line-height: var(--leading-h1);
-      letter-spacing: var(--tracking-display);
-      font-weight: var(--fw-regular);
+      letter-spacing: -0.015em;
+      font-weight: var(--fw-semibold);
       text-wrap: balance;
     }
-    .hmc-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hmc-title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; color: var(--accent-text); }
 
     /* Fine règle accent sous le titre. */
     .hmc-rule {
@@ -117,7 +117,8 @@ const ctaPrimary = data.cta_primary;
     .hmc-tagline {
       margin: 0 0 var(--space-7);
       max-width: 56ch;
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
+      font-weight: var(--fw-medium);
       font-size: var(--text-h3);
       line-height: var(--leading-lede);
       color: var(--muted);

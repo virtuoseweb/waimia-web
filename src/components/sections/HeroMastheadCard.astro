@@ -136,15 +136,15 @@ const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
     :global(.hmc__fig) { margin-bottom: var(--space-4); }
 
     .hmc__title {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-h1);
       line-height: var(--leading-h1);
-      letter-spacing: var(--tracking-display);
-      font-weight: var(--fw-regular);
+      letter-spacing: -0.015em;
+      font-weight: var(--fw-semibold);
       max-width: 16ch;
       margin: 0 0 var(--space-5);
     }
-    .hmc__title :global(i) { font-style: italic; }
+    .hmc__title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; }
     .hmc__title :global(i.acc), .hmc__title :global(.acc) { color: var(--accent-text); }
 
     .hmc__lede {

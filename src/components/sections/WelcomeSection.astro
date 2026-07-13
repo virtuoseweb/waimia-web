@@ -102,17 +102,18 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   }
   :global(.welcome-kicker) { display: inline-block; margin-bottom: var(--space-4); }
   .welcome-h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: var(--leading-h1);
     letter-spacing: -0.028em;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-semibold);
     text-wrap: balance;
     margin: 0 0 20px;
   }
   .welcome-lede {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
     color: var(--ink-2);
     margin: 0 auto 60px;
     max-width: 600px;

@@ -90,15 +90,15 @@ const ctaSecondary = data.cta_secondary;
 
     /* R1 · titre */
     .hag-title {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-h1);
       line-height: var(--leading-h1);
-      letter-spacing: var(--tracking-display);
-      font-weight: var(--fw-regular);
+      letter-spacing: -0.015em;
+      font-weight: var(--fw-semibold);
       max-width: 20ch;
       margin: 0 0 var(--space-8);
     }
-    .hag-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hag-title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; color: var(--accent-text); }
 
     /* R2 · 2 colonnes */
     .hag-row2 {

@@ -124,15 +124,15 @@ const minimap = data.minimap;
   .z2__rail { justify-content: center; }
 
   .z2__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: var(--leading-h1);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-semibold);
     max-width: 16ch;
     margin: 0 0 var(--space-5);
   }
-  .z2__title :global(i) { font-style: italic; }
+  .z2__title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; }
   .z2__title :global(i.acc) { font-style: italic; color: var(--accent-text); }
 
   .z2__lede {

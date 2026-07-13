@@ -61,7 +61,9 @@ const isFr = lang === 'fr';
     gap: var(--spacing-block);
   }
   .hero-form-inline__h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.015em;
     font-size: var(--text-h1);
     line-height: var(--leading-h2);
     color: var(--ink);
@@ -107,12 +109,12 @@ const isFr = lang === 'fr';
     gap: var(--space-5);
   }
   .hero-form-inline__panel-label {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: var(--leading-h3);
     color: var(--ink);
     margin: 0;
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
   }
   @media (max-width: 880px) {
     .hero-form-inline__grid { grid-template-columns: 1fr; }

@@ -123,17 +123,17 @@ const msGridCols = msLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefi
   }
 
   .ms-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h2);
     line-height: var(--leading-h2);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-semibold);
     color: var(--ink);
     max-width: 22ch;
     margin: 0 0 var(--space-5);
     text-wrap: balance;
   }
-  .ms-title :global(i) { font-style: italic; }
+  .ms-title :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; }
   .ms-title :global(i.acc),
   .ms-title :global(.acc) { font-style: italic; color: var(--accent); }
 
@@ -193,10 +193,11 @@ const msGridCols = msLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefi
     color: var(--accent-text);
   }
   .ms-node__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: var(--leading-h3);
-    font-weight: var(--fw-regular);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.015em;
     color: var(--ink);
     margin: 0;
     text-wrap: balance;

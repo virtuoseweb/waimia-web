@@ -85,15 +85,15 @@ const ctaSecondary = data.cta_secondary;
       margin: 0 0 var(--space-5);
     }
     .hbs-title {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       font-size: var(--text-display);
       line-height: var(--leading-h1);
-      letter-spacing: var(--tracking-display);
-      font-weight: var(--fw-regular);
+      letter-spacing: -0.015em;
+      font-weight: var(--fw-semibold);
       max-width: 20ch;
       margin: 0 0 var(--space-5);
     }
-    .hbs-title :global(.acc) { font-style: italic; color: var(--accent-text); }
+    .hbs-title :global(.acc) { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: var(--tracking-display); font-style: italic; color: var(--accent-text); }
     .hbs-lede {
       font-family: var(--font-sans);
       font-size: var(--text-body);

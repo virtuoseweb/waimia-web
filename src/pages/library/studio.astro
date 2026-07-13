@@ -1210,8 +1210,9 @@ const moleculesRendered = 12;
   .studio-hd { max-width: var(--wrap-read); margin-bottom: var(--space-9); }
   .studio-eyebrow { margin-bottom: var(--space-4); }
   .studio-h1 {
-    font-family: var(--font-display); font-size: var(--text-h1);
-    line-height: var(--leading-h1); letter-spacing: var(--tracking-display);
+    font-family: var(--font-sans); font-size: var(--text-h1);
+    line-height: var(--leading-h1); letter-spacing: -0.015em;
+    font-weight: var(--fw-semibold);
     margin: 0 0 var(--space-4);
   }
   .studio-h1 i { color: var(--accent-text); font-style: italic; }
@@ -1302,7 +1303,7 @@ const moleculesRendered = 12;
   }
   @media (max-width: 1080px) { .studio-panel-inner { max-height: none; } }
   .studio-panel-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); }
-  .studio-h3 { font-family: var(--font-display); font-size: var(--text-h3); margin: 0; }
+  .studio-h3 { font-family: var(--font-sans); font-weight: var(--fw-medium); font-size: var(--text-h3); margin: 0; }
   .studio-actions { display: flex; gap: var(--space-2); }
   .studio-btn {
     font-family: var(--font-mono); font-size: var(--text-small);
@@ -1693,7 +1694,7 @@ const moleculesRendered = 12;
     border: 1px solid var(--hairline-strong); border-radius: var(--radius-md);
     padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-1); background: var(--paper);
   }
-  .studio-debt-k { font-family: var(--font-display); font-size: var(--text-h2); color: var(--accent-text); }
+  .studio-debt-k { font-family: var(--font-sans); font-weight: var(--fw-semibold); letter-spacing: -0.015em; font-size: var(--text-h2); color: var(--accent-text); }
   .studio-debt-l { font-family: var(--font-sans); font-size: var(--text-small); color: var(--muted); }
   .studio-lock-note { font-family: var(--font-sans); font-size: var(--text-small); color: var(--ink-2); margin: var(--space-2) 0; }
 
@@ -1755,7 +1756,7 @@ const moleculesRendered = 12;
     border-radius: var(--radius-lg); box-shadow: var(--shadow-lift);
   }
   :global(.studio-overlay-title) {
-    font-family: var(--font-display); font-size: var(--text-h3);
+    font-family: var(--font-sans); font-weight: var(--fw-medium); font-size: var(--text-h3);
     color: var(--ink); margin: 0;
   }
   :global(.studio-overlay-sub) {

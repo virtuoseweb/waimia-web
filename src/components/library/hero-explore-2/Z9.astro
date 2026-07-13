@@ -112,11 +112,11 @@ const sommaire = [
   :global(.z9__fig) { margin-bottom: var(--space-4); }
 
   .z9__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
     font-size: var(--text-h1);
     line-height: var(--leading-h1);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
     max-width: 16ch;
     margin: 0 0 var(--space-5);
   }
@@ -170,10 +170,10 @@ const sommaire = [
     color: var(--accent-text);
   }
   .z9__toc-title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
     font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
     line-height: var(--leading-lede);
-    font-weight: var(--fw-regular);
     color: var(--ink);
     text-wrap: balance;
   }
