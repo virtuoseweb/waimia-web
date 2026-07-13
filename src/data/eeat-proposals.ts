@@ -16,6 +16,13 @@ export interface EeatLink {
   kicker?: string;
   /** accroche courte optionnelle. */
   lead?: string;
+  /**
+   * Illustration DS optionnelle par CIBLE de lien (stable cross-pages), révélée au survol
+   * dans le cadre flottant de l'eeat-panel. Les deux variantes de fond ({ink} sur panneau
+   * sombre, {paper} sur panneau clair) permettent l'assortiment au fond du composant.
+   * Absente → la ligne ne participe simplement pas au reveal (rétrocompat totale).
+   */
+  media?: { ink: string; paper: string };
 }
 
 export interface EeatMilestone {
@@ -127,13 +134,61 @@ export const EEAT_PACK: EeatPack = {
       href: '/ressources/outils/calculateur-roi-ia',
       kicker: 'Outil',
       lead: 'Estimez le retour d\'un site instrumenté sur votre acquisition, à partir de vos chiffres.',
+      media: {
+        ink: '/images/illustrations/ds/money-in-the-pig-ink.webp',
+        paper: '/images/illustrations/ds/money-in-the-pig-paper.webp',
+      },
     },
   ],
+  // Ordre = les 3 étages du système d'abord (silo : contenu → tunnel → système complet),
+  // puis le reste. Le composant n'affiche que les 3 premiers en mode default (le hub
+  // « Tous les services → » compense), donc les étages priment sur agents/consultant.
   services: [
-    { label: 'Landing page & scoring', href: '/services/landing-page-scoring', kicker: 'Service' },
-    { label: 'Content marketing intelligent', href: '/services/content-marketing-intelligent', kicker: 'Service' },
-    { label: 'Agents IA', href: '/services/agents-ia', kicker: 'Service' },
-    { label: 'Consultant IA Claude', href: '/services/consultant-ia-claude', kicker: 'Service' },
+    {
+      label: 'Content marketing intelligent',
+      href: '/services/content-marketing-intelligent',
+      kicker: 'Service',
+      media: {
+        ink: '/images/illustrations/ds/oh-men-boy-ink.webp',
+        paper: '/images/illustrations/ds/oh-men-boy-paper.webp',
+      },
+    },
+    {
+      label: 'Landing page & scoring',
+      href: '/services/landing-page-scoring',
+      kicker: 'Service',
+      media: {
+        ink: '/images/illustrations/ds/style-8-ink.webp',
+        paper: '/images/illustrations/ds/style-8-paper.webp',
+      },
+    },
+    {
+      label: 'Système marketing complet',
+      href: '/services/systeme-complet',
+      kicker: 'Service',
+      media: {
+        ink: '/images/illustrations/ds/snow-movement-ink.webp',
+        paper: '/images/illustrations/ds/snow-movement-paper.webp',
+      },
+    },
+    {
+      label: 'Agents IA',
+      href: '/services/agents-ia',
+      kicker: 'Service',
+      media: {
+        ink: '/images/illustrations/ds/its-x-ink.webp',
+        paper: '/images/illustrations/ds/its-x-paper.webp',
+      },
+    },
+    {
+      label: 'Consultant IA Claude',
+      href: '/services/consultant-ia-claude',
+      kicker: 'Service',
+      media: {
+        ink: '/images/illustrations/ds/pretty-woman-ink.webp',
+        paper: '/images/illustrations/ds/pretty-woman-paper.webp',
+      },
+    },
   ],
   hubs: {
     sectors: { label: 'Tous les secteurs', href: '/secteurs' },

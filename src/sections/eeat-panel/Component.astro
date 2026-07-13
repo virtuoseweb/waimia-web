@@ -60,6 +60,14 @@ const kicker = eyebrow ?? {
 const meta = 'Expérience · expertise · autorité · confiance';
 const heroHero = img('growth');
 const credentials = P.credentials;
+
+// Reveal desktop (idiome hover-reveal-list / CaseCardGrid) : l'illustration de chaque cible
+// de lien services/outil se révèle dans un cadre flottant qui suit le curseur. Ordre continu
+// = services puis tools (index partagé entre les <a data-idx> et les <img data-idx> du cadre).
+// Actif uniquement hors variante columns ET si au moins un lien porte une image (sinon 0 markup
+// en plus → rétrocompat totale). L'image suit le fond du panneau (ink sur sombre, paper sur clair).
+const revealLinks = [...services, ...tools];
+const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
 ---
 <section
   class:list={['eep', `eep--${variant}`]}
@@ -291,12 +299,12 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--services">
           <span class="eep-celllabel">Services &amp; outil</span>
           <ul class="eep-links">
-            {services.map((s) => (
-              <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
+            {services.map((s, i) => (
+              <li><a class="eep-link eep-link--flat" href={s.href} data-idx={s.media ? i : undefined}>{s.label}</a></li>
             ))}
-            {tools.map((t) => (
+            {tools.map((t, i) => (
               <li>
-                <a class="eep-link" href={t.href}>
+                <a class="eep-link" href={t.href} data-idx={t.media ? services.length + i : undefined}>
                   <span class="eep-link__kicker">{t.kicker}</span>
                   <span class="eep-link__label">{t.label}</span>
                 </a>
@@ -400,12 +408,12 @@ const credentials = P.credentials;
         <article class="eep-cell eep-cell--services">
           <span class="eep-celllabel">Services &amp; outil</span>
           <ul class="eep-links">
-            {services.map((s) => (
-              <li><a class="eep-link eep-link--flat" href={s.href}>{s.label}</a></li>
+            {services.map((s, i) => (
+              <li><a class="eep-link eep-link--flat" href={s.href} data-idx={s.media ? i : undefined}>{s.label}</a></li>
             ))}
-            {tools.map((t) => (
+            {tools.map((t, i) => (
               <li>
-                <a class="eep-link" href={t.href}>
+                <a class="eep-link" href={t.href} data-idx={t.media ? services.length + i : undefined}>
                   <span class="eep-link__kicker">{t.kicker}</span>
                   <span class="eep-link__label">{t.label}</span>
                 </a>
@@ -438,6 +446,25 @@ const credentials = P.credentials;
       </div>
     )}
   </div>
+
+  {hasReveal && (
+    <div class="eep-reveal" aria-hidden="true">
+      {revealLinks.map((l, i) =>
+        l.media ? (
+          <img
+            class="eep-reveal__img"
+            data-idx={i}
+            src={bg === 'ink' ? l.media.ink : l.media.paper}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            width="1000"
+            height="750"
+          />
+        ) : null,
+      )}
+    </div>
+  )}
 </section>
 
 <style>
@@ -620,9 +647,11 @@ const credentials = P.credentials;
     color: var(--accent-sur-sombre);
   }
   .eep-hero__line {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: var(--leading-h3);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-medium);
     color: var(--paper);
     text-wrap: balance;
   }
@@ -638,9 +667,11 @@ const credentials = P.credentials;
   .eep-cell--cta:hover { background: var(--accent-sur-clair); }
   .eep-celllabel--ink { color: var(--accent-ink); opacity: 0.72; }
   .eep-cta__title {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: var(--leading-h3);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-medium);
     color: var(--accent-ink);
     margin-top: auto;
   }
@@ -673,11 +704,11 @@ const credentials = P.credentials;
 
   /* Author / name / bio (bento) */
   .eep-name {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h2);
     line-height: var(--leading-h2);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-medium);
     color: var(--paper);
     margin: 0;
     text-wrap: balance;
@@ -867,9 +898,11 @@ const credentials = P.credentials;
   .eep--light .eep-commit { border-top-color: var(--hairline); }
   .eep-commit:first-child { border-top: 0; padding-top: 0; }
   .eep-commit__label {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: var(--leading-h3);
+    letter-spacing: -0.015em;
+    font-weight: var(--fw-medium);
     color: var(--paper);
   }
   .eep--light .eep-commit__label { color: var(--ink); }
@@ -1066,8 +1099,116 @@ const credentials = P.credentials;
     .eep-band__img { max-height: 14rem; }
   }
 
+  /* ── REVEAL desktop (idiome hover-reveal-list / CaseCardGrid) : cadre flottant unique,
+     illustrations empilées opacity 0, activé au survol des liens services/outil sur pointeur
+     fin + desktop (le JS pose data-reveal-active sur la section .eep). Tokens DS seuls (rule 60).
+     Défaut (pas de data-reveal-active) = display:none → 0 impact, jamais inline. ── */
+  .eep-reveal { display: none; }
+  .eep[data-reveal-active='true'] .eep-reveal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: clamp(220px, 22vw, 340px);
+    aspect-ratio: 4 / 3;
+    pointer-events: none;
+    z-index: 60;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+  .eep[data-reveal-active='true'] .eep-reveal.is-on { opacity: 1; }
+  .eep-reveal__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease);
+  }
+  .eep-reveal__img[data-active='true'] { opacity: 1; }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal-stagger > * { transition: none; }
     .eep-cta, .eep-chip, .eep-link, .eep-cell--cta, .eep-hub { transition: none; }
+    .eep-reveal, .eep-reveal__img { transition: none; }
   }
 </style>
+
+<script>
+  // Reveal desktop (idiome CaseCardGrid) : au survol d'un lien services/outil, son
+  // illustration se révèle dans un cadre flottant qui suit le curseur. Gate stricte :
+  // pointeur fin + >=768px → aucun effet en tactile/mobile. Idempotent + ré-init View
+  // Transitions (astro:page-load), pattern scroll-reveal du repo.
+  function initEeatReveal() {
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const wide = window.matchMedia('(min-width: 768px)').matches;
+    if (!fine || !wide) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll<HTMLElement>('.eep-reveal').forEach((reveal) => {
+      if (reveal.dataset.eepBound === '1') return;
+      const root = reveal.closest<HTMLElement>('section');
+      if (!root) return;
+      const links = Array.from(root.querySelectorAll<HTMLElement>('a[data-idx]'));
+      const imgs = Array.from(reveal.querySelectorAll<HTMLElement>('.eep-reveal__img'));
+      if (links.length === 0 || imgs.length === 0) return;
+      const list = links[0].closest<HTMLElement>('ul');
+      if (!list) return;
+
+      reveal.dataset.eepBound = '1';
+      root.dataset.revealActive = 'true';
+      const margin = 16; // px · marge anti-débordement viewport (structurel)
+      let frame = 0;
+      let px = 0;
+      let py = 0;
+
+      const place = () => {
+        frame = 0;
+        const w = reveal.offsetWidth;
+        const h = reveal.offsetHeight;
+        const maxX = window.innerWidth - w - margin;
+        const maxY = window.innerHeight - h - margin;
+        const x = Math.max(margin, Math.min(px + margin, maxX));
+        const y = Math.max(margin, Math.min(py - h / 2, maxY));
+        reveal.style.transform = `translate(${x}px, ${y}px)`;
+      };
+
+      const setActive = (idx: number | null) => {
+        imgs.forEach((el) => {
+          el.dataset.active = el.dataset.idx === String(idx) ? 'true' : 'false';
+        });
+        reveal.classList.toggle('is-on', idx !== null);
+      };
+
+      links.forEach((el) => {
+        el.addEventListener('pointerenter', () => {
+          const idx = Number(el.dataset.idx);
+          if (!Number.isNaN(idx)) setActive(idx);
+        });
+      });
+
+      list.addEventListener('pointerleave', () => setActive(null));
+
+      if (!reduce) {
+        list.addEventListener('pointermove', (e) => {
+          px = (e as PointerEvent).clientX;
+          py = (e as PointerEvent).clientY;
+          if (!frame) frame = requestAnimationFrame(place);
+        });
+      }
+    });
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initEeatReveal);
+    } else {
+      initEeatReveal();
+    }
+    document.addEventListener('astro:page-load', initEeatReveal);
+  }
+</script>
