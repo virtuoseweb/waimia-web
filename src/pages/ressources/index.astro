@@ -106,8 +106,8 @@ const resourceGridData = {
   columns: '3' as const,
   kicker_fr: '§ Par format · tout ce qu\'on publie',
   kicker_en: '§ By format · everything we publish',
-  h2_fr: 'Choisissez votre <i>entrée</i>.',
-  h2_en: 'Pick your <i>way in</i>.',
+  h2_fr: 'Choisissez votre entrée.',
+  h2_en: 'Pick your way in.',
   intro_fr: 'Six formats, des compteurs réels. Rien d\'inventé : ce que vous voyez est ce qui existe.',
   intro_en: 'Six formats, real counters. Nothing invented: what you see is what exists.',
   resources: categories.map((c) => ({
@@ -149,8 +149,8 @@ const articleGridData = {
   columns: '3' as const,
   kicker_fr: '§ Blog · les plus récents',
   kicker_en: '§ Blog · most recent',
-  h2_fr: 'Les <i>dernières</i> notes longues.',
-  h2_en: 'The <i>latest</i> long reads.',
+  h2_fr: 'Les dernières notes longues.',
+  h2_en: 'The latest long reads.',
   articles: [...blogLongReads].sort(byDate).filter((b) => b.id !== _featArticle?.id).slice(0, 6).map((b) => ({
     tag_fr: (b.data.editorialType ?? 'Essai').toUpperCase(),
     tag_en: (b.data.editorialType ?? 'Essay').toUpperCase(),
@@ -186,8 +186,8 @@ const splitData = {
     slot: 'left' as const,
     kicker_fr: '§ Blog · notes longues',
     kicker_en: '§ Blog · long reads',
-    h2_fr: 'Une <i>note</i> à la fois.',
-    h2_en: 'One <i>note</i> at a time.',
+    h2_fr: 'Une note à la fois.',
+    h2_en: 'One note at a time.',
     lede_fr: 'Pas de calendrier éditorial. On publie quand on a vraiment quelque chose à dire.',
     lede_en: 'No editorial calendar. We publish when we genuinely have something to say.',
     cards: blogCards,
@@ -197,8 +197,8 @@ const splitData = {
     slot: 'right' as const,
     kicker_fr: '§ Outils · calculateurs gratuits',
     kicker_en: '§ Tools · free calculators',
-    h2_fr: 'Un <i>outil</i> par décision.',
-    h2_en: 'One <i>tool</i> per decision.',
+    h2_fr: 'Un outil par décision.',
+    h2_en: 'One tool per decision.',
     lede_fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.',
     lede_en: 'ROI, TCO, AI Act compliance. No form, no funnel.',
     cards: allOutils.slice(0, 3).map((o) => ({
@@ -264,7 +264,7 @@ const ctaData = {
   <section class="hub-cases-detail">
     <div class="wrap-wide">
       <Kicker tone="accent" class="hub-cd-k">§ Cas clients · {sortedCases.length} dossiers signés</Kicker>
-      <h2 class="hub-cd-h2">{caseCards.length === 4 ? 'Quatre' : String(caseCards.length)} <i>missions</i>. Toutes mesurées.</h2>
+      <h2 class="hub-cd-h2">{caseCards.length === 4 ? 'Quatre' : String(caseCards.length)} missions. Toutes mesurées.</h2>
       <p class="hub-cd-lead">
         Pas de témoignages publicitaires : chaque cas est lu, validé et signé par le client. Des clients externes, des dossiers chiffrés.
       </p>
@@ -294,7 +294,7 @@ const ctaData = {
     <div class="wrap-wide hub-nl-wrap">
       <div>
         <Kicker tone="accent" class="hub-nl-k">§ Newsletter · une fois par mois</Kicker>
-        <h2 class="hub-nl-h2">Un <i>essai</i> par mois. Jamais de promotion.</h2>
+        <h2 class="hub-nl-h2">Un essai par mois. Jamais de promotion.</h2>
         <p class="hub-nl-lead">
           Notes longues, cas concrets, recettes pratiques. Désabonnement en 1 clic, RGPD-compliant.
         </p>

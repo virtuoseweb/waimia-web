@@ -211,8 +211,8 @@ sectionsBeforeProse.push({
   background: 'ink',
   kicker_fr: '§ Friction',
   kicker_en: '§ Friction',
-  h2_fr: 'Là où ça <i>bloque</i>.',
-  h2_en: 'Where it <i>stalls</i>.',
+  h2_fr: 'Là où ça bloque.',
+  h2_en: 'Where it stalls.',
   items: d.pains_fr.slice(0, 6).map((p, i) => ({
     severity: SEVERITY_BY_INDEX[i] ?? 'medium',
     title_fr: p.title,
@@ -303,8 +303,8 @@ const sectionsAfterProse: SectionData[] = [
         background: 'paper-2',
         kicker_fr: '§ Questions fréquentes',
         kicker_en: '§ Frequently asked',
-        h2_fr: 'Ce que les dirigeants nous <i>demandent</i>.',
-        h2_en: 'What leaders <i>ask us</i>.',
+        h2_fr: 'Ce que les dirigeants nous demandent.',
+        h2_en: 'What leaders ask us.',
         open_first: true,
         items: ((d as any).faq_fr ?? []).map((f: any, i: number) => ({
           q_fr: f.q,
