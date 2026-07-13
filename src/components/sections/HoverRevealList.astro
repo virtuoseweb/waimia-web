@@ -252,7 +252,8 @@ const revealMode = data.reveal_mode ?? 'cursor';
 </style>
 
 <script>
-  (() => {
+  // Idempotent + ré-init View Transitions (astro:page-load), pattern ScrollGallery du repo.
+  function initHoverRevealList() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // N'activer le suivi/reveal que sur pointeur fin (hover) ET desktop.
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -267,6 +268,8 @@ const revealMode = data.reveal_mode ?? 'cursor';
       const items = Array.from(root.querySelectorAll<HTMLElement>('.hrl__item'));
       const imgs = Array.from(root.querySelectorAll<HTMLElement>('.hrl__img'));
       if (!list || !reveal || items.length === 0) return;
+      if (root.dataset.hrlBound === '1') return;
+      root.dataset.hrlBound = '1';
 
       root.dataset.revealActive = 'true';
       const mode = root.dataset.revealMode === 'fixed' ? 'fixed' : 'cursor';
@@ -315,5 +318,14 @@ const revealMode = data.reveal_mode ?? 'cursor';
         });
       }
     });
-  })();
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHoverRevealList);
+    } else {
+      initHoverRevealList();
+    }
+    document.addEventListener('astro:page-load', initHoverRevealList);
+  }
 </script>
