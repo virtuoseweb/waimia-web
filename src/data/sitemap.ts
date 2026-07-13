@@ -54,9 +54,9 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       label: { en: 'Business use cases', fr: "Cas d'usage business" },
       // SEO état final (§0ter) : pages /solutions/* supprimées → services réels + ancres — tous les cas dirigés vers /cas-clients.
       items: [
-        { href: '/services/content-marketing-intelligent', label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' }, lead: { en: 'Editorial line + SEO/GEO found by Google AND AI engines.', fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.' } },
+        { href: '/services/seo-geo-contenu', label: { en: 'SEO, GEO and content', fr: 'SEO, GEO et contenu' }, lead: { en: 'Editorial line + SEO/GEO found by Google AND AI engines.', fr: 'Ligne éditoriale + SEO/GEO trouvés par Google ET les IA.' } },
         { href: '/services/site-web-ia', label: { en: 'Smart website', fr: 'Site web intelligent' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
-        { href: '/services/landing-page-scoring', label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
+        { href: '/services/landing-pages-tunnels', label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' }, lead: { en: 'From first click to signature, frictionless.', fr: 'Du premier clic à la signature, sans friction.' } },
       ],
     },
     {
@@ -305,12 +305,12 @@ export const FOOTER_COLS: FooterCol[] = [
     heading: { en: 'Offers & services', fr: 'Offres & services' },
     items: [
       {
-        href: '/services/systeme-complet',
-        label: { en: 'Complete system', fr: 'Système complet' },
+        href: '/services/systeme-acquisition',
+        label: { en: 'Acquisition system', fr: 'Système d\'acquisition' },
       },
       {
-        href: '/services/machine-outbound',
-        label: { en: 'Outbound machine', fr: 'Machine outbound' },
+        href: '/services/prospection-automatisee',
+        label: { en: 'Automated prospecting', fr: 'Prospection automatisée' },
       },
       {
         href: '/services/site-web-ia',
@@ -321,12 +321,12 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Claude integration', fr: 'Intégration Claude' },
       },
       {
-        href: '/services/content-marketing-intelligent',
-        label: { en: 'Smart content marketing', fr: 'Content marketing intelligent' },
+        href: '/services/seo-geo-contenu',
+        label: { en: 'SEO, GEO and content', fr: 'SEO, GEO et contenu' },
       },
       {
-        href: '/services/landing-page-scoring',
-        label: { en: 'Conversion funnel', fr: 'Tunnel de conversion' },
+        href: '/services/landing-pages-tunnels',
+        label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' },
       },
     ],
   },
@@ -525,10 +525,10 @@ export const SIX_SERVICES = [
   {
     k: '02',
     metric: { en: 'Editorial machine', fr: 'Machine éditoriale' },
-    label: { en: 'Intelligent content marketing', fr: 'Content marketing intelligent' },
+    label: { en: 'SEO, GEO and content', fr: 'SEO, GEO et contenu' },
     body: { en: 'SEO articles and GEO-ready content produced in your tone and validated by a human, to build authority.', fr: "Articles SEO et contenus GEO-ready produits dans votre ton et validés par un humain, pour bâtir l'autorité." },
     connectors: { en: 'SEO · GEO · Multi-channel · Human review', fr: 'SEO · GEO · Multi-canal · Relecture humaine' },
-    href: '/services/content-marketing-intelligent',
+    href: '/services/seo-geo-contenu',
   },
   {
     k: '03',
@@ -536,7 +536,7 @@ export const SIX_SERVICES = [
     label: { en: 'Landing page & scoring', fr: 'Landing page & scoring' },
     body: { en: 'Landing pages that convert and scoring that prioritises: from visitor to qualified lead, wired to your CRM.', fr: 'Landing pages qui convertissent et scoring qui priorise : du visiteur au lead qualifié, branché à votre CRM.' },
     connectors: { en: 'Landing · Scoring · CRM · Qualification', fr: 'Landing · Scoring · CRM · Qualification' },
-    href: '/services/landing-page-scoring',
+    href: '/services/landing-pages-tunnels',
   },
   {
     k: '04',

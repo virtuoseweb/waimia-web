@@ -140,13 +140,13 @@ export const EEAT_PACK: EeatPack = {
       },
     },
   ],
-  // Ordre = les 3 étages du système d'abord (silo : contenu → tunnel → système complet),
-  // puis le reste. Le composant n'affiche que les 3 premiers en mode default (le hub
-  // « Tous les services → » compense), donc les étages priment sur agents/consultant.
+  // Ordre = les 3 étages du système d'abord (silo : contenu → tunnels → système
+  // d'acquisition), puis le reste. Le composant n'affiche que les 3 premiers en mode
+  // default (le hub « Tous les services → » compense), donc les étages priment sur agents/consultant.
   services: [
     {
-      label: 'Content marketing intelligent',
-      href: '/services/content-marketing-intelligent',
+      label: 'SEO, GEO et contenu',
+      href: '/services/seo-geo-contenu',
       kicker: 'Service',
       media: {
         ink: '/images/illustrations/ds/oh-men-boy-ink.webp',
@@ -154,8 +154,8 @@ export const EEAT_PACK: EeatPack = {
       },
     },
     {
-      label: 'Landing page & scoring',
-      href: '/services/landing-page-scoring',
+      label: 'Landing pages et tunnels',
+      href: '/services/landing-pages-tunnels',
       kicker: 'Service',
       media: {
         ink: '/images/illustrations/ds/style-8-ink.webp',
@@ -163,8 +163,8 @@ export const EEAT_PACK: EeatPack = {
       },
     },
     {
-      label: 'Système marketing complet',
-      href: '/services/systeme-complet',
+      label: 'Systèmes d\'acquisition et de conversion',
+      href: '/services/systeme-acquisition',
       kicker: 'Service',
       media: {
         ink: '/images/illustrations/ds/snow-movement-ink.webp',

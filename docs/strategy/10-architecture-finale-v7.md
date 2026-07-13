@@ -141,6 +141,37 @@ d'acquisition**.
 - ❌ 1 page par outil (Mistral, Webflow, Make…) sans cas réel : les outils vivent en cards,
   briques et tableaux comparatifs DANS les hubs (index-on-quality inchangé).
 
+### 0bis.5 ADDENDUM V8.1 (2026-07-13, VALIDÉ Simon) — doctrine « double couche » SEO × marque
+
+Auto-analyse Simon de la phrase « Waimia conçoit et développe les systèmes qui permettent aux
+PME d'acquérir des clients et d'automatiser leurs opérations » : SEO 5/10 · GEO 6/10 ·
+compréhension dirigeant 7/10 · commercial 7,5/10 · **différenciation 9/10**. Point faible :
+**personne ne recherche « système »** (confirme les données §0bis.2). Conclusion : excellente
+vision d'entreprise, PAS un positionnement commercial de substitution. **On fait les deux.**
+
+- **Couche SEO (jamais remplacée)** : intitulés/H1/`<title>` = vocabulaire réellement recherché
+  (création site web PME, agence/intégrateur/consultant IA, automatisation IA, agents IA, SEO,
+  développement application métier, CRM…).
+- **Couche marque (relie tout)** : « système d'acquisition » / « système opérationnel » /
+  « ingénierie de systèmes numériques » = vocabulaire propriétaire en kicker/lede/sous-titre,
+  nav (catégories du mega menu) et maillage. Pattern hero canonique :
+  « **Site Web Intelligent.** Le système d'acquisition de votre entreprise. » ·
+  « **Intégration IA.** Le système opérationnel de votre entreprise. »
+- **Fréquence GEO** : le vocabulaire métier apparaît beaucoup plus souvent que le vocabulaire
+  marque ; l'équivalence est écrite noir sur blanc et citable (système d'acquisition = site +
+  SEO/GEO + content + landing/tunnels + CRM/scoring + séquences + prospection ; système
+  opérationnel = automatisations + agents IA + intégrations + applications internes + données).
+- Métier de fond : Software Systems Engineering, vendre une **architecture** (analogie Revenue
+  Engine / GTM System des cabinets), pas des prestations ; ce territoire ne porte jamais les
+  intitulés SEO.
+- **Application (vague 2026-07-13)** : 2 systèmes en nav (« Systèmes d'acquisition et de
+  conversion » avec kickers Inbound/Conversion/Outbound · « Systèmes opérationnels et IA » avec
+  Automatiser/Développer) ; hubs `/services/systeme-acquisition` + `/services/systemes-operationnels-ia`
+  (slug marque OK pour un hub, H1 dedans = vocabulaire recherché) ; 12 pages services répliquées
+  sur le modèle exact `site-web-ia` (20 sections), contenu unique par intention, 301 posées
+  (systeme-complet, content-marketing-intelligent → seo-geo-contenu, landing-page-scoring →
+  landing-pages-tunnels, machine-outbound → prospection-automatisee).
+
 ---
 
 ## 1. La doctrine anti-dilution, correctement appliquée (le cœur)

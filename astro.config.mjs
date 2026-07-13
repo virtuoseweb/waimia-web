@@ -117,7 +117,17 @@ export default defineConfig({
     // V7-FOLD 2026-06-22 · refonte Phase 1 : la page service /tunnel-conversion-intelligent
     // (prod-live, indexée) est renommée /landing-page-scoring et absorbe le scoring.
     // 301 obligatoire pour préserver le ranking de l'ancienne URL.
-    '/services/tunnel-conversion-intelligent': '/services/landing-page-scoring',
+    // MAJ V8 2026-07-13 · destination re-ciblée directement sur le slug final
+    // /services/landing-pages-tunnels (évite une chaîne de 301, cf renames ci-dessous).
+    '/services/tunnel-conversion-intelligent': '/services/landing-pages-tunnels',
+    // Refonte V8 2026-07-13 · réorganisation des slugs services (vague « systèmes →
+    // modules », carte décidée Simon). Les anciennes URLs prod-live indexées sont 301
+    // vers les nouveaux slugs orientés requête réelle. Astro émet 308 (=301 SEO) en
+    // adapter static. Placées AVANT le rename des fichiers de contenu (workflow doc/05).
+    '/services/systeme-complet': '/services/systeme-acquisition',
+    '/services/content-marketing-intelligent': '/services/seo-geo-contenu',
+    '/services/landing-page-scoring': '/services/landing-pages-tunnels',
+    '/services/machine-outbound': '/services/prospection-automatisee',
     // Refonte V8 2026-07-12 · retitrage + renommage de slugs des 2 offres phares
     // (docs/strategy/10 §0bis.3, décisions Simon). Les anciennes URLs prod-live indexées
     // sont 301 vers les nouveaux slugs orientés requête réelle. Les URLs nues

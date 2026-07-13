@@ -158,7 +158,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/components/templates/EssayTemplate.astro'] }, // R6 : ListIndexTemplate fusionné dans UtilityTemplate (variant list)
   // backfill 2026-06-08 — 7 ids présents au registry, consommés par des pages live (vérifié grep src/pages)
   { id: 'tier-pyramid-svg',      consumers: [] }, // R6 : /offres supprimé ; aucun consumer live (catalogue-only)
-  { id: 'offer-tier-grid',       consumers: ['src/content/services/systeme-complet.json', 'src/pages/services/index.astro'] }, // R6 : /offres→ apex systeme-complet + hub /services
+  { id: 'offer-tier-grid',       consumers: ['src/content/services/systeme-acquisition.json', 'src/pages/services/index.astro'] }, // R6 : /offres→ apex systeme-acquisition + hub /services
   { id: 'team-card-grid',        consumers: ['src/pages/equipe/index.astro'] },
   { id: 'hero-atlas',            consumers: ['src/pages/atlas.astro', 'src/pages/en/atlas.astro'] },
   { id: 'persona-attributes-grid', consumers: ['src/pages/ressources/personas/[slug].astro'] },

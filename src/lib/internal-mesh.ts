@@ -49,20 +49,20 @@ const SERVICES: Record<string, MeshLink> = {
     label_fr: 'Consultant IA Claude',
     label_en: 'Claude AI Consultant',
   },
-  'content-marketing-intelligent': {
-    href: '/services/content-marketing-intelligent',
-    label_fr: 'Content marketing intelligent',
-    label_en: 'Intelligent content marketing',
+  'seo-geo-contenu': {
+    href: '/services/seo-geo-contenu',
+    label_fr: 'SEO, GEO et contenu',
+    label_en: 'SEO, GEO and content',
   },
-  'landing-page-scoring': {
-    href: '/services/landing-page-scoring',
-    label_fr: 'Landing page & scoring',
-    label_en: 'Landing page & scoring',
+  'landing-pages-tunnels': {
+    href: '/services/landing-pages-tunnels',
+    label_fr: 'Landing pages et tunnels',
+    label_en: 'Landing pages and funnels',
   },
-  'machine-outbound': {
-    href: '/services/machine-outbound',
-    label_fr: 'Machine outbound',
-    label_en: 'Outbound machine',
+  'prospection-automatisee': {
+    href: '/services/prospection-automatisee',
+    label_fr: 'Prospection automatisée',
+    label_en: 'Automated prospecting',
   },
   'maintenance-growth': {
     href: '/services/maintenance-growth',
@@ -308,7 +308,7 @@ export function meshForSecteur(secteurSlug: string, _lang: Lang = 'fr'): Related
           SERVICES['site-web-intelligent'],
           SERVICES['integrateur-claude'],
           SERVICES['agents-ia'],
-          SERVICES['content-marketing-intelligent'],
+          SERVICES['seo-geo-contenu'],
         ],
         selfHref,
       ),
@@ -349,7 +349,7 @@ export function meshForCasUsage(casUsage: CasUsageMeshInput, _lang: Lang = 'fr')
   const isAcquisition = casUsage.category === 'acquisition';
 
   const offers = isAcquisition
-    ? [SERVICES['site-web-intelligent'], SERVICES['landing-page-scoring']]
+    ? [SERVICES['site-web-intelligent'], SERVICES['landing-pages-tunnels']]
     : [SERVICES['integrateur-claude'], SERVICES['agents-ia']];
 
   const article = isAcquisition
@@ -423,7 +423,7 @@ const ARTICLE_MAP: Record<
   { service: string; casUsage: string; ressource: string; secteur: string; article: string }
 > = {
   crm: {
-    service: 'machine-outbound',
+    service: 'prospection-automatisee',
     casUsage: 'generer-plus-de-leads',
     ressource: 'comparatifs/site-web-intelligent-vs-wordpress',
     secteur: 'conseil',
@@ -451,7 +451,7 @@ const ARTICLE_MAP: Record<
     article: 'agent-ia-vs-automatisation-classique-2026',
   },
   'contenu-seo-geo': {
-    service: 'content-marketing-intelligent',
+    service: 'seo-geo-contenu',
     casUsage: 'generer-plus-de-leads',
     ressource: 'comparatifs/geo-vs-seo',
     secteur: 'conseil',

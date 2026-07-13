@@ -254,17 +254,21 @@ const RESSOURCES: MegaMenuSection = {
     : undefined,
 };
 
-// ─── SOLUTIONS · mega menu « systèmes → modules » (directive Simon 2026-07-13) :
-// Col 1 = SÉLECTEUR « Nos systèmes » : Système d'acquisition [défaut actif, hub
-// /services/systeme-complet] · Systèmes opérationnels & IA [sélectionnable, sans
-// hub] · Systèmes commerciaux [« à venir »]. Col 2 = PANNEAU DYNAMIQUE jumeau :
-// au survol/clic/focus d'un système, il affiche ses modules. L'acquisition a deux
-// sous-groupes titrés (Inbound : site-web-ia [phare], content-marketing, landing-
-// page-scoring, maintenance-growth ; Outbound : machine-outbound). Opérationnels &
-// IA : integration-claude [phare], agents-ia, consultant-ia-claude (sans sous-groupe).
-// Tous les groupes rendus côté serveur (indexable SEO/LLM), un seul visible (switch
-// CSS `data-*`, aucun fetch). Col 3 « Résoudre un problème » INCHANGÉE. Featured
-// « Système complet » INCHANGÉ. Tous les liens = 100% réels + indexables.
+// ─── SOLUTIONS · mega menu « systèmes → modules » (refonte V8 slugs 2026-07-13) :
+// Col 1 = SÉLECTEUR « Nos systèmes » : Systèmes d'acquisition et de conversion
+// [défaut actif, hub /services/systeme-acquisition] · Systèmes opérationnels et IA
+// [sélectionnable, hub /services/systemes-operationnels-ia] · Systèmes commerciaux
+// [« à venir »]. Col 2 = PANNEAU DYNAMIQUE jumeau : au survol/clic/focus d'un
+// système, il affiche ses modules. Acquisition et conversion a trois sous-groupes
+// titrés (Inbound : site-web-ia [phare], seo-geo-contenu, landing-pages-tunnels ;
+// Conversion : crm-scoring-routing, sequences-de-suivi ; Outbound : prospection-
+// automatisee). Opérationnels et IA a deux sous-groupes (Automatiser : automatisations,
+// agents-ia, integration-claude ; Développer : applications-internes, donnees-reporting).
+// Les modules crm-scoring-routing, sequences-de-suivi, automatisations, applications-
+// internes, donnees-reporting et le hub systemes-operationnels-ia sont créés par la
+// vague de contenu associée. Tous les groupes rendus côté serveur (indexable SEO/LLM),
+// un seul visible (switch CSS `data-*`, aucun fetch). Col 3 « Résoudre un problème »
+// INCHANGÉE. Tous les liens = 100% réels + indexables.
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
@@ -277,45 +281,55 @@ const SOLUTIONS: MegaMenuSection = {
   columns: [
     // Col 1 · SÉLECTEUR « Nos systèmes » (directive Simon 2026-07-13) : la colonne
     // liste les systèmes ; survol/clic/focus d'un système → le panneau jumeau
-    // (col 2) affiche ses modules. « Système marketing » (défaut actif) est
-    // cliquable (hub /services/systeme-complet, URL live actuelle — rename plus
-    // tard, ne pas l'anticiper). « Système IA » est sélectionnable mais SANS hub
-    // aujourd'hui → en-tête non cliquable (pas de href). Suivent 4 systèmes
-    // « à venir » discrets, non-sélectionnables (extension future = plus de hubs).
+    // (col 2) affiche ses modules. « Systèmes d'acquisition et de conversion »
+    // (défaut actif) est cliquable (hub /services/systeme-acquisition). « Systèmes
+    // opérationnels et IA » est cliquable (hub /services/systemes-operationnels-ia,
+    // créé dans la vague de contenu associée). Suit « Systèmes commerciaux »
+    // « à venir » discret, non-sélectionnable (extension future = plus de hubs).
     {
       kicker: { fr: 'NOS SYSTÈMES', en: 'OUR SYSTEMS' },
       title: { fr: 'Nos systèmes', en: 'Our systems' },
       systems: [
         {
-          label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
+          label: { fr: 'Systèmes d\'acquisition et de conversion', en: 'Acquisition & conversion systems' },
           key: 'acquisition',
-          href: '/services/systeme-complet',
-          description: { fr: 'Générer et qualifier des leads, de bout en bout.', en: 'Generate and qualify leads, end to end.' },
-          // Deux sous-groupes titrés (intertitres kicker) dans le panneau : Inbound / Outbound.
+          href: '/services/systeme-acquisition',
+          description: { fr: 'Concevoir l\'infrastructure qui attire, capte, qualifie et transforme les prospects.', en: 'Design the infrastructure that attracts, captures, qualifies and converts prospects.' },
+          // Trois sous-groupes titrés (intertitres kicker) dans le panneau : Inbound / Conversion / Outbound.
           groups: [
             {
               label: { fr: 'Inbound', en: 'Inbound' },
               links: [
                 {
-                  label: { fr: 'Site web IA', en: 'AI website' },
+                  label: { fr: 'Site web intelligent', en: 'Intelligent website' },
                   href: '/services/site-web-ia',
                   description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
                   badge: { fr: 'Offre phare', en: 'Flagship' },
                 },
                 {
-                  label: { fr: 'Content marketing & SEO-GEO', en: 'Content marketing & SEO-GEO' },
-                  href: '/services/content-marketing-intelligent',
+                  label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
+                  href: '/services/seo-geo-contenu',
                   description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
                 },
                 {
-                  label: { fr: 'Tunnel de qualification', en: 'Qualification funnel' },
-                  href: '/services/landing-page-scoring',
-                  description: { fr: 'Landing pages qui convertissent et scoring qui priorise vos leads.', en: 'Landing pages that convert and scoring that prioritises your leads.' },
+                  label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
+                  href: '/services/landing-pages-tunnels',
+                  description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
+                },
+              ],
+            },
+            {
+              label: { fr: 'Conversion', en: 'Conversion' },
+              links: [
+                {
+                  label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' },
+                  href: '/services/crm-scoring-routing',
+                  description: { fr: 'CRM branché, scoring des leads et routing vers le bon commercial.', en: 'Wired CRM, lead scoring and routing to the right rep.' },
                 },
                 {
-                  label: { fr: 'Maintenance & growth', en: 'Maintenance & growth' },
-                  href: '/services/maintenance-growth',
-                  description: { fr: 'Faire vivre et croître le site après la mise en ligne, au forfait.', en: 'Keep the site alive and growing after launch, on a retainer.' },
+                  label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' },
+                  href: '/services/sequences-de-suivi',
+                  description: { fr: 'Séquences de relance automatisées qui réchauffent et convertissent.', en: 'Automated follow-up sequences that nurture and convert.' },
                 },
               ],
             },
@@ -323,8 +337,8 @@ const SOLUTIONS: MegaMenuSection = {
               label: { fr: 'Outbound', en: 'Outbound' },
               links: [
                 {
-                  label: { fr: 'Machine outbound', en: 'Outbound machine' },
-                  href: '/services/machine-outbound',
+                  label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
+                  href: '/services/prospection-automatisee',
                   description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, wired to your CRM.' },
                 },
               ],
@@ -332,25 +346,45 @@ const SOLUTIONS: MegaMenuSection = {
           ],
         },
         {
-          label: { fr: 'Systèmes opérationnels & IA', en: 'Operational & AI systems' },
+          label: { fr: 'Systèmes opérationnels et IA', en: 'Operational & AI systems' },
           key: 'ia',
-          description: { fr: 'Claude, ChatGPT ou Mistral, branchés à vos outils.', en: 'Claude, ChatGPT or Mistral, wired to your tools.' },
-          links: [
+          href: '/services/systemes-operationnels-ia',
+          description: { fr: 'Automatiser les processus et développer les outils métier dont les équipes ont besoin.', en: 'Automate processes and build the internal tools teams need.' },
+          groups: [
             {
-              label: { fr: 'Intégration Claude', en: 'Claude integration' },
-              href: '/services/integration-claude',
-              description: { fr: 'Claude en entreprise, Claude Code, gouvernance et formation, en production.', en: 'Claude in the enterprise, Claude Code, governance and training, in production.' },
-              badge: { fr: 'Offre phare', en: 'Flagship' },
+              label: { fr: 'Automatiser', en: 'Automate' },
+              links: [
+                {
+                  label: { fr: 'Automatisations', en: 'Automations' },
+                  href: '/services/automatisations',
+                  description: { fr: 'Automatiser les tâches et processus répétitifs, de bout en bout.', en: 'Automate repetitive tasks and processes, end to end.' },
+                },
+                {
+                  label: { fr: 'Agents IA', en: 'AI agents' },
+                  href: '/services/agents-ia',
+                  description: { fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision.', en: 'Autonomous agents wired to your tools via MCP, under supervision.' },
+                },
+                {
+                  label: { fr: 'Intégrations', en: 'Integrations' },
+                  href: '/services/integration-claude',
+                  description: { fr: 'Claude, ChatGPT ou Mistral branchés à vos outils métier, en production.', en: 'Claude, ChatGPT or Mistral wired to your business tools, in production.' },
+                },
+              ],
             },
             {
-              label: { fr: 'Agents IA', en: 'AI agents' },
-              href: '/services/agents-ia',
-              description: { fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision.', en: 'Autonomous agents wired to your tools via MCP, under supervision.' },
-            },
-            {
-              label: { fr: 'Consultant IA Claude', en: 'Claude AI consultant' },
-              href: '/services/consultant-ia-claude',
-              description: { fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter.', en: 'Audit, frame and prioritise your AI use cases, then drive adoption.' },
+              label: { fr: 'Développer', en: 'Build' },
+              links: [
+                {
+                  label: { fr: 'Applications internes', en: 'Internal apps' },
+                  href: '/services/applications-internes',
+                  description: { fr: 'Développer les outils métier sur mesure dont vos équipes ont besoin.', en: 'Build the custom internal tools your teams need.' },
+                },
+                {
+                  label: { fr: 'Données et reporting', en: 'Data and reporting' },
+                  href: '/services/donnees-reporting',
+                  description: { fr: 'Centraliser les données et automatiser le reporting décisionnel.', en: 'Centralise data and automate decision reporting.' },
+                },
+              ],
             },
           ],
         },
@@ -405,13 +439,13 @@ const SOLUTIONS: MegaMenuSection = {
   // fin de la colonne « Résoudre un problème ». Image distincte par méga-menu.
   featured: {
     kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
-    label: { fr: 'Système complet', en: 'Complete system' },
+    label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
     body: {
       fr: 'La machine inbound + outbound, pilotée. Packs sur devis à tarif dégressif.',
       en: 'The inbound + outbound machine, managed. Packs on quote with degressive pricing.',
     },
     cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
-    href: '/services/systeme-complet',
+    href: '/services/systeme-acquisition',
     image: '/images/besoins/besoin-piloter.webp',
   },
 };
