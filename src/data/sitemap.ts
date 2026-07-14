@@ -103,13 +103,13 @@ export const MM_OFFRES_NEW: MegaMenu = {
   ],
   featured: {
     kicker: { en: 'FLAGSHIP SERVICE', fr: 'OFFRE PHARE' },
-    label: { en: 'AI Growth System', fr: 'Growth System IA' },
+    label: { en: 'Acquisition system', fr: "Système d'acquisition" },
     body: {
-      en: 'An automated acquisition and conversion system. Site, CRM, follow-ups, dashboards, connected and AI-driven. From €7,000.',
-      fr: "Un système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux, connectés et pilotés par l'IA. Dès 7 000 €.",
+      en: 'The acquisition infrastructure: website, visibility, landing pages, connected and AI-driven. Prospecting, CRM and follow-ups live in the sales system.',
+      fr: "L'infrastructure d'acquisition : site, visibilité, landing pages, connectés et pilotés par l'IA. Prospection, CRM et relances vivent dans le système commercial.",
     },
     cta: { en: 'See the system →', fr: 'Découvrir le système →' },
-    href: '/services',
+    href: '/services/systeme-acquisition',
   },
 };
 
@@ -307,6 +307,10 @@ export const FOOTER_COLS: FooterCol[] = [
       {
         href: '/services/systeme-acquisition',
         label: { en: 'Acquisition system', fr: 'Système d\'acquisition' },
+      },
+      {
+        href: '/services/systeme-commercial',
+        label: { en: 'Sales system', fr: 'Système commercial' },
       },
       {
         href: '/services/prospection-automatisee',

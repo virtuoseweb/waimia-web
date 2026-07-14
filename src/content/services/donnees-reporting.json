@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Centralisation des données et reporting automatisé pour PME",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "100€/h-4000€/mois",
+    "priceMin": 100,
+    "priceMax": 4000
   },
   "faq_fr": [
     {
@@ -977,39 +977,18 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir le bon point d'entrée",
-      "h2_en": "Pick the right entry point",
-      "lede_fr": "Quatre manières d'entrer, selon l'ampleur du pilotage. Chaque palier part d'un cadrage et débouche sur un tableau de bord à jour en production, pas sur une maquette. Devis adapté au périmètre, chiffré au cadrage.",
-      "lede_en": "Four ways in, depending on the scale of the steering. Each tier starts with scoping and leads to an up-to-date dashboard in production, not a mockup. Quote adapted to the perimeter, costed at scoping.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Une offre, deux manières d'avancer",
+      "h2_en": "One offer, two ways forward",
+      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur le chiffre qui compte, ou une régie mensuelle qui maintient et enrichit votre pilotage dans la durée. On part toujours d'un cadrage, on livre un tableau de bord à jour en production, pas une maquette.",
+      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the figure that matters, or a monthly retainer that maintains and enriches your steering over time. We always start from scoping and ship an up-to-date dashboard in production, not a mockup.",
       "tiers": [
         {
-          "name_fr": "Diagnostic données",
-          "name_en": "Data diagnostic",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Repérage des indicateurs qui comptent",
-            "Dictionnaire d'indicateurs et sources identifiées",
-            "Premier périmètre de reporting chiffré"
-          ],
-          "features_en": [
-            "Spotting the indicators that matter",
-            "Indicator dictionary and sources identified",
-            "First reporting perimeter costed"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un diagnostic →",
-            "label_en": "Scope a diagnostic →",
-            "href": "/contact?offer=donnees-reporting&intent=diagnostic",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Premier tableau de bord",
-          "name_en": "First dashboard",
+          "name_fr": "À la carte",
+          "name_en": "One-off",
           "price": "100 € / h",
           "period_fr": "forfait growth · HT",
           "period_en": "growth retainer · ex VAT",
@@ -1024,62 +1003,41 @@
             "Automatic refresh and alerts"
           ],
           "cta": {
+            "label_fr": "Cadrer une mission →",
+            "label_en": "Scope a mission →",
+            "href": "/contact?offer=donnees-reporting&intent=a-la-carte",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Abonnement Growth",
+          "name_en": "Growth subscription",
+          "price": "4 000 €",
+          "period_fr": "/mois · HT",
+          "period_en": "/month · ex VAT",
+          "features_fr": [
+            "Régie à disposition, base 100 €/h",
+            "Tableaux maintenus et sources surveillées",
+            "Nouveaux indicateurs ajoutés sur besoin",
+            "Pilotage mensuel et roadmap partagée"
+          ],
+          "features_en": [
+            "Retainer on tap, 100 €/h base",
+            "Dashboards maintained and sources monitored",
+            "New indicators added on need",
+            "Monthly steering and shared roadmap"
+          ],
+          "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
             "label_en": "Book a diagnostic (45 min) →",
             "href": "/contact?offer=donnees-reporting&intent=discovery",
             "variant": "primary"
           },
           "featured": true
-        },
-        {
-          "name_fr": "Socle données & reporting",
-          "name_en": "Data & reporting base",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Centralisation dans un socle unique et réconcilié",
-            "Plusieurs tableaux de bord et synthèse IA",
-            "Accès par rôle et plan d'extension"
-          ],
-          "features_en": [
-            "Centralisation into a single, reconciled base",
-            "Several dashboards and AI synthesis",
-            "Role-based access and extension plan"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un socle →",
-            "label_en": "Scope a base →",
-            "href": "/contact?offer=donnees-reporting&intent=socle",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Suivi & autonomie",
-          "name_en": "Follow-up & autonomy",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Maintenance des branchements et des tableaux",
-            "Passation et formation d'un référent interne",
-            "Ajout d'indicateurs et de sources sur besoin"
-          ],
-          "features_en": [
-            "Maintenance of the connections and boards",
-            "Handover and training of an in-house referent",
-            "Adding indicators and sources on need"
-          ],
-          "cta": {
-            "label_fr": "Discuter d'un suivi →",
-            "label_en": "Discuss follow-up →",
-            "href": "/contact?offer=donnees-reporting&intent=suivi",
-            "variant": "ghost"
-          }
         }
       ],
-      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande le chiffre qui compte pour vous. Pas de catalogue figé, chaque tableau de bord part d'un chiffre qui vous coûte des réunions. Sans abonnement caché ni captivité : à la fin, vous disposez d'un socle qui tourne, de vos données et d'un référent prêt à ajouter un indicateur. Pour agir automatiquement sur ce que les chiffres révèlent, le besoin bascule sur les automatisations.",
-      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the figure that matters to you takes. No fixed catalogue, every dashboard starts from a figure that costs you meetings. No hidden subscription, no lock-in: at the end, you have a base that runs, your data and a referent ready to add an indicator. To act automatically on what the figures reveal, the need moves to automations."
+      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande le chiffre qui compte pour vous. L'abonnement Growth, 4 000 € par mois, met une régie à votre disposition sur la même base horaire : maintenance, nouveaux indicateurs et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vous gardez vos données et votre socle.",
+      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the figure that matters to you takes. The Growth subscription, 4,000 € a month, puts a retainer at your disposal on the same hourly base: maintenance, new indicators and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: you keep your data and your base."
     },
     {
       "type": "eeat-panel",

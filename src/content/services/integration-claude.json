@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Intégration Claude en entreprise / Agents IA / MCP",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "100€/h-4000€/mois",
+    "priceMin": 100,
+    "priceMax": 4000
   },
   "faq_fr": [
     {
@@ -991,51 +991,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir le bon palier",
-      "h2_en": "Pick the right tier",
-      "lede_fr": "Trois manières d'entrer, selon votre maturité IA. Chaque palier démarre par un diagnostic et débouche sur un livrable concret, pas sur une étude qui dort. Devis adapté au périmètre, chiffré au cadrage.",
-      "lede_en": "Three ways in, depending on your AI maturity. Each tier starts with a diagnostic and leads to a concrete deliverable, not a study that sleeps. Quote adapted to scope, costed at scoping.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Une offre, deux manières d'avancer",
+      "h2_en": "One offer, two ways forward",
+      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur le chantier qui compte, ou une régie mensuelle qui déploie et supervise votre dispositif Claude dans la durée. On part toujours d'un diagnostic, on livre un agent en production, pas une étude qui dort.",
+      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the engagement that matters, or a monthly retainer that deploys and supervises your Claude setup over time. We always start from a diagnostic and ship an agent in production, not a study that sleeps.",
       "tiers": [
         {
-          "name_fr": "Diagnostic",
-          "name_en": "Diagnostic",
+          "name_fr": "À la carte",
+          "name_en": "One-off",
           "price": "100 € / h",
           "period_fr": "forfait growth · HT",
           "period_en": "growth retainer · ex VAT",
           "features_fr": [
-            "Cartographie des cas d'usage automatisables",
-            "Priorisation par temps et argent gagnés",
-            "Plan d'action chiffré et premier agent ciblé"
+            "Cartographie des cas d'usage et plan chiffré",
+            "Un agent conçu, branché via MCP et déployé",
+            "Gouvernance, mesure et passation"
           ],
           "features_en": [
-            "Map of automatable use cases",
-            "Prioritisation by time and money saved",
-            "Costed action plan and first targeted agent"
+            "Map of use cases and costed plan",
+            "One agent designed, wired via MCP and deployed",
+            "Governance, measurement and handover"
           ],
           "cta": {
-            "label_fr": "Cadrer un diagnostic →",
-            "label_en": "Scope a diagnostic →",
-            "href": "/contact?offer=integrateur-claude&intent=diagnostic",
+            "label_fr": "Cadrer une mission →",
+            "label_en": "Scope a mission →",
+            "href": "/contact?offer=integrateur-claude&intent=a-la-carte",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Premier agent",
-          "name_en": "First agent",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
+          "name_fr": "Abonnement Growth",
+          "name_en": "Growth subscription",
+          "price": "4 000 €",
+          "period_fr": "/mois · HT",
+          "period_en": "/month · ex VAT",
           "features_fr": [
-            "Un agent conçu, branché via MCP et déployé",
-            "Connexion à un outil métier existant",
-            "Gouvernance, mesure et passation"
+            "Régie à disposition, base 100 €/h",
+            "Plusieurs agents et connecteurs MCP supervisés",
+            "Extension du périmètre sur preuve",
+            "Pilotage mensuel et roadmap partagée"
           ],
           "features_en": [
-            "One agent designed, wired via MCP and deployed",
-            "Connection to an existing business tool",
-            "Governance, measurement and handover"
+            "Retainer on tap, 100 €/h base",
+            "Several agents and MCP connectors supervised",
+            "Scope extension on proof",
+            "Monthly steering and shared roadmap"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1044,33 +1048,10 @@
             "variant": "primary"
           },
           "featured": true
-        },
-        {
-          "name_fr": "Système d'agents",
-          "name_en": "Agent system",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Plusieurs agents et serveurs MCP orchestrés",
-            "Cadre de gouvernance complet et référent IA formé",
-            "Formation des équipes et autonomie"
-          ],
-          "features_en": [
-            "Several agents and MCP servers orchestrated",
-            "Full governance framework and trained AI lead",
-            "Team training and autonomy"
-          ],
-          "cta": {
-            "label_fr": "Discuter d'un système →",
-            "label_en": "Discuss a system →",
-            "href": "/contact?offer=integrateur-claude&intent=systeme",
-            "variant": "ghost"
-          }
         }
       ],
-      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande le chantier qui compte pour vous. Pas de catalogue figé, chaque mission part du diagnostic. Sans abonnement caché ni captivité : à la fin, vous disposez d'agents en production, de leur architecture documentée et d'équipes formées pour les faire évoluer.",
-      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the engagement that matters to you takes. No fixed catalogue, every engagement starts from the diagnostic. No hidden subscription, no lock-in: at the end, you have agents in production, their documented architecture and teams trained to evolve them."
+      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande le chantier qui compte pour vous. L'abonnement Growth, 4 000 € par mois, met une régie à votre disposition sur la même base horaire : exécution, supervision et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
+      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the engagement that matters to you takes. The Growth subscription, 4,000 € a month, puts a retainer at your disposal on the same hourly base: execution, supervision and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: your agents run, their architecture is documented and your teams are trained to evolve them."
     },
     {
       "type": "eeat-panel",

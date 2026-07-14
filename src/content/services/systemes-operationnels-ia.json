@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation des processus et outils métier IA pour PME",
-    "priceRange": "2000-15000€",
-    "priceMin": 2000,
-    "priceMax": 15000
+    "priceRange": "100€/h-4000€/mois",
+    "priceMin": 100,
+    "priceMax": 4000
   },
   "faq_fr": [
     {
@@ -999,117 +999,69 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ La gamme",
-      "kicker_en": "§ The range",
-      "h2_fr": "Quatre façons de câbler votre <i class=\"acc\">système</i>",
-      "h2_en": "Four ways to wire your <i class=\"acc\">system</i>",
-      "lede_fr": "On entre par un diagnostic, puis on cadre un premier agent, un système d'agents ou l'accompagnement continu. On active le module qui rend le plus de temps, on prouve la valeur, puis on étend. Le périmètre exact se cadre au diagnostic.",
-      "lede_en": "You enter through a diagnostic, then we scope a first agent, a system of agents or continuous support. We activate the module that gives back the most time, prove the value, then extend. The exact scope is set at the diagnostic.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Une offre, deux manières de câbler votre <i class=\"acc\">système</i>",
+      "h2_en": "One offer, two ways to wire your <i class=\"acc\">system</i>",
+      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur le module qui rend le plus de temps, ou une régie mensuelle qui orchestre et supervise votre système d'agents dans la durée. On part toujours d'un diagnostic, on prouve la valeur, puis on étend.",
+      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the module that gives back the most time, or a monthly retainer that orchestrates and supervises your agent system over time. We always start from a diagnostic, prove the value, then extend.",
       "tiers": [
         {
-          "name_fr": "Diagnostic",
-          "name_en": "Diagnostic",
+          "name_fr": "À la carte",
+          "name_en": "One-off",
           "price": "100 € / h",
           "period_fr": "forfait growth · HT",
           "period_en": "growth retainer · ex VAT",
           "features_fr": [
-            "Cartographie des tâches automatisables",
-            "Priorisation par temps et argent gagnés",
-            "Plan d'action chiffré et premier agent ciblé",
-            "Feuille de route IA priorisée"
-          ],
-          "features_en": [
-            "Map of automatable tasks",
-            "Prioritisation by time and money saved",
-            "Costed action plan and first targeted agent",
-            "Prioritised AI roadmap"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un diagnostic →",
-            "label_en": "Scope a diagnostic →",
-            "href": "/contact?offer=systemes-operationnels-ia&intent=diagnostic",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Premier agent",
-          "name_en": "First agent",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
+            "Cartographie des tâches et plan d'action chiffré",
             "Un agent conçu, branché via MCP et déployé",
-            "Connexion à un outil métier existant",
             "Périmètre, gouvernance et validation humaine",
             "Mesure du temps rendu et passation"
           ],
           "features_en": [
+            "Map of tasks and costed action plan",
             "One agent designed, wired via MCP and deployed",
-            "Connection to an existing business tool",
             "Scope, governance and human validation",
             "Measurement of time returned and handover"
           ],
           "cta": {
+            "label_fr": "Cadrer une mission →",
+            "label_en": "Scope a mission →",
+            "href": "/contact?offer=systemes-operationnels-ia&intent=a-la-carte",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Abonnement Growth",
+          "name_en": "Growth subscription",
+          "price": "4 000 €",
+          "period_fr": "/mois · HT",
+          "period_en": "/month · ex VAT",
+          "features_fr": [
+            "Régie à disposition, base 100 €/h",
+            "Plusieurs agents et modules orchestrés et supervisés",
+            "Extension du système sur preuve",
+            "Pilotage mensuel et roadmap partagée"
+          ],
+          "features_en": [
+            "Retainer on tap, 100 €/h base",
+            "Several agents and modules orchestrated and supervised",
+            "System extension on proof",
+            "Monthly steering and shared roadmap"
+          ],
+          "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
             "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=systemes-operationnels-ia&intent=agent",
+            "href": "/contact?offer=systemes-operationnels-ia&intent=discovery",
             "variant": "primary"
           },
           "featured": true
-        },
-        {
-          "name_fr": "Système d'agents",
-          "name_en": "System of agents",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Plusieurs agents et connecteurs MCP orchestrés",
-            "Applications métier internes si besoin",
-            "Données et reporting lus par l'IA",
-            "Cadre de gouvernance complet et référent formé"
-          ],
-          "features_en": [
-            "Several agents and MCP connectors orchestrated",
-            "Internal business apps if needed",
-            "Data and reporting read by the AI",
-            "Full governance frame and trained referent"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un système d'agents →",
-            "label_en": "Scope a system of agents →",
-            "href": "/contact?offer=systemes-operationnels-ia&intent=systeme",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Suivi et autonomie",
-          "name_en": "Follow-up and autonomy",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Supervision continue et ajustement des agents",
-            "Extension à de nouvelles tâches sur preuve",
-            "Passation et formation de vos équipes",
-            "Vous gardez le code, zéro captivité"
-          ],
-          "features_en": [
-            "Continuous supervision and tuning of the agents",
-            "Extension to new tasks on proof",
-            "Handover and training of your teams",
-            "You keep the code, zero lock-in"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un suivi →",
-            "label_en": "Scope a follow-up →",
-            "href": "/contact?offer=systemes-operationnels-ia&intent=suivi",
-            "variant": "ghost"
-          }
         }
       ],
-      "footnote_fr": "On facture au forfait growth, 100 € de l'heure. Le scope et le temps dépendent du volume (combien d'agents, quels connecteurs, quelles applications), cadré au diagnostic et priorisé par le temps et l'argent gagnés : on vous aide à chiffrer le chantier qui compte pour vous. On démarre par celui qui fait le plus mal, on prouve la valeur, puis on étend. Sans engagement de durée, sans abonnement caché : vous gardez le code et la main.",
-      "footnote_en": "We bill on a growth retainer, 100 € an hour. Scope and time depend on volume (how many agents, which connectors, which apps), set at the diagnostic and prioritised by the time and money saved: we help you size the work that matters to you. We start with the one that hurts most, prove the value, then extend. No duration commitment, no hidden subscription: you keep the code and the control."
+      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume (combien d'agents, quels connecteurs, quelles applications), et on vous aide à chiffrer le chantier qui compte pour vous. L'abonnement Growth, 4 000 € par mois, met une régie à votre disposition sur la même base horaire : orchestration, supervision et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans engagement de durée ni abonnement caché : vous gardez le code et la main.",
+      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume (how many agents, which connectors, which apps), and we help you size the work that matters to you. The Growth subscription, 4,000 € a month, puts a retainer at your disposal on the same hourly base: orchestration, supervision and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No duration commitment, no hidden subscription: you keep the code and the control."
     },
     {
       "type": "eeat-panel",

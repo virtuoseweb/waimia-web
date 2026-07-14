@@ -27,7 +27,7 @@ interface MeshLink {
 
 // ───────────────────────────── Registre canonique (routes reelles verifiees) ─────────────────────────────
 
-/** Hubs services (les 2 offres). */
+/** Hubs de système + modules services (routes reelles verifiees). */
 const SERVICES: Record<string, MeshLink> = {
   'site-web-intelligent': {
     href: '/services/site-web-ia',
@@ -63,6 +63,27 @@ const SERVICES: Record<string, MeshLink> = {
     href: '/services/prospection-automatisee',
     label_fr: 'Prospection automatisée',
     label_en: 'Automated prospecting',
+  },
+  'crm-scoring-routing': {
+    href: '/services/crm-scoring-routing',
+    label_fr: 'CRM, scoring et routing',
+    label_en: 'CRM, scoring and routing',
+  },
+  'sequences-de-suivi': {
+    href: '/services/sequences-de-suivi',
+    label_fr: 'Séquences de suivi',
+    label_en: 'Follow-up sequences',
+  },
+  // Hubs de système (points d'entrée cliquables du mega menu Solutions).
+  'systeme-acquisition': {
+    href: '/services/systeme-acquisition',
+    label_fr: "Système d'acquisition",
+    label_en: 'Acquisition system',
+  },
+  'systeme-commercial': {
+    href: '/services/systeme-commercial',
+    label_fr: 'Système commercial',
+    label_en: 'Sales system',
   },
   'maintenance-growth': {
     href: '/services/maintenance-growth',

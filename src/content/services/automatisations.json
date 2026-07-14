@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation des processus métier pour PME",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "100€/h-4000€/mois",
+    "priceMin": 100,
+    "priceMax": 4000
   },
   "faq_fr": [
     {
@@ -977,39 +977,18 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir le bon point d'entrée",
-      "h2_en": "Pick the right entry point",
-      "lede_fr": "Quatre manières d'entrer, selon le nombre de tâches à confier. Chaque palier part d'un cadrage et débouche sur un workflow qui tourne en production, pas sur une maquette. Devis adapté au périmètre, chiffré au cadrage.",
-      "lede_en": "Four ways in, depending on how many tasks you hand over. Each tier starts with scoping and leads to a workflow running in production, not a mockup. Quote adapted to the perimeter, costed at scoping.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Une offre, deux manières d'avancer",
+      "h2_en": "One offer, two ways forward",
+      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur la tâche qui compte, ou une régie mensuelle qui maintient et étend vos workflows dans la durée. On part toujours d'un cadrage, on livre un workflow en production, pas une maquette.",
+      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the task that matters, or a monthly retainer that maintains and extends your workflows over time. We always start from scoping and ship a workflow in production, not a mockup.",
       "tiers": [
         {
-          "name_fr": "Diagnostic",
-          "name_en": "Diagnostic",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Cartographie de vos tâches répétitives",
-            "Chiffrage en heures et priorisation",
-            "Premier périmètre de workflow proposé"
-          ],
-          "features_en": [
-            "Map of your repetitive tasks",
-            "Costing in hours and prioritisation",
-            "First workflow perimeter proposed"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un diagnostic →",
-            "label_en": "Scope a diagnostic →",
-            "href": "/contact?offer=automatisations&intent=diagnostic",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Premier workflow",
-          "name_en": "First workflow",
+          "name_fr": "À la carte",
+          "name_en": "One-off",
           "price": "100 € / h",
           "period_fr": "forfait growth · HT",
           "period_en": "growth retainer · ex VAT",
@@ -1024,62 +1003,41 @@
             "Supervision, alerts and hours-saved measurement"
           ],
           "cta": {
+            "label_fr": "Cadrer une mission →",
+            "label_en": "Scope a mission →",
+            "href": "/contact?offer=automatisations&intent=a-la-carte",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Abonnement Growth",
+          "name_en": "Growth subscription",
+          "price": "4 000 €",
+          "period_fr": "/mois · HT",
+          "period_en": "/month · ex VAT",
+          "features_fr": [
+            "Régie à disposition, base 100 €/h",
+            "Workflows maintenus et supervisés en continu",
+            "Nouvelles automatisations ajoutées sur preuve",
+            "Pilotage mensuel et roadmap partagée"
+          ],
+          "features_en": [
+            "Retainer on tap, 100 €/h base",
+            "Workflows maintained and supervised continuously",
+            "New automations added on proof",
+            "Monthly steering and shared roadmap"
+          ],
+          "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
             "label_en": "Book a diagnostic (45 min) →",
             "href": "/contact?offer=automatisations&intent=discovery",
             "variant": "primary"
           },
           "featured": true
-        },
-        {
-          "name_fr": "Chaîne d'automatisations",
-          "name_en": "Automation chain",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Plusieurs workflows orchestrés entre vos outils",
-            "Étapes IA là où une règle fixe ne suffit pas",
-            "Tableau de supervision et plan d'extension"
-          ],
-          "features_en": [
-            "Several workflows orchestrated across your tools",
-            "AI steps where a fixed rule isn't enough",
-            "Supervision board and extension plan"
-          ],
-          "cta": {
-            "label_fr": "Cadrer une chaîne →",
-            "label_en": "Scope a chain →",
-            "href": "/contact?offer=automatisations&intent=chaine",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Suivi & autonomie",
-          "name_en": "Follow-up & autonomy",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Supervision continue et maintenance des workflows",
-            "Passation et formation d'un référent interne",
-            "Extension à de nouvelles tâches sur preuve"
-          ],
-          "features_en": [
-            "Continuous supervision and workflow maintenance",
-            "Handover and training of an in-house referent",
-            "Extension to new tasks on proof"
-          ],
-          "cta": {
-            "label_fr": "Discuter d'un suivi →",
-            "label_en": "Discuss follow-up →",
-            "href": "/contact?offer=automatisations&intent=suivi",
-            "variant": "ghost"
-          }
         }
       ],
-      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande la tâche qui compte pour vous. Pas de catalogue figé, chaque workflow part d'une tâche réelle. Sans abonnement caché ni captivité : à la fin, vous disposez de workflows qui tournent, supervisés et documentés, et d'un référent prêt à les ajuster. Pour une tâche qui demande du jugement plutôt qu'une règle fixe, le besoin bascule sur les agents IA.",
-      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the task that matters to you takes. No fixed catalogue, every workflow starts from a real task. No hidden subscription, no lock-in: at the end, you have workflows that run, supervised and documented, and a referent ready to adjust them. For a task that needs judgement rather than a fixed rule, the need moves to AI agents."
+      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande la tâche qui compte pour vous. L'abonnement Growth, 4 000 € par mois, met une régie à votre disposition sur la même base horaire : roadmap, exécution et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vos workflows tournent, supervisés et documentés.",
+      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the task that matters to you takes. The Growth subscription, 4,000 € a month, puts a retainer at your disposal on the same hourly base: roadmap, execution and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: your workflows run, supervised and documented."
     },
     {
       "type": "eeat-panel",

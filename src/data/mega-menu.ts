@@ -62,7 +62,7 @@ export interface MegaMenuCategory {
   /**
    * Sous-groupes titrés de modules (directive Simon 2026-07-13). Alternative aux
    * `links` plats : le panneau rend un petit intertitre (kicker mono/muted) par
-   * groupe suivi de ses liens. Ex. Système d'acquisition → Inbound / Outbound.
+   * groupe suivi de ses liens. Ex. Systèmes opérationnels et IA → Automatiser / Développer.
    * En mobile, l'intertitre reste un simple libellé dans le dropdown (pas un 3e
    * niveau de toggle). Une catégorie utilise SOIT `links` SOIT `groups`.
    */
@@ -254,21 +254,18 @@ const RESSOURCES: MegaMenuSection = {
     : undefined,
 };
 
-// ─── SOLUTIONS · mega menu « systèmes → modules » (refonte V8 slugs 2026-07-13) :
-// Col 1 = SÉLECTEUR « Nos systèmes » : Systèmes d'acquisition et de conversion
-// [défaut actif, hub /services/systeme-acquisition] · Systèmes opérationnels et IA
-// [sélectionnable, hub /services/systemes-operationnels-ia] · Systèmes commerciaux
-// [« à venir »]. Col 2 = PANNEAU DYNAMIQUE jumeau : au survol/clic/focus d'un
-// système, il affiche ses modules. Acquisition et conversion a trois sous-groupes
-// titrés (Inbound : site-web-ia [phare], seo-geo-contenu, landing-pages-tunnels ;
-// Conversion : crm-scoring-routing, sequences-de-suivi ; Outbound : prospection-
-// automatisee). Opérationnels et IA a deux sous-groupes (Automatiser : automatisations,
-// agents-ia, integration-claude ; Développer : applications-internes, donnees-reporting).
-// Les modules crm-scoring-routing, sequences-de-suivi, automatisations, applications-
-// internes, donnees-reporting et le hub systemes-operationnels-ia sont créés par la
-// vague de contenu associée. Tous les groupes rendus côté serveur (indexable SEO/LLM),
-// un seul visible (switch CSS `data-*`, aucun fetch). Col 3 « Résoudre un problème »
-// INCHANGÉE. Tous les liens = 100% réels + indexables.
+// ─── SOLUTIONS · mega menu « systèmes → modules » (refonte V8.1 2026-07-14) :
+// Col 1 = SÉLECTEUR « Nos systèmes », trois systèmes cliquables : Systèmes
+// d'acquisition [défaut actif, hub /services/systeme-acquisition, modules PLATS :
+// site-web-ia (phare), seo-geo-contenu, landing-pages-tunnels] · Systèmes
+// opérationnels et IA [hub /services/systemes-operationnels-ia, deux sous-groupes
+// titrés Automatiser/Développer] · Systèmes commerciaux [hub /services/systeme-
+// commercial, modules PLATS : prospection-automatisee, crm-scoring-routing,
+// sequences-de-suivi]. Acquisition et commercial rendent leurs modules à plat, sans
+// intertitre de sous-groupe. Col 2 = PANNEAU DYNAMIQUE jumeau : au survol/clic/focus
+// d'un système, il affiche ses modules. Tous les groupes rendus côté serveur
+// (indexable SEO/LLM), un seul visible (switch CSS `data-*`, aucun fetch). Col 3
+// « Résoudre un problème » INCHANGÉE. Tous les liens = 100% réels + indexables.
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
@@ -279,69 +276,38 @@ const SOLUTIONS: MegaMenuSection = {
     en: 'AI and application engineering for SMBs: coherent business systems, the AI integration that powers them, and the audit to know where to start.',
   },
   columns: [
-    // Col 1 · SÉLECTEUR « Nos systèmes » (directive Simon 2026-07-13) : la colonne
-    // liste les systèmes ; survol/clic/focus d'un système → le panneau jumeau
-    // (col 2) affiche ses modules. « Systèmes d'acquisition et de conversion »
-    // (défaut actif) est cliquable (hub /services/systeme-acquisition). « Systèmes
-    // opérationnels et IA » est cliquable (hub /services/systemes-operationnels-ia,
-    // créé dans la vague de contenu associée). Suit « Systèmes commerciaux »
-    // « à venir » discret, non-sélectionnable (extension future = plus de hubs).
+    // Col 1 · SÉLECTEUR « Nos systèmes » (directive Simon 2026-07-13, MAJ V8.1
+    // 2026-07-14) : la colonne liste les systèmes ; survol/clic/focus d'un système →
+    // le panneau jumeau (col 2) affiche ses modules. Les trois systèmes sont
+    // cliquables : « Systèmes d'acquisition » (défaut actif, hub /services/systeme-
+    // acquisition), « Systèmes opérationnels et IA » (hub /services/systemes-
+    // operationnels-ia) et « Systèmes commerciaux » (hub /services/systeme-commercial).
     {
       kicker: { fr: 'NOS SYSTÈMES', en: 'OUR SYSTEMS' },
       title: { fr: 'Nos systèmes', en: 'Our systems' },
       systems: [
         {
-          label: { fr: 'Systèmes d\'acquisition et de conversion', en: 'Acquisition & conversion systems' },
+          label: { fr: 'Systèmes d\'acquisition', en: 'Acquisition systems' },
           key: 'acquisition',
           href: '/services/systeme-acquisition',
-          description: { fr: 'Concevoir l\'infrastructure qui attire, capte, qualifie et transforme les prospects.', en: 'Design the infrastructure that attracts, captures, qualifies and converts prospects.' },
-          // Trois sous-groupes titrés (intertitres kicker) dans le panneau : Inbound / Conversion / Outbound.
-          groups: [
+          description: { fr: 'Concevoir l\'infrastructure qui attire et capte la demande : site, visibilité, landing pages.', en: 'Design the infrastructure that attracts and captures demand: website, visibility, landing pages.' },
+          // Modules à plat (aucun sous-groupe titré) : site, visibilité, landing pages.
+          links: [
             {
-              label: { fr: 'Inbound', en: 'Inbound' },
-              links: [
-                {
-                  label: { fr: 'Site web intelligent', en: 'Intelligent website' },
-                  href: '/services/site-web-ia',
-                  description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
-                  badge: { fr: 'Offre phare', en: 'Flagship' },
-                },
-                {
-                  label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
-                  href: '/services/seo-geo-contenu',
-                  description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
-                },
-                {
-                  label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
-                  href: '/services/landing-pages-tunnels',
-                  description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
-                },
-              ],
+              label: { fr: 'Site web intelligent', en: 'Intelligent website' },
+              href: '/services/site-web-ia',
+              description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
+              badge: { fr: 'Offre phare', en: 'Flagship' },
             },
             {
-              label: { fr: 'Conversion', en: 'Conversion' },
-              links: [
-                {
-                  label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' },
-                  href: '/services/crm-scoring-routing',
-                  description: { fr: 'CRM branché, scoring des leads et routing vers le bon commercial.', en: 'Wired CRM, lead scoring and routing to the right rep.' },
-                },
-                {
-                  label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' },
-                  href: '/services/sequences-de-suivi',
-                  description: { fr: 'Séquences de relance automatisées qui réchauffent et convertissent.', en: 'Automated follow-up sequences that nurture and convert.' },
-                },
-              ],
+              label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
+              href: '/services/seo-geo-contenu',
+              description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
             },
             {
-              label: { fr: 'Outbound', en: 'Outbound' },
-              links: [
-                {
-                  label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
-                  href: '/services/prospection-automatisee',
-                  description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, wired to your CRM.' },
-                },
-              ],
+              label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
+              href: '/services/landing-pages-tunnels',
+              description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
             },
           ],
         },
@@ -388,7 +354,30 @@ const SOLUTIONS: MegaMenuSection = {
             },
           ],
         },
-        { label: { fr: 'Systèmes commerciaux', en: 'Sales systems' }, soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        {
+          label: { fr: 'Systèmes commerciaux', en: 'Sales systems' },
+          key: 'commercial',
+          href: '/services/systeme-commercial',
+          description: { fr: 'Transformer les prospects en clients : prospection, CRM, relances.', en: 'Turn prospects into clients: prospecting, CRM, follow-ups.' },
+          // Modules à plat (aucun sous-groupe titré) : prospection, CRM, séquences de suivi.
+          links: [
+            {
+              label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
+              href: '/services/prospection-automatisee',
+              description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, wired to your CRM.' },
+            },
+            {
+              label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' },
+              href: '/services/crm-scoring-routing',
+              description: { fr: 'CRM branché, scoring des leads et routing vers le bon commercial.', en: 'Wired CRM, lead scoring and routing to the right rep.' },
+            },
+            {
+              label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' },
+              href: '/services/sequences-de-suivi',
+              description: { fr: 'Séquences de relance automatisées qui réchauffent et convertissent.', en: 'Automated follow-up sequences that nurture and convert.' },
+            },
+          ],
+        },
       ],
       links: [],
     },
@@ -433,16 +422,17 @@ const SOLUTIONS: MegaMenuSection = {
       },
     },
   ],
-  // Featured Solutions (Simon 2026-06) : on met en avant l'offre apex « Système
-  // complet » (inbound + outbound piloté). L'audit gratuit n'est PLUS le featured
-  // mais reste accessible via le lien « Réserver un audit » → /contact ajouté en
-  // fin de la colonne « Résoudre un problème ». Image distincte par méga-menu.
+  // Featured Solutions (Simon 2026-06, réaligné V8.1 2026-07-14) : on met en avant le
+  // système d'acquisition = attirer et capter la demande (site, visibilité, landing).
+  // La prospection, le CRM et les relances relèvent du système commercial, plus de la
+  // « machine outbound » ici. L'audit gratuit reste accessible via « Réserver un
+  // audit » → /contact en fin de colonne « Résoudre un problème ». Image distincte.
   featured: {
     kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
     label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
     body: {
-      fr: 'La machine inbound + outbound, pilotée. Packs sur devis à tarif dégressif.',
-      en: 'The inbound + outbound machine, managed. Packs on quote with degressive pricing.',
+      fr: 'L\'infrastructure qui attire et capte la demande : site, visibilité, landing pages. Packs sur devis à tarif dégressif.',
+      en: 'The infrastructure that attracts and captures demand: website, visibility, landing pages. Packs on quote with degressive pricing.',
     },
     cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
     href: '/services/systeme-acquisition',

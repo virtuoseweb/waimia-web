@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Développement d'applications métier internes pour PME",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "100€/h-4000€/mois",
+    "priceMin": 100,
+    "priceMax": 4000
   },
   "faq_fr": [
     {
@@ -977,39 +977,18 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir le bon point d'entrée",
-      "h2_en": "Pick the right entry point",
-      "lede_fr": "Quatre manières d'entrer, selon l'ampleur de l'outil. Chaque palier part d'un cadrage et débouche sur une application en production, pas sur une maquette. Devis adapté au périmètre, chiffré au cadrage.",
-      "lede_en": "Four ways in, depending on the scale of the tool. Each tier starts with scoping and leads to an application in production, not a mockup. Quote adapted to the perimeter, costed at scoping.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Une offre, deux manières d'avancer",
+      "h2_en": "One offer, two ways forward",
+      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur l'outil qui compte, ou une régie mensuelle qui maintient et fait évoluer vos applications dans la durée. On part toujours d'un cadrage, on livre une application en production, pas une maquette.",
+      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the tool that matters, or a monthly retainer that maintains and evolves your applications over time. We always start from scoping and ship an application in production, not a mockup.",
       "tiers": [
         {
-          "name_fr": "Cadrage",
-          "name_en": "Scoping",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Cartographie de votre process et de vos rôles",
-            "Spec de l'outil et modèle de données",
-            "Premier périmètre d'application chiffré"
-          ],
-          "features_en": [
-            "Map of your process and roles",
-            "Tool spec and data model",
-            "First application perimeter costed"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un besoin →",
-            "label_en": "Scope a need →",
-            "href": "/contact?offer=applications-internes&intent=cadrage",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Premier outil",
-          "name_en": "First tool",
+          "name_fr": "À la carte",
+          "name_en": "One-off",
           "price": "100 € / h",
           "period_fr": "forfait growth · HT",
           "period_en": "growth retainer · ex VAT",
@@ -1024,62 +1003,41 @@
             "Role-based access, log, backups and code delivered"
           ],
           "cta": {
+            "label_fr": "Cadrer une mission →",
+            "label_en": "Scope a mission →",
+            "href": "/contact?offer=applications-internes&intent=a-la-carte",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Abonnement Growth",
+          "name_en": "Growth subscription",
+          "price": "4 000 €",
+          "period_fr": "/mois · HT",
+          "period_en": "/month · ex VAT",
+          "features_fr": [
+            "Régie à disposition, base 100 €/h",
+            "Maintenance et évolutions continues de vos outils",
+            "Nouveaux modules ajoutés sur preuve",
+            "Pilotage mensuel et roadmap partagée"
+          ],
+          "features_en": [
+            "Retainer on tap, 100 €/h base",
+            "Ongoing maintenance and evolutions of your tools",
+            "New modules added on proof",
+            "Monthly steering and shared roadmap"
+          ],
+          "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
             "label_en": "Book a diagnostic (45 min) →",
             "href": "/contact?offer=applications-internes&intent=discovery",
             "variant": "primary"
           },
           "featured": true
-        },
-        {
-          "name_fr": "Suite d'outils",
-          "name_en": "Suite of tools",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Plusieurs outils métier reliés à une donnée commune",
-            "Étapes IA là où c'est utile",
-            "Connexions à vos logiciels et plan d'extension"
-          ],
-          "features_en": [
-            "Several business tools linked to a shared dataset",
-            "AI steps where useful",
-            "Connections to your software and extension plan"
-          ],
-          "cta": {
-            "label_fr": "Cadrer une suite →",
-            "label_en": "Scope a suite →",
-            "href": "/contact?offer=applications-internes&intent=suite",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Suivi & autonomie",
-          "name_en": "Follow-up & autonomy",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Maintenance et évolutions de l'application",
-            "Passation et formation d'un référent interne",
-            "Extension à de nouveaux besoins sur preuve"
-          ],
-          "features_en": [
-            "Maintenance and evolutions of the application",
-            "Handover and training of an in-house referent",
-            "Extension to new needs on proof"
-          ],
-          "cta": {
-            "label_fr": "Discuter d'un suivi →",
-            "label_en": "Discuss follow-up →",
-            "href": "/contact?offer=applications-internes&intent=suivi",
-            "variant": "ghost"
-          }
         }
       ],
-      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande l'outil qui compte pour vous. Pas de catalogue figé, chaque outil part d'un besoin réel. Sans abonnement caché ni captivité : à la fin, vous disposez d'une application qui tourne, du code source et de l'hébergement, et d'un référent prêt à la faire évoluer. Pour brancher l'IA plus largement à vos outils, le besoin bascule sur l'intégration Claude.",
-      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the tool that matters to you takes. No fixed catalogue, every tool starts from a real need. No hidden subscription, no lock-in: at the end, you have an application that runs, the source code and the hosting, and a referent ready to evolve it. To wire AI more broadly to your tools, the need moves to Claude integration."
+      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande l'outil qui compte pour vous. L'abonnement Growth, 4 000 € par mois, met une régie à votre disposition sur la même base horaire : roadmap, exécution et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
+      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the tool that matters to you takes. The Growth subscription, 4,000 € a month, puts a retainer at your disposal on the same hourly base: roadmap, execution and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: you keep the source code and the hosting."
     },
     {
       "type": "eeat-panel",

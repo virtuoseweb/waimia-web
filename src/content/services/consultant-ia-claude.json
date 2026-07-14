@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Conseil IA / Cadrage / Accompagnement Claude",
-    "priceRange": "1500-9000€",
-    "priceMin": 1500,
-    "priceMax": 9000
+    "priceRange": "100€/h-4000€/mois",
+    "priceMin": 100,
+    "priceMax": 4000
   },
   "faq_fr": [
     {
@@ -843,51 +843,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir le bon palier",
-      "h2_en": "Pick the right tier",
-      "lede_fr": "Trois manières d'entrer, selon votre maturité IA. Chaque palier part d'un diagnostic et débouche sur une décision actionnable, pas sur une étude qui dort. Devis adapté au périmètre, chiffré au cadrage.",
-      "lede_en": "Three ways in, depending on your AI maturity. Each tier starts with a diagnostic and leads to an actionable decision, not a study that sleeps. Quote adapted to scope, costed at scoping.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Une offre, deux manières d'avancer",
+      "h2_en": "One offer, two ways forward",
+      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur la décision qui compte, ou une régie mensuelle qui pilote vos chantiers IA dans la durée. On part toujours d'un diagnostic, on livre une décision actionnable, pas une étude qui dort.",
+      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the decision that matters, or a monthly retainer that steers your AI projects over time. We always start from a diagnostic and deliver an actionable decision, not a study that sleeps.",
       "tiers": [
         {
-          "name_fr": "Diagnostic",
-          "name_en": "Diagnostic",
+          "name_fr": "À la carte",
+          "name_en": "One-off",
           "price": "100 € / h",
           "period_fr": "forfait growth · HT",
           "period_en": "growth retainer · ex VAT",
           "features_fr": [
-            "Lecture de votre maturité et de vos process",
-            "Repérage des cas d'usage à fort gain",
-            "Première recommandation de trajectoire"
-          ],
-          "features_en": [
-            "Read of your maturity and processes",
-            "Spotting of high-gain use cases",
-            "First trajectory recommendation"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un diagnostic →",
-            "label_en": "Scope a diagnostic →",
-            "href": "/contact?offer=consultant-ia-claude&intent=diagnostic",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Feuille de route",
-          "name_en": "Roadmap",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Cartographie des cas d'usage priorisés",
+            "Diagnostic de maturité et repérage des cas d'usage",
             "Feuille de route chiffrée et séquencée",
             "Cadre de gouvernance et cadrage du premier chantier"
           ],
           "features_en": [
-            "Map of prioritised use cases",
+            "Maturity diagnostic and use-case spotting",
             "Costed, sequenced roadmap",
             "Governance frame and first project framing"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une mission →",
+            "label_en": "Scope a mission →",
+            "href": "/contact?offer=consultant-ia-claude&intent=a-la-carte",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Abonnement Growth",
+          "name_en": "Growth subscription",
+          "price": "4 000 €",
+          "period_fr": "/mois · HT",
+          "period_en": "/month · ex VAT",
+          "features_fr": [
+            "Régie à disposition, base 100 €/h",
+            "Pilotage des chantiers et comités réguliers",
+            "Conduite du changement et montée en compétence",
+            "Trajectoire ajustée au fil des résultats"
+          ],
+          "features_en": [
+            "Retainer on tap, 100 €/h base",
+            "Project steering and regular reviews",
+            "Change management and skill-up",
+            "Trajectory adjusted as results come in"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -896,33 +900,10 @@
             "variant": "primary"
           },
           "featured": true
-        },
-        {
-          "name_fr": "Accompagnement",
-          "name_en": "Ongoing support",
-          "price": "100 € / h",
-          "period_fr": "forfait growth · HT",
-          "period_en": "growth retainer · ex VAT",
-          "features_fr": [
-            "Pilotage des chantiers et comités réguliers",
-            "Conduite du changement et montée en compétence",
-            "Arbitrages et ajustement de la trajectoire"
-          ],
-          "features_en": [
-            "Project steering and regular reviews",
-            "Change management and skill-up",
-            "Arbitration and trajectory adjustment"
-          ],
-          "cta": {
-            "label_fr": "Discuter d'un accompagnement →",
-            "label_en": "Discuss ongoing support →",
-            "href": "/contact?offer=consultant-ia-claude&intent=accompagnement",
-            "variant": "ghost"
-          }
         }
       ],
-      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande la décision qui compte pour vous. Pas de catalogue figé, chaque mission part du diagnostic. Sans abonnement caché ni captivité : à la fin, vous disposez d'une trajectoire tranchée, d'une gouvernance posée et d'équipes prêtes à suivre. La mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
-      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the decision that matters to you takes. No fixed catalogue, every engagement starts from the diagnostic. No hidden subscription, no lock-in: at the end, you have a decided trajectory, governance laid and teams ready to follow. Technical implementation, if decided, moves to integration."
+      "footnote_fr": "On facture au forfait growth, 100 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande la décision qui compte pour vous. L'abonnement Growth, 4 000 € par mois, met une régie à votre disposition sur la même base horaire : pilotage, comités et ajustement de la trajectoire. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : la mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
+      "footnote_en": "We bill on a growth retainer, 100 € an hour: scope and time depend on volume, and we help you size the time the decision that matters to you takes. The Growth subscription, 4,000 € a month, puts a retainer at your disposal on the same hourly base: steering, reviews and trajectory adjustment. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: technical implementation, if decided, moves to integration."
     },
     {
       "type": "case-card-grid",
