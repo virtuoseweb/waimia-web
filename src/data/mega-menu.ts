@@ -60,6 +60,20 @@ export interface MegaMenuCategory {
   soon?: boolean;
   links?: MegaMenuLink[];
   /**
+   * Jeu de liens « Résoudre un problème » propre à ce système (directive Simon
+   * 2026-07-14). Rendu dans la colonne jumelle `systemsProblems`, visible quand
+   * ce système est actif. Labels = formulations problème, hrefs = routes réelles
+   * (cas-usages ou pages service). Kicker/titre communs à la colonne.
+   */
+  problems?: MegaMenuLink[];
+  /**
+   * Bloc « featured » (col 4) propre à ce système (directive Simon 2026-07-14).
+   * Rendu dans le stack featured, visible quand ce système est actif. Réutilise
+   * le type `MegaMenuFeatured`. Remplace, pour les sections à systèmes, le
+   * `featured` statique de section.
+   */
+  featured?: MegaMenuFeatured;
+  /**
    * Sous-groupes titrés de modules (directive Simon 2026-07-13). Alternative aux
    * `links` plats : le panneau rend un petit intertitre (kicker mono/muted) par
    * groupe suivi de ses liens. Ex. Systèmes opérationnels et IA → Automatiser / Développer.
@@ -105,6 +119,16 @@ export interface MegaMenuColumn {
    * les systèmes de la colonne sœur `systems` de la même section.
    */
   systemsPanel?: boolean;
+  /**
+   * Colonne « Résoudre un problème » jumelle du sélecteur de systèmes (directive
+   * Simon 2026-07-14). Comme `systemsPanel`, elle rend côté serveur les jeux de
+   * liens de CHAQUE système (`MegaMenuCategory.problems`), un seul visible à la
+   * fois, basculé par le même survol/focus que le panneau modules (data-*, aucun
+   * fetch). Défaut = 1er système sélectionnable. En-tête (kicker/titre/goal) et
+   * footer restent communs ; seuls les liens varient. Sur mobile, rend le jeu du
+   * système par défaut (acquisition).
+   */
+  systemsProblems?: boolean;
   links: MegaMenuLink[];
   footer?: MegaMenuLink;
   tint?: string;
@@ -310,6 +334,26 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
             },
           ],
+          // Col 3 « Résoudre un problème » propre au système d'acquisition :
+          // leads / temps CMS / visibilité (cas-usages réels + page service SEO).
+          problems: [
+            { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
+            { label: { fr: 'Réduire le temps dans le CMS', en: 'Cut time in the CMS' }, href: '/cas-usages/reduire-temps-cms' },
+            { label: { fr: 'Être trouvé et cité par l\'IA', en: 'Get found and cited by AI' }, href: '/services/seo-geo-contenu' },
+            { label: { fr: 'Réserver un audit', en: 'Book an audit' }, href: '/contact' },
+          ],
+          // Col 4 featured du système d'acquisition (ex-featured de section).
+          featured: {
+            kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
+            label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
+            body: {
+              fr: 'L\'infrastructure qui attire et capte la demande : site, visibilité, landing pages. Packs sur devis à tarif dégressif.',
+              en: 'The infrastructure that attracts and captures demand: website, visibility, landing pages. Packs on quote with degressive pricing.',
+            },
+            cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
+            href: '/services/systeme-acquisition',
+            image: '/images/besoins/besoin-piloter.webp',
+          },
         },
         {
           label: { fr: 'Systèmes opérationnels et IA', en: 'Operational & AI systems' },
@@ -353,6 +397,25 @@ const SOLUTIONS: MegaMenuSection = {
               ],
             },
           ],
+          // Col 3 « Résoudre un problème » propre aux systèmes opérationnels et IA :
+          // processus / données / reporting (trois cas-usages réels).
+          problems: [
+            { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
+            { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
+            { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
+            { label: { fr: 'Réserver un audit', en: 'Book an audit' }, href: '/contact' },
+          ],
+          featured: {
+            kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
+            label: { fr: 'Systèmes opérationnels et IA', en: 'Operational & AI systems' },
+            body: {
+              fr: 'Automatiser les processus et développer les outils métier qui font tourner l\'entreprise. Sur devis.',
+              en: 'Automate processes and build the internal tools that keep the business running. On quote.',
+            },
+            cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
+            href: '/services/systemes-operationnels-ia',
+            image: '/images/besoins/besoin-operer.webp',
+          },
         },
         {
           label: { fr: 'Systèmes commerciaux', en: 'Sales systems' },
@@ -377,6 +440,25 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Séquences de relance automatisées qui réchauffent et convertissent.', en: 'Automated follow-up sequences that nurture and convert.' },
             },
           ],
+          // Col 3 « Résoudre un problème » propre au système commercial : aucun
+          // cas-usage ne colle → liens vers les pages service réelles.
+          problems: [
+            { label: { fr: 'Remplir le pipeline commercial', en: 'Fill the sales pipeline' }, href: '/services/prospection-automatisee' },
+            { label: { fr: 'Relancer sans y penser', en: 'Follow up without thinking' }, href: '/services/sequences-de-suivi' },
+            { label: { fr: 'Qualifier et router les leads', en: 'Qualify and route leads' }, href: '/services/crm-scoring-routing' },
+            { label: { fr: 'Réserver un audit', en: 'Book an audit' }, href: '/contact' },
+          ],
+          featured: {
+            kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
+            label: { fr: 'Système commercial', en: 'Sales system' },
+            body: {
+              fr: 'Transformer les prospects en clients : prospection, CRM branché, relances automatisées. Sur devis.',
+              en: 'Turn prospects into clients: prospecting, wired CRM, automated follow-ups. On quote.',
+            },
+            cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
+            href: '/services/systeme-commercial',
+            image: '/images/besoins/besoin-acquerir.webp',
+          },
         },
       ],
       links: [],
@@ -390,54 +472,30 @@ const SOLUTIONS: MegaMenuSection = {
       title: { fr: 'Modules du système', en: 'System modules' },
       links: [],
     },
+    // Col 3 · « Résoudre un problème » jumelle du sélecteur (MAJ V8.1 2026-07-14) :
+    // les liens deviennent conditionnels au système survolé (`systemsProblems`),
+    // comme les cols 1-2. Chaque système porte son propre jeu `problems` ; le
+    // panneau bascule au même survol/focus. En-tête (kicker/titre/goal) et footer
+    // restent communs. Défaut = système d'acquisition. Tous les liens = routes
+    // réelles indexables (cas-usages + pages service), 0 lien mort.
     {
       kicker: { fr: 'RÉSOUDRE UN PROBLÈME', en: 'SOLVE A PROBLEM' },
       title: { fr: 'Résoudre un problème', en: 'Solve a problem' },
       goal: { fr: 'Vous ne savez pas quel service choisir ?', en: 'Not sure which service to pick?' },
-      links: [
-        {
-          label: { fr: 'Générer plus de leads', en: 'Generate more leads' },
-          href: '/cas-usages/generer-plus-de-leads',
-        },
-        {
-          label: { fr: 'Réduire le temps dans le CMS', en: 'Cut time in the CMS' },
-          href: '/cas-usages/reduire-temps-cms',
-        },
-        {
-          label: { fr: 'Standardiser les processus', en: 'Standardize processes' },
-          href: '/cas-usages/standardiser-processus',
-        },
-        {
-          label: { fr: 'Réserver un audit', en: 'Book an audit' },
-          href: '/contact',
-        },
-      ],
-      // V7-FOLD 2026-06-22 · MAJ V8 2026-07-12 : 3 problèmes pour équilibrer avec les
-      // colonnes 1-2 (3 liens + footer). Le hub /cas-usages EXISTE et répond 200 (page
-      // src/pages/cas-usages/index.astro) → footer « Voir tous les problèmes » cliquable
-      // (plus de `soon`), 0 lien mort.
+      systemsProblems: true,
+      links: [],
+      // Le hub /cas-usages EXISTE et répond 200 (page src/pages/cas-usages/index.astro)
+      // → footer « Voir tous les problèmes » cliquable, commun à tous les systèmes.
       footer: {
         label: { fr: 'Voir tous les problèmes →', en: 'See all problems →' },
         href: '/cas-usages',
       },
     },
   ],
-  // Featured Solutions (Simon 2026-06, réaligné V8.1 2026-07-14) : on met en avant le
-  // système d'acquisition = attirer et capter la demande (site, visibilité, landing).
-  // La prospection, le CRM et les relances relèvent du système commercial, plus de la
-  // « machine outbound » ici. L'audit gratuit reste accessible via « Réserver un
-  // audit » → /contact en fin de colonne « Résoudre un problème ». Image distincte.
-  featured: {
-    kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
-    label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
-    body: {
-      fr: 'L\'infrastructure qui attire et capte la demande : site, visibilité, landing pages. Packs sur devis à tarif dégressif.',
-      en: 'The infrastructure that attracts and captures demand: website, visibility, landing pages. Packs on quote with degressive pricing.',
-    },
-    cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
-    href: '/services/systeme-acquisition',
-    image: '/images/besoins/besoin-piloter.webp',
-  },
+  // Plus de `featured` de section pour Solutions (MAJ V8.1 2026-07-14) : la col 4
+  // devient conditionnelle au système survolé → chaque système porte son propre
+  // `featured` (source unique). Le rendu (Header.astro) stacke les variantes et
+  // bascule au même survol que le panneau modules. Défaut = système d'acquisition.
 };
 
 const FORMULES: MegaMenuSection = {

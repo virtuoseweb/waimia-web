@@ -100,6 +100,19 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
 {/* Mega panels · un par mega-menu · cachés par défaut, révélés par data-open du header */}
 {MEGA_MENU.map((item) => {
   const cols = item.columns.length === 2 ? '2' : item.columns.length === 4 ? '4' : '3';
+  // Col 4 featured CONDITIONNELLE (directive Simon 2026-07-14) : si les systèmes
+  // portent chacun leur `featured`, on stacke les variantes (une par système) et
+  // le sélecteur bascule au même survol que le panneau modules. Sinon, `featured`
+  // de section (statique) comme avant. Défaut = 1er système sélectionnable.
+  const featSysCol = item.columns.find((c) => c.systems);
+  const featSystems = (featSysCol?.systems ?? []).filter(
+    (s) =>
+      !s.soon &&
+      Boolean(s.key) &&
+      Boolean((s.links && s.links.length) || (s.groups && s.groups.length)) &&
+      Boolean(s.featured),
+  );
+  const featDefaultKey = featSystems[0]?.key;
   return (
     <div
       class="mega"
@@ -239,6 +252,57 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
             );
           }
 
+          // ── Colonne « Résoudre un problème » CONDITIONNELLE (systemsProblems,
+          //    directive Simon 2026-07-14) : rend le jeu de liens de CHAQUE
+          //    système côté serveur (indexable), un seul visible ; le sélecteur
+          //    jumeau bascule au même survol/focus que le panneau modules. En-tête
+          //    (titre/goal) + footer communs. Défaut = 1er système sélectionnable. ─
+          if (col.systemsProblems) {
+            const sysCol = item.columns.find((c) => c.systems);
+            const isSelectable = (s: MegaMenuCategory) =>
+              !s.soon &&
+              Boolean(s.key) &&
+              Boolean((s.links && s.links.length) || (s.groups && s.groups.length));
+            const probSystems = (sysCol?.systems ?? []).filter(
+              (s) => isSelectable(s) && s.problems && s.problems.length,
+            );
+            const defaultKey = probSystems[0]?.key;
+            return (
+              <div class="mega-col mega-col--problems" data-need>
+                <div class="mega-col-hd">
+                  <div class="t">{t(col.title, lang)}</div>
+                  {col.goal && <div class="goal">{t(col.goal, lang)}</div>}
+                </div>
+                <div class="mega-sys-problems">
+                  {probSystems.map((sys) => (
+                    <ul
+                      class:list={['mega-sys-problems-v', { 'is-active': sys.key === defaultKey }]}
+                      data-sys-problems={sys.key}
+                      aria-label={t(sys.label, lang)}
+                    >
+                      {(sys.problems ?? []).map((sub) => (
+                        <li>
+                          <a class="mega-link" href={lh(sub.href)}>
+                            <span class="arr" aria-hidden="true">→</span>
+                            <span class="t">{t(sub.label, lang)}</span>
+                            {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+                {col.footer && (
+                  col.footer.soon ? (
+                    <span class="mega-col-footer is-soon">{t(col.footer.label, lang)}</span>
+                  ) : (
+                    <a class="mega-col-footer" href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>
+                  )
+                )}
+              </div>
+            );
+          }
+
           // ── Colonnes classiques (links / data-need « par besoin ») — inchangé. ──
           const isNeed = Boolean(col.goal || col.quote);
           return (
@@ -282,7 +346,30 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
           </div>
           );
         })}
-        {item.featured && (
+        {featSystems.length > 0 ? (
+          /* Stack featured par système : grille superposée dans le slot featured,
+             une seule variante visible (basculée par le sélecteur, data-*). */
+          <div class="mega-featured-stack">
+            {featSystems.map((sys) => sys.featured && (
+              <div
+                class:list={['mega-featured', { 'is-active': sys.key === featDefaultKey }]}
+                data-sys-featured={sys.key}
+              >
+                <div class="badge">{t(sys.featured.kicker, lang)}</div>
+                <div class="ttl">{t(sys.featured.label, lang)}</div>
+                <div class="bd">{t(sys.featured.body, lang)}</div>
+                {sys.featured.image && (
+                  <a class="img lift" href={lh(sys.featured.href)} aria-hidden="true" tabindex="-1">
+                    <img src={sys.featured.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+                  </a>
+                )}
+                <a class="cta btn btn-primary" href={lh(sys.featured.href)}>
+                  {t(sys.featured.cta, lang)}
+                </a>
+              </div>
+            ))}
+          </div>
+        ) : item.featured && (
           <div class="mega-featured">
             <div class="badge">{t(item.featured.kicker, lang)}</div>
             <div class="ttl">{t(item.featured.label, lang)}</div>
@@ -341,6 +428,14 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               // Colonne PANNEAU : ses modules vivent déjà dans les sous-accordéons
               // du sélecteur (col `systems`) → rien à rendre côté mobile.
               if (col.systemsPanel) return null;
+              // Col « Résoudre un problème » conditionnelle : pas de bascule au
+              // survol en mobile → on rend le jeu du système par défaut
+              // (1er sélectionnable = acquisition). Directive Simon 2026-07-14.
+              const mSysCol = item.columns.find((c) => c.systems);
+              const mDefaultSys = (mSysCol?.systems ?? []).find(
+                (s) => !s.soon && s.key && ((s.links && s.links.length) || (s.groups && s.groups.length)),
+              );
+              const mProblemLinks = col.systemsProblems ? (mDefaultSys?.problems ?? []) : col.links;
               return (
               <div class="m-sheet-acc-col" data-need={col.goal || col.quote ? '' : undefined}>
                 {/* Kicker de colonne retiré (répétait le titre), cf desktop. */}
@@ -408,7 +503,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                     );
                   })
                 ) : (
-                  col.links.map((sub) => (
+                  mProblemLinks.map((sub) => (
                     sub.soon ? (
                       <span class="is-soon">
                         {t(sub.label, lang)}
@@ -633,10 +728,21 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       const groups = Array.from(sysPanel.querySelectorAll('[data-sys-group]'));
       const scope = sysPanel.closest('[data-mega-panel]') || document;
       const opts = Array.from(scope.querySelectorAll('[data-sys-key]'));
+      // Jeux jumeaux basculés par le MÊME survol/focus (directive Simon 2026-07-14) :
+      // col 3 « Résoudre un problème » (data-sys-problems) et col 4 featured
+      // (data-sys-featured). Scopés au mega panel courant (n'affecte pas les autres).
+      const problems = Array.from(scope.querySelectorAll('[data-sys-problems]'));
+      const featured = Array.from(scope.querySelectorAll('[data-sys-featured]'));
       const activateSys = (key) => {
         if (!key) return;
         for (const g of groups) {
           g.classList.toggle('is-active', g.getAttribute('data-sys-group') === key);
+        }
+        for (const p of problems) {
+          p.classList.toggle('is-active', p.getAttribute('data-sys-problems') === key);
+        }
+        for (const f of featured) {
+          f.classList.toggle('is-active', f.getAttribute('data-sys-featured') === key);
         }
         for (const o of opts) {
           const on = o.getAttribute('data-sys-key') === key;
@@ -966,6 +1072,55 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     border-bottom-color: var(--accent-text);
   }
 
+  /* ─ Col 3 « Résoudre un problème » + col 4 featured CONDITIONNELLES (directive
+     Simon 2026-07-14) ──────────────────────────────────────────────────────
+     Même idiome que .mega-sys-panel / .mega-sys-group : grille superposée →
+     la hauteur réservée = le plus grand jeu, zéro saut de layout au switch.
+     Le survol du sélecteur bascule `is-active` (script section 4bis). */
+  .mega-sys-problems { display: grid; }
+  .mega-sys-problems-v {
+    grid-area: 1 / 1;
+    list-style: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease),
+      visibility 0s linear var(--dur-trim);
+  }
+  .mega-sys-problems-v.is-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease),
+      visibility 0s;
+  }
+
+  /* Featured : le stack occupe le slot featured (320px) ; une variante visible. */
+  .mega-featured-stack { display: grid; }
+  .mega-featured-stack .mega-featured {
+    grid-area: 1 / 1;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease),
+      visibility 0s linear var(--dur-trim);
+  }
+  .mega-featured-stack .mega-featured.is-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease),
+      visibility 0s;
+  }
+
   /* ─ Mobile · sous-niveau « système » dans l'accordéon Solutions ──────────
      Chaque système = ligne à chevron → dropdown de ses modules (animation
      grid-template-rows 0fr→1fr, easing du sheet). Indépendant du toggle
@@ -1064,6 +1219,8 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   /* Mouvement réduit : switch et dropdown instantanés (a11y). */
   @media (prefers-reduced-motion: reduce) {
     .mega-sys-group,
+    .mega-sys-problems-v,
+    .mega-featured-stack .mega-featured,
     .mega-sys-opt .ind,
     .m-sys-body,
     .m-sys-body-inner,
