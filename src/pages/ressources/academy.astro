@@ -7,16 +7,17 @@ import Button from '../../components/ui/atoms/Button.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 ---
 <UtilityTemplate
-  title="Diagnostic IA gratuit · 6 questions · Waimia Academy"
-  description="Un diagnostic IA gratuit en 6 questions. 5 minutes. Résultat immédiat avec vos points forts, lacunes, et 3 prochaines actions priorisées."
-  kicker="§ Academy · Diagnostic gratuit · 5 min"
+  title="Diagnostic IA gratuit entreprise · scorecard personnalisé · Waimia Academy"
+  description="Diagnostic IA gratuit en 6 questions. Vous recevez par email un scorecard personnalisé, 3 actions priorisées et une relecture humaine. Pas de rappel commercial."
+  kicker="§ Academy · Diagnostic accompagné · Scorecard par email"
   align="centered"
-  headlineFr="Où en êtes-vous vraiment sur l'IA ?"
-  headlineEn="Where do you really stand on AI?"
-  ledeFr="Un diagnostic structuré en 6 questions. 5 minutes. Vous recevez un scorecard immédiat, pas de rappel commercial."
-  ledeEn="A structured diagnostic in 6 questions. 5 minutes. You get an immediate scorecard, no sales follow-up."
+  headlineFr="Diagnostic IA gratuit, scorecard personnalisé."
+  headlineEn="Free AI diagnostic, personalized scorecard."
+  ledeFr="6 questions sur vos données, vos agents et votre conformité. On vous renvoie un scorecard personnalisé : vos points forts, vos lacunes, 3 actions priorisées. Relu par un humain, pas par un algorithme. Pas de rappel commercial."
+  ledeEn="6 questions on your data, your agents and your compliance. We send back a personalized scorecard: your strengths, your gaps, 3 prioritized actions. Reviewed by a human, not an algorithm. No sales follow-up."
 >
   <Fragment slot="body">
+    <p class="acad-intro">Le diagnostic IA gratuit de la Waimia Academy va plus loin qu'un test express : 6 questions sur vos données, vos agents et votre conformité, puis un scorecard personnalisé relu par un humain. Besoin d'un chiffre tout de suite ? Le <a href="/ressources/outils/score-maturite-ia">score de maturité IA</a> vous situe en 3 questions, sans email.</p>
     <form class="acad-form" method="POST" action="/api/academy" name="academy" data-academy-form novalidate>
         <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden">
           <label for="academy-hp">Ne pas remplir</label>
@@ -79,9 +80,9 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
       <p class="form-error-global" role="alert" aria-live="assertive" hidden data-academy-error></p>
       <div class="acad-cta">
         <Button as="button" type="submit" variant="primary" size="lg" mag={0.18}>
-          Voir mon scorecard →
+          Recevoir mon scorecard →
         </Button>
-        <p class="acad-foot">Aucun rappel commercial. Score envoyé immédiatement à votre email.</p>
+        <p class="acad-foot">Aucun rappel commercial. Scorecard personnalisé envoyé à votre email, relu par un humain.</p>
       </div>
 
       <details class="acad-skip">
@@ -93,6 +94,8 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
 </UtilityTemplate>
 
 <style>
+  .acad-intro { max-width: var(--wrap-prose); margin: 0 auto var(--space-5); text-align: left; font-size: var(--text-body); line-height: var(--leading-lede); color: var(--muted); }
+  .acad-intro a { color: var(--accent-text); border-bottom: 1px solid currentColor; }
   .acad-form { max-width: var(--wrap-prose); margin: 0 auto; text-align: left; display: flex; flex-direction: column; gap: var(--space-5); }
   :global(.acad-section-k) { display: block; margin: var(--space-5) 0 var(--space-2); }
   fieldset { border: 1px solid var(--hairline); border-radius: var(--radius-xs); padding: 22px var(--space-5); display: flex; flex-direction: column; gap: 10px; }
