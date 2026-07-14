@@ -185,6 +185,13 @@ export default defineConfig({
     '/cas-clients/resultats/centralisation-donnees': '/cas-usages/centraliser-donnees',
     // Doublon local doorway (placeholder NAP noindex) → page implantation canonique.
     '/agence-web-montpellier': '/implantations/montpellier',
+    // Vague 1 carte kw (strategy/14, 2026-07-14) · le sous-arbre « résultats »
+    // survivant cannibalisait /cas-usages (hub à moitié vide après les 3 301 ci-dessus).
+    '/cas-clients/resultats': '/cas-usages',
+    '/cas-clients/resultats/plus-de-leads': '/cas-usages/generer-plus-de-leads',
+    '/cas-clients/resultats/reduction-temps-marketing': '/cas-usages/reduire-reporting',
+    // Cluster « déployer Claude » dédupliqué : la checklist est absorbée par le guide pilier.
+    '/ressources/guides/checklist-deploiement-claude': '/ressources/guides/claude-pme',
   },
   integrations: [
     react(),

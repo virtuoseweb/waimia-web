@@ -10,7 +10,6 @@ const urls = [
   '/ressources/comparatifs/site-web-intelligent-vs-wordpress',
   '/ressources/comparatifs/claude-code-vs-cursor',
   '/ressources/guides/claude-pme',
-  '/ressources/guides/checklist-deploiement-claude',
   '/demonstrations/site-web-intelligent',
   '/demonstrations/integration-claude',
   '/demonstrations/avant-apres',

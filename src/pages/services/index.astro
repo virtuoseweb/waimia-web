@@ -1,5 +1,5 @@
 ---
-// Page · /services · Hub Solutions (architecture v7 : 2 offres porteuses)
+// Page · /services · Hub Solutions (architecture v8 : 3 systèmes business)
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
@@ -14,11 +14,12 @@ import MastheadBar from '../../components/sections/MastheadBar.astro';
 const solutionsJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Solutions Waimia : Site Web Intelligent et Intégration Claude',
-  description: 'Deux offres porteuses pour les PME : un site web intelligent qui acquiert, une intégration Claude qui standardise.',
+  name: 'Solutions Waimia : trois systèmes pour les PME',
+  description: 'Trois systèmes pour les PME : acquisition de leads, développement commercial et opérations automatisées par l\'IA, sur une seule base.',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Site Web Intelligent', url: 'https://waimia.com/services/site-web-ia' },
-    { '@type': 'ListItem', position: 2, name: 'Intégration Claude', url: 'https://waimia.com/services/integration-claude' },
+    { '@type': 'ListItem', position: 1, name: 'Système d\'acquisition', url: 'https://waimia.com/services/systeme-acquisition' },
+    { '@type': 'ListItem', position: 2, name: 'Système commercial', url: 'https://waimia.com/services/systeme-commercial' },
+    { '@type': 'ListItem', position: 3, name: 'Systèmes opérationnels et IA', url: 'https://waimia.com/services/systemes-operationnels-ia' },
   ],
 };
 
@@ -27,10 +28,10 @@ const heroData = {
   variant: 'hub' as const,
   kicker_fr: '§ Solutions · Waimia',
   kicker_en: '§ Solutions · Waimia',
-  h1_fr: 'Deux offres.<br/>Un seul <i>système</i>.',
-  h1_en: 'Two offers.<br/>One <i>system</i>.',
-  lede_fr: 'Deux offres porteuses, les services qui les composent, et l\'audit pour savoir par où commencer.',
-  lede_en: 'Two flagship offers, the services that compose them, and the audit to know where to start.',
+  h1_fr: 'Trois systèmes.<br/>Une seule <i>base</i>.',
+  h1_en: 'Three systems.<br/>One <i>base</i>.',
+  lede_fr: 'Acquisition, commercial et opérations : trois systèmes qui se branchent sur une même base, les services qui les composent, et l\'audit pour savoir par où commencer.',
+  lede_en: 'Acquisition, sales and operations: three systems that wire onto one base, the services that compose them, and the audit to know where to start.',
   decoration: false as const,
   align: 'left' as const,
 } satisfies SectionByType<'hero-hub-masthead'>;
@@ -42,25 +43,25 @@ const offerWebMediaData = {
   background: 'paper' as const,
   proportion: '2-3' as const,
   mediaSide: 'right' as const,
-  kicker_fr: 'I · SITE WEB INTELLIGENT',
-  kicker_en: 'I · SMART WEBSITE',
-  h2_fr: 'Un site qui acquiert, pas une vitrine.',
-  h2_en: 'A site that acquires, not a brochure.',
-  body_fr: 'Une web app pilotée par l\'IA : SEO, analytics et CRM branchés. Chaque visite est qualifiée, scorée et routée vers ce qui convertit.',
-  body_en: 'An AI-driven web app: SEO, analytics and CRM wired in. Every visit is qualified, scored and routed toward what converts.',
+  kicker_fr: 'I · SYSTÈME D\'ACQUISITION',
+  kicker_en: 'I · ACQUISITION SYSTEM',
+  h2_fr: 'Attirer, capter et qualifier la demande.',
+  h2_en: 'Attract, capture and qualify demand.',
+  body_fr: 'Site web IA, SEO, GEO et landing pages assemblés en une seule infrastructure. Chaque visite est captée, scorée et qualifiée, puis passée au système commercial.',
+  body_en: 'AI website, SEO, GEO and landing pages assembled into one infrastructure. Every visit is captured, scored and qualified, then handed to the commercial system.',
   points: [
-    { label_fr: 'SEO et analytics branchés dès la mise en ligne', label_en: 'SEO and analytics wired from launch' },
-    { label_fr: 'Scoring des leads avant le premier contact', label_en: 'Lead scoring before the first contact' },
-    { label_fr: 'Tunnel de qualification mesuré, pas supposé', label_en: 'Qualification funnel measured, not assumed' },
+    { label_fr: 'Site web IA, SEO et GEO sur une seule base', label_en: 'AI website, SEO and GEO on one base' },
+    { label_fr: 'Landing pages qui captent et qualifient', label_en: 'Landing pages that capture and qualify' },
+    { label_fr: 'Passation des leads au système commercial', label_en: 'Leads handed to the commercial system' },
   ],
   media_src: '/images/themes/theme-acquisition.webp',
-  media_alt_fr: 'Illustration éditoriale : un site pensé comme un système d\'acquisition.',
-  media_alt_en: 'Editorial illustration: a site built as an acquisition system.',
-  media_caption_fr: 'Acquisition · le site comme système, pas comme vitrine',
-  media_caption_en: 'Acquisition · the site as a system, not a brochure',
-  cta_label_fr: 'Découvrir l\'offre →',
-  cta_label_en: 'Explore the offer →',
-  cta_href: '/services/site-web-ia',
+  media_alt_fr: 'Illustration éditoriale : le système d\'acquisition qui attire, capte et qualifie la demande.',
+  media_alt_en: 'Editorial illustration: the acquisition system that attracts, captures and qualifies demand.',
+  media_caption_fr: 'Acquisition · attirer, capter et qualifier sur une seule base',
+  media_caption_en: 'Acquisition · attract, capture and qualify on one base',
+  cta_label_fr: 'Voir le système →',
+  cta_label_en: 'See the system →',
+  cta_href: '/services/systeme-acquisition',
   reversed: false,
 } satisfies SectionByType<'feature-split-media'>;
 
@@ -69,47 +70,47 @@ const offerWebData = {
   variant: 'featured' as const,
   background: 'ink' as const,
   wrap: false,
-  eyebrow_fr: 'I · SITE WEB INTELLIGENT',
-  eyebrow_en: 'I · SMART WEBSITE',
-  h2_fr: 'Générer plus de leads, alléger le marketing.',
-  h2_en: 'Generate more leads, lighten marketing.',
-  lede_fr: 'Une web app pilotée par l\'IA : SEO, analytics et CRM branchés, pensée pour convertir et mesurer.',
-  lede_en: 'An AI-driven web app: SEO, analytics and CRM wired in, built to convert and measure.',
+  eyebrow_fr: 'I · SYSTÈME D\'ACQUISITION',
+  eyebrow_en: 'I · ACQUISITION SYSTEM',
+  h2_fr: 'Générer des leads B2B qualifiés.',
+  h2_en: 'Generate qualified B2B leads.',
+  lede_fr: 'Site web IA, contenu SEO et GEO, landing pages : une infrastructure qui attire, capte et qualifie la demande, puis alimente le commercial.',
+  lede_en: 'AI website, SEO and GEO content, landing pages: an infrastructure that attracts, captures and qualifies demand, then feeds sales.',
   featured_card: {
-    eyebrow_fr: 'OFFRE PHARE',
-    eyebrow_en: 'FLAGSHIP OFFER',
-    title_fr: 'Site web intelligent',
-    title_en: 'Smart website',
-    sub_fr: 'Pas une vitrine. Un système d\'acquisition.',
-    sub_en: 'Not a brochure. An acquisition system.',
-    lead_fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés. Chaque visite est qualifiée, scorée et routée vers ce qui convertit.',
-    lead_en: 'AI-driven web app: SEO, analytics and CRM wired in. Every visit is qualified, scored and routed toward what converts.',
-    cta_fr: 'Découvrir l\'offre →',
-    cta_en: 'Explore the offer →',
-    href: '/services/site-web-ia',
+    eyebrow_fr: 'LE SYSTÈME',
+    eyebrow_en: 'THE SYSTEM',
+    title_fr: 'Système d\'acquisition',
+    title_en: 'Acquisition system',
+    sub_fr: 'Attirer, capter et qualifier la demande.',
+    sub_en: 'Attract, capture and qualify demand.',
+    lead_fr: 'Site web IA, SEO, GEO et landing pages sur une seule base. Chaque visite est captée, scorée et qualifiée, puis passée au système commercial.',
+    lead_en: 'AI website, SEO, GEO and landing pages on one base. Every visit is captured, scored and qualified, then handed to the commercial system.',
+    cta_fr: 'Voir le système →',
+    cta_en: 'See the system →',
+    href: '/services/systeme-acquisition',
   },
   offers: [
     {
-      price_fr: 'QUALIFICATION',
-      price_en: 'QUALIFICATION',
-      title_fr: 'Tunnel de qualification intelligent',
-      title_en: 'Smart qualification funnel',
-      lead_fr: 'Landing pages qui convertissent et scoring qui priorise vos leads avant le premier contact.',
-      lead_en: 'Landing pages that convert and scoring that prioritises your leads before the first contact.',
+      price_fr: 'ATTIRER',
+      price_en: 'ATTRACT',
+      title_fr: 'SEO, GEO et contenu',
+      title_en: 'SEO, GEO and content',
+      lead_fr: 'Le moteur éditorial qui rend la marque visible sur Google et citable par les IA génératives.',
+      lead_en: 'The editorial engine that makes the brand visible on Google and citable by generative AIs.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/seo-geo-contenu',
+    },
+    {
+      price_fr: 'CAPTER',
+      price_en: 'CAPTURE',
+      title_fr: 'Landing pages et tunnels',
+      title_en: 'Landing pages and funnels',
+      lead_fr: 'Pages par persona et tunnels de qualification : chaque visite est captée, notée et orientée vers ce qui convertit.',
+      lead_en: 'Per-persona pages and qualification funnels: every visit is captured, scored and steered toward what converts.',
       cta_fr: 'Voir le service →',
       cta_en: 'See the service →',
       href: '/services/landing-pages-tunnels',
-    },
-    {
-      price_fr: 'AU FORFAIT',
-      price_en: 'ON RETAINER',
-      title_fr: 'Maintenance & growth',
-      title_en: 'Maintenance & growth',
-      lead_fr: 'Faire vivre et croître le site après la mise en ligne, au forfait, sur vos propres données.',
-      lead_en: 'Keep the site alive and growing after launch, on a retainer, on your own data.',
-      cta_fr: 'Voir le service →',
-      cta_en: 'See the service →',
-      href: '/services/maintenance-growth',
     },
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
@@ -122,65 +123,65 @@ const offerClaudeMediaData = {
   proportion: '3-2' as const,
   mediaSide: 'left' as const,
   reversed: true,
-  kicker_fr: 'II · INTÉGRATION CLAUDE',
-  kicker_en: 'II · CLAUDE INTEGRATION',
-  h2_fr: 'Claude en <i>production</i>, pas en démo.',
-  h2_en: 'Claude in <i>production</i>, not in a demo.',
-  body_fr: 'Claude branché à vos outils : gouvernance, formation et agents en production. On câble, on forme, on mesure.',
-  body_en: 'Claude wired to your tools: governance, training and agents in production. We wire, we train, we measure.',
+  kicker_fr: 'II · SYSTÈMES OPÉRATIONNELS ET IA',
+  kicker_en: 'II · OPERATIONAL AND AI SYSTEMS',
+  h2_fr: 'L\'IA en <i>production</i>, pas en démo.',
+  h2_en: 'AI in <i>production</i>, not in a demo.',
+  body_fr: 'Automatisations, agents IA et Claude branché à vos outils via MCP. On exécute le répétitif, on outille vos équipes, on mesure et on trace.',
+  body_en: 'Automations, AI agents and Claude wired to your tools via MCP. We run the repetitive, equip your teams, measure and trace.',
   points: [
-    { label_fr: 'Cas d\'usage cadrés, priorisés, adoptés', label_en: 'Use cases framed, prioritised, adopted' },
+    { label_fr: 'Workflows qui suppriment la ressaisie', label_en: 'Workflows that remove re-entry' },
     { label_fr: 'Agents branchés à vos outils via MCP', label_en: 'Agents wired to your tools via MCP' },
-    { label_fr: 'Gouvernance et formation, mesurées sur le terrain', label_en: 'Governance and training, measured in the field' },
+    { label_fr: 'Périmètre borné, validation humaine, tout tracé', label_en: 'Bounded scope, human validation, everything traced' },
   ],
   media_src: '/images/themes/theme-productivite.webp',
-  media_alt_fr: 'Illustration éditoriale : Claude branché aux outils de l\'entreprise.',
-  media_alt_en: 'Editorial illustration: Claude wired to the company tools.',
-  media_caption_fr: 'Productivité · standardiser, gagner du temps, exploiter le savoir',
-  media_caption_en: 'Productivity · standardize, save time, leverage knowledge',
-  cta_label_fr: 'Voir le service →',
-  cta_label_en: 'See the service →',
-  cta_href: '/services/integration-claude',
+  media_alt_fr: 'Illustration éditoriale : le système opérationnel et l\'IA branchés aux outils de l\'entreprise.',
+  media_alt_en: 'Editorial illustration: the operational system and AI wired to the company tools.',
+  media_caption_fr: 'Opérations · automatiser le répétitif, outiller les équipes',
+  media_caption_en: 'Operations · automate the repetitive, equip the teams',
+  cta_label_fr: 'Voir le système →',
+  cta_label_en: 'See the system →',
+  cta_href: '/services/systemes-operationnels-ia',
 } satisfies SectionByType<'feature-split-media'>;
 
 const offerClaudeData = {
   type: 'offer-tier-grid' as const,
   variant: 'standard' as const,
   wrap: true,
-  eyebrow_fr: 'II · INTÉGRATION CLAUDE',
-  eyebrow_en: 'II · CLAUDE INTEGRATION',
-  h2_fr: 'Standardiser, gagner du temps, exploiter le savoir.',
-  h2_en: 'Standardize, save time, leverage knowledge.',
-  lede_fr: 'Claude en production dans votre entreprise : gouvernance, formation et agents branchés à vos outils.',
-  lede_en: 'Claude in production in your company: governance, training and agents wired to your tools.',
+  eyebrow_fr: 'II · SYSTÈMES OPÉRATIONNELS ET IA',
+  eyebrow_en: 'II · OPERATIONAL AND AI SYSTEMS',
+  h2_fr: 'Automatiser et outiller vos opérations.',
+  h2_en: 'Automate and equip your operations.',
+  lede_fr: 'Automatisations, agents IA et intégration Claude en production : on exécute le répétitif et on outille vos équipes, sur une base gouvernée.',
+  lede_en: 'Automations, AI agents and Claude integration in production: we run the repetitive and equip your teams, on a governed base.',
   featured_card: {
-    eyebrow_fr: 'OFFRE PHARE',
-    eyebrow_en: 'FLAGSHIP OFFER',
-    title_fr: 'Intégrateur Claude',
-    title_en: 'Claude integrator',
-    sub_fr: 'Claude en entreprise, pas en démo.',
-    sub_en: 'Claude in the enterprise, not in a demo.',
-    lead_fr: 'Claude en entreprise, Claude Code, gouvernance et formation, en production. On câble, on forme, on mesure.',
-    lead_en: 'Claude in the enterprise, Claude Code, governance and training, in production. We wire, we train, we measure.',
-    cta_fr: 'Voir le service →',
-    cta_en: 'See the service →',
-    href: '/services/integration-claude',
+    eyebrow_fr: 'LE SYSTÈME',
+    eyebrow_en: 'THE SYSTEM',
+    title_fr: 'Systèmes opérationnels et IA',
+    title_en: 'Operational and AI systems',
+    sub_fr: 'L\'IA en production, pas en démo.',
+    sub_en: 'AI in production, not in a demo.',
+    lead_fr: 'Automatisations, agents IA, intégration Claude et applications internes sur une base gouvernée. On exécute le répétitif, on outille, on mesure.',
+    lead_en: 'Automations, AI agents, Claude integration and internal apps on a governed base. We run the repetitive, equip, measure.',
+    cta_fr: 'Voir le système →',
+    cta_en: 'See the system →',
+    href: '/services/systemes-operationnels-ia',
   },
   offers: [
     {
-      price_fr: 'CADRAGE',
-      price_en: 'SCOPING',
-      title_fr: 'Consultant IA Claude',
-      title_en: 'Claude AI consultant',
-      lead_fr: 'Auditer, cadrer et prioriser vos cas d\'usage IA, puis les faire adopter par vos équipes.',
-      lead_en: 'Audit, frame and prioritise your AI use cases, then drive adoption by your teams.',
+      price_fr: 'EXÉCUTER',
+      price_en: 'EXECUTE',
+      title_fr: 'Automatisations',
+      title_en: 'Automations',
+      lead_fr: 'Des workflows qui suppriment la ressaisie entre vos outils : le geste répétitif tourne seul, sans erreur.',
+      lead_en: 'Workflows that remove re-entry between your tools: the repetitive gesture runs on its own, without error.',
       cta_fr: 'Voir le service →',
       cta_en: 'See the service →',
-      href: '/services/consultant-ia-claude',
+      href: '/services/automatisations',
     },
     {
-      price_fr: 'AUTONOMIE',
-      price_en: 'AUTONOMY',
+      price_fr: 'RAISONNER',
+      price_en: 'REASON',
       title_fr: 'Agents IA',
       title_en: 'AI agents',
       lead_fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision, mesurés sur le terrain.',
@@ -195,35 +196,35 @@ const offerClaudeData = {
 const relatedProblemsData = {
   type: 'related-cards-band' as const,
   background: 'paper-2' as const,
-  kicker_fr: '§ Résoudre un problème',
-  kicker_en: '§ Solve a problem',
+  kicker_fr: '§ Les trois systèmes',
+  kicker_en: '§ The three systems',
   cards: [
     {
-      kicker_fr: 'PROBLÈME · ACQUISITION',
-      kicker_en: 'PROBLEM · ACQUISITION',
-      title_fr: 'Générer plus de leads',
-      title_en: 'Generate more leads',
-      lead_fr: 'Un site qui capte, score et route chaque visite vers une conversation commerciale.',
-      lead_en: 'A site that captures, scores and routes every visit toward a sales conversation.',
-      href: '/cas-usages/generer-plus-de-leads',
+      kicker_fr: 'SYSTÈME · ACQUISITION',
+      kicker_en: 'SYSTEM · ACQUISITION',
+      title_fr: 'Générer des leads B2B qualifiés',
+      title_en: 'Generate qualified B2B leads',
+      lead_fr: 'Site web IA, SEO, GEO et landing pages qui attirent, captent et qualifient la demande.',
+      lead_en: 'AI website, SEO, GEO and landing pages that attract, capture and qualify demand.',
+      href: '/services/systeme-acquisition',
     },
     {
-      kicker_fr: 'PROBLÈME · PRODUCTIVITÉ',
-      kicker_en: 'PROBLEM · PRODUCTIVITY',
-      title_fr: 'Réduire le temps dans le CMS',
-      title_en: 'Cut time in the CMS',
-      lead_fr: 'Une édition pilotable sans développeur, versionnée, qui se fait en minutes.',
-      lead_en: 'Editing you can steer without a developer, versioned, done in minutes.',
-      href: '/cas-usages/reduire-temps-cms',
+      kicker_fr: 'SYSTÈME · COMMERCIAL',
+      kicker_en: 'SYSTEM · SALES',
+      title_fr: 'Transformer vos prospects en clients',
+      title_en: 'Turn prospects into customers',
+      lead_fr: 'Prospection, CRM avec scoring et séquences de suivi qui alimentent, qualifient et relancent le pipeline.',
+      lead_en: 'Prospecting, CRM with scoring and follow-up sequences that feed, qualify and follow up the pipeline.',
+      href: '/services/systeme-commercial',
     },
     {
-      kicker_fr: 'PROBLÈME · GOUVERNANCE',
-      kicker_en: 'PROBLEM · GOVERNANCE',
-      title_fr: 'Standardiser les processus',
-      title_en: 'Standardize processes',
-      lead_fr: 'Claude branché à vos outils pour cadrer, documenter et industrialiser vos process.',
-      lead_en: 'Claude wired to your tools to frame, document and industrialise your processes.',
-      href: '/cas-usages/standardiser-processus',
+      kicker_fr: 'SYSTÈME · OPÉRATIONS ET IA',
+      kicker_en: 'SYSTEM · OPERATIONS AND AI',
+      title_fr: 'Automatiser vos opérations avec l\'IA',
+      title_en: 'Automate your operations with AI',
+      lead_fr: 'Automatisations, agents IA et intégration Claude qui exécutent le répétitif et outillent vos équipes.',
+      lead_en: 'Automations, AI agents and Claude integration that run the repetitive and equip your teams.',
+      href: '/services/systemes-operationnels-ia',
     },
   ],
 } satisfies SectionByType<'related-cards-band'>;
@@ -240,8 +241,8 @@ const ctaData = {
 } satisfies SectionByType<'cta-final'>;
 ---
 <Base
-  title="Solutions · Waimia"
-  description="Deux offres porteuses pour les PME : un site web intelligent qui acquiert, une intégration Claude qui standardise. Et l'audit pour savoir par où commencer."
+  title="Solutions IA pour PME : acquisition, commercial et opérations · Waimia"
+  description="Trois systèmes IA pour les PME : acquisition de leads, développement commercial et opérations automatisées. L'audit gratuit dit par où commencer."
   jsonLd={solutionsJsonLd}
 >
 
@@ -252,7 +253,7 @@ const ctaData = {
   <!-- 1. HERO éditorial -->
   <HeroCentered data={heroData} lang="fr" />
 
-  <!-- 2. OFFRE I · SITE WEB INTELLIGENT (dominante) -->
+  <!-- 2. SYSTÈME I · ACQUISITION (dominante) -->
   <!-- 2a. Bande média éditoriale (habillage) -->
   <FeatureSplitMedia data={offerWebMediaData} lang="fr" />
   <!-- 2b. Grille de l'offre -->
@@ -260,7 +261,7 @@ const ctaData = {
     <OfferTierGrid data={offerWebData} lang="fr" />
   </div>
 
-  <!-- 3. OFFRE II · INTÉGRATION CLAUDE -->
+  <!-- 3. SYSTÈME II · OPÉRATIONNELS ET IA -->
   <!-- 3a. Bande média éditoriale (habillage, média à gauche) -->
   <FeatureSplitMedia data={offerClaudeMediaData} lang="fr" />
   <!-- 3b. Grille de l'offre -->
@@ -268,7 +269,7 @@ const ctaData = {
     <OfferTierGrid data={offerClaudeData} lang="fr" />
   </div>
 
-  <!-- 4. RÉSOUDRE UN PROBLÈME -->
+  <!-- 4. LES TROIS SYSTÈMES -->
   <div class="related-rhythm-base">
     <RelatedCardsBand data={relatedProblemsData} lang="fr" />
   </div>

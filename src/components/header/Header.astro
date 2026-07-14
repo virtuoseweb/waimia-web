@@ -1127,23 +1127,24 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   /* Panneau dynamique · stack grid (groupes superposés en 1/1) : la colonne
      réserve la hauteur du plus GRAND groupe → zéro saut de layout au switch. */
   .mega-sys-panel { display: grid; }
+  /* Bascule en FONDU SEUL (fix alignement 2026-07-14) : l'ancien slide
+     translateY(6px) laissait les groupes cachés décalés de +6px (et le groupe
+     entrant en vol pendant 220ms) → toute mesure/lecture du panneau pendant ou
+     hors transition voyait des Y différents entre colonnes. Opacité seule =
+     Y stable à tout instant, pour tous les groupes. */
   .mega-sys-group {
     grid-area: 1 / 1;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(6px);
     transition:
       opacity var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease),
       visibility 0s linear var(--dur-trim);
   }
   .mega-sys-group.is-active {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
     transition:
       opacity var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease),
       visibility 0s;
   }
   /* En-tête du panneau : même idiome que les en-têtes de colonnes existants
@@ -1200,6 +1201,76 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     border-bottom-color: var(--accent-text);
   }
 
+  /* ─ Alignement vertical des 4 colonnes (fix 2026-07-14, v2) ─────────────────
+     Corrige l'escalier constaté en prod : séparateurs, baselines de titres et
+     lignes de départ des listes ne partageaient pas le même Y (col 2 décalée par
+     le sous-texte système ET par le titre « Systèmes opérationnels et IA » qui
+     wrappe sur 2 lignes ; col 3 sans séparateur car l'idiome `data-need` le
+     retirait ; kicker featured col 4 hors de la bande de titres).
+     Technique : ZONE D'EN-TÊTE de hauteur COMMUNE et ANCRÉE EN BAS
+     (flex-end) sur les cols 1-2-3 = slot titre 2 lignes + gap + slot sous-texte
+     2 lignes + padding bas (14px = valeur structurelle déjà portée par
+     .mega-col-hd). Ancrer en bas rend la baseline des titres invariante au
+     nombre de lignes du titre (1 ou 2) ET au système actif → hauteur de panneau
+     stable. Le sous-texte (col 2) et le kicker (col 3) vivent dans cette zone.
+     100% tokens DS existants + valeurs structurelles déjà en place. */
+  .mega .mega-col--systems .mega-col-hd,
+  .mega .mega-col--panel .mega-sys-hd,
+  .mega .mega-col--detail .mega-col-hd {
+    min-height: calc(
+      var(--text-h3) * var(--leading-h3) * 2
+      + var(--space-2)
+      + var(--text-micro) * var(--leading-body) * 2
+      + 14px
+    );
+    justify-content: flex-end;
+  }
+  /* Cols 1 et 3 (pas de sous-texte) : le padding bas absorbe le slot sous-texte
+     + le gap → la baseline de leur titre tombe exactement sur celle de la col 2. */
+  .mega .mega-col--systems .mega-col-hd,
+  .mega .mega-col.mega-col--detail .mega-col-hd {
+    padding-bottom: calc(14px + var(--space-2) + var(--text-micro) * var(--leading-body) * 2);
+  }
+  /* Col 3 : neutralise l'idiome `data-need` (qui retirait le séparateur,
+     réduisait la marge et modifiait la line-height/tracking du titre) pour
+     réaligner son en-tête sur les cols 1-2. Sélecteurs compound + préfixe .mega
+     pour dépasser la spécificité de `.mega-col[data-need] .mega-col-hd`. */
+  .mega .mega-col.mega-col--detail .mega-col-hd {
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 18px;
+  }
+  .mega .mega-col.mega-col--detail .mega-col-hd .t {
+    line-height: var(--leading-h3);
+    letter-spacing: -0.01em;
+    text-wrap: initial;
+  }
+  /* Titre système (col 2) borné à 2 lignes (garde-fou du slot titre). */
+  .mega .mega-col--panel .mega-sys-hd .t {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+  /* Sous-texte système (col 2) : slot FIXE de 2 lignes (min-height) + clamp →
+     qu'il fasse 1 ou 2 lignes, la baseline du titre au-dessus ne bouge pas ;
+     les descriptions plus longues sont tronquées proprement. */
+  .mega .mega-col--panel .mega-sys-hd .d {
+    min-height: calc(var(--text-micro) * var(--leading-body) * 2);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+  /* Kicker featured « LE MODULE » (col 4) : calé sur la baseline commune des
+     titres (boîte de la hauteur du slot titre 2 lignes, texte ancré en bas). */
+  .mega .mega-featured-stack .mega-featured .badge {
+    min-height: calc(var(--text-h3) * var(--leading-h3) * 2);
+    display: flex;
+    align-items: flex-end;
+  }
+
   /* ─ Col 3 « le module en détail » + col 4 featured pilotées par le MODULE
      (refonte V8.2 2026-07-14) ────────────────────────────────────────────────
      La col 3 réutilise l'idiome grille superposée `.mega-sys-panel`/`.mega-sys-group`
@@ -1214,25 +1285,22 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     opacity: 1;
   }
 
-  /* Featured : le stack occupe le slot featured (320px) ; une variante visible. */
+  /* Featured : le stack occupe le slot featured (320px) ; une variante visible.
+     Fondu seul (même raison que .mega-sys-group : Y stable, pas de translateY). */
   .mega-featured-stack { display: grid; }
   .mega-featured-stack .mega-featured {
     grid-area: 1 / 1;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(6px);
     transition:
       opacity var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease),
       visibility 0s linear var(--dur-trim);
   }
   .mega-featured-stack .mega-featured.is-active {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
     transition:
       opacity var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease),
       visibility 0s;
   }
 

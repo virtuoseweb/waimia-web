@@ -46,12 +46,15 @@ interface Props {
   breadcrumb?: Crumb[];
   /** JSON-LD spécifique à la page (forwarded to Base) */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  /** Exclure la page de l'index (robots noindex) · forwarded to Base */
+  noindex?: boolean;
 }
 const {
   variant = 'utility',
   title, description, kicker,
   headlineFr = '', headlineEn = '', ledeFr = '', ledeEn = '',
   align = 'left', showCta = true, breadcrumb, jsonLd,
+  noindex = false,
 } = Astro.props as Props;
 
 const lang = langFromPath(Astro.url.pathname);
@@ -162,7 +165,7 @@ const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
 })();
 ---
 {isList ? (
-  <Base title={title} description={description} jsonLd={jsonLd}>
+  <Base title={title} description={description} jsonLd={jsonLd} noindex={noindex}>
     {/* MASTHEAD · composant catalogué hero-hub-listing (deltas absorbés par props rétro-compat) */}
     <HeroCentered
       data={listHeroData}
@@ -186,7 +189,7 @@ const autoCrumbs: Crumb[] = isList ? [] : breadcrumb ?? (() => {
     <CtaBandSection data={listCtaData} lang={lang} />
   </Base>
 ) : (
-  <Base title={title} description={description} jsonLd={jsonLd}>
+  <Base title={title} description={description} jsonLd={jsonLd} noindex={noindex}>
     {autoCrumbs.length > 0 && (
       <div class="util-crumbs">
         <MastheadBar lang={lang} items={autoCrumbs} />

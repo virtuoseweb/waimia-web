@@ -285,10 +285,8 @@ const RESSOURCES: MegaMenuSection = {
           badge: { fr: 'À venir', en: 'Soon' },
         },
         {
-          label: { fr: 'Checklist déploiement Claude', en: 'Claude deployment checklist' },
-          href: '/ressources/guides/checklist-deploiement-claude',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
+          label: { fr: 'Guide déploiement Claude', en: 'Claude deployment guide' },
+          href: '/ressources/guides/claude-pme',
         },
       ],
       footer: {

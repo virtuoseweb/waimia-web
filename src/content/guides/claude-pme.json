@@ -1,19 +1,21 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Déployer Claude dans une PME : le guide pratique des 90 premiers jours",
-  "title_en": "Deploying Claude in an SMB: the practical 90-day guide",
-  "description_fr": "Guide pratique pour déployer Claude dans une PME : par où commencer, les 5 cas d'usage à fort ROI, comment structurer ses données, gouvernance et premiers 90 jours.",
-  "description_en": "Practical guide to deploy Claude in an SMB: where to start, the 5 high-ROI use cases, how to structure your data, governance and the first 90 days.",
+  "title_fr": "Déployer Claude dans une PME : le guide pratique, des prérequis aux 90 premiers jours",
+  "title_en": "Deploying Claude in an SMB: the practical guide, from prerequisites to the first 90 days",
+  "description_fr": "Guide pratique pour déployer Claude en PME : les 6 prérequis, les 5 cas d'usage à fort ROI, structurer ses données, gouvernance et 90 premiers jours.",
+  "description_en": "Practical guide to deploy Claude in an SMB: the 6 prerequisites to lay, the 5 high-ROI use cases, structuring your data, governance and the first 90 days.",
   "slug": "claude-pme",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-06-29T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "claude-pme",
+    "deploiement-claude",
     "deploiement-ia",
     "integrateur-claude",
     "cas-usage-ia",
     "gouvernance-ia",
+    "roi-ia",
     "productivite"
   ],
   "seo": {
@@ -51,6 +53,30 @@
     {
       "q": "Quelle différence entre utiliser Claude et l'intégrer vraiment ?",
       "a": "Utiliser Claude, c'est l'ouvrir au cas par cas pour aider un collaborateur. L'intégrer, c'est le brancher à vos données et vos outils pour qu'il agisse dans vos process, de façon mesurée et gouvernée. La première étape sensibilise, la seconde produit de la valeur en production. Ce guide vise la seconde, sans brûler la première."
+    },
+    {
+      "q": "Mes données restent-elles confidentielles avec Claude ?",
+      "a": "Sur les offres entreprise et API d'Anthropic, vos données ne sont pas utilisées pour entraîner les modèles par défaut, et la rétention peut être encadrée par contrat. Le vrai risque n'est pas le modèle, c'est l'usage non gouverné : des collaborateurs qui collent des données sensibles dans des comptes personnels gratuits. La parade est une politique d'usage claire et des accès cadrés, pas l'interdiction."
+    },
+    {
+      "q": "Comment choisir le premier cas d'usage à déployer ?",
+      "a": "Le bon premier cas coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, et un résultat mesurable. Rédaction de comptes rendus, tri d'emails entrants, première réponse au support, synthèse de documents sont d'excellents candidats. On évite pour le pilote tout ce qui touche une décision irréversible ou une donnée très sensible."
+    },
+    {
+      "q": "Faut-il former les équipes ou Claude suffit-il seul ?",
+      "a": "La formation décide de l'adoption. Un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité. Comptez une demi-journée pour les bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais. Désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines."
+    },
+    {
+      "q": "Comment mesurer le ROI d'un déploiement de Claude ?",
+      "a": "On mesure avant de déployer, sinon le gain reste une impression. Sur le cas pilote, on note le temps passé et le taux d'erreur actuels, puis on compare après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes, en délais raccourcis et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité et finit par être coupé."
+    },
+    {
+      "q": "Qu'est-ce que le protocole MCP et pourquoi il compte ?",
+      "a": "Le MCP, Model Context Protocol, est le standard ouvert qui connecte Claude à vos outils : CRM, base documentaire, agenda, ticketing. C'est ce qui fait passer Claude d'un assistant de conversation à un agent qui agit sur vos données réelles. Bien posée, cette couche d'intégration est ce qui transforme un pilote sympathique en gain durable et mesurable."
+    },
+    {
+      "q": "Ce guide remplace-t-il un accompagnement ?",
+      "a": "Non. Il vous donne la trame pour ne rien oublier et discuter d'égal à égal avec un intégrateur. Si vous voulez la transformer en plan daté pour votre contexte, l'audit IA gratuit de 45 min part de votre réalité, identifie le premier process à automatiser et chiffre le gain attendu. Et si vous préférez faire déployer Claude par Waimia, l'intégrateur prend le relais du cadrage à la gouvernance. Sans engagement."
     }
   ],
   "faq_en": [
@@ -85,6 +111,30 @@
     {
       "q": "What's the difference between using Claude and truly integrating it?",
       "a": "Using Claude means opening it case by case to help an employee. Integrating it means wiring it to your data and tools so it acts within your processes, in a measured and governed way. The first step raises awareness, the second produces value in production. This guide aims for the second, without skipping the first."
+    },
+    {
+      "q": "Does my data stay confidential with Claude?",
+      "a": "On Anthropic's enterprise and API offers, your data isn't used to train the models by default, and retention can be governed by contract. The real risk isn't the model, it's ungoverned usage: employees pasting sensitive data into free personal accounts. The fix is a clear usage policy and framed access, not a ban."
+    },
+    {
+      "q": "How do you choose the first use case to deploy?",
+      "a": "A good first case ticks three boxes: a volume repeated each week, low risk if it errs, and a measurable result. Drafting minutes, triaging inbound email, first support reply and document summarisation are excellent candidates. For the pilot you avoid anything touching an irreversible decision or very sensitive data."
+    },
+    {
+      "q": "Do teams need training or does Claude work alone?",
+      "a": "Training decides adoption. A tool no one masters stays on the shelf, whatever its quality. Count half a day for the right reflexes: phrasing a request, checking a response, spotting what you never paste in. Appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks."
+    },
+    {
+      "q": "How do you measure the ROI of a Claude deployment?",
+      "a": "You measure before deploying, otherwise the gain stays a feeling. On the pilot case, you note the current time spent and error rate, then compare after a few weeks of real use. ROI reads in hours given back to teams, shortened delays and tasks that no longer come back. An unmeasured case can't be defended in committee and ends up cut."
+    },
+    {
+      "q": "What is the MCP protocol and why does it matter?",
+      "a": "MCP, the Model Context Protocol, is the open standard that connects Claude to your tools: CRM, document base, calendar, ticketing. It's what turns Claude from a conversation assistant into an agent that acts on your real data. Done well, this integration layer is what turns a pleasant pilot into a durable, measurable gain."
+    },
+    {
+      "q": "Does this guide replace hands-on support?",
+      "a": "No. It gives you the frame to forget nothing and talk on equal terms with an integrator. If you want to turn it into a dated plan for your context, the free 45-min AI audit starts from your reality, identifies the first process to automate and sizes the expected gain. And if you'd rather have Waimia deploy Claude for you, the integrator takes over from scoping to governance. No commitment."
     }
   ],
   "sections": [
@@ -136,8 +186,8 @@
       "question_en": "How do you deploy Claude in an SMB?",
       "term_fr": "Déploiement de Claude",
       "term_en": "Claude deployment",
-      "answer_fr": "On déploie Claude dans une PME en partant d'un process, pas de l'outil. On choisit une tâche récurrente, chronophage et à faible risque, on donne à Claude le contexte et les données dont il a besoin, on cadre ce qu'il peut faire et ce qu'il ne touche jamais, puis on mesure le temps gagné. Une fois ce premier cas d'usage prouvé en production, on le fiabilise, on forme les équipes et on l'étend à un deuxième usage. Le bon déploiement avance par marches mesurées, pas par grand soir technologique : un agent qui marche vaut mieux que dix pilotes oubliés.",
-      "answer_en": "You deploy Claude in an SMB by starting from a process, not the tool. You pick a recurring, time-consuming, low-risk task, give Claude the context and data it needs, frame what it can do and what it never touches, then measure the time saved. Once this first use case is proven in production, you make it reliable, train the teams and expand to a second use. A good deployment advances in measured steps, not a technological big bang: one agent that works beats ten forgotten pilots."
+      "answer_fr": "On déploie Claude dans une PME en partant d'un process, pas de l'outil. On choisit une tâche récurrente, chronophage et à faible risque, on donne à Claude le contexte et les données dont il a besoin, on cadre ce qu'il peut faire et ce qu'il ne touche jamais, puis on mesure le temps gagné. Une fois ce premier cas d'usage prouvé en production, on le fiabilise, on forme les équipes et on l'étend à un deuxième usage. Le bon déploiement avance par marches mesurées, pas par grand soir technologique : un agent qui marche vaut mieux que dix pilotes oubliés. Waimia est l'intégrateur Claude qui déploie ce dispositif de bout en bout, du premier cas d'usage cadré à la gouvernance.",
+      "answer_en": "You deploy Claude in an SMB by starting from a process, not the tool. You pick a recurring, time-consuming, low-risk task, give Claude the context and data it needs, frame what it can do and what it never touches, then measure the time saved. Once this first use case is proven in production, you make it reliable, train the teams and expand to a second use. A good deployment advances in measured steps, not a technological big bang: one agent that works beats ten forgotten pilots. Waimia is the Claude integrator that deploys this setup end to end, from the first framed use case to governance."
     },
     {
       "type": "feature-zigzag",
@@ -298,6 +348,150 @@
       ]
     },
     {
+      "type": "feature-zigzag",
+      "background": "paper",
+      "kicker_fr": "§ La checklist",
+      "kicker_en": "§ The checklist",
+      "h2_fr": "Les 6 prérequis à poser avant le premier compte",
+      "h2_en": "The 6 prerequisites to lay before the first account",
+      "lede_fr": "Avant d'ouvrir la moindre licence, six prérequis conditionnent la réussite, dans cet ordre. Sauter une étape ne fait pas gagner du temps, ça déplace le problème plus loin, là où il coûte plus cher à corriger.",
+      "lede_en": "Before opening a single licence, six prerequisites decide success, in this order. Skipping a step doesn't save time, it pushes the problem further down, where it costs more to fix.",
+      "rows": [
+        {
+          "kicker_fr": "Prérequis 01",
+          "kicker_en": "Prerequisite 01",
+          "h3_fr": "Données",
+          "h3_en": "Data",
+          "body_fr": "Avant tout, cartographiez ce que Claude devra lire : CRM, base documentaire, emails, agenda. Où vivent ces données, dans quel état, et lesquelles ne doivent jamais sortir ? Des données éparpillées et sales produisent des réponses floues, quel que soit le modèle branché dessus.",
+          "body_en": "First, map what Claude will read: CRM, document base, emails, calendar. Where does this data live, in what state, and which must never leave? Scattered, dirty data produces fuzzy answers, whatever model is wired to it.",
+          "points": [
+            {
+              "label_fr": "Sources cartographiées",
+              "label_en": "Sources mapped"
+            },
+            {
+              "label_fr": "Données sensibles repérées",
+              "label_en": "Sensitive data flagged"
+            },
+            {
+              "label_fr": "Accessibles via MCP",
+              "label_en": "Accessible via MCP"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 02",
+          "kicker_en": "Prerequisite 02",
+          "h3_fr": "Sécurité et confidentialité",
+          "h3_en": "Security and confidentiality",
+          "body_fr": "Décidez quelles données peuvent passer dans Claude et lesquelles non, et écrivez-le. Sur les offres entreprise, vos données n'entraînent pas les modèles par défaut. Le vrai risque, c'est l'usage non cadré : des comptes personnels gratuits où circulent des données sensibles. Cadrez les accès plutôt que d'interdire.",
+          "body_en": "Decide which data can go into Claude and which can't, and write it down. On enterprise offers, your data doesn't train the models by default. The real risk is unframed usage: free personal accounts where sensitive data flows. Frame access rather than ban it.",
+          "points": [
+            {
+              "label_fr": "Politique d'usage écrite",
+              "label_en": "Written usage policy"
+            },
+            {
+              "label_fr": "Conformité RGPD vérifiée",
+              "label_en": "GDPR compliance checked"
+            },
+            {
+              "label_fr": "Comptes pro, pas personnels",
+              "label_en": "Pro accounts, not personal"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 03",
+          "kicker_en": "Prerequisite 03",
+          "h3_fr": "Choix du cas d'usage",
+          "h3_en": "Use-case selection",
+          "body_fr": "Choisissez un seul cas pour le pilote, pas dix. Le bon coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, un résultat mesurable. Comptes rendus, tri d'emails, première réponse au support : d'excellents candidats. On garde les décisions irréversibles pour plus tard.",
+          "body_en": "Pick a single case for the pilot, not ten. The good one ticks three boxes: a volume repeated each week, low risk if it errs, a measurable result. Minutes, email triage, first support reply: excellent candidates. Irreversible decisions are kept for later.",
+          "points": [
+            {
+              "label_fr": "Volume répété, hebdomadaire",
+              "label_en": "Repeated, weekly volume"
+            },
+            {
+              "label_fr": "Risque faible en cas d'erreur",
+              "label_en": "Low risk if it errs"
+            },
+            {
+              "label_fr": "Résultat mesurable",
+              "label_en": "Measurable result"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 04",
+          "kicker_en": "Prerequisite 04",
+          "h3_fr": "Formation des équipes",
+          "h3_en": "Team training",
+          "body_fr": "La formation décide de l'adoption : un outil que personne ne maîtrise reste sur l'étagère. Comptez une demi-journée pour les bons réflexes, puis désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines.",
+          "body_en": "Training decides adoption: a tool no one masters stays on the shelf. Count half a day for the right reflexes, then appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks.",
+          "points": [
+            {
+              "label_fr": "Formuler et vérifier",
+              "label_en": "Phrase and check"
+            },
+            {
+              "label_fr": "Un référent IA interne",
+              "label_en": "An internal AI lead"
+            },
+            {
+              "label_fr": "Bibliothèque de prompts",
+              "label_en": "Prompt library"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 05",
+          "kicker_en": "Prerequisite 05",
+          "h3_fr": "Mesure du ROI",
+          "h3_en": "ROI measurement",
+          "body_fr": "Mesurez avant de déployer, sinon le gain reste une impression. Notez le temps passé et le taux d'erreur actuels sur le cas pilote, puis comparez après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité.",
+          "body_en": "Measure before deploying, otherwise the gain stays a feeling. Note current time spent and error rate on the pilot case, then compare after a few weeks of real use. ROI reads in hours given back to teams and tasks that no longer come back. An unmeasured case can't be defended in committee.",
+          "points": [
+            {
+              "label_fr": "Baseline avant déploiement",
+              "label_en": "Baseline before deployment"
+            },
+            {
+              "label_fr": "Heures rendues mesurées",
+              "label_en": "Hours given back measured"
+            },
+            {
+              "label_fr": "Comparaison avant/après",
+              "label_en": "Before/after comparison"
+            }
+          ]
+        },
+        {
+          "kicker_fr": "Prérequis 06",
+          "kicker_en": "Prerequisite 06",
+          "h3_fr": "Gouvernance",
+          "h3_en": "Governance",
+          "body_fr": "La gouvernance pérennise ce qui marche : qui valide un nouveau cas d'usage, qui révise la politique, comment on étend sans recréer le chaos. Ce n'est pas un frein, c'est ce qui permet de passer du pilote à l'échelle sans que chaque équipe réinvente ses propres règles dans son coin.",
+          "body_en": "Governance sustains what works: who validates a new use case, who revises the policy, how you scale without recreating chaos. It isn't a brake, it's what lets you move from pilot to scale without each team reinventing its own rules in a corner.",
+          "points": [
+            {
+              "label_fr": "Validation des nouveaux cas",
+              "label_en": "New-case validation"
+            },
+            {
+              "label_fr": "Politique révisée régulièrement",
+              "label_en": "Policy revised regularly"
+            },
+            {
+              "label_fr": "Extension par paliers",
+              "label_en": "Expansion in steps"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "decision-list",
       "background": "paper",
       "kicker_fr": "§ Avant de vous lancer",
@@ -349,19 +543,19 @@
         {
           "kicker_fr": "Diagnostic",
           "kicker_en": "Diagnostic",
-          "title_fr": "Maturité IA : où en êtes-vous ?",
-          "title_en": "AI maturity: where do you stand?",
-          "lead_fr": "Avant de déployer, situez-vous : la grille des cinq niveaux et les dimensions qui décident du bon prochain pas.",
-          "lead_en": "Before deploying, place yourself: the five-level grid and the dimensions that decide the right next step.",
-          "href": "/ressources/diagnostics/maturite-ia"
+          "title_fr": "Votre PME est-elle prête pour Claude ?",
+          "title_en": "Is your SMB ready for Claude?",
+          "lead_fr": "Avant de vous lancer, situez votre préparation sur cinq dimensions et voyez quelles fondations poser en premier.",
+          "lead_en": "Before you start, place your readiness across five dimensions and see which foundations to lay first.",
+          "href": "/ressources/diagnostics/claude-pme"
         },
         {
           "kicker_fr": "Service",
           "kicker_en": "Service",
-          "title_fr": "Intégrateur Claude",
-          "title_en": "Claude integrator",
-          "lead_fr": "Quand les fondations sont là : déployer Claude et ses agents dans votre entreprise, branchés à vos outils via le protocole MCP.",
-          "lead_en": "When the foundations are there: deploying Claude and its agents in your company, wired to your tools via the MCP protocol.",
+          "title_fr": "Faire déployer Claude par Waimia",
+          "title_en": "Have Waimia deploy Claude",
+          "lead_fr": "Quand les fondations sont là : Waimia déploie Claude et ses agents dans votre entreprise, branchés à vos outils via MCP, du cadrage à la gouvernance.",
+          "lead_en": "When the foundations are there: Waimia deploys Claude and its agents in your company, wired to your tools via MCP, from scoping to governance.",
           "href": "/services/integration-claude"
         }
       ]
@@ -421,6 +615,42 @@
           "q_en": "What's the difference between using Claude and truly integrating it?",
           "a_fr": "Utiliser Claude, c'est l'ouvrir au cas par cas pour aider un collaborateur. L'intégrer, c'est le brancher à vos données et vos outils pour qu'il agisse dans vos process, de façon mesurée et gouvernée. La première étape sensibilise, la seconde produit de la valeur en production. Ce guide vise la seconde, sans brûler la première.",
           "a_en": "Using Claude means opening it case by case to help an employee. Integrating it means wiring it to your data and tools so it acts within your processes, in a measured and governed way. The first step raises awareness, the second produces value in production. This guide aims for the second, without skipping the first."
+        },
+        {
+          "q_fr": "Mes données restent-elles confidentielles avec Claude ?",
+          "q_en": "Does my data stay confidential with Claude?",
+          "a_fr": "Sur les offres entreprise et API d'Anthropic, vos données ne sont pas utilisées pour entraîner les modèles par défaut, et la rétention peut être encadrée par contrat. Le vrai risque n'est pas le modèle, c'est l'usage non gouverné : des collaborateurs qui collent des données sensibles dans des comptes personnels gratuits. La parade est une politique d'usage claire et des accès cadrés, pas l'interdiction.",
+          "a_en": "On Anthropic's enterprise and API offers, your data isn't used to train the models by default, and retention can be governed by contract. The real risk isn't the model, it's ungoverned usage: employees pasting sensitive data into free personal accounts. The fix is a clear usage policy and framed access, not a ban."
+        },
+        {
+          "q_fr": "Comment choisir le premier cas d'usage à déployer ?",
+          "q_en": "How do you choose the first use case to deploy?",
+          "a_fr": "Le bon premier cas coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, et un résultat mesurable. Rédaction de comptes rendus, tri d'emails entrants, première réponse au support, synthèse de documents sont d'excellents candidats. On évite pour le pilote tout ce qui touche une décision irréversible ou une donnée très sensible.",
+          "a_en": "A good first case ticks three boxes: a volume repeated each week, low risk if it errs, and a measurable result. Drafting minutes, triaging inbound email, first support reply and document summarisation are excellent candidates. For the pilot you avoid anything touching an irreversible decision or very sensitive data."
+        },
+        {
+          "q_fr": "Faut-il former les équipes ou Claude suffit-il seul ?",
+          "q_en": "Do teams need training or does Claude work alone?",
+          "a_fr": "La formation décide de l'adoption. Un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité. Comptez une demi-journée pour les bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais. Désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines.",
+          "a_en": "Training decides adoption. A tool no one masters stays on the shelf, whatever its quality. Count half a day for the right reflexes: phrasing a request, checking a response, spotting what you never paste in. Appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks."
+        },
+        {
+          "q_fr": "Comment mesurer le ROI d'un déploiement de Claude ?",
+          "q_en": "How do you measure the ROI of a Claude deployment?",
+          "a_fr": "On mesure avant de déployer, sinon le gain reste une impression. Sur le cas pilote, on note le temps passé et le taux d'erreur actuels, puis on compare après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes, en délais raccourcis et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité et finit par être coupé.",
+          "a_en": "You measure before deploying, otherwise the gain stays a feeling. On the pilot case, you note the current time spent and error rate, then compare after a few weeks of real use. ROI reads in hours given back to teams, shortened delays and tasks that no longer come back. An unmeasured case can't be defended in committee and ends up cut."
+        },
+        {
+          "q_fr": "Qu'est-ce que le protocole MCP et pourquoi il compte ?",
+          "q_en": "What is the MCP protocol and why does it matter?",
+          "a_fr": "Le MCP, Model Context Protocol, est le standard ouvert qui connecte Claude à vos outils : CRM, base documentaire, agenda, ticketing. C'est ce qui fait passer Claude d'un assistant de conversation à un agent qui agit sur vos données réelles. Bien posée, cette couche d'intégration est ce qui transforme un pilote sympathique en gain durable et mesurable.",
+          "a_en": "MCP, the Model Context Protocol, is the open standard that connects Claude to your tools: CRM, document base, calendar, ticketing. It's what turns Claude from a conversation assistant into an agent that acts on your real data. Done well, this integration layer is what turns a pleasant pilot into a durable, measurable gain."
+        },
+        {
+          "q_fr": "Ce guide remplace-t-il un accompagnement ?",
+          "q_en": "Does this guide replace hands-on support?",
+          "a_fr": "Non. Il vous donne la trame pour ne rien oublier et discuter d'égal à égal avec un intégrateur. Si vous voulez la transformer en plan daté pour votre contexte, l'audit IA gratuit de 45 min part de votre réalité, identifie le premier process à automatiser et chiffre le gain attendu. Et si vous préférez faire déployer Claude par Waimia, l'intégrateur prend le relais du cadrage à la gouvernance. Sans engagement.",
+          "a_en": "No. It gives you the frame to forget nothing and talk on equal terms with an integrator. If you want to turn it into a dated plan for your context, the free 45-min AI audit starts from your reality, identifies the first process to automate and sizes the expected gain. And if you'd rather have Waimia deploy Claude for you, the integrator takes over from scoping to governance. No commitment."
         }
       ]
     },
@@ -442,9 +672,9 @@
           "variant": "primary"
         },
         {
-          "label_fr": "Voir l'audit IA pour PME",
-          "label_en": "See the AI audit for SMBs",
-          "href": "/contact",
+          "label_fr": "Faire déployer par Waimia →",
+          "label_en": "Have Waimia deploy it →",
+          "href": "/services/integration-claude",
           "variant": "ghost"
         }
       ]

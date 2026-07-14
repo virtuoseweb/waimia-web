@@ -47,11 +47,36 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // de bordeaux.json quand les vraies coordonnées Bordeaux seront fournies.
   "/implantations/bordeaux",
   // Secteurs noindex (seo.noindex:true frontmatter) → hors sitemap pour cohérence noindex↔crawl.
+  // (2026-07-14 vague 1) complétés par les 6 autres secteurs noindex (politique index ⟺ caseRef
+  // réel, cf strategy/14 §4) détectés par le gate check-seo noindex-not-in-sitemap.
   "/secteurs/batiment",
   "/secteurs/services-b2b",
   "/secteurs/therapeutes",
+  "/secteurs/agence",
+  "/secteurs/comptabilite",
+  "/secteurs/conseil",
+  "/secteurs/esn",
+  "/secteurs/formation",
+  "/secteurs/industrie",
+  // Hubs noindex (politique hub < 3-5 enfants réels) encore listés dans le sitemap (gate 2026-07-14).
+  "/implantations",
+  "/ressources/comparatifs",
+  "/ressources/guides",
   // Hub diagnostics (V7-FOLD Phase C) : noindex tant que < 3-5 enfants réels (2 pour l'instant :
   // maturite-ia, site-web-intelligent) → hors sitemap pour cohérence. Retirer quand le hub
   // listera ≥ 3-5 diagnostics complets (politique index-on-quality, strategy/10 §3).
   "/ressources/diagnostics",
+  // Vague 1 carte kw (strategy/14, 2026-07-14) · cohérence noindex↔sitemap :
+  // maquettes /lab/* + hub démos étaient noindex dans le HTML MAIS listés dans le sitemap.
+  "/lab/home-d",
+  "/lab/home-e",
+  "/lab/home-e-method",
+  "/demonstrations",
+  // Nouveaux noindex vague 1 (dupes/nav pures, cf strategy/14 §4) :
+  // about (quasi-dupe /agence) · partenaires (dupe /technologies) · plan du site (nav) ·
+  // démo SWI (concurrence frontale avec la money page /services/site-web-ia).
+  "/agence/about",
+  "/partenaires",
+  "/plan-du-site",
+  "/demonstrations/site-web-intelligent",
 ]);

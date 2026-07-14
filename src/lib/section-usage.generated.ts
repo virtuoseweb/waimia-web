@@ -159,7 +159,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 15,
+    "count": 14,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/integration-claude",
@@ -174,7 +174,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme"
     ]
   },
@@ -257,7 +256,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 15,
+    "count": 14,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/integration-claude",
@@ -272,7 +271,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme"
     ]
   },
@@ -320,7 +318,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 53,
+    "count": 52,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -351,7 +349,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme",
       "/services/agents-ia",
       "/services/applications-internes",
@@ -424,7 +421,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme",
       "/services/agents-ia",
       "/services/applications-internes",
@@ -448,7 +444,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 51,
+    "count": 50,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -479,7 +475,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme",
       "/services/agents-ia",
       "/services/applications-internes",
@@ -594,7 +589,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 22,
+    "count": 21,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -616,7 +611,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme"
     ]
   },
@@ -818,7 +812,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 13,
+    "count": 12,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -831,7 +825,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme"
     ]
   },
@@ -871,7 +864,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 23,
+    "count": 22,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -891,7 +884,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/checklist-deploiement-claude",
       "/ressources/guides/claude-pme",
       "/services/site-web-ia/sur-mesure",
       "/services/site-web-ia/webflow",

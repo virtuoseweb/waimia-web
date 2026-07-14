@@ -1,5 +1,10 @@
 # 09 — Blueprint contenu V1 : état réel, gaps à finir, inputs Simon
 
+> ⚠️ **Volet « état par page » SUPERSEDED (2026-07-14)** : l'architecture a changé (V8, 3 systèmes,
+> slugs `/acquerir` et `/services/site-web-intelligent` disparus). La carte page-par-page à jour
+> (mot-clé, intention, conversion, index/noindex, plan de passes) = **`strategy/14-keyword-conversion-map.md`**.
+> Les inputs Simon et constats non-page restent valables ici.
+
 > Issu de l'exploration du **contenu réel du repo** (3 agents, 2026-06-15). Complète `strategy/08`
 > (l'IA cible) avec **l'état réel page par page** : ce qui est PRÊT, les GAPS à finir, le fictif à
 > retirer, les nouveaux modèles, le différé-compatible, et les **inputs que seul Simon a**.

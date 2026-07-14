@@ -274,7 +274,7 @@ const mediaDashboard = {
         <p class="he-lede">Un système métier IA n’est pas une automatisation isolée, c’est un ensemble cohérent d’applications, de données, de workflows et d’agents conçu autour de vos opérations.</p>
       </header>
 
-      {/* Niveau FAMILLES · tabs (etage V8) · tab 1 « Systeme marketing » actif, tab 2 « commercial » inerte */}
+      {/* Niveau FAMILLES · tabs (etage V8) · 2 familles LIVE : « Systeme marketing » (actif par defaut) + « Systeme commercial » */}
       <div class="he-tabs" data-he-tabs>
         <div class="he-tabs__list" role="tablist" aria-label="Familles de systèmes">
           <button
@@ -289,17 +289,15 @@ const mediaDashboard = {
             <span class="he-tab__label">Système marketing</span>
           </button>
           <button
-            class="he-tab is-disabled"
+            class="he-tab"
             role="tab"
             id="he-tab-commercial"
+            aria-controls="he-panel-commercial"
             aria-selected="false"
-            aria-disabled="true"
             tabindex="-1"
             type="button"
-            disabled
           >
             <span class="he-tab__label">Système commercial</span>
-            <span class="he-tab__badge">bientôt</span>
           </button>
         </div>
 
@@ -376,6 +374,49 @@ const mediaDashboard = {
               </a>
             ))}
           </div>
+        </div>
+
+        {/* Panel FAMILLE 2 · Systeme commercial (LIVE) · meme markup que le panel marketing.
+            Pas de classes reveal : panel masque au chargement -> l'IO scroll-reveal laisserait
+            le contenu en opacity:0 (footgun view-transitions-io). Le contenu s'affiche au clic. */}
+        <div
+          class="he-tab-panel"
+          role="tabpanel"
+          id="he-panel-commercial"
+          aria-labelledby="he-tab-commercial"
+          tabindex="0"
+          hidden
+        >
+          <div class="he-tabintro">
+            <p class="he-tabintro__eyebrow">§ Système commercial · équipes commerciales de PME</p>
+            <p class="he-tabintro__lede">Vos leads arrivent, puis se perdent. Un système commercial fait l’inverse : la prospection alimente, le CRM qualifie et route, les séquences relancent. Trois leviers sur une seule base pour transformer vos prospects en <i>clients</i>.</p>
+          </div>
+
+          <div class="he-diptych he-diptych--trio">
+            <article class="he-offer">
+              <p class="he-offer__tag">Levier 01</p>
+              <h3 class="he-offer__title">Prospection automatisée</h3>
+              <p class="he-offer__body">L’outbound qui vise les comptes cibles : ICP serré, listes enrichies et séquences multicanal. La prospection va chercher les comptes que l’inbound n’a pas captés, sans brûler votre domaine.</p>
+              <a class="he-offer__link" href="/services/prospection-automatisee">Voir le levier →</a>
+            </article>
+
+            <article class="he-offer">
+              <p class="he-offer__tag">Levier 02</p>
+              <h3 class="he-offer__title">CRM, scoring et routing</h3>
+              <p class="he-offer__body">Chaque lead noté selon son comportement, dédoublonné et affecté au bon commercial. Le chaud ne refroidit plus dans une file : l’alerte part à temps.</p>
+              <a class="he-offer__link" href="/services/crm-scoring-routing">Voir le levier →</a>
+            </article>
+
+            <article class="he-offer">
+              <p class="he-offer__tag">Levier 03</p>
+              <h3 class="he-offer__title">Séquences de suivi</h3>
+              <p class="he-offer__body">Des relances multicanal déclenchées par le comportement, personnalisées par l’IA. Plus aucun compte tiède ne s’éteint par oubli.</p>
+              <a class="he-offer__link" href="/services/sequences-de-suivi">Voir le levier →</a>
+            </article>
+          </div>
+
+          <p class="he-services__intro">§ Trois leviers, un seul système. On active celui qui bouche la fuite qui coûte d’abord.</p>
+          <a class="he-offer__link he-panel-cta" href="/services/systeme-commercial">Voir le système commercial →</a>
         </div>
       </div>
     </div>
@@ -598,6 +639,11 @@ const mediaDashboard = {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--gut);
   }
+  /* Panel commercial : 3 leviers -> grille 3 colonnes (idiome he-services repeat/minmax,
+     0 token en dur). Repli 1fr <=900px porte par la regle @media .he-diptych plus bas. */
+  .he-diptych--trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* CTA systeme du panel commercial : lien mono coral (he-offer__link) sur sa propre ligne. */
+  .he-panel-cta { display: inline-block; margin-top: var(--space-5); }
   .he-offer {
     display: flex;
     flex-direction: column;

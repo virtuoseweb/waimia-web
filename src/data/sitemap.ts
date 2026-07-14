@@ -404,7 +404,7 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/services/wordpress', label: { en: 'WordPress website', fr: 'Site WordPress' } },
       { href: '/cas-usages/centraliser-donnees', label: { en: 'Centralize data', fr: 'Centraliser les données' } },
       { href: '/cas-usages/reduire-reporting', label: { en: 'Reduce reporting', fr: 'Réduire le reporting' } },
-      { href: '/cas-clients/resultats', label: { en: 'Client results', fr: 'Résultats clients' } },
+      { href: '/cas-usages', label: { en: 'Use cases', fr: "Cas d'usage" } },
       { href: '/secteurs/batiment', label: { en: 'Construction sector', fr: 'Secteur bâtiment' } },
       { href: '/secteurs/e-commerce', label: { en: 'E-commerce sector', fr: 'Secteur e-commerce' } },
       { href: '/secteurs/liberal-independant', label: { en: 'Freelancers & self-employed', fr: 'Libéraux & indépendants' } },

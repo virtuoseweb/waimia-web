@@ -185,7 +185,7 @@ const linkCountLabel = lang === 'fr'
   ? `${totalLinks} pages référencées`
   : `${totalLinks} pages listed`;
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} noindex>
   <section class="wrap" style="padding-top:var(--section-loose);padding-bottom:var(--space-10)">
     <p style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin:0 0 16px">
       {lang === 'fr' ? '§ Navigation' : '§ Navigation'}

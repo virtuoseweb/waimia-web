@@ -187,11 +187,6 @@ const RESSOURCES: Record<string, MeshLink> = {
     label_fr: 'Guide Claude pour les PME',
     label_en: 'Claude guide for SMBs',
   },
-  'guides/checklist-deploiement-claude': {
-    href: '/ressources/guides/checklist-deploiement-claude',
-    label_fr: 'Checklist déploiement Claude',
-    label_en: 'Claude deployment checklist',
-  },
 };
 
 /** Articles blog (6). Routes canoniques /blog/<id> (cf blog-routing.ts : type essai/avis -> /blog). */
