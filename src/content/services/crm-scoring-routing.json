@@ -54,6 +54,10 @@
     {
       "q": "Le commercial garde-t-il la main, ou l'IA décide à sa place ?",
       "a": "Le scoring priorise, le routing affecte, mais le commercial reste seul juge du contact et de l'approche. Chaque score est explicable : on voit pourquoi un lead est noté haut ou bas, pas une boîte noire. L'objectif est de faire gagner du temps à l'équipe et de ne perdre aucun lead chaud, pas de la déposséder de son métier."
+    },
+    {
+      "q": "Combien coûte un CRM avec scoring et routing ?",
+      "a": "Deux façons d'engager. L'entrée Hygiène CRM démarre à partir de 2 000 € HT : audit, nettoyage et enrichissement de base. Au-delà, l'abonnement Growth à 4 000 € HT par mois met une régie à disposition sur une base de 100 € de l'heure : scoring, routing, pilotage et roadmap mensuelle. Une mission ponctuelle reste possible à 100 € de l'heure. Sans engagement de durée : à la fin, le CRM, les règles et la donnée sont à vous."
     }
   ],
   "faq_en": [
@@ -88,6 +92,10 @@
     {
       "q": "Does the rep keep control, or does the AI decide for them?",
       "a": "Scoring prioritises, routing assigns, but the rep stays the sole judge of the contact and the approach. Every score is explainable: you see why a lead scores high or low, not a black box. The goal is to save the team time and lose no hot lead, not to strip them of their craft."
+    },
+    {
+      "q": "How much does a CRM with scoring and routing cost?",
+      "a": "Two ways to engage. The CRM hygiene entry starts from 2,000 € ex VAT: audit, cleaning and base enrichment. Beyond that, the Growth subscription at 4,000 € ex VAT a month puts a retainer at your disposal on a 100 € an hour base: scoring, routing, steering and a monthly roadmap. A one-off mission remains possible at 100 € an hour. No duration commitment: at the end, the CRM, the rules and the data are yours."
     }
   ],
   "sections": [
@@ -171,8 +179,8 @@
       "kicker_en": "FIG 1.2 · The dispositif",
       "h2_fr": "Un CRM qui stocke reste passif. Un CRM <i class=\"acc\">instrumenté</i> note, affecte et alerte tout seul.",
       "h2_en": "A CRM that stores stays passive. An <i class=\"acc\">instrumented</i> CRM scores, assigns and alerts on its own.",
-      "lede_fr": "Tant que votre CRM ne fait que garder des fiches, il dort et se remplit de doublons. Ici, la donnée, le scoring et le routing se branchent ensemble : chaque lead est noté, affecté et suivi sans qu'on y pense. On répare l'hygiène d'abord, on ajoute l'intelligence par-dessus. On ne casse jamais ce qui marche.",
-      "lede_en": "As long as your CRM only keeps records, it sleeps and fills with duplicates. Here, data, scoring and routing wire together: every lead is scored, assigned and tracked without a second thought. We fix the hygiene first, add the intelligence on top. We never break what works.",
+      "lede_fr": "Tant que votre CRM ne fait que garder des fiches, il dort et se remplit de doublons. Ici, la donnée, le scoring et le routing se branchent ensemble : chaque lead est noté, affecté et suivi sans qu'on y pense. On répare l'hygiène d'abord, on ajoute l'intelligence par-dessus. On ne casse jamais ce qui marche. Le CRM est le cœur du <a href=\"/services/systeme-commercial\">système commercial</a> : tout ce que la prospection et les relances produisent atterrit ici.",
+      "lede_en": "As long as your CRM only keeps records, it sleeps and fills with duplicates. Here, data, scoring and routing wire together: every lead is scored, assigned and tracked without a second thought. We fix the hygiene first, add the intelligence on top. We never break what works. The CRM is the core of the <a href=\"/services/systeme-commercial\">commercial system</a>: everything prospecting and follow-ups produce lands here.",
       "cta": {
         "label_fr": "Voir les briques →",
         "label_en": "See the building blocks →",
@@ -188,8 +196,8 @@
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Le <i class=\"acc\">lead scoring</i> est une note prédictive de probabilité d'achat attribuée à chaque lead selon son comportement. Couplé au routing, il affecte automatiquement le bon lead au bon commercial, au bon moment, dans un CRM structuré et propre. Il priorise et distribue, il ne remplace pas le commercial.",
-      "statement_en": "<i class=\"acc\">Lead scoring</i> is a predictive purchase-probability score assigned to each lead based on its behaviour. Coupled with routing, it automatically assigns the right lead to the right rep, at the right time, inside a structured, clean CRM. It prioritises and distributes, it doesn't replace the rep.",
+      "statement_fr": "Le <i class=\"acc\">lead scoring</i> est une note prédictive de probabilité d'achat attribuée à chaque lead selon son comportement. Couplé au routing, il affecte automatiquement le bon lead au bon commercial, au bon moment, dans un CRM structuré et propre. Chez Waimia, il priorise et distribue, il ne remplace pas le commercial.",
+      "statement_en": "<i class=\"acc\">Lead scoring</i> is a predictive purchase-probability score assigned to each lead based on its behaviour. Coupled with routing, it automatically assigns the right lead to the right rep, at the right time, inside a structured, clean CRM. At Waimia, it prioritises and distributes, it doesn't replace the rep.",
       "pills": [
         {
           "label_fr": "Données dédoublonnées",
@@ -240,8 +248,8 @@
       "background": "ink",
       "kicker_fr": "Là où le lead se perd",
       "kicker_en": "Where the lead gets lost",
-      "h2_fr": "Pourquoi votre CRM laisse filer des ventes",
-      "h2_en": "Why your CRM lets sales slip",
+      "h2_fr": "Pourquoi votre CRM sans scoring laisse filer des ventes",
+      "h2_en": "Why your CRM without scoring lets sales slip",
       "items": [
         {
           "severity": "critical",
@@ -540,42 +548,22 @@
       "anchor": "declinaisons",
       "background": "paper-3",
       "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système d'acquisition",
-      "kicker_en": "§ The acquisition system",
-      "h2_fr": "Le CRM s'assemble au reste du <i>système</i>",
-      "h2_en": "The CRM assembles into the rest of the <i>system</i>",
-      "lede_fr": "Le CRM ne travaille jamais seul : il reçoit les leads du site, du contenu, des landings et de la prospection. Survolez une brique pour voir comment elle se branche.",
-      "lede_en": "The CRM never works alone: it receives leads from the site, content, landings and prospecting. Hover a block to see how it wires in.",
+      "kicker_fr": "§ Le système commercial",
+      "kicker_en": "§ The commercial system",
+      "h2_fr": "Le CRM s'assemble au reste du <i>système commercial</i>",
+      "h2_en": "The CRM assembles into the rest of the <i>commercial system</i>",
+      "lede_fr": "Le CRM ne travaille jamais seul : il reçoit les comptes que la prospection ouvre, nourrit les relances et s'inscrit dans le système commercial. Survolez une brique pour voir comment elle se branche.",
+      "lede_en": "The CRM never works alone: it takes in the accounts prospecting opens, feeds the follow-ups and sits inside the commercial system. Hover a block to see how it wires in.",
       "items": [
         {
-          "label_fr": "Site web IA",
-          "label_en": "AI website",
-          "meta_fr": "La base qui capte et qualifie le trafic",
-          "meta_en": "The base that captures and qualifies traffic",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : le site qui capte le trafic entrant.",
-          "media_alt_en": "A craftsman at work: the site that captures inbound traffic.",
-          "link_href": "/services/site-web-ia"
-        },
-        {
-          "label_fr": "SEO, GEO et contenu",
-          "label_en": "SEO, GEO and content",
-          "meta_fr": "Le moteur inbound qui rend la marque citable",
-          "meta_en": "The inbound engine that makes the brand citable",
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "Analyse à l'écran : le contenu qui rend la marque visible.",
-          "media_alt_en": "On-screen analysis: the content that makes the brand visible.",
-          "link_href": "/services/seo-geo-contenu"
-        },
-        {
-          "label_fr": "Landing pages et scoring",
-          "label_en": "Landing pages and scoring",
-          "meta_fr": "La page qui convertit le trafic en leads",
-          "meta_en": "The page that converts traffic into leads",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Un tri clair : la landing qui convertit et capte.",
-          "media_alt_en": "A clear sort: the landing that converts and captures.",
-          "link_href": "/services/landing-pages-tunnels"
+          "label_fr": "Prospection automatisée",
+          "label_en": "Automated prospecting",
+          "meta_fr": "L'outbound qui ouvre les comptes ciblés",
+          "meta_en": "The outbound that opens targeted accounts",
+          "media_src": "/images/illustrations/ds/chess-paper.webp",
+          "media_alt_fr": "Un échiquier : la prospection qui va chercher les comptes.",
+          "media_alt_en": "A chessboard: the prospecting that goes after accounts.",
+          "link_href": "/services/prospection-automatisee"
         },
         {
           "label_fr": "Séquences de suivi",
@@ -588,23 +576,23 @@
           "link_href": "/services/sequences-de-suivi"
         },
         {
-          "label_fr": "Prospection automatisée",
-          "label_en": "Automated prospecting",
-          "meta_fr": "L'outbound qui ouvre les comptes ciblés",
-          "meta_en": "The outbound that opens targeted accounts",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : la prospection qui va chercher les comptes.",
-          "media_alt_en": "A chessboard: the prospecting that goes after accounts.",
-          "link_href": "/services/prospection-automatisee"
+          "label_fr": "Système commercial",
+          "label_en": "Commercial system",
+          "meta_fr": "Prospection, CRM et relances orchestrés d'un bloc",
+          "meta_en": "Prospecting, CRM and follow-ups orchestrated as one",
+          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
+          "media_alt_fr": "Une voiture sur la route : le système commercial en marche.",
+          "media_alt_en": "A car on the road: the commercial system running.",
+          "link_href": "/services/systeme-commercial"
         },
         {
-          "label_fr": "Système d'acquisition",
-          "label_en": "Acquisition system",
-          "meta_fr": "Acquisition, contenu, CRM et outbound câblés",
-          "meta_en": "Acquisition, content, CRM and outbound wired",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : le système complet en marche.",
-          "media_alt_en": "A car on the road: the complete system running.",
+          "label_fr": "En amont : le système d'acquisition",
+          "label_en": "Upstream: the acquisition system",
+          "meta_fr": "Le site et le contenu qui remplissent la base",
+          "meta_en": "The site and content that fill the base",
+          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
+          "media_alt_fr": "Un artisan au travail : l'acquisition qui remplit la base en amont.",
+          "media_alt_en": "A craftsman at work: acquisition filling the base upstream.",
           "link_href": "/services/systeme-acquisition"
         }
       ]
@@ -1053,7 +1041,8 @@
     },
     {
       "type": "eeat-panel",
-      "variant": "media"
+      "variant": "media",
+      "silo": "commercial"
     },
     {
       "type": "faq-accordion",
@@ -1110,6 +1099,12 @@
           "q_en": "Does the rep keep control, or does the AI decide for them?",
           "a_fr": "Le scoring priorise, le routing affecte, mais le commercial reste seul juge du contact et de l'approche. Chaque score est explicable : on voit pourquoi un lead est noté haut ou bas, pas une boîte noire. L'objectif est de faire gagner du temps à l'équipe et de ne perdre aucun lead chaud, pas de la déposséder de son métier.",
           "a_en": "Scoring prioritises, routing assigns, but the rep stays the sole judge of the contact and the approach. Every score is explainable: you see why a lead scores high or low, not a black box. The goal is to save the team time and lose no hot lead, not to strip them of their craft."
+        },
+        {
+          "q_fr": "Combien coûte un CRM avec scoring et routing ?",
+          "q_en": "How much does a CRM with scoring and routing cost?",
+          "a_fr": "Deux façons d'engager. L'entrée Hygiène CRM démarre à partir de 2 000 € HT : audit, nettoyage et enrichissement de base. Au-delà, l'abonnement Growth à 4 000 € HT par mois met une régie à disposition sur une base de 100 € de l'heure : scoring, routing, pilotage et roadmap mensuelle. Une mission ponctuelle reste possible à 100 € de l'heure. Sans engagement de durée : à la fin, le CRM, les règles et la donnée sont à vous.",
+          "a_en": "Two ways to engage. The CRM hygiene entry starts from 2,000 € ex VAT: audit, cleaning and base enrichment. Beyond that, the Growth subscription at 4,000 € ex VAT a month puts a retainer at your disposal on a 100 € an hour base: scoring, routing, steering and a monthly roadmap. A one-off mission remains possible at 100 € an hour. No duration commitment: at the end, the CRM, the rules and the data are yours."
         }
       ]
     },

@@ -33,7 +33,7 @@
     },
     {
       "q": "Quelle différence avec l'intégration Claude ?",
-      "a": "L'intégration Claude couvre tout le périmètre de déploiement sur mesure : elle câble Claude dans n'importe quel process via MCP, large et ouvert. Cette page est plus étroite et plus concrète : des agents autonomes pour des tâches répétitives à fort volume, déjà cadrées. Si votre besoin est un workflow d'agents bornés et mesurables, c'est ici. Si c'est une intégration plus vaste, le diagnostic bascule sur l'intégration Claude."
+      "a": "Un agent IA cible une tâche répétitive précise (relance, tri, veille, reporting) confiée à un programme autonome, quel que soit le modèle. L'intégration Claude est le cran au-dessus : elle déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Cette page pour un agent borné et stack-agnostique ; l'intégration Claude pour le dispositif d'entreprise complet."
     },
     {
       "q": "Qu'est-ce que le MCP et pourquoi c'est important ici ?",
@@ -67,7 +67,7 @@
     },
     {
       "q": "How is this different from Claude integration?",
-      "a": "Claude integration covers the full custom deployment scope: it wires Claude into any process through MCP, broad and open. This page is narrower and more concrete: autonomous agents for high-volume repetitive tasks, already framed. If your need is a workflow of bounded, measurable agents, it's here. If it's a wider integration, the diagnostic moves to Claude integration."
+      "a": "An AI agent targets one precise repetitive task (follow-up, sorting, watch, reporting) handed to an autonomous program, whatever the model. Claude integration is the tier above: it deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. This page for a bounded, stack-agnostic agent; Claude integration for the full enterprise setup."
     },
     {
       "q": "What is MCP and why does it matter here?",
@@ -144,19 +144,19 @@
       "metrics": [
         {
           "value": "Sur devis",
-          "label_fr": "chiffré au cadrage, pas de catalogue figé",
-          "label_en": "costed at scoping, no fixed catalogue",
+          "label_fr": "au périmètre de l'agent, pas au catalogue",
+          "label_en": "to the agent's scope, not to a catalogue",
           "emphasis": true
         },
         {
-          "value": "2–8 sem.",
-          "label_fr": "premier agent en production",
-          "label_en": "first agent in production"
+          "value": "Un agent",
+          "label_fr": "une mission cadrée, pas un assistant vague",
+          "label_en": "one framed mission, not a vague assistant"
         },
         {
-          "value": "MCP",
-          "label_fr": "agents branchés à vos outils réels",
-          "label_en": "agents wired to your real tools"
+          "value": "Relance, tri, veille",
+          "label_fr": "le répétitif exécuté, pas récité",
+          "label_en": "the repetitive executed, not recited"
         },
         {
           "value": "En prod",
@@ -188,8 +188,8 @@
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">agent IA</i> est un programme autonome branché à vos outils via MCP, qui exécute relances, tri, veille et reporting sous supervision humaine, sans saisie manuelle.",
-      "statement_en": "An <i class=\"acc\">AI agent</i> is an autonomous program wired to your tools via MCP, running follow-ups, sorting, watch and reporting under human supervision, with no manual entry.",
+      "statement_fr": "Un <i class=\"acc\">agent IA</i> est un programme autonome branché à vos outils via MCP, qui exécute relances, tri, veille et reporting sous supervision humaine, sans saisie manuelle. Waimia conçoit ces agents, les met en production et les mesure, quel que soit le modèle.",
+      "statement_en": "An <i class=\"acc\">AI agent</i> is an autonomous program wired to your tools via MCP, running follow-ups, sorting, watch and reporting under human supervision, with no manual entry. Waimia designs these agents, ships them to production and measures them, whatever the model.",
       "pills": [
         {
           "label_fr": "Une mission cadrée",
@@ -1041,7 +1041,8 @@
     },
     {
       "type": "eeat-panel",
-      "variant": "media"
+      "variant": "media",
+      "silo": "ops"
     },
     {
       "type": "faq-accordion",
@@ -1066,8 +1067,8 @@
         {
           "q_fr": "Quelle différence avec l'intégration Claude ?",
           "q_en": "How is this different from Claude integration?",
-          "a_fr": "L'intégration Claude couvre tout le périmètre de déploiement sur mesure : elle câble Claude dans n'importe quel process via MCP, large et ouvert. Cette page est plus étroite et plus concrète : des agents autonomes pour des tâches répétitives à fort volume, déjà cadrées. Si votre besoin est un workflow d'agents bornés et mesurables, c'est ici. Si c'est une intégration plus vaste, le diagnostic bascule sur l'intégration Claude.",
-          "a_en": "Claude integration covers the full custom deployment scope: it wires Claude into any process through MCP, broad and open. This page is narrower and more concrete: autonomous agents for high-volume repetitive tasks, already framed. If your need is a workflow of bounded, measurable agents, it's here. If it's a wider integration, the diagnostic moves to Claude integration."
+          "a_fr": "Un agent IA cible une tâche répétitive précise (relance, tri, veille, reporting) confiée à un programme autonome, quel que soit le modèle. L'intégration Claude est le cran au-dessus : elle déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Cette page pour un agent borné et stack-agnostique ; l'intégration Claude pour le dispositif d'entreprise complet.",
+          "a_en": "An AI agent targets one precise repetitive task (follow-up, sorting, watch, reporting) handed to an autonomous program, whatever the model. Claude integration is the tier above: it deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. This page for a bounded, stack-agnostic agent; Claude integration for the full enterprise setup."
         },
         {
           "q_fr": "Qu'est-ce que le MCP et pourquoi c'est important ici ?",

@@ -46,7 +46,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 21,
+    "count": 22,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -62,6 +62,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro",
@@ -88,7 +89,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 25,
+    "count": 26,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -113,6 +114,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref"
     ]
@@ -141,9 +143,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "cta-final": {
-    "count": 6,
+    "count": 5,
     "pages": [
-      "/audit-maturite-ia",
       "src/components/templates/CaseStudyTemplate.astro",
       "src/components/templates/ConversionFunnelTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
@@ -178,7 +179,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "definition-extract": {
-    "count": 18,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -197,6 +198,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
@@ -204,7 +206,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "count": 19,
     "pages": [
       "/audit-ia-pme",
-      "/audit-maturite-ia",
       "/audit-site-web-intelligent",
       "/services/agents-ia",
       "/services/applications-internes",
@@ -220,6 +221,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref"
     ]
@@ -297,7 +299,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 15,
+    "count": 16,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -313,6 +315,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
@@ -320,7 +323,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "count": 53,
     "pages": [
       "/audit-ia-pme",
-      "/audit-maturite-ia",
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
@@ -368,6 +370,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref",
       "src/pages/en/index.astro",
@@ -375,7 +378,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 15,
+    "count": 16,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -389,6 +392,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "src/pages/en/index.astro",
       "src/pages/index.astro"
@@ -397,13 +401,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "feature-split-media": {
     "count": 3,
     "pages": [
-      "/audit-maturite-ia",
+      "/audit-ia-pme",
       "/services/consultant-ia-claude",
       "/services/template-service-ref"
     ]
   },
   "feature-zigzag": {
-    "count": 38,
+    "count": 39,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -439,11 +443,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
   "footer-cta-band": {
-    "count": 50,
+    "count": 51,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -493,6 +498,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref"
     ]
@@ -517,9 +523,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-conversion-funnel": {
-    "count": 12,
+    "count": 11,
     "pages": [
-      "/audit-maturite-ia",
       "/lp/audit-ia-pme",
       "/lp/audit-site-web-intelligent",
       "/lp/content-marketing-intelligent",
@@ -552,9 +557,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-hub-stats": {
-    "count": 3,
+    "count": 2,
     "pages": [
-      "src/pages/agence-web-montpellier.astro",
       "src/pages/agence/index.astro",
       "src/pages/expertise-claude.astro"
     ]
@@ -566,7 +570,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-masthead-card": {
-    "count": 18,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -585,6 +589,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
@@ -628,7 +633,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hover-reveal-list": {
-    "count": 13,
+    "count": 14,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -642,11 +647,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
   "logo-marquee": {
-    "count": 15,
+    "count": 16,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -662,6 +668,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
@@ -673,7 +680,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "method-stepline": {
-    "count": 13,
+    "count": 14,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -687,13 +694,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
   "method-timeline": {
-    "count": 3,
+    "count": 2,
     "pages": [
-      "/audit-maturite-ia",
       "/services/template-service-ref",
       "src/components/templates/CaseStudyTemplate.astro"
     ]
@@ -716,7 +723,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 17,
+    "count": 18,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -734,6 +741,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
@@ -744,7 +752,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 25,
+    "count": 26,
     "pages": [
       "/lp/audit-ia-pme",
       "/lp/audit-site-web-intelligent",
@@ -769,14 +777,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref"
     ]
   },
   "problem-statement": {
-    "count": 12,
+    "count": 10,
     "pages": [
-      "/audit-maturite-ia",
       "/lp/audit-ia-pme",
       "/lp/audit-site-web-intelligent",
       "/lp/content-marketing-intelligent",
@@ -830,7 +838,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "proof-bar": {
     "count": 30,
     "pages": [
-      "/audit-maturite-ia",
       "/lp/audit-ia-pme",
       "/lp/audit-site-web-intelligent",
       "/lp/content-marketing-intelligent",
@@ -856,6 +863,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref",
       "src/pages/en/index.astro",
@@ -863,11 +871,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 21,
+    "count": 23,
     "pages": [
       "/audit-ia-pme",
-      "/audit-maturite-ia",
       "/audit-site-web-intelligent",
+      "/cas-usages/centraliser-donnees",
+      "/cas-usages/generer-plus-de-leads",
+      "/cas-usages/standardiser-processus",
       "/demonstrations/avant-apres",
       "/demonstrations/integration-claude",
       "/demonstrations/site-web-intelligent",
@@ -912,7 +922,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "statement-orbit": {
-    "count": 15,
+    "count": 16,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -928,6 +938,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
@@ -949,7 +960,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "sticky-scroll-storytelling": {
-    "count": 15,
+    "count": 16,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -965,11 +976,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
   "system-flow": {
-    "count": 13,
+    "count": 14,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -983,6 +995,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
@@ -1017,7 +1030,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "testimonial-wall": {
-    "count": 13,
+    "count": 14,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -1031,6 +1044,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
+      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },

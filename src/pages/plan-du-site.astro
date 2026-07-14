@@ -126,10 +126,11 @@ const allOutils = (await getCollection('outils'))
 const allServices = (await getCollection('services'))
   .map((e) => ({ href: `/services/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
-// Collection `offres` retirée (refonte v7) : le seul contenu indexé survivant est
-// l'audit de maturité, désormais page top-level /audit-maturite-ia.
+// Collection `offres` retirée (refonte v7). L'audit de maturité (/audit-maturite-ia)
+// a été fusionné dans /audit-ia-pme (dilution, 2026-07-14) : on liste la page audit
+// canonique survivante.
 const allOffres = [
-  { href: '/audit-maturite-ia', label: { fr: 'Audit Maturité IA', en: 'AI Maturity Audit' } },
+  { href: '/audit-ia-pme', label: { fr: 'Audit IA pour PME', en: 'AI audit for SMBs' } },
 ];
 
 // authors → /equipe/<entry.id> · filtre !seo.noindex (cf equipe/[...slug].astro)

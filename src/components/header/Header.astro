@@ -100,19 +100,31 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
 {/* Mega panels · un par mega-menu · cachés par défaut, révélés par data-open du header */}
 {MEGA_MENU.map((item) => {
   const cols = item.columns.length === 2 ? '2' : item.columns.length === 4 ? '4' : '3';
-  // Col 4 featured CONDITIONNELLE (directive Simon 2026-07-14) : si les systèmes
-  // portent chacun leur `featured`, on stacke les variantes (une par système) et
-  // le sélecteur bascule au même survol que le panneau modules. Sinon, `featured`
-  // de section (statique) comme avant. Défaut = 1er système sélectionnable.
-  const featSysCol = item.columns.find((c) => c.systems);
-  const featSystems = (featSysCol?.systems ?? []).filter(
-    (s) =>
-      !s.soon &&
-      Boolean(s.key) &&
-      Boolean((s.links && s.links.length) || (s.groups && s.groups.length)) &&
-      Boolean(s.featured),
-  );
-  const featDefaultKey = featSystems[0]?.key;
+  // Refonte V8.2 2026-07-14 · granularité MODULE : les cols 3 (détail) et 4
+  // (featured) sont pilotées par le MODULE survolé (col 2), plus par le système.
+  // On aplatit ici la liste des modules du sélecteur `systems` (ordre système →
+  // ordre module ; sous-groupes `groups` aplatis), avec pour chaque module sa clé
+  // stable (= href canonique), son détail et son featured (fallback = featured
+  // système). Défaut = 1er module du 1er système sélectionnable.
+  const isSelectableSys = (s: MegaMenuCategory) =>
+    !s.soon &&
+    Boolean(s.key) &&
+    Boolean((s.links && s.links.length) || (s.groups && s.groups.length));
+  const sysColData = item.columns.find((c) => c.systems);
+  const selectableSystems = (sysColData?.systems ?? []).filter(isSelectableSys);
+  const modulesFlat = selectableSystems.flatMap((sys) => {
+    const mods = sys.groups && sys.groups.length
+      ? sys.groups.flatMap((g) => g.links)
+      : (sys.links ?? []);
+    return mods.map((link) => ({ key: link.href, link, sysFeatured: sys.featured }));
+  });
+  const defaultModuleKey = modulesFlat[0]?.key;
+  // Cartes featured à stacker (une par module) : featuredCard du module, sinon
+  // fallback sur le featured du système parent. On ne stacke que si au moins une
+  // carte existe (sinon on retombe sur le `featured` de section statique).
+  const featModules = modulesFlat
+    .map((m) => ({ key: m.key, card: m.link.featuredCard ?? m.sysFeatured }))
+    .filter((m) => Boolean(m.card));
   return (
     <div
       class="mega"
@@ -170,7 +182,13 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                                     {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
                                   </span>
                                 ) : (
-                                  <a class="mega-link" href={lh(sub.href)}>
+                                  /* Le survol/focus d'un module (data-module-key) pilote les
+                                     cols 3-4 (détail + featured). Défaut actif = 1er module. */
+                                  <a
+                                    class:list={['mega-link mega-link--module', { 'is-active': sub.href === defaultModuleKey }]}
+                                    href={lh(sub.href)}
+                                    data-module-key={sub.href}
+                                  >
                                     <span class="arr" aria-hidden="true">→</span>
                                     <span class="t">{t(sub.label, lang)}</span>
                                     {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
@@ -252,53 +270,53 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
             );
           }
 
-          // ── Colonne « Résoudre un problème » CONDITIONNELLE (systemsProblems,
-          //    directive Simon 2026-07-14) : rend le jeu de liens de CHAQUE
-          //    système côté serveur (indexable), un seul visible ; le sélecteur
-          //    jumeau bascule au même survol/focus que le panneau modules. En-tête
-          //    (titre/goal) + footer communs. Défaut = 1er système sélectionnable. ─
-          if (col.systemsProblems) {
-            const sysCol = item.columns.find((c) => c.systems);
-            const isSelectable = (s: MegaMenuCategory) =>
-              !s.soon &&
-              Boolean(s.key) &&
-              Boolean((s.links && s.links.length) || (s.groups && s.groups.length));
-            const probSystems = (sysCol?.systems ?? []).filter(
-              (s) => isSelectable(s) && s.problems && s.problems.length,
-            );
-            const defaultKey = probSystems[0]?.key;
+          // ── Colonne « Le module en détail » CONDITIONNELLE (moduleDetail,
+          //    refonte V8.2 2026-07-14, granularité MODULE) : rend le panneau
+          //    `detail` de CHAQUE module côté serveur (indexable), un seul visible ;
+          //    le survol/focus d'un module (col 2) bascule (délai d'intention).
+          //    En-tête commun. Défaut = 1er module du système par défaut. Réutilise
+          //    l'idiome grille superposée `.mega-sys-panel`/`.mega-sys-group`. ─────
+          if (col.moduleDetail) {
+            const detailModules = modulesFlat.filter((m) => m.link.detail && m.link.detail.length);
             return (
-              <div class="mega-col mega-col--problems" data-need>
+              <div class="mega-col mega-col--detail" data-need>
                 <div class="mega-col-hd">
                   <div class="t">{t(col.title, lang)}</div>
-                  {col.goal && <div class="goal">{t(col.goal, lang)}</div>}
                 </div>
-                <div class="mega-sys-problems">
-                  {probSystems.map((sys) => (
-                    <ul
-                      class:list={['mega-sys-problems-v', { 'is-active': sys.key === defaultKey }]}
-                      data-sys-problems={sys.key}
-                      aria-label={t(sys.label, lang)}
+                <div class="mega-sys-panel">
+                  {detailModules.map((m) => (
+                    <div
+                      class:list={['mega-sys-group', { 'is-active': m.key === defaultModuleKey }]}
+                      data-module-detail={m.key}
+                      aria-label={t(m.link.label, lang)}
                     >
-                      {(sys.problems ?? []).map((sub) => (
-                        <li>
-                          <a class="mega-link" href={lh(sub.href)}>
-                            <span class="arr" aria-hidden="true">→</span>
-                            <span class="t">{t(sub.label, lang)}</span>
-                            {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                          </a>
-                        </li>
+                      {(m.link.detail ?? []).map((block) => (
+                        <div class="mega-sys-block">
+                          <div class="mega-sys-k">{t(block.label, lang)}</div>
+                          <ul>
+                            {block.links.map((sub) => (
+                              <li>
+                                {sub.soon ? (
+                                  <span class="mega-link is-soon">
+                                    <span class="arr" aria-hidden="true">→</span>
+                                    <span class="t">{t(sub.label, lang)}</span>
+                                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                  </span>
+                                ) : (
+                                  <a class="mega-link" href={lh(sub.href)}>
+                                    <span class="arr" aria-hidden="true">→</span>
+                                    <span class="t">{t(sub.label, lang)}</span>
+                                    {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                  </a>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   ))}
                 </div>
-                {col.footer && (
-                  col.footer.soon ? (
-                    <span class="mega-col-footer is-soon">{t(col.footer.label, lang)}</span>
-                  ) : (
-                    <a class="mega-col-footer" href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>
-                  )
-                )}
               </div>
             );
           }
@@ -346,25 +364,26 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
           </div>
           );
         })}
-        {featSystems.length > 0 ? (
-          /* Stack featured par système : grille superposée dans le slot featured,
-             une seule variante visible (basculée par le sélecteur, data-*). */
+        {featModules.length > 0 ? (
+          /* Stack featured par MODULE (refonte V8.2 2026-07-14) : grille superposée
+             dans le slot featured, une seule carte visible, basculée par le survol
+             d'un module (data-module-featured). Défaut = 1er module. */
           <div class="mega-featured-stack">
-            {featSystems.map((sys) => sys.featured && (
+            {featModules.map((m) => m.card && (
               <div
-                class:list={['mega-featured', { 'is-active': sys.key === featDefaultKey }]}
-                data-sys-featured={sys.key}
+                class:list={['mega-featured', { 'is-active': m.key === defaultModuleKey }]}
+                data-module-featured={m.key}
               >
-                <div class="badge">{t(sys.featured.kicker, lang)}</div>
-                <div class="ttl">{t(sys.featured.label, lang)}</div>
-                <div class="bd">{t(sys.featured.body, lang)}</div>
-                {sys.featured.image && (
-                  <a class="img lift" href={lh(sys.featured.href)} aria-hidden="true" tabindex="-1">
-                    <img src={sys.featured.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+                <div class="badge">{t(m.card.kicker, lang)}</div>
+                <div class="ttl">{t(m.card.label, lang)}</div>
+                <div class="bd">{t(m.card.body, lang)}</div>
+                {m.card.image && (
+                  <a class="img lift" href={lh(m.card.href)} aria-hidden="true" tabindex="-1">
+                    <img src={m.card.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
                   </a>
                 )}
-                <a class="cta btn btn-primary" href={lh(sys.featured.href)}>
-                  {t(sys.featured.cta, lang)}
+                <a class="cta btn btn-primary" href={lh(m.card.href)}>
+                  {t(m.card.cta, lang)}
                 </a>
               </div>
             ))}
@@ -385,6 +404,23 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
           </div>
         )}
       </div>
+      {item.problemBand && (
+        /* Bande « Résoudre un problème » horizontale (refonte V8.2 2026-07-14) :
+           remplace l'ancienne colonne problèmes. Intitulé + liens inline (cas-usages),
+           compacts, une ligne (wrap autorisé). */
+        <div class="mega-problem-band">
+          <span class="mega-problem-band-k">{t(item.problemBand.label, lang)}</span>
+          <div class="mega-problem-band-links">
+            {item.problemBand.links.map((sub) => (
+              sub.soon ? (
+                <span class="is-soon">{t(sub.label, lang)}</span>
+              ) : (
+                <a href={lh(sub.href)}>{t(sub.label, lang)}</a>
+              )
+            ))}
+          </div>
+        </div>
+      )}
       <div class="mega-bottom">
         {item.lead && <span>{t(item.lead, lang)}</span>}
         {item.parentHref && (
@@ -428,14 +464,10 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               // Colonne PANNEAU : ses modules vivent déjà dans les sous-accordéons
               // du sélecteur (col `systems`) → rien à rendre côté mobile.
               if (col.systemsPanel) return null;
-              // Col « Résoudre un problème » conditionnelle : pas de bascule au
-              // survol en mobile → on rend le jeu du système par défaut
-              // (1er sélectionnable = acquisition). Directive Simon 2026-07-14.
-              const mSysCol = item.columns.find((c) => c.systems);
-              const mDefaultSys = (mSysCol?.systems ?? []).find(
-                (s) => !s.soon && s.key && ((s.links && s.links.length) || (s.groups && s.groups.length)),
-              );
-              const mProblemLinks = col.systemsProblems ? (mDefaultSys?.problems ?? []) : col.links;
+              // Col « le module en détail » : le détail vit dans chaque toggle
+              // module du sélecteur (col `systems`) → rien à rendre séparément
+              // en mobile (refonte V8.2 2026-07-14).
+              if (col.moduleDetail) return null;
               return (
               <div class="m-sheet-acc-col" data-need={col.goal || col.quote ? '' : undefined}>
                 {/* Kicker de colonne retiré (répétait le titre), cf desktop. */}
@@ -477,19 +509,57 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                             {blocks.map((block) => (
                               <Fragment>
                                 {block.label && <div class="m-sys-k">{t(block.label, lang)}</div>}
-                                {block.links.map((sub) => (
-                                  sub.soon ? (
-                                    <span class="is-soon m-cat-link">
-                                      {t(sub.label, lang)}
-                                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                                    </span>
-                                  ) : (
-                                    <a class="m-cat-link" href={lh(sub.href)}>
-                                      {t(sub.label, lang)}
-                                      {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
-                                    </a>
-                                  )
-                                ))}
+                                {block.links.map((sub) => {
+                                  // Sous-niveau MODULE (refonte V8.2 2026-07-14) : un module
+                                  // avec `detail` devient un toggle qui déplie « le module en
+                                  // détail » (lien vers la page module en tête + liens detail).
+                                  // Toggle indépendant, imbriqué dans le sous-accordéon système.
+                                  if (sub.soon) {
+                                    return (
+                                      <span class="is-soon m-cat-link">
+                                        {t(sub.label, lang)}
+                                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                      </span>
+                                    );
+                                  }
+                                  if (!sub.detail || !sub.detail.length) {
+                                    return (
+                                      <a class="m-cat-link" href={lh(sub.href)}>
+                                        {t(sub.label, lang)}
+                                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                      </a>
+                                    );
+                                  }
+                                  const modBodyId = `m-mod-body-${item.parent}-${sub.href.replace(/[^a-z0-9]+/gi, '-')}`;
+                                  return (
+                                    <div class="m-mod" data-mod-acc={sub.href}>
+                                      <button class="m-mod-head" type="button" data-mod-acc-trigger={sub.href} aria-expanded="false" aria-controls={modBodyId}>
+                                        <span class="l">{t(sub.label, lang)}</span>
+                                        {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
+                                        <span class="chev" aria-hidden="true">+</span>
+                                      </button>
+                                      <div class="m-mod-body" id={modBodyId}>
+                                        <div class="m-mod-body-inner">
+                                          <a class="m-mod-page" href={lh(sub.href)}>
+                                            {lang === 'fr' ? 'Voir la page →' : 'See the page →'}
+                                          </a>
+                                          {(sub.detail ?? []).map((dblock) => (
+                                            <Fragment>
+                                              <div class="m-sys-k">{t(dblock.label, lang)}</div>
+                                              {dblock.links.map((dl) => (
+                                                dl.soon ? (
+                                                  <span class="is-soon m-cat-link">{t(dl.label, lang)}</span>
+                                                ) : (
+                                                  <a class="m-cat-link" href={lh(dl.href)}>{t(dl.label, lang)}</a>
+                                                )
+                                              ))}
+                                            </Fragment>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
                               </Fragment>
                             ))}
                             {sys.href && (
@@ -503,7 +573,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                     );
                   })
                 ) : (
-                  mProblemLinks.map((sub) => (
+                  col.links.map((sub) => (
                     sub.soon ? (
                       <span class="is-soon">
                         {t(sub.label, lang)}
@@ -523,6 +593,17 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               </div>
               );
             })}
+            {item.problemBand && (
+              /* Bande « Résoudre un problème » en mobile (refonte V8.2 2026-07-14) :
+                 rendue comme une colonne d'accordéon, liens cas-usages empilés. */
+              <div class="m-sheet-acc-col">
+                <div class="t">{lang === 'fr' ? 'Résoudre un problème' : 'Solve a problem'}</div>
+                <div class="g">{t(item.problemBand.label, lang)}</div>
+                {item.problemBand.links.map((sub) => (
+                  <a href={lh(sub.href)}>{t(sub.label, lang)}</a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -719,43 +800,79 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       });
     }
 
-    // ─── 4bis. Sélecteur de systèmes (panneau dynamique Solutions) ──────
-    // Chaque panneau `[data-sys-panel]` a des groupes `[data-sys-group]` ;
-    // le sélecteur jumeau porte des entrées `[data-sys-key]`. Survol/focus/clic
-    // d'une entrée → active le groupe correspondant (visibilité CSS, aucun
-    // fetch). Idempotent (toute la fonction est gardée par headerBound).
+    // ─── 4bis. Sélecteur systèmes → modules → détail (panneau Solutions) ──
+    // Refonte V8.2 2026-07-14 · granularité MODULE. Deux niveaux de bascule,
+    // tous en visibilité CSS (aucun fetch), scopés au mega panel courant :
+    //   · SYSTÈME (col 1, [data-sys-key]) → bascule le groupe modules (col 2,
+    //     [data-sys-group]) ET remet le module actif = 1er module du système.
+    //   · MODULE (col 2, [data-module-key]) → bascule le détail (col 3,
+    //     [data-module-detail]) + le featured (col 4, [data-module-featured]),
+    //     avec un léger délai d'intention au survol (anti-clignotement en
+    //     traversée diagonale) ; le focus clavier bascule immédiatement.
+    // Idempotent (toute la fonction est gardée par headerBound).
     for (const sysPanel of document.querySelectorAll('[data-sys-panel]')) {
-      const groups = Array.from(sysPanel.querySelectorAll('[data-sys-group]'));
       const scope = sysPanel.closest('[data-mega-panel]') || document;
-      const opts = Array.from(scope.querySelectorAll('[data-sys-key]'));
-      // Jeux jumeaux basculés par le MÊME survol/focus (directive Simon 2026-07-14) :
-      // col 3 « Résoudre un problème » (data-sys-problems) et col 4 featured
-      // (data-sys-featured). Scopés au mega panel courant (n'affecte pas les autres).
-      const problems = Array.from(scope.querySelectorAll('[data-sys-problems]'));
-      const featured = Array.from(scope.querySelectorAll('[data-sys-featured]'));
+      const groups = Array.from(sysPanel.querySelectorAll('[data-sys-group]'));
+      const sysOpts = Array.from(scope.querySelectorAll('[data-sys-key]'));
+      const moduleLinks = Array.from(scope.querySelectorAll('[data-module-key]'));
+      const details = Array.from(scope.querySelectorAll('[data-module-detail]'));
+      const featured = Array.from(scope.querySelectorAll('[data-module-featured]'));
+      // Modules (dans l'ordre DOM) par système, pour retrouver le 1er module
+      // d'un système quand on le survole.
+      const modulesBySys = new Map();
+      for (const g of groups) {
+        const sysKey = g.getAttribute('data-sys-group') || '';
+        const keys = Array.from(g.querySelectorAll('[data-module-key]'))
+          .map((a) => a.getAttribute('data-module-key') || '');
+        modulesBySys.set(sysKey, keys);
+      }
+      let hoverTimer = null;
+      const clearHover = () => {
+        if (hoverTimer !== null) { window.clearTimeout(hoverTimer); hoverTimer = null; }
+      };
+      const activateModule = (key) => {
+        if (!key) return;
+        for (const d of details) {
+          d.classList.toggle('is-active', d.getAttribute('data-module-detail') === key);
+        }
+        for (const f of featured) {
+          f.classList.toggle('is-active', f.getAttribute('data-module-featured') === key);
+        }
+        for (const l of moduleLinks) {
+          l.classList.toggle('is-active', l.getAttribute('data-module-key') === key);
+        }
+      };
       const activateSys = (key) => {
         if (!key) return;
         for (const g of groups) {
           g.classList.toggle('is-active', g.getAttribute('data-sys-group') === key);
         }
-        for (const p of problems) {
-          p.classList.toggle('is-active', p.getAttribute('data-sys-problems') === key);
-        }
-        for (const f of featured) {
-          f.classList.toggle('is-active', f.getAttribute('data-sys-featured') === key);
-        }
-        for (const o of opts) {
+        for (const o of sysOpts) {
           const on = o.getAttribute('data-sys-key') === key;
           o.classList.toggle('is-active', on);
           if (on) o.setAttribute('aria-current', 'true');
           else o.removeAttribute('aria-current');
         }
+        // Changer de système remet le module actif au 1er module de ce système.
+        clearHover();
+        const first = (modulesBySys.get(key) || [])[0];
+        activateModule(first);
       };
-      for (const o of opts) {
+      for (const o of sysOpts) {
         const key = o.getAttribute('data-sys-key') || '';
         o.addEventListener('pointerenter', () => activateSys(key));
         o.addEventListener('focus', () => activateSys(key));
         o.addEventListener('click', () => activateSys(key));
+      }
+      for (const l of moduleLinks) {
+        const key = l.getAttribute('data-module-key') || '';
+        l.addEventListener('pointerenter', () => {
+          clearHover();
+          hoverTimer = window.setTimeout(() => activateModule(key), 90);
+        });
+        l.addEventListener('pointerleave', clearHover);
+        // Focus clavier = bascule immédiate (pas de délai d'intention).
+        l.addEventListener('focus', () => { clearHover(); activateModule(key); });
       }
     }
 
@@ -855,6 +972,17 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     for (const tr of document.querySelectorAll('[data-sys-acc-trigger]')) {
       tr.addEventListener('click', () => {
         const acc = tr.closest('[data-sys-acc]');
+        const isOpen = acc ? acc.classList.toggle('is-open') : false;
+        tr.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // Sous-niveau MODULE mobile (refonte V8.2 2026-07-14) : chaque module à
+    // détail se déplie/replie indépendamment (« le module en détail »), imbriqué
+    // dans le sous-accordéon système, sans casser les toggles parents.
+    for (const tr of document.querySelectorAll('[data-mod-acc-trigger]')) {
+      tr.addEventListener('click', () => {
+        const acc = tr.closest('[data-mod-acc]');
         const isOpen = acc ? acc.classList.toggle('is-open') : false;
         tr.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
@@ -1072,31 +1200,18 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     border-bottom-color: var(--accent-text);
   }
 
-  /* ─ Col 3 « Résoudre un problème » + col 4 featured CONDITIONNELLES (directive
-     Simon 2026-07-14) ──────────────────────────────────────────────────────
-     Même idiome que .mega-sys-panel / .mega-sys-group : grille superposée →
-     la hauteur réservée = le plus grand jeu, zéro saut de layout au switch.
-     Le survol du sélecteur bascule `is-active` (script section 4bis). */
-  .mega-sys-problems { display: grid; }
-  .mega-sys-problems-v {
-    grid-area: 1 / 1;
-    list-style: none;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(6px);
-    transition:
-      opacity var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease),
-      visibility 0s linear var(--dur-trim);
+  /* ─ Col 3 « le module en détail » + col 4 featured pilotées par le MODULE
+     (refonte V8.2 2026-07-14) ────────────────────────────────────────────────
+     La col 3 réutilise l'idiome grille superposée `.mega-sys-panel`/`.mega-sys-group`
+     (déjà défini plus haut) → hauteur réservée = le plus grand détail, zéro saut de
+     layout au switch. Le survol/focus d'un module bascule `is-active` (script 4bis). */
+
+  /* Module actif (col 2) : léger fond + accent, comme le sélecteur système. */
+  .mega-link--module.is-active {
+    color: var(--accent-text);
   }
-  .mega-sys-problems-v.is-active {
-    visibility: visible;
+  .mega-link--module.is-active .arr {
     opacity: 1;
-    transform: translateY(0);
-    transition:
-      opacity var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease),
-      visibility 0s;
   }
 
   /* Featured : le stack occupe le slot featured (320px) ; une variante visible. */
@@ -1216,15 +1331,131 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   /* Liens modules du dropdown · léger retrait pour la hiérarchie. */
   .m-sheet-acc-col .m-cat-link { padding-left: var(--space-3); }
 
+  /* ─ Mobile · sous-niveau MODULE « le module en détail » (refonte V8.2
+     2026-07-14) ─────────────────────────────────────────────────────────────
+     Chaque module à détail = ligne à chevron imbriquée dans le dropdown système,
+     qui déplie sa page + ses liens detail. Même idiome que .m-sys (grid-rows). */
+  .m-mod { margin-left: var(--space-3); border-top: 1px solid var(--hairline); }
+  .m-mod:first-of-type { border-top: none; }
+  .m-mod-head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-2) 0;
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+  .m-mod-head .l { flex: 1; }
+  .m-mod-head .chev {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    color: var(--muted);
+    transition: transform var(--dur-hover) var(--ease);
+  }
+  .m-mod.is-open .m-mod-head .chev {
+    transform: rotate(45deg);
+    color: var(--accent-text);
+  }
+  .m-mod-head .flag {
+    flex: none;
+    padding: 1px var(--space-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    background: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .m-mod-head:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    background: var(--paper-2);
+  }
+  .m-mod-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-panel) var(--ease-out);
+  }
+  .m-mod.is-open .m-mod-body { grid-template-rows: 1fr; }
+  .m-mod-body-inner {
+    overflow: hidden;
+    min-height: 0;
+    padding-bottom: 0;
+    transition: padding-bottom var(--dur-panel) var(--ease-out);
+  }
+  .m-mod.is-open .m-mod-body-inner { padding-bottom: var(--space-2); }
+  /* Lien « Voir la page → » du module, en tête du détail. */
+  .m-sheet-acc-col a.m-mod-page {
+    display: inline-block;
+    margin: 0 0 var(--space-1) var(--space-3);
+    padding: 0 0 1px;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  /* Liens detail : retrait supplémentaire sous le module (2e cran). */
+  .m-mod-body-inner .m-cat-link { padding-left: var(--space-4); }
+  .m-mod-body-inner .m-sys-k { padding-left: var(--space-4); }
+
+  /* ─ Bande « Résoudre un problème » horizontale (desktop, refonte V8.2) ──────
+     Sous les colonnes, au-dessus de la lede/hub : intitulé + liens inline. */
+  .mega-problem-band {
+    max-width: var(--wrap-wide);
+    margin: 0 auto;
+    padding: var(--space-4) var(--gut) 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2) var(--space-4);
+  }
+  .mega-problem-band-k {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    white-space: nowrap;
+  }
+  .mega-problem-band-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+  }
+  .mega-problem-band-links a {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-body);
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: color var(--dur-trim) var(--ease), border-color var(--dur-trim) var(--ease);
+  }
+  .mega-problem-band-links a:hover {
+    color: var(--accent-text);
+    border-bottom-color: var(--accent-text);
+  }
+  .mega-problem-band-links .is-soon { opacity: 0.55; font-size: var(--text-small); color: var(--muted); }
+
   /* Mouvement réduit : switch et dropdown instantanés (a11y). */
   @media (prefers-reduced-motion: reduce) {
     .mega-sys-group,
-    .mega-sys-problems-v,
     .mega-featured-stack .mega-featured,
     .mega-sys-opt .ind,
     .m-sys-body,
     .m-sys-body-inner,
-    .m-sys-head .chev {
+    .m-sys-head .chev,
+    .m-mod-body,
+    .m-mod-body-inner,
+    .m-mod-head .chev {
       transition: none;
     }
   }

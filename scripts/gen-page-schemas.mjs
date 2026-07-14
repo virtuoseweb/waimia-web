@@ -40,7 +40,7 @@ const OUT_DIR = path.join(repoRoot, 'src/schemas/generated');
 // de dossier de contenu) ; `key` = clé dans l'export `collections` de content.config.ts.
 // NB : la collection casUsages s'exporte sous la clé 'cas-usages' (cf content.config.ts).
 export const TARGETS = [
-  { fileName: 'offres', key: 'offres' },
+  // 'offres' retiré : collection supprimée à la refonte v7 (cf content.config.ts, 301 via astro.config.mjs).
   { fileName: 'services', key: 'services' },
   { fileName: 'lp', key: 'lp' },
   { fileName: 'cas-usages', key: 'cas-usages' },

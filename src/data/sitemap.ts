@@ -95,9 +95,9 @@ export const MM_OFFRES_NEW: MegaMenu = {
       label: { en: 'Business systems', fr: 'Systèmes business' },
       tint: '#C94F2E',
       items: [
-        { href: '/services', label: { en: 'AI Growth System', fr: 'Growth System IA' }, lead: { en: 'Automated acquisition and conversion system. Site, CRM, follow-ups, dashboards: all connected.', fr: "Système d'acquisition et de conversion automatisé. Site, CRM, relances, tableaux : tout connecté." }, featured: true },
+        { href: '/services/systeme-acquisition', label: { en: 'Acquisition system', fr: "Système d'acquisition" }, lead: { en: 'Site, visibility, landing pages: the infrastructure that captures and qualifies, AI-driven.', fr: "Site, visibilité, landing pages : l'infrastructure qui capte et qualifie, pilotée par l'IA." }, featured: true },
         { href: '/services/site-web-ia', label: { en: 'AI website', fr: 'Site web IA' }, lead: { en: 'Astro + AI site · showcase + acquisition.', fr: 'Site Astro + IA · vitrine + acquisition.' } },
-        { href: '/audit-maturite-ia', label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' }, lead: { en: 'Process mapping, priority AI levers, costed roadmap.', fr: 'Cartographie des process, leviers IA prioritaires, feuille de route chiffrée.' } },
+        { href: '/audit-ia-pme', label: { en: 'AI Maturity Audit', fr: 'Audit Maturité IA' }, lead: { en: 'Process mapping, priority AI levers, costed roadmap.', fr: 'Cartographie des process, leviers IA prioritaires, feuille de route chiffrée.' } },
       ],
     },
   ],
@@ -292,7 +292,7 @@ export const FOOTER_COLS: FooterCol[] = [
       },
       { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifesto' } },
       {
-        href: '/agence-web-montpellier',
+        href: '/implantations/montpellier',
         label: { en: 'Web agency Montpellier', fr: 'Agence web Montpellier' },
       },
       { href: '/contact', label: { en: 'Contact', fr: 'Nous contacter' } },

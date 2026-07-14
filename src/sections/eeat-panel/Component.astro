@@ -14,11 +14,13 @@
  * Wave #38 (T3) : DÉPLACÉ depuis src/components/sections/EeatPanel.astro. Seul import
  * relatif = `../../data/eeat-proposals`, qui résout à l'identique depuis src/sections/eeat-panel/.
  */
-import { EEAT_PACK, EEAT_IMAGES } from '../../data/eeat-proposals';
+import { EEAT_PACK, EEAT_IMAGES, eeatSiloSet, type EeatSilo } from '../../data/eeat-proposals';
 
 interface Props {
   variant?: 'media' | 'columns' | 'light' | 'hero';
   background?: 'ink' | 'paper';
+  /** Silo de maillage interne : sélectionne le jeu de liens cohérent. Absent = 'generic'. */
+  silo?: EeatSilo;
   eyebrow?: string;
   title?: string;
   lead?: string;
@@ -29,6 +31,7 @@ const rawProps = Astro.props.data ?? Astro.props;
 const {
   variant = 'media',
   background,
+  silo,
   eyebrow,
   title,
   lead,
@@ -38,13 +41,21 @@ const {
 const P = EEAT_PACK;
 const IMG = EEAT_IMAGES;
 const img = (id: string) => IMG.find((i) => i.id === id)!;
-// Maillage interne : en mode default, chaque bloc est ramené à 3 items max, le lien de hub
-// (« Tous les … → ») compensant la réduction. Le mode compact garde sa mécanique (2 / 0).
+// Maillage interne par silo : le jeu de liens (services / outil / secteurs / articles) suit le
+// silo de la page hôte ; 'generic' (défaut) reproduit le top-3 historique du pack (rétrocompat).
+const set = eeatSiloSet(silo);
+// Anti-self-link : un panneau ne se lie jamais à sa propre page (utile surtout au silo 'hub' qui
+// pose 4 services pour absorber le retrait du hub hôte). Comparaison de pathname normalisé.
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isSelf = (href: string) => href.replace(/\/+$/, '') === currentPath;
+const siloServices = set.services.filter((s) => !isSelf(s.href));
+// En mode default, chaque bloc est ramené à 3 items max, le lien de hub (« Tous les … → »)
+// compensant la réduction. Le mode compact garde sa mécanique (2 / 0).
 const MAX_DEFAULT = 3;
-const sectors = linkMode === 'compact' ? P.sectors.slice(0, 2) : P.sectors.slice(0, MAX_DEFAULT);
-const articles = linkMode === 'compact' ? P.articles.slice(0, 2) : P.articles.slice(0, MAX_DEFAULT);
-const services = linkMode === 'compact' ? P.services.slice(0, 2) : P.services.slice(0, MAX_DEFAULT);
-const tools = linkMode === 'compact' ? [] : P.tools;
+const sectors = linkMode === 'compact' ? set.sectors.slice(0, 2) : set.sectors.slice(0, MAX_DEFAULT);
+const articles = linkMode === 'compact' ? set.articles.slice(0, 2) : set.articles.slice(0, MAX_DEFAULT);
+const services = linkMode === 'compact' ? siloServices.slice(0, 2) : siloServices.slice(0, MAX_DEFAULT);
+const tools = linkMode === 'compact' ? [] : [set.tool];
 const hubs = P.hubs;
 
 // Fond dérivé du variant si non forcé : light → paper, sinon ink.

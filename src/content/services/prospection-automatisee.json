@@ -54,6 +54,10 @@
     {
       "q": "Et si je fais déjà de l'inbound ?",
       "a": "L'outbound est le pendant sortant : vous allez chercher les comptes ICP au lieu d'attendre qu'ils vous trouvent. Les deux se complètent et alimentent le même CRM. La landing page de scoring capte l'inbound, la prospection automatisée ouvre les comptes ciblés. Un pipeline qui ne dépend que de l'inbound plafonne vite."
+    },
+    {
+      "q": "Combien coûte la prospection automatisée ?",
+      "a": "Trois formules sans engagement. Découverte à 0 € : une visio et 30 prospects offerts. Standard à 980 € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, et un volume plus élevé se cadre sur devis. Vous arrêtez ou mettez en pause quand vous voulez."
     }
   ],
   "faq_en": [
@@ -88,6 +92,10 @@
     {
       "q": "What if I already do inbound?",
       "a": "Outbound is the outgoing counterpart: you go after the ICP accounts instead of waiting for them to find you. The two complement each other and feed the same CRM. The scoring landing page captures inbound, automated prospecting opens targeted accounts. A pipeline that only depends on inbound plateaus fast."
+    },
+    {
+      "q": "How much does automated prospecting cost?",
+      "a": "Three plans, no commitment. Discovery at 0 €: a video call and 30 prospects on us. Standard at 980 € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, and higher volume is scoped on request. You stop or pause whenever you want."
     }
   ],
   "sections": [
@@ -171,8 +179,8 @@
       "kicker_en": "FIG 2.1 · Prospecting network",
       "h2_fr": "Une campagne ponctuelle s'éteint. Un <i class=\"acc\">dispositif</i> enrichit, relance et qualifie sans relâche.",
       "h2_en": "A one-off campaign burns out. A <i class=\"acc\">dispositif</i> enriches, follows up and qualifies without letup.",
-      "lede_fr": "Envoyer une salve de mails un lundi et attendre, ce n'est pas prospecter. Ici, chaque compte ciblé rejoint un réseau qui enrichit la fiche, cadence la relance et fait remonter les comptes chauds. La prospection devient un dispositif qui tourne, pas un sprint qu'on relance à la main quand le pipeline vide inquiète.",
-      "lede_en": "Firing a batch of emails one Monday and waiting isn't prospecting. Here, every targeted account joins a network that enriches the record, paces the follow-up and surfaces hot accounts. Prospecting becomes a machine that runs, not a sprint chased by hand when an empty pipeline gets scary.",
+      "lede_fr": "Envoyer une salve de mails un lundi et attendre, ce n'est pas prospecter. Ici, chaque compte ciblé rejoint un réseau qui enrichit la fiche, cadence la relance et fait remonter les comptes chauds. La prospection devient un dispositif qui tourne, pas un sprint qu'on relance à la main quand le pipeline vide inquiète. C'est un module du <a href=\"/services/systeme-commercial\">système commercial</a> : elle remplit le pipeline, le CRM et les relances font le reste.",
+      "lede_en": "Firing a batch of emails one Monday and waiting isn't prospecting. Here, every targeted account joins a network that enriches the record, paces the follow-up and surfaces hot accounts. Prospecting becomes a machine that runs, not a sprint chased by hand when an empty pipeline gets scary. It's one module of the <a href=\"/services/systeme-commercial\">commercial system</a>: it fills the pipeline, the CRM and follow-ups do the rest.",
       "cta": {
         "label_fr": "Explorer le dispositif →",
         "label_en": "Explore the system →",
@@ -188,8 +196,8 @@
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "La <i class=\"acc\">prospection automatisée</i> est une démarche outbound B2B : ciblage ICP enrichi, séquences cold email et multicanal personnalisées, relances voix et SMS, le tout branché au CRM avec scoring d'intention. Elle va chercher les comptes au lieu de les attendre, sans brûler le domaine d'envoi.",
-      "statement_en": "Automated prospecting is a B2B outbound practice: enriched ICP targeting, personalised cold email and multichannel sequences, voice and SMS follow-up, all wired to the CRM with intent scoring. It goes after accounts instead of waiting for them, without burning the sending domain.",
+      "statement_fr": "La <i class=\"acc\">prospection automatisée</i> est une démarche outbound B2B : ciblage ICP enrichi, séquences cold email et multicanal envoyées à froid, relances des prospects qui n'ont pas répondu, le tout branché au CRM avec scoring d'intention. Chez Waimia, elle ouvre de nouveaux comptes au lieu de les attendre, sans brûler le domaine d'envoi. Réchauffer un lead déjà connu relève des séquences de suivi, pas d'elle.",
+      "statement_en": "Automated prospecting is a B2B outbound practice: enriched ICP targeting, cold email and outbound multichannel sequences, follow-ups to prospects who never replied, all wired to the CRM with intent scoring. At Waimia, it opens new accounts instead of waiting for them, without burning the sending domain. Warming a lead you already know is the job of follow-up sequences, not this one.",
       "pills": [
         {
           "label_fr": "Ciblage ICP enrichi",
@@ -240,8 +248,8 @@
       "background": "ink",
       "kicker_fr": "Là où la prospection cale",
       "kicker_en": "Where prospecting stalls",
-      "h2_fr": "Pourquoi votre prospection ne remplit pas le pipeline",
-      "h2_en": "Why your prospecting doesn't fill the pipeline",
+      "h2_fr": "Pourquoi votre prospection outbound ne remplit pas le pipeline",
+      "h2_en": "Why your outbound prospecting doesn't fill the pipeline",
       "items": [
         {
           "severity": "critical",
@@ -540,43 +548,13 @@
       "anchor": "declinaisons",
       "background": "paper-3",
       "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système d'acquisition",
-      "kicker_en": "§ The acquisition system",
-      "h2_fr": "La prospection s'assemble au reste du <i>système</i>",
-      "h2_en": "Prospecting assembles into the rest of the <i>system</i>",
-      "lede_fr": "L'outbound ne travaille jamais seul : il alimente le même CRM que l'inbound et le contenu. Survolez une brique pour voir comment elle se branche.",
-      "lede_en": "Outbound never works alone: it feeds the same CRM as inbound and content. Hover a block to see how it wires in.",
+      "kicker_fr": "§ Le système commercial",
+      "kicker_en": "§ The commercial system",
+      "h2_fr": "La prospection s'assemble au reste du <i>système commercial</i>",
+      "h2_en": "Prospecting assembles into the rest of the <i>commercial system</i>",
+      "lede_fr": "L'outbound ne travaille jamais seul : il remplit le CRM, que les relances entretiennent et que le système commercial orchestre. Survolez une brique pour voir comment elle se branche.",
+      "lede_en": "Outbound never works alone: it fills the CRM, which follow-ups nurture and the commercial system orchestrates. Hover a block to see how it wires in.",
       "items": [
-        {
-          "label_fr": "Site web IA",
-          "label_en": "AI website",
-          "meta_fr": "La base qui capte et qualifie le trafic",
-          "meta_en": "The base that captures and qualifies traffic",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : le site qui capte le trafic entrant.",
-          "media_alt_en": "A craftsman at work: the site that captures inbound traffic.",
-          "link_href": "/services/site-web-ia"
-        },
-        {
-          "label_fr": "SEO, GEO et contenu",
-          "label_en": "SEO, GEO and content",
-          "meta_fr": "Le moteur inbound qui rend la marque citable",
-          "meta_en": "The inbound engine that makes the brand citable",
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "Analyse à l'écran : le contenu qui rend la marque visible.",
-          "media_alt_en": "On-screen analysis: the content that makes the brand visible.",
-          "link_href": "/services/seo-geo-contenu"
-        },
-        {
-          "label_fr": "Landing pages et scoring",
-          "label_en": "Landing pages and scoring",
-          "meta_fr": "La page qui convertit et priorise les leads",
-          "meta_en": "The page that converts and prioritises leads",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Un tri clair : la landing qui convertit et score.",
-          "media_alt_en": "A clear sort: the landing that converts and scores.",
-          "link_href": "/services/landing-pages-tunnels"
-        },
         {
           "label_fr": "CRM, scoring et routing",
           "label_en": "CRM, scoring and routing",
@@ -598,13 +576,23 @@
           "link_href": "/services/sequences-de-suivi"
         },
         {
-          "label_fr": "Système complet",
-          "label_en": "Complete system",
-          "meta_fr": "Acquisition, contenu, CRM et outbound câblés",
-          "meta_en": "Acquisition, content, CRM and outbound wired",
+          "label_fr": "Système commercial",
+          "label_en": "Commercial system",
+          "meta_fr": "Prospection, CRM et relances orchestrés d'un bloc",
+          "meta_en": "Prospecting, CRM and follow-ups orchestrated as one",
           "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : le système complet en marche.",
-          "media_alt_en": "A car on the road: the complete system running.",
+          "media_alt_fr": "Une voiture sur la route : le système commercial en marche.",
+          "media_alt_en": "A car on the road: the commercial system running.",
+          "link_href": "/services/systeme-commercial"
+        },
+        {
+          "label_fr": "En amont : le système d'acquisition",
+          "label_en": "Upstream: the acquisition system",
+          "meta_fr": "Le site et le contenu qui remplissent la base",
+          "meta_en": "The site and content that fill the base",
+          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
+          "media_alt_fr": "Un artisan au travail : l'acquisition qui remplit la base en amont.",
+          "media_alt_en": "A craftsman at work: acquisition filling the base upstream.",
           "link_href": "/services/systeme-acquisition"
         }
       ]
@@ -1118,7 +1106,8 @@
     },
     {
       "type": "eeat-panel",
-      "variant": "media"
+      "variant": "media",
+      "silo": "commercial"
     },
     {
       "type": "faq-accordion",
@@ -1175,6 +1164,12 @@
           "q_en": "What if I already do inbound?",
           "a_fr": "L'outbound est le pendant sortant : vous allez chercher les comptes ICP au lieu d'attendre qu'ils vous trouvent. Les deux se complètent et alimentent le même CRM. La landing page de scoring capte l'inbound, la prospection automatisée ouvre les comptes ciblés. Un pipeline qui ne dépend que de l'inbound plafonne vite.",
           "a_en": "Outbound is the outgoing counterpart: you go after the ICP accounts instead of waiting for them to find you. The two complement each other and feed the same CRM. The scoring landing page captures inbound, automated prospecting opens targeted accounts. A pipeline that only depends on inbound plateaus fast."
+        },
+        {
+          "q_fr": "Combien coûte la prospection automatisée ?",
+          "q_en": "How much does automated prospecting cost?",
+          "a_fr": "Trois formules sans engagement. Découverte à 0 € : une visio et 30 prospects offerts. Standard à 980 € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, et un volume plus élevé se cadre sur devis. Vous arrêtez ou mettez en pause quand vous voulez.",
+          "a_en": "Three plans, no commitment. Discovery at 0 €: a video call and 30 prospects on us. Standard at 980 € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, and higher volume is scoped on request. You stop or pause whenever you want."
         }
       ]
     },

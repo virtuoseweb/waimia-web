@@ -11,6 +11,10 @@ export const schema = z.object({
   type: z.literal('eeat-panel'),
   variant: z.enum(['media', 'columns', 'light', 'hero']).default('media'),
   background: z.enum(['ink', 'paper']).optional(),
+  // Silo de maillage interne : sélectionne le jeu de liens (services / outil / secteurs /
+  // articles) cohérent avec le silo de la page hôte. Absent = 'generic' (jeu historique),
+  // donc rétrocompatible : les instances sans ce champ rendent le maillage actuel.
+  silo: z.enum(['acquisition', 'commercial', 'ops', 'hub', 'generic']).optional(),
   eyebrow: z.string().optional(),
   title: z.string().optional(),
   lead: z.string().optional(),

@@ -28,6 +28,10 @@
       "a": "À transformer Claude, un modèle générique, en un système qui exécute du travail réel dans votre entreprise. Concrètement : on cartographie le process à automatiser, on conçoit l'agent, on le branche à vos outils via le protocole MCP, on le déploie en production et on le supervise dans la durée. Pas une démo, un dispositif mesuré."
     },
     {
+      "q": "Quelle différence avec les agents IA ?",
+      "a": "La page Agents IA vise une requête précise : un agent autonome pour une tâche répétitive (relance, tri, veille, reporting), quel que soit le modèle. L'intégration Claude est le cran au-dessus : Waimia déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Un agent isolé se cadre côté Agents IA ; un dispositif d'entreprise complet se cadre ici."
+    },
+    {
       "q": "Vous couvrez Claude Code et l'usage interne, ou seulement les agents métier ?",
       "a": "Les deux, parce qu'une PME a rarement besoin d'un seul morceau. On déploie Claude pour les équipes et leurs usages quotidiens, on installe Claude Code dans les dépôts d'une équipe technique avec hooks et guardrails, on branche les agents à vos outils via MCP, et on forme un référent IA interne. C'est un seul interlocuteur pour tout le dispositif, du cadrage à la gouvernance."
     },
@@ -60,6 +64,10 @@
     {
       "q": "What does Claude integration in the enterprise consist of?",
       "a": "Turning Claude, a generic model, into a system that runs real work inside your business. Concretely: we map the process to automate, design the agent, wire it to your tools through the MCP protocol, deploy it to production and supervise it over time. Not a demo, a measured dispositif."
+    },
+    {
+      "q": "How is this different from AI agents?",
+      "a": "The AI agents page targets a precise query: an autonomous agent for one repetitive task (follow-up, sorting, watch, reporting), whatever the model. Claude integration is the tier above: Waimia deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. A standalone agent is scoped on AI agents; a full enterprise setup is scoped here."
     },
     {
       "q": "Do you cover Claude Code and internal use, or only business agents?",
@@ -188,8 +196,8 @@
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "L'<i class=\"acc\">intégration Claude</i> déploie Claude et ses agents dans votre entreprise et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort.",
-      "statement_en": "<i class=\"acc\">Claude integration</i> deploys Claude and its agents in your company and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry and no POC left asleep.",
+      "statement_fr": "L'<i class=\"acc\">intégration Claude</i> déploie Claude et ses agents dans votre entreprise et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort. Waimia en est l'opérateur, un interlocuteur unique du cadrage au référent formé.",
+      "statement_en": "<i class=\"acc\">Claude integration</i> deploys Claude and its agents in your company and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry and no POC left asleep. Waimia is its operator, a single point of contact from scoping to the trained lead.",
       "pills": [
         {
           "label_fr": "Écosystème Anthropic",
@@ -1055,7 +1063,8 @@
     },
     {
       "type": "eeat-panel",
-      "variant": "media"
+      "variant": "media",
+      "silo": "ops"
     },
     {
       "type": "faq-accordion",
@@ -1070,6 +1079,12 @@
           "q_en": "What does Claude integration in the enterprise consist of?",
           "a_fr": "À transformer Claude, un modèle générique, en un système qui exécute du travail réel dans votre entreprise. Concrètement : on cartographie le process à automatiser, on conçoit l'agent, on le branche à vos outils via le protocole MCP, on le déploie en production et on le supervise dans la durée. Pas une démo, un dispositif mesuré.",
           "a_en": "Turning Claude, a generic model, into a system that runs real work inside your business. Concretely: we map the process to automate, design the agent, wire it to your tools through the MCP protocol, deploy it to production and supervise it over time. Not a demo, a measured dispositif."
+        },
+        {
+          "q_fr": "Quelle différence avec les agents IA ?",
+          "q_en": "How is this different from AI agents?",
+          "a_fr": "La page Agents IA vise une requête précise : un agent autonome pour une tâche répétitive (relance, tri, veille, reporting), quel que soit le modèle. L'intégration Claude est le cran au-dessus : Waimia déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Un agent isolé se cadre côté Agents IA ; un dispositif d'entreprise complet se cadre ici.",
+          "a_en": "The AI agents page targets a precise query: an autonomous agent for one repetitive task (follow-up, sorting, watch, reporting), whatever the model. Claude integration is the tier above: Waimia deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. A standalone agent is scoped on AI agents; a full enterprise setup is scoped here."
         },
         {
           "q_fr": "Vous couvrez Claude Code et l'usage interne, ou seulement les agents métier ?",

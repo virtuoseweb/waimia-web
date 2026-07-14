@@ -156,7 +156,9 @@ export default defineConfig({
     // top-level /audit-maturite-ia ; growth-system-ia supprimé (301 → /services).
     // Anciennes URLs /offres/* (et vestiges de l'arbo 3-piliers) redirigées 301.
     '/offres': '/services',
-    '/offres/audit-maturite-ia': '/audit-maturite-ia',
+    // MAJ 2026-07-14 · /audit-maturite-ia dépublié (dilution audits) → ciblé
+    // directement sur /audit-ia-pme pour éviter une chaîne de 301.
+    '/offres/audit-maturite-ia': '/audit-ia-pme',
     '/offres/growth-system-ia': '/services',
     '/offres/site-web-ia': '/services/site-web-ia',
     '/offres/site-web-ia-landing': '/services/site-web-ia',
@@ -171,6 +173,18 @@ export default defineConfig({
     '/acquerir': '/services',
     '/operer': '/services',
     '/piloter': '/services',
+    // Nettoyage dilution 2026-07-14 (validé Simon) · pages audits/diagnostics et
+    // doorway local en doublon, dépubliées et 301 vers la surface canonique.
+    // /audit-maturite-ia (diagnostic 47 critères) fusionné dans /audit-ia-pme
+    // (section « diagnostic approfondi » migrée + grille scorecard réutilisée).
+    '/audit-maturite-ia': '/audit-ia-pme',
+    // 3 pages « résultats » mono-cas (agrégation d'un seul cas réel) repliées sur
+    // les cas d'usage correspondants ; le cas réel (Amploi) y est intégré.
+    '/cas-clients/resultats/qualification-commerciale': '/cas-usages/generer-plus-de-leads',
+    '/cas-clients/resultats/automatisation-processus': '/cas-usages/standardiser-processus',
+    '/cas-clients/resultats/centralisation-donnees': '/cas-usages/centraliser-donnees',
+    // Doublon local doorway (placeholder NAP noindex) → page implantation canonique.
+    '/agence-web-montpellier': '/implantations/montpellier',
   },
   integrations: [
     react(),
@@ -212,6 +226,10 @@ export default defineConfig({
           !page.includes('/commerce/') &&
           // Landing pages (/lp/*) : noindex par défaut (ADR-003) → hors sitemap.
           !page.includes('/lp/') &&
+          // Variantes A/B internes (/preview-v/*, /preview-swi/*) : noindex,follow →
+          // hors sitemap pour cohérence noindex↔crawl (audit maillage 2026-07-14).
+          !page.includes('/preview-v/') &&
+          !page.includes('/preview-swi/') &&
           // Atelier DS interne (/library/* : hub + Studio + Hero Lab + catalogue) : public
           // mais non référencé (noindex + footer only, décision docs/design-system/03 §11.2)
           // → hors sitemap pour cohérence noindex↔crawl, comme /preview/ et /components/.
@@ -222,7 +240,7 @@ export default defineConfig({
     }),
     robotsTxt({
       policy: [
-        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/library/', '/preview/', '/components/', '/categories/', '/lp/'] },
+        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/library/', '/preview/', '/preview-v/', '/preview-swi/', '/components/', '/categories/', '/lp/'] },
         { userAgent: 'GPTBot', allow: '/' },
         { userAgent: 'ClaudeBot', allow: '/' },
         { userAgent: 'anthropic-ai', allow: '/' },
