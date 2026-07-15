@@ -89,6 +89,28 @@ function buildOrganization() {
   };
 }
 
+function buildLocalBusiness() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${SITE_URL}/#localbusiness`,
+    name: 'Waimia',
+    alternateName: 'VirtuoseWeb',
+    url: SITE_URL,
+    logo: `${SITE_URL}/og/logo.svg`,
+    telephone: '+33620615693',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '537 Rue du Pré aux Clercs',
+      postalCode: '34090',
+      addressLocality: 'Montpellier',
+      addressCountry: 'FR',
+    },
+    areaServed: { '@type': 'City', name: 'Montpellier' },
+    sameAs: ['https://share.google/nmlHLC5wQak9TWRPl', 'https://www.linkedin.com/company/waimia'],
+  };
+}
+
 function buildPersonFromAuthor(authorEntry: any, lang: Lang): JsonLdObject | undefined {
   if (!authorEntry) return undefined;
   const a = authorEntry.data;
@@ -744,6 +766,7 @@ export {
   buildCourseSchema,
   buildHowTo,
   buildOrganization,
+  buildLocalBusiness,
   buildOffer,
   buildPersonFromAuthor,
   buildProductSchema,

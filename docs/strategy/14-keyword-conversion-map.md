@@ -118,9 +118,16 @@ sur le kw commercial ; les 3 contenus pointent vers elle en CTA.
   système · frontière consultant/integration · titles outils qualifiés · maillage piliers depuis les contenus.
 - **Vague 3 (P3)** : retitrages mineurs (maintenance-growth), habillage E-E-A-T ternes (equipe si
   mono-auteur), metricsHero sectoriels, enrichissements cas (chiffres isabelle-diaz).
-- **Post-site (backlog)** : Google Search Console + GA4 + Bing Webmaster Tools (boucle
-  hypothèse→ship→GSC→ajuste, cf `strategy/03 §1`) ; autres trackers de data. Comptes = Simon.
+- **Post-site (backlog)** : GA4 + Bing Webmaster Tools + autres trackers. Décision Simon 2026-07-15 :
+  GA4 « pas urgent », pas d'intégration ni de boucle d'auto-amélioration IA pour le moment.
+  ✅ **GSC : FAIT 2026-07-15** — propriété domaine `sc-domain:waimia.com` vérifiée (TXT DNS), sitemap
+  `sitemap-index.xml` soumis (l'ancien `sitemap_index.xml` de 2024, 0 pages, supprimé). Premier fetch
+  Google challengé par la mitigation DDoS Vercel (retombée depuis, curl 200) → re-vérifier sous
+  24-48 h que l'état passe à « Opération effectuée » et que les ~97 pages se découvrent.
 
 ## 6. Journal
 
 - 2026-07-14 · v1 : carte initiale (97 URLs indexables, 4 analystes) + vague 1 lancée.
+- 2026-07-15 · arbitrages Simon : régie growth = 99 €/h NON dégressif partout (sweep 12 fichiers, fin
+  du dégressif maintenance-growth) ; onglet SEO/GEO /tarifs = 10 h/990 € · 20 h/1 980 € · pilotage
+  99 €/h ; GSC branché (sitemap) ; GA4 explicitement reporté.
