@@ -131,3 +131,9 @@ sur le kw commercial ; les 3 contenus pointent vers elle en CTA.
 - 2026-07-15 · arbitrages Simon : régie growth = 99 €/h NON dégressif partout (sweep 12 fichiers, fin
   du dégressif maintenance-growth) ; onglet SEO/GEO /tarifs = 10 h/990 € · 20 h/1 980 € · pilotage
   99 €/h ; GSC branché (sitemap) ; GA4 explicitement reporté.
+- 2026-07-15 · alignement modèle SWI (commit `fc437e1e`, directive Simon « pourquoi wordpress pas sur
+  le modèle exact ») : les 5 dernières pages services hors modèle passent aux 20 sections exactes de
+  site-web-ia (wordpress 9→20, webflow 9→20, sur-mesure 10→20, consultant-ia-claude 18→20,
+  maintenance-growth 17→20). 18/18 pages services conformes. Contenu préservé/redistribué, angles kw
+  intacts, avis/cas réutilisés des sœurs, stat Afnic 61 % réinjectée en proof-bar, pricing canonique
+  inchangé (sur-mesure : priceRange 3-15 k réaligné sur la grille canonique 2-10 k).
