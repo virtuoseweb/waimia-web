@@ -34,19 +34,17 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "bento-grid": {
-    "count": 7,
+    "count": 5,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
-      "/cas-usages/standardiser-processus",
-      "/services/consultant-ia-claude",
-      "/services/maintenance-growth"
+      "/cas-usages/standardiser-processus"
     ]
   },
   "case-card-grid": {
-    "count": 22,
+    "count": 25,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -61,6 +59,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
@@ -89,7 +90,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 26,
+    "count": 28,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -102,10 +103,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisations",
+      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
       "/services/integration-claude",
       "/services/landing-pages-tunnels",
+      "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
@@ -202,7 +205,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 19,
+    "count": 22,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -219,6 +222,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
@@ -297,7 +303,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 16,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -312,6 +318,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
@@ -375,19 +384,24 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 16,
+    "count": 21,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisations",
+      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
       "/services/integration-claude",
       "/services/landing-pages-tunnels",
+      "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
@@ -396,15 +410,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-split-media": {
-    "count": 3,
+    "count": 2,
     "pages": [
       "/audit-ia-pme",
-      "/services/consultant-ia-claude",
       "/services/template-service-ref"
     ]
   },
   "feature-zigzag": {
-    "count": 39,
+    "count": 36,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -627,26 +640,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hover-reveal-list": {
-    "count": 14,
-    "pages": [
-      "/services/agents-ia",
-      "/services/applications-internes",
-      "/services/automatisations",
-      "/services/crm-scoring-routing",
-      "/services/donnees-reporting",
-      "/services/integration-claude",
-      "/services/landing-pages-tunnels",
-      "/services/prospection-automatisee",
-      "/services/seo-geo-contenu",
-      "/services/sequences-de-suivi",
-      "/services/site-web-ia",
-      "/services/systeme-acquisition",
-      "/services/systeme-commercial",
-      "/services/systemes-operationnels-ia"
-    ]
-  },
-  "logo-marquee": {
-    "count": 16,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -661,6 +655,33 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
+      "/services/systeme-acquisition",
+      "/services/systeme-commercial",
+      "/services/systemes-operationnels-ia"
+    ]
+  },
+  "logo-marquee": {
+    "count": 19,
+    "pages": [
+      "/services/agents-ia",
+      "/services/applications-internes",
+      "/services/automatisations",
+      "/services/consultant-ia-claude",
+      "/services/crm-scoring-routing",
+      "/services/donnees-reporting",
+      "/services/integration-claude",
+      "/services/landing-pages-tunnels",
+      "/services/maintenance-growth",
+      "/services/prospection-automatisee",
+      "/services/seo-geo-contenu",
+      "/services/sequences-de-suivi",
+      "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
@@ -674,19 +695,24 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "method-stepline": {
-    "count": 14,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisations",
+      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
       "/services/integration-claude",
       "/services/landing-pages-tunnels",
+      "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
@@ -717,7 +743,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 18,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -732,6 +758,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
       "/services/site-web-ia/webflow",
       "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
@@ -746,7 +773,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 26,
+    "count": 29,
     "pages": [
       "/lp/audit-ia-pme",
       "/lp/audit-site-web-intelligent",
@@ -770,6 +797,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
@@ -829,7 +859,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "proof-bar": {
-    "count": 30,
+    "count": 31,
     "pages": [
       "/lp/audit-ia-pme",
       "/lp/audit-site-web-intelligent",
@@ -843,6 +873,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisations",
+      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
       "/services/integration-claude",
@@ -864,7 +895,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 22,
+    "count": 19,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -884,10 +915,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides/claude-pme",
-      "/services/site-web-ia/sur-mesure",
-      "/services/site-web-ia/webflow",
-      "/services/site-web-ia/wordpress"
+      "/ressources/guides/claude-pme"
     ]
   },
   "roi-band": {
@@ -914,7 +942,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "statement-orbit": {
-    "count": 16,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -929,17 +957,17 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
   "stats-bento": {
-    "count": 4,
+    "count": 1,
     "pages": [
-      "/services/consultant-ia-claude",
-      "/services/maintenance-growth",
-      "/services/site-web-ia/sur-mesure",
       "/services/template-service-ref"
     ]
   },
@@ -952,7 +980,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "sticky-scroll-storytelling": {
-    "count": 16,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
@@ -967,25 +995,33 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
     ]
   },
   "system-flow": {
-    "count": 14,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisations",
+      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
       "/services/integration-claude",
       "/services/landing-pages-tunnels",
+      "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
@@ -1022,19 +1058,24 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "testimonial-wall": {
-    "count": 14,
+    "count": 19,
     "pages": [
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisations",
+      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
       "/services/integration-claude",
       "/services/landing-pages-tunnels",
+      "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
@@ -1048,11 +1089,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "versus-competitors": {
-    "count": 3,
+    "count": 2,
     "pages": [
       "/audit-ia-pme",
-      "/audit-site-web-intelligent",
-      "/services/consultant-ia-claude"
+      "/audit-site-web-intelligent"
     ]
   },
   "workflow-table": {
