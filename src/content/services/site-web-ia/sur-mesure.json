@@ -6,6 +6,7 @@
   "description_en": "Bespoke headless site: a decoupled front, your choice of headless CMS (Tina, Strapi, Sanity), 100/100 SSG performance and zero lock-in. Studio in Montpellier.",
   "slug": "sur-mesure-headless",
   "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-07-15T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "site-sur-mesure",
@@ -17,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Création de site sur mesure et CMS headless",
-    "priceRange": "3000-15000€",
-    "priceMin": 3000,
-    "priceMax": 15000
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
   },
   "faq_fr": [
     {
@@ -81,8 +82,8 @@
       "kicker_en": "§ Bespoke · Headless CMS",
       "h1_fr": "Site <i class=\"acc\">sur mesure</i> & CMS headless.",
       "h1_en": "A <i class=\"acc\">bespoke</i> site & headless CMS.",
-      "lede_fr": "Quand le clé-en-main ne suffit plus : un front découplé, un CMS headless choisi pour votre cas, et une architecture composable qui monte de version sans tout refondre.",
-      "lede_en": "When turnkey isn't enough: a decoupled front, a headless CMS chosen for your case, and a composable architecture that moves up versions without redoing everything.",
+      "lede_fr": "Quand le clé-en-main ne suffit plus : un front découplé, un CMS headless choisi pour votre cas, et une architecture composable qui monte de version sans tout refondre. Perf SSG 100/100, standards ouverts, zéro captivité.",
+      "lede_en": "When turnkey isn't enough: a decoupled front, a headless CMS chosen for your case, and a composable architecture that moves up versions without redoing everything. 100/100 SSG performance, open standards, zero lock-in.",
       "badges": [
         {
           "label_fr": "Front découplé",
@@ -112,7 +113,7 @@
       "cta_secondary": {
         "label_fr": "Voir les briques",
         "label_en": "See the building blocks",
-        "href": "#briques",
+        "href": "#capacites",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -138,7 +139,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "3–15 k€",
+          "value": "2–10 k€",
           "label_fr": "budget HT indicatif (sur devis au-delà)",
           "label_en": "indicative ex-VAT budget (on quote beyond)",
           "emphasis": true
@@ -159,6 +160,24 @@
           "label_en": "code, content and docs handed over"
         }
       ]
+    },
+    {
+      "type": "statement-orbit",
+      "kicker_fr": "FIG 1.5 · L'architecture",
+      "kicker_en": "FIG 1.5 · The architecture",
+      "h2_fr": "Une plateforme tout-en-un vous borne. Une architecture <i class=\"acc\">composable</i> se modifie brique par brique et reste la vôtre.",
+      "h2_en": "An all-in-one platform bounds you. A <i class=\"acc\">composable</i> architecture changes block by block and stays yours.",
+      "lede_fr": "Tant que votre site vit dans une plateforme fermée, vous êtes borné par ses limites. Ici, le contenu, l'affichage, le CMS et vos outils métier se découplent et s'assemblent sur des standards ouverts. On ajoute une brique quand il en faut une, on ne refond jamais tout. Le site sur mesure est une base du <a href=\"/services/systeme-acquisition\">système d'acquisition</a>, taillée pour durer.",
+      "lede_en": "As long as your site lives in a closed platform, you are bounded by its limits. Here, content, display, the CMS and your business tools decouple and assemble on open standards. We add a block when one is needed, we never rebuild everything. The bespoke site is a base of the <a href=\"/services/systeme-acquisition\">acquisition system</a>, built to last.",
+      "cta": {
+        "label_fr": "Voir les briques →",
+        "label_en": "See the building blocks →",
+        "href": "#capacites",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/orbit-network.svg",
+      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : un front, un CMS headless, des intégrations métier et l'IA s'orchestrent en une architecture composable.",
+      "media_alt_en": "Wireframe globe with nodes linked by arcs: a front, a headless CMS, business integrations and AI orchestrate into one composable architecture."
     },
     {
       "type": "definition-extract",
@@ -217,86 +236,491 @@
       ]
     },
     {
-      "type": "feature-zigzag",
-      "anchor": "briques",
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Là où le clé-en-main plafonne · par sévérité",
+      "kicker_en": "Where turnkey plateaus · by severity",
+      "h2_fr": "Quand le clé-en-main ne <i class=\"acc\">suffit</i> plus.",
+      "h2_en": "When turnkey no longer <i class=\"acc\">holds</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Une captivité de plateforme qui coince",
+          "title_en": "Platform lock-in that traps you",
+          "desc_fr": "Abonnement récurrent, écosystème propriétaire, contenu prisonnier d'une base fermée : reprendre la main ou changer de prestataire devient un projet à part entière.",
+          "desc_en": "Recurring subscription, proprietary ecosystem, content trapped in a closed database: taking back control or changing provider becomes a project in itself.",
+          "fix_fr": "Standards ouverts, code et contenu transférés.",
+          "fix_en": "Open standards, code and content handed over."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Une personnalisation bornée par la plateforme",
+          "title_en": "Customisation bounded by the platform",
+          "desc_fr": "Intégrations métier lourdes, design system propre, parcours spécifiques : la plateforme atteint ses limites et chaque écart passe par un contournement fragile.",
+          "desc_en": "Heavy business integrations, an own design system, specific journeys: the platform hits its limits and every deviation goes through a fragile workaround.",
+          "fix_fr": "Architecture composable, brique par brique.",
+          "fix_en": "Composable architecture, block by block."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Une perf et une sécurité qui dépendent du moteur",
+          "title_en": "Performance and security tied to the engine",
+          "desc_fr": "Un serveur applicatif rend les pages à chaque visite, une base est exposée, des plugins sont à patcher : la vitesse et la surface d'attaque ne sont pas maîtrisées.",
+          "desc_en": "An application server renders pages on each visit, a database is exposed, plugins need patching: speed and attack surface are not under control.",
+          "fix_fr": "SSG 100/100, 0 base exposée.",
+          "fix_en": "100/100 SSG, no exposed database."
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Clé-en-main / Sur-mesure",
+      "kicker_en": "§ Turnkey / Bespoke",
+      "h2_fr": "Quand passer du clé-en-main au <i class=\"acc\">sur-mesure</i>",
+      "h2_en": "When to move from turnkey to <i class=\"acc\">bespoke</i>",
+      "without_label_fr": "Clé-en-main",
+      "without_label_en": "Turnkey",
+      "without_title_fr": "Webflow / WordPress",
+      "without_title_en": "Webflow / WordPress",
+      "without_items": [
+        {
+          "text_fr": "Mise en ligne rapide, idéal pour 80 % des sites vitrines et landing.",
+          "text_en": "Fast go-live, ideal for 80 % of brochure sites and landings."
+        },
+        {
+          "text_fr": "Personnalisation bornée par les limites de la plateforme.",
+          "text_en": "Customisation bounded by the platform's limits."
+        },
+        {
+          "text_fr": "La perf et la sécurité dépendent du moteur et des plugins.",
+          "text_en": "Performance and security depend on the engine and plugins."
+        },
+        {
+          "text_fr": "Abonnement et écosystème propriétaire : une part de captivité.",
+          "text_en": "Subscription and proprietary ecosystem: a degree of lock-in."
+        }
+      ],
+      "with_label_fr": "Sur-mesure",
+      "with_label_en": "Bespoke",
+      "with_title_fr": "Headless composable",
+      "with_title_en": "Composable headless",
+      "with_items": [
+        {
+          "text_fr": "Architecture composable libre, modifiée brique par brique.",
+          "text_en": "Free composable architecture, changed block by block."
+        },
+        {
+          "text_fr": "Perf 100/100 en SSG et surface d'attaque réduite par construction.",
+          "text_en": "100/100 SSG performance and a reduced attack surface by design."
+        },
+        {
+          "text_fr": "Intégrations métier lourdes et scalabilité sans réécrire les fondations.",
+          "text_en": "Heavy business integrations and scalability without rewriting foundations."
+        },
+        {
+          "text_fr": "Standards ouverts, code et contenu transférés : zéro captivité.",
+          "text_en": "Open standards, code and content handed over: zero lock-in."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Maturité",
+      "kicker_en": "§ Maturity",
+      "h2_fr": "Les 6 niveaux d'un site qui reste le vôtre",
+      "h2_en": "The 6 levels of a site that stays yours",
+      "lede_fr": "De la plateforme fermée au système composable transférable, six paliers. La plupart des PME stagnent au clé-en-main poussé à ses limites. On vous situe, puis on vous fait monter d'un cran.",
+      "lede_en": "From a closed platform to a transferable composable system, six tiers. Most SMEs stall at turnkey pushed to its limits. We place you, then move you up a notch.",
+      "steps": [
+        {
+          "title_fr": "Plateforme fermée",
+          "title_en": "Closed platform",
+          "sub_fr": "Tout-en-un, captif",
+          "sub_en": "All-in-one, locked in"
+        },
+        {
+          "title_fr": "Clé-en-main poussé",
+          "title_en": "Turnkey stretched",
+          "sub_fr": "Contournements fragiles",
+          "sub_en": "Fragile workarounds"
+        },
+        {
+          "title_fr": "Front découplé",
+          "title_en": "Decoupled front",
+          "sub_fr": "SSG rapide et sécurisé",
+          "sub_en": "Fast, secure SSG"
+        },
+        {
+          "title_fr": "Architecture composable",
+          "title_en": "Composable architecture",
+          "sub_fr": "Assemblage brique par brique",
+          "sub_en": "Assembled block by block"
+        },
+        {
+          "title_fr": "CMS headless + DS propre",
+          "title_en": "Headless CMS + own DS",
+          "sub_fr": "Édition versionnée, cohérence",
+          "sub_en": "Versioned editing, consistency"
+        },
+        {
+          "title_fr": "Système transférable",
+          "title_en": "Transferable system",
+          "sub_fr": "Scalable, standards ouverts",
+          "sub_en": "Scalable, open standards"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
       "background": "paper",
-      "kicker_fr": "§ Les briques du sur-mesure",
-      "kicker_en": "§ The bespoke building blocks",
-      "h2_fr": "Ce qui distingue un site sur mesure",
-      "h2_en": "What sets apart a bespoke site",
-      "lede_fr": "Trois fondations qui justifient le sur-mesure : une architecture composable qui se modifie brique par brique, une performance et une sécurité tenues par le SSG, et une scalabilité sans captivité. Vous gardez la main, la stack et le contenu.",
-      "lede_en": "Three foundations that justify going bespoke: a composable architecture changed block by block, performance and security held by SSG, and scalability without lock-in. You keep control, the stack and the content.",
-      "rows": [
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous récupérez concrètement",
+      "title_en": "What you get concretely",
+      "lead_fr": "Vous gardez tout à la livraison : code, contenu, docs. Standards ouverts, zéro captivité.",
+      "lead_en": "You keep everything at delivery: code, content, docs. Open standards, zero lock-in.",
+      "items": [
         {
-          "kicker_fr": "Fondation 01",
-          "kicker_en": "Foundation 01",
-          "h3_fr": "Architecture composable",
-          "h3_en": "Composable architecture",
-          "body_fr": "Le site est un assemblage de sections cataloguées, pas une page monolithique. On ajoute, déplace ou remplace une brique sans toucher au reste, et le design system garantit la cohérence partout. L'architecture monte de version pendant que vous l'utilisez, sans refonte.",
-          "body_en": "The site is an assembly of catalogued sections, not a monolithic page. You add, move or replace a block without touching the rest, and the design system keeps consistency everywhere. The architecture moves up versions while you use it, with no rebuild.",
-          "points": [
-            {
-              "label_fr": "Sections composables réutilisables",
-              "label_en": "Reusable composable sections"
-            },
-            {
-              "label_fr": "Design system propre, cohérent partout",
-              "label_en": "Own design system, consistent everywhere"
-            },
-            {
-              "label_fr": "Évolution brique par brique, sans refonte",
-              "label_en": "Block-by-block evolution, no rebuild"
-            }
-          ]
+          "title_fr": "Architecture composable",
+          "title_en": "Composable architecture",
+          "body_fr": "Un site assemblé en sections cataloguées, pas une page monolithique : on ajoute, déplace ou remplace une brique sans toucher au reste.",
+          "body_en": "A site assembled from catalogued sections, not a monolithic page: you add, move or replace a block without touching the rest.",
+          "format_fr": "CODE + LIVE",
+          "format_en": "CODE + LIVE",
+          "illustration_src": "/images/line-art/swi-livrable-site.svg",
+          "illustration_alt_fr": "Une architecture composable de sections cataloguées",
+          "illustration_alt_en": "A composable architecture of catalogued sections"
         },
         {
-          "kicker_fr": "Fondation 02",
-          "kicker_en": "Foundation 02",
-          "h3_fr": "Performance SSG et sécurité",
-          "h3_en": "SSG performance and security",
-          "body_fr": "Le front est pré-généré en pages statiques : pas de serveur applicatif à chaque visite, donc une vitesse 100/100 et une surface d'attaque réduite. Pas de base de données exposée, pas de plugins à patcher en urgence. Le contenu reste dans le CMS, l'affichage reste rapide.",
-          "body_en": "The front is pre-generated as static pages: no application server on each visit, so a 100/100 speed and a reduced attack surface. No exposed database, no plugins to patch in a hurry. Content stays in the CMS, display stays fast.",
-          "points": [
-            {
-              "label_fr": "PageSpeed 100/100 en SSG",
-              "label_en": "100/100 PageSpeed in SSG"
-            },
-            {
-              "label_fr": "Surface d'attaque réduite, 0 base exposée",
-              "label_en": "Reduced attack surface, no exposed database"
-            },
-            {
-              "label_fr": "Pas de plugins à patcher en urgence",
-              "label_en": "No plugins to patch in a hurry"
-            }
-          ]
+          "title_fr": "Design system propre",
+          "title_en": "Own design system",
+          "body_fr": "Un design system qui garantit la cohérence partout : tokens, composants réutilisables, une même valeur qui cascade sur tout le site.",
+          "body_en": "A design system that keeps consistency everywhere: tokens, reusable components, one value cascading across the whole site.",
+          "format_fr": "DESIGN",
+          "format_en": "DESIGN",
+          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
+          "illustration_alt_fr": "Un design system propre, cohérent partout",
+          "illustration_alt_en": "An own design system, consistent everywhere"
         },
         {
-          "kicker_fr": "Fondation 03",
-          "kicker_en": "Foundation 03",
-          "h3_fr": "Scalabilité et zéro captivité",
-          "h3_en": "Scalability and zero lock-in",
-          "body_fr": "L'architecture absorbe la croissance : plus de pages, plus de trafic, plus d'intégrations métier, sans réécrire les fondations. Et à la fin, vous gardez tout : code, contenu et docs transférés, standards ouverts. Vous pouvez reprendre la stack en interne ou la confier à un autre prestataire.",
-          "body_en": "The architecture absorbs growth: more pages, more traffic, more business integrations, without rewriting the foundations. And at the end, you keep everything: code, content and docs handed over, open standards. You can take the stack in-house or pass it to another provider.",
-          "points": [
-            {
-              "label_fr": "Croissance absorbée sans réécrire",
-              "label_en": "Growth absorbed without rewriting"
-            },
-            {
-              "label_fr": "Intégrations métier sur mesure",
-              "label_en": "Bespoke business integrations"
-            },
-            {
-              "label_fr": "Code et contenu transférés, standards ouverts",
-              "label_en": "Code and content handed over, open standards"
-            }
-          ]
+          "title_fr": "CMS headless configuré",
+          "title_en": "Headless CMS configured",
+          "body_fr": "Le CMS choisi pour votre cas (git-based ou API), configuré et branché : votre équipe édite, publie et réorganise sans toucher au code.",
+          "body_en": "The CMS chosen for your case (git-based or API), configured and wired: your team edits, publishes and reorganises without touching the code.",
+          "format_fr": "CMS",
+          "format_en": "CMS",
+          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
+          "illustration_alt_fr": "Un CMS headless configuré et branché au front",
+          "illustration_alt_en": "A headless CMS configured and wired to the front"
+        },
+        {
+          "title_fr": "Build SSG 100/100",
+          "title_en": "SSG build 100/100",
+          "body_fr": "Un front pré-généré en pages statiques : PageSpeed 100/100, surface d'attaque réduite, pas de base exposée ni de plugins à patcher en urgence.",
+          "body_en": "A front pre-generated as static pages: 100/100 PageSpeed, reduced attack surface, no exposed database nor plugins to patch in a hurry.",
+          "format_fr": "SSG",
+          "format_en": "SSG",
+          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
+          "illustration_alt_fr": "Un build SSG rapide et sécurisé",
+          "illustration_alt_en": "A fast, secure SSG build"
+        },
+        {
+          "title_fr": "Intégrations métier",
+          "title_en": "Business integrations",
+          "body_fr": "Les connexions à vos outils et APIs internes, taillées sur mesure : CRM, paiement, données métier, l'IA branchée en skills quand elle sert.",
+          "body_en": "Bespoke connections to your tools and internal APIs: CRM, payment, business data, AI wired in as skills when it serves.",
+          "format_fr": "INTÉGRATIONS",
+          "format_en": "INTEGRATIONS",
+          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
+          "illustration_alt_fr": "Des intégrations métier sur mesure branchées au site",
+          "illustration_alt_en": "Bespoke business integrations wired to the site"
+        },
+        {
+          "title_fr": "Transfert et autonomie",
+          "title_en": "Handover and autonomy",
+          "body_fr": "Code, contenu et documentation transférés, formation de votre équipe : vous reprenez la stack en interne ou avec un autre prestataire, sans captivité.",
+          "body_en": "Code, content and documentation handed over, team training: you take the stack in-house or with another provider, with no lock-in.",
+          "format_fr": "PASSATION",
+          "format_en": "HANDOVER",
+          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
+          "illustration_alt_fr": "Un transfert complet de la stack pour rester autonome",
+          "illustration_alt_en": "A full handover of the stack to stay autonomous"
+        }
+      ]
+    },
+    {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ Les standards ouverts sur lesquels on construit",
+      "kicker_en": "§ The open standards we build on",
+      "grayscale": true,
+      "logoIds": [
+        "hubspot",
+        "salesforce",
+        "google",
+        "claude",
+        "openai",
+        "github",
+        "notion",
+        "slack",
+        "microsoft",
+        "aws",
+        "sap",
+        "meta"
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "anchor": "capacites",
+      "background": "paper",
+      "kicker_fr": "§ Les briques",
+      "kicker_en": "§ The building blocks",
+      "h2_fr": "Les briques du sur-mesure",
+      "h2_en": "The bespoke building blocks",
+      "lede_fr": "Sept briques, une même architecture composable. On active celles qui justifient le sur-mesure, quand elles servent. Pas de complexité qu'on vous facture pour rien.",
+      "lede_en": "Seven building blocks, one composable architecture. We activate the ones that justify going bespoke, when they serve. No complexity billed to you for nothing.",
+      "columns": "4",
+      "fillMedia": "services-layer.svg",
+      "features": [
+        {
+          "icon": "design",
+          "title_fr": "Architecture composable",
+          "title_en": "Composable architecture",
+          "body_fr": "Un assemblage de sections cataloguées : on ajoute, déplace ou remplace une brique sans toucher au reste, et le site monte de version sans refonte.",
+          "body_en": "An assembly of catalogued sections: you add, move or replace a block without touching the rest, and the site moves up versions with no rebuild."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "CMS headless au choix",
+          "title_en": "Headless CMS of choice",
+          "body_fr": "Git-based ou API selon votre cas : le contenu vit séparé de l'affichage, éditable sans développeur, versionné et réversible.",
+          "body_en": "Git-based or API depending on your case: content lives separate from display, editable without a developer, versioned and reversible."
+        },
+        {
+          "icon": "qualif",
+          "title_fr": "Design system propre",
+          "title_en": "Own design system",
+          "body_fr": "Tokens et composants réutilisables : une même valeur cascade partout, la cohérence tient à mesure que le site grandit.",
+          "body_en": "Reusable tokens and components: one value cascades everywhere, consistency holds as the site grows."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Performance SSG",
+          "title_en": "SSG performance",
+          "body_fr": "Un front pré-généré en pages statiques : PageSpeed 100/100, pas de serveur applicatif à chaque visite, base GEO solide.",
+          "body_en": "A front pre-generated as static pages: 100/100 PageSpeed, no application server on each visit, a solid GEO base."
+        },
+        {
+          "icon": "crm",
+          "title_fr": "Sécurité réduite",
+          "title_en": "Reduced surface",
+          "body_fr": "Surface d'attaque réduite par construction : pas de base exposée, pas de plugins à patcher en urgence. Le contenu reste dans le CMS.",
+          "body_en": "Attack surface reduced by design: no exposed database, no plugins to patch in a hurry. Content stays in the CMS."
+        },
+        {
+          "icon": "ia",
+          "title_fr": "Intégrations métier",
+          "title_en": "Business integrations",
+          "body_fr": "Connexions sur mesure à vos outils et APIs internes, l'IA branchée en skills quand elle sert : le site absorbe la croissance sans réécrire.",
+          "body_en": "Bespoke connections to your tools and internal APIs, AI wired in as skills when it serves: the site absorbs growth without rewriting."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Zéro captivité",
+          "title_en": "Zero lock-in",
+          "body_fr": "Standards ouverts, code, contenu et docs transférés : vous reprenez la stack en interne ou la confiez à un autre prestataire.",
+          "body_en": "Open standards, code, content and docs handed over: you take the stack in-house or pass it to another provider."
+        }
+      ]
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "cousins",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Dans la même offre",
+      "kicker_en": "§ In the same offer",
+      "h2_fr": "Sur mesure, ou une autre <i>base</i>",
+      "h2_en": "Bespoke, or another <i>base</i>",
+      "lede_fr": "Le sur-mesure n'est pas toujours le bon choix. Selon votre besoin, le clé-en-main suffit, ou on part d'un existant. Survolez une base pour la voir.",
+      "lede_en": "Bespoke isn't always the right call. Depending on your need, turnkey is enough, or we start from an existing site. Hover a base to preview it.",
+      "items": [
+        {
+          "label_fr": "Site web intelligent",
+          "label_en": "Intelligent website",
+          "meta_fr": "Offre mère · acquisition, CRM et contenu câblés",
+          "meta_en": "Parent offer · acquisition, CRM and content wired",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Une jonction validée : le pilier complet d'acquisition.",
+          "media_alt_en": "A validated handshake: the full acquisition pillar.",
+          "link_href": "/services/site-web-ia"
+        },
+        {
+          "label_fr": "Webflow",
+          "label_en": "Webflow",
+          "meta_fr": "Clé-en-main · design et mise en ligne rapides",
+          "meta_en": "Turnkey · fast design and go-live",
+          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
+          "media_alt_fr": "Une voiture sur la route : le no-code premium instrumenté.",
+          "media_alt_en": "A car on the road: premium no-code, instrumented.",
+          "link_href": "/services/webflow"
+        },
+        {
+          "label_fr": "WordPress",
+          "label_en": "WordPress",
+          "meta_fr": "Clé-en-main · le CMS le plus répandu, instrumenté",
+          "meta_en": "Turnkey · the most widespread CMS, instrumented",
+          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
+          "media_alt_fr": "Un ordinateur ausculté : le WordPress instrumenté proprement.",
+          "media_alt_en": "A computer being checked: WordPress cleanly instrumented.",
+          "link_href": "/services/wordpress"
+        }
+      ]
+    },
+    {
+      "type": "system-flow",
+      "background": "ink",
+      "fig_num": "Fig. 3.0",
+      "fig_title_fr": "Le sur-mesure, de bout en bout",
+      "fig_title_en": "Bespoke, end to end",
+      "meta_fr": "PowerLoop · v1",
+      "meta_en": "PowerLoop · v1",
+      "h2_fr": "Comment se construit une architecture composable",
+      "h2_en": "How a composable architecture is built",
+      "lede_fr": "Les briques ne s'empilent pas au hasard. Elles forment une chaîne : chaque maillon découple le contenu de l'affichage, tient la cohérence et rend la stack transférable. La donnée revient au site, qui monte de version sans refonte.",
+      "lede_en": "The blocks don't stack at random. They form a chain: each link decouples content from display, holds consistency and makes the stack transferable. The data returns to the site, which moves up versions with no rebuild.",
+      "steps": [
+        {
+          "title_fr": "Cadrage",
+          "title_en": "Scoping",
+          "desc_fr": "Architecture, périmètre et critères de choix du CMS posés.",
+          "desc_en": "Architecture, scope and CMS-choice criteria laid down."
+        },
+        {
+          "title_fr": "Design system",
+          "title_en": "Design system",
+          "desc_fr": "Tokens et composants réutilisables, cohérence garantie.",
+          "desc_en": "Reusable tokens and components, consistency guaranteed."
+        },
+        {
+          "title_fr": "Build SSG",
+          "title_en": "SSG build",
+          "desc_fr": "Front pré-généré, 100/100, surface d'attaque réduite.",
+          "desc_en": "Pre-generated front, 100/100, reduced attack surface."
+        },
+        {
+          "title_fr": "CMS headless",
+          "title_en": "Headless CMS",
+          "desc_fr": "Contenu découplé, éditable sans développeur, versionné.",
+          "desc_en": "Decoupled content, editable without a developer, versioned."
+        },
+        {
+          "title_fr": "Intégrations",
+          "title_en": "Integrations",
+          "desc_fr": "Outils métier et IA branchés sur mesure, sans réécrire.",
+          "desc_en": "Bespoke business tools and AI wired in, without rewriting."
+        },
+        {
+          "title_fr": "Transfert",
+          "title_en": "Handover",
+          "desc_fr": "Code, contenu et docs transférés. Le site monte de version. La boucle se referme.",
+          "desc_en": "Code, content and docs handed over. The site moves up versions. The loop closes."
+        }
+      ],
+      "loop_label_fr": "montée de version sans refonte",
+      "loop_label_en": "version upgrades without a rebuild"
+    },
+    {
+      "type": "sticky-scroll-storytelling",
+      "anchor": "methode",
+      "background": "paper",
+      "textSide": "left",
+      "proportion": "media-led",
+      "mediaRatio": "4-3",
+      "density": "base",
+      "numbering": "serif",
+      "kicker_fr": "§ Méthode · comment on construit sur mesure",
+      "kicker_en": "§ Method · how we build bespoke",
+      "h2_fr": "Comment on construit sur mesure",
+      "h2_en": "How we build bespoke",
+      "lede_fr": "Du cadrage de l'architecture au site transféré, chaque étape est cadrée et chiffrée. Vous savez avant de signer ce qu'on assemble, quel CMS on choisit et ce que vous gardez. Pas de zone d'ombre.",
+      "lede_en": "From scoping the architecture to a handed-over site, each step is framed and costed. You know before signing what we assemble, which CMS we choose and what you keep. No grey zone.",
+      "steps": [
+        {
+          "index_fr": "01",
+          "index_en": "01",
+          "eyebrow_fr": "Cadrage & architecture",
+          "eyebrow_en": "Scoping & architecture",
+          "title_fr": "Cadrer l'architecture et le CMS",
+          "title_en": "Frame the architecture and the CMS",
+          "body_fr": "Quelques jours d'analyse : on définit l'architecture composable, les intégrations métier et on tranche le CMS headless sur quatre critères (volume, équipe, budget, réversibilité). Livrable : une architecture cadrée et un périmètre chiffré.",
+          "body_en": "A few days of analysis: we define the composable architecture, the business integrations and decide the headless CMS on four criteria (volume, team, budget, reversibility). Deliverable: a framed architecture and a costed scope.",
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "Cadrage de l'architecture composable et du choix du CMS",
+          "media_alt_en": "Scoping the composable architecture and the CMS choice"
+        },
+        {
+          "index_fr": "02",
+          "index_en": "02",
+          "eyebrow_fr": "Design system",
+          "eyebrow_en": "Design system",
+          "title_fr": "Poser le design system",
+          "title_en": "Lay in the design system",
+          "body_fr": "Direction artistique, tokens et composants réutilisables : on pose un design system propre qui garantit la cohérence sur tout le site, avant le build. La base qui tient à l'échelle est posée maintenant.",
+          "body_en": "Art direction, reusable tokens and components: we lay in an own design system that keeps consistency across the whole site, before the build. The base that scales is laid in now.",
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Pose du design system propre avant le build",
+          "media_alt_en": "Laying in the own design system before the build"
+        },
+        {
+          "index_fr": "03",
+          "index_en": "03",
+          "eyebrow_fr": "Build SSG",
+          "eyebrow_en": "SSG build",
+          "title_fr": "Construire le front découplé",
+          "title_en": "Build the decoupled front",
+          "body_fr": "On construit le front en SSG rapide sur une base composable : PageSpeed 100/100, surface d'attaque réduite, pas de base exposée. Le site prend forme brique par brique, pensé pour monter de version sans refonte.",
+          "body_en": "We build the front in fast SSG on a composable base: 100/100 PageSpeed, reduced attack surface, no exposed database. The site takes shape block by block, built to move up versions with no rebuild.",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Build du front découplé en SSG sur une base composable",
+          "media_alt_en": "Building the decoupled front in SSG on a composable base"
+        },
+        {
+          "index_fr": "04",
+          "index_en": "04",
+          "eyebrow_fr": "CMS & intégrations",
+          "eyebrow_en": "CMS & integrations",
+          "title_fr": "Brancher le CMS et les outils métier",
+          "title_en": "Wire the CMS and the business tools",
+          "body_fr": "On configure le CMS headless choisi, on branche vos outils et APIs internes, et l'IA en skills quand elle sert. Votre équipe édite sans développeur, le site absorbe la croissance sans réécrire les fondations.",
+          "body_en": "We configure the chosen headless CMS, wire your tools and internal APIs, and AI as skills when it serves. Your team edits without a developer, the site absorbs growth without rewriting the foundations.",
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Branchement du CMS headless et des intégrations métier",
+          "media_alt_en": "Wiring the headless CMS and the business integrations"
+        },
+        {
+          "index_fr": "05",
+          "index_en": "05",
+          "eyebrow_fr": "Mise en ligne & transfert",
+          "eyebrow_en": "Go-live & handover",
+          "title_fr": "Mettre en ligne et transférer la stack",
+          "title_en": "Go live and hand over the stack",
+          "body_fr": "Le site passe en production, puis on itère au rythme des besoins. Le transfert fait partie du livrable : code, contenu et docs transférés, formation, standards ouverts. Vous gardez la stack, sans captivité.",
+          "body_en": "The site goes into production, then we iterate at the pace of needs. Handover is part of the deliverable: code, content and docs handed over, training, open standards. You keep the stack, with no lock-in.",
+          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
+          "media_alt_fr": "Mise en ligne et transfert complet de la stack aux équipes",
+          "media_alt_en": "Going live and full handover of the stack to the teams",
+          "link_label_fr": "Voir un cas concret",
+          "link_label_en": "See a real case",
+          "link_href": "/cas-clients"
         }
       ]
     },
     {
       "type": "feature-zigzag",
+      "anchor": "cms",
       "background": "paper-2",
       "kicker_fr": "§ Choisir son CMS headless",
       "kicker_en": "§ Choosing your headless CMS",
@@ -382,125 +806,249 @@
       ]
     },
     {
-      "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Clé-en-main / Sur-mesure",
-      "kicker_en": "§ Turnkey / Bespoke",
-      "h2_fr": "Quand passer du clé-en-main au sur-mesure",
-      "h2_en": "When to move from turnkey to bespoke",
-      "without_label_fr": "Clé-en-main",
-      "without_label_en": "Turnkey",
-      "without_title_fr": "Webflow / WordPress",
-      "without_title_en": "Webflow / WordPress",
-      "without_items": [
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · résultats réels",
+      "spec_en": "Client cases · real results",
+      "h2_fr": "Résultats sur le terrain",
+      "h2_en": "Results in the field",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
         {
-          "text_fr": "Mise en ligne rapide, idéal pour 80 % des sites vitrines et landing.",
-          "text_en": "Fast go-live, ideal for 80 % of brochure sites and landings."
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · Astro SSG · Perf",
+          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
+          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
+          "href": "/cas-clients/balzeo",
+          "media_src": "/images/illustrations/ds/fruits-ink.webp",
+          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu et allégé.",
+          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt and made leaner."
         },
         {
-          "text_fr": "Personnalisation bornée par les limites de la plateforme.",
-          "text_en": "Customisation bounded by the platform's limits."
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · CMS git-based · SEO",
+          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
+          "href": "/cas-clients/les-carnets-de-montpellier",
+          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
+          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
+          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
         },
         {
-          "text_fr": "La perf et la sécurité dépendent du moteur et des plugins.",
-          "text_en": "Performance and security depend on the engine and plugins."
-        },
-        {
-          "text_fr": "Abonnement et écosystème propriétaire : une part de captivité.",
-          "text_en": "Subscription and proprietary ecosystem: a degree of lock-in."
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "Création · Composable · GEO",
+          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
+          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
+          "href": "/cas-clients/amploi",
+          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
+          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
+          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
         }
       ],
-      "with_label_fr": "Sur-mesure",
-      "with_label_en": "Bespoke",
-      "with_title_fr": "Headless composable",
-      "with_title_en": "Composable headless",
-      "with_items": [
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "testimonial-wall",
+      "background": "paper-2",
+      "kicker_fr": "Ils ont choisi le sur-mesure",
+      "kicker_en": "They chose bespoke",
+      "h2_fr": "Ce que disent les équipes qui ont gardé la main sur leur stack",
+      "h2_en": "What teams who kept control of their stack are saying",
+      "subtitle_fr": "Des dirigeants et des équipes qui ont voulu un site qui reste le leur, sans captivité de plateforme.",
+      "subtitle_en": "Leaders and teams who wanted a site that stays theirs, with no platform lock-in.",
+      "columns": "3",
+      "testimonials": [
         {
-          "text_fr": "Architecture composable libre, modifiée brique par brique.",
-          "text_en": "Free composable architecture, changed block by block."
+          "quote_fr": "La refonte a divisé notre temps de chargement par deux et **nos coûts de maintenance ont fondu**. Le site monte de version au fil des mois, sans tout refaire.",
+          "quote_en": "The rebuild halved our load time and **our maintenance costs melted away**. The site moves up versions over the months, without redoing everything.",
+          "author": "Sophie Antunes",
+          "role_fr": "Directrice e-commerce",
+          "role_en": "E-commerce Director",
+          "company": "Lartigue & Co"
         },
         {
-          "text_fr": "Perf 100/100 en SSG et surface d'attaque réduite par construction.",
-          "text_en": "100/100 SSG performance and a reduced attack surface by design."
+          "quote_fr": "Plus besoin d'attendre un développeur pour changer une page. **On édite le contenu nous-mêmes en quelques minutes**, et rien ne casse.",
+          "quote_en": "No more waiting for a developer to change a page. **We edit the content ourselves in minutes**, and nothing breaks.",
+          "author": "Hugo Lacombe",
+          "role_fr": "Responsable communication",
+          "role_en": "Communications Manager",
+          "company": "Groupe Mérindol"
         },
         {
-          "text_fr": "Intégrations métier lourdes et scalabilité sans réécrire les fondations.",
-          "text_en": "Heavy business integrations and scalability without rewriting foundations."
+          "quote_fr": "Le site se charge en un instant et **on est passés en top 5 Google sur nos requêtes clés** en quelques mois. Les articles sont même cités dans les réponses IA.",
+          "quote_en": "The site loads instantly and **we moved into the Google top 5 on our key queries** within a few months. The articles even get cited in AI answers.",
+          "author": "Romain Delaunay",
+          "role_fr": "Cofondateur",
+          "role_en": "Co-founder",
+          "company": "Sevran & Fils"
         },
         {
-          "text_fr": "Standards ouverts, code et contenu transférés : zéro captivité.",
-          "text_en": "Open standards, code and content handed over: zero lock-in."
+          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par une landing instrumentée, **prouvé la valeur, puis étendu** au site complet. Exactement le bon rythme.",
+          "quote_en": "Pragmatic approach, zero jargon. We started with an instrumented landing, **proved the value, then scaled** to the full site. Exactly the right pace.",
+          "author": "Karim Belkacem",
+          "role_fr": "Fondateur",
+          "role_en": "Founder",
+          "company": "Studio Andrézieux"
+        },
+        {
+          "quote_fr": "On avait un beau site qui ne ramenait rien. Aujourd'hui **chaque visite est scorée et le commercial reçoit des leads déjà qualifiés**. Le quiz de routing a tout changé.",
+          "quote_en": "We had a nice site that brought in nothing. Now **every visit is scored and sales receive already-qualified leads**. The routing quiz changed everything.",
+          "author": "Élodie Charpentier",
+          "role_fr": "Directrice marketing",
+          "role_en": "Marketing Director",
+          "company": "Maison Tassigny"
+        },
+        {
+          "quote_fr": "Ce qui m'a convaincu, c'est le **tableau de pilotage** : pour la première fois je relie une dépense web à un lead concret. On pilote sur des chiffres, pas au ressenti.",
+          "quote_en": "What sold me was the **dashboard**: for the first time I link a web spend to a concrete lead. We manage on figures, not on gut feel.",
+          "author": "Nadia Brunel",
+          "role_fr": "Dirigeante",
+          "role_en": "Managing Director",
+          "company": "Atelier Vireux"
         }
       ]
     },
     {
-      "type": "related-cards-band",
+      "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Dans la même offre",
-      "kicker_en": "§ In the same offer",
-      "cards": [
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Quatre façons de construire sur mesure",
+      "h2_en": "Four ways to build bespoke",
+      "lede_fr": "Du front découplé simple au système composable complet, même grille que nos sites : la formule dépend du périmètre. On vous oriente vers le clé-en-main si c'est le bon choix, on chiffre au cadrage, jamais avant.",
+      "lede_en": "From a simple decoupled front to a full composable system, the same grid as our sites: the plan depends on scope. We point you to turnkey when it's the right call, we price at scoping, never before.",
+      "tiers": [
         {
-          "kicker_fr": "OFFRE MÈRE",
-          "kicker_en": "PARENT OFFER",
-          "title_fr": "Site web intelligent",
-          "title_en": "Intelligent website",
-          "lead_fr": "Le pilier complet : acquisition, CRM et contenu câblés sur une même base.",
-          "lead_en": "The full pillar: acquisition, CRM and content wired on a single base.",
-          "href": "/services/site-web-ia"
+          "name_fr": "Front découplé",
+          "name_en": "Decoupled front",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Front SSG 1 à 3 pages, découplé, mise en ligne",
+            "SEO et GEO de base, balisage Schema.org",
+            "CMS git-based configuré, édition versionnée",
+            "Tracking first-party et tableau de base"
+          ],
+          "features_en": [
+            "1-to-3-page SSG front, decoupled, deployed",
+            "Base SEO and GEO, Schema.org markup",
+            "Git-based CMS configured, versioned editing",
+            "First-party tracking and base dashboard"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un front découplé →",
+            "label_en": "Scope a decoupled front →",
+            "href": "/contact?offer=sur-mesure-headless&intent=landing",
+            "variant": "ghost"
+          }
         },
         {
-          "kicker_fr": "CLÉ-EN-MAIN",
-          "kicker_en": "TURNKEY",
-          "title_fr": "Site Webflow",
-          "title_en": "Webflow site",
-          "lead_fr": "Le no-code premium quand la vitesse de mise en ligne prime.",
-          "lead_en": "Premium no-code when go-live speed comes first.",
-          "href": "/services/webflow"
+          "name_fr": "Site composable",
+          "name_en": "Composable site",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · ex VAT",
+          "features_fr": [
+            "Site 3 à 5 pages, architecture composable",
+            "Design system propre, cohérent partout",
+            "CMS headless au choix (git-based ou API)",
+            "SSG 100/100, hébergement et consentement RGPD"
+          ],
+          "features_en": [
+            "3-to-5-page site, composable architecture",
+            "Own design system, consistent everywhere",
+            "Headless CMS of choice (git-based or API)",
+            "100/100 SSG, hosting and GDPR consent"
+          ],
+          "cta": {
+            "label_fr": "Réserver un diagnostic (45 min) →",
+            "label_en": "Book a diagnostic (45 min) →",
+            "href": "/contact?offer=sur-mesure-headless&intent=discovery",
+            "variant": "primary"
+          }
         },
         {
-          "kicker_fr": "CLÉ-EN-MAIN",
-          "kicker_en": "TURNKEY",
-          "title_fr": "Site WordPress",
-          "title_en": "WordPress site",
-          "lead_fr": "Le CMS le plus répandu, instrumenté proprement pour l'acquisition.",
-          "lead_en": "The most widespread CMS, cleanly instrumented for acquisition.",
-          "href": "/services/wordpress"
+          "name_fr": "Site premium",
+          "name_en": "Premium site",
+          "price": "7 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Site complet et direction artistique sur mesure",
+            "Système de contenu SEO et GEO en cadence",
+            "Connexion IA (Claude, GPT) et premiers skills",
+            "Formulaires connectés à votre CRM"
+          ],
+          "features_en": [
+            "Full site and bespoke art direction",
+            "SEO and GEO content system on cadence",
+            "AI connection (Claude, GPT) and first skills",
+            "Forms connected to your CRM"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un site premium →",
+            "label_en": "Scope a premium site →",
+            "href": "/contact?offer=sur-mesure-headless&intent=premium",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Sur mesure complet",
+          "name_en": "Full bespoke",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Tout le périmètre Site premium",
+            "Intégrations métier lourdes et APIs internes",
+            "Dashboard Google Analytics et Search Console",
+            "CRM branché (HubSpot, Salesforce, Pipedrive) et paiement Stripe",
+            "Code, contenu et docs transférés : zéro captivité"
+          ],
+          "features_en": [
+            "The full Premium site scope",
+            "Heavy business integrations and internal APIs",
+            "Dashboard with Google Analytics and Search Console",
+            "CRM wired (HubSpot, Salesforce, Pipedrive) and Stripe payments",
+            "Code, content and docs handed over: zero lock-in"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un projet sur mesure →",
+            "label_en": "Scope a bespoke project →",
+            "href": "/contact?offer=sur-mesure-headless&intent=sur-mesure",
+            "variant": "ghost"
+          },
+          "featured": true
         }
-      ]
+      ],
+      "footnote_fr": "Le sur-mesure ne se justifie pas toujours : le clé-en-main (Webflow, WordPress) couvre 80 % des besoins. On vous oriente vers lui si c'est le bon choix. Au-delà de 10 000 € HT, on chiffre sur devis. Sans engagement de durée, sans abonnement caché : à la fin, code, contenu et docs sont transférés, vous gardez la stack.",
+      "footnote_en": "Bespoke isn't always justified: turnkey (Webflow, WordPress) covers 80 % of needs. We point you to it when it's the right call. Beyond 10,000 € ex VAT, we price on quote. No duration commitment, no hidden subscription: at the end, code, content and docs are handed over, you keep the stack."
     },
     {
-      "type": "stats-bento",
-      "background": "ink",
-      "kicker_fr": "§ Ce que dit le marché",
-      "kicker_en": "§ What the market shows",
-      "h2_fr": "Pourquoi le headless s'impose",
-      "h2_en": "Why headless is taking over",
-      "stats": [
-        {
-          "value": "100/100",
-          "delta": "Lighthouse",
-          "label_fr": "score de performance atteignable en SSG, là où un CMS couplé peine à dépasser 60",
-          "label_en": "performance score reachable in SSG, where a coupled CMS struggles to pass 60"
-        },
-        {
-          "value": "0",
-          "delta": "base exposée",
-          "label_fr": "surface d'attaque côté front : pas de serveur applicatif ni de base de données publique",
-          "label_en": "exposed front surface: no application server nor public database"
-        },
-        {
-          "value": "Git",
-          "delta": "réversible",
-          "label_fr": "chaque modification de contenu est versionnée, datée et restaurable avec un CMS git-based",
-          "label_en": "every content change is versioned, dated and restorable with a git-based CMS"
-        },
-        {
-          "value": "100 %",
-          "delta": "zéro captivité",
-          "label_fr": "code, contenu et docs transférés à la livraison, sur des standards ouverts",
-          "label_en": "code, content and docs handed over at delivery, on open standards"
-        }
-      ]
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "acquisition"
     },
     {
       "type": "faq-accordion",
@@ -551,6 +1099,9 @@
     {
       "type": "footer-cta-band",
       "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
       "rounded": true,
       "kicker_fr": "§ Prêt à composer ?",
       "kicker_en": "§ Ready to compose?",

@@ -2,10 +2,11 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Création et refonte de site WordPress · headless, WooCommerce, instrumenté",
   "title_en": "WordPress website design and rebuild · headless, WooCommerce, instrumented",
-  "description_fr": "On fait aussi WordPress : headless, WooCommerce ou classique instrumenté. Builders assistés par l'IA, GEO par plugins, refonte en Site Web Intelligent.",
-  "description_en": "We do WordPress too: headless, WooCommerce or classic and instrumented. AI-assisted builders, GEO via plugins, rebuilt into an Intelligent Website.",
+  "description_fr": "On fait aussi WordPress : headless, WooCommerce ou classique instrumenté. Builders assistés par l'IA, GEO par plugins, refonte quand la dette pèse.",
+  "description_en": "We do WordPress too: headless, WooCommerce or classic and instrumented. AI-assisted builders, GEO via plugins, a rebuild when the debt weighs.",
   "slug": "wordpress",
   "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-07-15T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "wordpress",
@@ -36,10 +37,6 @@
       "a": "Oui. WooCommerce ouvre catalogue, panier et paiement éprouvés, avec un écosystème d'extensions plug n play. On le pose proprement, on le branche à vos outils et on instrumente le tunnel pour que chaque visite soit mesurée."
     },
     {
-      "q": "Les perfs WordPress valent-elles un site 100 % Astro ?",
-      "a": "Non, et on le dit franchement : un WordPress reste un cran sous un site 100 % Astro côté performance. En contrepartie, l'écosystème est immense, les builders assistés par l'IA rendent vos équipes autonomes, et le GEO se travaille par plugins. Quand la perf devient un frein réel, c'est le signe qu'il faut refondre."
-    },
-    {
       "q": "On peut créer des pages sans développeur ?",
       "a": "Oui. Gutenberg, Elementor et Divi se sont tellement améliorés, IA intégrée, qu'on crée sections et landing pages en drag n drop ou en le demandant au chatbot. Vos équipes marketing restent autonomes au quotidien, sans dépendre de nous pour chaque évolution."
     },
@@ -49,7 +46,7 @@
     },
     {
       "q": "Quand recommandez-vous de refondre plutôt que d'instrumenter ?",
-      "a": "Quand le score mobile passe sous 80 sur PageSpeed et que la maintenance coûte plus qu'elle ne rapporte. On bascule alors vers un Site Web Intelligent, livré plus vite qu'une refonte classique, plus efficace, et garanti à plus de 95 en mobile sur PageSpeed."
+      "a": "Quand le score mobile passe sous 80 sur PageSpeed et que la maintenance coûte plus qu'elle ne rapporte. On bascule alors vers un site sur mesure, livré plus vite qu'une refonte WordPress classique, plus efficace, et garanti à plus de 95 en mobile sur PageSpeed."
     }
   ],
   "faq_en": [
@@ -66,10 +63,6 @@
       "a": "Yes. WooCommerce opens a proven catalogue, cart and checkout, with a plug and play ecosystem of extensions. We set it up cleanly, wire it to your tools and instrument the funnel so every visit is measured."
     },
     {
-      "q": "Does WordPress performance match a 100% Astro site?",
-      "a": "No, and we say it plainly: a WordPress stays a notch below a 100% Astro site on performance. In return, the ecosystem is huge, AI-assisted builders make your teams autonomous, and GEO is worked through plugins. When performance becomes a real drag, that's the sign it's time to rebuild."
-    },
-    {
       "q": "Can pages be created without a developer?",
       "a": "Yes. Gutenberg, Elementor and Divi have improved so much, with AI built in, that sections and landing pages are created by drag and drop or by asking the chatbot. Your marketing teams stay autonomous day to day, without depending on us for every change."
     },
@@ -79,7 +72,7 @@
     },
     {
       "q": "When do you recommend rebuilding rather than instrumenting?",
-      "a": "When the mobile score drops below 80 on PageSpeed and maintenance costs more than it returns. We then move to an Intelligent Website, delivered faster than a classic rebuild, more efficient, and guaranteed above 95 on mobile PageSpeed."
+      "a": "When the mobile score drops below 80 on PageSpeed and maintenance costs more than it returns. We then move to a bespoke site, delivered faster than a classic WordPress rebuild, more efficient, and guaranteed above 95 on mobile PageSpeed."
     }
   ],
   "sections": [
@@ -90,8 +83,8 @@
       "kicker_en": "§ WordPress · pillar of the acquisition system",
       "h1_fr": "Création et refonte de site <i class=\"acc\">WordPress</i>.",
       "h1_en": "WordPress website design and <i class=\"acc\">rebuild</i>.",
-      "lede_fr": "On fait aussi WordPress, sans détour sur les compromis. Trois façons de le poser au cœur de votre acquisition : headless pour la vitesse, WooCommerce pour vendre, ou classique instrumenté. Et si votre site est devenu une dette, on le refond en Site Web Intelligent.",
-      "lede_en": "We do WordPress too, no dodging the trade-offs. Three ways to put it at the core of your acquisition: headless for speed, WooCommerce to sell, or classic and instrumented. And if your site has become a debt, we rebuild it as an Intelligent Website.",
+      "lede_fr": "On fait aussi WordPress, sans détour sur les compromis. Trois façons de le poser au cœur de votre acquisition : headless pour la vitesse, WooCommerce pour vendre, ou classique instrumenté. Et si votre site est devenu une dette, on le refond, plus vite qu'une refonte WordPress classique.",
+      "lede_en": "We do WordPress too, no dodging the trade-offs. Three ways to put it at the core of your acquisition: headless for speed, WooCommerce to sell, or classic and instrumented. And if your site has become a debt, we rebuild it, faster than a classic WordPress rebuild.",
       "badges": [
         {
           "label_fr": "WordPress headless",
@@ -164,18 +157,36 @@
         },
         {
           "value": "95+",
-          "label_fr": "PageSpeed mobile garanti en Site Web Intelligent",
-          "label_en": "mobile PageSpeed guaranteed in Intelligent Website"
+          "label_fr": "PageSpeed mobile garanti en refonte",
+          "label_en": "mobile PageSpeed guaranteed on rebuild"
         }
       ]
+    },
+    {
+      "type": "statement-orbit",
+      "kicker_fr": "FIG 1.5 · WordPress au cœur",
+      "kicker_en": "FIG 1.5 · WordPress at the core",
+      "h2_fr": "Un WordPress laissé seul publie. Un WordPress <i class=\"acc\">branché</i> mesure, qualifie et alimente le CRM.",
+      "h2_en": "A WordPress left alone publishes. A <i class=\"acc\">wired</i> WordPress measures, qualifies and feeds the CRM.",
+      "lede_fr": "La plupart des WordPress dorment en vitrine. Ici, votre WordPress, votre contenu, votre CRM et l'IA se branchent ensemble et travaillent sur vos données. On garde l'éditeur que vos équipes connaissent, on pose ce qui manque autour. Le site est la base du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> : c'est lui qui capte le trafic que le SEO et les tunnels transforment.",
+      "lede_en": "Most WordPress sites sleep as a brochure. Here, your WordPress, your content, your CRM and the AI wire together and work on your data. We keep the editor your teams know, we lay in what's missing around it. The site is the base of the <a href=\"/services/systeme-acquisition\">acquisition system</a>: it captures the traffic that SEO and funnels turn into leads.",
+      "cta": {
+        "label_fr": "Voir les trois modes →",
+        "label_en": "See the three modes →",
+        "href": "#modes",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/orbit-network.svg",
+      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : WordPress, un CRM, du contenu et l'IA s'orchestrent en un seul dispositif d'acquisition.",
+      "media_alt_en": "Wireframe globe with nodes linked by arcs: WordPress, a CRM, content and AI orchestrate into one acquisition dispositif."
     },
     {
       "type": "definition-extract",
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Faire du WordPress avec Waimia, c'est le poser au cœur de votre acquisition de trois façons : headless (WordPress pour le contenu, front rapide), WooCommerce pour l'e-commerce, ou classique instrumenté sans site Astro. Écosystème riche et plug n play, builders assistés par l'IA, GEO travaillé par plugins. Les perfs restent en deçà d'un site 100 % Astro : on le dit, et sous 80 en mobile on refond.",
-      "statement_en": "Doing WordPress with Waimia means putting it at the core of your acquisition three ways: headless (WordPress for content, fast front), WooCommerce for e-commerce, or classic and instrumented with no Astro site. A rich, plug and play ecosystem, AI-assisted builders, GEO worked through plugins. Performance stays below a 100% Astro site: we say so, and below 80 on mobile we rebuild.",
+      "statement_fr": "Faire du WordPress avec Waimia, c'est le poser au cœur de votre acquisition de trois façons : headless (WordPress pour le contenu, front rapide), WooCommerce pour l'e-commerce, ou classique instrumenté. Écosystème riche et plug n play, builders assistés par l'IA, GEO travaillé par plugins. Les perfs restent en deçà d'un site sur mesure : on le dit, et sous 80 en mobile on refond.",
+      "statement_en": "Doing WordPress with Waimia means putting it at the core of your acquisition three ways: headless (WordPress for content, fast front), WooCommerce for e-commerce, or classic and instrumented. A rich, plug and play ecosystem, AI-assisted builders, GEO worked through plugins. Performance stays below a bespoke site: we say so, and below 80 on mobile we rebuild.",
       "pills": [
         {
           "label_fr": "Headless",
@@ -235,8 +246,8 @@
           "title_en": "A mobile score under 80 that drags the SEO down",
           "desc_fr": "Thème lourd, empilement de plugins et base interrogée à chaque visite : sous 80 en mobile sur PageSpeed, Google déclasse et les visiteurs partent. À ce stade, instrumenter ne suffit plus.",
           "desc_en": "Heavy theme, stacked plugins and a database queried on each visit: below 80 on mobile PageSpeed, Google demotes and visitors leave. At this stage, instrumenting is no longer enough.",
-          "fix_fr": "On refond en Site Web Intelligent, 95+ mobile garanti.",
-          "fix_en": "We rebuild as an Intelligent Website, 95+ mobile guaranteed."
+          "fix_fr": "On refond en site sur mesure, 95+ mobile garanti.",
+          "fix_en": "We rebuild as a bespoke site, 95+ mobile guaranteed."
         },
         {
           "severity": "high",
@@ -259,9 +270,455 @@
       ]
     },
     {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ WordPress laissé tel quel vs pris en main",
+      "kicker_en": "§ WordPress left as-is vs handled",
+      "h2_fr": "Le même WordPress, deux <i>trajectoires</i>",
+      "h2_en": "The same WordPress, two <i>trajectories</i>",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "WordPress laissé tel quel",
+      "without_title_en": "WordPress left as-is",
+      "without_items": [
+        {
+          "text_fr": "Le score mobile glisse sous 80, Google déclasse, sans qu'on sache vraiment pourquoi.",
+          "text_en": "The mobile score slips under 80, Google demotes, without anyone really knowing why."
+        },
+        {
+          "text_fr": "Chaque évolution passe par un chantier de plugins à risque ou par un prestataire.",
+          "text_en": "Every change goes through a risky plugin project or a vendor."
+        },
+        {
+          "text_fr": "Le site publie mais ne mesure rien : ni scoring, ni routage CRM, ni reporting.",
+          "text_en": "The site publishes but measures nothing: no scoring, no CRM routing, no reporting."
+        },
+        {
+          "text_fr": "Au bout de deux ans, la pile est une dette et tout est à refaire dans l'urgence.",
+          "text_en": "After two years the stack is a debt and everything has to be redone in a rush."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "WordPress pris en main par Waimia",
+      "with_title_en": "WordPress handled by Waimia",
+      "with_items": [
+        {
+          "text_fr": "On vise le haut du mobile ; sous 80, on refond en site sur mesure, 95+ garanti.",
+          "text_en": "We aim high on mobile; below 80, we rebuild as a bespoke site, 95+ guaranteed."
+        },
+        {
+          "text_fr": "Sections et landing en drag n drop ou par l'IA : vos équipes restent autonomes.",
+          "text_en": "Sections and landing by drag and drop or by AI: your teams stay autonomous."
+        },
+        {
+          "text_fr": "Capture, scoring et CRM branchés par-dessus l'existant, sans casser ce qui marche.",
+          "text_en": "Capture, scoring and CRM wired on top of the existing site, without breaking what works."
+        },
+        {
+          "text_fr": "Un mode choisi pour durer : headless, WooCommerce ou classique, jamais à refaire dans l'urgence.",
+          "text_en": "A mode chosen to last: headless, WooCommerce or classic, never redone in a rush."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Maturité",
+      "kicker_en": "§ Maturity",
+      "h2_fr": "Les 6 états d'un WordPress",
+      "h2_en": "The 6 states of a WordPress",
+      "lede_fr": "Du thème posé tel quel au front headless instrumenté, six paliers. La plupart des PME stagnent au builder. On vous situe, puis on vous fait monter d'un cran.",
+      "lede_en": "From a theme laid down as-is to an instrumented headless front, six tiers. Most SMEs stall at the builder. We place you, then move you up a notch.",
+      "steps": [
+        {
+          "title_fr": "WordPress par défaut",
+          "title_en": "Default WordPress",
+          "sub_fr": "Thème et plugins, passif",
+          "sub_en": "Theme and plugins, passive"
+        },
+        {
+          "title_fr": "WordPress builder",
+          "title_en": "Builder WordPress",
+          "sub_fr": "Pages en drag n drop, encore lourd",
+          "sub_en": "Pages by drag and drop, still heavy"
+        },
+        {
+          "title_fr": "WordPress suivi",
+          "title_en": "Tracked WordPress",
+          "sub_fr": "Tracking et KPI lus",
+          "sub_en": "Tracking and KPIs read"
+        },
+        {
+          "title_fr": "WordPress instrumenté",
+          "title_en": "Instrumented WordPress",
+          "sub_fr": "Capture, scoring et CRM branchés",
+          "sub_en": "Capture, scoring and CRM wired"
+        },
+        {
+          "title_fr": "WordPress headless",
+          "title_en": "Headless WordPress",
+          "sub_fr": "Front statique, rapide et sécurisé",
+          "sub_en": "Static front, fast and secure"
+        },
+        {
+          "title_fr": "Refonte sur mesure",
+          "title_en": "Bespoke rebuild",
+          "sub_fr": "Sous 80 mobile, 95+ garanti",
+          "sub_en": "Below 80 mobile, 95+ guaranteed"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous récupérez concrètement",
+      "title_en": "What you get concretely",
+      "lead_fr": "Vous gardez WordPress et la main quand on part. Pas de captivité.",
+      "lead_en": "You keep WordPress and control when we leave. No lock-in.",
+      "items": [
+        {
+          "title_fr": "WordPress posé ou refondu",
+          "title_en": "WordPress built or rebuilt",
+          "body_fr": "Le mode choisi à l'audit, monté proprement : headless, WooCommerce ou classique, déployé en production, thème et structure assainis.",
+          "body_en": "The mode chosen at the audit, built cleanly: headless, WooCommerce or classic, deployed to production, theme and structure cleaned up.",
+          "format_fr": "CODE + LIVE",
+          "format_en": "CODE + LIVE",
+          "illustration_src": "/images/line-art/swi-livrable-site.svg",
+          "illustration_alt_fr": "Un WordPress déployé en production, structure et pages assainies",
+          "illustration_alt_en": "A WordPress deployed to production, structure and pages cleaned up"
+        },
+        {
+          "title_fr": "Builders configurés + IA",
+          "title_en": "Builders configured + AI",
+          "body_fr": "Gutenberg, Elementor ou Divi paramétrés avec l'IA intégrée : vos équipes créent sections et landing pages en drag n drop, sans nous appeler.",
+          "body_en": "Gutenberg, Elementor or Divi set up with AI built in: your teams create sections and landing pages by drag and drop, without calling us.",
+          "format_fr": "BUILDER",
+          "format_en": "BUILDER",
+          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
+          "illustration_alt_fr": "Des builders configurés pour créer des pages en autonomie",
+          "illustration_alt_en": "Builders configured to create pages autonomously"
+        },
+        {
+          "title_fr": "GEO par plugins et structure",
+          "title_en": "GEO via plugins and structure",
+          "body_fr": "Balisage Schema.org, format extractible et maillage interne posés sur WordPress pour être cité par Google et les moteurs génératifs.",
+          "body_en": "Schema.org markup, extractable format and internal linking laid on WordPress to be cited by Google and generative engines.",
+          "format_fr": "GEO",
+          "format_en": "GEO",
+          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
+          "illustration_alt_fr": "Un WordPress balisé et structuré pour les citations IA",
+          "illustration_alt_en": "A WordPress tagged and structured for AI citations"
+        },
+        {
+          "title_fr": "Tracking, capture et CRM",
+          "title_en": "Tracking, capture and CRM",
+          "body_fr": "Tracking first-party, formulaires WordPress connectés à votre CRM (HubSpot, Salesforce, Pipedrive), scoring et capture branchés par-dessus l'existant.",
+          "body_en": "First-party tracking, WordPress forms connected to your CRM (HubSpot, Salesforce, Pipedrive), scoring and capture wired on top of the existing site.",
+          "format_fr": "CRM",
+          "format_en": "CRM",
+          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
+          "illustration_alt_fr": "Des formulaires WordPress branchés au CRM avec scoring",
+          "illustration_alt_en": "WordPress forms wired to the CRM with scoring"
+        },
+        {
+          "title_fr": "Tableau de bord",
+          "title_en": "Dashboard",
+          "body_fr": "KPI Search Console et Analytics lus par l'IA, acquisition, conversion et pipeline en temps réel, alertes sur les anomalies.",
+          "body_en": "Search Console and Analytics KPIs read by the AI, acquisition, conversion and pipeline in real time, alerts on anomalies.",
+          "format_fr": "TABLEAU",
+          "format_en": "DASHBOARD",
+          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
+          "illustration_alt_fr": "Un tableau de pilotage des KPI d'acquisition avec alertes",
+          "illustration_alt_en": "An acquisition KPI dashboard with alerts"
+        },
+        {
+          "title_fr": "Documentation et autonomie",
+          "title_en": "Documentation and autonomy",
+          "body_fr": "Mode opératoire, prise en main des builders et du tableau de bord : votre équipe est autonome sur son WordPress à la livraison.",
+          "body_en": "Operating manual, onboarding on the builders and the dashboard: your team is autonomous on its WordPress at delivery.",
+          "format_fr": "NOTION + VIDÉO",
+          "format_en": "NOTION + VIDEO",
+          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
+          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur WordPress",
+          "illustration_alt_en": "A documented operating manual to make the team autonomous on WordPress"
+        }
+      ]
+    },
+    {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ Les outils qu'on branche à votre WordPress",
+      "kicker_en": "§ The tools we wire to your WordPress",
+      "grayscale": true,
+      "logoIds": [
+        "hubspot",
+        "salesforce",
+        "google",
+        "claude",
+        "openai",
+        "github",
+        "notion",
+        "slack",
+        "microsoft",
+        "aws",
+        "sap",
+        "meta"
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "anchor": "capacites",
+      "background": "paper",
+      "kicker_fr": "§ Les briques",
+      "kicker_en": "§ The building blocks",
+      "h2_fr": "Ce qu'on branche sur WordPress",
+      "h2_en": "What we wire onto WordPress",
+      "lede_fr": "Sept briques posées autour de votre WordPress. On active celles qui servent, quand elles servent. Pas de plugin qu'on empile pour rien.",
+      "lede_en": "Seven building blocks laid around your WordPress. We activate the ones that serve, when they serve. No plugin stacked for nothing.",
+      "columns": "4",
+      "fillMedia": "services-layer.svg",
+      "features": [
+        {
+          "icon": "design",
+          "title_fr": "Trois modes",
+          "title_en": "Three modes",
+          "body_fr": "Headless, WooCommerce ou classique : on choisit à l'audit le socle qui tient dans la durée, pas celui qui plaît en démo.",
+          "body_en": "Headless, WooCommerce or classic: we choose at the audit the base that lasts, not the one that shows well in a demo."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "Contenu et GEO",
+          "title_en": "Content and GEO",
+          "body_fr": "Balisage Schema.org, format extractible et maillage interne par plugins : la marque devient citable par Google et les IA.",
+          "body_en": "Schema.org markup, extractable format and internal linking via plugins: the brand becomes citable by Google and the AIs."
+        },
+        {
+          "icon": "qualif",
+          "title_fr": "Builders + IA",
+          "title_en": "Builders + AI",
+          "body_fr": "Gutenberg, Elementor et Divi avec IA intégrée : sections et landing pages en drag n drop ou en le demandant au chatbot.",
+          "body_en": "Gutenberg, Elementor and Divi with AI built in: sections and landing pages by drag and drop or by asking the chatbot."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Instrumentation",
+          "title_en": "Instrumentation",
+          "body_fr": "Tracking first-party, Search Console et Analytics branchés sur l'existant : vous mesurez l'avant et l'après, pas de boîte noire.",
+          "body_en": "First-party tracking, Search Console and Analytics wired onto the existing site: you measure before and after, no black box."
+        },
+        {
+          "icon": "crm",
+          "title_fr": "CRM",
+          "title_en": "CRM",
+          "body_fr": "Vos formulaires WordPress connectés à HubSpot, Salesforce ou Pipedrive, dédoublonnés et synchronisés : un contact qui revient est reconnu.",
+          "body_en": "Your WordPress forms connected to HubSpot, Salesforce or Pipedrive, deduplicated and synced: a returning contact is recognised."
+        },
+        {
+          "icon": "ia",
+          "title_fr": "IA",
+          "title_en": "AI",
+          "body_fr": "Un LLM branché en skills : il lit vos KPI, optimise le SEO et score chaque visite, par-dessus WordPress.",
+          "body_en": "An LLM wired in as skills: it reads your KPIs, optimises SEO and scores each visit, on top of WordPress."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Refonte maîtrisée",
+          "title_en": "Controlled rebuild",
+          "body_fr": "Quand le score mobile passe sous 80, on bascule vers un site sur mesure, 95+ garanti, plus vite qu'une refonte WordPress classique.",
+          "body_en": "When the mobile score drops under 80, we move to a bespoke site, 95+ guaranteed, faster than a classic WordPress rebuild."
+        }
+      ]
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "cousins",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Trois cœurs possibles",
+      "kicker_en": "§ Three possible cores",
+      "h2_fr": "WordPress, ou une autre <i>base</i>",
+      "h2_en": "WordPress, or another <i>base</i>",
+      "lede_fr": "WordPress n'est pas la seule voie. Selon votre besoin, on l'instrumente, on migre depuis le no-code, ou on part sur mesure. Survolez une base pour la voir.",
+      "lede_en": "WordPress isn't the only path. Depending on your need, we instrument it, migrate off the no-code, or go bespoke. Hover a base to preview it.",
+      "items": [
+        {
+          "label_fr": "Site web intelligent",
+          "label_en": "Intelligent website",
+          "meta_fr": "Offre · la refonte recommandée sous 80 mobile",
+          "meta_en": "Offer · the rebuild recommended below 80 mobile",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Une jonction validée : la refonte en site instrumenté.",
+          "media_alt_en": "A validated handshake: the rebuild into an instrumented site.",
+          "link_href": "/services/site-web-ia"
+        },
+        {
+          "label_fr": "Sur mesure",
+          "label_en": "Bespoke",
+          "meta_fr": "Cœur · perf et liberté maximales",
+          "meta_en": "Core · maximum performance and freedom",
+          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
+          "media_alt_fr": "Un artisan au travail : le front sur mesure façonné pièce par pièce.",
+          "media_alt_en": "A craftsman at work: the bespoke front shaped piece by piece.",
+          "link_href": "/services/sur-mesure-headless"
+        },
+        {
+          "label_fr": "Webflow",
+          "label_en": "Webflow",
+          "meta_fr": "Cœur · design et mise en ligne rapides du no-code",
+          "meta_en": "Core · fast design and go-live of no-code",
+          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
+          "media_alt_fr": "Une voiture sur la route : la migration depuis Webflow, instrumentée.",
+          "media_alt_en": "A car on the road: the migration from Webflow, instrumented.",
+          "link_href": "/services/webflow"
+        }
+      ]
+    },
+    {
+      "type": "system-flow",
+      "background": "ink",
+      "fig_num": "Fig. 3.0",
+      "fig_title_fr": "WordPress instrumenté, de bout en bout",
+      "fig_title_en": "Instrumented WordPress, end to end",
+      "meta_fr": "PowerLoop · v1",
+      "meta_en": "PowerLoop · v1",
+      "h2_fr": "Comment un WordPress se met à travailler",
+      "h2_en": "How a WordPress starts to work",
+      "lede_fr": "Les briques ne s'empilent pas au hasard. Elles forment un circuit posé autour de votre WordPress. Chaque maillon transforme une visite anonyme en signal, puis renvoie la mesure pour trancher instrumenter ou refondre.",
+      "lede_en": "The blocks don't stack at random. They form a circuit laid around your WordPress. Each link turns an anonymous visit into a signal, then feeds the measurement back to decide instrument or rebuild.",
+      "steps": [
+        {
+          "title_fr": "WordPress",
+          "title_en": "WordPress",
+          "desc_fr": "L'éditeur conservé, le mode choisi, le thème assaini.",
+          "desc_en": "The editor kept, the mode chosen, the theme cleaned up."
+        },
+        {
+          "title_fr": "Contenu",
+          "title_en": "Content",
+          "desc_fr": "Pages en drag n drop, balisées GEO par plugins.",
+          "desc_en": "Pages by drag and drop, GEO-tagged via plugins."
+        },
+        {
+          "title_fr": "Capture",
+          "title_en": "Capture",
+          "desc_fr": "Formulaires et quiz branchés, chaque visite laisse un signal.",
+          "desc_en": "Forms and quizzes wired, every visit leaves a signal."
+        },
+        {
+          "title_fr": "CRM",
+          "title_en": "CRM",
+          "desc_fr": "Lead qualifié, dédoublonné, routé vers le commercial.",
+          "desc_en": "Lead qualified, deduplicated, routed to sales."
+        },
+        {
+          "title_fr": "IA",
+          "title_en": "AI",
+          "desc_fr": "KPI lus, SEO optimisé, score mobile surveillé.",
+          "desc_en": "KPIs read, SEO optimised, mobile score watched."
+        },
+        {
+          "title_fr": "Arbitrage",
+          "title_en": "Trade-off call",
+          "desc_fr": "Sous 80 mobile, la mesure déclenche la refonte. La boucle se referme.",
+          "desc_en": "Below 80 mobile, the measurement triggers the rebuild. The loop closes."
+        }
+      ],
+      "loop_label_fr": "boucle instrumenter ou refondre",
+      "loop_label_en": "instrument-or-rebuild loop"
+    },
+    {
+      "type": "sticky-scroll-storytelling",
+      "anchor": "methode",
+      "background": "paper",
+      "textSide": "left",
+      "proportion": "media-led",
+      "mediaRatio": "4-3",
+      "density": "base",
+      "numbering": "serif",
+      "kicker_fr": "§ Méthode · comment on travaille votre WordPress",
+      "kicker_en": "§ Method · how we work your WordPress",
+      "h2_fr": "Comment on travaille votre WordPress",
+      "h2_en": "How we work your WordPress",
+      "lede_fr": "De l'audit du score mobile au WordPress qui qualifie, avec l'arbitrage instrumenter ou refondre posé franchement. Vous savez avant de signer ce qu'on choisit et pourquoi. Pas de zone d'ombre.",
+      "lede_en": "From auditing the mobile score to a WordPress that qualifies, with the instrument-or-rebuild call laid out plainly. You know before signing what we choose and why. No grey zone.",
+      "steps": [
+        {
+          "index_fr": "01",
+          "index_en": "01",
+          "eyebrow_fr": "Audit & score",
+          "eyebrow_en": "Audit & score",
+          "title_fr": "Auditer le WordPress réel",
+          "title_en": "Audit the real WordPress",
+          "body_fr": "On part de votre WordPress et de son score mobile PageSpeed, pas d'un idéal. On mesure la dette : thème, plugins, base, contenu. Livrable : un diagnostic chiffré et une recommandation, instrumenter ou refondre.",
+          "body_en": "We start from your WordPress and its mobile PageSpeed score, not from an ideal. We measure the debt: theme, plugins, database, content. Deliverable: a costed diagnostic and a recommendation, instrument or rebuild.",
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "Audit du WordPress et de son score mobile à l'écran",
+          "media_alt_en": "Auditing the WordPress and its mobile score on screen"
+        },
+        {
+          "index_fr": "02",
+          "index_en": "02",
+          "eyebrow_fr": "Choix du mode",
+          "eyebrow_en": "Mode choice",
+          "title_fr": "Trancher headless, Woo ou classique",
+          "title_en": "Decide headless, Woo or classic",
+          "body_fr": "Selon votre contenu, votre trafic et vos ressources internes, on choisit le mode qui tient : headless pour la vitesse, WooCommerce pour vendre, classique pour tout piloter depuis WordPress. Le choix est justifié, pas imposé.",
+          "body_en": "Based on your content, traffic and in-house resources, we choose the mode that lasts: headless for speed, WooCommerce to sell, classic to drive everything from WordPress. The choice is justified, not imposed.",
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Choix du mode WordPress selon le besoin réel",
+          "media_alt_en": "Choosing the WordPress mode according to the real need"
+        },
+        {
+          "index_fr": "03",
+          "index_en": "03",
+          "eyebrow_fr": "Build & builders",
+          "eyebrow_en": "Build & builders",
+          "title_fr": "Monter le site et configurer les builders",
+          "title_en": "Build the site and set up the builders",
+          "body_fr": "On pose ou on refond le WordPress dans le mode choisi, on assainit le thème et on configure Gutenberg, Elementor ou Divi avec l'IA intégrée. Vos équipes créent des pages en drag n drop dès la mise en ligne.",
+          "body_en": "We build or rebuild the WordPress in the chosen mode, clean up the theme and set up Gutenberg, Elementor or Divi with AI built in. Your teams create pages by drag and drop from go-live.",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Montage du WordPress et configuration des builders",
+          "media_alt_en": "Building the WordPress and configuring the builders"
+        },
+        {
+          "index_fr": "04",
+          "index_en": "04",
+          "eyebrow_fr": "Instrumentation & GEO",
+          "eyebrow_en": "Instrumentation & GEO",
+          "title_fr": "Brancher le CRM, le GEO et la mesure",
+          "title_en": "Wire the CRM, GEO and measurement",
+          "body_fr": "On câble la capture, le scoring et le CRM, on pose le GEO par plugins et structure, et on connecte la Search Console et l'Analytics. On mesure l'avant et l'après : des chiffres sur vos propres données.",
+          "body_en": "We wire capture, scoring and the CRM, lay in GEO through plugins and structure, and connect Search Console and Analytics. We measure before and after: figures on your own data.",
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Instrumentation du WordPress et mesure avant/après",
+          "media_alt_en": "Instrumenting the WordPress and measuring before and after"
+        },
+        {
+          "index_fr": "05",
+          "index_en": "05",
+          "eyebrow_fr": "Mise en ligne & passation",
+          "eyebrow_en": "Go-live & handover",
+          "title_fr": "Mettre en ligne et passer la main",
+          "title_en": "Go live and hand over",
+          "body_fr": "Le site passe en production, puis on itère au rythme des résultats. La passation fait partie du livrable : mode opératoire, prise en main des builders, vous gardez WordPress et la main. Si le mobile décroche plus tard, la refonte est cadrée d'avance.",
+          "body_en": "The site goes into production, then we iterate at the pace of results. Handover is part of the deliverable: operating manual, builder onboarding, you keep WordPress and control. If mobile drops later, the rebuild is framed in advance.",
+          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
+          "media_alt_fr": "Mise en ligne du WordPress et passation à l'équipe",
+          "media_alt_en": "Taking the WordPress live and handing over to the team",
+          "link_label_fr": "Voir un cas concret",
+          "link_label_en": "See a real case",
+          "link_href": "/cas-clients"
+        }
+      ]
+    },
+    {
       "type": "feature-zigzag",
       "anchor": "modes",
-      "background": "paper",
+      "background": "paper-2",
       "kicker_fr": "§ Trois façons de faire du WordPress",
       "kicker_en": "§ Three ways to do WordPress",
       "h2_fr": "WordPress, au cœur de votre système",
@@ -318,8 +775,8 @@
           "kicker_en": "Mode 03",
           "h3_fr": "Classique, instrumenté et assisté par l'IA",
           "h3_en": "Classic, instrumented and AI-assisted",
-          "body_fr": "Sans site Astro : on garde votre WordPress classique et on le rend mesurable. Gutenberg, Elementor et Divi se sont tellement améliorés, IA intégrée, qu'on crée sections et landing pages en drag n drop ou en le demandant au chatbot. Le GEO se travaille par plugins, tracking, capture et CRM viennent par-dessus.",
-          "body_en": "No Astro site: we keep your classic WordPress and make it measurable. Gutenberg, Elementor and Divi have improved so much, with AI built in, that sections and landing pages are created by drag and drop or by asking the chatbot. GEO is worked through plugins, tracking, capture and CRM come on top.",
+          "body_fr": "On garde votre WordPress classique et on le rend mesurable. Gutenberg, Elementor et Divi se sont tellement améliorés, IA intégrée, qu'on crée sections et landing pages en drag n drop ou en le demandant au chatbot. Le GEO se travaille par plugins, tracking, capture et CRM viennent par-dessus.",
+          "body_en": "We keep your classic WordPress and make it measurable. Gutenberg, Elementor and Divi have improved so much, with AI built in, that sections and landing pages are created by drag and drop or by asking the chatbot. GEO is worked through plugins, tracking, capture and CRM come on top.",
           "points": [
             {
               "label_fr": "Sections et landing en drag n drop",
@@ -341,91 +798,247 @@
       ]
     },
     {
-      "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ WordPress laissé tel quel vs pris en main",
-      "kicker_en": "§ WordPress left as-is vs handled",
-      "h2_fr": "Le même WordPress, deux <i>trajectoires</i>",
-      "h2_en": "The same WordPress, two <i>trajectories</i>",
-      "without_label_fr": "Avant",
-      "without_label_en": "Before",
-      "without_title_fr": "WordPress laissé tel quel",
-      "without_title_en": "WordPress left as-is",
-      "without_items": [
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · résultats réels",
+      "spec_en": "Client cases · real results",
+      "h2_fr": "Résultats sur le terrain",
+      "h2_en": "Results in the field",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
         {
-          "text_fr": "Le score mobile glisse sous 80, Google déclasse, sans qu'on sache vraiment pourquoi.",
-          "text_en": "The mobile score slips under 80, Google demotes, without anyone really knowing why."
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · Abonnement · SEO",
+          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
+          "href": "/cas-clients/les-carnets-de-montpellier",
+          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
+          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
+          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
         },
         {
-          "text_fr": "Chaque évolution passe par un chantier de plugins à risque ou par un prestataire.",
-          "text_en": "Every change goes through a risky plugin project or a vendor."
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · E-commerce · Perf",
+          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
+          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
+          "href": "/cas-clients/balzeo",
+          "media_src": "/images/illustrations/ds/fruits-ink.webp",
+          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu et allégé.",
+          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt and made leaner."
         },
         {
-          "text_fr": "Le site publie mais ne mesure rien : ni scoring, ni routage CRM, ni reporting.",
-          "text_en": "The site publishes but measures nothing: no scoring, no CRM routing, no reporting."
-        },
-        {
-          "text_fr": "Au bout de deux ans, la pile est une dette et tout est à refaire dans l'urgence.",
-          "text_en": "After two years the stack is a debt and everything has to be redone in a rush."
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "Création · CRM HubSpot · GEO",
+          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
+          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
+          "href": "/cas-clients/amploi",
+          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
+          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
+          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
         }
       ],
-      "with_label_fr": "Après",
-      "with_label_en": "After",
-      "with_title_fr": "WordPress pris en main par Waimia",
-      "with_title_en": "WordPress handled by Waimia",
-      "with_items": [
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "testimonial-wall",
+      "background": "paper-2",
+      "kicker_fr": "Ils ont repris leur WordPress en main",
+      "kicker_en": "They took their WordPress back in hand",
+      "h2_fr": "Ce que disent les équipes dont le site qualifie enfin",
+      "h2_en": "What teams whose site finally qualifies are saying",
+      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de subir un site passif et mis leur site au travail.",
+      "subtitle_en": "Leaders and teams who stopped enduring a passive site and put their site to work.",
+      "columns": "3",
+      "testimonials": [
         {
-          "text_fr": "On vise le haut du mobile ; sous 80, on refond en Site Web Intelligent, 95+ garanti.",
-          "text_en": "We aim high on mobile; below 80, we rebuild as an Intelligent Website, 95+ guaranteed."
+          "quote_fr": "Plus besoin d'attendre un développeur pour changer une page. **On édite le contenu nous-mêmes en quelques minutes**, et rien ne casse. Fini les chantiers WordPress.",
+          "quote_en": "No more waiting for a developer to change a page. **We edit the content ourselves in minutes**, and nothing breaks. No more WordPress projects.",
+          "author": "Hugo Lacombe",
+          "role_fr": "Responsable communication",
+          "role_en": "Communications Manager",
+          "company": "Groupe Mérindol"
         },
         {
-          "text_fr": "Sections et landing en drag n drop ou par l'IA : vos équipes restent autonomes.",
-          "text_en": "Sections and landing by drag and drop or by AI: your teams stay autonomous."
+          "quote_fr": "On avait un beau site qui ne ramenait rien. Aujourd'hui **chaque visite est scorée et le commercial reçoit des leads déjà qualifiés**. Le quiz de routing a tout changé.",
+          "quote_en": "We had a nice site that brought in nothing. Now **every visit is scored and sales receive already-qualified leads**. The routing quiz changed everything.",
+          "author": "Élodie Charpentier",
+          "role_fr": "Directrice marketing",
+          "role_en": "Marketing Director",
+          "company": "Maison Tassigny"
         },
         {
-          "text_fr": "Capture, scoring et CRM branchés par-dessus l'existant, sans casser ce qui marche.",
-          "text_en": "Capture, scoring and CRM wired on top of the existing site, without breaking what works."
+          "quote_fr": "Le site se charge en un instant et **on est passés en top 5 Google sur nos requêtes clés** en quelques mois. Les articles sont même cités dans les réponses IA.",
+          "quote_en": "The site loads instantly and **we moved into the Google top 5 on our key queries** within a few months. The articles even get cited in AI answers.",
+          "author": "Romain Delaunay",
+          "role_fr": "Cofondateur",
+          "role_en": "Co-founder",
+          "company": "Sevran & Fils"
         },
         {
-          "text_fr": "Un mode choisi pour durer : headless, WooCommerce ou classique, jamais à refaire dans l'urgence.",
-          "text_en": "A mode chosen to last: headless, WooCommerce or classic, never redone in a rush."
+          "quote_fr": "Ce qui m'a convaincu, c'est le **tableau de pilotage** : pour la première fois je relie une dépense web à un lead concret. On pilote sur des chiffres, pas au ressenti.",
+          "quote_en": "What sold me was the **dashboard**: for the first time I link a web spend to a concrete lead. We manage on figures, not on gut feel.",
+          "author": "Nadia Brunel",
+          "role_fr": "Dirigeante",
+          "role_en": "Managing Director",
+          "company": "Atelier Vireux"
+        },
+        {
+          "quote_fr": "La refonte a divisé notre temps de chargement par deux et **nos coûts de maintenance ont fondu**. Le site monte de version au fil des mois, sans tout refaire.",
+          "quote_en": "The rebuild halved our load time and **our maintenance costs melted away**. The site moves up versions over the months, without redoing everything.",
+          "author": "Sophie Antunes",
+          "role_fr": "Directrice e-commerce",
+          "role_en": "E-commerce Director",
+          "company": "Lartigue & Co"
+        },
+        {
+          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par une landing instrumentée, **prouvé la valeur, puis étendu** au site complet. Exactement le bon rythme.",
+          "quote_en": "Pragmatic approach, zero jargon. We started with an instrumented landing, **proved the value, then scaled** to the full site. Exactly the right pace.",
+          "author": "Karim Belkacem",
+          "role_fr": "Fondateur",
+          "role_en": "Founder",
+          "company": "Studio Andrézieux"
         }
       ]
     },
     {
-      "type": "related-cards-band",
+      "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Trois cœurs possibles, un même système",
-      "kicker_en": "§ Three possible cores, one system",
-      "cards": [
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Quatre façons de poser votre WordPress",
+      "h2_en": "Four ways to lay down your WordPress",
+      "lede_fr": "De la landing instrumentée au site complet, même grille que nos sites : la formule dépend du périmètre, pas du mode. Le mode WordPress (headless, WooCommerce, classique) se choisit à l'audit, sans surcoût. On chiffre au cadrage, jamais avant.",
+      "lede_en": "From an instrumented landing to the full site, the same grid as our sites: the plan depends on scope, not on the mode. The WordPress mode (headless, WooCommerce, classic) is chosen at the audit, at no extra cost. We price at scoping, never before.",
+      "tiers": [
         {
-          "kicker_fr": "Offre",
-          "kicker_en": "Offer",
-          "title_fr": "Site web intelligent",
-          "title_en": "Intelligent website",
-          "lead_fr": "La refonte recommandée sous 80 en mobile : un site sur mesure, 95+ garanti, à partir de 2 000 €.",
-          "lead_en": "The rebuild recommended below 80 on mobile: a bespoke site, 95+ guaranteed, from 2,000 €.",
-          "href": "/services/site-web-ia"
+          "name_fr": "Landing page",
+          "name_en": "Landing page",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Landing 1 à 3 pages sur WordPress, mise en ligne",
+            "SEO et GEO de base par plugins, balisage Schema.org",
+            "Tracking first-party et tableau de base",
+            "Formulaire de capture branché au CRM"
+          ],
+          "features_en": [
+            "1-to-3-page landing on WordPress, deployed",
+            "Base SEO and GEO via plugins, Schema.org markup",
+            "First-party tracking and base dashboard",
+            "Capture form wired to the CRM"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une landing →",
+            "label_en": "Scope a landing →",
+            "href": "/contact?offer=wordpress&intent=landing",
+            "variant": "ghost"
+          }
         },
         {
-          "kicker_fr": "Cœur",
-          "kicker_en": "Core",
-          "title_fr": "Sur mesure (Astro/React)",
-          "title_en": "Bespoke (Astro/React)",
-          "lead_fr": "Le maximum de perf et de liberté : un front sur mesure quand le besoin est spécifique.",
-          "lead_en": "Maximum performance and freedom: a bespoke front when the need is specific.",
-          "href": "/services/sur-mesure-headless"
+          "name_fr": "Site vitrine",
+          "name_en": "Showcase site",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · ex VAT",
+          "features_fr": [
+            "Site 3 à 5 pages, créé ou refondu, mode au choix",
+            "Builders configurés (Gutenberg, Elementor, Divi) + IA",
+            "SEO et GEO structurés, scoring et capture",
+            "Tracking server-side, consentement RGPD et hébergement"
+          ],
+          "features_en": [
+            "3-to-5-page site, built or rebuilt, mode of choice",
+            "Builders configured (Gutenberg, Elementor, Divi) + AI",
+            "Structured SEO and GEO, scoring and capture",
+            "Server-side tracking, GDPR consent and hosting"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit (45 min) →",
+            "label_en": "Book an audit (45 min) →",
+            "href": "/contact?offer=wordpress&intent=discovery",
+            "variant": "primary"
+          },
+          "featured": true
         },
         {
-          "kicker_fr": "Cœur",
-          "kicker_en": "Core",
-          "title_fr": "Webflow",
-          "title_en": "Webflow",
-          "lead_fr": "Le design et la mise en ligne rapides du no-code, instrumentés comme le reste.",
-          "lead_en": "The fast design and go-live of no-code, instrumented like the rest.",
-          "href": "/services/webflow"
+          "name_fr": "Site premium",
+          "name_en": "Premium site",
+          "price": "7 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Site complet, headless ou WooCommerce, direction artistique",
+            "Système de contenu SEO et GEO par plugins, en cadence",
+            "Connexion IA (Claude, GPT) et premiers skills",
+            "Formulaires connectés à votre CRM, chatbot de qualification"
+          ],
+          "features_en": [
+            "Full site, headless or WooCommerce, art direction",
+            "SEO and GEO content system via plugins, on cadence",
+            "AI connection (Claude, GPT) and first skills",
+            "Forms connected to your CRM, qualification chatbot"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un site premium →",
+            "label_en": "Scope a premium site →",
+            "href": "/contact?offer=wordpress&intent=premium",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Refonte sur mesure",
+          "name_en": "Bespoke rebuild",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Quand le mobile passe sous 80 : refonte hors WordPress",
+            "Site sur mesure 95+ mobile garanti, migration du contenu",
+            "Dashboard Google Analytics et Search Console",
+            "CRM branché (HubSpot, Salesforce, Pipedrive) et paiement Stripe"
+          ],
+          "features_en": [
+            "When mobile drops under 80: a rebuild off WordPress",
+            "Bespoke site 95+ mobile guaranteed, content migrated",
+            "Dashboard with Google Analytics and Search Console",
+            "CRM wired (HubSpot, Salesforce, Pipedrive) and Stripe payments"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une refonte →",
+            "label_en": "Scope a rebuild →",
+            "href": "/services/sur-mesure-headless",
+            "variant": "ghost"
+          }
         }
-      ]
+      ],
+      "footnote_fr": "Le mode WordPress (headless, WooCommerce, classique) se choisit à l'audit, sans changer la formule. Sous 80 en mobile, on recommande une refonte hors WordPress, chiffrée au cadrage. Sans engagement de durée, sans abonnement caché : vous gardez WordPress et la main.",
+      "footnote_en": "The WordPress mode (headless, WooCommerce, classic) is chosen at the audit, without changing the plan. Below 80 on mobile, we recommend a rebuild off WordPress, priced at scoping. No duration commitment, no hidden subscription: you keep WordPress and control."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "acquisition"
     },
     {
       "type": "faq-accordion",
@@ -454,12 +1067,6 @@
           "a_en": "Yes. WooCommerce opens a proven catalogue, cart and checkout, with a plug and play ecosystem of extensions. We set it up cleanly, wire it to your tools and instrument the funnel so every visit is measured."
         },
         {
-          "q_fr": "Les perfs WordPress valent-elles un site 100 % Astro ?",
-          "q_en": "Does WordPress performance match a 100% Astro site?",
-          "a_fr": "Non, et on le dit franchement : un WordPress reste un cran sous un site 100 % Astro côté performance. En contrepartie, l'écosystème est immense, les builders assistés par l'IA rendent vos équipes autonomes, et le GEO se travaille par plugins. Quand la perf devient un frein réel, c'est le signe qu'il faut refondre.",
-          "a_en": "No, and we say it plainly: a WordPress stays a notch below a 100% Astro site on performance. In return, the ecosystem is huge, AI-assisted builders make your teams autonomous, and GEO is worked through plugins. When performance becomes a real drag, that's the sign it's time to rebuild."
-        },
-        {
           "q_fr": "On peut créer des pages sans développeur ?",
           "q_en": "Can pages be created without a developer?",
           "a_fr": "Oui. Gutenberg, Elementor et Divi se sont tellement améliorés, IA intégrée, qu'on crée sections et landing pages en drag n drop ou en le demandant au chatbot. Vos équipes marketing restent autonomes au quotidien, sans dépendre de nous pour chaque évolution.",
@@ -474,14 +1081,17 @@
         {
           "q_fr": "Quand recommandez-vous de refondre plutôt que d'instrumenter ?",
           "q_en": "When do you recommend rebuilding rather than instrumenting?",
-          "a_fr": "Quand le score mobile passe sous 80 sur PageSpeed et que la maintenance coûte plus qu'elle ne rapporte. On bascule alors vers un Site Web Intelligent, livré plus vite qu'une refonte classique, plus efficace, et garanti à plus de 95 en mobile sur PageSpeed.",
-          "a_en": "When the mobile score drops below 80 on PageSpeed and maintenance costs more than it returns. We then move to an Intelligent Website, delivered faster than a classic rebuild, more efficient, and guaranteed above 95 on mobile PageSpeed."
+          "a_fr": "Quand le score mobile passe sous 80 sur PageSpeed et que la maintenance coûte plus qu'elle ne rapporte. On bascule alors vers un site sur mesure, livré plus vite qu'une refonte WordPress classique, plus efficace, et garanti à plus de 95 en mobile sur PageSpeed.",
+          "a_en": "When the mobile score drops below 80 on PageSpeed and maintenance costs more than it returns. We then move to a bespoke site, delivered faster than a classic WordPress rebuild, more efficient, and guaranteed above 95 on mobile PageSpeed."
         }
       ]
     },
     {
       "type": "footer-cta-band",
       "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
       "rounded": true,
       "kicker_fr": "§ WordPress, mais bien fait",
       "kicker_en": "§ WordPress, done right",

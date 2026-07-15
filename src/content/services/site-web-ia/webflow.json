@@ -6,6 +6,7 @@
   "description_en": "You like Webflow for design and go-live, but want intelligence: SEO/GEO, CRM, scoring and tracking. Waimia instruments it or migrates.",
   "slug": "webflow",
   "publishedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-07-15T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "site-web-intelligent",
@@ -81,8 +82,8 @@
       "kicker_en": "§ Intelligent site · Webflow",
       "h1_fr": "Votre Webflow, mais <i class=\"acc\">intelligent</i>.",
       "h1_en": "Your Webflow, but <i class=\"acc\">intelligent</i>.",
-      "lede_fr": "Webflow dessine vite et met en ligne sans friction. Waimia y branche le SEO/GEO, le CRM, le scoring et le tracking, ou recommande une migration sur mesure quand le plafond gêne vos objectifs.",
-      "lede_en": "Webflow designs fast and ships without friction. Waimia wires in SEO/GEO, CRM, scoring and tracking, or recommends a bespoke migration when the ceiling blocks your goals.",
+      "lede_fr": "Webflow dessine vite et met en ligne sans friction. Waimia y branche le SEO/GEO, le CRM, le scoring et le tracking, ou recommande une migration sur mesure quand le plafond gêne vos objectifs. Sans casser un design qui vous va.",
+      "lede_en": "Webflow designs fast and ships without friction. Waimia wires in SEO/GEO, CRM, scoring and tracking, or recommends a bespoke migration when the ceiling blocks your goals. Without breaking a design that suits you.",
       "badges": [
         {
           "label_fr": "Webflow instrumenté",
@@ -101,12 +102,12 @@
           "label_en": "Measurable"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement : on regarde votre Webflow réel.",
+      "cta_sub_en": "45-min diagnostic, free and no commitment: we look at your real Webflow.",
       "cta_primary": {
         "label_fr": "Réserver un diagnostic (45 min) →",
         "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=site-web-intelligent&intent=discovery",
+        "href": "/contact?offer=webflow&intent=discovery",
         "variant": "primary"
       },
       "cta_secondary": {
@@ -161,12 +162,30 @@
       ]
     },
     {
+      "type": "statement-orbit",
+      "kicker_fr": "FIG 1.5 · Le dispositif",
+      "kicker_en": "FIG 1.5 · The dispositif",
+      "h2_fr": "Un Webflow seul reste muet. Un Webflow <i class=\"acc\">instrumenté</i> mesure, qualifie et alimente le CRM.",
+      "h2_en": "A Webflow alone stays silent. An <i class=\"acc\">instrumented</i> Webflow measures, qualifies and feeds the CRM.",
+      "lede_fr": "Webflow dessine bien, mais s'arrête à la vitrine. Ici, votre Webflow, votre contenu, votre CRM et l'IA se branchent ensemble et travaillent sur vos données. On garde le design, on pose l'intelligence autour. Le site est la base du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> : c'est lui qui capte le trafic que le SEO et les tunnels transforment.",
+      "lede_en": "Webflow designs well, but stops at the brochure. Here, your Webflow, your content, your CRM and the AI wire together and work on your data. We keep the design, we lay the intelligence around it. The site is the base of the <a href=\"/services/systeme-acquisition\">acquisition system</a>: it captures the traffic that SEO and funnels turn into leads.",
+      "cta": {
+        "label_fr": "Voir ce qu'on branche →",
+        "label_en": "See what we wire in →",
+        "href": "#capacites",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/orbit-network.svg",
+      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : un Webflow, un CRM, du contenu et l'IA s'orchestrent en un seul dispositif d'acquisition.",
+      "media_alt_en": "Wireframe globe with nodes linked by arcs: a Webflow, a CRM, content and AI orchestrate into one acquisition dispositif."
+    },
+    {
       "type": "definition-extract",
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">Webflow instrumenté</i> est un site Webflow auquel on branche le SEO/GEO avancé, la capture, le scoring et le tracking connectés au CRM : il garde la rapidité de design de Webflow et gagne l'intelligence qui lui manque.",
-      "statement_en": "An <i class=\"acc\">instrumented Webflow</i> is a Webflow site wired with advanced SEO/GEO, capture, scoring and tracking connected to the CRM: it keeps Webflow's design speed and gains the intelligence it lacks.",
+      "statement_fr": "Un <i class=\"acc\">Webflow instrumenté</i> est un site Webflow auquel on branche le SEO/GEO avancé, la capture, le scoring et le tracking connectés au CRM : il garde la rapidité de design de Webflow et gagne l'intelligence qui lui manque. Quand le plafond gêne, on migre sur mesure en gardant le design.",
+      "statement_en": "An <i class=\"acc\">instrumented Webflow</i> is a Webflow site wired with advanced SEO/GEO, capture, scoring and tracking connected to the CRM: it keeps Webflow's design speed and gains the intelligence it lacks. When the ceiling blocks you, we migrate bespoke while keeping the design.",
       "pills": [
         {
           "label_fr": "Design gardé",
@@ -185,8 +204,8 @@
           "label_en": "Scoring"
         },
         {
-          "label_fr": "Mesurable",
-          "label_en": "Measurable"
+          "label_fr": "Migration possible",
+          "label_en": "Migration possible"
         }
       ],
       "specs": [
@@ -207,8 +226,8 @@
           "label_en": "Native CRM"
         },
         {
-          "label_fr": "Migration possible",
-          "label_en": "Migration possible"
+          "label_fr": "Migration Astro SSG",
+          "label_en": "Astro SSG migration"
         },
         {
           "label_fr": "Pipeline",
@@ -254,9 +273,455 @@
       ]
     },
     {
-      "type": "feature-zigzag",
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Webflow seul / instrumenté",
+      "kicker_en": "§ Webflow alone / instrumented",
+      "h2_fr": "De Webflow seul au Webflow qui <i class=\"acc\">qualifie</i>",
+      "h2_en": "From Webflow alone to a Webflow that <i class=\"acc\">qualifies</i>",
+      "without_label_fr": "Webflow seul",
+      "without_label_en": "Webflow alone",
+      "without_title_fr": "Beau, mais muet",
+      "without_title_en": "Pretty, but silent",
+      "without_items": [
+        {
+          "text_fr": "Les formulaires partent en mail, sans CRM enrichi ni scoring.",
+          "text_en": "Forms go to email, with no enriched CRM or scoring."
+        },
+        {
+          "text_fr": "Le SEO plafonne aux réglages natifs, les IA citent rarement la marque.",
+          "text_en": "SEO caps at native settings, AIs rarely cite the brand."
+        },
+        {
+          "text_fr": "Aucun visiteur n'est qualifié avant le premier contact.",
+          "text_en": "No visitor is qualified before the first contact."
+        },
+        {
+          "text_fr": "Le coût d'abonnement monte avec le trafic, sans gain de pilotage.",
+          "text_en": "The subscription cost climbs with traffic, with no gain in management."
+        }
+      ],
+      "with_label_fr": "Instrumenté / migré",
+      "with_label_en": "Instrumented / migrated",
+      "with_title_fr": "Le même design, l'intelligence en plus",
+      "with_title_en": "Same design, intelligence added",
+      "with_items": [
+        {
+          "text_fr": "Les formulaires alimentent le CRM, le scoring qualifie en temps réel.",
+          "text_en": "Forms feed the CRM, scoring qualifies in real time."
+        },
+        {
+          "text_fr": "Le balisage avancé fait remonter la marque dans Google et les IA.",
+          "text_en": "Advanced markup lifts the brand in Google and the AIs."
+        },
+        {
+          "text_fr": "Le pilotage est temps réel, mesuré sur vos propres données.",
+          "text_en": "Management is real-time, measured on your own data."
+        },
+        {
+          "text_fr": "Quand le plafond gêne, une migration sur mesure lève les limites sans perdre le design.",
+          "text_en": "When the ceiling blocks you, a bespoke migration lifts the limits without losing the design."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Maturité",
+      "kicker_en": "§ Maturity",
+      "h2_fr": "Les 6 niveaux d'un Webflow",
+      "h2_en": "The 6 levels of a Webflow",
+      "lede_fr": "Du site dessiné au front migré sur mesure, six paliers. La plupart des PME stagnent au SEO natif. On vous situe, puis on vous fait monter d'un cran.",
+      "lede_en": "From a designed site to a bespoke-migrated front, six tiers. Most SMEs stall at native SEO. We place you, then move you up a notch.",
+      "steps": [
+        {
+          "title_fr": "Webflow dessiné",
+          "title_en": "Designed Webflow",
+          "sub_fr": "Beau, mais passif",
+          "sub_en": "Pretty, but passive"
+        },
+        {
+          "title_fr": "SEO natif",
+          "title_en": "Native SEO",
+          "sub_fr": "Balises et sitemap, plafonnés",
+          "sub_en": "Tags and sitemap, capped"
+        },
+        {
+          "title_fr": "Webflow suivi",
+          "title_en": "Tracked Webflow",
+          "sub_fr": "Tracking et KPI lus",
+          "sub_en": "Tracking and KPIs read"
+        },
+        {
+          "title_fr": "Webflow branché CRM",
+          "title_en": "CRM-wired Webflow",
+          "sub_fr": "Scoring et capture connectés",
+          "sub_en": "Scoring and capture connected"
+        },
+        {
+          "title_fr": "Webflow éditorial",
+          "title_en": "Editorial Webflow",
+          "sub_fr": "Contenu GEO en cadence",
+          "sub_en": "GEO content on cadence"
+        },
+        {
+          "title_fr": "Migration sur mesure",
+          "title_en": "Bespoke migration",
+          "sub_fr": "Astro SSG, plafonds levés",
+          "sub_en": "Astro SSG, ceilings lifted"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous récupérez concrètement",
+      "title_en": "What you get concretely",
+      "lead_fr": "On pose l'intelligence sur votre Webflow, sans vous rendre captif. Vous gardez le design.",
+      "lead_en": "We lay the intelligence on your Webflow, without locking you in. You keep the design.",
+      "items": [
+        {
+          "title_fr": "Audit et arbitrage",
+          "title_en": "Audit and trade-off call",
+          "body_fr": "Un diagnostic honnête de votre Webflow : où il tient, où il décroche, et la recommandation instrumenter ou migrer, chiffrée.",
+          "body_en": "An honest diagnostic of your Webflow: where it holds, where it drops off, and the instrument-or-migrate recommendation, costed.",
+          "format_fr": "AUDIT",
+          "format_en": "AUDIT",
+          "illustration_src": "/images/line-art/swi-livrable-site.svg",
+          "illustration_alt_fr": "Un audit du Webflow avec recommandation instrumenter ou migrer",
+          "illustration_alt_en": "A Webflow audit with an instrument-or-migrate recommendation"
+        },
+        {
+          "title_fr": "Couche SEO et GEO",
+          "title_en": "SEO and GEO layer",
+          "body_fr": "Schema.org avancé, données structurées par type de page et maillage interne posés au-delà des réglages natifs de Webflow, pour être cité.",
+          "body_en": "Advanced Schema.org, structured data per page type and internal linking laid beyond Webflow's native settings, to be cited.",
+          "format_fr": "GEO",
+          "format_en": "GEO",
+          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
+          "illustration_alt_fr": "Une couche SEO et GEO posée au-delà du natif Webflow",
+          "illustration_alt_en": "An SEO and GEO layer laid beyond Webflow native"
+        },
+        {
+          "title_fr": "Couche CRM et scoring",
+          "title_en": "CRM and scoring layer",
+          "body_fr": "Vos formulaires Webflow connectés au CRM (HubSpot, Salesforce, Pipedrive), scoring comportemental et routage des leads, tracking server-side.",
+          "body_en": "Your Webflow forms connected to the CRM (HubSpot, Salesforce, Pipedrive), behavioural scoring and lead routing, server-side tracking.",
+          "format_fr": "CRM",
+          "format_en": "CRM",
+          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
+          "illustration_alt_fr": "Des formulaires Webflow branchés au CRM avec scoring",
+          "illustration_alt_en": "Webflow forms wired to the CRM with scoring"
+        },
+        {
+          "title_fr": "Moteur de contenu",
+          "title_en": "Content engine",
+          "body_fr": "Un système éditorial SEO et GEO qui produit des articles balisés, cités par les moteurs génératifs et tissés en maillage interne, en cadence.",
+          "body_en": "An SEO and GEO editorial system that produces tagged articles, cited by generative engines and woven into internal linking, on cadence.",
+          "format_fr": "CONTENU",
+          "format_en": "CONTENT",
+          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
+          "illustration_alt_fr": "Un moteur de contenu SEO et GEO en cadence",
+          "illustration_alt_en": "An SEO and GEO content engine on cadence"
+        },
+        {
+          "title_fr": "Tableau de bord",
+          "title_en": "Dashboard",
+          "body_fr": "KPI Search Console et Analytics lus par l'IA, acquisition, conversion et pipeline en temps réel, alertes sur les anomalies.",
+          "body_en": "Search Console and Analytics KPIs read by the AI, acquisition, conversion and pipeline in real time, alerts on anomalies.",
+          "format_fr": "TABLEAU",
+          "format_en": "DASHBOARD",
+          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
+          "illustration_alt_fr": "Un tableau de pilotage des KPI d'acquisition avec alertes",
+          "illustration_alt_en": "An acquisition KPI dashboard with alerts"
+        },
+        {
+          "title_fr": "Chemin de migration",
+          "title_en": "Migration path",
+          "body_fr": "Quand le plafond gêne, le plan de migration sur mesure (Astro SSG) qui garde votre design, documenté et chiffré, sans captivité.",
+          "body_en": "When the ceiling blocks you, the bespoke migration plan (Astro SSG) that keeps your design, documented and costed, with no lock-in.",
+          "format_fr": "PLAN",
+          "format_en": "PLAN",
+          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
+          "illustration_alt_fr": "Un plan de migration sur mesure qui garde le design Webflow",
+          "illustration_alt_en": "A bespoke migration plan that keeps the Webflow design"
+        }
+      ]
+    },
+    {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ Les outils qu'on branche à votre Webflow",
+      "kicker_en": "§ The tools we wire to your Webflow",
+      "grayscale": true,
+      "logoIds": [
+        "hubspot",
+        "salesforce",
+        "google",
+        "claude",
+        "openai",
+        "github",
+        "notion",
+        "slack",
+        "microsoft",
+        "aws",
+        "sap",
+        "meta"
+      ]
+    },
+    {
+      "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
+      "kicker_fr": "§ Les briques",
+      "kicker_en": "§ The building blocks",
+      "h2_fr": "Ce qu'on branche sur Webflow",
+      "h2_en": "What we wire onto Webflow",
+      "lede_fr": "Sept briques posées sur le Webflow que vous avez déjà. On active celles qui servent votre maturité, quand elles servent. Pas de gadget qu'on vous facture pour rien.",
+      "lede_en": "Seven building blocks laid on the Webflow you already have. We activate the ones that fit your maturity, when they serve. No gadget billed to you for nothing.",
+      "columns": "4",
+      "fillMedia": "services-layer.svg",
+      "features": [
+        {
+          "icon": "design",
+          "title_fr": "Design gardé",
+          "title_en": "Design kept",
+          "body_fr": "On ne casse pas ce qui vous va. Le design Webflow reste, on pose l'intelligence autour, ou on le remigre à l'identique sur mesure.",
+          "body_en": "We don't break what suits you. The Webflow design stays, we lay the intelligence around it, or migrate it identically to bespoke."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "SEO et GEO avancé",
+          "title_en": "Advanced SEO and GEO",
+          "body_fr": "Au-delà des réglages natifs : Schema.org avancé, données structurées par type de page, maillage pensé pour les moteurs génératifs.",
+          "body_en": "Beyond native settings: advanced Schema.org, structured data per page type, linking built for generative engines."
+        },
+        {
+          "icon": "qualif",
+          "title_fr": "Capture et scoring",
+          "title_en": "Capture and scoring",
+          "body_fr": "Vos formulaires Webflow branchés à une couche de capture et de scoring comportemental : chaque visite est notée et routée.",
+          "body_en": "Your Webflow forms wired to a capture and behavioural-scoring layer: every visit is scored and routed."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Tracking server-side",
+          "title_en": "Server-side tracking",
+          "body_fr": "Tracking first-party, Search Console et Analytics branchés, consentement RGPD propre : vous mesurez sans boîte noire.",
+          "body_en": "First-party tracking, Search Console and Analytics wired in, clean GDPR consent: you measure with no black box."
+        },
+        {
+          "icon": "crm",
+          "title_fr": "CRM",
+          "title_en": "CRM",
+          "body_fr": "Ce que Webflow ne fait pas seul : vos leads dans HubSpot, Salesforce ou Pipedrive, dédoublonnés et routés vers le commercial.",
+          "body_en": "What Webflow doesn't do alone: your leads in HubSpot, Salesforce or Pipedrive, deduplicated and routed to sales."
+        },
+        {
+          "icon": "ia",
+          "title_fr": "IA",
+          "title_en": "AI",
+          "body_fr": "Un LLM branché en skills : il lit vos KPI, optimise le SEO et score chaque visite, sur vos propres données.",
+          "body_en": "An LLM wired in as skills: it reads your KPIs, optimises SEO and scores each visit, on your own data."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Migration maîtrisée",
+          "title_en": "Controlled migration",
+          "body_fr": "Quand le plafond gêne, on migre sur mesure (Astro SSG) en gardant le design : plafonds levés, coût récurrent maîtrisé.",
+          "body_en": "When the ceiling blocks you, we migrate bespoke (Astro SSG) keeping the design: ceilings lifted, recurring cost controlled."
+        }
+      ]
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "cousins",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Trois cœurs possibles",
+      "kicker_en": "§ Three possible cores",
+      "h2_fr": "Webflow, ou une autre <i>base</i>",
+      "h2_en": "Webflow, or another <i>base</i>",
+      "lede_fr": "Webflow n'est pas la seule voie. On l'instrumente, on migre sur mesure, ou on part d'un WordPress existant. Survolez une base pour la voir.",
+      "lede_en": "Webflow isn't the only path. We instrument it, migrate bespoke, or start from an existing WordPress. Hover a base to preview it.",
+      "items": [
+        {
+          "label_fr": "Site web intelligent",
+          "label_en": "Intelligent website",
+          "meta_fr": "Offre parent · création, refonte et instrumentation",
+          "meta_en": "Parent offer · build, rebuild and instrumentation",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Une jonction validée : l'offre complète de site instrumenté.",
+          "media_alt_en": "A validated handshake: the full instrumented-site offer.",
+          "link_href": "/services/site-web-ia"
+        },
+        {
+          "label_fr": "Sur mesure",
+          "label_en": "Bespoke",
+          "meta_fr": "Cible de migration · Astro SSG, plafonds levés",
+          "meta_en": "Migration target · Astro SSG, ceilings lifted",
+          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
+          "media_alt_fr": "Un artisan au travail : la migration sur mesure façonnée pièce par pièce.",
+          "media_alt_en": "A craftsman at work: the bespoke migration shaped piece by piece.",
+          "link_href": "/services/sur-mesure-headless"
+        },
+        {
+          "label_fr": "WordPress",
+          "label_en": "WordPress",
+          "meta_fr": "Cœur · instrumenté sans tout reconstruire",
+          "meta_en": "Core · instrumented without a full rebuild",
+          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
+          "media_alt_fr": "Un ordinateur ausculté : le WordPress existant instrumenté.",
+          "media_alt_en": "A computer being checked: the existing WordPress instrumented.",
+          "link_href": "/services/wordpress"
+        }
+      ]
+    },
+    {
+      "type": "system-flow",
+      "background": "ink",
+      "fig_num": "Fig. 3.0",
+      "fig_title_fr": "Webflow instrumenté, de bout en bout",
+      "fig_title_en": "Instrumented Webflow, end to end",
+      "meta_fr": "PowerLoop · v1",
+      "meta_en": "PowerLoop · v1",
+      "h2_fr": "Comment un Webflow se met à qualifier",
+      "h2_en": "How a Webflow starts to qualify",
+      "lede_fr": "Les couches ne s'empilent pas au hasard. Elles forment un circuit posé sur votre Webflow. Chaque maillon transforme une visite anonyme en signal, puis renvoie la mesure pour trancher instrumenter ou migrer.",
+      "lede_en": "The layers don't stack at random. They form a circuit laid on your Webflow. Each link turns an anonymous visit into a signal, then feeds the measurement back to decide instrument or migrate.",
+      "steps": [
+        {
+          "title_fr": "Webflow",
+          "title_en": "Webflow",
+          "desc_fr": "Le design conservé, les pages servies telles quelles.",
+          "desc_en": "The design kept, the pages served as they are."
+        },
+        {
+          "title_fr": "SEO/GEO",
+          "title_en": "SEO/GEO",
+          "desc_fr": "Balisage avancé posé au-delà du natif, la marque devient citable.",
+          "desc_en": "Advanced markup laid beyond native, the brand becomes citable."
+        },
+        {
+          "title_fr": "Capture",
+          "title_en": "Capture",
+          "desc_fr": "Formulaires branchés, chaque visite laisse un signal.",
+          "desc_en": "Forms wired, every visit leaves a signal."
+        },
+        {
+          "title_fr": "CRM",
+          "title_en": "CRM",
+          "desc_fr": "Lead scoré, dédoublonné, routé vers le commercial.",
+          "desc_en": "Lead scored, deduplicated, routed to sales."
+        },
+        {
+          "title_fr": "IA",
+          "title_en": "AI",
+          "desc_fr": "KPI lus, SEO optimisé, plafond de Webflow surveillé.",
+          "desc_en": "KPIs read, SEO optimised, Webflow's ceiling watched."
+        },
+        {
+          "title_fr": "Arbitrage",
+          "title_en": "Trade-off call",
+          "desc_fr": "Quand le plafond gêne, la mesure déclenche la migration. La boucle se referme.",
+          "desc_en": "When the ceiling blocks you, the measurement triggers the migration. The loop closes."
+        }
+      ],
+      "loop_label_fr": "boucle instrumenter ou migrer",
+      "loop_label_en": "instrument-or-migrate loop"
+    },
+    {
+      "type": "sticky-scroll-storytelling",
+      "anchor": "methode",
+      "background": "paper",
+      "textSide": "left",
+      "proportion": "media-led",
+      "mediaRatio": "4-3",
+      "density": "base",
+      "numbering": "serif",
+      "kicker_fr": "§ Méthode · comment on travaille votre Webflow",
+      "kicker_en": "§ Method · how we work your Webflow",
+      "h2_fr": "Comment on travaille votre Webflow",
+      "h2_en": "How we work your Webflow",
+      "lede_fr": "De l'audit honnête au Webflow qui qualifie, avec l'arbitrage instrumenter ou migrer posé franchement. Vous savez avant de signer ce qu'on branche et quand on migre. Pas de zone d'ombre.",
+      "lede_en": "From an honest audit to a Webflow that qualifies, with the instrument-or-migrate call laid out plainly. You know before signing what we wire and when we migrate. No grey zone.",
+      "steps": [
+        {
+          "index_fr": "01",
+          "index_en": "01",
+          "eyebrow_fr": "Audit honnête",
+          "eyebrow_en": "Honest audit",
+          "title_fr": "Regarder où Webflow tient",
+          "title_en": "See where Webflow holds",
+          "body_fr": "On part de votre Webflow réel : SEO natif, coût récurrent, perf, connexion données. On vous dit où il tient et où il décroche. Livrable : un diagnostic chiffré et une recommandation, instrumenter ou migrer.",
+          "body_en": "We start from your real Webflow: native SEO, recurring cost, performance, data connection. We tell you where it holds and where it drops off. Deliverable: a costed diagnostic and a recommendation, instrument or migrate.",
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "Audit honnête du Webflow à l'écran",
+          "media_alt_en": "Honest audit of the Webflow on screen"
+        },
+        {
+          "index_fr": "02",
+          "index_en": "02",
+          "eyebrow_fr": "Instrumentation",
+          "eyebrow_en": "Instrumentation",
+          "title_fr": "Poser les couches qui manquent",
+          "title_en": "Lay in the missing layers",
+          "body_fr": "On branche le SEO/GEO avancé, la capture, le scoring et le CRM sur votre Webflow, sans toucher au design. Livrable : un Webflow qui mesure et qualifie, connecté à vos outils.",
+          "body_en": "We wire advanced SEO/GEO, capture, scoring and the CRM onto your Webflow, without touching the design. Deliverable: a Webflow that measures and qualifies, connected to your tools.",
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Pose des couches SEO, CRM et scoring sur Webflow",
+          "media_alt_en": "Laying the SEO, CRM and scoring layers on Webflow"
+        },
+        {
+          "index_fr": "03",
+          "index_en": "03",
+          "eyebrow_fr": "Contenu et mesure",
+          "eyebrow_en": "Content and measurement",
+          "title_fr": "Alimenter le contenu et mesurer",
+          "title_en": "Feed the content and measure",
+          "body_fr": "On pose le moteur de contenu SEO et GEO en cadence, on connecte la Search Console et l'Analytics, et l'IA lit vos KPI. On mesure l'avant et l'après sur vos propres données.",
+          "body_en": "We lay in the SEO and GEO content engine on cadence, connect Search Console and Analytics, and the AI reads your KPIs. We measure before and after on your own data.",
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Mesure de la valeur avant/après l'instrumentation de Webflow",
+          "media_alt_en": "Measuring value before and after instrumenting Webflow"
+        },
+        {
+          "index_fr": "04",
+          "index_en": "04",
+          "eyebrow_fr": "Arbitrage migration",
+          "eyebrow_en": "Migration call",
+          "title_fr": "Trancher migrer, ou pas",
+          "title_en": "Decide to migrate, or not",
+          "body_fr": "Si le plafond gêne vos objectifs (SEO, coût, connexion données), on migre sur mesure en gardant votre design. Sinon, on reste sur Webflow instrumenté. La décision se prend sur des chiffres, pas sur un dogme.",
+          "body_en": "If the ceiling blocks your goals (SEO, cost, data connection), we migrate bespoke keeping your design. Otherwise, we stay on instrumented Webflow. The decision is made on figures, not on a dogma.",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Arbitrage migrer ou rester sur Webflow instrumenté",
+          "media_alt_en": "Deciding to migrate or stay on instrumented Webflow"
+        },
+        {
+          "index_fr": "05",
+          "index_en": "05",
+          "eyebrow_fr": "Mise en ligne & passation",
+          "eyebrow_en": "Go-live & handover",
+          "title_fr": "Mettre en ligne et passer la main",
+          "title_en": "Go live and hand over",
+          "body_fr": "Le Webflow instrumenté ou le site migré passe en production, puis on itère au rythme des résultats. La passation fait partie du livrable : mode opératoire, formation, vous gardez la stack et la main.",
+          "body_en": "The instrumented Webflow or the migrated site goes into production, then we iterate at the pace of results. Handover is part of the deliverable: operating manual, training, you keep the stack and control.",
+          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
+          "media_alt_fr": "Mise en ligne et passation de l'autonomie aux équipes",
+          "media_alt_en": "Taking it live and handing autonomy over to the teams",
+          "link_label_fr": "Voir un cas concret",
+          "link_label_en": "See a real case",
+          "link_href": "/cas-clients"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "couches",
+      "background": "paper-2",
       "kicker_fr": "§ Ce qu'on branche",
       "kicker_en": "§ What we wire in",
       "h2_fr": "Ce qu'on ajoute à votre Webflow",
@@ -339,91 +804,247 @@
       ]
     },
     {
-      "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Webflow seul / instrumenté",
-      "kicker_en": "§ Webflow alone / instrumented",
-      "h2_fr": "De Webflow seul au Webflow qui qualifie",
-      "h2_en": "From Webflow alone to a Webflow that qualifies",
-      "without_label_fr": "Webflow seul",
-      "without_label_en": "Webflow alone",
-      "without_title_fr": "Beau, mais muet",
-      "without_title_en": "Pretty, but silent",
-      "without_items": [
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · résultats réels",
+      "spec_en": "Client cases · real results",
+      "h2_fr": "Résultats sur le terrain",
+      "h2_en": "Results in the field",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
         {
-          "text_fr": "Les formulaires partent en mail, sans CRM enrichi ni scoring.",
-          "text_en": "Forms go to email, with no enriched CRM or scoring."
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · E-commerce · Perf",
+          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
+          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
+          "href": "/cas-clients/balzeo",
+          "media_src": "/images/illustrations/ds/fruits-ink.webp",
+          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu et allégé.",
+          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt and made leaner."
         },
         {
-          "text_fr": "Le SEO plafonne aux réglages natifs, les IA citent rarement la marque.",
-          "text_en": "SEO caps at native settings, AIs rarely cite the brand."
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "Création · CRM HubSpot · GEO",
+          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
+          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
+          "href": "/cas-clients/amploi",
+          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
+          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
+          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
         },
         {
-          "text_fr": "Aucun visiteur n'est qualifié avant le premier contact.",
-          "text_en": "No visitor is qualified before the first contact."
-        },
-        {
-          "text_fr": "Le coût d'abonnement monte avec le trafic, sans gain de pilotage.",
-          "text_en": "The subscription cost climbs with traffic, with no gain in management."
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · Abonnement · SEO",
+          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
+          "href": "/cas-clients/les-carnets-de-montpellier",
+          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
+          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
+          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
         }
       ],
-      "with_label_fr": "Instrumenté / migré",
-      "with_label_en": "Instrumented / migrated",
-      "with_title_fr": "Le même design, l'intelligence en plus",
-      "with_title_en": "Same design, intelligence added",
-      "with_items": [
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "testimonial-wall",
+      "background": "paper-2",
+      "kicker_fr": "Ils ont donné de l'intelligence à leur site",
+      "kicker_en": "They gave their site some intelligence",
+      "h2_fr": "Ce que disent les équipes dont le site qualifie enfin",
+      "h2_en": "What teams whose site finally qualifies are saying",
+      "subtitle_fr": "Des dirigeants et des équipes qui ont gardé un design qui leur allait et mis leur site au travail.",
+      "subtitle_en": "Leaders and teams who kept a design that suited them and put their site to work.",
+      "columns": "3",
+      "testimonials": [
         {
-          "text_fr": "Les formulaires alimentent le CRM, le scoring qualifie en temps réel.",
-          "text_en": "Forms feed the CRM, scoring qualifies in real time."
+          "quote_fr": "On avait un beau site qui ne ramenait rien. Aujourd'hui **chaque visite est scorée et le commercial reçoit des leads déjà qualifiés**. Le quiz de routing a tout changé.",
+          "quote_en": "We had a nice site that brought in nothing. Now **every visit is scored and sales receive already-qualified leads**. The routing quiz changed everything.",
+          "author": "Élodie Charpentier",
+          "role_fr": "Directrice marketing",
+          "role_en": "Marketing Director",
+          "company": "Maison Tassigny"
         },
         {
-          "text_fr": "Le balisage avancé fait remonter la marque dans Google et les IA.",
-          "text_en": "Advanced markup lifts the brand in Google and the AIs."
+          "quote_fr": "Ce qui m'a convaincu, c'est le **tableau de pilotage** : pour la première fois je relie une dépense web à un lead concret. On pilote sur des chiffres, pas au ressenti.",
+          "quote_en": "What sold me was the **dashboard**: for the first time I link a web spend to a concrete lead. We manage on figures, not on gut feel.",
+          "author": "Nadia Brunel",
+          "role_fr": "Dirigeante",
+          "role_en": "Managing Director",
+          "company": "Atelier Vireux"
         },
         {
-          "text_fr": "Le pilotage est temps réel, mesuré sur vos propres données.",
-          "text_en": "Management is real-time, measured on your own data."
+          "quote_fr": "Le site se charge en un instant et **on est passés en top 5 Google sur nos requêtes clés** en quelques mois. Les articles sont même cités dans les réponses IA.",
+          "quote_en": "The site loads instantly and **we moved into the Google top 5 on our key queries** within a few months. The articles even get cited in AI answers.",
+          "author": "Romain Delaunay",
+          "role_fr": "Cofondateur",
+          "role_en": "Co-founder",
+          "company": "Sevran & Fils"
         },
         {
-          "text_fr": "Quand le plafond gêne, une migration sur mesure lève les limites sans perdre le design.",
-          "text_en": "When the ceiling blocks you, a bespoke migration lifts the limits without losing the design."
+          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par une landing instrumentée, **prouvé la valeur, puis étendu** au site complet. Exactement le bon rythme.",
+          "quote_en": "Pragmatic approach, zero jargon. We started with an instrumented landing, **proved the value, then scaled** to the full site. Exactly the right pace.",
+          "author": "Karim Belkacem",
+          "role_fr": "Fondateur",
+          "role_en": "Founder",
+          "company": "Studio Andrézieux"
+        },
+        {
+          "quote_fr": "La refonte a divisé notre temps de chargement par deux et **nos coûts de maintenance ont fondu**. Le site monte de version au fil des mois, sans tout refaire.",
+          "quote_en": "The rebuild halved our load time and **our maintenance costs melted away**. The site moves up versions over the months, without redoing everything.",
+          "author": "Sophie Antunes",
+          "role_fr": "Directrice e-commerce",
+          "role_en": "E-commerce Director",
+          "company": "Lartigue & Co"
+        },
+        {
+          "quote_fr": "Plus besoin d'attendre un développeur pour changer une page. **On édite le contenu nous-mêmes en quelques minutes**, et rien ne casse.",
+          "quote_en": "No more waiting for a developer to change a page. **We edit the content ourselves in minutes**, and nothing breaks.",
+          "author": "Hugo Lacombe",
+          "role_fr": "Responsable communication",
+          "role_en": "Communications Manager",
+          "company": "Groupe Mérindol"
         }
       ]
     },
     {
-      "type": "related-cards-band",
+      "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Connexes",
-      "kicker_en": "§ Related",
-      "cards": [
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Quatre façons de rendre votre Webflow intelligent",
+      "h2_en": "Four ways to make your Webflow intelligent",
+      "lede_fr": "De l'instrumentation légère à la migration sur mesure, même grille que nos sites : la formule dépend du périmètre. On garde le design qui vous va, on chiffre au cadrage, jamais avant.",
+      "lede_en": "From light instrumentation to a bespoke migration, the same grid as our sites: the plan depends on scope. We keep the design that suits you, we price at scoping, never before.",
+      "tiers": [
         {
-          "kicker_fr": "OFFRE PARENT",
-          "kicker_en": "PARENT OFFER",
-          "title_fr": "Site web intelligent",
-          "title_en": "Intelligent website",
-          "lead_fr": "L'offre complète : création, refonte et instrumentation pilotées par l'IA.",
-          "lead_en": "The full offer: AI-driven build, rebuild and instrumentation.",
-          "href": "/services/site-web-ia"
+          "name_fr": "Instrumentation",
+          "name_en": "Instrumentation",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "SEO et GEO de base au-delà du natif Webflow",
+            "Balisage Schema.org sur les pages clés",
+            "Tracking first-party et tableau de base",
+            "Formulaire Webflow branché au CRM"
+          ],
+          "features_en": [
+            "Base SEO and GEO beyond Webflow native",
+            "Schema.org markup on key pages",
+            "First-party tracking and base dashboard",
+            "Webflow form wired to the CRM"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une instrumentation →",
+            "label_en": "Scope an instrumentation →",
+            "href": "/contact?offer=webflow&intent=landing",
+            "variant": "ghost"
+          }
         },
         {
-          "kicker_fr": "VARIANTE",
-          "kicker_en": "VARIANT",
-          "title_fr": "Sur WordPress",
-          "title_en": "On WordPress",
-          "lead_fr": "Même intelligence, branchée sur un WordPress existant ou migrée.",
-          "lead_en": "Same intelligence, wired onto an existing WordPress or migrated.",
-          "href": "/services/wordpress"
+          "name_fr": "Webflow intelligent",
+          "name_en": "Intelligent Webflow",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · ex VAT",
+          "features_fr": [
+            "Les trois couches : SEO/GEO, CRM et contenu",
+            "Scoring comportemental et routage des leads",
+            "Tracking server-side, consentement RGPD",
+            "Tableau de pilotage lu par l'IA"
+          ],
+          "features_en": [
+            "The three layers: SEO/GEO, CRM and content",
+            "Behavioural scoring and lead routing",
+            "Server-side tracking, GDPR consent",
+            "Dashboard read by the AI"
+          ],
+          "cta": {
+            "label_fr": "Réserver un diagnostic (45 min) →",
+            "label_en": "Book a diagnostic (45 min) →",
+            "href": "/contact?offer=webflow&intent=discovery",
+            "variant": "primary"
+          },
+          "featured": true
         },
         {
-          "kicker_fr": "VARIANTE",
-          "kicker_en": "VARIANT",
-          "title_fr": "Sur mesure",
-          "title_en": "Bespoke",
-          "lead_fr": "Site Astro SSG construit pour lever les plafonds de Webflow.",
-          "lead_en": "Astro SSG site built to lift Webflow's ceilings.",
-          "href": "/services/sur-mesure-headless"
+          "name_fr": "Webflow premium",
+          "name_en": "Premium Webflow",
+          "price": "7 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Instrumentation complète et moteur de contenu en cadence",
+            "Connexion IA (Claude, GPT) et premiers skills",
+            "Formulaires connectés à votre CRM, chatbot de qualification",
+            "Attribution multi-touch des leads"
+          ],
+          "features_en": [
+            "Full instrumentation and content engine on cadence",
+            "AI connection (Claude, GPT) and first skills",
+            "Forms connected to your CRM, qualification chatbot",
+            "Multi-touch lead attribution"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un Webflow premium →",
+            "label_en": "Scope a premium Webflow →",
+            "href": "/contact?offer=webflow&intent=premium",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Migration sur mesure",
+          "name_en": "Bespoke migration",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Quand le plafond gêne : migration sur mesure (Astro SSG)",
+            "Design Webflow gardé, plafonds SEO et coût levés",
+            "Dashboard Google Analytics et Search Console",
+            "CRM branché (HubSpot, Salesforce, Pipedrive) et paiement Stripe"
+          ],
+          "features_en": [
+            "When the ceiling blocks you: bespoke migration (Astro SSG)",
+            "Webflow design kept, SEO and cost ceilings lifted",
+            "Dashboard with Google Analytics and Search Console",
+            "CRM wired (HubSpot, Salesforce, Pipedrive) and Stripe payments"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une migration →",
+            "label_en": "Scope a migration →",
+            "href": "/services/sur-mesure-headless",
+            "variant": "ghost"
+          }
         }
-      ]
+      ],
+      "footnote_fr": "On instrumente d'abord, on migre seulement quand le plafond gêne vos objectifs (SEO, coût récurrent, connexion données), chiffré au cadrage. Sans engagement de durée, sans abonnement caché : vous gardez le design et la main.",
+      "footnote_en": "We instrument first, we migrate only when the ceiling blocks your goals (SEO, recurring cost, data connection), priced at scoping. No duration commitment, no hidden subscription: you keep the design and control."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "acquisition"
     },
     {
       "type": "faq-accordion",
@@ -474,6 +1095,9 @@
     {
       "type": "footer-cta-band",
       "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
       "rounded": true,
       "kicker_fr": "§ Instrumenter ou migrer ?",
       "kicker_en": "§ Instrument or migrate?",
@@ -485,7 +1109,7 @@
         {
           "label_fr": "Réserver un diagnostic (45 min) →",
           "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=site-web-intelligent&intent=discovery",
+          "href": "/contact?offer=webflow&intent=discovery",
           "variant": "primary"
         },
         {
