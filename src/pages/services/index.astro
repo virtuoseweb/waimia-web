@@ -3,12 +3,8 @@
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
-import type { SectionByType } from '@waimia/ds-kernel';
-import CtaFinal from '../../components/sections/CtaFinal.astro';
-import HeroCentered from '../../components/sections/HeroCentered.astro';
-import OfferTierGrid from '../../components/sections/OfferTierGrid.astro';
-import RelatedCardsBand from '../../components/sections/RelatedCardsBand.astro';
-import FeatureSplitMedia from '../../components/sections/FeatureSplitMedia.astro';
+import type { SectionByType, SectionData } from '@waimia/ds-kernel';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 
 const solutionsJsonLd = {
@@ -70,6 +66,8 @@ const offerWebData = {
   variant: 'featured' as const,
   background: 'ink' as const,
   wrap: false,
+  // Rythme resserré (ex-.offer-rhythm-base page-level) : section-base au lieu de loose.
+  pad_block: 'var(--section-base)',
   eyebrow_fr: 'I · SYSTÈME D\'ACQUISITION',
   eyebrow_en: 'I · ACQUISITION SYSTEM',
   h2_fr: 'Générer des leads B2B qualifiés.',
@@ -148,6 +146,8 @@ const offerClaudeData = {
   type: 'offer-tier-grid' as const,
   variant: 'standard' as const,
   wrap: true,
+  // Rythme resserré (ex-.offer-rhythm-base page-level) : section-base au lieu de loose.
+  pad_block: 'var(--section-base)',
   eyebrow_fr: 'II · SYSTÈMES OPÉRATIONNELS ET IA',
   eyebrow_en: 'II · OPERATIONAL AND AI SYSTEMS',
   h2_fr: 'Automatiser et outiller vos opérations.',
@@ -196,6 +196,8 @@ const offerClaudeData = {
 const relatedProblemsData = {
   type: 'related-cards-band' as const,
   background: 'paper-2' as const,
+  // Rythme resserré (ex-.related-rhythm-base page-level) : section-base au lieu de loose.
+  pad_block: 'var(--section-base)',
   kicker_fr: '§ Ce que couvre chaque système',
   kicker_en: '§ What each system covers',
   cards: [
@@ -239,6 +241,19 @@ const ctaData = {
   cta_secondary: { label_fr: 'Voir les cas clients →', label_en: 'See case studies →', href: '/cas-clients', variant: 'ghost' as const },
   background: 'ink' as const,
 } satisfies SectionByType<'cta-final'>;
+
+// Page composable : séquence de sections rendue par <SectionsRenderer> (registry).
+// Le rythme vertical ex-page-level (.offer-rhythm-base / .related-rhythm-base) est
+// désormais porté par la prop `pad_block` des sections concernées (0 style page-level).
+const sections = [
+  heroData,
+  offerWebMediaData,
+  offerWebData,
+  offerClaudeMediaData,
+  offerClaudeData,
+  relatedProblemsData,
+  ctaData,
+] satisfies SectionData[];
 ---
 <Base
   title="Solutions IA pour PME : acquisition, commercial et opérations · Waimia"
@@ -250,45 +265,6 @@ const ctaData = {
     <MastheadBar items={[{label:'Accueil', href:'/'}, {label:'Solutions'}]} lang='fr' />
   </div>
 
-  <!-- 1. HERO éditorial -->
-  <HeroCentered data={heroData} lang="fr" />
-
-  <!-- 2. SYSTÈME I · ACQUISITION (dominante) -->
-  <!-- 2a. Bande média éditoriale (habillage) -->
-  <FeatureSplitMedia data={offerWebMediaData} lang="fr" />
-  <!-- 2b. Grille de l'offre -->
-  <div class="offer-rhythm-base">
-    <OfferTierGrid data={offerWebData} lang="fr" />
-  </div>
-
-  <!-- 3. SYSTÈME II · OPÉRATIONNELS ET IA -->
-  <!-- 3a. Bande média éditoriale (habillage, média à gauche) -->
-  <FeatureSplitMedia data={offerClaudeMediaData} lang="fr" />
-  <!-- 3b. Grille de l'offre -->
-  <div class="offer-rhythm-base">
-    <OfferTierGrid data={offerClaudeData} lang="fr" />
-  </div>
-
-  <!-- 4. LES TROIS SYSTÈMES -->
-  <div class="related-rhythm-base">
-    <RelatedCardsBand data={relatedProblemsData} lang="fr" />
-  </div>
-
-  <!-- 5. CTA BAND · AUDIT GRATUIT -->
-  <CtaFinal data={ctaData} lang="fr" />
+  <!-- Séquence composable rendue par le registry (rythme porté par pad_block des sections). -->
+  <SectionsRenderer sections={sections} lang="fr" />
 </Base>
-
-<style>
-  /* ── Resserrer le rythme des deux offres consécutives (suppression bandes mortes) ──
-     Chaque .tier-section embarque --section-loose en haut ET en bas : entre deux
-     offres cela empile du vide non intentionnel. On retombe sur --section-base
-     (même famille de rythme, 0 nouveau token) pour que chaque offre reste dense. */
-  .offer-rhythm-base :global(.tier-section) {
-    padding-top: var(--section-base);
-    padding-bottom: var(--section-base);
-  }
-  /* La bande Problèmes consomme un knob dédié du composant (fallback loose). */
-  .related-rhythm-base {
-    --related-cards-band-pad: var(--section-base);
-  }
-</style>
