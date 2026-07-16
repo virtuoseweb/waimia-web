@@ -170,6 +170,7 @@ import { schema as resourceCardGridSchema } from '../sections/resource-card-grid
 import { schema as richTextSchema } from '../sections/rich-text/schema';
 import { schema as roiBandSchema } from '../sections/roi-band/schema';
 import { schema as scrollGallerySchema } from '../sections/scroll-gallery/schema';
+import { schema as sectorCardGridSchema } from '../sections/sector-card-grid/schema';
 import { schema as serviceCatalogListSchema } from '../sections/service-catalog-list/schema';
 import { schema as servicesGridSchema } from '../sections/services-grid/schema';
 import { schema as siteShowcaseSchema } from '../sections/site-showcase/schema';
@@ -378,6 +379,7 @@ export {
   richTextSchema,
   roiBandSchema,
   scrollGallerySchema,
+  sectorCardGridSchema,
   serviceCatalogListSchema,
   servicesGridSchema,
   siteShowcaseSchema,
@@ -587,6 +589,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   richTextSchema,
   roiBandSchema,
   scrollGallerySchema,
+  sectorCardGridSchema,
   serviceCatalogListSchema,
   servicesGridSchema,
   siteShowcaseSchema,

@@ -21,7 +21,7 @@ const cards = data.cards.map((c) => ({
 }));
 ---
 
-<section class="related-cards-band" data-bg={data.background}>
+<section class="related-cards-band" data-bg={data.background} style={data.pad_block ? `--related-cards-band-pad:${data.pad_block}` : undefined}>
   <div class="wrap-wide">
     {(isFr ? data.kicker_fr : data.kicker_en) && (
       <Kicker as="span" class="related-cards-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>

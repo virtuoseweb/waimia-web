@@ -107,6 +107,7 @@ import { demo as testimonialWallDemo } from '../sections/testimonial-wall/demo';
 import { demo as guaranteeBlockDemo } from '../sections/guarantee-block/demo';
 import { demo as architectureDiagramDemo } from '../sections/architecture-diagram/demo';
 import { demo as servicesGridDemo } from '../sections/services-grid/demo';
+import { demo as sectorCardGridDemo } from '../sections/sector-card-grid/demo';
 import { demo as maturityPyramidDemo } from '../sections/maturity-pyramid/demo';
 import { demo as useCaseIndexDemo } from '../sections/use-case-index/demo';
 import { demo as caseCardGridDemo } from '../sections/case-card-grid/demo';
@@ -315,6 +316,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'guarantee-block': guaranteeBlockDemo,
   'architecture-diagram': architectureDiagramDemo,
   'services-grid': servicesGridDemo,
+  'sector-card-grid': sectorCardGridDemo,
   'maturity-pyramid': maturityPyramidDemo,
   'use-case-index': useCaseIndexDemo,
   'case-card-grid': caseCardGridDemo,

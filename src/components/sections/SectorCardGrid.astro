@@ -1,0 +1,129 @@
+---
+// Waimia · Section `sector-card-grid` · grille de hubs sectoriels (cartes cliquables).
+// Source UNIQUE du markup (co-location #38 : le module src/sections/sector-card-grid/ re-exporte
+// ce composant). Cataloguage de la grille inline historique de src/pages/secteurs/index.astro
+// (LOT 1b, decision 0012) : markup + CSS repris au pixel pres. Regime DS : 0 nouvelle variable,
+// var(--token) existants uniquement. Champ `background` optionnel + idiome [data-bg='ink']
+// (additif, modele TeamCardGrid) : le defaut (sans background) reproduit la grille paper a l'identique.
+import type { SectionByType } from '@waimia/ds-kernel';
+
+interface Props {
+  data: SectionByType<'sector-card-grid'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
+---
+<section class="sectors-grid-outer wrap-wide" data-bg={data.background}>
+  <div class="sectors-grid reveal-stagger">
+    {data.sectors.map((s) => (
+      <a href={s.href} class="sector-card">
+        <span class="sector-card-kicker">§ {isFr ? s.kicker_fr : s.kicker_en}</span>
+        <h2 class="sector-card-title">{isFr ? s.title_fr : s.title_en}</h2>
+        <p class="sector-card-pain">{isFr ? s.pain_fr : s.pain_en}</p>
+        <span class="sector-card-cta">{ctaLabel}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .sectors-grid-outer { margin: 0 auto; padding: 0 var(--space-6); }
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    margin: var(--space-7) 0 var(--space-10);
+  }
+  .sector-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 36px var(--space-6) var(--space-6);
+    background: var(--paper);
+    border-top: 1px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      background 180ms var(--ease),
+      border-top-color var(--dur-trim) var(--ease),
+      box-shadow var(--dur-trim) var(--ease),
+      transform var(--dur-trim) var(--ease);
+  }
+  .sector-card:hover {
+    background: var(--paper-2);
+    border-top-color: var(--accent-text);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.06);
+  }
+  .sector-card-kicker {
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-small);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sector-card-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin: var(--space-1) 0 0;
+    text-wrap: balance;
+  }
+  .sector-card-pain {
+    font-size: var(--text-small);
+    color: var(--muted);
+    margin: 0;
+    line-height: var(--leading-body);
+    flex: 1;
+  }
+  .sector-card-cta {
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    font-family: var(--font-mono, monospace);
+    letter-spacing: 0.04em;
+    margin-top: var(--space-4);
+    transition: transform var(--dur-trim) var(--ease);
+  }
+  .sector-card:hover .sector-card-cta { transform: translateX(1px); }
+
+  /* Alternance des fonds · defaut (sans data-bg) = rendu clair inchange (modele TeamCardGrid). */
+  .sectors-grid-outer[data-bg='paper-2'] { background: var(--paper-2); }
+  .sectors-grid-outer[data-bg='paper-3'] { background: var(--paper-3); }
+  .sectors-grid-outer[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .sectors-grid-outer[data-bg='ink'] .sectors-grid {
+    background: rgba(var(--paper-rgb), 0.1);
+    border-color: rgba(var(--paper-rgb), 0.1);
+  }
+  .sectors-grid-outer[data-bg='ink'] .sector-card {
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+  .sectors-grid-outer[data-bg='ink'] .sector-card:hover {
+    background: rgba(var(--paper-rgb), 0.08);
+    border-top-color: var(--accent-text);
+    box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.3);
+  }
+  .sectors-grid-outer[data-bg='ink'] .sector-card-title { color: var(--paper); }
+  .sectors-grid-outer[data-bg='ink'] .sector-card-kicker,
+  .sectors-grid-outer[data-bg='ink'] .sector-card-pain { color: rgba(var(--paper-rgb), 0.6); }
+
+  @media (max-width: 900px) {
+    .sectors-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sector-card,
+    .sector-card-cta {
+      transition: none !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+</style>

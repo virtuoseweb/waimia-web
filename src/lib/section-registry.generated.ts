@@ -107,6 +107,7 @@ import { Component as testimonialWallComponent, meta as testimonialWallMeta } fr
 import { Component as guaranteeBlockComponent, meta as guaranteeBlockMeta } from '../sections/guarantee-block';
 import { Component as architectureDiagramComponent, meta as architectureDiagramMeta } from '../sections/architecture-diagram';
 import { Component as servicesGridComponent, meta as servicesGridMeta } from '../sections/services-grid';
+import { Component as sectorCardGridComponent, meta as sectorCardGridMeta } from '../sections/sector-card-grid';
 import { Component as maturityPyramidComponent, meta as maturityPyramidMeta } from '../sections/maturity-pyramid';
 import { Component as useCaseIndexComponent, meta as useCaseIndexMeta } from '../sections/use-case-index';
 import { Component as caseCardGridComponent, meta as caseCardGridMeta } from '../sections/case-card-grid';
@@ -620,6 +621,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'services-grid': {
     component: servicesGridComponent,
     ...servicesGridMeta,
+  },
+  'sector-card-grid': {
+    component: sectorCardGridComponent,
+    ...sectorCardGridMeta,
   },
   'maturity-pyramid': {
     component: maturityPyramidComponent,

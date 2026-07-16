@@ -171,6 +171,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'rich-text': 'prose',
   'roi-band': 'band',
   'scroll-gallery': 'scroll-interactive',
+  'sector-card-grid': 'card-grid',
   'service-catalog-list': 'list',
   'services-grid': 'card-grid',
   'site-showcase': 'gallery',

@@ -7,6 +7,10 @@ import { z } from 'zod';
 export const schema = z.object({
   type: z.literal('related-cards-band'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // Rythme vertical retro-compat (optionnel) : override du padding-block de la bande.
+  // Absent = rendu catalogue inchange (var(--section-loose)). Valeur = token DS existant,
+  // ex. 'var(--section-base)'. Alimente la var CSS --related-cards-band-pad deja en place.
+  pad_block: z.string().optional(),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
   cards: z

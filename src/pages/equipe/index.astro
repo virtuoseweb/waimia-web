@@ -11,10 +11,8 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { langFromPath } from '../../lib/i18n';
-import type { SectionByType } from '@waimia/ds-kernel';
-import CtaFinal from '../../components/sections/CtaFinal.astro';
-import TeamCardGrid from '../../components/sections/TeamCardGrid.astro';
-import HeroCentered from '../../components/sections/HeroCentered.astro';
+import type { SectionByType, SectionData } from '@waimia/ds-kernel';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 
 // SEO état final : collections cookbooks + livresBlancs supprimées ; auteurs reliés au blog in-silo.
 type AuthorLinkedEntry = CollectionEntry<'blog'>;
@@ -137,6 +135,8 @@ const ctaData = {
   cta_secondary: { label_fr: 'Voir les offres →', label_en: 'See services →', href: '/services', variant: 'ghost' as const },
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;
+
+const sections: SectionData[] = [mastheadData, gridData, ctaData];
 ---
 
 <Base
@@ -144,12 +144,7 @@ const ctaData = {
   description="Les auteurs et contributeurs Waimia. Bios, CV, expertise, publications. Studio solo à Montpellier."
   jsonLd={[breadcrumbLd, collectionPageLd]}
 >
-  {/* MASTHEAD */}
-  <HeroCentered data={mastheadData} lang="fr" />
-
-  {/* GRID auteurs */}
-  <TeamCardGrid data={gridData} lang="fr" />
-  <CtaFinal data={ctaData} lang="fr" />
+  <SectionsRenderer sections={sections} lang="fr" />
 </Base>
 
 <style>

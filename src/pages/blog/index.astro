@@ -4,7 +4,6 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
-import ArticleGrid from '../../components/sections/ArticleGrid.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import { langFromPath } from '../../lib/i18n';
@@ -79,6 +78,40 @@ const gridData = {
   articles,
 } satisfies SectionByType<'article-grid'>;
 
+// ── Liste éditoriale · variante cataloguée swappable (décision 0012) ──────────
+// La liste est rendue par DEUX types catalogués distincts, sélectionnables ici sans
+// toucher au reste de la page. Le renderer (registry) dispatche selon `type` : c'est
+// le mécanisme de swap.
+//   • 'cards'      → `article-grid`         (rendu prod actuel, DÉFAUT · 0 changement visuel)
+//   • 'write-rows' → `editorial-write-feed` (anciennes lignes éditoriales EditorialWriteRow)
+const listVariant = 'cards' as 'cards' | 'write-rows';
+
+// Mapping entrée blog → item editorial-write-feed (date · tag · titre · lien).
+// Contrat catalogué : `items` borné à 10 → slice(0, 10) (la variante cards montre tout).
+const writeItems = sortedBlog.slice(0, 10).map((entry) => {
+  const d = entry.data;
+  const tag = tagLabel(d);
+  return {
+    date: formatDate(d.publishedAt),
+    tag_fr: tag,
+    tag_en: tag,
+    text_fr: d.title_fr,
+    text_en: d.title_en,
+    href: blogEntryHref(entry),
+  };
+});
+
+// Section liste effective, choisie par `listVariant` puis passée au renderer composable.
+const feedSection: SectionData = listVariant === 'write-rows'
+  ? ({
+      type: 'editorial-write-feed',
+      kicker_fr: 'Notes de terrain',
+      kicker_en: 'Field notes',
+      tone: 'paper',
+      items: writeItems,
+    } satisfies SectionByType<'editorial-write-feed'>)
+  : gridData;
+
 // Maillage interne dérivé (source unique internal-mesh, routes réelles, 0 self-link) :
 // hub blog → money pages (services ciblés par les billets) + preuve (hub cas clients).
 const meshSection = { ...meshForBlogHub(lang), background: 'paper-3' as const } as unknown as SectionData;
@@ -99,7 +132,7 @@ const meshSection = { ...meshForBlogHub(lang), background: 'paper-3' as const } 
 
   <Fragment slot="list">
     <div class="blog-grid">
-      <ArticleGrid data={gridData} lang={lang} />
+      <SectionsRenderer sections={[feedSection]} lang={lang} />
     </div>
     <div class="blog-mesh">
       <SectionsRenderer sections={[meshSection]} lang={lang} />

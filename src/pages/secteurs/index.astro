@@ -1,17 +1,15 @@
 ---
-// Page · /secteurs · index des hubs sectoriels Waimia
-// Liste les secteurs visibles (card + douleur 1 phrase) + « Vous ne voyez pas
-// votre secteur ? » → /contact. Imite le style de cas-clients/index.astro.
+// Page · /secteurs · index des hubs sectoriels Waimia (100 % composable · registry).
+// Liste les secteurs visibles (card + douleur 1 phrase) + « Vous ne voyez pas votre secteur ? »
+// La grille de secteurs est desormais la section cataloguee `sector-card-grid` (LOT 1b,
+// decision 0012) : plus d'orphelin inline. Toutes les sections passent par <SectionsRenderer>.
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import type { SectionByType } from '@waimia/ds-kernel';
-import HeroCentered from '../../components/sections/HeroCentered.astro';
-import CaseSpotlight from '../../components/sections/CaseSpotlight.astro';
-import CtaFinal from '../../components/sections/CtaFinal.astro';
-import EditorialCallout from '../../components/sections/EditorialCallout.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -27,24 +25,30 @@ const shortSectorLabel = (full: string): string => {
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-const sectors = (await getCollection('secteurs'))
+const visibleSectors = (await getCollection('secteurs'))
   .filter((e) => e.data.visible)
-  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
-  .map((e) => {
-    const d = e.data;
-    const firstPain = isFr ? d.pains_fr[0] : d.pains_en[0];
-    return {
-      slug: d.slug ?? e.id,
-      title: shortSectorLabel(isFr ? d.title_fr : d.title_en),
-      icp: isFr ? d.icp_fr : d.icp_en,
-      pain: firstPain ? firstPain.title : '',
-      href: localizeHref(`/secteurs/${d.slug ?? e.id}`, lang),
-    };
-  });
+  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id));
+
+// Cartes bilingues pour la section cataloguée `sector-card-grid` (contentMode instance).
+// La langue est résolue à l'affichage par le composant (kicker/title/pain _fr|_en).
+const sectorCards = visibleSectors.map((e) => {
+  const d = e.data;
+  const painFr = d.pains_fr[0];
+  const painEn = d.pains_en[0];
+  return {
+    kicker_fr: d.icp_fr,
+    kicker_en: d.icp_en,
+    title_fr: shortSectorLabel(d.title_fr),
+    title_en: shortSectorLabel(d.title_en),
+    pain_fr: painFr ? painFr.title : '',
+    pain_en: painEn ? painEn.title : '',
+    href: localizeHref(`/secteurs/${d.slug ?? e.id}`, lang),
+  };
+});
 
 // JSON-LD · CollectionPage + ItemList des secteurs visibles (même pattern que le hub
 // cas-clients : buildCollectionPage → jsonLd={} sur <Base>). URLs canoniques FR.
-const sectorItems = sectors.map((s) => `https://waimia.com/secteurs/${s.slug}`);
+const sectorItems = visibleSectors.map((e) => `https://waimia.com/secteurs/${e.data.slug ?? e.id}`);
 const secteursLd = [
   buildBreadcrumbList([
     { name: 'Accueil', url: 'https://waimia.com/' },
@@ -58,6 +62,13 @@ const secteursLd = [
     sectorItems,
   ),
 ];
+
+const sectorGridData = {
+  type: 'sector-card-grid' as const,
+  cta_label_fr: 'Voir le secteur →',
+  cta_label_en: 'See the industry →',
+  sectors: sectorCards,
+} satisfies SectionByType<'sector-card-grid'>;
 
 const ctaData = {
   type: 'cta-final' as const,
@@ -126,6 +137,9 @@ const mastheadData = {
   lede_fr: "Chaque métier a ses goulots et ses leviers. On part de votre terrain réel, données de marché à l'appui, jamais d'un template générique.",
   lede_en: 'Every trade has its bottlenecks and its levers. We start from your real field, backed by market data, never from a generic template.',
 } satisfies SectionByType<'hero-hub-masthead'>;
+
+// Séquence composable · masthead → grille secteurs → angle B2B → bande éditoriale → CTA.
+const sections = [mastheadData, sectorGridData, b2bAngleData, spotlightData, ctaData];
 ---
 <Base
   title={isFr ? 'Secteurs · IA opérationnelle par métier · Waimia' : 'Industries · operational AI by trade · Waimia'}
@@ -134,101 +148,5 @@ const mastheadData = {
     : 'AI systems organized by trade: e-commerce, construction, startup, B2B services, independents, therapists. Sourced market data, real field.'}
   jsonLd={secteursLd}
 >
-  <HeroCentered data={mastheadData} lang={lang} />
-
-  <section class="sectors-grid-outer wrap-wide">
-    <div class="sectors-grid reveal-stagger">
-      {sectors.map((s) => (
-        <a href={s.href} class="sector-card">
-          <span class="sector-card-kicker">§ {s.icp}</span>
-          <h2 class="sector-card-title">{s.title}</h2>
-          <p class="sector-card-pain">{s.pain}</p>
-          <span class="sector-card-cta">{isFr ? 'Voir le secteur →' : 'See the industry →'}</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <EditorialCallout data={b2bAngleData} lang={lang} />
-
-  <CaseSpotlight data={spotlightData} lang={lang} />
-
-  <CtaFinal data={ctaData} lang={lang} />
+  <SectionsRenderer sections={sections} lang={lang} />
 </Base>
-
-<style>
-  .sectors-grid-outer { margin: 0 auto; padding: 0 var(--space-6); }
-  .sectors-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-    margin: var(--space-7) 0 var(--space-10);
-  }
-  .sector-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 36px var(--space-6) var(--space-6);
-    background: var(--paper);
-    border-top: 1px solid transparent;
-    text-decoration: none;
-    color: inherit;
-    transition:
-      background 180ms var(--ease),
-      border-top-color var(--dur-trim) var(--ease),
-      box-shadow var(--dur-trim) var(--ease),
-      transform var(--dur-trim) var(--ease);
-  }
-  .sector-card:hover {
-    background: var(--paper-2);
-    border-top-color: var(--accent-text);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 36px rgba(var(--ink-rgb), 0.06);
-  }
-  .sector-card-kicker {
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-small);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .sector-card-title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-medium);
-    letter-spacing: -0.015em;
-    line-height: 1.05;
-    margin: var(--space-1) 0 0;
-    text-wrap: balance;
-  }
-  .sector-card-pain {
-    font-size: var(--text-small);
-    color: var(--muted);
-    margin: 0;
-    line-height: var(--leading-body);
-    flex: 1;
-  }
-  .sector-card-cta {
-    font-size: var(--text-small);
-    color: var(--accent-text);
-    font-family: var(--font-mono, monospace);
-    letter-spacing: 0.04em;
-    margin-top: var(--space-4);
-    transition: transform var(--dur-trim) var(--ease);
-  }
-  .sector-card:hover .sector-card-cta { transform: translateX(1px); }
-
-  @media (max-width: 900px) {
-    .sectors-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .sector-card,
-    .sector-card-cta {
-      transition: none !important;
-      transform: none !important;
-      box-shadow: none !important;
-    }
-  }
-</style>

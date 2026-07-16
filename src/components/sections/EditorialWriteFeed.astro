@@ -45,6 +45,11 @@ const metaLabel = isFr ? data.meta_label_fr : data.meta_label_en;
 
 <style>
   .write-feed { padding-block: var(--section-base); }
+  /* tone paper : foreground `--ink` explicite. Le `data-tone` du <section> porte ici la
+     VARIANTE de fond (paper/ink), pas un tone d'atome : il entre en collision avec
+     l'utilitaire global `[data-tone='paper'] { color: var(--paper) }` (section-layouts.css)
+     qui rendrait le texte quasi-blanc sur paper. Ce sélecteur (classe+cid+attr) le bat. */
+  .write-feed[data-tone='paper'] { color: var(--ink); }
   .write-feed[data-tone='ink'] {
     background: var(--ink);
     color: var(--paper);

@@ -25,7 +25,7 @@ const gridClass = [
 ].filter(Boolean).join(' ');
 ---
 
-<section class={sectionClass} data-bg={data.background}>
+<section class={sectionClass} data-bg={data.background} style={data.pad_block ? `--tier-section-pad-y:${data.pad_block}` : undefined}>
   <div class={data.wrap ? undefined : 'wrap-wide'}>
     <p class="tier-eyebrow reveal-snap">{isFr ? data.eyebrow_fr : data.eyebrow_en}</p>
     <h2 class="tier-h2 reveal">{isFr ? data.h2_fr : data.h2_en}</h2>
@@ -58,8 +58,8 @@ const gridClass = [
 
 <style>
   .tier-section {
-    padding-top: var(--section-loose);
-    padding-bottom: var(--section-loose);
+    padding-top: var(--tier-section-pad-y, var(--section-loose));
+    padding-bottom: var(--tier-section-pad-y, var(--section-loose));
     padding-left: var(--space-6);
     padding-right: var(--space-6);
   }

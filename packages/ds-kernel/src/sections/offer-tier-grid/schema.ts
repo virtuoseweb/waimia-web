@@ -9,6 +9,10 @@ export const schema = z.object({
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   variant: z.enum(['standard', 'featured', 'transparent']).default('standard'),
   wrap: z.boolean().default(true),
+  // Rythme vertical retro-compat (optionnel) : override du padding haut ET bas de
+  // `.tier-section`. Absent = rendu catalogue inchange (var(--section-loose)). Valeur =
+  // token DS existant, ex. 'var(--section-base)'. Absorbe l'ancien wrapper page-level.
+  pad_block: z.string().optional(),
   eyebrow_fr: z.string(),
   eyebrow_en: z.string(),
   h2_fr: z.string(),
