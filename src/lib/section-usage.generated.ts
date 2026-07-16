@@ -181,8 +181,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "data-table": {
-    "count": 1,
+    "count": 4,
     "pages": [
+      "/ressources/diagnostics/claude-pme",
+      "/ressources/diagnostics/maturite-ia",
+      "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent"
     ]
   },
@@ -1000,12 +1003,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 19,
+    "count": 21,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
+      "/cas-usages/reduire-reporting",
+      "/cas-usages/reduire-temps-cms",
       "/cas-usages/standardiser-processus",
       "/demonstrations/avant-apres",
       "/demonstrations/integration-claude",

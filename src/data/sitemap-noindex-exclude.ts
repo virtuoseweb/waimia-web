@@ -49,9 +49,9 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // Secteurs noindex (seo.noindex:true frontmatter) → hors sitemap pour cohérence noindex↔crawl.
   // (2026-07-14 vague 1) complétés par les 6 autres secteurs noindex (politique index ⟺ caseRef
   // réel, cf strategy/14 §4) détectés par le gate check-seo noindex-not-in-sitemap.
-  "/secteurs/batiment",
+  // 2026-07-16 (post-audit #50) : batiment (caseRef desangles-peinture) et therapeutes (caseRef
+  // isabelle-diaz-naturopathe) repassés index ⟹ retirés de cette liste pour entrer au sitemap.
   "/secteurs/services-b2b",
-  "/secteurs/therapeutes",
   "/secteurs/agence",
   "/secteurs/comptabilite",
   "/secteurs/conseil",

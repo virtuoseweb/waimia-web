@@ -118,8 +118,8 @@ export const agenceSections: SectionData[] = [
     media_src: '/images/editorial/image-style-howweworkwithai.webp',
     media_alt: "Illustration éditoriale : la façon dont le studio câble l'IA dans les outils existants.",
     media_caption: 'Process Intelligence · du diagnostic à la mesure',
-    quote_fr: "On ne vend pas de l'IA pour faire de l'IA. On trace le workflow, on pose l'automatisation là où elle compte (HubSpot, Stripe, dbt, vos outils existants), et on mesure l'avant/après. Pas de refonte si un connecteur suffit.",
-    quote_en: "We don't sell AI for AI's sake. We trace the workflow, place automation where it matters (HubSpot, Stripe, dbt, your existing tools), and measure before/after. No rebuild when a connector is enough.",
+    quote_fr: "On ne vend pas de l'IA pour faire de l'IA. On trace le workflow, on pose l'automatisation là où elle compte (HubSpot, Stripe, dbt, vos outils existants), et on mesure l'avant/après. Pas de refonte si un connecteur suffit : c'est la base d'un <a href=\"/services/systeme-acquisition\">système d'acquisition</a> qui tient.",
+    quote_en: "We don't sell AI for AI's sake. We trace the workflow, place automation where it matters (HubSpot, Stripe, dbt, your existing tools), and measure before/after. No rebuild when a connector is enough: it is the base of an <a href=\"/services/systeme-acquisition\">acquisition system</a> that holds.",
     attribution_fr: 'Waimia · studio solo · Montpellier',
     attribution_en: 'Waimia · solo studio · Montpellier',
     metrics: [
@@ -138,8 +138,8 @@ export const agenceSections: SectionData[] = [
     background: 'paper-2',
     kicker_fr: '§ La stack',
     kicker_en: '§ The stack',
-    lead_fr: "Anthropic d'abord, open-source quand il faut. Une stack courte, auditable, branchée sur vos outils existants. Pas de refonte si un connecteur suffit.",
-    lead_en: 'Anthropic first, open-source when needed. A short, auditable stack wired to your existing tools. No rebuild when a connector is enough.',
+    lead_fr: "Anthropic d'abord, open-source quand il faut. Une stack courte, auditable, branchée sur vos outils existants. Pas de refonte si un connecteur suffit, que ce soit pour un <a href=\"/services/site-web-ia\">site web piloté par l'IA</a> ou l'<a href=\"/services/integration-claude\">intégration de Claude</a> dans votre CRM.",
+    lead_en: 'Anthropic first, open-source when needed. A short, auditable stack wired to your existing tools. No rebuild when a connector is enough, whether for an <a href="/services/site-web-ia">AI-driven website</a> or <a href="/services/integration-claude">Claude integration</a> into your CRM.',
     pills: [
       { label_fr: 'Claude Opus', label_en: 'Claude Opus', kind: 'primary' },
       { label_fr: 'Claude Sonnet', label_en: 'Claude Sonnet', kind: 'primary' },
@@ -240,7 +240,7 @@ export const agenceSections: SectionData[] = [
 const lang = langFromPath(Astro.url.pathname);
 ---
 <Base
-  title="L'Agence · Waimia · Architectes de systèmes agentiques"
+  title="L'Agence · Studio IA solo à Montpellier · Waimia"
   description="Studio IA solo à Montpellier. Méthode Process Intelligence, expert de l'écosystème Anthropic. On livre des agents qui exécutent, pas des slides."
 >
   <MastheadBar lang={lang} items={[

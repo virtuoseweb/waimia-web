@@ -5,11 +5,28 @@ export const prerender = true;
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Button from '../../components/ui/atoms/Button.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
+
+// JSON-LD WebApplication · décrit le diagnostic interactif (formulaire noté 6 questions →
+// scorecard email) comme une web-app gratuite, pour la lisibilité moteur/GEO.
+const academyLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Diagnostic IA gratuit · Waimia Academy',
+  url: 'https://waimia.com/ressources/academy',
+  description: 'Diagnostic IA en 6 questions pour PME : un scorecard personnalisé envoyé par email, relu par un humain, avec trois actions priorisées.',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  inLanguage: 'fr',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  provider: { '@type': 'Organization', name: 'Waimia', url: 'https://waimia.com' },
+};
 ---
 <UtilityTemplate
   title="Diagnostic IA gratuit entreprise · scorecard personnalisé · Waimia Academy"
   description="Diagnostic IA gratuit en 6 questions. Vous recevez par email un scorecard personnalisé, 3 actions priorisées et une relecture humaine. Pas de rappel commercial."
   kicker="§ Academy · Diagnostic accompagné · Scorecard par email"
+  jsonLd={academyLd}
   align="centered"
   headlineFr="Diagnostic IA gratuit, scorecard personnalisé."
   headlineEn="Free AI diagnostic, personalized scorecard."
@@ -17,7 +34,8 @@ import Kicker from '../../components/ui/atoms/Kicker.astro';
   ledeEn="6 questions on your data, your agents and your compliance. We send back a personalized scorecard: your strengths, your gaps, 3 prioritized actions. Reviewed by a human, not an algorithm. No sales follow-up."
 >
   <Fragment slot="body">
-    <p class="acad-intro">Le diagnostic IA gratuit de la Waimia Academy va plus loin qu'un test express : 6 questions sur vos données, vos agents et votre conformité, puis un scorecard personnalisé relu par un humain. Besoin d'un chiffre tout de suite ? Le <a href="/ressources/outils/score-maturite-ia">score de maturité IA</a> vous situe en 3 questions, sans email.</p>
+    <p class="acad-intro">Le diagnostic IA gratuit de la Waimia Academy mesure trois choses qui décident de la réussite d'un projet IA : l'état de vos <strong>données</strong>, la fiabilité de vos <strong>agents en production</strong> et votre <strong>conformité</strong>. Il s'adresse aux dirigeants et responsables de PME B2B qui veulent une lecture honnête avant d'investir, pas un argumentaire.</p>
+    <p class="acad-intro">Concrètement : 6 questions notées, un scorecard personnalisé envoyé par email et relu par un humain, avec 3 actions priorisées. C'est un auto-diagnostic pour vous repérer. Si vous voulez une mission menée par nos soins sur votre contexte réel, c'est l'<a href="/audit-ia-pme">audit IA pour PME</a>, pas cette page. Et pour un chiffre tout de suite sans email, le <a href="/ressources/outils/score-maturite-ia">score de maturité IA</a> vous situe en 3 questions.</p>
     <form class="acad-form" method="POST" action="/api/academy" name="academy" data-academy-form novalidate>
         <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden">
           <label for="academy-hp">Ne pas remplir</label>

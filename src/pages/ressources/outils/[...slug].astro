@@ -25,9 +25,27 @@ const d = entry.data;
 const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const categoryKicker = d.category_fr ? ` · ${d.category_fr}` : '';
 const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
+
+// JSON-LD WebApplication · décrit l'outil interactif (calculateur/score) comme une vraie
+// web-app gratuite, en complément de l'Article émis par EssayTemplate. Émis au niveau page.
+const toolUrl = `https://waimia.com/ressources/outils/${entry.id}`;
+const webAppLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: d.title_fr,
+  url: toolUrl,
+  description: d.description_fr,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  browserRequirements: 'Requires JavaScript',
+  inLanguage: 'fr',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  provider: { '@type': 'Organization', name: 'Waimia', url: 'https://waimia.com' },
+};
 ---
 <EssayTemplate
-  title={`${d.title_fr} · Outils Waimia`}
+  title={d.title_fr}
   description={d.description_fr}
   kicker={`§ Outil · ${d.type}${categoryKicker}`}
   date={dateStr}
@@ -51,6 +69,8 @@ const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
     <Content />
   </Fragment>
 </EssayTemplate>
+
+<script type="application/ld+json" set:html={JSON.stringify(webAppLd)} />
 
 {/* Comportement du ToolWidget · hoisté au niveau page (le slot body d'EssayTemplate
     est capturé via Astro.slots.render() puis réinjecté en set:html, ce qui rend

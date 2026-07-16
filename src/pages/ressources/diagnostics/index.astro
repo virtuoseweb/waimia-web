@@ -18,19 +18,41 @@ const isFr = lang === 'fr';
 
 type Card = SectionByType<'related-cards-band'>['cards'][number];
 
+// Micro-repère de différenciation par diagnostic : la question précise que chacun tranche,
+// pour choisir vite entre quatre libellés proches.
+const cue: Record<string, { fr: string; en: string }> = {
+  'claude-pme': {
+    fr: 'Êtes-vous prêts à déployer Claude ? Les cinq fondations à poser avant de connecter l\'IA à vos outils.',
+    en: 'Are you ready to deploy Claude? The five foundations to lay before wiring AI to your tools.',
+  },
+  'maturite-ia': {
+    fr: 'À quel niveau de maturité IA se situe votre entreprise ? La grille des cinq niveaux et les dimensions qui comptent.',
+    en: 'What AI maturity level is your company at? The five-level grid and the dimensions that matter.',
+  },
+  'referent-ia': {
+    fr: 'Vous faut-il un référent IA en interne, et avec quels moyens ? Les cinq signaux qui le rendent nécessaire.',
+    en: 'Do you need an internal AI lead, and with what means? The five signals that make one necessary.',
+  },
+  'site-web-intelligent': {
+    fr: 'Votre site qualifie-t-il vos visiteurs ou reste-t-il une vitrine passive ? La checklist qui tranche.',
+    en: 'Does your site qualify visitors or stay a passive brochure? The checklist that settles it.',
+  },
+};
+
 const cards: Card[] = (await getCollection('diagnostics'))
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
   .map((e) => {
     const d = e.data;
+    const slug = d.slug ?? e.id;
     const shortTitle = (full: string) => full.split(' · ')[0].trim();
     return {
       kicker_fr: 'Diagnostic',
       kicker_en: 'Diagnostic',
       title_fr: shortTitle(d.title_fr),
       title_en: shortTitle(d.title_en),
-      lead_fr: d.description_fr,
-      lead_en: d.description_en,
-      href: `/ressources/diagnostics/${d.slug ?? e.id}`,
+      lead_fr: cue[slug]?.fr ?? d.description_fr,
+      lead_en: cue[slug]?.en ?? d.description_en,
+      href: `/ressources/diagnostics/${slug}`,
     };
   });
 
@@ -65,8 +87,8 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   kicker_en: '§ Diagnostics · assess before you decide',
   h1_fr: '<span>Diagnostics</span><br/><span><i>gratuits</i>.</span>',
   h1_en: '<span>Free</span><br/><span><i>diagnostics</i>.</span>',
-  lede_fr: "Des outils pour situer votre maturité IA et la qualité de votre site avant tout engagement. Vous repartez avec une lecture claire, pas un argumentaire commercial.",
-  lede_en: 'Tools to assess your AI maturity and the quality of your website before any commitment. You leave with a clear read, not a sales pitch.',
+  lede_fr: "Quatre repérages pour situer votre entreprise avant tout engagement : préparation à Claude, maturité IA, besoin d'un référent, qualité de votre site. Vous repartez avec une lecture claire, pas un argumentaire commercial.",
+  lede_en: 'Four reads to place your company before any commitment: Claude readiness, AI maturity, need for a lead, website quality. You leave with a clear read, not a sales pitch.',
 };
 
 const ctaFinal: SectionByType<'cta-final'> = {

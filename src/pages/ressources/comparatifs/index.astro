@@ -18,19 +18,41 @@ const isFr = lang === 'fr';
 
 type Card = SectionByType<'related-cards-band'>['cards'][number];
 
+// Curation par comparatif : l'arbitrage tranché en une phrase (fidèle au verdict de
+// chaque page), pour guider le lecteur au-delà d'un titre « X vs Y ».
+const curation: Record<string, { fr: string; en: string }> = {
+  'claude-code-vs-cursor': {
+    fr: 'Cursor pour garder le contrôle ligne à ligne, Claude Code pour déléguer des tâches entières à un agent. Le bon choix dépend de votre façon de coder.',
+    en: 'Cursor to keep line-by-line control, Claude Code to hand whole tasks to an agent. The right pick depends on how you code.',
+  },
+  'claude-vs-chatgpt-pme': {
+    fr: 'Le choix se joue sur votre besoin prioritaire, pas sur un classement : ChatGPT en assistant polyvalent, Claude pour brancher l\'IA à vos outils et vos données.',
+    en: 'It comes down to your priority need, not a ranking: ChatGPT as an all-round assistant, Claude to wire AI into your tools and data.',
+  },
+  'geo-vs-seo': {
+    fr: 'Le SEO vous fait trouver sur Google, le GEO vous fait citer par les IA. Deux leviers complémentaires, pas un remplacement.',
+    en: 'SEO gets you found on Google, GEO gets you cited by AIs. Two complementary levers, not a replacement.',
+  },
+  'site-web-intelligent-vs-wordpress': {
+    fr: 'Pour une PME qui veut un actif et pas une dette, le site web intelligent l\'emporte sur WordPress sur cinq critères : performance, SEO/GEO, maintenance, sécurité et coût total.',
+    en: 'For an SMB that wants an asset, not a debt, the intelligent website beats WordPress on five criteria: performance, SEO/GEO, maintenance, security and total cost.',
+  },
+};
+
 const cards: Card[] = (await getCollection('comparatifs'))
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
   .map((e) => {
     const d = e.data;
+    const slug = d.slug ?? e.id;
     const shortTitle = (full: string) => full.split(' · ')[0].trim();
     return {
       kicker_fr: 'Comparatif',
       kicker_en: 'Comparison',
       title_fr: shortTitle(d.title_fr),
       title_en: shortTitle(d.title_en),
-      lead_fr: d.description_fr,
-      lead_en: d.description_en,
-      href: `/ressources/comparatifs/${d.slug ?? e.id}`,
+      lead_fr: curation[slug]?.fr ?? d.description_fr,
+      lead_en: curation[slug]?.en ?? d.description_en,
+      href: `/ressources/comparatifs/${slug}`,
     };
   });
 

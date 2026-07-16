@@ -12,6 +12,7 @@ import HeroCentered from '../../components/sections/HeroCentered.astro';
 import CaseSpotlight from '../../components/sections/CaseSpotlight.astro';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 import EditorialCallout from '../../components/sections/EditorialCallout.astro';
+import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 
 const lang = langFromPath(Astro.url.pathname);
 const isFr = lang === 'fr';
@@ -40,6 +41,23 @@ const sectors = (await getCollection('secteurs'))
       href: localizeHref(`/secteurs/${d.slug ?? e.id}`, lang),
     };
   });
+
+// JSON-LD · CollectionPage + ItemList des secteurs visibles (même pattern que le hub
+// cas-clients : buildCollectionPage → jsonLd={} sur <Base>). URLs canoniques FR.
+const sectorItems = sectors.map((s) => `https://waimia.com/secteurs/${s.slug}`);
+const secteursLd = [
+  buildBreadcrumbList([
+    { name: 'Accueil', url: 'https://waimia.com/' },
+    { name: 'Secteurs', url: 'https://waimia.com/secteurs' },
+  ]),
+  buildCollectionPage(
+    isFr ? 'Secteurs' : 'Industries',
+    isFr
+      ? 'Des systèmes IA rangés par métier, avec données de marché sourcées et terrain réel.'
+      : 'AI systems organized by trade, with sourced market data and real field.',
+    sectorItems,
+  ),
+];
 
 const ctaData = {
   type: 'cta-final' as const,
@@ -77,9 +95,9 @@ const spotlightData = {
   quote_en: 'Every trade has its bottlenecks and its levers. We read them on your real data before writing a single line.',
   attribution_fr: 'Méthode Waimia · diagnostic terrain avant exécution',
   attribution_en: 'Waimia method · field diagnosis before execution',
-  cta_href: localizeHref('/contact', lang),
-  cta_label_fr: 'Parler de votre métier →',
-  cta_label_en: 'Discuss your trade →',
+  cta_href: localizeHref('/cas-clients', lang),
+  cta_label_fr: 'Voir les cas clients →',
+  cta_label_en: 'See our case studies →',
 } satisfies SectionByType<'case-spotlight'>;
 
 // Angle B2B reporté depuis /secteurs/services-b2b dépublié (audit #60 A4) : l'acheteur
@@ -114,6 +132,7 @@ const mastheadData = {
   description={isFr
     ? 'Des systèmes IA rangés par métier : e-commerce, bâtiment, startup, services B2B, libéral, thérapeutes. Données de marché sourcées, terrain réel.'
     : 'AI systems organized by trade: e-commerce, construction, startup, B2B services, independents, therapists. Sourced market data, real field.'}
+  jsonLd={secteursLd}
 >
   <HeroCentered data={mastheadData} lang={lang} />
 

@@ -70,6 +70,14 @@ const blogLongReads = sortedBlog.filter((b) => !isLegacyRoutedType(b));
 const nBlog = blogLongReads.length;
 const allOutils = await getCollection('outils');
 const nOutils = allOutils.length;
+const [allComparatifs, allDiagnostics, allGuides] = await Promise.all([
+  getCollection('comparatifs'),
+  getCollection('diagnostics'),
+  getCollection('guides'),
+]);
+const nComparatifs = allComparatifs.length;
+const nDiagnostics = allDiagnostics.length;
+const nGuides = allGuides.length;
 
 // SEO état final : livres-blancs / cookbooks / field-notes / veille-ia supprimés.
 const featuredData = null;
@@ -94,6 +102,42 @@ const categories = [
     href: '/ressources/outils',
     cta_label_fr: 'Utiliser l\'outil', cta_label_en: 'Use the tool',
   },
+  nComparatifs > 0 && {
+    kind_fr: 'Comparatifs', kind_en: 'Comparisons',
+    title_fr: 'Comparatifs objectifs', title_en: 'Objective comparisons',
+    desc_fr: 'Claude vs ChatGPT, GEO vs SEO, site intelligent vs WordPress. L\'arbitrage tranché, sans langue de bois.',
+    desc_en: 'Claude vs ChatGPT, GEO vs SEO, intelligent site vs WordPress. The call made plainly.',
+    format: `${nComparatifs} comparatifs`,
+    href: '/ressources/comparatifs',
+    cta_label_fr: 'Comparer', cta_label_en: 'Compare',
+  },
+  nDiagnostics > 0 && {
+    kind_fr: 'Diagnostics', kind_en: 'Diagnostics',
+    title_fr: 'Diagnostics gratuits', title_en: 'Free diagnostics',
+    desc_fr: 'Préparation à Claude, maturité IA, référent, site web. Un repérage honnête pour situer votre entreprise.',
+    desc_en: 'Claude readiness, AI maturity, lead, website. An honest read to place your company.',
+    format: `${nDiagnostics} diagnostics`,
+    href: '/ressources/diagnostics',
+    cta_label_fr: 'Se situer', cta_label_en: 'Place yourself',
+  },
+  nGuides > 0 && {
+    kind_fr: 'Guides', kind_en: 'Guides',
+    title_fr: 'Guides pratiques', title_en: 'Practical guides',
+    desc_fr: 'Des how-to opérationnels et datés, pas des articles. Des prérequis aux 90 premiers jours.',
+    desc_en: 'Operational, dated how-tos, not articles. From prerequisites to the first 90 days.',
+    format: `${nGuides} ${nGuides > 1 ? 'guides' : 'guide'}`,
+    href: '/ressources/guides',
+    cta_label_fr: 'Suivre le guide', cta_label_en: 'Follow the guide',
+  },
+  {
+    kind_fr: 'Diagnostic', kind_en: 'Diagnostic',
+    title_fr: 'Diagnostic IA gratuit', title_en: 'Free AI diagnostic',
+    desc_fr: 'Six questions notées, un scorecard personnalisé par email, relu par un humain. Trois actions priorisées.',
+    desc_en: 'Six scored questions, a personalised scorecard by email, reviewed by a human. Three prioritised actions.',
+    format: 'Scorecard email',
+    href: '/ressources/academy',
+    cta_label_fr: 'Faire le diagnostic', cta_label_en: 'Take the diagnostic',
+  },
 ].filter(Boolean) as Array<{
   kind_fr: string; kind_en: string; title_fr: string; title_en: string;
   desc_fr: string; desc_en: string; format: string; href: string;
@@ -108,8 +152,8 @@ const resourceGridData = {
   kicker_en: '§ By format · everything we publish',
   h2_fr: 'Choisissez votre entrée.',
   h2_en: 'Pick your way in.',
-  intro_fr: 'Six formats, des compteurs réels. Rien d\'inventé : ce que vous voyez est ce qui existe.',
-  intro_en: 'Six formats, real counters. Nothing invented: what you see is what exists.',
+  intro_fr: `${categories.length} formats, des compteurs réels. Rien d\'inventé : ce que vous voyez est ce qui existe.`,
+  intro_en: `${categories.length} formats, real counters. Nothing invented: what you see is what exists.`,
   resources: categories.map((c) => ({
     kind_fr: c.kind_fr, kind_en: c.kind_en,
     title_fr: c.title_fr, title_en: c.title_en,
@@ -222,8 +266,8 @@ const mastheadData = {
   kicker_en: '§ Hub · Resources',
   h1_fr: 'Tout ce qu\'on <i>publie</i>.',
   h1_en: 'Everything we <i>publish</i>.',
-  lede_fr: 'Cas mesurables, notes de terrain, cookbooks de méthodes, calculateurs gratuits. Pas de pensum SEO. Tout est relu, signé, et NDA-protected quand pertinent.',
-  lede_en: 'Measurable cases, field notes, method cookbooks, free calculators. No SEO padding. Everything is reviewed, signed, and NDA-protected when relevant.',
+  lede_fr: 'Cas mesurables, articles de fond, guides pratiques, comparatifs, diagnostics et calculateurs gratuits. Pas de pensum SEO. Tout est relu, signé, et confidentiel quand le client le demande.',
+  lede_en: 'Measurable cases, in-depth articles, practical guides, comparisons, diagnostics and free calculators. No SEO padding. Everything is reviewed, signed, and kept confidential when the client asks.',
 } satisfies SectionByType<'hero-hub-masthead'>;
 
 const ctaData = {
@@ -238,8 +282,8 @@ const ctaData = {
 } satisfies SectionByType<'cta-final'>;
 ---
 <Base
-  title="Ressources · Cas, blog, cookbooks, outils · Waimia"
-  description="Toutes les ressources Waimia : cas clients NDA-protected, notes de terrain, cookbooks de méthodes, calculateurs TCO/ROI/AI Act."
+  title="Ressources IA pour PME · Waimia"
+  description="Ressources IA pour PME : cas clients, blog, guides pratiques, comparatifs, diagnostics et calculateurs ROI gratuits, relus et datés."
   jsonLd={collectionLd}
 >
   {/* MASTHEAD · paper */}

@@ -30,15 +30,15 @@ const kicker  = `§ Outils · ${count} disponible${count > 1 ? 's' : ''}`;
 
 const outilsItems = entries.map((entry) => `https://waimia.com/ressources/outils/${entry.id}`);
 const collectionLd = buildCollectionPage(
-  'Outils · Calculateurs et templates actionnables · Waimia',
-  'Calculateurs ROI, checklists d\'audit et templates prêts à l\'emploi pour PME B2B. Gratuits, actionnables, sans inscription.',
+  'Outils IA gratuits pour PME · Waimia',
+  'Calculateurs ROI et maturité IA gratuits pour PME B2B, sans inscription : un résultat immédiat à l\'écran.',
   outilsItems,
 );
 ---
 <UtilityTemplate
   variant="list"
-  title="Outils · Calculateurs et templates actionnables · Waimia"
-  description="Calculateurs ROI, checklists d'audit et templates prêts à l'emploi pour PME B2B. Gratuits, actionnables, sans inscription."
+  title="Outils IA gratuits pour PME · Calculateurs ROI et maturité · Waimia"
+  description="Calculateurs ROI et maturité IA gratuits pour PME B2B, sans inscription : un résultat immédiat à l'écran."
   kicker={kicker}
   jsonLd={collectionLd}
 >

@@ -195,6 +195,121 @@
       ]
     },
     {
+      "type": "data-table",
+      "background": "paper-3",
+      "kicker_fr": "§ La grille des niveaux",
+      "kicker_en": "§ The levels grid",
+      "h2_fr": "Les cinq niveaux de maturité IA, en clair",
+      "h2_en": "The five AI maturity levels, in plain terms",
+      "intro_fr": "La grille des cinq niveaux, ligne par ligne. Repérez celui qui décrit votre organisation aujourd'hui, puis la marche suivante.",
+      "intro_en": "The five-level grid, row by row. Spot the one that describes your organisation today, then the next step.",
+      "striped": true,
+      "columns": [
+        {
+          "label_fr": "Niveau",
+          "label_en": "Level",
+          "align": "start"
+        },
+        {
+          "label_fr": "Stade",
+          "label_en": "Stage",
+          "align": "start"
+        },
+        {
+          "label_fr": "Ce qui le caractérise",
+          "label_en": "What defines it",
+          "align": "start"
+        }
+      ],
+      "rows": [
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 1",
+              "text_en": "Level 1",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Exploration",
+              "text_en": "Exploration"
+            },
+            {
+              "text_fr": "Curiosité sans passage à l'action. Aucun outil IA utilisé régulièrement, données non structurées. On s'interroge sur la valeur que l'IA pourrait apporter.",
+              "text_en": "Curiosity without action. No AI tool used regularly, unstructured data. You wonder what value AI could bring."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 2",
+              "text_en": "Level 2",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Expérimentation",
+              "text_en": "Experimentation"
+            },
+            {
+              "text_fr": "Quelques collaborateurs utilisent ChatGPT ou un assistant, sans cadre ni objectif défini. Des pilotes isolés, aucun cas d'usage validé en production.",
+              "text_en": "A few employees use ChatGPT or an assistant, with no frame or defined goal. Isolated pilots, no use case validated in production."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 3",
+              "text_en": "Level 3",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Adoption",
+              "text_en": "Adoption"
+            },
+            {
+              "text_fr": "Un à trois cas d'usage actifs avec des résultats mesurés. Premières formations, données partiellement structurées. L'IA produit de la valeur sur un périmètre cadré.",
+              "text_en": "One to three active use cases with measured results. First training, partially structured data. AI produces value on a framed scope."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 4",
+              "text_en": "Level 4",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Intégration",
+              "text_en": "Integration"
+            },
+            {
+              "text_fr": "L'IA est intégrée aux process métier principaux. Gouvernance en place, équipes formées, mesure systématique des résultats. Le déploiement passe à l'échelle.",
+              "text_en": "AI is integrated into the main business processes. Governance in place, trained teams, systematic measurement. Deployment scales up."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 5",
+              "text_en": "Level 5",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Transformation",
+              "text_en": "Transformation"
+            },
+            {
+              "text_fr": "L'IA est au cœur du business et procure un avantage concurrentiel. Stack complète, R&D active, innovation continue. Le très petit nombre de PME au sommet.",
+              "text_en": "AI is at the heart of the business and provides a competitive edge. Full stack, active R&D, continuous innovation. The very few SMBs at the top."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "manifesto-statement",
       "kicker_fr": "§ Le vrai critère",
       "kicker_en": "§ The real criterion",
@@ -356,7 +471,9 @@
           "label_fr": "La direction a-t-elle un cap clair et un budget, ou attend-elle un résultat sans cadrage ?",
           "label_en": "Does leadership have a clear bearing and a budget, or does it expect a result without scoping?"
         }
-      ]
+      ],
+      "h2_fr": "Six questions pour situer votre <i>maturité</i>",
+      "h2_en": "Six questions to place your <i>maturity</i>"
     },
     {
       "type": "process-steps",
@@ -401,6 +518,24 @@
       "kicker_en": "§ Go further",
       "cards": [
         {
+          "kicker_fr": "Outil",
+          "kicker_en": "Tool",
+          "title_fr": "Score de maturité IA",
+          "title_en": "AI maturity score",
+          "lead_fr": "Un chiffre tout de suite, sans email : trois questions, un score sur 9 calculé à l'écran pour situer votre niveau.",
+          "lead_en": "A number right away, no email: three questions, a score out of 9 computed on screen to place your level.",
+          "href": "/ressources/outils/score-maturite-ia"
+        },
+        {
+          "kicker_fr": "Diagnostic",
+          "kicker_en": "Diagnostic",
+          "title_fr": "Diagnostic IA gratuit",
+          "title_en": "Free AI diagnostic",
+          "lead_fr": "Six questions, un scorecard personnalisé envoyé par email et relu par un humain, avec trois actions priorisées.",
+          "lead_en": "Six questions, a personalised scorecard sent by email and reviewed by a human, with three prioritised actions.",
+          "href": "/ressources/academy"
+        },
+        {
           "kicker_fr": "Audit gratuit",
           "kicker_en": "Free audit",
           "title_fr": "Audit IA pour PME",
@@ -408,24 +543,6 @@
           "lead_fr": "La suite concrète du diagnostic : 45 min pour transformer votre niveau en plan d'action et identifier le premier process à automatiser.",
           "lead_en": "The concrete follow-up to the diagnostic: 45 min to turn your level into an action plan and identify the first process to automate.",
           "href": "/audit-ia-pme"
-        },
-        {
-          "kicker_fr": "Service",
-          "kicker_en": "Service",
-          "title_fr": "Intégrateur Claude",
-          "title_en": "Claude integrator",
-          "lead_fr": "Quand les fondations sont là : déployer Claude et ses agents dans votre entreprise, branchés à vos outils via le protocole MCP.",
-          "lead_en": "When the foundations are there: deploying Claude and its agents in your company, wired to your tools via the MCP protocol.",
-          "href": "/services/integration-claude"
-        },
-        {
-          "kicker_fr": "Cas d'usage",
-          "kicker_en": "Use case",
-          "title_fr": "Standardiser vos processus",
-          "title_en": "Standardise your processes",
-          "lead_fr": "Un exemple concret de montée en maturité : un process récurrent transformé en agent fiable et mesuré.",
-          "lead_en": "A concrete example of moving up in maturity: a recurring process turned into a reliable, measured agent.",
-          "href": "/cas-usages/standardiser-processus"
         }
       ]
     },
@@ -493,8 +610,8 @@
       "rounded": true,
       "kicker_fr": "§ Prêt à passer du repérage au plan ?",
       "kicker_en": "§ Ready to go from placement to plan?",
-      "h2_fr": "Vous savez où vous en êtes. Passons au prochain pas.",
-      "h2_en": "You know where you stand. Let's take the next step.",
+      "h2_fr": "Vous savez à quel niveau vous êtes. Posons la marche suivante.",
+      "h2_en": "You know which level you're at. Let's lay the next step.",
       "subtitle_fr": "L'audit IA gratuit de 45 min transforme votre niveau de maturité en plan d'action concret : on part de votre réalité pour identifier le premier process à automatiser. Sans engagement.",
       "subtitle_en": "The free 45-min AI audit turns your maturity level into a concrete action plan: we start from your reality to identify the first process to automate. No commitment.",
       "buttons": [

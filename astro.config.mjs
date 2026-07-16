@@ -276,7 +276,7 @@ export default defineConfig({
     }),
     robotsTxt({
       policy: [
-        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/ds-studio', '/agence/hero-lab', '/library/', '/preview/', '/preview-v/', '/preview-swi/', '/components/', '/categories/', '/lp/'] },
+        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/cartographie', '/agence/ds-studio', '/agence/hero-lab', '/library/', '/preview/', '/preview-v/', '/preview-swi/', '/components/', '/categories/', '/lp/'] },
         { userAgent: 'GPTBot', allow: '/' },
         { userAgent: 'ClaudeBot', allow: '/' },
         { userAgent: 'anthropic-ai', allow: '/' },

@@ -9,6 +9,8 @@ import { buildArticle } from '../../lib/seo/schema-builder';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
+import { meshForCase } from '../../lib/internal-mesh';
+import type { SectionData } from '@waimia/ds-kernel';
 
 export async function getStaticPaths() {
   const entries = await getCollection('cases');
@@ -84,6 +86,12 @@ const relatedCards = allCases
     href: `/cas-clients/${c.id}`,
   }));
 
+// Bloc « services mobilisés » + maillage cas → services/secteur/cas-usages (transverse n°30).
+// Source unique = helper `meshForCase` (internal-mesh.ts, registre de routes reelles, 0 lien
+// hardcode). Rendu via la section cataloguee `related-links`. Le secteur derive de `sector_fr`.
+const meshData = meshForCase({ slug: entry.id, sector_fr: d.sector_fr }, 'fr');
+const meshSection = { ...meshData, background: 'paper-3' as const } as unknown as SectionData;
+
 // JSON-LD Article · GEO/AIO : rend les cas indexables par les crawlers LLM
 // (mirroir du pattern blog/EssayTemplate — réutilise buildArticle de schema-builder)
 const siteUrl = 'https://waimia.com';
@@ -122,7 +130,7 @@ const caseLd = buildArticle({
     <section class="case-author-card-band">
       <div class="wrap-wide"><AuthorCard authorSlug={authorSlug} variant="full" /></div>
     </section>
-    {/* TODO related page-level (omis ce lot) */}
+    <SectionsRenderer sections={[meshSection]} lang="fr" />
   </Base>
 ) : (
   <CaseStudyTemplate
@@ -167,5 +175,8 @@ const caseLd = buildArticle({
     </Fragment>
     <Fragment slot="approach-headline">Ce qu'on a câblé.</Fragment>
     <Fragment slot="stack-lead">{d.impact_fr}</Fragment>
+    <Fragment slot="body-end">
+      <SectionsRenderer sections={[meshSection]} lang="fr" />
+    </Fragment>
   </CaseStudyTemplate>
 ); })()}

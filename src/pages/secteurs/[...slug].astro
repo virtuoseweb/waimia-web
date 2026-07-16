@@ -374,7 +374,7 @@ const sectionsAfterProse: SectionData[] = [
 const override = Array.isArray(d.sections) && d.sections.length > 0 ? d.sections : null;
 ---
 <Base
-  title={`${d.title_fr} · Waimia`}
+  title={`${d.title_fr.split(/\s*:\s*/)[0].trim()} · Waimia`}
   description={d.description_fr}
   jsonLd={sectorJsonLd}
   noindex={d.seo?.noindex}

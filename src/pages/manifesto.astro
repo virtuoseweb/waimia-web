@@ -6,7 +6,7 @@ export const prerender = true;
 // Pattern : composition Astro (Pattern 1) + 1 React island (Pattern 4 · LiquidHero canvas RAF)
 // Pacing :
 //   1. Hero LiquidHero canvas (terracotta blobs + grain + parallax mouse)
-//   2. Dark marquee (logos clients massifs Instrument Serif)
+//   2. Dark marquee (stack / écosystème d'outils, PAS des logos clients · cohérent Acte IV « pas de logos »)
 //   3. Acte I dark · stats massives 43 · <9 · ×4
 //   4. Acte II asymétriques · services alterne gauche/droite
 //   5. Manifeste accent terracotta « On refuse... »
@@ -45,6 +45,16 @@ const STATS = [
 ];
 
 const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
+
+// Ancres descriptives : chaque note de terrain pointe vers l'article réel le plus proche
+// (fallback /blog si aucun billet dédié) au lieu du lien générique /blog (audit confiance lot D).
+// Clé = texte EN de la note (stable) → route /blog/<slug> vérifiée existante.
+const FIELD_NOTE_LINKS: Record<string, string> = {
+  'Consulting firms: where the 8-week proposal-automation lever sits.': '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
+  'HubSpot + Claude: the unglamorous pattern that actually ships.': '/blog/cabler-son-crm-en-10-jours',
+  'Against the brain-circuit aesthetic.': '/blog/brain-circuit',
+  'RevOps rebuild: reconnect site, CRM, follow-ups into one pipeline.': '/blog/cabler-son-crm-en-10-jours',
+};
 
 const articleLd = buildArticle({
   headline: lang === 'fr' ? 'Manifeste Waimia' : 'Waimia Manifesto',
@@ -101,7 +111,7 @@ const acteVCta = {
       {/* headline */}
       <div style="max-width:1600px">
         <Kicker class="b-hero-tag">
-          {lang === 'fr' ? (<>Une agence IA · <span style="color:var(--accent-text)">marketing, sales, contenu, web, CRM et marque alignés</span></>) : (<>An AI agency · <span style="color:var(--accent-text)">marketing, sales, content, web, CRM and brand aligned</span></>)}
+          {lang === 'fr' ? (<>Un studio IA solo · <span style="color:var(--accent-text)">marketing, sales, contenu, web, CRM et marque alignés</span></>) : (<>A solo AI studio · <span style="color:var(--accent-text)">marketing, sales, content, web, CRM and brand aligned</span></>)}
         </Kicker>
         <h1 class="reveal-mask-up manifesto-h1">
           {lang === 'fr' ? (
@@ -129,7 +139,7 @@ const acteVCta = {
             {lang === 'fr' ? 'Prendre RDV →' : 'Book a session →'}
           </PillCTA>
           <PillCTA href={flh('/expertise-claude', lang)} variant="ghost-dark">
-            {lang === 'fr' ? 'La plateforme' : 'The platform'}
+            {lang === 'fr' ? 'Notre expertise Claude' : 'Our Claude expertise'}
           </PillCTA>
         </div>
         <div class="b-hero-foot">
@@ -140,7 +150,8 @@ const acteVCta = {
     </div>
   </section>
 
-  {/* DARK MARQUEE · logos massifs · padding réduit 24→14 pour rentrer sous fold */}
+  {/* DARK MARQUEE · stack / écosystème d'outils (Claude, HubSpot, Notion...), PAS des logos clients
+      · aria-hidden décoratif · padding réduit 24→14 pour rentrer sous fold */}
   <div aria-hidden="true" class="manifesto-marquee" style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(var(--paper-rgb), .12);border-bottom:1px solid rgba(var(--paper-rgb), .12);padding:14px 0;overflow:hidden;white-space:nowrap">
     <div class="b-marquee-track">
       {tripled.map((logo) => (
@@ -201,8 +212,8 @@ const acteVCta = {
       </h2>
       <p class="reveal" style="font-family:var(--font-sans);font-size:var(--text-h3);line-height:var(--leading-body);color:var(--ink-2);max-width:820px;margin:0 0 var(--space-10);text-wrap:pretty">
         {lang === 'fr'
-          ? <>Acquisition, contenu, CRM, web, analytics, marque. Six métiers. Six exécutions. Une équipe qui livre. Pas d&rsquo;agence relai, pas de plateforme tierce, pas de slide de comité. <i style="color:var(--accent-text)">Du code, du process, du résultat mesuré.</i></>
-          : <>Acquisition, content, CRM, web, analytics, brand. Six crafts. Six executions. One team that ships. No relay agency, no third-party platform, no committee slide. <i style="color:var(--accent-text)">Code, process, measured result.</i></>}
+          ? <>Acquisition, contenu, CRM, web, analytics, marque. Six métiers. Six exécutions. Un studio solo qui livre. Pas d&rsquo;agence relai, pas de plateforme tierce, pas de slide de comité. <i style="color:var(--accent-text)">Du code, du process, du résultat mesuré.</i></>
+          : <>Acquisition, content, CRM, web, analytics, brand. Six crafts. Six executions. A solo studio that ships. No relay agency, no third-party platform, no committee slide. <i style="color:var(--accent-text)">Code, process, measured result.</i></>}
       </p>
       {SIX_SERVICES.map((s, i) => (
         <AsymmetricServiceRow
@@ -238,7 +249,7 @@ const acteVCta = {
           : <>The internal platform orchestrating marketing, sales, content, web, CRM, analytics and brand. Multi-workspace · multi-agent · documented · transferable. Built to ship with you, deployed by us, <i style="font-style:italic;color:var(--accent-text)">owned for life</i> in your stack.</>}
       </p>
       <PillCTA href={flh('/expertise-claude', lang)} variant="accent-mono" mag={0.18}>
-        ▸ {lang === 'fr' ? 'Voir la plateforme' : 'Discover the platform'}
+        ▸ {lang === 'fr' ? 'Voir notre expertise Claude' : 'See our Claude expertise'}
       </PillCTA>
     </div>
   </section>
@@ -288,7 +299,7 @@ const acteVCta = {
           <EditorialWriteRow
             date={s.date}
             tag={ft(s.tag, lang)}
-            href={flh('/blog', lang)}
+            href={flh(FIELD_NOTE_LINKS[s.text.en] ?? '/blog', lang)}
             tone="ink"
           >
             {ft(s.text, lang)}

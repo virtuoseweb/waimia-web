@@ -146,8 +146,8 @@
       "background": "paper",
       "kicker_fr": "§ Les niveaux de préparation",
       "kicker_en": "§ The readiness levels",
-      "h2_fr": "Où en est <i>votre entreprise</i> ?",
-      "h2_en": "Where does <i>your company</i> stand?",
+      "h2_fr": "Prêts, presque, ou pas encore ?",
+      "h2_en": "Ready, almost, or not yet?",
       "lede_fr": "Cinq niveaux, du compte ouvert au déploiement intégré. La plupart des PME se situent aux deux premiers, plus souvent qu'elles ne le croient. Situez-vous franchement : surestimer sa préparation nuit à la suite.",
       "lede_en": "Five levels, from an open account to an integrated deployment. Most SMBs sit at the first two, more often than they think. Place yourself honestly: overestimating your readiness harms what follows.",
       "stages": [
@@ -191,6 +191,121 @@
           "body_en": "Claude is at the core of operations and provides a competitive edge. Multiple agents, an internal AI lead, continuous improvement. The very few SMBs at the top.",
           "phase_fr": "Niveau 5",
           "phase_en": "Level 5"
+        }
+      ]
+    },
+    {
+      "type": "data-table",
+      "background": "paper-3",
+      "kicker_fr": "§ La grille de préparation",
+      "kicker_en": "§ The readiness grid",
+      "h2_fr": "Les cinq niveaux de préparation, ligne par ligne",
+      "h2_en": "The five readiness levels, row by row",
+      "intro_fr": "La même grille, en clair : ce que recouvre chaque niveau de préparation au déploiement de Claude. Repérez la ligne qui décrit votre situation aujourd'hui.",
+      "intro_en": "The same grid, in plain terms: what each readiness level for deploying Claude covers. Spot the row that describes where you stand today.",
+      "striped": true,
+      "columns": [
+        {
+          "label_fr": "Niveau",
+          "label_en": "Level",
+          "align": "start"
+        },
+        {
+          "label_fr": "Stade",
+          "label_en": "Stage",
+          "align": "start"
+        },
+        {
+          "label_fr": "Ce qui le caractérise",
+          "label_en": "What defines it",
+          "align": "start"
+        }
+      ],
+      "rows": [
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 1",
+              "text_en": "Level 1",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Curiosité",
+              "text_en": "Curiosity"
+            },
+            {
+              "text_fr": "On a entendu parler de Claude sans l'utiliser. Aucun compte, données non structurées. On s'interroge sur ce qu'un assistant pourrait changer au quotidien.",
+              "text_en": "You've heard of Claude without using it. No account, unstructured data. You wonder what an assistant could change day to day."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 2",
+              "text_en": "Level 2",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Usage individuel",
+              "text_en": "Individual use"
+            },
+            {
+              "text_fr": "Quelques collaborateurs utilisent Claude ou ChatGPT dans un onglet, sans cadre ni accès à vos données. Des essais isolés, aucun cas d'usage en production.",
+              "text_en": "A few employees use Claude or ChatGPT in a tab, with no frame or access to your data. Isolated trials, no use case in production."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 3",
+              "text_en": "Level 3",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Premier cas branché",
+              "text_en": "First wired case"
+            },
+            {
+              "text_fr": "Claude est connecté à un outil ou un jeu de données via MCP, sur un cas d'usage cadré et mesuré. Premières règles d'usage, équipe sensibilisée. La valeur devient tangible.",
+              "text_en": "Claude is connected to a tool or dataset via MCP, on a framed and measured use case. First usage rules, an aware team. Value becomes tangible."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 4",
+              "text_en": "Level 4",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Déploiement intégré",
+              "text_en": "Integrated deployment"
+            },
+            {
+              "text_fr": "Claude et ses agents sont branchés aux process métier principaux. Gouvernance en place, équipes formées, résultats mesurés. Le déploiement passe à l'échelle.",
+              "text_en": "Claude and its agents are wired to the main business processes. Governance in place, trained teams, measured results. The deployment scales up."
+            }
+          ]
+        },
+        {
+          "cells": [
+            {
+              "text_fr": "Niveau 5",
+              "text_en": "Level 5",
+              "emphasis": true
+            },
+            {
+              "text_fr": "Avantage durable",
+              "text_en": "Lasting edge"
+            },
+            {
+              "text_fr": "Claude est au cœur du fonctionnement et procure un avantage concurrentiel. Agents multiples, référent IA interne, amélioration continue. Le très petit nombre de PME au sommet.",
+              "text_en": "Claude is at the core of operations and provides a competitive edge. Multiple agents, an internal AI lead, continuous improvement. The very few SMBs at the top."
+            }
+          ]
         }
       ]
     },
@@ -364,15 +479,17 @@
           "label_fr": "La direction a-t-elle un cap clair et un budget, ou attend-elle un résultat sans cadrage ?",
           "label_en": "Does leadership have a clear bearing and a budget, or does it expect a result without scoping?"
         }
-      ]
+      ],
+      "h2_fr": "Six questions pour jauger votre <i>préparation</i>",
+      "h2_en": "Six questions to gauge your <i>readiness</i>"
     },
     {
       "type": "process-steps",
       "background": "paper-2",
       "kicker_fr": "§ Prochaines étapes",
       "kicker_en": "§ Next steps",
-      "h2_fr": "Ce qu'on fait selon votre niveau",
-      "h2_en": "What we do depending on your level",
+      "h2_fr": "Ce qu'on pose selon votre préparation",
+      "h2_en": "What we lay down for your readiness",
       "intro_fr": "Le bon prochain pas dépend d'où vous partez. Inutile de viser un déploiement complet quand les fondations ne sont pas posées.",
       "intro_en": "The right next step depends on where you start. No point aiming for a full deployment when the foundations aren't laid.",
       "steps": [
@@ -501,8 +618,8 @@
       "rounded": true,
       "kicker_fr": "§ Prêt à passer du repérage au plan ?",
       "kicker_en": "§ Ready to go from placement to plan?",
-      "h2_fr": "Vous savez où vous en êtes. Passons au prochain pas.",
-      "h2_en": "You know where you stand. Let's take the next step.",
+      "h2_fr": "Vous savez si vous êtes prêts. Cadrons le déploiement.",
+      "h2_en": "You know whether you're ready. Let's frame the deployment.",
       "subtitle_fr": "L'audit IA gratuit de 45 min transforme votre niveau de préparation en plan d'action concret : on part de votre réalité pour cadrer le premier déploiement de Claude qui ait du sens. Sans engagement.",
       "subtitle_en": "The free 45-min AI audit turns your readiness level into a concrete action plan: we start from your reality to frame the first Claude deployment that makes sense. No commitment.",
       "buttons": [
