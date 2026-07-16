@@ -69,6 +69,25 @@ export const agenceSections: SectionData[] = [
     ],
   },
 
+  // 3bis · QUATRE LIVRABLES (paper-2) — E-E-A-T migré depuis /agence/about (audit #60 A2).
+  // Bloc catalogué `deliverables-grid` (anti-orphelin) : ce que chaque mission dépose.
+  {
+    type: 'deliverables-grid',
+    background: 'paper-2',
+    kicker_fr: '§ Nos livrables',
+    kicker_en: '§ Our deliverables',
+    title_fr: 'Quatre livrables, <i>jamais un de plus</i>.',
+    title_en: 'Four deliverables, <i>never one more</i>.',
+    lead_fr: 'Chaque mission dépose ces quatre pièces chez vous : transférables, relisibles, à vous.',
+    lead_en: 'Every engagement leaves these four pieces with you: transferable, readable, yours.',
+    items: [
+      { title_fr: "Un schéma de l'existant", title_en: 'A map of what exists', body_fr: 'Vos vrais workflows cartographiés, pas vos présentations.', body_en: 'Your real workflows mapped, not your presentations.' },
+      { title_fr: "Un mode opératoire d'exécution", title_en: 'An execution runbook', body_fr: "Ce que l'agent fait, étape par étape, reproductible.", body_en: 'What the agent does, step by step, reproducible.' },
+      { title_fr: 'Une trace d’audit rejouable', title_en: 'A replayable audit trail', body_fr: 'Chaque décision tracée, re-rejouable, jamais une boîte noire.', body_en: 'Every decision traced, replayable, never a black box.' },
+      { title_fr: 'Un humain d’astreinte nommé', title_en: 'A named on-call human', body_fr: "Ni slides, ni feuille de route à 18 mois. Un interlocuteur joignable.", body_en: 'No slides, no 18-month roadmap. A reachable point of contact.' },
+    ],
+  },
+
   // 4 · IMPACT (INK) — métriques massives
   {
     type: 'metric-callout-band',
@@ -178,6 +197,24 @@ export const agenceSections: SectionData[] = [
     media_alt_en: 'Editorial illustration: the solo craftsman at work, the studio posture.',
     media_caption_fr: 'Studio solo · un seul interlocuteur',
     media_caption_en: 'Solo studio · a single point of contact',
+  },
+
+  // 8bis · FAITS CLÉS (paper) — E-E-A-T migré depuis /agence/about (audit #60 A2).
+  // Bloc catalogué `spec-bar` (anti-orphelin) : la fiche d'identité du studio.
+  {
+    type: 'spec-bar',
+    background: 'paper',
+    kicker_fr: '§ Faits clés',
+    kicker_en: '§ Key facts',
+    specs: [
+      { label_fr: 'Forme', label_en: 'Structure', value: 'Studio solo · Waimia / VirtuoseWeb' },
+      { label_fr: 'Fondateur', label_en: 'Founder', value: 'Simon Beros' },
+      { label_fr: 'Ancrage', label_en: 'Based in', value: 'Montpellier (FR) · à distance partout' },
+      { label_fr: 'Interlocuteur', label_en: 'Contact', value: 'Direct · celui qui câble est celui qui livre' },
+      { label_fr: 'Périmètre', label_en: 'Scope', value: 'PME et ETI · acquisition, CRM, productivité' },
+      { label_fr: 'Partenariats', label_en: 'Partnerships', value: 'Anthropic · Activateur France Num' },
+      { label_fr: 'Langues', label_en: 'Languages', value: 'Français et anglais (parité stricte)' },
+    ],
   },
 
   // 9 · CTA FINAL (INK)

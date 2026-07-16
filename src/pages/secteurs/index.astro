@@ -11,6 +11,7 @@ import type { SectionByType } from '@waimia/ds-kernel';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
 import CaseSpotlight from '../../components/sections/CaseSpotlight.astro';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
+import EditorialCallout from '../../components/sections/EditorialCallout.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 const isFr = lang === 'fr';
@@ -81,6 +82,20 @@ const spotlightData = {
   cta_label_en: 'Discuss your trade →',
 } satisfies SectionByType<'case-spotlight'>;
 
+// Angle B2B reporté depuis /secteurs/services-b2b dépublié (audit #60 A4) : l'acheteur
+// s'auto-évalue avant de parler. Vrai dans tous les métiers de services → il vit dans le
+// hub (ombrelle B2B), pas dans une 12ᵉ page sans requête propre. Bloc catalogué
+// `editorial-callout` (anti-orphelin), paper, entre la grille et la bande éditoriale.
+const b2bAngleData = {
+  type: 'editorial-callout' as const,
+  background: 'paper' as const,
+  variant: 'manifesto' as const,
+  size: 'lg' as const,
+  align: 'left' as const,
+  body_fr: "En B2B, l'acheteur décide souvent <i>avant même de vous parler</i> : l'essentiel du parcours se fait en autonomie. Si votre site ne prouve rien pendant cette phase, vous n'êtes pas sur la liste finale. C'est vrai dans tous les métiers de services : le hub ci-dessus range la preuve par secteur.",
+  body_en: 'In B2B, the buyer often decides <i>before ever talking to you</i>: most of the journey happens autonomously. If your site proves nothing during that phase, you are not on the shortlist. It holds across every service trade: the hub above organizes the proof by sector.',
+} satisfies SectionByType<'editorial-callout'>;
+
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
   variant: 'hub' as const,
@@ -114,6 +129,8 @@ const mastheadData = {
       ))}
     </div>
   </section>
+
+  <EditorialCallout data={b2bAngleData} lang={lang} />
 
   <CaseSpotlight data={spotlightData} lang={lang} />
 

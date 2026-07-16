@@ -65,7 +65,6 @@ const services = await getCollection('services');
 const blog = await getCollection('blog');
 const outils = await getCollection('outils');
 const authors = await getCollection('authors');
-const lp = await getCollection('lp');
 
 const fmNoindex = (e: { data: { seo?: { noindex?: boolean } } }) => e.data.seo?.noindex === true;
 
@@ -108,7 +107,6 @@ const staticPublic: Row[] = [
   { url: '/ressources/academy', collection: { fr: 'page statique', en: 'static page' }, template: 'ressources/academy.astro' },
   { url: '/secteurs', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'secteurs/index.astro' },
   { url: '/agence', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'agence/index.astro' },
-  { url: '/agence/about', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/about.astro' },
   { url: '/agence/methode', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/methode.astro' },
   { url: '/equipe', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'equipe/index.astro' },
   { url: '/contact', collection: { fr: 'page statique', en: 'static page' }, template: 'contact.astro' },
@@ -160,13 +158,8 @@ const indexableRows = allCollAndStatic
 const noindexPublic: Row[] = [
   // Collections noindex (secteurs flaggés + service démo + template ref)
   ...allCollAndStatic.filter((r) => inSitemapExclude(r.url)),
-  // Landing pages /lp/* (ADR-003 : noindex par défaut, hors sitemap)
-  ...lp.map((e: CollectionEntry<'lp'>) => ({
-    url: `/lp/${e.id}`,
-    collection: { fr: 'lp', en: 'lp' },
-    template: 'SectionsRenderer',
-    note: { fr: 'ADR-003 : landing noindex par défaut', en: 'ADR-003: landing noindex by default' },
-  })),
+  // Silo /lp/ supprimé (audit #60 A1) : collection + route retirées, 301 vers les
+  // pages canoniques (astro.config.mjs). Le préfixe /lp/ reste dans SITEMAP_EXCLUDED_PREFIXES.
   // Thank-you pages /bienvenue/* (post-conversion, hors sitemap)
   { url: '/bienvenue/contact', collection: { fr: 'page statique', en: 'static page' }, template: 'bienvenue/contact.astro', note: { fr: 'thank-you post-conversion', en: 'post-conversion thank-you' } },
   { url: '/bienvenue/livre-blanc', collection: { fr: 'page statique', en: 'static page' }, template: 'bienvenue/livre-blanc.astro', note: { fr: 'thank-you post-conversion', en: 'post-conversion thank-you' } },

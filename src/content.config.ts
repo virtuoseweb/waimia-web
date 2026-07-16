@@ -281,16 +281,6 @@ const services = defineCollection({
   }),
 });
 
-// ─── Landing pages (ADR-003) · /lp/<slug> · noindex par défaut ───
-const lp = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/lp' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    sections: sectionsArraySchema.optional(),
-  }),
-});
-
 // ─── Collections v7 (refonte SEO/GEO) ───
 const casUsages = defineCollection({
   loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/cas-usages' }),
@@ -725,9 +715,8 @@ export const collections = {
   authors,
   // V2 nouvelles (2026-05-15)
   courses,
-  // ADR-003 (2026-06-13) : services + landings
+  // ADR-003 (2026-06-13) : services (silo /lp supprimé, audit #60 A1)
   services,
-  lp,
   // V7 (refonte SEO/GEO)
   'cas-usages': casUsages,
   demonstrations,

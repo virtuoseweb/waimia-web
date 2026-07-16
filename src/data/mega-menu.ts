@@ -813,7 +813,7 @@ const AGENCE: MegaMenuSection = {
       links: [
         {
           label: { fr: 'À propos de Waimia', en: 'About Waimia' },
-          href: '/agence/about',
+          href: '/agence',
         },
         {
           label: { fr: 'Notre méthode · Process Intelligence', en: 'Our method · Process Intelligence' },
@@ -847,14 +847,6 @@ const AGENCE: MegaMenuSection = {
       kicker: { fr: 'ÉCOSYSTÈME', en: 'ECOSYSTEM' },
       title: { fr: 'Écosystème', en: 'Ecosystem' },
       links: [
-        {
-          label: { fr: 'Partenaires technologiques', en: 'Technology partners' },
-          href: '/partenaires',
-          description: {
-            fr: 'L\'écosystème que nous intégrons, sans vous enfermer.',
-            en: 'The ecosystem we integrate, without lock-in.',
-          },
-        },
         {
           label: { fr: 'Stack & technologies', en: 'Stack & technologies' },
           href: '/technologies',
@@ -904,7 +896,7 @@ const AGENCE: MegaMenuSection = {
       en: 'A solo studio. One method. A direct contact, not a committee.',
     },
     cta: { fr: 'Découvrir le studio →', en: 'Discover the studio →' },
-    href: '/agence/about',
+    href: '/agence',
     image: '/images/besoins/besoin-operer.webp',
   },
 };

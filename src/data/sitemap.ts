@@ -234,7 +234,7 @@ export const MM_AGENCY_NEW: MegaMenu = {
       kicker: { en: 'THE TEAM', fr: "L'ÉQUIPE" },
       label: { en: 'Who we are', fr: 'Qui nous sommes' },
       items: [
-        { href: '/agence/about', label: { en: 'About Waimia', fr: 'À propos de Waimia' } },
+        { href: '/agence', label: { en: 'About Waimia', fr: 'À propos de Waimia' } },
         { href: '/agence/methode', label: { en: 'Our method · Process Intelligence', fr: 'Notre méthode · Process Intelligence' }, lead: { en: 'Audit, deployment, measurement, no PowerPoint.', fr: 'Audit, déploiement, mesure, pas de PowerPoint.' }, featured: true },
         { href: '/equipe/simon-beros', label: { en: 'Simon Beros · Founder CV', fr: 'Simon Beros · CV Founder' }, lead: { en: 'Agentic systems architecture.', fr: 'Architecture systèmes agentiques.' } },
       ],
@@ -253,7 +253,7 @@ export const MM_AGENCY_NEW: MegaMenu = {
     label: { en: 'Montpellier · France', fr: 'Montpellier · France' },
     body: { en: 'A solo studio. One method. A direct contact, not a committee.', fr: 'Un studio solo. Une seule méthode. Interlocuteur direct, pas un comité.' },
     cta: { en: 'Discover the studio →', fr: 'Découvrir le studio →' },
-    href: '/agence/about',
+    href: '/agence',
   },
 };
 
@@ -282,7 +282,7 @@ export const FOOTER_COLS: FooterCol[] = [
   {
     heading: { en: 'The Agency', fr: "L'Agence" },
     items: [
-      { href: '/agence/about', label: { en: 'About Waimia', fr: 'À propos' } },
+      { href: '/agence', label: { en: 'About Waimia', fr: 'À propos' } },
       {
         href: '/agence/methode',
         label: {
@@ -408,7 +408,6 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/secteurs/batiment', label: { en: 'Construction sector', fr: 'Secteur bâtiment' } },
       { href: '/secteurs/e-commerce', label: { en: 'E-commerce sector', fr: 'Secteur e-commerce' } },
       { href: '/secteurs/liberal-independant', label: { en: 'Freelancers & self-employed', fr: 'Libéraux & indépendants' } },
-      { href: '/secteurs/services-b2b', label: { en: 'B2B services', fr: 'Services B2B' } },
       { href: '/secteurs/startup-logiciel', label: { en: 'Startups & software', fr: 'Startups & logiciel' } },
       { href: '/secteurs/therapeutes', label: { en: 'Therapists', fr: 'Thérapeutes' } },
       { href: '/ressources/comparatifs/claude-code-vs-cursor', label: { en: 'Claude Code vs Cursor', fr: 'Claude Code vs Cursor' } },

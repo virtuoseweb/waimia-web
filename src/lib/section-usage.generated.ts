@@ -379,7 +379,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 61,
+    "count": 52,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -393,15 +393,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
       "/implantations/montpellier",
-      "/lp/audit-ia-pme",
-      "/lp/audit-site-web-intelligent",
-      "/lp/content-marketing-intelligent",
-      "/lp/diagnostic-maturite-ia",
-      "/lp/diagnostic-site-web-intelligent",
-      "/lp/exemple-industrialisation",
-      "/lp/integrateur-claude",
-      "/lp/site-web-intelligent",
-      "/lp/tunnel-conversion-intelligent",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
@@ -539,7 +530,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 59,
+    "count": 50,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -553,15 +544,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
       "/implantations/montpellier",
-      "/lp/audit-ia-pme",
-      "/lp/audit-site-web-intelligent",
-      "/lp/content-marketing-intelligent",
-      "/lp/diagnostic-maturite-ia",
-      "/lp/diagnostic-site-web-intelligent",
-      "/lp/exemple-industrialisation",
-      "/lp/integrateur-claude",
-      "/lp/site-web-intelligent",
-      "/lp/tunnel-conversion-intelligent",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
@@ -622,17 +604,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-conversion-funnel": {
-    "count": 11,
+    "count": 2,
     "pages": [
-      "/lp/audit-ia-pme",
-      "/lp/audit-site-web-intelligent",
-      "/lp/content-marketing-intelligent",
-      "/lp/diagnostic-maturite-ia",
-      "/lp/diagnostic-site-web-intelligent",
-      "/lp/exemple-industrialisation",
-      "/lp/integrateur-claude",
-      "/lp/site-web-intelligent",
-      "/lp/tunnel-conversion-intelligent",
       "/services/template-service-ref",
       "src/components/templates/ConversionFunnelTemplate.astro"
     ]
@@ -921,17 +894,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 38,
+    "count": 29,
     "pages": [
-      "/lp/audit-ia-pme",
-      "/lp/audit-site-web-intelligent",
-      "/lp/content-marketing-intelligent",
-      "/lp/diagnostic-maturite-ia",
-      "/lp/diagnostic-site-web-intelligent",
-      "/lp/exemple-industrialisation",
-      "/lp/integrateur-claude",
-      "/lp/site-web-intelligent",
-      "/lp/tunnel-conversion-intelligent",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -964,32 +928,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "problem-statement": {
-    "count": 10,
+    "count": 1,
     "pages": [
-      "/lp/audit-ia-pme",
-      "/lp/audit-site-web-intelligent",
-      "/lp/content-marketing-intelligent",
-      "/lp/diagnostic-maturite-ia",
-      "/lp/diagnostic-site-web-intelligent",
-      "/lp/exemple-industrialisation",
-      "/lp/integrateur-claude",
-      "/lp/site-web-intelligent",
-      "/lp/tunnel-conversion-intelligent",
       "/services/template-service-ref"
     ]
   },
   "problems-grid": {
-    "count": 10,
+    "count": 1,
     "pages": [
-      "/lp/audit-ia-pme",
-      "/lp/audit-site-web-intelligent",
-      "/lp/content-marketing-intelligent",
-      "/lp/diagnostic-maturite-ia",
-      "/lp/diagnostic-site-web-intelligent",
-      "/lp/exemple-industrialisation",
-      "/lp/integrateur-claude",
-      "/lp/site-web-intelligent",
-      "/lp/tunnel-conversion-intelligent",
       "/services/template-service-ref"
     ]
   },
@@ -1011,17 +957,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "proof-bar": {
-    "count": 40,
+    "count": 31,
     "pages": [
-      "/lp/audit-ia-pme",
-      "/lp/audit-site-web-intelligent",
-      "/lp/content-marketing-intelligent",
-      "/lp/diagnostic-maturite-ia",
-      "/lp/diagnostic-site-web-intelligent",
-      "/lp/exemple-industrialisation",
-      "/lp/integrateur-claude",
-      "/lp/site-web-intelligent",
-      "/lp/tunnel-conversion-intelligent",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",

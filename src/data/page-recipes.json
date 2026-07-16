@@ -1,7 +1,7 @@
 {
   "_meta": {
     "purpose": "Recettes d'archetypes de page composable Waimia. Chaque recette = sequence ordonnee de section.type a poser dans le frontmatter MDX `sections:` (ou inline .astro pour les hubs sans collection). Source : pages composables REELLES du repo (cf `derivedFrom`), pas inventee. Lookup props exactes par type -> src/data/section-quickref.json. Gate de validite -> build (throw si sections vide) + check:touchpoints + check-internal-links.",
-    "collectionsComposable": ["services", "lp", "cases", "offres"],
+    "collectionsComposable": ["services", "cases", "offres"],
     "note": "secteur-hub n'a PAS de collection (le champ `sections:` n'existe pas sur `secteurs`) : les hubs sont des pages .astro autonomes (acquerir/operer/piloter) avec un tableau `sections` inline passe a SectionsRenderer. home est bespoke (organisms hors catalogue), non couverte par une recette composable."
   },
   "recipes": [
@@ -24,23 +24,6 @@
         "deliverables-grid",
         "stats-bento",
         "comparison-duo",
-        "pricing-cards",
-        "faq-two-column",
-        "footer-cta-band"
-      ]
-    },
-    {
-      "archetype": "landing",
-      "description": "Landing page courte, focalisee conversion : hero funnel -> probleme -> grille de frictions -> barre de preuve -> prix -> FAQ -> CTA. Variante condensee de la page service.",
-      "collection": "lp",
-      "route": "/lp/<slug>",
-      "file": "src/content/lp/<slug>.mdx",
-      "derivedFrom": "src/content/lp/site-web-intelligent.mdx",
-      "sections": [
-        "hero-conversion-funnel",
-        "problem-statement",
-        "problems-grid",
-        "proof-bar",
         "pricing-cards",
         "faq-two-column",
         "footer-cta-band"

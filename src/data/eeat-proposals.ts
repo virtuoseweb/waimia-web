@@ -110,7 +110,7 @@ const SECTOR_LINKS: Record<string, EeatLink> = {
   'batiment': { label: 'Bâtiment & artisans', href: '/secteurs/batiment', kicker: 'Secteur' },
   'e-commerce': { label: 'E-commerce', href: '/secteurs/e-commerce', kicker: 'Secteur' },
   'liberal-independant': { label: 'Libéraux & indépendants', href: '/secteurs/liberal-independant', kicker: 'Secteur' },
-  'services-b2b': { label: 'Services B2B', href: '/secteurs/services-b2b', kicker: 'Secteur' },
+  'services-b2b': { label: 'Services B2B', href: '/secteurs', kicker: 'Secteur' },
   'startup-logiciel': { label: 'Startup & éditeur logiciel', href: '/secteurs/startup-logiciel', kicker: 'Secteur' },
   'therapeutes': { label: 'Thérapeutes & bien-être', href: '/secteurs/therapeutes', kicker: 'Secteur' },
   'conseil': { label: 'Conseil & cabinets', href: '/secteurs/conseil', kicker: 'Secteur' },

@@ -36,6 +36,8 @@
 33. **Parité bilingue EN des essais** (cabler-crm, brain-circuit).
 34. **Chiffres théâtraux/sourcing** (relances-b2b, avis-n8n) : voix + E-E-A-T.
 35. **Taxonomie category blog** approximative (2 billets).
+36. ~~**Bandeau cookies** « analytiques anonymes » sans GA4~~ **RÉGLÉ 2026-07-16** par w-content-fixes (bonus) : `CookiesBanner.astro` aligné « cookies essentiels uniquement » fr/en + politique de confidentialité conditionnelle avec les 4 sous-traitants réels (Vercel, Resend, MailerLite, Cal.com).
+37. **Vigilance témoignages persona** : les testimonial-wall du site portent des personnes non vérifiables (pattern pré-existant, champs author/company libres) ; w-services-dedup est resté dans ce pattern en dédupliquant les auteurs. À trancher avec Simon à terme (anonymiser en « DAF, PME industrielle » vs assumer) — ne pas laisser un futur worker inventer des identités hors de ce pattern.
 
 ## Lot A · Home, conversion, utilitaires, secteurs (16 avec reste / 24)
 

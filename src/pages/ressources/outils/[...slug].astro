@@ -3,6 +3,7 @@ export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
+import ToolWidget from '../../../components/ui/organisms/ToolWidget.astro';
 import { outilHeroIllustration } from '../../../lib/hero-illustrations';
 
 export async function getStaticPaths() {
@@ -44,6 +45,104 @@ const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
   <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>
   <Fragment slot="body">
+    {d.inputs.length > 0 && d.outputs.length > 0 && (
+      <ToolWidget inputs={d.inputs} outputs={d.outputs} lang="fr" />
+    )}
     <Content />
   </Fragment>
 </EssayTemplate>
+
+{/* Comportement du ToolWidget · hoisté au niveau page (le slot body d'EssayTemplate
+    est capturé via Astro.slots.render() puis réinjecté en set:html, ce qui rend
+    inerte un <script> porté par le composant). Cible générique [data-tool-widget]. */}
+<script>
+  function evalExpr(expr: string, vars: Record<string, number>): number {
+    let i = 0;
+    const s = expr;
+    const skip = () => { while (i < s.length && s[i] === ' ') i++; };
+    function primary(): number {
+      skip();
+      const c = s[i];
+      if (c === '(') {
+        i++;
+        const v = add();
+        skip();
+        if (s[i] === ')') i++;
+        return v;
+      }
+      const start = i;
+      if (/[a-zA-Z_]/.test(c)) {
+        while (i < s.length && /[a-zA-Z0-9_]/.test(s[i])) i++;
+        return Number(vars[s.slice(start, i)] ?? 0);
+      }
+      while (i < s.length && /[0-9.]/.test(s[i])) i++;
+      return Number(s.slice(start, i));
+    }
+    function mul(): number {
+      let v = primary();
+      skip();
+      while (s[i] === '*' || s[i] === '/') {
+        const op = s[i++];
+        const r = primary();
+        v = op === '*' ? v * r : v / r;
+        skip();
+      }
+      return v;
+    }
+    function add(): number {
+      let v = mul();
+      skip();
+      while (s[i] === '+' || s[i] === '-') {
+        const op = s[i++];
+        const r = mul();
+        v = op === '+' ? v + r : v - r;
+        skip();
+      }
+      return v;
+    }
+    return add();
+  }
+
+  function fmtResult(v: number, format: string, unit: string, lang: string): string {
+    const loc = lang === 'en' ? 'en-US' : 'fr-FR';
+    if (!isFinite(v)) v = 0;
+    if (format === 'currency-eur') {
+      return new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(v));
+    }
+    if (format === 'percent') {
+      return new Intl.NumberFormat(loc, { style: 'percent', maximumFractionDigits: 0 }).format(v);
+    }
+    const n = format === 'decimal2'
+      ? new Intl.NumberFormat(loc, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v)
+      : new Intl.NumberFormat(loc, { maximumFractionDigits: 0 }).format(Math.round(v));
+    return unit ? `${n} ${unit}` : n;
+  }
+
+  function initToolWidgets(): void {
+    document.querySelectorAll<HTMLElement>('[data-tool-widget]').forEach((widget) => {
+      if (widget.dataset.twInit) return;
+      widget.dataset.twInit = '1';
+      const fields = Array.from(widget.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[data-key]'));
+      const outputs = Array.from(widget.querySelectorAll<HTMLElement>('[data-output]'));
+      const compute = () => {
+        const vars: Record<string, number> = {};
+        fields.forEach((f) => { vars[f.dataset.key as string] = Number(f.value) || 0; });
+        outputs.forEach((out) => {
+          const val = evalExpr(out.dataset.formula || '0', vars);
+          const target = out.querySelector<HTMLElement>('[data-result-value]');
+          if (target) target.textContent = fmtResult(val, out.dataset.format || 'integer', out.dataset.unit || '', out.dataset.lang || 'fr');
+        });
+      };
+      fields.forEach((f) => {
+        f.addEventListener('input', compute);
+        f.addEventListener('change', compute);
+      });
+      compute();
+    });
+  }
+
+  // Exécution immédiate (le module se charge en defer, l'événement astro:page-load
+  // a pu déjà passer) + ré-init sur navigation View Transitions (ClientRouter).
+  initToolWidgets();
+  document.addEventListener('astro:page-load', initToolWidgets);
+</script>

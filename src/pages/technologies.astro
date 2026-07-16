@@ -57,9 +57,10 @@ const layers = [
     label: 'Analytics & SEO',
     intro: "On mesure avant et après. Si ça ne mesure rien, ça n'existe pas.",
     items: [
-      'Google Analytics 4 pour le comportement et les parcours.',
       'Search Console pour l\'indexation et la performance organique.',
+      'Google Business Profile : présence locale, avis et fiche établissement optimisés.',
       'Suivi de conversion : chaque action clé est tracée et attribuée.',
+      'Google Analytics 4 branché quand la mesure le justifie, pas installé par défaut.',
     ],
   },
 ];
@@ -148,7 +149,7 @@ const techLd = {
       <Kicker class="tech-anchor-kicker">§ Anthropic-first</Kicker>
       <h2 class="tech-anchor-h2">Un parti pris assumé sur le moteur.</h2>
       <p class="tech-anchor-body">
-        On a construit la méthode autour de Claude parce que c'est, pour notre usage, le meilleur compromis raisonnement, fiabilité et sécurité. Le reste de la stack reste ouvert : front, CMS et intégrations se choisissent au cas par cas, selon votre métier.
+        On a construit la méthode autour de <a href="/services/integration-claude">Claude</a> parce que c'est, pour notre usage, le meilleur compromis raisonnement, fiabilité et sécurité. Le reste de la stack reste ouvert : <a href="/services/site-web-ia">front Astro</a>, CMS et intégrations se choisissent au cas par cas, selon votre métier.
       </p>
       <p class="tech-anchor-body">
         Le principe ne change pas : on ne vous enferme nulle part. Vous gardez le code, le contenu et la documentation. Vous pouvez reprendre la stack en interne, ou la confier à un autre prestataire.
@@ -273,6 +274,11 @@ const techLd = {
     max-width: 640px;
   }
   .tech-anchor-body:last-child { margin-bottom: 0; }
+  .tech-anchor-body a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 
   @media (max-width: 700px) {
     .tech-anchor { padding-inline: var(--space-5); }

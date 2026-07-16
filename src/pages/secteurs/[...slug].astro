@@ -17,7 +17,7 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import EditorialProse from '../../components/sections/EditorialProse.astro';
 import { localizeHref } from '../../lib/i18n';
 import { sectorCaseGridData } from '../../lib/sector-cases';
-import { buildArticle, buildFAQPage } from '../../lib/seo/schema-builder';
+import { buildArticle } from '../../lib/seo/schema-builder';
 import { meshForSecteur } from '../../lib/internal-mesh';
 import { secteurHeroIllustration } from '../../lib/hero-illustrations';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
@@ -55,11 +55,10 @@ const sectorLd = buildArticle({
   },
   mainEntityOfPage: sectorUrl,
 });
-// La route émet l'Article JSON-LD (GEO/AIO) ET, quand le secteur porte au moins 2
-// questions, un FAQPage JSON-LD aligné sur la section `faq-accordion` rendue plus bas.
-// `buildFAQPage` lit directement `d.faq_fr` (shape { q, a }). Base accepte un tableau.
-const faqLd = d.faq_fr && d.faq_fr.length >= 2 ? buildFAQPage(d.faq_fr) : null;
-const sectorJsonLd = [sectorLd, faqLd].filter(Boolean) as Array<Record<string, unknown>>;
+// La route émet l'Article JSON-LD (GEO/AIO). Le FAQPage JSON-LD est émis UNE seule
+// fois par la section catalogue `faq-accordion` rendue plus bas (source canonique,
+// cf docs/audits #56) : la route ne le duplique plus ici.
+const sectorJsonLd = [sectorLd] as Array<Record<string, unknown>>;
 
 // ── Grille de cas INJECTÉE (sector-cases.ts, inchangé). GAP-B (état vide < 2 cas)
 //    désormais porté DANS le composant catalogue CaseCardGrid → propage partout. ──

@@ -131,7 +131,7 @@ const personLd = {
   '@type': 'Person',
   name: displayName,
   jobTitle: role,
-  description: bio.split('\n')[0]?.slice(0, 250) ?? description,
+  description: description,
   image: author.photo ? `https://waimia.com${author.photo}` : undefined,
   sameAs: socialUrls,
   worksFor: {

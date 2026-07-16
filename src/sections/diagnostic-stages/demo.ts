@@ -30,7 +30,7 @@ export const demo: DemoData = {
       body_en: 'Six questions, two minutes: place your organisation precisely and leave with the three concrete levers to climb one stage.',
       cta_label_fr: 'Faire le quiz →',
       cta_label_en: 'Take the quiz →',
-      cta_href: '/lp/diagnostic-maturite-ia',
+      cta_href: '/ressources/diagnostics/maturite-ia',
       media_src: '/images/illustrations/ds/no-no-yes-ink.webp',
       media_alt_fr: 'Illustration : évaluer des options et trancher pour avancer',
       media_alt_en: 'Illustration: weighing options and deciding to move forward',

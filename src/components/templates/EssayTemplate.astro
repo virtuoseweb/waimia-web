@@ -17,6 +17,7 @@ import Kicker from '../ui/atoms/Kicker.astro';
 import RelatedCards from '../ui/molecules/RelatedCards.astro';
 import AuthorCard from '../ui/molecules/AuthorCard.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
+import FaqAccordion from '../sections/FaqAccordion.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import MastheadBar from '../sections/MastheadBar.astro';
@@ -86,6 +87,9 @@ interface Props {
   publishedAt?: Date | string;
   /** Habillage editorial : illustration duotone en overlap du hero (optionnel). */
   illustration?: { src: string; alt_fr: string; alt_en: string; side?: 'left' | 'right' };
+  /** FAQ (optionnel) : rendue via le composant catalogue FaqAccordion, qui émet
+   *  aussi l'unique JSON-LD FAQPage (source canonique · GEO/AIO). Absent = 0 rendu. */
+  faqItems?: Array<{ q: string; a: string }>;
 }
 const {
   title,
@@ -113,6 +117,7 @@ const {
   bylineAuthorSlug,
   publishedAt,
   illustration,
+  faqItems,
 } = Astro.props as Props;
 
 const headlineHtml = (await Astro.slots.render('headline')).trim();
@@ -292,6 +297,14 @@ const articleLd = buildArticle({
       </div>
     </footer>
   </article>
+
+  {faqItems && faqItems.length > 0 && (
+    <FaqAccordion
+      items={faqItems}
+      heading={lang === 'en' ? 'Frequently asked questions' : 'Questions fréquentes'}
+      background="paper-2"
+    />
+  )}
 
   <CtaBandSection data={ctaData} lang={lang} />
 </Base>

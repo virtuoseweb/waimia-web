@@ -31,7 +31,7 @@
 11. **Nav** : mega-menu → `/partenaires` (noindex voué au 301) ; nav bloat services (~83 liens/page) ; liens morts `/lab/home-d.astro:82,93` ; référence stale `page-recipes.json:38`.
 12. **Cannibalisations à verrouiller** : geo-vs-seo ↔ seo-geo-contenu/referencement-ia ; SWI-vs-wordpress ↔ site-web-ia/wordpress ; clusters maturité (diagnostic+outil+academy, canonical à poser) et Claude (guide+diagnostic+integration-claude) à cadrer.
 13. **Dédup copy services** : cold-email-b2b↔prospection (47 phrases), automatisation-n8n (37).
-14. **JSON-LD prix** : priceRange à normaliser ; « 99€/h » relevé dans un JSON-LD vs 100 €/h canonique.
+14. ~~**JSON-LD prix** : « 99€/h » vs 100 €/h~~ **PRÉMISSE INVERSÉE (corrigé 2026-07-16)** : le canonique est **99 €/h non dégressif** depuis l'arbitrage Simon du 15/07 (memory pricing-canonical-services) ; le site est déjà cohérent, aucun changement de prix à faire. L'auditeur vague 1 avait le référentiel périmé.
 
 ## 3. Pages modèles (référence pour les réécritures)
 

@@ -156,7 +156,10 @@ const SECTEURS: Record<string, MeshLink> = {
     label_fr: 'Libéral & indépendant',
     label_en: 'Freelance & independent',
   },
-  'services-b2b': { href: '/secteurs/services-b2b', label_fr: 'Services B2B', label_en: 'B2B services' },
+  // Audit #60 A4 · secteur services-b2b dépublié (visible:false) → href re-pointé sur le
+  // hub /secteurs (301). Le slug logique reste (sectorSlugFromLabel RH→services-b2b), mais
+  // AUCUN href /secteurs/services-b2b n'est plus émis par le maillage.
+  'services-b2b': { href: '/secteurs', label_fr: 'Services B2B', label_en: 'B2B services' },
   'startup-logiciel': {
     href: '/secteurs/startup-logiciel',
     label_fr: 'Startup logiciel',

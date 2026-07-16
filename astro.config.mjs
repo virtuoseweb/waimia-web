@@ -68,6 +68,27 @@ export default defineConfig({
     // P0.2-I · /en/careers retiré (miroir /en non généré en FR monolingue).
     // V-F1 2026-06-11 · docs/40 §2 (plan 301, item 3) : /archive (index legacy) supprimé.
     '/archive': '/',
+    // Audit #60 A2 2026-07-16 · /agence/about (noindex, quasi-dupe de /agence) replié
+    // dans /agence : les blocs uniques (« Faits clés » spec-bar + « 4 livrables »
+    // deliverables-grid) sont migrés en sections cataloguées sur /agence.
+    '/agence/about': '/agence',
+    // Audit #60 A3 2026-07-16 · /partenaires (noindex, dupe de /technologies) replié
+    // dans /technologies (stack couche par couche + Google Business Profile).
+    '/partenaires': '/technologies',
+    // Audit #60 A1 2026-07-16 · effondrement du silo /lp/ (9 landing noindex, squelette
+    // identique, chacune avec une jumelle canonique indexée). Les 9 sources
+    // src/content/lp/*.json + la route /lp/[...slug].astro + la collection `lp` sont
+    // supprimées → ces 301 re-pointent vers la page canonique de chaque intention.
+    // Le disallow robots.txt + le filtre sitemap `/lp/` restent (couvrent ces 301).
+    '/lp/audit-ia-pme': '/audit-ia-pme',
+    '/lp/audit-site-web-intelligent': '/audit-site-web-intelligent',
+    '/lp/content-marketing-intelligent': '/services/seo-geo-contenu',
+    '/lp/diagnostic-maturite-ia': '/ressources/diagnostics/maturite-ia',
+    '/lp/diagnostic-site-web-intelligent': '/ressources/diagnostics/site-web-intelligent',
+    '/lp/exemple-industrialisation': '/demonstrations',
+    '/lp/integrateur-claude': '/services/integration-claude',
+    '/lp/site-web-intelligent': '/services/site-web-ia',
+    '/lp/tunnel-conversion-intelligent': '/services/landing-pages-tunnels',
     // /agence/hero-lab restauré 2026-06-11 (lab de comparaison des heros du catalogue) :
     // le 301 vers /agence/design-system est levé, la page répond 200 (noindex, outil interne).
     // 2026-06-29 · cibles /realisations corrigées → /cas-clients (hub réel). La route
@@ -128,6 +149,14 @@ export default defineConfig({
     '/services/content-marketing-intelligent': '/services/seo-geo-contenu',
     '/services/landing-page-scoring': '/services/landing-pages-tunnels',
     '/services/machine-outbound': '/services/prospection-automatisee',
+    // Audit #60 A5 2026-07-16 · gabarit interne `template-service-ref` sorti du routing
+    // (visible:false → getStaticPaths). Le fichier de contenu reste la référence interne.
+    '/services/template-service-ref': '/services',
+    // Audit #60 A4 2026-07-16 · /secteurs/services-b2b (noindex, umbrella générique sans
+    // angle propre : tous les verticaux SONT des services B2B) dépublié (visible:false).
+    // 301 vers le hub /secteurs (qui joue déjà le rôle d'ombrelle). L'angle « l'acheteur
+    // B2B s'auto-évalue » est reporté dans le hub.
+    '/secteurs/services-b2b': '/secteurs',
     // Refonte V8 2026-07-12 · retitrage + renommage de slugs des 2 offres phares
     // (docs/strategy/10 §0bis.3, décisions Simon). Les anciennes URLs prod-live indexées
     // sont 301 vers les nouveaux slugs orientés requête réelle. Les URLs nues

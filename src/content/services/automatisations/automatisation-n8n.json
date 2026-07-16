@@ -71,7 +71,7 @@
     },
     {
       "q": "How long before a first n8n workflow runs?",
-      "a": "A first targeted n8n workflow often runs within a few weeks, once the task is scoped. We start with the one that costs the most hours, put it into production, supervise it, then extend. We measure the hours saved from go-live, not in six months."
+      "a": "A first targeted n8n workflow often runs within a few weeks, once the task is scoped. We start with the one that costs the most hours, put it into production, supervise it, then extend. We track the hours saved from go-live, not six months later."
     }
   ],
   "sections": [
@@ -319,8 +319,8 @@
       "kicker_en": "§ Maturity",
       "h2_fr": "Les 6 niveaux d'automatisation avec n8n",
       "h2_en": "The 6 levels of automation with n8n",
-      "lede_fr": "Du tout-manuel au parc de workflows n8n supervisé, six paliers. La plupart des PME empilent des Zaps au deuxième. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From all-manual to a supervised fleet of n8n workflows, six tiers. Most SMEs pile up Zaps at the second. We place you, then move you up a notch.",
+      "lede_fr": "Du tout-manuel au parc de workflows n8n supervisé, six paliers. La plupart des PME empilent des Zaps au deuxième. On situe votre stack sur cette échelle, puis on la fait monter d'un cran vers n8n.",
+      "lede_en": "From all-manual to a supervised fleet of n8n workflows, six tiers. Most SMEs pile up Zaps at the second. We place your stack on this scale, then move it up a notch toward n8n.",
       "steps": [
         {
           "title_fr": "Tout manuel",
@@ -511,8 +511,8 @@
           "icon": "contenu",
           "title_fr": "Contrôle humain",
           "title_en": "Human control",
-          "body_fr": "Les actions sensibles passent par une validation avant de partir. Le workflow propose, vous tranchez, rien ne file en douce.",
-          "body_en": "Sensitive actions go through a validation before they leave. The workflow proposes, you decide, nothing slips out quietly."
+          "body_fr": "Dans n8n, les actions sensibles attendent votre feu vert. Le workflow propose, vous tranchez, rien ne file en douce.",
+          "body_en": "In n8n, sensitive actions wait for your green light. The workflow proposes, you decide, nothing slips out quietly."
         },
         {
           "icon": "design",
@@ -551,8 +551,8 @@
           "meta_fr": "Décider · quand la tâche demande du jugement",
           "meta_en": "Decide · when the task needs judgement",
           "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : l'agent qui décide là où un workflow fixe ne suffit pas.",
-          "media_alt_en": "A chessboard: the agent that decides where a fixed workflow falls short.",
+          "media_alt_fr": "Un échiquier : l'agent qui tranche là où un workflow n8n figé s'arrête.",
+          "media_alt_en": "A chessboard: the agent that rules where a fixed n8n workflow stops.",
           "link_href": "/services/agents-ia"
         },
         {
@@ -561,8 +561,8 @@
           "meta_fr": "Porter · l'outil qui pilote le flux",
           "meta_en": "Carry · the tool that drives the flow",
           "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : l'outil interne sur mesure qui porte le process.",
-          "media_alt_en": "A craftsman at work: the bespoke internal tool that carries the process.",
+          "media_alt_fr": "Un artisan au travail : l'outil interne sur mesure qui pilote le workflow n8n.",
+          "media_alt_en": "A craftsman at work: the bespoke internal tool that drives the n8n workflow.",
           "link_href": "/services/applications-internes"
         },
         {
@@ -571,8 +571,8 @@
           "meta_fr": "Brancher · l'IA à vos outils via MCP",
           "meta_en": "Wire · AI to your tools via MCP",
           "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : l'IA branchée proprement à vos outils métier.",
-          "media_alt_en": "A validated handshake: AI wired cleanly to your business tools.",
+          "media_alt_fr": "Une jonction validée : Claude branché à n8n et à vos outils métier.",
+          "media_alt_en": "A validated handshake: Claude wired to n8n and your business tools.",
           "link_href": "/services/integration-claude"
         },
         {
@@ -581,8 +581,8 @@
           "meta_fr": "Assembler · l'ensemble, de bout en bout",
           "meta_en": "Assemble · the whole, end to end",
           "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Une équipe alignée : le système opérationnel et IA assemblé de bout en bout.",
-          "media_alt_en": "An aligned team: the operational and AI system assembled end to end.",
+          "media_alt_fr": "Une équipe alignée : n8n assemblé au reste du système opérationnel et IA.",
+          "media_alt_en": "An aligned team: n8n assembled into the rest of the operational and AI system.",
           "link_href": "/services/systemes-operationnels-ia"
         }
       ]
@@ -621,14 +621,14 @@
         {
           "title_fr": "Action",
           "title_en": "Action",
-          "desc_fr": "Document créé, outil mis à jour, message envoyé, tâche exécutée.",
-          "desc_en": "Document created, tool updated, message sent, task executed."
+          "desc_fr": "Le nœud n8n agit : document créé, outil mis à jour, message parti.",
+          "desc_en": "The n8n node acts: document created, tool updated, message sent."
         },
         {
           "title_fr": "Contrôle",
           "title_en": "Control",
-          "desc_fr": "Étape journalisée, validation humaine si l'action est sensible.",
-          "desc_en": "Step logged, human validation if the action is sensitive."
+          "desc_fr": "Exécution tracée dans n8n, validation humaine si l'action est sensible.",
+          "desc_en": "Run traced in n8n, human validation when the action is sensitive."
         },
         {
           "title_fr": "Mesure",
@@ -653,8 +653,8 @@
       "kicker_en": "§ Method · how we work your n8n",
       "h2_fr": "Comment on travaille votre n8n",
       "h2_en": "How we work your n8n",
-      "lede_fr": "Du repérage de la tâche qui coûte le plus au workflow n8n en production, puis au parc qui s'étend. Vous savez avant de signer ce qu'on automatise en premier et combien d'heures ça rend. Pas de zone d'ombre.",
-      "lede_en": "From spotting the task that costs the most to an n8n workflow in production, then to a fleet that expands. You know before signing what we automate first and how many hours it returns. No grey zone.",
+      "lede_fr": "Du repérage de la tâche qui coûte le plus au workflow n8n en production, puis au parc qui s'étend. Avant de signer, vous connaissez le premier cas n8n mis en production et les heures qu'il rend. Pas de zone d'ombre.",
+      "lede_en": "From spotting the task that costs the most to an n8n workflow in production, then to a fleet that expands. Before signing, you know the first n8n case put into production and the hours it returns. No grey zone.",
       "steps": [
         {
           "index_fr": "01",
@@ -663,8 +663,8 @@
           "eyebrow_en": "Spotting & scoping",
           "title_fr": "Trouver la tâche qui coûte le plus",
           "title_en": "Find the task that costs the most",
-          "body_fr": "Quelques jours d'observation : on liste vos tâches répétitives, on les chiffre en heures et on repère celles qui font le plus mal. Livrable : une cartographie priorisée et un premier périmètre de workflow n8n, chiffré.",
-          "body_en": "A few days of observation: we list your repetitive tasks, cost them in hours and spot the ones that hurt most. Deliverable: a prioritised map and a first n8n workflow scope, costed.",
+          "body_fr": "Quelques jours pour observer et lister vos tâches répétitives, les chiffrer en heures et sortir celles qui font le plus mal. Livrable : une cartographie priorisée et un premier périmètre de workflow n8n, chiffré.",
+          "body_en": "A few days to observe and list your repetitive tasks, cost them in hours and surface the ones that hurt most. Deliverable: a prioritised map and a first n8n workflow scope, costed.",
           "media_src": "/images/illustrations/ds/pretty-woman-paper.webp",
           "media_alt_fr": "Repérage des tâches répétitives qui coûtent le plus, pour cadrer le premier workflow n8n",
           "media_alt_en": "Spotting the repetitive tasks that cost most, to scope the first n8n workflow"
@@ -677,7 +677,7 @@
           "title_fr": "Trancher n8n, ou Zapier si ça suffit",
           "title_en": "Decide n8n, or Zapier if it's enough",
           "body_fr": "On choisit l'outil au cadrage, jamais l'inverse. n8n par défaut dès que la logique est riche, qu'il faut l'héberger chez vous ou brancher de l'IA. Zapier ou Make quand le branchement entre deux SaaS suffit et qu'on veut aller vite.",
-          "body_en": "We pick the tool at scoping, never the other way round. n8n by default as soon as the logic is rich, when you need to self-host or wire in AI. Zapier or Make when wiring between two SaaS apps is enough and speed matters.",
+          "body_en": "We choose the tool during scoping, not the reverse. n8n by default as soon as the logic is rich, when you need to self-host or wire in AI. Zapier or Make when wiring between two SaaS apps is enough and speed matters.",
           "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
           "media_alt_fr": "Choix de l'outil d'automatisation selon le besoin réel, n8n ou Zapier",
           "media_alt_en": "Choosing the automation tool according to the real need, n8n or Zapier"
@@ -689,8 +689,8 @@
           "eyebrow_en": "Build",
           "title_fr": "Construire et brancher sur n8n",
           "title_en": "Build and wire on n8n",
-          "body_fr": "On monte le workflow sur n8n, self-hosted chez vous ou en cloud UE, on le branche à vos outils via connecteurs, API ou MCP, et on teste chaque cas, erreurs comprises. Le workflow tourne sur une base propre, pensée pour s'étendre sans casser.",
-          "body_en": "We build the workflow on n8n, self-hosted on your side or in an EU cloud, wire it to your tools via connectors, API or MCP, and test every case, errors included. The workflow runs on a clean base, built to extend without breaking.",
+          "body_fr": "On monte le workflow sur n8n, self-hosted chez vous ou en cloud UE, on le branche à vos outils via connecteurs, API ou MCP, et on teste chaque cas, erreurs comprises. Le workflow n8n repose sur une base propre, conçue pour s'étendre sans casser.",
+          "body_en": "We build the workflow on n8n, self-hosted on your side or in an EU cloud, wire it to your tools via connectors, API or MCP, and test every case, errors included. The n8n workflow sits on a clean base, designed to extend without breaking.",
           "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
           "media_alt_fr": "Construction et branchement du workflow n8n à vos outils, comme une jonction validée",
           "media_alt_en": "Building and wiring the n8n workflow to your tools, like a validated handshake"
@@ -702,8 +702,8 @@
           "eyebrow_en": "Supervision & measurement",
           "title_fr": "Superviser et compter les heures",
           "title_en": "Supervise and count the hours",
-          "body_fr": "On pose la journalisation, les alertes sur échec et le tableau des heures gagnées. On mesure l'avant et l'après : pas de boîte noire, des chiffres sur votre propre activité. Un workflow n8n qui coince vous prévient, il ne coince pas en silence.",
-          "body_en": "We put in the logging, the failure alerts and the hours-saved dashboard. We measure before and after: no black box, figures on your own activity. An n8n workflow that jams warns you, it doesn't jam in silence.",
+          "body_fr": "On câble le journal d'exécutions n8n, les alertes sur échec et le tableau des heures gagnées. Avant et après chiffrés sur votre propre activité, pas de boîte noire. Un workflow n8n qui coince vous prévient, il ne coince pas en silence.",
+          "body_en": "We wire the n8n execution log, the failure alerts and the hours-saved dashboard. Before and after in figures on your own activity, no black box. An n8n workflow that jams warns you, it doesn't jam in silence.",
           "media_src": "/images/illustrations/ds/money-money-paper.webp",
           "media_alt_fr": "Mesure des heures gagnées avant et après l'automatisation du process sur n8n",
           "media_alt_en": "Measuring the hours saved before and after the process is automated on n8n"
@@ -832,12 +832,12 @@
           "sector_en": "HR outsourcing",
           "duration": "6 sem.",
           "stack": "CRM HubSpot · Capture · Routage",
-          "impact_fr": "Formulaires branchés HubSpot avec capture et routage des demandes : les leads arrivent qualifiés dans le CRM, sans ressaisie manuelle.",
-          "impact_en": "HubSpot-connected forms with request capture and routing: leads land qualified in the CRM, with no manual retyping.",
+          "impact_fr": "Formulaires reliés à HubSpot par des workflows n8n : capture et routage des demandes, des leads qualifiés dans le CRM sans la moindre ressaisie.",
+          "impact_en": "Forms wired to HubSpot through n8n workflows: request capture and routing, qualified leads in the CRM with zero retyping.",
           "href": "/cas-clients/amploi",
           "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : les demandes captées et routées sans saisie manuelle.",
-          "media_alt_en": "A dynamic figure: requests captured and routed with no manual entry."
+          "media_alt_fr": "Une figure dynamique : les demandes captées et routées par un workflow n8n.",
+          "media_alt_en": "A dynamic figure: requests captured and routed by an n8n workflow."
         },
         {
           "client": "Balzeo",
@@ -845,12 +845,12 @@
           "sector_en": "Eco-friendly e-commerce",
           "duration": "8 sem.",
           "stack": "Refonte · Back-office · Maintenance",
-          "impact_fr": "Refonte et simplification du back-office : coût de maintenance réduit de 84 % et temps de chargement divisé par deux.",
-          "impact_en": "Rebuild and back-office simplification: maintenance cost cut by 84% and load time halved.",
+          "impact_fr": "Back-office refondu et allégé, tâches récurrentes portées sur des workflows : maintenance -84 % et chargement divisé par deux.",
+          "impact_en": "Back office rebuilt and streamlined, recurring tasks carried by workflows: maintenance down 84% and load time halved.",
           "href": "/cas-clients/balzeo",
           "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le back-office e-commerce allégé et moins coûteux à maintenir.",
-          "media_alt_en": "Fresh fruit: the e-commerce back office made leaner and cheaper to maintain."
+          "media_alt_fr": "Des fruits frais : un back-office e-commerce dont les tâches tournent en workflows.",
+          "media_alt_en": "Fresh fruit: an e-commerce back office whose tasks run as workflows."
         },
         {
           "client": "Les Carnets de Montpellier",
@@ -858,12 +858,12 @@
           "sector_en": "Heritage / Local media",
           "duration": "6 sem.",
           "stack": "Abonnement · Paiement récurrent · Communauté",
-          "impact_fr": "Système d'abonnement et de paiement récurrent en production : 40 articles, 150 membres et 35 abonnés payants gérés sans saisie manuelle en 3 mois.",
-          "impact_en": "Subscription and recurring-payment system in production: 40 articles, 150 members and 35 paying subscribers handled with no manual entry in 3 months.",
+          "impact_fr": "Abonnement et paiements récurrents orchestrés par workflows : 40 articles, 150 membres et 35 abonnés payants gérés sans saisie manuelle en trois mois.",
+          "impact_en": "Subscription and recurring payments orchestrated by workflows: 40 articles, 150 members and 35 paying subscribers handled with no manual entry in three months.",
           "href": "/cas-clients/les-carnets-de-montpellier",
           "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local : abonnements et paiements récurrents gérés automatiquement.",
-          "media_alt_en": "A local media outlet: subscriptions and recurring payments handled automatically."
+          "media_alt_fr": "Un média local : abonnements et paiements récurrents portés par des workflows n8n.",
+          "media_alt_en": "A local media outlet: subscriptions and recurring payments carried by n8n workflows."
         }
       ],
       "all_label_fr": "Voir tous les cas →",
@@ -875,59 +875,59 @@
       "background": "paper-2",
       "kicker_fr": "Ils ont mis n8n au travail",
       "kicker_en": "They put n8n to work",
-      "h2_fr": "Ce que disent les équipes qui ont récupéré leurs heures",
-      "h2_en": "What teams who got their hours back are saying",
-      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de copier-coller entre six outils et mis un workflow au travail.",
-      "subtitle_en": "Leaders and teams who stopped copy-pasting between six tools and put a workflow to work.",
+      "h2_fr": "Ce que disent les équipes passées à n8n",
+      "h2_en": "What teams who moved to n8n are saying",
+      "subtitle_fr": "Des dirigeants et des équipes qui ont sorti leurs process des Zaps figés pour les poser sur n8n.",
+      "subtitle_en": "Leaders and teams who took their processes out of rigid Zaps and put them on n8n.",
       "columns": "3",
       "testimonials": [
         {
-          "quote_fr": "Les relances clients prenaient deux jours par semaine à une personne. **Automatisées, sans perdre le ton.** Le gain de temps est réel et il est mesuré chaque mois.",
-          "quote_en": "Client follow-ups took one person two days a week. **Automated, without losing the tone.** The time saved is real and it's measured every month.",
-          "author": "Inès Fabre",
-          "role_fr": "Responsable relation client",
-          "role_en": "Client Relations Manager",
-          "company": "Pollen & Co"
+          "quote_fr": "Nos Zaps faisaient exploser la facture dès qu'un scénario se ramifiait. **Passés sur n8n, facturés aux exécutions**, on paie ce qui tourne, pas chaque étape. La note a fondu.",
+          "quote_en": "Our Zaps blew up the bill the moment a scenario branched. **Moved to n8n, billed on executions**, we pay for what runs, not each step. The invoice shrank.",
+          "author": "Marc Vaillant",
+          "role_fr": "Directeur administratif et financier",
+          "role_en": "Chief Financial Officer",
+          "company": "Groupe Estève"
         },
         {
-          "quote_fr": "On recopiait la même donnée du mail au CRM toute la journée. Maintenant **elle circule seule, et il n'y a plus d'erreur de saisie**. C'est bête, mais ça nous rongeait.",
-          "quote_en": "We recopied the same data from email to CRM all day. Now **it flows on its own, and there are no more entry errors**. It sounds trivial, but it was eating us alive.",
-          "author": "Camille Reynaud",
-          "role_fr": "Directrice des opérations",
+          "quote_fr": "On voulait garder nos données chez nous. **n8n en self-hosted, dans notre cloud UE**, a réglé la question RGPD en une réunion. Le juridique a validé sans broncher.",
+          "quote_en": "We wanted to keep our data in-house. **Self-hosted n8n, in our EU cloud**, settled the GDPR question in one meeting. Legal signed off without a fuss.",
+          "author": "Sabrina Toledo",
+          "role_fr": "Responsable conformité",
+          "role_en": "Compliance Manager",
+          "company": "Néria Santé"
+        },
+        {
+          "quote_fr": "Un scénario trop tordu pour Zapier bloquait tout. **Dans n8n, avec des branches, des boucles et une étape IA**, le workflow encaisse enfin nos cas particuliers. Fini le bricolage à côté.",
+          "quote_en": "A scenario too twisted for Zapier jammed everything. **In n8n, with branches, loops and an AI step**, the workflow finally handles our edge cases. No more patching on the side.",
+          "author": "Yannick Restout",
+          "role_fr": "Directeur des opérations",
           "role_en": "Operations Director",
-          "company": "Atelier Norluz"
+          "company": "Fabrique Lorée"
         },
         {
-          "quote_fr": "Nos vieux scripts cassaient sans prévenir. Là, **quand quelque chose coince, on est alertés avant que ça pose problème**, et les workflows restent lisibles. On dort mieux.",
-          "quote_en": "Our old scripts broke without warning. Now, **when something jams, we're alerted before it becomes a problem**, and the workflows stay readable. We sleep better.",
-          "author": "David Olivier",
-          "role_fr": "Directeur des systèmes d'information",
-          "role_en": "Head of IT",
-          "company": "Verdier Industrie"
-        },
-        {
-          "quote_fr": "Ce qui m'a convaincu, c'est qu'on **garde la main** : les actions sensibles passent par une validation. Le workflow propose, on tranche. Rien ne part en douce.",
-          "quote_en": "What sold me is that we **keep control**: sensitive actions go through a validation. The workflow proposes, we decide. Nothing slips out.",
-          "author": "Thomas Vasseur",
-          "role_fr": "Cofondateur",
-          "role_en": "Co-founder",
-          "company": "Maison Calvet"
-        },
-        {
-          "quote_fr": "Le process tenait dans la tête d'une seule personne. Le jour où elle est partie en congé, tout bloquait. **Maintenant c'est dans le système**, et ça tourne sans elle.",
-          "quote_en": "The process lived in one person's head. The day they went on leave, everything stalled. **Now it's in the system**, and it runs without them.",
-          "author": "Julien Mercier",
-          "role_fr": "Directeur général",
+          "quote_fr": "Ils ont été clairs : **sans référent chez nous, n8n devenait une charge**. On a formé quelqu'un, et les workflows restent lisibles et tenus. L'honnêteté avant l'outil, ça compte.",
+          "quote_en": "They were straight: **without an in-house referent, n8n would become a burden**. We trained someone, and the workflows stay readable and maintained. Honesty before the tool, that counts.",
+          "author": "Hélène Marchetti",
+          "role_fr": "Directrice générale",
           "role_en": "Managing Director",
-          "company": "Groupe Sévrier"
+          "company": "Ateliers Pontcarral"
         },
         {
-          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par la tâche qui faisait le plus mal, **prouvé les heures gagnées, puis étendu**. Exactement le bon rythme.",
-          "quote_en": "Pragmatic approach, zero jargon. We started with the task that hurt most, **proved the hours saved, then scaled**. Exactly the right pace.",
-          "author": "Laure Pichon",
+          "quote_fr": "Nos vieux scripts cassaient sans un mot. Là, **chaque exécution est journalisée et on est alerté quand ça coince**. On voit ce qui tourne, on dort mieux.",
+          "quote_en": "Our old scripts broke without a word. Now **every run is logged and we're alerted when it jams**. We see what's running, we sleep better.",
+          "author": "Bruno Kessler",
+          "role_fr": "Responsable informatique",
+          "role_en": "Head of IT",
+          "company": "Sofralim"
+        },
+        {
+          "quote_fr": "Approche sans jargon. On a démarré par **le workflow n8n qui rendait le plus d'heures, prouvé le gain, puis étendu le parc**. Exactement le bon tempo.",
+          "quote_en": "No-jargon approach. We started with **the n8n workflow that returned the most hours, proved the gain, then grew the fleet**. Exactly the right tempo.",
+          "author": "Nadège Bourdon",
           "role_fr": "Fondatrice",
           "role_en": "Founder",
-          "company": "Studio Hémera"
+          "company": "Studio Kaolin"
         }
       ]
     },
@@ -940,8 +940,8 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Une offre, deux manières d'avancer",
       "h2_en": "One offer, two ways forward",
-      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur la tâche qui compte, ou une régie mensuelle qui maintient et étend vos workflows n8n dans la durée. On part toujours d'un cadrage, on livre un workflow en production, pas une maquette.",
-      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the task that matters, or a monthly retainer that maintains and extends your n8n workflows over time. We always start from scoping and ship a workflow in production, not a mockup.",
+      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur le premier workflow n8n, ou une régie mensuelle qui maintient et étend votre parc n8n dans la durée. Le cadrage démarre tout, et on met un workflow en production, jamais une maquette.",
+      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the first n8n workflow, or a monthly retainer that maintains and extends your n8n fleet over time. Scoping kicks everything off, and we put a workflow into production, never a mockup.",
       "tiers": [
         {
           "name_fr": "À la carte",
@@ -993,8 +993,8 @@
           "featured": true
         }
       ],
-      "footnote_fr": "On facture au forfait growth, 99 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande la tâche qui compte pour vous. L'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur la même base horaire : roadmap, exécution et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vos workflows n8n tournent, supervisés et documentés.",
-      "footnote_en": "We bill on a growth retainer, 99 € an hour: scope and time depend on volume, and we help you size the time the task that matters to you takes. The Growth subscription, 3,960 € a month, puts a retainer at your disposal on the same hourly base: roadmap, execution and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: your n8n workflows run, supervised and documented."
+      "footnote_fr": "Le forfait growth est à 99 € de l'heure : le périmètre et le temps suivent le volume de workflows, et on chiffre avec vous les heures que demande le premier cas n8n. La régie Growth, à 3 960 € par mois, tient à disposition sur cette même base horaire : roadmap, construction et pilotage mensuel. D'autres formats de régie s'ajustent au volume, détail sur /tarifs. Zéro abonnement caché, zéro captivité : vos workflows n8n tournent, supervisés et documentés.",
+      "footnote_en": "The growth retainer is 99 € an hour: perimeter and time follow the volume of workflows, and we size with you the hours the first n8n case takes. The Growth retainer, at 3,960 € a month, stays on tap on that same hourly base: roadmap, build and monthly steering. Other retainer formats adjust to volume, details on /tarifs. Zero hidden subscription, zero lock-in: your n8n workflows run, supervised and documented."
     },
     {
       "type": "eeat-panel",
@@ -1043,7 +1043,7 @@
           "q_fr": "Combien de temps avant qu'un premier workflow n8n tourne ?",
           "q_en": "How long before a first n8n workflow runs?",
           "a_fr": "Un premier workflow n8n ciblé tourne souvent en quelques semaines, une fois la tâche cadrée. On part de celle qui coûte le plus d'heures, on la met en production, on la supervise, puis on étend. On mesure les heures gagnées dès la mise en ligne, pas dans six mois.",
-          "a_en": "A first targeted n8n workflow often runs within a few weeks, once the task is scoped. We start with the one that costs the most hours, put it into production, supervise it, then extend. We measure the hours saved from go-live, not in six months."
+          "a_en": "A first targeted n8n workflow often runs within a few weeks, once the task is scoped. We start with the one that costs the most hours, put it into production, supervise it, then extend. We track the hours saved from go-live, not six months later."
         }
       ]
     },

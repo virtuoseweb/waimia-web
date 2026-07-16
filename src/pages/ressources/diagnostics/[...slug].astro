@@ -9,7 +9,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
-import { buildArticle, buildFAQPage } from '../../../lib/seo/schema-builder';
+import { buildArticle } from '../../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('diagnostics');
@@ -40,8 +40,9 @@ const articleLd = buildArticle({
   dateModified: data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : undefined,
   mainEntityOfPage: canonicalUrl,
 });
-const faqLd = buildFAQPage(lang === 'en' ? data.faq_en : data.faq_fr);
-const pageLd = faqLd ? [articleLd, faqLd] : [articleLd];
+// FAQPage JSON-LD émis une seule fois par la section catalogue `faq-accordion`
+// (source canonique, cf docs/audits #56). La page ne le duplique plus ici.
+const pageLd = [articleLd];
 ---
 
 <Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
