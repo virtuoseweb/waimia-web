@@ -80,8 +80,15 @@ const {
   showFilters,
   listBorder = false,
 } = Astro.props;
+// hero-hub-listing · overrides data-driven (chemin composable, ex. /blog). La prop
+// (chemin template UtilityTemplate) reste prioritaire ; sinon on lit le champ de schéma.
+// Défauts = catalogue byte-identique.
+const hhlData = data.type === 'hero-hub-listing' ? data : undefined;
+const effListTopPad = listTopPad ?? hhlData?.top_pad;
+const effLedeReveal = hhlData?.lede_reveal ?? ledeReveal;
+const effListBorder = listBorder || (hhlData?.list_border ?? false);
 const listStyle = [
-  listTopPad ? `padding-top:${listTopPad}` : '',
+  effListTopPad ? `padding-top:${effListTopPad}` : '',
   ledeMaxFont ? `--hhl-lede-max:${ledeMaxFont}` : '',
 ].filter(Boolean).join(';') || undefined;
 const hasFilters = showFilters ?? Astro.slots.has('filters');
@@ -126,7 +133,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </section>
   )
 ) : data.type === 'hero-hub-listing' ? (
-  <section class:list={['hero-hub-listing', listBorder && 'hero-hub-listing--bordered']} style={listStyle} data-bg={data.background} aria-label="Présentation">
+  <section class:list={['hero-hub-listing', effListBorder && 'hero-hub-listing--bordered']} style={listStyle} data-bg={data.background} aria-label="Présentation">
     {data.decoration && (
       <svg class="hero-hub-listing__deco" viewBox="0 0 600 400" aria-hidden="true" focusable="false">
         <circle cx="500" cy="60" r="200" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
@@ -136,7 +143,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     <div class="wrap-wide">
       <Kicker class="hero-hub-listing__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       <h1 class="hero-hub-listing__h1 reveal-mask-up u-serif-accent" set:html={isFr ? data.h1_fr : data.h1_en} />
-      <p class:list={['hero-hub-listing__lede', ledeReveal && 'reveal reveal-fade']} set:html={isFr ? data.lede_fr : data.lede_en} />
+      <p class:list={['hero-hub-listing__lede', effLedeReveal && 'reveal reveal-fade']} set:html={isFr ? data.lede_fr : data.lede_en} />
       {hasFilters && (
         <div class="hero-hub-listing__filters">
           <slot name="filters" />

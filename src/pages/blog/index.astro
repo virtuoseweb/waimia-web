@@ -3,7 +3,7 @@
 export const prerender = true;
 
 import { getCollection } from 'astro:content';
-import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
+import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import { langFromPath } from '../../lib/i18n';
@@ -115,32 +115,64 @@ const feedSection: SectionData = listVariant === 'write-rows'
 // Maillage interne dérivé (source unique internal-mesh, routes réelles, 0 self-link) :
 // hub blog → money pages (services ciblés par les billets) + preuve (hub cas clients).
 const meshSection = { ...meshForBlogHub(lang), background: 'paper-3' as const } as unknown as SectionData;
+
+// ── Masthead composable (ex-UtilityTemplate list variant) ────────────────────
+// Le masthead vit désormais dans le tableau `sections:` (data-driven). Les champs
+// top_pad / lede_reveal / list_border rétro-compat reproduisent à l'identique les
+// props que le template posait à la main (140px / pas de reveal lede / hairline).
+const mastheadSection = {
+  type: 'hero-hub-listing',
+  kicker_fr: '§ Notes & essais · monthly',
+  kicker_en: '§ Notes & essais · monthly',
+  h1_fr: 'Notes <i>lentes</i> du terrain.',
+  h1_en: 'Notes <i>lentes</i> du terrain.',
+  lede_fr: 'Une newsletter mensuelle, jamais de promotion. Tout ce qu\'on aurait voulu lire avant de commencer un chantier. <a href="/ressources#newsletter" class="blog-nl-cta">S\'abonner à la newsletter →</a>',
+  lede_en: 'Une newsletter mensuelle, jamais de promotion. Tout ce qu\'on aurait voulu lire avant de commencer un chantier. <a href="/ressources#newsletter" class="blog-nl-cta">S\'abonner à la newsletter →</a>',
+  decoration: false,
+  top_pad: '140px',
+  lede_reveal: false,
+  list_border: true,
+} satisfies SectionByType<'hero-hub-listing'>;
+
+// ── CTA de fin composable (ex-CtaBandSection du template) ─────────────────────
+const ctaSection = {
+  type: 'cta-band',
+  text_fr: 'Après Blog IA et automatisation PME, passons à votre cas réel et à votre premier livrable utile.',
+  text_en: 'After Blog IA et automatisation PME, let us move to your real use case and your first useful deliverable.',
+  cta: {
+    label_fr: 'Réserver un audit →',
+    label_en: 'Book an audit →',
+    href: '/contact',
+    variant: 'primary',
+  },
+  background: 'paper-2',
+} satisfies SectionByType<'cta-band'>;
 ---
-<UtilityTemplate
-  variant="list"
+<Base
   title="Blog IA et automatisation PME · Notes & essais · Waimia"
   description="Pas de pensum SEO. Notes courtes, cas concrets, recettes pratiques. Un essai mensuel, jamais de promotion."
-  kicker="§ Notes & essais · monthly"
   jsonLd={collectionLd}
 >
-  <Fragment slot="headline">
-    Notes <i>lentes</i> du terrain.
-  </Fragment>
-  <Fragment slot="lede">
-    Une newsletter mensuelle, jamais de promotion. Tout ce qu'on aurait voulu lire avant de commencer un chantier. <a href="/ressources#newsletter" class="blog-nl-cta">S'abonner à la newsletter →</a>
-  </Fragment>
+  <SectionsRenderer sections={[mastheadSection]} lang={lang} />
 
-  <Fragment slot="list">
-    <div class="blog-grid">
-      <SectionsRenderer sections={[feedSection]} lang={lang} />
+  <section class="list-body">
+    <div class="wrap-wide">
+      <div class="blog-grid">
+        <SectionsRenderer sections={[feedSection]} lang={lang} />
+      </div>
+      <div class="blog-mesh">
+        <SectionsRenderer sections={[meshSection]} lang={lang} />
+      </div>
     </div>
-    <div class="blog-mesh">
-      <SectionsRenderer sections={[meshSection]} lang={lang} />
-    </div>
-  </Fragment>
-</UtilityTemplate>
+  </section>
+
+  <SectionsRenderer sections={[ctaSection]} lang={lang} />
+</Base>
 
 <style>
+  /* Corps de liste (ex-UtilityTemplate `.list-body`) : markup repris verbatim depuis
+     le template pour préserver le padding et la largeur `wrap-wide` autour de la liste. */
+  .list-body { padding: var(--section-base) var(--space-6); }
   /* Resserrage micro-rythme du blanc hero→grille (cf masthead `hero-hub-listing`
      bottom clamp + `.list-body` top clamp du template partagé) : on remonte la grille
      d'un cran depuis la page (override local, template intact). La section ArticleGrid
@@ -154,14 +186,16 @@ const meshSection = { ...meshForBlogHub(lang), background: 'paper-3' as const } 
   }
   /* CTA newsletter inline dans le lede hero : lien accent, tokens DS existants,
      0 nouveau token (rule 60). */
-  .blog-nl-cta {
+  /* `:global` requis : le lede est rendu par le composant masthead via set:html →
+     le lien perd le scope Astro de cette page (parité avec le rendu template précédent). */
+  :global(.blog-nl-cta) {
     color: var(--accent-text);
     font-weight: var(--fw-medium);
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     white-space: nowrap;
   }
-  .blog-nl-cta:hover {
+  :global(.blog-nl-cta:hover) {
     opacity: 0.72;
   }
   @media (max-width: 768px) {

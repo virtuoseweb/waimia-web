@@ -14,4 +14,10 @@ export const schema = z.object({
   lede_fr: z.string(),
   lede_en: z.string(),
   decoration: z.boolean().default(false),
+  // Overrides layout rétro-compat (vague 6) : rendent le masthead 100% composable en
+  // absorbant les props que le template UtilityTemplate posait à la main (ex. /blog).
+  // Absent / true / false = comportement catalogue byte-identique (preview inchangée).
+  top_pad: z.string().optional(),
+  lede_reveal: z.boolean().optional(),
+  list_border: z.boolean().optional(),
 });
