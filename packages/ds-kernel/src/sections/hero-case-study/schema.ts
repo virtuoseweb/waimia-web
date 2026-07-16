@@ -12,6 +12,18 @@ export const schema = z.object({
   eyebrow_en: z.string().default('§ Case study'),
   h1_fr: z.string(),
   h1_en: z.string(),
+  // Habillage editorial (magazine) : illustration duotone occupant ~la moitie
+  // de la colonne, le h1 passe PAR-DESSUS en overlap (une partie des lettres sur
+  // l'image, le reste sur le fond paper). Optionnel → rendu strictement identique
+  // sans ce champ (retrocompat totale, HeroCentered importe aussi directement).
+  illustration: z
+    .object({
+      src: z.string(),
+      alt_fr: z.string(),
+      alt_en: z.string(),
+      side: z.enum(['left', 'right']).default('right'),
+    })
+    .optional(),
   specs: z
     .array(
       z.object({

@@ -277,13 +277,24 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     )}
   </section>
 ) : data.type === 'hero-case-study' ? (
-  <section class="hero-case-study" transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined} data-bg={data.background}>
-    <div class="hero-case-study__mast" style={topPad ? `--hcs-top-pad: ${topPad}` : undefined}>
-      <svg class="hero-case-study__deco reveal-blur-clip" viewBox="0 0 600 500" aria-hidden="true" focusable="false" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
-        <circle cx="480" cy="80" r="220" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
-        <circle cx="460" cy="60" r="140" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".18" />
-        <line x1="0" y1="400" x2="600" y2="280" stroke="currentColor" stroke-width=".4" opacity=".1" />
-      </svg>
+  <section class:list={['hero-case-study', data.illustration && 'hero-case-study--illus']} transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined} data-bg={data.background}>
+    <div class:list={['hero-case-study__mast', data.illustration && `hero-case-study__mast--illus hero-case-study__mast--${data.illustration.side ?? 'right'}`]} style={topPad ? `--hcs-top-pad: ${topPad}` : undefined}>
+      {data.illustration ? (
+        <img
+          class="hero-case-study__illus reveal-blur-clip"
+          src={data.illustration.src}
+          alt={(isFr ? data.illustration.alt_fr : data.illustration.alt_en) ?? ''}
+          loading="eager"
+          decoding="async"
+          transition:name={transitionId ? `hero-img-${transitionId}` : undefined}
+        />
+      ) : (
+        <svg class="hero-case-study__deco reveal-blur-clip" viewBox="0 0 600 500" aria-hidden="true" focusable="false" transition:name={transitionId ? `hero-img-${transitionId}` : undefined}>
+          <circle cx="480" cy="80" r="220" fill="none" stroke="currentColor" stroke-width=".5" opacity=".12" />
+          <circle cx="460" cy="60" r="140" fill="none" stroke="var(--accent)" stroke-width=".4" opacity=".18" />
+          <line x1="0" y1="400" x2="600" y2="280" stroke="currentColor" stroke-width=".4" opacity=".1" />
+        </svg>
+      )}
       <div class="wrap-wide">
         <span class="hero-case-study__eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</span>
         <Kicker class="hero-case-study__num">{`§ ${isFr ? 'Cas' : 'Case'} ${data.case_num}`}</Kicker>
@@ -936,6 +947,63 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     .hero-case-study__specs-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-case-study__deco { width: 280px; height: 240px; opacity: 0.6; }
   }
+
+  /* ── hero-case-study · habillage illustration (magazine, overlap titre) ──
+     Une illustration duotone occupe ~la moitie de la colonne (cote configurable) ;
+     le h1 monumental passe PAR-DESSUS en z-index (une partie des lettres sur
+     l'image, le reste deborde sur le fond paper). L'image lossy -paper a un fond
+     paper opaque → `mix-blend-mode: multiply` fond ce fond dans la page et ne
+     laisse que le line-art ink (meme idiome que le deco SVG). 100% tokens DS. */
+  .hero-case-study__mast--illus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: clamp(400px, 44vw, 600px);
+  }
+  .hero-case-study__illus {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(300px, 47%, 620px);
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    opacity: 0.95;
+    mix-blend-mode: multiply;
+  }
+  .hero-case-study__mast--right .hero-case-study__illus { right: var(--space-3); object-position: right center; }
+  .hero-case-study__mast--left .hero-case-study__illus { left: var(--space-3); object-position: left center; }
+  /* Le contenu texte passe au-dessus de l'image. Le h1 est monte d'un cran
+     supplementaire pour que les lettres qui recouvrent l'image restent nettes. */
+  .hero-case-study__mast--illus .wrap-wide { position: relative; z-index: 1; }
+  .hero-case-study__mast--illus .hero-case-study__h1 { position: relative; z-index: 2; }
+  /* Cote gauche : on decale le contenu vers la droite pour que le debord du titre
+     tombe franchement sur le papier (effet editorial affirme, pas un simple calque). */
+  .hero-case-study__mast--left .wrap-wide { margin-left: auto; }
+  .hero-case-study[data-bg='ink'] .hero-case-study__illus {
+    mix-blend-mode: screen;
+  }
+  @media (max-width: 768px) {
+    /* Mobile : pas d'overlap illisible. Ordre editorial label → titre → image,
+       image en bloc pleine largeur SOUS le titre (flux normal, position statique). */
+    .hero-case-study__mast--illus { display: flex; flex-direction: column; min-height: 0; }
+    .hero-case-study__mast--illus .wrap-wide { order: 0; margin-left: 0; }
+    .hero-case-study__illus {
+      order: 1;
+      position: static;
+      width: 100%;
+      height: auto;
+      max-height: 46vh;
+      margin-top: var(--space-7);
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-case-study__illus { transition: none; }
+  }
+
   .hero-case-study[data-bg='paper-2'] { background: var(--paper-2); }
   .hero-case-study[data-bg='paper-3'] { background: var(--paper-3); }
   .hero-case-study[data-bg='ink'] { background: var(--ink); }

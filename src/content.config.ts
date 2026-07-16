@@ -124,6 +124,16 @@ const cases = defineCollection({
     featured: z.boolean().default(false),
     provenance: z.enum(['first-party', 'second-party']).default('first-party'),
     heroImage: z.string().optional(),
+    // Habillage editorial du hero (magazine) : illustration demi-colonne + titre
+    // en overlap. Optionnel → hero inchange sans ce champ.
+    illustration: z
+      .object({
+        src: z.string(),
+        alt_fr: z.string(),
+        alt_en: z.string(),
+        side: z.enum(['left', 'right']).default('right'),
+      })
+      .optional(),
     author: reference('authors').optional(),
     contributors: z.array(reference('authors')).default([]),
     // ── Refonte éditoriale W2 (docs/25) : sections cataloguées pilotées par

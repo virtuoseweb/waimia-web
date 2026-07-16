@@ -128,6 +128,13 @@ interface Props {
   relatedOffresLinks?: Array<{ title: string; href: string }>;
   /** Slug pour ViewTransition (ex: "cas-plateau") */
   transitionSlug?: string;
+  /** Habillage editorial du hero : illustration demi-colonne + titre en overlap. */
+  heroIllustration?: {
+    src: string;
+    alt_fr: string;
+    alt_en: string;
+    side?: 'left' | 'right';
+  };
   /** Provenance double-label (docs/strategy/03 §5). first-party = chip plein « Projet réalisé · Waimia » ; second-party = chip outline « Étude · sources tierces ». */
   provenance?: 'first-party' | 'second-party';
   /** Bloc(s) JSON-LD spécifiques (Article/CreativeWork…) injectés dans <Base>. */
@@ -158,7 +165,7 @@ interface Props {
 const {
   title, description, caseTitle, caseNum, h1_fr, h1_en, specs, steps,
   proofQuoteFr, proofQuoteEn, proofAttrFr, proofAttrEn, proofMetrics,
-  techPills, relatedCards, relatedOffresLinks, transitionSlug, jsonLd,
+  techPills, relatedCards, relatedOffresLinks, transitionSlug, heroIllustration, jsonLd,
   contextStatementFr, contextStatementEn, contextStats,
   bottlenecks, phases, deliverableCards, shifts,
   pullQuoteFr, pullQuoteEn, pullQuoteCiteFr, pullQuoteCiteEn,
@@ -186,6 +193,9 @@ const heroData = {
   eyebrow_en: '§ Cas client', // legacy hardcodait '§ Cas client' même en EN (parité 0-régression)
   h1_fr,
   h1_en,
+  ...(heroIllustration
+    ? { illustration: { ...heroIllustration, side: heroIllustration.side ?? 'right' } }
+    : {}),
   specs: specs.map((s) => ({ label_fr: s.label_fr, label_en: s.label_en, value: s.value })),
 } satisfies SectionByType<'hero-case-study'>;
 const caseLabel = caseTitle ?? title.split(' · ')[0];

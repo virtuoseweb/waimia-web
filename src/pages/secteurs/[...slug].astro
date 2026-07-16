@@ -279,10 +279,31 @@ sectionsBeforeProse.push({
   pills: defaultStackPills,
 } satisfies SectionByType<'tech-stack-band'>);
 
+// ── Illustration duotone de la prose (habillage editorial) · pool DISJOINT du pool
+//    workflow (woman-computer / money-money / men-on-hand / chess) : 0 repetition dans
+//    la page. Assignee par slug (content-matched), 1 figure/page, cote alterne par slug. ──
+const PROSE_ILLUSTRATIONS: Record<string, { src: string; alt_fr: string; alt_en: string }> = {
+  agence: { src: '/images/illustrations/ds/man-and-woman-hi-paper.webp', alt_fr: 'Illustration : deux personnes se saluent, collaboration', alt_en: 'Illustration: two people greeting, collaboration' },
+  batiment: { src: '/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp', alt_fr: 'Illustration : artisan en route vers le chantier', alt_en: 'Illustration: a craftsman heading to work' },
+  comptabilite: { src: '/images/illustrations/ds/money-in-the-pig-paper.webp', alt_fr: 'Illustration : tirelire, gestion des chiffres', alt_en: 'Illustration: piggy bank, managing the numbers' },
+  conseil: { src: '/images/illustrations/ds/woman-and-people-paper.webp', alt_fr: 'Illustration : une intervenante face a un groupe', alt_en: 'Illustration: a speaker facing a group' },
+  'e-commerce': { src: '/images/illustrations/ds/fruits-paper.webp', alt_fr: 'Illustration : etal de produits', alt_en: 'Illustration: a display of products' },
+  esn: { src: '/images/illustrations/ds/computer-health-paper.webp', alt_fr: 'Illustration : poste informatique sain, services IT', alt_en: 'Illustration: a healthy workstation, IT services' },
+  formation: { src: '/images/illustrations/ds/super-girl-paper.webp', alt_fr: 'Illustration : montee en competence', alt_en: 'Illustration: building up skills' },
+  industrie: { src: '/images/illustrations/ds/no-no-yes-paper.webp', alt_fr: 'Illustration : controle qualite, tri des options', alt_en: 'Illustration: quality control, sorting options' },
+  'liberal-independant': { src: '/images/illustrations/ds/pretty-woman-paper.webp', alt_fr: 'Illustration : professionnelle independante', alt_en: 'Illustration: an independent professional' },
+  'services-b2b': { src: '/images/illustrations/ds/band-showing-tv-paper.webp', alt_fr: 'Illustration : demonstration face a un public', alt_en: 'Illustration: a demonstration in front of an audience' },
+};
+const DEFAULT_PROSE_ILLUSTRATION = { src: '/images/illustrations/ds/style-8-paper.webp', alt_fr: 'Illustration de marque', alt_en: 'Brand illustration' };
+const proseFigure = PROSE_ILLUSTRATIONS[slug] ?? DEFAULT_PROSE_ILLUSTRATION;
+
 const proseSection: SectionByType<'editorial-prose'> = {
   type: 'editorial-prose',
   background: 'paper',
   maxWidth: 'prose',
+  // Float a droite : les gros titres de section restent alignes a gauche (colonne forte),
+  // l'illustration se niche en marge haute. Le texte MDX coule autour sur desktop large.
+  figures: [{ ...proseFigure, side: 'right' }],
 };
 
 // ── Maillage interne dérivé (§17) · source unique internal-mesh (routes réelles,

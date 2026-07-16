@@ -10,6 +10,12 @@ export const demo: DemoData = {
     eyebrow_en: '§ Case study',
     h1_fr: 'Scale-up SaaS B2B · <i>pipeline réactivé</i> en 10 semaines.',
     h1_en: 'B2B SaaS scale-up · <i>pipeline reactivated</i> in 10 weeks.',
+    illustration: {
+      src: '/images/illustrations/ds/super-girl-paper.webp',
+      alt_fr: 'Une figure dynamique qui capte et qualifie les leads, illustration éditoriale duotone.',
+      alt_en: 'A dynamic figure that captures and qualifies leads, a duotone editorial illustration.',
+      side: 'right',
+    },
     specs: [
       { label_fr: 'Client', label_en: 'Client', value: 'Scale-up SaaS B2B' },
       { label_fr: 'Secteur', label_en: 'Sector', value: 'SaaS B2B' },
