@@ -7,12 +7,14 @@ export const prerender = true;
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { langFromPath, localizeHref } from '../../lib/i18n';
-import type { SectionByType } from '@waimia/ds-kernel';
+import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
 import CaseFeaturedGrid from '../../components/sections/CaseFeaturedGrid.astro';
 import CaseSpotlight from '../../components/sections/CaseSpotlight.astro';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
+import { meshForCasClientsHub } from '../../lib/internal-mesh';
 
 const lang = langFromPath(Astro.url.pathname);
 const transitionIdFromHref = (href: string) =>
@@ -144,6 +146,10 @@ const spotlightData = {
   cta_label_en: 'Read case →',
 } satisfies SectionByType<'case-spotlight'>;
 
+// Maillage interne dérivé (source unique internal-mesh, routes réelles, 0 self-link) :
+// hub cas → systèmes business + secteurs porteurs d'un cas dédié. Prépare le climax CTA.
+const meshSection = { ...meshForCasClientsHub(lang), background: 'paper-3' as const } as unknown as SectionData;
+
 const mastheadData = {
   type: 'hero-hub-masthead' as const,
   variant: 'hub' as const,
@@ -182,6 +188,8 @@ const mastheadData = {
       </div>
     </section>
   )}
+
+  <SectionsRenderer sections={[meshSection]} lang={lang} />
 
   <CtaFinal data={ctaData} lang={lang} />
 </Base>

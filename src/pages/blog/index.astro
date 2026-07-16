@@ -5,11 +5,13 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import ArticleGrid from '../../components/sections/ArticleGrid.astro';
-import type { SectionByType } from '@waimia/ds-kernel';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import { langFromPath } from '../../lib/i18n';
 import { blogEntryHref, fieldNoteTagLabel } from '../../lib/blog-routing';
 import { resolveBlogVisual } from '../../lib/blog-taxo-visuals';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
+import { meshForBlogHub } from '../../lib/internal-mesh';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -76,6 +78,10 @@ const gridData = {
   columns: '3',
   articles,
 } satisfies SectionByType<'article-grid'>;
+
+// Maillage interne dérivé (source unique internal-mesh, routes réelles, 0 self-link) :
+// hub blog → money pages (services ciblés par les billets) + preuve (hub cas clients).
+const meshSection = { ...meshForBlogHub(lang), background: 'paper-3' as const } as unknown as SectionData;
 ---
 <UtilityTemplate
   variant="list"
@@ -94,6 +100,9 @@ const gridData = {
   <Fragment slot="list">
     <div class="blog-grid">
       <ArticleGrid data={gridData} lang={lang} />
+    </div>
+    <div class="blog-mesh">
+      <SectionsRenderer sections={[meshSection]} lang={lang} />
     </div>
   </Fragment>
 </UtilityTemplate>

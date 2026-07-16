@@ -74,6 +74,16 @@ const SERVICES: Record<string, MeshLink> = {
     label_fr: 'Séquences de suivi',
     label_en: 'Follow-up sequences',
   },
+  'automatisation-n8n': {
+    href: '/services/automatisation-n8n',
+    label_fr: 'Automatisation n8n',
+    label_en: 'n8n automation',
+  },
+  'referencement-ia': {
+    href: '/services/referencement-ia',
+    label_fr: 'Référencement IA',
+    label_en: 'AI-driven search',
+  },
   'seo-local': {
     href: '/services/seo-local',
     label_fr: 'SEO local',
@@ -695,5 +705,57 @@ export function meshForServiceCasUsages(_lang: Lang = 'fr'): RelatedLinksData {
       ),
     ],
     { fr: 'Ce que ca <i class="acc">change</i>.', en: 'What it <i class="acc">changes</i>.' },
+  );
+}
+
+/**
+ * Maillage pour le HUB BLOG (/blog). Oriente les lecteurs des billets vers les money
+ * pages qu'ils ciblent (5 services) + la preuve (hub cas clients). Routes reelles
+ * verifiees, 0 self-link (aucune cible n'est /blog).
+ */
+export function meshForBlogHub(_lang: Lang = 'fr'): RelatedLinksData {
+  const selfHref = HUBS.blog.href;
+  return assemble(
+    [
+      group(
+        'Nos offres',
+        'Our offers',
+        [
+          SERVICES['site-web-intelligent'],
+          SERVICES['agents-ia'],
+          SERVICES['automatisation-n8n'],
+          SERVICES['referencement-ia'],
+          SERVICES['sequences-de-suivi'],
+        ],
+        selfHref,
+      ),
+      group('La preuve', 'The proof', [HUBS.casClients], selfHref),
+    ],
+    { fr: 'De la lecture à l\'<i class="acc">action</i>.', en: 'From reading to <i class="acc">action</i>.' },
+  );
+}
+
+/**
+ * Maillage pour le HUB CAS CLIENTS (/cas-clients). Renvoie vers les systemes business
+ * (acquisition, commercial, site web intelligent) et les secteurs qui portent un cas
+ * client dedie (batiment, therapeutes). Routes reelles verifiees, 0 self-link.
+ */
+export function meshForCasClientsHub(_lang: Lang = 'fr'): RelatedLinksData {
+  const selfHref = HUBS.casClients.href;
+  return assemble(
+    [
+      group(
+        'Nos systèmes',
+        'Our systems',
+        [
+          SERVICES['systeme-acquisition'],
+          SERVICES['systeme-commercial'],
+          SERVICES['site-web-intelligent'],
+        ],
+        selfHref,
+      ),
+      group('Secteurs', 'Sectors', [SECTEURS['batiment'], SECTEURS['therapeutes']], selfHref),
+    ],
+    { fr: 'Et pour <i class="acc">votre secteur</i> ?', en: 'And for <i class="acc">your sector</i>?' },
   );
 }

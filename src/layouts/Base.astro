@@ -77,7 +77,7 @@ const altUrl: string | null = (() => {
 // T1.6b · OG image dynamique via /api/og.png si pas d'image fournie
 // Utilise title + kicker dérivé de la description (first sentence) pour le rendu SVG
 const ogTitle = encodeURIComponent(title.split('·')[0].trim().substring(0, 80));
-const ogKicker = encodeURIComponent(lang === 'fr' ? '§ Waimia' : '§ Waimia');
+const ogKicker = encodeURIComponent(lang === 'fr' ? 'Studio IA pour PME' : 'AI studio for SMBs');
 const dynamicOgUrl = `${siteUrl}/api/og.png?title=${ogTitle}&kicker=${ogKicker}`;
 const finalOgImage = ogImage ?? dynamicOgUrl;
 
