@@ -22,22 +22,21 @@
   },
   "sections": [
     {
-      "type": "hero-landing",
-      "background": "paper",
-      "eyebrow_fr": "Système d'acquisition",
-      "eyebrow_en": "Acquisition system",
+      "type": "hero-centered",
+      "background": "paper-3",
+      "density": "compact",
+      "kicker_fr": "Système d'acquisition",
+      "kicker_en": "Acquisition system",
       "h1_fr": "Un site qui vous <i class=\"acc\">apporte des clients</i>, pas juste une vitrine.",
       "h1_en": "A site that <i class=\"acc\">brings you clients</i>, not just a showcase.",
-      "lede_fr": "La plupart des sites de PME ne captent rien. Le nôtre attire, capte et qualifie vos prospects sur une seule base, puis les passe à votre commercial. On construit le socle. On mesure. On itère.",
-      "lede_en": "Most SME sites capture nothing. Ours attracts, captures and qualifies your prospects on one base, then hands them to your sales team. We build the base. We measure. We iterate.",
+      "lede_fr": "La plupart des sites de PME ne captent rien. Le nôtre attire, capte et qualifie vos prospects sur une seule base, puis les passe à votre commercial. On construit le socle. On mesure. On itère. L'audit de départ : 30 minutes, offert, sans engagement.",
+      "lede_en": "Most SME sites capture nothing. Ours attracts, captures and qualifies your prospects on one base, then hands them to your sales team. We build the base. We measure. We iterate. The starting audit: 30 minutes, free, no commitment.",
       "cta_primary": {
         "label_fr": "Réserver l'audit gratuit (30 min) →",
         "label_en": "Book the free audit (30 min) →",
         "href": "https://cal.com/simonberos/audit",
         "variant": "primary"
-      },
-      "availability_fr": "30 minutes, offert, sans engagement.",
-      "availability_en": "30 minutes, free, no commitment."
+      }
     },
     {
       "type": "proof-bar",
@@ -72,93 +71,203 @@
       "link_href": "/cas-clients"
     },
     {
-      "type": "pain-severity-list",
+      "type": "comparison-duo",
       "background": "ink",
-      "kicker_fr": "Là où ça fuit",
-      "kicker_en": "Where it leaks",
-      "h2_fr": "Pourquoi vos prospects vous échappent",
-      "h2_en": "Why your prospects slip away",
-      "items": [
+      "kicker_fr": "§ Là où ça fuit",
+      "kicker_en": "§ Where it leaks",
+      "h2_fr": "Un site vitrine regarde vos prospects partir. Un système les <i class=\"acc\">retient</i>.",
+      "h2_en": "A brochure site watches your prospects leave. A system <i class=\"acc\">keeps</i> them.",
+      "without_label_fr": "Site vitrine",
+      "without_label_en": "Brochure site",
+      "without_title_fr": "Ce qu'il laisse fuir",
+      "without_title_en": "What it lets leak",
+      "without_items": [
         {
-          "severity": "critical",
-          "title_fr": "Du trafic qui ne se convertit jamais",
-          "title_en": "Traffic that never converts",
-          "desc_fr": "Des visiteurs regardent et partent. Aucun point de capture, aucune raison de laisser un contact. Vous payez des visites pour rien.",
-          "desc_en": "Visitors look and leave. No capture point, no reason to leave a contact. You pay for visits for nothing.",
-          "fix_fr": "Des landing pages qui captent.",
-          "fix_en": "Landing pages that capture."
+          "text_fr": "Du trafic qui regarde et repart, sans aucun point de capture.",
+          "text_en": "Traffic that looks and leaves, with no capture point."
         },
         {
-          "severity": "high",
-          "title_fr": "Des leads qui dorment dans une boîte mail",
-          "title_en": "Leads sleeping in an inbox",
-          "desc_fr": "Les contacts tombent dans une boîte mail. Personne ne les note, personne ne sait lesquels valent un appel. Le bon lead refroidit.",
-          "desc_en": "Contacts fall into an inbox. Nobody scores them, nobody knows which are worth a call. The good lead goes cold.",
-          "fix_fr": "Un CRM et un scoring branchés à la base.",
-          "fix_en": "A CRM and scoring wired to the base."
+          "text_fr": "Des leads qui dorment dans une boîte mail, jamais notés.",
+          "text_en": "Leads sleeping in an inbox, never scored."
         },
         {
-          "severity": "medium",
-          "title_fr": "Aucune relance, aucune prospection",
-          "title_en": "No follow-up, no prospecting",
-          "desc_fr": "Vous relancez un prospect, vous oubliez les autres, et vous n'allez jamais chercher les comptes cibles. La concurrence, si.",
-          "desc_en": "You follow one up, forget the rest, and never hunt the target accounts. Competitors do.",
-          "fix_fr": "Des séquences de suivi et de l'outbound.",
-          "fix_en": "Follow-up sequences and outbound."
+          "text_fr": "Aucune relance, aucune prospection : le bon lead refroidit.",
+          "text_en": "No follow-up, no prospecting: the good lead goes cold."
+        }
+      ],
+      "with_label_fr": "Système d'acquisition",
+      "with_label_en": "Acquisition system",
+      "with_title_fr": "Ce qu'il met au travail",
+      "with_title_en": "What it puts to work",
+      "with_items": [
+        {
+          "text_fr": "Des landing pages qui captent chaque visite.",
+          "text_en": "Landing pages that capture every visit."
+        },
+        {
+          "text_fr": "Un CRM et un scoring branchés à la base.",
+          "text_en": "A CRM and scoring wired to the base."
+        },
+        {
+          "text_fr": "Des séquences de suivi et de l'outbound qui vont chercher les comptes cibles.",
+          "text_en": "Follow-up sequences and outbound that go after the target accounts."
         }
       ]
     },
     {
-      "type": "feature-grid",
+      "type": "feature-split-media",
       "background": "paper",
-      "columns": "auto",
+      "proportion": "1-2",
       "kicker_fr": "§ Le système en clair",
       "kicker_en": "§ The system, plainly",
-      "h2_fr": "Le site est le socle. Le reste se branche dessus.",
-      "h2_en": "The site is the base. Everything else plugs into it.",
-      "lede_fr": "Pas six outils qui s'ignorent. Une seule base qui attire, capte et qualifie, sur vos propres données.",
-      "lede_en": "Not six tools that ignore each other. One base that attracts, captures and qualifies, on your own data.",
-      "features": [
+      "h2_fr": "Le site est le <i class=\"acc\">socle</i>. Le reste se branche dessus.",
+      "h2_en": "The site is the <i class=\"acc\">base</i>. Everything else plugs in.",
+      "body_fr": "Pas six outils qui s'ignorent. Une seule base qui attire, capte et qualifie, sur vos propres données. On ajoute une brique quand il en faut une. On ne refond jamais tout.",
+      "body_en": "Not six tools that ignore each other. One base that attracts, captures and qualifies, on your own data. We add a block when one is needed. We never rebuild everything.",
+      "points": [
         {
-          "icon": "design",
-          "title_fr": "Site web IA",
-          "title_en": "AI website",
-          "body_fr": "Le socle : un site rapide, structuré SEO et GEO, instrumenté. Tout se câble dessus.",
-          "body_en": "The base: a fast site, SEO and GEO structured, instrumented. Everything wires onto it."
+          "label_fr": "Site web IA : rapide, structuré SEO et GEO, instrumenté.",
+          "label_en": "AI website: fast, SEO and GEO structured, instrumented."
         },
         {
-          "icon": "contenu",
-          "title_fr": "SEO, GEO et contenu",
-          "title_en": "SEO, GEO and content",
-          "body_fr": "Des pages et des articles qui vous rendent visibles sur Google, et citables par les IA.",
-          "body_en": "Pages and articles that make you visible on Google, and citable by AIs."
+          "label_fr": "SEO, GEO et contenu : visible sur Google, citable par les IA.",
+          "label_en": "SEO, GEO and content: visible on Google, citable by AIs."
         },
         {
-          "icon": "qualif",
-          "title_fr": "Landing pages et tunnels",
-          "title_en": "Landing pages and funnels",
-          "body_fr": "Chaque visite est captée, notée et orientée vers ce qui convertit.",
-          "body_en": "Every visit is captured, scored and steered toward what converts."
+          "label_fr": "Landing pages et tunnels : chaque visite captée et notée.",
+          "label_en": "Landing pages and funnels: every visit captured and scored."
         },
         {
-          "icon": "tracking",
-          "title_fr": "Publicité ciblée",
-          "title_en": "Targeted advertising",
-          "body_fr": "Quand il faut accélérer, on pousse du trafic qualifié vers les pages qui captent, jamais vers un cul-de-sac.",
-          "body_en": "When you need to accelerate, we push qualified traffic to the pages that capture, never to a dead end."
+          "label_fr": "Publicité ciblée : du trafic qualifié vers ce qui convertit.",
+          "label_en": "Targeted advertising: qualified traffic to what converts."
         },
         {
-          "icon": "pilotage",
-          "title_fr": "Mesure et pilotage",
-          "title_en": "Measurement and steering",
-          "body_fr": "Un tableau qui relie chaque euro dépensé à un lead concret. Vous pilotez sur des chiffres.",
-          "body_en": "A dashboard that links every euro spent to a concrete lead. You steer on figures."
+          "label_fr": "Mesure et pilotage : chaque euro relié à un lead concret.",
+          "label_en": "Measurement and steering: every euro tied to a concrete lead."
+        }
+      ],
+      "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+      "media_alt_fr": "Une personne au travail sur un site instrumenté qui capte et qualifie les visites.",
+      "media_alt_en": "A person working on an instrumented site that captures and qualifies visits.",
+      "cta_label_fr": "Réserver l'audit gratuit (30 min) →",
+      "cta_label_en": "Book the free audit (30 min) →",
+      "cta_href": "https://cal.com/simonberos/audit"
+    },
+    {
+      "type": "media-bento",
+      "background": "ink",
+      "layout": "feature-2",
+      "kicker_fr": "§ Le système en images",
+      "kicker_en": "§ The system in pictures",
+      "h2_fr": "Attirer, capter, qualifier, <i class=\"acc\">mesurer</i>.",
+      "h2_en": "Attract, capture, qualify, <i class=\"acc\">measure</i>.",
+      "lede_fr": "Quatre temps, une seule base. Voilà ce qu'un site mis au travail fait pour vous.",
+      "lede_en": "Four moves, one base. Here is what a site put to work does for you.",
+      "tiles": [
+        {
+          "title_fr": "Attirer",
+          "title_en": "Attract",
+          "tag_fr": "SEO · GEO",
+          "tag_en": "SEO · GEO",
+          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
+          "media_alt_fr": "Une scène qui diffuse et attire l'attention : la visibilité sur Google et les IA.",
+          "media_alt_en": "A scene broadcasting and drawing attention: visibility on Google and AIs.",
+          "span": "2"
+        },
+        {
+          "title_fr": "Capter",
+          "title_en": "Capture",
+          "tag_fr": "Landing · tunnels",
+          "tag_en": "Landing · funnels",
+          "media_src": "/images/illustrations/ds/men-on-hand-ink.webp",
+          "media_alt_fr": "Une main qui recueille : chaque visite captée plutôt que perdue.",
+          "media_alt_en": "A hand that gathers: every visit captured rather than lost."
+        },
+        {
+          "title_fr": "Qualifier",
+          "title_en": "Qualify",
+          "tag_fr": "CRM · scoring",
+          "tag_en": "CRM · scoring",
+          "media_src": "/images/illustrations/ds/chess-ink.webp",
+          "media_alt_fr": "Un jeu d'échecs : chaque lead noté et routé vers le bon coup.",
+          "media_alt_en": "A game of chess: every lead scored and routed to the right move."
+        },
+        {
+          "title_fr": "Mesurer",
+          "title_en": "Measure",
+          "tag_fr": "Pilotage · ROI",
+          "tag_en": "Steering · ROI",
+          "media_src": "/images/illustrations/ds/money-in-the-pig-ink.webp",
+          "media_alt_fr": "Une tirelire qui se remplit : chaque euro dépensé relié à un lead concret.",
+          "media_alt_en": "A piggy bank filling up: every euro spent tied to a concrete lead."
         }
       ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "paper-2",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 01",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · résultats réels",
+      "spec_en": "Client cases · real results",
+      "h2_fr": "Trois PME, trois résultats concrets",
+      "h2_en": "Three SMEs, three concrete results",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
+        {
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "Création · CRM HubSpot · GEO",
+          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
+          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
+          "href": "/cas-clients/amploi",
+          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
+          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
+          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
+        },
+        {
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · Abonnement · SEO",
+          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
+          "href": "/cas-clients/les-carnets-de-montpellier",
+          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
+          "media_alt_fr": "Une communauté qui se rassemble autour d'un média local et de ses abonnés.",
+          "media_alt_en": "A community gathering around a local media outlet and its subscribers."
+        },
+        {
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · E-commerce · Perf",
+          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
+          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
+          "href": "/cas-clients/balzeo",
+          "media_src": "/images/illustrations/ds/fruits-paper.webp",
+          "media_alt_fr": "Des fruits frais : la boutique écoresponsable refondue, allégée.",
+          "media_alt_en": "Fresh fruit: the eco-friendly shop rebuilt and slimmed down."
+        }
+      ],
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
     },
     {
       "type": "method-stepline",
-      "background": "paper-2",
+      "background": "paper",
       "kicker_fr": "§ Comment on démarre",
       "kicker_en": "§ How we start",
       "h2_fr": "De l'audit gratuit aux premiers résultats",
@@ -193,70 +302,8 @@
       ]
     },
     {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 01",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Trois PME, trois résultats concrets",
-      "h2_en": "Three SMEs, three concrete results",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Création · CRM HubSpot · GEO",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : la boutique écoresponsable refondue, allégée.",
-          "media_alt_en": "Fresh fruit: the eco-friendly shop rebuilt and slimmed down."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
-    },
-    {
       "type": "pricing-cards",
-      "background": "paper",
+      "background": "paper-2",
       "layout": "grid-uniform",
       "columns": "4",
       "kicker_fr": "§ Tarifs",
@@ -373,7 +420,7 @@
     },
     {
       "type": "faq-accordion",
-      "background": "paper-2",
+      "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",
       "h2_fr": "Ce que vous nous demandez avant de signer",

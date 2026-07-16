@@ -108,7 +108,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 38,
+    "count": 39,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -117,6 +117,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
       "/cas-usages/standardiser-processus",
+      "/lp/systeme-acquisition",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -447,9 +448,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 32,
+    "count": 31,
     "pages": [
-      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -484,9 +484,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-split-media": {
-    "count": 2,
+    "count": 3,
     "pages": [
       "/audit-ia-pme",
+      "/lp/systeme-acquisition",
       "/services/template-service-ref"
     ]
   },
@@ -619,6 +620,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/components/templates/CaseStudyTemplate.astro"
     ]
   },
+  "hero-centered": {
+    "count": 1,
+    "pages": [
+      "/lp/systeme-acquisition"
+    ]
+  },
   "hero-conversion-funnel": {
     "count": 2,
     "pages": [
@@ -649,12 +656,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "src/pages/agence/index.astro",
       "src/pages/expertise-claude.astro"
-    ]
-  },
-  "hero-landing": {
-    "count": 1,
-    "pages": [
-      "/lp/systeme-acquisition"
     ]
   },
   "hero-lead-magnet": {
@@ -822,6 +823,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/pages/index.astro"
     ]
   },
+  "media-bento": {
+    "count": 1,
+    "pages": [
+      "/lp/systeme-acquisition"
+    ]
+  },
   "method-stepline": {
     "count": 30,
     "pages": [
@@ -882,9 +889,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 30,
+    "count": 29,
     "pages": [
-      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",

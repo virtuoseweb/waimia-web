@@ -47,7 +47,7 @@ const illusSide = illustration?.side ?? 'right';
         {kicker && <Kicker as="p" tone="accent" class="hsm-kicker">{kicker}</Kicker>}
         <h1 class="hsm-title hsm-title--illus" set:html={h1} />
         {subtitle && <p class="hsm-subtitle">{subtitle}</p>}
-        {definitionKicker && <p class="hsm-def-kicker">{definitionKicker}</p>}
+        {definitionKicker && <p class="hsm-def-kicker" set:html={definitionKicker} />}
         <p class="hsm-lede" set:html={lede} />
 
         {badges.length > 0 && (
@@ -76,7 +76,7 @@ const illusSide = illustration?.side ?? 'right';
         {kicker && <Kicker as="p" tone="accent" class="hsm-kicker">{kicker}</Kicker>}
         <h1 class="hsm-title" set:html={h1} />
         {subtitle && <p class="hsm-subtitle">{subtitle}</p>}
-        {definitionKicker && <p class="hsm-def-kicker">{definitionKicker}</p>}
+        {definitionKicker && <p class="hsm-def-kicker" set:html={definitionKicker} />}
         <p class="hsm-lede" set:html={lede} />
 
         {badges.length > 0 && (
@@ -264,7 +264,7 @@ const illusSide = illustration?.side ?? 'right';
     /* La section est le referent de l'image full-bleed (bord d'ecran, pleine hauteur). */
     .hsm--illus { position: relative; overflow: hidden; }
     .hsm--illus .hsm-illus-wrap {
-      min-height: clamp(500px, 55vw, 720px);
+      min-height: clamp(560px, 62vw, 880px);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -274,18 +274,56 @@ const illusSide = illustration?.side ?? 'right';
       z-index: 1;
       max-width: 100%;
     }
-    /* Le titre bleede PAR-DESSUS l'illustration ; le corps de texte reste dans sa
-       moitie et ne passe jamais SOUS l'image (lisibilite). */
+    /* Le titre DÉPASSE franchement PAR-DESSUS l'illustration : sa boite est bien plus
+       large que la colonne de corps (elle mord sur ~la moitie de l'image), ancree du
+       cote texte, z-index 2. Le corps de texte, lui, reste dans la zone claire (~38%)
+       et ne passe jamais sous l'image (lisibilite). */
     .hsm-title--illus {
       position: relative;
       z-index: 2;
-      max-width: 100%;
+      max-width: min(66%, 760px);
     }
     .hsm--illus .hsm-subtitle,
     .hsm--illus .hsm-def-kicker,
     .hsm--illus .hsm-lede,
     .hsm--illus .hsm-badges,
-    .hsm--illus .hsm-ctas { max-width: 40%; }
+    .hsm--illus .hsm-ctas { max-width: clamp(300px, 38%, 460px); }
+    .hsm--illus .hsm-kicker { position: relative; z-index: 2; }
+
+    /* ── Typo normalisée du hero illus (directive Simon) ──
+       La desc / le lede / les badges quittent la mono machine-a-ecrire pour la
+       sans de lecture du site (Inter Tight). Zero nouveau token. Scopé illus. */
+    /* Desc (la question) : sans en ITALIQUE, mots relevés en accent serif italique
+       via <i class="acc"> (idiome site, cf .u-serif-accent / h1 i). */
+    .hsm--illus .hsm-def-kicker {
+      font-family: var(--font-sans);
+      font-style: italic;
+      font-size: var(--text-body);
+      line-height: var(--leading-lede);
+      letter-spacing: var(--tracking-body);
+      text-transform: none;
+      font-weight: var(--fw-regular);
+      color: var(--ink);
+    }
+    .hsm--illus[data-bg='ink'] .hsm-def-kicker { color: var(--paper); }
+    .hsm--illus .hsm-def-kicker :global(i),
+    .hsm--illus .hsm-def-kicker :global(.acc) {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      letter-spacing: var(--tracking-display);
+      color: var(--accent-text);
+    }
+    /* Lede : sans, registre text-small (pas fine), lecture normale. */
+    .hsm--illus .hsm-lede { font-size: var(--text-small); }
+    /* Badges : sans, text-small, graisse normale, casse de phrase, pill discret. */
+    .hsm--illus .hsm-badge {
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      font-weight: var(--fw-regular);
+      letter-spacing: var(--tracking-body);
+      text-transform: none;
+    }
     /* Illustration a gauche → on ancre le contenu a droite pour degager l'image. */
     .hsm--illus-left .hsm-kicker,
     .hsm--illus-left .hsm-title--illus,
@@ -298,7 +336,7 @@ const illusSide = illustration?.side ?? 'right';
       position: absolute;
       top: 0;
       bottom: 0;
-      width: clamp(340px, 47vw, 980px);
+      width: clamp(480px, 58vw, 1280px);
       height: 100%;
       object-fit: cover;
       pointer-events: none;
