@@ -358,8 +358,8 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
+                    { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
                     { label: { fr: 'Diagnostic site intelligent', en: 'Smart website diagnostic' }, href: '/ressources/diagnostics/site-web-intelligent' },
-                    { label: { fr: 'Audit site web', en: 'Website audit' }, href: '/audit-site-web-intelligent' },
                   ],
                 },
               ],
@@ -380,8 +380,7 @@ const SOLUTIONS: MegaMenuSection = {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Desangles Peinture', en: 'The Desangles Peinture case' }, href: '/cas-clients/desangles-peinture' },
-                    { label: { fr: 'SEO ou GEO, quelle différence', en: 'SEO vs GEO explained' }, href: '/ressources/comparatifs/geo-vs-seo' },
-                    { label: { fr: 'Diagnostic site intelligent', en: 'Smart website diagnostic' }, href: '/ressources/diagnostics/site-web-intelligent' },
+                    { label: { fr: 'Audit site web', en: 'Website audit' }, href: '/audit-site-web-intelligent' },
                   ],
                 },
               ],
@@ -414,7 +413,7 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
+                    { label: { fr: 'Le cas Balzeo', en: 'The Balzeo case' }, href: '/cas-clients/balzeo' },
                     { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },
@@ -464,8 +463,8 @@ const SOLUTIONS: MegaMenuSection = {
                     {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
+                        { label: { fr: 'Le cas Balzeo', en: 'The Balzeo case' }, href: '/cas-clients/balzeo' },
                         { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
-                        { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
                       ],
                     },
                   ],
@@ -484,8 +483,8 @@ const SOLUTIONS: MegaMenuSection = {
                     {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
-                        { label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' }, href: '/ressources/comparatifs/claude-vs-chatgpt-pme' },
-                        { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
+                        { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
+                        { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
                       ],
                     },
                   ],
@@ -498,8 +497,8 @@ const SOLUTIONS: MegaMenuSection = {
                     {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
-                        { label: { fr: 'Expertise Claude', en: 'Claude expertise' }, href: '/expertise-claude' },
-                        { label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' }, href: '/ressources/comparatifs/claude-vs-chatgpt-pme' },
+                        { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
+                        { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
                       ],
                     },
                   ],
@@ -530,7 +529,8 @@ const SOLUTIONS: MegaMenuSection = {
                     {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
-                        { label: { fr: 'Claude Code ou Cursor', en: 'Claude Code or Cursor' }, href: '/ressources/comparatifs/claude-code-vs-cursor' },
+                        { label: { fr: 'Le cas Les Carnets', en: 'The Les Carnets case' }, href: '/cas-clients/les-carnets-de-montpellier' },
+                        { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
                       ],
                     },
                   ],
@@ -545,6 +545,13 @@ const SOLUTIONS: MegaMenuSection = {
                       links: [
                         { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
                         { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
+                      ],
+                    },
+                    {
+                      label: { fr: 'Aller plus loin', en: 'Go further' },
+                      links: [
+                        { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
+                        { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
                       ],
                     },
                   ],
@@ -589,7 +596,7 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
+                    { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
                     { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },
@@ -610,6 +617,7 @@ const SOLUTIONS: MegaMenuSection = {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
+                    { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
                   ],
                 },
               ],
@@ -628,7 +636,8 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
+                    { label: { fr: 'Le cas Les Carnets', en: 'The Les Carnets case' }, href: '/cas-clients/les-carnets-de-montpellier' },
+                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },
               ],
