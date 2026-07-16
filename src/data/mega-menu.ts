@@ -358,7 +358,6 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
                     { label: { fr: 'Diagnostic site intelligent', en: 'Smart website diagnostic' }, href: '/ressources/diagnostics/site-web-intelligent' },
                     { label: { fr: 'Audit site web', en: 'Website audit' }, href: '/audit-site-web-intelligent' },
                   ],

@@ -283,6 +283,7 @@ export const FOOTER_COLS: FooterCol[] = [
     heading: { en: 'The Agency', fr: "L'Agence" },
     items: [
       { href: '/agence', label: { en: 'About Waimia', fr: 'À propos' } },
+      { href: '/equipe', label: { en: 'The team', fr: "L'équipe" } },
       {
         href: '/agence/methode',
         label: {
@@ -379,6 +380,10 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Academy', fr: 'Academy' },
       },
       {
+        href: '/demonstrations',
+        label: { en: 'Demos', fr: 'Démonstrations' },
+      },
+      {
         href: '/expertise-claude',
         label: { en: 'Claude expertise', fr: 'Expertise Claude' },
       },
@@ -386,36 +391,6 @@ export const FOOTER_COLS: FooterCol[] = [
         href: '/ressources/#newsletter',
         label: { en: 'Newsletter', fr: 'Newsletter' },
       },
-    ],
-  },
-  // Colonne TEMPORAIRE (Simon 2026-07-13) : pages sans exposition header/footer, en attente de placement définitif. À redistribuer puis supprimer.
-  {
-    heading: { en: 'To be placed · finalizing', fr: 'À placer · finalisation' },
-    items: [
-      { href: '/equipe', label: { en: 'The team', fr: "L'équipe" } },
-      { href: '/demonstrations', label: { en: 'Demos', fr: 'Démonstrations' } },
-      { href: '/demonstrations/avant-apres', label: { en: 'Before / after demo', fr: 'Démo avant / après' } },
-      { href: '/demonstrations/integration-claude', label: { en: 'Claude integration demo', fr: 'Démo intégration Claude' } },
-      { href: '/demonstrations/site-web-intelligent', label: { en: 'Smart website demo', fr: 'Démo site web intelligent' } },
-      { href: '/sources-methodologie', label: { en: 'Sources & methodology', fr: 'Sources & méthodologie' } },
-      { href: '/services/maintenance-growth', label: { en: 'Maintenance & growth', fr: 'Maintenance & growth' } },
-      { href: '/services/sur-mesure-headless', label: { en: 'Headless custom website', fr: 'Site sur mesure headless' } },
-      { href: '/services/webflow', label: { en: 'Webflow website', fr: 'Site Webflow' } },
-      { href: '/services/wordpress', label: { en: 'WordPress website', fr: 'Site WordPress' } },
-      { href: '/cas-usages/centraliser-donnees', label: { en: 'Centralize data', fr: 'Centraliser les données' } },
-      { href: '/cas-usages/reduire-reporting', label: { en: 'Reduce reporting', fr: 'Réduire le reporting' } },
-      { href: '/cas-usages', label: { en: 'Use cases', fr: "Cas d'usage" } },
-      { href: '/secteurs/batiment', label: { en: 'Construction sector', fr: 'Secteur bâtiment' } },
-      { href: '/secteurs/e-commerce', label: { en: 'E-commerce sector', fr: 'Secteur e-commerce' } },
-      { href: '/secteurs/liberal-independant', label: { en: 'Freelancers & self-employed', fr: 'Libéraux & indépendants' } },
-      { href: '/secteurs/startup-logiciel', label: { en: 'Startups & software', fr: 'Startups & logiciel' } },
-      { href: '/secteurs/therapeutes', label: { en: 'Therapists', fr: 'Thérapeutes' } },
-      { href: '/ressources/comparatifs/claude-code-vs-cursor', label: { en: 'Claude Code vs Cursor', fr: 'Claude Code vs Cursor' } },
-      { href: '/ressources/comparatifs/claude-vs-chatgpt-pme', label: { en: 'Claude vs ChatGPT for SMBs', fr: 'Claude vs ChatGPT pour PME' } },
-      { href: '/ressources/comparatifs/geo-vs-seo', label: { en: 'GEO vs SEO', fr: 'GEO vs SEO' } },
-      { href: '/ressources/comparatifs/site-web-intelligent-vs-wordpress', label: { en: 'Smart website vs WordPress', fr: 'Site web intelligent vs WordPress' } },
-      { href: '/ressources/diagnostics', label: { en: 'Diagnostics', fr: 'Diagnostics' } },
-      { href: '/ressources/guides/claude-pme', label: { en: 'Claude guide for SMBs', fr: 'Guide Claude pour PME' } },
     ],
   },
   // Col 5 — Légal & Archive (trust-center retiré P0.2-D : pages légales réelles uniquement)

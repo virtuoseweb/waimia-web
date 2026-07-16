@@ -257,12 +257,13 @@ const illusSide = illustration?.side ?? 'right';
     .hsm[data-bg='ink'] .hsm-media img { color: var(--paper); }
 
     /* ── habillage illustration (magazine, overlap titre) ──
-       Une illustration duotone occupe ~la moitie de la ligne (cote configurable),
+       Une illustration duotone occupe plus de la moitie de la ligne (58%, cote configurable),
        le titre passe PAR-DESSUS en z-index. `mix-blend-mode: multiply` fond le fond
-       paper de l'image -paper dans la page (line-art ink seul visible). 100% tokens DS. */
+       paper de l'image -paper dans la page (line-art ink seul visible). 100% tokens DS.
+       Le titre passe pleine largeur PAR-DESSUS l'illustration (z-index 2, blend multiply garde la lisibilite). */
     .hsm--illus .hsm-illus-wrap {
       position: relative;
-      min-height: clamp(400px, 42vw, 560px);
+      min-height: clamp(500px, 55vw, 720px);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -277,13 +278,13 @@ const illusSide = illustration?.side ?? 'right';
     .hsm-title--illus {
       position: relative;
       z-index: 2;
-      max-width: 72%;
+      max-width: 100%;
     }
     .hsm--illus .hsm-subtitle,
     .hsm--illus .hsm-def-kicker,
     .hsm--illus .hsm-lede,
     .hsm--illus .hsm-badges,
-    .hsm--illus .hsm-ctas { max-width: 52%; }
+    .hsm--illus .hsm-ctas { max-width: 40%; }
     /* Illustration a gauche → on ancre le contenu a droite pour degager l'image. */
     .hsm--illus-left .hsm-kicker,
     .hsm--illus-left .hsm-title--illus,
@@ -296,7 +297,7 @@ const illusSide = illustration?.side ?? 'right';
       position: absolute;
       top: 0;
       bottom: 0;
-      width: clamp(280px, 45%, 580px);
+      width: clamp(340px, 58%, 780px);
       height: 100%;
       object-fit: contain;
       pointer-events: none;
@@ -305,8 +306,10 @@ const illusSide = illustration?.side ?? 'right';
       opacity: 0.95;
       mix-blend-mode: multiply;
     }
-    .hsm--illus-right .hsm-illus { right: 0; object-position: right center; }
-    .hsm--illus-left .hsm-illus { left: 0; object-position: left center; }
+    /* Ancrage vertical remonte (30%) : la partie visible de l'illustration paysage
+       monte au niveau du h1 → le titre la traverse franchement (overlap magazine). */
+    .hsm--illus-right .hsm-illus { right: 0; object-position: right 30%; }
+    .hsm--illus-left .hsm-illus { left: 0; object-position: left 30%; }
     .hsm--illus-left .hsm-text--illus { margin-left: auto; }
     .hsm[data-bg='ink'] .hsm-illus { mix-blend-mode: screen; }
 

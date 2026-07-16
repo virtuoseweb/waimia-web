@@ -34,9 +34,14 @@ const cards: Card[] = (await getCollection('guides'))
     };
   });
 
-// Chunker équilibré 2-3 (jamais de singleton) : respecte .min(2)/.max(3) du schéma.
+// Chunker équilibré 2-3 pour N≥2 (respecte .max(3) du schéma). Cas single-card : le
+// guide unique se rend dans une bande à une seule carte. La grille .qgrid (molécule
+// RelatedCards) est number-agnostic (« 2, 3 ou N cards »), donc une carte seule s'affiche
+// proprement, alignée à gauche, sans casser le rendu N≥2 (anti-orphelin : même section
+// cataloguée `related-cards-band`, jamais de markup inline).
 function chunkCards(items: Card[]): Card[][] {
-  if (items.length < 2) return [];
+  if (items.length === 0) return [];
+  if (items.length === 1) return [items];
   const chunks: Card[][] = [];
   let rest = [...items];
   while (rest.length > 0) {

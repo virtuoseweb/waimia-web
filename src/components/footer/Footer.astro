@@ -57,7 +57,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  {/* Tier 1 : colonnes pilotées par FOOTER_COLS (6 avec la colonne temporaire « À placer ») */}
+  {/* Tier 1 : colonnes pérennes pilotées par FOOTER_COLS (5 ; colonne temporaire « À placer » dissoute #63). */}
   <div class="wrap hline" style="padding-top:var(--space-9);padding-bottom:var(--space-11)">
     <div class="ft-tier1-grid" style={`display:grid;grid-template-columns:repeat(${FOOTER_COLS.length},1fr);gap:var(--space-8)`}>
       {FOOTER_COLS.map((col) => (
