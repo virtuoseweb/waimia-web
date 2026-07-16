@@ -115,6 +115,18 @@
       "comment": ""
     },
     {
+      "name": "--complementary",
+      "value": "#2090A8",
+      "group": "color",
+      "comment": "role : complementaire froide de l'accent. Usages prevus : box-shadow pleine (formes, mise en avant d'un visuel ou d'un CTA), element decoratif geometrique, contraste face au terracotta."
+    },
+    {
+      "name": "--complementary-rgb",
+      "value": "32, 144, 168",
+      "group": "color",
+      "comment": ""
+    },
+    {
       "name": "--cookie-banner-height",
       "value": "0px",
       "group": "layout",
@@ -1302,6 +1314,16 @@
       "files": []
     },
     {
+      "token": "--complementary",
+      "count": 0,
+      "files": []
+    },
+    {
+      "token": "--complementary-rgb",
+      "count": 0,
+      "files": []
+    },
+    {
       "token": "--cookie-banner-height",
       "count": 1,
       "files": [
@@ -1310,7 +1332,7 @@
     },
     {
       "token": "--dur-base",
-      "count": 8,
+      "count": 9,
       "files": [
         "src/components/sections/GalleryMasonry.astro",
         "src/components/sections/HeroHome.astro",
@@ -1318,13 +1340,14 @@
         "src/components/ui/organisms/Hero.astro",
         "src/pages/index.astro",
         "src/pages/lab/home-e.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css"
       ]
     },
     {
       "token": "--dur-fast",
-      "count": 58,
+      "count": 59,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/sections/AnnouncementBanner.astro",
@@ -1381,6 +1404,7 @@
         "src/pages/partenaires.astro",
         "src/pages/ressources/academy.astro",
         "src/sections/hover-reveal-words/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css",
         "src/styles/section-layouts.css"
@@ -1555,7 +1579,7 @@
     },
     {
       "token": "--ease",
-      "count": 120,
+      "count": 121,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/header/Header.astro",
@@ -1673,6 +1697,7 @@
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css",
@@ -1839,7 +1864,7 @@
     },
     {
       "token": "--font-mono",
-      "count": 227,
+      "count": 229,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/DropCap.astro",
@@ -1913,6 +1938,7 @@
         "src/components/sections/DirectAnswer.astro",
         "src/components/sections/EditorialDingbatRule.astro",
         "src/components/sections/EditorialPreview.astro",
+        "src/components/sections/EditorialProse.astro",
         "src/components/sections/EditorialTimeline.astro",
         "src/components/sections/FaqAccordion.astro",
         "src/components/sections/FaqCtaAside.astro",
@@ -2065,6 +2091,7 @@
         "src/sections/hero-social-proof/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -2072,7 +2099,7 @@
     },
     {
       "token": "--font-sans",
-      "count": 253,
+      "count": 254,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/PullQuote.astro",
@@ -2325,6 +2352,7 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css"
       ]
@@ -2807,7 +2835,7 @@
     },
     {
       "token": "--hairline",
-      "count": 240,
+      "count": 241,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -3046,6 +3074,7 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -3053,7 +3082,7 @@
     },
     {
       "token": "--hairline-strong",
-      "count": 76,
+      "count": 77,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3127,6 +3156,7 @@
         "src/pages/preview/[type]/animated.astro",
         "src/pages/ressources/academy.astro",
         "src/pages/ressources/outils/index.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css",
@@ -3229,7 +3259,7 @@
     },
     {
       "token": "--ink",
-      "count": 267,
+      "count": 268,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3495,6 +3525,7 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -3623,7 +3654,7 @@
     },
     {
       "token": "--ink-rgb",
-      "count": 27,
+      "count": 28,
       "files": [
         "src/components/editorial/Dingbat.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -3650,13 +3681,14 @@
         "src/pages/ressources/index.astro",
         "src/pages/secteurs/index.astro",
         "src/sections/media-bento/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
       ]
     },
     {
       "token": "--leading-body",
-      "count": 122,
+      "count": 123,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Timeline.astro",
@@ -3778,6 +3810,7 @@
         "src/pages/technologies.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css"
       ]
@@ -4163,7 +4196,7 @@
     },
     {
       "token": "--muted",
-      "count": 226,
+      "count": 227,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -4388,6 +4421,7 @@
         "src/sections/hero-social-proof/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -4409,7 +4443,7 @@
     },
     {
       "token": "--paper",
-      "count": 252,
+      "count": 253,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/editorial/Timeline.astro",
@@ -4659,6 +4693,7 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css",
@@ -4667,7 +4702,7 @@
     },
     {
       "token": "--paper-2",
-      "count": 200,
+      "count": 201,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -4866,6 +4901,7 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -4873,7 +4909,7 @@
     },
     {
       "token": "--paper-3",
-      "count": 136,
+      "count": 137,
       "files": [
         "src/components/proposals/eeat/Prop05.astro",
         "src/components/sections/AboutStorySplit.astro",
@@ -5008,6 +5044,7 @@
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -5015,7 +5052,7 @@
     },
     {
       "token": "--paper-rgb",
-      "count": 143,
+      "count": 144,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/library/hero-explore-2/Z4.astro",
@@ -5157,6 +5194,7 @@
         "src/sections/hero-social-proof/Component.astro",
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/media-bento/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -5199,7 +5237,7 @@
     },
     {
       "token": "--radius-full",
-      "count": 46,
+      "count": 47,
       "files": [
         "src/components/editorial/Timeline.astro",
         "src/components/proposals/eeat/Prop01.astro",
@@ -5246,12 +5284,13 @@
         "src/pages/lab/home-e.astro",
         "src/pages/library/studio.astro",
         "src/sections/eeat-panel/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css"
       ]
     },
     {
       "token": "--radius-lg",
-      "count": 45,
+      "count": 47,
       "files": [
         "src/components/library/hero-explore-2/Z3.astro",
         "src/components/library/hero-explore-2/Z7.astro",
@@ -5272,6 +5311,7 @@
         "src/components/proposals/eeat/Prop09.astro",
         "src/components/proposals/eeat/Prop10.astro",
         "src/components/sections/ChallengesGrid.astro",
+        "src/components/sections/EditorialProse.astro",
         "src/components/sections/FeatureZigzag.astro",
         "src/components/sections/HeroCardCover.astro",
         "src/components/sections/HeroCenteredBand.astro",
@@ -5296,6 +5336,7 @@
         "src/sections/eeat-panel/Component.astro",
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/media-bento/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/section-layouts.css"
       ]
@@ -5707,7 +5748,7 @@
     },
     {
       "token": "--space-1",
-      "count": 96,
+      "count": 97,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/editorial/PullQuote.astro",
@@ -5804,6 +5845,7 @@
         "src/pages/secteurs/index.astro",
         "src/sections/eeat-panel/Component.astro",
         "src/sections/media-bento/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css"
       ]
     },
@@ -6002,7 +6044,7 @@
     },
     {
       "token": "--space-2",
-      "count": 171,
+      "count": 172,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/KeyMetric.astro",
@@ -6173,13 +6215,14 @@
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css"
       ]
     },
     {
       "token": "--space-3",
-      "count": 189,
+      "count": 190,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -6368,13 +6411,14 @@
         "src/sections/hero-social-proof/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
       ]
     },
     {
       "token": "--space-4",
-      "count": 212,
+      "count": 213,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -6585,6 +6629,7 @@
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -6592,7 +6637,7 @@
     },
     {
       "token": "--space-5",
-      "count": 209,
+      "count": 210,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -6800,6 +6845,7 @@
         "src/sections/eeat-panel/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css",
         "src/styles/grid.css",
         "src/styles/section-layouts.css"
@@ -6807,7 +6853,7 @@
     },
     {
       "token": "--space-6",
-      "count": 193,
+      "count": 194,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -6999,6 +7045,7 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css",
         "src/styles/grid.css",
         "src/styles/section-layouts.css"
@@ -7006,7 +7053,7 @@
     },
     {
       "token": "--space-7",
-      "count": 151,
+      "count": 153,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/PullQuote.astro",
@@ -7057,6 +7104,7 @@
         "src/components/sections/CtaFormInline.astro",
         "src/components/sections/DefinitionExtract.astro",
         "src/components/sections/EcosystemPartners.astro",
+        "src/components/sections/EditorialProse.astro",
         "src/components/sections/EditorialWriteFeed.astro",
         "src/components/sections/FaqCtaAside.astro",
         "src/components/sections/FeatureComparisonGrid.astro",
@@ -7157,13 +7205,14 @@
         "src/pages/technologies.astro",
         "src/sections/diagnostic-stages/Component.astro",
         "src/sections/eeat-panel/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css"
       ]
     },
     {
       "token": "--space-8",
-      "count": 111,
+      "count": 110,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -7198,7 +7247,6 @@
         "src/components/sections/CtaSplitVisual.astro",
         "src/components/sections/DefinitionExtract.astro",
         "src/components/sections/DiagnosticStages.astro",
-        "src/components/sections/EditorialProse.astro",
         "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/FaqCtaAside.astro",
         "src/components/sections/FaqTwoColumn.astro",
@@ -7280,7 +7328,7 @@
     },
     {
       "token": "--space-9",
-      "count": 119,
+      "count": 120,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -7330,6 +7378,7 @@
         "src/components/sections/EditorialCallout.astro",
         "src/components/sections/EditorialDingbatRule.astro",
         "src/components/sections/EditorialDropcapProse.astro",
+        "src/components/sections/EditorialProse.astro",
         "src/components/sections/EditorialTableBlock.astro",
         "src/components/sections/EditorialTimeline.astro",
         "src/components/sections/FeatureAccordion.astro",
@@ -7405,7 +7454,7 @@
     },
     {
       "token": "--spacing-block",
-      "count": 50,
+      "count": 51,
       "files": [
         "src/components/sections/BentoGrid.astro",
         "src/components/sections/ComparisonDuo.astro",
@@ -7456,12 +7505,13 @@
         "src/pages/ressources/outils/index.astro",
         "src/sections/hero-social-proof/Component.astro",
         "src/sections/media-bento/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro"
       ]
     },
     {
       "token": "--text-body",
-      "count": 146,
+      "count": 147,
       "files": [
         "src/components/header/Header.astro",
         "src/components/library/hero-explore-2/Z6.astro",
@@ -7607,6 +7657,7 @@
         "src/sections/eeat-panel/Component.astro",
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css"
       ]
@@ -8061,8 +8112,9 @@
     },
     {
       "token": "--text-kicker",
-      "count": 8,
+      "count": 9,
       "files": [
+        "src/components/sections/EditorialProse.astro",
         "src/components/sections/PhotoCluster.astro",
         "src/components/ui/atoms/Kicker.astro",
         "src/pages/index.astro",
@@ -8083,7 +8135,7 @@
     },
     {
       "token": "--text-micro",
-      "count": 32,
+      "count": 33,
       "files": [
         "src/components/header/Header.astro",
         "src/components/proposals/eeat/Prop01.astro",
@@ -8116,6 +8168,7 @@
         "src/pages/preview/eeat-prop4-variations.astro",
         "src/pages/preview/eeat-propositions.astro",
         "src/sections/eeat-panel/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css"
       ]
     },
@@ -8170,7 +8223,7 @@
     },
     {
       "token": "--text-small",
-      "count": 254,
+      "count": 255,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -8422,6 +8475,7 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
         "src/styles/grid.css",
@@ -8540,8 +8594,9 @@
     },
     {
       "token": "--tracking-kicker",
-      "count": 6,
+      "count": 7,
       "files": [
+        "src/components/sections/EditorialProse.astro",
         "src/components/ui/atoms/Kicker.astro",
         "src/pages/index.astro",
         "src/pages/lab/home-d.astro",
@@ -8684,7 +8739,7 @@
     },
     {
       "token": "--tracking-mono-tight",
-      "count": 71,
+      "count": 72,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/header/Header.astro",
@@ -8756,6 +8811,7 @@
         "src/pages/preview/[type]/[preset].astro",
         "src/pages/preview/[type]/animated.astro",
         "src/sections/eeat-panel/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/global.css"
       ]
     },
@@ -8849,7 +8905,7 @@
     },
     {
       "token": "--wrap-read",
-      "count": 10,
+      "count": 11,
       "files": [
         "src/components/sections/DefinitionExtract.astro",
         "src/components/sections/FeatureGrid.astro",
@@ -8860,6 +8916,7 @@
         "src/pages/lab/home-e.astro",
         "src/pages/library/studio.astro",
         "src/sections/hover-reveal-words/Component.astro",
+        "src/sections/site-showcase/Component.astro",
         "src/styles/section-layouts.css"
       ]
     },
@@ -12485,7 +12542,7 @@
     },
     {
       "signature": "display:flex;flex-direction:column",
-      "count": 34,
+      "count": 35,
       "files": [
         "src/components/library/hero-explore-2/Z1.astro",
         "src/components/library/hero-explore-2/Z2.astro",
@@ -12508,6 +12565,7 @@
         "src/components/sections/HeroMastheadCard.astro",
         "src/components/sections/HeroMediaMedallion.astro",
         "src/components/sections/HeroNumeralCover.astro",
+        "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroScopeMinimap.astro",
         "src/components/sections/HeroSummaryRail.astro",
         "src/components/sections/HeroTechSignature.astro",
@@ -12623,7 +12681,7 @@
     },
     {
       "signature": "position:relative;z-index:1",
-      "count": 24,
+      "count": 25,
       "files": [
         "src/components/library/hero-explore-2/Z1.astro",
         "src/components/library/hero-explore-2/Z2.astro",
@@ -12642,6 +12700,7 @@
         "src/components/sections/HeroHubStats.astro",
         "src/components/sections/HeroMastheadCard.astro",
         "src/components/sections/HeroNumeralCover.astro",
+        "src/components/sections/HeroOfferDetail.astro",
         "src/components/sections/HeroScopeMinimap.astro",
         "src/components/sections/HeroSummaryRail.astro",
         "src/components/sections/HeroTechSignature.astro",
@@ -14369,16 +14428,6 @@
       ]
     },
     {
-      "signature": "margin:0 auto;max-width:var(--wrap-prose)",
-      "count": 4,
-      "files": [
-        "src/components/sections/EditorialCallout.astro",
-        "src/components/sections/EditorialDropcapProse.astro",
-        "src/components/sections/EditorialProse.astro",
-        "src/components/sections/EditorialTimeline.astro"
-      ]
-    },
-    {
       "signature": "--ink-2:rgba(var(--paper-rgb), 0.82);background:var(--ink);color:var(--paper)",
       "count": 3,
       "files": [
@@ -14961,6 +15010,15 @@
         "src/components/sections/FeatureSplitMedia.astro",
         "src/components/sections/FooterCtaBand.astro",
         "src/components/sections/PainSeverityList.astro"
+      ]
+    },
+    {
+      "signature": "margin:0 auto;max-width:var(--wrap-prose)",
+      "count": 3,
+      "files": [
+        "src/components/sections/EditorialCallout.astro",
+        "src/components/sections/EditorialDropcapProse.astro",
+        "src/components/sections/EditorialTimeline.astro"
       ]
     },
     {
@@ -17276,6 +17334,14 @@
       ]
     },
     {
+      "signature": "position:relative;z-index:2",
+      "count": 2,
+      "files": [
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroOfferDetail.astro"
+      ]
+    },
+    {
       "signature": "text-align:right;text-transform:none",
       "count": 2,
       "files": [
@@ -17285,10 +17351,10 @@
     }
   ],
   "stats": {
-    "tokenCount": 125,
+    "tokenCount": 127,
     "classCount": 213,
     "duplicateGroupCount": 152,
-    "scopedDuplicateGroupCount": 495,
+    "scopedDuplicateGroupCount": 496,
     "unusedTokens": [
       "--color-accent",
       "--color-accent-sur-clair",
@@ -17301,6 +17367,8 @@
       "--color-paper",
       "--color-paper-2",
       "--color-paper-3",
+      "--complementary",
+      "--complementary-rgb",
       "--fl-max-vw",
       "--fl-min-vw",
       "--fl-space-shrink",

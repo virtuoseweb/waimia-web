@@ -31,11 +31,15 @@
   --accent-ink: #F6F1E8;
   --accent-text: var(--accent-sur-clair); /* role : TEXTE accent AA. Defaut accent-sur-clair (#A83D20, 5.57 sur paper) ; remappe accent-sur-sombre sous [data-bg=ink]. Surfaces accent restent var(--accent) vif. */
 
+  /* Complementary · bleu froid, contraste de l'accent terracotta */
+  --complementary: #2090A8; /* role : complementaire froide de l'accent. Usages prevus : box-shadow pleine (formes, mise en avant d'un visuel ou d'un CTA), element decoratif geometrique, contraste face au terracotta. */
+
   /* RGB channels · pilotent les rgba() composables sans re-hardcoder la couleur
      Usage : rgba(var(--ink-rgb), 0.08) — un seul point de vérité par teinte */
   --ink-rgb:    12, 11, 9;
   --accent-rgb: 201, 79, 46;
   --paper-rgb:  246, 241, 232;
+  --complementary-rgb: 32, 144, 168;
 
   /* Typography stacks */
   --font-display: "Instrument Serif", ui-serif, Georgia, serif;

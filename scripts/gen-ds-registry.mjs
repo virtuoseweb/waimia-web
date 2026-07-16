@@ -50,7 +50,7 @@ function groupFromHeader(header, name) {
     [/^--space-/, 'spacing'],
     [/^--spacing-/, 'spacing'],
     [/^--(?:text|leading|font|fw|tracking)-/, 'type'],
-    [/^--(?:accent|ink|paper|muted|hairline|color)(?:-|$)/, 'color'],
+    [/^--(?:accent|ink|paper|muted|hairline|color|complementary)(?:-|$)/, 'color'],
     [/^--radius-/, 'radius'],
     [/^--shadow-/, 'shadow'],
     [/^--(?:ease|dur)(?:-|$)/, 'motion'],
