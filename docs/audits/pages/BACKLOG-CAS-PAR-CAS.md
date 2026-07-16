@@ -1,5 +1,18 @@
 # Backlog cas-par-cas · flotte de finalisation (post-audit #50)
 
+> **EXÉCUTÉ 2026-07-16 (flotte 7 workers, commit `3ff47257`)** : lots A/B/C/D traités et vérifiés (GF-1 Playwright 23/23 sur dist, prod suivie). Reliquat consolidé ci-dessous ; le corps du fichier reste la référence détaillée de ce qui a été demandé.
+>
+> **Reliquat post-flotte** (à router en vagues courtes ou arbitrage Simon) :
+> 1. Sweep libellé `forfait growth` → `régie growth` (~15 pages, mécanique : 99 €/h = régie, pas forfait).
+> 2. `internal-mesh.ts` : helpers `meshForBlogHub()` + `meshForCasClientsHub()` puis montage `related-links` sur les hubs blog et cas-clients (doctrine 0 lien hardcodé).
+> 3. Deep-links des stats vers les ancres `#source-<slug>` posées sur /sources-methodologie (liste des surfaces dans le rapport w-fin-confiance : maintenance-growth, secteurs e-commerce/batiment/startup/agence/liberal/therapeutes, swi-variants).
+> 4. Hub guides : `chunkCards` exige min 2 → la carte du guide unique ne se rend pas (rendu single-card ou nav directe).
+> 5. JSON-LD `Service` absent des pages services malgré `seo.serviceType`/`priceRange` en contenu (gap template route offres).
+> 6. Canonical du cluster maturité (diagnostic ↔ outil score) : arbitrage SEO.
+> 7. Dédup-blocs transverse n°16 : le résidu inter-pages = scaffolding site-wide volontaire (témoignages réels, case-cards, refrains) présent sur 3-26 pages ; toute vague future le traite HOLISTIQUEMENT, jamais page par page.
+> 8. Décisions Simon en attente : email canonique `bonjour@waimia.fr` vs `.com` (~7 surfaces) · témoignages persona (n°37) · OG kicker « § Waimia » (n°19) · nav bloat méga-menu (#63) · home H1 « système(s) » (composant Hero, optionnel).
+> 9. Parité EN blog : moot (routes EN inexistantes, rendu fr en dur) ; nettoyage des moitiés EN incohérentes possible sans impact live.
+
 > Gap-check 2026-07-16 : actions des 115 rapports NON couvertes par les vagues #55-#63.
 > S = < 30 min copy/lien · M = section/composant · L = refonte. Détail source = rapport de la page.
 > Statut : CONSOLIDÉ (4 lots, 115 rapports contre-vérifiés le 2026-07-16).
