@@ -18,9 +18,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation des processus métier pour PME",
-    "priceRange": "99€/h-3960€/mois",
-    "priceMin": 99,
-    "priceMax": 3960
+    "priceRange": "dès 999 €",
+    "priceMin": 999
   },
   "faq_fr": [
     {
@@ -151,9 +150,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Sur devis",
-          "label_fr": "cadré au périmètre, pas de forfait creux",
-          "label_en": "scoped to the perimeter, no empty package",
+          "value": "Dès 999 €",
+          "label_fr": "sprint découverte de 10 h · suite sur devis",
+          "label_en": "10-h discovery sprint · next steps on quote",
           "emphasis": true
         },
         {
@@ -985,49 +984,26 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Une offre, deux manières d'avancer",
       "h2_en": "One offer, two ways forward",
-      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur la tâche qui compte, ou une régie mensuelle qui maintient et étend vos workflows dans la durée. On part toujours d'un cadrage, on livre un workflow en production, pas une maquette.",
-      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the task that matters, or a monthly retainer that maintains and extends your workflows over time. We always start from scoping and ship a workflow in production, not a mockup.",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier workflow en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez vos workflows, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first workflow in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep your workflows, your access and the documentation.",
       "tiers": [
         {
-          "name_fr": "À la carte",
-          "name_en": "One-off",
-          "price": "99 € / h",
-          "period_fr": "régie growth · HT",
-          "period_en": "growth retainer · ex VAT",
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
           "features_fr": [
-            "Cadrage de la tâche prioritaire",
-            "Un workflow conçu, branché et mis en production",
-            "Supervision, alertes et mesure des heures gagnées"
+            "Cadrage de la tâche prioritaire à automatiser",
+            "Un premier workflow conçu, branché et en production",
+            "Supervision, alertes et heures gagnées mesurées",
+            "Un premier livrable qui tourne, pas une maquette"
           ],
           "features_en": [
-            "Scoping of the priority task",
-            "One workflow designed, wired and put into production",
-            "Supervision, alerts and hours-saved measurement"
-          ],
-          "cta": {
-            "label_fr": "Cadrer une mission →",
-            "label_en": "Scope a mission →",
-            "href": "/contact?offer=automatisations&intent=a-la-carte",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Abonnement Growth",
-          "name_en": "Growth subscription",
-          "price": "3 960 €",
-          "period_fr": "/mois · HT",
-          "period_en": "/month · ex VAT",
-          "features_fr": [
-            "Régie à disposition, 99 €/h",
-            "Workflows maintenus et supervisés en continu",
-            "Nouvelles automatisations ajoutées sur preuve",
-            "Pilotage mensuel et roadmap partagée"
-          ],
-          "features_en": [
-            "Retainer on tap, 99 €/h",
-            "Workflows maintained and supervised continuously",
-            "New automations added on proof",
-            "Monthly steering and shared roadmap"
+            "Scoping of the priority task to automate",
+            "A first workflow designed, wired and in production",
+            "Supervision, alerts and hours saved measured",
+            "A first deliverable that runs, not a mockup"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1036,10 +1012,35 @@
             "variant": "primary"
           },
           "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, cadre régie growth",
+            "Nouveaux workflows ajoutés et supervisés",
+            "Vous gardez workflows, accès et documentation"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, growth retainer frame",
+            "New workflows added and supervised",
+            "You keep the workflows, access and documentation"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=automatisations&intent=suite",
+            "variant": "ghost"
+          }
         }
       ],
-      "footnote_fr": "On facture à la régie growth, 99 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande la tâche qui compte pour vous. L'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur la même base horaire : roadmap, exécution et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vos workflows tournent, supervisés et documentés.",
-      "footnote_en": "We bill on a growth retainer, 99 € an hour: scope and time depend on volume, and we help you size the time the task that matters to you takes. The Growth subscription, 3,960 € a month, puts a retainer at your disposal on the same hourly base: roadmap, execution and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: your workflows run, supervised and documented."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows suivants, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows, vos accès et la documentation sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next workflows require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your workflows, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",

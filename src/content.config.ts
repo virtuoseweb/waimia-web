@@ -271,14 +271,28 @@ const cases = defineCollection({
 // aucune page /solutions/* séparée · contenu fusionné en sections ancrées des
 // piliers /acquerir, /piloter, /operer · régénérable à l'extension réelle d'un silo.
 
+// ─── Schéma partagé des pages composables (services + lp) ───
+// Mêmes champs SEO/GEO/AIO + taxonomies + sections. Extrait (rule 60) pour être
+// RÉUTILISÉ par `services` ET `lp` (landing conversion) au lieu de dupliquer la forme Zod.
+const composablePageSchema = z.object({
+  ...baseFields,
+  ...taxonomyFields,
+  sections: sectionsArraySchema.optional(),
+});
+
 // ─── Services (ADR-003) · pages de service composables ───
 const services = defineCollection({
   loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/services' }),
-  schema: z.object({
-    ...baseFields,
-    ...taxonomyFields,
-    sections: sectionsArraySchema.optional(),
-  }),
+  schema: composablePageSchema,
+});
+
+// ─── LP · landing conversion (2026-07-16) : déclinaison courte, orientée conversion
+//     (outbound / cold email), noindex assumé (robots disallow /lp/ + hors sitemap,
+//     cf astro.config.mjs). Réutilise le schéma composable des services. Route dédiée
+//     src/pages/lp/[...slug].astro (sans masthead, noindex). ───
+const lp = defineCollection({
+  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/lp' }),
+  schema: composablePageSchema,
 });
 
 // ─── Collections v7 (refonte SEO/GEO) ───
@@ -717,6 +731,8 @@ export const collections = {
   courses,
   // ADR-003 (2026-06-13) : services (silo /lp supprimé, audit #60 A1)
   services,
+  // LP · landing conversion (2026-07-16, réintroduction ciblée) : modèle court noindex
+  lp,
   // V7 (refonte SEO/GEO)
   'cas-usages': casUsages,
   demonstrations,

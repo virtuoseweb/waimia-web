@@ -406,6 +406,20 @@ const SOLUTIONS: MegaMenuSection = {
                 },
               ],
             },
+            {
+              label: { fr: 'Publicité en ligne', en: 'Online advertising' },
+              href: '/services/publicite-en-ligne',
+              description: { fr: 'Google Ads, Meta et formats IA, branchés à vos landing pages et votre CRM.', en: 'Google Ads, Meta and AI formats, wired to your landing pages and your CRM.' },
+              detail: [
+                {
+                  label: { fr: 'Aller plus loin', en: 'Go further' },
+                  links: [
+                    { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
+                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
+                  ],
+                },
+              ],
+            },
           ],
           // Col 4 featured STATIQUE du système d'acquisition (renvoie au hub).
           featured: {

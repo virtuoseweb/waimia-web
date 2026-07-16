@@ -18,9 +18,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Landing page dédiée Google Ads : message match, vitesse, tracking des conversions et Quality Score",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "dès 999 €",
+    "priceMin": 999
   },
   "faq_fr": [
     {
@@ -38,6 +37,10 @@
     {
       "q": "Comment mesure-t-on les conversions issues des Ads ?",
       "a": "On pose un plan de mesure GA4 centré sur les vrais événements de valeur (lead qualifié, devis demandé, pas simple clic), via Google Tag Manager, et on branche les balises de conversion Google Ads. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side. L'attribution relie chaque lead à la campagne et au mot-clé qui l'ont généré, pour que la régie optimise sur ce qui rapporte vraiment."
+    },
+    {
+      "q": "Combien de temps avant de savoir si une nouvelle landing convertit mieux ?",
+      "a": "Le temps d'accumuler assez de clics et de conversions pour que l'écart soit fiable, pas un coup de chance. Sur une campagne bien alimentée, quelques semaines suffisent souvent ; sur une campagne à faible volume, on teste une version après l'autre plutôt qu'en parallèle, et on regarde le coût par lead sur la durée plutôt qu'au jour le jour. On renvoie les conversions à Google Ads en continu, donc les enchères apprennent pendant qu'on optimise la page."
     },
     {
       "q": "Gérez-vous aussi les campagnes Google Ads elles-mêmes ?",
@@ -64,6 +67,10 @@
     {
       "q": "How do you measure conversions from the Ads?",
       "a": "We set a GA4 measurement plan centred on real value events (qualified lead, quote requested, not a mere click), through Google Tag Manager, and wire the Google Ads conversion tags. To resist blockers and the end of third-party cookies, we route through server-side tracking. Attribution links each lead to the campaign and keyword that generated it, so the platform optimises on what truly returns."
+    },
+    {
+      "q": "How long before we know if a new landing converts better?",
+      "a": "The time to gather enough clicks and conversions for the gap to be reliable, not a fluke. On a well-fed campaign, a few weeks often suffice; on a low-volume campaign, we test one version after the other rather than in parallel, and watch cost per lead over time rather than day to day. We send conversions back to Google Ads continuously, so bidding learns while we optimise the page."
     },
     {
       "q": "Do you also run the Google Ads campaigns themselves?",
@@ -127,9 +134,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "2–10 k€",
-          "label_fr": "budget HT indicatif (sur mesure au-delà)",
-          "label_en": "indicative ex-VAT budget (bespoke beyond)",
+          "value": "Dès 999 €",
+          "label_fr": "sprint découverte de 10 h · suite sur devis",
+          "label_en": "10-h discovery sprint · next steps on quote",
           "emphasis": true
         },
         {
@@ -496,8 +503,8 @@
           "icon": "ia",
           "title_fr": "A/B testing et CRO",
           "title_en": "A/B testing and CRO",
-          "body_fr": "Variantes d'accroche, de formulaire et d'appel à l'action testées sur de vrais visiteurs : les décisions se prennent sur le taux de conversion.",
-          "body_en": "Hook, form and call-to-action variants tested on real visitors: decisions are made on conversion rate."
+          "body_fr": "Variantes d'accroche, de formulaire et d'appel à l'action testées sur le trafic de la campagne. On attend assez de clics pour décider sur le taux de conversion, pas sur une impression.",
+          "body_en": "Hook, form and call-to-action variants tested on the campaign's traffic. We wait for enough clicks to decide on conversion rate, not on an impression."
         }
       ]
     },
@@ -730,20 +737,20 @@
           "kicker_en": "After · 01",
           "h3_fr": "Mesure des conversions",
           "h3_en": "Conversion measurement",
-          "body_fr": "Le taux de conversion de la landing, le coût par lead et l'attribution par campagne suivis et synthétisés, avec des alertes quand une campagne décroche. Vous mesurez ce que le trafic payant rapporte, sur vos propres données.",
-          "body_en": "The landing's conversion rate, the cost per lead and attribution per campaign tracked and synthesised, with alerts when a campaign drops. You measure what paid traffic returns, on your own data.",
+          "body_fr": "Chaque conversion est mesurée événement par événement et renvoyée à Google Ads, pour que les enchères optimisent sur les vrais leads, pas sur les clics. Le taux de conversion de la landing, le coût par lead et l'attribution par campagne sont suivis et synthétisés, avec une alerte quand une campagne décroche. Pour comprendre pourquoi un clic payé ne convertit pas, un outil d'analyse produit comme PostHog rejoue les sessions et cartographie les zones chaudes de la page. Vous mesurez ce que le trafic payant rapporte, sur vos propres données.",
+          "body_en": "Each conversion is measured event by event and sent back to Google Ads, so bidding optimises on real leads, not on clicks. The landing's conversion rate, the cost per lead and attribution per campaign are tracked and synthesised, with an alert when a campaign drops. To understand why a paid click doesn't convert, a product analytics tool like PostHog replays the sessions and maps the page's hot zones. You measure what paid traffic returns, on your own data.",
           "points": [
             {
-              "label_fr": "Taux de conversion suivi par campagne",
-              "label_en": "Conversion rate tracked per campaign"
+              "label_fr": "Conversions renvoyées à Google Ads, pas les clics",
+              "label_en": "Conversions sent back to Google Ads, not clicks"
             },
             {
               "label_fr": "Coût par lead et attribution",
               "label_en": "Cost per lead and attribution"
             },
             {
-              "label_fr": "Alertes sur les campagnes qui décrochent",
-              "label_en": "Alerts on campaigns that drop"
+              "label_fr": "PostHog : session replay et cartes de chaleur",
+              "label_en": "PostHog: session replay and heatmaps"
             }
           ],
           "media_src": "/images/illustrations/ds/style-13-paper.webp",
@@ -780,16 +787,16 @@
           "kicker_en": "After · 03",
           "h3_fr": "Optimisation continue",
           "h3_en": "Continuous optimisation",
-          "body_fr": "L'optimisation du taux de conversion est un travail continu, pas un coup de chance. Variantes d'accroche, de formulaire et d'appel à l'action mises en concurrence sur de vrais visiteurs, version gagnante retenue, puis on recommence. Chaque point gagné baisse le coût par lead.",
-          "body_en": "Conversion rate optimisation is continuous work, not a lucky break. Hook, form and call-to-action variants pitted against each other on real visitors, winning version kept, then we start again. Each point gained lowers the cost per lead.",
+          "body_fr": "L'optimisation du taux de conversion est un travail continu, pas un coup de chance. On part d'une hypothèse lue dans les données de la campagne, on change une seule chose à la fois (accroche, formulaire, appel à l'action) et on attend assez de clics et de conversions pour trancher sans se mentir. Une campagne à faible volume n'atteint pas ce seuil : on teste alors une version après l'autre plutôt qu'en parallèle. La variante gagnante devient la référence, l'annonce reste alignée sur la page, et chaque point gagné baisse le coût par lead.",
+          "body_en": "Conversion rate optimisation is continuous work, not a lucky break. We start from a hypothesis read in the campaign's data, change one thing at a time (hook, form, call to action) and wait for enough clicks and conversions to decide without kidding ourselves. A low-volume campaign doesn't reach that threshold: we then test one version after the other rather than in parallel. The winning variant becomes the reference, the ad stays aligned with the page, and each point gained lowers the cost per lead.",
           "points": [
             {
-              "label_fr": "Variantes testées sur vrais visiteurs",
-              "label_en": "Variants tested on real visitors"
+              "label_fr": "Une hypothèse, une variable, assez de clics",
+              "label_en": "One hypothesis, one variable, enough clicks"
             },
             {
-              "label_fr": "Décision sur le taux de conversion",
-              "label_en": "Decision on conversion rate"
+              "label_fr": "Faible volume : une version après l'autre",
+              "label_en": "Low volume: one version after the other"
             },
             {
               "label_fr": "Coût par lead réduit dans la durée",
@@ -947,51 +954,32 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir votre palier de conversion Ads",
-      "h2_en": "Pick your Ads conversion tier",
-      "lede_fr": "Quatre manières d'entrer, selon votre maturité, à partir de 2 000 €. Le palier Essentiel pose une landing tracée sur votre campagne clé ; les paliers supérieurs ajoutent le message match par campagne, la connexion CRM et le réglage continu. On cadre ensemble au diagnostic.",
-      "lede_en": "Four ways in, depending on your maturity, from 2,000 €. The Essential tier lays a tracked landing on your key campaign; the higher tiers add message match per campaign, CRM connection and continuous tuning. We scope it together at the diagnostic.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Deux façons de faire convertir vos clics Ads",
+      "h2_en": "Two ways to make your Ads clicks convert",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : une première landing tracée sur votre campagne clé, avec les balises Ads posées. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez la landing, le tracking et la stack.",
+      "lede_en": "We start with a fixed-price discovery sprint: a first landing tracked on your key campaign, with the Ads tags in place. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the landing, the tracking and the stack.",
       "tiers": [
         {
-          "name_fr": "Essentiel",
-          "name_en": "Essential",
-          "price": "2 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
           "features_fr": [
-            "Une landing dédiée sur votre campagne clé",
+            "Une première landing dédiée sur votre campagne clé",
             "Copywriting orienté conversion, page rapide",
-            "Tracking des conversions et balises Ads"
+            "Tracking des conversions et balises Ads posés",
+            "Un premier livrable qui convertit, pas une maquette"
           ],
           "features_en": [
-            "One dedicated landing on your key campaign",
+            "A first dedicated landing on your key campaign",
             "Conversion-oriented copywriting, fast page",
-            "Conversion tracking and Ads tags"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un Essentiel →",
-            "label_en": "Scope an Essential →",
-            "href": "/contact?offer=landing-page-google-ads&intent=essentiel",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Croissance",
-          "name_en": "Growth",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
-          "features_fr": [
-            "Landings par campagne, message match tenu",
-            "Tracking server-side et attribution des leads",
-            "A/B testing et connexion CRM"
-          ],
-          "features_en": [
-            "Landings per campaign, message match held",
-            "Server-side tracking and lead attribution",
-            "A/B testing and CRM connection"
+            "Conversion tracking and Ads tags in place",
+            "A first deliverable that converts, not a mockup"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1002,56 +990,33 @@
           "featured": true
         },
         {
-          "name_fr": "Complet",
-          "name_en": "Complete",
-          "price": "7 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
           "features_fr": [
-            "Jeu de landings sur l'ensemble des campagnes",
-            "Quality Score et Core Web Vitals travaillés",
-            "Attribution complète et réglage continu",
-            "Formation et passation complètes"
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, cadre régie growth",
+            "Landings par campagne, tracking server-side, A/B et CRM",
+            "Vous gardez la landing, le tracking et la stack"
           ],
           "features_en": [
-            "Set of landings across all campaigns",
-            "Quality Score and Core Web Vitals worked",
-            "Full attribution and continuous tuning",
-            "Full training and handover"
+            "Time needed estimated together, then validated",
+            "Run in sprints, growth retainer frame",
+            "Landings per campaign, server-side tracking, A/B and CRM",
+            "You keep the landing, the tracking and the stack"
           ],
           "cta": {
-            "label_fr": "Cadrer un dispositif complet →",
-            "label_en": "Scope a complete setup →",
-            "href": "/contact?offer=landing-page-google-ads&intent=complet",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Intelligence",
-          "name_en": "Intelligence",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
-          "features_fr": [
-            "Tout le palier Complet",
-            "Réglage continu et pilotage des campagnes",
-            "Pont vers les landing pages et tunnels"
-          ],
-          "features_en": [
-            "The full Complete tier",
-            "Continuous tuning and campaign management",
-            "Bridge to landing pages and funnels"
-          ],
-          "cta": {
-            "label_fr": "Discuter d'un système →",
-            "label_en": "Discuss a system →",
-            "href": "/contact?offer=landing-page-google-ads&intent=intelligence",
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=landing-page-google-ads&intent=suite",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Besoin du tunnel de qualification complet (scoring, remontée CRM, nurturing) au-delà de la landing ? On bascule vers l'offre landing pages et tunnels. Pas d'abonnement caché ni captivité : à la fin, vous gardez la landing, le tracking et la stack, autonome et transférable.",
-      "footnote_en": "Need the full qualification funnel (scoring, CRM handover, nurturing) beyond the landing? We move to the landing pages and funnels offer. No hidden subscription, no lock-in: at the end, you keep the landing, the tracking and the stack, autonomous and transferable."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : une première landing tracée sur votre campagne clé, le copywriting et les balises Ads posés, avec un livrable qui convertit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les landings par campagne, le tracking server-side, l'A/B testing et la connexion CRM, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous gardez la landing, le tracking et la stack, autonome et transférable.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a first landing tracked on your key campaign, the copywriting and the Ads tags in place, with a deliverable that converts by the end. What follows is quoted: we estimate together the time landings per campaign, server-side tracking, A/B testing and CRM connection require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, you keep the landing, the tracking and the stack, autonomous and transferable."
     },
     {
       "type": "eeat-panel",
@@ -1089,6 +1054,12 @@
           "q_en": "How do you measure conversions from the Ads?",
           "a_fr": "On pose un plan de mesure GA4 centré sur les vrais événements de valeur (lead qualifié, devis demandé, pas simple clic), via Google Tag Manager, et on branche les balises de conversion Google Ads. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side. L'attribution relie chaque lead à la campagne et au mot-clé qui l'ont généré, pour que la régie optimise sur ce qui rapporte vraiment.",
           "a_en": "We set a GA4 measurement plan centred on real value events (qualified lead, quote requested, not a mere click), through Google Tag Manager, and wire the Google Ads conversion tags. To resist blockers and the end of third-party cookies, we route through server-side tracking. Attribution links each lead to the campaign and keyword that generated it, so the platform optimises on what truly returns."
+        },
+        {
+          "q_fr": "Combien de temps avant de savoir si une nouvelle landing convertit mieux ?",
+          "q_en": "How long before we know if a new landing converts better?",
+          "a_fr": "Le temps d'accumuler assez de clics et de conversions pour que l'écart soit fiable, pas un coup de chance. Sur une campagne bien alimentée, quelques semaines suffisent souvent ; sur une campagne à faible volume, on teste une version après l'autre plutôt qu'en parallèle, et on regarde le coût par lead sur la durée plutôt qu'au jour le jour. On renvoie les conversions à Google Ads en continu, donc les enchères apprennent pendant qu'on optimise la page.",
+          "a_en": "The time to gather enough clicks and conversions for the gap to be reliable, not a fluke. On a well-fed campaign, a few weeks often suffice; on a low-volume campaign, we test one version after the other rather than in parallel, and watch cost per lead over time rather than day to day. We send conversions back to Google Ads continuously, so bidding learns while we optimise the page."
         },
         {
           "q_fr": "Gérez-vous aussi les campagnes Google Ads elles-mêmes ?",

@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Développement de MVP SaaS pour PME et fondateurs",
-    "priceRange": "99€/h-3960€/mois",
-    "priceMin": 99,
-    "priceMax": 3960
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
   },
   "faq_fr": [
     {
@@ -127,9 +127,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Sur devis",
-          "label_fr": "cadré au périmètre, pas de forfait creux",
-          "label_en": "scoped to the perimeter, no empty package",
+          "value": "2–10 k€",
+          "label_fr": "budget HT indicatif, 4 socles au périmètre",
+          "label_en": "indicative ex-VAT budget, 4 tiers by scope",
           "emphasis": true
         },
         {
@@ -959,55 +959,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "layout": "grid-asym",
-      "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
-      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée pour sortir la v0 vendable, ou une régie mensuelle qui itère et fait évoluer le produit dans la durée. Dans les deux cas, le MVP se chiffre en régie à 99 € / h : vous payez les heures réellement travaillées, estimées au cadrage, pas un prix fixe posé à l'aveugle. On part toujours d'un cadrage, on livre un produit en ligne, pas une maquette.",
-      "lede_en": "The same offer, two ways to engage: a bounded one-off mission to ship the sellable v0, or a monthly retainer that iterates and evolves the product over time. Either way, the MVP is billed on a time basis at 99 € / h: you pay for the hours actually worked, estimated at scoping, not a fixed price set blind. We always start from scoping and ship a product online, not a mockup.",
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Quatre socles pour sortir votre produit",
+      "h2_en": "Four tiers to ship your product",
+      "lede_fr": "Un produit vendable se chiffre sur les mêmes bases qu'un site ou une application : quatre socles selon le périmètre de la v0. On part toujours d'un cadrage, on livre un produit en ligne, pas une maquette. Les itérations qui suivent se font en régie growth, en sprints.",
+      "lede_en": "A sellable product is priced on the same bases as a site or an application: four tiers by the scope of the v0. We always start from scoping and ship a product online, not a mockup. The iterations that follow run on a growth retainer, in sprints.",
       "tiers": [
         {
-          "name_fr": "À la carte",
-          "name_en": "One-off",
-          "price": "99 € / h",
-          "period_fr": "régie growth · HT",
-          "period_en": "growth retainer · ex VAT",
+          "name_fr": "MVP minimal",
+          "name_en": "Minimal MVP",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
           "features_fr": [
-            "Cadrage de la v0 vendable",
-            "Un MVP conçu, branché et mis en ligne",
-            "Inscription, authentification, paiement et code livré"
+            "Un parcours vendable, la fonction qui suffit à vendre",
+            "Inscription, authentification et paiement Stripe en ligne",
+            "Le produit encaisse dès la v0",
+            "Code livré et hébergé chez vous"
           ],
           "features_en": [
-            "Scoping of the sellable v0",
-            "One MVP designed, wired and deployed",
-            "Sign-up, authentication, payment and code delivered"
+            "One sellable journey, the feature that's enough to sell",
+            "Sign-up, authentication and Stripe payment online",
+            "The product charges from v0",
+            "Code delivered and hosted on your side"
           ],
           "cta": {
-            "label_fr": "Cadrer une mission →",
-            "label_en": "Scope a mission →",
-            "href": "/contact?offer=mvp-saas&intent=a-la-carte",
+            "label_fr": "Cadrer un MVP minimal →",
+            "label_en": "Scope a minimal MVP →",
+            "href": "/contact?offer=mvp-saas&intent=minimal",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Abonnement Growth",
-          "name_en": "Growth subscription",
-          "price": "3 960 €",
-          "period_fr": "/mois · HT",
-          "period_en": "/month · ex VAT",
+          "name_fr": "MVP standard",
+          "name_en": "Standard MVP",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · ex VAT",
           "features_fr": [
-            "Régie à disposition, 99 €/h",
-            "Itérations continues vers le product-market fit",
-            "Nouvelles fonctions ajoutées sur usage prouvé",
-            "Pilotage mensuel et roadmap partagée"
+            "Plusieurs parcours et comptes cloisonnés",
+            "Mesure d'usage dès le premier utilisateur",
+            "Une connexion à vos outils via API ou MCP",
+            "Base propre, pensée pour itérer, code transférable"
           ],
           "features_en": [
-            "Retainer on tap, 99 €/h",
-            "Ongoing iterations toward product-market fit",
-            "New features added on proven usage",
-            "Monthly steering and shared roadmap"
+            "Several journeys and compartmentalised accounts",
+            "Usage measurement from the first user",
+            "One connection to your tools via API or MCP",
+            "A clean base, built to iterate, transferable code"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1016,10 +1016,60 @@
             "variant": "primary"
           },
           "featured": true
+        },
+        {
+          "name_fr": "MVP premium",
+          "name_en": "Premium MVP",
+          "price": "7 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Produit multi-fonction sur un socle commun",
+            "Fonctions IA là où elles créent la valeur",
+            "Tableau d'usage : inscriptions, activation, paiements",
+            "Prêt à itérer vite vers le product-market fit"
+          ],
+          "features_en": [
+            "A multi-feature product on a shared base",
+            "AI features where they create the value",
+            "Usage dashboard: sign-ups, activation, payments",
+            "Ready to iterate fast toward product-market fit"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un MVP premium →",
+            "label_en": "Scope a premium MVP →",
+            "href": "/contact?offer=mvp-saas&intent=premium",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Produit sur mesure",
+          "name_en": "Bespoke product",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Intégrations lourdes et connexions multiples",
+            "Agents et automatisations là où c'est le cœur du produit",
+            "Base prête à scaler ou à présenter à des investisseurs",
+            "Code livré, documenté, hébergé chez vous : zéro captivité"
+          ],
+          "features_en": [
+            "Heavy integrations and multiple connections",
+            "Agents and automations where they're the core of the product",
+            "A base ready to scale or to show investors",
+            "Code delivered, documented, hosted on your side: zero lock-in"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un produit sur mesure →",
+            "label_en": "Scope a bespoke product →",
+            "href": "/contact?offer=mvp-saas&intent=sur-mesure",
+            "variant": "ghost"
+          }
         }
       ],
-      "footnote_fr": "On facture à la régie growth, 99 € de l'heure : le scope et le temps dépendent du périmètre de la v0, et on vous aide à chiffrer ce que demande le produit qui compte pour vous. L'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur la même base horaire : roadmap, itérations et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
-      "footnote_en": "We bill on a growth retainer, 99 € an hour: scope and time depend on the v0 perimeter, and we help you size what the product that matters to you takes. The Growth subscription, 3,960 € a month, puts a retainer at your disposal on the same hourly base: roadmap, iterations and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: you keep the source code and the hosting."
+      "footnote_fr": "La v0 vendable démarre à partir de 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT), les mêmes bases qu'un site web, une application, ou les deux. Les itérations qui suivent (nouvelles fonctions, montée en charge) se font en régie growth, 99 € de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
+      "footnote_en": "The sellable v0 starts from 2,000 € ex VAT: four tiers by scope (2,000, 4,000, 7,000, 10,000 € ex VAT), the same bases as a website, an application, or both. The iterations that follow (new features, scaling) run on a growth retainer, 99 € an hour, in sprints: we size the time together, you validate, we execute. No hidden subscription, no lock-in: you keep the source code and the hosting."
     },
     {
       "type": "eeat-panel",

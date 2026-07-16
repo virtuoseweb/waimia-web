@@ -18,9 +18,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Conseil IA / Cadrage / Accompagnement Claude",
-    "priceRange": "99€/h-3960€/mois",
-    "priceMin": 99,
-    "priceMax": 3960
+    "priceRange": "dès 999 €",
+    "priceMin": 999
   },
   "faq_fr": [
     {
@@ -147,9 +146,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "99 € / h",
-          "label_fr": "régie growth, tarif non dégressif",
-          "label_en": "growth retainer, flat hourly rate",
+          "value": "Dès 999 €",
+          "label_fr": "sprint découverte de 10 h · suite sur devis",
+          "label_en": "10-h discovery sprint · next steps on quote",
           "emphasis": true
         },
         {
@@ -925,49 +924,26 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Une offre, deux manières d'avancer",
       "h2_en": "One offer, two ways forward",
-      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur la décision qui compte, ou une régie mensuelle qui pilote vos chantiers IA dans la durée. On part toujours d'un diagnostic, on livre une décision actionnable, pas une étude qui dort.",
-      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the decision that matters, or a monthly retainer that steers your AI projects over time. We always start from a diagnostic and deliver an actionable decision, not a study that sleeps.",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : diagnostic de maturité et feuille de route chiffrée en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. La mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
+      "lede_en": "We start with a fixed-price discovery sprint: a maturity diagnostic and a costed roadmap in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. Technical implementation, if decided, moves to integration.",
       "tiers": [
         {
-          "name_fr": "À la carte",
-          "name_en": "One-off",
-          "price": "99 € / h",
-          "period_fr": "régie growth · HT",
-          "period_en": "growth retainer · ex VAT",
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
           "features_fr": [
             "Diagnostic de maturité et repérage des cas d'usage",
             "Feuille de route chiffrée et séquencée",
-            "Cadre de gouvernance et cadrage du premier chantier"
+            "Cadre de gouvernance et cadrage du premier chantier",
+            "Une décision actionnable, pas une étude qui dort"
           ],
           "features_en": [
             "Maturity diagnostic and use-case spotting",
             "Costed, sequenced roadmap",
-            "Governance frame and first project framing"
-          ],
-          "cta": {
-            "label_fr": "Cadrer une mission →",
-            "label_en": "Scope a mission →",
-            "href": "/contact?offer=consultant-ia-claude&intent=a-la-carte",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Abonnement Growth",
-          "name_en": "Growth subscription",
-          "price": "3 960 €",
-          "period_fr": "/mois · HT",
-          "period_en": "/month · ex VAT",
-          "features_fr": [
-            "Régie à disposition, 99 €/h",
-            "Pilotage des chantiers et comités réguliers",
-            "Conduite du changement et montée en compétence",
-            "Trajectoire ajustée au fil des résultats"
-          ],
-          "features_en": [
-            "Retainer on tap, 99 €/h",
-            "Project steering and regular reviews",
-            "Change management and skill-up",
-            "Trajectory adjusted as results come in"
+            "Governance frame and first project framing",
+            "An actionable decision, not a study that sleeps"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -976,10 +952,35 @@
             "variant": "primary"
           },
           "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, cadre régie growth",
+            "Pilotage des chantiers et comités réguliers",
+            "Conduite du changement et montée en compétence"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, growth retainer frame",
+            "Project steering and regular reviews",
+            "Change management and skill-up"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=consultant-ia-claude&intent=suite",
+            "variant": "ghost"
+          }
         }
       ],
-      "footnote_fr": "On facture à la régie growth, 99 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande la décision qui compte pour vous. L'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur la même base horaire : pilotage, comités et ajustement de la trajectoire. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : la mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
-      "footnote_en": "We bill on a growth retainer, 99 € an hour: scope and time depend on volume, and we help you size the time the decision that matters to you takes. The Growth subscription, 3,960 € a month, puts a retainer at your disposal on the same hourly base: steering, reviews and trajectory adjustment. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: technical implementation, if decided, moves to integration."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : diagnostic de maturité, repérage des cas d'usage et feuille de route chiffrée, avec une décision actionnable dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le pilotage et les chantiers, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : la mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: maturity diagnostic, use-case spotting and a costed roadmap, with an actionable decision by the end. What follows is quoted: we estimate together the time steering and projects require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: technical implementation, if decided, moves to integration."
     },
     {
       "type": "eeat-panel",

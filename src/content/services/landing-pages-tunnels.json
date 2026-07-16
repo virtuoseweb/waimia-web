@@ -18,9 +18,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Landing pages de conversion et tunnels de qualification de leads",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "dès 999 €",
+    "priceMin": 999
   },
   "faq_fr": [
     {
@@ -30,6 +29,10 @@
     {
       "q": "En quoi une landing page intelligente diffère d'une page classique ?",
       "a": "Une page classique présente. Une landing intelligente convertit et qualifie : elle est structurée par persona, instrumentée pour mesurer chaque palier, et chaque visiteur y laisse des signaux comportementaux exploitables. Le lead magnet d'entrée score l'intention dès la capture, les variantes A/B testées tranchent sur données plutôt que sur intuition, et le tracking relie chaque lead à la page qui l'a généré."
+    },
+    {
+      "q": "Combien de temps dure un test A/B, et si on a peu de trafic ?",
+      "a": "Ça dépend d'abord de votre trafic. Un test A/B a besoin d'assez de visiteurs et de conversions pour que l'écart entre deux variantes soit fiable, pas dû au hasard : comptez souvent deux à quatre semaines sur une page bien fréquentée. Sur une page à faible trafic, un A/B classique n'atteint jamais ce seuil : on teste alors en séquentiel, une version puis l'autre, ou en avant/après, et on assume l'incertitude au lieu de la maquiller. On décide sur un volume suffisant, jamais sur les trois premiers jours."
     },
     {
       "q": "Le scoring des leads, ça fait quoi concrètement ?",
@@ -64,6 +67,10 @@
     {
       "q": "How does an intelligent landing page differ from a classic one?",
       "a": "A classic page presents. An intelligent landing converts and qualifies: it is structured per persona, instrumented to measure each stage, and every visitor leaves usable behavioural signals. The entry lead magnet scores intent from capture, A/B tested variants decide on data rather than intuition, and tracking links each lead to the page that generated it."
+    },
+    {
+      "q": "How long does an A/B test run, and what if we have little traffic?",
+      "a": "It depends first on your traffic. An A/B test needs enough visitors and conversions for the gap between two variants to be reliable, not down to chance: often count two to four weeks on a well-visited page. On a low-traffic page, a classic A/B never reaches that threshold: we then test sequentially, one version then the other, or before/after, and we own the uncertainty instead of hiding it. We decide on enough volume, never on the first three days."
     },
     {
       "q": "What does lead scoring actually do?",
@@ -143,9 +150,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "2–10 k€",
-          "label_fr": "budget HT indicatif (sur mesure au-delà)",
-          "label_en": "indicative ex-VAT budget (bespoke beyond)",
+          "value": "Dès 999 €",
+          "label_fr": "sprint découverte de 10 h · suite sur devis",
+          "label_en": "10-h discovery sprint · next steps on quote",
           "emphasis": true
         },
         {
@@ -512,8 +519,8 @@
           "icon": "design",
           "title_fr": "A/B testing et CRO",
           "title_en": "A/B testing and CRO",
-          "body_fr": "Variantes de landing, d'accroche et de formulaire testées sur de vrais visiteurs : les décisions se prennent sur le taux de conversion, pas sur des intuitions.",
-          "body_en": "Landing, hook and form variants tested on real visitors: decisions are made on conversion rate, not hunches."
+          "body_fr": "Variantes de landing, d'accroche et de formulaire testées sur de vrais visiteurs. Chaque test part d'une hypothèse tirée des données, une seule variable à la fois, et attend un volume suffisant avant de trancher sur le taux de conversion. Sur une page à faible trafic, on teste en séquentiel ou en avant/après plutôt qu'en A/B classique.",
+          "body_en": "Landing, hook and form variants tested on real visitors. Each test starts from a data-driven hypothesis, one variable at a time, and waits for enough volume before deciding on conversion rate. On a low-traffic page, we test sequentially or before/after rather than classic A/B."
         }
       ]
     },
@@ -796,20 +803,20 @@
           "kicker_en": "After · 03",
           "h3_fr": "Tracking du tunnel de bout en bout",
           "h3_en": "End-to-end funnel tracking",
-          "body_fr": "Le taux de passage est suivi à chaque palier, de la première visite au lead qualifié. L'attribution relie chaque lead à la landing et au message qui l'ont généré, et les indicateurs disent si le tunnel tient : taux de contact des leads chauds, conversion par palier. Vous voyez où la valeur fuit.",
-          "body_en": "The pass-through rate is tracked at each stage, from the first visit to the qualified lead. Attribution links each lead to the landing and message that generated it, and the metrics say whether the funnel holds: hot-lead contact rate, conversion per stage. You see where value leaks.",
+          "body_fr": "Le tunnel est mesuré événement par événement, de la première visite au lead qualifié : chaque palier a son taux de passage, et la chute par étape saute aux yeux, formulaires multi-étapes compris. Des outils d'analyse produit comme PostHog ajoutent l'enregistrement de session, les cartes de chaleur et les funnels : on voit où le visiteur hésite, ce qu'il lit, ce qu'il ignore. L'attribution relie chaque lead à la landing et au message qui l'ont généré. Vous voyez où la valeur fuit.",
+          "body_en": "The funnel is measured event by event, from the first visit to the qualified lead: each stage has its pass-through rate, and the drop per step is obvious, multi-step forms included. Product analytics tools like PostHog add session recording, heatmaps and funnels: you see where the visitor hesitates, what they read, what they ignore. Attribution links each lead to the landing and message that generated it. You see where value leaks.",
           "points": [
             {
-              "label_fr": "Taux par palier, première visite au lead",
-              "label_en": "Rate per stage, first visit to lead"
+              "label_fr": "Mesure événement par événement, chute par étape",
+              "label_en": "Event-by-event measurement, drop per step"
             },
             {
               "label_fr": "Attribution landing et message",
               "label_en": "Landing and message attribution"
             },
             {
-              "label_fr": "Conversion par palier mesurée",
-              "label_en": "Conversion per stage measured"
+              "label_fr": "PostHog : session replay, cartes de chaleur, funnels",
+              "label_en": "PostHog: session replay, heatmaps, funnels"
             }
           ],
           "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
@@ -821,16 +828,16 @@
           "kicker_en": "After · 04",
           "h3_fr": "Optimisation continue",
           "h3_en": "Continuous optimisation",
-          "body_fr": "L'optimisation du taux de conversion est un travail continu, pas un coup de chance. Variantes de landing, d'accroche, de formulaire et d'appel à l'action mises en concurrence sur de vrais visiteurs, version gagnante retenue, puis on recommence sur le palier suivant. Vous gardez la stack.",
-          "body_en": "Conversion rate optimisation is continuous work, not a lucky break. Landing, hook, form and call-to-action variants pitted against each other on real visitors, winning version kept, then we start again on the next stage. You keep the stack.",
+          "body_fr": "L'optimisation du taux de conversion est un travail continu, pas un coup de chance. Chaque test part d'une hypothèse tirée des zones chaudes et des points de chute, une seule variable changée à la fois, servie en variante via un feature flag. On laisse tourner jusqu'à un volume et une durée suffisants avant de trancher, jamais sur les premières impressions. La lecture se fait sur deux plans : la hiérarchie visuelle d'un côté, l'alignement du message de l'annonce sur celui de la page de l'autre. La variante gagnante devient la référence, puis on recommence sur le palier suivant. Vous gardez la stack.",
+          "body_en": "Conversion rate optimisation is continuous work, not a lucky break. Each test starts from a hypothesis drawn from hot zones and drop-off points, one variable changed at a time, served as a variant through a feature flag. We let it run until enough volume and duration before deciding, never on first impressions. The reading happens on two levels: visual hierarchy on one side, alignment of the ad's message with the page's on the other. The winning variant becomes the reference, then we start again on the next stage. You keep the stack.",
           "points": [
             {
-              "label_fr": "Variantes testées sur vrais visiteurs",
-              "label_en": "Variants tested on real visitors"
+              "label_fr": "Hypothèse tirée des données, une variable à la fois",
+              "label_en": "Data-driven hypothesis, one variable at a time"
             },
             {
-              "label_fr": "Décision sur le taux de conversion",
-              "label_en": "Decision on conversion rate"
+              "label_fr": "Variante servie via un feature flag",
+              "label_en": "Variant served through a feature flag"
             },
             {
               "label_fr": "Vous gardez la stack, zéro captivité",
@@ -963,51 +970,32 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir votre palier de conversion",
-      "h2_en": "Pick your conversion tier",
-      "lede_fr": "Quatre manières d'entrer, selon votre maturité, à partir de 2 000 €. Le palier Essentiel pose une landing scorée à l'entrée ; les paliers supérieurs ajoutent le scoring prédictif, la connexion CRM et le réglage continu. On cadre ensemble au diagnostic.",
-      "lede_en": "Four ways in, depending on your maturity, from 2,000 €. The Essential tier lays a landing scored on entry; the higher tiers add predictive scoring, CRM connection and continuous tuning. We scope it together at the diagnostic.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Deux façons de faire convertir votre trafic",
+      "h2_en": "Two ways to make your traffic convert",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : une première landing scorée à l'entrée et le tracking posé. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez les pages, la note dans le CRM et la donnée.",
+      "lede_en": "We start with a fixed-price discovery sprint: a first landing scored on entry and the tracking in place. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the pages, the score in the CRM and the data.",
       "tiers": [
         {
-          "name_fr": "Essentiel",
-          "name_en": "Essential",
-          "price": "2 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
           "features_fr": [
-            "Landing à paliers et lead magnet d'entrée",
+            "Une première landing à paliers et lead magnet d'entrée",
             "Copywriting orienté conversion",
-            "Tracking et tableau de base"
+            "Tracking et tableau de base posés",
+            "Un premier livrable qui convertit, pas une maquette"
           ],
           "features_en": [
-            "Tiered landing and entry lead magnet",
+            "A first tiered landing and entry lead magnet",
             "Conversion-oriented copywriting",
-            "Tracking and base dashboard"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un Essentiel →",
-            "label_en": "Scope an Essential →",
-            "href": "/contact?offer=landing-pages-tunnels&intent=essentiel",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Croissance",
-          "name_en": "Growth",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
-          "features_fr": [
-            "Landing pages par persona, A/B testing",
-            "Lead magnet de scoring et nurturing conditionnel",
-            "Note prédictive branchée au CRM"
-          ],
-          "features_en": [
-            "Landing pages per persona, A/B testing",
-            "Scoring lead magnet and conditional nurturing",
-            "Predictive score wired to the CRM"
+            "Tracking and base dashboard in place",
+            "A first deliverable that converts, not a mockup"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1018,56 +1006,33 @@
           "featured": true
         },
         {
-          "name_fr": "Complet",
-          "name_en": "Complete",
-          "price": "7 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
           "features_fr": [
-            "Tunnel complet, landing au scoring",
-            "Modèle calé sur votre historique gagné/perdu",
-            "File de priorité et seuils d'alerte réglés",
-            "Formation et passation complètes"
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, cadre régie growth",
+            "A/B testing, scoring prédictif et connexion CRM",
+            "Vous gardez les pages, la note et la donnée"
           ],
           "features_en": [
-            "Full funnel, landing to scoring",
-            "Model calibrated on your won/lost history",
-            "Priority queue and alert thresholds set",
-            "Full training and handover"
+            "Time needed estimated together, then validated",
+            "Run in sprints, growth retainer frame",
+            "A/B testing, predictive scoring and CRM connection",
+            "You keep the pages, the score and the data"
           ],
           "cta": {
-            "label_fr": "Cadrer un dispositif complet →",
-            "label_en": "Scope a complete setup →",
-            "href": "/contact?offer=landing-pages-tunnels&intent=complet",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Intelligence",
-          "name_en": "Intelligence",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
-          "features_fr": [
-            "Tout le palier Complet",
-            "Réglage continu et agents de relance",
-            "Pont vers le système d'acquisition complet"
-          ],
-          "features_en": [
-            "The full Complete tier",
-            "Continuous tuning and follow-up agents",
-            "Bridge to the complete acquisition system"
-          ],
-          "cta": {
-            "label_fr": "Discuter d'un système →",
-            "label_en": "Discuss a system →",
-            "href": "/contact?offer=landing-pages-tunnels&intent=intelligence",
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=landing-pages-tunnels&intent=suite",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Pas de catalogue figé : chaque mission part d'une lecture de votre trafic et de votre pipeline, et le périmètre est chiffré au cadrage. Sans abonnement caché ni captivité : à la fin, vous disposez de landing pages qui convertissent et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
-      "footnote_en": "No fixed catalogue: every engagement starts from reading your traffic and pipeline, and scope is costed at scoping. No hidden subscription, no lock-in: at the end, you have landing pages that convert and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : une première landing scorée à l'entrée, le copywriting et le tracking posés, avec un livrable qui convertit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent l'A/B testing, le scoring prédictif et la connexion CRM, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous disposez de landing pages qui convertissent et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a first landing scored on entry, the copywriting and the tracking in place, with a deliverable that converts by the end. What follows is quoted: we estimate together the time A/B testing, predictive scoring and CRM connection require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, you have landing pages that convert and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
     },
     {
       "type": "eeat-panel",
@@ -1093,6 +1058,12 @@
           "q_en": "How does an intelligent landing page differ from a classic one?",
           "a_fr": "Une page classique présente. Une landing intelligente convertit et qualifie : elle est structurée par persona, instrumentée pour mesurer chaque palier, et chaque visiteur y laisse des signaux comportementaux exploitables. Le lead magnet d'entrée score l'intention dès la capture, les variantes A/B testées tranchent sur données plutôt que sur intuition, et le tracking relie chaque lead à la page qui l'a généré.",
           "a_en": "A classic page presents. An intelligent landing converts and qualifies: it is structured per persona, instrumented to measure each stage, and every visitor leaves usable behavioural signals. The entry lead magnet scores intent from capture, A/B tested variants decide on data rather than intuition, and tracking links each lead to the page that generated it."
+        },
+        {
+          "q_fr": "Combien de temps dure un test A/B, et si on a peu de trafic ?",
+          "q_en": "How long does an A/B test run, and what if we have little traffic?",
+          "a_fr": "Ça dépend d'abord de votre trafic. Un test A/B a besoin d'assez de visiteurs et de conversions pour que l'écart entre deux variantes soit fiable, pas dû au hasard : comptez souvent deux à quatre semaines sur une page bien fréquentée. Sur une page à faible trafic, un A/B classique n'atteint jamais ce seuil : on teste alors en séquentiel, une version puis l'autre, ou en avant/après, et on assume l'incertitude au lieu de la maquiller. On décide sur un volume suffisant, jamais sur les trois premiers jours.",
+          "a_en": "It depends first on your traffic. An A/B test needs enough visitors and conversions for the gap between two variants to be reliable, not down to chance: often count two to four weeks on a well-visited page. On a low-traffic page, a classic A/B never reaches that threshold: we then test sequentially, one version then the other, or before/after, and we own the uncertainty instead of hiding it. We decide on enough volume, never on the first three days."
         },
         {
           "q_fr": "Le scoring des leads, ça fait quoi concrètement ?",

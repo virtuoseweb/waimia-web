@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Développement d'applications métier internes pour PME",
-    "priceRange": "99€/h-3960€/mois",
-    "priceMin": 99,
-    "priceMax": 3960
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
   },
   "faq_fr": [
     {
@@ -143,9 +143,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Sur devis",
-          "label_fr": "cadré au périmètre, pas de forfait creux",
-          "label_en": "scoped to the perimeter, no empty package",
+          "value": "2–10 k€",
+          "label_fr": "budget HT indicatif, 4 socles au périmètre",
+          "label_en": "indicative ex-VAT budget, 4 tiers by scope",
           "emphasis": true
         },
         {
@@ -971,55 +971,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "layout": "grid-asym",
-      "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
-      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur l'outil qui compte, ou une régie mensuelle qui maintient et fait évoluer vos applications dans la durée. On part toujours d'un cadrage, on livre une application en production, pas une maquette.",
-      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the tool that matters, or a monthly retainer that maintains and evolves your applications over time. We always start from scoping and ship an application in production, not a mockup.",
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Quatre socles pour construire votre outil",
+      "h2_en": "Four tiers to build your tool",
+      "lede_fr": "Une application, un outil interne, ou les deux : mêmes bases qu'un site, quatre socles selon le périmètre. On part toujours d'un cadrage, on livre une application en production, pas une maquette. Le travail autour se fait ensuite en régie growth, en sprints.",
+      "lede_en": "An application, an internal tool, or both: the same bases as a site, four tiers by scope. We always start from scoping and ship an application in production, not a mockup. The work around it then runs on a growth retainer, in sprints.",
       "tiers": [
         {
-          "name_fr": "À la carte",
-          "name_en": "One-off",
-          "price": "99 € / h",
-          "period_fr": "régie growth · HT",
-          "period_en": "growth retainer · ex VAT",
+          "name_fr": "Premier outil",
+          "name_en": "First tool",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
           "features_fr": [
-            "Cadrage du besoin prioritaire",
-            "Une application conçue, branchée et mise en production",
-            "Accès par rôle, journal, sauvegardes et code livré"
+            "Un premier écran métier, celui qui fait le plus mal, mis en production",
+            "Modèle de données propre à la place du tableur",
+            "Accès par rôle, journal et sauvegardes",
+            "Code livré et hébergé chez vous"
           ],
           "features_en": [
-            "Scoping of the priority need",
-            "One application designed, wired and put into production",
-            "Role-based access, log, backups and code delivered"
+            "A first business screen, the one that hurts most, put into production",
+            "A clean data model in place of the spreadsheet",
+            "Role-based access, log and backups",
+            "Code delivered and hosted on your side"
           ],
           "cta": {
-            "label_fr": "Cadrer une mission →",
-            "label_en": "Scope a mission →",
-            "href": "/contact?offer=applications-internes&intent=a-la-carte",
+            "label_fr": "Cadrer un premier outil →",
+            "label_en": "Scope a first tool →",
+            "href": "/contact?offer=applications-internes&intent=premier-outil",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Abonnement Growth",
-          "name_en": "Growth subscription",
-          "price": "3 960 €",
-          "period_fr": "/mois · HT",
-          "period_en": "/month · ex VAT",
+          "name_fr": "Outil branché",
+          "name_en": "Wired tool",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · ex VAT",
           "features_fr": [
-            "Régie à disposition, 99 €/h",
-            "Maintenance et évolutions continues de vos outils",
-            "Nouveaux modules ajoutés sur preuve",
-            "Pilotage mensuel et roadmap partagée"
+            "Une application 3 à 5 écrans, taillée à votre process",
+            "Branchée à vos données (CRM, facturation) via API ou MCP",
+            "Rôles, permissions, journal et sauvegardes",
+            "Code livré, documenté et transférable"
           ],
           "features_en": [
-            "Retainer on tap, 99 €/h",
-            "Ongoing maintenance and evolutions of your tools",
-            "New modules added on proof",
-            "Monthly steering and shared roadmap"
+            "A 3-to-5-screen application, cut to your process",
+            "Wired to your data (CRM, billing) via API or MCP",
+            "Roles, permissions, log and backups",
+            "Code delivered, documented and transferable"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1028,10 +1028,60 @@
             "variant": "primary"
           },
           "featured": true
+        },
+        {
+          "name_fr": "Suite d'outils",
+          "name_en": "Suite of tools",
+          "price": "7 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Plusieurs métiers couverts sur un socle commun",
+            "Assistance IA là où elle sert, encadrée par vos règles",
+            "Connexions multiples à vos logiciels via API ou MCP",
+            "Tableau de suivi de ce que l'outil produit"
+          ],
+          "features_en": [
+            "Several functions covered on a shared base",
+            "AI assistance where it serves, framed by your rules",
+            "Multiple connections to your software via API or MCP",
+            "A dashboard of what the tool produces"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une suite →",
+            "label_en": "Scope a suite →",
+            "href": "/contact?offer=applications-internes&intent=premium",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Socle sur mesure",
+          "name_en": "Bespoke foundation",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Le socle interne complet, plusieurs modules orchestrés",
+            "Intégrations métier lourdes et agents là où c'est utile",
+            "Gouvernance des accès, journal et sauvegardes durables",
+            "Code livré, documenté, hébergé chez vous : zéro captivité"
+          ],
+          "features_en": [
+            "The full internal foundation, several modules orchestrated",
+            "Heavy business integrations and agents where useful",
+            "Access governance, durable log and backups",
+            "Code delivered, documented, hosted on your side: zero lock-in"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un socle sur mesure →",
+            "label_en": "Scope a bespoke foundation →",
+            "href": "/contact?offer=applications-internes&intent=sur-mesure",
+            "variant": "ghost"
+          }
         }
       ],
-      "footnote_fr": "On facture à la régie growth, 99 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande l'outil qui compte pour vous. L'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur la même base horaire : roadmap, exécution et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
-      "footnote_en": "We bill on a growth retainer, 99 € an hour: scope and time depend on volume, and we help you size the time the tool that matters to you takes. The Growth subscription, 3,960 € a month, puts a retainer at your disposal on the same hourly base: roadmap, execution and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: you keep the source code and the hosting."
+      "footnote_fr": "Le premier outil démarre à partir de 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT), les mêmes bases qu'un site web, une application, ou les deux. Le travail autour (nouveaux écrans, évolutions, connexions) se fait ensuite en régie growth, 99 € de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
+      "footnote_en": "The first tool starts from 2,000 € ex VAT: four tiers by scope (2,000, 4,000, 7,000, 10,000 € ex VAT), the same bases as a website, an application, or both. The work around it (new screens, evolutions, connections) then runs on a growth retainer, 99 € an hour, in sprints: we size the time together, you validate, we execute. No hidden subscription, no lock-in: you keep the source code and the hosting."
     },
     {
       "type": "eeat-panel",

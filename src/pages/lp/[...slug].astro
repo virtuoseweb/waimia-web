@@ -1,0 +1,49 @@
+---
+export const prerender = true;
+
+// Page SSG · /lp/[slug] · landing conversion (outbound / cold email).
+// Rendu 100 % composable (registry) · déclinaison courte de /services/[slug].
+// Différences vs services : pas de MastheadBar (breadcrumb inutile en outbound),
+// noindex assumé (robots disallow /lp/ + hors sitemap, cf astro.config.mjs).
+// MDX/JSON sans `sections:` = erreur de build volontaire (anti-orphelin).
+
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import { buildService } from '../../lib/seo/schema-builder';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('lp');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const description = lang === 'en' ? data.description_en : data.description_fr;
+
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error(`lp/${entry.id} : frontmatter \`sections:\` requis (page LP composable, anti-orphelin)`);
+}
+
+// JSON-LD métier · Service (GEO/AIO). Conservé (trivial) même en noindex : utile
+// si la page est partagée en direct. FAQPage émis par la section `faq-accordion`.
+const serviceLd = buildService({
+  name: title,
+  description,
+  serviceType: data.seo?.serviceType,
+  priceRange: data.seo?.priceRange,
+  priceMin: data.seo?.priceMin,
+  priceMax: data.seo?.priceMax,
+});
+const pageLd = [serviceLd];
+---
+
+<Base title={title} description={description} jsonLd={pageLd} noindex={true}>
+  <SectionsRenderer sections={data.sections!} lang={lang} />
+</Base>

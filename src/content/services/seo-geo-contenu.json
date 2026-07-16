@@ -18,14 +18,17 @@
   "seo": {
     "noindex": false,
     "serviceType": "Référencement SEO, GEO et production de contenu pilotée par l'IA",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "dès 999 €",
+    "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "C'est quoi le GEO, et en quoi ça change du SEO ?",
       "a": "Le SEO vous rend visible sur Google. Le GEO (Generative Engine Optimization) vous rend citable par les assistants IA : ChatGPT, Claude, Perplexity. Concrètement, on structure votre contenu en JSON-LD et Schema.org, dans des formats de réponse clairs et sourcés, pour que votre marque apparaisse dans les réponses plutôt que vos concurrents. Les deux se travaillent ensemble, pas l'un contre l'autre."
+    },
+    {
+      "q": "Vous gérez aussi la fiche Google Business Profile ?",
+      "a": "Oui, quand la visibilité locale compte pour vous. La fiche Google Business Profile, le NAP et les requêtes géolocalisées forment l'étage local de votre référencement, à côté du SEO et du GEO : on la structure, on la tient et on la relie à vos pages locales. Le détail du dispositif est sur notre page dédiée au référencement local."
     },
     {
       "q": "Le contenu produit par IA est-il vraiment publiable ?",
@@ -60,6 +63,10 @@
     {
       "q": "What is GEO, and how does it differ from SEO?",
       "a": "SEO makes you visible on Google. GEO (Generative Engine Optimization) makes you citable by AI assistants: ChatGPT, Claude, Perplexity. Concretely, we structure your content in JSON-LD and Schema.org, in clear, sourced answer formats, so your brand appears in the answers instead of your competitors. Both are worked together, not one against the other."
+    },
+    {
+      "q": "Do you also manage the Google Business Profile?",
+      "a": "Yes, when local visibility matters to you. The Google Business Profile, the NAP and geo-located queries form the local layer of your search, alongside SEO and GEO: we structure it, keep it and link it to your local pages. The full setup is detailed on our dedicated local SEO page."
     },
     {
       "q": "Is AI-produced content really publishable?",
@@ -143,9 +150,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "2–10 k€",
-          "label_fr": "budget HT indicatif (sur mesure au-delà)",
-          "label_en": "indicative ex-VAT budget (bespoke beyond)",
+          "value": "Dès 999 €",
+          "label_fr": "sprint découverte de 10 h · suite sur devis",
+          "label_en": "10-h discovery sprint · next steps on quote",
           "emphasis": true
         },
         {
@@ -963,111 +970,69 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Points d'entrée",
-      "kicker_en": "§ Entry points",
-      "h2_fr": "Choisir votre palier SEO et GEO",
-      "h2_en": "Pick your SEO and GEO tier",
-      "lede_fr": "Quatre manières d'entrer dans la machine éditoriale selon votre maturité, à partir de 2 000 €. On cadre ensemble au diagnostic.",
-      "lede_en": "Four ways into the editorial machine depending on your maturity, from 2,000 €. We scope it together at the diagnostic.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Deux façons de lancer votre machine éditoriale",
+      "h2_en": "Two ways to launch your editorial machine",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : audit éditorial, ligne éditoriale et un premier pipeline d'articles SEO/GEO. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous disposez d'une machine éditoriale autonome et transférable.",
+      "lede_en": "We start with a fixed-price discovery sprint: editorial audit, editorial line and a first SEO/GEO article pipeline. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You get an autonomous, transferable editorial machine.",
       "tiers": [
         {
-          "name_fr": "Essentiel",
-          "name_en": "Essential",
-          "price": "2 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
           "features_fr": [
-            "Audit éditorial 5 jours",
-            "Ligne éditoriale et plan de contenu",
-            "Premier pipeline d'articles SEO/GEO de base"
+            "Audit éditorial et ligne éditoriale",
+            "Plan de contenu SEO/GEO priorisé",
+            "Un premier pipeline d'articles de base",
+            "Un premier livrable qui produit, pas une maquette"
           ],
           "features_en": [
-            "5-day editorial audit",
-            "Editorial line and content plan",
-            "First base SEO/GEO article pipeline"
+            "Editorial audit and editorial line",
+            "Prioritised SEO/GEO content plan",
+            "A first base article pipeline",
+            "A first deliverable that produces, not a mockup"
           ],
           "cta": {
-            "label_fr": "Cadrer un Essentiel →",
-            "label_en": "Scope an Essential →",
-            "href": "/contact?offer=seo-geo-contenu&intent=essentiel",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Croissance",
-          "name_en": "Growth",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
-          "features_fr": [
-            "Pipeline SEO et fiches GEO-ready en cadence",
-            "Connexion IA (Claude, GPT) et premiers skills",
-            "Déclinaison newsletter, posts, webinaire"
-          ],
-          "features_en": [
-            "SEO pipeline and GEO-ready pages on cadence",
-            "AI connection (Claude, GPT) and first skills",
-            "Newsletter, posts, webinar spin-off"
-          ],
-          "cta": {
-            "label_fr": "Cadrer une croissance →",
-            "label_en": "Scope a growth tier →",
-            "href": "/contact?offer=seo-geo-contenu&intent=croissance",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Complet",
-          "name_en": "Complete",
-          "price": "7 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
-          "features_fr": [
-            "Système de contenu complet et CMS intelligent",
-            "Maillage interne et monitoring visibilité",
-            "Intégrations métier sur mesure",
-            "Formation et passation complètes"
-          ],
-          "features_en": [
-            "Full content system and intelligent CMS",
-            "Internal linking and visibility monitoring",
-            "Custom business integrations",
-            "Full training and handover"
-          ],
-          "cta": {
-            "label_fr": "Réserver un diagnostic →",
-            "label_en": "Book a diagnostic →",
+            "label_fr": "Réserver un diagnostic (45 min) →",
+            "label_en": "Book a diagnostic (45 min) →",
             "href": "/contact?offer=seo-geo-contenu&intent=discovery",
             "variant": "primary"
           },
           "featured": true
         },
         {
-          "name_fr": "Intelligence",
-          "name_en": "Intelligence",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
           "features_fr": [
-            "Tout le palier Complet",
-            "Suivi GEO, digital PR et agents éditoriaux",
-            "Pont vers le système d'acquisition complet"
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, cadre régie growth",
+            "Pipeline en cadence, GEO, maillage et connexion IA",
+            "Vous gardez la machine éditoriale et les accès"
           ],
           "features_en": [
-            "The full Complete tier",
-            "GEO tracking, digital PR and editorial agents",
-            "Bridge to the complete acquisition system"
+            "Time needed estimated together, then validated",
+            "Run in sprints, growth retainer frame",
+            "Pipeline on cadence, GEO, internal linking and AI connection",
+            "You keep the editorial machine and the access"
           ],
           "cta": {
-            "label_fr": "Discuter d'un système →",
-            "label_en": "Discuss a system →",
-            "href": "/contact?offer=seo-geo-contenu&intent=intelligence",
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=seo-geo-contenu&intent=suite",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Besoin spécifique (ETI, multi-sites, intégrations lourdes) ? Palier Sur mesure sur devis, qui bascule vers le système d'acquisition complet. Pas d'abonnement caché : à la fin, vous disposez d'une machine éditoriale autonome et transférable.",
-      "footnote_en": "Specific need (mid-cap, multi-site, heavy integrations)? Bespoke tier on quote, bridging to the complete acquisition system. No hidden subscription: at the end, you have an autonomous, transferable editorial machine."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : audit éditorial, ligne éditoriale et un premier pipeline d'articles SEO/GEO, avec un livrable qui produit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le pipeline en cadence, le GEO, le maillage et la connexion IA, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement : à la fin, vous disposez d'une machine éditoriale autonome et transférable.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: editorial audit, editorial line and a first SEO/GEO article pipeline, with a deliverable that produces by the end. What follows is quoted: we estimate together the time the pipeline on cadence, GEO, internal linking and AI connection require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription: at the end, you have an autonomous, transferable editorial machine."
     },
     {
       "type": "eeat-panel",
@@ -1087,6 +1052,12 @@
           "q_en": "What is GEO, and how does it differ from SEO?",
           "a_fr": "Le SEO vous rend visible sur Google. Le GEO (Generative Engine Optimization) vous rend citable par les assistants IA : ChatGPT, Claude, Perplexity. Concrètement, on structure votre contenu en JSON-LD et Schema.org, dans des formats de réponse clairs et sourcés, pour que votre marque apparaisse dans les réponses plutôt que vos concurrents. Les deux se travaillent ensemble, pas l'un contre l'autre.",
           "a_en": "SEO makes you visible on Google. GEO (Generative Engine Optimization) makes you citable by AI assistants: ChatGPT, Claude, Perplexity. Concretely, we structure your content in JSON-LD and Schema.org, in clear, sourced answer formats, so your brand appears in the answers instead of your competitors. Both are worked together, not one against the other."
+        },
+        {
+          "q_fr": "Vous gérez aussi la fiche Google Business Profile ?",
+          "q_en": "Do you also manage the Google Business Profile?",
+          "a_fr": "Oui, quand la visibilité locale compte pour vous. La fiche Google Business Profile, le NAP et les requêtes géolocalisées forment l'étage local de votre référencement, à côté du SEO et du GEO : on la structure, on la tient et on la relie à vos pages locales. Le détail du dispositif est sur notre page dédiée au référencement local.",
+          "a_en": "Yes, when local visibility matters to you. The Google Business Profile, the NAP and geo-located queries form the local layer of your search, alongside SEO and GEO: we structure it, keep it and link it to your local pages. The full setup is detailed on our dedicated local SEO page."
         },
         {
           "q_fr": "Le contenu produit par IA est-il vraiment publiable ?",

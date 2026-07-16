@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation des processus et outils métier IA pour PME",
-    "priceRange": "99€/h-3960€/mois",
-    "priceMin": 99,
-    "priceMax": 3960
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
   },
   "faq_fr": [
     {
@@ -1001,57 +1001,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "layout": "grid-asym",
-      "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières de câbler votre <i class=\"acc\">système</i>",
-      "h2_en": "One offer, two ways to wire your <i class=\"acc\">system</i>",
-      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur le module qui rend le plus de temps, ou une régie mensuelle qui orchestre et supervise votre système d'agents dans la durée. On part toujours d'un diagnostic, on prouve la valeur, puis on étend.",
-      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the module that gives back the most time, or a monthly retainer that orchestrates and supervises your agent system over time. We always start from a diagnostic, prove the value, then extend.",
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Quatre socles pour câbler votre <i class=\"acc\">système</i>",
+      "h2_en": "Four tiers to wire your <i class=\"acc\">system</i>",
+      "lede_fr": "La base du système, c'est l'outil ou l'application : quatre socles selon le périmètre, les mêmes qu'un site ou une application. On la construit, on prouve la valeur, puis le travail autour (agents, connecteurs, orchestration, supervision) se fait en régie growth, en sprints. On part toujours d'un diagnostic.",
+      "lede_en": "The base of the system is the tool or the application: four tiers by scope, the same as a site or an application. We build it, prove the value, then the work around it (agents, connectors, orchestration, supervision) runs on a growth retainer, in sprints. We always start from a diagnostic.",
       "tiers": [
         {
-          "name_fr": "À la carte",
-          "name_en": "One-off",
-          "price": "99 € / h",
-          "period_fr": "régie growth · HT",
-          "period_en": "growth retainer · ex VAT",
+          "name_fr": "Premier module",
+          "name_en": "First module",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
           "features_fr": [
-            "Cartographie des tâches et plan d'action chiffré",
-            "Un agent conçu, branché via MCP et déployé",
+            "Le module qui rend le plus de temps, mis en production",
+            "Un outil ou un agent branché via MCP",
             "Périmètre, gouvernance et validation humaine",
-            "Mesure du temps rendu et passation"
+            "Code livré et hébergé chez vous"
           ],
           "features_en": [
-            "Map of tasks and costed action plan",
-            "One agent designed, wired via MCP and deployed",
+            "The module that gives back the most time, put into production",
+            "One tool or one agent wired via MCP",
             "Scope, governance and human validation",
-            "Measurement of time returned and handover"
+            "Code delivered and hosted on your side"
           ],
           "cta": {
-            "label_fr": "Cadrer une mission →",
-            "label_en": "Scope a mission →",
-            "href": "/contact?offer=systemes-operationnels-ia&intent=a-la-carte",
+            "label_fr": "Cadrer un premier module →",
+            "label_en": "Scope a first module →",
+            "href": "/contact?offer=systemes-operationnels-ia&intent=premier-module",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Abonnement Growth",
-          "name_en": "Growth subscription",
-          "price": "3 960 €",
-          "period_fr": "/mois · HT",
-          "period_en": "/month · ex VAT",
+          "name_fr": "Système branché",
+          "name_en": "Wired system",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · ex VAT",
           "features_fr": [
-            "Régie à disposition, 99 €/h",
-            "Plusieurs agents et modules orchestrés et supervisés",
-            "Extension du système sur preuve",
-            "Pilotage mensuel et roadmap partagée"
+            "Une application 3 à 5 écrans et un premier agent",
+            "Branchée à vos données via API ou MCP",
+            "Gouvernance des accès, journal et validation humaine",
+            "Mesure du temps rendu, code transférable"
           ],
           "features_en": [
-            "Retainer on tap, 99 €/h",
-            "Several agents and modules orchestrated and supervised",
-            "System extension on proof",
-            "Monthly steering and shared roadmap"
+            "A 3-to-5-screen application and a first agent",
+            "Wired to your data via API or MCP",
+            "Access governance, log and human validation",
+            "Measurement of time returned, transferable code"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1060,10 +1058,60 @@
             "variant": "primary"
           },
           "featured": true
+        },
+        {
+          "name_fr": "Système orchestré",
+          "name_en": "Orchestrated system",
+          "price": "7 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Plusieurs agents et modules sur un socle commun",
+            "Connexions multiples à vos logiciels via API ou MCP",
+            "Supervision, garde-fous et validation humaine",
+            "Tableau de mesure du temps rendu"
+          ],
+          "features_en": [
+            "Several agents and modules on a shared base",
+            "Multiple connections to your software via API or MCP",
+            "Supervision, guardrails and human validation",
+            "A dashboard measuring the time returned"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un système orchestré →",
+            "label_en": "Scope an orchestrated system →",
+            "href": "/contact?offer=systemes-operationnels-ia&intent=premium",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Socle ops sur mesure",
+          "name_en": "Bespoke ops foundation",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Le système opérationnel complet, de bout en bout",
+            "Intégrations métier lourdes et agents orchestrés",
+            "Supervision, gouvernance et sauvegardes durables",
+            "Code livré, documenté, hébergé chez vous : zéro captivité"
+          ],
+          "features_en": [
+            "The full operational system, end to end",
+            "Heavy business integrations and orchestrated agents",
+            "Supervision, governance and durable backups",
+            "Code delivered, documented, hosted on your side: zero lock-in"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un socle sur mesure →",
+            "label_en": "Scope a bespoke foundation →",
+            "href": "/contact?offer=systemes-operationnels-ia&intent=sur-mesure",
+            "variant": "ghost"
+          }
         }
       ],
-      "footnote_fr": "On facture à la régie growth, 99 € de l'heure : le scope et le temps dépendent du volume (combien d'agents, quels connecteurs, quelles applications), et on vous aide à chiffrer le chantier qui compte pour vous. L'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur la même base horaire : orchestration, supervision et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans engagement de durée ni abonnement caché : vous gardez le code et la main.",
-      "footnote_en": "We bill on a growth retainer, 99 € an hour: scope and time depend on volume (how many agents, which connectors, which apps), and we help you size the work that matters to you. The Growth subscription, 3,960 € a month, puts a retainer at your disposal on the same hourly base: orchestration, supervision and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No duration commitment, no hidden subscription: you keep the code and the control."
+      "footnote_fr": "Le premier module démarre à partir de 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT), les mêmes bases qu'un site web, une application, ou les deux. Le travail autour (nouveaux agents, connecteurs, orchestration, supervision) se fait ensuite en régie growth, 99 € de l'heure, en sprints : on estime le temps ensemble au diagnostic, vous validez, on exécute. Sans engagement de durée ni abonnement caché : vous gardez le code et la main.",
+      "footnote_en": "The first module starts from 2,000 € ex VAT: four tiers by scope (2,000, 4,000, 7,000, 10,000 € ex VAT), the same bases as a website, an application, or both. The work around it (new agents, connectors, orchestration, supervision) then runs on a growth retainer, 99 € an hour, in sprints: we size the time together at the diagnostic, you validate, we execute. No duration commitment, no hidden subscription: you keep the code and the control."
     },
     {
       "type": "eeat-panel",

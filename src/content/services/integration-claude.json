@@ -18,9 +18,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Intégration Claude en entreprise / Agents IA / MCP",
-    "priceRange": "99€/h-3960€/mois",
-    "priceMin": 99,
-    "priceMax": 3960
+    "priceRange": "dès 999 €",
+    "priceMin": 999
   },
   "faq_fr": [
     {
@@ -159,9 +158,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Sur devis",
-          "label_fr": "chiffré au cadrage, pas de catalogue figé",
-          "label_en": "costed at scoping, no fixed catalogue",
+          "value": "Dès 999 €",
+          "label_fr": "sprint découverte de 10 h · suite sur devis",
+          "label_en": "10-h discovery sprint · next steps on quote",
           "emphasis": true
         },
         {
@@ -1005,49 +1004,26 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Une offre, deux manières d'avancer",
       "h2_en": "One offer, two ways forward",
-      "lede_fr": "La même offre, deux façons d'engager : une mission ponctuelle et bornée sur le chantier qui compte, ou une régie mensuelle qui déploie et supervise votre dispositif Claude dans la durée. On part toujours d'un diagnostic, on livre un agent en production, pas une étude qui dort.",
-      "lede_en": "The same offer, two ways to engage: a bounded one-off mission on the engagement that matters, or a monthly retainer that deploys and supervises your Claude setup over time. We always start from a diagnostic and ship an agent in production, not a study that sleeps.",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cartographie des cas d'usage et un premier agent Claude en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
+      "lede_en": "We start with a fixed-price discovery sprint: a map of the use cases and a first Claude agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. Your agents run, their architecture is documented and your teams are trained to evolve them.",
       "tiers": [
         {
-          "name_fr": "À la carte",
-          "name_en": "One-off",
-          "price": "99 € / h",
-          "period_fr": "régie growth · HT",
-          "period_en": "growth retainer · ex VAT",
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
           "features_fr": [
             "Cartographie des cas d'usage et plan chiffré",
-            "Un agent conçu, branché via MCP et déployé",
-            "Gouvernance, mesure et passation"
+            "Un premier agent conçu et branché via MCP",
+            "Agent déployé, gouvernance et mesure posées",
+            "Un premier livrable qui tourne, pas une étude qui dort"
           ],
           "features_en": [
             "Map of use cases and costed plan",
-            "One agent designed, wired via MCP and deployed",
-            "Governance, measurement and handover"
-          ],
-          "cta": {
-            "label_fr": "Cadrer une mission →",
-            "label_en": "Scope a mission →",
-            "href": "/contact?offer=integrateur-claude&intent=a-la-carte",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Abonnement Growth",
-          "name_en": "Growth subscription",
-          "price": "3 960 €",
-          "period_fr": "/mois · HT",
-          "period_en": "/month · ex VAT",
-          "features_fr": [
-            "Régie à disposition, 99 €/h",
-            "Plusieurs agents et connecteurs MCP supervisés",
-            "Extension du périmètre sur preuve",
-            "Pilotage mensuel et roadmap partagée"
-          ],
-          "features_en": [
-            "Retainer on tap, 99 €/h",
-            "Several agents and MCP connectors supervised",
-            "Scope extension on proof",
-            "Monthly steering and shared roadmap"
+            "A first agent designed and wired via MCP",
+            "Agent deployed, governance and measurement in place",
+            "A first deliverable that runs, not a study that sleeps"
           ],
           "cta": {
             "label_fr": "Réserver un diagnostic (45 min) →",
@@ -1056,10 +1032,35 @@
             "variant": "primary"
           },
           "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, cadre régie growth",
+            "Nouveaux agents et connecteurs MCP supervisés",
+            "Architecture documentée, équipes formées"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, growth retainer frame",
+            "New agents and MCP connectors supervised",
+            "Architecture documented, teams trained"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=integrateur-claude&intent=suite",
+            "variant": "ghost"
+          }
         }
       ],
-      "footnote_fr": "On facture à la régie growth, 99 € de l'heure : le scope et le temps dépendent du volume, et on vous aide à chiffrer le temps que demande le chantier qui compte pour vous. L'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur la même base horaire : exécution, supervision et pilotage mensuel. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans abonnement caché ni captivité : vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
-      "footnote_en": "We bill on a growth retainer, 99 € an hour: scope and time depend on volume, and we help you size the time the engagement that matters to you takes. The Growth subscription, 3,960 € a month, puts a retainer at your disposal on the same hourly base: execution, supervision and monthly steering. Other retainer sizes exist depending on volume, see /tarifs. No hidden subscription, no lock-in: your agents run, their architecture is documented and your teams are trained to evolve them."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cartographie des cas d'usage, un premier agent conçu, branché via MCP et déployé, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents et connecteurs suivants, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a map of the use cases, a first agent designed, wired via MCP and deployed, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents and connectors require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: your agents run, their architecture is documented and your teams are trained to evolve them."
     },
     {
       "type": "eeat-panel",
