@@ -51,8 +51,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 34,
+    "count": 36,
     "pages": [
+      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -69,6 +70,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -106,7 +108,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 37,
+    "count": 38,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -132,6 +134,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -209,7 +212,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "definition-extract": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -227,6 +230,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -242,7 +246,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 31,
+    "count": 32,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -262,6 +266,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -349,7 +354,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -367,6 +372,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -382,7 +388,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 52,
+    "count": 54,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -396,6 +402,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
       "/implantations/montpellier",
+      "/lp/systeme-acquisition",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
@@ -421,6 +428,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -439,8 +447,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 30,
+    "count": 32,
     "pages": [
+      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -457,6 +466,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -481,7 +491,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-zigzag": {
-    "count": 50,
+    "count": 51,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -518,6 +528,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -533,7 +544,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 50,
+    "count": 52,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -547,6 +558,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
       "/implantations/montpellier",
+      "/lp/systeme-acquisition",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
@@ -572,6 +584,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -638,6 +651,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/pages/expertise-claude.astro"
     ]
   },
+  "hero-landing": {
+    "count": 1,
+    "pages": [
+      "/lp/systeme-acquisition"
+    ]
+  },
   "hero-lead-magnet": {
     "count": 1,
     "pages": [
@@ -645,7 +664,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-masthead-card": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -663,6 +682,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -716,7 +736,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hover-reveal-list": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -734,6 +754,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -755,7 +776,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "logo-marquee": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -773,6 +794,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -801,8 +823,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "method-stepline": {
-    "count": 28,
+    "count": 30,
     "pages": [
+      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -819,6 +842,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -858,8 +882,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 28,
+    "count": 30,
     "pages": [
+      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -876,6 +901,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -897,8 +923,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 29,
+    "count": 31,
     "pages": [
+      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -915,6 +942,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -960,8 +988,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "proof-bar": {
-    "count": 31,
+    "count": 33,
     "pages": [
+      "/lp/systeme-acquisition",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -978,6 +1007,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -1052,7 +1082,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "statement-orbit": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -1070,6 +1100,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -1099,7 +1130,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "sticky-scroll-storytelling": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -1117,6 +1148,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -1132,7 +1164,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "system-flow": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -1150,6 +1182,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
@@ -1195,7 +1228,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "testimonial-wall": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -1213,6 +1246,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/maintenance-growth",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
+      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
       "/services/seo-geo-contenu/referencement-ia",
       "/services/seo-geo-contenu/seo-local",
