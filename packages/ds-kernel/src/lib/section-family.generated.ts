@@ -173,6 +173,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'scroll-gallery': 'scroll-interactive',
   'service-catalog-list': 'list',
   'services-grid': 'card-grid',
+  'site-showcase': 'gallery',
   'social-proof': 'band',
   'spec-bar': 'band',
   'stack-cards': 'scroll-interactive',

@@ -99,7 +99,18 @@ const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
   cards: chunk,
 }) satisfies SectionByType<'related-cards-band'>);
 
-const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
+const signature: SectionByType<'branded-callout'> = {
+  type: 'branded-callout',
+  background: 'paper-2',
+  kicker_fr: '§ Le principe',
+  kicker_en: '§ The principle',
+  h2_fr: 'Un repérage honnête, pas un argumentaire.',
+  h2_en: 'An honest read, not a sales pitch.',
+  body1_fr: 'Chaque diagnostic vous situe sur une grille claire et vous dit quelle fondation poser en premier. Vous repartez avec une lecture, pas une facture.',
+  body1_en: 'Each diagnostic places you on a clear grid and tells you which foundation to lay first. You leave with a read, not an invoice.',
+};
+
+const sections: SectionData[] = [hero, signature, ...cardBands, ctaFinal];
 ---
 
 <Base

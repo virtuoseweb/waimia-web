@@ -1,0 +1,292 @@
+---
+// Section catalogue · site-showcase
+// Vitrine du site livre : captures reelles dans des cadres navigateur DS (barre a 3
+// pastilles + pseudo-barre d'adresse affichant le domaine). Layout editorial asymetrique
+// (1 capture dominante + captures secondaires) pilote par le nombre de captures.
+// Deux types : `frame` (above-fold, ratio fixe, statique) et `tall` (pleine page, la
+// fenetre defile lentement au survol, CSS only via container query units). Lien
+// "Visiter le site" en nofollow + nouvel onglet. Variante ink, mobile 1 colonne,
+// reduced-motion + toucher neutralisent le defilement.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
+
+interface Props {
+  data: SectionByType<'site-showcase'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const lede = isFr ? data.lede_fr : data.lede_en;
+const hasHead = Boolean(kicker || h2 || lede || data.url);
+
+// Domaine affiche dans la pseudo-barre d'adresse (protocole + slash final retires).
+const domain = data.url ? data.url.replace(/^https?:\/\//, '').replace(/\/$/, '') : '';
+const visitLabel =
+  (isFr ? data.url_label_fr : data.url_label_en) ?? (isFr ? 'Visiter le site' : 'Visit the site');
+
+const count = data.screens.length;
+---
+
+<section class="sshow sec-base" data-bg={data.background}>
+  <div class="wrap-wide">
+    {hasHead && (
+      <div class="sshow__head reveal">
+        <div class="sshow__head-text">
+          {kicker && <Kicker tone="muted">{kicker}</Kicker>}
+          {h2 && <h2 class="sec-base-h2" set:html={h2} />}
+          {lede && <p class="sshow__lede">{lede}</p>}
+        </div>
+        {data.url && (
+          <a
+            class="sshow__visit btn btn-ghost"
+            href={data.url}
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+          >
+            <span>{visitLabel}</span>
+            <span class="sshow__visit-arrow" aria-hidden="true">&#8599;</span>
+          </a>
+        )}
+      </div>
+    )}
+
+    <div class="sshow__gallery" data-count={count}>
+      {data.screens.map((screen) => {
+        const alt = isFr ? screen.alt_fr : screen.alt_en;
+        const caption = isFr ? screen.caption_fr : screen.caption_en;
+        const kind = screen.kind ?? 'frame';
+        return (
+          <figure class="sshow__item reveal" data-kind={kind}>
+            <div class="frame">
+              <div class="frame__bar" aria-hidden="true">
+                <span class="frame__dots"><i></i><i></i><i></i></span>
+                {domain && <span class="frame__addr">{domain}</span>}
+              </div>
+              <div class="frame__view" data-kind={kind}>
+                <img
+                  class="frame__shot"
+                  src={screen.src}
+                  alt={alt}
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height={kind === 'tall' ? '3600' : '750'}
+                />
+              </div>
+            </div>
+            {caption && <figcaption class="sshow__cap">{caption}</figcaption>}
+          </figure>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Duree du defilement lent des captures pleine page (kind=tall). Valeur STRUCTURELLE
+     sans token de role (le DS plafonne a --dur-slow 1.4s ; un auto-scroll editorial dure
+     plusieurs secondes) → knob local nomme, exception rule 60 (comme le 1px hairline). */
+  .sshow { --sshow-tall-dur: 12s; }
+
+  /* ── En-tete : texte a gauche, lien "Visiter" a droite. ── */
+  .sshow__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-5);
+    margin-bottom: var(--spacing-block);
+  }
+  .sshow__head-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: var(--wrap-read);
+  }
+  .sshow__head-text h2 :global(i) { font-style: italic; }
+  .sshow__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    color: var(--muted);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+  .sshow__visit {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    white-space: nowrap;
+  }
+  .sshow__visit-arrow {
+    font-size: var(--text-body);
+    line-height: 1;
+    transition: transform var(--dur-fast) var(--ease);
+  }
+  .sshow__visit:hover .sshow__visit-arrow { transform: translate(0.1em, -0.1em); }
+
+  /* ── Galerie : mobile-first 1 colonne. ── */
+  .sshow__gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .sshow__item { min-width: 0; margin: 0; }
+
+  /* ── Cadre navigateur ── */
+  .frame {
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--paper-2);
+    box-shadow: 0 1px 2px rgba(var(--ink-rgb), 0.05), 0 12px 32px rgba(var(--ink-rgb), 0.08);
+    transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+  }
+  .sshow__item:hover .frame {
+    transform: translateY(calc(-1 * var(--space-1)));
+    box-shadow: 0 2px 4px rgba(var(--ink-rgb), 0.06), 0 20px 44px rgba(var(--ink-rgb), 0.12);
+  }
+  .frame__bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    background: var(--paper-3);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .frame__dots { display: inline-flex; gap: var(--space-2); flex: none; }
+  .frame__dots i {
+    width: 0.66em;
+    height: 0.66em;
+    border-radius: var(--radius-full);
+    background: var(--hairline-strong);
+  }
+  .frame__addr {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    text-align: center;
+    padding-inline: var(--space-3);
+  }
+
+  /* Fenetre : frame = above-fold ratio fixe, capture calee en haut. */
+  .frame__view {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper-2);
+  }
+  .frame__view[data-kind='frame'] { aspect-ratio: 16 / 10; }
+  .frame__view[data-kind='frame'] .frame__shot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* tall : capture pleine page (tres haute). La fenetre est un conteneur de taille ;
+     l'image (height:auto) deborde et est clippee. Au survol, elle remonte de
+     (hauteur image - hauteur fenetre) = translateY(-100% + 100cqh) → defile jusqu'en bas. */
+  .frame__view[data-kind='tall'] {
+    aspect-ratio: 16 / 11;
+    container-type: size;
+  }
+  .frame__view[data-kind='tall'] .frame__shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: translateY(0);
+    transition: transform var(--sshow-tall-dur) linear;
+    will-change: transform;
+  }
+  @media (hover: hover) {
+    .frame__view[data-kind='tall'] .frame__shot {
+      transform: translateY(0);
+    }
+    .sshow__item[data-kind='tall']:hover .frame__shot {
+      transform: translateY(calc(-100% + 100cqh));
+    }
+  }
+
+  /* ── Legende : avantage concret sous la capture. ── */
+  .sshow__cap {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    max-width: var(--wrap-read);
+  }
+
+  /* ── Layouts desktop : recettes editoriales par nombre de captures. ── */
+  @media (min-width: 768px) {
+    .sshow__gallery { gap: var(--space-7); align-items: start; }
+
+    /* 1 : capture unique centree, largeur de lecture. */
+    .sshow__gallery[data-count='1'] {
+      grid-template-columns: minmax(0, var(--wrap-read));
+      justify-content: center;
+    }
+
+    /* 2 : capture dominante + secondaire (asymetrie 1.25 / 1). */
+    .sshow__gallery[data-count='2'] { grid-template-columns: 1.25fr 1fr; }
+
+    /* 3 : dominante a gauche sur 2 rangs, 2 captures empilees a droite. */
+    .sshow__gallery[data-count='3'] { grid-template-columns: 1.4fr 1fr; }
+    .sshow__gallery[data-count='3'] .sshow__item:first-child { grid-row: span 2; }
+
+    /* 4 : dominante vedette (2x2) + 3 captures en unites (flux dense). */
+    .sshow__gallery[data-count='4'] {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-flow: dense;
+    }
+    .sshow__gallery[data-count='4'] .sshow__item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  /* ── Variante ink : fond encre, texte paper, cadres remappes. ── */
+  .sshow[data-bg='paper-2'] { background: var(--paper-2); }
+  .sshow[data-bg='paper-3'] { background: var(--paper-3); }
+  .sshow[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .sshow[data-bg='ink'] :is(h2) { color: var(--paper); }
+  .sshow[data-bg='ink'] .sshow__lede,
+  .sshow[data-bg='ink'] .sshow__cap { color: rgba(var(--paper-rgb), 0.72); }
+  .sshow[data-bg='ink'] .frame {
+    border-color: rgba(var(--paper-rgb), 0.16);
+    background: rgba(var(--paper-rgb), 0.04);
+  }
+  .sshow[data-bg='ink'] .frame__bar {
+    background: rgba(var(--paper-rgb), 0.06);
+    border-bottom-color: rgba(var(--paper-rgb), 0.12);
+  }
+  .sshow[data-bg='ink'] .frame__dots i { background: rgba(var(--paper-rgb), 0.28); }
+  .sshow[data-bg='ink'] .frame__addr { color: rgba(var(--paper-rgb), 0.6); }
+
+  /* ── Reduced motion : pas de defilement tall, pas de relevement. ── */
+  @media (prefers-reduced-motion: reduce) {
+    .frame,
+    .frame__view[data-kind='tall'] .frame__shot,
+    .sshow__visit-arrow {
+      transition: none;
+    }
+    .sshow__item[data-kind='tall']:hover .frame__shot { transform: translateY(0); }
+    .sshow__item:hover .frame { transform: none; }
+  }
+</style>

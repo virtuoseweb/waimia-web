@@ -99,7 +99,18 @@ const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
   cards: chunk,
 }) satisfies SectionByType<'related-cards-band'>);
 
-const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
+const signature: SectionByType<'manifesto-statement'> = {
+  type: 'manifesto-statement',
+  kicker_fr: '§ La promesse',
+  kicker_en: '§ The promise',
+  text_fr: 'Pas de théorie creuse. Des <i>étapes</i>, des exemples, des pièges à <span class="acc">éviter</span>.',
+  text_en: 'No empty theory. <i>Steps</i>, examples, pitfalls to <span class="acc">avoid</span>.',
+  tone: 'ink',
+  show_grid: false,
+  pinned: false,
+};
+
+const sections: SectionData[] = [hero, signature, ...cardBands, ctaFinal];
 ---
 
 <Base

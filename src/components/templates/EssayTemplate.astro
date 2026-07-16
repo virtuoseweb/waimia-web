@@ -84,6 +84,8 @@ interface Props {
   bylineAuthorSlug?: string;
   /** Date de publication brute (pour le byline en tête). */
   publishedAt?: Date | string;
+  /** Habillage editorial : illustration duotone en overlap du hero (optionnel). */
+  illustration?: { src: string; alt_fr: string; alt_en: string; side?: 'left' | 'right' };
 }
 const {
   title,
@@ -110,6 +112,7 @@ const {
   articleId,
   bylineAuthorSlug,
   publishedAt,
+  illustration,
 } = Astro.props as Props;
 
 const headlineHtml = (await Astro.slots.render('headline')).trim();
@@ -135,6 +138,7 @@ const heroData = {
   date,
   reading_time_fr: readingTime,
   reading_time_en: readingTime,
+  ...(illustration ? { illustration: { side: 'right' as const, ...illustration } } : {}),
 } satisfies SectionByType<'hero-essay'>;
 
 const siteUrl = 'https://waimia.com';

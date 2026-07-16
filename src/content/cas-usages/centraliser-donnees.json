@@ -82,9 +82,9 @@
     {
       "type": "hero-split-media",
       "background": "paper",
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : outils dispersés reliés à une source unique de vérité, données qui circulent sans recopie",
-      "media_alt_en": "Diagram: scattered tools wired to a single source of truth, data flowing without retyping",
+      "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+      "media_alt_fr": "Illustration : une personne pilote une source de données unifiée, sans ressaisie d'un outil à l'autre",
+      "media_alt_en": "Illustration: a person steering one unified data source, no retyping from tool to tool",
       "kicker_fr": "§ Résoudre un problème",
       "kicker_en": "§ Solve a problem",
       "h1_fr": "Centraliser ses <i class=\"acc\">données</i>.",
@@ -121,46 +121,47 @@
       }
     },
     {
-      "type": "problems-grid",
+      "type": "feature-zigzag",
       "background": "paper-2",
+      "layout": "alternate",
+      "mediaSide": "left",
+      "kicker_fr": "§ Le problème",
+      "kicker_en": "§ The problem",
       "h2_fr": "Là où la donnée se perd",
       "h2_en": "Where data gets lost",
-      "problems": [
+      "rows": [
         {
-          "num": "01",
-          "kicker_fr": "Ressaisie manuelle",
-          "kicker_en": "Manual retyping",
-          "title_fr": "La même donnée, saisie plusieurs fois",
-          "title_en": "The same data, entered several times",
+          "kicker_fr": "01 · Ressaisie manuelle",
+          "kicker_en": "01 · Manual retyping",
+          "h3_fr": "La même donnée, saisie plusieurs fois",
+          "h3_en": "The same data, entered several times",
           "body_fr": "Un client est créé dans le CRM, recopié dans la facturation, repris dans un tableur. Chaque ressaisie coûte du temps et introduit des erreurs. Vos équipes passent leurs journées à faire circuler à la main une information qui devrait passer seule.",
           "body_en": "A client is created in the CRM, retyped in billing, re-entered in a spreadsheet. Each retyping costs time and introduces errors. Your teams spend their days moving by hand information that should flow on its own.",
-          "illustration_src": "/images/line-art/probleme-donnees-eparpillees.svg",
-          "illustration_alt_fr": "Une même donnée recopiée d'un outil à l'autre",
-          "illustration_alt_en": "The same data copied from one tool to another"
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Une même donnée recopiée d'un outil à l'autre",
+          "media_alt_en": "The same data copied from one tool to another"
         },
         {
-          "num": "02",
-          "kicker_fr": "Chiffres divergents",
-          "kicker_en": "Diverging figures",
-          "title_fr": "Chaque service a sa vérité",
-          "title_en": "Each department has its truth",
+          "kicker_fr": "02 · Chiffres divergents",
+          "kicker_en": "02 · Diverging figures",
+          "h3_fr": "Chaque service a sa vérité",
+          "h3_en": "Each department has its truth",
           "body_fr": "Le commercial cite un montant, la compta un autre, le tableur de direction un troisième. Personne ne sait lequel est juste. Les décisions se prennent sur des chiffres qui ne correspondent pas, parce qu'il n'existe aucune source de référence partagée.",
           "body_en": "Sales quote one amount, accounting another, the management spreadsheet a third. No one knows which is right. Decisions are made on figures that don't match, because there's no shared reference source.",
-          "illustration_src": "/images/line-art/probleme-outils-cloisonnes.svg",
-          "illustration_alt_fr": "Trois outils affichant des chiffres différents",
-          "illustration_alt_en": "Three tools showing different figures"
+          "media_src": "/images/illustrations/ds/its-x-paper.webp",
+          "media_alt_fr": "Trois outils affichant des chiffres différents",
+          "media_alt_en": "Three tools showing different figures"
         },
         {
-          "num": "03",
-          "kicker_fr": "Vue éclatée",
-          "kicker_en": "Fragmented view",
-          "title_fr": "Aucune vue d'ensemble du client",
-          "title_en": "No overall view of the client",
+          "kicker_fr": "03 · Vue éclatée",
+          "kicker_en": "03 · Fragmented view",
+          "h3_fr": "Aucune vue d'ensemble du client",
+          "h3_en": "No overall view of the client",
           "body_fr": "Le support voit les tickets, le marketing les campagnes, la logistique les commandes. Personne n'a une vue simple du client dans son ensemble. L'information existe, mais elle est dispersée, et reconstituer un dossier complet demande de jongler entre cinq écrans.",
           "body_en": "Support sees the tickets, marketing the campaigns, logistics the orders. No one has a simple overall view of the client. The information exists, but it's scattered, and rebuilding a complete file means juggling five screens.",
-          "illustration_src": "/images/line-art/probleme-poc-qui-dort.svg",
-          "illustration_alt_fr": "Un client vu en morceaux à travers des outils séparés",
-          "illustration_alt_en": "A client seen in pieces across separate tools"
+          "media_src": "/images/illustrations/ds/computer-crash-landscape-paper.webp",
+          "media_alt_fr": "Un client vu en morceaux à travers des outils séparés",
+          "media_alt_en": "A client seen in pieces across separate tools"
         }
       ]
     },
@@ -168,6 +169,8 @@
       "type": "feature-zigzag",
       "anchor": "methode",
       "background": "paper",
+      "layout": "alternate",
+      "mediaSide": "right",
       "kicker_fr": "§ Comment on le résout",
       "kicker_en": "§ How we solve it",
       "h2_fr": "Connecter, pas <i>tout remplacer</i>",
@@ -182,6 +185,9 @@
           "h3_en": "See what flows",
           "body_fr": "On part de vos flux réels : qui saisit quoi, où, et combien de fois la même donnée est recopiée. On identifie les ressaisies les plus coûteuses et le reporting le plus lourd à produire, pour attaquer là où le gain est le plus net.",
           "body_en": "We start from your real flows: who enters what, where, and how many times the same data is retyped. We identify the costliest retyping and the heaviest reporting to produce, to tackle where the gain is clearest.",
+          "media_src": "/images/illustrations/ds/chess-paper.webp",
+          "media_alt_fr": "Cartographier les flux avant de connecter, comme poser une stratégie",
+          "media_alt_en": "Mapping the flows before connecting, like setting a strategy",
           "points": [
             {
               "label_fr": "Inventaire des sources et des flux",
@@ -204,6 +210,9 @@
           "h3_en": "A single source of truth",
           "body_fr": "On désigne l'endroit où chaque donnée vit une fois, souvent le CRM pour les contacts, et d'où les autres outils la lisent. On dédoublonne, on standardise les formats. Tout le monde travaille enfin sur le même chiffre, à jour.",
           "body_en": "We designate where each piece of data lives once, often the CRM for contacts, and from which the other tools read it. We deduplicate, standardise formats. Everyone finally works on the same up-to-date figure.",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Réunir les outils autour d'une seule source de référence partagée",
+          "media_alt_en": "Bringing tools together around a single shared reference source",
           "points": [
             {
               "label_fr": "Donnée de référence définie",
@@ -226,6 +235,9 @@
           "h3_en": "Clean connectors via MCP",
           "body_fr": "On câble vos outils via le protocole MCP : des connecteurs sécurisés et documentés vers le CRM, l'e-mail, la base de données, plutôt que des scripts jetables. La donnée circule automatiquement, et la couche d'intégration tient dans le temps.",
           "body_en": "We wire your tools through the MCP protocol: secured, documented connectors to the CRM, email, database, rather than throwaway scripts. Data flows automatically, and the integration layer holds over time.",
+          "media_src": "/images/illustrations/ds/style-13-paper.webp",
+          "media_alt_fr": "Des connecteurs propres qui font circuler la donnée entre vos outils",
+          "media_alt_en": "Clean connectors carrying data between your tools",
           "points": [
             {
               "label_fr": "Connecteurs sécurisés et documentés",
@@ -248,6 +260,9 @@
           "h3_en": "Your data under control",
           "body_fr": "On pose les accès par rôle, on trace les échanges, on documente les flux. Vos données restent dans vos outils et sous votre main, conformité RGPD comprise. On connecte sans déposséder, et rien ne circule en boîte noire.",
           "body_en": "We set access by role, trace the exchanges, document the flows. Your data stays in your tools and under your control, GDPR compliance included. We connect without dispossessing, and nothing flows as a black box.",
+          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
+          "media_alt_fr": "La gouvernance qui garde vos données sous votre contrôle",
+          "media_alt_en": "Governance keeping your data under your control",
           "points": [
             {
               "label_fr": "Accès par rôle et traçabilité",

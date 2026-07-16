@@ -17,4 +17,10 @@ export const demo: DemoData = {
     date: '28 avril 2026',
     reading_time_fr: '6 min de lecture',
     reading_time_en: '6 min read',
+    illustration: {
+      src: '/images/illustrations/ds/man-and-woman-hi-paper.webp',
+      alt_fr: 'Illustration : deux personnes se saluent, relation client, duotone éditorial.',
+      alt_en: 'Illustration: two people greeting, client relationship, editorial duotone.',
+      side: 'right',
+    },
   };

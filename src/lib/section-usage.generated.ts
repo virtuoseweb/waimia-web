@@ -43,6 +43,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/standardiser-processus"
     ]
   },
+  "branded-callout": {
+    "count": 2,
+    "pages": [
+      "/ressources/diagnostics/claude-pme",
+      "/ressources/diagnostics/site-web-intelligent"
+    ]
+  },
   "case-card-grid": {
     "count": 34,
     "pages": [
@@ -480,11 +487,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-zigzag": {
-    "count": 45,
+    "count": 50,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
+      "/cas-usages/reduire-reporting",
+      "/cas-usages/reduire-temps-cms",
+      "/cas-usages/standardiser-processus",
       "/demonstrations/avant-apres",
       "/demonstrations/integration-claude",
       "/demonstrations/site-web-intelligent",
@@ -762,6 +772,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/systemes-operationnels-ia"
     ]
   },
+  "key-metric-grid": {
+    "count": 1,
+    "pages": [
+      "/ressources/guides/claude-pme"
+    ]
+  },
   "logo-marquee": {
     "count": 28,
     "pages": [
@@ -793,6 +809,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
+    ]
+  },
+  "manifesto-statement": {
+    "count": 1,
+    "pages": [
+      "/ressources/diagnostics/maturite-ia"
     ]
   },
   "maturity-pyramid": {
@@ -957,13 +979,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "problems-grid": {
-    "count": 15,
+    "count": 10,
     "pages": [
-      "/cas-usages/centraliser-donnees",
-      "/cas-usages/generer-plus-de-leads",
-      "/cas-usages/reduire-reporting",
-      "/cas-usages/reduire-temps-cms",
-      "/cas-usages/standardiser-processus",
       "/lp/audit-ia-pme",
       "/lp/audit-site-web-intelligent",
       "/lp/content-marketing-intelligent",
@@ -1036,6 +1053,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/template-service-ref",
       "src/pages/en/index.astro",
       "src/pages/index.astro"
+    ]
+  },
+  "pull-quote-block": {
+    "count": 2,
+    "pages": [
+      "/ressources/diagnostics/referent-ia",
+      "/ressources/guides/claude-pme"
     ]
   },
   "related-cards-band": {

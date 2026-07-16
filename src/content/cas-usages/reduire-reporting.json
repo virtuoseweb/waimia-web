@@ -82,9 +82,9 @@
     {
       "type": "hero-split-media",
       "background": "paper",
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : sources consolidées automatiquement vers un tableau de bord à jour, rapport prêt",
-      "media_alt_en": "Diagram: sources consolidated automatically into an up-to-date dashboard, report ready",
+      "media_src": "/images/illustrations/ds/computer-health-paper.webp",
+      "media_alt_fr": "Illustration : un tableau de bord à jour, chiffres consolidés et prêts à analyser",
+      "media_alt_en": "Illustration: an up-to-date dashboard, figures consolidated and ready to analyse",
       "kicker_fr": "§ Résoudre un problème",
       "kicker_en": "§ Solve a problem",
       "h1_fr": "Réduire le temps de <i class=\"acc\">reporting</i>.",
@@ -121,46 +121,47 @@
       }
     },
     {
-      "type": "problems-grid",
+      "type": "feature-zigzag",
       "background": "paper-2",
+      "layout": "alternate",
+      "mediaSide": "left",
+      "kicker_fr": "§ Le problème",
+      "kicker_en": "§ The problem",
       "h2_fr": "Là où le reporting coûte",
       "h2_en": "Where reporting costs",
-      "problems": [
+      "rows": [
         {
-          "num": "01",
-          "kicker_fr": "Temps direct",
-          "kicker_en": "Direct time",
-          "title_fr": "Des jours à copier des chiffres",
-          "title_en": "Days spent copying figures",
+          "kicker_fr": "01 · Temps direct",
+          "kicker_en": "01 · Direct time",
+          "h3_fr": "Des jours à copier des chiffres",
+          "h3_en": "Days spent copying figures",
           "body_fr": "Extraire la balance comptable, exporter le CRM, consolider dans Excel, recalculer, corriger, mettre en forme. Deux à trois jours par mois, ou deux à quatre heures chaque lundi, passés à compiler au lieu d'analyser et de décider.",
           "body_en": "Extract the accounting balance, export the CRM, consolidate in Excel, recalculate, fix, format. Two to three days a month, or two to four hours every Monday, spent compiling instead of analysing and deciding.",
-          "illustration_src": "/images/line-art/probleme-donnees-eparpillees.svg",
-          "illustration_alt_fr": "Des heures passées à compiler des tableaux à la main",
-          "illustration_alt_en": "Hours spent compiling spreadsheets by hand"
+          "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
+          "media_alt_fr": "Des heures passées à compiler des tableaux à la main",
+          "media_alt_en": "Hours spent compiling spreadsheets by hand"
         },
         {
-          "num": "02",
-          "kicker_fr": "Données périmées",
-          "kicker_en": "Stale data",
-          "title_fr": "Des décisions avec du retard",
-          "title_en": "Decisions taken late",
+          "kicker_fr": "02 · Données périmées",
+          "kicker_en": "02 · Stale data",
+          "h3_fr": "Des décisions avec du retard",
+          "h3_en": "Decisions taken late",
           "body_fr": "Un rapport produit deux semaines après la clôture présente des chiffres qui ont déjà perdu leur pouvoir de décision. Vous pilotez avec du retard, sur une photo périmée, et les dérives se détectent trop tard pour être corrigées.",
           "body_en": "A report produced two weeks after closing shows figures that have already lost their decision-making power. You steer with a lag, on a stale snapshot, and drifts are spotted too late to be corrected.",
-          "illustration_src": "/images/line-art/probleme-poc-qui-dort.svg",
-          "illustration_alt_fr": "Un rapport en retard sur la réalité de l'activité",
-          "illustration_alt_en": "A report lagging behind the real activity"
+          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
+          "media_alt_fr": "Un rapport en retard sur la réalité de l'activité",
+          "media_alt_en": "A report lagging behind the real activity"
         },
         {
-          "num": "03",
-          "kicker_fr": "Erreurs mécaniques",
-          "kicker_en": "Mechanical errors",
-          "title_fr": "Le copier-coller introduit des fautes",
-          "title_en": "Copy-paste introduces mistakes",
+          "kicker_fr": "03 · Erreurs mécaniques",
+          "kicker_en": "03 · Mechanical errors",
+          "h3_fr": "Le copier-coller introduit des fautes",
+          "h3_en": "Copy-paste introduces mistakes",
           "body_fr": "Plus on manipule de chiffres à la main, plus le risque d'erreur grimpe : une formule qui n'a pas tiré jusqu'en bas, une cellule oubliée, une imputation douteuse. Le rapport perd en fiabilité, et personne ne sait vraiment si le chiffre final est juste.",
           "body_en": "The more figures are handled by hand, the higher the risk of error: a formula that didn't fill down, a forgotten cell, a doubtful entry. The report loses reliability, and no one really knows if the final figure is right.",
-          "illustration_src": "/images/line-art/probleme-outils-cloisonnes.svg",
-          "illustration_alt_fr": "Un tableau truffé d'erreurs de manipulation manuelle",
-          "illustration_alt_en": "A spreadsheet riddled with manual handling errors"
+          "media_src": "/images/illustrations/ds/its-x-paper.webp",
+          "media_alt_fr": "Un tableau truffé d'erreurs de manipulation manuelle",
+          "media_alt_en": "A spreadsheet riddled with manual handling errors"
         }
       ]
     },

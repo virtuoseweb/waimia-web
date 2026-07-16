@@ -141,9 +141,12 @@
     {
       "type": "hero-split-media",
       "background": "paper",
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : un déploiement de Claude branché aux outils d'une PME via le protocole MCP",
-      "media_alt_en": "Diagram: a Claude deployment wired to an SMB's tools via the MCP protocol",
+      "illustration": {
+        "src": "/images/illustrations/ds/style-st-paper.webp",
+        "alt_fr": "Illustration : des mains au travail sur un clavier, le plan de déploiement de Claude en PME",
+        "alt_en": "Illustration: hands at work on a keyboard, the plan to deploy Claude in an SMB",
+        "side": "left"
+      },
       "kicker_fr": "§ Guide pratique",
       "kicker_en": "§ Practical guide",
       "h1_fr": "Déployer <i class=\"acc\">Claude</i> dans votre PME.",
@@ -190,8 +193,40 @@
       "answer_en": "You deploy Claude in an SMB by starting from a process, not the tool. You pick a recurring, time-consuming, low-risk task, give Claude the context and data it needs, frame what it can do and what it never touches, then measure the time saved. Once this first use case is proven in production, you make it reliable, train the teams and expand to a second use. A good deployment advances in measured steps, not a technological big bang: one agent that works beats ten forgotten pilots. Waimia is the Claude integrator that deploys this setup end to end, from the first framed use case to governance."
     },
     {
-      "type": "feature-zigzag",
+      "type": "key-metric-grid",
       "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Le guide en clair",
+      "eyebrow_en": "§ The guide at a glance",
+      "title_fr": "Un plan, pas une promesse",
+      "title_en": "A plan, not a promise",
+      "metrics": [
+        {
+          "value": "6",
+          "label_fr": "Prérequis à poser avant le premier compte",
+          "label_en": "Prerequisites to lay before the first account"
+        },
+        {
+          "value": "5",
+          "label_fr": "Cas d'usage à fort ROI",
+          "label_en": "High-ROI use cases"
+        },
+        {
+          "value": "3",
+          "label_fr": "Phases de 30 jours",
+          "label_en": "Phases of 30 days"
+        },
+        {
+          "value": "90",
+          "label_fr": "Jours pour un agent qui tourne",
+          "label_en": "Days to a running agent"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper-2",
       "kicker_fr": "§ Les 5 cas d'usage",
       "kicker_en": "§ The 5 use cases",
       "h2_fr": "Là où Claude paie le plus vite",
@@ -312,8 +347,17 @@
       ]
     },
     {
+      "type": "pull-quote-block",
+      "background": "ink",
+      "variant": "centered",
+      "quote_fr": "Un agent qui marche vaut mieux que dix pilotes oubliés.",
+      "quote_en": "One agent that works beats ten forgotten pilots.",
+      "cite_fr": "La règle du déploiement en PME",
+      "cite_en": "The SMB deployment rule"
+    },
+    {
       "type": "process-steps",
-      "background": "paper-2",
+      "background": "paper",
       "kicker_fr": "§ Les 90 premiers jours",
       "kicker_en": "§ The first 90 days",
       "h2_fr": "Trois phases pour démarrer juste",
@@ -349,7 +393,7 @@
     },
     {
       "type": "feature-zigzag",
-      "background": "paper",
+      "background": "paper-2",
       "kicker_fr": "§ La checklist",
       "kicker_en": "§ The checklist",
       "h2_fr": "Les 6 prérequis à poser avant le premier compte",

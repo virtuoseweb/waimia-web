@@ -27,8 +27,48 @@ const badges = data.badges ?? [];
 const mediaAlt = isFr ? data.media_alt_fr : (data.media_alt_en ?? data.media_alt_fr);
 const ctaPrimary = data.cta_primary;
 const ctaSecondary = data.cta_secondary;
+// Habillage editorial (magazine) : quand `illustration` est renseigne, le hero bascule sur
+// la mise en page overlap (illustration duotone sur un cote, titre par-dessus) au lieu de la
+// grille split media/texte. Preserve tout le contenu. Optionnel → rendu split inchange.
+const illustration = data.illustration;
+const illusSide = illustration?.side ?? 'right';
 ---
-<section class="hsm" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+<section class:list={['hsm', illustration && `hsm--illus hsm--illus-${illusSide}`]} data-bg={data.background === 'ink' ? 'ink' : undefined}>
+  {illustration ? (
+    <div class="wrap-wide hsm-illus-wrap">
+      <img
+        class="hsm-illus reveal-blur-clip"
+        src={illustration.src}
+        alt={(isFr ? illustration.alt_fr : illustration.alt_en) ?? ''}
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hsm-text hsm-text--illus">
+        {kicker && <Kicker as="p" tone="accent" class="hsm-kicker">{kicker}</Kicker>}
+        <h1 class="hsm-title hsm-title--illus" set:html={h1} />
+        {subtitle && <p class="hsm-subtitle">{subtitle}</p>}
+        {definitionKicker && <p class="hsm-def-kicker">{definitionKicker}</p>}
+        <p class="hsm-lede" set:html={lede} />
+
+        {badges.length > 0 && (
+          <ul class="hsm-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+            {badges.map((b) => <li class="hsm-badge">{isFr ? b.label_fr : b.label_en}</li>)}
+          </ul>
+        )}
+
+        <div class="hsm-ctas">
+          <Button href={ctaPrimary.href} variant="primary" size="lg">
+            {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
+          </Button>
+          {ctaSecondary && (
+            <Button href={ctaSecondary.href} variant="ghost" size="lg">
+              {isFr ? ctaSecondary.label_fr : ctaSecondary.label_en}
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  ) : (
   <div class="wrap-wide">
     <div class="hsm-grid">
       {/* Texte */}
@@ -65,6 +105,7 @@ const ctaSecondary = data.cta_secondary;
       )}
     </div>
   </div>
+  )}
 
   <style>
     .hsm {
@@ -215,6 +256,88 @@ const ctaSecondary = data.cta_secondary;
     }
     .hsm[data-bg='ink'] .hsm-media img { color: var(--paper); }
 
+    /* ── habillage illustration (magazine, overlap titre) ──
+       Une illustration duotone occupe ~la moitie de la ligne (cote configurable),
+       le titre passe PAR-DESSUS en z-index. `mix-blend-mode: multiply` fond le fond
+       paper de l'image -paper dans la page (line-art ink seul visible). 100% tokens DS. */
+    .hsm--illus .hsm-illus-wrap {
+      position: relative;
+      min-height: clamp(400px, 42vw, 560px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hsm-text--illus {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+    }
+    /* Le titre bleede PAR-DESSUS l'illustration ; le corps de texte reste dans sa
+       moitie et ne passe jamais SOUS l'image (lisibilite). */
+    .hsm-title--illus {
+      position: relative;
+      z-index: 2;
+      max-width: 72%;
+    }
+    .hsm--illus .hsm-subtitle,
+    .hsm--illus .hsm-def-kicker,
+    .hsm--illus .hsm-lede,
+    .hsm--illus .hsm-badges,
+    .hsm--illus .hsm-ctas { max-width: 52%; }
+    /* Illustration a gauche → on ancre le contenu a droite pour degager l'image. */
+    .hsm--illus-left .hsm-kicker,
+    .hsm--illus-left .hsm-title--illus,
+    .hsm--illus-left .hsm-subtitle,
+    .hsm--illus-left .hsm-def-kicker,
+    .hsm--illus-left .hsm-lede,
+    .hsm--illus-left .hsm-badges,
+    .hsm--illus-left .hsm-ctas { margin-left: auto; }
+    .hsm-illus {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: clamp(280px, 45%, 580px);
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      opacity: 0.95;
+      mix-blend-mode: multiply;
+    }
+    .hsm--illus-right .hsm-illus { right: 0; object-position: right center; }
+    .hsm--illus-left .hsm-illus { left: 0; object-position: left center; }
+    .hsm--illus-left .hsm-text--illus { margin-left: auto; }
+    .hsm[data-bg='ink'] .hsm-illus { mix-blend-mode: screen; }
+
+    @media (max-width: 768px) {
+      /* Mobile : image en bloc pleine largeur SOUS le texte (flux naturel). */
+      .hsm--illus .hsm-illus-wrap { min-height: 0; }
+      .hsm-illus {
+        position: static;
+        order: 2;
+        width: 100%;
+        height: auto;
+        max-height: 44vh;
+        margin-top: var(--space-6);
+        opacity: 1;
+      }
+      .hsm-text--illus { order: 1; max-width: none; }
+      .hsm--illus-left .hsm-text--illus { margin-left: 0; }
+      .hsm-title--illus,
+      .hsm--illus .hsm-subtitle,
+      .hsm--illus .hsm-def-kicker,
+      .hsm--illus .hsm-lede,
+      .hsm--illus .hsm-badges,
+      .hsm--illus .hsm-ctas { max-width: none; }
+      .hsm--illus-left .hsm-kicker,
+      .hsm--illus-left .hsm-title--illus,
+      .hsm--illus-left .hsm-subtitle,
+      .hsm--illus-left .hsm-def-kicker,
+      .hsm--illus-left .hsm-lede,
+      .hsm--illus-left .hsm-badges,
+      .hsm--illus-left .hsm-ctas { margin-left: 0; }
+    }
     @media (max-width: 768px) {
       .hsm {
         /* Mobile : contenu ancré en haut (CTA above-the-fold malgré la barre

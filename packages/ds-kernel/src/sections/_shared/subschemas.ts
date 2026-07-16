@@ -22,6 +22,18 @@ export const ctaSchema = z.object({
   mag: z.number().min(0).max(1).optional(),
 });
 
+// Habillage editorial (magazine) partage : une illustration duotone occupe ~la moitie
+// de la colonne du hero, le titre passe PAR-DESSUS en overlap (une partie des lettres sur
+// l'image, le reste sur le fond paper). Optionnel cote type → rendu strictement identique
+// sans ce champ (retrocompat totale). Reutilise par hero-essay / hero-sector / hero-split-media
+// (meme idiome que hero-case-study). `side` = cote de l'illustration (defaut droite).
+export const heroIllustrationSchema = z.object({
+  src: z.string(),
+  alt_fr: z.string(),
+  alt_en: z.string(),
+  side: z.enum(['left', 'right']).default('right'),
+});
+
 export const metricSchema = z.object({
   value: z.string(),
   label_fr: z.string(),

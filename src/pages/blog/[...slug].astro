@@ -5,6 +5,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../components/templates/EssayTemplate.astro';
 import { computeReadingTime } from '../../lib/seo/reading-time';
 import { isLegacyRoutedType } from '../../lib/blog-routing';
+import { blogHeroIllustration } from '../../lib/hero-illustrations';
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
@@ -73,6 +74,9 @@ const relatedCasesData = (d.relatedCases ?? [])
 // Collection `offres` retirée (refonte v7) : la bande related-offres est vide.
 const relatedOffresData: { id: string; title: string; href: string }[] = [];
 
+// Habillage editorial : illustration hero (override frontmatter sinon mapping par categorie).
+const heroIllustration = d.heroIllustration ?? blogHeroIllustration((d as { category?: string }).category);
+
 const relatedCards = d.relatedPosts.length > 0
   ? d.relatedPosts
       .map((id) => allBlog.find((b) => b.id === id))
@@ -112,6 +116,7 @@ const relatedCards = d.relatedPosts.length > 0
   articleId={entry.id}
   bylineAuthorSlug={authorSlug}
   publishedAt={d.publishedAt}
+  illustration={heroIllustration}
 >
   <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>

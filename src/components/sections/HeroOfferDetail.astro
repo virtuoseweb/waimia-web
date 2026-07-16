@@ -20,6 +20,10 @@ const layerType = data.type === 'hero-tech-layer' ? (data.layer_type ?? 'claude'
 const detailData = data.type === 'hero-tech-layer' ? undefined : data;
 const heroVariant = detailData?.hero_variant ?? 'equilibre';
 const heroTags = detailData?.tags ?? [];
+// Habillage editorial (magazine) : illustration duotone en overlap, le titre passe par-dessus.
+// Reserve a hero-sector variante `editorial` (schema `illustration`). Optionnel → 0 regression.
+const heroIllustration =
+  data.type === 'hero-sector' && heroVariant === 'editorial' ? data.illustration : undefined;
 const offerSumie =
   data.type === 'hero-offer-detail'
     ? resolveHeroSumie(`${data.tier_fr ?? ''} ${data.h1_fr ?? ''}`)
@@ -52,11 +56,21 @@ const offerSumie =
   </section>
 ) : (
   <section
-    class:list={['hero-detail', `hero-detail--${heroVariant}`, data.type === 'hero-sector' ? 'hero-sector' : 'hero-offer-detail', 'reveal']}
+    class:list={['hero-detail', `hero-detail--${heroVariant}`, data.type === 'hero-sector' ? 'hero-sector' : 'hero-offer-detail', heroIllustration && `hero-detail--illus hero-detail--illus-${heroIllustration.side ?? 'right'}`, 'reveal']}
     data-bg={data.background}
     transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}
   >
     <div class="hero-detail__wrap" style={wrapMax ? `--hod-wrap: ${wrapMax}` : undefined}>
+      {heroIllustration && (
+        <img
+          class="hero-detail__illus reveal-blur-clip"
+          src={heroIllustration.src}
+          alt={(isFr ? heroIllustration.alt_fr : heroIllustration.alt_en) ?? ''}
+          loading="eager"
+          decoding="async"
+          transition:name={transitionId ? `hero-img-${transitionId}` : undefined}
+        />
+      )}
       {data.type === 'hero-offer-detail' && data.breadcrumb_label_fr && (
         <nav class="hero-detail__bc" aria-label={isFr ? "Fil d'Ariane" : 'Breadcrumb'}>
           <a href={data.breadcrumb_href ?? '#'}>{isFr ? data.breadcrumb_label_fr : (data.breadcrumb_label_en ?? data.breadcrumb_label_fr)}</a>
@@ -288,6 +302,53 @@ const offerSumie =
     gap: var(--space-3);
     margin-top: var(--space-7);
   }
+  /* ── hero-detail · habillage illustration (magazine, overlap titre) ──
+     Variante editorial uniquement : une illustration duotone occupe ~la moitie de la
+     ligne (cote configurable), le titre passe PAR-DESSUS en z-index. `mix-blend-mode:
+     multiply` fond le fond paper de l'image -paper dans la page (ne laisse que le
+     line-art ink). 100% tokens DS, 0 nouvelle variable. */
+  .hero-detail--illus .hero-detail__wrap { position: relative; }
+  .hero-detail--illus .hero-detail__sub { min-height: clamp(320px, 34vw, 460px); }
+  .hero-detail--illus .hero-detail__copy { position: relative; z-index: 1; }
+  .hero-detail--illus .hero-detail__title { position: relative; z-index: 2; }
+  .hero-detail__illus {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(280px, 42%, 540px);
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    opacity: 0.95;
+    mix-blend-mode: multiply;
+  }
+  .hero-detail--illus-right .hero-detail__illus { right: var(--gut); object-position: right center; }
+  .hero-detail--illus-left .hero-detail__illus { left: var(--gut); object-position: left center; }
+  /* Le titre bleede par-dessus l'illustration (reste pleine largeur) ; seul le corps
+     (lede + tags + CTA) se decale pour degager l'image et rester lisible. */
+  .hero-detail--illus .hero-detail__copy { max-width: 56%; }
+  .hero-detail--illus-left .hero-detail__copy { margin-left: auto; }
+  .hero-detail[data-bg='ink'] .hero-detail__illus { mix-blend-mode: screen; }
+  @media (max-width: 880px) {
+    .hero-detail--illus .hero-detail__sub { min-height: 0; }
+    /* Flux editorial mobile : label → titre → texte → image (image en dernier,
+       bloc pleine largeur SOUS le contenu, pas d'overlap illisible). */
+    .hero-detail--illus .hero-detail__wrap { display: flex; flex-direction: column; }
+    .hero-detail__illus {
+      position: static;
+      width: 100%;
+      height: auto;
+      max-height: 42vh;
+      margin-top: var(--space-6);
+      opacity: 1;
+      order: 3;
+    }
+    .hero-detail--illus .hero-detail__copy { max-width: none; }
+    .hero-detail--illus-left .hero-detail__copy { margin-left: 0; }
+  }
+
   .hero-detail--encadre .hero-detail__sub { border-bottom: 0; padding-bottom: 0; }
   .hero-detail--encadre .hero-detail__visual {
     position: relative;

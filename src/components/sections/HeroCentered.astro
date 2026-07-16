@@ -247,12 +247,22 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </div>
   </section>
 ) : data.type === 'hero-essay' ? (
-  <section class="hero-essay" data-bg={data.background}>
+  <section class:list={['hero-essay', data.illustration && 'hero-essay--illus']} data-bg={data.background}>
     <header
-      class="hero-essay__hd"
+      class:list={['hero-essay__hd', data.illustration && `hero-essay__hd--illus hero-essay__hd--${data.illustration.side ?? 'right'}`]}
       transition:name={cardTransitionId ? `card-${cardTransitionId}` : undefined}
       style={topPad ? `--he-top-pad: ${topPad}` : undefined}
     >
+      {data.illustration && (
+        <img
+          class="hero-essay__illus reveal-blur-clip"
+          src={data.illustration.src}
+          alt={(isFr ? data.illustration.alt_fr : data.illustration.alt_en) ?? ''}
+          loading="eager"
+          decoding="async"
+          transition:name={transitionId ? `hero-img-${transitionId}` : undefined}
+        />
+      )}
       <div class="wrap-wide">
         <Kicker class="hero-essay__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         <h1
@@ -875,6 +885,52 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     object-fit: cover;
     display: block;
   }
+  /* ── hero-essay · habillage illustration (magazine, overlap titre) ──
+     Meme idiome que hero-case-study : une illustration duotone occupe ~la moitie
+     de la ligne (cote configurable), le h1 monumental passe PAR-DESSUS en z-index.
+     L'image lossy -paper a un fond paper opaque → `mix-blend-mode: multiply` fond
+     ce fond dans la page et ne laisse que le line-art ink. 100% tokens DS. */
+  .hero-essay__hd--illus {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: clamp(380px, 42vw, 560px);
+  }
+  .hero-essay__hd--illus .wrap-wide { position: relative; z-index: 1; }
+  .hero-essay__hd--illus .hero-essay__h1 { position: relative; z-index: 2; }
+  .hero-essay__illus {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(280px, 44%, 560px);
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    opacity: 0.95;
+    mix-blend-mode: multiply;
+  }
+  .hero-essay__hd--right .hero-essay__illus { right: var(--space-3); object-position: right center; }
+  .hero-essay__hd--left .hero-essay__illus { left: var(--space-3); object-position: left center; }
+  .hero-essay__hd--left .wrap-wide { margin-left: auto; }
+  .hero-essay[data-bg='ink'] .hero-essay__illus { mix-blend-mode: screen; }
+  @media (max-width: 768px) {
+    .hero-essay__hd--illus { display: flex; flex-direction: column; min-height: 0; }
+    .hero-essay__hd--illus .wrap-wide { order: 0; margin-left: 0; }
+    .hero-essay__illus {
+      order: 1;
+      position: static;
+      width: 100%;
+      height: auto;
+      max-height: 44vh;
+      margin-top: var(--space-7);
+      opacity: 1;
+    }
+  }
+
   .hero-essay[data-bg='paper-2'] { background: var(--paper-2); }
   .hero-essay[data-bg='paper-3'] { background: var(--paper-3); }
   .hero-essay[data-bg='ink'] { background: var(--ink); }

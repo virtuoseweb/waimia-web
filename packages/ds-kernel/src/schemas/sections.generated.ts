@@ -172,6 +172,7 @@ import { schema as roiBandSchema } from '../sections/roi-band/schema';
 import { schema as scrollGallerySchema } from '../sections/scroll-gallery/schema';
 import { schema as serviceCatalogListSchema } from '../sections/service-catalog-list/schema';
 import { schema as servicesGridSchema } from '../sections/services-grid/schema';
+import { schema as siteShowcaseSchema } from '../sections/site-showcase/schema';
 import { schema as socialProofSchema } from '../sections/social-proof/schema';
 import { schema as specBarSchema } from '../sections/spec-bar/schema';
 import { schema as stackCardsSchema } from '../sections/stack-cards/schema';
@@ -379,6 +380,7 @@ export {
   scrollGallerySchema,
   serviceCatalogListSchema,
   servicesGridSchema,
+  siteShowcaseSchema,
   socialProofSchema,
   specBarSchema,
   stackCardsSchema,
@@ -587,6 +589,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   scrollGallerySchema,
   serviceCatalogListSchema,
   servicesGridSchema,
+  siteShowcaseSchema,
   socialProofSchema,
   specBarSchema,
   stackCardsSchema,

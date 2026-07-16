@@ -20,4 +20,11 @@ export const demo: DemoData = {
       { label_fr: 'Agence', label_en: 'Agency' },
       { label_fr: 'Cabinet compta', label_en: 'Accounting firm' },
     ],
+    hero_variant: 'editorial',
+    illustration: {
+      src: '/images/illustrations/ds/woman-and-people-paper.webp',
+      alt_fr: 'Illustration : une intervenante face à un groupe, delivery B2B, duotone éditorial.',
+      alt_en: 'Illustration: a speaker facing a group, B2B delivery, editorial duotone.',
+      side: 'right',
+    },
   };

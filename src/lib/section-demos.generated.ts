@@ -89,6 +89,7 @@ import { demo as proofBarDemo } from '../sections/proof-bar/demo';
 import { demo as statBlockDemo } from '../sections/stat-block/demo';
 import { demo as metricShiftDemo } from '../sections/metric-shift/demo';
 import { demo as socialProofDemo } from '../sections/social-proof/demo';
+import { demo as siteShowcaseDemo } from '../sections/site-showcase/demo';
 import { demo as ecosystemPartnersDemo } from '../sections/ecosystem-partners/demo';
 import { demo as methodTimelineDemo } from '../sections/method-timeline/demo';
 import { demo as featureGridDemo } from '../sections/feature-grid/demo';
@@ -296,6 +297,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'stat-block': statBlockDemo,
   'metric-shift': metricShiftDemo,
   'social-proof': socialProofDemo,
+  'site-showcase': siteShowcaseDemo,
   'ecosystem-partners': ecosystemPartnersDemo,
   'method-timeline': methodTimelineDemo,
   'feature-grid': featureGridDemo,

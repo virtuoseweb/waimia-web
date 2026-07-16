@@ -3,6 +3,7 @@ export const prerender = true;
 
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
+import { outilHeroIllustration } from '../../../lib/hero-illustrations';
 
 export async function getStaticPaths() {
   const entries = await getCollection('outils');
@@ -22,6 +23,7 @@ const d = entry.data;
 
 const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const categoryKicker = d.category_fr ? ` · ${d.category_fr}` : '';
+const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
 ---
 <EssayTemplate
   title={`${d.title_fr} · Outils Waimia`}
@@ -37,6 +39,7 @@ const categoryKicker = d.category_fr ? ` · ${d.category_fr}` : '';
     { label: 'Outils', href: '/ressources/outils' },
     { label: d.title_fr },
   ]}
+  illustration={heroIllustration}
 >
   <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>

@@ -27,6 +27,16 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   media_src?: string;
   media_alt_fr?: string;
   media_alt_en?: string;
+  /** hero-case-study : illustration duotone en overlap (côté configurable). Miroir du
+   *  champ `illustration` du schéma (src + alt bilingue + côté). Surcharge la demo pour
+   *  exposer les déclinaisons « image à droite / à gauche » ; `undefined` = rendu legacy
+   *  (décor SVG, sans image). Merge shallow → fournir l'objet complet par preset. */
+  illustration?: {
+    src: string;
+    alt_fr: string;
+    alt_en: string;
+    side?: 'left' | 'right';
+  };
   /** scroll-gallery : côté du cadre média sticky en desktop. */
   media_side?: 'left' | 'right';
   /** hover-reveal-list : image qui suit le curseur (cursor) ou cadre fixe (fixed). */
@@ -236,6 +246,95 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
       family: 'hero',
       era: '2019',
       props: { background: 'paper-3', density: 'compact' },
+    },
+  ],
+
+  // hero-case-study (famille hero) · habillage magazine : illustration duotone en
+  // overlap avec le titre (côté configurable) OU décor SVG legacy sans image.
+  // Axes exposés = illustration (src/alt/side) + background. Le composant lit
+  // data.illustration.side → hero-case-study__mast--{left|right} ; sur ink l'image
+  // passe en mix-blend-mode:screen (line-art clair sur fond encre). `illustration:
+  // undefined` = rendu strictement legacy (décor géométrique, rétrocompat totale).
+  'hero-case-study': [
+    {
+      id: 'hero-case-study--illus-right-paper',
+      type: 'hero-case-study',
+      label: 'Cas client · illustration à droite · papier',
+      family: 'hero',
+      era: '2026',
+      props: {
+        background: 'paper',
+        illustration: {
+          src: '/images/illustrations/ds/super-girl-paper.webp',
+          alt_fr: 'Une figure dynamique qui capte et qualifie les leads, illustration éditoriale duotone.',
+          alt_en: 'A dynamic figure that captures and qualifies leads, a duotone editorial illustration.',
+          side: 'right',
+        },
+      },
+    },
+    {
+      id: 'hero-case-study--illus-left-paper',
+      type: 'hero-case-study',
+      label: 'Cas client · illustration à gauche · papier',
+      family: 'hero',
+      era: '2026',
+      props: {
+        background: 'paper',
+        illustration: {
+          src: '/images/illustrations/ds/man-and-woman-hi-paper.webp',
+          alt_fr: 'Deux personnes qui se saluent, symbole du démarrage de partenariat, illustration éditoriale duotone.',
+          alt_en: 'Two people greeting each other, a symbol of a partnership kickoff, a duotone editorial illustration.',
+          side: 'left',
+        },
+      },
+    },
+    {
+      id: 'hero-case-study--illus-right-paper-2',
+      type: 'hero-case-study',
+      label: 'Cas client · illustration à droite · papier 2',
+      family: 'hero',
+      era: '2025',
+      props: {
+        background: 'paper-2',
+        illustration: {
+          src: '/images/illustrations/ds/money-in-the-pig-paper.webp',
+          alt_fr: 'Une tirelire qui se remplit, symbole du retour sur investissement, illustration éditoriale duotone.',
+          alt_en: 'A piggy bank filling up, a symbol of return on investment, a duotone editorial illustration.',
+          side: 'right',
+        },
+      },
+    },
+    {
+      id: 'hero-case-study--illus-left-ink',
+      type: 'hero-case-study',
+      label: 'Cas client · illustration à gauche · encre',
+      family: 'hero',
+      era: '2026',
+      props: {
+        background: 'ink',
+        illustration: {
+          src: '/images/illustrations/ds/computer-health-paper.webp',
+          alt_fr: 'Un ordinateur ausculté comme un patient, symbole de l\'audit technique, illustration éditoriale duotone.',
+          alt_en: 'A computer examined like a patient, a symbol of the technical audit, a duotone editorial illustration.',
+          side: 'left',
+        },
+      },
+    },
+    {
+      id: 'hero-case-study--no-illus-paper',
+      type: 'hero-case-study',
+      label: 'Cas client · sans illustration · papier',
+      family: 'hero',
+      era: '2022',
+      props: { background: 'paper', illustration: undefined },
+    },
+    {
+      id: 'hero-case-study--no-illus-ink',
+      type: 'hero-case-study',
+      label: 'Cas client · sans illustration · encre',
+      family: 'hero',
+      era: '2026',
+      props: { background: 'ink', illustration: undefined },
     },
   ],
 

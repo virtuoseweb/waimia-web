@@ -134,6 +134,35 @@ const cases = defineCollection({
         side: z.enum(['left', 'right']).default('right'),
       })
       .optional(),
+    // Vitrine du site livre (section cataloguee site-showcase) : captures reelles + lien
+    // nofollow. Optionnel → la section ne rend pas sans ce champ. Miroir du schema kernel
+    // packages/ds-kernel/src/sections/site-showcase/schema.ts (garde les 2 alignes).
+    showcase: z
+      .object({
+        kicker_fr: z.string().optional(),
+        kicker_en: z.string().optional(),
+        h2_fr: z.string().optional(),
+        h2_en: z.string().optional(),
+        lede_fr: z.string().optional(),
+        lede_en: z.string().optional(),
+        url: z.string().optional(),
+        url_label_fr: z.string().optional(),
+        url_label_en: z.string().optional(),
+        screens: z
+          .array(
+            z.object({
+              src: z.string(),
+              alt_fr: z.string(),
+              alt_en: z.string(),
+              kind: z.enum(['frame', 'tall']).default('frame'),
+              caption_fr: z.string().optional(),
+              caption_en: z.string().optional(),
+            }),
+          )
+          .min(1)
+          .max(4),
+      })
+      .optional(),
     author: reference('authors').optional(),
     contributors: z.array(reference('authors')).default([]),
     // ── Refonte éditoriale W2 (docs/25) : sections cataloguées pilotées par
@@ -355,6 +384,11 @@ const blog = defineCollection({
     contributors: z.array(reference('authors')).default([]),
     readingTime: z.number().optional(),
     heroImage: z.string().optional(),
+    // Habillage editorial : override optionnel du hero illustre (sinon mapping par
+    // categorie via src/lib/hero-illustrations.ts). `side` defaut droite.
+    heroIllustration: z
+      .object({ src: z.string(), alt_fr: z.string(), alt_en: z.string(), side: z.enum(['left', 'right']).optional() })
+      .optional(),
     excerpt_fr: z.string().optional(),
     excerpt_en: z.string().optional(),
     relatedPosts: z.array(z.string()).default([]),
@@ -462,6 +496,11 @@ const outils = defineCollection({
     relatedPages: z.array(z.string()).default([]),
     category_fr: z.string().optional(),
     category_en: z.string().optional(),
+    // Habillage editorial : override optionnel du hero illustre (sinon mapping par
+    // slug via src/lib/hero-illustrations.ts). `side` defaut droite.
+    heroIllustration: z
+      .object({ src: z.string(), alt_fr: z.string(), alt_en: z.string(), side: z.enum(['left', 'right']).optional() })
+      .optional(),
   }),
 });
 

@@ -3,7 +3,7 @@
 // z vient d'astro:content (build Astro + pattern codegen). Imports partages reresolus.
 
 import { z } from 'zod';
-import { ctaSchema } from '../_shared/subschemas';
+import { ctaSchema, heroIllustrationSchema } from '../_shared/subschemas';
 
 export const schema = z.object({
   type: z.literal('hero-sector'),
@@ -28,4 +28,7 @@ export const schema = z.object({
     )
     .max(8)
     .optional(),
+  // Habillage editorial (variante `editorial` uniquement) : illustration duotone en overlap,
+  // le h1 passe par-dessus. Optionnel → rendu inchange sans ce champ.
+  illustration: heroIllustrationSchema.optional(),
 });

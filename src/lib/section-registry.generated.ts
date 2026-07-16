@@ -89,6 +89,7 @@ import { Component as proofBarComponent, meta as proofBarMeta } from '../section
 import { Component as statBlockComponent, meta as statBlockMeta } from '../sections/stat-block';
 import { Component as metricShiftComponent, meta as metricShiftMeta } from '../sections/metric-shift';
 import { Component as socialProofComponent, meta as socialProofMeta } from '../sections/social-proof';
+import { Component as siteShowcaseComponent, meta as siteShowcaseMeta } from '../sections/site-showcase';
 import { Component as ecosystemPartnersComponent, meta as ecosystemPartnersMeta } from '../sections/ecosystem-partners';
 import { Component as methodTimelineComponent, meta as methodTimelineMeta } from '../sections/method-timeline';
 import { Component as featureGridComponent, meta as featureGridMeta } from '../sections/feature-grid';
@@ -547,6 +548,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'social-proof': {
     component: socialProofComponent,
     ...socialProofMeta,
+  },
+  'site-showcase': {
+    component: siteShowcaseComponent,
+    ...siteShowcaseMeta,
   },
   'ecosystem-partners': {
     component: ecosystemPartnersComponent,

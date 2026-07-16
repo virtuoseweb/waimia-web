@@ -82,9 +82,9 @@
     {
       "type": "hero-split-media",
       "background": "paper",
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : édition visuelle versionnée dans le code, sans base de données ni plugins",
-      "media_alt_en": "Diagram: visual editing versioned in the code, with no database or plugins",
+      "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
+      "media_alt_fr": "Illustration : éditer son contenu soi-même en minutes, sans dépendre d'un développeur",
+      "media_alt_en": "Illustration: editing your content yourself in minutes, without depending on a developer",
       "kicker_fr": "§ Résoudre un problème",
       "kicker_en": "§ Solve a problem",
       "h1_fr": "Réduire le temps passé sur le <i class=\"acc\">CMS</i>.",
@@ -121,46 +121,47 @@
       }
     },
     {
-      "type": "problems-grid",
+      "type": "feature-zigzag",
       "background": "paper-2",
+      "layout": "alternate",
+      "mediaSide": "left",
+      "kicker_fr": "§ Le problème",
+      "kicker_en": "§ The problem",
       "h2_fr": "Là où le temps part",
       "h2_en": "Where the time goes",
-      "problems": [
+      "rows": [
         {
-          "num": "01",
-          "kicker_fr": "Maintenance invisible",
-          "kicker_en": "Invisible maintenance",
-          "title_fr": "Vingt à quarante heures par an",
-          "title_en": "Twenty to forty hours a year",
+          "kicker_fr": "01 · Maintenance invisible",
+          "kicker_en": "01 · Invisible maintenance",
+          "h3_fr": "Vingt à quarante heures par an",
+          "h3_en": "Twenty to forty hours a year",
           "body_fr": "Mises à jour du cœur, des extensions chaque semaine, conflits de plugins, correctifs de sécurité, sauvegardes. Ce travail ne se voit pas sur le site mais il mange un temps réel, ou une facture de prestataire, mois après mois.",
           "body_en": "Core updates, weekly extension updates, plugin conflicts, security patches, backups. This work never shows on the site but it eats real time, or a provider invoice, month after month.",
-          "illustration_src": "/images/line-art/probleme-outils-cloisonnes.svg",
-          "illustration_alt_fr": "Une pile d'extensions à maintenir en continu",
-          "illustration_alt_en": "A stack of extensions to maintain continuously"
+          "media_src": "/images/illustrations/ds/computer-crash-landscape-paper.webp",
+          "media_alt_fr": "Une pile d'extensions à maintenir en continu",
+          "media_alt_en": "A stack of extensions to maintain continuously"
         },
         {
-          "num": "02",
-          "kicker_fr": "Dépendance au dev",
-          "kicker_en": "Dependence on a dev",
-          "title_fr": "Une coquille, et il faut appeler",
-          "title_en": "A typo, and you must call",
+          "kicker_fr": "02 · Dépendance au dev",
+          "kicker_en": "02 · Dependence on a dev",
+          "h3_fr": "Une coquille, et il faut appeler",
+          "h3_en": "A typo, and you must call",
           "body_fr": "Modifier un titre ou un prix demande un ticket, une intervention, un délai. Le contenu vieillit parce que chaque changement coûte un aller-retour avec un prestataire, au lieu de se faire en deux minutes par vous-même.",
           "body_en": "Changing a title or a price needs a ticket, an intervention, a delay. Content ages because every change costs a round trip with a provider, instead of being done in two minutes by you.",
-          "illustration_src": "/images/line-art/probleme-donnees-eparpillees.svg",
-          "illustration_alt_fr": "Un changement simple bloqué par une dépendance technique",
-          "illustration_alt_en": "A simple change blocked by a technical dependency"
+          "media_src": "/images/illustrations/ds/style-8-paper.webp",
+          "media_alt_fr": "Un changement simple bloqué par une dépendance technique",
+          "media_alt_en": "A simple change blocked by a technical dependency"
         },
         {
-          "num": "03",
-          "kicker_fr": "Risque et fragilité",
-          "kicker_en": "Risk and fragility",
-          "title_fr": "Une mise à jour, et tout casse",
-          "title_en": "One update, and everything breaks",
+          "kicker_fr": "03 · Risque et fragilité",
+          "kicker_en": "03 · Risk and fragility",
+          "h3_fr": "Une mise à jour, et tout casse",
+          "h3_en": "One update, and everything breaks",
           "body_fr": "Une extension qui se met à jour casse l'affichage. Une faille non corrigée ouvre la porte. La restauration d'une base piratée vire à la nuit blanche. Le site repose sur une mécanique fragile que personne ne maîtrise vraiment.",
           "body_en": "An extension that updates breaks the layout. An unpatched flaw opens the door. Restoring a hacked database turns into a sleepless night. The site rests on a fragile mechanism no one really masters.",
-          "illustration_src": "/images/line-art/probleme-poc-qui-dort.svg",
-          "illustration_alt_fr": "Un site fragile cassé par une mise à jour",
-          "illustration_alt_en": "A fragile site broken by an update"
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Un site fragile cassé par une mise à jour",
+          "media_alt_en": "A fragile site broken by an update"
         }
       ]
     },

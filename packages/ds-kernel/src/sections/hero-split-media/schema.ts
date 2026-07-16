@@ -4,7 +4,7 @@
 
 import { z } from 'zod';
 import { sectionBaseSchema } from '../_shared/base';
-import { ctaSchema } from '../_shared/subschemas';
+import { ctaSchema, heroIllustrationSchema } from '../_shared/subschemas';
 
 export const schema = z.object({
   type: z.literal('hero-split-media'),
@@ -32,4 +32,9 @@ export const schema = z.object({
   media_src: z.string().optional(),
   media_alt_fr: z.string().optional(),
   media_alt_en: z.string().optional(),
+  // Habillage editorial (magazine) : quand renseigne, le hero bascule sur la mise en page
+  // overlap (illustration duotone occupant ~la moitie de la ligne, titre par-dessus) au lieu
+  // de la grille split media/texte. Preserve tout le contenu (kicker/titre/lede/badges/CTA).
+  // Optionnel → rendu split-media inchange sans ce champ.
+  illustration: heroIllustrationSchema.optional(),
 });

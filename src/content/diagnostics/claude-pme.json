@@ -90,9 +90,12 @@
     {
       "type": "hero-split-media",
       "background": "paper",
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : Claude connecté aux outils et données d'une PME via le protocole MCP",
-      "media_alt_en": "Diagram: Claude connected to an SMB's tools and data via the MCP protocol",
+      "illustration": {
+        "src": "/images/illustrations/ds/computer-health-paper.webp",
+        "alt_fr": "Illustration : un moniteur de santé, votre PME prête ou non à déployer Claude",
+        "alt_en": "Illustration: a health monitor, your SMB ready or not to deploy Claude",
+        "side": "left"
+      },
       "kicker_fr": "§ Diagnostic Claude PME",
       "kicker_en": "§ Claude SMB diagnostic",
       "h1_fr": "Votre PME est-elle prête à déployer <i class=\"acc\">Claude</i> ?",
@@ -312,6 +315,22 @@
           ]
         }
       ]
+    },
+    {
+      "type": "branded-callout",
+      "background": "ink",
+      "kicker_fr": "§ Le point critique",
+      "kicker_en": "§ The critical point",
+      "h2_fr": "Un seul axe faible fait échouer le déploiement.",
+      "h2_en": "A single weak axis makes the deployment fail.",
+      "body1_fr": "La préparation ne s'additionne pas. Des données floues, des process implicites ou une gouvernance absente suffisent, à eux seuls, à bloquer l'ensemble. C'est pourquoi le diagnostic regarde les cinq dimensions ensemble, jamais isolément.",
+      "body1_en": "Readiness doesn't add up. Fuzzy data, implicit processes or absent governance are enough, on their own, to block the whole. That's why the diagnostic looks at the five dimensions together, never in isolation.",
+      "cta": {
+        "label_fr": "Situer votre préparation en 45 min →",
+        "label_en": "Place your readiness in 45 min →",
+        "href": "/contact?offer=claude-pme&intent=diagnostic",
+        "variant": "primary"
+      }
     },
     {
       "type": "decision-list",

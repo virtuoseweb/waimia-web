@@ -19,6 +19,7 @@ import { localizeHref } from '../../lib/i18n';
 import { sectorCaseGridData } from '../../lib/sector-cases';
 import { buildArticle, buildFAQPage } from '../../lib/seo/schema-builder';
 import { meshForSecteur } from '../../lib/internal-mesh';
+import { secteurHeroIllustration } from '../../lib/hero-illustrations';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
 
 export async function getStaticPaths() {
@@ -203,6 +204,9 @@ sectionsBeforeProse.push({
     href: localizeHref('/cas-clients', lang),
     variant: 'ghost',
   },
+  // Habillage editorial : illustration hero content-matched, DISJOINTE de la figure de
+  // prose (proseFigure ci-dessous) et du pool workflow de cette page (0 doublon page).
+  illustration: secteurHeroIllustration(slug),
 } satisfies SectionByType<'hero-sector'>);
 
 // 2 · pain-severity-list (ink) · friction, bascule contraste tôt

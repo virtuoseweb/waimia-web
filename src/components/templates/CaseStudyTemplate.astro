@@ -27,6 +27,7 @@ import TechPillRow from '../ui/molecules/TechPillRow.astro';
 import FooterCtaBand from '../sections/FooterCtaBand.astro';
 import RelatedCardsBand from '../sections/RelatedCardsBand.astro';
 import MastheadBar from '../sections/MastheadBar.astro';
+import SiteShowcase from '../../sections/site-showcase/Component.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 
 interface SpecItem {
@@ -161,6 +162,8 @@ interface Props {
   pullQuoteEn?: string;
   pullQuoteCiteFr?: string;
   pullQuoteCiteEn?: string;
+  /** Vitrine du site livre → site-showcase (captures reelles + lien nofollow). */
+  showcase?: Omit<SectionByType<'site-showcase'>, 'type'>;
 }
 const {
   title, description, caseTitle, caseNum, h1_fr, h1_en, specs, steps,
@@ -169,6 +172,7 @@ const {
   contextStatementFr, contextStatementEn, contextStats,
   bottlenecks, phases, deliverableCards, shifts,
   pullQuoteFr, pullQuoteEn, pullQuoteCiteFr, pullQuoteCiteEn,
+  showcase,
   provenance = 'first-party',
   ogType = 'article',
 } = Astro.props;
@@ -278,6 +282,12 @@ const metricShiftData = shifts && shifts.length >= 2
       // accent coral conservé sur les deltas) → 0 CSS à ajouter ici (rule 60).
       background: 'ink',
     } satisfies SectionByType<'metric-shift'>)
+  : null;
+
+// SITE-SHOWCASE · vitrine du site livre (captures reelles + lien nofollow). Rendu
+// conditionnel : rien sans frontmatter `showcase`. On reattache le discriminant `type`.
+const showcaseData = showcase && showcase.screens.length > 0
+  ? ({ type: 'site-showcase', ...showcase } satisfies SectionByType<'site-showcase'>)
   : null;
 
 const statBlockData = proofMetrics.length > 0
@@ -443,6 +453,10 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
 
   {/* DELIVERABLES → deliverables-grid (migré uniquement) */}
   {deliverablesGridData && <FeatureGrid data={deliverablesGridData} lang={lang} />}
+
+  {/* SITE LIVRÉ → site-showcase : « voilà ce qui a été mis en ligne » (captures réelles +
+      lien nofollow). Entre les livrables et les résultats chiffrés. Migré uniquement. */}
+  {showcaseData && <SiteShowcase data={showcaseData} lang={lang} />}
 
   {/* METRIC SHIFT → before→after magnifié (migré uniquement) */}
   {metricShiftData && <MetricShift data={metricShiftData} lang={lang} />}
