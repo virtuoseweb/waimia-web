@@ -1,0 +1,1110 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Relance de devis automatique · séquences email et SMS, zéro devis oublié",
+  "title_en": "Automated quote follow-up · email and SMS sequences, no quote left behind",
+  "description_fr": "Relance de devis automatique pour PME : séquences email et SMS déclenchées sur les devis en attente, jusqu'à la signature. Zéro devis oublié.",
+  "description_en": "Automated quote follow-up for SMEs: email and SMS sequences triggered on pending quotes, all the way to signature. No quote left behind.",
+  "slug": "relance-devis",
+  "publishedAt": "2026-07-16T00:00:00.000Z",
+  "updatedAt": "2026-07-16T00:00:00.000Z",
+  "category": "acquisition",
+  "tags": [
+    "relance-devis",
+    "relance-devis-automatique",
+    "suivi-devis",
+    "relance-commerciale",
+    "taux-de-signature"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Relance de devis automatique par séquences email et SMS",
+    "priceRange": "2000€-3960€/mois",
+    "priceMin": 2000,
+    "priceMax": 3960
+  },
+  "faq_fr": [
+    {
+      "q": "La relance de devis automatique, ça marche comment ?",
+      "a": "Une séquence prend le relais dès qu'un devis est envoyé et reste sans réponse. Elle relance le prospect à la bonne cadence, par email et SMS, sur le bon signal : devis ouvert mais non signé, silence prolongé, question restée en suspens. Vous n'envoyez plus un devis dans le vide en espérant un retour : chaque devis est suivi jusqu'à la décision, sans qu'un commercial ait à y penser."
+    },
+    {
+      "q": "En quoi c'est différent d'une relance à la main ?",
+      "a": "À la main, le commercial relance quand il y pense, débordé, il oublie la moitié des devis, et aucune trace ne dit lesquels. La séquence relance systématiquement, à la cadence qui convertit, sans oubli et sans harceler. La plupart des ventes se jouent dans les relances, pas au premier envoi. Une relance oubliée, c'est un devis signé chez le concurrent qui a rappelé."
+    },
+    {
+      "q": "Sur quels canaux part la relance ?",
+      "a": "Email en cœur de séquence, SMS en relance ciblée quand le devis compte et que le silence dure. On adapte le canal au moment : un rappel court par SMS après un email ouvert mais laissé en attente ouvre souvent la conversation que l'email seul n'obtient pas. On active ce qui correspond à votre cible, pas tous les canaux par défaut."
+    },
+    {
+      "q": "Le commercial garde-t-il la main sur la relance ?",
+      "a": "Oui. La séquence automatise le suivi, mais elle sort le devis du flux automatique dès que le prospect répond ou se réchauffe : à ce moment, le commercial reprend la main pour conclure. L'automatisation relance et trie, l'humain signe. On ne remplace pas la relation commerciale, on lui évite de laisser filer des devis faute de temps."
+    },
+    {
+      "q": "Ça se branche à mon CRM et à mes devis existants ?",
+      "a": "Oui : HubSpot et Pipedrive en priorité, en intégration native. La séquence lit le statut du devis dans votre CRM, déclenche la bonne relance et réécrit l'avancement sur la fiche. Votre équipe ne change pas d'interface : elle voit juste les devis en attente se réveiller et remonter quand le prospect répond. Pour un autre outil, on évalue au cadrage."
+    },
+    {
+      "q": "Combien coûte la relance de devis automatique ?",
+      "a": "Deux façons d'engager. L'entrée Relance devis démarre à partir de 2 000 € HT : branchement des devis et première séquence de relance email et SMS. Au-delà, l'abonnement Growth à 3 960 € HT par mois met une régie à disposition sur une base de 99 € de l'heure : séquences multicanal, pilotage et roadmap mensuelle. Une mission ponctuelle reste possible à 99 € de l'heure. Sans engagement de durée : à la fin, les séquences et la base sont à vous."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How does automated quote follow-up work?",
+      "a": "A sequence takes over the moment a quote is sent and stays unanswered. It follows up at the right cadence, by email and SMS, on the right signal: quote opened but unsigned, prolonged silence, a question left hanging. You no longer send a quote into the void hoping for a reply: every quote is tracked to the decision, without a rep having to think about it."
+    },
+    {
+      "q": "How is it different from a manual follow-up?",
+      "a": "By hand, the rep follows up when they remember, overloaded, they forget half the quotes, and no trace says which. The sequence follows up systematically, at the cadence that converts, with no oversight and no hounding. Most sales happen in the follow-ups, not the first send. A forgotten follow-up is a quote signed with the competitor who called back."
+    },
+    {
+      "q": "Which channels does the follow-up run on?",
+      "a": "Email at the core of the sequence, SMS for targeted follow-up when the quote matters and the silence lasts. We adapt the channel to the moment: a short SMS reminder after an email opened but left pending often opens the conversation email alone doesn't get. We activate what fits your target, not every channel by default."
+    },
+    {
+      "q": "Does the rep keep control of the follow-up?",
+      "a": "Yes. The sequence automates the follow-up, but it pulls the quote out of the automated flow the moment the prospect replies or warms up: at that point, the rep takes over to close. Automation follows up and sorts, the human signs. We don't replace the sales relationship, we stop it from losing quotes for lack of time."
+    },
+    {
+      "q": "Does it connect to my CRM and existing quotes?",
+      "a": "Yes: HubSpot and Pipedrive first, native integration. The sequence reads the quote status in your CRM, triggers the right follow-up and rewrites the progress on the record. Your team doesn't change interface: they just see pending quotes wake up and surface when the prospect replies. For another tool, we assess at scoping."
+    },
+    {
+      "q": "How much does automated quote follow-up cost?",
+      "a": "Two ways to engage. The quote follow-up entry starts from 2,000 € ex VAT: quote wiring and a first email and SMS follow-up sequence. Beyond that, the Growth subscription at 3,960 € ex VAT a month puts a retainer at your disposal on a 99 € an hour base: multichannel sequences, steering and a monthly roadmap. A one-off mission remains possible at 99 € an hour. No duration commitment: at the end, the sequences and the base are yours."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Relance de devis · séquences email et SMS",
+      "kicker_en": "§ Quote follow-up · email and SMS sequences",
+      "h1_fr": "Relance de <i class=\"acc\">devis</i> automatique.",
+      "h1_en": "Automated <i class=\"acc\">quote</i> follow-up.",
+      "lede_fr": "Vous envoyez un devis, puis vous attendez. Le prospect ne répond pas, le commercial passe à autre chose, et le devis s'oublie. Il n'est pas perdu, il n'a juste pas été relancé. La relance de devis automatique suit chaque devis envoyé, relance par email et SMS au bon moment et le pousse vers la signature. Branché à votre CRM. Le cas relance de vos séquences de suivi.",
+      "lede_en": "You send a quote, then you wait. The prospect doesn't reply, the rep moves on, and the quote is forgotten. It isn't lost, it just wasn't followed up. Automated quote follow-up tracks every quote sent, follows up by email and SMS at the right time and pushes it toward signature. Wired to your CRM. The follow-up case of your sequences.",
+      "badges": [
+        {
+          "label_fr": "Déclenché sur les devis en attente",
+          "label_en": "Triggered on pending quotes"
+        },
+        {
+          "label_fr": "Email + SMS",
+          "label_en": "Email + SMS"
+        },
+        {
+          "label_fr": "Zéro devis oublié",
+          "label_en": "No quote left behind"
+        },
+        {
+          "label_fr": "Branché au CRM",
+          "label_en": "CRM-connected"
+        }
+      ],
+      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement : on part de vos devis en attente et de votre suivi réel.",
+      "cta_sub_en": "45-min diagnostic, free and no commitment: we start from your pending quotes and your real follow-up.",
+      "cta_primary": {
+        "label_fr": "Réserver un diagnostic (45 min) →",
+        "label_en": "Book a diagnostic (45 min) →",
+        "href": "/contact?offer=relance-devis&intent=discovery",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir le dispositif",
+        "label_en": "See the system",
+        "href": "#capacites",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : un devis envoyé reste sans réponse, la séquence de relance se déclenche par email et SMS, puis le devis remonte chaud au commercial pour signature.",
+      "media_alt_en": "Diagram: a sent quote goes unanswered, the follow-up sequence triggers by email and SMS, then the quote surfaces warm to the rep for signature.",
+      "kpis": [
+        {
+          "num": "Email·SMS",
+          "cap_fr": "relance multicanal",
+          "cap_en": "multichannel follow-up"
+        },
+        {
+          "num": "2–4 sem.",
+          "cap_fr": "première séquence en route",
+          "cap_en": "first sequence live"
+        }
+      ]
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ At a glance",
+      "metrics": [
+        {
+          "value": "Dès 2 000 €",
+          "label_fr": "entrée cadrée HT, régie 99 €/h au-delà",
+          "label_en": "framed entry ex VAT, 99 €/h retainer beyond",
+          "emphasis": true
+        },
+        {
+          "value": "2–4 sem.",
+          "label_fr": "première séquence de relance en route",
+          "label_en": "first follow-up sequence live"
+        },
+        {
+          "value": "Email·SMS",
+          "label_fr": "relance déclenchée sur les devis en attente",
+          "label_en": "follow-up triggered on pending quotes"
+        },
+        {
+          "value": "100 %",
+          "label_fr": "séquences transférées, zéro captivité",
+          "label_en": "sequences handed over, no lock-in"
+        }
+      ]
+    },
+    {
+      "type": "statement-orbit",
+      "kicker_fr": "FIG 1.3 · Le dispositif",
+      "kicker_en": "FIG 1.3 · The dispositif",
+      "h2_fr": "Un devis envoyé sans relance s'oublie. Une <i class=\"acc\">séquence</i> le suit, le rappelle et le ramène.",
+      "h2_en": "A quote sent without follow-up is forgotten. A <i class=\"acc\">sequence</i> tracks it, reminds and brings it back.",
+      "lede_fr": "Tant que la relance dépend de la mémoire d'un commercial débordé, le devis file. Ici, le statut du devis, la séquence et le CRM se branchent ensemble : chaque devis en attente déclenche la bonne relance, chaque silence est rattrapé, chaque retour est rendu au commercial au bon moment. La relance de devis est un cas des <a href=\"/services/sequences-de-suivi\">séquences de suivi</a> : elle rattrape ce que le suivi laisse refroidir, sur le moment qui compte le plus.",
+      "lede_en": "As long as follow-up depends on an overworked rep's memory, the quote slips away. Here, the quote status, the sequence and the CRM wire together: each pending quote triggers the right follow-up, each silence is caught, each return is handed back to the rep at the right time. Quote follow-up is one case of <a href=\"/services/sequences-de-suivi\">follow-up sequences</a>: it recovers what follow-up lets cool, on the moment that matters most.",
+      "cta": {
+        "label_fr": "Voir les briques →",
+        "label_en": "See the building blocks →",
+        "href": "#capacites",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/orbit-network.svg",
+      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : le statut du devis, la séquence et le CRM orchestrés en un seul dispositif de relance.",
+      "media_alt_en": "Wireframe globe with nodes linked by arcs: the quote status, the sequence and the CRM orchestrated into one follow-up dispositif."
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition · format extractible",
+      "kicker_en": "§ Definition · extractable format",
+      "statement_fr": "La <i class=\"acc\">relance de devis automatique</i> est une séquence déclenchée sur les devis envoyés et restés sans réponse : rappels email et SMS cadencés sur le comportement, jusqu'à la décision, puis main rendue au commercial dès que le prospect répond. Chez Waimia, elle relance systématiquement, sans oubli, pour qu'aucun devis ne se perde. Le nurturing large des leads relève des séquences de suivi.",
+      "statement_en": "<i class=\"acc\">Automated quote follow-up</i> is a sequence triggered on quotes sent and left unanswered: email and SMS reminders paced on behaviour, up to the decision, then control handed back to the rep as soon as the prospect replies. At Waimia, it follows up systematically, with no oversight, so no quote gets lost. Broad lead nurturing is the job of follow-up sequences.",
+      "pills": [
+        {
+          "label_fr": "Déclenché sur les devis",
+          "label_en": "Triggered on quotes"
+        },
+        {
+          "label_fr": "Rappels email et SMS",
+          "label_en": "Email and SMS reminders"
+        },
+        {
+          "label_fr": "Cadence sans oubli",
+          "label_en": "Cadence with no oversight"
+        },
+        {
+          "label_fr": "Main rendue au commercial",
+          "label_en": "Handoff to the rep"
+        },
+        {
+          "label_fr": "Branché au CRM",
+          "label_en": "CRM-connected"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Statut du devis lu dans le CRM",
+          "label_en": "Quote status read in the CRM"
+        },
+        {
+          "label_fr": "Déclencheurs comportementaux",
+          "label_en": "Behavioural triggers"
+        },
+        {
+          "label_fr": "Email et SMS",
+          "label_en": "Email and SMS"
+        },
+        {
+          "label_fr": "Sortie vers le commercial",
+          "label_en": "Handoff to the rep"
+        },
+        {
+          "label_fr": "CRM (HubSpot, Pipedrive)",
+          "label_en": "CRM (HubSpot, Pipedrive)"
+        }
+      ]
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Là où le devis se perd · par sévérité",
+      "kicker_en": "Where the quote gets lost · by severity",
+      "h2_fr": "Pourquoi vos devis restent <i class=\"acc\">sans réponse</i>",
+      "h2_en": "Why your quotes stay <i class=\"acc\">unanswered</i>",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Le devis envoyé, puis oublié",
+          "title_en": "The quote sent, then forgotten",
+          "desc_fr": "Vous l'envoyez, le prospect ne répond pas, et personne ne relance. Le temps qu'on y repense, il a signé chez le concurrent qui l'a rappelé.",
+          "desc_en": "You send it, the prospect doesn't reply, and nobody follows up. By the time it's remembered, they've signed with the competitor who called back.",
+          "fix_fr": "Séquence de relance déclenchée sur le devis.",
+          "fix_en": "Follow-up sequence triggered on the quote."
+        },
+        {
+          "severity": "high",
+          "title_fr": "La relance à la main oubliée",
+          "title_en": "The forgotten manual follow-up",
+          "desc_fr": "Le commercial relance quand il y pense. Débordé, il oublie la moitié des devis, et aucune trace ne dit lesquels attendent encore une réponse.",
+          "desc_en": "The rep follows up when they remember. Overloaded, they forget half the quotes, and no trace says which still await a reply.",
+          "fix_fr": "Cadence systématique, sans oubli.",
+          "fix_en": "Systematic cadence, no oversight."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Un seul canal, jamais le bon moment",
+          "title_en": "One channel, never the right moment",
+          "desc_fr": "Un email de relance perdu dans une boîte pleine ne réveille rien. Sans SMS ni cadence sur le comportement, le devis reste au fond de la pile.",
+          "desc_en": "A follow-up email lost in a full inbox wakes nothing. Without SMS or behaviour-based cadence, the quote stays at the bottom of the pile.",
+          "fix_fr": "Relance email et SMS, au bon signal.",
+          "fix_en": "Email and SMS follow-up, on the right signal."
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ L'équation",
+      "kicker_en": "§ The equation",
+      "h2_fr": "Pourquoi une relance <i class=\"acc\">instrumentée</i> change l'équation",
+      "h2_en": "Why <i class=\"acc\">instrumented</i> follow-up changes the equation",
+      "without_label_fr": "Relance à la main",
+      "without_label_en": "Manual follow-up",
+      "without_title_fr": "Ce qu'elle laisse filer",
+      "without_title_en": "What it lets slip",
+      "without_items": [
+        {
+          "text_fr": "Le devis part, puis plus rien : personne ne pense à le relancer.",
+          "text_en": "The quote goes out, then nothing: nobody thinks to follow up."
+        },
+        {
+          "text_fr": "La relance dépend de la mémoire d'un commercial débordé.",
+          "text_en": "Follow-up depends on an overworked rep's memory."
+        },
+        {
+          "text_fr": "Un seul email, jamais de SMS, jamais au bon moment.",
+          "text_en": "A single email, never an SMS, never at the right moment."
+        },
+        {
+          "text_fr": "Aucune trace : impossible de savoir quels devis attendent encore.",
+          "text_en": "No trace: impossible to know which quotes are still waiting."
+        }
+      ],
+      "with_label_fr": "Relance instrumentée",
+      "with_label_en": "Instrumented follow-up",
+      "with_title_fr": "Ce qu'elle met au travail",
+      "with_title_en": "What it puts to work",
+      "with_items": [
+        {
+          "text_fr": "La relance part sur le bon signal, avant que le devis s'oublie.",
+          "text_en": "The follow-up fires on the right signal, before the quote is forgotten."
+        },
+        {
+          "text_fr": "La cadence est systématique, rien ne dépend de la mémoire.",
+          "text_en": "The cadence is systematic, nothing depends on memory."
+        },
+        {
+          "text_fr": "Email et SMS combinés, chacun sur le moment qui convertit.",
+          "text_en": "Email and SMS combined, each on the moment that converts."
+        },
+        {
+          "text_fr": "Chaque devis suivi, tracé, et rendu au commercial dès qu'il répond.",
+          "text_en": "Every quote tracked, traced, and handed back to the rep when it replies."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Maturité",
+      "kicker_en": "§ Maturity",
+      "h2_fr": "Les 6 niveaux d'une relance de devis",
+      "h2_en": "The 6 levels of quote follow-up",
+      "lede_fr": "De l'absence de relance à la séquence multicanal qui s'affine seule, six paliers. La plupart des PME stagnent au deuxième, la relance à la main quand on y pense. On vous situe, puis on vous fait monter d'un cran.",
+      "lede_en": "From no follow-up to a multichannel sequence that sharpens itself, six tiers. Most SMEs stall at the second, following up by hand when they remember. We place you, then move you up a notch.",
+      "steps": [
+        {
+          "title_fr": "Pas de relance",
+          "title_en": "No follow-up",
+          "sub_fr": "Le devis part sans retour",
+          "sub_en": "The quote leaves without a reply"
+        },
+        {
+          "title_fr": "Relance à la main",
+          "title_en": "Manual follow-up",
+          "sub_fr": "Quand on y pense",
+          "sub_en": "When we remember"
+        },
+        {
+          "title_fr": "Rappel email unique",
+          "title_en": "Single email reminder",
+          "sub_fr": "Un envoi, jamais de suite",
+          "sub_en": "One send, never a follow-up"
+        },
+        {
+          "title_fr": "Séquence déclenchée",
+          "title_en": "Triggered sequence",
+          "sub_fr": "Relance sur le statut du devis",
+          "sub_en": "Follow-up on the quote status"
+        },
+        {
+          "title_fr": "Multicanal branché CRM",
+          "title_en": "CRM-wired multichannel",
+          "sub_fr": "Email et SMS, retours rendus",
+          "sub_en": "Email and SMS, returns handed back"
+        },
+        {
+          "title_fr": "Relance auto-affinée",
+          "title_en": "Self-sharpening follow-up",
+          "sub_fr": "La séquence apprend des réponses",
+          "sub_en": "The sequence learns from replies"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous récupérez concrètement",
+      "title_en": "What you get concretely",
+      "lead_fr": "Vous gardez les séquences et les règles quand on part. Pas de captivité.",
+      "lead_en": "You keep the sequences and the rules when we leave. No lock-in.",
+      "items": [
+        {
+          "title_fr": "Séquence de relance devis",
+          "title_en": "Quote follow-up sequence",
+          "body_fr": "Une suite de rappels écrite pour les devis en attente, déclenchée sur le statut et le comportement, qui relance jusqu'à la décision.",
+          "body_en": "A series of reminders written for pending quotes, triggered on status and behaviour, following up to the decision.",
+          "format_fr": "SÉQUENCE",
+          "format_en": "SEQUENCE",
+          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
+          "illustration_alt_fr": "Une séquence de relance déclenchée sur les devis en attente",
+          "illustration_alt_en": "A follow-up sequence triggered on pending quotes"
+        },
+        {
+          "title_fr": "Relance email et SMS",
+          "title_en": "Email and SMS follow-up",
+          "body_fr": "Un rappel court par SMS après l'email, quand le devis compte et que le silence dure, sans noyer le prospect. On adapte le canal au moment.",
+          "body_en": "A short SMS reminder after the email, when the quote matters and the silence lasts, without flooding the prospect. We adapt the channel to the moment.",
+          "format_fr": "MULTICANAL",
+          "format_en": "MULTICHANNEL",
+          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
+          "illustration_alt_fr": "Une relance email et SMS déclenchée sur le bon signal",
+          "illustration_alt_en": "Email and SMS follow-up triggered on the right signal"
+        },
+        {
+          "title_fr": "Déclencheurs et cadence",
+          "title_en": "Triggers and cadence",
+          "body_fr": "Les règles qui décident quand relancer, sur quel canal et sur quel signal, avec une cadence calée pour rappeler sans agacer.",
+          "body_en": "The rules deciding when to follow up, on which channel and which signal, with a cadence set to remind without annoying.",
+          "format_fr": "RÈGLES",
+          "format_en": "RULES",
+          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
+          "illustration_alt_fr": "Des déclencheurs et une cadence qui relancent le devis sans harceler",
+          "illustration_alt_en": "Triggers and a cadence that follow up the quote without hounding"
+        },
+        {
+          "title_fr": "CRM branché et handoff",
+          "title_en": "Wired CRM and handoff",
+          "body_fr": "Le statut du devis lu dans HubSpot ou Pipedrive, l'avancement réécrit sur la fiche, le devis sorti du flux et rendu au commercial dès que le prospect répond.",
+          "body_en": "The quote status read in HubSpot or Pipedrive, progress rewritten on the record, the quote pulled from the flow and handed back to the rep when the prospect replies.",
+          "format_fr": "CRM",
+          "format_en": "CRM",
+          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
+          "illustration_alt_fr": "Un devis suivi dans le CRM et rendu au commercial au bon moment",
+          "illustration_alt_en": "A quote tracked in the CRM and handed back to the rep at the right time"
+        },
+        {
+          "title_fr": "Tableau de bord des devis",
+          "title_en": "Quote dashboard",
+          "body_fr": "Devis en attente, relancés, rouverts et rendus au commercial, taux de réponse par séquence, lus en temps réel.",
+          "body_en": "Pending, followed-up, reopened and handed-back quotes, reply rate per sequence, read in real time.",
+          "format_fr": "TABLEAU",
+          "format_en": "DASHBOARD",
+          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
+          "illustration_alt_fr": "Un tableau de bord des devis en attente et relancés",
+          "illustration_alt_en": "A dashboard of pending and followed-up quotes"
+        },
+        {
+          "title_fr": "Documentation et autonomie",
+          "title_en": "Documentation and autonomy",
+          "body_fr": "Mode opératoire, séquences et déclencheurs documentés, formation : votre équipe pilote la relance des devis à la livraison.",
+          "body_en": "Operating manual, documented sequences and triggers, training: your team runs the quote follow-up at delivery.",
+          "format_fr": "NOTION + VIDÉO",
+          "format_en": "NOTION + VIDEO",
+          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
+          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur la relance",
+          "illustration_alt_en": "A documented operating manual to make the team autonomous on follow-up"
+        }
+      ]
+    },
+    {
+      "type": "logo-marquee",
+      "background": "ink",
+      "kicker_fr": "§ Les outils qu'on branche à vos relances",
+      "kicker_en": "§ The tools we wire to your follow-ups",
+      "grayscale": true,
+      "logoIds": [
+        "hubspot",
+        "salesforce",
+        "google",
+        "microsoft",
+        "slack",
+        "notion",
+        "claude",
+        "openai",
+        "github",
+        "aws",
+        "sap",
+        "meta"
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "anchor": "capacites",
+      "background": "paper",
+      "kicker_fr": "§ Les briques",
+      "kicker_en": "§ The building blocks",
+      "h2_fr": "Les briques d'une relance de devis qui signe",
+      "h2_en": "The building blocks of quote follow-up that signs",
+      "lede_fr": "Sept briques, une seule base. On active celles qui servent, quand elles servent. Pas d'envoi de masse qui agace pour rien.",
+      "lede_en": "Seven building blocks, a single base. We activate the ones that serve, when they serve. No mass send that annoys for nothing.",
+      "columns": "4",
+      "fillMedia": "services-layer.svg",
+      "features": [
+        {
+          "icon": "tracking",
+          "title_fr": "Déclencheurs",
+          "title_en": "Triggers",
+          "body_fr": "La relance part sur un signal, pas sur un calendrier : devis ouvert non signé, silence prolongé, question laissée sans réponse.",
+          "body_en": "The follow-up fires on a signal, not a calendar: quote opened unsigned, prolonged silence, a question left unanswered."
+        },
+        {
+          "icon": "design",
+          "title_fr": "Séquences",
+          "title_en": "Sequences",
+          "body_fr": "Une suite de rappels écrite pour les devis, cadence calée : on relance jusqu'à la décision, sans harceler ni laisser filer.",
+          "body_en": "A series of reminders written for quotes, cadence set: we follow up to the decision, without hounding or letting it slip."
+        },
+        {
+          "icon": "ia",
+          "title_fr": "Email et SMS",
+          "title_en": "Email and SMS",
+          "body_fr": "Email en cœur de séquence, SMS en relance ciblée quand le devis compte. Un rappel court ouvre souvent la porte que l'email seul n'obtient pas.",
+          "body_en": "Email at the core, SMS for targeted follow-up when the quote matters. A short reminder often opens the door email alone doesn't get."
+        },
+        {
+          "icon": "qualif",
+          "title_fr": "Cadence",
+          "title_en": "Cadence",
+          "body_fr": "Systématique et adaptée au devis : ni trop, ni trop peu, ni jamais. La relance rappelle au bon rythme sans agacer le prospect.",
+          "body_en": "Systematic and adapted to the quote: not too much, not too little, not never. The follow-up reminds at the right rhythm without annoying the prospect."
+        },
+        {
+          "icon": "crm",
+          "title_fr": "CRM et handoff",
+          "title_en": "CRM and handoff",
+          "body_fr": "Dès qu'un prospect répond, le devis sort du flux automatique et le commercial reprend la main. Le statut se réécrit sur la fiche.",
+          "body_en": "As soon as a prospect replies, the quote leaves the automated flow and the rep takes over. The status rewrites onto the record."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "Zéro oubli",
+          "title_en": "Zero oversight",
+          "body_fr": "Chaque devis envoyé entre dans la séquence, aucun ne passe entre les mailles. Fini le devis qu'on retrouve trois semaines trop tard.",
+          "body_en": "Every quote sent enters the sequence, none slips through. No more quote found three weeks too late."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Pilotage",
+          "title_en": "Steering",
+          "body_fr": "Devis en attente, relancés, rouverts et rendus, taux de réponse par séquence : vous mesurez ce que la relance rapporte, pas au ressenti.",
+          "body_en": "Pending, followed-up, reopened and handed-back quotes, reply rate per sequence: you measure what follow-up returns, not on gut feel."
+        }
+      ]
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "declinaisons",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Le système commercial",
+      "kicker_en": "§ The commercial system",
+      "h2_fr": "La relance de devis s'assemble au reste du <i>système commercial</i>",
+      "h2_en": "Quote follow-up assembles into the rest of the <i>commercial system</i>",
+      "lede_fr": "La relance de devis ne travaille jamais seule : elle prolonge les séquences de suivi, s'appuie sur le CRM qui note les leads et reprend les comptes ouverts par la prospection. Survolez une brique pour voir comment elle se branche.",
+      "lede_en": "Quote follow-up never works alone: it extends the follow-up sequences, leans on the CRM that scores leads and picks up the accounts prospecting opens. Hover a block to see how it wires in.",
+      "items": [
+        {
+          "label_fr": "Séquences de suivi",
+          "label_en": "Follow-up sequences",
+          "meta_fr": "Le nurturing complet dont la relance de devis est un cas",
+          "meta_en": "The full nurturing quote follow-up is a case of",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Une jonction : les séquences de suivi complètes.",
+          "media_alt_en": "A handshake: the full follow-up sequences.",
+          "link_href": "/services/sequences-de-suivi"
+        },
+        {
+          "label_fr": "CRM, scoring et routing",
+          "label_en": "CRM, scoring and routing",
+          "meta_fr": "Le CRM qui tient le statut des devis et note les leads",
+          "meta_en": "The CRM that holds quote status and scores leads",
+          "media_src": "/images/illustrations/ds/chess-paper.webp",
+          "media_alt_fr": "Un échiquier : le CRM qui note et route chaque lead.",
+          "media_alt_en": "A chessboard: the CRM that scores and routes each lead.",
+          "link_href": "/services/crm-scoring-routing"
+        },
+        {
+          "label_fr": "Prospection automatisée",
+          "label_en": "Automated prospecting",
+          "meta_fr": "L'outbound qui ouvre les comptes à relancer",
+          "meta_en": "The outbound that opens the accounts to follow up",
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Un tri clair : la prospection qui va chercher les comptes.",
+          "media_alt_en": "A clear sort: the prospecting that goes after accounts.",
+          "link_href": "/services/prospection-automatisee"
+        },
+        {
+          "label_fr": "Système commercial",
+          "label_en": "Commercial system",
+          "meta_fr": "Prospection, CRM et relances orchestrés d'un bloc",
+          "meta_en": "Prospecting, CRM and follow-ups orchestrated as one",
+          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
+          "media_alt_fr": "Une voiture sur la route : le système commercial en marche.",
+          "media_alt_en": "A car on the road: the commercial system running.",
+          "link_href": "/services/systeme-commercial"
+        }
+      ]
+    },
+    {
+      "type": "system-flow",
+      "background": "ink",
+      "fig_num": "Fig. 3.0",
+      "fig_title_fr": "La relance de devis, de bout en bout",
+      "fig_title_en": "Quote follow-up, end to end",
+      "meta_fr": "QuoteLoop · v1",
+      "meta_en": "QuoteLoop · v1",
+      "h2_fr": "Comment un devis en attente revient signé",
+      "h2_en": "How a pending quote comes back signed",
+      "lede_fr": "Les briques ne s'empilent pas au hasard. Elles forment un circuit. Chaque maillon transforme un devis oublié en devis relancé et rendu au commercial, puis renvoie la réponse à la séquence pour l'affiner.",
+      "lede_en": "The blocks don't stack at random. They form a circuit. Each link turns a forgotten quote into a followed-up quote handed back to the rep, then feeds the reply back to the sequence to sharpen it.",
+      "steps": [
+        {
+          "title_fr": "Devis envoyé",
+          "title_en": "Quote sent",
+          "desc_fr": "Un devis part et son statut est lu dans le CRM.",
+          "desc_en": "A quote goes out and its status is read in the CRM."
+        },
+        {
+          "title_fr": "Signal",
+          "title_en": "Signal",
+          "desc_fr": "Devis ouvert non signé, silence prolongé, question en suspens.",
+          "desc_en": "Quote opened unsigned, prolonged silence, a question hanging."
+        },
+        {
+          "title_fr": "Séquence",
+          "title_en": "Sequence",
+          "desc_fr": "La bonne relance part, email puis SMS, à la bonne cadence.",
+          "desc_en": "The right follow-up fires, email then SMS, at the right cadence."
+        },
+        {
+          "title_fr": "Réponse",
+          "title_en": "Reply",
+          "desc_fr": "Le prospect rouvre, clique, répond. Son intérêt remonte, mesuré.",
+          "desc_en": "The prospect reopens, clicks, replies. Their interest rises, measured."
+        },
+        {
+          "title_fr": "Handoff · CRM",
+          "title_en": "Handoff · CRM",
+          "desc_fr": "Devenu chaud, le devis sort du flux et le commercial conclut.",
+          "desc_en": "Now warm, the quote leaves the flow and the rep closes."
+        },
+        {
+          "title_fr": "Affinage",
+          "title_en": "Refinement",
+          "desc_fr": "La réponse revient à la séquence, qui s'ajuste. La boucle se referme.",
+          "desc_en": "The reply returns to the sequence, which adjusts. The loop closes."
+        }
+      ],
+      "loop_label_fr": "boucle d'affinage continu des relances",
+      "loop_label_en": "continuous follow-up refinement loop"
+    },
+    {
+      "type": "sticky-scroll-storytelling",
+      "anchor": "methode",
+      "background": "paper",
+      "textSide": "left",
+      "proportion": "media-led",
+      "mediaRatio": "4-3",
+      "density": "base",
+      "numbering": "serif",
+      "kicker_fr": "§ Méthode · comment on relance vos devis",
+      "kicker_en": "§ Method · how we follow up your quotes",
+      "h2_fr": "Comment on relance vos devis",
+      "h2_en": "How we follow up your quotes",
+      "lede_fr": "Du branchement des devis à la séquence qui tourne, puis à la relance qui s'affine. Vous savez avant de signer ce qu'on relance en premier et ce que ça rapporte. Pas de zone d'ombre.",
+      "lede_en": "From wiring the quotes to a sequence that runs, then to follow-up that sharpens. You know before signing what we follow up first and what it returns. No grey zone.",
+      "steps": [
+        {
+          "index_fr": "01",
+          "index_en": "01",
+          "eyebrow_fr": "Audit & devis",
+          "eyebrow_en": "Audit & quotes",
+          "title_fr": "Repérer les devis en attente",
+          "title_en": "Spot the pending quotes",
+          "body_fr": "Quelques jours pour ausculter vos devis : ceux ouverts non signés, ceux restés sans réponse, ceux oubliés depuis des semaines. Livrable : l'état des devis en attente et le gisement chiffré. On travaille d'abord ce qui dort déjà dans votre pipeline.",
+          "body_en": "A few days to inspect your quotes: those opened unsigned, those left unanswered, those forgotten for weeks. Deliverable: the state of pending quotes and the goldmine quantified. We first work what already sleeps in your pipeline.",
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Repérage des devis en attente et du gisement à relancer",
+          "media_alt_en": "Spotting pending quotes and the goldmine to follow up"
+        },
+        {
+          "index_fr": "02",
+          "index_en": "02",
+          "eyebrow_fr": "Messages & séquence",
+          "eyebrow_en": "Messages & sequence",
+          "title_fr": "Écrire la séquence de relance",
+          "title_en": "Write the follow-up sequence",
+          "body_fr": "On écrit les rappels : le devis qu'on relance sans agacer, la question qu'on lève, l'argument qui débloque. Chaque message parle à un moment précis du parcours d'achat, pas à une liste indifférenciée.",
+          "body_en": "We write the reminders: the quote to follow up without annoying, the question to lift, the argument that unblocks. Each message speaks to a precise moment in the buying journey, not to an undifferentiated list.",
+          "media_src": "/images/illustrations/ds/style-13-paper.webp",
+          "media_alt_fr": "Rédaction des messages de relance adaptés au parcours d'achat",
+          "media_alt_en": "Writing follow-up messages tailored to the buying journey"
+        },
+        {
+          "index_fr": "03",
+          "index_en": "03",
+          "eyebrow_fr": "Déclencheurs & cadence",
+          "eyebrow_en": "Triggers & cadence",
+          "title_fr": "Poser les déclencheurs et la cadence",
+          "title_en": "Set the triggers and the cadence",
+          "body_fr": "On définit ce qui déclenche chaque relance, sur quel signal et quel canal, à quelle cadence, pour rappeler sans agacer. Un devis ouvert non signé, un silence de quelques jours : le comportement pilote la séquence, email puis SMS.",
+          "body_en": "We define what triggers each follow-up, on which signal and channel, at what cadence, to remind without annoying. A quote opened unsigned, a silence of a few days: behaviour drives the sequence, email then SMS.",
+          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
+          "media_alt_fr": "Définition des déclencheurs et de la cadence de relance des devis",
+          "media_alt_en": "Defining triggers and cadence for quote follow-up"
+        },
+        {
+          "index_fr": "04",
+          "index_en": "04",
+          "eyebrow_fr": "Branchement & handoff",
+          "eyebrow_en": "Wiring & handoff",
+          "title_fr": "Brancher le CRM et le handoff",
+          "title_en": "Wire the CRM and the handoff",
+          "body_fr": "On branche la séquence à HubSpot ou Pipedrive : elle lit le statut du devis, réécrit l'avancement et sort le devis du flux dès que le prospect répond, pour le rendre au commercial. On pose le tableau de bord : devis en attente, relancés, rendus.",
+          "body_en": "We wire the sequence to HubSpot or Pipedrive: it reads the quote status, rewrites the progress and pulls the quote from the flow as soon as the prospect replies, to hand it back to the rep. We lay the dashboard: pending, followed-up, handed-back quotes.",
+          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
+          "media_alt_fr": "Branchement de la séquence au CRM et handoff des devis chauds",
+          "media_alt_en": "Wiring the sequence to the CRM and handing off warm quotes"
+        },
+        {
+          "index_fr": "05",
+          "index_en": "05",
+          "eyebrow_fr": "Rodage & passation",
+          "eyebrow_en": "Tuning & handover",
+          "title_fr": "Roder la séquence et vous passer la main",
+          "title_en": "Tune the sequence and hand it over",
+          "body_fr": "On itère les messages sur les réponses réelles, on ajuste les déclencheurs et la cadence. Puis la passation : mode opératoire, séquences documentées, formation. Vous gardez les séquences, la base et la main.",
+          "body_en": "We iterate the messages on real replies, adjust the triggers and cadence. Then handover: operating manual, documented sequences, training. You keep the sequences, the base and the control.",
+          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
+          "media_alt_fr": "Rodage de la séquence de relance et passation de l'autonomie aux équipes",
+          "media_alt_en": "Tuning the follow-up sequence and handing autonomy over to the teams",
+          "link_label_fr": "Voir un cas concret",
+          "link_label_en": "See a real case",
+          "link_href": "/cas-clients"
+        }
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "anchor": "apres-lancement",
+      "background": "paper-2",
+      "kicker_fr": "§ Après le lancement",
+      "kicker_en": "§ After launch",
+      "h2_fr": "La relance continue de s'affiner après le lancement",
+      "h2_en": "Follow-up keeps sharpening after launch",
+      "lede_fr": "Une séquence lancée n'est pas une séquence finie. La plupart des relances automatiques tournent une fois et s'éteignent. Ici, la relance de devis devient un actif : des messages qui apprennent des réponses, une délivrabilité surveillée, un pilotage temps réel et une autonomie complète sur vos séquences.",
+      "lede_en": "A launched sequence is not a finished sequence. Most automated follow-ups run once and fade. Here, quote follow-up becomes an asset: messages that learn from replies, monitored deliverability, real-time steering and full autonomy on your sequences.",
+      "rows": [
+        {
+          "kicker_fr": "Après · 01",
+          "kicker_en": "After · 01",
+          "h3_fr": "Messages qui apprennent",
+          "h3_en": "Messages that learn",
+          "body_fr": "Les réponses réelles disent quel rappel débloque un devis et lequel tombe à plat. On garde ce qui fait signer, on réécrit ce qui n'accroche pas, on ajuste les déclencheurs. La séquence suivante convertit mieux que la précédente, mesuré sur vos taux de réponse.",
+          "body_en": "Real replies tell you which reminder unblocks a quote and which falls flat. We keep what makes them sign, rewrite what doesn't land, adjust the triggers. The next sequence converts better than the last, measured on your reply rates.",
+          "points": [
+            {
+              "label_fr": "Rappels gardés sur ce qui fait signer",
+              "label_en": "Reminders kept on what makes them sign"
+            },
+            {
+              "label_fr": "Déclencheurs ajustés sur les réponses",
+              "label_en": "Triggers adjusted on replies"
+            },
+            {
+              "label_fr": "Cadence affinée à chaque cycle",
+              "label_en": "Cadence sharpened each cycle"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
+          "media_alt_fr": "Les messages de relance qui apprennent des réponses réelles, illustration éditoriale",
+          "media_alt_en": "Follow-up messages learning from real replies, editorial illustration"
+        },
+        {
+          "kicker_fr": "Après · 02",
+          "kicker_en": "After · 02",
+          "h3_fr": "Délivrabilité surveillée",
+          "h3_en": "Deliverability monitored",
+          "body_fr": "Une relance qui finit en spam ne fait signer personne. On suit le taux de placement, les désabonnements, la réputation. Une cadence trop lourde fatigue le prospect et abîme la marque : on rappelle sans harceler, et on ajuste avant que ça dérape.",
+          "body_en": "A follow-up that lands in spam makes no one sign. We track placement rate, unsubscribes, reputation. A cadence too heavy tires the prospect and hurts the brand: we remind without hounding, and adjust before it slips.",
+          "points": [
+            {
+              "label_fr": "Placement et désabonnements suivis",
+              "label_en": "Placement and unsubscribes tracked"
+            },
+            {
+              "label_fr": "Cadence qui rappelle sans harceler",
+              "label_en": "Cadence that reminds without hounding"
+            },
+            {
+              "label_fr": "Réputation de la marque protégée",
+              "label_en": "Brand reputation protected"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/style-11-paper.webp",
+          "media_alt_fr": "La délivrabilité et la fatigue du prospect surveillées en continu, illustration éditoriale",
+          "media_alt_en": "Deliverability and prospect fatigue monitored continuously, editorial illustration"
+        },
+        {
+          "kicker_fr": "Après · 03",
+          "kicker_en": "After · 03",
+          "h3_fr": "Pilotage temps réel",
+          "h3_en": "Real-time steering",
+          "body_fr": "Les devis en attente, relancés, rouverts et rendus au commercial, le taux de réponse par séquence, lus en temps réel. Vous voyez ce que la relance rapporte, et vous ajustez les séquences sur des chiffres, pas au ressenti.",
+          "body_en": "Pending, followed-up, reopened and handed-back quotes, the reply rate per sequence, read in real time. You see what follow-up returns, and adjust the sequences on figures, not on gut feel.",
+          "points": [
+            {
+              "label_fr": "Devis en attente et relancés visibles",
+              "label_en": "Pending and followed-up quotes visible"
+            },
+            {
+              "label_fr": "Taux de réponse par séquence",
+              "label_en": "Reply rate per sequence"
+            },
+            {
+              "label_fr": "Séquences ajustées sur des chiffres",
+              "label_en": "Sequences adjusted on figures"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
+          "media_alt_fr": "Un pilotage temps réel des devis avec taux de réponse par séquence, illustration éditoriale",
+          "media_alt_en": "Real-time quote steering with reply rate per sequence, editorial illustration"
+        },
+        {
+          "kicker_fr": "Après · 04",
+          "kicker_en": "After · 04",
+          "h3_fr": "Autonomie et passation",
+          "h3_en": "Autonomy and handover",
+          "body_fr": "On documente les séquences, les déclencheurs et les règles, et on forme votre équipe : écriture d'une relance, lecture du tableau, gestion des exceptions. Vous gardez les séquences et la main. Pas de captivité : vous les faites évoluer sans dépendre de nous.",
+          "body_en": "We document the sequences, triggers and rules, and train your team: writing a follow-up, reading the dashboard, handling exceptions. You keep the sequences and the control. No lock-in: you evolve them without depending on us.",
+          "points": [
+            {
+              "label_fr": "Séquences et déclencheurs documentés",
+              "label_en": "Documented sequences and triggers"
+            },
+            {
+              "label_fr": "Formation à l'écriture des relances",
+              "label_en": "Training on writing follow-ups"
+            },
+            {
+              "label_fr": "Vous gardez les séquences, zéro captivité",
+              "label_en": "You keep the sequences, zero lock-in"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/style-10-paper.webp",
+          "media_alt_fr": "Passation et formation des équipes pour piloter la relance en autonomie, illustration éditoriale",
+          "media_alt_en": "Handover and team training to run follow-up autonomously, editorial illustration"
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · résultats réels",
+      "spec_en": "Client cases · real results",
+      "h2_fr": "Résultats sur le terrain",
+      "h2_en": "Results in the field",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Impact",
+      "impact_label_en": "Impact",
+      "cases": [
+        {
+          "client": "Amploi · groupe Vigiscope",
+          "sector_fr": "Externalisation RH",
+          "sector_en": "HR outsourcing",
+          "duration": "6 sem.",
+          "stack": "CRM HubSpot · Attribution · GEO",
+          "impact_fr": "Formulaires branchés HubSpot avec attribution des leads : chaque demande entrante qualifiée et rattachée à sa source, prête à entrer dans une séquence de relance et à être suivie jusqu'à la réponse.",
+          "impact_en": "HubSpot-connected forms with lead attribution: every inbound request qualified and tied to its source, ready to enter a follow-up sequence and be tracked to reply.",
+          "href": "/cas-clients/amploi",
+          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
+          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et relance ses demandes.",
+          "media_alt_en": "A dynamic figure: HR outsourcing that captures and follows up its requests."
+        },
+        {
+          "client": "Balzeo",
+          "sector_fr": "E-commerce écoresponsable",
+          "sector_en": "Eco-friendly e-commerce",
+          "duration": "8 sem.",
+          "stack": "Refonte · E-commerce · Perf",
+          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %. Une base client saine pour relancer les paniers et les demandes en attente.",
+          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%. A healthy customer base to follow up carts and pending requests.",
+          "href": "/cas-clients/balzeo",
+          "media_src": "/images/illustrations/ds/fruits-ink.webp",
+          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable à la base client saine.",
+          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store with a healthy customer base."
+        },
+        {
+          "client": "Les Carnets de Montpellier",
+          "sector_fr": "Patrimoine / Média local",
+          "sector_en": "Heritage / Local media",
+          "duration": "6 sem.",
+          "stack": "Création · Abonnement · SEO",
+          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres et 35 abonnés payants en 3 mois. Une base d'abonnés entretenue par un suivi régulier, pas une liste laissée sans relance.",
+          "impact_en": "Built from scratch: 40 articles, 150 members and 35 paying subscribers in 3 months. A subscriber base nurtured by regular follow-up, not a list left without a reminder.",
+          "href": "/cas-clients/les-carnets-de-montpellier",
+          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
+          "media_alt_fr": "Un média local qui entretient et relance une communauté d'abonnés.",
+          "media_alt_en": "A local media outlet nurturing and following up a community of subscribers."
+        }
+      ],
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "testimonial-wall",
+      "background": "paper-2",
+      "kicker_fr": "Ils ont arrêté d'oublier leurs devis",
+      "kicker_en": "They stopped forgetting their quotes",
+      "h2_fr": "Ce que disent les équipes dont les devis ne dorment plus",
+      "h2_en": "What teams whose quotes no longer sleep are saying",
+      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de laisser filer des devis faute de relance et remis le suivi au travail.",
+      "subtitle_en": "Leaders and teams who stopped losing quotes for lack of follow-up and put their follow-up back to work.",
+      "columns": "3",
+      "testimonials": [
+        {
+          "quote_fr": "On envoyait un devis, puis on attendait, et la moitié s'oubliait. Aujourd'hui **la séquence relance toute seule sur les devis en attente** et les ramène avant qu'ils refroidissent. On ne perd plus de ventes par oubli.",
+          "quote_en": "We sent a quote, then waited, and half were forgotten. Now **the sequence follows up on its own on pending quotes** and brings them back before they cool. We no longer lose sales to oversight.",
+          "author": "Élodie Charpentier",
+          "role_fr": "Directrice commerciale",
+          "role_en": "Sales Director",
+          "company": "Maison Tassigny"
+        },
+        {
+          "quote_fr": "Mon commercial relançait quand il y pensait, débordé. **Maintenant la cadence est systématique, email puis SMS**, et aucun devis ne passe entre les mailles. Le SMS a débloqué des devis que l'email seul laissait dormir.",
+          "quote_en": "My rep followed up when he remembered, overloaded. **Now the cadence is systematic, email then SMS**, and no quote slips through. The SMS unblocked quotes email alone left sleeping.",
+          "author": "Romain Delaunay",
+          "role_fr": "Cofondateur",
+          "role_en": "Co-founder",
+          "company": "Sevran & Fils"
+        },
+        {
+          "quote_fr": "Ce qui m'a convaincue, c'est le **handoff** : dès qu'un prospect répond à une relance, le devis sort du flux et mon commercial le récupère. L'automatisation rappelle, l'humain signe. Rien ne se perd.",
+          "quote_en": "What sold me was the **handoff**: as soon as a prospect replies to a follow-up, the quote leaves the flow and my rep picks it up. Automation reminds, the human signs. Nothing gets lost.",
+          "author": "Nadia Brunel",
+          "role_fr": "Dirigeante",
+          "role_en": "Managing Director",
+          "company": "Atelier Vireux"
+        },
+        {
+          "quote_fr": "On avait des dizaines de devis en attente dont personne ne se souvenait. **La séquence les a réveillés un par un**, avec le bon message au bon moment. On avait travaillé pour les émettre, on les laissait mourir.",
+          "quote_en": "We had dozens of pending quotes nobody remembered. **The sequence woke them one by one**, with the right message at the right time. We'd worked to issue them, then let them die.",
+          "author": "Hugo Lacombe",
+          "role_fr": "Responsable développement",
+          "role_en": "Development Manager",
+          "company": "Groupe Mérindol"
+        },
+        {
+          "quote_fr": "Les relances apprennent des réponses. **On a réécrit ce qui tombait à plat et gardé ce qui fait signer**, et le suivi des devis s'améliore mois après mois sans qu'on reparte de zéro.",
+          "quote_en": "The follow-ups learn from replies. **We rewrote what fell flat and kept what makes them sign**, and quote follow-up improves month after month without starting over.",
+          "author": "Sophie Antunes",
+          "role_fr": "Directrice du développement",
+          "role_en": "Development Director",
+          "company": "Lartigue & Co"
+        },
+        {
+          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par les devis en attente, **prouvé la valeur, puis étendu au suivi des nouveaux devis**. Et à la fin, les séquences sont à nous.",
+          "quote_en": "Pragmatic approach, zero jargon. We started with pending quotes, **proved the value, then scaled to following up new quotes**. And at the end, the sequences are ours.",
+          "author": "Karim Belkacem",
+          "role_fr": "Fondateur",
+          "role_en": "Founder",
+          "company": "Studio Andrézieux"
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Deux façons de relancer vos devis",
+      "h2_en": "Two ways to follow up your quotes",
+      "lede_fr": "Une entrée cadrée à prix fixe pour brancher vos devis et lancer la première séquence, ou une régie mensuelle qui pilote et itère vos relances multicanal dans la durée. Vous gardez les séquences et la base. On vous situe, puis on monte d'un cran quand les réponses suivent.",
+      "lede_en": "A fixed-price framed entry to wire your quotes and launch the first sequence, or a monthly retainer that steers and iterates your multichannel follow-ups over time. You keep the sequences and the base. We place you, then move up a notch when the replies follow.",
+      "tiers": [
+        {
+          "name_fr": "Relance devis",
+          "name_en": "Quote follow-up",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
+          "features_fr": [
+            "Branchement des devis au CRM",
+            "Une séquence de relance email et SMS",
+            "Déclencheurs comportementaux de base",
+            "Tableau de suivi des devis"
+          ],
+          "features_en": [
+            "Quote wiring to the CRM",
+            "One email and SMS follow-up sequence",
+            "Base behavioural triggers",
+            "Quote-tracking dashboard"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une relance →",
+            "label_en": "Scope a follow-up →",
+            "href": "/contact?offer=relance-devis&intent=relance",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Abonnement Growth",
+          "name_en": "Growth subscription",
+          "price": "3 960 €",
+          "period_fr": "/mois · HT",
+          "period_en": "/month · ex VAT",
+          "features_fr": [
+            "Régie à disposition, 99 €/h",
+            "Séquences multicanal pilotées et itérées en continu",
+            "Nouveaux scénarios et déclencheurs sur preuve",
+            "Pilotage mensuel et roadmap partagée"
+          ],
+          "features_en": [
+            "Retainer on tap, 99 €/h",
+            "Multichannel sequences steered and iterated continuously",
+            "New scenarios and triggers on proof",
+            "Monthly steering and shared roadmap"
+          ],
+          "cta": {
+            "label_fr": "Réserver un diagnostic (45 min) →",
+            "label_en": "Book a diagnostic (45 min) →",
+            "href": "/contact?offer=relance-devis&intent=discovery",
+            "variant": "primary"
+          },
+          "featured": true
+        }
+      ],
+      "footnote_fr": "L'entrée Relance devis démarre à partir de 2 000 € HT : branchement des devis et première séquence de relance email et SMS. Au-delà, l'abonnement Growth, 3 960 € par mois, met une régie à votre disposition sur une base de 99 € de l'heure : séquences multicanal, pilotage et roadmap mensuelle. Une mission ponctuelle à la carte reste possible, 99 € de l'heure. D'autres tailles de régie existent selon le volume, voir /tarifs. Sans engagement de durée ni abonnement caché : à la fin, les séquences et la base sont à vous.",
+      "footnote_en": "The quote follow-up entry starts from 2,000 € ex VAT: quote wiring and a first email and SMS follow-up sequence. Beyond that, the Growth subscription, 3,960 € a month, puts a retainer at your disposal on a 99 € an hour base: multichannel sequences, steering and a monthly roadmap. A one-off mission remains possible at 99 € an hour. Other retainer sizes exist depending on volume, see /tarifs. No duration commitment, no hidden subscription: at the end, the sequences and the base are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "commercial"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Ce que vous nous demandez",
+      "h2_en": "What you ask us",
+      "items": [
+        {
+          "q_fr": "La relance de devis automatique, ça marche comment ?",
+          "q_en": "How does automated quote follow-up work?",
+          "a_fr": "Une séquence prend le relais dès qu'un devis est envoyé et reste sans réponse. Elle relance le prospect à la bonne cadence, par email et SMS, sur le bon signal : devis ouvert mais non signé, silence prolongé, question restée en suspens. Vous n'envoyez plus un devis dans le vide en espérant un retour : chaque devis est suivi jusqu'à la décision, sans qu'un commercial ait à y penser.",
+          "a_en": "A sequence takes over the moment a quote is sent and stays unanswered. It follows up at the right cadence, by email and SMS, on the right signal: quote opened but unsigned, prolonged silence, a question left hanging. You no longer send a quote into the void hoping for a reply: every quote is tracked to the decision, without a rep having to think about it."
+        },
+        {
+          "q_fr": "En quoi c'est différent d'une relance à la main ?",
+          "q_en": "How is it different from a manual follow-up?",
+          "a_fr": "À la main, le commercial relance quand il y pense, débordé, il oublie la moitié des devis, et aucune trace ne dit lesquels. La séquence relance systématiquement, à la cadence qui convertit, sans oubli et sans harceler. La plupart des ventes se jouent dans les relances, pas au premier envoi. Une relance oubliée, c'est un devis signé chez le concurrent qui a rappelé.",
+          "a_en": "By hand, the rep follows up when they remember, overloaded, they forget half the quotes, and no trace says which. The sequence follows up systematically, at the cadence that converts, with no oversight and no hounding. Most sales happen in the follow-ups, not the first send. A forgotten follow-up is a quote signed with the competitor who called back."
+        },
+        {
+          "q_fr": "Sur quels canaux part la relance ?",
+          "q_en": "Which channels does the follow-up run on?",
+          "a_fr": "Email en cœur de séquence, SMS en relance ciblée quand le devis compte et que le silence dure. On adapte le canal au moment : un rappel court par SMS après un email ouvert mais laissé en attente ouvre souvent la conversation que l'email seul n'obtient pas. On active ce qui correspond à votre cible, pas tous les canaux par défaut.",
+          "a_en": "Email at the core of the sequence, SMS for targeted follow-up when the quote matters and the silence lasts. We adapt the channel to the moment: a short SMS reminder after an email opened but left pending often opens the conversation email alone doesn't get. We activate what fits your target, not every channel by default."
+        },
+        {
+          "q_fr": "Le commercial garde-t-il la main sur la relance ?",
+          "q_en": "Does the rep keep control of the follow-up?",
+          "a_fr": "Oui. La séquence automatise le suivi, mais elle sort le devis du flux automatique dès que le prospect répond ou se réchauffe : à ce moment, le commercial reprend la main pour conclure. L'automatisation relance et trie, l'humain signe. On ne remplace pas la relation commerciale, on lui évite de laisser filer des devis faute de temps.",
+          "a_en": "Yes. The sequence automates the follow-up, but it pulls the quote out of the automated flow the moment the prospect replies or warms up: at that point, the rep takes over to close. Automation follows up and sorts, the human signs. We don't replace the sales relationship, we stop it from losing quotes for lack of time."
+        },
+        {
+          "q_fr": "Ça se branche à mon CRM et à mes devis existants ?",
+          "q_en": "Does it connect to my CRM and existing quotes?",
+          "a_fr": "Oui : HubSpot et Pipedrive en priorité, en intégration native. La séquence lit le statut du devis dans votre CRM, déclenche la bonne relance et réécrit l'avancement sur la fiche. Votre équipe ne change pas d'interface : elle voit juste les devis en attente se réveiller et remonter quand le prospect répond. Pour un autre outil, on évalue au cadrage.",
+          "a_en": "Yes: HubSpot and Pipedrive first, native integration. The sequence reads the quote status in your CRM, triggers the right follow-up and rewrites the progress on the record. Your team doesn't change interface: they just see pending quotes wake up and surface when the prospect replies. For another tool, we assess at scoping."
+        },
+        {
+          "q_fr": "Combien coûte la relance de devis automatique ?",
+          "q_en": "How much does automated quote follow-up cost?",
+          "a_fr": "Deux façons d'engager. L'entrée Relance devis démarre à partir de 2 000 € HT : branchement des devis et première séquence de relance email et SMS. Au-delà, l'abonnement Growth à 3 960 € HT par mois met une régie à disposition sur une base de 99 € de l'heure : séquences multicanal, pilotage et roadmap mensuelle. Une mission ponctuelle reste possible à 99 € de l'heure. Sans engagement de durée : à la fin, les séquences et la base sont à vous.",
+          "a_en": "Two ways to engage. The quote follow-up entry starts from 2,000 € ex VAT: quote wiring and a first email and SMS follow-up sequence. Beyond that, the Growth subscription at 3,960 € ex VAT a month puts a retainer at your disposal on a 99 € an hour base: multichannel sequences, steering and a monthly roadmap. A one-off mission remains possible at 99 € an hour. No duration commitment: at the end, the sequences and the base are yours."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Prêt à ne plus oublier un devis ?",
+      "kicker_en": "§ Ready to stop forgetting a quote?",
+      "h2_fr": "Faites signer les devis que vous <i>oubliez</i>.",
+      "h2_en": "Sign the quotes you <i>forget</i>.",
+      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on part de vos devis en attente et de votre suivi réel, et vous repartez avec un plan de relance clair, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
+      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we start from your pending quotes and your real follow-up, and you leave with a clear follow-up plan, whether we work together or not. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un diagnostic (45 min) →",
+          "label_en": "Book a diagnostic (45 min) →",
+          "href": "/contact?offer=relance-devis&intent=discovery",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir les séquences de suivi",
+          "label_en": "See follow-up sequences",
+          "href": "/services/sequences-de-suivi",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

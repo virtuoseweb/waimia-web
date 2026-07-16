@@ -371,6 +371,13 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
               detail: [
                 {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
+                    { label: { fr: 'Référencement IA', en: 'AI search visibility' }, href: '/services/referencement-ia' },
+                  ],
+                },
+                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Desangles Peinture', en: 'The Desangles Peinture case' }, href: '/cas-clients/desangles-peinture' },
@@ -385,6 +392,12 @@ const SOLUTIONS: MegaMenuSection = {
               href: '/services/landing-pages-tunnels',
               description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
               detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Landing page Google Ads', en: 'Google Ads landing page' }, href: '/services/landing-page-google-ads' },
+                  ],
+                },
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
@@ -423,6 +436,12 @@ const SOLUTIONS: MegaMenuSection = {
                   description: { fr: 'Automatiser les tâches et processus répétitifs, de bout en bout.', en: 'Automate repetitive tasks and processes, end to end.' },
                   detail: [
                     {
+                      label: { fr: 'Déclinaisons', en: 'Editions' },
+                      links: [
+                        { label: { fr: 'Automatisation n8n', en: 'n8n automation' }, href: '/services/automatisation-n8n' },
+                      ],
+                    },
+                    {
                       label: { fr: 'Cas d\'usage', en: 'Use cases' },
                       links: [
                         { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
@@ -443,6 +462,12 @@ const SOLUTIONS: MegaMenuSection = {
                   href: '/services/agents-ia',
                   description: { fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision.', en: 'Autonomous agents wired to your tools via MCP, under supervision.' },
                   detail: [
+                    {
+                      label: { fr: 'Déclinaisons', en: 'Editions' },
+                      links: [
+                        { label: { fr: 'Agent support client', en: 'Customer support agent' }, href: '/services/agent-support-client' },
+                      ],
+                    },
                     {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
@@ -476,6 +501,12 @@ const SOLUTIONS: MegaMenuSection = {
                   href: '/services/applications-internes',
                   description: { fr: 'Développer les outils métier sur mesure dont vos équipes ont besoin.', en: 'Build the custom internal tools your teams need.' },
                   detail: [
+                    {
+                      label: { fr: 'Déclinaisons', en: 'Editions' },
+                      links: [
+                        { label: { fr: 'MVP SaaS', en: 'SaaS MVP' }, href: '/services/mvp-saas' },
+                      ],
+                    },
                     {
                       label: { fr: 'Cas d\'usage', en: 'Use cases' },
                       links: [
@@ -537,6 +568,12 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, wired to your CRM.' },
               detail: [
                 {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Cold email B2B', en: 'B2B cold email' }, href: '/services/cold-email-b2b' },
+                  ],
+                },
+                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
@@ -551,6 +588,12 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'CRM branché, scoring des leads et routing vers le bon commercial.', en: 'Wired CRM, lead scoring and routing to the right rep.' },
               detail: [
                 {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Intégration CRM', en: 'CRM integration' }, href: '/services/integration-crm' },
+                  ],
+                },
+                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
@@ -563,6 +606,12 @@ const SOLUTIONS: MegaMenuSection = {
               href: '/services/sequences-de-suivi',
               description: { fr: 'Séquences de relance automatisées qui réchauffent et convertissent.', en: 'Automated follow-up sequences that nurture and convert.' },
               detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Relance de devis', en: 'Quote follow-up' }, href: '/services/relance-devis' },
+                  ],
+                },
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [

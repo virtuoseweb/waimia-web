@@ -45,6 +45,25 @@
 | `/services/sur-mesure-headless` | site sur mesure headless | ok | + FAQ | P3 |
 | `/tarifs` | prix création site web PME / tarif site IA 2026 | **terne** | **refondre** : title/H1 zéro kw, H2 jargon banni, prix désync (grilles canoniques = tarifs.json + pages services) | P1 |
 
+### 1bis. Pages enfants de modules (déclinaisons kw-first, créées 2026-07-16)
+
+Validé Simon (sélectif kw-first · modèle SWI 20 sections · pages outils sur outils réels · mise en
+ligne « tout maintenant »). Chaque enfant reprend le pricing de SON parent (0 nouveau prix) et une
+frontière kw explicite (formalisée en FAQ). Exclusions assumées : « Claude Code équipes »
+(cannibalisation du cluster Claude fusionné) · « dashboard sur mesure » (kw faible vs parent).
+
+| Page | Parent | kw primaire | Frontière avec le parent |
+|---|---|---|---|
+| `/services/seo-local` | seo-geo-contenu | référencement local PME | local (GBP, pages villes, NAP) vs production SEO+GEO globale |
+| `/services/referencement-ia` | seo-geo-contenu | référencement IA / être cité par ChatGPT | offre GEO pure (citabilité) vs production complète ; blog = guide, comparatif = définition |
+| `/services/landing-page-google-ads` | landing-pages-tunnels | landing page Google Ads | page dédiée trafic payant vs tunnel complet |
+| `/services/automatisation-n8n` | automatisations | automatisation n8n / agence n8n | LE cas n8n (Zapier secondaire) vs parent tool-agnostique |
+| `/services/agent-support-client` | agents-ia | chatbot IA service client | LE cas support vs agents en général |
+| `/services/mvp-saas` | applications-internes | développement MVP SaaS | produit vendable (marché) vs outil interne (équipe) |
+| `/services/cold-email-b2b` | prospection-automatisee | cold email B2B | LE canal email (délivrabilité, Lemlist/Instantly/Apollo/Pharow) vs système multicanal en abonnement |
+| `/services/integration-crm` | crm-scoring-routing | intégration HubSpot / Pipedrive PME | mise en place/assainissement CRM vs scoring+routing |
+| `/services/relance-devis` | sequences-de-suivi | relance devis automatique | LE cas relance devis vs toutes les séquences |
+
 Trous transverses money : **aucune FAQ sur les 12 pages système** (levier GEO n°1) ·
 ossature identique des 12 pages (8 mêmes H2, risque templated content, varier en P2) ·
 les pages info doivent nourrir les 5 piliers (site-web-ia, seo-geo-contenu, agents-ia,
@@ -137,3 +156,7 @@ sur le kw commercial ; les 3 contenus pointent vers elle en CTA.
   maintenance-growth 17→20). 18/18 pages services conformes. Contenu préservé/redistribué, angles kw
   intacts, avis/cas réutilisés des sœurs, stat Afnic 61 % réinjectée en proof-bar, pricing canonique
   inchangé (sur-mesure : priceRange 3-15 k réaligné sur la grille canonique 2-10 k).
+- 2026-07-16 · 9 pages enfants de modules créées (§1bis) + rangées « Déclinaisons » en col 3 du menu.
+  Arbitrages Simon : sélectif kw-first, modèle 20 sections, pages outils OK sur outils réels, mise en
+  ligne « tout maintenant » (assumé malgré le risque de dilution au lancement, compensé par maillage
+  parent↔enfant et couverture GEO/AIO). 27 pages services + 3 hubs au total.
