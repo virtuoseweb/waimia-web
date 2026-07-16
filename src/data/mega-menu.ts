@@ -402,7 +402,7 @@ const SOLUTIONS: MegaMenuSection = {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
-                    { label: { fr: 'Câbler son CRM en 10 jours', en: 'Wire your CRM in 10 days' }, href: '/blog/cabler-son-crm-en-10-jours' },
+                    { label: { fr: 'Landing page qui convertit : la méthode', en: 'Landing pages that convert: the method' }, href: '/blog/landing-page-qui-convertit-methode-2026' },
                     { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },
@@ -417,7 +417,7 @@ const SOLUTIONS: MegaMenuSection = {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Balzeo', en: 'The Balzeo case' }, href: '/cas-clients/balzeo' },
-                    { label: { fr: 'Être cité par les IA génératives', en: 'Get cited by generative AIs' }, href: '/blog/seo-geo-etre-cite-par-les-ia-generatives' },
+                    { label: { fr: 'Google Ads ou Meta Ads en 2026', en: 'Google Ads or Meta Ads in 2026' }, href: '/blog/google-ads-vs-meta-ads-pme-2026' },
                     { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },
@@ -537,7 +537,7 @@ const SOLUTIONS: MegaMenuSection = {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
                         { label: { fr: 'Le cas Les Carnets', en: 'The Les Carnets case' }, href: '/cas-clients/les-carnets-de-montpellier' },
-                        { label: { fr: 'Claude Code ou Cursor', en: 'Claude Code or Cursor' }, href: '/ressources/comparatifs/claude-code-vs-cursor' },
+                        { label: { fr: 'App interne : développer ou acheter ?', en: 'Internal app: build or buy?' }, href: '/blog/applications-internes-build-vs-buy-pme' },
                         { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
                       ],
                     },
@@ -559,7 +559,7 @@ const SOLUTIONS: MegaMenuSection = {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
                         { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
-                        { label: { fr: 'n8n ou Zapier en 2026', en: 'n8n or Zapier in 2026' }, href: '/blog/avis-n8n-vs-zapier-2026' },
+                        { label: { fr: 'Tableau de bord PME : quoi suivre', en: 'SME dashboard: what to track' }, href: '/blog/tableau-de-bord-pme-quelles-donnees-suivre' },
                         { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
                       ],
                     },
