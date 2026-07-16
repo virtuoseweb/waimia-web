@@ -5,6 +5,8 @@
 
 ## 1. Décisions à arbitrer (Simon)
 
+> **ARBITRÉ 2026-07-16 (Simon : « feu vert pour tout + correction bug et décision tu suis tes reco »)** : les 6 décisions A1-A6 sont approuvées selon les recos ci-dessous. Exécution : workers w-restructure (#60, A1-A6), w-content-fixes (#61, §2.9/2.10/2.12/2.14), w-services-dedup (#62, §2.13) + vague transverse #56-#59 déjà en vol. Reste en attente : nav bloat §2.11 (tâche #63, cadrage séparé).
+
 | # | Décision | Pages | Reco |
 |---|---|---|---|
 | A1 | Effondrer le silo `/lp/` (9 pages noindex, squelette identique, jumelle canonique indexée pour chacune, 4 sur des slugs de services dépréciés) | 8 SUPPRIMER + 1 FUSIONNER (`lp/diagnostic-maturite-ia` : re-pointer la home vers `/ressources/diagnostics/maturite-ia` puis 301) | OUI, sauf campagne Ads active à vérifier avant (re-pointer l'annonce d'abord) |
