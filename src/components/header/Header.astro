@@ -100,12 +100,12 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
 {/* Mega panels · un par mega-menu · cachés par défaut, révélés par data-open du header */}
 {MEGA_MENU.map((item) => {
   const cols = item.columns.length === 2 ? '2' : item.columns.length === 4 ? '4' : '3';
-  // Refonte V8.2 2026-07-14 · granularité MODULE : les cols 3 (détail) et 4
-  // (featured) sont pilotées par le MODULE survolé (col 2), plus par le système.
-  // On aplatit ici la liste des modules du sélecteur `systems` (ordre système →
-  // ordre module ; sous-groupes `groups` aplatis), avec pour chaque module sa clé
-  // stable (= href canonique), son détail et son featured (fallback = featured
-  // système). Défaut = 1er module du 1er système sélectionnable.
+  // Refonte V8.3 2026-07-16 : la col 3 (détail) est pilotée par le MODULE survolé
+  // (col 2) ; la col 4 (featured) est STATIQUE PAR SYSTÈME (basculée par le
+  // sélecteur col 1). On aplatit ici la liste des modules du sélecteur `systems`
+  // (ordre système → ordre module ; sous-groupes `groups` aplatis), chaque module
+  // portant sa clé stable (= href canonique) et son détail. Défaut col 3 = 1er
+  // module du 1er système sélectionnable.
   const isSelectableSys = (s: MegaMenuCategory) =>
     !s.soon &&
     Boolean(s.key) &&
@@ -116,15 +116,17 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     const mods = sys.groups && sys.groups.length
       ? sys.groups.flatMap((g) => g.links)
       : (sys.links ?? []);
-    return mods.map((link) => ({ key: link.href, link, sysFeatured: sys.featured }));
+    return mods.map((link) => ({ key: link.href, link }));
   });
   const defaultModuleKey = modulesFlat[0]?.key;
-  // Cartes featured à stacker (une par module) : featuredCard du module, sinon
-  // fallback sur le featured du système parent. On ne stacke que si au moins une
-  // carte existe (sinon on retombe sur le `featured` de section statique).
-  const featModules = modulesFlat
-    .map((m) => ({ key: m.key, card: m.link.featuredCard ?? m.sysFeatured }))
-    .filter((m) => Boolean(m.card));
+  // Cartes featured à stacker (une par SYSTÈME, refonte V8.3) : le `featured` du
+  // système. Une seule visible, basculée par le sélecteur (col 1). Défaut = 1er
+  // système. Si aucune carte système (sections hors Solutions) → fallback sur le
+  // `featured` de section statique.
+  const defaultSysKey = selectableSystems[0]?.key ?? '';
+  const sysFeatured = selectableSystems
+    .map((sys) => ({ key: sys.key ?? '', card: sys.featured }))
+    .filter((s) => Boolean(s.card));
   return (
     <div
       class="mega"
@@ -364,15 +366,16 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
           </div>
           );
         })}
-        {featModules.length > 0 ? (
-          /* Stack featured par MODULE (refonte V8.2 2026-07-14) : grille superposée
+        {sysFeatured.length > 0 ? (
+          /* Stack featured par SYSTÈME (refonte V8.3 2026-07-16) : grille superposée
              dans le slot featured, une seule carte visible, basculée par le survol
-             d'un module (data-module-featured). Défaut = 1er module. */
+             du sélecteur système (data-sys-featured). Défaut = 1er système.
+             Statique tant qu'on reste sur le même système (inchangé au survol module). */
           <div class="mega-featured-stack">
-            {featModules.map((m) => m.card && (
+            {sysFeatured.map((m) => m.card && (
               <div
-                class:list={['mega-featured', { 'is-active': m.key === defaultModuleKey }]}
-                data-module-featured={m.key}
+                class:list={['mega-featured', { 'is-active': m.key === defaultSysKey }]}
+                data-sys-featured={m.key}
               >
                 <div class="badge">{t(m.card.kicker, lang)}</div>
                 <div class="ttl">{t(m.card.label, lang)}</div>
@@ -801,14 +804,15 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     }
 
     // ─── 4bis. Sélecteur systèmes → modules → détail (panneau Solutions) ──
-    // Refonte V8.2 2026-07-14 · granularité MODULE. Deux niveaux de bascule,
-    // tous en visibilité CSS (aucun fetch), scopés au mega panel courant :
+    // Refonte V8.3 2026-07-16. Deux niveaux de bascule, tous en visibilité CSS
+    // (aucun fetch), scopés au mega panel courant :
     //   · SYSTÈME (col 1, [data-sys-key]) → bascule le groupe modules (col 2,
-    //     [data-sys-group]) ET remet le module actif = 1er module du système.
+    //     [data-sys-group]) ET le featured (col 4, [data-sys-featured], STATIQUE
+    //     par système) ET remet le module actif = 1er module du système.
     //   · MODULE (col 2, [data-module-key]) → bascule le détail (col 3,
-    //     [data-module-detail]) + le featured (col 4, [data-module-featured]),
-    //     avec un léger délai d'intention au survol (anti-clignotement en
-    //     traversée diagonale) ; le focus clavier bascule immédiatement.
+    //     [data-module-detail]) seul, avec un léger délai d'intention au survol
+    //     (anti-clignotement en traversée diagonale) ; le focus clavier bascule
+    //     immédiatement. Le featured col 4 ne bouge PAS au survol module.
     // Idempotent (toute la fonction est gardée par headerBound).
     for (const sysPanel of document.querySelectorAll('[data-sys-panel]')) {
       const scope = sysPanel.closest('[data-mega-panel]') || document;
@@ -816,7 +820,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       const sysOpts = Array.from(scope.querySelectorAll('[data-sys-key]'));
       const moduleLinks = Array.from(scope.querySelectorAll('[data-module-key]'));
       const details = Array.from(scope.querySelectorAll('[data-module-detail]'));
-      const featured = Array.from(scope.querySelectorAll('[data-module-featured]'));
+      const featured = Array.from(scope.querySelectorAll('[data-sys-featured]'));
       // Modules (dans l'ordre DOM) par système, pour retrouver le 1er module
       // d'un système quand on le survole.
       const modulesBySys = new Map();
@@ -835,9 +839,6 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
         for (const d of details) {
           d.classList.toggle('is-active', d.getAttribute('data-module-detail') === key);
         }
-        for (const f of featured) {
-          f.classList.toggle('is-active', f.getAttribute('data-module-featured') === key);
-        }
         for (const l of moduleLinks) {
           l.classList.toggle('is-active', l.getAttribute('data-module-key') === key);
         }
@@ -846,6 +847,10 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
         if (!key) return;
         for (const g of groups) {
           g.classList.toggle('is-active', g.getAttribute('data-sys-group') === key);
+        }
+        // Col 4 featured STATIQUE par système : bascule ici (col 1), pas au survol module.
+        for (const f of featured) {
+          f.classList.toggle('is-active', f.getAttribute('data-sys-featured') === key);
         }
         for (const o of sysOpts) {
           const on = o.getAttribute('data-sys-key') === key;
@@ -1271,11 +1276,12 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     align-items: flex-end;
   }
 
-  /* ─ Col 3 « le module en détail » + col 4 featured pilotées par le MODULE
-     (refonte V8.2 2026-07-14) ────────────────────────────────────────────────
+  /* ─ Col 3 « le module en détail » (par MODULE) + col 4 featured (STATIQUE par
+     SYSTÈME) — refonte V8.3 2026-07-16 ──────────────────────────────────────────
      La col 3 réutilise l'idiome grille superposée `.mega-sys-panel`/`.mega-sys-group`
      (déjà défini plus haut) → hauteur réservée = le plus grand détail, zéro saut de
-     layout au switch. Le survol/focus d'un module bascule `is-active` (script 4bis). */
+     layout au switch. Le survol/focus d'un module bascule `is-active` (script 4bis).
+     La col 4 stacke une carte PAR SYSTÈME, basculée par le sélecteur col 1. */
 
   /* Module actif (col 2) : léger fond + accent, comme le sélecteur système. */
   .mega-link--module.is-active {
@@ -1303,6 +1309,10 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       opacity var(--dur-trim) var(--ease),
       visibility 0s;
   }
+  /* CTA ancré en bas de carte : les cartes du stack s'étirent à la hauteur de la
+     plus grande (grid-area partagée) → margin-top:auto met le CTA à un Y constant
+     entre systèmes, même si la longueur du body varie (exigence alignement). */
+  .mega-featured-stack .mega-featured .cta { margin-top: auto; }
 
   /* ─ Mobile · sous-niveau « système » dans l'accordéon Solutions ──────────
      Chaque système = ligne à chevron → dropdown de ses modules (animation

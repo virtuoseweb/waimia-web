@@ -28,20 +28,18 @@ export interface MegaMenuLink {
    */
   soon?: boolean;
   /**
-   * Panneau « le module en détail » (col 3, refonte V8.2 2026-07-14 : granularité
-   * MODULE). Sur un lien MODULE (col 2), déclare les sous-modules réels ou les
-   * compléments du module (cas client, diagnostic/outil, tarifs, hub système),
-   * groupés en blocs titrés d'un intertitre court. Rendu dans la col 3 « le module
-   * en détail », conditionnel au module survolé/focus (jumelle du panneau modules).
-   * 3 à 5 liens par module, toutes des routes réelles indexables.
+   * Panneau « le module en détail » (col 3, refonte V8.3 2026-07-16 : pages
+   * ENFANT curées). Sur un lien MODULE (col 2), déclare ses enfants VISUELS
+   * (sans l'être structurellement) : déclinaisons de service réelles, cas client
+   * ou cas d'usage PROPRES au module, diagnostic/audit/outil/comparatif
+   * directement lié. Groupés en blocs titrés d'un intertitre court. Rendu dans
+   * la col 3, conditionnel au module survolé/focus (jumelle du panneau modules).
+   * 1 à 6 liens par module (parfois peu si peu de pertinence), TOUS des routes
+   * réelles indexables. Bannis : liens génériques dupliqués sur ≥ 3 modules
+   * (ex. /tarifs partout), renvois vers un module déjà présent en col 2 du même
+   * système, cas qui n'illustre pas le module.
    */
   detail?: MegaMenuDetailBlock[];
-  /**
-   * Bloc « featured » (col 4) propre au module (refonte V8.2 2026-07-14). Réutilise
-   * le type `MegaMenuFeatured` ; image + titre + CTA qui mènent à la page du module.
-   * Fallback : le `featured` du système parent quand un module n'a pas le sien.
-   */
-  featuredCard?: MegaMenuFeatured;
 }
 
 /**
@@ -84,10 +82,11 @@ export interface MegaMenuCategory {
   soon?: boolean;
   links?: MegaMenuLink[];
   /**
-   * Bloc « featured » (col 4) de repli au niveau système (directive Simon
-   * 2026-07-14). Sert de FALLBACK quand un module de ce système n'a pas son
-   * propre `featuredCard` (refonte V8.2 : la col 4 est pilotée par le MODULE
-   * survolé). Réutilise le type `MegaMenuFeatured`.
+   * Bloc « featured » (col 4) du système (refonte V8.3 2026-07-16 : la col 4 est
+   * STATIQUE PAR SYSTÈME, plus par module). Fixe tant qu'on reste sur ce système ;
+   * bascule uniquement quand on change de système (survol col 1). Renvoie à la
+   * colonne parent : hub du système, ou module clé qui le résume. Réutilise le
+   * type `MegaMenuFeatured`.
    */
   featured?: MegaMenuFeatured;
   /**
@@ -303,17 +302,17 @@ const RESSOURCES: MegaMenuSection = {
 };
 
 // ─── SOLUTIONS · mega menu « systèmes → modules → module en détail » (refonte
-// V8.2 2026-07-14, granularité MODULE) :
+// V8.3 2026-07-16) :
 // Col 1 = SÉLECTEUR « Nos systèmes », trois systèmes cliquables (acquisition [défaut],
-// opérationnels et IA, commerciaux). Le survol/focus d'un système bascule la col 2.
+// opérationnels et IA, commerciaux). Le survol/focus d'un système bascule les cols 2 ET 4.
 // Col 2 = PANNEAU MODULES du système actif (survol système). Le survol/focus d'un
-// MODULE (avec léger délai d'intention) pilote les cols 3-4 ; défaut = 1er module du
-// système actif. Col 3 = « LE MODULE EN DÉTAIL » : sous-modules réels ou compléments
-// (`detail` porté par chaque module), un seul visible. Col 4 = FEATURED du module
-// survolé (`featuredCard`), fallback featured système. « Résoudre un problème » n'est
-// plus une colonne : c'est la bande horizontale `problemBand` en bas du panel (cas-
-// usages). Tous les groupes rendus côté serveur (indexable SEO/LLM), switch CSS
-// `data-*`, aucun fetch. Tous les liens = 100% réels + indexables.
+// MODULE (avec léger délai d'intention) pilote la col 3 seule ; défaut = 1er module du
+// système actif. Col 3 = « LE MODULE EN DÉTAIL » : pages ENFANT curées du module
+// (`detail`), un seul visible, basculé par le MODULE. Col 4 = FEATURED STATIQUE PAR
+// SYSTÈME (`featured` du système, renvoie à la colonne parent), basculé par le SYSTÈME
+// (col 1), inchangé au survol des modules. « Résoudre un problème » = bande horizontale
+// `problemBand` en bas du panel (cas-usages). Tous les groupes rendus côté serveur
+// (indexable SEO/LLM), switch CSS `data-*`, aucun fetch. Tous les liens = 100% réels.
 const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
@@ -365,14 +364,6 @@ const SOLUTIONS: MegaMenuSection = {
                   ],
                 },
               ],
-              featuredCard: {
-                kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                label: { fr: 'Site web intelligent', en: 'Intelligent website' },
-                body: { fr: 'Un site qui capte, qualifie et se met à jour tout seul. Sur mesure, WordPress ou Webflow.', en: 'A site that captures, qualifies and updates itself. Custom, WordPress or Webflow.' },
-                cta: { fr: 'Voir le module →', en: 'See the module →' },
-                href: '/services/site-web-ia',
-                image: '/images/besoins/besoin-piloter.webp',
-              },
             },
             {
               label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
@@ -382,20 +373,12 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
+                    { label: { fr: 'Le cas Desangles Peinture', en: 'The Desangles Peinture case' }, href: '/cas-clients/desangles-peinture' },
+                    { label: { fr: 'SEO ou GEO, quelle différence', en: 'SEO vs GEO explained' }, href: '/ressources/comparatifs/geo-vs-seo' },
                     { label: { fr: 'Diagnostic site intelligent', en: 'Smart website diagnostic' }, href: '/ressources/diagnostics/site-web-intelligent' },
-                    { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
-                    { label: { fr: 'Tarifs et formules', en: 'Pricing and plans' }, href: '/tarifs#formules' },
                   ],
                 },
               ],
-              featuredCard: {
-                kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
-                body: { fr: 'Être trouvé sur Google et cité par les IA. Contenu balisé, maillé, mesuré.', en: 'Get found on Google and cited by AI. Content marked up, interlinked, measured.' },
-                cta: { fr: 'Voir le module →', en: 'See the module →' },
-                href: '/services/seo-geo-contenu',
-                image: '/images/besoins/besoin-piloter.webp',
-              },
             },
             {
               label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
@@ -405,23 +388,14 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'Prospection automatisée', en: 'Automated prospecting' }, href: '/services/prospection-automatisee' },
+                    { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
                     { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
-                    { label: { fr: 'Tarifs et formules', en: 'Pricing and plans' }, href: '/tarifs#formules' },
                   ],
                 },
               ],
-              featuredCard: {
-                kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
-                body: { fr: 'Des pages qui convertissent et des tunnels qui priorisent les bons leads.', en: 'Pages that convert and funnels that prioritise the right leads.' },
-                cta: { fr: 'Voir le module →', en: 'See the module →' },
-                href: '/services/landing-pages-tunnels',
-                image: '/images/besoins/besoin-piloter.webp',
-              },
             },
           ],
-          // Col 4 featured de repli du système d'acquisition (fallback module sans featuredCard).
+          // Col 4 featured STATIQUE du système d'acquisition (renvoie au hub).
           featured: {
             kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
             label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
@@ -449,22 +423,20 @@ const SOLUTIONS: MegaMenuSection = {
                   description: { fr: 'Automatiser les tâches et processus répétitifs, de bout en bout.', en: 'Automate repetitive tasks and processes, end to end.' },
                   detail: [
                     {
-                      label: { fr: 'Aller plus loin', en: 'Go further' },
+                      label: { fr: 'Cas d\'usage', en: 'Use cases' },
                       links: [
                         { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
+                        { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
+                      ],
+                    },
+                    {
+                      label: { fr: 'Aller plus loin', en: 'Go further' },
+                      links: [
                         { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
                         { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
                       ],
                     },
                   ],
-                  featuredCard: {
-                    kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                    label: { fr: 'Automatisations', en: 'Automations' },
-                    body: { fr: 'Reprendre le temps perdu sur les tâches répétitives, de bout en bout.', en: 'Win back the time lost on repetitive tasks, end to end.' },
-                    cta: { fr: 'Voir le module →', en: 'See the module →' },
-                    href: '/services/automatisations',
-                    image: '/images/besoins/besoin-operer.webp',
-                  },
                 },
                 {
                   label: { fr: 'Agents IA', en: 'AI agents' },
@@ -474,20 +446,11 @@ const SOLUTIONS: MegaMenuSection = {
                     {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
-                        { label: { fr: 'Intégration Claude', en: 'Claude integration' }, href: '/services/integration-claude' },
+                        { label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' }, href: '/ressources/comparatifs/claude-vs-chatgpt-pme' },
                         { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
-                        { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
                       ],
                     },
                   ],
-                  featuredCard: {
-                    kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                    label: { fr: 'Agents IA', en: 'AI agents' },
-                    body: { fr: 'Des agents branchés à vos outils via MCP, autonomes mais sous supervision.', en: 'Agents wired to your tools via MCP, autonomous but supervised.' },
-                    cta: { fr: 'Voir le module →', en: 'See the module →' },
-                    href: '/services/agents-ia',
-                    image: '/images/besoins/besoin-operer.webp',
-                  },
                 },
                 {
                   label: { fr: 'Intégrations', en: 'Integrations' },
@@ -497,20 +460,11 @@ const SOLUTIONS: MegaMenuSection = {
                     {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
-                        { label: { fr: 'Agents IA', en: 'AI agents' }, href: '/services/agents-ia' },
-                        { label: { fr: 'Applications internes', en: 'Internal apps' }, href: '/services/applications-internes' },
-                        { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
+                        { label: { fr: 'Expertise Claude', en: 'Claude expertise' }, href: '/expertise-claude' },
+                        { label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' }, href: '/ressources/comparatifs/claude-vs-chatgpt-pme' },
                       ],
                     },
                   ],
-                  featuredCard: {
-                    kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                    label: { fr: 'Intégrations', en: 'Integrations' },
-                    body: { fr: 'Claude, ChatGPT ou Mistral branchés à vos outils métier, en production.', en: 'Claude, ChatGPT or Mistral wired to your business tools, in production.' },
-                    cta: { fr: 'Voir le module →', en: 'See the module →' },
-                    href: '/services/integration-claude',
-                    image: '/images/besoins/besoin-operer.webp',
-                  },
                 },
               ],
             },
@@ -523,22 +477,19 @@ const SOLUTIONS: MegaMenuSection = {
                   description: { fr: 'Développer les outils métier sur mesure dont vos équipes ont besoin.', en: 'Build the custom internal tools your teams need.' },
                   detail: [
                     {
+                      label: { fr: 'Cas d\'usage', en: 'Use cases' },
+                      links: [
+                        { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
+                        { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
+                      ],
+                    },
+                    {
                       label: { fr: 'Aller plus loin', en: 'Go further' },
                       links: [
-                        { label: { fr: 'Données et reporting', en: 'Data and reporting' }, href: '/services/donnees-reporting' },
-                        { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
-                        { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
+                        { label: { fr: 'Claude Code ou Cursor', en: 'Claude Code or Cursor' }, href: '/ressources/comparatifs/claude-code-vs-cursor' },
                       ],
                     },
                   ],
-                  featuredCard: {
-                    kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                    label: { fr: 'Applications internes', en: 'Internal apps' },
-                    body: { fr: 'Les outils métier sur mesure dont vos équipes ont besoin, sans usine à gaz.', en: 'The custom internal tools your teams need, without the bloat.' },
-                    cta: { fr: 'Voir le module →', en: 'See the module →' },
-                    href: '/services/applications-internes',
-                    image: '/images/besoins/besoin-operer.webp',
-                  },
                 },
                 {
                   label: { fr: 'Données et reporting', en: 'Data and reporting' },
@@ -546,35 +497,30 @@ const SOLUTIONS: MegaMenuSection = {
                   description: { fr: 'Centraliser les données et automatiser le reporting décisionnel.', en: 'Centralise data and automate decision reporting.' },
                   detail: [
                     {
-                      label: { fr: 'Aller plus loin', en: 'Go further' },
+                      label: { fr: 'Cas d\'usage', en: 'Use cases' },
                       links: [
                         { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
                         { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
-                        { label: { fr: 'Applications internes', en: 'Internal apps' }, href: '/services/applications-internes' },
                       ],
                     },
                   ],
-                  featuredCard: {
-                    kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                    label: { fr: 'Données et reporting', en: 'Data and reporting' },
-                    body: { fr: 'Une seule source de vérité et un reporting qui se met à jour tout seul.', en: 'One source of truth and reporting that updates itself.' },
-                    cta: { fr: 'Voir le module →', en: 'See the module →' },
-                    href: '/services/donnees-reporting',
-                    image: '/images/besoins/besoin-operer.webp',
-                  },
                 },
               ],
             },
           ],
+          // Col 4 featured STATIQUE du système opérationnel & IA. Arbitrage Simon
+          // 2026-07-16 : renvoie à Intégration Claude (module clé du système), pas
+          // au hub. Idée conservée, formulée sobrement (voix anti-théâtre) :
+          // automatiser des tâches + un assistant expert à qui toute l'équipe délègue.
           featured: {
-            kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
-            label: { fr: 'Systèmes opérationnels et IA', en: 'Operational & AI systems' },
+            kicker: { fr: 'INTÉGRATION CLAUDE', en: 'CLAUDE INTEGRATION' },
+            label: { fr: 'Intégration Claude', en: 'Claude integration' },
             body: {
-              fr: 'Automatiser les processus et développer les outils métier qui font tourner l\'entreprise. Sur devis.',
-              en: 'Automate processes and build the internal tools that keep the business running. On quote.',
+              fr: 'Automatiser les tâches répétitives et donner à l\'équipe un assistant expert, branché à vos outils, à qui déléguer du travail concret.',
+              en: 'Automate repetitive tasks and give the team an expert assistant, wired to your tools, to hand real work to.',
             },
-            cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
-            href: '/services/systemes-operationnels-ia',
+            cta: { fr: 'Voir Intégration Claude →', en: 'See Claude integration →' },
+            href: '/services/integration-claude',
             image: '/images/besoins/besoin-operer.webp',
           },
         },
@@ -593,20 +539,11 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' }, href: '/services/crm-scoring-routing' },
-                    { label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' }, href: '/services/sequences-de-suivi' },
                     { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
+                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },
               ],
-              featuredCard: {
-                kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
-                body: { fr: 'Un pipeline qui se remplit tout seul, en multicanal, branché à votre CRM.', en: 'A pipeline that fills itself, multichannel, wired to your CRM.' },
-                cta: { fr: 'Voir le module →', en: 'See the module →' },
-                href: '/services/prospection-automatisee',
-                image: '/images/besoins/besoin-acquerir.webp',
-              },
             },
             {
               label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' },
@@ -616,20 +553,10 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' }, href: '/services/sequences-de-suivi' },
-                    { label: { fr: 'Prospection automatisée', en: 'Automated prospecting' }, href: '/services/prospection-automatisee' },
-                    { label: { fr: 'Voir le système commercial', en: 'See the sales system' }, href: '/services/systeme-commercial' },
+                    { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
                   ],
                 },
               ],
-              featuredCard: {
-                kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' },
-                body: { fr: 'Chaque lead scoré et routé vers le bon commercial, sans rien perdre.', en: 'Every lead scored and routed to the right rep, nothing lost.' },
-                cta: { fr: 'Voir le module →', en: 'See the module →' },
-                href: '/services/crm-scoring-routing',
-                image: '/images/besoins/besoin-acquerir.webp',
-              },
             },
             {
               label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' },
@@ -639,28 +566,21 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' }, href: '/services/crm-scoring-routing' },
-                    { label: { fr: 'Prospection automatisée', en: 'Automated prospecting' }, href: '/services/prospection-automatisee' },
                     { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
                   ],
                 },
               ],
-              featuredCard: {
-                kicker: { fr: 'LE MODULE', en: 'THIS MODULE' },
-                label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' },
-                body: { fr: 'Des relances qui réchauffent et convertissent, sans que vous y pensiez.', en: 'Follow-ups that nurture and convert, without you thinking about it.' },
-                cta: { fr: 'Voir le module →', en: 'See the module →' },
-                href: '/services/sequences-de-suivi',
-                image: '/images/besoins/besoin-acquerir.webp',
-              },
             },
           ],
+          // Col 4 featured STATIQUE du système commercial (hub) : évoque le CRM
+          // branché et la prospection outillée (outils réels cités dans
+          // src/content/services/prospection-automatisee.json).
           featured: {
             kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
             label: { fr: 'Système commercial', en: 'Sales system' },
             body: {
-              fr: 'Transformer les prospects en clients : prospection, CRM branché, relances automatisées. Sur devis.',
-              en: 'Turn prospects into clients: prospecting, wired CRM, automated follow-ups. On quote.',
+              fr: 'Un CRM branché et une prospection outillée (Apollo, Lemlist, Pharow) pour transformer les prospects en clients. Sur devis.',
+              en: 'A wired CRM and tool-driven prospecting (Apollo, Lemlist, Pharow) to turn prospects into clients. On quote.',
             },
             cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
             href: '/services/systeme-commercial',
@@ -691,9 +611,9 @@ const SOLUTIONS: MegaMenuSection = {
       links: [],
     },
   ],
-  // Col 4 (refonte V8.2 2026-07-14) : featured piloté par le MODULE survolé (chaque
-  // module porte son `featuredCard`), fallback = `featured` du système parent. Le
-  // rendu (Header.astro) stacke une carte par module et bascule au survol module.
+  // Col 4 (refonte V8.3 2026-07-16) : featured STATIQUE PAR SYSTÈME (`featured` de
+  // chaque système, renvoie à la colonne parent). Le rendu (Header.astro) stacke une
+  // carte par système et bascule au survol du SÉLECTEUR (col 1), pas au survol module.
   // « Résoudre un problème » descend en bande horizontale (problemBand) en bas du panel.
   problemBand: {
     label: { fr: 'Vous partez d\'un problème ?', en: 'Starting from a problem?' },
