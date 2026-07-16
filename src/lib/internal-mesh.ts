@@ -74,6 +74,26 @@ const SERVICES: Record<string, MeshLink> = {
     label_fr: 'Séquences de suivi',
     label_en: 'Follow-up sequences',
   },
+  'seo-local': {
+    href: '/services/seo-local',
+    label_fr: 'SEO local',
+    label_en: 'Local SEO',
+  },
+  'applications-internes': {
+    href: '/services/applications-internes',
+    label_fr: 'Applications internes',
+    label_en: 'Internal apps',
+  },
+  automatisations: {
+    href: '/services/automatisations',
+    label_fr: 'Automatisations',
+    label_en: 'Automations',
+  },
+  'donnees-reporting': {
+    href: '/services/donnees-reporting',
+    label_fr: 'Données et reporting',
+    label_en: 'Data and reporting',
+  },
   // Hubs de système (points d'entrée cliquables du mega menu Solutions).
   'systeme-acquisition': {
     href: '/services/systeme-acquisition',
@@ -143,6 +163,35 @@ const SECTEURS: Record<string, MeshLink> = {
     label_en: 'Software startup',
   },
   therapeutes: { href: '/secteurs/therapeutes', label_fr: 'Thérapeutes', label_en: 'Therapists' },
+};
+
+/** Cas clients (routes reelles /cas-clients/<slug>). Sert le maillage secteur -> cas dedie. */
+const CAS_CLIENTS: Record<string, MeshLink> = {
+  'desangles-peinture': {
+    href: '/cas-clients/desangles-peinture',
+    label_fr: 'Desangles Peinture',
+    label_en: 'Desangles Peinture',
+  },
+  'isabelle-diaz-naturopathe': {
+    href: '/cas-clients/isabelle-diaz-naturopathe',
+    label_fr: 'Isabelle Diaz',
+    label_en: 'Isabelle Diaz',
+  },
+  balzeo: {
+    href: '/cas-clients/balzeo',
+    label_fr: 'Balzeo',
+    label_en: 'Balzeo',
+  },
+  'les-carnets-de-montpellier': {
+    href: '/cas-clients/les-carnets-de-montpellier',
+    label_fr: 'Les Carnets de Montpellier',
+    label_en: 'Les Carnets de Montpellier',
+  },
+  amploi: {
+    href: '/cas-clients/amploi',
+    label_fr: 'Amploi',
+    label_en: 'Amploi',
+  },
 };
 
 /** Diagnostics, outils, comparatifs, guides (sous /ressources). */
@@ -308,43 +357,109 @@ function assemble(
 
 // ───────────────────────────── Fonctions de derivation ─────────────────────────────
 
+/** Curation du maillage PAR secteur (routes reelles). 2-3 services metier + cas-usages +
+ * cas client dedie (si le secteur en a un) + 1 article. `caseSlug` -> clef CAS_CLIENTS. */
+interface SecteurMeshCuration {
+  services: string[];
+  casUsages: string[];
+  article: string;
+  caseSlug?: string;
+}
+
+const SECTEUR_MESH: Record<string, SecteurMeshCuration> = {
+  conseil: {
+    services: ['integrateur-claude', 'prospection-automatisee', 'agents-ia'],
+    casUsages: ['standardiser-processus', 'generer-plus-de-leads'],
+    article: 'automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
+  },
+  comptabilite: {
+    services: ['integrateur-claude', 'donnees-reporting', 'automatisations'],
+    casUsages: ['reduire-reporting', 'centraliser-donnees'],
+    article: 'agent-ia-vs-automatisation-classique-2026',
+  },
+  agence: {
+    services: ['site-web-intelligent', 'landing-pages-tunnels', 'seo-geo-contenu'],
+    casUsages: ['generer-plus-de-leads', 'reduire-temps-cms'],
+    article: 'avis-n8n-vs-zapier-2026',
+  },
+  industrie: {
+    services: ['applications-internes', 'automatisations', 'donnees-reporting'],
+    casUsages: ['standardiser-processus', 'centraliser-donnees'],
+    article: 'agent-ia-vs-automatisation-classique-2026',
+  },
+  formation: {
+    services: ['site-web-intelligent', 'seo-geo-contenu', 'automatisations'],
+    casUsages: ['generer-plus-de-leads', 'reduire-temps-cms'],
+    article: 'essai-pillar-ia-pme-2026',
+  },
+  esn: {
+    services: ['integrateur-claude', 'applications-internes', 'agents-ia'],
+    casUsages: ['standardiser-processus', 'centraliser-donnees'],
+    article: 'cabler-son-crm-en-10-jours',
+  },
+  batiment: {
+    services: ['seo-local', 'site-web-intelligent', 'prospection-automatisee'],
+    casUsages: ['generer-plus-de-leads'],
+    article: 'seo-geo-etre-cite-par-les-ia-generatives',
+    caseSlug: 'desangles-peinture',
+  },
+  'e-commerce': {
+    services: ['site-web-intelligent', 'crm-scoring-routing', 'seo-geo-contenu'],
+    casUsages: ['generer-plus-de-leads', 'reduire-temps-cms'],
+    article: 'seo-geo-etre-cite-par-les-ia-generatives',
+    caseSlug: 'balzeo',
+  },
+  'liberal-independant': {
+    services: ['site-web-intelligent', 'prospection-automatisee', 'sequences-de-suivi'],
+    casUsages: ['generer-plus-de-leads'],
+    article: 'essai-pillar-ia-pme-2026',
+    caseSlug: 'les-carnets-de-montpellier',
+  },
+  'services-b2b': {
+    services: ['prospection-automatisee', 'crm-scoring-routing', 'sequences-de-suivi'],
+    casUsages: ['generer-plus-de-leads', 'standardiser-processus'],
+    article: 'automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
+    caseSlug: 'amploi',
+  },
+  'startup-logiciel': {
+    services: ['applications-internes', 'integrateur-claude', 'agents-ia'],
+    casUsages: ['standardiser-processus', 'centraliser-donnees'],
+    article: 'agent-ia-vs-automatisation-classique-2026',
+  },
+  therapeutes: {
+    services: ['site-web-intelligent', 'seo-local', 'sequences-de-suivi'],
+    casUsages: ['generer-plus-de-leads', 'reduire-temps-cms'],
+    article: 'seo-geo-etre-cite-par-les-ia-generatives',
+    caseSlug: 'isabelle-diaz-naturopathe',
+  },
+};
+
+/** Fallback pour un slug secteur inconnu : bundle generaliste (routes reelles). */
+const SECTEUR_MESH_FALLBACK: SecteurMeshCuration = {
+  services: ['site-web-intelligent', 'integrateur-claude', 'agents-ia'],
+  casUsages: ['generer-plus-de-leads', 'standardiser-processus'],
+  article: 'essai-pillar-ia-pme-2026',
+};
+
 /**
- * Maillage pour une page SECTEUR (§17). Les cas clients du secteur sont deja rendus par
- * la grille de cas du template : on ne les duplique pas ici.
+ * Maillage pour une page SECTEUR (§17). Sectorise via SECTEUR_MESH : 2-3 services metier,
+ * cas-usages pertinents, le cas client dedie du secteur (s'il existe) et un article. Le
+ * troisieme groupe porte le cas client quand il existe, sinon le diagnostic maturite IA.
  * @param secteurSlug slug du secteur courant (ex. 'conseil')
  */
 export function meshForSecteur(secteurSlug: string, _lang: Lang = 'fr'): RelatedLinksData {
   const selfHref = SECTEURS[secteurSlug]?.href;
+  const m = SECTEUR_MESH[secteurSlug] ?? SECTEUR_MESH_FALLBACK;
+  const caseLink = m.caseSlug ? CAS_CLIENTS[m.caseSlug] : undefined;
+
   return assemble(
     [
-      group(
-        'Nos offres',
-        'Our offers',
-        [
-          SERVICES['site-web-intelligent'],
-          SERVICES['integrateur-claude'],
-          SERVICES['agents-ia'],
-          SERVICES['seo-geo-contenu'],
-        ],
-        selfHref,
-      ),
-      group(
-        "Cas d'usage",
-        'Use cases',
-        [
-          CAS_USAGES['generer-plus-de-leads'],
-          CAS_USAGES['standardiser-processus'],
-          CAS_USAGES['centraliser-donnees'],
-        ],
-        selfHref,
-      ),
-      group('Diagnostic', 'Diagnostic', [RESSOURCES['diagnostics/maturite-ia']], selfHref),
-      group(
-        'À lire',
-        'Worth reading',
-        [ARTICLES['essai-pillar-ia-pme-2026'], ARTICLES['agent-ia-vs-automatisation-classique-2026']],
-        selfHref,
-      ),
+      group('Nos offres', 'Our offers', m.services.map((k) => SERVICES[k]), selfHref),
+      group("Cas d'usage", 'Use cases', m.casUsages.map((k) => CAS_USAGES[k]), selfHref),
+      caseLink
+        ? group('Cas client', 'Client case', [caseLink], selfHref)
+        : group('Diagnostic', 'Diagnostic', [RESSOURCES['diagnostics/maturite-ia']], selfHref),
+      group('À lire', 'Worth reading', [ARTICLES[m.article]], selfHref),
     ],
     { fr: 'Continuez votre <i class="acc">parcours</i>.', en: 'Continue your <i class="acc">journey</i>.' },
   );
@@ -391,15 +506,31 @@ export interface CaseMeshInput {
   stack?: string[];
 }
 
-/** Mappe un libelle de secteur libre (sector_fr du cas) vers un slug de secteur catalogue. */
-function sectorSlugFromLabel(sectorFr?: string): string | undefined {
+/**
+ * Mappe un libelle de secteur libre (sector_fr d'un cas) vers un slug de secteur catalogue.
+ * SOURCE UNIQUE : consommee par le maillage (meshForCase) ET par la grille de cas des pages
+ * secteur (sector-cases.ts). Ordre des tests = specificite (le plus discriminant d'abord :
+ * 'rh' avant 'sante' pour ne pas classer un cas RH en therapeutes).
+ */
+export function sectorSlugFromLabel(sectorFr?: string): string | undefined {
   if (!sectorFr) return undefined;
   const s = sectorFr.toLowerCase();
   if (s.includes('e-commerce') || s.includes('ecommerce') || s.includes('commerce')) return 'e-commerce';
   if (s.includes('batiment') || s.includes('bâtiment') || s.includes('artisanat')) return 'batiment';
-  if (s.includes('sante') || s.includes('santé') || s.includes('bien-etre') || s.includes('bien-être')) return 'therapeutes';
+  if (/\brh\b/.test(s) || s.includes('ressources humaines')) return 'services-b2b';
+  if (
+    s.includes('sante') ||
+    s.includes('santé') ||
+    s.includes('bien-etre') ||
+    s.includes('bien-être') ||
+    s.includes('naturopath') ||
+    s.includes('therapeute') ||
+    s.includes('thérapeute')
+  )
+    return 'therapeutes';
+  if (s.includes('patrimoine') || s.includes('média') || s.includes('media') || s.includes('local'))
+    return 'liberal-independant';
   if (s.includes('conseil')) return 'conseil';
-  if (s.includes('rh')) return 'services-b2b';
   return undefined;
 }
 

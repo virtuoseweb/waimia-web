@@ -1,10 +1,11 @@
 // Waimia · sélection des cas clients d'une page secteur.
-// Logique 3-cas (mandat secteurs-cas) : cas du secteur d'abord (match facets.sector,
-// tri card.order), complétés par les cas les plus proches d'autres secteurs jusqu'à 3.
+// Logique 3-cas (mandat secteurs-cas) : cas du secteur d'abord (match sector_fr -> slug via
+// sectorSlugFromLabel, tri card.order), complétés par les cas les plus proches jusqu'à 3.
 // Le secteur RÉEL de chaque cas reste affiché (honnêteté : on ne maquille pas un cas).
 // Réutilise la section cataloguée `case-card-grid` (pas de markup neuf).
 import { getCollection } from 'astro:content';
 import { localizeHref } from './i18n';
+import { sectorSlugFromLabel } from './internal-mesh';
 import type { SectionByType } from '@waimia/ds-kernel';
 
 type CaseGridData = SectionByType<'case-card-grid'>;
@@ -23,8 +24,10 @@ export async function sectorCaseGridData(
     .filter((e) => e.data.card)
     .sort((a, b) => a.data.card!.order - b.data.card!.order);
 
-  const inSector = all.filter((e) => e.data.facets?.sector === sectorSlug);
-  const others = all.filter((e) => e.data.facets?.sector !== sectorSlug);
+  // Le secteur d'un cas derive de son libelle libre `sector_fr` via la SOURCE UNIQUE
+  // `sectorSlugFromLabel` (internal-mesh.ts) : la collection cases n'a pas de champ `facets`.
+  const inSector = all.filter((e) => sectorSlugFromLabel(e.data.sector_fr) === sectorSlug);
+  const others = all.filter((e) => sectorSlugFromLabel(e.data.sector_fr) !== sectorSlug);
   const picked = [...inSector, ...others].slice(0, 3);
 
   const cases: CaseRow[] = picked.map((e) => {
