@@ -86,7 +86,7 @@ export default defineConfig({
     '/lp/diagnostic-site-web-intelligent': '/ressources/diagnostics/site-web-intelligent',
     '/lp/exemple-industrialisation': '/demonstrations',
     '/lp/integrateur-claude': '/services/integration-claude',
-    '/lp/site-web-intelligent': '/services/site-web-ia',
+    // 2026-07-17 · 301 /lp/site-web-intelligent levé : la LP1 du CdC strategy/16 vit désormais à cette URL.
     '/lp/tunnel-conversion-intelligent': '/services/landing-pages-tunnels',
     // /agence/hero-lab restauré 2026-06-11 (lab de comparaison des heros du catalogue) :
     // le 301 vers /agence/design-system est levé, la page répond 200 (noindex, outil interne).
