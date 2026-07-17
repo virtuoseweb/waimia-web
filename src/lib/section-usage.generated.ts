@@ -504,7 +504,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-zigzag": {
-    "count": 37,
+    "count": 33,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -526,13 +526,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/referent-ia",
       "/ressources/guides/claude-pme",
       "/services/agents-ia/agent-support-client",
-      "/services/applications-internes",
-      "/services/applications-internes/mvp-saas",
       "/services/automatisations/automatisation-n8n",
-      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/crm-scoring-routing/integration-crm",
-      "/services/integration-claude",
       "/services/prospection-automatisee",
       "/services/prospection-automatisee/cold-email-b2b",
       "/services/sequences-de-suivi",
@@ -784,14 +780,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "logo-marquee": {
-    "count": 6,
+    "count": 2,
     "pages": [
       "/services/agents-ia/agent-support-client",
-      "/services/applications-internes",
-      "/services/applications-internes/mvp-saas",
-      "/services/automatisations/automatisation-n8n",
-      "/services/consultant-ia-claude",
-      "/services/integration-claude"
+      "/services/automatisations/automatisation-n8n"
     ]
   },
   "manifesto-statement": {
@@ -1074,12 +1066,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "statement-orbit": {
-    "count": 7,
+    "count": 5,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
-      "/services/applications-internes",
-      "/services/applications-internes/mvp-saas",
       "/services/automatisations",
       "/services/automatisations/automatisation-n8n",
       "/services/donnees-reporting"
@@ -1100,34 +1090,26 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "sticky-scroll-storytelling": {
-    "count": 9,
+    "count": 5,
     "pages": [
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
-      "/services/applications-internes",
-      "/services/applications-internes/mvp-saas",
       "/services/automatisations",
       "/services/automatisations/automatisation-n8n",
-      "/services/consultant-ia-claude",
-      "/services/donnees-reporting",
-      "/services/integration-claude"
+      "/services/donnees-reporting"
     ]
   },
   "system-flow": {
-    "count": 24,
+    "count": 20,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
       "/services/agents-ia/agent-support-client",
-      "/services/applications-internes",
-      "/services/applications-internes/mvp-saas",
       "/services/automatisations/automatisation-n8n",
-      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/crm-scoring-routing/integration-crm",
-      "/services/integration-claude",
       "/services/landing-pages-tunnels",
       "/services/landing-pages-tunnels/landing-page-google-ads",
       "/services/prospection-automatisee",
@@ -1173,16 +1155,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "testimonial-wall": {
-    "count": 20,
+    "count": 16,
     "pages": [
       "/services/agents-ia/agent-support-client",
-      "/services/applications-internes",
-      "/services/applications-internes/mvp-saas",
       "/services/automatisations/automatisation-n8n",
-      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/crm-scoring-routing/integration-crm",
-      "/services/integration-claude",
       "/services/landing-pages-tunnels",
       "/services/landing-pages-tunnels/landing-page-google-ads",
       "/services/prospection-automatisee",
