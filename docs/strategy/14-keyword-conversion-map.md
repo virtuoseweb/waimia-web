@@ -43,6 +43,7 @@
 | `/services/wordpress` | création/refonte site WordPress / headless | fort | + FAQ | P2 |
 | `/services/webflow` | site Webflow PME | ok | + FAQ | P3 |
 | `/services/sur-mesure-headless` | site sur mesure headless | ok | + FAQ | P3 |
+| `/services/publicite-en-ligne` | publicité en ligne PME (Google Ads / Meta Ads PME · publicité IA) | ok | index · cartographiée F1 2026-07-17 (créée 2026-07-16) · frontière : régie budget payant ≠ landing-pages-tunnels (post-clic) ≠ systeme-acquisition (parent) | P3 |
 | `/tarifs` | prix création site web PME / tarif site IA 2026 | **terne** | **refondre** : title/H1 zéro kw, H2 jargon banni, prix désync (grilles canoniques = tarifs.json + pages services) | P1 |
 
 ### 1bis. Pages enfants de modules (déclinaisons kw-first, créées 2026-07-16)
@@ -75,10 +76,10 @@ prospection-automatisee, integration-claude) par maillage, pas ranker à leur pl
 |---|---|---|---|---|
 | `/ressources` | ressources IA PME | ok | garder | P3 |
 | `/ressources/{comparatifs,guides,diagnostics}` (hubs) | — | — | noindex déjà, RAS | — |
-| `/ressources/outils` (hub) | outils IA gratuits PME | terne | incohérence : seul hub frère indexé (2 items) → noindex (réversible si enrichi 3-4 outils) | P3 |
+| `/ressources/outils` (hub) | outils IA gratuits PME | terne | **noindex FAIT (F1 2026-07-17)** : hub thin (122 mots, 2 items) ; filles calculateur-roi-ia + score-maturite-ia restent indexées · réversible si enrichi 3-4 outils | ✅ |
 | `/ressources/outils/calculateur-roi-ia` | calculateur ROI IA | ok | title qualifié (pas « · Outils Waimia ») | P3 |
-| `/ressources/outils/score-maturite-ia` | test de maturité IA | ok | title qualifié · reçoit le canonical du cluster maturité | P2 |
-| `/ressources/diagnostics/maturite-ia` | niveaux de maturité IA | ok | devient l'intro contenu qui pointe l'outil (dédoublonner « maturité IA ») | P2 |
+| `/ressources/outils/score-maturite-ia` | test de maturité IA | ok | title qualifié · ~~reçoit le canonical du cluster maturité~~ **cross-canonical ABANDONNÉ (F1 2026-07-17, cf §6 addendum)** : canonical auto-référent conservé (intention outil ≠ contenu) | P3 |
+| `/ressources/diagnostics/maturite-ia` | niveaux de maturité IA | ok | intro contenu qui pointe l'outil (dédup « maturité IA » par **angle + lien interne**, PAS par canonical croisé, cf §6 addendum 2026-07-17) | P3 |
 | `/ressources/diagnostics/claude-pme` | PME prête à déployer Claude (readiness) | ok | garder · dé-commercialiser title (cluster Claude) | P1 |
 | `/ressources/diagnostics/referent-ia` | référent IA entreprise | ok | garder | P3 |
 | `/ressources/diagnostics/site-web-intelligent` | diagnostic site web | ok | angle unique (jamais « site web intelligent » nu, réservé à site-web-ia) | P2 |
@@ -105,7 +106,7 @@ sur le kw commercial ; les 3 contenus pointent vers elle en CTA.
 | `/cas-usages` + 5 pages | outcome-intents (« générer plus de leads »…) | fort | garder · maillage cas-usage ↔ service verrouillé | P2 |
 | `/secteurs` (hub) | secteurs IA par métier | ok | garder | — |
 | `/secteurs/{e-commerce,liberal-independant}` | [service] pour [métier] | fort | garder index (caseRef réels) | — |
-| `/secteurs/startup-logiciel` | site pour startup/éditeur | ok | **corriger le cas (amploi ≠ SaaS)** ou noindex temporaire | P2 |
+| `/secteurs/startup-logiciel` | site pour startup/éditeur | ok | **noindex temporaire FAIT (F1 2026-07-17)** : amploi = RH/santé ≠ SaaS (hors ICP) · réindexable dès un vrai cas éditeur/SaaS · hors sitemap | ✅ |
 | 9 autres secteurs | — | — | noindex déjà (règle caseRef) · diversifier metricsHero cloné avant toute réindexation | P3 |
 | `/implantations/montpellier` | agence web / agence IA Montpellier | ok mais bridé | **+ JSON-LD LocalBusiness/ProfessionalService + NAP + GBP** (inputs Simon : téléphone, lien GBP) | P1 |
 | `/implantations/bordeaux` | — | — | noindex fait (2026-07-14), réversible sur NAP réel | — |
@@ -160,3 +161,28 @@ sur le kw commercial ; les 3 contenus pointent vers elle en CTA.
   Arbitrages Simon : sélectif kw-first, modèle 20 sections, pages outils OK sur outils réels, mise en
   ligne « tout maintenant » (assumé malgré le risque de dilution au lancement, compensé par maillage
   parent↔enfant et couverture GEO/AIO). 27 pages services + 3 hubs au total.
+- 2026-07-17 · **lot F1 « hygiène d'index » (fiche décision 0015, exécuté)** :
+  - **(a) Cross-canonical du cluster maturité ABANDONNÉ.** Le plan P2 initial (score-maturite-ia
+    « reçoit le canonical du cluster maturité », maturite-ia « dédoublonner ») est retiré : les deux
+    pages portent des intentions distinctes (test/outil interactif vs contenu « niveaux de maturité »),
+    kw non identiques, 0 duplication de corps mesurée (cf audit d-transverse §2). Un rel=canonical
+    croisé dé-indexerait à tort une page utile. Décision : chaque page garde son **canonical
+    auto-référent** ; la dé-duplication passe par la différenciation d'angle + un lien interne
+    contenu→outil, PAS par le canonical. (Lignes 80-81 du §2 annotées, passées P3.)
+  - **(b) Cartographie `/services/publicite-en-ligne`** (créée 2026-07-16, absente de la carte) :
+    kw primaire **« publicité en ligne PME »** (H1 réel « Publicité en ligne pour PME » ; title
+    « Publicité en ligne pour PME · Google Ads, Meta et formats IA, pilotés et mesurés »), intention
+    acquisition/transactionnelle, kw secondaires « Google Ads PME » / « Meta Ads PME » / « publicité IA ».
+    index (seo.noindex:false). Frontière : régie et pilotage de budget payant, distincte de
+    landing-pages-tunnels (conversion post-clic) et de systeme-acquisition (parent générique). Ligne
+    ajoutée au tableau §1.
+  - **(c) Deux pages passées noindex par F1** (règle §0.4 index-on-quality + §0.5 cohérence sitemap) :
+    `/secteurs/startup-logiciel` (caseRef amploi = RH/santé, hors ICP SaaS → preuve incohérente ;
+    réindexable dès qu'un vrai cas éditeur remplace le caseRef) et `/ressources/outils` (hub thin,
+    122 mots, 2 items ; les filles calculateur-roi-ia + score-maturite-ia RESTENT indexées). Les deux
+    ajoutées à `sitemap-noindex-exclude.ts`. En complément : 3 redirections 301-vers-404 traitées
+    (`/careers` supprimée → 404 propre ; 2 slugs blog `migrated-*` re-ciblés vers `/blog`, car le
+    catch-all `/ressources/blog/[...slug]` aurait sinon recréé un 301-vers-404) ; la grille du hub
+    `/secteurs` ne lie plus que les secteurs indexés (filtre `!seo.noindex`) et le helper
+    `internal-mesh.ts` ne maille plus aucun secteur noindex (conseil/agence/comptabilite remappés vers
+    batiment/e-commerce/liberal-independant/therapeutes).

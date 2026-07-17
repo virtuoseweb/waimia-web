@@ -136,7 +136,69 @@ const ctaData = {
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;
 
-const sections: SectionData[] = [mastheadData, gridData, ctaData];
+const teamBodyData = {
+  type: 'rich-text' as const,
+  kicker_fr: '§ Studio',
+  kicker_en: '§ Studio',
+  title_fr: 'Un studio solo, pas une agence anonyme',
+  title_en: 'A solo studio, not an anonymous agency',
+  body_md_fr: `Waimia est le studio solo de **Simon Beros**, basé à Montpellier. Une seule
+signature derrière chaque article, chaque cas et chaque guide publiés : pas de
+ghostwriting, pas d'account manager qui tourne, pas d'agence relai.
+
+Simon câble lui-même chaque mission, du premier audit à la passation documentée :
+audit du process, agents branchés sur les outils déjà en place, mesure
+avant/après, transfert de compétences. L'objectif n'est pas la démo, c'est un
+système business qui tourne une fois l'intervention finie.
+
+### Le parcours
+
+Avant Waimia, Simon a fondé **VirtuoseWeb**, où il concevait et câblait des
+systèmes web et IA pour des PME B2B. Waimia (2024) prolonge ce travail sur l'IA
+générative appliquée : transformer un modèle en machine d'acquisition, de CRM et
+de productivité opérationnelle, pour PME et low-ETI.
+
+### Ce qu'il maîtrise
+
+- systèmes IA pour PME B2B ;
+- RevOps et acquisition automatisée ;
+- pilotage data en temps réel ;
+- stack Anthropic / Claude ;
+- process intelligence.
+
+Il écrit en français, lit la documentation, livre du code et mesure le pipeline.
+Le détail de son profil, ses publications et son CV complet vivent sur sa
+[fiche auteur](/equipe/simon-beros).`,
+  body_md_en: `Waimia is the solo studio of **Simon Beros**, based in Montpellier. One signature
+behind every article, case and guide published: no ghostwriting, no rotating
+account manager, no relay agency.
+
+Simon wires every engagement himself, from the first audit to a documented
+handover: process audit, agents plugged into the tools already in place,
+before/after measurement, skills transfer. The goal is not the demo, it is a
+business system that keeps running once the engagement ends.
+
+### The background
+
+Before Waimia, Simon founded **VirtuoseWeb**, where he designed and wired web and
+AI systems for B2B SMBs. Waimia (2024) extends that work to applied generative
+AI: turning a model into an acquisition, CRM and operational-productivity
+machine, for SMBs and lower-mid-market.
+
+### What he masters
+
+- AI systems for B2B SMBs;
+- RevOps and automated acquisition;
+- real-time data steering;
+- Anthropic / Claude stack;
+- process intelligence.
+
+He writes in French, reads the docs, ships code and measures the pipeline. His
+full profile, publications and CV live on his
+[author page](/equipe/simon-beros).`,
+} satisfies SectionByType<'rich-text'>;
+
+const sections: SectionData[] = [mastheadData, gridData, teamBodyData, ctaData];
 ---
 
 <Base

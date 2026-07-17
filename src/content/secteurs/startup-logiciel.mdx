@@ -55,7 +55,12 @@ visible: true
 ctaPrimary_fr: "Cadrer mon acquisition →"
 ctaPrimary_en: "Frame my acquisition →"
 seo:
-  noindex: false
+  # F1 hygiène d'index 2026-07-17 · NOINDEX : le caseRef amploi = RH/santé au travail
+  # (site marketing), PAS un éditeur SaaS → preuve hors-ICP, viole la règle d'indexation
+  # (index ⟺ caseRef réel ET cohérent avec l'ICP). Réindexable dès qu'un vrai cas SaaS
+  # remplace le caseRef. Cf audit c-preuve §1a + strategy/14. Exclu du sitemap via
+  # NOINDEX_SITEMAP_PATHS (src/data/sitemap-noindex-exclude.ts).
+  noindex: true
 faq_fr:
   - q: "On est une petite équipe, est-ce que c'est trop tôt pour ça ?"
     a: "Non. Plus tôt le site explique clairement la valeur et qualifie les visiteurs, moins vous brûlez de demande. On câble l'essentiel d'abord, pas une usine à gaz."

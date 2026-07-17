@@ -503,7 +503,10 @@ export function meshForCasUsage(casUsage: CasUsageMeshInput, _lang: Lang = 'fr')
   return assemble(
     [
       group('Nos offres', 'Our offers', offers, selfHref),
-      group('Secteurs', 'Sectors', [SECTEURS['conseil'], SECTEURS['comptabilite']], selfHref),
+      // F1 hygiène d'index 2026-07-17 : ne mailler QUE des secteurs indexés (conseil +
+      // comptabilite étaient noindex → equity/crawl gaspillés). Remplacés par e-commerce +
+      // liberal-independant (indexés).
+      group('Secteurs', 'Sectors', [SECTEURS['e-commerce'], SECTEURS['liberal-independant']], selfHref),
       group('Ressource', 'Resource', [RESSOURCES['outils/calculateur-roi-ia']], selfHref),
       group('À lire', 'Worth reading', [article], selfHref),
       group("Cas d'usage", 'Use cases', [HUBS.casUsages], selfHref),
@@ -577,7 +580,10 @@ export interface ArticleMeshInput {
   category?: string; // crm | acquisition | gouvernance | pilotage | contenu-seo-geo
 }
 
-/** Map category article -> bundle de liens connexes (1 service + 1 cas-usage + 1 ressource + 1 secteur + 1 article). */
+/** Map category article -> bundle de liens connexes (1 service + 1 cas-usage + 1 ressource + 1 secteur + 1 article).
+ * F1 hygiène d'index 2026-07-17 : tous les `secteur` remappés vers des secteurs INDEXÉS
+ * (batiment/e-commerce/liberal-independant/therapeutes). Les anciennes cibles conseil/agence/
+ * comptabilite sont noindex → un article indexé ne doit pas y diriger son equity/crawl. */
 const ARTICLE_MAP: Record<
   string,
   { service: string; casUsage: string; ressource: string; secteur: string; article: string }
@@ -586,35 +592,35 @@ const ARTICLE_MAP: Record<
     service: 'prospection-automatisee',
     casUsage: 'generer-plus-de-leads',
     ressource: 'comparatifs/site-web-intelligent-vs-wordpress',
-    secteur: 'conseil',
+    secteur: 'liberal-independant',
     article: 'cabler-son-crm-en-10-jours',
   },
   acquisition: {
     service: 'site-web-intelligent',
     casUsage: 'generer-plus-de-leads',
     ressource: 'outils/calculateur-roi-ia',
-    secteur: 'agence',
+    secteur: 'e-commerce',
     article: 'avis-n8n-vs-zapier-2026',
   },
   gouvernance: {
     service: 'integrateur-claude',
     casUsage: 'standardiser-processus',
     ressource: 'guides/claude-pme',
-    secteur: 'conseil',
+    secteur: 'batiment',
     article: 'essai-pillar-ia-pme-2026',
   },
   pilotage: {
     service: 'integrateur-claude',
     casUsage: 'reduire-reporting',
     ressource: 'diagnostics/maturite-ia',
-    secteur: 'comptabilite',
+    secteur: 'e-commerce',
     article: 'agent-ia-vs-automatisation-classique-2026',
   },
   'contenu-seo-geo': {
     service: 'seo-geo-contenu',
     casUsage: 'generer-plus-de-leads',
     ressource: 'comparatifs/geo-vs-seo',
-    secteur: 'conseil',
+    secteur: 'therapeutes',
     article: 'seo-geo-etre-cite-par-les-ia-generatives',
   },
 };
@@ -675,7 +681,8 @@ export function meshForRessource(ressource: RessourceMeshInput = {}, _lang: Lang
         [CAS_USAGES['standardiser-processus'], CAS_USAGES['centraliser-donnees']],
         selfHref,
       ),
-      group('Secteur', 'Sector', [SECTEURS['conseil']], selfHref),
+      // F1 hygiène d'index 2026-07-17 : conseil était noindex → remplacé par batiment (indexé).
+      group('Secteur', 'Sector', [SECTEURS['batiment']], selfHref),
       group(
         'À lire',
         'Worth reading',

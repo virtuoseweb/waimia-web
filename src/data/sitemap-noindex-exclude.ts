@@ -61,6 +61,10 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/secteurs/esn",
   "/secteurs/formation",
   "/secteurs/industrie",
+  // F1 hygiène d'index 2026-07-17 (post-audit c-preuve §1a) : startup-logiciel repassé
+  // noindex (seo.noindex:true frontmatter) → caseRef amploi hors-ICP SaaS. Réindexable
+  // dès qu'un vrai cas éditeur/SaaS remplace le caseRef.
+  "/secteurs/startup-logiciel",
   // Hubs noindex (politique hub < 3-5 enfants réels) encore listés dans le sitemap (gate 2026-07-14).
   "/implantations",
   "/ressources/comparatifs",
@@ -82,4 +86,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/partenaires",
   "/plan-du-site",
   "/demonstrations/site-web-intelligent",
+  // F1 hygiène d'index 2026-07-17 (post-audit d-transverse §5) : hub /ressources/outils
+  // passé noindex (prop noindex sur UtilityTemplate → Base) car thin (122 mots, listing 2
+  // outils). Les 2 pages filles (calculateur-roi-ia, score-maturite-ia) RESTENT indexées.
+  "/ressources/outils",
 ]);

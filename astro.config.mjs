@@ -61,11 +61,10 @@ export default defineConfig({
     // Exemples (à dé-commenter si rename) :
     // '/ancienne-url': '/nouvelle-url',
     // '/old-blog-slug': { status: 301, destination: '/ressources/blog/new-slug' },
-    // R6 2026-06-10 · stub /careers dépublié (placeholder catch-all sans lien
-    // entrant, en doublon d'intention avec la vraie page /agence/careers) →
-    // redirect canonique pour préserver l'URL indexée.
-    '/careers': '/agence/careers',
-    // P0.2-I · /en/careers retiré (miroir /en non généré en FR monolingue).
+    // F1 hygiène d'index 2026-07-17 · règle '/careers' → '/agence/careers' SUPPRIMÉE :
+    // la destination /agence/careers n'existe pas (301-vers-404, vérifié dist). Slug legacy
+    // noindex, 0 lien entrant, aucune page careers réelle nulle part → suppression = 404 propre
+    // (sortie clean de la couverture GSC). Le catch-all [...slug] ne génère plus /careers.
     // V-F1 2026-06-11 · docs/40 §2 (plan 301, item 3) : /archive (index legacy) supprimé.
     '/archive': '/',
     // Audit #60 A2 2026-07-16 · /agence/about (noindex, quasi-dupe de /agence) replié
@@ -107,15 +106,19 @@ export default defineConfig({
     // V-F1 2026-06-11 · pointait vers /archive (supprimé) : re-ciblé directement
     // vers la destination finale pour éviter une chaîne de 301.
     '/ressources/cas/virtuoseos': { status: 301, destination: '/' },
-    // SEO cleanup 2026-06-07 · vestiges de migration blog (migrated-*) dé-indexés
-    // (seo.noindex) → redirigés vers l'URL canonique pour résorber le duplicate content.
-    '/ressources/blog/migrated-veille-gpt-4o-vision-update': '/ressources/veille-ia/gpt-4o-vision-update',
-    '/ressources/blog/migrated-fieldnote-composable-adoption': '/ressources/field-notes/composable-adoption',
+    // F1 hygiène d'index 2026-07-17 · les 2 slugs migrated-* pointaient vers
+    // /ressources/veille-ia/* et /ressources/field-notes/* qui N'EXISTENT PAS (301-vers-404,
+    // vérifié dist). On NE peut PAS simplement supprimer ces règles : le catch-all
+    // '/ressources/blog/[...slug]' → '/blog/[...slug]' ci-dessous les capterait et 301-erait
+    // vers /blog/migrated-* (également 404). Re-ciblage vers le hub vivant /blog (page réelle,
+    // alternative sanctionnée par l'audit) → 0 301-vers-404. Slugs legacy noindex, 0 lien entrant.
+    '/ressources/blog/migrated-veille-gpt-4o-vision-update': '/blog',
+    '/ressources/blog/migrated-fieldnote-composable-adoption': '/blog',
     // 2026-06-29 · Migration URL : blog plat /ressources/blog/* → /blog/* (continuité SEO).
     // Le hub et tous les articles passent en URL plate ; 301 pour préserver le ranking
     // des anciennes URLs indexées. L'entrée [...slug] couvre tous les articles ; Astro
     // substitue le param du source dans la destination (doc redirects). Placées APRÈS les
-    // 2 redirects migrated-* spécifiques ci-dessus (cibles veille-ia/field-notes distinctes).
+    // 2 redirects migrated-* spécifiques ci-dessus (re-ciblés /blog, cf note F1).
     '/ressources/blog': '/blog',
     '/ressources/blog/[...slug]': '/blog/[...slug]',
     // 2026-06-16 · Cutover atelier DS → /library/* (décision docs/design-system/03 §11.2,
