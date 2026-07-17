@@ -43,6 +43,14 @@
       "a": "L'écosystème Anthropic en priorité : l'API Claude, Claude Code et le protocole MCP, le standard ouvert pour connecter un modèle à vos outils. On branche les agents sur ce que vous utilisez déjà : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. Pour un cas hors écosystème, on évalue la faisabilité au cadrage."
     },
     {
+      "q": "Claude ou ChatGPT pour votre entreprise, lequel choisir ?",
+      "a": "Les deux modèles sont solides. Claude se distingue sur le raisonnement long, le code et le protocole MCP, qui branche le modèle à vos outils. ChatGPT garde une avance sur certains usages grand public. Le bon choix dépend de vos cas d'usage et de vos contraintes de données, qu'on tranche au diagnostic, pas d'un parti pris."
+    },
+    {
+      "q": "Claude et vos données : où vont-elles, servent-elles à l'entraînement ?",
+      "a": "Sur les offres entreprise et l'API d'Anthropic, vos échanges ne servent pas par défaut à entraîner les modèles, et un accord de traitement des données (DPA) est disponible. Selon l'offre et le cloud retenu (Anthropic, AWS, Google Cloud), on cadre au diagnostic la région de traitement et la conformité RGPD."
+    },
+    {
       "q": "Qu'est-ce que le MCP et pourquoi c'est important ?",
       "a": "Le Model Context Protocol est le standard ouvert d'Anthropic pour connecter un modèle de langage à des outils et des données. C'est lui qui fait passer un assistant de la conversation à l'action : lire un dossier, interroger une base, déclencher une tâche. Une intégration sérieuse câble des serveurs MCP propres, sécurisés et documentés, pas des scripts jetables."
     },
@@ -83,6 +91,14 @@
     {
       "q": "Which models and tools do you work with?",
       "a": "The Anthropic ecosystem first: the Claude API, Claude Code and the MCP protocol, the open standard for connecting a model to your tools. We wire agents to what you already use: CRM, email, calendar, database, Git repo, CI/CD. For a case outside the ecosystem, we assess feasibility at scoping."
+    },
+    {
+      "q": "Claude or ChatGPT for your company, which to choose?",
+      "a": "Both models are solid. Claude stands out on long reasoning, code and the MCP protocol, which wires the model to your tools. ChatGPT keeps an edge on some consumer uses. The right choice depends on your use cases and data constraints, which we settle at the diagnostic, not on a bias."
+    },
+    {
+      "q": "Claude and your data: where does it go, is it used for training?",
+      "a": "On Anthropic's enterprise offers and API, your exchanges are not used by default to train the models, and a data processing agreement (DPA) is available. Depending on the offer and cloud chosen (Anthropic, AWS, Google Cloud), we frame the processing region and GDPR compliance at the diagnostic."
     },
     {
       "q": "What is MCP and why does it matter?",
@@ -179,24 +195,6 @@
           "label_en": "value is in production, not the POC"
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Orchestration Claude",
-      "kicker_en": "FIG 1.5 · Claude orchestration",
-      "h2_fr": "Une licence IA isolée dort. Un <i class=\"acc\">agent</i> branché via MCP exécute, du déploiement à la gouvernance.",
-      "h2_en": "An isolated AI licence sleeps. An <i class=\"acc\">agent</i> wired via MCP executes, from deployment to governance.",
-      "lede_fr": "D'outils dispersés et de comptes IA personnels à des workflows réels automatisés, vos applications se branchent via MCP et travaillent ensemble, sans POC qui dort. Chaque outil rejoint un dispositif que Claude orchestre. En amont, le <a href=\"/services/consultant-ia-claude\">consultant IA Claude</a> cadre les cas d'usage et la faisabilité avant tout déploiement.",
-      "lede_en": "From scattered tools and personal AI accounts to automated real workflows, your apps connect via MCP and work together, with no POC left asleep. Every tool joins a dispositif that Claude orchestrates. Upstream, the <a href=\"/services/consultant-ia-claude\">Claude AI consultant</a> frames the use cases and feasibility before any deployment.",
-      "cta": {
-        "label_fr": "Voir les capacités →",
-        "label_en": "See the capabilities →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : des outils dispersés s'orchestrent en un dispositif.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: scattered tools orchestrate into one dispositif."
     },
     {
       "type": "definition-extract",
@@ -551,6 +549,47 @@
           "title_en": "The right model in the right place",
           "body_fr": "On déploie le modèle adapté à chaque tâche et à vos contraintes : Claude, GPT ou Mistral. Le système que nous construisons reste le vôtre.",
           "body_en": "We deploy the model fit for each task and your constraints: Claude, GPT or Mistral. The system we build stays yours."
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "background": "paper-2",
+      "kicker_fr": "§ Choix du modèle et données",
+      "kicker_en": "§ Model choice and data",
+      "h2_fr": "Claude ou ChatGPT pour votre entreprise",
+      "h2_en": "Claude or ChatGPT for your company",
+      "lede_fr": "Les deux modèles sont solides. Le choix se joue sur vos cas d'usage, vos contraintes de données et ce que le modèle doit toucher dans vos outils. Voici comment on tranche, sans parti pris.",
+      "lede_en": "Both models are solid. The choice comes down to your use cases, your data constraints and what the model must reach in your tools. Here is how we decide, without bias.",
+      "columns": "4",
+      "features": [
+        {
+          "icon": "claude",
+          "title_fr": "Là où Claude prend l'avantage",
+          "title_en": "Where Claude has the edge",
+          "body_fr": "Raisonnement long, code et agents branchés via MCP, le standard ouvert d'Anthropic. Pour mettre un modèle au travail sur vos outils réels, l'écosystème Claude est le plus direct.",
+          "body_en": "Long reasoning, code and agents wired via MCP, Anthropic's open standard. To put a model to work on your real tools, the Claude ecosystem is the most direct."
+        },
+        {
+          "icon": "modele",
+          "title_fr": "Là où ChatGPT reste pertinent",
+          "title_en": "Where ChatGPT stays relevant",
+          "body_fr": "Certains usages grand public et un large écosystème de plugins. On ne vous vend pas Claude par principe : si ChatGPT sert mieux un cas précis, on le dit et on l'intègre.",
+          "body_en": "Some consumer uses and a broad plugin ecosystem. We don't sell you Claude on principle: if ChatGPT serves a given case better, we say so and integrate it."
+        },
+        {
+          "icon": "securite",
+          "title_fr": "Vos données et le RGPD",
+          "title_en": "Your data and GDPR",
+          "body_fr": "Sur les offres entreprise et l'API, Anthropic n'utilise pas par défaut vos échanges pour entraîner ses modèles, et un accord de traitement (DPA) est disponible. On cadre la résidence des données selon le cloud retenu.",
+          "body_en": "On enterprise offers and the API, Anthropic does not use your exchanges to train its models by default, and a data processing agreement (DPA) is available. We frame data residency according to the chosen cloud."
+        },
+        {
+          "icon": "mcp",
+          "title_fr": "Le vrai critère : ce que le modèle touche",
+          "title_en": "The real criterion: what the model reaches",
+          "body_fr": "Un modèle isolé reste un chat. Branché via MCP à votre CRM, vos e-mails et vos données, il exécute. La valeur se joue là, dans le système autour, pas dans le nom du modèle.",
+          "body_en": "An isolated model stays a chat. Wired via MCP to your CRM, your emails and your data, it executes. Value plays out there, in the system around it, not in the model's name."
         }
       ]
     },
@@ -988,8 +1027,8 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
+      "h2_fr": "Combien coûte Claude en entreprise",
+      "h2_en": "How much does Claude cost in the enterprise",
       "lede_fr": "On démarre par un sprint découverte à prix fixe : cartographie des cas d'usage et un premier agent Claude en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
       "lede_en": "We start with a fixed-price discovery sprint: a map of the use cases and a first Claude agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. Your agents run, their architecture is documented and your teams are trained to evolve them.",
       "tiers": [
@@ -1084,6 +1123,18 @@
           "q_en": "Which models and tools do you work with?",
           "a_fr": "L'écosystème Anthropic en priorité : l'API Claude, Claude Code et le protocole MCP, le standard ouvert pour connecter un modèle à vos outils. On branche les agents sur ce que vous utilisez déjà : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. Pour un cas hors écosystème, on évalue la faisabilité au cadrage.",
           "a_en": "The Anthropic ecosystem first: the Claude API, Claude Code and the MCP protocol, the open standard for connecting a model to your tools. We wire agents to what you already use: CRM, email, calendar, database, Git repo, CI/CD. For a case outside the ecosystem, we assess feasibility at scoping."
+        },
+        {
+          "q_fr": "Claude ou ChatGPT pour votre entreprise, lequel choisir ?",
+          "q_en": "Claude or ChatGPT for your company, which to choose?",
+          "a_fr": "Les deux modèles sont solides. Claude se distingue sur le raisonnement long, le code et le protocole MCP, qui branche le modèle à vos outils. ChatGPT garde une avance sur certains usages grand public. Le bon choix dépend de vos cas d'usage et de vos contraintes de données, qu'on tranche au diagnostic, pas d'un parti pris.",
+          "a_en": "Both models are solid. Claude stands out on long reasoning, code and the MCP protocol, which wires the model to your tools. ChatGPT keeps an edge on some consumer uses. The right choice depends on your use cases and data constraints, which we settle at the diagnostic, not on a bias."
+        },
+        {
+          "q_fr": "Claude et vos données : où vont-elles, servent-elles à l'entraînement ?",
+          "q_en": "Claude and your data: where does it go, is it used for training?",
+          "a_fr": "Sur les offres entreprise et l'API d'Anthropic, vos échanges ne servent pas par défaut à entraîner les modèles, et un accord de traitement des données (DPA) est disponible. Selon l'offre et le cloud retenu (Anthropic, AWS, Google Cloud), on cadre au diagnostic la région de traitement et la conformité RGPD.",
+          "a_en": "On Anthropic's enterprise offers and API, your exchanges are not used by default to train the models, and a data processing agreement (DPA) is available. Depending on the offer and cloud chosen (Anthropic, AWS, Google Cloud), we frame the processing region and GDPR compliance at the diagnostic."
         },
         {
           "q_fr": "Qu'est-ce que le MCP et pourquoi c'est important ?",

@@ -1,9 +1,9 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Données et reporting pour PME · dashboards automatisés",
-  "title_en": "Data and reporting for SMEs · automated dashboards",
-  "description_fr": "On centralise vos données éparpillées et on automatise vos tableaux de bord : KPI à jour en temps réel, fin du reporting refait à la main. Diagnostic gratuit.",
-  "description_en": "We centralise your scattered data and automate your dashboards: KPIs up to date in real time, no more hand-made reporting. Free diagnostic, Montpellier studio.",
+  "title_fr": "Tableau de bord automatisé pour PME · reporting temps réel",
+  "title_en": "Automated dashboard for SMEs · real-time reporting",
+  "description_fr": "Un tableau de bord automatisé pour PME : on centralise vos données éparpillées, vos KPI se mettent à jour en temps réel, fini le reporting refait à la main.",
+  "description_en": "An automated dashboard for SMEs: we centralise your scattered data, your KPIs update in real time, no more reporting redone by hand. Free diagnostic.",
   "slug": "donnees-reporting",
   "publishedAt": "2026-07-13T00:00:00.000Z",
   "updatedAt": "2026-07-13T00:00:00.000Z",
@@ -37,6 +37,10 @@
     {
       "q": "Vous construisez des dashboards, ou une vraie base de données ?",
       "a": "Les deux selon le besoin. Parfois un tableau de bord branché sur vos outils suffit. Parfois il faut d'abord centraliser dans un socle propre avant d'afficher. On cadre le juste niveau, on ne vous vend pas une usine si un dashboard suffit."
+    },
+    {
+      "q": "Peut-on automatiser un tableau de bord Excel ?",
+      "a": "Oui. Plutôt que de recopier un tableur chaque semaine, on branche vos sources à un tableau de bord qui se rafraîchit seul. Excel reste possible en affichage, mais la donnée remonte automatiquement, sans ressaisie ni fichier périmé."
     },
     {
       "q": "Les tableaux sont à jour quand on les ouvre ?",
@@ -73,6 +77,10 @@
       "a": "Both, depending on the need. Sometimes a dashboard wired to your tools is enough. Sometimes you first need to centralise into a clean base before displaying. We scope the right level, we don't sell you a factory when a dashboard is enough."
     },
     {
+      "q": "Can you automate an Excel dashboard?",
+      "a": "Yes. Rather than recopying a spreadsheet every week, we wire your sources to a dashboard that refreshes on its own. Excel can stay as a display, but the data flows up automatically, with no re-entry and no stale file."
+    },
+    {
       "q": "Are the boards up to date when we open them?",
       "a": "Yes. The data refreshes automatically at the useful frequency: real time, hourly or nightly depending on the case. You no longer gather anything by hand before a meeting."
     },
@@ -93,12 +101,12 @@
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Données et reporting",
-      "kicker_en": "§ Data and reporting",
-      "h1_fr": "Centraliser vos <i class=\"acc\">données</i> et automatiser le reporting.",
-      "h1_en": "Centralise your <i class=\"acc\">data</i> and automate the reporting.",
-      "lede_fr": "Vos chiffres vivent dans six outils et ne concordent jamais. Le reporting du vendredi soir se refait à la main, et vos décisions se prennent au doigt mouillé faute de vue claire. Un dispositif données et reporting rassemble vos données, fixe une source de vérité, et affiche des tableaux de bord à jour quand vous les ouvrez.",
-      "lede_en": "Your figures live in six tools and never match. The Friday-night reporting is redone by hand, and your decisions get made on gut feel for lack of a clear view. A data and reporting setup gathers your data, sets a source of truth, and shows dashboards up to date when you open them.",
+      "kicker_fr": "§ Tableau de bord & reporting",
+      "kicker_en": "§ Dashboard & reporting",
+      "h1_fr": "Un <i class=\"acc\">tableau de bord</i> à jour, sans reporting refait à la main.",
+      "h1_en": "A <i class=\"acc\">dashboard</i> that stays up to date, no reporting by hand.",
+      "lede_fr": "Vos chiffres vivent dans six outils et ne concordent jamais. Le reporting du vendredi soir se refait à la main, et vos décisions se prennent au doigt mouillé faute de vue claire. On centralise vos données, on fixe une source de vérité, et on branche un tableau de bord à jour quand vous l'ouvrez. Vous ne recopiez plus rien avant une réunion.",
+      "lede_en": "Your figures live in six tools and never match. The Friday-night reporting is redone by hand, and your decisions get made on gut feel for lack of a clear view. We centralise your data, set a source of truth, and wire a dashboard that's up to date when you open it. You no longer recopy anything before a meeting.",
       "badges": [
         {
           "label_fr": "Source unique",
@@ -324,153 +332,6 @@
       ]
     },
     {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux du pilotage par la donnée",
-      "h2_en": "The 6 levels of data-driven steering",
-      "lede_fr": "Des exports manuels au pilotage temps réel, six paliers. La plupart des PME campent au deuxième. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From manual exports to real-time steering, six tiers. Most SMEs camp at the second. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Exports manuels",
-          "title_en": "Manual exports",
-          "sub_fr": "Recopie et tableurs",
-          "sub_en": "Recopying and spreadsheets"
-        },
-        {
-          "title_fr": "Rapports figés",
-          "title_en": "Frozen reports",
-          "sub_fr": "Périmés à l'ouverture",
-          "sub_en": "Stale on opening"
-        },
-        {
-          "title_fr": "Premier dashboard",
-          "title_en": "First dashboard",
-          "sub_fr": "Un KPI branché en direct",
-          "sub_en": "One KPI wired live"
-        },
-        {
-          "title_fr": "Données centralisées",
-          "title_en": "Centralised data",
-          "sub_fr": "Une source unique",
-          "sub_en": "A single source"
-        },
-        {
-          "title_fr": "Pilotage temps réel",
-          "title_en": "Real-time steering",
-          "sub_fr": "KPI et alertes automatiques",
-          "sub_en": "KPIs and automatic alerts"
-        },
-        {
-          "title_fr": "Aide à la décision",
-          "title_en": "Decision support",
-          "sub_fr": "Données lues et synthétisées par l'IA",
-          "sub_en": "Data read and synthesised by AI"
-        }
-      ]
-    },
-    {
-      "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez le socle et vos données quand on part. Pas de captivité.",
-      "lead_en": "You keep the base and your data when we leave. No lock-in.",
-      "items": [
-        {
-          "title_fr": "Dictionnaire d'indicateurs",
-          "title_en": "Indicator dictionary",
-          "body_fr": "La définition claire de chaque KPI qui compte : un chiffre, une règle de calcul, la même pour tout le monde. Fini les débats sur qui a raison.",
-          "body_en": "The clear definition of each KPI that matters: one figure, one calculation rule, the same for everyone. No more debates over who's right.",
-          "format_fr": "RÉFÉRENTIEL",
-          "format_en": "REFERENCE",
-          "illustration_src": "/images/line-art/probleme-donnees-eparpillees.svg",
-          "illustration_alt_fr": "Un dictionnaire d'indicateurs qui fixe une définition unique par KPI",
-          "illustration_alt_en": "An indicator dictionary that sets a single definition per KPI"
-        },
-        {
-          "title_fr": "Socle de données",
-          "title_en": "Data base",
-          "body_fr": "Vos données rassemblées dans un socle unique, propre et à jour, à la place des exports recopiés chaque semaine.",
-          "body_en": "Your data gathered into a single, clean, up-to-date base, in place of exports recopied every week.",
-          "format_fr": "DATA",
-          "format_en": "DATA",
-          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
-          "illustration_alt_fr": "Un socle de données unique qui centralise vos chiffres éparpillés",
-          "illustration_alt_en": "A single data base centralising your scattered figures"
-        },
-        {
-          "title_fr": "Connexions à vos outils",
-          "title_en": "Connections to your tools",
-          "body_fr": "Les branchements API et MCP vers votre CRM, votre facturation, votre pub et vos outils métier : la donnée remonte seule, sans export.",
-          "body_en": "The API and MCP connections to your CRM, your billing, your ads and your business tools: the data flows up on its own, no export.",
-          "format_fr": "API + MCP",
-          "format_en": "API + MCP",
-          "illustration_src": "/images/line-art/livrable-connecteurs-mcp.svg",
-          "illustration_alt_fr": "Des connecteurs API et MCP qui alimentent le socle depuis vos outils",
-          "illustration_alt_en": "API and MCP connectors feeding the base from your tools"
-        },
-        {
-          "title_fr": "Tableaux de bord",
-          "title_en": "Dashboards",
-          "body_fr": "Vos KPI d'activité, de vente et d'acquisition affichés en clair, rafraîchis automatiquement, avec des alertes sur les anomalies.",
-          "body_en": "Your activity, sales and acquisition KPIs shown in plain view, refreshed automatically, with alerts on anomalies.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Un tableau de bord des KPI d'activité rafraîchi automatiquement",
-          "illustration_alt_en": "An activity KPI dashboard refreshed automatically"
-        },
-        {
-          "title_fr": "Accès et gouvernance",
-          "title_en": "Access and governance",
-          "body_fr": "Le contrôle des accès par rôle et l'hébergement chez vous : chacun voit les chiffres qui le concernent, vos données restent protégées.",
-          "body_en": "Role-based access control and hosting on your side: each sees the figures that concern them, your data stays protected.",
-          "format_fr": "GOUVERNANCE",
-          "format_en": "GOVERNANCE",
-          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
-          "illustration_alt_fr": "Le contrôle des accès par rôle sur les tableaux de bord",
-          "illustration_alt_en": "Role-based access control over the dashboards"
-        },
-        {
-          "title_fr": "Documentation et autonomie",
-          "title_en": "Documentation and autonomy",
-          "body_fr": "Le socle documenté et un référent formé chez vous : votre équipe ajoute un indicateur ou une vue sans dépendre de nous.",
-          "body_en": "The base documented and an in-house referent trained: your team adds an indicator or a view without depending on us.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/livrable-passation-formation.svg",
-          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur le reporting",
-          "illustration_alt_en": "A documented operating manual to make the team autonomous on the reporting"
-        }
-      ]
-    },
-    {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les sources qu'on branche à vos tableaux",
-      "kicker_en": "§ The sources we wire to your boards",
-      "grayscale": true,
-      "logoIds": [
-        "google",
-        "hubspot",
-        "salesforce",
-        "meta",
-        "microsoft",
-        "sap",
-        "notion",
-        "aws",
-        "slack",
-        "github",
-        "claude",
-        "openai"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -599,59 +460,6 @@
       ]
     },
     {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "La donnée, de la source au tableau",
-      "fig_title_en": "The data, from source to board",
-      "meta_fr": "DataLoop · v1",
-      "meta_en": "DataLoop · v1",
-      "h2_fr": "Comment un chiffre remonte jusqu'à vous",
-      "h2_en": "How a figure travels up to you",
-      "lede_fr": "Un tableau de bord fiable n'est pas un graphique posé sur un export. C'est un circuit : la donnée est collectée, réconciliée, définie, affichée, surveillée, puis relue pour décider. Chaque maillon remplace une recopie manuelle par une étape à jour.",
-      "lede_en": "A reliable dashboard is not a chart laid on an export. It's a circuit: data is collected, reconciled, defined, displayed, watched, then read back to decide. Each link replaces a manual recopy with an up-to-date step.",
-      "steps": [
-        {
-          "title_fr": "Sources",
-          "title_en": "Sources",
-          "desc_fr": "CRM, facturation, pub, e-commerce, outils métier, branchés via API ou MCP.",
-          "desc_en": "CRM, billing, ads, e-commerce, business tools, wired via API or MCP."
-        },
-        {
-          "title_fr": "Collecte",
-          "title_en": "Collection",
-          "desc_fr": "Les données remontent automatiquement, à la fréquence utile, sans export.",
-          "desc_en": "Data flows up automatically, at the useful frequency, no export."
-        },
-        {
-          "title_fr": "Socle",
-          "title_en": "Base",
-          "desc_fr": "Un lieu unique où tout se rejoint, se nettoie et se réconcilie.",
-          "desc_en": "A single place where everything joins, is cleaned and reconciled."
-        },
-        {
-          "title_fr": "Définition",
-          "title_en": "Definition",
-          "desc_fr": "Chaque indicateur calculé selon une règle claire, la même pour tous.",
-          "desc_en": "Each indicator computed by a clear rule, the same for everyone."
-        },
-        {
-          "title_fr": "Tableau",
-          "title_en": "Board",
-          "desc_fr": "Les KPI affichés en clair, à jour, avec alertes sur les anomalies.",
-          "desc_en": "The KPIs shown in plain view, up to date, with alerts on anomalies."
-        },
-        {
-          "title_fr": "Décision",
-          "title_en": "Decision",
-          "desc_fr": "La lecture nourrit l'action, l'action alimente la donnée. La boucle se referme.",
-          "desc_en": "The reading feeds the action, the action feeds the data. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'amélioration continue",
-      "loop_label_en": "continuous improvement loop"
-    },
-    {
       "type": "sticky-scroll-storytelling",
       "anchor": "methode",
       "background": "paper",
@@ -738,119 +546,6 @@
       ]
     },
     {
-      "type": "feature-zigzag",
-      "anchor": "apres-lancement",
-      "background": "paper-2",
-      "kicker_fr": "§ Après la mise en ligne",
-      "kicker_en": "§ After go-live",
-      "h2_fr": "Le socle continue de vivre après sa mise en ligne",
-      "h2_en": "The base keeps living after go-live",
-      "lede_fr": "Un tableau de bord livré n'est pas un tableau figé. La plupart des reportings meurent quand une source change et que personne ne recâble. Ici, le socle devient un actif : maintenu, étendu, lu par l'IA, et pilotable par votre équipe sans dépendre de nous.",
-      "lede_en": "A delivered dashboard is not a frozen board. Most reportings die when a source changes and no one rewires. Here, the base becomes an asset: maintained, extended, read by the AI, and steerable by your team without depending on us.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "Fiabilité et fraîcheur",
-          "h3_en": "Reliability and freshness",
-          "body_fr": "Les données se rafraîchissent automatiquement et les branchements sont surveillés. Quand une source change son API, on le voit et on recâble avant que vos chiffres partent en vrille. Le tableau reste juste, sans intervention de votre part.",
-          "body_en": "The data refreshes automatically and the connections are watched. When a source changes its API, we see it and rewire before your figures go haywire. The board stays accurate, with no action on your part.",
-          "points": [
-            {
-              "label_fr": "Rafraîchissement automatique surveillé",
-              "label_en": "Watched automatic refresh"
-            },
-            {
-              "label_fr": "Recâblage avant que les chiffres cassent",
-              "label_en": "Rewiring before the figures break"
-            },
-            {
-              "label_fr": "Alertes sur les anomalies",
-              "label_en": "Alerts on anomalies"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Fiabilité et fraîcheur des tableaux de bord dans la durée, illustration éditoriale",
-          "media_alt_en": "Reliability and freshness of the dashboards over time, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Extension au fil des besoins",
-          "h3_en": "Extension as needs arise",
-          "body_fr": "On ajoute un indicateur, une vue, une source, au rythme de vos questions. Le socle grandit avec votre pilotage sans qu'on refonde l'existant, et une nouvelle brique de mesure se pose sans casser les tableaux en place.",
-          "body_en": "We add an indicator, a view, a source, at the pace of your questions. The base grows with your steering without rebuilding what exists, and a new measurement block slots in without breaking the boards already in place.",
-          "points": [
-            {
-              "label_fr": "Nouvel indicateur sur besoin réel",
-              "label_en": "New indicator on real need"
-            },
-            {
-              "label_fr": "Nouvelle source branchée",
-              "label_en": "New source wired in"
-            },
-            {
-              "label_fr": "Extension sans tout refondre",
-              "label_en": "Extension without a full rebuild"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Le socle de données qui s'étend au fil des questions de pilotage, illustration éditoriale",
-          "media_alt_en": "The data foundation extending at the pace of steering questions, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Lecture assistée par l'IA",
-          "h3_en": "AI-assisted reading",
-          "body_fr": "Là où c'est utile, l'IA lit vos KPI et en tire une synthèse en clair : ce qui monte, ce qui baisse, ce qui mérite un coup d'oeil. Vous gardez la décision, elle vous fait gagner le temps de dégrossir les chiffres.",
-          "body_en": "Where useful, the AI reads your KPIs and draws a plain-language synthesis: what's up, what's down, what deserves a look. You keep the decision, it saves you the time of sifting the figures.",
-          "points": [
-            {
-              "label_fr": "Synthèse des KPI en clair",
-              "label_en": "Plain-language KPI synthesis"
-            },
-            {
-              "label_fr": "Ce qui monte, ce qui baisse",
-              "label_en": "What's up, what's down"
-            },
-            {
-              "label_fr": "Vous gardez la décision",
-              "label_en": "You keep the decision"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Lecture assistée par l'IA des KPI pour dégrossir les chiffres, illustration éditoriale",
-          "media_alt_en": "AI-assisted reading of the KPIs to sift the figures, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Autonomie et passation",
-          "h3_en": "Autonomy and handover",
-          "body_fr": "On documente le socle et on forme un référent : ajout d'un indicateur, d'une vue, d'une source, lecture des alertes. Vous gardez le socle, l'hébergement et vos données, pas de captivité : vous faites évoluer le reporting sans dépendre de nous.",
-          "body_en": "We document the base and train a referent: adding an indicator, a view, a source, reading the alerts. You keep the base, the hosting and your data, no lock-in: you evolve the reporting without depending on us.",
-          "points": [
-            {
-              "label_fr": "Socle documenté",
-              "label_en": "Documented base"
-            },
-            {
-              "label_fr": "Référent formé sur le reporting",
-              "label_en": "Referent trained on the reporting"
-            },
-            {
-              "label_fr": "Vous gardez vos données, zéro captivité",
-              "label_en": "You keep your data, zero lock-in"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour rester autonomes sur le reporting, illustration éditoriale",
-          "media_alt_en": "Handover and team training to stay autonomous on the reporting, editorial illustration"
-        }
-      ]
-    },
-    {
       "type": "case-card-grid",
       "background": "ink",
       "reveal_mode": "cursor",
@@ -911,61 +606,6 @@
       "all_label_fr": "Voir tous les cas →",
       "all_label_en": "See all cases →",
       "all_href": "/cas-clients"
-    },
-    {
-      "type": "testimonial-wall",
-      "background": "paper-2",
-      "kicker_fr": "Ils pilotent enfin sur des chiffres",
-      "kicker_en": "They finally steer on figures",
-      "h2_fr": "Ce que disent les équipes qui voient clair",
-      "h2_en": "What teams with a clear view are saying",
-      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de refaire le reporting à la main et se sont mis à décider sur des chiffres à jour.",
-      "subtitle_en": "Leaders and teams who stopped redoing the reporting by hand and started deciding on up-to-date figures.",
-      "columns": "3",
-      "testimonials": [
-        {
-          "quote_fr": "Nos chiffres ne concordaient jamais d'un outil à l'autre. Maintenant **un chiffre veut dire la même chose pour tout le monde**, et les réunions ne partent plus en débat sur qui a raison.",
-          "quote_en": "Our figures never matched from one tool to the next. Now **a figure means the same thing to everyone**, and meetings no longer drift into debates over who's right.",
-          "author": "Directeur des systèmes d'information",
-          "role_fr": "PME industrielle",
-          "role_en": "Industrial SME"
-        },
-        {
-          "quote_fr": "Le reporting du vendredi soir prenait une demi-journée à quelqu'un. **Aujourd'hui le tableau est à jour quand je l'ouvre**, sans que personne ait rien préparé.",
-          "quote_en": "The Friday-night reporting took someone half a day. **Now the board is up to date when I open it**, without anyone preparing a thing.",
-          "author": "Directrice des opérations",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "On décidait au ressenti faute de vue claire. **Maintenant je relie une dépense à un résultat**, sur des chiffres à jour. On pilote, on ne devine plus.",
-          "quote_en": "We decided on gut feel for lack of a clear view. **Now I link a spend to a result**, on up-to-date figures. We steer, we no longer guess.",
-          "author": "Directeur commercial",
-          "role_fr": "Groupe multi-sites",
-          "role_en": "Multi-site group"
-        },
-        {
-          "quote_fr": "Ce qui m'a rassurée, c'est que **nos données restent chez nous** et que chacun voit les chiffres qui le concernent. Rien ne part dans un outil tiers opaque.",
-          "quote_en": "What reassured me is that **our data stays with us** and each sees the figures that concern them. Nothing goes into an opaque third-party tool.",
-          "author": "Lead technique",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "L'export manuel qu'on recopiait chaque semaine a disparu. **La donnée remonte seule** depuis nos outils, et on a récupéré ces heures pour l'analyse.",
-          "quote_en": "The manual export we recopied every week is gone. **The data flows up on its own** from our tools, and we got those hours back for analysis.",
-          "author": "Responsable relation client",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par le seul chiffre qui nous coûtait des réunions, **prouvé la valeur, puis étendu**. Exactement le bon rythme.",
-          "quote_en": "Pragmatic approach, zero jargon. We started with the one figure that cost us meetings, **proved the value, then scaled**. Exactly the right pace.",
-          "author": "Fondatrice",
-          "role_fr": "Studio créatif",
-          "role_en": "Creative studio"
-        }
-      ]
     },
     {
       "type": "pricing-cards",
@@ -1070,6 +710,12 @@
           "q_en": "Do you build dashboards, or a real database?",
           "a_fr": "Les deux selon le besoin. Parfois un tableau de bord branché sur vos outils suffit. Parfois il faut d'abord centraliser dans un socle propre avant d'afficher. On cadre le juste niveau, on ne vous vend pas une usine si un dashboard suffit.",
           "a_en": "Both, depending on the need. Sometimes a dashboard wired to your tools is enough. Sometimes you first need to centralise into a clean base before displaying. We scope the right level, we don't sell you a factory when a dashboard is enough."
+        },
+        {
+          "q_fr": "Peut-on automatiser un tableau de bord Excel ?",
+          "q_en": "Can you automate an Excel dashboard?",
+          "a_fr": "Oui. Plutôt que de recopier un tableur chaque semaine, on branche vos sources à un tableau de bord qui se rafraîchit seul. Excel reste possible en affichage, mais la donnée remonte automatiquement, sans ressaisie ni fichier périmé.",
+          "a_en": "Yes. Rather than recopying a spreadsheet every week, we wire your sources to a dashboard that refreshes on its own. Excel can stay as a display, but the data flows up automatically, with no re-entry and no stale file."
         },
         {
           "q_fr": "Les tableaux sont à jour quand on les ouvre ?",

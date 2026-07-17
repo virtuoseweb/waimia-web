@@ -1,9 +1,9 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Intégration CRM · brancher et assainir HubSpot ou Pipedrive",
-  "title_en": "CRM integration · wire and clean up HubSpot or Pipedrive",
-  "description_fr": "Intégration CRM pour PME : brancher et assainir HubSpot ou Pipedrive, pipeline propre, données dédoublonnées qui remontent seules.",
-  "description_en": "CRM integration for SMEs: wire and clean up HubSpot or Pipedrive, a clean pipeline, deduplicated data that flows up on its own.",
+  "title_fr": "Intégration et migration CRM · HubSpot ou Pipedrive",
+  "title_en": "CRM integration and migration · HubSpot or Pipedrive",
+  "description_fr": "Intégration et migration CRM pour PME : brancher et assainir HubSpot ou Pipedrive, pipeline propre, données dédoublonnées qui remontent seules, sans ressaisie.",
+  "description_en": "CRM integration and migration for SMEs: wire and clean up HubSpot or Pipedrive, a clean pipeline, deduplicated data that flows up on its own, with no retyping.",
   "slug": "integration-crm",
   "publishedAt": "2026-07-16T00:00:00.000Z",
   "updatedAt": "2026-07-16T00:00:00.000Z",
@@ -159,24 +159,6 @@
           "label_en": "CRM handed over, no lock-in"
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.2 · Le dispositif",
-      "kicker_en": "FIG 1.2 · The dispositif",
-      "h2_fr": "Un CRM non branché reste vide. Un CRM <i class=\"acc\">intégré</i> reçoit, dédoublonne et met à jour tout seul.",
-      "h2_en": "An unwired CRM stays empty. An <i class=\"acc\">integrated</i> CRM receives, deduplicates and updates on its own.",
-      "lede_fr": "Tant que votre équipe saisit les fiches à la main, le CRM se remplit de doublons et prend du retard. Ici, le site, les formulaires, la boîte email et les outils métier se branchent au CRM : chaque contact remonte automatiquement, propre et à jour. On assainit d'abord, on connecte proprement, on ne casse jamais ce qui marche. L'intégration est la fondation du <a href=\"/services/crm-scoring-routing\">CRM, scoring et routing</a> : rien ne se score sur une donnée sale.",
-      "lede_en": "As long as your team types records by hand, the CRM fills with duplicates and falls behind. Here, the site, forms, email inbox and business tools wire to the CRM: every contact flows up automatically, clean and up to date. We clean first, connect cleanly, never break what works. Integration is the foundation of <a href=\"/services/crm-scoring-routing\">CRM, scoring and routing</a>: nothing scores on dirty data.",
-      "cta": {
-        "label_fr": "Voir les briques →",
-        "label_en": "See the building blocks →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : le site, les formulaires, les emails et les outils métier branchés en un seul CRM.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: the site, forms, emails and business tools wired into one CRM."
     },
     {
       "type": "definition-extract",
@@ -446,27 +428,6 @@
       ]
     },
     {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les CRM et outils qu'on branche",
-      "kicker_en": "§ The CRMs and tools we wire in",
-      "grayscale": true,
-      "logoIds": [
-        "hubspot",
-        "salesforce",
-        "google",
-        "microsoft",
-        "slack",
-        "notion",
-        "claude",
-        "openai",
-        "github",
-        "aws",
-        "sap",
-        "meta"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -636,92 +597,6 @@
       ],
       "loop_label_fr": "boucle de mise à jour continue des fiches",
       "loop_label_en": "continuous record update loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
-      "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on branche votre CRM",
-      "kicker_en": "§ Method · how we wire your CRM",
-      "h2_fr": "Comment on branche votre CRM",
-      "h2_en": "How we wire your CRM",
-      "lede_fr": "De l'audit de la donnée au CRM branché de bout en bout, avec l'hygiène posée avant l'intégration. Vous savez avant de signer ce qu'on branche en premier et ce que ça assainit. Pas de zone d'ombre.",
-      "lede_en": "From auditing the data to a CRM wired end to end, with hygiene laid before the integration. You know before signing what we wire first and what it cleans. No grey zone.",
-      "steps": [
-        {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Audit & hygiène",
-          "eyebrow_en": "Audit & hygiene",
-          "title_fr": "Auditer et nettoyer la donnée",
-          "title_en": "Audit and clean the data",
-          "body_fr": "Quelques jours pour ausculter le CRM : doublons, champs vides, fiches mortes, sources non branchées. On dédoublonne, on normalise. Livrable : une base propre et un état des lieux chiffré. Rien ne se branche proprement sur une donnée sale.",
-          "body_en": "A few days to inspect the CRM: duplicates, empty fields, dead records, unwired sources. We deduplicate, normalise. Deliverable: a clean base and a costed assessment. Nothing wires cleanly onto dirty data.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Audit et nettoyage de la donnée du CRM avant l'intégration",
-          "media_alt_en": "Auditing and cleaning the CRM data before integration"
-        },
-        {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Choix du CRM",
-          "eyebrow_en": "CRM choice",
-          "title_fr": "Trancher HubSpot ou Pipedrive",
-          "title_en": "Decide HubSpot or Pipedrive",
-          "body_fr": "Selon votre équipe, vos outils et votre pipeline, on confirme le socle : HubSpot pour un CRM marketing et commercial unifié, Pipedrive quand la simplicité et le pipeline priment. On part de ce que vous avez, on n'impose pas de changement d'outil.",
-          "body_en": "Based on your team, your tools and your pipeline, we confirm the base: HubSpot for a unified marketing and sales CRM, Pipedrive when simplicity and the pipeline come first. We start from what you have, we don't force a tool change.",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Choix du CRM entre HubSpot et Pipedrive selon le besoin réel",
-          "media_alt_en": "Choosing the CRM between HubSpot and Pipedrive by real need"
-        },
-        {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Branchement des sources",
-          "eyebrow_en": "Source wiring",
-          "title_fr": "Brancher le site, les formulaires et les emails",
-          "title_en": "Wire the site, forms and emails",
-          "body_fr": "On connecte le site, les formulaires, la boîte email et les outils métier au CRM en natif. Chaque contact remonte automatiquement, dédoublonné et enrichi à l'entrée. La donnée entre une fois, proprement, et reste à jour.",
-          "body_en": "We connect the site, forms, email inbox and business tools to the CRM natively. Every contact flows up automatically, deduplicated and enriched on entry. Data enters once, cleanly, and stays up to date.",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Branchement des sources au CRM et remontée automatique des contacts",
-          "media_alt_en": "Wiring the sources to the CRM and automatic contact flow-up"
-        },
-        {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Automatisations & mesure",
-          "eyebrow_en": "Automations & measurement",
-          "title_fr": "Poser les automatisations et le tableau de bord",
-          "title_en": "Set the automations and the dashboard",
-          "body_fr": "On cadre les automatisations utiles, création et mise à jour des fiches, rattachement à la source, tâches et rappels. On pose le tableau de bord : contacts par source, étapes, comptes en cours, lus en temps réel.",
-          "body_en": "We frame the useful automations, record creation and update, tying to the source, tasks and reminders. We lay the dashboard: contacts by source, stages, ongoing accounts, read in real time.",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Automatisations de saisie et tableau de bord posés sur le CRM branché",
-          "media_alt_en": "Data-entry automations and dashboard laid on the wired CRM"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Rodage & passation",
-          "eyebrow_en": "Tuning & handover",
-          "title_fr": "Roder les branchements et vous passer la main",
-          "title_en": "Tune the wiring and hand it over",
-          "body_fr": "On ajuste les automatisations sur les cas réels, on vérifie que rien ne se perd entre les outils. Puis la passation : mode opératoire, branchements documentés, formation. Vous gardez le CRM, les branchements et la main.",
-          "body_en": "We adjust the automations on real cases, check nothing gets lost between tools. Then handover: operating manual, documented wiring, training. You keep the CRM, the wiring and the control.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Rodage des branchements et passation de l'autonomie aux équipes",
-          "media_alt_en": "Tuning the wiring and handing autonomy over to the teams",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
-        }
-      ]
     },
     {
       "type": "feature-zigzag",

@@ -1,9 +1,9 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Cold email B2B · campagnes outillées, délivrabilité et séquences",
-  "title_en": "B2B cold email · tooled campaigns, deliverability and sequences",
-  "description_fr": "Cold email B2B pour PME : ciblage enrichi, séquences Lemlist et Instantly, warm-up et délivrabilité surveillée. Sans brûler votre domaine d'envoi.",
-  "description_en": "B2B cold email for SMEs: enriched targeting, Lemlist and Instantly sequences, warm-up and monitored deliverability. Without burning your sending domain.",
+  "title_fr": "Cold email B2B pour PME · délivrabilité et RGPD",
+  "title_en": "B2B cold email for SMEs · deliverability and GDPR",
+  "description_fr": "Cold email B2B pour PME : ciblage enrichi, séquences Lemlist et Instantly, warm-up et délivrabilité surveillée, conforme RGPD. Sans brûler votre domaine d'envoi.",
+  "description_en": "B2B cold email for SMEs: enriched targeting, Lemlist and Instantly sequences, warm-up and monitored deliverability, GDPR-compliant. Without burning your sending domain.",
   "slug": "cold-email-b2b",
   "publishedAt": "2026-07-16T00:00:00.000Z",
   "updatedAt": "2026-07-16T00:00:00.000Z",
@@ -162,24 +162,6 @@
       ]
     },
     {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 2.2 · Réseau d'envoi",
-      "kicker_en": "FIG 2.2 · Sending network",
-      "h2_fr": "Une salve de mails s'éteint en spam. Une <i class=\"acc\">séquence</i> réchauffée cible, relance et arrive en boîte.",
-      "h2_en": "A blast of emails dies in spam. A warmed <i class=\"acc\">sequence</i> targets, follows up and lands in the inbox.",
-      "lede_fr": "Envoyer 2 000 mails d'un coup depuis votre domaine principal, c'est le griller en une semaine. Ici, chaque compte ciblé entre dans une séquence servie par des boîtes réchauffées et surveillées : le ciblage enrichi, l'envoi cadencé et le suivi de délivrabilité travaillent ensemble. Le cold email est un canal du <a href=\"/services/prospection-automatisee\">dispositif de prospection</a> : il ouvre les comptes que le multicanal et le CRM transforment ensuite.",
-      "lede_en": "Firing 2,000 emails at once from your main domain burns it in a week. Here, every targeted account enters a sequence served by warmed, monitored mailboxes: enriched targeting, paced sending and deliverability tracking work together. Cold email is one channel of the <a href=\"/services/prospection-automatisee\">prospecting system</a>: it opens the accounts that multichannel and the CRM then turn into leads.",
-      "cta": {
-        "label_fr": "Explorer le dispositif →",
-        "label_en": "Explore the system →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : chaque compte ciblé rejoint une séquence de cold email servie par des boîtes réchauffées.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: each targeted account joins a cold email sequence served by warmed mailboxes."
-    },
-    {
       "type": "definition-extract",
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
@@ -228,6 +210,47 @@
         {
           "label_fr": "Opt-out et limites de volume",
           "label_en": "Opt-out and volume limits"
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "background": "paper-2",
+      "kicker_fr": "§ Conformité",
+      "kicker_en": "§ Compliance",
+      "h2_fr": "Cold email B2B et RGPD : est-ce légal en France ?",
+      "h2_en": "B2B cold email and GDPR: is it legal in France?",
+      "lede_fr": "Oui, le cold email B2B est légal en France, sous conditions. Le RGPD et la CNIL encadrent l'objet du message, la transparence et le droit de refus. Voici comment on tient chaque campagne dans les clous. Ce cadre décrit notre pratique, ce n'est pas un avis juridique.",
+      "lede_en": "Yes, B2B cold email is legal in France, under conditions. The GDPR and the CNIL govern the message's subject, transparency and the right to refuse. Here is how we keep every campaign within the lines. This framing describes our practice, it is not legal advice.",
+      "columns": "4",
+      "features": [
+        {
+          "icon": "qualif",
+          "title_fr": "Intérêt légitime, pas consentement",
+          "title_en": "Legitimate interest, not consent",
+          "body_fr": "En B2B, on s'appuie sur l'intérêt légitime : le message doit concerner la fonction professionnelle du contact. Un dirigeant démarché sur son métier, jamais un particulier sur son adresse personnelle.",
+          "body_en": "In B2B, we rely on legitimate interest: the message must relate to the contact's professional role. A leader contacted about their work, never an individual on a personal address."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Un lien de désinscription visible",
+          "title_en": "A visible unsubscribe link",
+          "body_fr": "Chaque email porte un moyen de refus clair. Un désabonnement sort le contact de toutes les séquences, définitivement. On n'insiste jamais après un opt-out.",
+          "body_en": "Every email carries a clear way to refuse. An unsubscribe removes the contact from every sequence, for good. We never push after an opt-out."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "Un expéditeur identifiable",
+          "title_en": "An identifiable sender",
+          "body_fr": "Nom, société et objet réel : le destinataire sait tout de suite qui écrit et pourquoi. Pas d'adresse masquée, pas d'objet trompeur, c'est ce qu'exige la loi et ce qui protège votre réputation.",
+          "body_en": "Name, company and a real subject line: the recipient knows at once who is writing and why. No masked address, no misleading subject, it is what the law requires and what protects your reputation."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Des données minimisées et à jour",
+          "title_en": "Minimised, up-to-date data",
+          "body_fr": "On ne collecte que ce qui sert le message, on documente la source des contacts et on purge ce qui ne convertit plus. La conformité et la délivrabilité vont dans le même sens.",
+          "body_en": "We collect only what serves the message, document the source of contacts and purge what no longer converts. Compliance and deliverability pull in the same direction."
         }
       ]
     },
@@ -447,27 +470,6 @@
       ]
     },
     {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on branche à vos campagnes",
-      "kicker_en": "§ The tools we wire to your campaigns",
-      "grayscale": true,
-      "logoIds": [
-        "hubspot",
-        "salesforce",
-        "google",
-        "microsoft",
-        "slack",
-        "notion",
-        "claude",
-        "openai",
-        "github",
-        "aws",
-        "sap",
-        "meta"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -637,92 +639,6 @@
       ],
       "loop_label_fr": "boucle d'affinage continu des messages",
       "loop_label_en": "continuous message refinement loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
-      "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille votre cold email",
-      "kicker_en": "§ Method · how we work your cold email",
-      "h2_fr": "Comment on travaille votre cold email",
-      "h2_en": "How we work your cold email",
-      "lede_fr": "Du cadrage de l'ICP à la séquence qui arrive en boîte, avec la délivrabilité posée en socle, pas en rustine. Vous savez avant de signer ce qu'on cible en premier et comment on protège votre domaine. Pas de promesse de boîte pleine en dix jours.",
-      "lede_en": "From scoping the ICP to a sequence that lands, with deliverability laid as a foundation, not a patch. You know before signing what we target first and how we protect your domain. No promise of a full inbox in ten days.",
-      "steps": [
-        {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Ciblage & cadrage",
-          "eyebrow_en": "Targeting & scoping",
-          "title_fr": "Définir l'ICP et les signaux",
-          "title_en": "Define the ICP and signals",
-          "body_fr": "Quelques jours pour trancher qui mérite un cold email : secteur, taille, poste, signal d'achat récent. Livrable : un ICP serré et un premier lot de listes email, chiffré. On vise serré, pas large.",
-          "body_en": "A few days to decide who deserves a cold email: sector, size, role, recent buying signal. Deliverable: a tight ICP and a first batch of email lists, costed. We aim tight, not broad.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Cadrage de l'ICP et des signaux qui déclenchent un cold email",
-          "media_alt_en": "Framing the ICP and the signals that trigger a cold email"
-        },
-        {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Infra & warm-up",
-          "eyebrow_en": "Infra & warm-up",
-          "title_fr": "Monter l'infrastructure d'envoi",
-          "title_en": "Build the sending infrastructure",
-          "body_fr": "On monte les boîtes dédiées, on lance la réchauffe et on pose SPF, DKIM et DMARC. Votre domaine principal reste hors ligne de tir. En parallèle, on enrichit et on vérifie les listes via Apollo et Pharow.",
-          "body_en": "We set up the dedicated mailboxes, start the warm-up and lay in SPF, DKIM and DMARC. Your main domain stays out of the line of fire. In parallel, we enrich and verify the lists via Apollo and Pharow.",
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Montage des boîtes dédiées et réchauffe avant le premier envoi",
-          "media_alt_en": "Setting up dedicated mailboxes and warming up before the first send"
-        },
-        {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Séquences & copy",
-          "eyebrow_en": "Sequences & copy",
-          "title_fr": "Écrire et lancer les séquences",
-          "title_en": "Write and launch the sequences",
-          "body_fr": "Messages personnalisés par segment, cadence calée, cold email via Lemlist et Instantly. Chaque mail s'adresse à une personne nommée, jamais à une liste anonyme. On lance petit, on mesure le placement, on itère.",
-          "body_en": "Messages personalised per segment, cadence set, cold email via Lemlist and Instantly. Each email addresses a named person, never an anonymous list. We start small, measure placement, iterate.",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Rédaction et lancement des séquences de cold email par segment",
-          "media_alt_en": "Writing and launching cold email sequences per segment"
-        },
-        {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Réponses & CRM",
-          "eyebrow_en": "Replies & CRM",
-          "title_fr": "Brancher les réponses au CRM",
-          "title_en": "Wire the replies to the CRM",
-          "body_fr": "Chaque réponse remonte à HubSpot ou Pipedrive, prête à être qualifiée. On suit le placement en boîte, les rebonds et les plaintes en continu. On mesure ce qui arrive et ce qui répond, pas au ressenti.",
-          "body_en": "Every reply flows up to HubSpot or Pipedrive, ready to be qualified. We track inbox placement, bounces and complaints continuously. We measure what lands and what replies, not on gut feel.",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Branchement des réponses au CRM et suivi de la délivrabilité",
-          "media_alt_en": "Wiring the replies to the CRM and tracking deliverability"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Rodage & passation",
-          "eyebrow_en": "Tuning & handover",
-          "title_fr": "Roder les campagnes et vous passer la main",
-          "title_en": "Tune the campaigns and hand them over",
-          "body_fr": "On itère les messages sur les réponses réelles, on ajuste la cadence, on surveille la réputation. Puis la passation : mode opératoire, prise en main de Lemlist et Instantly, formation. Vous gardez les campagnes et l'infrastructure.",
-          "body_en": "We iterate the messages on real replies, adjust the cadence, watch the reputation. Then handover: operating manual, onboarding on Lemlist and Instantly, training. You keep the campaigns and the infrastructure.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Rodage des campagnes et passation de l'autonomie aux équipes",
-          "media_alt_en": "Tuning the campaigns and handing autonomy over to the teams",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
-        }
-      ]
     },
     {
       "type": "feature-zigzag",

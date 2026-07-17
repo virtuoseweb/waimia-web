@@ -1,9 +1,9 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Maintenance de site web et TMA pour PME · régie growth",
-  "title_en": "Website maintenance and TMA for SMEs · growth retainer",
-  "description_fr": "Maintenance et growth de site intelligent : le forfait mensuel qui fait vivre votre site. SEO continu, reporting, correctifs. Montpellier.",
-  "description_en": "Intelligent site maintenance and growth: the monthly retainer that keeps your site alive after launch. Continuous SEO, reporting, fixes. Montpellier.",
+  "title_fr": "Maintenance de site web pour PME · forfait dès 99 €/mois",
+  "title_en": "Website maintenance for SMEs · plan from 99 €/month",
+  "description_fr": "Maintenance de site web et WordPress pour PME : forfait mensuel dès 99 €, SEO continu, reporting et correctifs en SLA. Sans engagement. Montpellier.",
+  "description_en": "Website and WordPress maintenance for SMEs: monthly plan from 99 €, continuous SEO, reporting and SLA fixes. No commitment. Montpellier.",
   "slug": "maintenance-growth",
   "publishedAt": "2026-06-22T00:00:00.000Z",
   "updatedAt": "2026-07-15T00:00:00.000Z",
@@ -115,8 +115,8 @@
       "media_alt_en": "Diagram: a deployed site, its KPIs read continuously, evolutions and fixes moving it up versions month after month.",
       "kicker_fr": "§ Maintenance et growth",
       "kicker_en": "§ Maintenance and growth",
-      "h1_fr": "Maintenance de <i class=\"acc\">site web</i> pour PME.",
-      "h1_en": "Website <i class=\"acc\">maintenance</i> for SMEs.",
+      "h1_fr": "La <i class=\"acc\">maintenance</i> qui fait vivre votre site web.",
+      "h1_en": "The <i class=\"acc\">maintenance</i> that keeps your website alive.",
       "lede_fr": "Faire vivre votre site, dans la durée. Waimia l'exploite : SEO optimisé en continu, correctifs en SLA et améliorations sur vos données, pour qu'il monte de version au lieu de se figer.",
       "lede_en": "Keep your site alive, over time. Waimia operates it: SEO optimised continuously, fixes under SLA and improvements on your data, so it moves up versions instead of freezing.",
       "badges": [
@@ -181,30 +181,12 @@
       "link_href": "/sources-methodologie#source-afnic"
     },
     {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Boucle de croissance",
-      "kicker_en": "FIG 1.5 · Growth loop",
-      "h2_fr": "Chaque mois, votre site monte de version au lieu de se figer.",
-      "h2_en": "Every month, your site moves up a version instead of freezing.",
-      "lede_fr": "D'un site livré une fois à un actif qui progresse, vos données alimentent une boucle d'optimisation continue, mois après mois.",
-      "lede_en": "From a site delivered once to an asset that grows, your data feeds a continuous optimisation loop, month after month.",
-      "cta": {
-        "label_fr": "Voir les capacités →",
-        "label_en": "See the capabilities →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : un site qui progresse dans une boucle continue.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: a site progressing in a continuous loop."
-    },
-    {
       "type": "definition-extract",
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Une <i class=\"acc\">maintenance growth</i> exploite votre site dans la durée : SEO optimisé en continu, correctifs en SLA et améliorations sur vos données. C'est le forfait mensuel que Waimia opère pour les PME, pour que le site monte de version au lieu de se figer.",
-      "statement_en": "<i class=\"acc\">Growth maintenance</i> operates your site over time: SEO optimised continuously, fixes under SLA and improvements on your data. It is the monthly retainer Waimia runs for SMEs, so the site moves up versions instead of freezing.",
+      "statement_fr": "La <i class=\"acc\">maintenance de site web</i> exploite votre site dans la durée : mises à jour et sécurité, SEO optimisé en continu, correctifs en SLA et améliorations sur vos données. C'est le forfait mensuel que Waimia opère pour les PME, pour que le site monte de version au lieu de se figer.",
+      "statement_en": "<i class=\"acc\">Website maintenance</i> operates your site over time: updates and security, SEO optimised continuously, fixes under SLA and improvements on your data. It is the monthly retainer Waimia runs for SMEs, so the site moves up versions instead of freezing.",
       "pills": [
         {
           "label_fr": "Forfait mensuel",
@@ -448,27 +430,6 @@
       ]
     },
     {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on suit",
-      "kicker_en": "§ The tools we follow",
-      "grayscale": true,
-      "logoIds": [
-        "claude",
-        "openai",
-        "hubspot",
-        "salesforce",
-        "slack",
-        "notion",
-        "github",
-        "aws",
-        "google",
-        "microsoft",
-        "sap",
-        "meta"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -587,248 +548,6 @@
       ]
     },
     {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "Le cycle mensuel",
-      "fig_title_en": "The monthly cycle",
-      "meta_fr": "GrowthLoop · v1",
-      "meta_en": "GrowthLoop · v1",
-      "h2_fr": "Comment le forfait tourne, mois après mois",
-      "h2_en": "How the retainer runs, month after month",
-      "lede_fr": "Le forfait n'est pas une liste de tâches à la carte. C'est un cycle : la donnée dicte les priorités, l'exécution passe en SLA, la montée de version s'accumule et le reporting ferme la boucle avant d'ouvrir le mois suivant.",
-      "lede_en": "The retainer is not a menu of tasks. It's a cycle: data dictates priorities, execution runs on SLA, version uplift accumulates and reporting closes the loop before opening the next month.",
-      "steps": [
-        {
-          "title_fr": "Donnée",
-          "title_en": "Data",
-          "desc_fr": "Chaque cycle part des KPI réels du mois : Search Console et Analytics disent ce qui progresse et ce qui décroche.",
-          "desc_en": "Each cycle starts from the month's real KPIs: Search Console and Analytics say what's progressing and what's slipping."
-        },
-        {
-          "title_fr": "Priorités",
-          "title_en": "Priorities",
-          "desc_fr": "L'enveloppe d'heures et les évolutions sont arbitrées avec vous : l'urgent passe devant, le reste attend.",
-          "desc_en": "The hours allowance and evolutions are arbitrated with you: the urgent goes first, the rest waits."
-        },
-        {
-          "title_fr": "Exécution",
-          "title_en": "Execution",
-          "desc_fr": "SEO, contenu et évolutions livrés en cadence, la technique tenue saine en arrière-plan.",
-          "desc_en": "SEO, content and evolutions delivered on cadence, the technical base kept healthy in the background."
-        },
-        {
-          "title_fr": "Correctifs",
-          "title_en": "Fixes",
-          "desc_fr": "Un incident est pris en charge selon sa gravité, sans attendre votre relance.",
-          "desc_en": "An incident is taken in hand by severity, without waiting on your chase."
-        },
-        {
-          "title_fr": "Montée de version",
-          "title_en": "Version uplift",
-          "desc_fr": "Optimisations et évolutions s'accumulent : l'architecture composable encaisse chaque ajout sans refonte.",
-          "desc_en": "Optimisations and evolutions accumulate: the composable architecture absorbs each addition with no rebuild."
-        },
-        {
-          "title_fr": "Reporting",
-          "title_en": "Reporting",
-          "desc_fr": "Le mois se clôt par un reporting lisible qui montre l'effet des actions et ouvre le cycle suivant. La boucle se referme.",
-          "desc_en": "The month closes with readable reporting that shows the effect of the actions and opens the next cycle. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'amélioration continue",
-      "loop_label_en": "continuous improvement loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
-      "background": "paper-2",
-      "textSide": "left",
-      "proportion": "balanced",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · le suivi se met en place",
-      "kicker_en": "§ Method · the follow-up takes shape",
-      "h2_fr": "Comment on démarre le suivi",
-      "h2_en": "How we start the follow-up",
-      "lede_fr": "De l'audit de l'existant au cycle mensuel qui tourne. Vous savez avant de signer ce que couvre le forfait et où sont les priorités, sur un site qu'on a créé comme sur un site qu'on reprend.",
-      "lede_en": "From the audit of the existing site to the monthly cycle running. You know before signing what the retainer covers and where the priorities are, on a site we built as on one we take over.",
-      "steps": [
-        {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Audit & cadrage",
-          "eyebrow_en": "Audit & scoping",
-          "title_fr": "Auditer l'existant",
-          "title_en": "Audit the existing site",
-          "body_fr": "On cartographie la base technique et SEO du site : stack, dette, positions actuelles, points faibles de conversion. Sur un site qu'on a créé, c'est rapide ; sur un site repris, c'est le préalable pour ne pas s'engager à l'aveugle. Livrable : un état des lieux et un périmètre de forfait.",
-          "body_en": "We map the site's technical and SEO base: stack, debt, current rankings, conversion weak points. On a site we built, it's quick; on one we take over, it's the prerequisite to avoid committing blindly. Deliverable: a status report and a retainer scope.",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Audit et cadrage : cartographier la base technique et SEO avant de s'engager.",
-          "media_alt_en": "Audit and scoping: mapping the technical and SEO base before committing."
-        },
-        {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Tracking & reporting",
-          "eyebrow_en": "Tracking & reporting",
-          "title_fr": "Brancher le tracking et le reporting",
-          "title_en": "Wire the tracking and reporting",
-          "body_fr": "On vérifie que la Search Console et l'Analytics remontent une donnée propre, on cale les KPI à suivre et on monte le tableau de bord mensuel. Livrable : un tracking fiable et un premier reporting de référence pour mesurer la progression.",
-          "body_en": "We check that Search Console and Analytics surface clean data, set the KPIs to track and build the monthly dashboard. Deliverable: reliable tracking and a first baseline report to measure progression.",
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Tracking et reporting : une donnée propre et un premier tableau de bord de référence.",
-          "media_alt_en": "Tracking and reporting: clean data and a first baseline dashboard."
-        },
-        {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "SLA & enveloppe",
-          "eyebrow_en": "SLA & allowance",
-          "title_fr": "Caler le SLA et l'enveloppe horaire",
-          "title_en": "Set the SLA and hourly allowance",
-          "body_fr": "On définit les délais d'intervention par niveau de gravité et le volume d'heures du forfait. Vous savez exactement ce qui est couvert, dans quels délais, et comment les priorités se décident. Livrable : un contrat de suivi clair, sans zone grise.",
-          "body_en": "We define intervention times by severity level and the retainer's hours volume. You know exactly what's covered, within what delays, and how priorities are decided. Deliverable: a clear follow-up contract, with no grey zone.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "SLA et enveloppe : des délais et un volume d'heures cadrés ensemble, sans zone grise.",
-          "media_alt_en": "SLA and allowance: delays and an hours volume framed together, with no grey zone."
-        },
-        {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Cycle mensuel",
-          "eyebrow_en": "Monthly cycle",
-          "title_fr": "Lancer le cycle mensuel",
-          "title_en": "Launch the monthly cycle",
-          "body_fr": "Le forfait tourne : optimisations SEO et contenu en cadence, correctifs en SLA, évolutions priorisées, reporting de fin de mois. Chaque cycle s'appuie sur le précédent. Livrable : un site qui progresse sur la donnée, mois après mois.",
-          "body_en": "The retainer runs: SEO and content optimisations on cadence, SLA fixes, prioritised evolutions, end-of-month reporting. Each cycle builds on the last. Deliverable: a site that progresses on the data, month after month.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Cycle mensuel : un site qui progresse sur la donnée, mois après mois.",
-          "media_alt_en": "Monthly cycle: a site progressing on the data, month after month.",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
-        }
-      ]
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "apres-lancement",
-      "background": "paper-2",
-      "kicker_fr": "§ Après la mise en ligne",
-      "kicker_en": "§ After go-live",
-      "h2_fr": "Le site continue de croître après sa mise en ligne",
-      "h2_en": "The site keeps growing after go-live",
-      "lede_fr": "La moitié growth du forfait : on optimise le référencement mois après mois, on suit les bons KPI, on en tire un reporting lisible et on améliore le site sur la donnée. Le site ne stagne pas, il progresse sur des chiffres.",
-      "lede_en": "The growth half of the retainer: we optimise ranking month after month, track the right KPIs, turn them into readable reporting and improve the site on the data. The site doesn't stagnate, it progresses on figures.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "SEO et GEO continu",
-          "h3_en": "Continuous SEO and GEO",
-          "body_fr": "Le référencement se cultive, il ne s'acquiert pas une fois pour toutes. On optimise mois après mois : nouveaux contenus ciblés, ajustements techniques, balisage maintenu pour rester cité par les moteurs génératifs. L'autorité du site monte pendant que le trafic qualifié progresse.",
-          "body_en": "Ranking is cultivated, not acquired once and for all. We optimise month after month: new targeted content, technical adjustments, markup maintained to stay cited by generative engines. The site's authority climbs while qualified traffic progresses.",
-          "points": [
-            {
-              "label_fr": "Optimisations SEO/GEO en cadence",
-              "label_en": "SEO/GEO optimisations on cadence"
-            },
-            {
-              "label_fr": "Nouveaux contenus ciblés longue-traîne",
-              "label_en": "New long-tail targeted content"
-            },
-            {
-              "label_fr": "Balisage maintenu pour les citations IA",
-              "label_en": "Markup maintained for AI citations"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "SEO et GEO optimisés en cadence pour faire monter l'autorité du site, illustration éditoriale",
-          "media_alt_en": "SEO and GEO optimised on cadence to climb the site's authority, editorial illustration",
-          "link_href": "/services/seo-geo-contenu",
-          "link_label_fr": "Voir le content marketing →",
-          "link_label_en": "See content marketing →"
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Tracking des KPI",
-          "h3_en": "KPI tracking",
-          "body_fr": "On suit les indicateurs qui comptent : positions, clics et impressions dans la Search Console, parcours et conversions dans l'Analytics. Le tracking est branché et tenu propre, pour que chaque décision d'amélioration s'appuie sur une donnée fiable plutôt que sur une intuition.",
-          "body_en": "We track the indicators that matter: positions, clicks and impressions in Search Console, journeys and conversions in Analytics. Tracking is wired and kept clean, so every improvement decision rests on reliable data rather than a hunch.",
-          "points": [
-            {
-              "label_fr": "Search Console et Analytics suivis",
-              "label_en": "Search Console and Analytics tracked"
-            },
-            {
-              "label_fr": "Tracking branché et tenu propre",
-              "label_en": "Tracking wired and kept clean"
-            },
-            {
-              "label_fr": "Conversions attribuées à leur source",
-              "label_en": "Conversions attributed to their source"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Tracking des KPI branché et tenu propre pour décider sur une donnée fiable, illustration éditoriale",
-          "media_alt_en": "KPI tracking wired and kept clean to decide on reliable data, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Reporting mensuel",
-          "h3_en": "Monthly reporting",
-          "body_fr": "Chaque mois, un tableau de bord synthétise vos KPI avec une lecture business des chiffres : ce qui progresse, ce qui décroche, ce qu'on a fait et ce qu'on propose ensuite. Pas un export brut illisible, une trajectoire commentée que vous ouvrez en quelques minutes.",
-          "body_en": "Each month, a dashboard synthesises your KPIs with a business read of the figures: what's progressing, what's slipping, what we did and what we propose next. Not a raw unreadable export, a commented trajectory you open in a few minutes.",
-          "points": [
-            {
-              "label_fr": "Tableau de bord mensuel synthétique",
-              "label_en": "Synthetic monthly dashboard"
-            },
-            {
-              "label_fr": "Lecture business, pas un export brut",
-              "label_en": "Business read, not a raw export"
-            },
-            {
-              "label_fr": "Ce qu'on a fait, ce qu'on propose",
-              "label_en": "What we did, what we propose"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Reporting mensuel synthétique avec une lecture business des chiffres, illustration éditoriale",
-          "media_alt_en": "Synthetic monthly reporting with a business read of the figures, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Amélioration continue",
-          "h3_en": "Continuous improvement",
-          "body_fr": "On itère sur la donnée plutôt que sur des suppositions : tests sur les pages qui convertissent mal, ajustements de contenu, optimisations de parcours. Chaque cycle s'appuie sur le reporting du mois précédent, pour que le site gagne en conversion au fil des itérations.",
-          "body_en": "We iterate on the data rather than on guesses: tests on pages that convert poorly, content adjustments, journey optimisations. Each cycle builds on the previous month's reporting, so the site gains conversion across iterations.",
-          "points": [
-            {
-              "label_fr": "Itérations data-driven sur la conversion",
-              "label_en": "Data-driven conversion iterations"
-            },
-            {
-              "label_fr": "Tests sur les pages à faible rendement",
-              "label_en": "Tests on underperforming pages"
-            },
-            {
-              "label_fr": "Chaque cycle adossé au reporting",
-              "label_en": "Each cycle backed by reporting"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Amélioration continue du site sur la donnée, cycle après cycle, illustration éditoriale",
-          "media_alt_en": "Continuous improvement of the site on the data, cycle after cycle, editorial illustration"
-        }
-      ]
-    },
-    {
       "type": "case-card-grid",
       "background": "ink",
       "reveal_mode": "cursor",
@@ -891,46 +610,12 @@
       "all_href": "/cas-clients"
     },
     {
-      "type": "testimonial-wall",
-      "background": "paper-2",
-      "kicker_fr": "Ils font vivre leur site",
-      "kicker_en": "They keep their site alive",
-      "h2_fr": "Ce que disent les équipes dont le site continue de croître",
-      "h2_en": "What teams whose site keeps growing are saying",
-      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de laisser leur site se figer et l'ont tenu vivant, mois après mois.",
-      "subtitle_en": "Leaders and teams who stopped letting their site freeze and kept it alive, month after month.",
-      "columns": "3",
-      "testimonials": [
-        {
-          "quote_fr": "La refonte a divisé notre temps de chargement par deux et **nos coûts de maintenance ont fondu**. Le site monte de version au fil des mois, sans tout refaire.",
-          "quote_en": "The rebuild halved our load time and **our maintenance costs melted away**. The site moves up versions over the months, without redoing everything.",
-          "author": "Directrice e-commerce",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "Le site se charge en un instant et **on est passés en top 5 Google sur nos requêtes clés** en quelques mois. Les articles sont même cités dans les réponses IA.",
-          "quote_en": "The site loads instantly and **we moved into the Google top 5 on our key queries** within a few months. The articles even get cited in AI answers.",
-          "author": "Cofondateur",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "Plus besoin d'attendre un développeur pour changer une page. **On édite le contenu nous-mêmes en quelques minutes**, et rien ne casse. Fini les chantiers WordPress.",
-          "quote_en": "No more waiting for a developer to change a page. **We edit the content ourselves in minutes**, and nothing breaks. No more WordPress projects.",
-          "author": "Responsable communication",
-          "role_fr": "Groupe multi-sites",
-          "role_en": "Multi-site group"
-        }
-      ]
-    },
-    {
       "type": "pricing-cards",
       "background": "paper",
       "kicker_fr": "§ Forfaits",
       "kicker_en": "§ Retainers",
-      "h2_fr": "Choisir votre forfait maintenance et growth",
-      "h2_en": "Pick your maintenance and growth retainer",
+      "h2_fr": "Combien coûte la maintenance de votre site",
+      "h2_en": "How much your site maintenance costs",
       "lede_fr": "La base, c'est 99 € par mois, tout inclus : on garde votre site en vie. Au-dessus, la régie growth se vend à l'heure (99 € HT non dégressif) en trois forfaits mensuels : 5, 10 ou 20 h, et au-delà sur devis. Vous arbitrez vous-même où passent ces heures. Sans engagement de durée.",
       "lede_en": "The base is 99 € a month, all included: we keep your site alive. Above it, the growth retainer is sold by the hour (flat 99 € ex-VAT) in three monthly tiers: 5, 10 or 20 h, and above that on quote. You decide yourself where those hours go. No duration commitment.",
       "tiers": [

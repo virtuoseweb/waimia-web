@@ -1,7 +1,7 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Agence SEO et GEO pour PME · visible sur Google",
-  "title_en": "SEO and GEO agency for SMEs · visible on Google",
+  "title_fr": "Agence SEO et GEO pour PME · classé sur Google, cité par les IA",
+  "title_en": "SEO and GEO agency for SMEs · ranked on Google, AI-cited",
   "description_fr": "Vos articles dorment page 4 et les IA citent vos concurrents ? SEO, GEO et contenu piloté par l'IA : visible sur Google, cité par ChatGPT et Perplexity.",
   "description_en": "Your articles sleep on page 4 and the AIs cite your competitors? SEO, GEO and AI-driven content: visible on Google, cited by ChatGPT and Perplexity.",
   "slug": "seo-geo-contenu",
@@ -55,6 +55,10 @@
       "a": "Six à dix semaines selon le périmètre. Pas d'abonnement mensuel ni de reconduction automatique. À la fin, vous disposez d'une machine éditoriale autonome et transférable ; un accompagnement mensuel reste optionnel."
     },
     {
+      "q": "SEO ou SEA : lequel choisir pour une PME ?",
+      "a": "Le SEA (Google Ads) achète du trafic tout de suite, le SEO le construit lentement mais durablement. Une PME serrée démarre souvent au SEA pour amorcer, puis bascule le budget vers le SEO qui ne se paie qu'une fois. On cadre le bon dosage selon votre échéance et votre marge."
+    },
+    {
       "q": "Vous êtes basés où, et faut-il être à Montpellier ?",
       "a": "Le studio est à Montpellier et accompagne des PME en local comme à distance. Audit, cadrage et suivi se font en visio ou sur site, selon vous. La proximité aide pour les premiers ateliers, elle n'est pas une condition."
     }
@@ -93,6 +97,10 @@
       "a": "Six to ten weeks depending on scope. No monthly subscription, no automatic renewal. At the end you have an autonomous, transferable editorial machine; monthly support stays optional."
     },
     {
+      "q": "SEO or SEA: which should an SME choose?",
+      "a": "SEA (Google Ads) buys traffic right now, SEO builds it slowly but durably. A tight-budget SME often starts with SEA to prime the pump, then shifts budget to SEO which is paid for once. We frame the right mix based on your timeline and your margin."
+    },
+    {
       "q": "Where are you based, and do we need to be in Montpellier?",
       "a": "The studio is in Montpellier and supports SMBs locally and remotely. Audit, scoping and follow-up happen by video or on site, as you prefer. Proximity helps for the first workshops, but it isn't a condition."
     }
@@ -103,8 +111,8 @@
       "background": "paper",
       "kicker_fr": "§ SEO, GEO et contenu",
       "kicker_en": "§ SEO, GEO and content",
-      "h1_fr": "SEO, GEO et <i class=\"acc\">contenu</i>.",
-      "h1_en": "SEO, GEO and <i class=\"acc\">content</i>.",
+      "h1_fr": "Visible sur Google, <i class=\"acc\">cité par les IA</i> : le référencement double couche.",
+      "h1_en": "Visible on Google, <i class=\"acc\">cited by AIs</i>: two-layer search.",
       "lede_fr": "Vos articles dorment page 4 et personne ne les lit. Les IA, elles, citent vos concurrents. Waimia bâtit une machine éditoriale branchée à l'IA : du contenu ciblé, dans votre ton, balisé Schema.org et validé par un humain, pensé pour vous rendre visible sur Google et repris dans les réponses IA. C'est l'étage référencement de votre système d'acquisition. Selon votre priorité, on pousse le <a href=\"/services/referencement-ia\">référencement IA</a> pour être cité par ChatGPT, Claude et Perplexity, ou le <a href=\"/services/seo-local\">référencement local</a> pour ressortir sur vos villes.",
       "lede_en": "Your articles sleep on page 4 and nobody reads them. The AIs, meanwhile, cite your competitors. Waimia builds an AI-wired editorial machine: targeted content, in your tone, Schema.org tagged and human-validated, designed to make you visible on Google and picked up in AI answers. It is the search layer of your acquisition system. Depending on your priority, we push <a href=\"/services/referencement-ia\">AI SEO</a> to get cited by ChatGPT, Claude and Perplexity, or <a href=\"/services/seo-local\">local SEO</a> to show up across your towns.",
       "badges": [
@@ -171,24 +179,6 @@
           "label_en": "visible on Google, cited by AIs"
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Machine éditoriale",
-      "kicker_en": "FIG 1.5 · Editorial machine",
-      "h2_fr": "Un article isolé se perd. Un <i class=\"acc\">maillage</i> structuré vous rend visible sur Google et solide sur la durée.",
-      "h2_en": "An isolated article gets lost. A structured <i class=\"acc\">network</i> makes you visible on Google and built to last.",
-      "lede_fr": "Tant que vous publiez au coup par coup, chaque contenu repart de zéro. Ici, chaque publication rejoint un système qui structure pour le SEO, balise pour le GEO et relie vos pages entre elles. L'autorité se cumule au lieu de s'évaporer.",
-      "lede_en": "As long as you publish one-off, each piece starts from scratch. Here, every publication joins a system that structures for SEO, tags for GEO and links your pages together. Authority compounds instead of evaporating.",
-      "cta": {
-        "label_fr": "Voir la méthode →",
-        "label_en": "See the method →",
-        "href": "#methode",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : des contenus isolés se relient en un maillage d'autorité.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: isolated content links into one authority network."
     },
     {
       "type": "definition-extract",
@@ -377,7 +367,8 @@
           "sub_fr": "Cité par défaut sur vos sujets",
           "sub_en": "Cited by default on your topics"
         }
-      ]
+      ],
+      "anchor": "methode"
     },
     {
       "type": "deliverables-grid",
@@ -437,27 +428,6 @@
           "format_fr": "NOTION + VIDÉO",
           "format_en": "NOTION + VIDEO"
         }
-      ]
-    },
-    {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on branche à votre contenu",
-      "kicker_en": "§ The tools we wire to your content",
-      "grayscale": true,
-      "logoIds": [
-        "google",
-        "claude",
-        "openai",
-        "hubspot",
-        "notion",
-        "github",
-        "slack",
-        "microsoft",
-        "salesforce",
-        "aws",
-        "sap",
-        "meta"
       ]
     },
     {
@@ -525,80 +495,6 @@
       ]
     },
     {
-      "type": "hover-reveal-list",
-      "anchor": "systeme",
-      "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système",
-      "kicker_en": "§ The system",
-      "h2_fr": "Un <i>système</i> d'acquisition, page par page",
-      "h2_en": "One acquisition <i>system</i>, page by page",
-      "lede_fr": "Le SEO et le GEO remplissent le haut du tunnel. En dessous, d'autres briques captent, qualifient et suivent. Survolez une brique pour la voir.",
-      "lede_en": "SEO and GEO fill the top of the funnel. Below, other blocks capture, qualify and follow up. Hover a block to preview it.",
-      "items": [
-        {
-          "label_fr": "Site web IA",
-          "label_en": "AI website",
-          "meta_fr": "Le site qui capte et qualifie vos visiteurs",
-          "meta_en": "The site that captures and qualifies your visitors",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : le site instrumenté construit pièce par pièce.",
-          "media_alt_en": "A craftsman at work: the instrumented site built piece by piece.",
-          "link_href": "/services/site-web-ia"
-        },
-        {
-          "label_fr": "Landing pages et tunnels",
-          "label_en": "Landing pages and funnels",
-          "meta_fr": "Convertir le trafic en leads qualifiés",
-          "meta_en": "Turn traffic into qualified leads",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : le trafic conduit jusqu'à la conversion.",
-          "media_alt_en": "A car on the road: traffic driven all the way to conversion.",
-          "link_href": "/services/landing-pages-tunnels"
-        },
-        {
-          "label_fr": "CRM, scoring et routing",
-          "label_en": "CRM, scoring and routing",
-          "meta_fr": "Chaque lead noté, priorisé, routé au bon commercial",
-          "meta_en": "Each lead scored, prioritised, routed to the right rep",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Une poignée de main : le lead qualifié passe au bon commercial.",
-          "media_alt_en": "A handshake: the qualified lead handed to the right salesperson.",
-          "link_href": "/services/crm-scoring-routing"
-        },
-        {
-          "label_fr": "Séquences de suivi",
-          "label_en": "Follow-up sequences",
-          "meta_fr": "Des relances qui suivent le comportement du lead",
-          "meta_en": "Follow-ups that track the lead's behaviour",
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Une scène apaisée : plus de lead oublié, la relance revient au bon moment.",
-          "media_alt_en": "A calm scene: no more forgotten lead, follow-up returns at the right time.",
-          "link_href": "/services/sequences-de-suivi"
-        },
-        {
-          "label_fr": "Prospection automatisée",
-          "label_en": "Automated prospecting",
-          "meta_fr": "Aller chercher les comptes cibles, à froid",
-          "meta_en": "Go and reach the target accounts, cold",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Une figure dynamique : la prospection qui va au-devant des comptes cibles.",
-          "media_alt_en": "A dynamic figure: prospecting that reaches out to target accounts.",
-          "link_href": "/services/prospection-automatisee"
-        },
-        {
-          "label_fr": "Le système d'acquisition",
-          "label_en": "The acquisition system",
-          "meta_fr": "L'ensemble orchestré, de la visite au client",
-          "meta_en": "The whole thing orchestrated, from visit to customer",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : les briques orchestrées en un seul système d'acquisition.",
-          "media_alt_en": "A chessboard: the blocks orchestrated into one acquisition system.",
-          "link_href": "/services/systeme-acquisition"
-        }
-      ]
-    },
-    {
       "type": "system-flow",
       "background": "ink",
       "fig_num": "Fig. 3.0",
@@ -650,205 +546,6 @@
       ],
       "loop_label_fr": "boucle d'autorité cumulative",
       "loop_label_en": "cumulative authority loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
-      "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille ensemble",
-      "kicker_en": "§ Method · how we work together",
-      "h2_fr": "Comment on travaille ensemble",
-      "h2_en": "How we work together",
-      "lede_fr": "De l'audit de votre ligne éditoriale à une machine qui produit, structure pour le SEO et le GEO et décline en cadence. Vous savez avant de signer ce qu'on publie en premier et ce que ça vise. Pas de zone d'ombre.",
-      "lede_en": "From auditing your editorial line to a machine that produces, structures for SEO and GEO and spins off on cadence. You know before signing what we publish first and what it targets. No grey zone.",
-      "steps": [
-        {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Audit & cadrage",
-          "eyebrow_en": "Audit & scoping",
-          "title_fr": "Cartographier votre ligne éditoriale",
-          "title_en": "Map your editorial line",
-          "body_fr": "Cinq jours d'audit : sujets porteurs, requêtes cibles, présence GEO actuelle, fuites de visibilité. Livrable : ligne éditoriale et plan de contenu chiffré sur les bons intents.",
-          "body_en": "Five days of audit: high-leverage topics, target queries, current GEO presence, visibility leaks. Deliverable: editorial line and costed content plan on the right intents.",
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "Audit et cadrage de la ligne éditoriale à l'écran.",
-          "media_alt_en": "Editorial line audit and scoping on screen."
-        },
-        {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Production & SEO",
-          "eyebrow_en": "Production & SEO",
-          "title_fr": "Structurer le contenu et le référencement",
-          "title_en": "Structure the content and the SEO",
-          "body_fr": "Pipeline qui produit des articles longs optimisés sur le bon intent, dans votre ton, maillés en interne. Sous le contenu, le SEO technique est tenu : balisage propre, Core Web Vitals, indexation suivie.",
-          "body_en": "A pipeline producing optimised long-form articles on the right intent, in your tone, internally linked. Under the content, technical SEO is kept in shape: clean markup, Core Web Vitals, tracked indexation.",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Définition de la structure de contenu : ce qui remonte, ce qu'on écarte.",
-          "media_alt_en": "Defining the content structure: what ranks and what we drop."
-        },
-        {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Structuration GEO",
-          "eyebrow_en": "GEO structuring",
-          "title_fr": "Rendre le contenu citable par les IA",
-          "title_en": "Make the content citable by AIs",
-          "body_fr": "Chaque contenu est balisé en JSON-LD et Schema.org, dans des formats de réponse clairs que ChatGPT, Claude et Perplexity reprennent en source. Votre expertise entre dans le champ des réponses.",
-          "body_en": "Each piece is tagged in JSON-LD and Schema.org, in clear answer formats that ChatGPT, Claude and Perplexity pick up as a source. Your expertise enters the field of answers.",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Structuration du contenu pour qu'il soit repris en source par les IA.",
-          "media_alt_en": "Structuring content so it is picked up as a source by AIs."
-        },
-        {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Déclinaison & diffusion",
-          "eyebrow_en": "Spin-off & distribution",
-          "title_fr": "Décliner l'angle sur tous les canaux",
-          "title_en": "Spin the angle across all channels",
-          "body_fr": "Chaque angle validé descend la chaîne de formats : newsletter, série de posts, trame de webinaire. La voix reste identique, la programmation est automatique, branchée sur vos outils.",
-          "body_en": "Each validated angle flows down the format chain: newsletter, post series, webinar outline. The voice stays identical, scheduling is automatic, wired to your tools.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Un angle décliné sur plusieurs canaux de diffusion.",
-          "media_alt_en": "One angle spun across several distribution channels."
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Monitoring & passation",
-          "eyebrow_en": "Monitoring & handover",
-          "title_fr": "Mesurer la visibilité et rendre autonome",
-          "title_en": "Measure visibility and hand over autonomy",
-          "body_fr": "Suivi d'indexation, alertes sur les déclassements, monitoring des citations IA. La passation fait partie du livrable : prompts, templates, formation, vous gardez la stack.",
-          "body_en": "Indexation tracking, demotion alerts, AI citation monitoring. Handover is part of the deliverable: prompts, templates, training, you keep the stack.",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Monitoring de la visibilité et passation à l'équipe.",
-          "media_alt_en": "Visibility monitoring and handover to the team.",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
-        }
-      ]
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "apres-lancement",
-      "background": "paper-2",
-      "kicker_fr": "§ Après la mise en place",
-      "kicker_en": "§ After go-live",
-      "h2_fr": "Le contenu continue de travailler après la publication",
-      "h2_en": "The content keeps working after publication",
-      "lede_fr": "Un article publié n'est pas un article fini. La plupart s'arrêtent là, et le contenu meurt lentement. Ici, il devient un actif : une visibilité pilotée, une itération continue, une présence locale et une autonomie complète sur votre stack.",
-      "lede_en": "A published article is not a finished article. Most stop there, and the content slowly dies. Here, it becomes an asset: steered visibility, continuous iteration, local presence and full autonomy on your stack.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "Pilotage de la visibilité",
-          "h3_en": "Visibility steering",
-          "body_fr": "Les positions Google, l'indexation et les citations IA suivies et synthétisées, l'attribution qui relie chaque contact à l'article qui l'a généré, et les alertes sur les déclassements. Vous mesurez ce que le contenu rapporte, sur vos propres données.",
-          "body_en": "Google rankings, indexation and AI citations tracked and synthesised, attribution linking each contact to the article that generated it, and alerts on demotions. You measure what the content returns, on your own data.",
-          "points": [
-            {
-              "label_fr": "Positions, indexation et citations IA suivies",
-              "label_en": "Rankings, indexation and AI citations tracked"
-            },
-            {
-              "label_fr": "Attribution du contact à l'article",
-              "label_en": "Contact-to-article attribution"
-            },
-            {
-              "label_fr": "Alertes sur les déclassements",
-              "label_en": "Alerts on demotions"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Positions, indexation et citations IA suivies sur un tableau de visibilité, illustration éditoriale.",
-          "media_alt_en": "Rankings, indexation and AI citations tracked on a visibility board, editorial illustration."
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Itération éditoriale",
-          "h3_en": "Editorial iteration",
-          "body_fr": "On mesure ce qui indexe et ce qui est cité, on priorise les sujets qui rapportent, et on fait monter le périmètre : nouvel angle, nouveau format, nouveau maillage, au rythme des résultats. La visibilité se construit pendant que vous publiez.",
-          "body_en": "We measure what indexes and what gets cited, prioritise the topics that pay off, and grow the scope: a new angle, a new format, new linking, at the pace of results. Visibility builds while you publish.",
-          "points": [
-            {
-              "label_fr": "Priorisation des sujets qui rapportent",
-              "label_en": "Prioritisation of the topics that pay off"
-            },
-            {
-              "label_fr": "Le périmètre monte en autorité en continu",
-              "label_en": "The scope gains authority continuously"
-            },
-            {
-              "label_fr": "Amélioration au rythme des résultats",
-              "label_en": "Improvement at the pace of results"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/band-showing-tv-paper.webp",
-          "media_alt_fr": "Le périmètre éditorial qui monte en autorité au rythme des résultats mesurés, illustration éditoriale.",
-          "media_alt_en": "The editorial scope gaining authority at the pace of measured results, editorial illustration."
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Visibilité locale",
-          "h3_en": "Local visibility",
-          "body_fr": "Pour une PME ancrée sur un territoire, la recherche locale pèse autant que la traîne longue. On structure et tient votre fiche Google Business Profile, on aligne le NAP sur l'ensemble du web et on cible les requêtes géolocalisées pour apparaître dans le pack local et sur Maps.",
-          "body_en": "For an SMB rooted in a territory, local search weighs as much as the long tail. We structure and maintain your Google Business Profile, align the NAP across the web and target geo-located queries to show up in the local pack and on Maps.",
-          "points": [
-            {
-              "label_fr": "Fiche Google Business Profile tenue à jour",
-              "label_en": "Up-to-date Google Business Profile"
-            },
-            {
-              "label_fr": "NAP cohérent et requêtes géolocalisées",
-              "label_en": "Consistent NAP and geo-located queries"
-            },
-            {
-              "label_fr": "Signaux locaux orchestrés pour le pack local",
-              "label_en": "Local signals orchestrated for the local pack"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
-          "media_alt_fr": "Une présence locale ancrée sur un territoire, illustration éditoriale.",
-          "media_alt_en": "A local presence rooted in a territory, editorial illustration."
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Autonomie et passation",
-          "h3_en": "Autonomy and handover",
-          "body_fr": "On documente la machine et on forme votre équipe : prompts, templates, lecture du monitoring. Vous gardez la stack et la main, pas de captivité : vous faites évoluer le contenu sans dépendre de nous.",
-          "body_en": "We document the machine and train your team: prompts, templates, reading the monitoring. You keep the stack and the control, no lock-in: you evolve the content without depending on us.",
-          "points": [
-            {
-              "label_fr": "Prompts, templates et formation",
-              "label_en": "Prompts, templates and training"
-            },
-            {
-              "label_fr": "Lecture du monitoring de visibilité",
-              "label_en": "Reading the visibility monitoring"
-            },
-            {
-              "label_fr": "Vous gardez la stack, zéro captivité",
-              "label_en": "You keep the stack, zero lock-in"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Passation et formation de l'équipe pour rester autonome sur le contenu, illustration éditoriale.",
-          "media_alt_en": "Handover and team training to stay autonomous on the content, editorial illustration."
-        }
-      ]
     },
     {
       "type": "case-card-grid",

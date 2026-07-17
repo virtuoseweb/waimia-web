@@ -1,7 +1,7 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "CRM, scoring et routing des leads · un pipeline sans fuite",
-  "title_en": "CRM, scoring and lead routing · a pipeline with no leaks",
+  "title_fr": "CRM pour PME et lead scoring · un pipeline sans fuite",
+  "title_en": "CRM for SMEs and lead scoring · a pipeline with no leaks",
   "description_fr": "CRM structuré, lead scoring et routing automatique pour PME : chaque lead noté, affecté au bon commercial et rappelé à temps. HubSpot, Salesforce, Pipedrive.",
   "description_en": "Structured CRM, lead scoring and automatic routing for SMEs: every lead scored, assigned to the right rep and called in time. HubSpot, Salesforce, Pipedrive.",
   "slug": "crm-scoring-routing",
@@ -103,8 +103,8 @@
       "background": "paper",
       "kicker_fr": "§ CRM, scoring et routing",
       "kicker_en": "§ CRM, scoring and routing",
-      "h1_fr": "CRM, <i class=\"acc\">scoring</i> et routing des leads.",
-      "h1_en": "CRM, <i class=\"acc\">scoring</i> and lead routing.",
+      "h1_fr": "Un <i class=\"acc\">CRM</i> avec lead scoring qui ne perd plus un lead.",
+      "h1_en": "A <i class=\"acc\">CRM</i> with lead scoring that never loses a lead.",
       "lede_fr": "Vos leads arrivent, puis se perdent. Le chaud tombe dans une boîte partagée que personne ne surveille, le commercial rappelle en dernier, et le CRM devient un cimetière de fiches mortes. Un CRM structuré fait l'inverse : il note chaque lead, l'affecte au bon commercial et le fait rappeler à temps. Branché à vos outils. Le cœur de votre système d'acquisition.",
       "lede_en": "Your leads arrive, then get lost. The hot ones fall into a shared inbox nobody watches, the rep calls last, and the CRM turns into a graveyard of dead records. A structured CRM does the opposite: it scores every lead, assigns it to the right rep and gets it called in time. Wired to your tools. The heart of your acquisition system.",
       "badges": [
@@ -171,24 +171,6 @@
           "label_en": "CRM handed over, no lock-in"
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.2 · Le dispositif",
-      "kicker_en": "FIG 1.2 · The dispositif",
-      "h2_fr": "Un CRM qui stocke reste passif. Un CRM <i class=\"acc\">instrumenté</i> note, affecte et alerte tout seul.",
-      "h2_en": "A CRM that stores stays passive. An <i class=\"acc\">instrumented</i> CRM scores, assigns and alerts on its own.",
-      "lede_fr": "Tant que votre CRM ne fait que garder des fiches, il dort et se remplit de doublons. Ici, la donnée, le scoring et le routing se branchent ensemble : chaque lead est noté, affecté et suivi sans qu'on y pense. On répare l'hygiène d'abord, on ajoute l'intelligence par-dessus. On ne casse jamais ce qui marche. Le CRM est le cœur du <a href=\"/services/systeme-commercial\">système commercial</a> : tout ce que la prospection et les relances produisent atterrit ici. Avant de noter quoi que ce soit, l'<a href=\"/services/crm-scoring-routing/integration-crm\">intégration CRM</a> assainit les doublons et branche vos sources.",
-      "lede_en": "As long as your CRM only keeps records, it sleeps and fills with duplicates. Here, data, scoring and routing wire together: every lead is scored, assigned and tracked without a second thought. We fix the hygiene first, add the intelligence on top. We never break what works. The CRM is the core of the <a href=\"/services/systeme-commercial\">commercial system</a>: everything prospecting and follow-ups produce lands here. Before anything is scored, <a href=\"/services/crm-scoring-routing/integration-crm\">CRM integration</a> clears the duplicates and wires your sources.",
-      "cta": {
-        "label_fr": "Voir les briques →",
-        "label_en": "See the building blocks →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : la donnée, le scoring et le routing orchestrés en un seul dispositif CRM.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: data, scoring and routing orchestrated into one CRM dispositif."
     },
     {
       "type": "definition-extract",
@@ -284,8 +266,8 @@
       "background": "paper-2",
       "kicker_fr": "§ L'équation",
       "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi un CRM <i class=\"acc\">instrumenté</i> change l'équation",
-      "h2_en": "Why an <i class=\"acc\">instrumented</i> CRM changes the equation",
+      "h2_fr": "Racheter un CRM de plus, ou <i class=\"acc\">activer</i> celui que vous avez",
+      "h2_en": "Buying yet another CRM, or <i class=\"acc\">activating</i> the one you have",
       "without_label_fr": "CRM passif",
       "without_label_en": "Passive CRM",
       "without_title_fr": "Ce qu'il laisse filer",
@@ -458,27 +440,6 @@
       ]
     },
     {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les CRM et outils qu'on branche",
-      "kicker_en": "§ The CRMs and tools we wire in",
-      "grayscale": true,
-      "logoIds": [
-        "hubspot",
-        "salesforce",
-        "google",
-        "microsoft",
-        "slack",
-        "notion",
-        "claude",
-        "openai",
-        "github",
-        "aws",
-        "sap",
-        "meta"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -585,6 +546,16 @@
           "link_href": "/services/systeme-commercial"
         },
         {
+          "label_fr": "Intégration CRM et migration",
+          "label_en": "CRM integration and migration",
+          "meta_fr": "Assainir les doublons et brancher vos sources en amont",
+          "meta_en": "Clear duplicates and wire your sources upstream",
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Un tri clair : l'intégration qui nettoie et branche les sources.",
+          "media_alt_en": "A clear sort: the integration that cleans and wires the sources.",
+          "link_href": "/services/crm-scoring-routing/integration-crm"
+        },
+        {
           "label_fr": "En amont : le système d'acquisition",
           "label_en": "Upstream: the acquisition system",
           "meta_fr": "Le site et le contenu qui remplissent la base",
@@ -648,92 +619,6 @@
       ],
       "loop_label_fr": "boucle d'affinage continu du scoring",
       "loop_label_en": "continuous scoring refinement loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
-      "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille ensemble",
-      "kicker_en": "§ Method · how we work together",
-      "h2_fr": "Comment on travaille ensemble",
-      "h2_en": "How we work together",
-      "lede_fr": "Du nettoyage de la donnée au CRM qui score et route, puis au système qui s'affine. Vous savez avant de signer ce qu'on répare en premier et ce que ça rapporte. Pas de zone d'ombre.",
-      "lede_en": "From cleaning the data to a CRM that scores and routes, then to a system that sharpens. You know before signing what we fix first and what it returns. No grey zone.",
-      "steps": [
-        {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Audit & hygiène",
-          "eyebrow_en": "Audit & hygiene",
-          "title_fr": "Nettoyer et structurer la donnée",
-          "title_en": "Clean and structure the data",
-          "body_fr": "Quelques jours pour ausculter le CRM : doublons, champs vides, fiches mortes. On dédoublonne, on normalise, on enrichit. Livrable : une base propre et fiable, et un état des lieux chiffré. Rien ne se score sur une donnée sale.",
-          "body_en": "A few days to inspect the CRM: duplicates, empty fields, dead records. We deduplicate, normalise, enrich. Deliverable: a clean, trustworthy base, and a costed assessment. Nothing scores on dirty data.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Audit et nettoyage de la donnée du CRM avant tout scoring",
-          "media_alt_en": "Auditing and cleaning the CRM data before any scoring"
-        },
-        {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Signaux & score",
-          "eyebrow_en": "Signals & score",
-          "title_fr": "Construire le modèle de scoring",
-          "title_en": "Build the scoring model",
-          "body_fr": "On définit les signaux qui comptent, on pose les règles ou un modèle prédictif selon le volume, et on cale la note. Chaque score est explicable : on voit pourquoi un lead monte ou descend. Pas de boîte noire.",
-          "body_en": "We define the signals that matter, lay the rules or a predictive model by volume, and calibrate the score. Every score is explainable: you see why a lead rises or falls. No black box.",
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Construction du modèle de scoring sur les signaux qui comptent",
-          "media_alt_en": "Building the scoring model on the signals that matter"
-        },
-        {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Règles & routing",
-          "eyebrow_en": "Rules & routing",
-          "title_fr": "Poser les règles d'affectation",
-          "title_en": "Set the assignment rules",
-          "body_fr": "Territoire, secteur, taille, score ou tour de rôle : on écrit les règles de routing avec vous, puis les alertes et le délai de rappel. Le lead chaud est affecté et signalé en temps réel, pas trois jours plus tard.",
-          "body_en": "Territory, sector, size, score or round-robin: we write the routing rules with you, then the alerts and the call-back window. The hot lead is assigned and flagged in real time, not three days later.",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Définition des règles de routing et d'affectation des leads",
-          "media_alt_en": "Defining the routing and lead-assignment rules"
-        },
-        {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Branchement & mesure",
-          "eyebrow_en": "Wiring & measurement",
-          "title_fr": "Brancher le CRM et le tableau de bord",
-          "title_en": "Wire the CRM and the dashboard",
-          "body_fr": "On écrit le score et l'affectation directement sur la fiche, dans HubSpot, Salesforce ou Pipedrive. On branche l'enrichissement et on pose le tableau de bord : file de priorité, comptes en attente, délais de rappel, lus en temps réel.",
-          "body_en": "We write the score and the assignment directly onto the record, in HubSpot, Salesforce or Pipedrive. We wire enrichment and lay the dashboard: priority queue, waiting accounts, call-back delays, read in real time.",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Branchement du scoring et du routing sur les fiches du CRM",
-          "media_alt_en": "Wiring scoring and routing onto the CRM records"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Rodage & passation",
-          "eyebrow_en": "Tuning & handover",
-          "title_fr": "Roder les règles et vous passer la main",
-          "title_en": "Tune the rules and hand it over",
-          "body_fr": "On ajuste le score et le routing sur les cas réels, on affine les seuils avec l'équipe. Puis la passation : mode opératoire, règles documentées, formation. Vous gardez le CRM, les règles et la main.",
-          "body_en": "We adjust the score and the routing on real cases, refine the thresholds with the team. Then handover: operating manual, documented rules, training. You keep the CRM, the rules and the control.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Rodage des règles et passation de l'autonomie aux équipes",
-          "media_alt_en": "Tuning the rules and handing autonomy over to the teams",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
-        }
-      ]
     },
     {
       "type": "feature-zigzag",

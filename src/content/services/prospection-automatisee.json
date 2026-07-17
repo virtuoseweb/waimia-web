@@ -1,9 +1,9 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Prospection automatisée B2B · enrichissement et multicanal",
-  "title_en": "Automated B2B prospecting · enrichment and multichannel",
-  "description_fr": "Prospection automatisée pour PME B2B : ciblage ICP serré, enrichissement, cold email et séquences multicanal branchés au CRM. Sans brûler votre domaine.",
-  "description_en": "Automated prospecting for B2B SMEs: tight ICP targeting, enrichment, cold email and multichannel sequences wired to your CRM. Without burning your domain.",
+  "title_fr": "Prospection automatisée B2B pour PME · RGPD et multicanal",
+  "title_en": "Automated B2B prospecting for SMEs · GDPR and multichannel",
+  "description_fr": "Prospection automatisée pour PME B2B : ciblage ICP serré, cold email et séquences multicanal branchés au CRM, conformes RGPD. Sans brûler votre domaine.",
+  "description_en": "Automated prospecting for B2B SMEs: tight ICP targeting, cold email and multichannel sequences wired to your CRM, GDPR-compliant. Without burning your domain.",
   "slug": "prospection-automatisee",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-07-13T00:00:00.000Z",
@@ -174,24 +174,6 @@
       ]
     },
     {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 2.1 · Réseau de prospection",
-      "kicker_en": "FIG 2.1 · Prospecting network",
-      "h2_fr": "Une campagne ponctuelle s'éteint. Un <i class=\"acc\">dispositif</i> enrichit, relance et qualifie sans relâche.",
-      "h2_en": "A one-off campaign burns out. A <i class=\"acc\">dispositif</i> enriches, follows up and qualifies without letup.",
-      "lede_fr": "Envoyer une salve de mails un lundi et attendre, ce n'est pas prospecter. Ici, chaque compte ciblé rejoint un réseau qui enrichit la fiche, cadence la relance et fait remonter les comptes chauds. La prospection devient un dispositif qui tourne, pas un sprint qu'on relance à la main quand le pipeline vide inquiète. C'est un module du <a href=\"/services/systeme-commercial\">système commercial</a> : elle remplit le pipeline, le CRM et les relances font le reste. Le canal email, mené en profondeur, fait l'objet du <a href=\"/services/cold-email-b2b\">cold email B2B</a>.",
-      "lede_en": "Firing a batch of emails one Monday and waiting isn't prospecting. Here, every targeted account joins a network that enriches the record, paces the follow-up and surfaces hot accounts. Prospecting becomes a machine that runs, not a sprint chased by hand when an empty pipeline gets scary. It's one module of the <a href=\"/services/systeme-commercial\">commercial system</a>: it fills the pipeline, the CRM and follow-ups do the rest. The email channel, taken in depth, is covered by <a href=\"/services/cold-email-b2b\">B2B cold email</a>.",
-      "cta": {
-        "label_fr": "Explorer le dispositif →",
-        "label_en": "Explore the system →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs en orbite : chaque compte ciblé rejoint un réseau qui enrichit et relance.",
-      "media_alt_en": "Wireframe globe with nodes linked by orbiting arcs: each targeted account joins a network that enriches and follows up."
-    },
-    {
       "type": "definition-extract",
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
@@ -240,6 +222,47 @@
         {
           "label_fr": "CRM (HubSpot, Pipedrive)",
           "label_en": "CRM (HubSpot, Pipedrive)"
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "background": "paper-2",
+      "kicker_fr": "§ Conformité",
+      "kicker_en": "§ Compliance",
+      "h2_fr": "Prospection B2B et RGPD : ce que la loi autorise vraiment",
+      "h2_en": "B2B prospecting and GDPR: what the law actually allows",
+      "lede_fr": "La prospection B2B par email est légale en France quand quelques conditions sont réunies. Voici ce qu'attendent le RGPD et la CNIL, et comment on les respecte sans transformer votre marque en spam. Ce cadre n'est pas un avis juridique : c'est la façon dont on travaille.",
+      "lede_en": "B2B email prospecting is legal in France when a few conditions are met. Here is what the GDPR and the CNIL expect, and how we respect them without turning your brand into spam. This framing is not legal advice: it is how we work.",
+      "columns": "4",
+      "features": [
+        {
+          "icon": "qualif",
+          "title_fr": "Une base légale : l'intérêt légitime",
+          "title_en": "A legal basis: legitimate interest",
+          "body_fr": "En B2B, le démarchage par email repose sur l'intérêt légitime, à condition que le message soit en rapport avec la fonction professionnelle du destinataire. On cible sur l'ICP et le poste, jamais au hasard.",
+          "body_en": "In B2B, email outreach rests on legitimate interest, provided the message relates to the recipient's professional role. We target on ICP and job title, never at random."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Une désinscription en un clic",
+          "title_en": "One-click opt-out",
+          "body_fr": "Chaque envoi porte un moyen de refus simple et immédiat. Un contact qui se désinscrit sort des séquences et n'est plus recontacté. L'opt-out n'est pas une case cachée, c'est un droit.",
+          "body_en": "Every send carries a simple, immediate way to refuse. A contact who opts out leaves the sequences and is no longer contacted. Opt-out is not a hidden checkbox, it is a right."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "Une information claire sur les données",
+          "title_en": "Clear information on data",
+          "body_fr": "Le destinataire sait qui écrit, pourquoi, et comment exercer ses droits. On documente la source des contacts et la finalité du traitement, comme l'exige le RGPD.",
+          "body_en": "The recipient knows who is writing, why, and how to exercise their rights. We document the source of contacts and the purpose of processing, as the GDPR requires."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Des listes tenues propres",
+          "title_en": "Lists kept clean",
+          "body_fr": "Contacts vérifiés, doublons écartés, données mises à jour et purgées quand elles ne servent plus. Une liste sale n'est pas seulement inefficace, elle est un risque de conformité.",
+          "body_en": "Verified contacts, duplicates removed, data updated and purged when no longer useful. A dirty list is not only ineffective, it is a compliance risk."
         }
       ]
     },
@@ -459,27 +482,6 @@
       ]
     },
     {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on branche à votre prospection",
-      "kicker_en": "§ The tools we wire to your prospecting",
-      "grayscale": true,
-      "logoIds": [
-        "hubspot",
-        "salesforce",
-        "google",
-        "microsoft",
-        "slack",
-        "notion",
-        "claude",
-        "openai",
-        "github",
-        "aws",
-        "sap",
-        "meta"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -586,6 +588,16 @@
           "link_href": "/services/systeme-commercial"
         },
         {
+          "label_fr": "Le canal cold email B2B",
+          "label_en": "The B2B cold email channel",
+          "meta_fr": "Délivrabilité, warm-up et copy, le canal email en profondeur",
+          "meta_en": "Deliverability, warm-up and copy, the email channel in depth",
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "Une personne à l'écran : le canal cold email travaillé en profondeur.",
+          "media_alt_en": "A person at the screen: the cold email channel worked in depth.",
+          "link_href": "/services/cold-email-b2b"
+        },
+        {
           "label_fr": "En amont : le système d'acquisition",
           "label_en": "Upstream: the acquisition system",
           "meta_fr": "Le site et le contenu qui remplissent la base",
@@ -649,92 +661,6 @@
       ],
       "loop_label_fr": "boucle d'affinage continu du ciblage",
       "loop_label_en": "continuous targeting refinement loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
-      "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille ensemble",
-      "kicker_en": "§ Method · how we work together",
-      "h2_fr": "Comment on travaille ensemble",
-      "h2_en": "How we work together",
-      "lede_fr": "Du cadrage de l'ICP à la séquence qui tourne, puis au système qui s'affine. Vous savez avant de signer ce qu'on cible en premier et ce que ça vise. Pas de promesse de pipeline plein en dix jours.",
-      "lede_en": "From scoping the ICP to a sequence that runs, then to a system that sharpens. You know before signing what we target first and what it aims for. No promise of a full pipeline in ten days.",
-      "steps": [
-        {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Ciblage & cadrage",
-          "eyebrow_en": "Targeting & scoping",
-          "title_fr": "Définir l'ICP et les signaux",
-          "title_en": "Define the ICP and signals",
-          "body_fr": "Quelques jours pour cadrer qui vaut la peine d'être contacté : secteur, taille, poste, signaux d'achat. Livrable : un ICP précis et un premier périmètre de listes, chiffré. On vise serré, pas large.",
-          "body_en": "A few days to frame who's worth contacting: sector, size, role, buying signals. Deliverable: a precise ICP and a first list scope, costed. We aim tight, not broad.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Cadrage de l'ICP et des signaux d'achat qui comptent",
-          "media_alt_en": "Framing the ICP and the buying signals that matter"
-        },
-        {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Enrichissement & infra",
-          "eyebrow_en": "Enrichment & infra",
-          "title_fr": "Sortir des listes propres et une infra saine",
-          "title_en": "Produce clean lists and a healthy infra",
-          "body_fr": "Enrichissement via Apollo et Pharow, dédoublonnage, vérification. En parallèle, on monte l'infrastructure d'envoi : boîtes dédiées, réchauffe, SPF, DKIM, DMARC. Le domaine principal n'est jamais exposé.",
-          "body_en": "Enrichment via Apollo and Pharow, deduplication, verification. In parallel, we build the sending infrastructure: dedicated mailboxes, warm-up, SPF, DKIM, DMARC. The main domain is never exposed.",
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Listes enrichies et infrastructure d'envoi saine mises en place",
-          "media_alt_en": "Enriched lists and a healthy sending infrastructure set up"
-        },
-        {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Séquences & copy",
-          "eyebrow_en": "Sequences & copy",
-          "title_fr": "Écrire et lancer les séquences",
-          "title_en": "Write and launch the sequences",
-          "body_fr": "Messages personnalisés par segment, cadence multicanal calée, cold email et LinkedIn via Lemlist et Instantly. Chaque message parle à une personne précise, pas à une liste. On lance petit, on mesure, on itère.",
-          "body_en": "Messages personalised per segment, multichannel cadence set, cold email and LinkedIn via Lemlist and Instantly. Each message speaks to a precise person, not a list. We start small, measure, iterate.",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Rédaction et lancement des séquences personnalisées par segment",
-          "media_alt_en": "Writing and launching sequences personalised per segment"
-        },
-        {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "CRM & scoring",
-          "eyebrow_en": "CRM & scoring",
-          "title_fr": "Brancher le CRM et le scoring",
-          "title_en": "Wire the CRM and scoring",
-          "body_fr": "Chaque réponse écrite dans HubSpot ou Pipedrive, l'intention scorée, l'alerte commerciale déclenchée. La relance voix et SMS via Twilio se branche sur les comptes chauds. Le commercial ne traite que du qualifié.",
-          "body_en": "Every reply written to HubSpot or Pipedrive, intent scored, the sales alert fired. Voice and SMS follow-up via Twilio wires onto hot accounts. Sales only handle qualified accounts.",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Branchement du CRM et du scoring sur les réponses captées",
-          "media_alt_en": "Wiring the CRM and scoring onto captured replies"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Rodage & passation",
-          "eyebrow_en": "Tuning & handover",
-          "title_fr": "Roder la séquence et vous passer la main",
-          "title_en": "Tune the sequence and hand it over",
-          "body_fr": "On itère les messages sur les réponses réelles, on affine le ciblage, on ajuste la cadence. Puis la passation : mode opératoire, prise en main des outils, formation. Vous gardez le système et la donnée.",
-          "body_en": "We iterate the messages on real replies, sharpen the targeting, adjust the cadence. Then handover: operating manual, tool onboarding, training. You keep the system and the data.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Rodage de la séquence et passation de l'autonomie aux équipes",
-          "media_alt_en": "Tuning the sequence and handing autonomy over to the teams",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
-        }
-      ]
     },
     {
       "type": "feature-zigzag",

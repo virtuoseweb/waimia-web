@@ -1,9 +1,9 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Séquences de suivi · nurturing et relance des leads dormants",
-  "title_en": "Follow-up sequences · nurturing and re-engaging dormant leads",
-  "description_fr": "Séquences de suivi et nurturing : relances email et multicanal automatisées, déclenchées par le comportement, qui réchauffent les leads dormants.",
-  "description_en": "Follow-up sequences and nurturing: automated email and multichannel re-engagement, behaviour-triggered, that warm dormant leads back to conversion.",
+  "title_fr": "Lead nurturing et relance automatisée des prospects B2B",
+  "title_en": "Lead nurturing and automated prospect re-engagement B2B",
+  "description_fr": "Lead nurturing et relance automatisée des prospects pour PME : relances email et multicanal déclenchées par le comportement, qui réveillent vos leads dormants.",
+  "description_en": "Lead nurturing and automated prospect re-engagement for SMEs: email and multichannel follow-ups triggered by behaviour, that wake your dormant leads.",
   "slug": "sequences-de-suivi",
   "publishedAt": "2026-07-13T00:00:00.000Z",
   "updatedAt": "2026-07-13T00:00:00.000Z",
@@ -103,8 +103,8 @@
       "background": "paper",
       "kicker_fr": "§ Séquences de suivi",
       "kicker_en": "§ Follow-up sequences",
-      "h1_fr": "Séquences de <i class=\"acc\">suivi</i> et relance automatisée.",
-      "h1_en": "Follow-up <i class=\"acc\">sequences</i> and automated re-engagement.",
+      "h1_fr": "Le <i class=\"acc\">lead nurturing</i> qui réveille vos prospects dormants.",
+      "h1_en": "The <i class=\"acc\">lead nurturing</i> that wakes your dormant prospects.",
       "lede_fr": "Un lead intéressé se tait pendant 48 heures, et vous le comptez déjà perdu. Il ne l'est pas, il a juste refroidi faute de relance. Les séquences de suivi entretiennent chaque lead, réveillent les dormants de votre base et les ramènent au bon moment, par email et multicanal. Branché à votre CRM. Le volet nurturing de votre système d'acquisition.",
       "lede_en": "An interested lead goes quiet for 48 hours, and you already count them lost. They aren't, they just cooled for lack of follow-up. Follow-up sequences nurture every lead, wake the dormant ones in your base and bring them back at the right time, by email and multichannel. Wired to your CRM. The nurturing arm of your acquisition system.",
       "badges": [
@@ -171,24 +171,6 @@
           "label_en": "sequences handed over, no lock-in"
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.3 · Le dispositif",
-      "kicker_en": "FIG 1.3 · The dispositif",
-      "h2_fr": "Une relance oubliée laisse le lead partir. Un <i class=\"acc\">dispositif</i> le suit, le réchauffe et le ramène.",
-      "h2_en": "A forgotten follow-up lets the lead leave. A <i class=\"acc\">dispositif</i> follows it, warms it and brings it back.",
-      "lede_fr": "Tant que la relance dépend de la mémoire d'un commercial débordé, le lead file. Ici, le comportement du lead, la séquence et le CRM se branchent ensemble : chaque signal déclenche la bonne relance, chaque dormant est réveillé, chaque retour est routé au bon moment. On travaille d'abord la base que vous avez déjà. Les relances sont un module du <a href=\"/services/systeme-commercial\">système commercial</a> : elles rattrapent ce que la prospection et le CRM laissent refroidir. Le cas le plus fréquent : la <a href=\"/services/relance-devis\">relance de devis automatique</a>, quand un devis part et reste sans réponse.",
-      "lede_en": "As long as follow-up depends on an overworked rep's memory, the lead slips away. Here, the lead's behaviour, the sequence and the CRM wire together: each signal triggers the right follow-up, each dormant lead is woken, each return is routed at the right time. We first work the base you already have. Follow-ups are a module of the <a href=\"/services/systeme-commercial\">commercial system</a>: they recover what prospecting and the CRM let cool down. The most frequent case: <a href=\"/services/relance-devis\">automated quote follow-up</a>, when a quote goes out and stays unanswered.",
-      "cta": {
-        "label_fr": "Voir les briques →",
-        "label_en": "See the building blocks →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : le comportement du lead, la séquence et le CRM orchestrés en un seul dispositif de relance.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: the lead's behaviour, the sequence and the CRM orchestrated into one follow-up dispositif."
     },
     {
       "type": "definition-extract",
@@ -284,8 +266,8 @@
       "background": "paper-2",
       "kicker_fr": "§ L'équation",
       "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi une relance <i class=\"acc\">instrumentée</i> change l'équation",
-      "h2_en": "Why <i class=\"acc\">instrumented</i> follow-up changes the equation",
+      "h2_fr": "Une newsletter de plus, ou un nurturing <i class=\"acc\">déclenché</i> par le comportement",
+      "h2_en": "One more newsletter, or nurturing <i class=\"acc\">triggered</i> by behaviour",
       "without_label_fr": "Relance à la main",
       "without_label_en": "Manual follow-up",
       "without_title_fr": "Ce qu'elle laisse filer",
@@ -458,27 +440,6 @@
       ]
     },
     {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on branche à votre suivi",
-      "kicker_en": "§ The tools we wire to your follow-up",
-      "grayscale": true,
-      "logoIds": [
-        "hubspot",
-        "salesforce",
-        "google",
-        "microsoft",
-        "slack",
-        "notion",
-        "claude",
-        "openai",
-        "github",
-        "aws",
-        "sap",
-        "meta"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -585,6 +546,16 @@
           "link_href": "/services/systeme-commercial"
         },
         {
+          "label_fr": "Relance de devis automatique",
+          "label_en": "Automated quote follow-up",
+          "meta_fr": "Le cas le plus fréquent : un devis qui reste sans réponse",
+          "meta_en": "The most frequent case: a quote left unanswered",
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Un devis relancé au bon moment jusqu'à la réponse.",
+          "media_alt_en": "A quote followed up at the right time until the reply.",
+          "link_href": "/services/relance-devis"
+        },
+        {
           "label_fr": "En amont : le système d'acquisition",
           "label_en": "Upstream: the acquisition system",
           "meta_fr": "Le site et le contenu qui remplissent la base",
@@ -648,92 +619,6 @@
       ],
       "loop_label_fr": "boucle d'affinage continu des relances",
       "loop_label_en": "continuous follow-up refinement loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
-      "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille ensemble",
-      "kicker_en": "§ Method · how we work together",
-      "h2_fr": "Comment on travaille ensemble",
-      "h2_en": "How we work together",
-      "lede_fr": "De la segmentation de la base aux séquences qui tournent, puis au suivi qui s'affine. Vous savez avant de signer ce qu'on réveille en premier et ce que ça rapporte. Pas de zone d'ombre.",
-      "lede_en": "From segmenting the base to sequences that run, then to follow-up that sharpens. You know before signing what we wake first and what it returns. No grey zone.",
-      "steps": [
-        {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Audit & segments",
-          "eyebrow_en": "Audit & segments",
-          "title_fr": "Segmenter la base et repérer les dormants",
-          "title_en": "Segment the base and spot the dormant leads",
-          "body_fr": "Quelques jours pour trier votre base : leads chauds, tièdes, dormants, anciens devis, téléchargements. Livrable : des segments clairs et le gisement dormant chiffré. On travaille d'abord ce que vous avez déjà payé pour acquérir.",
-          "body_en": "A few days to sort your base: warm, lukewarm, dormant leads, old quotes, downloads. Deliverable: clear segments and the dormant goldmine quantified. We first work what you already paid to acquire.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Segmentation de la base et repérage du gisement de leads dormants",
-          "media_alt_en": "Segmenting the base and spotting the dormant-lead goldmine"
-        },
-        {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Messages & séquences",
-          "eyebrow_en": "Messages & sequences",
-          "title_fr": "Écrire les séquences par segment",
-          "title_en": "Write the sequences per segment",
-          "body_fr": "On écrit les relances pour chaque segment : le dormant qu'on réveille, le tiède qu'on éduque, le chaud qu'on pousse à décider. Chaque message parle à un moment précis du parcours, pas à une liste indifférenciée.",
-          "body_en": "We write the follow-ups for each segment: the dormant one to wake, the lukewarm to educate, the warm to push toward a decision. Each message speaks to a precise moment in the journey, not to an undifferentiated list.",
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Rédaction des séquences de relance adaptées à chaque segment",
-          "media_alt_en": "Writing the follow-up sequences tailored to each segment"
-        },
-        {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Déclencheurs & cadence",
-          "eyebrow_en": "Triggers & cadence",
-          "title_fr": "Poser les déclencheurs et la cadence",
-          "title_en": "Set the triggers and the cadence",
-          "body_fr": "On définit ce qui déclenche chaque relance, sur quel signal et quel canal, et à quelle cadence, pour entretenir sans agacer. Un email rouvert, une page de prix visitée, un devis en attente : le comportement pilote la séquence.",
-          "body_en": "We define what triggers each follow-up, on which signal and channel, and at what cadence, to nurture without annoying. An email reopened, a pricing page visited, a quote pending: behaviour drives the sequence.",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Définition des déclencheurs comportementaux et de la cadence des relances",
-          "media_alt_en": "Defining behavioural triggers and follow-up cadence"
-        },
-        {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Branchement & handoff",
-          "eyebrow_en": "Wiring & handoff",
-          "title_fr": "Brancher le CRM et le handoff",
-          "title_en": "Wire the CRM and the handoff",
-          "body_fr": "On branche la séquence à HubSpot ou Pipedrive : elle lit les signaux, réécrit le statut et sort le lead du flux dès qu'il se réchauffe, pour le rendre au commercial. On pose le tableau de bord : réponses, dormants réveillés, retours routés.",
-          "body_en": "We wire the sequence to HubSpot or Pipedrive: it reads the signals, rewrites the status and pulls the lead from the flow as soon as it warms up, to hand it back to the rep. We lay the dashboard: replies, dormant woken, returns routed.",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Branchement des séquences au CRM et handoff des leads réchauffés",
-          "media_alt_en": "Wiring the sequences to the CRM and handing off warmed leads"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Rodage & passation",
-          "eyebrow_en": "Tuning & handover",
-          "title_fr": "Roder les séquences et vous passer la main",
-          "title_en": "Tune the sequences and hand it over",
-          "body_fr": "On itère les messages sur les réponses réelles, on ajuste les déclencheurs et la cadence. Puis la passation : mode opératoire, séquences documentées, formation. Vous gardez les séquences, la base et la main.",
-          "body_en": "We iterate the messages on real replies, adjust the triggers and cadence. Then handover: operating manual, documented sequences, training. You keep the sequences, the base and the control.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Rodage des séquences et passation de l'autonomie aux équipes",
-          "media_alt_en": "Tuning the sequences and handing autonomy over to the teams",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
-        }
-      ]
     },
     {
       "type": "feature-zigzag",

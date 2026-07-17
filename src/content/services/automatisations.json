@@ -51,6 +51,10 @@
       "a": "Un premier workflow ciblé tourne souvent en quelques semaines, une fois la tâche cadrée. On mesure les heures gagnées dès la mise en production, pas dans six mois."
     },
     {
+      "q": "Combien coûte l'automatisation d'un processus ?",
+      "a": "On démarre par un sprint découverte à 999 € HT (10 h) : cadrage et un premier workflow en production. La suite se cale sur devis, en sprints à 99 € de l'heure, estimés avec vous. Pas d'abonnement caché : vous gardez vos workflows."
+    },
+    {
       "q": "Vous vous branchez sur nos outils existants ?",
       "a": "Oui. CRM, boîtes mail, tableurs, facturation, e-commerce, outils métier : on connecte l'existant via API ou MCP plutôt que de tout remplacer. On ne casse pas ce qui marche."
     },
@@ -89,6 +93,10 @@
       "a": "A first targeted workflow often runs within a few weeks, once the task is scoped. We measure the hours saved from go-live, not in six months."
     },
     {
+      "q": "How much does it cost to automate a process?",
+      "a": "We start with a discovery sprint at 999 € ex VAT (10 h): scoping and a first workflow in production. What follows is quoted, in sprints at 99 € an hour, estimated with you. No hidden subscription: you keep your workflows."
+    },
+    {
       "q": "Do you wire onto our existing tools?",
       "a": "Yes. CRM, inboxes, spreadsheets, billing, e-commerce, business tools: we connect what exists via API or MCP rather than replacing everything. We don't break what works."
     },
@@ -103,8 +111,8 @@
       "background": "paper",
       "kicker_fr": "§ Automatisations",
       "kicker_en": "§ Automations",
-      "h1_fr": "Automatiser vos processus métier avec des <i class=\"acc\">workflows</i>.",
-      "h1_en": "Automate your business processes with <i class=\"acc\">workflows</i>.",
+      "h1_fr": "Automatisez vos <i class=\"acc\">processus métier</i>. Fini la ressaisie entre six outils.",
+      "h1_en": "Automate your <i class=\"acc\">business processes</i>. No more retyping across six tools.",
       "lede_fr": "Vos équipes copient-collent entre six outils. Elles ressaisissent les mêmes données, relancent à la main, refont chaque semaine les mêmes gestes. Ces heures ne reviennent pas. Un workflow fait le travail à leur place : il se branche à vos outils, exécute la tâche de bout en bout de façon déterministe, et vous prévient si quelque chose coince. Quand la tâche demande du jugement, on bascule sur un agent IA, brique du système opérationnel.",
       "lede_en": "Your teams copy-paste between six tools. They retype the same data, follow up by hand, redo the same gestures every week. Those hours don't come back. A workflow does the work in their place: it wires to your tools, runs the task end to end deterministically, and warns you if something jams. When the task needs judgement, we switch to an AI agent, a block of the operational system.",
       "badges": [
@@ -332,153 +340,6 @@
       ]
     },
     {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'automatisation des processus",
-      "h2_en": "The 6 levels of process automation",
-      "lede_fr": "Du tout-manuel au parc de workflows supervisé, six paliers. La plupart des PME empilent des macros au deuxième. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From all-manual to a supervised fleet of workflows, six tiers. Most SMEs pile up macros at the second. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Tout manuel",
-          "title_en": "All manual",
-          "sub_fr": "Copier-coller et onglets",
-          "sub_en": "Copy-paste and tabs"
-        },
-        {
-          "title_fr": "Macros éparses",
-          "title_en": "Scattered macros",
-          "sub_fr": "Bricolage fragile",
-          "sub_en": "Fragile patchwork"
-        },
-        {
-          "title_fr": "Premier workflow",
-          "title_en": "First workflow",
-          "sub_fr": "Une tâche automatisée",
-          "sub_en": "One task automated"
-        },
-        {
-          "title_fr": "Chaîne branchée",
-          "title_en": "Wired chain",
-          "sub_fr": "Outils connectés via API",
-          "sub_en": "Tools connected via API"
-        },
-        {
-          "title_fr": "Parc supervisé",
-          "title_en": "Supervised fleet",
-          "sub_fr": "Alertes et journalisation",
-          "sub_en": "Alerts and logging"
-        },
-        {
-          "title_fr": "Orchestration",
-          "title_en": "Orchestration",
-          "sub_fr": "Workflows et IA combinés",
-          "sub_en": "Workflows and AI combined"
-        }
-      ]
-    },
-    {
-      "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez les workflows quand on part. Pas de captivité.",
-      "lead_en": "You keep the workflows when we leave. No lock-in.",
-      "items": [
-        {
-          "title_fr": "Cartographie des tâches",
-          "title_en": "Task map",
-          "body_fr": "L'inventaire de vos tâches répétitives, chiffré en heures, priorisé par ce qui rapporte le plus vite.",
-          "body_en": "An inventory of your repetitive tasks, costed in hours, prioritised by what pays off fastest.",
-          "format_fr": "AUDIT",
-          "format_en": "AUDIT",
-          "illustration_src": "/images/line-art/probleme-outils-cloisonnes.svg",
-          "illustration_alt_fr": "Une cartographie des tâches répétitives à automatiser, priorisée",
-          "illustration_alt_en": "A map of repetitive tasks to automate, prioritised"
-        },
-        {
-          "title_fr": "Workflows en production",
-          "title_en": "Workflows in production",
-          "body_fr": "Vos automatisations construites, testées et mises en ligne sur n8n, Make ou Zapier, branchées à vos outils.",
-          "body_en": "Your automations built, tested and deployed on n8n, Make or Zapier, wired to your tools.",
-          "format_fr": "LIVE",
-          "format_en": "LIVE",
-          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
-          "illustration_alt_fr": "Des workflows en production qui exécutent vos tâches répétitives",
-          "illustration_alt_en": "Workflows in production running your repetitive tasks"
-        },
-        {
-          "title_fr": "Connecteurs à vos outils",
-          "title_en": "Connectors to your tools",
-          "body_fr": "Les branchements API et MCP vers votre CRM, vos boîtes mail, vos tableurs et vos outils métier, propres et documentés.",
-          "body_en": "The API and MCP connections to your CRM, inboxes, spreadsheets and business tools, clean and documented.",
-          "format_fr": "API + MCP",
-          "format_en": "API + MCP",
-          "illustration_src": "/images/line-art/livrable-connecteurs-mcp.svg",
-          "illustration_alt_fr": "Des connecteurs API et MCP vers vos outils existants",
-          "illustration_alt_en": "API and MCP connectors to your existing tools"
-        },
-        {
-          "title_fr": "Supervision et alertes",
-          "title_en": "Supervision and alerts",
-          "body_fr": "La journalisation de chaque exécution et des alertes en cas d'échec : un workflow qui coince ne coince jamais en silence.",
-          "body_en": "The logging of every run and alerts on failure: a workflow that jams never jams in silence.",
-          "format_fr": "MONITORING",
-          "format_en": "MONITORING",
-          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
-          "illustration_alt_fr": "Un tableau de supervision des workflows avec alertes sur échec",
-          "illustration_alt_en": "A workflow supervision board with alerts on failure"
-        },
-        {
-          "title_fr": "Tableau des heures gagnées",
-          "title_en": "Hours-saved dashboard",
-          "body_fr": "La mesure de l'avant et de l'après : combien d'heures chaque workflow vous rend, en clair, sur vos propres chiffres.",
-          "body_en": "The before-and-after measurement: how many hours each workflow gives you back, in plain figures, on your own numbers.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Un tableau de mesure des heures gagnées par workflow",
-          "illustration_alt_en": "A dashboard measuring the hours saved per workflow"
-        },
-        {
-          "title_fr": "Documentation et autonomie",
-          "title_en": "Documentation and autonomy",
-          "body_fr": "Chaque workflow documenté et un référent formé chez vous : votre équipe ajuste et étend sans dépendre de nous.",
-          "body_en": "Each workflow documented and an in-house referent trained: your team adjusts and extends without depending on us.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/livrable-passation-formation.svg",
-          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur les workflows",
-          "illustration_alt_en": "A documented operating manual to make the team autonomous on the workflows"
-        }
-      ]
-    },
-    {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on orchestre entre eux",
-      "kicker_en": "§ The tools we orchestrate together",
-      "grayscale": true,
-      "logoIds": [
-        "hubspot",
-        "salesforce",
-        "google",
-        "microsoft",
-        "notion",
-        "slack",
-        "github",
-        "claude",
-        "openai",
-        "aws",
-        "sap",
-        "meta"
-      ]
-    },
-    {
       "type": "feature-grid",
       "anchor": "capacites",
       "background": "paper",
@@ -607,59 +468,6 @@
       ]
     },
     {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "Le circuit, de bout en bout",
-      "fig_title_en": "The circuit, end to end",
-      "meta_fr": "AutoLoop · v1",
-      "meta_en": "AutoLoop · v1",
-      "h2_fr": "Comment un workflow s'exécute",
-      "h2_en": "How a workflow runs",
-      "lede_fr": "Un workflow n'est pas une macro isolée. C'est un circuit : un évènement l'allume, la donnée traverse vos outils, les règles tranchent, l'action part, et la mesure revient pour l'améliorer. Chaque maillon transforme un geste manuel en étape traçable.",
-      "lede_en": "A workflow is not an isolated macro. It's a circuit: an event lights it up, data crosses your tools, the rules decide, the action fires, and the measurement comes back to improve it. Each link turns a manual gesture into a traceable step.",
-      "steps": [
-        {
-          "title_fr": "Déclencheur",
-          "title_en": "Trigger",
-          "desc_fr": "Un mail, un formulaire, un horaire, un changement dans un outil.",
-          "desc_en": "An email, a form, a schedule, a change in a tool."
-        },
-        {
-          "title_fr": "Collecte",
-          "title_en": "Collection",
-          "desc_fr": "Les données lues dans vos outils via API ou MCP, sans recopie.",
-          "desc_en": "Data read from your tools via API or MCP, no retyping."
-        },
-        {
-          "title_fr": "Règles",
-          "title_en": "Rules",
-          "desc_fr": "Vos conditions appliquées, avec une étape IA si le cas l'exige.",
-          "desc_en": "Your conditions applied, with an AI step if the case requires it."
-        },
-        {
-          "title_fr": "Action",
-          "title_en": "Action",
-          "desc_fr": "Document créé, outil mis à jour, message envoyé, tâche exécutée.",
-          "desc_en": "Document created, tool updated, message sent, task executed."
-        },
-        {
-          "title_fr": "Contrôle",
-          "title_en": "Control",
-          "desc_fr": "Étape journalisée, validation humaine si l'action est sensible.",
-          "desc_en": "Step logged, human validation if the action is sensitive."
-        },
-        {
-          "title_fr": "Mesure",
-          "title_en": "Measurement",
-          "desc_fr": "Les heures gagnées comptées, le workflow ajusté. La boucle se referme.",
-          "desc_en": "The hours saved counted, the workflow tuned. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'amélioration continue",
-      "loop_label_en": "continuous improvement loop"
-    },
-    {
       "type": "sticky-scroll-storytelling",
       "anchor": "methode",
       "background": "paper",
@@ -746,119 +554,6 @@
       ]
     },
     {
-      "type": "feature-zigzag",
-      "anchor": "apres-lancement",
-      "background": "paper-2",
-      "kicker_fr": "§ Après la mise en production",
-      "kicker_en": "§ After go-live",
-      "h2_fr": "Le parc de workflows vit après sa mise en production",
-      "h2_en": "The workflow fleet lives on after go-live",
-      "lede_fr": "Un workflow livré n'est pas un workflow oublié. La plupart des automatisations bricolées meurent à la première mise à jour d'un outil. Ici, elles deviennent un actif : supervisées, mesurées, étendues, et pilotables par votre équipe sans dépendre de nous.",
-      "lede_en": "A delivered workflow is not a forgotten workflow. Most patched-together automations die at the first tool update. Here, they become an asset: supervised, measured, extended, and steerable by your team without depending on us.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "Supervision et fiabilité",
-          "h3_en": "Supervision and reliability",
-          "body_fr": "Chaque exécution est journalisée, chaque échec déclenche une alerte, et un tableau montre ce qui tourne. Quand un outil change son API, on le voit et on corrige avant que ça vous coûte. Le workflow ne casse jamais en silence.",
-          "body_en": "Every run is logged, every failure triggers an alert, and a board shows what's running. When a tool changes its API, we see it and fix it before it costs you. The workflow never breaks silently.",
-          "points": [
-            {
-              "label_fr": "Journal de chaque exécution",
-              "label_en": "Log of every run"
-            },
-            {
-              "label_fr": "Alertes temps réel sur échec",
-              "label_en": "Real-time alerts on failure"
-            },
-            {
-              "label_fr": "Correction avant impact",
-              "label_en": "Fix before impact"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Supervision des workflows et alertes sur échec sur un tableau de contrôle, illustration éditoriale",
-          "media_alt_en": "Workflow supervision and failure alerts on a control board, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Extension au fil des résultats",
-          "h3_en": "Extension as results come in",
-          "body_fr": "On mesure les heures gagnées, on priorise la tâche suivante, et on ajoute un workflow, une branche, un cas d'usage, au rythme de ce qui rapporte. Le parc grandit sans qu'on refonde l'existant.",
-          "body_en": "We measure the hours saved, prioritise the next task, and add a workflow, a branch, a use case, at the pace of what pays off. The fleet grows without rebuilding what exists.",
-          "points": [
-            {
-              "label_fr": "Mesure des heures gagnées",
-              "label_en": "Hours-saved measurement"
-            },
-            {
-              "label_fr": "Nouvelle tâche automatisée sur preuve",
-              "label_en": "New task automated on proof"
-            },
-            {
-              "label_fr": "Extension sans tout refondre",
-              "label_en": "Extension without a full rebuild"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Le parc de workflows qui s'étend au rythme des heures gagnées mesurées, illustration éditoriale",
-          "media_alt_en": "The workflow fleet extending at the pace of measured hours saved, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Ajustement sans développeur",
-          "h3_en": "Adjusting without a developer",
-          "body_fr": "Vos workflows sont montés sur des outils que votre équipe peut lire et ajuster : n8n, Make ou Zapier, pas une usine à gaz maison. Changer une règle, un destinataire, un format se fait en minutes, sans nous appeler.",
-          "body_en": "Your workflows are built on tools your team can read and adjust: n8n, Make or Zapier, not a home-made contraption. Changing a rule, a recipient, a format takes minutes, without calling us.",
-          "points": [
-            {
-              "label_fr": "Outils lisibles par votre équipe",
-              "label_en": "Tools your team can read"
-            },
-            {
-              "label_fr": "Ajustement en minutes",
-              "label_en": "Adjustment in minutes"
-            },
-            {
-              "label_fr": "Pas d'usine à gaz maison",
-              "label_en": "No home-made contraption"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Ajustement d'un workflow sans développeur, sur des outils lisibles, illustration éditoriale",
-          "media_alt_en": "Adjusting a workflow without a developer, on readable tools, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Autonomie et passation",
-          "h3_en": "Autonomy and handover",
-          "body_fr": "On documente chaque workflow et on forme un référent : lecture du journal, ajustement des règles, ajout d'une branche. Vous gardez la stack et la main, pas de captivité : vous faites évoluer vos automatisations sans dépendre de nous.",
-          "body_en": "We document each workflow and train a referent: reading the log, adjusting the rules, adding a branch. You keep the stack and the control, no lock-in: you evolve your automations without depending on us.",
-          "points": [
-            {
-              "label_fr": "Mode opératoire et formation",
-              "label_en": "Operating manual and training"
-            },
-            {
-              "label_fr": "Prise en main du journal et des règles",
-              "label_en": "Log and rules onboarding"
-            },
-            {
-              "label_fr": "Vous gardez la stack, zéro captivité",
-              "label_en": "You keep the stack, zero lock-in"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour rester autonomes sur les automatisations, illustration éditoriale",
-          "media_alt_en": "Handover and team training to stay autonomous on the automations, editorial illustration"
-        }
-      ]
-    },
-    {
       "type": "case-card-grid",
       "background": "ink",
       "reveal_mode": "cursor",
@@ -919,61 +614,6 @@
       "all_label_fr": "Voir tous les cas →",
       "all_label_en": "See all cases →",
       "all_href": "/cas-clients"
-    },
-    {
-      "type": "testimonial-wall",
-      "background": "paper-2",
-      "kicker_fr": "Ils ont automatisé leurs process",
-      "kicker_en": "They automated their processes",
-      "h2_fr": "Ce que disent les équipes qui ont récupéré leurs heures",
-      "h2_en": "What teams who got their hours back are saying",
-      "subtitle_fr": "Des dirigeants et des équipes qui ont arrêté de copier-coller entre six outils et mis un workflow au travail.",
-      "subtitle_en": "Leaders and teams who stopped copy-pasting between six tools and put a workflow to work.",
-      "columns": "3",
-      "testimonials": [
-        {
-          "quote_fr": "Les relances clients prenaient deux jours par semaine à une personne. **Automatisées, sans perdre le ton.** Le gain de temps est réel et il est mesuré chaque mois.",
-          "quote_en": "Client follow-ups took one person two days a week. **Automated, without losing the tone.** The time saved is real and it's measured every month.",
-          "author": "Responsable relation client",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "On recopiait la même donnée du mail au CRM toute la journée. Maintenant **elle circule seule, et il n'y a plus d'erreur de saisie**. C'est bête, mais ça nous rongeait.",
-          "quote_en": "We recopied the same data from email to CRM all day. Now **it flows on its own, and there are no more entry errors**. It sounds trivial, but it was eating us alive.",
-          "author": "Directrice des opérations",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "Nos vieux scripts cassaient sans prévenir. Là, **quand quelque chose coince, on est alertés avant que ça pose problème**. On dort mieux.",
-          "quote_en": "Our old scripts broke without warning. Now, **when something jams, we're alerted before it becomes a problem**. We sleep better.",
-          "author": "Directeur des systèmes d'information",
-          "role_fr": "PME industrielle",
-          "role_en": "Industrial SME"
-        },
-        {
-          "quote_fr": "Ce qui m'a convaincu, c'est qu'on **garde la main** : les actions sensibles passent par une validation. Le workflow propose, on tranche. Rien ne part en douce.",
-          "quote_en": "What sold me is that we **keep control**: sensitive actions go through a validation. The workflow proposes, we decide. Nothing slips out.",
-          "author": "Cofondateur",
-          "role_fr": "PME",
-          "role_en": "SME"
-        },
-        {
-          "quote_fr": "Le process tenait dans la tête d'une seule personne. Le jour où elle est partie en congé, tout bloquait. **Maintenant c'est dans le système**, et ça tourne sans elle.",
-          "quote_en": "The process lived in one person's head. The day they went on leave, everything stalled. **Now it's in the system**, and it runs without them.",
-          "author": "Directeur général",
-          "role_fr": "Groupe multi-sites",
-          "role_en": "Multi-site group"
-        },
-        {
-          "quote_fr": "Approche pragmatique, zéro jargon. On a démarré par la tâche qui faisait le plus mal, **prouvé les heures gagnées, puis étendu**. Exactement le bon rythme.",
-          "quote_en": "Pragmatic approach, zero jargon. We started with the task that hurt most, **proved the hours saved, then scaled**. Exactly the right pace.",
-          "author": "Fondatrice",
-          "role_fr": "Studio créatif",
-          "role_en": "Creative studio"
-        }
-      ]
     },
     {
       "type": "pricing-cards",
@@ -1090,6 +730,12 @@
           "q_en": "How long before a first workflow runs?",
           "a_fr": "Un premier workflow ciblé tourne souvent en quelques semaines, une fois la tâche cadrée. On mesure les heures gagnées dès la mise en production, pas dans six mois.",
           "a_en": "A first targeted workflow often runs within a few weeks, once the task is scoped. We measure the hours saved from go-live, not in six months."
+        },
+        {
+          "q_fr": "Combien coûte l'automatisation d'un processus ?",
+          "q_en": "How much does it cost to automate a process?",
+          "a_fr": "On démarre par un sprint découverte à 999 € HT (10 h) : cadrage et un premier workflow en production. La suite se cale sur devis, en sprints à 99 € de l'heure, estimés avec vous. Pas d'abonnement caché : vous gardez vos workflows.",
+          "a_en": "We start with a discovery sprint at 999 € ex VAT (10 h): scoping and a first workflow in production. What follows is quoted, in sprints at 99 € an hour, estimated with you. No hidden subscription: you keep your workflows."
         },
         {
           "q_fr": "Vous vous branchez sur nos outils existants ?",
