@@ -63,6 +63,7 @@ Ordre de lecture :
 
 ### 🔧 Mission technique (archi / standards)
 - **`strategy/12-cms-content-format-decision.md`** — décision FIGÉE (2026-06-28) : Tina abandonné, PageDocument JSON git-based, Keystatic pour la coque CMS (entités/media), builder maison pour les sections, MCP pour l'IA, 1 fichier = 1 propriétaire. À exécuter sous #39/#40.
+- **`strategy/16-cdc-landing-pages-2026.md`** — CdC OFFICIEL (Simon, 2026-07-17) du système de 4 LP `/lp/` (site-web-intelligent → visibilite-google-ia → systeme-ia-marketing → systeme-acquisition + hub) : stratégie, heros, structures, hooks, CTA, mesure, process agent en 7 phases. Source de vérité du chantier LP conversion (noindex, CRO pur).
 
 `architecture/01-standards-patterns.md`, `archive/07-component-patterns.md`,
 `architecture/02-content-models.md`, `architecture/03-integrations.md`,
