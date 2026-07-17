@@ -13,13 +13,13 @@ export function organization() {
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
     legalName: 'VirtuoseWeb',
-    email: 'bonjour@waimia.fr',
+    email: 'bonjour@waimia.com',
     telephone: '+33 6 20 61 56 93',
     foundingDate: '2020-10-15',
     vatID: 'FR07890426307',
     name: ORG_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/og/logo.svg`,
+    logo: `${SITE_URL}/favicon-256.png`,
     description: "Studio IA expert de l'écosystème Claude. Architecte de systèmes agentiques pour PME.",
     address: {
       '@type': 'PostalAddress',
@@ -98,7 +98,7 @@ export function article(opts: {
     author: opts.authorName
       ? { '@type': 'Person', name: opts.authorName }
       : { '@type': 'Organization', name: ORG_NAME },
-    publisher: { '@type': 'Organization', name: ORG_NAME, logo: { '@type': 'ImageObject', url: `${SITE_URL}/og/logo.svg` } },
+    publisher: { '@type': 'Organization', name: ORG_NAME, logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon-256.png` } },
   };
 }
 

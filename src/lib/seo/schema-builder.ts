@@ -84,7 +84,7 @@ function buildOrganization() {
     '@id': `${SITE_URL}/#organization`,
     name: 'Waimia',
     url: SITE_URL,
-    logo: `${SITE_URL}/og/logo.svg`,
+    logo: `${SITE_URL}/favicon-256.png`,
     sameAs: ['https://www.linkedin.com/company/waimia'],
   };
 }
@@ -97,7 +97,7 @@ function buildLocalBusiness() {
     name: 'Waimia',
     alternateName: 'VirtuoseWeb',
     url: SITE_URL,
-    logo: `${SITE_URL}/og/logo.svg`,
+    logo: `${SITE_URL}/favicon-256.png`,
     telephone: '+33620615693',
     address: {
       '@type': 'PostalAddress',
@@ -269,7 +269,7 @@ function buildArticle(
         '@type': 'Organization',
         '@id': `${SITE_URL}/#organization`,
         name: 'Waimia',
-        logo: { '@type': 'ImageObject', url: `${SITE_URL}/og/logo.svg` },
+        logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon-256.png` },
       },
     ...(input.mainEntityOfPage
       ? {
