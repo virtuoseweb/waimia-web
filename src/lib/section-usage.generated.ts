@@ -51,10 +51,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 37,
+    "count": 40,
     "pages": [
+      "/lp/hub",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -109,7 +112,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 39,
+    "count": 41,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -120,6 +123,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/standardiser-processus",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
@@ -248,11 +253,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 29,
+    "count": 32,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/lp/site-web-intelligent",
+      "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
       "/services/applications-internes/mvp-saas",
@@ -387,7 +395,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 55,
+    "count": 57,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -403,6 +411,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/montpellier",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
@@ -447,8 +457,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 33,
+    "count": 36,
     "pages": [
+      "/lp/hub",
+      "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -486,7 +499,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "/audit-ia-pme",
       "/lp/site-web-intelligent",
-      "/lp/systeme-acquisition",
+      "/lp/visibilite-google-ia",
       "/services/template-service-ref"
     ]
   },
@@ -530,7 +543,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 53,
+    "count": 56,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -544,8 +557,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
       "/implantations/montpellier",
+      "/lp/hub",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
@@ -588,9 +604,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "guarantee-block": {
-    "count": 1,
+    "count": 3,
     "pages": [
-      "/lp/site-web-intelligent"
+      "/lp/site-web-intelligent",
+      "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing"
     ]
   },
   "hero-atlas": {
@@ -613,10 +631,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-centered": {
-    "count": 2,
+    "count": 5,
     "pages": [
+      "/lp/hub",
       "/lp/site-web-intelligent",
-      "/lp/systeme-acquisition"
+      "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia"
     ]
   },
   "hero-conversion-funnel": {
@@ -786,17 +807,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/pages/index.astro"
     ]
   },
-  "media-bento": {
-    "count": 1,
-    "pages": [
-      "/lp/systeme-acquisition"
-    ]
-  },
   "method-stepline": {
-    "count": 27,
+    "count": 29,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
       "/services/applications-internes/mvp-saas",
@@ -849,8 +866,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 28,
+    "count": 31,
     "pages": [
+      "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -888,10 +908,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 32,
+    "count": 34,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -954,10 +976,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "proof-bar": {
-    "count": 34,
+    "count": 37,
     "pages": [
+      "/lp/hub",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
@@ -1089,9 +1114,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "system-flow": {
-    "count": 21,
+    "count": 24,
     "pages": [
       "/lp/site-web-intelligent",
+      "/lp/systeme-acquisition",
+      "/lp/systeme-ia-marketing",
+      "/lp/visibilite-google-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
       "/services/applications-internes/mvp-saas",

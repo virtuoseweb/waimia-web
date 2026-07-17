@@ -14,8 +14,12 @@ import { buildService } from '../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('lp');
+  // L'entrée `hub` (src/content/lp/hub.json) est le HUB de campagne : rendu à l'INDEX
+  // du dossier (`/lp`, slug rest = undefined), pas à `/lp/hub`. Même pipeline composable
+  // + noindex que les LP filles (rule anti-orphelin + noindex assumé). Les autres entrées
+  // gardent `/lp/<id>`. Cf docs hub-spec (scratchpad lp4/05).
   return entries.map((entry) => ({
-    params: { slug: entry.id },
+    params: { slug: entry.id === 'hub' ? undefined : entry.id },
     props: { entry },
   }));
 }

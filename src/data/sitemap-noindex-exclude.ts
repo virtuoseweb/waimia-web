@@ -23,6 +23,10 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // page de service (servie sous /services). noindex (frontmatter seo.noindex) → hors
   // sitemap pour cohérence crawl.
   "/services/template-service-ref",
+  // Hub /lp (routeur des 4 LP, CdC strategy/16, 2026-07-17) : trailingSlash 'never' →
+  // l'URL « /lp » sans slash échappe au filtre préfixe '/lp/' d'astro.config ;
+  // noindex (meta) → hors sitemap pour cohérence noindex↔crawl.
+  "/lp",
   // Outils internes /agence (DS Studio + Hero Lab) : noindex,follow ET disallow robots.txt
   // → hors sitemap pour cohérence noindex↔crawl (2026-06-14).
   "/agence/ds-studio",
