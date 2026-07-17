@@ -21,7 +21,7 @@ export const demo: DemoData = {
     hint_fr: 'Vos données restent privées · jamais revendues',
     hint_en: 'Your data stays private · never resold',
     details: [
-      { label_fr: 'Email', label_en: 'Email', value: 'hello@waimia.com', href: 'mailto:hello@waimia.com' },
+      { label_fr: 'Email', label_en: 'Email', value: 'bonjour@waimia.com', href: 'mailto:bonjour@waimia.com' },
       { label_fr: 'Réponse', label_en: 'Response', value: 'Sous 24h ouvrées' },
       { label_fr: 'Base', label_en: 'Based in', value: 'Montpellier · à distance partout' },
     ],

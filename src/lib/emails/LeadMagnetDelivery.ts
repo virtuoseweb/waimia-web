@@ -38,7 +38,7 @@ export default function LeadMagnetDelivery({
     `<a href="${pdfHref}" style="${buttonLinkStyle}">Télécharger le PDF →</a>` +
     `</div>` +
     `<p style="${mutedStyle}">Ce qui arrive ensuite : 3 emails sur 14 jours (1 insight RevOps · 1 étude de cas · 1 invitation RDV facultative). Désinscription en 1 clic dans chaque email.</p>` +
-    `<p style="${mutedStyle}">Question ? <a href="mailto:bonjour@waimia.fr" style="${accentLinkStyle}">bonjour@waimia.fr</a></p>`;
+    `<p style="${mutedStyle}">Question ? <a href="mailto:bonjour@waimia.com" style="${accentLinkStyle}">bonjour@waimia.com</a></p>`;
 
   return wrapEmail(content, `${title} · votre PDF est prêt`, pageUrl);
 }

@@ -15,7 +15,7 @@ export const demo: DemoData = {
     availability_fr: '● DISPONIBLE · RÉPONSE SOUS 24H',
     availability_en: '● AVAILABLE · RESPONSE IN 24H',
     cta_primary: { label_fr: 'Câbler →', label_en: 'Wire it →', href: '/contact', variant: 'primary' },
-    cta_secondary: { label_fr: 'bonjour@waimia.fr', label_en: 'hello@waimia.fr', href: 'mailto:bonjour@waimia.fr', variant: 'ghost' },
+    cta_secondary: { label_fr: 'bonjour@waimia.com', label_en: 'bonjour@waimia.com', href: 'mailto:bonjour@waimia.com', variant: 'ghost' },
     reassurance_fr: 'Diagnostic <i>gratuit</i> · sans engagement · réponse <i>sous 24h</i>.',
     reassurance_en: 'Free <i>diagnostic</i> · no commitment · response <i>within 24h</i>.',
     background: 'paper',
