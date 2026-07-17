@@ -1,0 +1,414 @@
+---
+export const prerender = true;
+
+// Page · /dashboard-seo · POC dashboard SEO git-based (outil INTERNE)
+// ──────────────────────────────────────────────────────────────────────────────
+// « L'OS » waimia, 1er module. Logiciel SANS serveur/BDD : la mémoire vit dans les
+// .md de la collection `dashboard-seo` (frontmatter = page suivie, corps = mémoire).
+// CRUD = éditer le .md (commit), l'app se met à jour au build. Phase 1 = lecture +
+// analyse live PageSpeed Insights (fetch client, sans OAuth). L'OAuth Google/GSC +
+// l'auto-improve (écriture runtime) = phases suivantes. Cadrage : docs/strategy/15 §7bis.
+//
+// Outil interne → noindex,follow (prop Base, comme /agence/cartographie). Hors sitemap
+// (NOINDEX_SITEMAP_PATHS) + disallow robots.txt (astro.config.mjs). 0 nouveau token DS.
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Kicker from '../components/ui/atoms/Kicker.astro';
+import DashboardSeoApp, { type TrackedPage } from '../components/dashboard-seo/DashboardSeoApp.tsx';
+
+const ORIGIN = 'https://waimia.com';
+
+// Lecture de la « BDD » git-based : chaque .md = une page suivie. Le corps markdown
+// (entry.body) est la mémoire/notes, rendue read-only côté island.
+const entries = await getCollection('dashboard-seo');
+
+// Tri : priorité haute d'abord, puis par date d'ajout (récent d'abord).
+const prioRank = (p: string) => (p === 'haute' ? 0 : 1);
+const pages: TrackedPage[] = entries
+  .map((e) => ({
+    id: e.id,
+    url: e.data.url,
+    label: e.data.label,
+    priority: e.data.priority,
+    addedAt: e.data.addedAt.toISOString(),
+    memory: e.body ?? '',
+  }))
+  .sort(
+    (a, b) =>
+      prioRank(a.priority) - prioRank(b.priority) ||
+      b.addedAt.localeCompare(a.addedAt),
+  );
+
+const total = pages.length;
+const hautes = pages.filter((p) => p.priority === 'haute').length;
+---
+
+<Base
+  title="Dashboard SEO · Outil interne Waimia · POC git-based"
+  description="Console interne de suivi SEO Waimia : pages suivies, mémoire git-based en markdown et analyse PageSpeed Insights en direct. Outil interne, phase 1 du POC."
+  noindex
+  alternate={false}
+>
+  {/* ───────────── MASTHEAD ───────────── */}
+  <section class="dsh-hd">
+    <div class="wrap-wide">
+      <Kicker class="dsh-kicker">§ Outil interne · Dashboard SEO · POC git-based</Kicker>
+      <h1 class="dsh-h1">La mémoire du site, <i>en clair</i>.</h1>
+      <p class="dsh-lede">
+        Console de suivi SEO sans serveur ni base de données : chaque page suivie vit dans un fichier
+        markdown versionné. La mémoire (notes, recommandations) s'édite par commit et l'app se met à jour
+        au build. La donnée de performance, elle, se mesure en direct via PageSpeed Insights.
+      </p>
+      <ul class="dsh-stats" aria-label="Statistiques du suivi">
+        <li><strong>{total}</strong><span>pages suivies</span></li>
+        <li><strong>{hautes}</strong><span>priorité haute</span></li>
+        <li><strong>4</strong><span>scores mesurés</span></li>
+        <li><strong>git</strong><span>source de vérité</span></li>
+      </ul>
+    </div>
+  </section>
+
+  {/* ───────────── APPLICATION (island) ───────────── */}
+  <section class="dsh-app wrap-wide" aria-label="Pages suivies et analyse">
+    <DashboardSeoApp client:load pages={pages} origin={ORIGIN} />
+  </section>
+</Base>
+
+<style>
+  .dsh-hd {
+    padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .dsh-kicker { margin: 0 0 var(--space-4); }
+  .dsh-h1 {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .dsh-h1 i {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-regular);
+    color: var(--accent-text);
+  }
+  .dsh-lede {
+    max-width: 62ch;
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .dsh-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-7);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .dsh-stats li { display: flex; flex-direction: column; gap: 2px; }
+  .dsh-stats strong {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1;
+  }
+  .dsh-stats span {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .dsh-app {
+    margin: 0 auto;
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-12);
+  }
+  @media (max-width: 720px) {
+    .dsh-hd .wrap-wide,
+    .dsh-app {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>
+
+{/* CSS de l'island DashboardSeoApp : sorti du composant React (un style hydraté provoque un
+    mismatch SSR/client). is:global car les classes dsq-* sont sur du markup rendu par React,
+    hors scoping Astro. 0 nouveau token DS (rule 60), 0 valeur en dur (exception hairline 1px). */}
+<style is:global>
+  .dsq { display: flex; flex-direction: column; gap: var(--space-6); }
+
+  /* ── Barre d'actions ── */
+  .dsq-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper-2);
+  }
+  .dsq-toolbar-left,
+  .dsq-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .dsq-hint {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+  .dsq-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── Boutons ── */
+  .dsq-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease);
+  }
+  .dsq-btn:hover:not(:disabled) { border-color: var(--accent-text); color: var(--accent-text); }
+  .dsq-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .dsq-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .dsq-btn--primary {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .dsq-btn--primary:hover:not(:disabled) { color: var(--paper); border-color: var(--ink); opacity: 0.9; }
+  .dsq-btn--outline { background: var(--paper); }
+  .dsq-btn--ghost { background: transparent; }
+
+  /* ── Liste des pages ── */
+  .dsq-pages {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .dsq-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper);
+  }
+  .dsq-page-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .dsq-page-id { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+  .dsq-page-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .dsq-page-url {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    text-decoration: none;
+    word-break: break-word;
+  }
+  .dsq-page-url:hover { text-decoration: underline; }
+  .dsq-page-actions { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+  .dsq-prio {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .dsq-prio[data-prio='haute'] { border-color: var(--accent-text); color: var(--accent-text); }
+
+  /* ── Résultat / états ── */
+  .dsq-result { display: flex; flex-direction: column; gap: var(--space-4); }
+  .dsq-idle,
+  .dsq-loading,
+  .dsq-error,
+  .dsq-audits-empty {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.5;
+  }
+  .dsq-idle { color: var(--muted); }
+  .dsq-loading { color: var(--ink-2); }
+  .dsq-error {
+    color: var(--accent-text);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--accent-text);
+    border-radius: var(--radius-sm);
+    background: rgba(var(--accent-rgb), 0.06);
+  }
+  .dsq-audits-empty { color: var(--muted); }
+
+  /* ── Scores (code couleur DS via tokens existants) ── */
+  .dsq-scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .dsq-score {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4);
+    background: var(--paper);
+    border-left: 3px solid var(--hairline-strong);
+  }
+  /* Bandes : bon = complementary (froid, mise en avant), moyen = muted (neutre),
+     faible = accent (terracotta, attention). Numéral toujours en --ink pour la lisibilité. */
+  .dsq-score[data-band='good'] { border-left-color: var(--complementary); }
+  .dsq-score[data-band='mid'] { border-left-color: var(--muted-2); }
+  .dsq-score[data-band='poor'] { border-left-color: var(--accent); }
+  .dsq-score[data-band='na'] { border-left-color: var(--hairline-strong); }
+  .dsq-score-val {
+    font-family: var(--font-sans);
+    font-size: var(--text-numeral-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    line-height: 1;
+  }
+  .dsq-score-cat {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── Audits ── */
+  .dsq-audits { display: flex; flex-direction: column; gap: var(--space-2); }
+  .dsq-audits-title {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .dsq-audits-list { display: flex; flex-direction: column; gap: 1px; margin: 0; padding: 0; list-style: none; }
+  .dsq-audit {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .dsq-audit:last-child { border-bottom: 0; }
+  .dsq-audit-t {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--ink-2);
+    line-height: 1.4;
+  }
+  .dsq-audit-v {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    white-space: nowrap;
+  }
+
+  /* ── Mémoire git-based ── */
+  .dsq-mem {
+    border-top: 1px solid var(--hairline);
+    padding-top: var(--space-3);
+  }
+  .dsq-mem-summary {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .dsq-mem-summary:hover { color: var(--accent-text); }
+  .dsq-mem-note {
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: none;
+    color: var(--muted);
+  }
+  .dsq-mem-body {
+    padding-top: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .dsq-mem-sub {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .dsq-mem-list { margin: 0; padding-left: var(--space-4); display: flex; flex-direction: column; gap: var(--space-1); }
+  .dsq-mem-list li,
+  .dsq-mem-p {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+</style>

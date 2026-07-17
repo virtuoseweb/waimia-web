@@ -719,6 +719,25 @@ const courses = defineCollection({
 // ═════════════════════════════════════════════════════════════════
 
 // ═════════════════════════════════════════════════════════════════
+// ─── Dashboard SEO (POC git-based, 2026-07-17) ───
+// « L'OS » waimia, 1er module : logiciel SANS serveur/BDD. La mémoire vit dans
+// des fichiers .md (1 fichier = 1 page suivie). CRUD = le markdown se met à jour
+// (commit) et l'app au build. Frontmatter = métadonnées de la page suivie ; le
+// CORPS markdown (entry.body) = mémoire/notes/recommandations, la « BDD ».
+// Cadrage : docs/strategy/15-waimia-seo-app.md §7bis. Route : src/pages/dashboard-seo.astro.
+// ═════════════════════════════════════════════════════════════════
+const dashboardSeo = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/dashboard-seo' }),
+  schema: z.object({
+    // Chemin relatif de la page suivie sur waimia.com (ex. '/', '/services/site-web-ia').
+    url: z.string().regex(/^\//, 'chemin relatif, doit commencer par /'),
+    label: z.string().min(1),
+    priority: z.enum(['haute', 'normale']).default('normale'),
+    addedAt: z.coerce.date(),
+  }),
+});
+
+// ═════════════════════════════════════════════════════════════════
 
 export const collections = {
   // V1 existantes
@@ -742,4 +761,6 @@ export const collections = {
   comparatifs,
   audits,
   'pages-locales': pagesLocales,
+  // POC git-based (2026-07-17) : dashboard SEO, mémoire en .md
+  'dashboard-seo': dashboardSeo,
 };

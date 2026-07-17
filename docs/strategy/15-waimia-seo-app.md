@@ -10,8 +10,37 @@
 > plugin à forte valeur récurrente du boilerplate produit : le site du client s'améliore seul.
 >
 > Historique : création 2026-07-16 (brief Simon + extension boucle contenu, même session).
+> **Addendum 2026-07-17 : le chemin v0 change (directive Simon du matin) → §7bis POC git-based.**
 
 ---
+
+## §7bis ADDENDUM 2026-07-17 · POC git-based D'ABORD, saasification ensuite (directive Simon)
+
+> Verbatim Simon (2026-07-17 matin) : « l'objectif suivant c'est d'avoir la SPA avec le contenu
+> en .md servi par exemple via waimia.com/dashboard-seo [...] Pour les logiciels plutôt que
+> d'enregistrer dans des tables la mémoire vit dans des lignes d'un fichier markdown et lorsqu'on
+> met à jour une info CRUD c'est le markdown qui se met à jour ainsi que notre app au build. Au
+> début plutôt que de faire des saas on utilise cette technique de logiciel sans serveur/bdd
+> seulement git-based ça suffit pour le POC normalement et si le POC fonctionne sur le marché
+> [...] on verra pour le saasifier. »
+
+Ce que ça change par rapport aux §2/§6/§7 (qui restent valides pour la phase SaaS ultérieure) :
+
+1. **v0 = SPA `/dashboard-seo` DANS waimia-web** (pas un nouveau repo, pas de boilerplate, pas
+   de Postgres). « L'OS » = l'app dashboard à laquelle se branchent les briques (catalogue/DS,
+   builder, listing des apps, dashboard-seo) ; **au départ, cet OS est le projet waimia lui-même**.
+2. **Mémoire = markdown git-based** : collection Astro `dashboard-seo` (.md) = pages suivies,
+   recommandations, snapshots de scores. CRUD = éditer le .md (commit) → l'app se met à jour au
+   build. Zéro serveur, zéro BDD.
+3. **Data v0 = PageSpeed Insights API v5** (fetch client, pas d'OAuth requis). La connexion
+   Google/GSC (OAuth, §4) arrive en v0.2 : prérequis = client OAuth GCP créé par Simon.
+4. **« Auto improve » v0.2** : accepter une reco = écriture du .md via endpoint `/api/*`
+   (pattern forms existant) + GitHub API → commit → rebuild → modif appliquée. C'est la version
+   git-based du connecteur « applyChange » du §3 : le POC valide le concept sur NOTRE site avant
+   de le généraliser aux sites clients.
+5. **Saasification (§2 boilerplate, §6 Postgres) : conditionnée à la traction du POC.**
+
+Fiche décision : `~/.claude/night-sessions/2026-07-16/decisions/0014`.
 
 ## §0 Vision produit (reformulation fidèle du brief, 0 invention de scope)
 

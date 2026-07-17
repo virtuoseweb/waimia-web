@@ -38,6 +38,9 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // Cartographie d'audit interne (toutes les pages réelles + statut SEO, outil de
   // décision garder/supprimer) : noindex (prop Base) → hors sitemap pour cohérence.
   "/agence/cartographie",
+  // Dashboard SEO (POC git-based, 2026-07-17) : outil interne (lecture + analyse PageSpeed
+  // live), noindex (prop Base) + disallow robots.txt → hors sitemap pour cohérence noindex↔crawl.
+  "/dashboard-seo",
   // (P1.3 2026-06-29) `/services/site-web-ia` RETIRÉ de l'exclusion : le contenu réel
   // est posé (seo.noindex:false, 0 placeholder vérifié) → money page #2 indexable + dans le
   // sitemap. Le commentaire « DÉMO placeholders / fiche 0004 » était stale.
