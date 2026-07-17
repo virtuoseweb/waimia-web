@@ -83,6 +83,85 @@ const WORKFLOW_ILLUSTRATIONS = [
   { src: '/images/illustrations/ds/chess-paper.webp', alt_fr: 'Illustration : pièces d\'échecs, stratégie', alt_en: 'Illustration: chess pieces, strategy' },
 ] as const;
 
+// ── DÉ-TEMPLATISATION (décision 7, audit SEO final) · variantes PAR SECTEUR des blocs
+//    injectés autrement identiques entre sœurs (feature-zigzag lede + corps de rangée,
+//    sous-titre du climax CTA). Le défaut générique reste le FALLBACK ci-dessous → 0
+//    régression sur les secteurs noindex, qui ne sont pas cadrés ici. Chaque tableau
+//    `workflowBodies_fr` est indexé sur `workflowsCible` du frontmatter (même ordre).
+//    Contrainte : le schéma de la collection strippe les champs frontmatter inconnus,
+//    donc la variante vit ici (route autorisée), pas dans un nouveau champ MDX. ──
+const SECTOR_COPY: Record<string, {
+  zigzagLede_fr: string; zigzagLede_en: string;
+  ctaSubtitle_fr: string; ctaSubtitle_en: string;
+  workflowBodies_fr: string[]; workflowBodies_en: string[];
+}> = {
+  batiment: {
+    zigzagLede_fr: 'On outille la signature, pas la théorie : rassurer avant l\'appel, capter la demande, chiffrer vite. Branché sur vos outils, tenu par votre équipe.',
+    zigzagLede_en: 'We tool the signature, not the theory: reassure before the call, capture the request, quote fast. Wired to your tools, run by your team.',
+    ctaSubtitle_fr: 'On regarde vos demandes entrantes et votre visibilité locale en 45 minutes, et on vous dit vite si le terrain est opérable. Sans promesse en l\'air.',
+    ctaSubtitle_en: 'We look at your inbound requests and local visibility in 45 minutes, and tell you quickly whether the field is operationally viable. No empty promises.',
+    workflowBodies_fr: [
+      'Photos de chantiers, avis en évidence, coordonnées claires : le prospect voit une entreprise sérieuse avant même d\'appeler. C\'est ce qui déclenche la demande.',
+      'Chaque demande arrive triée : type de travaux, zone, urgence. Vous ouvrez une liste qualifiée, pas une pile d\'appels manqués à rappeler à l\'aveugle.',
+      'Le premier qui chiffre emporte souvent le chantier. On prépare les réponses pour que le devis parte le jour même, pas la semaine suivante.',
+    ],
+    workflowBodies_en: [
+      'Job-site photos, reviews up front, clear contact details: the prospect sees a serious company before even calling. That is what triggers the request.',
+      'Every request comes sorted: type of work, area, urgency. You open a qualified list, not a pile of missed calls to return blind.',
+      'The first to quote often wins the job. We prep the answers so the quote goes out the same day, not the next week.',
+    ],
+  },
+  'e-commerce': {
+    zigzagLede_fr: 'On travaille le tunnel, pas la vitrine : un site rapide, un guidage qui lève les objections, un suivi qui montre ce qui convertit. Branché sur votre stack actuelle.',
+    zigzagLede_en: 'We work the funnel, not the storefront: a fast site, guidance that clears objections, tracking that shows what converts. Wired to your current stack.',
+    ctaSubtitle_fr: 'On regarde votre tunnel d\'achat et vos perfs en 45 minutes, et on vous dit vite ce qui bloque la conversion. Sans promesse en l\'air.',
+    ctaSubtitle_en: 'We look at your checkout funnel and performance in 45 minutes, and tell you quickly what is blocking conversion. No empty promises.',
+    workflowBodies_fr: [
+      'Sous trois secondes de chargement mobile, sinon le visiteur part avant la fiche produit. On traque et on corrige ce qui ralentit le tunnel, page par page.',
+      'Un vendeur qui ne dort pas : il trouve le bon produit, répond aux objections livraison ou taille, et accompagne jusqu\'au paiement. Sans équipe support 24/7.',
+      'On branche le suivi qui manque : quelle source rapporte, quelle étape fait décrocher, qui revient. Vous arrêtez d\'optimiser à l\'aveugle.',
+    ],
+    workflowBodies_en: [
+      'Under three seconds of mobile load, or the visitor leaves before the product page. We track and fix what slows the funnel, page by page.',
+      'A salesperson that never sleeps: finds the right product, answers delivery or size objections, and guides to checkout. Without a 24/7 support team.',
+      'We wire the missing tracking: which source pays off, which step makes people drop, who comes back. You stop optimizing blind.',
+    ],
+  },
+  'liberal-independant': {
+    zigzagLede_fr: 'On construit l\'autorité, pas la brochure : être trouvé sur vos requêtes métier, rassurer, ouvrir un contact simple. Un actif qui vous appartient, hors plateformes.',
+    zigzagLede_en: 'We build authority, not a brochure: get found on your trade queries, reassure, open a simple contact. An asset you own, off-platform.',
+    ctaSubtitle_fr: 'On regarde votre visibilité et votre présence en ligne en 45 minutes, et on vous dit vite où vous perdez des contacts. Sans promesse en l\'air.',
+    ctaSubtitle_en: 'We look at your visibility and online presence in 45 minutes, and tell you quickly where you are losing contacts. No empty promises.',
+    workflowBodies_fr: [
+      'Un site qui prouve votre expertise plutôt qu\'une fiche d\'annuaire interchangeable : votre angle, vos publications, vos références. Il travaille pendant vos rendez-vous.',
+      'Être trouvé sur vos requêtes métier sur Google, et cité dans les réponses des moteurs IA où une part croissante de vos clients cherche désormais un nom.',
+      'Un chemin de contact clair, sans formulaire à rallonge ni intermédiaire qui prend sa commission. Le prospect vous joint directement, quand il est décidé.',
+    ],
+    workflowBodies_en: [
+      'A site that proves your expertise rather than an interchangeable directory listing: your angle, your publications, your references. It works while you are in meetings.',
+      'Get found on your trade queries on Google, and cited in AI engine answers where a growing share of your clients now look for a name.',
+      'A clear contact path, no endless form and no intermediary taking a cut. The prospect reaches you directly, the moment they have decided.',
+    ],
+  },
+  therapeutes: {
+    zigzagLede_fr: 'On travaille la confiance et le créneau, pas le décor : expliquer votre approche, rassurer, rendre la prise de rendez-vous évidente. Sans dépendre d\'une plateforme.',
+    zigzagLede_en: 'We work trust and the booking slot, not the decor: explain your approach, reassure, make booking obvious. Without depending on a platform.',
+    ctaSubtitle_fr: 'On regarde votre visibilité locale et votre prise de rendez-vous en 45 minutes, et on vous dit vite ce qui freine les demandes. Sans promesse en l\'air.',
+    ctaSubtitle_en: 'We look at your local visibility and booking flow in 45 minutes, and tell you quickly what is holding requests back. No empty promises.',
+    workflowBodies_fr: [
+      'Votre approche expliquée sans jargon, votre cadre, vos avis : le nouveau patient hésitant est rassuré avant le premier échange, là où la décision se prend.',
+      'Des créneaux visibles et réservables en quelques clics. Fini le téléphone qui sonne dans le vide et les allers-retours par mail qui découragent.',
+      'Ressortir sur la recherche locale et la fiche Google, avec les avis en évidence. C\'est là que le patient choisit un praticien près de chez lui.',
+    ],
+    workflowBodies_en: [
+      'Your approach explained without jargon, your setting, your reviews: the hesitant new patient is reassured before the first exchange, where the decision is made.',
+      'Visible slots, bookable in a few clicks. No more calls going unanswered and discouraging email back-and-forth.',
+      'Surface on local search and the Google listing, with reviews up front. That is where the patient picks a practitioner near them.',
+    ],
+  },
+};
+const sectorCopy = SECTOR_COPY[slug];
+
 // ── DÉFAUT PARTAGÉ · 5 stades de maturité IA (génériques, crédibles, sentence case).
 //    S'affiche toujours (jamais de fausse donnée client chiffrée). ──
 const defaultDiagnosticStages = [
@@ -159,8 +238,8 @@ const workflowRows = d.workflowsCible.slice(0, 4).map((wf, i) => {
     kicker_en: String(i + 1).padStart(2, '0'),
     h3_fr: wf.charAt(0).toUpperCase() + wf.slice(1),
     h3_en: wf.charAt(0).toUpperCase() + wf.slice(1),
-    body_fr: "On câble ce workflow sur vos outils existants, avec votre équipe. Tout reste lisible et modifiable : pas de boîte noire, vous gardez la main.",
-    body_en: 'We wire this workflow onto your existing tools, with your team. Everything stays readable and editable: no black box, you keep control.',
+    body_fr: sectorCopy?.workflowBodies_fr[i] ?? "On câble ce workflow sur vos outils existants, avec votre équipe. Tout reste lisible et modifiable : pas de boîte noire, vous gardez la main.",
+    body_en: sectorCopy?.workflowBodies_en[i] ?? 'We wire this workflow onto your existing tools, with your team. Everything stays readable and editable: no black box, you keep control.',
     media_src: img.src,
     media_alt_fr: img.alt_fr,
     media_alt_en: img.alt_en,
@@ -234,8 +313,8 @@ if (hasWorkflows) {
     kicker_en: '§ What we wire',
     h2_fr: 'Des workflows, pas des <i>slides</i>.',
     h2_en: 'Workflows, not <i>slides</i>.',
-    lede_fr: 'On déploie ce qui compte pour votre métier, branché sur vos outils, transféré à votre équipe.',
-    lede_en: 'We deploy what matters for your trade, wired to your tools, handed over to your team.',
+    lede_fr: sectorCopy?.zigzagLede_fr ?? 'On déploie ce qui compte pour votre métier, branché sur vos outils, transféré à votre équipe.',
+    lede_en: sectorCopy?.zigzagLede_en ?? 'We deploy what matters for your trade, wired to your tools, handed over to your team.',
     rows: workflowRows,
   } satisfies SectionByType<'feature-zigzag'>);
 }
@@ -348,8 +427,8 @@ const sectionsAfterProse: SectionData[] = [
     kicker_en: '§ Your field',
     h2_fr: `${d.icp_fr} : on cadre votre <i>terrain</i>.`,
     h2_en: `${d.icp_en}: we frame your <i>field</i>.`,
-    subtitle_fr: "On regarde votre contexte en 45 minutes et on vous dit vite si le terrain est opérable, sans promesse en l'air.",
-    subtitle_en: 'We look at your context in 45 minutes and tell you quickly whether the field is operationally viable, with no empty promises.',
+    subtitle_fr: sectorCopy?.ctaSubtitle_fr ?? "On regarde votre contexte en 45 minutes et on vous dit vite si le terrain est opérable, sans promesse en l'air.",
+    subtitle_en: sectorCopy?.ctaSubtitle_en ?? 'We look at your context in 45 minutes and tell you quickly whether the field is operationally viable, with no empty promises.',
     buttons: [
       {
         label_fr: d.ctaPrimary_fr,

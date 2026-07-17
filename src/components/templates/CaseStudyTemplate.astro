@@ -164,6 +164,24 @@ interface Props {
   pullQuoteCiteEn?: string;
   /** Vitrine du site livre → site-showcase (captures reelles + lien nofollow). */
   showcase?: Omit<SectionByType<'site-showcase'>, 'type'>;
+  // ── Dé-templatisation (audit SEO final · c-preuve §3) : en-têtes de section +
+  //    copie CTA pilotables par cas. Tous optionnels → si absents, le template
+  //    garde ses libellés par défaut (0 régression). Objectif : baisser le
+  //    recouvrement d'ossature templatée entre les pages cas sœurs.
+  bottlenecksHeadingFr?: string;
+  bottlenecksHeadingEn?: string;
+  approachHeadingFr?: string;
+  approachHeadingEn?: string;
+  deliverablesHeadingFr?: string;
+  deliverablesHeadingEn?: string;
+  resultsHeadingFr?: string;
+  resultsHeadingEn?: string;
+  stackLeadFr?: string;
+  stackLeadEn?: string;
+  ctaHeadingFr?: string;
+  ctaHeadingEn?: string;
+  ctaSubtitleFr?: string;
+  ctaSubtitleEn?: string;
 }
 const {
   title, description, caseTitle, caseNum, h1_fr, h1_en, specs, steps,
@@ -173,6 +191,13 @@ const {
   bottlenecks, phases, deliverableCards, shifts,
   pullQuoteFr, pullQuoteEn, pullQuoteCiteFr, pullQuoteCiteEn,
   showcase,
+  bottlenecksHeadingFr, bottlenecksHeadingEn,
+  approachHeadingFr, approachHeadingEn,
+  deliverablesHeadingFr, deliverablesHeadingEn,
+  resultsHeadingFr, resultsHeadingEn,
+  stackLeadFr, stackLeadEn,
+  ctaHeadingFr, ctaHeadingEn,
+  ctaSubtitleFr, ctaSubtitleEn,
   provenance = 'first-party',
   ogType = 'article',
 } = Astro.props;
@@ -212,10 +237,10 @@ const ctaData = {
   background: 'ink',
   kicker_fr: '§ Travaillons ensemble',
   kicker_en: '§ Work with us',
-  h2_fr: 'Votre prochain chantier doit produire des <i>résultats</i>.',
-  h2_en: 'Your next project should produce <i>results</i>.',
-  subtitle_fr: `Si ${caseLabel} ressemble à votre contexte, on cadre le vôtre en 45 minutes et on vous dit vite si le terrain est opérable.`,
-  subtitle_en: `If ${caseLabel} looks like your context, we frame yours in 45 minutes and tell you quickly whether the field is operationally viable.`,
+  h2_fr: ctaHeadingFr ?? 'Votre prochain chantier doit produire des <i>résultats</i>.',
+  h2_en: ctaHeadingEn ?? 'Your next project should produce <i>results</i>.',
+  subtitle_fr: ctaSubtitleFr ?? `Si ${caseLabel} ressemble à votre contexte, on cadre le vôtre en 45 minutes et on vous dit vite si le terrain est opérable.`,
+  subtitle_en: ctaSubtitleEn ?? `If ${caseLabel} looks like your context, we frame yours in 45 minutes and tell you quickly whether the field is operationally viable.`,
   buttons: [
     {
       label_fr: 'Démarrer un projet',
@@ -243,8 +268,8 @@ const problemStatementData = hasContextStatement
 const problemsGridData = bottlenecks && bottlenecks.length >= 2
   ? ({
       type: 'problems-grid',
-      h2_fr: 'Trois goulots structurels.',
-      h2_en: 'Three structural bottlenecks.',
+      h2_fr: bottlenecksHeadingFr ?? 'Trois goulots structurels.',
+      h2_en: bottlenecksHeadingEn ?? 'Three structural bottlenecks.',
       problems: bottlenecks,
     } satisfies SectionByType<'problems-grid'>)
   : null;
@@ -254,8 +279,8 @@ const methodTimelineData = phases && phases.length >= 2
       type: 'method-timeline',
       kicker_fr: "§ 02 · L'approche",
       kicker_en: '§ 02 · The approach',
-      h2_fr: "Ce qu'on a câblé.",
-      h2_en: 'What we built.',
+      h2_fr: approachHeadingFr ?? "Ce qu'on a câblé.",
+      h2_en: approachHeadingEn ?? 'What we built.',
       steps: phases,
     } satisfies SectionByType<'method-timeline'>)
   : null;
@@ -265,8 +290,8 @@ const deliverablesGridData = deliverableCards && deliverableCards.length >= 2
       type: 'deliverables-grid',
       kicker_fr: '§ Livré',
       kicker_en: '§ Shipped',
-      title_fr: "Ce qu'on a livré.",
-      title_en: 'What we shipped.',
+      title_fr: deliverablesHeadingFr ?? "Ce qu'on a livré.",
+      title_en: deliverablesHeadingEn ?? 'What we shipped.',
       items: deliverableCards,
     } satisfies SectionByType<'deliverables-grid'>)
   : null;
@@ -293,8 +318,8 @@ const showcaseData = showcase && showcase.screens.length > 0
 const statBlockData = proofMetrics.length > 0
   ? ({
       type: 'stat-block',
-      h2_fr: 'Résultats mesurés.',
-      h2_en: 'Measured results.',
+      h2_fr: resultsHeadingFr ?? 'Résultats mesurés.',
+      h2_en: resultsHeadingEn ?? 'Measured results.',
       metrics: proofMetrics.map((m) => ({
         value: m.k,
         label_fr: m.label_fr,
@@ -344,13 +369,15 @@ const relatedBandData = relatedCards && relatedCards.length >= 2
 const stackToolNames = techPills.map((p) => p.label);
 const stackLead = {
   fr:
-    stackToolNames.length > 0
+    stackLeadFr ??
+    (stackToolNames.length > 0
       ? `Les briques mobilisées sur ce projet : ${stackToolNames.join(', ')}. Chaque choix sert un besoin précis du terrain, pas une mode technique.`
-      : '',
+      : ''),
   en:
-    stackToolNames.length > 0
+    stackLeadEn ??
+    (stackToolNames.length > 0
       ? `The building blocks used on this project: ${stackToolNames.join(', ')}. Each choice serves a precise field need, not a technical fashion.`
-      : '',
+      : ''),
 };
 
 // Husk éliminé : on ne rend la timeline legacy QUE si des steps existent vraiment.

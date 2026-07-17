@@ -229,6 +229,24 @@ const cases = defineCollection({
     pullQuote_en: z.string().optional(),
     pullQuoteCite_fr: z.string().optional(),
     pullQuoteCite_en: z.string().optional(),
+    // ── Dé-templatisation (audit SEO final · c-preuve §3) : en-têtes de section
+    //    et copie CTA pilotables par cas. TOUS optionnels → le template garde ses
+    //    libellés par défaut si absents (0 régression). But : baisser le
+    //    recouvrement d'ossature templatée entre pages cas sœurs (Jaccard 0.599).
+    bottlenecksHeading_fr: z.string().optional(),
+    bottlenecksHeading_en: z.string().optional(),
+    approachHeading_fr: z.string().optional(),
+    approachHeading_en: z.string().optional(),
+    deliverablesHeading_fr: z.string().optional(),
+    deliverablesHeading_en: z.string().optional(),
+    resultsHeading_fr: z.string().optional(),
+    resultsHeading_en: z.string().optional(),
+    stackLead_fr: z.string().optional(),
+    stackLead_en: z.string().optional(),
+    ctaHeading_fr: z.string().optional(),
+    ctaHeading_en: z.string().optional(),
+    ctaSubtitle_fr: z.string().optional(),
+    ctaSubtitle_en: z.string().optional(),
     // ── Refonte R7a (docs/37 §2.1) : facettes d'exploration du cas (secteur, problème,
     //    solution, résultat) reliées aux référentiels src/data/pain-points.ts et
     //    src/data/proof-points.ts. Optionnel → 0 contenu cassé ; ids/slugs validés
