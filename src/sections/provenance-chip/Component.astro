@@ -1,0 +1,59 @@
+---
+// Waimia · Co-location DS · module `provenance-chip` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `case-provenance` de
+// src/components/templates/CaseStudyTemplate.astro (classes renommees en BEM scope
+// composant, proprietes CSS strictement identiques → 0 changement de rendu). Le wrapper
+// garde les classes GLOBALES `reveal` (observer scroll-reveal) et `wrap-wide` (layout).
+// 100 % tokens DS existants, 0 token cree, 0 hardcode couleur/espacement.
+import type { ProvenanceChipData } from '@waimia/ds-kernel/sections/provenance-chip/schema';
+
+interface Props {
+  data: ProvenanceChipData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isSolid = (data.variant ?? 'solid') === 'solid';
+const label = lang === 'en' ? data.label_en : data.label_fr;
+---
+<section class="provenance-chip reveal">
+  <div class="wrap-wide">
+    <a
+      class:list={['provenance-chip__chip', isSolid ? 'provenance-chip__chip--solid' : 'provenance-chip__chip--outline']}
+      href={data.href}
+    >
+      {label}
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Chip provenance (docs/strategy/03 §5). Tokens DS existants uniquement : --font-mono,
+     --text-small, --tracking-mono-tight, --accent, --paper, --accent-text, --radius-pill,
+     --hairline-strong, --paper-2, --space-*, --dur-fast, --ease. */
+  .provenance-chip { padding: var(--space-5) var(--space-6) 0; }
+  .provenance-chip__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  }
+  .provenance-chip__chip--solid {
+    background: var(--accent);
+    color: var(--paper);
+    border: 1px solid var(--accent);
+  }
+  .provenance-chip__chip--solid:hover { opacity: 0.85; }
+  .provenance-chip__chip--outline {
+    background: transparent;
+    color: var(--accent-text);
+    border: 1px solid var(--hairline-strong);
+  }
+  .provenance-chip__chip--outline:hover { background: var(--paper-2); }
+</style>

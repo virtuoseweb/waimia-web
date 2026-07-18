@@ -212,6 +212,8 @@ import { Component as eeatPanelComponent, meta as eeatPanelMeta } from '../secti
 import { Component as richTextComponent, meta as richTextMeta } from '../sections/rich-text';
 import { Component as stickyScrollStorytellingComponent, meta as stickyScrollStorytellingMeta } from '../sections/sticky-scroll-storytelling';
 import { Component as hoverRevealWordsComponent, meta as hoverRevealWordsMeta } from '../sections/hover-reveal-words';
+import { Component as provenanceChipComponent, meta as provenanceChipMeta } from '../sections/provenance-chip';
+import { Component as usedServiceCalloutComponent, meta as usedServiceCalloutMeta } from '../sections/used-service-callout';
 
 export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'hero-form-inline': {
@@ -1041,5 +1043,13 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'hover-reveal-words': {
     component: hoverRevealWordsComponent,
     ...hoverRevealWordsMeta,
+  },
+  'provenance-chip': {
+    component: provenanceChipComponent,
+    ...provenanceChipMeta,
+  },
+  'used-service-callout': {
+    component: usedServiceCalloutComponent,
+    ...usedServiceCalloutMeta,
   },
 };

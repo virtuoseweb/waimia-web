@@ -212,6 +212,8 @@ import { demo as eeatPanelDemo } from '../sections/eeat-panel/demo';
 import { demo as richTextDemo } from '../sections/rich-text/demo';
 import { demo as stickyScrollStorytellingDemo } from '../sections/sticky-scroll-storytelling/demo';
 import { demo as hoverRevealWordsDemo } from '../sections/hover-reveal-words/demo';
+import { demo as provenanceChipDemo } from '../sections/provenance-chip/demo';
+import { demo as usedServiceCalloutDemo } from '../sections/used-service-callout/demo';
 
 export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hero-form-inline': heroFormInlineDemo,
@@ -421,4 +423,6 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'rich-text': richTextDemo,
   'sticky-scroll-storytelling': stickyScrollStorytellingDemo,
   'hover-reveal-words': hoverRevealWordsDemo,
+  'provenance-chip': provenanceChipDemo,
+  'used-service-callout': usedServiceCalloutDemo,
 };

@@ -1,0 +1,62 @@
+---
+// Waimia · Co-location DS · module `used-service-callout` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `case-related-offres` de
+// src/components/templates/CaseStudyTemplate.astro (classes renommees en BEM scope composant,
+// proprietes CSS strictement identiques → 0 changement de rendu). Les fallbacks px redondants
+// des `var(--token, px)` d'origine sont retires (le token est toujours defini → rendu
+// identique, 0 hardcode). 100 % tokens DS existants, 0 token cree.
+import type { UsedServiceCalloutData } from '@waimia/ds-kernel/sections/used-service-callout/schema';
+
+interface Props {
+  data: UsedServiceCalloutData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isEn = lang === 'en';
+const label = isEn ? (data.label_en ?? 'Service used') : (data.label_fr ?? 'Offre utilisée');
+const links = data.links.map((l) => ({ title: isEn ? l.label_en : l.label_fr, href: l.href }));
+---
+<section class="used-service-callout">
+  <p class="used-service-callout__label">{label}</p>
+  <div class="used-service-callout__links">
+    {links.map((l) => (
+      <a href={l.href} class="used-service-callout__link">
+        <span>{l.title}</span>
+        <span aria-hidden>→</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* Encadre offre utilisee. Tokens DS existants : --space-*, --hairline-strong, --accent,
+     --font-mono, --text-small, --muted, --ink, --accent-text, --dur-fast, --ease.
+     letter-spacing 0.1em conserve tel quel (aucun token exact : --tracking-mono=0.12em,
+     --tracking-mono-tight=0.08em) pour preserver le rendu a l'identique. */
+  .used-service-callout {
+    margin: var(--space-6) 0;
+    padding: var(--space-4);
+    border: 1px solid var(--hairline-strong);
+    border-left: 3px solid var(--accent);
+  }
+  .used-service-callout__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--space-2);
+  }
+  .used-service-callout__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline-strong);
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .used-service-callout__link:last-child { border-bottom: none; }
+  .used-service-callout__link:hover { color: var(--accent-text); }
+</style>

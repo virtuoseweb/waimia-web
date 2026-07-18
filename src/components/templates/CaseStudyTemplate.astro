@@ -28,6 +28,10 @@ import FooterCtaBand from '../sections/FooterCtaBand.astro';
 import RelatedCardsBand from '../sections/RelatedCardsBand.astro';
 import MastheadBar from '../sections/MastheadBar.astro';
 import SiteShowcase from '../../sections/site-showcase/Component.astro';
+import ProvenanceChip from '../../sections/provenance-chip/Component.astro';
+import type { ProvenanceChipData } from '@waimia/ds-kernel/sections/provenance-chip/schema';
+import UsedServiceCallout from '../../sections/used-service-callout/Component.astro';
+import type { UsedServiceCalloutData } from '@waimia/ds-kernel/sections/used-service-callout/schema';
 import type { SectionByType } from '@waimia/ds-kernel';
 
 interface SpecItem {
@@ -383,6 +387,26 @@ const stackLead = {
 // Husk éliminé : on ne rend la timeline legacy QUE si des steps existent vraiment.
 const hasLegacySteps = steps && steps.length > 0;
 const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('author-card');
+
+// PROVENANCE → provenance-chip catalogué (rendu en interne, remplace le bloc inline
+// case-provenance). Double-label : solid = first-party, outline = second-party.
+const provenanceChipData = {
+  type: 'provenance-chip',
+  variant: isFirstParty ? 'solid' : 'outline',
+  label_fr: provenanceLabel.fr,
+  label_en: provenanceLabel.en,
+  href: localizeHref('/sources-methodologie', lang),
+} satisfies ProvenanceChipData;
+
+// OFFRE UTILISÉE → used-service-callout catalogué (remplace le bloc inline case-related-offres).
+// Le libellé de l'encadré garde ses défauts composant (Offre utilisée / Service used) ;
+// les titres d'offre sont déjà localisés en amont (prop unique `title`) → mêmes deux langues.
+const usedServiceCalloutData = relatedOffresLinks && relatedOffresLinks.length > 0
+  ? ({
+      type: 'used-service-callout',
+      links: relatedOffresLinks.map((off) => ({ label_fr: off.title, label_en: off.title, href: off.href })),
+    } satisfies UsedServiceCalloutData)
+  : null;
 ---
 <Base title={title} description={description} jsonLd={jsonLd} ogType={ogType}>
   <MastheadBar
@@ -403,18 +427,9 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     h1Gap="48px"
   />
 
-  {/* DOUBLE-LABEL · famille A/B (docs/strategy/03 §5) : chip de provenance,
-      cliquable vers la page méthodologie. Plein si first-party, outline sinon. */}
-  <section class="case-provenance reveal">
-    <div class="wrap-wide">
-      <a
-        class:list={['case-provenance-chip', isFirstParty ? 'case-provenance-chip--solid' : 'case-provenance-chip--outline']}
-        href={localizeHref('/sources-methodologie', lang)}
-      >
-        {lang === 'en' ? provenanceLabel.en : provenanceLabel.fr}
-      </a>
-    </div>
-  </section>
+  {/* DOUBLE-LABEL · famille A/B (docs/strategy/03 §5) → provenance-chip catalogué (rendu
+      en interne), remplace le bloc inline case-provenance. Plein si first-party, outline sinon. */}
+  <ProvenanceChip data={provenanceChipData} lang={lang} />
 
   {Astro.slots.has('hero-image') && <div class="case-hero-image"><slot name="hero-image" /></div>}
 
@@ -526,21 +541,9 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     </section>
   )}
 
-  {relatedOffresLinks && relatedOffresLinks.length > 0 && (
-    <section class="case-related-offres">
-      <p class="case-related-offres__label">
-        {lang === 'en' ? 'Service used' : 'Offre utilisée'}
-      </p>
-      <div class="case-related-offres__links">
-        {relatedOffresLinks.map(off => (
-          <a href={off.href} class="case-offre-link">
-            <span>{off.title}</span>
-            <span aria-hidden>→</span>
-          </a>
-        ))}
-      </div>
-    </section>
-  )}
+  {/* OFFRE UTILISÉE → used-service-callout catalogué (rendu en interne), remplace le bloc
+      inline case-related-offres. */}
+  {usedServiceCalloutData && <UsedServiceCallout data={usedServiceCalloutData} lang={lang} />}
 
   {/* RELATED → related-cards-band catalogué (source de vérité du markup/CSS) */}
   {relatedBandData && <RelatedCardsBand data={relatedBandData} lang={lang} />}
@@ -550,36 +553,8 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
 </Base>
 
 <style>
-  /* Double-label · chip provenance (docs/strategy/03 §5). Tokens DS existants
-     uniquement : --font-mono, --text-small, --accent, --ink, --paper,
-     --accent-text, --radius-pill, --hairline-strong, --space-*, --dur-fast, --ease. */
-  .case-provenance { padding: var(--space-5) var(--space-6) 0; }
-  .case-provenance-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    text-transform: uppercase;
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-pill);
-    text-decoration: none;
-    transition: opacity var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
-  }
-  .case-provenance-chip--solid {
-    background: var(--accent);
-    color: var(--paper);
-    border: 1px solid var(--accent);
-  }
-  .case-provenance-chip--solid:hover { opacity: 0.85; }
-  .case-provenance-chip--outline {
-    background: transparent;
-    color: var(--accent-text);
-    border: 1px solid var(--hairline-strong);
-  }
-  .case-provenance-chip--outline:hover { background: var(--paper-2); }
-
+  /* Chip provenance + encadré offre utilisée : markup/CSS déplacés vers les modules catalogués
+     `provenance-chip` et `used-service-callout` (rendus en interne). */
   .case-author-band { padding: var(--space-9) var(--space-6) 0; }
   .case-author-card-band {
     padding: var(--space-10) var(--space-6);
@@ -650,33 +625,6 @@ const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('auth
     text-wrap: balance;
     margin: 0 0 var(--space-8);
   }
-
-  .case-related-offres {
-    margin: var(--space-6, 2rem) 0;
-    padding: var(--space-4, 1.5rem);
-    border: 1px solid var(--hairline-strong);
-    border-left: 3px solid var(--accent);
-  }
-  .case-related-offres__label {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: var(--space-2, 0.75rem);
-  }
-  .case-offre-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--space-2, 0.75rem) 0;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--hairline-strong);
-    transition: color var(--dur-fast) var(--ease);
-  }
-  .case-offre-link:last-child { border-bottom: none; }
-  .case-offre-link:hover { color: var(--accent-text); }
 
   @media (max-width: 900px) {
     .case-context-grid,

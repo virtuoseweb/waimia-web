@@ -162,6 +162,7 @@ import { schema as problemsGridSchema } from '../sections/problems-grid/schema';
 import { schema as processStepsSchema } from '../sections/process-steps/schema';
 import { schema as productReelSchema } from '../sections/product-reel/schema';
 import { schema as proofBarSchema } from '../sections/proof-bar/schema';
+import { schema as provenanceChipSchema } from '../sections/provenance-chip/schema';
 import { schema as pullQuoteBlockSchema } from '../sections/pull-quote-block/schema';
 import { schema as quoteSpotlightSchema } from '../sections/quote-spotlight/schema';
 import { schema as relatedCardsBandSchema } from '../sections/related-cards-band/schema';
@@ -208,6 +209,7 @@ import { schema as trustLegalSectionSchema } from '../sections/trust-legal-secti
 import { schema as tunnelStepHeroSchema } from '../sections/tunnel-step-hero/schema';
 import { schema as tunnelStepNavSchema } from '../sections/tunnel-step-nav/schema';
 import { schema as useCaseIndexSchema } from '../sections/use-case-index/schema';
+import { schema as usedServiceCalloutSchema } from '../sections/used-service-callout/schema';
 import { schema as versusCompetitorsSchema } from '../sections/versus-competitors/schema';
 import { schema as welcomeSectionSchema } from '../sections/welcome-section/schema';
 import { schema as whyStallsSchema } from '../sections/why-stalls/schema';
@@ -371,6 +373,7 @@ export {
   processStepsSchema,
   productReelSchema,
   proofBarSchema,
+  provenanceChipSchema,
   pullQuoteBlockSchema,
   quoteSpotlightSchema,
   relatedCardsBandSchema,
@@ -417,6 +420,7 @@ export {
   tunnelStepHeroSchema,
   tunnelStepNavSchema,
   useCaseIndexSchema,
+  usedServiceCalloutSchema,
   versusCompetitorsSchema,
   welcomeSectionSchema,
   whyStallsSchema,
@@ -581,6 +585,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   processStepsSchema,
   productReelSchema,
   proofBarSchema,
+  provenanceChipSchema,
   pullQuoteBlockSchema,
   quoteSpotlightSchema,
   relatedCardsBandSchema,
@@ -627,6 +632,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   tunnelStepHeroSchema,
   tunnelStepNavSchema,
   useCaseIndexSchema,
+  usedServiceCalloutSchema,
   versusCompetitorsSchema,
   welcomeSectionSchema,
   whyStallsSchema,
