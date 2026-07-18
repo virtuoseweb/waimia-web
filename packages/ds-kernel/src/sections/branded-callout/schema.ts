@@ -17,4 +17,8 @@ export const schema = z.object({
   body2_fr: z.string().optional(),
   body2_en: z.string().optional(),
   cta: ctaSchema.optional(),
+  /** Rend body1/body2 en HTML (preserve les liens internes). Absent = texte brut (retro-compat). */
+  bodyHtml: z.boolean().optional(),
+  /** Variante `rail` : filet accent a gauche (border-left 3px --accent) + retrait editorial. Absent = plein. */
+  variant: z.enum(['rail']).optional(),
 });

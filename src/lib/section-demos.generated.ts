@@ -189,6 +189,7 @@ import { demo as footerCtaBandDemo } from '../sections/footer-cta-band/demo';
 import { demo as integrationsGridDemo } from '../sections/integrations-grid/demo';
 import { demo as featureSplitMediaDemo } from '../sections/feature-split-media/demo';
 import { demo as metricCalloutBandDemo } from '../sections/metric-callout-band/demo';
+import { demo as numberedLayerListDemo } from '../sections/numbered-layer-list/demo';
 import { demo as testimonialSingleSpotlightDemo } from '../sections/testimonial-single-spotlight/demo';
 import { demo as faqTwoColumnDemo } from '../sections/faq-two-column/demo';
 import { demo as ctaNewsletterFooterDemo } from '../sections/cta-newsletter-footer/demo';
@@ -410,6 +411,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'integrations-grid': integrationsGridDemo,
   'feature-split-media': featureSplitMediaDemo,
   'metric-callout-band': metricCalloutBandDemo,
+  'numbered-layer-list': numberedLayerListDemo,
   'testimonial-single-spotlight': testimonialSingleSpotlightDemo,
   'faq-two-column': faqTwoColumnDemo,
   'cta-newsletter-footer': ctaNewsletterFooterDemo,

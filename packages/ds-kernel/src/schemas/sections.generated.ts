@@ -150,6 +150,7 @@ import { schema as metricCalloutBandSchema } from '../sections/metric-callout-ba
 import { schema as metricShiftSchema } from '../sections/metric-shift/schema';
 import { schema as newsletterBandSchema } from '../sections/newsletter-band/schema';
 import { schema as newsletterSignupSectionSchema } from '../sections/newsletter-signup-section/schema';
+import { schema as numberedLayerListSchema } from '../sections/numbered-layer-list/schema';
 import { schema as objectionHandlerSchema } from '../sections/objection-handler/schema';
 import { schema as offProofSchema } from '../sections/off-proof/schema';
 import { schema as offerTierGridSchema } from '../sections/offer-tier-grid/schema';
@@ -371,6 +372,7 @@ export {
   metricShiftSchema,
   newsletterBandSchema,
   newsletterSignupSectionSchema,
+  numberedLayerListSchema,
   objectionHandlerSchema,
   offProofSchema,
   offerTierGridSchema,
@@ -593,6 +595,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   metricShiftSchema,
   newsletterBandSchema,
   newsletterSignupSectionSchema,
+  numberedLayerListSchema,
   objectionHandlerSchema,
   offProofSchema,
   offerTierGridSchema,

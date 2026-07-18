@@ -151,6 +151,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'metric-shift': 'stat-grid',
   'newsletter-band': 'band',
   'newsletter-signup-section': 'band',
+  'numbered-layer-list': 'list',
   'objection-handler': 'accordion',
   'off-proof': 'quote',
   'offer-tier-grid': 'card-grid',

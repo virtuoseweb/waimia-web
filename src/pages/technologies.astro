@@ -1,13 +1,28 @@
 ---
 // Page · /technologies · Stack & technologies Waimia
+// 100 % composable, sections cataloguees full-bleed (pattern manifesto.astro) : abandon de
+// UtilityTemplate au profit de Base + Header/Footer + sections importees directement.
+// Anti-orphelin : 0 markup de section inline. Les 2 ex-blocs bespoke (.tech-layers, .tech-anchor)
+// sont desormais des composants catalogues (numbered-layer-list, branded-callout variante rail).
 export const prerender = true;
 
-import UtilityTemplate from '../components/templates/UtilityTemplate.astro';
-import Kicker from '../components/ui/atoms/Kicker.astro';
+import Base from '../layouts/Base.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
+import HeroCentered from '../components/sections/HeroCentered.astro';
 import SpecBar from '../components/sections/SpecBar.astro';
+import NumberedLayerList from '../sections/numbered-layer-list/Component.astro';
 import MetricCalloutBand from '../components/sections/MetricCalloutBand.astro';
+import BrandedCallout from '../sections/branded-callout/Component.astro';
+import CtaFinal from '../components/sections/CtaFinal.astro';
+import { langFromPath, localizeHref } from '../lib/i18n';
+import type { SectionByType } from '@waimia/ds-kernel';
+import type { NumberedLayerListData } from '@waimia/ds-kernel/sections/numbered-layer-list/schema';
 
-// ── Couches de la stack · idiome « livrables numérotés » (cf /agence/about) ──
+const lang = langFromPath(Astro.url.pathname);
+
+// ── Couches de la stack · idiome « livrables numerotes » (cf /agence/about) ──
+// Contenu FR (page FR-only). Mappe vers le schema bilingue de `numbered-layer-list` : les champs
+// _en refletent le FR (aucune page /en/technologies ne rend ce contenu -> 0 fabrication de trad).
 const layers = [
   {
     n: '01',
@@ -65,10 +80,43 @@ const layers = [
   },
 ];
 
+// ── HERO · masthead editorial (composant catalogue `hero-utility-masthead`) ──
+const heroData = {
+  type: 'hero-utility-masthead',
+  kicker_fr: '§ Stack & technologies',
+  kicker_en: '§ Stack & technologies',
+  h1_fr: 'La <i>stack</i>, couche par couche.',
+  h1_en: 'The <i>stack</i>, layer by layer.',
+  lede_fr: "Pas de catalogue de logos. Des choix tenus : un modèle par tâche, un front qui tient la charge, vos outils gardés. Et zéro captivité au bout.",
+  lede_en: "No logo wall. Choices we stand by: one model per task, a front that holds up, your tools kept. And zero lock-in at the end.",
+  align: 'left',
+} satisfies SectionByType<'hero-utility-masthead'>;
+
+// ── Breadcrumb (masthead-bar) · reproduit l'auto-deduction UtilityTemplate pour /technologies ──
+const crumbs = [
+  { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+  { label: 'Stack & technologies' },
+];
+
+// ── COUCHES · numbered-layer-list (ex-.tech-layers, cape a 920px) ──
+const layersData = {
+  type: 'numbered-layer-list',
+  srHeading_fr: 'Les cinq couches de la stack',
+  srHeading_en: 'The five layers of the stack',
+  layers: layers.map((l) => ({
+    n: l.n,
+    label_fr: l.label,
+    label_en: l.label,
+    intro_fr: l.intro,
+    intro_en: l.intro,
+    items: l.items.map((t) => ({ text_fr: t, text_en: t })),
+  })),
+} satisfies NumberedLayerListData;
+
 // ── Stack en bref · SpecBar (respiration, fond paper-2) ──
 const specData = {
-  type: 'spec-bar' as const,
-  background: 'paper-2' as const,
+  type: 'spec-bar',
+  background: 'paper-2',
   kicker_fr: '§ Stack en bref',
   kicker_en: '§ Stack at a glance',
   specs: [
@@ -77,12 +125,12 @@ const specData = {
     { label_fr: 'PageSpeed visé', label_en: 'Target PageSpeed', value: '100/100' },
     { label_fr: 'Captivité', label_en: 'Lock-in', value: '0' },
   ],
-} satisfies import('@waimia/ds-kernel').SectionByType<'spec-bar'>;
+} satisfies SectionByType<'spec-bar'>;
 
 // ── Principes de choix · bande INK (contraste, climax avant CTA) ──
 const principlesData = {
-  type: 'metric-callout-band' as const,
-  background: 'ink' as const,
+  type: 'metric-callout-band',
+  background: 'ink',
   kicker_fr: '§ Comment on choisit',
   kicker_en: '§ How we choose',
   context_fr: "Aucun outil n'est imposé par dogme. On part de votre métier, de vos outils, de votre budget. Le sur-mesure se justifie quand le clé-en-main atteint ses limites, jamais par défaut.",
@@ -92,7 +140,46 @@ const principlesData = {
     { value: '0', label_fr: 'captivité : standards ouverts, stack transférée', label_en: 'lock-in: open standards, stack handed over' },
     { value: '100%', label_fr: 'câblé dans vos outils, sans migration forcée', label_en: 'wired into your tools, no forced migration' },
   ],
-} satisfies import('@waimia/ds-kernel').SectionByType<'metric-callout-band'>;
+} satisfies SectionByType<'metric-callout-band'>;
+
+// ── ANCRAGE ANTHROPIC · branded-callout variante rail (ex-.tech-anchor).
+// bodyHtml preserve les 2 liens internes ; variant rail = filet accent gauche. ──
+const anchorData = {
+  type: 'branded-callout',
+  variant: 'rail',
+  bodyHtml: true,
+  kicker_fr: '§ Anthropic-first',
+  kicker_en: '§ Anthropic-first',
+  h2_fr: 'Un parti pris assumé sur le moteur.',
+  h2_en: 'Un parti pris assumé sur le moteur.',
+  body1_fr: 'On a construit la méthode autour de <a href="/services/integration-claude">Claude</a> parce que c\'est, pour notre usage, le meilleur compromis raisonnement, fiabilité et sécurité. Le reste de la stack reste ouvert : <a href="/services/site-web-ia">front Astro</a>, CMS et intégrations se choisissent au cas par cas, selon votre métier.',
+  body1_en: 'On a construit la méthode autour de <a href="/services/integration-claude">Claude</a> parce que c\'est, pour notre usage, le meilleur compromis raisonnement, fiabilité et sécurité. Le reste de la stack reste ouvert : <a href="/services/site-web-ia">front Astro</a>, CMS et intégrations se choisissent au cas par cas, selon votre métier.',
+  body2_fr: 'Le principe ne change pas : on ne vous enferme nulle part. Vous gardez le code, le contenu et la documentation. Vous pouvez reprendre la stack en interne, ou la confier à un autre prestataire.',
+  body2_en: 'Le principe ne change pas : on ne vous enferme nulle part. Vous gardez le code, le contenu et la documentation. Vous pouvez reprendre la stack en interne, ou la confier à un autre prestataire.',
+} satisfies SectionByType<'branded-callout'>;
+
+// ── CTA final · reproduit la branche non-contact de UtilityTemplate (showCta) ──
+const utilityLabel = 'Stack & technologies';
+const ctaData = {
+  type: 'cta-final',
+  h2_fr: 'Prêt à passer du <i>texte</i> au terrain ?',
+  h2_en: 'Ready to move from <i>text</i> to the field?',
+  body_fr: `${utilityLabel} clarifié. Reste à cadrer le chantier, le bon niveau d'engagement et le premier livrable utile.`,
+  body_en: `${utilityLabel} clarified. Now it is about framing the engagement, the right level of involvement, and the first useful deliverable.`,
+  cta_primary: {
+    label_fr: 'Réserver un audit →',
+    label_en: 'Book an audit →',
+    href: localizeHref('/contact', lang),
+    variant: 'primary',
+  },
+  cta_secondary: {
+    label_fr: 'Voir les offres →',
+    label_en: 'See services →',
+    href: localizeHref('/services', lang),
+    variant: 'ghost',
+  },
+  background: 'paper',
+} satisfies SectionByType<'cta-final'>;
 
 const techLd = {
   '@context': 'https://schema.org',
@@ -103,184 +190,22 @@ const techLd = {
   author: { '@type': 'Organization', '@id': 'https://waimia.com/#organization' },
 };
 ---
-<UtilityTemplate
+<Base
   title="Stack & technologies · Waimia"
   description="La stack Waimia, couche par couche. Claude pour l'IA, Astro pour le front, CMS headless pour le contenu, intégrations dans vos outils. Zéro captivité."
   jsonLd={techLd}
-  kicker="§ Stack & technologies"
-  align="left"
-  showCta={true}
-  headlineFr="La <i>stack</i>, couche par couche."
-  headlineEn="The <i>stack</i>, layer by layer."
-  ledeFr="Pas de catalogue de logos. Des choix tenus : un modèle par tâche, un front qui tient la charge, vos outils gardés. Et zéro captivité au bout."
-  ledeEn="No logo wall. Choices we stand by: one model per task, a front that holds up, your tools kept. And zero lock-in at the end."
 >
-  <Fragment slot="body">
+  <MastheadBar lang={lang} items={crumbs} />
 
-    {/* ── STACK EN BREF · respiration paper-2 ── */}
-    <div class="tech-spec reveal">
-      <SpecBar data={specData} lang="fr" />
-    </div>
+  <HeroCentered data={heroData} lang={lang} wrapMaxWidth="var(--wrap-wide)" reveal={true} />
 
-    {/* ── COUCHES · idiome livrables numérotés ── */}
-    <h2 class="sr-only">Les cinq couches de la stack</h2>
-    <div class="tech-layers reveal-stagger">
-      {layers.map((layer) => (
-        <article class="tech-layer">
-          <span class="tech-layer-n">{layer.n}</span>
-          <div class="tech-layer-main">
-            <h3 class="tech-layer-title">{layer.label}</h3>
-            <p class="tech-layer-intro">{layer.intro}</p>
-            <ul class="tech-layer-list">
-              {layer.items.map((item) => <li>{item}</li>)}
-            </ul>
-          </div>
-        </article>
-      ))}
-    </div>
+  <SpecBar data={specData} lang={lang} />
 
-    {/* ── PRINCIPES DE CHOIX · bande INK ── */}
-    <div class="tech-principles reveal">
-      <MetricCalloutBand data={principlesData} lang="fr" />
-    </div>
+  <NumberedLayerList data={layersData} lang={lang} />
 
-    {/* ── ANCRAGE ANTHROPIC ── */}
-    <div class="tech-anchor reveal">
-      <Kicker class="tech-anchor-kicker">§ Anthropic-first</Kicker>
-      <h2 class="tech-anchor-h2">Un parti pris assumé sur le moteur.</h2>
-      <p class="tech-anchor-body">
-        On a construit la méthode autour de <a href="/services/integration-claude">Claude</a> parce que c'est, pour notre usage, le meilleur compromis raisonnement, fiabilité et sécurité. Le reste de la stack reste ouvert : <a href="/services/site-web-ia">front Astro</a>, CMS et intégrations se choisissent au cas par cas, selon votre métier.
-      </p>
-      <p class="tech-anchor-body">
-        Le principe ne change pas : on ne vous enferme nulle part. Vous gardez le code, le contenu et la documentation. Vous pouvez reprendre la stack en interne, ou la confier à un autre prestataire.
-      </p>
-    </div>
+  <MetricCalloutBand data={principlesData} lang={lang} />
 
-    {/* CTA final canonique = `CtaFinal` rendu par UtilityTemplate (showCta). */}
+  <BrandedCallout data={anchorData} lang={lang} />
 
-  </Fragment>
-</UtilityTemplate>
-
-<style>
-  /* ── Stack en bref · spec-bar (breakout pleine largeur du padding body) ── */
-  .tech-spec,
-  .tech-principles {
-    margin-inline: calc(-1 * var(--space-6));
-  }
-  .tech-spec { margin-block: var(--space-8) var(--space-10); }
-  .tech-principles { margin-block: var(--space-11) var(--space-10); }
-
-  /* ── Couches · rangs numérotés serif accent (idiome about livrables) ── */
-  .tech-layers {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    max-width: 920px;
-  }
-  .tech-layer {
-    display: grid;
-    grid-template-columns: minmax(56px, auto) 1fr;
-    column-gap: var(--space-7);
-    align-items: start;
-    padding: var(--space-8) 0;
-    border-top: 1px solid var(--hairline);
-  }
-  .tech-layer:last-child { border-bottom: 1px solid var(--hairline); }
-  .tech-layer-n {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: var(--text-h2);
-    line-height: 0.9;
-    letter-spacing: var(--tracking-display);
-    color: var(--accent-text);
-  }
-  .tech-layer-title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-medium);
-    line-height: 1.2;
-    color: var(--ink);
-    margin: 0 0 var(--space-3);
-  }
-  .tech-layer-intro {
-    font-family: var(--font-sans);
-    font-size: var(--text-body-md);
-    line-height: var(--leading-prose);
-    color: var(--ink-2);
-    margin: 0 0 var(--space-5);
-    max-width: 60ch;
-  }
-  .tech-layer-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-  .tech-layer-list li {
-    position: relative;
-    padding-left: var(--space-6);
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    max-width: 64ch;
-  }
-  .tech-layer-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-family: var(--font-mono);
-    color: var(--accent-text);
-    font-size: var(--text-small);
-  }
-  @media (max-width: 700px) {
-    .tech-layer {
-      grid-template-columns: 1fr;
-      row-gap: var(--space-4);
-      padding: var(--space-7) 0;
-    }
-    .tech-layer-n { font-size: var(--text-h3); }
-  }
-
-  /* ── Ancrage Anthropic · encart accent (idiome methode .meth-os) ── */
-  .tech-anchor {
-    background: var(--paper-2);
-    border: 1px solid var(--hairline);
-    border-left: 3px solid var(--accent);
-    padding: var(--space-8);
-    margin-bottom: var(--space-12);
-    max-width: 800px;
-  }
-  :global(.tech-anchor-kicker) { display: block; margin-bottom: 20px; }
-  .tech-anchor-h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    font-weight: var(--fw-semibold);
-    letter-spacing: -0.022em;
-    line-height: 1.05;
-    margin: 0 0 var(--space-5);
-    text-wrap: balance;
-  }
-  .tech-anchor-h2 :global(i) { font-style: italic; color: var(--accent-text); }
-  .tech-anchor-body {
-    font-family: var(--font-sans);
-    color: var(--muted);
-    font-size: var(--text-body);
-    line-height: var(--leading-prose);
-    margin: 0 0 var(--space-3);
-    max-width: 640px;
-  }
-  .tech-anchor-body:last-child { margin-bottom: 0; }
-  .tech-anchor-body a {
-    color: var(--accent-text);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  @media (max-width: 700px) {
-    .tech-anchor { padding-inline: var(--space-5); }
-  }
-</style>
+  <CtaFinal data={ctaData} lang={lang} />
+</Base>

@@ -189,6 +189,7 @@ import { Component as footerCtaBandComponent, meta as footerCtaBandMeta } from '
 import { Component as integrationsGridComponent, meta as integrationsGridMeta } from '../sections/integrations-grid';
 import { Component as featureSplitMediaComponent, meta as featureSplitMediaMeta } from '../sections/feature-split-media';
 import { Component as metricCalloutBandComponent, meta as metricCalloutBandMeta } from '../sections/metric-callout-band';
+import { Component as numberedLayerListComponent, meta as numberedLayerListMeta } from '../sections/numbered-layer-list';
 import { Component as testimonialSingleSpotlightComponent, meta as testimonialSingleSpotlightMeta } from '../sections/testimonial-single-spotlight';
 import { Component as faqTwoColumnComponent, meta as faqTwoColumnMeta } from '../sections/faq-two-column';
 import { Component as ctaNewsletterFooterComponent, meta as ctaNewsletterFooterMeta } from '../sections/cta-newsletter-footer';
@@ -961,6 +962,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'metric-callout-band': {
     component: metricCalloutBandComponent,
     ...metricCalloutBandMeta,
+  },
+  'numbered-layer-list': {
+    component: numberedLayerListComponent,
+    ...numberedLayerListMeta,
   },
   'testimonial-single-spotlight': {
     component: testimonialSingleSpotlightComponent,
