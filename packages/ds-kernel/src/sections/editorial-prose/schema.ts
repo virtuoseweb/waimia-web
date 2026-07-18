@@ -22,4 +22,7 @@ export const schema = z.object({
     )
     .max(3)
     .optional(),
+  // Contenu HTML de prose (Tina-ready). Absent = rendu par slot (corps MDX <Content/>, retro-compat).
+  html_fr: z.string().optional(),
+  html_en: z.string().optional(),
 });
