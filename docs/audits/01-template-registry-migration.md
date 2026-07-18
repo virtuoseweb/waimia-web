@@ -190,3 +190,12 @@ Backlog d'origine (2026-06-29, conservé pour trace) :
 - Auditer les autres templates props-driven restants (master plan Waves 1.2-1.4, bodies via `<SectionsRenderer>`) sous cet angle.
 
 > Statut HAB (habillage 2026-06-29) : HAB-1..7 livrés (FAQ généralisée, footer-cta act-5, serif→accent, secteurs/cas/blog/implantations habillés). **L'habillage est posé (« ça fait le café »), MAIS la dette « composable JSON + variantes cataloguées » ci-dessus reste ouverte** et doit être soldée avant de considérer le catalogue/templates comme finis. Lié : memory projet `composable-everything-catalogue-variants`, `skeleton-as-data-not-recipe-per-skeleton`, vision SaaS (registry adoption = blocker commun).
+
+## Addendum 2026-07-18 — doctrine template-as-data déployée · extinction mdx complète
+
+Le backlog « composable JSON » de cet audit est SOLDÉ. État courant :
+- **Moteur** : `packages/ds-kernel/src/templates/` (`defineTemplate`/`resolveTemplate`, builders `{id, when, build}`) exporté `@waimia/ds-kernel/templates`.
+- **Définitions** : `src/lib/templates/case-study.ts` (17 builders), `sector.ts` (12), `essay.ts` (6 + adaptateur `buildEssayProps` vers EssayTemplate bespoke partagé, arbitrage documenté fiche 0018).
+- **Contenu JSON canonique** : 0 `.mdx` sous `src/content` (cases 5, secteurs 12, blog 12, authors 1, outils 2 convertis ; loaders `**/*.json` sur 13 collections ; `dashboard-seo/*.md` = donnée POC conservée). Prose = `body_sections` `editorial-prose` `html_fr`/`html_en` (+ `headings` quand un sommaire les consomme), rendue en `set:html`.
+- **Preuves de parité** (méthode canonique) : diff page-entière `<main>` (liens triés + longueur texte) contre la prod servant l'ancien format : 12/12 blog, 11/11 secteurs, 5/5 cas, 3/3 authors/outils. Écarts = gains (tables GFM + footnotes désormais rendues) documentés fiche 0018.
+Commits : 9e3b6f7a (cases) · fb7017ff (editorial-prose porteur) · 436ccc0d (secteurs) · 865c92e1 (blog) · 2d757d1c (authors/outils + loaders) · ed26590c (crumb nu).
