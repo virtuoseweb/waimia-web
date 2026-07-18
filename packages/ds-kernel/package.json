@@ -6,6 +6,7 @@
   "description": "Waimia Design System : contrat de section pur (schemas Zod + facets/slots/presets/colorschemes/variants/archetypes + page-document + _shared + les schemas co-localises). 0 dependance vers Component/registry/demos. Surface consommee par MCP/builder/catalogue.",
   "exports": {
     ".": "./src/index.ts",
+    "./templates": "./src/templates/index.ts",
     "./schemas/*": "./src/schemas/*.ts",
     "./lib/*": "./src/lib/*.ts",
     "./sections/*": "./src/sections/*.ts"

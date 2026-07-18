@@ -5,6 +5,7 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { sectionsArraySchema } from '@waimia/ds-kernel';
+import { schema as editorialProseSchema } from '@waimia/ds-kernel/sections/editorial-prose/schema';
 
 // ─── Mixin commun (SEO/GEO/AIO) ───
 const seoBlock = z
@@ -107,8 +108,10 @@ const proofBlock = z.object({
 });
 
 // ─── Cases ───
+// JSON canonique (décision nuit 0018 : mdx/md en extinction). Le corps de page (prose)
+// vit désormais dans `body_sections` (sections editorial-prose, cf template case-study).
 const cases = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/cases' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/cases' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -261,6 +264,22 @@ const cases = defineCollection({
       .optional(),
     // Composable V2 (D.7 extension) : sections optionnelles
     sections: sectionsArraySchema.optional(),
+    // Corps de page (prose) en DONNÉE (décision nuit 0018) : le markdown MDX legacy
+    // devient une liste de sections editorial-prose. RÉUTILISE le schéma kernel
+    // editorial-prose (background/maxWidth/figures/type) + le texte rich-html porté
+    // par `html_fr` (le composant editorial-prose rend aujourd'hui sa prose via <slot/> ;
+    // `html_*` reste donnée Tina-ready jusqu'à l'ajout d'un champ texte au composant).
+    body_sections: z
+      .array(
+        z.object({
+          // Réutilise la forme du schéma kernel editorial-prose (type/background/maxWidth/
+          // figures) sans la dupliquer, via `.shape`, + le texte rich-html porté par la page.
+          ...editorialProseSchema.shape,
+          html_fr: z.string(),
+          html_en: z.string().optional(),
+        }),
+      )
+      .optional(),
     // Card de listing pour le hub /cas-clients (copy spécifique au listing, ≠ title détail)
     card: z
       .object({

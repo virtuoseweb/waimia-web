@@ -1,16 +1,16 @@
 ---
 export const prerender = true;
 
-import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
-import CaseStudyTemplate from '../../components/templates/CaseStudyTemplate.astro';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { resolveTemplate } from '@waimia/ds-kernel/templates';
+import { caseStudyTemplate, type RelatedCardInput } from '../../lib/templates/case-study';
+import { SECTION_REGISTRY } from '../../lib/section-registry';
+import HeroCentered from '../../components/sections/HeroCentered.astro';
+import TechStackBand from '../../components/sections/TechStackBand.astro';
 import AuthorByline from '../../components/ui/molecules/AuthorByline.astro';
 import AuthorCard from '../../components/ui/molecules/AuthorCard.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import Base from '../../layouts/Base.astro';
-import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
-import MastheadBar from '../../components/sections/MastheadBar.astro';
-import { meshForCase } from '../../lib/internal-mesh';
-import type { SectionData } from '@waimia/ds-kernel';
 
 export async function getStaticPaths() {
   const entries = await getCollection('cases');
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 type Props = { entry: CollectionEntry<'cases'> };
 
 const slugifyAuthorName = (name: string) =>
-  name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const getAuthorSlug = (author: unknown): string | undefined => {
   if (!author) return undefined;
@@ -41,12 +41,11 @@ const getAuthorSlug = (author: unknown): string | undefined => {
 };
 
 const { entry } = Astro.props as Props;
-const { Content } = await render(entry);
 const d = entry.data;
+const lang = 'fr' as const;
 const authorSlug = getAuthorSlug(d.author);
 
-// Nom d'affichage de l'auteur résolu depuis la collection authors (champ title_fr,
-// = celui rendu par AuthorByline/AuthorCard). Robuste : undefined si introuvable.
+// Nom d'affichage de l'auteur résolu depuis la collection authors (pour le JSON-LD).
 let authorName: string | undefined;
 if (authorSlug) {
   try {
@@ -57,24 +56,14 @@ if (authorSlug) {
   }
 }
 
-// Trié par card.order (numérotation curée de l'index) pour que « § Cas 0N » sur la page
-// détail soit cohérent avec l'ordre affiché sur /cas-clients (sinon = ordre alphabétique
-// de getCollection, arbitraire et divergent). Cf décision nuit 0001.
+// Trié par card.order (numérotation curée de l'index) — cohérence « § Cas 0N » avec /cas-clients.
 const allCases = (await getCollection('cases')).sort(
   (a, b) => (a.data.card?.order ?? 99) - (b.data.card?.order ?? 99),
 );
 const idx = allCases.findIndex((c) => c.id === entry.id);
+const caseNum = String(idx + 1).padStart(2, '0');
 
-const specs = [
-  { label_fr: 'Client', label_en: 'Client', value: d.ndaProtected ? 'Confidentiel': d.client },
-  { label_fr: 'Secteur', label_en: 'Sector', value: d.sector_fr },
-  { label_fr: 'Durée', label_en: 'Duration', value: d.duration },
-  { label_fr: 'Stack', label_en: 'Stack', value: d.stack.slice(0, 3).join(' · ') },
-];
-
-const proofMetrics = (d.metrics ?? []).map((m) => ({ k: m.value, label_fr: m.label_fr, label_en: m.label_en }));
-
-const relatedCards = allCases
+const relatedCards: RelatedCardInput[] = allCases
   .filter((c) => c.id !== entry.id)
   .slice(0, 3)
   .map((c) => ({
@@ -86,14 +75,14 @@ const relatedCards = allCases
     href: `/cas-clients/${c.id}`,
   }));
 
-// Bloc « services mobilisés » + maillage cas → services/secteur/cas-usages (transverse n°30).
-// Source unique = helper `meshForCase` (internal-mesh.ts, registre de routes reelles, 0 lien
-// hardcode). Rendu via la section cataloguee `related-links`. Le secteur derive de `sector_fr`.
-const meshData = meshForCase({ slug: entry.id, sector_fr: d.sector_fr }, 'fr');
-const meshSection = { ...meshData, background: 'paper-3' as const } as unknown as SectionData;
+// Id de continuité View Transition (dérivé du pathname) — parité template.
+const pageTransitionId = Astro.url.pathname
+  .replace(/^\/(?:en\/)?/, '')
+  .replace(/\/$/, '')
+  .replace(/[^a-z0-9]+/gi, '-')
+  .replace(/^-|-$/g, '') || 'home';
 
-// JSON-LD Article · GEO/AIO : rend les cas indexables par les crawlers LLM
-// (mirroir du pattern blog/EssayTemplate — réutilise buildArticle de schema-builder)
+// JSON-LD Article · GEO/AIO (inchangé) : rend les cas indexables par les crawlers LLM.
 const siteUrl = 'https://waimia.com';
 const caseUrl = `${siteUrl}/cas-clients/${entry.id}`;
 const caseLd = buildArticle({
@@ -117,80 +106,75 @@ const caseLd = buildArticle({
   ...(d.heroImage ? { image: d.heroImage.startsWith('http') ? d.heroImage : `${siteUrl}${d.heroImage}` } : {}),
   ...(d.tags && d.tags.length > 0 ? { keywords: d.tags } : {}),
 });
+
+// « Template-as-data » : la page cas client se rend depuis la DÉFINITION `caseStudyTemplate`
+// (liste ordonnée de sections cataloguées + mappings) résolue avec le contenu de la page.
+const resolved = resolveTemplate(caseStudyTemplate, {
+  data: d,
+  lang,
+  caseNum,
+  transitionId: pageTransitionId,
+  slug: entry.id,
+  authorSlug,
+  relatedCards,
+});
 ---
-{/* D.7 · Adoption composable — si frontmatter contient `sections`, utiliser SectionsRenderer */}
-{(() => { const useComposable = Array.isArray(d.sections) && d.sections.length > 0; return useComposable ? (
-  <Base title={`${d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd}>
-    <MastheadBar lang="fr" items={[
-      { label: 'Accueil', href: '/' },
-      { label: 'Cas clients', href: '/cas-clients' },
-      { label: d.title_fr },
-    ]} />
-    <SectionsRenderer sections={d.sections!} lang="fr" />
-    <section class="case-author-card-band">
-      <div class="wrap-wide"><AuthorCard authorSlug={authorSlug} variant="full" /></div>
-    </section>
-    <SectionsRenderer sections={[meshSection]} lang="fr" />
-  </Base>
-) : (
-  <CaseStudyTemplate
-    title={`${d.title_fr} · Waimia`}
-    description={d.description_fr}
-    jsonLd={caseLd}
-    caseNum={String(idx + 1).padStart(2, '0')}
-    provenance={d.provenance}
-    h1_fr={d.title_fr}
-    h1_en={d.title_en}
-    heroIllustration={d.illustration}
-    specs={specs}
-    steps={[]}
-    proofQuoteFr={d.impact_fr}
-    proofQuoteEn={d.impact_en}
-    proofAttrFr={d.ndaProtected ? 'Confidentiel' : d.client}
-    proofAttrEn={d.ndaProtected ? 'Confidential': d.client}
-    proofMetrics={proofMetrics}
-    techPills={d.stack.map((s) => ({ label: s, kind: 'primary' as const }))}
-    relatedCards={relatedCards}
-    contextStatementFr={d.contextStatement_fr}
-    contextStatementEn={d.contextStatement_en}
-    contextStats={d.contextStats}
-    bottlenecks={d.bottlenecks}
-    phases={d.phases}
-    deliverableCards={d.deliverableCards}
-    shifts={d.shifts}
-    pullQuoteFr={d.pullQuote_fr}
-    pullQuoteEn={d.pullQuote_en}
-    pullQuoteCiteFr={d.pullQuoteCite_fr}
-    pullQuoteCiteEn={d.pullQuoteCite_en}
-    showcase={d.showcase}
-    bottlenecksHeadingFr={d.bottlenecksHeading_fr}
-    bottlenecksHeadingEn={d.bottlenecksHeading_en}
-    approachHeadingFr={d.approachHeading_fr}
-    approachHeadingEn={d.approachHeading_en}
-    deliverablesHeadingFr={d.deliverablesHeading_fr}
-    deliverablesHeadingEn={d.deliverablesHeading_en}
-    resultsHeadingFr={d.resultsHeading_fr}
-    resultsHeadingEn={d.resultsHeading_en}
-    stackLeadFr={d.stackLead_fr}
-    stackLeadEn={d.stackLead_en}
-    ctaHeadingFr={d.ctaHeading_fr}
-    ctaHeadingEn={d.ctaHeading_en}
-    ctaSubtitleFr={d.ctaSubtitle_fr}
-    ctaSubtitleEn={d.ctaSubtitle_en}
-  >
-    <Fragment slot="author-byline">
-      <AuthorByline authorSlug={authorSlug} date={d.publishedAt} />
-    </Fragment>
-    <Fragment slot="context">
-      <Content />
-    </Fragment>
-    <Fragment slot="author-card">
-      <AuthorCard authorSlug={authorSlug} variant="full" />
-    </Fragment>
-    <Fragment slot="approach-headline">Ce qu'on a câblé.</Fragment>
-    <Fragment slot="stack-lead">{d.impact_fr}</Fragment>
-    <Fragment slot="body-end">
-      <SectionsRenderer sections={[meshSection]} lang="fr" />
-    </Fragment>
-  </CaseStudyTemplate>
-); })()}
+<Base title={`${d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd} ogType="article">
+  {resolved.map((item) => {
+    if (item.kind === 'slot') {
+      const sp = item.props as { authorSlug?: string; date?: Date | string } | undefined;
+      if (item.name === 'author-byline') {
+        return (
+          <section class="case-author-band reveal">
+            <div class="wrap-wide"><AuthorByline authorSlug={sp?.authorSlug} date={sp?.date} /></div>
+          </section>
+        );
+      }
+      if (item.name === 'author-card') {
+        return (
+          <section class="case-author-card-band reveal">
+            <div class="wrap-wide"><AuthorCard authorSlug={sp?.authorSlug} variant="full" /></div>
+          </section>
+        );
+      }
+      return null;
+    }
+    const s = item.section;
+    // Deux sections ont besoin de props d'instance que les wrappers de module (data+lang
+    // pass-through) n'acheminent pas → rendu direct du composant partagé avec ces props.
+    if (s.type === 'hero-case-study') {
+      const hp = item.props as {
+        topPad?: string; h1Gap?: string; transitionId?: string; cardTransitionId?: string;
+      };
+      return (
+        <HeroCentered
+          data={s}
+          lang={lang}
+          topPad={hp?.topPad}
+          h1Gap={hp?.h1Gap}
+          transitionId={hp?.transitionId}
+          cardTransitionId={hp?.cardTransitionId}
+        />
+      );
+    }
+    if (s.type === 'tech-stack-band') {
+      const tp = item.props as { reveal?: boolean; style?: string };
+      return <TechStackBand data={s} lang={lang} reveal={tp?.reveal} style={tp?.style} />;
+    }
+    const Component = SECTION_REGISTRY[s.type] as any;
+    if (!Component) {
+      console.error(`[cas-clients] type de section inconnu: ${s.type}`);
+      return null;
+    }
+    return <Component data={s} lang={lang} />;
+  })}
+</Base>
+
+<style>
+  /* Chrome des bandes auteur (byline/card) : padding hérité de l'ancien CaseStudyTemplate. */
+  .case-author-band { padding: var(--space-9) var(--space-6) 0; }
+  .case-author-card-band {
+    padding: var(--space-10) var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+</style>
