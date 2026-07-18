@@ -26,6 +26,6 @@ export const demo: DemoData = {
     cta_primary_en: 'Book an audit →',
     cta_secondary_fr: 'Voir Growth System IA',
     cta_secondary_en: 'See AI Growth System',
-    cta_sub_fr: "Audit IA opérationnel · 30 min · on identifie <i>3 automatisations rentables</i>.",
-    cta_sub_en: 'AI operational audit · 30 min · we identify <i>3 high-ROI automations</i>.',
+    cta_sub_fr: "Audit IA opérationnel · 45 min · on identifie <i>3 automatisations rentables</i>.",
+    cta_sub_en: 'AI operational audit · 45 min · we identify <i>3 high-ROI automations</i>.',
   };
