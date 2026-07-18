@@ -14,6 +14,7 @@ import { schema as asymmetricServicesSchema } from '../sections/asymmetric-servi
 import { schema as authorBylineSchema } from '../sections/author-byline/schema';
 import { schema as bentoGridSchema } from '../sections/bento-grid/schema';
 import { schema as bookingEmbedSchema } from '../sections/booking-embed/schema';
+import { schema as borderedPullquoteSchema } from '../sections/bordered-pullquote/schema';
 import { schema as brandedCalloutSchema } from '../sections/branded-callout/schema';
 import { schema as breadcrumbBarSchema } from '../sections/breadcrumb-bar/schema';
 import { schema as caseCardGridSchema } from '../sections/case-card-grid/schema';
@@ -21,6 +22,7 @@ import { schema as caseFeaturedGridSchema } from '../sections/case-featured-grid
 import { schema as caseSplitSchema } from '../sections/case-split/schema';
 import { schema as caseSpotlightSchema } from '../sections/case-spotlight/schema';
 import { schema as challengesGridSchema } from '../sections/challenges-grid/schema';
+import { schema as closingCtaBandSchema } from '../sections/closing-cta-band/schema';
 import { schema as codeShowcaseSchema } from '../sections/code-showcase/schema';
 import { schema as comingSoonPillsSchema } from '../sections/coming-soon-pills/schema';
 import { schema as commitmentsGridSchema } from '../sections/commitments-grid/schema';
@@ -35,6 +37,7 @@ import { schema as ctaFormInlineSchema } from '../sections/cta-form-inline/schem
 import { schema as ctaInlineSchema } from '../sections/cta-inline/schema';
 import { schema as ctaNewsletterFooterSchema } from '../sections/cta-newsletter-footer/schema';
 import { schema as ctaSplitVisualSchema } from '../sections/cta-split-visual/schema';
+import { schema as curriculumTimelineSchema } from '../sections/curriculum-timeline/schema';
 import { schema as dataTableSchema } from '../sections/data-table/schema';
 import { schema as decisionListSchema } from '../sections/decision-list/schema';
 import { schema as definitionExtractSchema } from '../sections/definition-extract/schema';
@@ -45,6 +48,7 @@ import { schema as diagnosticStagesSchema } from '../sections/diagnostic-stages/
 import { schema as directAnswerSchema } from '../sections/direct-answer/schema';
 import { schema as ecosystemPartnersSchema } from '../sections/ecosystem-partners/schema';
 import { schema as editorialCalloutSchema } from '../sections/editorial-callout/schema';
+import { schema as editorialCaseGridSchema } from '../sections/editorial-case-grid/schema';
 import { schema as editorialDingbatRuleSchema } from '../sections/editorial-dingbat-rule/schema';
 import { schema as editorialDropcapProseSchema } from '../sections/editorial-dropcap-prose/schema';
 import { schema as editorialPreviewSchema } from '../sections/editorial-preview/schema';
@@ -94,6 +98,7 @@ import { schema as heroLandingSchema } from '../sections/hero-landing/schema';
 import { schema as heroLeadMagnetSchema } from '../sections/hero-lead-magnet/schema';
 import { schema as heroLiquidSchema } from '../sections/hero-liquid/schema';
 import { schema as heroMagazineCoverSchema } from '../sections/hero-magazine-cover/schema';
+import { schema as heroManifestoSchema } from '../sections/hero-manifesto/schema';
 import { schema as heroMastheadCardSchema } from '../sections/hero-masthead-card/schema';
 import { schema as heroMediaMedallionSchema } from '../sections/hero-media-medallion/schema';
 import { schema as heroNumeralCoverSchema } from '../sections/hero-numeral-cover/schema';
@@ -124,6 +129,7 @@ import { schema as inclusionsListSchema } from '../sections/inclusions-list/sche
 import { schema as integrationsGridSchema } from '../sections/integrations-grid/schema';
 import { schema as journeyStepsSchema } from '../sections/journey-steps/schema';
 import { schema as keyMetricGridSchema } from '../sections/key-metric-grid/schema';
+import { schema as keywordStripSchema } from '../sections/keyword-strip/schema';
 import { schema as learningPathListSchema } from '../sections/learning-path-list/schema';
 import { schema as listIndexSectionSchema } from '../sections/list-index-section/schema';
 import { schema as logoMarqueeSchema } from '../sections/logo-marquee/schema';
@@ -137,6 +143,7 @@ import { schema as maturityPyramidSchema } from '../sections/maturity-pyramid/sc
 import { schema as mediaBentoSchema } from '../sections/media-bento/schema';
 import { schema as mediaBlockSchema } from '../sections/media-block/schema';
 import { schema as mediaSwapBandSchema } from '../sections/media-swap-band/schema';
+import { schema as methodDiagramListSchema } from '../sections/method-diagram-list/schema';
 import { schema as methodSteplineSchema } from '../sections/method-stepline/schema';
 import { schema as methodTimelineSchema } from '../sections/method-timeline/schema';
 import { schema as metricCalloutBandSchema } from '../sections/metric-callout-band/schema';
@@ -162,7 +169,9 @@ import { schema as problemsGridSchema } from '../sections/problems-grid/schema';
 import { schema as processStepsSchema } from '../sections/process-steps/schema';
 import { schema as productReelSchema } from '../sections/product-reel/schema';
 import { schema as proofBarSchema } from '../sections/proof-bar/schema';
+import { schema as proseAsideSchema } from '../sections/prose-aside/schema';
 import { schema as provenanceChipSchema } from '../sections/provenance-chip/schema';
+import { schema as publicationsPanelSchema } from '../sections/publications-panel/schema';
 import { schema as pullQuoteBlockSchema } from '../sections/pull-quote-block/schema';
 import { schema as quoteSpotlightSchema } from '../sections/quote-spotlight/schema';
 import { schema as relatedCardsBandSchema } from '../sections/related-cards-band/schema';
@@ -174,6 +183,7 @@ import { schema as scrollGallerySchema } from '../sections/scroll-gallery/schema
 import { schema as sectorCardGridSchema } from '../sections/sector-card-grid/schema';
 import { schema as serviceCatalogListSchema } from '../sections/service-catalog-list/schema';
 import { schema as servicesGridSchema } from '../sections/services-grid/schema';
+import { schema as signedWritingListSchema } from '../sections/signed-writing-list/schema';
 import { schema as siteShowcaseSchema } from '../sections/site-showcase/schema';
 import { schema as socialProofSchema } from '../sections/social-proof/schema';
 import { schema as specBarSchema } from '../sections/spec-bar/schema';
@@ -225,6 +235,7 @@ export {
   authorBylineSchema,
   bentoGridSchema,
   bookingEmbedSchema,
+  borderedPullquoteSchema,
   brandedCalloutSchema,
   breadcrumbBarSchema,
   caseCardGridSchema,
@@ -232,6 +243,7 @@ export {
   caseSplitSchema,
   caseSpotlightSchema,
   challengesGridSchema,
+  closingCtaBandSchema,
   codeShowcaseSchema,
   comingSoonPillsSchema,
   commitmentsGridSchema,
@@ -246,6 +258,7 @@ export {
   ctaInlineSchema,
   ctaNewsletterFooterSchema,
   ctaSplitVisualSchema,
+  curriculumTimelineSchema,
   dataTableSchema,
   decisionListSchema,
   definitionExtractSchema,
@@ -256,6 +269,7 @@ export {
   directAnswerSchema,
   ecosystemPartnersSchema,
   editorialCalloutSchema,
+  editorialCaseGridSchema,
   editorialDingbatRuleSchema,
   editorialDropcapProseSchema,
   editorialPreviewSchema,
@@ -305,6 +319,7 @@ export {
   heroLeadMagnetSchema,
   heroLiquidSchema,
   heroMagazineCoverSchema,
+  heroManifestoSchema,
   heroMastheadCardSchema,
   heroMediaMedallionSchema,
   heroNumeralCoverSchema,
@@ -335,6 +350,7 @@ export {
   integrationsGridSchema,
   journeyStepsSchema,
   keyMetricGridSchema,
+  keywordStripSchema,
   learningPathListSchema,
   listIndexSectionSchema,
   logoMarqueeSchema,
@@ -348,6 +364,7 @@ export {
   mediaBentoSchema,
   mediaBlockSchema,
   mediaSwapBandSchema,
+  methodDiagramListSchema,
   methodSteplineSchema,
   methodTimelineSchema,
   metricCalloutBandSchema,
@@ -373,7 +390,9 @@ export {
   processStepsSchema,
   productReelSchema,
   proofBarSchema,
+  proseAsideSchema,
   provenanceChipSchema,
+  publicationsPanelSchema,
   pullQuoteBlockSchema,
   quoteSpotlightSchema,
   relatedCardsBandSchema,
@@ -385,6 +404,7 @@ export {
   sectorCardGridSchema,
   serviceCatalogListSchema,
   servicesGridSchema,
+  signedWritingListSchema,
   siteShowcaseSchema,
   socialProofSchema,
   specBarSchema,
@@ -437,6 +457,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   authorBylineSchema,
   bentoGridSchema,
   bookingEmbedSchema,
+  borderedPullquoteSchema,
   brandedCalloutSchema,
   breadcrumbBarSchema,
   caseCardGridSchema,
@@ -444,6 +465,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   caseSplitSchema,
   caseSpotlightSchema,
   challengesGridSchema,
+  closingCtaBandSchema,
   codeShowcaseSchema,
   comingSoonPillsSchema,
   commitmentsGridSchema,
@@ -458,6 +480,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   ctaInlineSchema,
   ctaNewsletterFooterSchema,
   ctaSplitVisualSchema,
+  curriculumTimelineSchema,
   dataTableSchema,
   decisionListSchema,
   definitionExtractSchema,
@@ -468,6 +491,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   directAnswerSchema,
   ecosystemPartnersSchema,
   editorialCalloutSchema,
+  editorialCaseGridSchema,
   editorialDingbatRuleSchema,
   editorialDropcapProseSchema,
   editorialPreviewSchema,
@@ -517,6 +541,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   heroLeadMagnetSchema,
   heroLiquidSchema,
   heroMagazineCoverSchema,
+  heroManifestoSchema,
   heroMastheadCardSchema,
   heroMediaMedallionSchema,
   heroNumeralCoverSchema,
@@ -547,6 +572,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   integrationsGridSchema,
   journeyStepsSchema,
   keyMetricGridSchema,
+  keywordStripSchema,
   learningPathListSchema,
   listIndexSectionSchema,
   logoMarqueeSchema,
@@ -560,6 +586,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   mediaBentoSchema,
   mediaBlockSchema,
   mediaSwapBandSchema,
+  methodDiagramListSchema,
   methodSteplineSchema,
   methodTimelineSchema,
   metricCalloutBandSchema,
@@ -585,7 +612,9 @@ export const sectionSchema = z.discriminatedUnion('type', [
   processStepsSchema,
   productReelSchema,
   proofBarSchema,
+  proseAsideSchema,
   provenanceChipSchema,
+  publicationsPanelSchema,
   pullQuoteBlockSchema,
   quoteSpotlightSchema,
   relatedCardsBandSchema,
@@ -597,6 +626,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   sectorCardGridSchema,
   serviceCatalogListSchema,
   servicesGridSchema,
+  signedWritingListSchema,
   siteShowcaseSchema,
   socialProofSchema,
   specBarSchema,

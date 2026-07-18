@@ -1,13 +1,38 @@
 ---
+// Template · AuthorPageTemplate · page auteur (long-form E-E-A-T)
+//
+// Lot 5b (composabilisation, directive Simon « 100 % composable, pas de bespoke ») :
+// converti en composition 100 % sections cataloguees + data-builders `satisfies`, sur le
+// modele de CaseStudyTemplate. Chaque bloc bespoke a ete EXTRAIT en module co-localise
+// generique (`src/sections/<type>/`) a parite pixel (CSS copie fidelement). Le masthead reste
+// `hero-author` (HeroSplit). Le corps « Pourquoi Waimia » (MDX `<Content/>`) est forwarde en
+// slot a `prose-aside`. JSON-LD / meta SEO / auto-jointure des contenus signes : PRESERVES.
+//
+// Composé de (tous catalogues) : hero-author (HeroSplit) · keyword-strip (expertise + social)
+//   · prose-aside · bordered-pullquote · signed-writing-list · method-diagram-list
+//   · curriculum-timeline · publications-panel · closing-cta-band.
 import Base from '../../layouts/Base.astro';
-import Callout from '../editorial/Callout.astro';
-import Timeline from '../editorial/Timeline.astro';
-import MethodeProcessDiagram from '../svg/geometric/MethodeProcessDiagram.astro';
-import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
 import HeroSplit from '../sections/HeroSplit.astro';
-import Kicker from '../ui/atoms/Kicker.astro';
+import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { langFromPath, localizeHref, t } from '../../lib/i18n';
+
+import KeywordStrip from '../../sections/keyword-strip/Component.astro';
+import type { KeywordStripData } from '@waimia/ds-kernel/sections/keyword-strip/schema';
+import ProseAside from '../../sections/prose-aside/Component.astro';
+import type { ProseAsideData } from '@waimia/ds-kernel/sections/prose-aside/schema';
+import BorderedPullquote from '../../sections/bordered-pullquote/Component.astro';
+import type { BorderedPullquoteData } from '@waimia/ds-kernel/sections/bordered-pullquote/schema';
+import SignedWritingList from '../../sections/signed-writing-list/Component.astro';
+import type { SignedWritingListData } from '@waimia/ds-kernel/sections/signed-writing-list/schema';
+import MethodDiagramList from '../../sections/method-diagram-list/Component.astro';
+import type { MethodDiagramListData } from '@waimia/ds-kernel/sections/method-diagram-list/schema';
+import CurriculumTimeline from '../../sections/curriculum-timeline/Component.astro';
+import type { CurriculumTimelineData } from '@waimia/ds-kernel/sections/curriculum-timeline/schema';
+import PublicationsPanel from '../../sections/publications-panel/Component.astro';
+import type { PublicationsPanelData } from '@waimia/ds-kernel/sections/publications-panel/schema';
+import ClosingCtaBand from '../../sections/closing-cta-band/Component.astro';
+import type { ClosingCtaBandData } from '@waimia/ds-kernel/sections/closing-cta-band/schema';
 
 type AuthorStatus = 'active' | 'alumni' | 'guest';
 
@@ -108,11 +133,9 @@ const pageTransitionId = Astro.url.pathname
   .replace(/\/$/, '')
   .replace(/[^a-z0-9]+/gi, '-')
   .replace(/^-|-$/g, '') || 'home';
-const locale = lang === 'fr' ? 'fr-FR' : 'en-US';
 const displayName = lang === 'fr' ? author.title_fr : author.title_en;
 const role = lang === 'fr' ? author.role_fr : author.role_en;
 const description = lang === 'fr' ? author.description_fr : author.description_en;
-const bio = lang === 'fr' ? author.bio_fr : author.bio_en;
 const teamHref = localizeHref('/equipe', lang);
 const contactHref = localizeHref('/contact', lang);
 const resourcesHref = localizeHref('/ressources', lang);
@@ -126,6 +149,7 @@ const socialUrls = [
   author.social?.mastodon,
 ].filter((url): url is string => Boolean(url));
 
+// ── JSON-LD (Person / ProfilePage / BreadcrumbList) : PRESERVE a l'identique. ──
 const personLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -174,6 +198,7 @@ const breadcrumbLd = {
 
 const jsonLd = [personLd, profilePageLd, breadcrumbLd];
 
+// ── MASTHEAD → hero-author (HeroSplit). Data-builder inchange. ──
 const accentLastWord = (value: string) => {
   const parts = value.trim().split(/\s+/);
   const accent = parts.pop() ?? value;
@@ -196,116 +221,222 @@ const heroData = {
   lede_fr: ledeFr,
   lede_en: ledeEn,
 } satisfies SectionByType<'hero-author'>;
-const formatDate = (date: Date) => new Date(date).toLocaleDateString(locale, {
-  year: 'numeric',
-  month: 'short',
-});
 
-const titleFor = (item: ContentItem) => lang === 'fr' ? item.data.title_fr : item.data.title_en;
-const excerptFor = (item: ContentItem) => lang === 'fr'
-  ? item.data.description_fr
-  : (item.data.description_en ?? item.data.description_fr);
 const hrefFor = (base: string, id: string) => localizeHref(`${base}/${id}`, lang);
 
-const method = [
+// ── EXPERTISE → keyword-strip (mots-cles, muted, sous hero). ──
+const expertiseData = author.expertise.length > 0
+  ? ({
+      type: 'keyword-strip',
+      tone: 'muted',
+      pad: 'tight',
+      aria_label_fr: 'Expertise',
+      aria_label_en: 'Expertise',
+      items: author.expertise.map((label) => ({ label })),
+    } satisfies KeywordStripData)
+  : null;
+
+// ── POURQUOI WAIMIA → prose-aside (kicker lateral + corps MDX en slot). ──
+const whyData = {
+  type: 'prose-aside',
+  kicker_fr: '§ Pourquoi Waimia',
+  kicker_en: '§ Why Waimia',
+} satisfies ProseAsideData;
+
+// ── PULLQUOTE MANIFESTE → bordered-pullquote (contenu generique, accent <i>). ──
+const pullquoteData = {
+  type: 'bordered-pullquote',
+  quote_html_fr:
+    'L&rsquo;intelligence artificielle n&rsquo;est pas un outil. C&rsquo;est une <i>nouvelle façon de travailler.</i>&nbsp;',
+  quote_html_en:
+    'Artificial intelligence is not a tool. It&rsquo;s <i>a new way of working.</i>&nbsp;',
+  cite_fr: '&mdash;&nbsp;Waimia',
+  cite_en: '&mdash;&nbsp;Waimia',
+} satisfies BorderedPullquoteData;
+
+// ── ESSAYS → signed-writing-list (auto-jointure : contenus long-form signes). ──
+const essaysData = essays.length > 0
+  ? ({
+      type: 'signed-writing-list',
+      kicker_fr: '§ Essays · Long form',
+      kicker_en: '§ Essays · Long form',
+      title_fr: 'Ce que je publie',
+      title_en: 'What I publish',
+      items: essays.map((essay) => ({
+        date_iso: new Date(essay.data.publishedAt).toISOString(),
+        title_fr: essay.data.title_fr,
+        title_en: essay.data.title_en,
+        href: hrefFor('/blog', essay.id),
+        excerpt_fr: essay.data.description_fr,
+        excerpt_en: essay.data.description_en ?? essay.data.description_fr,
+      })),
+    } satisfies SignedWritingListData)
+  : null;
+
+// ── METHODE → method-diagram-list (diagramme SVG + phases numerotees). Contenu bilingue
+//    transcrit fidelement (ex-tableau `method` localise). ──
+const methodSteps = [
   {
-    name: t({ fr: 'Cartographie', en: 'Mapping' }, lang),
-    description: t({
-      fr: 'On regarde le métier réel, les frictions, les outils, les dépendances et les décisions déjà prises hors système.',
-      en: 'We inspect the real work, friction, tools, dependencies and decisions already made outside the system.',
-    }, lang),
+    title_fr: 'Cartographie',
+    title_en: 'Mapping',
+    body_fr: 'On regarde le métier réel, les frictions, les outils, les dépendances et les décisions déjà prises hors système.',
+    body_en: 'We inspect the real work, friction, tools, dependencies and decisions already made outside the system.',
   },
   {
-    name: t({ fr: 'Priorisation', en: 'Prioritisation' }, lang),
-    description: t({
-      fr: 'On classe les workflows par ROI, risque opérationnel, temps de retour et capacité interne à les maintenir.',
-      en: 'We rank workflows by ROI, operational risk, payback time and internal ability to maintain them.',
-    }, lang),
+    title_fr: 'Priorisation',
+    title_en: 'Prioritisation',
+    body_fr: 'On classe les workflows par ROI, risque opérationnel, temps de retour et capacité interne à les maintenir.',
+    body_en: 'We rank workflows by ROI, operational risk, payback time and internal ability to maintain them.',
   },
   {
-    name: t({ fr: 'Câblage', en: 'Wiring' }, lang),
-    description: t({
-      fr: "On connecte l'IA aux outils existants : CRM, inbox, tableurs, bases métier, reporting, sans théâtre technique.",
-      en: 'We connect AI to the existing tools: CRM, inbox, spreadsheets, business data and reporting, without technical theatre.',
-    }, lang),
+    title_fr: 'Câblage',
+    title_en: 'Wiring',
+    body_fr: "On connecte l'IA aux outils existants : CRM, inbox, tableurs, bases métier, reporting, sans théâtre technique.",
+    body_en: 'We connect AI to the existing tools: CRM, inbox, spreadsheets, business data and reporting, without technical theatre.',
   },
   {
-    name: t({ fr: 'Mesure', en: 'Measurement' }, lang),
-    description: t({
-      fr: 'Chaque workflow a sa métrique avant/après : temps gagné, pipeline reconnecté, coûts évités, qualité produite.',
-      en: 'Every workflow gets a before/after metric: time saved, pipeline reconnected, costs avoided, quality produced.',
-    }, lang),
+    title_fr: 'Mesure',
+    title_en: 'Measurement',
+    body_fr: 'Chaque workflow a sa métrique avant/après : temps gagné, pipeline reconnecté, coûts évités, qualité produite.',
+    body_en: 'Every workflow gets a before/after metric: time saved, pipeline reconnected, costs avoided, quality produced.',
   },
   {
-    name: t({ fr: 'Passation', en: 'Handover' }, lang),
-    description: t({
-      fr: 'Les équipes reprennent la main avec une documentation courte, des rituels de pilotage et une stack compréhensible.',
-      en: 'Teams take control with short documentation, management rituals and a stack they can understand.',
-    }, lang),
+    title_fr: 'Passation',
+    title_en: 'Handover',
+    body_fr: 'Les équipes reprennent la main avec une documentation courte, des rituels de pilotage et une stack compréhensible.',
+    body_en: 'Teams take control with short documentation, management rituals and a stack they can understand.',
   },
 ];
+const methodData = {
+  type: 'method-diagram-list',
+  kicker_fr: '§ Méthode',
+  kicker_en: '§ Method',
+  title_fr: 'Comment je travaille',
+  title_en: 'How I work',
+  steps: methodSteps,
+} satisfies MethodDiagramListData;
 
+// ── CURRICULUM → curriculum-timeline (experience + formation + distinctions, fond paper-2). ──
 const curriculumEvents = [
   ...author.experience.map((item) => ({
     num: item.year,
-    title: lang === 'fr' ? item.role_fr : item.role_en,
-    meta: item.company,
-    body: lang === 'fr'
-      ? (item.summary_fr ?? item.company)
-      : (item.summary_en ?? item.company),
+    title_fr: item.role_fr,
+    title_en: item.role_en,
+    meta_fr: item.company,
+    meta_en: item.company,
+    body_fr: item.summary_fr ?? item.company,
+    body_en: item.summary_en ?? item.company,
   })),
   ...author.education.map((item) => ({
     num: item.year,
-    title: lang === 'fr' ? item.degree_fr : item.degree_en,
-    meta: item.institution,
-    body: item.institution,
+    title_fr: item.degree_fr,
+    title_en: item.degree_en,
+    meta_fr: item.institution,
+    meta_en: item.institution,
+    body_fr: item.institution,
+    body_en: item.institution,
   })),
   ...author.awards.map((item) => ({
     num: item.year,
-    title: lang === 'fr' ? item.label_fr : item.label_en,
-    meta: t({ fr: 'Distinction', en: 'Award' }, lang),
-    body: lang === 'fr' ? item.label_fr : item.label_en,
+    title_fr: item.label_fr,
+    title_en: item.label_en,
+    meta_fr: 'Distinction',
+    meta_en: 'Award',
+    body_fr: item.label_fr,
+    body_en: item.label_en,
   })),
 ];
+const curriculumData = curriculumEvents.length > 0
+  ? ({
+      type: 'curriculum-timeline',
+      kicker_fr: '§ Curriculum',
+      kicker_en: '§ Curriculum',
+      title_fr: 'Curriculum',
+      title_en: 'Curriculum',
+      emphasis: true,
+      events: curriculumEvents,
+    } satisfies CurriculumTimelineData)
+  : null;
 
+// ── PUBLICATIONS → publications-panel (callout manifeste + publications + index ressources
+//    auto-joint, trie/decoupe a 8 + lien « tout voir »). ──
 const resourceGroups = [
-  {
-    label: t({ fr: 'Notes', en: 'Notes' }, lang),
-    hrefBase: '/blog',
-    items: shortPosts,
-  },
-  {
-    label: t({ fr: 'Cookbooks', en: 'Cookbooks' }, lang),
-    hrefBase: '/ressources/cookbooks',
-    items: cookbooks,
-  },
-  {
-    label: t({ fr: 'Livres blancs', en: 'White papers' }, lang),
-    hrefBase: '/ressources/livres-blancs',
-    items: livresBlancs,
-  },
-  {
-    label: t({ fr: 'Veille IA', en: 'AI watch' }, lang),
-    hrefBase: '/ressources/veille-ia',
-    items: veilleIA,
-  },
-  {
-    label: t({ fr: 'Field notes', en: 'Field notes' }, lang),
-    hrefBase: '/ressources/field-notes',
-    items: fieldNotes,
-  },
+  { label_fr: 'Notes', label_en: 'Notes', hrefBase: '/blog', items: shortPosts },
+  { label_fr: 'Cookbooks', label_en: 'Cookbooks', hrefBase: '/ressources/cookbooks', items: cookbooks },
+  { label_fr: 'Livres blancs', label_en: 'White papers', hrefBase: '/ressources/livres-blancs', items: livresBlancs },
+  { label_fr: 'Veille IA', label_en: 'AI watch', hrefBase: '/ressources/veille-ia', items: veilleIA },
+  { label_fr: 'Field notes', label_en: 'Field notes', hrefBase: '/ressources/field-notes', items: fieldNotes },
 ].filter((group) => group.items.length > 0);
 
-const socialItems = [
-  author.social.linkedin && { key: 'linkedin', label: 'LinkedIn', url: author.social.linkedin, external: true },
-  author.social.x && { key: 'x', label: 'X', url: author.social.x, external: true },
-  author.social.github && { key: 'github', label: 'GitHub', url: author.social.github, external: true },
-  author.social.website && { key: 'site', label: t({ fr: 'Site', en: 'Site' }, lang), url: author.social.website, external: true },
-  author.social.email && { key: 'email', label: 'Email', url: `mailto:${author.social.email}`, external: false },
-  author.social.bluesky && { key: 'site', label: 'Bluesky', url: author.social.bluesky, external: true },
-  author.social.mastodon && { key: 'site', label: 'Mastodon', url: author.social.mastodon, external: true },
-].filter((item): item is { key: string; label: string; url: string; external: boolean } => Boolean(item));
+const resourceRows = resourceGroups
+  .flatMap((g) =>
+    g.items.map((i) => ({
+      date_iso: new Date(i.data.publishedAt).toISOString(),
+      publishedAt: i.data.publishedAt,
+      title_fr: i.data.title_fr,
+      title_en: i.data.title_en,
+      href: hrefFor(g.hrefBase, i.id),
+      tag_fr: g.label_fr,
+      tag_en: g.label_en,
+    })),
+  )
+  .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+  .slice(0, 8)
+  .map(({ publishedAt, ...row }) => row);
 
+const publicationsData = {
+  type: 'publications-panel',
+  kicker_fr: '§ Publications',
+  kicker_en: '§ Publications',
+  title_fr: 'Articles, notes, manifestes',
+  title_en: 'Articles, notes, manifestos',
+  manifesto_html_fr:
+    'Pas une stack. Un système. Pas un agent isolé. Une équipe d’agents.<br />Pas une démo. Une mise en production.',
+  manifesto_html_en:
+    'Not a stack. A system. Not a lone agent. A team of agents.<br />Not a demo. A production release.',
+  ...(author.publications.length > 0
+    ? { publications: author.publications.map((p) => ({ title: p.title, url: p.url, venue: p.venue, year: p.year })) }
+    : {}),
+  ...(resourceRows.length > 0 ? { resources: resourceRows } : {}),
+  all_href: resourcesHref,
+  all_label_fr: 'Voir toutes les ressources',
+  all_label_en: 'See all resources',
+} satisfies PublicationsPanelData;
+
+// ── SUIVRE → keyword-strip (liens contact/sociaux, ink, filet superieur). ──
+const socialItems = [
+  author.social.linkedin && { label: 'LinkedIn', url: author.social.linkedin, external: true },
+  author.social.x && { label: 'X', url: author.social.x, external: true },
+  author.social.github && { label: 'GitHub', url: author.social.github, external: true },
+  author.social.website && { label: t({ fr: 'Site', en: 'Site' }, lang), url: author.social.website, external: true },
+  author.social.email && { label: 'Email', url: `mailto:${author.social.email}`, external: false },
+  author.social.bluesky && { label: 'Bluesky', url: author.social.bluesky, external: true },
+  author.social.mastodon && { label: 'Mastodon', url: author.social.mastodon, external: true },
+].filter((item): item is { label: string; url: string; external: boolean } => Boolean(item));
+
+const socialData = socialItems.length > 0
+  ? ({
+      type: 'keyword-strip',
+      tone: 'ink',
+      pad: 'base',
+      topRule: true,
+      kicker_fr: '§ Suivre',
+      kicker_en: '§ Follow',
+      items: socialItems.map((item) => ({ label: item.label, href: item.url, external: item.external })),
+    } satisfies KeywordStripData)
+  : null;
+
+// ── CTA DE CLOTURE → closing-cta-band (ink, accent <em>). ──
+const ctaData = {
+  type: 'closing-cta-band',
+  kicker_fr: '§ Travailler ensemble',
+  kicker_en: '§ Work together',
+  h2_html_fr: 'Le mardi on câble.<em> Le vendredi on mesure.</em>',
+  h2_html_en: 'On Tuesday we wire.<em> On Friday we measure.</em>',
+  button_label_fr: 'Câbler mon système →',
+  button_label_en: 'Wire my system →',
+  button_href: contactHref,
+} satisfies ClosingCtaBandData;
 ---
 
 <Base
@@ -314,672 +445,37 @@ const socialItems = [
   jsonLd={jsonLd}
 >
   <div class="author-page">
-    {/* Masthead migré → archétype HeroSplit, preset hero-author (sections/) */}
+    {/* Masthead → archétype HeroSplit, preset hero-author (sections/) */}
     <HeroSplit data={heroData} lang={lang} transitionId={pageTransitionId}>
       <PortraitSimon slot="portrait" size="lg" variant="default" />
     </HeroSplit>
 
-    {author.expertise.length > 0 && (
-      <section class="author-expertise g12 g12--full" aria-label={t({ fr: 'Expertise', en: 'Expertise' }, lang)}>
-        <p class="ap-expertise col-prose">
-          {author.expertise.map((item, idx) => (
-            <>
-              <span class="ap-expertise-item">{item}</span>
-              {idx < author.expertise.length - 1 && <span class="ap-sep" aria-hidden="true">&nbsp;·&nbsp;</span>}
-            </>
-          ))}
-        </p>
-      </section>
-    )}
+    {expertiseData && <KeywordStrip data={expertiseData} lang={lang} />}
 
-    <section class="author-why g12 g12--full reveal">
-      <header class="col-3 section-eyebrow">
-        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Pourquoi Waimia', en: 'Why Waimia' }, lang)}</Kicker>
-      </header>
-      <div class="author-prose col-prose">
-        <slot />
-      </div>
-    </section>
+    {/* Pourquoi Waimia : corps MDX (<Content/>) forwarde en slot par défaut à prose-aside. */}
+    <ProseAside data={whyData} lang={lang}><slot /></ProseAside>
 
-    <section class="author-pullquote g12 g12--full">
-      <blockquote class="ap-pullquote col-prose">
-        <p>
-          {lang === 'fr'
-            ? <Fragment>L&rsquo;intelligence artificielle n&rsquo;est pas un outil. C&rsquo;est une <i>nouvelle façon de travailler.</i>&nbsp;</Fragment>
-            : <Fragment>Artificial intelligence is not a tool. It&rsquo;s <i>a new way of working.</i>&nbsp;</Fragment>
-          }
-        </p>
-        <cite class="ap-pullquote-cite">&mdash;&nbsp;Waimia</cite>
-      </blockquote>
-    </section>
+    <BorderedPullquote data={pullquoteData} lang={lang} />
 
-    {essays.length > 0 && (
-      <section class="author-essays g12 g12--full">
-        <header class="col-12 section-eyebrow reveal">
-          <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Essays · Long form</Kicker>
-          <h2 class="display-md">{t({ fr: 'Ce que je publie', en: 'What I publish' }, lang)}</h2>
-        </header>
-        <ul class="essays-list col-prose">
-          {essays.map((essay) => (
-            <li class="essay-item reveal">
-              <time class="essay-date" datetime={new Date(essay.data.publishedAt).toISOString()}>
-                {formatDate(essay.data.publishedAt)}
-              </time>
-              <div>
-                <a href={hrefFor('/blog', essay.id)} class="essay-link">
-                  <h3 class="essay-title">{titleFor(essay)}</h3>
-                </a>
-                {excerptFor(essay) && <p class="essay-excerpt">{excerptFor(essay)}</p>}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
+    {essaysData && <SignedWritingList data={essaysData} lang={lang} />}
 
-    <section class="author-method g12 g12--full reveal">
-      <header class="col-12 section-eyebrow">
-        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Méthode', en: 'Method' }, lang)}</Kicker>
-        <h2 class="display-md">{t({ fr: 'Comment je travaille', en: 'How I work' }, lang)}</h2>
-      </header>
-      <div class="author-method-diagram col-12">
-        <MethodeProcessDiagram />
-      </div>
-      <ul class="author-method-list col-prose reveal-stagger">
-        {method.map((phase, idx) => (
-          <li class="method-item">
-            <span class="method-num">{String(idx + 1).padStart(2, '0')}</span>
-            <div>
-              <h3 class="method-title">{phase.name}</h3>
-              <p class="method-body">{phase.description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <MethodDiagramList data={methodData} lang={lang} />
 
-    {curriculumEvents.length > 0 && (
-      <section class="author-curriculum g12 g12--full reveal">
-        <header class="col-12 section-eyebrow">
-          <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Curriculum</Kicker>
-          <h2 class="display-md"><em>Curriculum</em></h2>
-        </header>
-        <div class="col-prose curriculum-wrap">
-          <Timeline events={curriculumEvents} numbered={false} />
-        </div>
-      </section>
-    )}
+    {curriculumData && <CurriculumTimeline data={curriculumData} lang={lang} />}
 
-    <section class="author-publications g12 g12--full reveal">
-      <header class="col-12 section-eyebrow">
-        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ Publications</Kicker>
-        <h2 class="display-md">{t({ fr: 'Articles, notes, manifestes', en: 'Articles, notes, manifestos' }, lang)}</h2>
-      </header>
+    <PublicationsPanel data={publicationsData} lang={lang} />
 
-      <div class="publication-manifesto col-prose">
-        <Callout variant="manifesto" align="center">
-          {t({ fr: 'Pas une stack. Un système. Pas un agent isolé. Une équipe d’agents.', en: 'Not a stack. A system. Not a lone agent. A team of agents.' }, lang)}
-          <br />
-          {t({ fr: 'Pas une démo. Une mise en production.', en: 'Not a demo. A production release.' }, lang)}
-        </Callout>
-      </div>
+    {socialData && <KeywordStrip data={socialData} lang={lang} />}
 
-      {author.publications.length > 0 && (
-        <ul class="publication-list col-prose">
-          {author.publications.map((publication) => (
-            <li class="publication-item reveal">
-              <a href={publication.url} class="publication-link">
-                <span class="publication-title">{publication.title}</span>
-                <span class="publication-meta">{publication.venue} · {publication.year}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {resourceGroups.length > 0 && (() => {
-        const allItems = resourceGroups.flatMap(g => g.items.map(i => ({ ...i, groupLabel: g.label, hrefBase: g.hrefBase })));
-        allItems.sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
-        const shown = allItems.slice(0, 8);
-        return (
-          <ol class="ap-resource-index col-prose reveal-stagger">
-            {shown.map((item) => (
-              <li class="ap-resource-row">
-                <time class="ap-resource-date" datetime={new Date(item.data.publishedAt).toISOString()}>
-                  {new Date(item.data.publishedAt).getFullYear()}&thinsp;·&thinsp;{String(new Date(item.data.publishedAt).getMonth() + 1).padStart(2, '0')}
-                </time>
-                <a href={hrefFor(item.hrefBase, item.id)} class="ap-resource-link">
-                  <span class="ap-resource-title">{titleFor(item)}</span>
-                </a>
-                <span class="ap-resource-tag">{item.groupLabel}</span>
-              </li>
-            ))}
-          </ol>
-        );
-      })()}
-
-      <a href={resourcesHref} class="resources-all col-prose link-hairline">
-        {t({ fr: 'Voir toutes les ressources', en: 'See all resources' }, lang)}
-      </a>
-    </section>
-
-    {socialItems.length > 0 && (
-      <section class="author-social g12 g12--full reveal">
-        <header class="col-12 section-eyebrow">
-          <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Suivre', en: 'Follow' }, lang)}</Kicker>
-        </header>
-        <address class="ap-contact col-prose">
-          {socialItems.map((item, idx) => (
-            <>
-              <a
-                href={item.url}
-                class="ap-contact-item"
-                target={item.external ? '_blank' : undefined}
-                rel={item.external ? 'noopener noreferrer' : undefined}
-              >
-                {item.label}
-              </a>
-              {idx < socialItems.length - 1 && <span class="ap-contact-sep" aria-hidden="true">&nbsp;·&nbsp;</span>}
-            </>
-          ))}
-        </address>
-      </section>
-    )}
-
-    <section class="author-cta g12 g12--full">
-      <div class="col-prose author-cta-inner reveal">
-        <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">§ {t({ fr: 'Travailler ensemble', en: 'Work together' }, lang)}</Kicker>
-        <h2 class="display-lg">
-          {t({ fr: 'Le mardi on câble.', en: 'On Tuesday we wire.' }, lang)}
-          <em>{t({ fr: ' Le vendredi on mesure.', en: ' On Friday we measure.' }, lang)}</em>
-        </h2>
-        <a href={contactHref} class="btn btn-primary">
-          {t({ fr: 'Câbler mon système →', en: 'Wire my system →' }, lang)}
-        </a>
-      </div>
-    </section>
+    <ClosingCtaBand data={ctaData} lang={lang} />
   </div>
 </Base>
 
 <style>
+  /* Seul chrome restant au niveau template : la teinte de fond de la page. Tout le reste du
+     markup/CSS a migre vers les modules catalogues co-localises (rule 60, parite pixel). */
   .author-page {
     background: var(--paper);
     color: var(--ink);
-  }
-
-  .author-expertise,
-  .author-why,
-  .author-essays,
-  .author-method,
-  .author-curriculum,
-  .author-publications,
-  .author-social,
-  .author-pullquote,
-  .author-cta {
-    padding-inline: var(--space-8);
-  }
-
-  /* Kicker canonisé (R6) · typo + couleur portées par l'atome Kicker
-     (tone="accent", letterSpacing 0.12em = ex var(--tracking-mono)) ; ici layout seul.
-     :global() requis : le span rendu par l'atome ne porte pas le cid du template. */
-  .section-eyebrow :global(.eyebrow),
-  .author-cta :global(.eyebrow) {
-    display: inline-block;
-  }
-
-  .display-md em,
-  .display-lg em {
-    font-style: italic;
-    color: var(--accent-text);
-  }
-
-  .author-expertise {
-    padding-top: 0;
-    padding-bottom: var(--space-9);
-  }
-
-  .ap-expertise {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono, 0.12em);
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0;
-    line-height: 1.8;
-  }
-
-  .ap-expertise-item {
-    white-space: nowrap;
-  }
-
-  .ap-sep {
-    color: var(--hairline-strong);
-  }
-
-  .author-why,
-  .author-pullquote,
-  .author-essays,
-  .author-method,
-  .author-curriculum,
-  .author-publications,
-  .author-social,
-  .author-cta {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
-    border-top: 1px solid var(--hairline);
-  }
-
-  .author-method,
-  .author-curriculum {
-    background: var(--paper-2);
-  }
-
-  .section-eyebrow {
-    margin-bottom: var(--space-6, 32px);
-  }
-
-  .display-md {
-    font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    font-weight: var(--fw-semibold);
-    line-height: 0.98;
-    letter-spacing: -0.015em;
-    margin: var(--space-2, 8px) 0 0;
-    text-wrap: balance;
-  }
-
-  .display-lg {
-    font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    font-weight: var(--fw-semibold);
-    line-height: var(--leading-h1);
-    letter-spacing: -0.015em;
-    margin: var(--space-3, 12px) 0 var(--space-6, 32px);
-    text-wrap: balance;
-  }
-
-  .author-prose {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    line-height: 1.62;
-    color: var(--ink-2);
-  }
-
-  .author-prose :global(h2) {
-    font-size: var(--text-h2);
-    font-weight: var(--fw-regular);
-    line-height: 1.05;
-    letter-spacing: var(--tracking-display, -0.02em);
-    color: var(--ink);
-    margin: 0 0 var(--space-4, 16px);
-    text-wrap: balance;
-  }
-
-  .author-prose :global(h2:not(:first-child)) {
-    margin-top: var(--space-8, 48px);
-  }
-
-  .author-prose :global(h3) {
-    font-size: var(--text-h3);
-    font-weight: var(--fw-regular);
-    color: var(--ink);
-    margin: var(--space-6, 32px) 0 var(--space-2, 8px);
-  }
-
-  .author-prose :global(p) {
-    margin: 0 0 var(--space-4, 16px);
-  }
-
-  .author-prose :global(strong) {
-    color: var(--ink);
-    font-weight: var(--fw-regular);
-  }
-
-  .author-prose :global(a) {
-    color: var(--accent-text);
-    text-underline-offset: 0.18em;
-  }
-
-  .author-prose :global(ol),
-  .author-prose :global(ul) {
-    margin: 0 0 var(--space-6, 32px) 1.1em;
-    padding: 0;
-  }
-
-  .author-prose :global(li) {
-    margin-bottom: var(--space-2, 8px);
-  }
-
-  .essays-list,
-  .publication-list,
-  .author-method-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .essays-list {
-    margin: 0;
-  }
-
-  .essay-item {
-    display: grid;
-    grid-template-columns: 96px 1fr;
-    gap: var(--space-5, 24px);
-    padding: var(--space-6, 32px) 0;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .essay-item:first-child {
-    border-top: 1px solid var(--hairline-strong);
-  }
-
-  .essay-item:last-child {
-    border-bottom: 1.5px solid var(--ink);
-  }
-
-  .essay-date {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-mono, 0.12em);
-    color: var(--muted);
-    padding-top: 0.4em;
-  }
-
-  .essay-link {
-    text-decoration: none;
-  }
-
-  .essay-title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-medium);
-    line-height: 1.2;
-    color: var(--ink);
-    margin: 0;
-    transition: color var(--dur-fast, 180ms) var(--ease, ease);
-  }
-
-  .essay-link:hover .essay-title {
-    color: var(--accent-text);
-  }
-
-  .essay-excerpt {
-    font-family: var(--font-sans);
-    font-size: var(--text-body-md, 17px);
-    line-height: var(--leading-body, 1.5);
-    color: var(--ink-2);
-    margin: var(--space-2, 8px) 0 0;
-    max-width: 60ch;
-  }
-
-  .author-method-diagram {
-    overflow-x: auto;
-    padding: var(--space-4, 16px) 0 var(--space-8, 48px);
-  }
-
-  .author-method-list {
-    margin: 0;
-    border-top: 1px solid var(--hairline-strong);
-  }
-
-  .method-item {
-    display: grid;
-    grid-template-columns: 58px 1fr;
-    gap: var(--space-4, 16px);
-    padding: var(--space-5, 24px) 0;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .method-num {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono, 0.12em);
-    color: var(--accent-text);
-  }
-
-  .method-title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-medium);
-    line-height: 1;
-    margin: 0 0 var(--space-2, 8px);
-  }
-
-  .method-body {
-    font-family: var(--font-sans);
-    font-size: var(--text-body-md, 17px);
-    line-height: var(--leading-body, 1.5);
-    color: var(--ink-2);
-    margin: 0;
-  }
-
-  .curriculum-wrap :global(.timeline-vertical) {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .publication-manifesto {
-    margin-bottom: var(--space-6, 32px);
-  }
-
-  .publication-list {
-    margin: 0 0 var(--space-7, 40px);
-    border-top: 1px solid var(--hairline-strong);
-  }
-
-  .publication-item {
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .publication-link {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--space-4, 16px);
-    align-items: baseline;
-    padding: var(--space-4, 16px) 0;
-    color: var(--ink);
-    text-decoration: none;
-    transition:
-      color var(--dur-fast, 180ms) var(--ease, ease),
-      translate var(--dur-fast, 180ms) var(--ease, ease);
-  }
-
-  .publication-link:hover {
-    color: var(--accent-text);
-    /* slide hors-flux (translate) au lieu de padding-left : meme nudge, 0 reflow */
-    translate: var(--space-2) 0;
-  }
-
-  .publication-title {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h3);
-  }
-
-  .publication-meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-mono, 0.12em);
-    color: var(--muted);
-  }
-
-  .ap-resource-index {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-6, 32px) 0;
-    border-top: 1px solid var(--hairline-strong);
-  }
-
-  .ap-resource-row {
-    display: grid;
-    grid-template-columns: 72px 1fr auto;
-    gap: var(--space-4, 16px);
-    align-items: baseline;
-    padding: var(--space-4, 16px) 0;
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .ap-resource-date {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono, 0.12em);
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .ap-resource-link {
-    text-decoration: none;
-    color: var(--ink);
-  }
-
-  .ap-resource-link:hover .ap-resource-title {
-    color: var(--accent-text);
-  }
-
-  .ap-resource-title {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h3);
-    line-height: 1.3;
-    transition: color var(--dur-fast, 180ms) var(--ease, ease);
-  }
-
-  .ap-resource-tag {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono, 0.12em);
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .resources-all {
-    display: inline-flex;
-    width: fit-content;
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-mono, 0.12em);
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  .ap-contact {
-    font-style: normal;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0;
-    margin: 0;
-  }
-
-  .ap-contact-item {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono, 0.12em);
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    transition: color var(--dur-fast, 180ms) var(--ease, ease);
-  }
-
-  .ap-contact-item:hover {
-    color: var(--accent-text);
-  }
-
-  .ap-contact-sep {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--hairline-strong);
-  }
-
-  .ap-pullquote {
-    margin: 0;
-    padding-left: var(--space-8);
-    border-left: 1px solid var(--ink);
-  }
-
-  .ap-pullquote p {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    font-weight: var(--fw-medium);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    color: var(--ink);
-    margin: 0 0 var(--space-5, 24px);
-  }
-
-  .ap-pullquote p i {
-    font-style: italic;
-    color: var(--accent-text);
-  }
-
-  .ap-pullquote-cite {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono, 0.12em);
-    text-transform: uppercase;
-    color: var(--muted);
-    font-style: normal;
-  }
-
-  .author-cta {
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  /* `.author-cta .eyebrow { color: var(--accent-text) }` supprimée (R6) :
-     redondante, la couleur accent vient de l'atome Kicker (tone="accent"). */
-
-  .author-cta .display-lg {
-    color: var(--paper);
-  }
-
-  .author-cta-inner {
-    max-width: 820px;
-  }
-
-  @media (max-width: 900px) {
-    .section-eyebrow,
-    .author-prose,
-    .essays-list,
-    .author-method-list,
-    .curriculum-wrap,
-    .publication-manifesto,
-    .publication-list,
-    .ap-resource-index,
-    .ap-contact,
-    .ap-expertise,
-    .ap-pullquote,
-    .resources-all,
-    .author-cta-inner {
-      grid-column: 1 / -1;
-  }
-  }
-
-  @media (max-width: 768px) {
-    .essay-item,
-    .method-item,
-    .publication-link {
-      grid-template-columns: 1fr;
-      gap: var(--space-2, 8px);
-    }
-
-    .ap-resource-row {
-      grid-template-columns: 60px 1fr;
-      grid-template-rows: auto auto;
-    }
-
-    .ap-resource-tag {
-      grid-column: 2;
-      grid-row: 2;
-    }
-
-    .publication-meta {
-      justify-self: start;
-    }
   }
 </style>

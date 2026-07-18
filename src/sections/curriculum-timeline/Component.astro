@@ -1,0 +1,76 @@
+---
+// Waimia · Co-location DS · module `curriculum-timeline` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `author-curriculum` de AuthorPageTemplate
+// (classes renommees en BEM scope composant, proprietes CSS strictement identiques : 0 changement
+// de rendu). Compose l'atome partage editorial/Timeline (importe, pas edite), numbered=false.
+// Garde `g12`/`g12--full`/`col-12`/`col-prose`/`reveal`. 100 % tokens DS existants, 0 token cree.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import Timeline from '../../components/editorial/Timeline.astro';
+import type { CurriculumTimelineData } from '@waimia/ds-kernel/sections/curriculum-timeline/schema';
+
+interface Props {
+  data: CurriculumTimelineData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const kicker = lang === 'en' ? data.kicker_en : data.kicker_fr;
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const events = data.events.map((e) => ({
+  num: e.num,
+  title: lang === 'en' ? e.title_en : e.title_fr,
+  meta: lang === 'en' ? e.meta_en : e.meta_fr,
+  body: lang === 'en' ? e.body_en : e.body_fr,
+}));
+---
+<section class="curriculum-timeline g12 g12--full reveal">
+  <header class="col-12 section-eyebrow">
+    <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
+    <h2 class="display-md">{data.emphasis ? <em>{title}</em> : title}</h2>
+  </header>
+  <div class="col-prose curriculum-timeline__wrap">
+    <Timeline events={events} numbered={false} />
+  </div>
+</section>
+
+<style>
+  /* Chrome : parite `.author-curriculum` (regles groupees padding-inline space-8 + padding-block
+     space-12 + border-top hairline + background paper-2 de AuthorPageTemplate). */
+  .curriculum-timeline {
+    padding-inline: var(--space-8);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: 1px solid var(--hairline);
+    background: var(--paper-2);
+  }
+
+  .section-eyebrow { margin-bottom: var(--space-6, 32px); }
+  .section-eyebrow :global(.eyebrow) { display: inline-block; }
+
+  /* Titre : parite `.display-md` + `.display-md em` (italique accent). */
+  .display-md {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    font-weight: var(--fw-semibold);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    margin: var(--space-2, 8px) 0 0;
+    text-wrap: balance;
+  }
+  .display-md :global(em) {
+    font-style: italic;
+    color: var(--accent-text);
+  }
+
+  /* Frise : parite `.curriculum-wrap`. */
+  .curriculum-timeline__wrap :global(.timeline-vertical) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 900px) {
+    .section-eyebrow,
+    .curriculum-timeline__wrap {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

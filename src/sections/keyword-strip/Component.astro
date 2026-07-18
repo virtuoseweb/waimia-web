@@ -1,0 +1,118 @@
+---
+// Waimia · Co-location DS · module `keyword-strip` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT des blocs inline `author-expertise` (.ap-expertise) et
+// `author-social` (.ap-contact) de src/components/templates/AuthorPageTemplate.astro (classes
+// renommees en BEM scope composant, proprietes CSS strictement identiques -> 0 changement de
+// rendu). Le wrapper garde les classes GLOBALES `g12`/`g12--full` (grille), `reveal` (observer
+// scroll-reveal) et `col-prose`/`col-12`. 100 % tokens DS existants, 0 token cree, 0 hardcode.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import type { KeywordStripData } from '@waimia/ds-kernel/sections/keyword-strip/schema';
+
+interface Props {
+  data: KeywordStripData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const tone = data.tone ?? 'muted';
+const pad = data.pad ?? 'base';
+const kicker = lang === 'en' ? data.kicker_en : data.kicker_fr;
+const ariaLabel = lang === 'en' ? data.aria_label_en : data.aria_label_fr;
+// Semantique : liens de contact -> <address> ; mots-cles -> <p> (parite AuthorPageTemplate).
+const Row = tone === 'ink' ? 'address' : 'p';
+---
+<section
+  class="keyword-strip g12 g12--full reveal"
+  data-tone={tone}
+  data-pad={pad}
+  data-rule={data.topRule ? 'top' : undefined}
+  aria-label={ariaLabel}
+>
+  {kicker && (
+    <header class="col-12 section-eyebrow">
+      <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
+    </header>
+  )}
+  <Row class="keyword-strip__row col-prose">
+    {data.items.map((item: KeywordStripData['items'][number], idx: number) => (
+      <>
+        {item.href ? (
+          <a
+            class="keyword-strip__item"
+            href={item.href}
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
+          >{item.label}</a>
+        ) : (
+          <span class="keyword-strip__item">{item.label}</span>
+        )}
+        {idx < data.items.length - 1 && <span class="keyword-strip__sep" aria-hidden="true">&nbsp;·&nbsp;</span>}
+      </>
+    ))}
+  </Row>
+</section>
+
+<style>
+  /* Chrome de bande : parite `.author-expertise` / `.author-social` + regle groupee
+     `padding-inline: var(--space-8)` de AuthorPageTemplate. */
+  .keyword-strip { padding-inline: var(--space-8); }
+  .keyword-strip[data-pad='tight'] {
+    padding-top: 0;
+    padding-bottom: var(--space-9);
+  }
+  .keyword-strip[data-pad='base'] {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+  .keyword-strip[data-rule='top'] { border-top: 1px solid var(--hairline); }
+
+  /* Eyebrow · Kicker canonise (typo + couleur portees par l'atome ; :global requis car le
+     span rendu par l'atome ne porte pas le cid du composant). */
+  .section-eyebrow { margin-bottom: var(--space-6, 32px); }
+  .section-eyebrow :global(.eyebrow) { display: inline-block; }
+
+  /* ── tone muted : parite `.ap-expertise` (mots-cles) ── */
+  .keyword-strip[data-tone='muted'] .keyword-strip__row {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono, 0.12em);
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.8;
+  }
+  .keyword-strip[data-tone='muted'] .keyword-strip__item { white-space: nowrap; }
+
+  /* ── tone ink : parite `.ap-contact` (liens contact) ── */
+  .keyword-strip[data-tone='ink'] .keyword-strip__row {
+    font-style: normal;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0;
+    margin: 0;
+  }
+  .keyword-strip[data-tone='ink'] .keyword-strip__item {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono, 0.12em);
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--dur-fast, 180ms) var(--ease, ease);
+  }
+  .keyword-strip[data-tone='ink'] .keyword-strip__item:hover { color: var(--accent-text); }
+
+  /* Separateur « · » : parite `.ap-sep` (muted) / `.ap-contact-sep` (ink). */
+  .keyword-strip__sep { color: var(--hairline-strong); }
+  .keyword-strip[data-tone='ink'] .keyword-strip__sep {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+
+  @media (max-width: 900px) {
+    .section-eyebrow,
+    .keyword-strip__row {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

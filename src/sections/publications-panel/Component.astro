@@ -1,0 +1,231 @@
+---
+// Waimia · Co-location DS · module `publications-panel` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `author-publications` de AuthorPageTemplate
+// (classes renommees en BEM scope composant, proprietes CSS strictement identiques : 0 changement
+// de rendu). Compose l'atome partage editorial/Callout (importe, pas edite). La date de chaque
+// ressource est formatee par langue (parite `{year}·{MM}`). Garde `g12`/`g12--full`/`col-12`/
+// `col-prose`/`reveal`/`reveal-stagger`/`link-hairline`. 100 % tokens DS existants, 0 token cree.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import Callout from '../../components/editorial/Callout.astro';
+import type { PublicationsPanelData } from '@waimia/ds-kernel/sections/publications-panel/schema';
+
+interface Props {
+  data: PublicationsPanelData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isEn = lang === 'en';
+const kicker = isEn ? data.kicker_en : data.kicker_fr;
+const title = isEn ? data.title_en : data.title_fr;
+const manifestoHtml = isEn ? data.manifesto_html_en : data.manifesto_html_fr;
+const allLabel = isEn ? data.all_label_en : data.all_label_fr;
+const publications = data.publications ?? [];
+const resources = (data.resources ?? []).map((r) => {
+  const d = new Date(r.date_iso);
+  return {
+    dateIso: r.date_iso,
+    year: d.getFullYear(),
+    month: String(d.getMonth() + 1).padStart(2, '0'),
+    title: isEn ? r.title_en : r.title_fr,
+    href: r.href,
+    tag: isEn ? r.tag_en : r.tag_fr,
+  };
+});
+---
+<section class="publications-panel g12 g12--full reveal">
+  <header class="col-12 section-eyebrow">
+    <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
+    <h2 class="display-md">{title}</h2>
+  </header>
+
+  <div class="publications-panel__manifesto col-prose">
+    <Callout variant="manifesto" align="center">
+      <Fragment set:html={manifestoHtml} />
+    </Callout>
+  </div>
+
+  {publications.length > 0 && (
+    <ul class="publications-panel__list col-prose">
+      {publications.map((publication) => (
+        <li class="publications-panel__item reveal">
+          <a href={publication.url} class="publications-panel__link">
+            <span class="publications-panel__pub-title">{publication.title}</span>
+            <span class="publications-panel__pub-meta">{publication.venue} · {publication.year}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  {resources.length > 0 && (
+    <ol class="publications-panel__index col-prose reveal-stagger">
+      {resources.map((item) => (
+        <li class="publications-panel__row">
+          <time class="publications-panel__date" datetime={item.dateIso}>
+            {item.year}&thinsp;·&thinsp;{item.month}
+          </time>
+          <a href={item.href} class="publications-panel__row-link">
+            <span class="publications-panel__row-title">{item.title}</span>
+          </a>
+          <span class="publications-panel__row-tag">{item.tag}</span>
+        </li>
+      ))}
+    </ol>
+  )}
+
+  <a href={data.all_href} class="publications-panel__all col-prose link-hairline">
+    {allLabel}
+  </a>
+</section>
+
+<style>
+  /* Chrome : parite `.author-publications` (regles groupees padding-inline space-8 + padding-block
+     space-12 + border-top hairline de AuthorPageTemplate). */
+  .publications-panel {
+    padding-inline: var(--space-8);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: 1px solid var(--hairline);
+  }
+
+  .section-eyebrow { margin-bottom: var(--space-6, 32px); }
+  .section-eyebrow :global(.eyebrow) { display: inline-block; }
+
+  /* Titre : parite `.display-md`. */
+  .display-md {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    font-weight: var(--fw-semibold);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    margin: var(--space-2, 8px) 0 0;
+    text-wrap: balance;
+  }
+
+  /* Manifeste : parite `.publication-manifesto`. */
+  .publications-panel__manifesto { margin-bottom: var(--space-6, 32px); }
+
+  /* Liste publications : parite `.publication-list` / `.publication-*`. */
+  .publications-panel__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-7, 40px);
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .publications-panel__item {
+    border-bottom: 1px solid var(--hairline);
+  }
+  .publications-panel__link {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-4, 16px);
+    align-items: baseline;
+    padding: var(--space-4, 16px) 0;
+    color: var(--ink);
+    text-decoration: none;
+    transition:
+      color var(--dur-fast, 180ms) var(--ease, ease),
+      translate var(--dur-fast, 180ms) var(--ease, ease);
+  }
+  .publications-panel__link:hover {
+    color: var(--accent-text);
+    translate: var(--space-2) 0;
+  }
+  .publications-panel__pub-title {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
+    font-size: var(--text-h3);
+  }
+  .publications-panel__pub-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--muted);
+  }
+
+  /* Index ressources : parite `.ap-resource-index` / `.ap-resource-*`. */
+  .publications-panel__index {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6, 32px) 0;
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .publications-panel__row {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    gap: var(--space-4, 16px);
+    align-items: baseline;
+    padding: var(--space-4, 16px) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .publications-panel__date {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono, 0.12em);
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .publications-panel__row-link {
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .publications-panel__row-link:hover .publications-panel__row-title {
+    color: var(--accent-text);
+  }
+  .publications-panel__row-title {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
+    font-size: var(--text-h3);
+    line-height: 1.3;
+    transition: color var(--dur-fast, 180ms) var(--ease, ease);
+  }
+  .publications-panel__row-tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono, 0.12em);
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* Lien « tout voir » : parite `.resources-all`. */
+  .publications-panel__all {
+    display: inline-flex;
+    width: fit-content;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .section-eyebrow,
+    .publications-panel__manifesto,
+    .publications-panel__list,
+    .publications-panel__index,
+    .publications-panel__all {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 768px) {
+    .publications-panel__link {
+      grid-template-columns: 1fr;
+      gap: var(--space-2, 8px);
+    }
+    .publications-panel__row {
+      grid-template-columns: 60px 1fr;
+      grid-template-rows: auto auto;
+    }
+    .publications-panel__row-tag {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    .publications-panel__pub-meta {
+      justify-self: start;
+    }
+  }
+</style>

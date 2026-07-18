@@ -214,6 +214,16 @@ import { Component as stickyScrollStorytellingComponent, meta as stickyScrollSto
 import { Component as hoverRevealWordsComponent, meta as hoverRevealWordsMeta } from '../sections/hover-reveal-words';
 import { Component as provenanceChipComponent, meta as provenanceChipMeta } from '../sections/provenance-chip';
 import { Component as usedServiceCalloutComponent, meta as usedServiceCalloutMeta } from '../sections/used-service-callout';
+import { Component as heroManifestoComponent, meta as heroManifestoMeta } from '../sections/hero-manifesto';
+import { Component as editorialCaseGridComponent, meta as editorialCaseGridMeta } from '../sections/editorial-case-grid';
+import { Component as keywordStripComponent, meta as keywordStripMeta } from '../sections/keyword-strip';
+import { Component as proseAsideComponent, meta as proseAsideMeta } from '../sections/prose-aside';
+import { Component as borderedPullquoteComponent, meta as borderedPullquoteMeta } from '../sections/bordered-pullquote';
+import { Component as signedWritingListComponent, meta as signedWritingListMeta } from '../sections/signed-writing-list';
+import { Component as methodDiagramListComponent, meta as methodDiagramListMeta } from '../sections/method-diagram-list';
+import { Component as curriculumTimelineComponent, meta as curriculumTimelineMeta } from '../sections/curriculum-timeline';
+import { Component as publicationsPanelComponent, meta as publicationsPanelMeta } from '../sections/publications-panel';
+import { Component as closingCtaBandComponent, meta as closingCtaBandMeta } from '../sections/closing-cta-band';
 
 export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'hero-form-inline': {
@@ -1051,5 +1061,45 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'used-service-callout': {
     component: usedServiceCalloutComponent,
     ...usedServiceCalloutMeta,
+  },
+  'hero-manifesto': {
+    component: heroManifestoComponent,
+    ...heroManifestoMeta,
+  },
+  'editorial-case-grid': {
+    component: editorialCaseGridComponent,
+    ...editorialCaseGridMeta,
+  },
+  'keyword-strip': {
+    component: keywordStripComponent,
+    ...keywordStripMeta,
+  },
+  'prose-aside': {
+    component: proseAsideComponent,
+    ...proseAsideMeta,
+  },
+  'bordered-pullquote': {
+    component: borderedPullquoteComponent,
+    ...borderedPullquoteMeta,
+  },
+  'signed-writing-list': {
+    component: signedWritingListComponent,
+    ...signedWritingListMeta,
+  },
+  'method-diagram-list': {
+    component: methodDiagramListComponent,
+    ...methodDiagramListMeta,
+  },
+  'curriculum-timeline': {
+    component: curriculumTimelineComponent,
+    ...curriculumTimelineMeta,
+  },
+  'publications-panel': {
+    component: publicationsPanelComponent,
+    ...publicationsPanelMeta,
+  },
+  'closing-cta-band': {
+    component: closingCtaBandComponent,
+    ...closingCtaBandMeta,
   },
 };

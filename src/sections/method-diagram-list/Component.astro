@@ -1,0 +1,123 @@
+---
+// Waimia · Co-location DS · module `method-diagram-list` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `author-method` (.author-method-list /
+// .method-item) de AuthorPageTemplate (classes renommees en BEM scope composant, proprietes CSS
+// strictement identiques : 0 changement de rendu). Numerotation derivee (index + 1, zero-pad).
+// Compose l'atome SVG partage `MethodeProcessDiagram` (importe, pas edite). Garde
+// `g12`/`g12--full`/`col-12`/`col-prose`/`reveal`/`reveal-stagger`. 100 % tokens DS, 0 token cree.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import MethodeProcessDiagram from '../../components/svg/geometric/MethodeProcessDiagram.astro';
+import type { MethodDiagramListData } from '@waimia/ds-kernel/sections/method-diagram-list/schema';
+
+interface Props {
+  data: MethodDiagramListData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const kicker = lang === 'en' ? data.kicker_en : data.kicker_fr;
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const steps = data.steps.map((s) => ({
+  name: lang === 'en' ? s.title_en : s.title_fr,
+  description: lang === 'en' ? s.body_en : s.body_fr,
+}));
+---
+<section class="method-diagram-list g12 g12--full reveal">
+  <header class="col-12 section-eyebrow">
+    <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
+    <h2 class="display-md">{title}</h2>
+  </header>
+  <div class="method-diagram-list__diagram col-12">
+    <MethodeProcessDiagram />
+  </div>
+  <ul class="method-diagram-list__list col-prose reveal-stagger">
+    {steps.map((phase, idx) => (
+      <li class="method-diagram-list__item">
+        <span class="method-diagram-list__num">{String(idx + 1).padStart(2, '0')}</span>
+        <div>
+          <h3 class="method-diagram-list__title">{phase.name}</h3>
+          <p class="method-diagram-list__body">{phase.description}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  /* Chrome : parite `.author-method` (regles groupees padding-inline space-8 + padding-block
+     space-12 + border-top hairline + background paper-2 de AuthorPageTemplate). */
+  .method-diagram-list {
+    padding-inline: var(--space-8);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: 1px solid var(--hairline);
+    background: var(--paper-2);
+  }
+
+  .section-eyebrow { margin-bottom: var(--space-6, 32px); }
+  .section-eyebrow :global(.eyebrow) { display: inline-block; }
+
+  /* Titre : parite `.display-md`. */
+  .display-md {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    font-weight: var(--fw-semibold);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    margin: var(--space-2, 8px) 0 0;
+    text-wrap: balance;
+  }
+
+  /* Diagramme : parite `.author-method-diagram`. */
+  .method-diagram-list__diagram {
+    overflow-x: auto;
+    padding: var(--space-4, 16px) 0 var(--space-8, 48px);
+  }
+
+  /* Liste : parite `.author-method-list` / `.method-*`. */
+  .method-diagram-list__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .method-diagram-list__item {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: var(--space-4, 16px);
+    padding: var(--space-5, 24px) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .method-diagram-list__num {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--accent-text);
+  }
+  .method-diagram-list__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    line-height: 1;
+    margin: 0 0 var(--space-2, 8px);
+  }
+  .method-diagram-list__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md, 17px);
+    line-height: var(--leading-body, 1.5);
+    color: var(--ink-2);
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .section-eyebrow,
+    .method-diagram-list__list {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 768px) {
+    .method-diagram-list__item {
+      grid-template-columns: 1fr;
+      gap: var(--space-2, 8px);
+    }
+  }
+</style>

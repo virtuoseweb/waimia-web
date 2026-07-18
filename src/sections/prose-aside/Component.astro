@@ -1,0 +1,90 @@
+---
+// Waimia · Co-location DS · module `prose-aside` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `author-why` de AuthorPageTemplate (classes
+// renommees en BEM scope composant, proprietes CSS strictement identiques : 0 changement de
+// rendu). Corps MDX via <slot/> (comme editorial-prose). Garde les classes GLOBALES
+// `g12`/`g12--full`/`col-3`/`col-prose`/`reveal`. 100 % tokens DS existants, 0 token cree.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import type { ProseAsideData } from '@waimia/ds-kernel/sections/prose-aside/schema';
+
+interface Props {
+  data: ProseAsideData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const kicker = lang === 'en' ? data.kicker_en : data.kicker_fr;
+---
+<section class="prose-aside g12 g12--full reveal">
+  <header class="col-3 section-eyebrow">
+    <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
+  </header>
+  <div class="prose-aside__prose col-prose">
+    <slot />
+  </div>
+</section>
+
+<style>
+  /* Chrome : parite `.author-why` (regles groupees padding-inline space-8 + padding-block
+     space-12 + border-top hairline de AuthorPageTemplate). */
+  .prose-aside {
+    padding-inline: var(--space-8);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: 1px solid var(--hairline);
+  }
+
+  .section-eyebrow { margin-bottom: var(--space-6, 32px); }
+  .section-eyebrow :global(.eyebrow) { display: inline-block; }
+
+  /* Prose : parite `.author-prose` (+ tous ses :global). */
+  .prose-aside__prose {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: 1.62;
+    color: var(--ink-2);
+  }
+  .prose-aside__prose :global(h2) {
+    font-size: var(--text-h2);
+    font-weight: var(--fw-regular);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-display, -0.02em);
+    color: var(--ink);
+    margin: 0 0 var(--space-4, 16px);
+    text-wrap: balance;
+  }
+  .prose-aside__prose :global(h2:not(:first-child)) {
+    margin-top: var(--space-8, 48px);
+  }
+  .prose-aside__prose :global(h3) {
+    font-size: var(--text-h3);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    margin: var(--space-6, 32px) 0 var(--space-2, 8px);
+  }
+  .prose-aside__prose :global(p) {
+    margin: 0 0 var(--space-4, 16px);
+  }
+  .prose-aside__prose :global(strong) {
+    color: var(--ink);
+    font-weight: var(--fw-regular);
+  }
+  .prose-aside__prose :global(a) {
+    color: var(--accent-text);
+    text-underline-offset: 0.18em;
+  }
+  .prose-aside__prose :global(ol),
+  .prose-aside__prose :global(ul) {
+    margin: 0 0 var(--space-6, 32px) 1.1em;
+    padding: 0;
+  }
+  .prose-aside__prose :global(li) {
+    margin-bottom: var(--space-2, 8px);
+  }
+
+  @media (max-width: 900px) {
+    .section-eyebrow,
+    .prose-aside__prose {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

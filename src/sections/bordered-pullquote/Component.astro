@@ -1,0 +1,67 @@
+---
+// Waimia · Co-location DS · module `bordered-pullquote` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `author-pullquote` (.ap-pullquote) de
+// AuthorPageTemplate (classes renommees en BEM scope composant, proprietes CSS strictement
+// identiques : 0 changement de rendu). Corps + signature rendus via set:html (accent <i>,
+// entite &mdash;). Garde `g12`/`g12--full`/`col-prose`. 100 % tokens DS existants, 0 token cree.
+import type { BorderedPullquoteData } from '@waimia/ds-kernel/sections/bordered-pullquote/schema';
+
+interface Props {
+  data: BorderedPullquoteData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const quoteHtml = lang === 'en' ? data.quote_html_en : data.quote_html_fr;
+const citeHtml = lang === 'en' ? data.cite_en : data.cite_fr;
+---
+<section class="bordered-pullquote g12 g12--full">
+  <blockquote class="bordered-pullquote__quote col-prose">
+    <p set:html={quoteHtml} />
+    {citeHtml && <cite class="bordered-pullquote__cite" set:html={citeHtml} />}
+  </blockquote>
+</section>
+
+<style>
+  /* Chrome : parite `.author-pullquote` (regles groupees padding-inline space-8 + padding-block
+     space-12 + border-top hairline de AuthorPageTemplate). */
+  .bordered-pullquote {
+    padding-inline: var(--space-8);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: 1px solid var(--hairline);
+  }
+
+  /* Citation : parite `.ap-pullquote`. */
+  .bordered-pullquote__quote {
+    margin: 0;
+    padding-left: var(--space-8);
+    border-left: 1px solid var(--ink);
+  }
+  .bordered-pullquote__quote :global(p) {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-medium);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 var(--space-5, 24px);
+  }
+  .bordered-pullquote__quote :global(p i) {
+    font-style: italic;
+    color: var(--accent-text);
+  }
+  .bordered-pullquote__cite {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono, 0.12em);
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  @media (max-width: 900px) {
+    .bordered-pullquote__quote {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

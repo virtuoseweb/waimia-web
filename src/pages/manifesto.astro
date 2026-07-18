@@ -1,54 +1,46 @@
 ---
-// Page · /manifesto · Direction B · port de virtuoseweb/waimia src/components/directions/DirectionB.tsx
+// Page · /manifesto · 100 % composable (lot 6, directive Simon « pas de bespoke »).
+// Rendu entierement via sections cataloguees, importees directement (pattern home index.astro) :
+//   1. hero-manifesto      · hero editorial plein viewport (canvas liquide + 3 zones)
+//   2. marquee-band (ink)  · bandeau stack / ecosysteme d'outils (PAS des logos clients)
+//   3. manifesto-act (ink) · Acte I · Le constat + stats massives
+//   4. asymmetric-services · Acte II · 6 services in-house, rangees alternees
+//   5. manifesto-statement · Manifeste accent terracotta « On refuse... »
+//   6. footer-cta-band     · Acte III · VirtuoseOS · plateforme (ink, centre)
+//   7. editorial-case-grid · Acte IV · cas clients, cartes editoriales decalees
+//   8. editorial-write-feed· Writing dark · notes de terrain
+//   9. cta-final           · Acte V · « Arretez de repeter. Livrez. »
+// Anti-orphelin : 0 markup inline, chaque bloc = un composant catalogue (5 touchpoints).
 export const prerender = true;
 
-// (legacy repo archivé GitHub 2026-05-08 · backup local : ~/Archives/waimia-vieux-2026-05-08.tar.gz)
-// Pattern : composition Astro (Pattern 1) + 1 React island (Pattern 4 · LiquidHero canvas RAF)
-// Pacing :
-//   1. Hero LiquidHero canvas (terracotta blobs + grain + parallax mouse)
-//   2. Dark marquee (stack / écosystème d'outils, PAS des logos clients · cohérent Acte IV « pas de logos »)
-//   3. Acte I dark · stats massives 43 · <9 · ×4
-//   4. Acte II asymétriques · services alterne gauche/droite
-//   5. Manifeste accent terracotta « On refuse... »
-//   6. Acte III dark · console VirtuoseOS XL
-//   7. Acte IV cards en grille décalée
-//   8. Writing dark
-//   9. Acte V « Stop rehearsing. Ship. »
-
 import Base from '../layouts/Base.astro';
-import LiquidHero from '../components/motion/LiquidHero.tsx';
-import ManifestoAccent from '../components/ui/organisms/ManifestoAccent.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
+import HeroManifesto from '../sections/hero-manifesto/Component.astro';
+import MarqueeBand from '../sections/marquee-band/Component.astro';
+import ManifestoAct from '../sections/manifesto-act/Component.astro';
+import AsymmetricServices from '../sections/asymmetric-services/Component.astro';
+import ManifestoStatement from '../sections/manifesto-statement/Component.astro';
+import FooterCtaBand from '../sections/footer-cta-band/Component.astro';
+import EditorialCaseGrid from '../sections/editorial-case-grid/Component.astro';
+import EditorialWriteFeed from '../sections/editorial-write-feed/Component.astro';
 import CtaFinal from '../components/sections/CtaFinal.astro';
-import Kicker from '../components/ui/atoms/Kicker.astro';
-import PillCTA from '../components/ui/atoms/PillCTA.astro';
-import EditorialWriteRow from '../components/ui/molecules/EditorialWriteRow.astro';
-import AsymmetricServiceRow from '../components/ui/molecules/AsymmetricServiceRow.astro';
-import EditorialCaseCard from '../components/ui/molecules/EditorialCaseCard.astro';
 import { getCollection } from 'astro:content';
 import { CLIENT_LOGOS, SIX_SERVICES, FIELD_NOTES } from '../data/sitemap';
-import { langFromPath, t as ft, localizeHref as flh } from '../lib/i18n';
-import MastheadBar from '../components/sections/MastheadBar.astro';
+import { langFromPath, localizeHref as flh } from '../lib/i18n';
 import { buildArticle } from '../lib/seo/schema-builder';
+import type { SectionByType } from '@waimia/ds-kernel';
+import type { HeroManifestoData } from '@waimia/ds-kernel/sections/hero-manifesto/schema';
+import type { EditorialCaseGridData } from '@waimia/ds-kernel/sections/editorial-case-grid/schema';
 
 const lang = langFromPath(Astro.url.pathname);
 
-// Cas clients · source UNIQUE = collection `cases` (P0-5), featured d'abord.
+// Cas clients · source UNIQUE = collection `cases`, featured d'abord.
 const manifestoCases = (await getCollection('cases', ({ data }) => !data.ndaProtected))
   .sort((a, b) => Number(b.data.featured ?? false) - Number(a.data.featured ?? false))
   .slice(0, 4);
 
-// V7 stats alignées doctrine Waimia · cohérent avec ProofBar home (HERO_METRICS)
-const STATS = [
-  { n:'5 j',   text: { en: 'from brief to first measurement across acquisition, CRM, content and reporting.', fr: 'du brief à la première mesure sur acquisition, CRM, contenu et reporting.' } },
-  { n:'4 sem', text: { en: 'to ship the first agent in production, not a demo.',                              fr: 'pour livrer le premier agent en production, pas une démo.' } },
-  { n:'1',     text: { en: 'direct contact · the person who wires it is the person who ships it.',           fr: 'interlocuteur direct · celui qui câble est celui qui livre.' } },
-];
-
-const tripled = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
-
-// Ancres descriptives : chaque note de terrain pointe vers l'article réel le plus proche
-// (fallback /blog si aucun billet dédié) au lieu du lien générique /blog (audit confiance lot D).
-// Clé = texte EN de la note (stable) → route /blog/<slug> vérifiée existante.
+// Ancres descriptives : chaque note de terrain pointe vers l'article reel le plus proche
+// (fallback /blog si aucun billet dedie). Cle = texte EN de la note (stable) → route /blog/<slug>.
 const FIELD_NOTE_LINKS: Record<string, string> = {
   'Consulting firms: where the 8-week proposal-automation lever sits.': '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
   'HubSpot + Claude: the unglamorous pattern that actually ships.': '/blog/cabler-son-crm-en-10-jours',
@@ -63,11 +55,170 @@ const articleLd = buildArticle({
   author: { '@type': 'Organization', name: 'Waimia' },
 });
 
-// Acte V · clôture canonique = composant `CtaFinal` (dédup CTA inline, W5).
-// `chapter_num/title` rejoue le rythme d'acte ; `availability` porte la ligne
-// mono « 45 minutes · diagnostic en clair ». Fond paper (cohérent Acte V).
+// ── 1. HERO · editorial plein viewport (nouveau type catalogue `hero-manifesto`)
+const heroData = {
+  type: 'hero-manifesto',
+  meta: [
+    { html_fr: 'Waimia · Manifeste 02', html_en: 'Waimia · Manifeste 02' },
+    { html_fr: 'Montpellier · 2026', html_en: 'Montpellier · 2026' },
+    {
+      html_fr: '<span style="color:var(--accent-text)">◉</span> Booking T3',
+      html_en: '<span style="color:var(--accent-text)">◉</span> Booking T3',
+    },
+  ],
+  eyebrow_fr: 'Un studio IA solo · <span style="color:var(--accent-text)">marketing, sales, contenu, web, CRM et marque alignés</span>',
+  eyebrow_en: 'A solo AI studio · <span style="color:var(--accent-text)">marketing, sales, content, web, CRM and brand aligned</span>',
+  h1_fr: 'Construire du <i class="accent">revenu</i>,<br />pas des démos.',
+  h1_en: 'Build <i class="accent">revenue</i>,<br />not demos.',
+  subhead_fr: 'Un manifeste en cinq actes. Lu d’une traite, il prend dix&nbsp;minutes. Appliqué chez vous, il s’écrit en <i>quatre semaines</i>.',
+  subhead_en: 'A manifesto in five acts. Read in one sitting, it takes ten minutes. Applied at your company, it writes itself in <i>four weeks</i>.',
+  intro_fr: "On câble l'IA dans vos outils marketing, sales et web : acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process.",
+  intro_en: 'We wire AI into your marketing, sales and web stack: acquisition, content, CRM, site, analytics, brand. Without changing your process.',
+  cta_primary_label_fr: 'Prendre RDV →',
+  cta_primary_label_en: 'Book a session →',
+  cta_primary_href: flh('/contact', lang),
+  cta_secondary_label_fr: 'Notre expertise Claude',
+  cta_secondary_label_en: 'Our Claude expertise',
+  cta_secondary_href: flh('/expertise-claude', lang),
+  foot: [
+    { text_fr: 'SCROLL TO BEGIN ↓', text_en: 'SCROLL TO BEGIN ↓' },
+    { text_fr: 'FIVE ACTS · ONE DOCUMENT', text_en: 'FIVE ACTS · ONE DOCUMENT' },
+  ],
+} satisfies HeroManifestoData;
+
+// ── 2. MARQUEE · stack / ecosysteme d'outils (Claude, HubSpot...), PAS des logos clients
+const marqueeData = {
+  type: 'marquee-band',
+  background: 'ink',
+  items_fr: [...CLIENT_LOGOS],
+  items_en: [...CLIENT_LOGOS],
+  separator: '◦',
+  repeat: 2,
+} satisfies SectionByType<'marquee-band'>;
+
+// ── 3. ACTE I · Le constat + stats (V7 : coherent doctrine Waimia)
+const acteIData = {
+  type: 'manifesto-act',
+  num_fr: 'I.',
+  num_en: 'I.',
+  label_fr: 'Le constat',
+  label_en: 'The reckoning',
+  sub_fr: 'Acte I',
+  sub_en: 'Act I',
+  text_fr: "L'IA est <i class=\"acc\">partout</i> et nulle part. Les stacks grossissent : marketing, sales, contenu, CRM, analytics, marque. Les pipelines s'aplatissent. Le goulot n'est jamais le modèle. Ce sont les rails, les règles, et l'humain qui sait quand débrancher.",
+  text_en: "AI is <i class=\"acc\">everywhere</i> and nowhere. Stacks grow : marketing, sales, content, CRM, analytics, brand. Pipelines flatten. The bottleneck is never the model. It's the rails, the rules, and the human who knows when to unplug.",
+  tone: 'ink',
+  stats: [
+    { k: '5 j', label_fr: 'du brief à la première mesure sur acquisition, CRM, contenu et reporting.', label_en: 'from brief to first measurement across acquisition, CRM, content and reporting.' },
+    { k: '4 sem', label_fr: 'pour livrer le premier agent en production, pas une démo.', label_en: 'to ship the first agent in production, not a demo.' },
+    { k: '1', label_fr: 'interlocuteur direct · celui qui câble est celui qui livre.', label_en: 'direct contact · the person who wires it is the person who ships it.' },
+  ],
+} satisfies SectionByType<'manifesto-act'>;
+
+// ── 4. ACTE II · 6 services in-house (rangees alternees)
+const acteIIData = {
+  type: 'asymmetric-services',
+  num_fr: 'II.',
+  num_en: 'II.',
+  kicker_fr: 'La méthode',
+  kicker_en: 'The method',
+  meta_fr: '6 services · in-house',
+  meta_en: '6 services · in-house',
+  h2_fr: 'On fait la couche <i class="acc">sans prestige</i>. Exprès.',
+  h2_en: 'We do the <i class="acc">unglamorous</i> layer. On purpose.',
+  intro_fr: "Acquisition, contenu, CRM, web, analytics, marque. Six métiers. Six exécutions. Un studio solo qui livre. Pas d’agence relai, pas de plateforme tierce, pas de slide de comité. <i>Du code, du process, du résultat mesuré.</i>",
+  intro_en: 'Acquisition, content, CRM, web, analytics, brand. Six crafts. Six executions. A solo studio that ships. No relay agency, no third-party platform, no committee slide. <i>Code, process, measured result.</i>',
+  background: 'paper',
+  items: SIX_SERVICES.map((s) => ({
+    num: s.k,
+    label_fr: s.label.fr,
+    label_en: s.label.en,
+    body_fr: s.body.fr,
+    body_en: s.body.en,
+  })),
+} satisfies SectionByType<'asymmetric-services'>;
+
+// ── 5. MANIFESTE ACCENT · terracotta full-bleed « On refuse... »
+const accentData = {
+  type: 'manifesto-statement',
+  kicker_fr: '§ Manifeste · Viewport 02',
+  kicker_en: '§ Manifesto · Viewport 02',
+  text_fr: "On refuse l'uniforme <i>purple-glass</i>. On refuse le cerveau-circuits. On refuse la voix AI-startup. On garde le métier, les reçus, et les règles typographiques françaises.",
+  text_en: 'We refuse the <i>purple-glass</i> uniform. We refuse the brain-on-circuits. We refuse the AI-startup voice. We keep the craft, the receipts, and the French typographic rules.',
+  tone: 'accent',
+  show_grid: true,
+  pinned: false,
+} satisfies SectionByType<'manifesto-statement'>;
+
+// ── 6. ACTE III · VirtuoseOS · plateforme (CTA final ink, centre)
+const acteIIIData = {
+  type: 'footer-cta-band',
+  background: 'ink',
+  layout: 'stacked',
+  contentAlign: 'center',
+  actionsAlign: 'center',
+  kicker_fr: 'III. La plateforme',
+  kicker_en: 'III. The platform',
+  h2_fr: 'Virtuose<i class="accent">OS</i>.<br />Le noyau sous chaque système câblé.',
+  h2_en: 'Virtuose<i class="accent">OS</i>.<br />The kernel under every wired system.',
+  subtitle_fr: 'La plateforme interne qui orchestre marketing, sales, contenu, web, CRM, analytics et marque. Multi-workspace · multi-agents · documentée · transmissible. Construite pour livrer chez vous, déployée chez nous, propriétaire à vie dans votre stack.',
+  subtitle_en: 'The internal platform orchestrating marketing, sales, content, web, CRM, analytics and brand. Multi-workspace · multi-agent · documented · transferable. Built to ship with you, deployed by us, owned for life in your stack.',
+  buttons: [
+    {
+      label_fr: '▸ Voir notre expertise Claude',
+      label_en: '▸ See our Claude expertise',
+      href: flh('/expertise-claude', lang),
+      variant: 'accent',
+    },
+  ],
+} satisfies SectionByType<'footer-cta-band'>;
+
+// ── 7. ACTE IV · cas clients, cartes editoriales decalees (nouveau type `editorial-case-grid`)
+const acteIVData = {
+  type: 'editorial-case-grid',
+  num_fr: 'IV.',
+  num_en: 'IV.',
+  kicker_fr: 'Les preuves',
+  kicker_en: 'The proof',
+  h2_fr: 'Pas des démos. Des <i class="accent">résultats</i>.',
+  h2_en: 'Not demos. <i class="accent">Results</i>.',
+  intro_fr: "Des cas, chiffres en clair. Pas de logos pour faire joli. Chaque ligne contient le secteur, la durée, la stack et l’impact mesuré, celui qu’on défend en comité de direction.",
+  intro_en: 'Cases, numbers in the clear. No vanity logos. Each row holds the sector, duration, stack and measured impact, the one we defend in steering committees.',
+  background: 'paper',
+  stagger: 60,
+  items: manifestoCases.map((c) => ({
+    client: c.data.client,
+    sector_fr: c.data.sector_fr,
+    sector_en: c.data.sector_en,
+    stack: c.data.stack.join(' · '),
+    impact_fr: c.data.impact_fr,
+    impact_en: c.data.impact_en,
+    duration: c.data.duration,
+    href: flh(`/cas-clients/${c.data.slug ?? c.id}`, lang),
+  })),
+} satisfies EditorialCaseGridData;
+
+// ── 8. WRITING · notes de terrain (dark)
+const writingData = {
+  type: 'editorial-write-feed',
+  kicker_fr: 'Écrits',
+  kicker_en: 'Writing',
+  title_fr: 'Notes de <i>terrain</i>, lentement.',
+  title_en: 'Field <i>notes</i>, slowly.',
+  tone: 'ink',
+  items: FIELD_NOTES.map((s) => ({
+    date: s.date,
+    tag_fr: s.tag.fr,
+    tag_en: s.tag.en,
+    text_fr: s.text.fr,
+    text_en: s.text.en,
+    href: flh(FIELD_NOTE_LINKS[s.text.en] ?? '/blog', lang),
+  })),
+} satisfies SectionByType<'editorial-write-feed'>;
+
+// ── 9. ACTE V · cloture canonique = composant `cta-final`. Fond paper (coherent Acte V).
 const acteVCta = {
-  type: 'cta-final' as const,
+  type: 'cta-final',
   chapter_num: 'V',
   chapter_title_fr: "Passer à l'action",
   chapter_title_en: 'Act',
@@ -75,380 +226,35 @@ const acteVCta = {
   h2_en: 'Stop <i class="accent">rehearsing</i>.<br />Ship.',
   cta_primary: {
     label_fr: 'Prendre 45 min →', label_en: 'Book 45 min →',
-    href: flh('/contact', lang), variant: 'accent' as const, mag: 0.22,
+    href: flh('/contact', lang), variant: 'accent', mag: 0.22,
   },
   cta_secondary: {
-    label_fr: lang === 'fr' ? 'bonjour@waimia.com' : 'bonjour@waimia.com',
-    label_en: lang === 'fr' ? 'bonjour@waimia.com' : 'bonjour@waimia.com',
-    href: `mailto:${lang === 'fr' ? 'bonjour@waimia.com' : 'bonjour@waimia.com'}`,
-    variant: 'ghost' as const,
+    label_fr: 'bonjour@waimia.com',
+    label_en: 'bonjour@waimia.com',
+    href: 'mailto:bonjour@waimia.com',
+    variant: 'ghost',
   },
   availability_fr: '◉ 45 minutes · diagnostic en clair · aucune relance pénible',
   availability_en: '◉ 45 minutes · clear diagnosis · no annoying follow-up',
-  background: 'paper' as const,
-} satisfies import('@waimia/ds-kernel').SectionByType<'cta-final'>;
+  background: 'paper',
+} satisfies SectionByType<'cta-final'>;
 ---
 <Base
   title={lang === 'fr' ? "Waimia · Manifeste · Construire du revenu, pas des démos" : 'Waimia · Manifesto · Build revenue, not demos'}
   description={lang === 'fr'
-    ? "Le manifeste Waimia : des systèmes IA livrés, mesurés, documentés. Pas de théâtre IA, pas de démos qui meurent en comité."
+    ? "Le manifeste Waimia : des systèmes IA livrés, mesurés, documentés. Pas de théâtre IA, pas de démos qui meurent en comité."
     : 'Waimia Manifesto: Build revenue, not demos. AI systems shipped, measured, documented.'}
   jsonLd={articleLd}
 >
   <MastheadBar items={[{label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en'}, {label: lang === 'fr' ? 'Manifeste' : 'Manifesto'}]} lang={lang} />
 
-  {/* HERO · LiquidHero canvas · plein viewport · GrainOverlay supprimé (flicker) */}
-  <section class="manifesto-hero">
-    <LiquidHero client:visible />
-    <div class="manifesto-hero-inner">
-      {/* top meta */}
-      <div class="b-hero-meta">
-        <Kicker as="span" class="b-hero-dim">Waimia · Manifeste 02</Kicker>
-        <Kicker as="span" class="b-hero-dim">Montpellier · 2026</Kicker>
-        <Kicker as="span" class="b-hero-dim"><span style="color:var(--accent-text)">◉</span> Booking T3</Kicker>
-      </div>
-
-      {/* headline */}
-      <div style="max-width:1600px">
-        <Kicker class="b-hero-tag">
-          {lang === 'fr' ? (<>Un studio IA solo · <span style="color:var(--accent-text)">marketing, sales, contenu, web, CRM et marque alignés</span></>) : (<>A solo AI studio · <span style="color:var(--accent-text)">marketing, sales, content, web, CRM and brand aligned</span></>)}
-        </Kicker>
-        <h1 class="reveal-mask-up manifesto-h1">
-          {lang === 'fr' ? (
-            <>Construire du <i class="accent">revenu</i>,<br />pas des démos.</>
-          ) : (
-            <>Build <i class="accent">revenue</i>,<br />not demos.</>
-          )}
-        </h1>
-        <p class="manifesto-h1-subhead">
-          {lang === 'fr'
-            ? <>Un manifeste en cinq actes. Lu d&rsquo;une traite, il prend dix&nbsp;minutes. Appliqué chez vous, il s&rsquo;écrit en <i>quatre semaines</i>.</>
-            : <>A manifesto in five acts. Read in one sitting, it takes ten minutes. Applied at your company, it writes itself in <i>four weeks</i>.</>}
-        </p>
-      </div>
-
-      {/* bottom CTAs */}
-      <div class="mf-grid mf-grid--hero" style="display:grid;gap:var(--space-8);align-items:end;max-width:1600px">
-        <p style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:var(--text-h3);line-height:var(--leading-lede);color:rgba(var(--paper-rgb), .85);max-width:420px;margin:0">
-          {lang === 'fr'
-            ? "On câble l'IA dans vos outils marketing, sales et web : acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process."
-            : "We wire AI into your marketing, sales and web stack: acquisition, content, CRM, site, analytics, brand. Without changing your process."}
-        </p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <PillCTA href={flh('/contact', lang)} variant="accent" mag={0.18}>
-            {lang === 'fr' ? 'Prendre RDV →' : 'Book a session →'}
-          </PillCTA>
-          <PillCTA href={flh('/expertise-claude', lang)} variant="ghost-dark">
-            {lang === 'fr' ? 'Notre expertise Claude' : 'Our Claude expertise'}
-          </PillCTA>
-        </div>
-        <div class="b-hero-foot">
-          <Kicker class="b-hero-dim">SCROLL TO BEGIN ↓</Kicker>
-          <Kicker class="b-hero-dim">FIVE ACTS · ONE DOCUMENT</Kicker>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* DARK MARQUEE · stack / écosystème d'outils (Claude, HubSpot, Notion...), PAS des logos clients
-      · aria-hidden décoratif · padding réduit 24→14 pour rentrer sous fold */}
-  <div aria-hidden="true" class="manifesto-marquee" style="background:var(--ink);color:var(--paper);border-top:1px solid rgba(var(--paper-rgb), .12);border-bottom:1px solid rgba(var(--paper-rgb), .12);padding:14px 0;overflow:hidden;white-space:nowrap">
-    <div class="b-marquee-track">
-      {tripled.map((logo) => (
-        <>
-          <span style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:var(--text-h2);padding:0 30px;color:var(--paper)">{logo}</span>
-          <span style="padding:0 4px;color:var(--accent-text);font-size:var(--text-h3);align-self:center">◦</span>
-        </>
-      ))}
-    </div>
-  </div>
-
-  {/* ACTE I · stats dark */}
-  <section style="padding:var(--section-base) var(--space-8);background:var(--ink);color:var(--paper)">
-    <div style="max-width:1600px;margin:0 auto">
-      <div class="mf-grid mf-grid--acte" style="display:grid;gap:var(--space-10);margin-bottom:var(--space-12)">
-        <div style="position:sticky;top:120px;align-self:start">
-          <Kicker class="b-acte-1">
-            <span style="color:var(--accent-text)">I.</span> {lang === 'fr' ? 'Le constat' : 'The reckoning'}
-          </Kicker>
-          <Kicker class="b-acte-1-sub">{lang === 'fr' ? 'Acte I' : 'Act I'}</Kicker>
-        </div>
-        <p class="reveal manifesto-h2 manifesto-h2--paper">
-          {lang === 'fr' ? (
-            <>L'IA est <i class="accent">partout</i> et nulle part. Les stacks grossissent : marketing, sales, contenu, CRM, analytics, marque. Les pipelines s'aplatissent. Le goulot n'est jamais le modèle. Ce sont les rails, les règles, et l'humain qui sait quand débrancher.</>
-          ) : (
-            <>AI is <i class="accent">everywhere</i> and nowhere. Stacks grow : marketing, sales, content, CRM, analytics, brand. Pipelines flatten. The bottleneck is never the model. It's the rails, the rules, and the human who knows when to unplug.</>
-          )}
-        </p>
-      </div>
-      <div class="mf-grid mf-grid--stats" style="display:grid;gap:var(--space-8);padding-top:var(--space-10);border-top:1px solid rgba(var(--paper-rgb), .12)">
-        {STATS.map((r) => (
-          <div class="reveal">
-            <div class="manifesto-stat">{r.n}</div>
-            <p style="margin-top:18px;font-size:var(--text-body);line-height:var(--leading-body);color:rgba(var(--paper-rgb), .7);max-width:280px;font-family:var(--font-sans)">
-              {ft(r.text, lang)}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* ACTE II · services asymétriques */}
-  <section style="padding:var(--section-base) var(--space-8);background:var(--paper);color:var(--ink)">
-    <div style="max-width:1600px;margin:0 auto">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-11);flex-wrap:wrap;gap:14px">
-        <Kicker>
-          <span style="color:var(--accent-text)">II.</span> {lang === 'fr' ? 'La méthode' : 'The method'}
-        </Kicker>
-        <Kicker>6 services · in-house</Kicker>
-      </div>
-      <h2 class="reveal manifesto-h2">
-        {lang === 'fr' ? (
-          <>On fait la couche <i class="accent">sans prestige</i>. Exprès.</>
-        ) : (
-          <>We do the <i class="accent">unglamorous</i> layer. On purpose.</>
-        )}
-      </h2>
-      <p class="reveal" style="font-family:var(--font-sans);font-size:var(--text-h3);line-height:var(--leading-body);color:var(--ink-2);max-width:820px;margin:0 0 var(--space-10);text-wrap:pretty">
-        {lang === 'fr'
-          ? <>Acquisition, contenu, CRM, web, analytics, marque. Six métiers. Six exécutions. Un studio solo qui livre. Pas d&rsquo;agence relai, pas de plateforme tierce, pas de slide de comité. <i style="color:var(--accent-text)">Du code, du process, du résultat mesuré.</i></>
-          : <>Acquisition, content, CRM, web, analytics, brand. Six crafts. Six executions. A solo studio that ships. No relay agency, no third-party platform, no committee slide. <i style="color:var(--accent-text)">Code, process, measured result.</i></>}
-      </p>
-      {SIX_SERVICES.map((s, i) => (
-        <AsymmetricServiceRow
-          num={s.k}
-          label={ft(s.label, lang)}
-          body={ft(s.body, lang)}
-          reverse={i % 2 === 1}
-        />
-      ))}
-    </div>
-  </section>
-
-  {/* MANIFESTO ACCENT · réutilisé */}
-  <ManifestoAccent />
-
-  {/* ACTE III · CTA vers /technologies (VirtuoseOS · plateforme) */}
-  <section style="padding:var(--section-base) var(--space-8);background:var(--ink);color:var(--paper);text-align:center">
-    <div class="signature-grid on-dark"></div>
-    <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1">
-      <Kicker class="b-acte-3">
-        <span style="color:var(--accent-text)">III.</span> {lang === 'fr' ? 'La plateforme' : 'The platform'}
-      </Kicker>
-      <h2 class="reveal manifesto-h2" style="color:var(--paper);margin-bottom:32px">
-        {lang === 'fr' ? (
-          <>Virtuose<i class="accent">OS</i>.<br />Le noyau sous chaque système câblé.</>
-        ) : (
-          <>Virtuose<i class="accent">OS</i>.<br />The kernel under every wired system.</>
-        )}
-      </h2>
-      <p style="font-family:var(--font-sans);font-size:var(--text-h3);line-height:1.55;color:rgba(var(--paper-rgb), .7);max-width:680px;margin:0 auto 36px;text-wrap:pretty">
-        {lang === 'fr'
-          ? <>La plateforme interne qui orchestre marketing, sales, contenu, web, CRM, analytics et marque. Multi-workspace · multi-agents · documentée · transmissible. Construite pour livrer chez vous, déployée chez nous, <i style="font-style:italic;color:var(--accent-text)">propriétaire à vie</i> dans votre stack.</>
-          : <>The internal platform orchestrating marketing, sales, content, web, CRM, analytics and brand. Multi-workspace · multi-agent · documented · transferable. Built to ship with you, deployed by us, <i style="font-style:italic;color:var(--accent-text)">owned for life</i> in your stack.</>}
-      </p>
-      <PillCTA href={flh('/expertise-claude', lang)} variant="accent-mono" mag={0.18}>
-        ▸ {lang === 'fr' ? 'Voir notre expertise Claude' : 'See our Claude expertise'}
-      </PillCTA>
-    </div>
-  </section>
-
-  {/* ACTE IV · cards décalées */}
-  <section style="padding:var(--section-base) var(--space-8);background:var(--paper);color:var(--ink)">
-    <div style="max-width:1600px;margin:0 auto">
-      <Kicker class="manifesto-acte-iv">
-        <span style="color:var(--accent-text)">IV.</span> {lang === 'fr' ? 'Les preuves' : 'The proof'}
-      </Kicker>
-      <h2 class="reveal manifesto-h2">
-        {lang === 'fr' ? (<>Pas des démos. Des <i class="accent">résultats</i>.</>): (<>Not demos. <i class="accent">Results</i>.</>)}
-      </h2>
-      <p class="reveal" style="font-family:var(--font-sans);font-size:var(--text-h3);line-height:var(--leading-body);color:var(--ink-2);max-width:820px;margin:0 0 var(--space-9);margin-top:-32px;text-wrap:pretty">
-        {lang === 'fr'
-          ? <>Des cas, chiffres en clair. Pas de logos pour faire joli. Chaque ligne contient le secteur, la durée, la stack et l&rsquo;impact mesuré, celui qu&rsquo;on défend en comité de direction.</>
-          : <>Cases, numbers in the clear. No vanity logos. Each row holds the sector, duration, stack and measured impact, the one we defend in steering committees.</>}
-      </p>
-      <div class="mf-grid mf-grid--split" style="display:grid;gap:32px">
-        {manifestoCases.map((c, i) => (
-          <EditorialCaseCard
-            idx={i + 1}
-            client={c.data.client}
-            sector={lang === 'fr' ? c.data.sector_fr : c.data.sector_en}
-            stack={c.data.stack.join(' · ')}
-            impact={lang === 'fr' ? c.data.impact_fr : c.data.impact_en}
-            duration={c.data.duration}
-            href={flh(`/cas-clients/${c.data.slug ?? c.id}`, lang)}
-            offset={i % 2 === 1 ? 60 : 0}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* WRITING dark */}
-  <section style="padding:var(--section-loose) var(--space-8);background:var(--ink);color:var(--paper)">
-    <div class="mf-grid mf-grid--writing" style="max-width:1600px;margin:0 auto;display:grid;gap:var(--space-11)">
-      <div>
-        <Kicker class="b-writing-tag">{lang === 'fr' ? 'Écrits' : 'Writing'}</Kicker>
-        <div style="font-family:var(--font-sans);font-size:var(--text-h1);line-height:.96;letter-spacing:var(--tracking-display);margin-top:28px;color:var(--paper)">
-          {lang === 'fr' ? (<>Notes de <i style="color:var(--accent-text)">terrain</i>, lentement.</>) : (<>Field <i style="color:var(--accent-text)">notes</i>, slowly.</>)}
-        </div>
-      </div>
-      <div>
-        {FIELD_NOTES.map((s) => (
-          <EditorialWriteRow
-            date={s.date}
-            tag={ft(s.tag, lang)}
-            href={flh(FIELD_NOTE_LINKS[s.text.en] ?? '/blog', lang)}
-            tone="ink"
-          >
-            {ft(s.text, lang)}
-          </EditorialWriteRow>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* ACTE V · clôture canonique = composant `CtaFinal` (ex-CTA inline dupliqué).
-     `chapter_num='V'` rejoue le rythme d'acte ; le reveal est porté nativement
-     par les classes `reveal-mask-up`/`reveal` internes au composant. */}
+  <HeroManifesto data={heroData} lang={lang} />
+  <MarqueeBand data={marqueeData} lang={lang} />
+  <ManifestoAct data={acteIData} lang={lang} />
+  <AsymmetricServices data={acteIIData} lang={lang} />
+  <ManifestoStatement data={accentData} lang={lang} />
+  <FooterCtaBand data={acteIIIData} lang={lang} />
+  <EditorialCaseGrid data={acteIVData} lang={lang} />
+  <EditorialWriteFeed data={writingData} lang={lang} />
   <CtaFinal data={acteVCta} lang={lang} />
 </Base>
-
-<style>
-  /* Grilles editoriales bespoke : largeurs desktop + reflow 1 colonne mobile (anti-overflow) */
-  .mf-grid--hero { grid-template-columns: 1fr 1fr 1fr; }
-  .mf-grid--acte { grid-template-columns: 1fr 2fr; }
-  .mf-grid--stats { grid-template-columns: repeat(3, 1fr); }
-  .mf-grid--split { grid-template-columns: 1fr 1fr; }
-  .mf-grid--writing { grid-template-columns: 400px 1fr; }
-  @media (max-width: 768px) {
-    .mf-grid--hero,
-    .mf-grid--acte,
-    .mf-grid--stats,
-    .mf-grid--split,
-    .mf-grid--writing {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* V7 hero hauteur réduite · marquee remonte above-the-fold (Simon demande)
-     · Avant : min-height 100vh + padding 160px/80px = hero seul = viewport entier
-     · Après : min-height 84vh + padding 88px/40px = laisse ~144px pour marquee */
-  /* V7 fix Simon · équation mathématiquement juste
-     Layout : Breadcrumb (33px) + Hero + Marquee (75px) = 100vh exactement
-     Donc hero = 100vh - 33px - 75px = 100vh - 108px
-     Aucun pixel vide en bas sur 1440×900 ou autre viewport ≥ 768 */
-  .manifesto-hero {
-    position: relative;
-    min-height: calc(100vh - 108px);
-    overflow: hidden;
-    background: var(--ink);
-  }
-  .manifesto-hero-inner {
-    position: relative;
-    z-index: 2;
-    padding: var(--space-9) var(--space-8) var(--space-8);
-    color: var(--paper);
-    min-height: calc(100vh - 108px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--spacing-block);
-    max-width: var(--wrap-wide);
-    margin-inline: auto;
-    width: 100%;
-  }
-
-  /* Marquee compacté · 86 → 78px pour gagner 8px sur hero */
-  .b-marquee-track > span {
-    font-size: var(--text-h3) !important;
-  }
-
-  /* V7 harmonisation typographique · Manifesto H1 + H2 cap cohérent
-     · Page spéciale peut rester plus imposante que home mais dans la même famille
-     · H1 cap 132px (vs ancien 220px) = 1.43× du H1 home tokenisé (92px) */
-  /* Directive typo : titres manifeste = masse → Instrument Sans (graisse appuyée).
-     Les fragments <i> restent relevés en Instrument Serif italic = emphase. */
-  .manifesto-h1 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    line-height: 0.94;
-    letter-spacing: -0.02em;
-    color: var(--paper);
-    text-wrap: balance;
-    font-weight: var(--fw-semibold);
-    margin: 0;
-    max-width: 1400px;
-  }
-  .manifesto-h1 i { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
-  .manifesto-h1 i.accent { color: var(--accent-text); }
-
-  .manifesto-h1-subhead {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h3);
-    line-height: 1.35;
-    color: rgba(var(--paper-rgb), 0.7);
-    margin: var(--space-7) 0 0;
-    max-width: var(--wrap-prose);
-    text-wrap: pretty;
-  }
-  .manifesto-h1-subhead i {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: var(--fw-regular);
-    color: var(--accent-text);
-  }
-
-  /* H2 sections grandes (manifeste, déclaration) · cap 96px cohérent avec home text-h2-grand */
-  .manifesto-h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-medium);
-    font-size: var(--text-h1);
-    line-height: var(--leading-h2);
-    letter-spacing: -0.015em;
-    max-width: 1200px;
-    margin: 0 0 var(--space-10);
-    text-wrap: balance;
-  }
-  .manifesto-h2 i { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
-  .manifesto-h2 i.accent { color: var(--accent-text); }
-  /* Variant paper · sur fond ink (acte I) */
-  .manifesto-h2--paper { color: var(--paper); font-family: var(--font-sans); }
-
-  /* Stats inline page spéciale · cap 132 (vs 176) cohérent avec hero-1 page spéciale */
-  .manifesto-stat {
-    font-family: var(--font-sans);
-    font-weight: var(--fw-semibold);
-    font-size: var(--text-display);
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    color: var(--accent-text);
-  }
-
-  /* Spacing/colors pour les Kicker atoms rendus par les sous-composants
-     Note : :global est requis car le scoping Astro ne descend pas dans les composants enfants */
-  :global(.manifesto-acte-iv){margin-bottom:var(--space-6)}
-  :global(.b-hero-dim){color:rgba(var(--paper-rgb), .55) !important;line-height:1}
-  :global(.b-hero-tag){color:rgba(var(--paper-rgb), .55) !important;margin-bottom:var(--space-5);line-height:1}
-  :global(.b-acte-1){color:rgba(var(--paper-rgb), .5) !important}
-  :global(.b-acte-1-sub){color:rgba(var(--paper-rgb), .3) !important;letter-spacing:.14em;margin-top:var(--space-1)}
-  :global(.b-acte-3){color:rgba(var(--paper-rgb), .5) !important;margin-bottom:var(--space-6)}
-  :global(.b-writing-tag){color:rgba(var(--paper-rgb), .5) !important}
-
-  /* Hero meta + foot · layout */
-  .b-hero-meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px}
-  .b-hero-foot{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
-
-  /* Marquee local · plus rapide que le marquee paper du / */
-  .b-marquee-track{display:inline-flex;animation:b-slide 80s linear infinite}
-  @keyframes b-slide{to{transform:translateX(-33.333%)}}
-  @media (prefers-reduced-motion:reduce){.b-marquee-track{animation:none}}
-
-  @media (prefers-reduced-motion: reduce) {
-    :global(.liquid-hero canvas) { display: none !important; }
-    :global(.liquid-hero) { background: var(--ink); }
-  }
-
-</style>

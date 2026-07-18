@@ -1,0 +1,83 @@
+---
+// Waimia · Co-location DS · module `editorial-case-grid` · Component.
+// En-tete (numero d'acte + kicker + titre + intro) + grille de cartes EditorialCaseCard
+// en 2 colonnes avec decalage vertical alterne. Markup EXTRAIT FIDELEMENT de l'Acte IV de
+// src/pages/manifesto.astro (rule 60). La molecule EditorialCaseCard reste la source des cartes.
+import type { EditorialCaseGridData } from '@waimia/ds-kernel/sections/editorial-case-grid/schema';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import EditorialCaseCard from '../../components/ui/molecules/EditorialCaseCard.astro';
+
+interface Props {
+  data: EditorialCaseGridData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const intro = isFr ? data.intro_fr : data.intro_en;
+const stagger = data.stagger ?? 60;
+---
+<section class="ecg" data-bg={data.background}>
+  <div class="wrap-wide">
+    <Kicker class="ecg__acte">
+      <span class="ecg__accent">{isFr ? data.num_fr : data.num_en}</span> {isFr ? data.kicker_fr : data.kicker_en}
+    </Kicker>
+    <h2 class="ecg__title reveal" set:html={isFr ? data.h2_fr : data.h2_en} />
+    {intro && <p class="ecg__intro reveal" set:html={intro} />}
+    <div class="ecg__grid">
+      {data.items.map((c, i) => (
+        <EditorialCaseCard
+          idx={i + 1}
+          client={c.client}
+          sector={isFr ? c.sector_fr : c.sector_en}
+          stack={c.stack}
+          impact={isFr ? c.impact_fr : c.impact_en}
+          duration={c.duration}
+          href={c.href}
+          offset={i % 2 === 1 ? stagger : 0}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ecg { padding-block: var(--section-loose); }
+  .ecg[data-bg='paper-2'] { background: var(--paper-2); }
+  .ecg[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+
+  :global(.ecg__acte) { margin-bottom: var(--space-6); }
+  .ecg__accent { color: var(--accent-text); }
+
+  .ecg__title {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h2);
+    letter-spacing: -0.015em;
+    max-width: 1200px;
+    margin: 0 0 var(--space-10);
+    text-wrap: balance;
+  }
+  .ecg__title :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+  .ecg__title :global(i.accent) { color: var(--accent-text); }
+
+  .ecg__intro {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+    max-width: 820px;
+    margin: -32px 0 var(--space-9);
+    text-wrap: pretty;
+  }
+  .ecg[data-bg='ink'] .ecg__intro { color: rgba(var(--paper-rgb), 0.82); }
+
+  .ecg__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 768px) {
+    .ecg__grid { grid-template-columns: 1fr; }
+  }
+</style>

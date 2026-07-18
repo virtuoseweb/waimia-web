@@ -214,6 +214,16 @@ import { demo as stickyScrollStorytellingDemo } from '../sections/sticky-scroll-
 import { demo as hoverRevealWordsDemo } from '../sections/hover-reveal-words/demo';
 import { demo as provenanceChipDemo } from '../sections/provenance-chip/demo';
 import { demo as usedServiceCalloutDemo } from '../sections/used-service-callout/demo';
+import { demo as heroManifestoDemo } from '../sections/hero-manifesto/demo';
+import { demo as editorialCaseGridDemo } from '../sections/editorial-case-grid/demo';
+import { demo as keywordStripDemo } from '../sections/keyword-strip/demo';
+import { demo as proseAsideDemo } from '../sections/prose-aside/demo';
+import { demo as borderedPullquoteDemo } from '../sections/bordered-pullquote/demo';
+import { demo as signedWritingListDemo } from '../sections/signed-writing-list/demo';
+import { demo as methodDiagramListDemo } from '../sections/method-diagram-list/demo';
+import { demo as curriculumTimelineDemo } from '../sections/curriculum-timeline/demo';
+import { demo as publicationsPanelDemo } from '../sections/publications-panel/demo';
+import { demo as closingCtaBandDemo } from '../sections/closing-cta-band/demo';
 
 export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hero-form-inline': heroFormInlineDemo,
@@ -425,4 +435,14 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hover-reveal-words': hoverRevealWordsDemo,
   'provenance-chip': provenanceChipDemo,
   'used-service-callout': usedServiceCalloutDemo,
+  'hero-manifesto': heroManifestoDemo,
+  'editorial-case-grid': editorialCaseGridDemo,
+  'keyword-strip': keywordStripDemo,
+  'prose-aside': proseAsideDemo,
+  'bordered-pullquote': borderedPullquoteDemo,
+  'signed-writing-list': signedWritingListDemo,
+  'method-diagram-list': methodDiagramListDemo,
+  'curriculum-timeline': curriculumTimelineDemo,
+  'publications-panel': publicationsPanelDemo,
+  'closing-cta-band': closingCtaBandDemo,
 };

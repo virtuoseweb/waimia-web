@@ -1,0 +1,137 @@
+---
+// Waimia · Co-location DS · module `hero-manifesto` · Component.
+// Hero editorial plein viewport, fond canvas liquide + 3 zones (meta / titre / bas).
+// Markup + CSS EXTRAITS FIDELEMENT de src/pages/manifesto.astro (.manifesto-hero, rule 60).
+// Composition only, DS fige : tokens DS + litteraux structurels (max-width editoriaux, gaps).
+import type { HeroManifestoData } from '@waimia/ds-kernel/sections/hero-manifesto/schema';
+import LiquidHero from '../../components/motion/LiquidHero.tsx';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import PillCTA from '../../components/ui/atoms/PillCTA.astro';
+
+interface Props {
+  data: HeroManifestoData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const meta = data.meta ?? [];
+const foot = data.foot ?? [];
+const eyebrow = isFr ? data.eyebrow_fr : data.eyebrow_en;
+const subhead = isFr ? data.subhead_fr : data.subhead_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+const ctaPrimary = isFr ? data.cta_primary_label_fr : data.cta_primary_label_en;
+const ctaSecondary = isFr ? data.cta_secondary_label_fr : data.cta_secondary_label_en;
+---
+<section class="hero-mf" aria-labelledby="hero-mf-h1">
+  <LiquidHero client:visible />
+  <div class="hero-mf__inner">
+    {meta.length > 0 && (
+      <div class="hero-mf__meta">
+        {meta.map((m) => <Kicker as="span" class="hero-mf__dim" set:html={isFr ? m.html_fr : m.html_en} />)}
+      </div>
+    )}
+
+    <div class="hero-mf__headline">
+      {eyebrow && <Kicker class="hero-mf__tag" set:html={eyebrow} />}
+      <h1 id="hero-mf-h1" class="hero-mf__h1 reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
+      {subhead && <p class="hero-mf__subhead" set:html={subhead} />}
+    </div>
+
+    <div class="hero-mf__bottom">
+      {intro && <p class="hero-mf__lede" set:html={intro} />}
+      {(ctaPrimary || ctaSecondary) && (
+        <div class="hero-mf__cta">
+          {ctaPrimary && data.cta_primary_href && (
+            <PillCTA href={data.cta_primary_href} variant="accent" mag={0.18}>{ctaPrimary}</PillCTA>
+          )}
+          {ctaSecondary && data.cta_secondary_href && (
+            <PillCTA href={data.cta_secondary_href} variant="ghost-dark">{ctaSecondary}</PillCTA>
+          )}
+        </div>
+      )}
+      {foot.length > 0 && (
+        <div class="hero-mf__foot">
+          {foot.map((f) => <Kicker class="hero-mf__dim">{isFr ? f.text_fr : f.text_en}</Kicker>)}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Layout : Breadcrumb (~33px) + Hero + Marquee (~75px) = 100vh → hero = 100vh - 108px. */
+  .hero-mf {
+    position: relative;
+    min-height: calc(100vh - 108px);
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-mf__inner {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-9) var(--space-8) var(--space-8);
+    color: var(--paper);
+    min-height: calc(100vh - 108px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-block);
+    max-width: var(--wrap-wide);
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .hero-mf__meta { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 14px; }
+  .hero-mf__headline { max-width: 1600px; }
+  .hero-mf__bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-8); align-items: end; max-width: 1600px; }
+  .hero-mf__foot { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+
+  .hero-mf__h1 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: 0.94;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    text-wrap: balance;
+    font-weight: var(--fw-semibold);
+    margin: 0;
+    max-width: 1400px;
+  }
+  .hero-mf__h1 :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+  .hero-mf__h1 :global(i.accent) { color: var(--accent-text); }
+
+  .hero-mf__subhead {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
+    font-size: var(--text-h3);
+    line-height: 1.35;
+    color: rgba(var(--paper-rgb), 0.7);
+    margin: var(--space-7) 0 0;
+    max-width: var(--wrap-prose);
+    text-wrap: pretty;
+  }
+  .hero-mf__subhead :global(i) { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); color: var(--accent-text); }
+
+  .hero-mf__lede {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-medium);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    color: rgba(var(--paper-rgb), 0.85);
+    max-width: 420px;
+    margin: 0;
+  }
+  .hero-mf__cta { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Kicker atoms rendus par sous-composants → :global requis (le scoping Astro ne descend pas). */
+  :global(.hero-mf__dim) { color: rgba(var(--paper-rgb), 0.55) !important; line-height: 1; }
+  :global(.hero-mf__tag) { color: rgba(var(--paper-rgb), 0.55) !important; margin-bottom: var(--space-5); line-height: 1; }
+
+  @media (max-width: 768px) {
+    .hero-mf__bottom { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(.hero-mf .liquid-hero canvas) { display: none !important; }
+    :global(.hero-mf .liquid-hero) { background: var(--ink); }
+  }
+</style>

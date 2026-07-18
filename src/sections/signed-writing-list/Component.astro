@@ -1,0 +1,132 @@
+---
+// Waimia · Co-location DS · module `signed-writing-list` · Component.
+// Markup + CSS EXTRAITS FIDELEMENT du bloc inline `author-essays` (.essays-list / .essay-item)
+// de AuthorPageTemplate (classes renommees en BEM scope composant, proprietes CSS strictement
+// identiques : 0 changement de rendu). Date formatee par locale (parite `formatDate`). Garde
+// `g12`/`g12--full`/`col-12`/`col-prose`/`reveal`. 100 % tokens DS existants, 0 token cree.
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import type { SignedWritingListData } from '@waimia/ds-kernel/sections/signed-writing-list/schema';
+
+interface Props {
+  data: SignedWritingListData;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const locale = lang === 'fr' ? 'fr-FR' : 'en-US';
+const kicker = lang === 'en' ? data.kicker_en : data.kicker_fr;
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'short' });
+const titleFor = (item: SignedWritingListData['items'][number]) =>
+  lang === 'en' ? item.title_en : item.title_fr;
+const excerptFor = (item: SignedWritingListData['items'][number]) =>
+  lang === 'en' ? (item.excerpt_en ?? item.excerpt_fr) : item.excerpt_fr;
+---
+<section class="signed-writing-list g12 g12--full">
+  <header class="col-12 section-eyebrow reveal">
+    <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
+    <h2 class="display-md">{title}</h2>
+  </header>
+  <ul class="signed-writing-list__list col-prose">
+    {data.items.map((item) => (
+      <li class="signed-writing-list__item reveal">
+        <time class="signed-writing-list__date" datetime={item.date_iso}>
+          {formatDate(item.date_iso)}
+        </time>
+        <div>
+          <a href={item.href} class="signed-writing-list__link">
+            <h3 class="signed-writing-list__title">{titleFor(item)}</h3>
+          </a>
+          {excerptFor(item) && <p class="signed-writing-list__excerpt">{excerptFor(item)}</p>}
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  /* Chrome : parite `.author-essays` (regles groupees padding-inline space-8 + padding-block
+     space-12 + border-top hairline de AuthorPageTemplate). */
+  .signed-writing-list {
+    padding-inline: var(--space-8);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: 1px solid var(--hairline);
+  }
+
+  .section-eyebrow { margin-bottom: var(--space-6, 32px); }
+  .section-eyebrow :global(.eyebrow) { display: inline-block; }
+
+  /* Titre : parite `.display-md`. */
+  .display-md {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    font-weight: var(--fw-semibold);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    margin: var(--space-2, 8px) 0 0;
+    text-wrap: balance;
+  }
+
+  /* Liste : parite `.essays-list` / `.essay-*`. */
+  .signed-writing-list__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .signed-writing-list__item {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: var(--space-5, 24px);
+    padding: var(--space-6, 32px) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .signed-writing-list__item:first-child {
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .signed-writing-list__item:last-child {
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .signed-writing-list__date {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono, 0.12em);
+    color: var(--muted);
+    padding-top: 0.4em;
+  }
+  .signed-writing-list__link { text-decoration: none; }
+  .signed-writing-list__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0;
+    transition: color var(--dur-fast, 180ms) var(--ease, ease);
+  }
+  .signed-writing-list__link:hover .signed-writing-list__title {
+    color: var(--accent-text);
+  }
+  .signed-writing-list__excerpt {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md, 17px);
+    line-height: var(--leading-body, 1.5);
+    color: var(--ink-2);
+    margin: var(--space-2, 8px) 0 0;
+    max-width: 60ch;
+  }
+
+  @media (max-width: 900px) {
+    .section-eyebrow,
+    .signed-writing-list__list {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 768px) {
+    .signed-writing-list__item {
+      grid-template-columns: 1fr;
+      gap: var(--space-2, 8px);
+    }
+  }
+</style>
