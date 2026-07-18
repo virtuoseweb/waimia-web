@@ -55,9 +55,8 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
   id: 'case-study',
   sections: [
     // ── MASTHEAD + fil d'Ariane (chrome, section cataloguée `masthead-bar`) ──────────
-    // Fidélité : l'ancien template mettait `title` (= `${title_fr} · Waimia`) en dernier
-    // crumb. On reproduit ce libellé (wart connu : la branche composable, elle, met le
-    // title_fr nu — cf rapport).
+    // Dernier crumb = titre nu, aligné sur la branche composable (wart legacy
+    // « · Waimia » retiré, fiche 0020 §D).
     {
       id: 'masthead',
       build: ({ data }) => ({
@@ -65,7 +64,7 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
         breadcrumb: [
           { label_fr: 'Accueil', label_en: 'Home', href: '/' },
           { label_fr: 'Cas clients', label_en: 'Case studies', href: '/cas-clients' },
-          { label_fr: `${data.title_fr} · Waimia`, label_en: `${data.title_en} · Waimia` },
+          { label_fr: data.title_fr, label_en: data.title_en },
         ],
       } satisfies SectionByType<'masthead-bar'>),
     },
