@@ -450,8 +450,11 @@ const blog = defineCollection({
 });
 
 // ─── Secteurs ───
+// JSON canonique (décision nuit 0018 : mdx en extinction, template-as-data). Le corps
+// de page (prose GEO) vit désormais dans `body_sections` (sections editorial-prose,
+// cf template `src/lib/templates/sector.ts`), rendu via `html_fr`/`html_en`.
 const secteurs = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/secteurs' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/secteurs' }),
   schema: z.object({
     ...baseFields,
     icp_fr: z.string(),
@@ -488,6 +491,20 @@ const secteurs = defineCollection({
       .optional(),
     // Override/extension composable (rendu data-driven, modèle services/offres).
     sections: sectionsArraySchema.optional(),
+    // Corps de page (prose GEO) en DONNÉE (template-as-data) : le markdown MDX legacy
+    // devient une liste de sections editorial-prose. RÉUTILISE le schéma kernel
+    // editorial-prose (background/maxWidth/figures/type) + le texte rich-html porté par
+    // `html_fr` (rendu via <Fragment set:html> dans le composant editorial-prose).
+    // Miroir EXACT du champ `body_sections` de la collection `cases`.
+    body_sections: z
+      .array(
+        z.object({
+          ...editorialProseSchema.shape,
+          html_fr: z.string(),
+          html_en: z.string().optional(),
+        }),
+      )
+      .optional(),
   }),
 });
 
