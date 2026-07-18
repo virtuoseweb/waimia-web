@@ -8,8 +8,12 @@ import Kicker from '../ui/atoms/Kicker.astro';
 interface Props {
   data: SectionByType<'tech-stack-band'>;
   lang: 'fr' | 'en';
+  /** Ajoute la classe globale `reveal` (scroll-reveal) sur la section. Défaut false → rendu catalogue inchangé. */
+  reveal?: boolean;
+  /** Overrides CSS-vars rétro-compat (hooks lead/pad ci-dessous). Défaut undefined → aucun attribut style → rendu inchangé. */
+  style?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, reveal = false, style } = Astro.props;
 const isFr = lang === 'fr';
 const pills = data.pills.map((p) => ({
   label: isFr ? p.label_fr : p.label_en,
@@ -17,7 +21,7 @@ const pills = data.pills.map((p) => ({
 }));
 ---
 
-<section class="tech-stack-band" data-bg={data.background}>
+<section class:list={['tech-stack-band', { reveal }]} data-bg={data.background} style={style || undefined}>
   <div class="wrap-wide">
     <Kicker as="span" tone="accent" class="tech-stack-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     {(isFr ? data.lead_fr : data.lead_en) && (
@@ -41,13 +45,13 @@ const pills = data.pills.map((p) => ({
   }
   .tech-stack-band__lead {
     font-family: var(--font-sans);
-    font-size: clamp(var(--text-h3), 2.4vw, var(--text-h2));
-    line-height: var(--leading-h3);
+    font-size: var(--tech-stack-band-lead-size, clamp(var(--text-h3), 2.4vw, var(--text-h2)));
+    line-height: var(--tech-stack-band-lead-leading, var(--leading-h3));
     font-weight: var(--fw-medium);
     color: var(--muted);
     max-width: 760px;
     text-wrap: balance;
-    margin: 0 0 clamp(var(--space-6), 3vw, var(--space-8));
+    margin: 0 0 var(--tech-stack-band-lead-margin, clamp(var(--space-6), 3vw, var(--space-8)));
   }
   .tech-stack-band__lead :global(i) {
     font-style: italic;

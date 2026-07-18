@@ -23,7 +23,7 @@ import FeatureGrid from '../sections/FeatureGrid.astro';
 import MetricShift from '../sections/MetricShift.astro';
 import StatBlock from '../sections/StatBlock.astro';
 import PullQuoteBlock from '../sections/PullQuoteBlock.astro';
-import TechPillRow from '../ui/molecules/TechPillRow.astro';
+import TechStackBand from '../sections/TechStackBand.astro';
 import FooterCtaBand from '../sections/FooterCtaBand.astro';
 import RelatedCardsBand from '../sections/RelatedCardsBand.astro';
 import MastheadBar from '../sections/MastheadBar.astro';
@@ -384,6 +384,19 @@ const stackLead = {
       : ''),
 };
 
+// STACK → tech-stack-band catalogué (rendu en interne, remplace le bloc inline case-stack).
+// Pills déjà localisées en amont (label unique) → label_fr = label_en = label. La parité pixel
+// avec l'ancien case-stack passe par les hooks CSS-vars du composant (cf render : padding
+// space-10, lead h3 / line-height 1.3 / margin space-8) + prop reveal.
+const stackBandData = {
+  type: 'tech-stack-band',
+  kicker_fr: '§ 04 · La stack',
+  kicker_en: '§ 04 · The stack',
+  lead_fr: stackLead.fr,
+  lead_en: stackLead.en,
+  pills: techPills.map((p) => ({ label_fr: p.label, label_en: p.label, kind: p.kind })),
+} satisfies SectionByType<'tech-stack-band'>;
+
 // Husk éliminé : on ne rend la timeline legacy QUE si des steps existent vraiment.
 const hasLegacySteps = steps && steps.length > 0;
 const showAuthorBand = Astro.slots.has('author-byline') || Astro.slots.has('author-card');
@@ -523,16 +536,15 @@ const usedServiceCalloutData = relatedOffresLinks && relatedOffresLinks.length >
     </section>
   )}
 
-  {/* STACK */}
-  <section class="case-stack reveal">
-    <div class="wrap-wide">
-      <Kicker tone="accent" class="case-stack-k">§ 04 · <Bi fr="La stack" en="The stack" /></Kicker>
-      <p class="case-stack-lead">
-        <Bi fr={stackLead.fr} en={stackLead.en} />
-      </p>
-      <TechPillRow pills={techPills} />
-    </div>
-  </section>
+  {/* STACK → tech-stack-band catalogué (rendu en interne, remplace le bloc inline case-stack).
+      Parité pixel via les hooks CSS-vars du composant : padding vertical space-10,
+      lead font-size h3 fixe / line-height 1.3 / margin-bottom space-8, + prop reveal. */}
+  <TechStackBand
+    data={stackBandData}
+    lang={lang}
+    reveal
+    style="--tech-stack-band-pad: var(--space-10); --tech-stack-band-lead-size: var(--text-h3); --tech-stack-band-lead-leading: 1.3; --tech-stack-band-lead-margin: var(--space-8);"
+  />
 
   {/* AUTHOR CARD (bande dédiée propre — hors pavé) */}
   {Astro.slots.has('author-card') && (
@@ -613,18 +625,8 @@ const usedServiceCalloutData = relatedOffresLinks && relatedOffresLinks.length >
     letter-spacing: 0.06em;
     font-style: normal;
   }
-  .case-stack { padding: var(--space-10) var(--space-6); background: var(--paper-2); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-  :global(.case-stack-k) { display: block; margin-bottom: var(--space-4); }
-  .case-stack-lead {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    line-height: 1.3;
-    font-weight: var(--fw-medium);
-    color: var(--muted);
-    max-width: 760px;
-    text-wrap: balance;
-    margin: 0 0 var(--space-8);
-  }
+  /* Stack : markup/CSS déplacés vers le composant catalogué `tech-stack-band`
+     (rendu en interne via <TechStackBand>, parité pixel par hooks CSS-vars). */
 
   @media (max-width: 900px) {
     .case-context-grid,
