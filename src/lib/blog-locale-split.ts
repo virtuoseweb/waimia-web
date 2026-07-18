@@ -1,6 +1,7 @@
-// Découpe locale du corps MDX bilingue des essais/blog.
+// Découpe locale du corps HTML bilingue des essais/blog.
 //
-// Convention du contenu (`src/content/blog/*.mdx`) : le corps est rédigé en
+// Convention historique du contenu (désormais `src/content/blog/*.json`,
+// corps pré-rendu en `body_sections[].html_fr`/`html_en`) : le corps est rédigé en
 // français, suivi d'une règle horizontale Markdown de niveau racine (`---`,
 // rendue en `<hr>`), puis du même texte en anglais. Les deux moitiés étaient
 // jusqu'ici rendues ensemble sur chaque locale (FR voyait FR + EN dupliqué).

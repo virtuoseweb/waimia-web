@@ -1,11 +1,18 @@
 ---
+// Route · /blog/<slug> · article éditorial · « template-as-data » (décision nuit 0018).
+// Le CONTENU vit dans les données (JSON `body_sections[0].html_fr` pré-rendu + `headings`),
+// la DÉFINITION du template dans `src/lib/templates/essay.ts` (séquence + mappings). La route
+// se limite à : charger le JSON, dériver le contexte cross-entry, appeler `buildEssayProps`,
+// rendre `EssayTemplate` (bespoke, PARTAGÉ avec /ressources/outils, inchangé). Le corps FR
+// pré-rendu est injecté au slot `body` via set:html (parité stricte avec l'ancien <Content/>).
 export const prerender = true;
 
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../components/templates/EssayTemplate.astro';
 import { computeReadingTime } from '../../lib/seo/reading-time';
 import { isLegacyRoutedType } from '../../lib/blog-routing';
 import { blogHeroIllustration } from '../../lib/hero-illustrations';
+import { buildEssayProps, type EssayContext } from '../../lib/templates/essay';
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
@@ -22,7 +29,7 @@ export async function getStaticPaths() {
 type Props = { entry: CollectionEntry<'blog'> };
 
 const slugifyAuthorName = (name: string) =>
-  name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const getAuthorSlug = (author: unknown): string | undefined => {
   if (!author) return undefined;
@@ -50,14 +57,18 @@ const getAuthorLabel = (author: unknown): string | undefined => {
 };
 
 const { entry } = Astro.props as Props;
-const { Content, headings } = await render(entry);
 const d = entry.data;
+const lang = 'fr' as const;
+
+// Corps FR pré-rendu (template-as-data) : le markdown MDX legacy est devenu une donnée.
+const bodyHtml = d.body_sections?.[0]?.html_fr ?? '';
+const headings = d.headings ?? [];
 
 const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const authorSlug = getAuthorSlug(d.author);
 const authorLabel = getAuthorLabel(d.author) ?? 'Waimia';
-const computedMinutes = d.readingTime ?? computeReadingTime(entry.body ?? '');
-const readingTime = `${computedMinutes} min de lecture`;
+// readingTime = frontmatter (tous les articles le portent) ; repli = calcul sur le corps rendu.
+const readingTimeMin = d.readingTime ?? computeReadingTime(bodyHtml.replace(/<[^>]+>/g, ' '));
 
 const allBlog = await getCollection('blog');
 const allCases = await getCollection('cases');
@@ -65,16 +76,12 @@ const allCases = await getCollection('cases');
 const relatedCasesData = (d.relatedCases ?? [])
   .map((id) => allCases.find((c) => c.id === id))
   .filter(Boolean)
-  .map((c) => ({
-    id: c!.id,
-    title: c!.data.title_fr,
-    href: `/cas-clients/${c!.id}`,
-  }));
+  .map((c) => ({ id: c!.id, title: c!.data.title_fr, href: `/cas-clients/${c!.id}` }));
 
 // Collection `offres` retirée (refonte v7) : la bande related-offres est vide.
 const relatedOffresData: { id: string; title: string; href: string }[] = [];
 
-// Habillage editorial : illustration hero (override frontmatter sinon mapping par categorie).
+// Habillage editorial : illustration hero (override frontmatter sinon mapping par catégorie).
 const heroIllustration = d.heroIllustration ?? blogHeroIllustration((d as { category?: string }).category);
 
 const relatedCards = d.relatedPosts.length > 0
@@ -90,38 +97,27 @@ const relatedCards = d.relatedPosts.length > 0
         href: `/blog/${c!.id}`,
       }))
   : [];
+
+// « Template-as-data » : les props d'EssayTemplate se dérivent de la DÉFINITION `essay`.
+const ctx: EssayContext = {
+  data: d,
+  lang,
+  articleId: entry.id,
+  authorSlug,
+  authorLabel,
+  dateStr,
+  readingTimeMin,
+  bodyHtml,
+  headings,
+  heroIllustration,
+  relatedCards,
+  relatedCasesData,
+  relatedOffresData,
+};
+const essayProps = buildEssayProps(ctx);
 ---
-<EssayTemplate
-  title={`${d.title_fr} · Blog Waimia`}
-  description={d.description_fr}
-  kicker={`§ Blog · ${d.category}`}
-  date={dateStr}
-  datePublished={d.publishedAt.toISOString().slice(0, 10)}
-  dateModified={d.updatedAt ? (d.updatedAt as Date).toISOString().slice(0, 10) : d.publishedAt.toISOString().slice(0, 10)}
-  author={authorLabel}
-  readingTime={readingTime}
-  relatedCards={relatedCards}
-  authorSlug={authorSlug}
-  sources={d.sources}
-  lang="fr"
-  breadcrumbItems={[
-    { label: 'Accueil', href: '/' },
-    { label: 'Blog', href: '/blog' },
-    { label: d.title_fr },
-  ]}
-  relatedCasesData={relatedCasesData}
-  relatedOffresData={relatedOffresData}
-  headings={headings}
-  cluster={d.cluster}
-  articleId={entry.id}
-  bylineAuthorSlug={authorSlug}
-  publishedAt={d.publishedAt}
-  illustration={heroIllustration}
-  faqItems={d.faq_fr}
->
+<EssayTemplate {...essayProps}>
   <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>
-  <Fragment slot="body">
-    <Content />
-  </Fragment>
+  <Fragment slot="body" set:html={bodyHtml} />
 </EssayTemplate>

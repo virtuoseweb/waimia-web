@@ -410,11 +410,32 @@ const pagesLocales = defineCollection({
 // src/pages/expertise-claude.astro. Plus aucun MDX, plus aucun consommateur.
 
 // ─── Blog (étendu V2 avec sous-types) ───
+// JSON canonique (décision nuit 0018 : template-as-data). Le corps de page (prose) vit
+// désormais dans `body_sections[0].html_fr` (pré-rendu, cf template `src/lib/templates/essay.ts`),
+// injecté au slot body d'`EssayTemplate` ; `headings` porte le sommaire (TOC) sans render().
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/blog' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
+    // Corps de page (prose) en DONNÉE (template-as-data) : RÉUTILISE le schéma kernel
+    // editorial-prose (background/maxWidth/figures/type) + le texte rich-html porté par
+    // `html_fr` (injecté au slot body d'EssayTemplate). Miroir du champ `body_sections`
+    // des collections `cases`/`secteurs`.
+    body_sections: z
+      .array(
+        z.object({
+          ...editorialProseSchema.shape,
+          html_fr: z.string(),
+          html_en: z.string().optional(),
+        }),
+      )
+      .optional(),
+    // Sommaire du corps FR (issu du même pipeline markdown-remark qu'Astro), pour la
+    // table des matières (remplace `render(entry).headings`, indisponible sans MDX).
+    headings: z
+      .array(z.object({ depth: z.number(), slug: z.string(), text: z.string() }))
+      .optional(),
     // V1 legacy (rétrocompat)
     editorialType: z
       .enum(['Field Note', 'Case', 'Essay', 'Cookbook', 'Tutorial', 'Note', 'Review'])
