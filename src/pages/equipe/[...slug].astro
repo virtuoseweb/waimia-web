@@ -8,7 +8,7 @@
  */
 export const prerender = true;
 
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import AuthorPageTemplate from '../../components/templates/AuthorPageTemplate.astro';
 
@@ -31,7 +31,9 @@ type Props = { entry: CollectionEntry<'authors'> };
 const { entry } = Astro.props as Props;
 const slug = entry.id;
 
-const { Content } = await render(entry);
+// Corps « Pourquoi Waimia » pré-rendu (décision nuit 0018) : le markdown MDX est devenu
+// une donnée (body_sections[0].html_fr), forwardé au slot par défaut → prose-aside.
+const bodyHtml = entry.data.body_sections?.[0]?.html_fr ?? '';
 
 // Auto-jointure : tous les contenus de cet auteur, triés par date desc.
 // SEO état final : cookbooks + livres-blancs supprimés ; il reste le blog in-silo.
@@ -93,5 +95,5 @@ const livresBlancs: AuthorLinkedEntry[] = [];
   veilleIA={veilleIA}
   fieldNotes={fieldNotes}
 >
-  <Content />
+  <Fragment set:html={bodyHtml} />
 </AuthorPageTemplate>

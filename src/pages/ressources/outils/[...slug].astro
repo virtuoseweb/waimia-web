@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
 import ToolWidget from '../../../components/ui/organisms/ToolWidget.astro';
 import { outilHeroIllustration } from '../../../lib/hero-illustrations';
@@ -19,8 +19,10 @@ export async function getStaticPaths() {
 type Props = { entry: CollectionEntry<'outils'> };
 
 const { entry } = Astro.props as Props;
-const { Content } = await render(entry);
 const d = entry.data;
+// Prose d'aide pré-rendue (décision nuit 0018) : le markdown MDX est devenu une donnée
+// (body_sections[0].html_fr), injectée au slot body sous le widget interactif.
+const bodyHtml = d.body_sections?.[0]?.html_fr ?? '';
 
 const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const categoryKicker = d.category_fr ? ` · ${d.category_fr}` : '';
@@ -66,7 +68,7 @@ const webAppLd = {
     {d.inputs.length > 0 && d.outputs.length > 0 && (
       <ToolWidget inputs={d.inputs} outputs={d.outputs} lang="fr" />
     )}
-    <Content />
+    <Fragment set:html={bodyHtml} />
   </Fragment>
 </EssayTemplate>
 

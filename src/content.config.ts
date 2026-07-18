@@ -319,7 +319,7 @@ const composablePageSchema = z.object({
 
 // ─── Services (ADR-003) · pages de service composables ───
 const services = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/services' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/services' }),
   schema: composablePageSchema,
 });
 
@@ -328,13 +328,13 @@ const services = defineCollection({
 //     cf astro.config.mjs). Réutilise le schéma composable des services. Route dédiée
 //     src/pages/lp/[...slug].astro (sans masthead, noindex). ───
 const lp = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/lp' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/lp' }),
   schema: composablePageSchema,
 });
 
 // ─── Collections v7 (refonte SEO/GEO) ───
 const casUsages = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/cas-usages' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/cas-usages' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -343,7 +343,7 @@ const casUsages = defineCollection({
 });
 
 const demonstrations = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/demonstrations' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/demonstrations' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -352,7 +352,7 @@ const demonstrations = defineCollection({
 });
 
 const implantations = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/implantations' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/implantations' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -361,7 +361,7 @@ const implantations = defineCollection({
 });
 
 const guides = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/guides' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/guides' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -370,7 +370,7 @@ const guides = defineCollection({
 });
 
 const diagnostics = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/diagnostics' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/diagnostics' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -379,7 +379,7 @@ const diagnostics = defineCollection({
 });
 
 const comparatifs = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/comparatifs' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/comparatifs' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -388,7 +388,7 @@ const comparatifs = defineCollection({
 });
 
 const audits = defineCollection({
-  loader: glob({ pattern: '**/*.{mdx,json}', base: './src/content/audits' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/audits' }),
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
@@ -530,8 +530,11 @@ const secteurs = defineCollection({
 });
 
 // ─── Outils ───
+// JSON canonique (décision nuit 0018 : mdx en extinction). La prose d'aide (« Comment
+// utiliser », « Limites »…) vit dans `body_sections` (editorial-prose html_fr), injectée
+// au slot body d'EssayTemplate ; le widget interactif reste rendu par la route (ToolWidget).
 const outils = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/outils' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/outils' }),
   schema: z.object({
     ...baseFields,
     type: z.enum(['calculator', 'checklist', 'template', 'audit']),
@@ -580,6 +583,19 @@ const outils = defineCollection({
     heroIllustration: z
       .object({ src: z.string(), alt_fr: z.string(), alt_en: z.string(), side: z.enum(['left', 'right']).optional() })
       .optional(),
+    // Corps de page (prose d'aide) en DONNÉE (décision nuit 0018) : le markdown MDX legacy
+    // devient une liste de sections editorial-prose. RÉUTILISE le schéma kernel editorial-prose
+    // + le texte rich-html porté par `html_fr`, injecté au slot body d'EssayTemplate sous le
+    // widget interactif. Miroir du champ `body_sections` des collections cases/blog/secteurs.
+    body_sections: z
+      .array(
+        z.object({
+          ...editorialProseSchema.shape,
+          html_fr: z.string(),
+          html_en: z.string().optional(),
+        }),
+      )
+      .optional(),
   }),
 });
 
@@ -587,8 +603,11 @@ const outils = defineCollection({
 // 0 page générée, MDX dans docs/archive/content/pages/)
 
 // ─── Authors ───
+// JSON canonique (décision nuit 0018 : mdx en extinction). Le corps « Pourquoi Waimia »
+// vit désormais dans `body_sections` (editorial-prose html_fr), forwardé au slot par défaut
+// d'AuthorPageTemplate → prose-aside (parité stricte avec l'ancien <Content/>).
 const authors = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/authors' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/authors' }),
   schema: z.object({
     ...baseFields,
     role_fr: z.string(),
@@ -643,6 +662,19 @@ const authors = defineCollection({
       )
       .default([]),
     expertise: z.array(z.string()).default([]),
+    // Corps de page (« Pourquoi Waimia ») en DONNÉE (décision nuit 0018) : le markdown MDX
+    // legacy devient une liste de sections editorial-prose. RÉUTILISE le schéma kernel
+    // editorial-prose + le texte rich-html porté par `html_fr`. Miroir des collections
+    // cases/blog/secteurs/outils.
+    body_sections: z
+      .array(
+        z.object({
+          ...editorialProseSchema.shape,
+          html_fr: z.string(),
+          html_en: z.string().optional(),
+        }),
+      )
+      .optional(),
     social: z
       .object({
         x: z.string().url().optional(),

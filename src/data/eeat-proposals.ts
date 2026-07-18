@@ -5,7 +5,7 @@
 // HONNÊTETÉ (cf src/data/proof-points.ts) : Waimia = studio solo, 0 client réel, 0 cas mesuré.
 // => AUCUN témoignage client inventé. Le bloc « avis/review » = ENGAGEMENTS/GARANTIES + note honnête.
 //
-// Sources réelles : src/content/authors/simon-beros.mdx, src/content/secteurs/*, src/content/blog/*,
+// Sources réelles : src/content/authors/simon-beros.json, src/content/secteurs/*, src/content/blog/*,
 // src/content/outils/*, src/content/services/*. Routes : /secteurs/<slug>, /blog/<slug>,
 // /ressources/outils/<slug>, /services/<slug>, /equipe/simon-beros.
 
