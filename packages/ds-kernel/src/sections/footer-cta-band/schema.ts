@@ -18,13 +18,24 @@ export const schema = z.object({
   contentAlign: z.enum(['start', 'center', 'end']).optional(),
   actionsAlign: z.enum(['start', 'center', 'end', 'spread']).optional(),
   density: z.enum(['compact', 'base', 'ample']).optional(),
+  //  - texture : décor optionnel. 'signature-grid' pose la grille millimétrique DS (globale,
+  //    variante on-dark sur fond ink). Absent → aucun décor = rendu actuel.
+  texture: z.enum(['signature-grid']).optional(),
   placement: placementSchema,
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
+  // Variante HTML inline du kicker (rendu via set:html, prioritaire sur kicker_fr/_en plaintext).
+  // Permet un fragment accentué (ex. « III. » en accent). Optionnel → défaut = kicker plaintext.
+  kicker_html_fr: z.string().optional(),
+  kicker_html_en: z.string().optional(),
   h2_fr: z.string(),
   h2_en: z.string(),
   subtitle_fr: z.string().optional(),
   subtitle_en: z.string().optional(),
+  // Variante HTML inline du sous-titre (rendu via set:html, prioritaire sur subtitle_fr/_en).
+  // Permet un relevé <i> (ex. « propriétaire à vie »). Optionnel → défaut = subtitle plaintext.
+  subtitle_html_fr: z.string().optional(),
+  subtitle_html_en: z.string().optional(),
   rounded: z.boolean().optional(),
   buttons: z.array(footerCtaButtonSchema).min(1).max(2),
 });

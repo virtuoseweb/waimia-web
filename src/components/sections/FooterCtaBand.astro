@@ -13,6 +13,13 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const buttons = data.buttons ?? [];
 
+// Kicker / subtitle : la variante *_html (set:html) prime sur le plaintext quand fournie.
+// Absente → rendu plaintext historique inchangé (rétro-compat).
+const kickerHtml = isFr ? data.kicker_html_fr : data.kicker_html_en;
+const kickerText = isFr ? data.kicker_fr : data.kicker_en;
+const subtitleHtml = isFr ? data.subtitle_html_fr : data.subtitle_html_en;
+const subtitleText = isFr ? data.subtitle_fr : data.subtitle_en;
+
 // ── Couche atomique (Vague C) : placement par région. Résolution raccourci↔placement
 // (0 double source) : la valeur effective est calculée UNE fois, le composant pose UN
 // seul data-attr par région. `placement.header.align` surcharge `contentAlign` ;
@@ -34,8 +41,12 @@ const actionsHide = pl?.actions?.hideOn;
   data-bg={data.background}
   data-layout={data.layout}
   data-density={data.density}
+  data-texture={data.texture}
   data-actions-placed={actionsJustify ? 'true' : undefined}
 >
+  {data.texture === 'signature-grid' && (
+    <div class:list={['signature-grid', { 'on-dark': data.background === 'ink' }]} aria-hidden="true"></div>
+  )}
   <div class="wrap-wide footer-cta__inner">
     <div
       class="footer-cta__copy"
@@ -43,13 +54,13 @@ const actionsHide = pl?.actions?.hideOn;
       data-header-order={headerOrder}
       data-header-hide={headerHide}
     >
-      {(isFr ? data.kicker_fr : data.kicker_en) && (
-        <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-      )}
+      {kickerHtml
+        ? <Kicker tone="muted"><Fragment set:html={kickerHtml} /></Kicker>
+        : (kickerText && <Kicker tone="muted">{kickerText}</Kicker>)}
       <h2 class="u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
-      {(isFr ? data.subtitle_fr : data.subtitle_en) && (
-        <p class="footer-cta__subtitle">{isFr ? data.subtitle_fr : data.subtitle_en}</p>
-      )}
+      {subtitleHtml
+        ? <p class="footer-cta__subtitle" set:html={subtitleHtml} />
+        : (subtitleText && <p class="footer-cta__subtitle">{subtitleText}</p>)}
     </div>
     <div
       class="footer-cta__actions"
@@ -74,6 +85,12 @@ const actionsHide = pl?.actions?.hideOn;
   .footer-cta--rounded {
     border-radius: var(--radius-band) var(--radius-band) 0 0;
   }
+  /* ── Décor TEXTURE (data-texture='signature-grid') · optionnel · absent = rendu actuel.
+     La grille est absolue (inset:0), le contenu passe au-dessus. Scopé à la texture pour
+     ne rien changer aux instances sans décor. ── */
+  .footer-cta[data-texture='signature-grid'] { position: relative; }
+  .footer-cta[data-texture='signature-grid'] > .footer-cta__inner { position: relative; z-index: 1; }
+  .footer-cta[data-texture='signature-grid'] > .signature-grid { z-index: 0; }
   .footer-cta__inner {
     display: grid;
     grid-template-columns: 1.5fr auto;

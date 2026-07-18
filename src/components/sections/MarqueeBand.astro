@@ -14,7 +14,7 @@ const items = (isFr ? data.items_fr : data.items_en) ?? data.items_fr;
 const sep = data.separator ?? '·';
 const loops = data.repeat ?? 2;
 ---
-<div class="marquee-band" data-bg={data.background} aria-hidden="true">
+<div class="marquee-band" data-bg={data.background} data-scale={data.scale} aria-hidden="true">
   <div class="marquee-band__track">
     {Array.from({ length: loops }).map(() => (
       items.map((item) => (
@@ -53,6 +53,20 @@ const loops = data.repeat ?? 2;
     font-size: var(--text-small);
     color: var(--accent-text);
     align-self: center;
+  }
+  /* ── Échelle DISPLAY (data-scale='display') : bandeau éditorial XL sans-serif.
+     Optionnel · absent = mono uppercase small inchangé. Aucun nouveau token (--text-h3/--font-sans). ── */
+  .marquee-band[data-scale='display'] { padding-block: 28px; }
+  .marquee-band[data-scale='display'] .marquee-band__item {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    letter-spacing: -0.01em;
+    text-transform: none;
+    padding-inline: 40px;
+  }
+  .marquee-band[data-scale='display'] .marquee-band__sep {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
   }
   @keyframes marquee-band-scroll {
     from { transform: translateX(0); }

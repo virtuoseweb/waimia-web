@@ -11,4 +11,7 @@ export const schema = z.object({
   items_en: z.array(z.string()).min(2).max(12).optional(),
   separator: z.string().default('·'),
   repeat: z.number().int().min(1).max(4).default(2),
+  // Échelle typographique du bandeau. Optionnel → défaut = rendu actuel (mono uppercase small).
+  //  - 'display' : échelle XL sans-serif (var(--text-h3)) pour un bandeau éditorial (ex. manifesto).
+  scale: z.enum(['default', 'display']).optional(),
 });

@@ -94,6 +94,7 @@ const marqueeData = {
   items_en: [...CLIENT_LOGOS],
   separator: '◦',
   repeat: 2,
+  scale: 'display',
 } satisfies SectionByType<'marquee-band'>;
 
 // ── 3. ACTE I · Le constat + stats (V7 : coherent doctrine Waimia)
@@ -159,10 +160,15 @@ const acteIIIData = {
   actionsAlign: 'center',
   kicker_fr: 'III. La plateforme',
   kicker_en: 'III. The platform',
+  kicker_html_fr: '<span style="color:var(--accent-text)">III.</span> La plateforme',
+  kicker_html_en: '<span style="color:var(--accent-text)">III.</span> The platform',
+  texture: 'signature-grid',
   h2_fr: 'Virtuose<i class="accent">OS</i>.<br />Le noyau sous chaque système câblé.',
   h2_en: 'Virtuose<i class="accent">OS</i>.<br />The kernel under every wired system.',
   subtitle_fr: 'La plateforme interne qui orchestre marketing, sales, contenu, web, CRM, analytics et marque. Multi-workspace · multi-agents · documentée · transmissible. Construite pour livrer chez vous, déployée chez nous, propriétaire à vie dans votre stack.',
   subtitle_en: 'The internal platform orchestrating marketing, sales, content, web, CRM, analytics and brand. Multi-workspace · multi-agent · documented · transferable. Built to ship with you, deployed by us, owned for life in your stack.',
+  subtitle_html_fr: 'La plateforme interne qui orchestre marketing, sales, contenu, web, CRM, analytics et marque. Multi-workspace · multi-agents · documentée · transmissible. Construite pour livrer chez vous, déployée chez nous, <i>propriétaire à vie</i> dans votre stack.',
+  subtitle_html_en: 'The internal platform orchestrating marketing, sales, content, web, CRM, analytics and brand. Multi-workspace · multi-agent · documented · transferable. Built to ship with you, deployed by us, <i>owned for life</i> in your stack.',
   buttons: [
     {
       label_fr: '▸ Voir notre expertise Claude',
