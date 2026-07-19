@@ -57,6 +57,13 @@ import type {
 const URL_DOC_LIMIT = 6000;
 /** Délai de debounce de l'aperçu live (ms) : un seul rendu par rafale d'édition. */
 const PREVIEW_DEBOUNCE_MS = 350;
+/**
+ * Route de persistance du brouillon (intégration DEV-ONLY `ds-save-dev.mjs`, hook Vite). Chemin
+ * technique (pas un token DS) : n'existe que sous `astro dev` ; en build statique il renvoie 404,
+ * cas géré proprement à l'enregistrement (message « dev uniquement »). Volontairement en constante
+ * plutôt qu'en prop pour ne pas modifier la page hôte (le contrat de l'endpoint est stable, #39 L1).
+ */
+const COMPOSE_ENDPOINT = '/api/ds/compose';
 
 /** Identifiant local d'une section dans le canvas (clé React stable, hors PageDocument). */
 let __uid = 0;
@@ -355,6 +362,61 @@ export default function BuilderCanvas({
     if (navigator.clipboard) void navigator.clipboard.writeText(exportValue);
   }, [exportValue]);
 
+  // ── Enregistrer : persiste le brouillon via POST /api/ds/compose (round-trip #39 L1) ──────────
+  // On réutilise le champ Slug de la barre (meta.slug, pré-rempli par loadPage). Le doc envoyé est
+  // le PageDocument complet (pageDoc). Statut inline (pas de lib de toast) : saving → ok(path) |
+  // error(message + errors serveur). Le bouton reste toujours visible ; en build statique la route
+  // est absente (404) → message « dev uniquement », sans échec silencieux (le statut le signale).
+  const [saveState, setSaveState] = useState<
+    | { phase: 'idle' }
+    | { phase: 'saving' }
+    | { phase: 'ok'; path: string }
+    | { phase: 'error'; message: string; errors?: string[] }
+  >({ phase: 'idle' });
+
+  const savePage = useCallback(() => {
+    setSaveState({ phase: 'saving' });
+    fetch(COMPOSE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ slug: meta.slug, doc: pageDoc }),
+    })
+      .then(async (res) => {
+        // 404 : intégration dev-only absente (build statique / prod) → message explicite.
+        if (res.status === 404) {
+          setSaveState({
+            phase: 'error',
+            message: 'Endpoint indisponible (enregistrement dev uniquement).',
+          });
+          return;
+        }
+        let payload: { ok?: boolean; path?: string; error?: string; errors?: unknown } | null = null;
+        try {
+          payload = await res.json();
+        } catch {
+          /* réponse non-JSON : on retombe sur un message générique ci-dessous. */
+        }
+        if (res.ok && payload && payload.ok && typeof payload.path === 'string') {
+          setSaveState({ phase: 'ok', path: payload.path });
+          return;
+        }
+        const message =
+          payload && typeof payload.error === 'string'
+            ? payload.error
+            : `Échec de l'enregistrement (HTTP ${res.status}).`;
+        const errors = Array.isArray(payload?.errors)
+          ? payload.errors.map((e) => String(e))
+          : undefined;
+        setSaveState({ phase: 'error', message, errors });
+      })
+      .catch(() => {
+        setSaveState({
+          phase: 'error',
+          message: 'Endpoint indisponible (dev uniquement) ou erreur réseau.',
+        });
+      });
+  }, [meta.slug, pageDoc]);
+
   // ── Styles inline (var(--token) uniquement) : layout app-shell, anti-mismatch SSR ────────────
   const shell: CSSProperties = {
     display: 'grid',
@@ -446,6 +508,25 @@ export default function BuilderCanvas({
         </div>
         <div className="bld-bar-actions">
           <span className="bld-bar-count">{sections.length} sections</span>
+          {saveState.phase !== 'idle' && (
+            <span
+              className={saveState.phase === 'error' ? 'bld-slot-err' : 'bld-bar-count'}
+              role="status"
+              aria-live="polite"
+            >
+              {saveState.phase === 'saving' && 'Enregistrement…'}
+              {saveState.phase === 'ok' && 'Enregistré'}
+              {saveState.phase === 'error' && 'Échec'}
+            </span>
+          )}
+          <button
+            type="button"
+            className="bld-btn"
+            onClick={savePage}
+            disabled={saveState.phase === 'saving'}
+          >
+            {saveState.phase === 'saving' ? 'Enregistrement…' : 'Enregistrer'}
+          </button>
           <button
             type="button"
             className="bld-btn bld-btn--primary"
@@ -457,6 +538,40 @@ export default function BuilderCanvas({
           </button>
         </div>
       </div>
+
+      {(saveState.phase === 'ok' || saveState.phase === 'error') && (
+        <div
+          role="status"
+          aria-live="polite"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--space-1)',
+            padding: 'var(--space-3) var(--space-4)',
+            border: '1px solid var(--hairline)',
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--paper-2)',
+          }}
+        >
+          {saveState.phase === 'ok' && (
+            <p className="bld-note">Brouillon enregistré : {saveState.path}</p>
+          )}
+          {saveState.phase === 'error' && (
+            <>
+              <p className="bld-slot-err">{saveState.message}</p>
+              {saveState.errors && saveState.errors.length > 0 && (
+                <ul style={{ margin: 0, paddingLeft: 'var(--space-4)' }}>
+                  {saveState.errors.map((err, i) => (
+                    <li key={i} className="bld-slot-err">
+                      {err}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
+          )}
+        </div>
+      )}
 
       {exportOpen && (
         <div className="bld-export" id="bld-export">
