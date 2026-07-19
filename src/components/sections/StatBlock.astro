@@ -44,7 +44,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
 ) : (
   <section class="stat-block sec-base" data-bg={data.background}>
     <div class="wrap-wide">
-    <div class="stat-block__header">
+    <div class="stat-block__header sec-head">
       {(isFr ? data.h2_fr : data.h2_en) && (
         <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       )}
@@ -80,14 +80,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
   </section>
 )}
 
-<style>
-  .stat-block__header {
-    margin-bottom: var(--spacing-block);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-  :where(.stat-block) p {
+<style> :where(.stat-block) p {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--muted);

@@ -27,7 +27,7 @@ const updatedLabel = isFr ? 'Mis à jour le' : 'Updated';
       )}
       <div class="author-byline__id">
         <span class="author-byline__name">{data.name}</span>
-        <span class="author-byline__role">{role}</span>
+        <span class="author-byline__role u-label-sm">{role}</span>
       </div>
       {(data.publishedDate || data.updatedDate) && (
         <div class="author-byline__dates">
@@ -75,14 +75,7 @@ const updatedLabel = isFr ? 'Mis à jour le' : 'Updated';
     font-weight: var(--fw-semibold);
     color: var(--ink);
     line-height: var(--leading-body);
-  }
-  .author-byline__role {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-  }
-  .author-byline__dates {
+  } .author-byline__dates {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-4);

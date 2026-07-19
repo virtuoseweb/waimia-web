@@ -25,7 +25,7 @@ const caps = data.caps ?? [];
 const ctaPrimary = data.cta_primary;
 const ctaSecondary = data.cta_secondary;
 ---
-<section class="hcb" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+<section class="hcb hero-shell" data-bg={data.background === 'ink' ? 'ink' : undefined}>
   <div class="wrap-wide">
     {/* Bloc héro centré */}
     <div class="hcb-hero">
@@ -59,22 +59,7 @@ const ctaSecondary = data.cta_secondary;
     )}
   </div>
 
-  <style>
-    .hcb {
-      background: var(--paper);
-      color: var(--ink);
-      border-bottom: 1px solid var(--hairline);
-      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
-      min-height: 100vh;
-      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-sizing: border-box;
-      padding-top: calc(var(--header-height) + var(--space-7));
-      padding-bottom: var(--space-7);
-    }
-    .hcb[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  <style> .hcb[data-bg='ink'] { background: var(--ink); color: var(--paper); }
 
     /* Bloc héro centré */
     .hcb-hero {

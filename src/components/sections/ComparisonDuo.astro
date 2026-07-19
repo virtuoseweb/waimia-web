@@ -32,7 +32,7 @@ const bodyHide = pl?.body?.hideOn;
   aria-labelledby="comparison-duo-h2"
 >
   <div class="wrap-wide">
-    <div class="comparison-duo__header reveal" data-header-align={headerAlign} data-header-hide={headerHide}>
+    <div class="comparison-duo__header sec-head reveal" data-header-align={headerAlign} data-header-hide={headerHide}>
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -80,15 +80,7 @@ const bodyHide = pl?.body?.hideOn;
 </section>
 
 <style>
-
-  .comparison-duo__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-
-  .comparison-duo__grid {
+ .comparison-duo__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-6);

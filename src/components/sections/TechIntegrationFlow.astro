@@ -31,7 +31,7 @@ const events = data.steps.map((s) => ({
         <h2 set:html={isFr ? data.title_fr : data.title_en} />
       </div>
       {(isFr ? data.aside_fr : data.aside_en) && (
-        <p class="tech-aside">{isFr ? data.aside_fr : data.aside_en}</p>
+        <p class="tech-aside u-lede-sm">{isFr ? data.aside_fr : data.aside_en}</p>
       )}
     </div>
     <div class="tech-int-flow reveal-stagger">
@@ -60,14 +60,7 @@ const events = data.steps.map((s) => ({
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-aside {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    max-width: 480px;
-    margin: 0;
-  }
+  .tech-aside { max-width: 480px; }
 
   /* ───── Integration Flow (signature) — COPIE VERBATIM ───── */
   .tech-int-flow {

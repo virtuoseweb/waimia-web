@@ -21,8 +21,8 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     {(kicker || h2 || intro) && (
       <div class="resource-grid__hd">
         {kicker && <Kicker tone="accent">{kicker}</Kicker>}
-        {h2 && <h2 class="resource-grid__h2" set:html={h2} />}
-        {intro && <p class="resource-grid__intro">{intro}</p>}
+        {h2 && <h2 class="resource-grid__h2 u-h2-balance" set:html={h2} />}
+        {intro && <p class="resource-grid__intro u-body-muted">{intro}</p>}
       </div>
     )}
     <div class="resource-grid__list" data-cols={data.columns}>
@@ -36,7 +36,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
               {r.gated && <span class="resource-card__gated">{isFr ? 'Inscription' : 'Sign-up'}</span>}
             </div>
             <h3 class="resource-card__title u-serif-accent">{isFr ? r.title_fr : r.title_en}</h3>
-            {desc && <p class="resource-card__desc">{desc}</p>}
+            {desc && <p class="resource-card__desc u-lede-sm">{desc}</p>}
             <div class="resource-card__foot">
               {r.format && <span class="resource-card__format">{r.format}</span>}
               <span class="resource-card__cta">{ctaLabel} <span aria-hidden="true">→</span></span>
@@ -57,27 +57,8 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     gap: var(--space-3);
     margin-bottom: var(--space-9);
     max-width: 760px;
-  }
-  .resource-grid__h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: -0.02em;
-    font-weight: var(--fw-medium);
-    text-wrap: balance;
-    margin: 0;
-  }
-  .resource-grid__h2 :global(i),
-  .resource-grid__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); }
-  .resource-grid__intro {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: 0;
-  }
-
-  .resource-grid__list { display: grid; gap: var(--space-6); }
+  } .resource-grid__h2 :global(i),
+  .resource-grid__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); } .resource-grid__list { display: grid; gap: var(--space-6); }
   .resource-grid__list[data-cols='2'] { grid-template-columns: repeat(2, 1fr); }
   .resource-grid__list[data-cols='3'] { grid-template-columns: repeat(3, 1fr); }
 
@@ -124,16 +105,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     margin: 0;
     text-wrap: balance;
   }
-
-  .resource-card__desc {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: 0;
-  }
-
-  .resource-card__foot {
+ .resource-card__foot {
     display: flex;
     justify-content: space-between;
     align-items: baseline;

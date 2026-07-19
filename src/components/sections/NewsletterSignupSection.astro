@@ -27,7 +27,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     </div>
     <div class="nl-section__form">
       <NewsletterSignup lang={lang} variant="inline" />
-      {hint && <p class="nl-section__hint">{hint}</p>}
+      {hint && <p class="nl-section__hint u-hint-mono">{hint}</p>}
     </div>
   </div>
 </section>
@@ -66,16 +66,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     flex-direction: column;
     align-items: center;
     gap: var(--space-3);
-  }
-  .nl-section__hint {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    margin: 0;
-  }
-
-  /* Fonds */
+  } /* Fonds */
   .nl-section[data-bg='paper-2'] { background: var(--paper-2); }
   .nl-section[data-bg='paper-3'] { background: var(--paper-3); }
   .nl-section[data-bg='ink'] {

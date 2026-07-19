@@ -36,7 +36,7 @@ const bodyJustify = pl?.body?.justify;
 >
   <div class="wrap-wide">
     <div
-      class="stats-bento__header reveal"
+      class="stats-bento__header sec-head reveal"
       data-header-align={headerAlign}
       data-header-order={headerOrder}
       data-header-hide={headerHide}
@@ -64,7 +64,7 @@ const bodyJustify = pl?.body?.justify;
           {stat.delta && (
             <span class="stats-bento__delta" aria-hidden="true">{stat.delta}</span>
           )}
-          <span class="stats-bento__label">{isFr ? stat.label_fr : stat.label_en}</span>
+          <span class="stats-bento__label u-lede-sm">{isFr ? stat.label_fr : stat.label_en}</span>
         </li>
       ))}
     </ul>
@@ -109,15 +109,7 @@ const bodyJustify = pl?.body?.justify;
 </script>
 
 <style>
-
-  .stats-bento__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-
-  /* ─── Grille bento content-driven (2..6 KPI) ───────────────────
+ /* ─── Grille bento content-driven (2..6 KPI) ───────────────────
      .bento-fluid (grid.css) place les tuiles via auto-fill + auto-flow:dense ;
      la 1ʳᵉ stat reçoit span-lg (vedette, chiffre géant invert), les autres
      span-sm. Aucune position figée → 0 trou quel que soit le nombre de stats.
@@ -213,16 +205,7 @@ const bodyJustify = pl?.body?.justify;
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
   }
-
-  .stats-bento__label {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-  }
-
-  /* ══ Batch 3 · VOCABULAIRE DE LAYOUT (data-layout) ══════════════════════════
+ /* ══ Batch 3 · VOCABULAIRE DE LAYOUT (data-layout) ══════════════════════════
      Défaut (absent) = recette « bento » (vedette span-lg, .bento-fluid dense). Les recettes
      nommées surchargent la grille. grid-uniform/matrix-2x2/list neutralisent la vedette pour
      une structure régulière. 100% tokens DS ; structurel = 768px, aspect-ratio, minmax rem. ── */

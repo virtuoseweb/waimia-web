@@ -22,7 +22,7 @@ const title = isFr ? data.title_fr : data.title_en;
       return (
         <div class="parcours-item">
           <span class="parcours-title">{itemTitle}</span>
-          <p class="parcours-desc">{itemDesc}</p>
+          <p class="parcours-desc u-lede-sm">{itemDesc}</p>
         </div>
       );
     })}
@@ -67,16 +67,7 @@ const title = isFr ? data.title_fr : data.title_en;
     display: block;
     margin-bottom: var(--space-2);
   }
-
-  .parcours-desc {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    margin: 0;
-    line-height: var(--leading-body);
-  }
-
-  /* ── Alternance des fonds · defaut (transparent/paper) = rendu inchange ── */
+ /* ── Alternance des fonds · defaut (transparent/paper) = rendu inchange ── */
   .parcours-section[data-bg='paper-2'] { background: var(--paper-2); }
   .parcours-section[data-bg='paper-3'] { background: var(--paper-3); }
   .parcours-section[data-bg='ink'] {

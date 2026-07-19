@@ -89,7 +89,7 @@ const revisedLabel = finalRevisedAt
         {tocSections.map((s, i) => (
           <li>
             <a href={`#${s.id}`}>
-              <span class="trust-toc-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="trust-toc-num u-meta-mono">{String(i + 1).padStart(2, '0')}</span>
               <span><Bi fr={s.title_fr} en={s.title_en} /></span>
             </a>
           </li>
@@ -180,15 +180,7 @@ const revisedLabel = finalRevisedAt
     align-items: baseline;
     transition: color var(--dur-trim) var(--ease);
   }
-  .trust-toc a:hover { color: var(--accent-text); }
-  .trust-toc-num {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
-  .trust-sections {
+  .trust-toc a:hover { color: var(--accent-text); } .trust-sections {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--leading-prose);

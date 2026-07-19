@@ -19,13 +19,13 @@ const mediaSide = data.media_side ?? 'right';
 
 <section class="sgal sec-base" data-bg={data.background} data-media-side={mediaSide}>
   <div class="wrap-wide">
-    <div class="sgal__header reveal">
+    <div class="sgal__header sec-head reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.lede_fr : data.lede_en) && (
-        <p class="sgal__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+        <p class="sgal__lede u-lede-sm">{isFr ? data.lede_fr : data.lede_en}</p>
       )}
     </div>
 
@@ -42,7 +42,7 @@ const mediaSide = data.media_side ?? 'right';
                 <h3>{isFr ? item.title_fr : item.title_en}</h3>
                 <p>{isFr ? item.body_fr : item.body_en}</p>
                 {(isFr ? item.link_label_fr : item.link_label_en) && item.link_href && (
-                  <a class="sgal__link" href={item.link_href}>
+                  <a class="sgal__link u-cta-inline" href={item.link_href}>
                     {isFr ? item.link_label_fr : item.link_label_en}
                     <span aria-hidden="true">&#x2192;</span>
                   </a>
@@ -86,25 +86,10 @@ const mediaSide = data.media_side ?? 'right';
 </section>
 
 <style>
-  .sgal__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 640px;
-  }
+  .sgal__header { max-width: 640px; }
   .sgal__header h2 :global(i) {
     font-style: italic;
-  }
-  .sgal__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-  }
-
-  /* Mobile-first : une seule colonne (liste avec images inline). */
+  } /* Mobile-first : une seule colonne (liste avec images inline). */
   .sgal__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -170,18 +155,7 @@ const mediaSide = data.media_side ?? 'right';
     margin: 0;
     max-width: 52ch;
   }
-
-  .sgal__link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--accent-text);
-    text-decoration: none;
-    font-weight: var(--fw-medium);
-  }
-  .sgal__link:hover {
+ .sgal__link:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
   }

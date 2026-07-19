@@ -18,7 +18,7 @@ const ctaNote = isFr ? data.cta_note_fr : data.cta_note_en;
 
 <section class="cmp-callout sec-base" data-bg={data.background}>
   <div class="wrap-wide">
-    <div class="cmp-callout__header">
+    <div class="cmp-callout__header sec-head">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -44,14 +44,7 @@ const ctaNote = isFr ? data.cta_note_fr : data.cta_note_en;
   </div>
 </section>
 
-<style>
-  .cmp-callout__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-  .cmp-callout__cols {
+<style> .cmp-callout__cols {
     list-style: none;
     margin: 0;
     padding: 0;

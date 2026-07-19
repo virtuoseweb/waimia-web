@@ -12,7 +12,7 @@ const isFr = lang === 'fr';
 
 <section class="steps-horizontal sec-base" data-bg={data.background}>
   <div class="wrap-wide">
-    <div class="steps-horizontal__header">
+    <div class="steps-horizontal__header sec-head">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -36,15 +36,7 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-
-  .steps-horizontal__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-
-  .steps-horizontal__list {
+ .steps-horizontal__list {
     list-style: none;
     margin: 0;
     padding: 0;

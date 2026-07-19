@@ -59,7 +59,7 @@ const details = data.details ?? [];
       </div>
       <p id="cf-error" class="contact-form__error" aria-live="assertive" hidden data-cf-error></p>
       <button type="submit" class="contact-form__btn" data-mag="0.15">{submit}</button>
-      {hint && <p class="contact-form__hint">{hint}</p>}
+      {hint && <p class="contact-form__hint u-hint-mono">{hint}</p>}
       <p class="contact-form__confirm" aria-live="polite" hidden data-cf-confirm>
         {isFr ? '✓ Message envoyé. On revient vers vous sous 24h.' : '✓ Message sent. We reply within 24h.'}
       </p>
@@ -167,15 +167,7 @@ const details = data.details ?? [];
     white-space: nowrap;
   }
   .contact-form__btn:hover { opacity: 0.82; }
-  .contact-form__btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  .contact-form__hint {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    margin: 0;
-  }
-  .contact-form__confirm {
+  .contact-form__btn:disabled { opacity: 0.5; cursor: not-allowed; } .contact-form__confirm {
     font-family: var(--font-sans);
     font-size: var(--text-small);
     color: var(--ink);

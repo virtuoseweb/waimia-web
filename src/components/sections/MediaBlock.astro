@@ -36,7 +36,7 @@ const alt = isFr ? data.alt_fr : data.alt_en;
       <img src={data.src} alt={alt ?? ''} loading="lazy" />
     </div>
   )}
-  {caption && <figcaption class="media-block__caption">{caption}</figcaption>}
+  {caption && <figcaption class="media-block__caption u-label-sm">{caption}</figcaption>}
   </div>
 </figure>
 
@@ -64,14 +64,7 @@ const alt = isFr ? data.alt_fr : data.alt_en;
   .media-block__svg-wrap img {
     width: 100%;
     height: auto;
-  }
-  .media-block__caption {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-  }
-  /* ── Variante inset (illustrations carrées) · média centré sur --wrap-prose ── */
+  } /* ── Variante inset (illustrations carrées) · média centré sur --wrap-prose ── */
   .media-block[data-display='inset'] :is(.media-block__img, .media-block__video, .media-block__svg-wrap, .media-block__caption) {
     max-width: var(--wrap-prose);
     margin-inline: auto;

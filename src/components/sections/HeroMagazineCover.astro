@@ -24,7 +24,7 @@ const h1 = isFr ? data.h1_fr : data.h1_en;
 const tagline = isFr ? data.tagline_fr : data.tagline_en;
 const ctaPrimary = data.cta_primary;
 ---
-<section class="hmc" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+<section class="hmc hero-shell" data-bg={data.background === 'ink' ? 'ink' : undefined}>
   <div class="wrap-wide hmc-inner">
     {masthead.length > 0 && (
       <div class="hmc-masthead">
@@ -45,22 +45,7 @@ const ctaPrimary = data.cta_primary;
     </div>
   </div>
 
-  <style>
-    .hmc {
-      background: var(--paper);
-      color: var(--ink);
-      border-bottom: 1px solid var(--hairline);
-      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
-      min-height: 100vh;
-      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-sizing: border-box;
-      padding-top: calc(var(--header-height) + var(--space-7));
-      padding-bottom: var(--space-7);
-    }
-    .hmc[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  <style> .hmc[data-bg='ink'] { background: var(--ink); color: var(--paper); }
 
     .hmc-inner { display: flex; flex-direction: column; gap: var(--space-11); }
 

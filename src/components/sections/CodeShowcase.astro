@@ -23,8 +23,8 @@ const intro = isFr ? data.intro_fr : data.intro_en;
       {(kicker || h2 || intro) && (
         <div class="code-showcase__copy">
           {kicker && <Kicker tone="accent">{kicker}</Kicker>}
-          {h2 && <h2 class="code-showcase__h2" set:html={h2} />}
-          {intro && <p class="code-showcase__intro">{intro}</p>}
+          {h2 && <h2 class="code-showcase__h2 u-h2-balance" set:html={h2} />}
+          {intro && <p class="code-showcase__intro u-body-muted">{intro}</p>}
         </div>
       )}
       <figure class="code-showcase__frame" data-tone={data.tone}>
@@ -60,27 +60,8 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     align-items: center;
   }
 
-  .code-showcase__copy { display: flex; flex-direction: column; gap: var(--space-4); }
-  .code-showcase__h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: -0.02em;
-    font-weight: var(--fw-medium);
-    text-wrap: balance;
-    margin: 0;
-  }
-  .code-showcase__h2 :global(i),
-  .code-showcase__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); }
-  .code-showcase__intro {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: 0;
-  }
-
-  .code-showcase__frame {
+  .code-showcase__copy { display: flex; flex-direction: column; gap: var(--space-4); } .code-showcase__h2 :global(i),
+  .code-showcase__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); } .code-showcase__frame {
     border-radius: var(--radius-card);
     border: 1px solid var(--hairline-strong);
     overflow: hidden;

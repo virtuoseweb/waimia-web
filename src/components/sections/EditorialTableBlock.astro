@@ -45,7 +45,7 @@ const tmRows = data.type === 'tech-models-table'
           <h2 set:html={isFr ? data.title_fr : data.title_en} />
         </div>
         {(isFr ? data.aside_fr : data.aside_en) && (
-          <p class="tech-aside">{isFr ? data.aside_fr : data.aside_en}</p>
+          <p class="tech-aside u-lede-sm">{isFr ? data.aside_fr : data.aside_en}</p>
         )}
       </div>
       <div class="tech-models-table-wrap reveal-stagger">
@@ -65,7 +65,7 @@ const tmRows = data.type === 'tech-models-table'
         <Kicker as="span" tone="accent" class="eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</Kicker>
         <h2 set:html={isFr ? data.h2_fr : data.h2_en} />
       </header>
-      <div class="sol-aside col-aside">
+      <div class="sol-aside u-lede-sm col-aside">
         <Callout variant="note" size="sm">
           {(isFr ? data.aside_fr : data.aside_en) ? (
             <Fragment set:html={isFr ? data.aside_fr : data.aside_en} />
@@ -140,14 +140,7 @@ const tmRows = data.type === 'tech-models-table'
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .tech-aside {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    max-width: 480px;
-    margin: 0;
-  }
+  .tech-aside { max-width: 480px; }
   .tech-models-table-wrap {
     overflow-x: auto;
     border: 1px solid var(--hairline);
@@ -195,14 +188,7 @@ const tmRows = data.type === 'tech-models-table'
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .sol-aside {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    max-width: 480px;
-    margin: 0;
-  }
+  .sol-aside { max-width: 480px; }
   .sol-aside :global(.callout) {
     margin: 0;
   }

@@ -35,7 +35,7 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
         {milestones.map((m: (typeof milestones)[number]) => (
           <li class="about-story__milestone">
             <span class="about-story__year">{m.year}</span>
-            <span class="about-story__label">{isFr ? m.label_fr : m.label_en}</span>
+            <span class="about-story__label u-label-sm">{isFr ? m.label_fr : m.label_en}</span>
           </li>
         ))}
       </ol>
@@ -103,14 +103,7 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
     font-size: var(--text-h3);
     color: var(--accent-text);
     line-height: 1;
-  }
-  .about-story__label {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-  }
-  @media (max-width: 860px) {
+  } @media (max-width: 860px) {
     .about-story__grid { grid-template-columns: 1fr; gap: var(--space-8); }
     .about-story__aside {
       border-left: none;

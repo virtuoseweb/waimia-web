@@ -43,7 +43,7 @@ const groups = data.groups.map((g) => ({
               <li class="related-links__item">
                 <a class="related-links__link" href={l.href}>
                   <span class="related-links__link-label">{l.label}</span>
-                  {l.desc && <span class="related-links__link-desc">{l.desc}</span>}
+                  {l.desc && <span class="related-links__link-desc u-label-sm">{l.desc}</span>}
                 </a>
               </li>
             ))}
@@ -120,14 +120,7 @@ const groups = data.groups.map((g) => ({
     text-decoration-color: transparent;
     text-underline-offset: 0.2em;
     transition: text-decoration-color var(--dur-trim) var(--ease);
-  }
-  .related-links__link-desc {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-  }
-  .related-links__link:hover {
+  } .related-links__link:hover {
     color: var(--accent-text);
   }
   .related-links__link:hover .related-links__link-label {

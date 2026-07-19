@@ -39,7 +39,7 @@ const bodyJustify = pl?.body?.justify;
 >
   <div class="wrap-wide">
     <div
-      class="bento-grid__header"
+      class="bento-grid__header sec-head"
       data-header-align={headerAlign}
       data-header-order={headerOrder}
       data-header-hide={headerHide}
@@ -63,7 +63,7 @@ const bodyJustify = pl?.body?.justify;
           {cell.glyph && (
             <span class="bento-grid__glyph" aria-hidden="true">{cell.glyph}</span>
           )}
-          <strong class="bento-grid__title">{isFr ? cell.title_fr : cell.title_en}</strong>
+          <strong class="bento-grid__title u-title-h3">{isFr ? cell.title_fr : cell.title_en}</strong>
           <p class="bento-grid__body">{isFr ? cell.body_fr : cell.body_en}</p>
         </li>
       ))}
@@ -72,15 +72,7 @@ const bodyJustify = pl?.body?.justify;
 </section>
 
 <style>
-
-  .bento-grid__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-
-  /* Mosaïque content-driven : la grille fluide .bento-fluid (grid.css) place
+ /* Mosaïque content-driven : la grille fluide .bento-fluid (grid.css) place
      N tuiles via auto-fill + grid-auto-flow:dense ; chaque tuile reçoit sa
      largeur via .span-lg / .span-wide / .span-sm. --tile-min réglé à 15rem
      (borne structurelle) pour garder 3 colonnes au-delà de ~880px. */
@@ -212,16 +204,7 @@ const bodyJustify = pl?.body?.justify;
     line-height: 1;
     margin-bottom: var(--space-4);
   }
-
-  .bento-grid__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-    line-height: 1.2;
-  }
-
-  /* Titre de la tuile vedette (span-lg) : conserve le rendu de l'ancienne cellule 1. */
+ /* Titre de la tuile vedette (span-lg) : conserve le rendu de l'ancienne cellule 1. */
   .bento-grid__cell.span-lg .bento-grid__title {
     font-size: var(--text-h3);
   }

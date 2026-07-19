@@ -39,7 +39,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
 >
   <div class="wrap-wide">
     <div
-      class="pricing-cards__header"
+      class="pricing-cards__header sec-head"
       data-header-align={headerAlign}
       data-header-order={headerOrder}
       data-header-hide={headerHide}
@@ -93,13 +93,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
 </section>
 
 <style>
-  .pricing-cards__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 64ch;
-  }
+  .pricing-cards__header { max-width: 64ch; }
   .pricing-cards__lede {
     font-family: var(--font-sans);
     font-size: var(--text-small);

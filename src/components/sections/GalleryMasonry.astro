@@ -12,7 +12,7 @@ const isFr = lang === 'fr';
 
 <section class="gallery-masonry sec-base" data-bg={data.background} aria-labelledby="gallery-masonry-h2">
   <div class="wrap-wide">
-    <div class="gallery-masonry__header reveal">
+    <div class="gallery-masonry__header sec-head reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -61,13 +61,7 @@ const isFr = lang === 'fr';
 
 <style>
 
-  .gallery-masonry__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 640px;
-  }
+  .gallery-masonry__header { max-width: 640px; }
 
   .gallery-masonry__intro {
     font-family: var(--font-sans);

@@ -43,7 +43,7 @@ const mediaHide = pl?.media?.hideOn;
           num={data.fig_num}
           title={isFr ? data.fig_title_fr : data.fig_title_en}
         />
-        <span class="sysarch-spec">
+        <span class="sysarch-spec u-meta-mono">
           {isFr ? data.spec_fr : data.spec_en}
         </span>
       </header>
@@ -137,15 +137,7 @@ const mediaHide = pl?.media?.hideOn;
     border-bottom: 1px solid var(--hairline);
     flex-wrap: wrap;
     gap: var(--space-3);
-  }
-  .sysarch-spec {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
-  /* H2 token sémantique unifié · cf tokens.css */
+  } /* H2 token sémantique unifié · cf tokens.css */
   .sysarch-h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h2);

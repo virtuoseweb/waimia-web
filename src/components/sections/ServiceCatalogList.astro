@@ -40,7 +40,7 @@ const isFr = lang === 'fr';
               <Bi fr={svc.desc_fr} en={svc.desc_en} />
             </p>
           </div>
-          {svc.meta && <span class="svc-meta">{svc.meta}</span>}
+          {svc.meta && <span class="svc-meta u-meta-mono">{svc.meta}</span>}
           <span class="svc-arr" aria-hidden>↗</span>
         </a>
       ))}
@@ -104,14 +104,7 @@ const isFr = lang === 'fr';
     max-width: var(--wrap-prose);
     line-height: var(--leading-body);
     text-wrap: pretty;
-  }
-  .svc-meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-  .svc-arr {
+  } .svc-arr {
     font-family: var(--font-mono);
     font-size: var(--text-glyph);
     color: var(--muted);

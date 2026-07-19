@@ -41,7 +41,7 @@ const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.cap
         <span class="services-grid__sep" aria-hidden>·</span>
         <span>{isFr ? data.fig_title_fr : data.fig_title_en}</span>
       </div>
-      <span class="services-grid__spec">{isFr ? data.spec_fr : data.spec_en}</span>
+      <span class="services-grid__spec u-meta-mono">{isFr ? data.spec_fr : data.spec_en}</span>
     </header>
 
     <h2 id="services-grid-h2" class="services-grid__h2 reveal u-serif-accent" set:html={isFr ? data.h2_fr : data.h2_en} />
@@ -119,14 +119,7 @@ const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.cap
     transform: translateY(-2px);
   }
   .services-grid__num { color: var(--accent-text); font-weight: var(--fw-medium); }
-  .services-grid__sep { color: var(--muted); }
-  .services-grid__spec {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-  .services-grid__h2 {
+  .services-grid__sep { color: var(--muted); } .services-grid__h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h2);
     line-height: var(--leading-h3);

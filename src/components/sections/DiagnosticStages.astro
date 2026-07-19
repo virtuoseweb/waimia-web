@@ -73,7 +73,7 @@ const dgGridCols = dgLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefi
               </div>
               {s.current && <span class="diag__here">{isFr ? 'Vous êtes ici' : 'You are here'}</span>}
               <h3 class="diag__title" set:html={title} />
-              <p class="diag__body">{body}</p>
+              <p class="diag__body u-lede-sm">{body}</p>
               {phase && <span class="diag__phase">{phase}</span>}
             </Wrapper>
           </li>
@@ -183,15 +183,7 @@ const dgGridCols = dgLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefi
   }
   .diag[data-bg='ink'] .diag__title { color: var(--paper); }
   .diag__title :global(.acc) { color: var(--accent-text); }
-
-  .diag__body {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: 0;
-  }
-  .diag__phase {
+ .diag__phase {
     margin-top: auto;
     font-family: var(--font-mono);
     font-size: var(--text-small);

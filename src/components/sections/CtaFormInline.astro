@@ -46,7 +46,7 @@ const action = data.form_action ?? '/api/newsletter';
         <button type="submit" class="cta-form__btn" data-mag="0.15">{submit}</button>
       </div>
       <p id="cta-form-error" class="cta-form__error" aria-live="assertive" hidden data-nl-error></p>
-      {hint && <p id="cta-form-hint" class="cta-form__hint">{hint}</p>}
+      {hint && <p id="cta-form-hint" class="cta-form__hint u-hint-mono">{hint}</p>}
     </form>
     <p class="cta-form__confirm" aria-live="polite" hidden data-nl-confirm>
       {isFr ? '✓ Bien reçu. Vérifiez votre boîte mail.' : '✓ Got it. Check your inbox.'}
@@ -119,15 +119,7 @@ const action = data.form_action ?? '/api/newsletter';
     color: var(--accent-text);
     letter-spacing: 0.06em;
     margin: 0;
-  }
-  .cta-form__hint {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    margin: 0;
-  }
-  .cta-form__confirm {
+  } .cta-form__confirm {
     font-family: var(--font-sans);
     font-size: var(--text-small);
     color: var(--ink);

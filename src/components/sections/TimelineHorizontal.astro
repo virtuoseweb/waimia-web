@@ -26,8 +26,8 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
     {(kicker || h2 || intro) && (
       <div class="timeline-h__hd">
         {kicker && <Kicker tone="accent">{kicker}</Kicker>}
-        {h2 && <h2 class="timeline-h__h2" set:html={h2} />}
-        {intro && <p class="timeline-h__intro">{intro}</p>}
+        {h2 && <h2 class="timeline-h__h2 u-h2-balance" set:html={h2} />}
+        {intro && <p class="timeline-h__intro u-body-muted">{intro}</p>}
       </div>
     )}
     <ol class="timeline-h__track">
@@ -42,7 +42,7 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
             <div class="timeline-h__card">
               {date && <Kicker as="span" tone="muted" class="timeline-h__date">{date}</Kicker>}
               <h3 class="timeline-h__label">{isFr ? ev.label_fr : ev.label_en}</h3>
-              {body && <p class="timeline-h__body">{body}</p>}
+              {body && <p class="timeline-h__body u-lede-sm">{body}</p>}
               <span class="timeline-h__status">{statusLabel(ev.status)}</span>
             </div>
           </li>
@@ -61,27 +61,8 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
     gap: var(--space-3);
     margin-bottom: var(--space-9);
     max-width: 760px;
-  }
-  .timeline-h__h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: -0.02em;
-    font-weight: var(--fw-medium);
-    text-wrap: balance;
-    margin: 0;
-  }
-  .timeline-h__h2 :global(i),
-  .timeline-h__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); }
-  .timeline-h__intro {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: 0;
-  }
-
-  .timeline-h__track {
+  } .timeline-h__h2 :global(i),
+  .timeline-h__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); } .timeline-h__track {
     list-style: none;
     margin: 0;
     padding: 0 0 var(--space-4);
@@ -127,15 +108,7 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
     font-weight: var(--fw-semibold);
     color: var(--ink);
     margin: 0;
-  }
-  .timeline-h__body {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: 0;
-  }
-  .timeline-h__status {
+  } .timeline-h__status {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);

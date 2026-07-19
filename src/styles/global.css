@@ -1576,6 +1576,98 @@ a:not([class]):hover,
   line-height: var(--leading-h3);
   margin: 0;
 }
+/* Consolidation A4 (P2.2 scoped-dup) : mutualisation byte-exacte de blocs scoped
+   dupliqués dans >= 7 sections du catalogue. Sous scopedStyleStrategy:'attribute'
+   (defaut Astro), ces classes globales (0,1,0) restent dominees par les overrides
+   scopes [data-bg='ink']/responsive (>= 0,2,0), donc parite stricte preservee.
+   .sec-head = conteneur d'en-tete de section (flex colonne). Les variantes qui
+   ajoutaient max-width gardent ce residu en scoped. */
+.sec-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--spacing-block);
+}
+/* Chapo/lede court muted (text-small). .u-body-muted = meme role en text-body. */
+.u-lede-sm {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+  margin: 0;
+}
+.u-body-muted {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  margin: 0;
+}
+/* Coquille hero plein ecran : occupe le 1er ecran sans deborder sous le header sticky.
+   Les 2 min-height (fallback 100vh puis calc viewport) doivent rester dans cet ordre. */
+.hero-shell {
+  background: var(--paper);
+  color: var(--ink);
+  border-bottom: 1px solid var(--hairline);
+  min-height: 100vh;
+  min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: calc(var(--header-height) + var(--space-7));
+  padding-bottom: var(--space-7);
+}
+/* Consolidation A4 (batch 2) : roles texte/heading recurrents du catalogue,
+   memes garanties de parite (bare-class, overrides scopes plus specifiques). */
+.u-h2-balance {
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  font-weight: var(--fw-medium);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-h3);
+  margin: 0;
+  text-wrap: balance;
+}
+.u-title-h3 {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  font-weight: var(--fw-medium);
+  line-height: 1.2;
+}
+/* Lien CTA inline (fleche + label accent). */
+.u-cta-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--accent-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+}
+/* Meta/label mono caps discret. .u-hint-mono = variante hint (tracking 0.06em, margin 0). */
+.u-meta-mono {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: 0.1em;
+}
+.u-hint-mono {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+/* Petit label muted sans (sans margin, distinct de .u-lede-sm qui pose margin:0). */
+.u-label-sm {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+}
 .sec-paper {
   background: var(--paper-2);
 }

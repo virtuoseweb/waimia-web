@@ -21,13 +21,13 @@ const isFr = lang === 'fr';
 
 <section class="hsh sec-base" data-bg={data.background}>
   <div class="wrap-wide">
-    <div class="hsh__header reveal">
+    <div class="hsh__header sec-head reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.lede_fr : data.lede_en) && (
-        <p class="hsh__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+        <p class="hsh__lede u-lede-sm">{isFr ? data.lede_fr : data.lede_en}</p>
       )}
     </div>
 
@@ -61,7 +61,7 @@ const isFr = lang === 'fr';
                 </ul>
               )}
               {linkLabel && panel.link_href && (
-                <a class="hsh__link" href={panel.link_href}>
+                <a class="hsh__link u-cta-inline" href={panel.link_href}>
                   {linkLabel}
                   <span aria-hidden="true">&#x2192;</span>
                 </a>
@@ -104,25 +104,10 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  .hsh__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 640px;
-  }
+  .hsh__header { max-width: 640px; }
   .hsh__header h2 :global(i) {
     font-style: italic;
-  }
-  .hsh__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-  }
-
-  /* ── Piste horizontale scroll-snap ── */
+  } /* ── Piste horizontale scroll-snap ── */
   .hsh__track {
     list-style: none;
     margin: 0;
@@ -230,18 +215,7 @@ const isFr = lang === 'fr';
     border-right: 1px solid var(--accent);
     transform: rotate(45deg);
   }
-
-  .hsh__link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--accent-text);
-    text-decoration: none;
-    font-weight: var(--fw-medium);
-  }
-  .hsh__link:hover {
+ .hsh__link:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
   }

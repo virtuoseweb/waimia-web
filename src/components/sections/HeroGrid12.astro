@@ -26,7 +26,7 @@ const bullets = data.bullets ?? [];
 const ctaPrimary = data.cta_primary;
 const ctaSecondary = data.cta_secondary;
 ---
-<section class="hg12" data-bg={data.background === 'ink' ? 'ink' : undefined}>
+<section class="hg12 hero-shell" data-bg={data.background === 'ink' ? 'ink' : undefined}>
   <div class="wrap-wide hg12-grid">
     {/* Rangée 1 : kicker + sigle */}
     {kicker && <Kicker as="p" tone="accent" class="hg12-kicker">{kicker}</Kicker>}
@@ -61,22 +61,7 @@ const ctaSecondary = data.cta_secondary;
     </div>
   </div>
 
-  <style>
-    .hg12 {
-      background: var(--paper);
-      color: var(--ink);
-      border-bottom: 1px solid var(--hairline);
-      /* Full-viewport : occupe le 1er écran sans déborder sous le header sticky */
-      min-height: 100vh;
-      min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-sizing: border-box;
-      padding-top: calc(var(--header-height) + var(--space-7));
-      padding-bottom: var(--space-7);
-    }
-    .hg12[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  <style> .hg12[data-bg='ink'] { background: var(--ink); color: var(--paper); }
 
     .hg12-grid {
       display: grid;

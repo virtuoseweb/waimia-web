@@ -64,7 +64,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
         >
           {ctaLabel}
         </Button>
-        {asideNote && <p class="faq-cta__card-note">{asideNote}</p>}
+        {asideNote && <p class="faq-cta__card-note u-hint-mono">{asideNote}</p>}
       </div>
     </div>
   </div>
@@ -151,16 +151,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     line-height: var(--leading-body);
     margin: 0;
     text-wrap: pretty;
-  }
-  .faq-cta__card-note {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    margin: 0;
-  }
-
-  /* Alternance de fonds */
+  } /* Alternance de fonds */
   .faq-cta[data-bg='paper-2'] { background: var(--paper-2); }
   .faq-cta[data-bg='paper-3'] { background: var(--paper-3); }
   .faq-cta[data-bg='ink'] {

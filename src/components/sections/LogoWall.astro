@@ -16,7 +16,7 @@ const logos = data.logos ?? [];
 
 <section class="logo-wall sec-base" data-bg={data.background}>
   <div class="wrap-wide">
-    <div class="logo-wall__header reveal">
+    <div class="logo-wall__header sec-head reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -63,15 +63,7 @@ const logos = data.logos ?? [];
 </section>
 
 <style>
-
-  .logo-wall__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-
-  .logo-wall__grid {
+ .logo-wall__grid {
     list-style: none;
     margin: 0;
     padding: 0;

@@ -30,7 +30,7 @@ const isFr = lang === 'fr';
         <li>
           <a class="notes-row" href={note.href}>
             <span class="notes-row-num">{`0${i + 1}`}</span>
-            <span class="notes-row-date">{isFr ? note.date_fr : note.date_en}</span>
+            <span class="notes-row-date u-meta-mono">{isFr ? note.date_fr : note.date_en}</span>
             <span class="notes-row-tag">{isFr ? note.tag_fr : note.tag_en}</span>
             <span class="notes-row-text">{isFr ? note.label_fr : note.label_en}</span>
             <span class="notes-row-arr" aria-hidden>→</span>
@@ -93,15 +93,7 @@ const isFr = lang === 'fr';
     color: var(--accent-text);
     text-transform: uppercase;
   }
-
-  .notes-row-date {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-
-  .notes-row-tag {
+ .notes-row-tag {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);

@@ -31,7 +31,7 @@ const mtBodyHide = mtPl?.body?.hideOn;
   <div class="wrap-wide">
   {(data.kicker_fr || data.kicker_en || data.h2_fr || data.h2_en || data.lede_fr || data.lede_en) && (
   <div
-    class="method-timeline__header"
+    class="method-timeline__header sec-head"
     data-header-align={mtHeaderAlign}
     data-header-order={mtHeaderOrder}
     data-header-hide={mtHeaderHide}
@@ -76,13 +76,7 @@ const mtBodyHide = mtPl?.body?.hideOn;
 </section>
 
 <style>
-  .method-timeline__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 64ch;
-  }
+  .method-timeline__header { max-width: 64ch; }
   .method-timeline__header p {
     font-family: var(--font-sans);
     font-size: var(--text-body);

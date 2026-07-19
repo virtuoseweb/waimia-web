@@ -24,13 +24,13 @@ const note = isFr ? data.note_fr : data.note_en;
 
 <section class="pcl sec-base" data-bg={data.background} data-layout={layout}>
   <div class="wrap-wide">
-    <div class="pcl__header reveal">
+    <div class="pcl__header sec-head reveal">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.lede_fr : data.lede_en) && (
-        <p class="pcl__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+        <p class="pcl__lede u-lede-sm">{isFr ? data.lede_fr : data.lede_en}</p>
       )}
       {note && <p class="pcl__note">{note}</p>}
     </div>
@@ -73,27 +73,12 @@ const note = isFr ? data.note_fr : data.note_en;
 </section>
 
 <style>
-  .pcl__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 640px;
-  }
+  .pcl__header { max-width: 640px; }
 
   .pcl__header h2 :global(i) {
     font-style: italic;
   }
-
-  .pcl__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-  }
-
-  /* Note facon « NOUS AIMONS RESTER SIMPLES » : capitales espacees, muted. */
+ /* Note facon « NOUS AIMONS RESTER SIMPLES » : capitales espacees, muted. */
   .pcl__note {
     font-family: var(--font-sans);
     font-size: var(--text-kicker);

@@ -18,7 +18,7 @@ const lede = isFr ? data.lede_fr : data.lede_en;
 
 <section class="fcg sec-base" data-bg={data.background}>
   <div class="wrap-wide">
-    <div class="fcg__header">
+    <div class="fcg__header sec-head">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
       <h2 class="sec-base-h2 u-serif-accent" set:html={heading} />
       {lede && <p class="fcg__lede">{lede}</p>}
@@ -44,13 +44,7 @@ const lede = isFr ? data.lede_fr : data.lede_en;
 </section>
 
 <style>
-  .fcg__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 64ch;
-  }
+  .fcg__header { max-width: 64ch; }
   .fcg__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body);

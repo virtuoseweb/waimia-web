@@ -230,7 +230,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
             {item.glyph && (
               <span class="icon-trio__glyph" aria-hidden="true">{item.glyph}</span>
             )}
-            <strong class="icon-trio__title">{isFr ? item.title_fr : item.title_en}</strong>
+            <strong class="icon-trio__title u-title-h3">{isFr ? item.title_fr : item.title_en}</strong>
             <p class="icon-trio__body">{isFr ? item.body_fr : item.body_en}</p>
           </li>
         ))}
@@ -249,7 +249,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
   >
     <div class="wrap-wide">
     {fgShowEyebrow || fgShowTitle ? (
-    <div class="feature-grid__header" data-header-align={fgHeaderAlign}>
+    <div class="feature-grid__header sec-head" data-header-align={fgHeaderAlign}>
       {fgShowEyebrow && (isFr ? fg!.kicker_fr : fg!.kicker_en) && (
         <Kicker tone="muted">{isFr ? fg!.kicker_fr : fg!.kicker_en}</Kicker>
       )}
@@ -268,7 +268,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
     {fgIntroRow && fgIntroRow !== 'none' && (
       <div class="sec-intro" data-intro-row={fgIntroRow}>
         <div class="sec-intro__body">
-          {fgIntroDesc && <p class="feature-grid__intro-desc">{fgIntroDesc}</p>}
+          {fgIntroDesc && <p class="feature-grid__intro-desc u-body-muted">{fgIntroDesc}</p>}
         </div>
         {fgIntroRow === 'desc-media-split' && (
           <div class="sec-intro__media" style={fgIntroMediaStyle} role="presentation"></div>
@@ -337,14 +337,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
   </section>
 )}
 
-<style>
-  .feature-grid__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-  /* ── MODE PAR DÉFAUT (aucune recette `layout`) = grille hairline 3 colonnes, rendu
+<style> /* ── MODE PAR DÉFAUT (aucune recette `layout`) = grille hairline 3 colonnes, rendu
      historique INCHANGÉ. La grille (.feature-grid__list[data-cols]) et le look hairline
      (bordure + chevauchement -1px, gap 0) sont SPÉCIFIQUES à ce composant : le moteur ne
      reproduit pas la fusion de bordures, on les garde donc ici, scopés au mode défaut
@@ -439,15 +432,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
     margin: var(--space-4) 0 0;
   }
   .feature-grid__header-cta { margin-top: var(--space-5); }
-  /* Desc de la ligne d'intro (introRow). */
-  .feature-grid__intro-desc {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: 0;
-  }
-  /* Petite ligne meta (cardContent=title-desc-meta). */
+  /* Desc de la ligne d'intro (introRow). */ /* Petite ligne meta (cardContent=title-desc-meta). */
   .feature-grid__meta {
     display: block;
     font-family: var(--font-mono);
@@ -1137,16 +1122,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
     color: var(--accent-text);
     font-family: var(--font-display);
   }
-
-  .icon-trio__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-    line-height: 1.2;
-  }
-
-  .icon-trio__body {
+ .icon-trio__body {
     font-family: var(--font-sans);
     font-size: var(--text-small);
     color: var(--muted);

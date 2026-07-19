@@ -15,7 +15,7 @@ const items = data.items ?? [];
 
 <section class="faq-two-col sec-base" data-bg={data.background} aria-labelledby="faq-two-col-h2">
   <div class="wrap-wide">
-    <div class="faq-two-col__header">
+    <div class="faq-two-col__header sec-head">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -33,14 +33,7 @@ const items = data.items ?? [];
   </div>
 </section>
 
-<style>
-  .faq-two-col__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-  .faq-two-col__grid {
+<style> .faq-two-col__grid {
     margin: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

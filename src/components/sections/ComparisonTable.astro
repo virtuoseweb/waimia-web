@@ -21,7 +21,7 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
 {data.type === 'pricing-comparison-matrix' ? (
   <section class="pcm sec-base" data-bg={data.background}>
     <div class="wrap-wide">
-      <div class="pcm__header">
+      <div class="pcm__header sec-head">
         {(isFr ? data.kicker_fr : data.kicker_en) && (
           <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         )}
@@ -188,14 +188,7 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
   }
   .comparison-table[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
   /* Conformite declinaison ink : td/feature sont en var(--ink) direct (regle plus specifique que la couleur heritee) -> remap clair sinon texte invisible sur fond sombre (bug "table vide" image #4) */
-  .comparison-table[data-bg='ink'] :is(td, .comparison-table__feature) { color: var(--paper); }
-  .pcm__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-  .pcm__body {
+  .comparison-table[data-bg='ink'] :is(td, .comparison-table__feature) { color: var(--paper); } .pcm__body {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--muted);

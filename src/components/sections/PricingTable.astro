@@ -13,7 +13,7 @@ const isFr = lang === 'fr';
 
 <section class="pricing-table sec-base" data-bg={data.background}>
   <div class="wrap-wide">
-  <div class="pricing-table__header">
+  <div class="pricing-table__header sec-head">
     {(isFr ? data.kicker_fr : data.kicker_en) && (
       <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
@@ -50,14 +50,7 @@ const isFr = lang === 'fr';
   </div>
 </section>
 
-<style>
-  .pricing-table__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-  .pricing-table__grid {
+<style> .pricing-table__grid {
     display: grid;
     grid-template-columns: repeat(var(--col-count, 3), 1fr);
     border-top: 1px solid var(--hairline);

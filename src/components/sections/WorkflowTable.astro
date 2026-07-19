@@ -27,7 +27,7 @@ const head = isFr
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
       <h2 set:html={h2} />
     </header>
-    <div class="sol-aside col-aside">
+    <div class="sol-aside u-lede-sm col-aside">
       <Callout variant="info" size="sm">
         {aside ? (
           <Fragment set:html={aside} />
@@ -87,14 +87,7 @@ const head = isFr
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
   }
-  .sol-aside {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    max-width: 480px;
-    margin: 0;
-  }
+  .sol-aside { max-width: 480px; }
   .sol-aside :global(.callout) {
     margin: 0;
   }

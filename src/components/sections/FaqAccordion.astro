@@ -62,7 +62,7 @@ if ('data' in Astro.props) {
 
 <section class="faq-accordion sec-base" data-bg={background}>
   <div class="wrap-wide">
-  <div class="faq-accordion__header">
+  <div class="faq-accordion__header sec-head">
     {kicker && (
       <Kicker tone="muted">{kicker}</Kicker>
     )}
@@ -90,14 +90,7 @@ if ('data' in Astro.props) {
 
 {normalizedItems.length > 0 && <JsonLd data={faqPage(normalizedItems)} />}
 
-<style>
-  .faq-accordion__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-  }
-  .faq-accordion__intro {
+<style> .faq-accordion__intro {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--muted);

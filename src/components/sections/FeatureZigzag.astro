@@ -124,13 +124,13 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
   data-density={data.density}
 >
   <div class="wrap-wide">
-    <div class="fz__header reveal" data-header-align={headerAlign} data-header-hide={headerHide}>
+    <div class="fz__header sec-head reveal" data-header-align={headerAlign} data-header-hide={headerHide}>
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
       {(isFr ? data.lede_fr : data.lede_en) && (
-        <p class="fz__lede">{isFr ? data.lede_fr : data.lede_en}</p>
+        <p class="fz__lede u-lede-sm">{isFr ? data.lede_fr : data.lede_en}</p>
       )}
     </div>
 
@@ -166,7 +166,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
                   </ul>
                 )}
                 {(isFr ? row.link_label_fr : row.link_label_en) && row.link_href && (
-                  <a class="fz__link" href={row.link_href} data-actions-justify={actionsJustify}>
+                  <a class="fz__link u-cta-inline" href={row.link_href} data-actions-justify={actionsJustify}>
                     {isFr ? row.link_label_fr : row.link_label_en}
                     <span aria-hidden="true">&#x2192;</span>
                   </a>
@@ -182,13 +182,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
 
 <style>
 
-  .fz__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-bottom: var(--spacing-block);
-    max-width: 640px;
-  }
+  .fz__header { max-width: 640px; }
 
   .fz__header h2 {
     /* R4 : titre de header → casse un mot trop long, jamais de débordement. */
@@ -198,16 +192,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
   .fz__header h2 :global(i) {
     font-style: italic;
   }
-
-  .fz__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-  }
-
-  .fz__rows {
+ .fz__rows {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -436,19 +421,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
     border-right: 1px solid var(--accent);
     transform: rotate(45deg);
   }
-
-  .fz__link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--accent-text);
-    text-decoration: none;
-    font-weight: var(--fw-medium);
-  }
-
-  .fz__link:hover {
+ .fz__link:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
   }
