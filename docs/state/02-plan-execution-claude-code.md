@@ -852,7 +852,7 @@ _(vide)_
 - [ ] **T-6 — VISION FINALE résidus** (`state/01 §b`, `docs/40` archivé) : arbo **cas-par-secteur**
   + **étiquettes catalogue** (non couverts par P0.2). Te poser : quoi reste-t-il de `docs/40` qui n'est
     pas déjà dans P0/P2 ? Remonter ici. Dépend de : —
-- [ ] **T-7 — Réconcilier les compteurs/statuts docs périmés** (`00-MASTER-PLAN` 147→151, etc.) — `state/01 §0`. ▸ *réconciliation compteurs livrée 2026-07-19 : canonique re-mesuré = **221 types / 221 modules co-localisés / 172 sections `.astro` / 6 templates / tokens.css 314 l / 823 presets / 221 previews** ; corrigés dans README §Compteurs, SYNTHESE §conflits, CLAUDE.md, ce NB. Reste : sweep statuts « en cours » soldés.*
+- [x] **T-7 — Réconcilier les compteurs/statuts docs périmés** (`00-MASTER-PLAN` 147→151, etc.) — `state/01 §0`. ▸ *réconciliation compteurs livrée 2026-07-19 : canonique re-mesuré = **221 types / 221 modules co-localisés / 172 sections `.astro` / 6 templates / tokens.css 314 l / 823 presets / 221 previews** ; corrigés dans README §Compteurs, SYNTHESE §conflits, CLAUDE.md, ce NB. Reste : sweep statuts « en cours » soldés.* <!-- sb commit=3f8b5d23 gf1=n -->
   - Dépend de : —
 - [ ] **T-8 [?] — Décision 301 fintech** : `strategy/02` pose « pas de redirections » (domaine neuf) →
   le 301 fintech de l'ex-R7b (`state/01 §b`) est **abandonné** ; confirmer que c'est volontaire.
