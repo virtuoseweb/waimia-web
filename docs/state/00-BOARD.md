@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `80b0a2e5` - 68/87 tâches done (78%).
+État : HEAD `8ab03de1` - 69/87 tâches done (79%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
-| P2 | 15/29 | 52% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+9) |
+| P2 | 16/29 | 55% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+8) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 1/3 | 33% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -35,7 +35,7 @@
 | P2.0 — Reconstituer l'état réel du design (ghost, AVANT de toucher) | P2 | 0/1 | 0% | - |
 | P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS) | P2 | 0/4 | 0% | - |
 | P2.10 — Passe finale Claude Design | P2 | 0/1 | 0% | - |
-| P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 5/7 | 71% | f8ce276e chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 81408f05 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
+| P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 6/7 | 86% | 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 98973f26 feat(ds): P2.11-f arrondi des espacements off-scale aux tokens --space-* (120 déclarations, 46 fichiers) ; 81408f05 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
 | P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 0/1 | 0% | - |
 | P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 4/5 | 80% | c6b87a28 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) ; 8391ea7f feat(ds): petit-texte-accent AA sur fond clair (--accent-text defaut accent-sur-clair #A83D20) ; 137632cb docs(plan): P2.4-e done (accent-text AA sur clair, commit 8391ea7) |
