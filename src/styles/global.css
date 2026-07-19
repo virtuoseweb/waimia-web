@@ -7,6 +7,9 @@
 @import "../../packages/ds-tokens/tokens.css";
 @import "./layouts.css";
 @import "./section-layouts.css";
+/* Presets de theme nommes (genere depuis src/data/ds-presets.json via le DS Studio).
+   En dernier : les blocs [data-theme='<slug>'] surchargent :root de tokens.css. */
+@import "./themes.css";
 
 /* ─── BASE ─── */
 * {

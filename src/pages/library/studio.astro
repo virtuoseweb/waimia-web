@@ -54,6 +54,7 @@ import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 
 import registry from '../../data/ds-registry.json';
 import sectionManifest from '../../data/ds-section-manifest.json';
+import dsPresets from '../../data/ds-presets.json';
 
 const lang = 'fr' as const;
 
@@ -147,10 +148,17 @@ const DEMO_PRESETS: Record<string, Record<string, string>> = {
   },
 };
 
+// Presets de theme PERSISTES (src/data/ds-presets.json, ecrits par le DS Studio en
+// dev via POST /api/ds/preset). Source de verite de la LISTE cote client (apply).
+const persistedPresets = Array.isArray((dsPresets as { presets?: unknown }).presets)
+  ? (dsPresets as { presets: { slug: string; name: string; savedAt?: string; tokens: Record<string, string> }[] }).presets
+  : [];
+
 const studioData = JSON.stringify({
   consumers: consumerMap,
   tokenSections: tokenSectionMap,
   demoPresets: DEMO_PRESETS,
+  presets: persistedPresets,
   originals: Object.fromEntries(tokens.map((token) => [token.name, token.value])),
   // env injecté au build : DEV ⟹ le middleware /api/ds/save existe (astro dev) ;
   // PROD (site output:static) ⟹ pas d'endpoint, on désactive le bouton Enregistrer.

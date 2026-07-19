@@ -13,7 +13,8 @@
  * Scan : src/ recursif sur .astro, .ts, .tsx, .js, .jsx.
  * Regex : capture action="/api/<slug>" et fetch('/api/<slug>') (apostrophe, guillemet, backtick).
  * Slug = premier segment apres /api/ sans sous-chemin ni query string (les endpoints
- * a sous-chemin comme /api/ds/save - DEV-ONLY sous astro dev - sont naturellement exclus).
+ * a sous-chemin DEV-ONLY sous astro dev - /api/ds/save ET /api/ds/preset - sont
+ * naturellement exclus : le / du sous-chemin ne matche pas la classe de terminaison).
  *
  * Verification : pour chaque slug unique, cherche src/pages/api/<slug>.ts, .js ou .mjs.
  *
@@ -34,8 +35,9 @@ const EXTENSIONS = new Set(['.astro', '.ts', '.tsx', '.js', '.jsx']);
  *   action="/api/<slug>"   action='/api/<slug>'   action=`/api/<slug>`
  *   fetch('/api/<slug>'    fetch("/api/<slug>"    fetch(`/api/<slug>`
  * Le slug est exactement [a-z0-9-]+ suivi d'une quote/backtick ou d'un ? (query string).
- * Les chemins avec sous-segments (/api/ds/save) ne matchent PAS car / n'est pas dans
- * le character class de terminaison - comportement voulu (cf. DEV-ONLY ds-studio.js).
+ * Les chemins avec sous-segments (/api/ds/save, /api/ds/preset) ne matchent PAS car /
+ * n'est pas dans le character class de terminaison - comportement voulu (DEV-ONLY, cf.
+ * ds-studio.js + src/integrations/ds-save-dev.mjs).
  */
 const FORM_ENDPOINT_RE = /(?:action=|fetch\()\s*['"`]\/api\/([a-z0-9-]+)['"`?]/gi;
 

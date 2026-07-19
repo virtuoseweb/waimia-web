@@ -29,10 +29,13 @@ function initStudio() {
   const consumers = DATA.consumers || {};
   const tokenSections = DATA.tokenSections || {};
   const demoPresets = DATA.demoPresets || {};
+  // Presets de theme PERSISTES via git (src/data/ds-presets.json, ecrits en dev par
+  // POST /api/ds/preset). Source de verite de la LISTE (apply-only). Les demos restent
+  // des themes rapides compile-time. Plus de localStorage (persistance = git).
+  const persistedPresets = Array.isArray(DATA.presets) ? DATA.presets : [];
   const originals = new Map(Object.entries(DATA.originals || {}));
   const SAVE_PENDING_KEY = 'ds-save-pending';
   const SAVE_RELOADED_KEY = 'ds-save-reloaded';
-  const PRESETS_KEY = 'ds-studio-presets';
   let hashSyncTimer = null;
 
   // Tokens modifiés (pour l'export ciblé)
@@ -697,55 +700,45 @@ function initStudio() {
   const presetSave = container.querySelector('#preset-save');
   const presetList = container.querySelector('#preset-list');
 
-  function readPresets() {
-    try {
-      const value = JSON.parse(localStorage.getItem(PRESETS_KEY) || '{}');
-      return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
-    } catch {
-      return {};
-    }
+  // Applique les tokens d'un preset (snapshot) comme des overrides LIVE.
+  function applyPresetTokens(tokens) {
+    if (!tokens || typeof tokens !== 'object') return null;
+    Object.entries(tokens).forEach(([token, value]) => applyToken(token, String(value)));
+    return tokens;
   }
 
-  function writePresets(value) {
-    localStorage.setItem(PRESETS_KEY, JSON.stringify(value));
-    renderPresets();
+  // Table nom -> tokens : démos (compile-time) + persistés (git). Apply-only.
+  function allNamedPresets() {
+    const out = {};
+    Object.entries(demoPresets).forEach(([name, tokens]) => { out[name] = tokens; });
+    persistedPresets.forEach((p) => {
+      if (p && typeof p.name === 'string' && p.tokens && typeof p.tokens === 'object') out[p.name] = p.tokens;
+    });
+    return out;
   }
 
   function listPresets() {
-    return readPresets();
-  }
-
-  function savePreset(name) {
-    const trimmed = String(name || '').trim();
-    if (!trimmed) return null;
-    const presets = readPresets();
-    presets[trimmed] = buildTokensPayload();
-    writePresets(presets);
-    return presets[trimmed];
+    return { demos: demoPresets, saved: persistedPresets };
   }
 
   function applyPreset(name) {
-    const preset = readPresets()[name];
-    if (!preset || typeof preset !== 'object') return null;
-    Object.entries(preset).forEach(([token, value]) => applyToken(token, String(value)));
-    return preset;
-  }
-
-  function removePreset(name) {
-    const presets = readPresets();
-    if (!(name in presets)) return false;
-    delete presets[name];
-    writePresets(presets);
-    return true;
+    return applyPresetTokens(allNamedPresets()[name]);
   }
 
   function renderPresets() {
     if (!presetList) return;
     presetList.replaceChildren();
-    Object.keys(readPresets()).sort().forEach((name) => {
+    const rows = [];
+    Object.keys(demoPresets).sort().forEach((name) => rows.push({ name, kind: 'demo' }));
+    [...persistedPresets]
+      .filter((p) => p && typeof p.name === 'string')
+      .sort((a, b) => String(a.slug).localeCompare(String(b.slug)))
+      .forEach((p) => rows.push({ name: p.name, kind: 'saved', savedAt: p.savedAt }));
+
+    rows.forEach(({ name, kind }) => {
       const row = document.createElement('div');
       row.className = 'studio-preset-row';
-      if (name in demoPresets) row.classList.add('is-demo');
+      if (kind === 'demo') row.classList.add('is-demo');
 
       const label = document.createElement('span');
       label.className = 'studio-preset-row-name';
@@ -760,53 +753,100 @@ function initStudio() {
       apply.textContent = 'Appliquer';
       apply.addEventListener('click', () => applyPreset(name));
 
-      const remove = document.createElement('button');
-      remove.type = 'button';
-      remove.className = 'studio-btn';
-      remove.textContent = 'Supprimer';
-      remove.addEventListener('click', () => removePreset(name));
-
-      actions.append(apply, remove);
+      actions.append(apply);
       row.append(label, actions);
       presetList.appendChild(row);
     });
   }
 
+  // SAVE = persistance git-based DEV-ONLY : POST /api/ds/preset (commit + push + rebuild
+  // preview, puis reload). Réutilise le même overlay « cuisson » que la sauvegarde de
+  // tokens et le même champ mot-clé (keywordInput). En prod : message, 0 fetch.
+  async function performPresetSave(name, keyword) {
+    const presetLabel = String(name || '').trim();
+    if (!isDev) {
+      setSaveState('error');
+      toast('Enregistrement disponible en mode développement uniquement');
+      return { ok: false, error: 'prod' };
+    }
+    if (!presetLabel) {
+      toast('Donne un nom au thème');
+      if (presetName) presetName.focus();
+      return { ok: false, error: 'nom' };
+    }
+    if (!dirty.size) {
+      setSaveState('error');
+      toast('Aucun changement : modifie au moins un token avant de sauvegarder un thème');
+      return { ok: false, error: 'aucun changement' };
+    }
+
+    setSaveState('saving');
+    try {
+      const resp = await fetch('/api/ds/preset', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ name: presetLabel, tokens: buildTokensPayload(), keyword }),
+      });
+      let data = {};
+      try {
+        data = await resp.json();
+      } catch {
+        data = {};
+      }
+      if (resp.ok && data.ok) {
+        const pending = rememberPendingSave(data);
+        setSaveState('done');
+        showCookingOverlay(
+          data.fixedDelaySeconds,
+          data.branch,
+          data.commit,
+          () => finishPendingSave(pending.savedAt),
+        );
+        return data;
+      }
+      const error = data.error || `Erreur ${resp.status}`;
+      const map = {
+        keyword: 'Mot-clé de sauvegarde incorrect.',
+        'refus push main': 'Refus : on ne pousse jamais automatiquement sur main (prod).',
+      };
+      setSaveState('error');
+      showErrorOverlay(map[error] || error);
+      return { ok: false, error };
+    } catch {
+      const error = 'Réseau indisponible (le serveur de dev tourne-t-il ?).';
+      setSaveState('error');
+      showErrorOverlay(error);
+      return { ok: false, error };
+    }
+  }
+
   if (presetSave) {
     presetSave.addEventListener('click', () => {
       const name = presetName ? presetName.value.trim() : '';
+      const keyword = keywordInput ? keywordInput.value.trim() : '';
       if (!name) {
         toast('Donne un nom au thème');
         if (presetName) presetName.focus();
         return;
       }
-      savePreset(name);
-      toast(`Thème « ${name} » sauvegardé`);
+      if (isDev && dirty.size && !keyword) {
+        toast('Saisis le mot-clé de sauvegarde');
+        if (keywordInput) keywordInput.focus();
+        return;
+      }
+      performPresetSave(name, keyword);
     });
   }
 
-  // ── Thèmes : export / import JSON + seed des thèmes de démo ─────────────────
+  // ── Thèmes : export / import JSON (démos + persistés, apply-only) ───────────
   const presetExport = container.querySelector('#preset-export');
   const presetImport = container.querySelector('#preset-import');
   const presetImportFile = container.querySelector('#preset-import-file');
   const presetSeed = container.querySelector('#preset-seed');
 
-  function seedDemoPresets(force = false) {
-    const presets = readPresets();
-    let added = 0;
-    Object.entries(demoPresets).forEach(([name, tokensObj]) => {
-      if (force || !(name in presets)) {
-        presets[name] = { ...tokensObj };
-        added += 1;
-      }
-    });
-    if (added) writePresets(presets);
-    return added;
-  }
-
   if (presetExport) {
     presetExport.addEventListener('click', async () => {
-      const presets = readPresets();
+      const presets = allNamedPresets();
       if (!Object.keys(presets).length) {
         toast('Aucun thème à exporter');
         return;
@@ -837,16 +877,14 @@ function initStudio() {
         try {
           const parsed = JSON.parse(String(reader.result || '{}'));
           if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('format');
-          const presets = readPresets();
-          let merged = 0;
-          Object.entries(parsed).forEach(([name, tokensObj]) => {
-            if (tokensObj && typeof tokensObj === 'object' && !Array.isArray(tokensObj)) {
-              presets[String(name)] = tokensObj;
-              merged += 1;
-            }
-          });
-          writePresets(presets);
-          toast(`${merged} thème(s) importé(s)`);
+          const entries = Object.entries(parsed).filter(
+            ([, tokensObj]) => tokensObj && typeof tokensObj === 'object' && !Array.isArray(tokensObj),
+          );
+          if (!entries.length) throw new Error('vide');
+          // Import = APPLIQUE le 1er thème du fichier en LIVE (persistance = « Sauver »).
+          const [firstName, firstTokens] = entries[0];
+          applyPresetTokens(firstTokens);
+          toast(`Thème « ${firstName} » appliqué · « Sauver » pour le persister`);
         } catch {
           toast('Fichier JSON invalide');
         } finally {
@@ -859,8 +897,8 @@ function initStudio() {
 
   if (presetSeed) {
     presetSeed.addEventListener('click', () => {
-      const added = seedDemoPresets(true);
-      toast(added ? `${added} thème(s) de démo chargé(s)` : 'Thèmes de démo déjà présents');
+      renderPresets();
+      toast('Thèmes de démo listés ci-dessous · clique « Appliquer »');
     });
   }
 
@@ -1574,10 +1612,8 @@ function initStudio() {
     redo,
     presets: {
       list: listPresets,
-      save: savePreset,
+      save: (name) => performPresetSave(name, keywordInput ? keywordInput.value.trim() : ''),
       apply: applyPreset,
-      remove: removePreset,
-      seedDemos: seedDemoPresets,
     },
     inspect: (token) => tokenSections[token] || [],
     inspectElement,
@@ -1639,9 +1675,6 @@ function initStudio() {
       }
     });
   }
-
-  // Seed des thèmes de démo au tout 1er chargement (si aucun thème perso encore).
-  if (!Object.keys(readPresets()).length) seedDemoPresets(false);
 
   refreshExportCount();
   refreshHistoryButtons();
