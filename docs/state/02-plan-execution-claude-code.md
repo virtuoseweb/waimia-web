@@ -728,7 +728,7 @@ _(vide)_
 - [x] **P2.8 — Save preset** (`POST /api/ds/preset`, garde `DS_SAVE_KEYWORD`, pipeline git) → `src/data/ds-presets.json` + `[data-theme]` dans `src/styles/themes.css`. Dépend de P2.7. ▸ *soldé 2026-07-19 (core save/list/apply, fiche 0022 : Option A dev-only, extension `ds-save-dev.mjs`) : GF-1 fonctionnel = POST réel 200/403/400/400 + write→read JSON+CSS + pipeline git tracé + gate `check:ds-presets` + UI round-trip (`dsStudio.presets.list().saved`). Sous-items scindés en P2.8-b/P2.8-c.* <!-- sb commit=2d23991a gf1=y -->
 - [x] **P2.8-b — Supprimer reload `loadCatalogType`** (apply preset sans rechargement complet). ▸ *soldé 2026-07-19 : garde idempotence loadCatalogType, apply preset live sans reload, GF-1 Playwright.* <!-- sb commit=05bf1d53 gf1=y -->
  ▸ *scindé de P2.8 (fiche 0022), non bloquant pour P2.9.*
-- [ ] **P2.8-c — Instance overrides** (overrides de tokens par instance de section).
+- [x] **P2.8-c — Instance overrides** (overrides de tokens par instance de section). ▸ *soldé 2026-07-19 : mode instance (toggle + sélection tuile galerie Sections, style inline sur racine d'instance qui prime sur :root), contrôles existants routés, reset/badge/API dsStudio.instance.* ; persistance live-only (arbitrage : identité d'instance persistée = usine à gaz) ; GF-1 flow réel + re-run indé (isolation instance0 vs instance1 vs :root prouvée).* <!-- sb commit=7e7f62cd gf1=y -->
  ▸ *scindé de P2.8 (fiche 0022), non bloquant pour P2.9.*
 
 ## Chantier P2.9 — Production presets en masse (#14 Phase D-E)
