@@ -1875,6 +1875,75 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'tech-positioning-split--paper-3', type: 'tech-positioning-split', label: 'Positionnement tech · papier 3', family: 'split-media', era: '2024', props: { background: 'paper-3' } },
     { id: 'tech-positioning-split--ink', type: 'tech-positioning-split', label: 'Positionnement tech · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
   ],
+  // ── Hero tranche 2 (P2.9 v12) : régime data-bg probé live par type ──────────
+  // Régime A (data-bg={data.background}, CSS paper-2/paper-3/ink) → 3 presets.
+  'hero-offer-detail': [
+    { id: 'hero-offer-detail--paper-2', type: 'hero-offer-detail', label: 'Hero offre détail · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-offer-detail--paper-3', type: 'hero-offer-detail', label: 'Hero offre détail · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-offer-detail--ink', type: 'hero-offer-detail', label: 'Hero offre détail · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-sector': [
+    { id: 'hero-sector--paper-2', type: 'hero-sector', label: 'Hero secteur · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-sector--paper-3', type: 'hero-sector', label: 'Hero secteur · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-sector--ink', type: 'hero-sector', label: 'Hero secteur · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-tech-layer': [
+    { id: 'hero-tech-layer--paper-2', type: 'hero-tech-layer', label: 'Hero couche technique · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-tech-layer--paper-3', type: 'hero-tech-layer', label: 'Hero couche technique · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-tech-layer--ink', type: 'hero-tech-layer', label: 'Hero couche technique · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-pillar-hub': [
+    { id: 'hero-pillar-hub--paper-2', type: 'hero-pillar-hub', label: 'Hero hub piliers · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-pillar-hub--paper-3', type: 'hero-pillar-hub', label: 'Hero hub piliers · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-pillar-hub--ink', type: 'hero-pillar-hub', label: 'Hero hub piliers · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-service-detail': [
+    { id: 'hero-service-detail--paper-2', type: 'hero-service-detail', label: 'Hero service détail · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-service-detail--paper-3', type: 'hero-service-detail', label: 'Hero service détail · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-service-detail--ink', type: 'hero-service-detail', label: 'Hero service détail · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  // hero-tunnel-step : bg honoré (data.type==='hero-tunnel-step') ; tunnel-step-hero force undefined → figé.
+  'hero-tunnel-step': [
+    { id: 'hero-tunnel-step--paper-2', type: 'hero-tunnel-step', label: 'Hero étape tunnel · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-tunnel-step--paper-3', type: 'hero-tunnel-step', label: 'Hero étape tunnel · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-tunnel-step--ink', type: 'hero-tunnel-step', label: 'Hero étape tunnel · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-social-proof': [
+    { id: 'hero-social-proof--paper-2', type: 'hero-social-proof', label: 'Hero preuve sociale · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-social-proof--paper-3', type: 'hero-social-proof', label: 'Hero preuve sociale · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-social-proof--ink', type: 'hero-social-proof', label: 'Hero preuve sociale · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  // Régime B (data-bg={background==='ink'?'ink':undefined}, CSS ink seul) → 1 preset ink.
+  'hero-media-medallion': [
+    { id: 'hero-media-medallion--ink', type: 'hero-media-medallion', label: 'Hero médaillon média · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-numeral-cover': [
+    { id: 'hero-numeral-cover--ink', type: 'hero-numeral-cover', label: 'Hero couverture chiffrée · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-scope-minimap': [
+    { id: 'hero-scope-minimap--ink', type: 'hero-scope-minimap', label: 'Hero minimap périmètre · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-split-media': [
+    { id: 'hero-split-media--ink', type: 'hero-split-media', label: 'Hero split média · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-stack-rhythm': [
+    { id: 'hero-stack-rhythm--ink', type: 'hero-stack-rhythm', label: 'Hero rythme empilé · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-summary-rail': [
+    { id: 'hero-summary-rail--ink', type: 'hero-summary-rail', label: 'Hero rail sommaire · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-tech-signature': [
+    { id: 'hero-tech-signature--ink', type: 'hero-tech-signature', label: 'Hero signature technique · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-thin-media': [
+    { id: 'hero-thin-media--ink', type: 'hero-thin-media', label: 'Hero média fin · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-trizone': [
+    { id: 'hero-trizone--ink', type: 'hero-trizone', label: 'Hero trois zones · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  // Figé (0 preset, consigné) : hero-manifesto (fond ink figé, aucun data-bg),
+  // hero-problem-index (branche HeroCentered sans attribut data-bg), tunnel-step-hero
+  // (HeroTunnelStep force bg=undefined pour ce type). Aucun preset bg possible.
 };
 
 /** Liste les presets d'un type (vide si aucun). */
