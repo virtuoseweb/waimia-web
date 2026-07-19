@@ -9,13 +9,20 @@
  * sert la PERSISTANCE et la mise a jour du deploiement preview Vercel. La version
  * hebergee multi-tenant (token serveur GitHub) = couche C' ulterieure, hors scope.
  *
- * Deux routes, memes garde-fous :
+ * Trois routes, memes garde-fous :
  *   - POST /api/ds/save    : ecrit les tokens edites dans tokens.css (persistance DS).
  *   - POST /api/ds/preset  : enregistre un preset de THEME nomme (snapshot des tokens
  *                            modifies) dans src/data/ds-presets.json + regenere
  *                            src/styles/themes.css (un bloc [data-theme='<slug>']).
+ *   - POST /api/ds/compose : persiste un PageDocument du builder (#39) en brouillon local
+ *                            src/data/page-variants/<slug>.json (ecriture NON destructive,
+ *                            hors git, jamais src/content/**). Valide le doc via la MEME
+ *                            fonction que la route de rendu (validatePageDoc, source unique,
+ *                            chargee par server.ssrLoadModule car sa chaine tire des modules
+ *                            virtuels Vite/astro:content non importables en Node natif).
  *
- * Garde-fous (identiques sur les 2 routes) :
+ * Garde-fous (identiques sur les 2 premieres routes ; /api/ds/compose n'ecrit qu'un brouillon
+ * local sans push git, donc pas de garde keyword/refus-main, mais slug strict anti-traversal) :
  *   - keyword       : compare a DS_SAVE_KEYWORD (defaut WAIMIA-SAVE) -> 403 sinon
  *                     (protege contre une sauvegarde accidentelle ; jamais logue).
  *   - refus main    : lit la branche courante, refuse de pousser sur main (prod).
@@ -27,7 +34,7 @@
  * le CLI `npm run ds:apply` (packages/ds-tokens/ds-tokens.mjs).
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
@@ -38,11 +45,15 @@ const PROJECT_ROOT = resolve(__dirname, '../..');
 const TOKENS_PATH = resolve(PROJECT_ROOT, 'packages/ds-tokens/tokens.css');
 const DS_PRESETS_PATH = resolve(PROJECT_ROOT, 'src/data/ds-presets.json');
 const THEMES_CSS_PATH = resolve(PROJECT_ROOT, 'src/styles/themes.css');
+const PAGE_VARIANTS_DIR = resolve(PROJECT_ROOT, 'src/data/page-variants');
 const FIXED_DELAY_SECONDS = 180;
 
 const DEFAULT_KEYWORD = 'WAIMIA-SAVE';
 const ROUTE = '/api/ds/save';
 const PRESET_ROUTE = '/api/ds/preset';
+const COMPOSE_ROUTE = '/api/ds/compose';
+// Source de verite de la validation (identique a src/pages/library/builder/render.astro).
+const PAGE_DOC_MODULE = '@waimia/ds-kernel/lib/page-document';
 
 // --- Helpers HTTP ------------------------------------------------------------
 
@@ -341,6 +352,97 @@ async function presetHandler(req, res, next) {
   });
 }
 
+// --- Handler compose ---------------------------------------------------------
+// Persiste un PageDocument du builder (#39) en brouillon local (src/data/page-variants/<slug>.json).
+// Ecriture NON destructive (hors git, jamais src/content/**). Le doc est valide par la MEME
+// fonction que la route de rendu (validatePageDoc) : source unique, aucune re-validation maison.
+// La validation est chargee via `server.ssrLoadModule` : la chaine de `@waimia/ds-kernel/lib/
+// page-document` tire des schemas Zod exposes via des specifiers resolus par Vite (workspace +
+// virtuels), non chargeables par l'import ESM natif de Node dans ce fichier .mjs.
+//
+// Body attendu : { slug?: string, doc: PageDocument }. Si `slug` est absent, on retombe sur
+// `doc.meta.slug`. Le slug est strictement assaini (slugify) et refuse tout path traversal
+// (`..`, `/`, `\`) AVANT toute ecriture. Overwrite d'un meme slug = autorise (brouillon).
+
+function makeComposeHandler(server) {
+  return async function composeHandler(req, res, next) {
+    if (req.method !== 'POST') return next();
+
+    // 1. Lecture + parse du body
+    let body;
+    try {
+      const raw = await readBody(req);
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'corps JSON invalide' });
+    }
+
+    // 2. Extraction du PageDocument : forme canonique { slug?, doc }, ou le doc a plat
+    //    (reconnu par sa cle $schema) pour tolerer un POST direct du PageDocument.
+    const doc = body && typeof body === 'object' && body.doc && typeof body.doc === 'object'
+      ? body.doc
+      : body;
+    if (!doc || typeof doc !== 'object' || Array.isArray(doc)) {
+      return sendJson(res, 400, { ok: false, error: 'PageDocument manquant' });
+    }
+
+    // 3. Slug : explicite (body.slug) sinon doc.meta.slug. Refus STRICT du path traversal AVANT
+    //    tout slugify (on rejette, on ne sanitise pas silencieusement) puis assainissement.
+    const rawSlug = String(
+      (body && typeof body.slug === 'string' && body.slug) ||
+        (doc.meta && typeof doc.meta.slug === 'string' && doc.meta.slug) ||
+        '',
+    ).trim();
+    if (!rawSlug) {
+      return sendJson(res, 400, { ok: false, error: 'slug manquant (body.slug ou doc.meta.slug)' });
+    }
+    if (/[\\/]|\.\.|\0/.test(rawSlug)) {
+      return sendJson(res, 400, { ok: false, error: 'slug invalide (path traversal refuse)' });
+    }
+    const slug = slugify(rawSlug);
+    if (!slug) {
+      return sendJson(res, 400, { ok: false, error: 'slug invalide (vide apres assainissement)' });
+    }
+
+    // 4. Validation : MEME fonction que render.astro (structure Zod + slot-level de contenu).
+    let validatePageDoc;
+    try {
+      ({ validatePageDoc } = await server.ssrLoadModule(PAGE_DOC_MODULE));
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: `validation indisponible : ${e.message}` });
+    }
+    const validation = validatePageDoc(doc);
+    if (!validation.valid) {
+      const errors = (validation.errors || []).map((e) => {
+        const where = e.index >= 0 ? `section #${e.index}${e.type ? ` (${e.type})` : ''}` : 'document';
+        const field = e.field ? ` · champ « ${e.field} »` : '';
+        return `${where}${field} : ${e.message}`;
+      });
+      return sendJson(res, 400, { ok: false, error: 'PageDocument invalide', errors });
+    }
+
+    // 5. Ecriture du brouillon : src/data/page-variants/<slug>.json (dossier cree si absent).
+    //    Ceinture + bretelles : on prouve que le chemin final reste DANS page-variants.
+    const filePath = resolve(PAGE_VARIANTS_DIR, `${slug}.json`);
+    if (dirname(filePath) !== PAGE_VARIANTS_DIR) {
+      return sendJson(res, 400, { ok: false, error: 'slug invalide (chemin hors page-variants)' });
+    }
+    try {
+      mkdirSync(PAGE_VARIANTS_DIR, { recursive: true });
+      // On ecrit le doc TEL QUEL (round-trip exact avec ce qui a ete envoye), indente 2 + newline.
+      writeFileSync(filePath, `${JSON.stringify(doc, null, 2)}\n`, 'utf8');
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: e.message });
+    }
+
+    return sendJson(res, 200, {
+      ok: true,
+      path: `src/data/page-variants/${slug}.json`,
+      slug,
+    });
+  };
+}
+
 // --- Integration -------------------------------------------------------------
 
 export default function dsSaveDev() {
@@ -350,8 +452,11 @@ export default function dsSaveDev() {
       'astro:server:setup': ({ server, logger }) => {
         server.middlewares.use(ROUTE, handler);
         server.middlewares.use(PRESET_ROUTE, presetHandler);
+        server.middlewares.use(COMPOSE_ROUTE, makeComposeHandler(server));
         if (logger && typeof logger.info === 'function') {
-          logger.info(`DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} actifs (DS Studio "Enregistrer" / presets)`);
+          logger.info(
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose)`,
+          );
         }
       },
     },
