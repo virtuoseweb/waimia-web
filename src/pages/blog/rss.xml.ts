@@ -4,6 +4,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 import { blogEntryHref } from '../../lib/blog-routing';
+import { SITE } from '../../site.config';
 
 export async function GET(context: APIContext) {
   const blog = await getCollection('blog');
@@ -21,7 +22,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'Waimia · Blog',
     description: "Essais et articles sur l'IA appliquée aux PME B2B.",
-    site: context.site ?? 'https://waimia.com',
+    site: context.site ?? SITE.url,
     items,
     customData: '<language>fr-FR</language>',
   });

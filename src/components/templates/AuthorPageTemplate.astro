@@ -16,6 +16,7 @@ import HeroSplit from '../sections/HeroSplit.astro';
 import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { langFromPath, localizeHref, t } from '../../lib/i18n';
+import { SITE } from '../../site.config';
 
 import KeywordStrip from '../../sections/keyword-strip/Component.astro';
 import type { KeywordStripData } from '@waimia/ds-kernel/sections/keyword-strip/schema';
@@ -156,12 +157,12 @@ const personLd = {
   name: displayName,
   jobTitle: role,
   description: description,
-  image: author.photo ? `https://waimia.com${author.photo}` : undefined,
+  image: author.photo ? `${SITE.url}${author.photo}` : undefined,
   sameAs: socialUrls,
   worksFor: {
     '@type': 'Organization',
-    name: 'Waimia',
-    url: 'https://waimia.com',
+    name: SITE.name,
+    url: SITE.url,
   },
 };
 
@@ -179,13 +180,13 @@ const breadcrumbLd = {
       '@type': 'ListItem',
       position: 1,
       name: t({ fr: 'Accueil', en: 'Home' }, lang),
-      item: lang === 'fr' ? 'https://waimia.com/' : 'https://waimia.com/en/',
+      item: lang === 'fr' ? `${SITE.url}/` : `${SITE.url}/en/`,
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: t({ fr: "L'équipe", en: 'The team' }, lang),
-      item: `https://waimia.com${teamHref}`,
+      item: `${SITE.url}${teamHref}`,
     },
     {
       '@type': 'ListItem',

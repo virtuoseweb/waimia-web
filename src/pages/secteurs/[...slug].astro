@@ -18,6 +18,7 @@ import { localizeHref } from '../../lib/i18n';
 import { sectorCaseGridData } from '../../lib/sector-cases';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import type { SectionData } from '@waimia/ds-kernel';
+import { SITE } from '../../site.config';
 
 export async function getStaticPaths() {
   const entries = await getCollection('secteurs');
@@ -37,7 +38,7 @@ const slug = d.slug ?? entry.id;
 
 // ── JSON-LD · Article (GEO/AIO) · PRÉSERVÉ À L'IDENTIQUE. Le FAQPage JSON-LD est émis
 //    UNE seule fois par la section catalogue `faq-accordion` (source canonique). ──
-const siteUrl = 'https://waimia.com';
+const siteUrl = SITE.url;
 const sectorUrl = `${siteUrl}/secteurs/${slug}`;
 const sectorLd = buildArticle({
   headline: d.title_fr,
@@ -47,7 +48,7 @@ const sectorLd = buildArticle({
   publisher: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
-    name: 'Waimia',
+    name: SITE.name,
     logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon-256.png` },
   },
   mainEntityOfPage: sectorUrl,

@@ -17,11 +17,12 @@
 // la dépendance opérationnelle (pas de runtime à maintenir côté Waimia).
 
 import CalEmbedReact from './CalEmbedReact.tsx';
+import { SITE } from '../../../site.config';
 
 interface Props {
-  /** Slug Cal.com (default: 'simonberos') */
+  /** Slug Cal.com (default: SITE.cal.username) */
   username?: string;
-  /** Event type slug (default: 'audit') */
+  /** Event type slug (default: SITE.cal.event) */
   eventType?: string;
   /** Theme · auto/light/dark */
   theme?: 'auto' | 'light' | 'dark';
@@ -31,16 +32,17 @@ interface Props {
   id?: string;
 }
 
-// Valeurs HARDCODÉES (= snippet officiel Cal.com app.cal.com/event-types).
+// Valeurs constantes (= snippet officiel Cal.com app.cal.com/event-types), dérivées
+// de SITE.cal (fondation forkabilité, fiche 0027 D4) plutôt que hardcodées ici.
 // Historique : avant le 2026-06-12 ces valeurs venaient des env vars Vercel
 // PUBLIC_CAL_USERNAME/EVENT_TYPE. Ces env vars contenaient un LITTÉRAL `\n`
 // (backslash+n saisi dans l'UI) → calLink baké `simonberos\n/audit\n` → le parser
 // d'URL convertit `\`→`/` → `simonberos/n/audit/n/embed` = 404. L'indirection env
 // var était une sur-ingénierie inutile (valeurs constantes) qui a créé le bug.
-// On hardcode comme le snippet officiel → 0 surface de corruption.
+// SITE.cal reste un module TS versionné (0 env var) → 0 surface de corruption.
 const {
-  username = 'simonberos',
-  eventType = 'audit',
+  username = SITE.cal.username,
+  eventType = SITE.cal.event,
   theme = 'light',
   id = 'cal-embed',
 } = Astro.props as Props;

@@ -13,6 +13,7 @@ import Base from '../../layouts/Base.astro';
 import { langFromPath } from '../../lib/i18n';
 import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import { SITE } from '../../site.config';
 
 // SEO état final : collections cookbooks + livresBlancs supprimées ; auteurs reliés au blog in-silo.
 type AuthorLinkedEntry = CollectionEntry<'blog'>;
@@ -68,7 +69,7 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://waimia.com/' },
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE.url}/` },
     { '@type': 'ListItem', position: 2, name: "L'équipe" },
   ],
 };
@@ -81,7 +82,7 @@ const collectionPageLd = {
   about: {
     '@type': 'Person',
     name: 'Simon Beros',
-    url: 'https://waimia.com/equipe/simon-beros',
+    url: `${SITE.url}/equipe/simon-beros`,
   },
 };
 

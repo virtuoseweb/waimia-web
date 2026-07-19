@@ -3,6 +3,7 @@
 import { FOOTER_COLS, TRUST_BADGES } from '../../data/sitemap';
 import { langFromPath, t, hasBilingualMirror } from '../../lib/i18n';
 import NewsletterSignup from '../ui/molecules/NewsletterSignup.astro';
+import { SITE } from '../../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
 const enMirror = hasBilingualMirror(Astro.url.pathname);
@@ -114,7 +115,7 @@ const year = new Date().getFullYear();
           <span class="ft-link ft-lang-a ft-lang-disabled" aria-disabled="true" title="Version anglaise indisponible pour cette page">EN</span>
         )}
       </div>
-      <a href="https://www.linkedin.com/company/waimia" target="_blank" rel="noopener" class="ft-link">LinkedIn</a>
+      <a href={SITE.linkedin} target="_blank" rel="noopener" class="ft-link">LinkedIn</a>
       <a href="https://x.com/waimia_ai" target="_blank" rel="noopener" class="ft-link">X</a>
       <a href="https://www.youtube.com/@waimia" target="_blank" rel="noopener" class="ft-link">YouTube</a>
     </div>

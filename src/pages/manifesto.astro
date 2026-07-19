@@ -31,6 +31,7 @@ import { buildArticle } from '../lib/seo/schema-builder';
 import type { SectionByType } from '@waimia/ds-kernel';
 import type { HeroManifestoData } from '@waimia/ds-kernel/sections/hero-manifesto/schema';
 import type { EditorialCaseGridData } from '@waimia/ds-kernel/sections/editorial-case-grid/schema';
+import { SITE } from '../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -52,7 +53,7 @@ const articleLd = buildArticle({
   headline: lang === 'fr' ? 'Manifeste Waimia' : 'Waimia Manifesto',
   description: 'Build revenue, not demos. AI systems shipped, measured, documented.',
   datePublished: '2026-01-01',
-  author: { '@type': 'Organization', name: 'Waimia' },
+  author: { '@type': 'Organization', name: SITE.name },
 });
 
 // ── 1. HERO · editorial plein viewport (nouveau type catalogue `hero-manifesto`)
@@ -235,9 +236,9 @@ const acteVCta = {
     href: flh('/contact', lang), variant: 'accent', mag: 0.22,
   },
   cta_secondary: {
-    label_fr: 'bonjour@waimia.com',
-    label_en: 'bonjour@waimia.com',
-    href: 'mailto:bonjour@waimia.com',
+    label_fr: SITE.email,
+    label_en: SITE.email,
+    href: `mailto:${SITE.email}`,
     variant: 'ghost',
   },
   availability_fr: '◉ 45 minutes · diagnostic en clair · aucune relance pénible',

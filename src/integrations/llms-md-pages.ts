@@ -8,6 +8,7 @@
 import type { AstroIntegration } from 'astro';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { SITE } from '../site.config';
 
 interface LlmsMdPagesConfig {
   /** Glob patterns of pages to exclude */
@@ -230,7 +231,7 @@ function isExcluded(pathname: string, patterns: string[]): boolean {
 export default function llmsMdPages(config: LlmsMdPagesConfig = {}): AstroIntegration {
   const {
     exclude = ['404', 'admin/**', 'api/**', 'desinscription'],
-    siteUrl = 'https://waimia.com',
+    siteUrl = SITE.url,
   } = config;
 
   return {

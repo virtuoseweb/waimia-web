@@ -10,6 +10,7 @@ import Base from '../layouts/Base.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../components/sections/MastheadBar.astro';
 import { buildService, buildOffer } from '../lib/seo/schema-builder';
+import { SITE } from '../site.config';
 
 const entry = await getEntry('audits', 'audit-ia-pme');
 if (!entry) {
@@ -39,7 +40,7 @@ const offerLd = buildOffer({
   name: title,
   price: data.seo?.priceMin ?? 0,
   priceCurrency: 'EUR',
-  url: 'https://waimia.com/contact',
+  url: `${SITE.url}/contact`,
 });
 // FAQPage JSON-LD émis une seule fois par la section catalogue `faq-accordion`
 // (source canonique, cf docs/audits #56). La page ne le duplique plus ici.

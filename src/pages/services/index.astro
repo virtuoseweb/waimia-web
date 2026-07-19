@@ -6,6 +6,7 @@ import Base from '../../layouts/Base.astro';
 import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
+import { SITE } from '../../site.config';
 
 const solutionsJsonLd = {
   '@context': 'https://schema.org',
@@ -13,9 +14,9 @@ const solutionsJsonLd = {
   name: 'Solutions Waimia : trois systèmes pour les PME',
   description: 'Trois systèmes pour les PME : acquisition de leads, développement commercial et opérations automatisées par l\'IA, sur une seule base.',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Système d\'acquisition', url: 'https://waimia.com/services/systeme-acquisition' },
-    { '@type': 'ListItem', position: 2, name: 'Système commercial', url: 'https://waimia.com/services/systeme-commercial' },
-    { '@type': 'ListItem', position: 3, name: 'Systèmes opérationnels et IA', url: 'https://waimia.com/services/systemes-operationnels-ia' },
+    { '@type': 'ListItem', position: 1, name: 'Système d\'acquisition', url: `${SITE.url}/services/systeme-acquisition` },
+    { '@type': 'ListItem', position: 2, name: 'Système commercial', url: `${SITE.url}/services/systeme-commercial` },
+    { '@type': 'ListItem', position: 3, name: 'Systèmes opérationnels et IA', url: `${SITE.url}/services/systemes-operationnels-ia` },
   ],
 };
 

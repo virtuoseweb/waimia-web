@@ -1,4 +1,6 @@
 ---
+import { SITE } from '../../../site.config';
+
 interface Crumb {
   label: string;
   href?: string;
@@ -32,7 +34,7 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      ...(c.href ? { item: `https://waimia.com${c.href}` } : {}),
+      ...(c.href ? { item: `${SITE.url}${c.href}` } : {}),
     })),
   })} />}
 </div>

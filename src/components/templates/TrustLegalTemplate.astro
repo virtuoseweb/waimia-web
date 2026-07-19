@@ -21,6 +21,7 @@ import CtaBandSection from '../sections/CtaBandSection.astro';
 import TrustLegalSection from '../sections/TrustLegalSection.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { langFromPath, localizeHref } from '../../lib/i18n';
+import { SITE } from '../../site.config';
 
 interface Section {
   /** Anchor id (slug) */
@@ -52,10 +53,10 @@ const webPageLd = {
   '@type': 'WebPage',
   name: title,
   description,
-  url: `https://waimia.com${Astro.url.pathname}`,
+  url: `${SITE.url}${Astro.url.pathname}`,
   dateModified: revisedAt,
   inLanguage: 'fr-FR',
-  isPartOf: { '@type': 'WebSite', '@id': 'https://waimia.com/#website' },
+  isPartOf: { '@type': 'WebSite', '@id': `${SITE.url}/#website` },
 };
 
 const lang = langFromPath(Astro.url.pathname);

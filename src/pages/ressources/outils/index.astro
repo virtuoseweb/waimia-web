@@ -12,6 +12,7 @@ import { getCollection, getEntry } from 'astro:content';
 import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import { buildCollectionPage } from '../../../lib/seo/schema-builder';
+import { SITE } from '../../../site.config';
 
 const hubCopyEntry = await getEntry('legal', 'outils-hub');
 if (!hubCopyEntry) throw new Error('Collection "legal" · entrée "outils-hub" introuvable.');
@@ -30,7 +31,7 @@ const presentTypes = [...new Set(entries.map((e) => e.data.type))];
 const count   = entries.length;
 const kicker  = `§ Outils · ${count} disponible${count > 1 ? 's' : ''}`;
 
-const outilsItems = entries.map((entry) => `https://waimia.com/ressources/outils/${entry.id}`);
+const outilsItems = entries.map((entry) => `${SITE.url}/ressources/outils/${entry.id}`);
 const collectionLd = buildCollectionPage(
   'Outils IA gratuits pour PME · Waimia',
   'Calculateurs ROI et maturité IA gratuits pour PME B2B, sans inscription : un résultat immédiat à l\'écran.',

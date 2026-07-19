@@ -87,7 +87,7 @@ function buildOrganization() {
     name: SITE.name,
     url: SITE_URL,
     logo: `${SITE_URL}/favicon-256.png`,
-    sameAs: ['https://www.linkedin.com/company/waimia'],
+    sameAs: [SITE.linkedin],
   };
 }
 
@@ -97,19 +97,19 @@ function buildLocalBusiness() {
     '@type': 'ProfessionalService',
     '@id': `${SITE_URL}/#localbusiness`,
     name: SITE.name,
-    alternateName: 'VirtuoseWeb',
+    alternateName: SITE.legalName,
     url: SITE_URL,
     logo: `${SITE_URL}/favicon-256.png`,
-    telephone: '+33620615693',
+    telephone: SITE.telE164,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '537 Rue du Pré aux Clercs',
-      postalCode: '34090',
-      addressLocality: 'Montpellier',
-      addressCountry: 'FR',
+      streetAddress: SITE.streetAddress,
+      postalCode: SITE.postalCode,
+      addressLocality: SITE.city,
+      addressCountry: SITE.country,
     },
-    areaServed: { '@type': 'City', name: 'Montpellier' },
-    sameAs: ['https://share.google/nmlHLC5wQak9TWRPl', 'https://www.linkedin.com/company/waimia'],
+    areaServed: { '@type': 'City', name: SITE.city },
+    sameAs: [...SITE.sameAs],
   };
 }
 

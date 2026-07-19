@@ -12,19 +12,20 @@
  */
 import Cal, { getCalApi } from '@calcom/embed-react';
 import { useEffect } from 'react';
+import { SITE } from '../../../site.config';
 
 interface Props {
-  /** Namespace Cal isolant l'instance sur la page (default: "audit") */
+  /** Namespace Cal isolant l'instance sur la page (default: SITE.cal.namespace) */
   namespace?: string;
-  /** Slug `username/event-type` (default: "simonberos/audit") */
+  /** Slug `username/event-type` (default: SITE.cal.username/SITE.cal.event) */
   calLink?: string;
   /** Thème (default: "light") */
   theme?: 'auto' | 'light' | 'dark';
 }
 
 export default function CalEmbedReact({
-  namespace = 'audit',
-  calLink = 'simonberos/audit',
+  namespace = SITE.cal.namespace,
+  calLink = `${SITE.cal.username}/${SITE.cal.event}`,
   theme = 'light',
 }: Props) {
   useEffect(() => {

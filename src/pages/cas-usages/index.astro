@@ -13,6 +13,7 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
+import { SITE } from '../../site.config';
 
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const isFr = lang === 'fr';
@@ -109,7 +110,7 @@ const pageLd = buildCollectionPage(
   isFr
     ? "Cas d'usage IA concrets pour PME : générer des leads, réduire le reporting, centraliser les données, standardiser les processus."
     : 'Concrete AI use cases for SMBs: generate leads, cut reporting, centralize data, standardize processes.',
-  cards.map((c) => ({ '@type': 'WebPage', name: isFr ? c.title_fr : c.title_en, url: `https://waimia.com${c.href}` })),
+  cards.map((c) => ({ '@type': 'WebPage', name: isFr ? c.title_fr : c.title_en, url: `${SITE.url}${c.href}` })),
 );
 ---
 

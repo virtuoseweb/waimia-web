@@ -9,6 +9,7 @@
 //   <MastheadRow breadcrumb={[{label:'Accueil',href:'/'},{label:'Services'}]} />
 
 import { langFromPath } from '../../../lib/i18n';
+import { SITE } from '../../../site.config';
 
 interface Crumb {
   /** Libellé déjà résolu par langue */
@@ -74,7 +75,7 @@ const lang_label = lang === 'fr' ? 'Édition française' : 'French edition';
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      ...(c.href ? { item: `https://waimia.com${c.href}` } : {}),
+      ...(c.href ? { item: `${SITE.url}${c.href}` } : {}),
     })),
   })} />
 )}

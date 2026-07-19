@@ -15,6 +15,7 @@ import MetricCalloutBand from '../components/sections/MetricCalloutBand.astro';
 import BrandedCallout from '../sections/branded-callout/Component.astro';
 import CtaFinal from '../components/sections/CtaFinal.astro';
 import { langFromPath, localizeHref } from '../lib/i18n';
+import { SITE } from '../site.config';
 import type { SectionByType } from '@waimia/ds-kernel';
 import type { NumberedLayerListData } from '@waimia/ds-kernel/sections/numbered-layer-list/schema';
 
@@ -186,8 +187,8 @@ const techLd = {
   '@type': 'TechArticle',
   name: 'Stack & technologies · Waimia',
   description: "La stack Waimia par couches : Claude pour l'IA, Astro pour le front, CMS headless pour le contenu, intégrations métier dans vos outils existants, analytics et SEO.",
-  url: `https://waimia.com${Astro.url.pathname}`,
-  author: { '@type': 'Organization', '@id': 'https://waimia.com/#organization' },
+  url: `${SITE.url}${Astro.url.pathname}`,
+  author: { '@type': 'Organization', '@id': `${SITE.url}/#organization` },
 };
 ---
 <Base

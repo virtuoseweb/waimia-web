@@ -29,6 +29,7 @@ import type { SectionByType } from '@waimia/ds-kernel';
 import { localizeHref } from '../../lib/i18n';
 import AuthorByline from '../ui/molecules/AuthorByline.astro';
 import { splitLocaleHtml, filterHeadingsForHtml } from '../../lib/blog-locale-split';
+import { SITE } from '../../site.config';
 
 interface RelatedCard {
   kicker: string;
@@ -146,7 +147,7 @@ const heroData = {
   ...(illustration ? { illustration: { side: 'right' as const, ...illustration } } : {}),
 } satisfies SectionByType<'hero-essay'>;
 
-const siteUrl = 'https://waimia.com';
+const siteUrl = SITE.url;
 const pageTransitionId = Astro.url.pathname
   .replace(/^\/(?:en\/)?/, '')
   .replace(/\/$/, '')
@@ -185,7 +186,7 @@ const articleLd = buildArticle({
   publisher: {
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
-    name: 'Waimia',
+    name: SITE.name,
     logo: { '@type': 'ImageObject', url: `${siteUrl}/og/default.png` },
   },
   mainEntityOfPage: canonicalUrl,

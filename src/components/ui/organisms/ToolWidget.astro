@@ -19,6 +19,8 @@
 // générique (data-driven), le composant reste réutilisable. Styles scopés : OK
 // (bundlés via l'import du composant, indépendamment du slot).
 
+import { SITE } from '../../../site.config';
+
 interface InputOption {
   value: string;
   label_fr: string;
@@ -56,7 +58,7 @@ const {
   inputs = [],
   outputs = [],
   lang = 'fr',
-  ctaHref = 'https://cal.com/simonberos/audit',
+  ctaHref = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`,
   ctaLabel_fr,
   ctaLabel_en,
 } = Astro.props as Props;

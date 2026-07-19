@@ -6,20 +6,21 @@ import UtilityTemplate from '../components/templates/UtilityTemplate.astro';
 import Button from '../components/ui/atoms/Button.astro';
 import CalEmbed from '../components/ui/molecules/CalEmbed.astro';
 import Kicker from '../components/ui/atoms/Kicker.astro';
+import { SITE } from '../site.config';
 
 const contactLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
   name: 'Contact Waimia',
-  url: 'https://waimia.com/contact',
+  url: `${SITE.url}/contact`,
   mainEntity: {
     '@type': 'Organization',
-    name: 'Waimia',
-    email: 'bonjour@waimia.com',
+    name: SITE.name,
+    email: SITE.email,
     contactPoint: [{
       '@type': 'ContactPoint',
       contactType: 'sales',
-      email: 'bonjour@waimia.com',
+      email: SITE.email,
       areaServed: ['FR', 'CH', 'BE', 'LU'],
       availableLanguage: ['French', 'English'],
     }],
@@ -77,11 +78,11 @@ const contactLd = {
         <ul class="contact-list">
           <li>
             <span class="contact-k">Email</span>
-            <a href="mailto:bonjour@waimia.com">bonjour@waimia.com</a>
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </li>
           <li>
             <span class="contact-k">Booking</span>
-            <a href="https://cal.com/simonberos/audit" rel="noopener" target="_blank">cal.com/simonberos/audit ↗</a>
+            <a href={`https://cal.com/${SITE.cal.username}/${SITE.cal.event}`} rel="noopener" target="_blank">cal.com/{SITE.cal.username}/{SITE.cal.event} ↗</a>
           </li>
           <li>
             <span class="contact-k">LinkedIn</span>

@@ -11,6 +11,7 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import { meshForCasUsage } from '../../lib/internal-mesh';
+import { SITE } from '../../site.config';
 
 export async function getStaticPaths() {
   const entries = await getCollection('cas-usages');
@@ -34,7 +35,7 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
 // JSON-LD métier · Article (GEO/AIO, cas d'usage = contenu éditorial orienté
 // intention) + FAQPage depuis faq_fr/faq_en (miroir de la section faq-two-column).
 // BreadcrumbList émis par le composant <MastheadBar>/<Breadcrumb>.
-const canonicalUrl = `https://waimia.com/cas-usages/${entry.id}`;
+const canonicalUrl = `${SITE.url}/cas-usages/${entry.id}`;
 const articleLd = buildArticle({
   headline: title,
   description,

@@ -5,6 +5,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
 import ToolWidget from '../../../components/ui/organisms/ToolWidget.astro';
 import { outilHeroIllustration } from '../../../lib/hero-illustrations';
+import { SITE } from '../../../site.config';
 
 export async function getStaticPaths() {
   const entries = await getCollection('outils');
@@ -30,7 +31,7 @@ const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
 
 // JSON-LD WebApplication · décrit l'outil interactif (calculateur/score) comme une vraie
 // web-app gratuite, en complément de l'Article émis par EssayTemplate. Émis au niveau page.
-const toolUrl = `https://waimia.com/ressources/outils/${entry.id}`;
+const toolUrl = `${SITE.url}/ressources/outils/${entry.id}`;
 const webAppLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -43,7 +44,7 @@ const webAppLd = {
   inLanguage: 'fr',
   isAccessibleForFree: true,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
-  provider: { '@type': 'Organization', name: 'Waimia', url: 'https://waimia.com' },
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
 };
 ---
 <EssayTemplate
@@ -52,7 +53,7 @@ const webAppLd = {
   kicker={`§ Outil · ${d.type}${categoryKicker}`}
   date={dateStr}
   datePublished={d.publishedAt.toISOString().slice(0, 10)}
-  author="Waimia"
+  author={SITE.name}
   relatedCards={[]}
   lang="fr"
   breadcrumbItems={[

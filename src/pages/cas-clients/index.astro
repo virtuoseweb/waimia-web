@@ -15,6 +15,7 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 import { meshForCasClientsHub } from '../../lib/internal-mesh';
+import { SITE } from '../../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
 const transitionIdFromHref = (href: string) =>
@@ -83,15 +84,15 @@ const featuredCases = caseEntries.map((e) => {
   };
 });
 
-const caseItems = caseEntries.map((e) => `https://waimia.com/cas-clients/${e.data.slug ?? e.id}`);
+const caseItems = caseEntries.map((e) => `${SITE.url}/cas-clients/${e.data.slug ?? e.id}`);
 const collectionLd = buildCollectionPage(
   'Cas clients',
   "Pas de marketing. Des chiffres, des problèmes, ce qu'on a câblé. Ce qui a tenu.",
   caseItems,
 );
 const breadcrumbLd = buildBreadcrumbList([
-  { name: 'Accueil', url: 'https://waimia.com/' },
-  { name: 'Réalisations', url: 'https://waimia.com/cas-clients' },
+  { name: 'Accueil', url: `${SITE.url}/` },
+  { name: 'Réalisations', url: `${SITE.url}/cas-clients` },
 ]);
 const casClientsLd = [breadcrumbLd, collectionLd];
 

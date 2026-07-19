@@ -5,6 +5,7 @@ export const prerender = true;
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Button from '../../components/ui/atoms/Button.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
+import { SITE } from '../../site.config';
 
 // JSON-LD WebApplication · décrit le diagnostic interactif (formulaire noté 6 questions →
 // scorecard email) comme une web-app gratuite, pour la lisibilité moteur/GEO.
@@ -12,14 +13,14 @@ const academyLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'Diagnostic IA gratuit · Waimia Academy',
-  url: 'https://waimia.com/ressources/academy',
+  url: `${SITE.url}/ressources/academy`,
   description: 'Diagnostic IA en 6 questions pour PME : un scorecard personnalisé envoyé par email, relu par un humain, avec trois actions priorisées.',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   inLanguage: 'fr',
   isAccessibleForFree: true,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
-  provider: { '@type': 'Organization', name: 'Waimia', url: 'https://waimia.com' },
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
 };
 ---
 <UtilityTemplate

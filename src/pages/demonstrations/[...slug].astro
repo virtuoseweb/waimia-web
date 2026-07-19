@@ -10,6 +10,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
+import { SITE } from '../../site.config';
 
 export async function getStaticPaths() {
   const entries = await getCollection('demonstrations');
@@ -31,7 +32,7 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
 }
 
 // JSON-LD métier · Article (GEO/AIO) + FAQPage depuis faq_fr/faq_en. BreadcrumbList émis par <MastheadBar>.
-const canonicalUrl = `https://waimia.com/demonstrations/${entry.id}`;
+const canonicalUrl = `${SITE.url}/demonstrations/${entry.id}`;
 const articleLd = buildArticle({
   headline: title,
   description,

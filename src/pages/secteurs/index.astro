@@ -11,6 +11,7 @@ import { langFromPath, localizeHref } from '../../lib/i18n';
 import type { SectionByType } from '@waimia/ds-kernel';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
+import { SITE } from '../../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
 const isFr = lang === 'fr';
@@ -53,11 +54,11 @@ const sectorCards = visibleSectors.map((e) => {
 
 // JSON-LD · CollectionPage + ItemList des secteurs visibles (même pattern que le hub
 // cas-clients : buildCollectionPage → jsonLd={} sur <Base>). URLs canoniques FR.
-const sectorItems = visibleSectors.map((e) => `https://waimia.com/secteurs/${e.data.slug ?? e.id}`);
+const sectorItems = visibleSectors.map((e) => `${SITE.url}/secteurs/${e.data.slug ?? e.id}`);
 const secteursLd = [
   buildBreadcrumbList([
-    { name: 'Accueil', url: 'https://waimia.com/' },
-    { name: 'Secteurs', url: 'https://waimia.com/secteurs' },
+    { name: 'Accueil', url: `${SITE.url}/` },
+    { name: 'Secteurs', url: `${SITE.url}/secteurs` },
   ]),
   buildCollectionPage(
     isFr ? 'Secteurs' : 'Industries',
