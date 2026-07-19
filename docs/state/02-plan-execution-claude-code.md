@@ -640,7 +640,7 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P2.1-a — Établir la couverture réelle** (`docs/visual-audit/`). Le dossier est probablement
+- [x] **P2.1-a — Établir la couverture réelle** (`docs/visual-audit/`) ▸ *soldé 2026-07-19 : inventaire templates × sections livré (`docs/visual-audit/templates/INVENTORY.md`, roster 8 templates dont TechnologiesDetail non joignable documenté), complète le preview-level.* <!-- sb commit=467a48bc gf1=y --> Le dossier est probablement
   **incomplet** (sections/templates oubliés). Te poser : quels templates × sections ont une capture
   above-fold À JOUR ? lesquels MANQUENT ? Construis l'inventaire templates × sections et compare.
   - ▸ *Avancement (commit `52e2c79`, gf1=y)* : couverture **preview-level** établie — sweep auto des
@@ -652,7 +652,7 @@ _(vide)_
     Rapport : `docs/visual-audit/site-sweep.json` + section dédiée du `coverage-report.md`.
     **Reste** : inventaire templates × sections + captures versionnées (→ P2.1-b/c).
   - ▸ *réconcilié 2026-07-19 : PARTIEL (sweeps `52e2c79` + `a1d54de`), manque l'inventaire templates × sections.*
-- [ ] **P2.1-b — Compléter : 1 capture above-fold par section de chaque template** (l'agent itère dessus).
+- [x] **P2.1-b — Compléter : 1 capture above-fold par section de chaque template** (l'agent itère dessus). ▸ *soldé 2026-07-19 : 62 PNG versionnés (7 templates joignables, corps monolithiques tranchés) + 7 manifests sections.json + script réutilisable `scripts/gf1-template-sections-capture.mjs` ; 0 erreur console, captures jugées.* <!-- sb commit=467a48bc gf1=y -->
 - [x] **P2.1-c — Corriger gitignore/pipeline** : rediriger le sweep (`scripts/gf1-cloud-sweep.mjs`, ▸ *soldé 2026-07-19 : négation gitignore ciblée + sweep vers docs/visual-audit/previews, preuve sweep 3/3.* <!-- sb commit=57861b27 gf1=y -->
   `visual-check.mjs`) de `/tmp` → `docs/visual-audit/{previews,sections}/...` (versionné) ; dé-ignorer
   `design-system-*.png` (`.gitignore:42`) + `gf1-*` (`:73-74`) OU les ranger sous `docs/visual-audit/`.

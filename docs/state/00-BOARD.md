@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `fa1bd697` - 73/87 tâches done (84%).
+État : HEAD `467a48bc` - 75/87 tâches done (86%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
-| P2 | 20/29 | 69% | P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles (+4) |
+| P2 | 22/29 | 76% | P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles ; P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées ; P2.8-c — Instance overrides (+2) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 1/3 | 33% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -33,7 +33,7 @@
 | P1.2 — Cluster blog silo « Site web IA » | P1 | 1/1 | 100% | 1ec9363b content(vague5): 4 articles piliers modules orphelins + swap menu triptyque (décision 0011) |
 | P1.3 — GEO (schema, llms.txt, cohérence entité) | P1 | 2/2 | 100% | c8433a5b fix(audit): vague fixes transverses #56-#62 · FAQ system + widgets outils + blog mesh + restructure A1-A6 + contenu + dédup ; b4ac2fda fix(v7-seo): llms.txt promote (solutions périmé→silos v7 + services) + description studio IA + JSON-LD serviceType/priceRange (override page) + meta desc + maillage site-web-intelligent |
 | P2.0 — Reconstituer l'état réel du design (ghost, AVANT de toucher) | P2 | 1/1 | 100% | 01210cd2 docs(audit): triangulation P2.0 · verdicts sourcés FAIT/PARTIEL/GHOSTÉ par tâche P2.1-P2.11 + séquencement 8 étapes (P2.3 fondation → P2.2-A4 → P2.1-c/a/b → V9e-h arbitrage → scoped-dup → P2.10 capstone) |
-| P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS) | P2 | 1/4 | 25% | 57861b27 feat(visual-audit): P2.1-c · captures persistées · négation .gitignore ciblée !docs/visual-audit/** (jetables racine toujours ignorés, contre-vérifié check-ignore exit 1/0) + gf1-cloud-sweep sortie par défaut docs/visual-audit/previews (override --out) + convention en tête · preuve : sweep réel 3/3 PASS fichiers trackables |
+| P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS) | P2 | 3/4 | 75% | 467a48bc feat(visual-audit): P2.1-a/b · inventaire templates × sections + 62 captures above-fold versionnées ; 467a48bc feat(visual-audit): P2.1-a/b · inventaire templates × sections + 62 captures above-fold versionnées ; 57861b27 feat(visual-audit): P2.1-c · captures persistées · négation .gitignore ciblée !docs/visual-audit/** (jetables racine toujours ignorés, contre-vérifié check-ignore exit 1/0) + gf1-cloud-sweep sortie par défaut docs/visual-audit/previews (override --out) + convention en tête · preuve : sweep réel 3/3 PASS fichiers trackables |
 | P2.10 — Passe finale Claude Design | P2 | 0/1 | 0% | - |
 | P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 6/7 | 86% | 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 98973f26 feat(ds): P2.11-f arrondi des espacements off-scale aux tokens --space-* (120 déclarations, 46 fichiers) ; 81408f05 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
