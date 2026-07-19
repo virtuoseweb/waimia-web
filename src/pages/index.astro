@@ -50,34 +50,31 @@ import homeVariantC from '../data/page-variants/home/c.json';
 import swiContent from '../content/services/site-web-ia.json';
 import { SIX_SERVICES } from '../data/sitemap';
 import type { SectionData } from '@waimia/ds-kernel';
+// Séquence médiane en donnée (JSONification V1) : littéraux de section extraits du
+// frontmatter → src/data/home-sections.ts. La page garde le merge avec les bases
+// cataloguées (c.json / swi) ; le shell animé + 3 blocs bespoke restent en page.
+import {
+  statementOrbit,
+  maturityStages,
+  mediaDashboard,
+  logoMarqueeOverrides,
+  methodOverrides,
+  testimonialsOverrides,
+  statsBentoOverrides,
+  severityLabels,
+  faqConfig,
+} from '../data/home-sections';
 
 const sectionsC = homeVariantC.sections as any[];
 const cByType = (t: string) => sectionsC.find((s) => s.type === t);
 const swiTestimonials = (swiContent.sections as any[]).find((s) => s.type === 'testimonial-wall');
 
-// 02 · ecosysteme opere · logo-marquee sur fond ink + grayscale (config C, bande courte).
-const logoMarquee = {
-  ...cByType('logo-marquee'),
-  background: 'ink',
-  grayscale: true,
-  kicker_fr: "§ L’écosystème qu’on opère",
-} as SectionData;
+// 02 · ecosysteme opere · logo-marquee sur fond ink + grayscale (base c.json + surcharges data).
+const logoMarquee = { ...cByType('logo-marquee'), ...logoMarqueeOverrides } as SectionData;
 
-// 11 · climax chiffre = 2e stats-bento de C (layout bento : tuile vedette + 3 KPI) · pre-FAQ.
-// paper-2 (couleur du live) : l'eeat-panel ink du slot 10 le precede, jamais 2 ink adjacents.
-// Mission B (cellule formation/autonomie) : la 4e cellule « 0 captivite / passation incluse /
-// architecture, stack et systemes transferes... vos equipes restent autonomes » est DEJA portee
-// par la base c.json (home/c.json stats-bento[1].stats[3], verifie 2026-07-12). Le spread la rend
-// donc telle quelle -> aucune cellule a AJOUTER (l'ajouter dupliquerait). Grille EQUILIBREE a 4
-// cellules : bento content-driven (1 vedette span-lg + 3 span-sm, .bento-fluid dense, 0 trou).
-const statsBentoDashboard = {
-  ...sectionsC.filter((s) => s.type === 'stats-bento')[1],
-  background: 'paper-2',
-  density: 'base', // iter 6 : la base c.json etait 'ample' (header space-12, gap space-8, cellules
-  // space-9/12) -> 'base' retire le surdimensionnement (gap space-6, header/cellules par defaut)
-  // sans amputer le contenu : climax compacte, digne. Reste paper-2 (10 eeat-panel ink le precede).
-  kicker_fr: '§ Ce que ça change',
-} as SectionData;
+// 11 · climax chiffre = 2e stats-bento de C (base c.json[1]) + surcharges data (paper-2, density
+// base, kicker). La 4e cellule autonomie est DEJA dans la base c.json → le spread la rend telle quelle.
+const statsBentoDashboard = { ...sectionsC.filter((s) => s.type === 'stats-bento')[1], ...statsBentoOverrides } as SectionData;
 
 // 05 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
 const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
@@ -86,7 +83,6 @@ const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
   desc: it.desc_fr as string,
   fix: it.fix_fr as string,
 }));
-const sevLabel: Record<string, string> = { critical: 'Critique', high: 'Élevé', medium: 'Moyen' };
 
 // 06 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
 const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
@@ -103,112 +99,26 @@ const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
 const methodBase = cByType('sticky-scroll-storytelling');
 const methodStory = {
   ...methodBase,
-  // 07 INK (rythme iter 6) : la methode passe sur fond ink. Les 4 illustrations basculent sur
-  // leur variante `-ink.webp` (memes visuels, theme sombre deja produit au catalogue DS) pour
-  // rester lisibles ; l'idiome data-bg='ink' du composant remappe deja h2/titres/corps en paper.
+  // Les 4 illustrations basculent sur leur variante `-ink.webp` (theme sombre catalogue DS) ;
+  // l'idiome data-bg='ink' remappe deja h2/titres/corps en paper. Surcharges data = methodOverrides.
   steps: (methodBase.steps as any[]).map((st) => ({
     ...st,
     media_src: typeof st.media_src === 'string' ? st.media_src.replace('-paper.webp', '-ink.webp') : st.media_src,
   })),
-  background: 'ink',
-  kicker_fr: '§ Méthode · l’ingénierie se construit par paliers',
-  textSide: 'right',
-  proportion: 'media-wide',
-  mediaRatio: '3-2',
-  density: 'compact',
-  numbering: 'serif',
+  ...methodOverrides,
 } as SectionData;
 
-// 08 · Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (axe quizCta mission F).
-// 5 stades de maturite SYSTEME/IA d'une PME (adaptes home, PAS la maturite editoriale de CMI),
-// du tout-manuel a l'entreprise qui tourne sur ses systemes. current = stade 2 (prospect type).
-// Fond paper (differe du paper-2 methode 07) ; la carte quiz est TOUJOURS ink (rendue par le
-// composant) -> ponctuation ink avant temoignages 09, alternance respectee. density compact pour
-// garder la NOUVELLE section lean (compense le degraissage global). Bande quiz -> route reelle
-// /ressources/diagnostics/maturite-ia. media_src omis = defaut DS `no-no-yes-ink.webp` (carte ink).
-const maturityStages = {
-  type: 'diagnostic-stages',
-  background: 'paper',
-  density: 'compact',
-  kicker_fr: '§ Où en êtes-vous ?',
-  kicker_en: '§ Where do you stand?',
-  h2_fr: 'Cinq stades, du <i class="acc">tout-manuel</i> à l’entreprise qui tourne sur ses systèmes.',
-  h2_en: 'Five stages, from <i class="acc">all-manual</i> to a company that runs on its systems.',
-  lede_fr: 'Situez votre PME sur la trajectoire des systèmes métier IA, jusqu’à ce qu’ils deviennent le système d’exploitation de votre entreprise. La plupart démarrent au stade 2 : des outils, mais rien qui pilote l’ensemble.',
-  lede_en: 'Place your SME on the business-AI-system path, up to the point where it becomes your company’s operating system. Most start at stage 2: tools, but nothing steering the whole.',
-  stages: [
-    {
-      glyph: '○', phase_fr: 'Stade 1', phase_en: 'Stage 1',
-      title_fr: 'Tout à la main', title_en: 'All by hand',
-      body_fr: 'Les tâches répétitives à faible valeur monopolisent vos équipes. Rien n’est outillé, tout repose sur des personnes et un temps qu’elles n’ont pas.',
-      body_en: 'Low-value repetitive tasks monopolise your teams. Nothing is tooled, everything rests on people and time they don’t have.',
-    },
-    {
-      glyph: '◔', phase_fr: 'Stade 2', phase_en: 'Stage 2', current: true,
-      title_fr: 'Outils dispersés', title_en: 'Scattered tools',
-      body_fr: 'Un CRM, des SaaS, des tableurs, mais déconnectés. La donnée se ressaisit à la main et personne ne pilote l’ensemble.',
-      body_en: 'A CRM, SaaS apps, spreadsheets, but disconnected. Data is re-keyed by hand and no one steers the whole.',
-    },
-    {
-      glyph: '◑', phase_fr: 'Stade 3', phase_en: 'Stage 3',
-      title_fr: 'Premières automatisations', title_en: 'First automations',
-      body_fr: 'Vous commencez à déléguer les tâches répétitives à l’IA : quelques workflows, un premier agent sur une tâche ciblée, des résultats que vous suivez.',
-      body_en: 'You start delegating repetitive tasks to AI: a few workflows, a first agent on a targeted task, results you track.',
-    },
-    {
-      glyph: '◕', phase_fr: 'Stade 4', phase_en: 'Stage 4',
-      title_fr: 'Système connecté', title_en: 'Connected system',
-      body_fr: 'Applications et agents branchés à vos outils via MCP. La donnée circule, les coûts opérationnels baissent, chaque décision est mesurée.',
-      body_en: 'Applications and agents wired to your tools via MCP. Data flows, operating costs drop, every decision is measured.',
-    },
-    {
-      glyph: '●', phase_fr: 'Stade 5', phase_en: 'Stage 5',
-      title_fr: 'L’entreprise-système', title_en: 'The system-company',
-      body_fr: 'L’équipe pilote, l’IA exécute. Votre entreprise tourne sur ses systèmes : une PME IA-ready, qui gagne en justesse à chaque cycle.',
-      body_en: 'The team steers, AI executes. Your company runs on its systems: an AI-ready SME that sharpens with every cycle.',
-    },
-  ],
-  quizCta: {
-    eyebrow_fr: '§ Diagnostic de maturité', eyebrow_en: '§ Maturity diagnostic',
-    title_fr: 'À quel stade est votre PME aujourd’hui ?',
-    title_en: 'Which stage is your company at today?',
-    body_fr: 'Situez votre PME sur les cinq niveaux de maturité IA et repartez avec les prochaines étapes concrètes pour monter d’un cran.',
-    body_en: 'Place your company on the five AI maturity levels and leave with the concrete next steps to climb one level.',
-    cta_label_fr: 'Faire le diagnostic →', cta_label_en: 'Run the diagnostic →',
-    cta_href: '/ressources/diagnostics/maturite-ia',
-    media_alt_fr: 'Illustration : évaluer des options et trancher pour avancer d’un stade.',
-    media_alt_en: 'Illustration: weighing options and deciding to move up a stage.',
-    note_fr: 'Gratuit · 5 min · sans formulaire', note_en: 'Free · 5 min · no form',
-  },
-} as SectionData;
+// 05 · Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz → donnee `maturityStages`
+// (src/data/home-sections.ts). Objet litteral pur, importe tel quel.
 
-// 09 · Temoignages · testimonial-wall CATALOGUE · les 6 avis de SWI TELS QUELS (0 avis reinvente).
-// En-tete ADAPTE a la home (parle du systeme/du studio, pas seulement du site qui qualifie).
-const testimonialsHome = {
-  ...swiTestimonials,
-  background: 'paper',
-  kicker_fr: '§ Ils ont mis leur système au travail',
-  kicker_en: '§ They put their system to work',
-  h2_fr: 'Ce que disent les équipes qui ont mis leur système au travail',
-  h2_en: 'What teams who put their system to work are saying',
-  subtitle_fr: 'Des dirigeants et des équipes qui ont arrêté de subir leurs outils et fait travailler leur système d’acquisition.',
-  subtitle_en: 'Leaders and teams who stopped enduring their tools and put their acquisition system to work.',
-} as SectionData;
+// 09 · Temoignages · testimonial-wall CATALOGUE · base = les 6 avis de SWI (source unique) +
+// surcharges en-tete data (`testimonialsOverrides`).
+const testimonialsHome = { ...swiTestimonials, ...testimonialsOverrides } as SectionData;
 
-// 12 · FAQ · 6 questions (sous-ensemble des 8 de C) · Q.01 = prix (SEULE mention de prix), ouverte.
-// Surface AIO citable n°1 : les QUESTIONS sont reformulees en requetes conversationnelles reelles
-// (celles qu'un dirigeant tape/dicte a un assistant IA), les REPONSES restent celles de c.json (0 desync).
+// 12 · FAQ · 6 questions reformulees AIO (data `faqConfig.questions`) ; les REPONSES restent celles
+// de c.json (0 desync), mappees par `faqConfig.idx`.
 const faqAll = (cByType('faq-accordion').items as any[]);
-const faqIdx = [0, 1, 2, 3, 4, 6];
-const faqQuestions = [
-  'Combien coûte un système IA pour une PME ?',
-  'À quelle taille d’entreprise s’adresse un système métier IA ?',
-  'En combien de temps une PME voit-elle un retour sur l’IA ?',
-  'Faut-il remplacer nos outils pour intégrer l’IA ?',
-  'L’IA peut-elle se brancher à notre CRM et à nos outils existants ?',
-  'Nos équipes restent-elles autonomes après la livraison ?',
-];
-const faqItems = faqIdx.map((i, k) => ({ q: faqQuestions[k], a: faqAll[i].a_fr }));
+const faqItems = faqConfig.idx.map((i, k) => ({ q: faqConfig.questions[k], a: faqAll[i].a_fr }));
 
 // 03 · 6 services (label + mini-lead + lien) · ABSORPTION de ServicesGrid · source SIX_SERVICES.
 const services = SIX_SERVICES.map((s) => ({
@@ -218,39 +128,10 @@ const services = SIX_SERVICES.map((s) => ({
   href: s.href,
 }));
 
-// 04 · statement-orbit CATALOGUE · PIVOT apres le money slot · liant conceptuel : les 2 offres
-// forment UNE boucle d'amelioration continue (lire/mesurer/reinjecter). Copy NEUF adapte home,
-// 0 reprise du copy SWI (« Chaque brique... » sert de TON, pas de source). Carte ink contenue
-// -> pleine largeur au scroll (motion signature du composant). media = globe filaire line-art
-// `orbit-network.svg` INLINE par le composant (import ?raw) -> currentColor = paper sur ink :
-// traits clairs, PAS de footgun <img>/currentColor-noir (le SVG n'est jamais servi en <img>).
-// Pas de CTA : le hero + la ligne cas clients + BookSession couvrent deja /contact, et la
-// rangee 6 services du money slot porte deja la nav /services -> un CTA ici serait redondant.
-const statementOrbit = {
-  type: 'statement-orbit',
-  background: 'paper',
-  density: 'compact', // iter 6 : la carte ink garde sa presence mais son inner padding passe
-  // space-11 -> space-9 (gap space-10 -> space-8) : compaction sans perte, section .so reste paper.
-  kicker_fr: '§ La boucle',
-  kicker_en: '§ The loop',
-  h2_fr: 'Vos systèmes forment une <i class="acc">boucle</i> : lire, mesurer, réinjecter.',
-  h2_en: 'Your systems form one <i class="acc">loop</i>: read, measure, feed back.',
-  lede_fr: 'Votre site qualifie chaque visite, les agents traitent et mesurent, ce qui remonte nourrit le cycle suivant. Une ingénierie qui gagne en justesse à chaque tour, sans refonte à chaque palier.',
-  lede_en: 'Your site qualifies every visit, the agents process and measure, what comes back feeds the next cycle. A setup that sharpens with every turn, with no rebuild at each tier.',
-  media_src: '/images/line-art/orbit-network.svg',
-  media_alt_fr: 'Globe filaire aux nœuds relies par des arcs : le site, le CRM, le contenu et les agents tournent en une seule boucle d’acquisition.',
-  media_alt_en: 'Wireframe globe with nodes linked by arcs: site, CRM, content and agents turn as one acquisition loop.',
-} as SectionData;
-
-// 10 · eeat-panel variant media (INK) = le « TABLEAU DE BORD MÉDIA » de SWI (kicker litteral du
-// composant) : profil auteur, reperes, secteurs, badges E-E-A-T. Contenu + liens internes GLOBAUX
-// portes par le composant (source unique, meme rendu que SWI). Correction Simon 2026-07-12 :
-// c'etait CE dashboard qui etait demande, pas un media-bento de decouverte (retire).
-const mediaDashboard = {
-  type: 'eeat-panel',
-  variant: 'media',
-  background: 'ink',
-} as SectionData;
+// 04 · statement-orbit CATALOGUE · PIVOT apres le money slot → donnee `statementOrbit`
+// (src/data/home-sections.ts). Objet litteral pur, importe tel quel.
+// 10 · eeat-panel variant media (INK), « TABLEAU DE BORD MÉDIA » → donnee `mediaDashboard`
+// (contenu + liens internes GLOBAUX portes par le composant, source unique).
 ---
 <Base
   title="Studio IA & intégration IA pour PME à Montpellier · Waimia"
@@ -439,7 +320,7 @@ const mediaDashboard = {
       <ul class="he-pains reveal-stagger">
         {painItems.map((p) => (
           <li class="he-pain">
-            <span class="he-pain__sev" data-sev={p.severity}>{sevLabel[p.severity] ?? p.severity}</span>
+            <span class="he-pain__sev" data-sev={p.severity}>{severityLabels[p.severity] ?? p.severity}</span>
             <h3 class="he-pain__title">{p.title}</h3>
             <p class="he-pain__desc">{p.desc}</p>
             <div class="hline"></div>
@@ -489,8 +370,8 @@ const mediaDashboard = {
   {/* 12 · FAQ · 6 questions reformulees AIO · Q.01 prix ouverte (SEULE mention de prix de la page) */}
   <FaqAccordion
     items={faqItems}
-    heading="Ce qu’on écrit par mail avant de se parler."
-    intro="Six réponses nettes, pas des slides, pas du jargon."
+    heading={faqConfig.heading}
+    intro={faqConfig.intro}
     background="paper"
     openFirst
   />
