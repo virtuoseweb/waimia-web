@@ -715,6 +715,7 @@ _(vide)_
 ### Tâches en attente
 - [ ] **P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées** + re-critique
   it.13 post-deploy (= T-5). Te poser : quelles sections paraissent pauvres/monotones (cards « Construire ») ? Preuve GF-1.
+ ▸ *progression 2026-07-19 soir : re-critique = T-5 LIVRÉE (`be7bd171`) ; W4 partiellement couvert par l'habillage du vide actif cas-clients (`13cf6bba`, via P2.10) ; reste W1 typo hors-flagship + W3 recomposition secteurs+offres.*
 
 ## Chantier P2.7 — Système de variation (#14 Phase B)
 ### Tâches finies
@@ -744,9 +745,7 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P2.10 — Passe design finale** (skill `design:*`) une fois les sections figées et P2.2-P2.8 avancés :
-  critique structurée → corrections → preuve GF-1 sur les pages de la whitelist `strategy/02 §1`.
- ▸ *réconcilié 2026-07-19 : RESTE (chantier actif suivant).*
+- [x] **P2.10 — Passe design finale** ▸ *soldé 2026-07-19 soir : critique structurée = T-5 it.13 (`state/06`, score 4,5/5, TOP 5) → corrections TOP 5 exécutables livrées : #2 skeleton Cal /contact (déjà `775b16c0`, re-vérifié GF-1) · #3+#4 cas clients habillage vide actif (AuthorCard signature-grid + monogramme) + densité −32px (`13cf6bba`) · #1+#5 motion signature 3 moments scroll-driven (rail diagnostic-stages borné au stade current + container-expand case-grid service + parallaxe duotones eeat, `c4475156`) ; GF-1 build local (rail 0→0,61, expand 0,138, parallaxe −87px, reduced-motion état final, 0 overflow, 0 erreur) + GF-1 prod post-deploy. Hors périmètre autonome consigné : arbitrages 0030/P2.4-a, captures amploi light-on-light (passe contenu).* <!-- sb commit=c4475156 gf1=y -->
 
 ## Chantier P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09`
 > **Source de vérité détaillée = `docs/state/09-plan-harmonisation-ds-page-site-web-intelligent.md`** (Phases A-E). Né de la revue live↔local de `site-web-intelligent` (2026-06-13). Principe transverse : **0 valeur hardcodée**, tout pointe un token DS existant (sync DS Studio) ; vérifier l'existant avant de créer (rule globale 60). Taxonomie DS gravée : `design-system/03 §9.6`.

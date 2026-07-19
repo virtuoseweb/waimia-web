@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `23f1971b` - 76/87 tâches done (87%).
+État : HEAD `c4475156` - 77/87 tâches done (89%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
-| P2 | 23/29 | 79% | P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles ; P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées ; P2.10 — Passe design finale (+1) |
+| P2 | 24/29 | 83% | P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles ; P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées ; P2.11-d — Menu fini déclinaisons hover `data-hover="surface\|tint\|lift"` |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 1/3 | 33% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -34,7 +34,7 @@
 | P1.3 — GEO (schema, llms.txt, cohérence entité) | P1 | 2/2 | 100% | c8433a5b fix(audit): vague fixes transverses #56-#62 · FAQ system + widgets outils + blog mesh + restructure A1-A6 + contenu + dédup ; b4ac2fda fix(v7-seo): llms.txt promote (solutions périmé→silos v7 + services) + description studio IA + JSON-LD serviceType/priceRange (override page) + meta desc + maillage site-web-intelligent |
 | P2.0 — Reconstituer l'état réel du design (ghost, AVANT de toucher) | P2 | 1/1 | 100% | 01210cd2 docs(audit): triangulation P2.0 · verdicts sourcés FAIT/PARTIEL/GHOSTÉ par tâche P2.1-P2.11 + séquencement 8 étapes (P2.3 fondation → P2.2-A4 → P2.1-c/a/b → V9e-h arbitrage → scoped-dup → P2.10 capstone) |
 | P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS) | P2 | 3/4 | 75% | 467a48bc feat(visual-audit): P2.1-a/b · inventaire templates × sections + 62 captures above-fold versionnées ; 467a48bc feat(visual-audit): P2.1-a/b · inventaire templates × sections + 62 captures above-fold versionnées ; 57861b27 feat(visual-audit): P2.1-c · captures persistées · négation .gitignore ciblée !docs/visual-audit/** (jetables racine toujours ignorés, contre-vérifié check-ignore exit 1/0) + gf1-cloud-sweep sortie par défaut docs/visual-audit/previews (override --out) + convention en tête · preuve : sweep réel 3/3 PASS fichiers trackables |
-| P2.10 — Passe finale Claude Design | P2 | 0/1 | 0% | - |
+| P2.10 — Passe finale Claude Design | P2 | 1/1 | 100% | c4475156 feat(motion): 3 moments signature scroll-driven · rail diagnostic-stages + expand case-grid service + parallaxe duotones eeat (top 5 it.13 n°1+5) |
 | P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 6/7 | 86% | 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 98973f26 feat(ds): P2.11-f arrondi des espacements off-scale aux tokens --space-* (120 déclarations, 46 fichiers) ; 81408f05 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
 | P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 1/1 | 100% | adb4c3da feat(ds-tokens): P2.3 @theme mort → @theme inline pointant var(--token-maison) |
