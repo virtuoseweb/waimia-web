@@ -21,6 +21,12 @@
  *
  * Sortie : JSON parsable (stdout) + PNG par type (--out) + exit code (0 = tous PASS).
  *
+ * CONVENTION DE SORTIE (P2.1-c) : par défaut les captures sont VERSIONNÉES sous
+ *   `docs/visual-audit/previews/<type>.png` (+ `summary.json`). Ce chemin est
+ *   dé-ignoré dans `.gitignore` (bloc « Captures visual-audit VERSIONNÉES »),
+ *   donc les captures persistent en git = source de vérité de la couverture.
+ *   Override ponctuel/jetable via `--out /tmp/...` (reste ignoré).
+ *
  * Permanent · cf docs/20-SESSION-NEXT-CLOUD-ORCHESTRATION.md §6 (init cloud) + GF-1.
  */
 import { chromium } from '@playwright/test';
@@ -41,7 +47,7 @@ for (let i = 0; i < argv.length; i++) {
 }
 
 const BASE = (args.base || 'http://localhost:4321').replace(/\/$/, '');
-const OUT = resolve(args.out || '/tmp/wmission/gf1-cloud-sweep');
+const OUT = resolve(args.out || 'docs/visual-audit/previews');
 const DIST_PREVIEW = resolve(args['dist-preview'] || 'dist/preview');
 const TIMEOUT = parseInt(args.timeout || '20000', 10);
 const VIEWPORT = { width: 1440, height: 900 };

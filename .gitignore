@@ -66,7 +66,7 @@ audit-snapshots/
 # Gardées sur disque pour la continuité de session, jamais commitées dans le template.
 tasks/
 
-# GF-1 screenshots (artefacts de vérif Playwright, non versionnés)
+# GF-1 screenshots (artefacts de vérif Playwright JETABLES, non versionnés)
 /v9*-*.jpeg
 /*proof*.jpeg
 /brand-forge-*.jpeg
@@ -74,6 +74,12 @@ gf1-*.png
 gf1-*.jpeg
 .playwright-mcp/
 .env.openai
+
+# Captures visual-audit VERSIONNÉES (P2.1-c) — source de vérité de la couverture,
+# persistantes. Contre-balance les patterns de captures jetables ci-dessus
+# (design-system-*.png:42, gf1-*.png/.jpeg:73-74) qui matchent à toute profondeur :
+# sous CE chemin précis, on garde TOUTES les captures. Le jetable reste ignoré ailleurs.
+!docs/visual-audit/**
 
 # Worktrees agents (orchestration multi-agents locale)
 .worktrees/
