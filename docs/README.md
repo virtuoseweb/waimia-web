@@ -12,15 +12,17 @@
 > 5. **`docs/state/02-plan-execution-claude-code.md`** = source de vérité des **tâches** (cases `[x]` + tag `<!-- sb commit=… -->`). Le board en dérive.
 > 6. **git** (log + branches) = vérité d'exécution. *(`tasks/ORCH-STATE.md` = journal narratif d'orchestration, désormais secondaire.)*
 
-### 📐 Compteurs canoniques (figés 2026-06-15, mesurés ; GF-4)
-> Source unique. Périme toute autre valeur croisée ailleurs (58/67/87/123/147/151). Re-mesurer via `node scripts/gen-section-manifest.mjs`.
+### 📐 Compteurs canoniques (re-mesurés 2026-07-19 ; GF-4)
+> Source unique. Périme toute autre valeur croisée ailleurs (58/67/87/123/147/151/156). Re-mesurer via `node scripts/gen-section-manifest.mjs`. *(Valeurs 2026-06-15 « 156/128/13/278 » périmées → post-co-location #38 + monorepo #40, cf ci-dessous.)*
 
 | Métrique | Valeur | Mesure |
 |---|---|---|
-| **Types registry catalogués** | **156** (45 site · 111 library) | `scripts/gen-section-manifest.mjs` |
-| `src/components/sections/*.astro` | **128** | `ls sections/*.astro \| wc -l` |
-| Templates (`src/components/templates/*.astro`) | **13** | `ls templates/*.astro` |
-| `src/styles/tokens.css` | **278 lignes** | `wc -l` |
+| **Types registry catalogués** | **221** (40 site · 181 library) | `node scripts/gen-section-manifest.mjs` |
+| Modules co-localisés (source catalogue) | **221** | `ls -d src/sections/*/ \| wc -l` |
+| `src/components/sections/*.astro` (legacy) | **172** | `ls sections/*.astro \| wc -l` |
+| Templates (`src/components/templates/*.astro`) | **6** | `ls templates/*.astro` |
+| `tokens.css` (déplacé package #40) | **314 lignes** | `wc -l packages/ds-tokens/tokens.css` |
+| Presets énumérés (allPresets) | **823** | `npx tsx scripts/check-presets.mjs` |
 
 *(L'ancien `docs/00-MASTER-PLAN.md` (147 types) est **archivé** → `docs/archive/00-MASTER-PLAN.md`. Ne pas s'y fier.)*
 

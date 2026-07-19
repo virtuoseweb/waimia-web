@@ -67,3 +67,5 @@ Il détecte aussi le module « fantôme » (dossier présent, 0 fichier requis) 
 
 - 3 pilotes migrés : `media-bento` (collection), `hero-social-proof` (hero), `eeat-panel` (cas dur EEAT). `check:section-modules` = vert (3/3).
 - 196 types legacy encore dans les god-files (199 au total à migrer). `gen:section-aggregate` reste en mode merge ; `check:touchpoints` reste le drift-guard des god-files tant que la bascule replace n'est pas faite.
+
+> **Addendum 2026-07-19 — #38 SOLDÉ (mode REPLACE).** La bascule est faite : `gen:section-aggregate` tourne en **mode REPLACE** (en-tête « Wave #38 T5, mode REPLACE »), les **221 modules co-localisés `src/sections/<type>/`** sont la source unique, `section-registry.generated.ts` (221 entrées) est reconstruit depuis eux, et les god-files legacy (`src/schemas/sections.ts`, `src/lib/section-demos.ts`) sont réduits à des stubs de ré-export (~19 lignes). `node scripts/check-section-modules.mjs` = **221/221 valides**. Le « 196 legacy / merge / bascule non faite » ci-dessus est périmé.

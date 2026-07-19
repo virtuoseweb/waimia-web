@@ -241,10 +241,11 @@ déplacés ici par le pivot V8/nettoyage 2026-07-12 (cf statuts « ARCHIVÉ » d
 2. **Compteur board 40/85 gelé sous V7.** `state/00-BOARD.md` (généré) reflète le backlog `state/02`
    GELÉ (3-piliers superseded). Le % (47 %) n'est PAS l'avancement réel V7-FOLD/V8. Ne pas le citer
    comme vérité d'avancement.
-3. **Compteurs DS périmés dans plusieurs docs.** Divers docs citent 58/67/87/114/121/123/147/151/153
-   types, 77 sections, 18 templates, 115/121 tokens. **Canoniques (README docs, figés 2026-06-15)** :
-   **156 types registry / 128 sections / 13 templates / tokens.css 278 lignes**. Toujours renvoyer au
-   README, jamais recopier un compteur interne daté.
+3. **Compteurs DS périmés dans plusieurs docs.** Divers docs citent 58/67/87/114/121/123/147/151/153/156
+   types, 77 sections, 18 templates, 115/121 tokens. **Canoniques (README docs, re-mesurés 2026-07-19)** :
+   **221 types registry (40 site / 181 library) / 221 modules co-localisés / 172 sections `.astro` legacy /
+   6 templates `.astro` / tokens.css 314 lignes (`packages/ds-tokens/`) / 823 presets**. Toujours renvoyer au
+   README, jamais recopier un compteur interne daté. *(« 156/128/13/278 » = valeurs 2026-06-15 périmées post-#38/#40.)*
 4. **Pointeurs `docs/00-MASTER-PLAN.md` cassés.** Les session-reports et l'archive citent ce fichier
    comme « master plan canonique ». Il est archivé (`docs/archive/00-MASTER-PLAN.md`). Toute reprise
    suit `docs/README.md` → `strategy/10` + `state/00-BOARD`, pas ces pointeurs.

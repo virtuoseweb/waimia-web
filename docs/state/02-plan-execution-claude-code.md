@@ -38,8 +38,8 @@
   est devenu l'atelier `/library/*` (hub + `[category]`/`[type]`/`studio`/`hero-lab`, redirects 301,
   footer/noindex) + 5 sections éditoriales cataloguées + `case-featured-grid` + toggles animation/dark.
   Détail + reste : `docs/design-system/03-library-strategy.md §11.3`.
-  - **RESTE W3 (arbitrage Simon A→B, non démarré)** : *phase 1b* (presets ≥20/catégorie via `Workflow`
-    + consolider le mixin `sectionBaseSchema`, appliqué 3/156 types) puis *phase 2* (git-write-back
+  - **RESTE W3 (arbitrage Simon A→B)** : *phase 1b* (presets ≥20/catégorie via `Workflow`
+    + consolider le mixin `sectionBaseSchema`, appliqué 3/221 types — re-mesuré 2026-07-19, « 156 » périmé) — ▸ *phase 1b presets SOLDÉE via P2.9 (823 presets énumérés 2026-07-19)* — puis *phase 2* (git-write-back
     `POST /api/ds/preset` + `/api/ds/compose` + composition UI par slots, cf `design-system/03 §14`).
   - **Findings ouverts** : 2 erreurs prefetch démo `/library/case-featured-grid` (slugs fictifs) ;
     DsLocalNav garde des hrefs legacy `/agence/*` ; **arbitrage Simon en attente** = 3 secteurs
@@ -852,12 +852,12 @@ _(vide)_
 - [ ] **T-6 — VISION FINALE résidus** (`state/01 §b`, `docs/40` archivé) : arbo **cas-par-secteur**
   + **étiquettes catalogue** (non couverts par P0.2). Te poser : quoi reste-t-il de `docs/40` qui n'est
     pas déjà dans P0/P2 ? Remonter ici. Dépend de : —
-- [ ] **T-7 — Réconcilier les compteurs/statuts docs périmés** (`00-MASTER-PLAN` 147→151, etc.) — `state/01 §0`.
+- [ ] **T-7 — Réconcilier les compteurs/statuts docs périmés** (`00-MASTER-PLAN` 147→151, etc.) — `state/01 §0`. ▸ *réconciliation compteurs livrée 2026-07-19 : canonique re-mesuré = **221 types / 221 modules co-localisés / 172 sections `.astro` / 6 templates / tokens.css 314 l / 823 presets / 221 previews** ; corrigés dans README §Compteurs, SYNTHESE §conflits, CLAUDE.md, ce NB. Reste : sweep statuts « en cours » soldés.*
   - Dépend de : —
 - [ ] **T-8 [?] — Décision 301 fintech** : `strategy/02` pose « pas de redirections » (domaine neuf) →
   le 301 fintech de l'ex-R7b (`state/01 §b`) est **abandonné** ; confirmer que c'est volontaire.
 
-> **NB design :** le DS est industrialisé en prod (~151 types, 5 touchpoints, dark `ink`) et **figé au
+> **NB design :** le DS est industrialisé en prod (**221 types**, re-mesuré 2026-07-19 ; « ~151 » périmé ; 5 touchpoints, dark `ink`) et **figé au
 > sens « 0 nouveau token ad hoc »** — mais **la refonte design n'est PAS terminée** : elle vit en
 > **PHASE P2** (détail `state/05-design-refonte`). T-4 (hub techno) et T-5 (re-critique it.13) sont
 > design-adjacents → traités avec P2.6. Source de vérité DS règles : `design-system/01-contrat` ;
