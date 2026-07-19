@@ -28,6 +28,18 @@
  *                            (discriminatedUnion, MEME source de verite que le rendu/compose),
  *                            chargee par server.ssrLoadModule pour la meme raison que
  *                            PAGE_DOC_MODULE ci-dessous.
+ *   - GET/PATCH
+ *     /api/ds/instance      : edition IN-PLACE d'une instance de section dans une page REELLE
+ *                            (src/content/**). PATCH { keyword, file, index, props } remplace
+ *                            sections[index] par `props` (props.type doit rester le type actuel :
+ *                            on n'edite pas le type ici) apres validation via `sectionSchema`
+ *                            (memes messages Zod detailles que /api/ds/saved). GET
+ *                            ?file=...&index=... renvoie la section actuelle (lecture pour le
+ *                            futur formulaire). Garde keyword (jamais logue) + refus-main comme
+ *                            /api/ds/save (c'est la SEULE route qui touche le contenu reel).
+ *                            AUCUN commit/push : le git diff est laisse a la review humaine.
+ *                            Reecriture qui PRESERVE la convention du fichier (indentation +
+ *                            newline finale detectees, JSON.stringify sinon 2 espaces + '\n').
  *
  * Garde-fous (identiques sur les 2 premieres routes ; /api/ds/compose et /api/ds/saved n'ecrivent
  * qu'un brouillon local sans push git, donc pas de garde keyword/refus-main, mais slug/id stricts
@@ -46,7 +58,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { dirname, resolve, sep } from 'node:path';
 import { parseExport, applyTokenMap, parseKnownTokens } from '../../packages/ds-tokens/ds-tokens.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -56,6 +68,7 @@ const DS_PRESETS_PATH = resolve(PROJECT_ROOT, 'src/data/ds-presets.json');
 const THEMES_CSS_PATH = resolve(PROJECT_ROOT, 'src/styles/themes.css');
 const PAGE_VARIANTS_DIR = resolve(PROJECT_ROOT, 'src/data/page-variants');
 const SAVED_SECTIONS_PATH = resolve(PROJECT_ROOT, 'src/data/saved-sections.json');
+const CONTENT_DIR = resolve(PROJECT_ROOT, 'src/content');
 const FIXED_DELAY_SECONDS = 180;
 
 const DEFAULT_KEYWORD = 'WAIMIA-SAVE';
@@ -63,6 +76,7 @@ const ROUTE = '/api/ds/save';
 const PRESET_ROUTE = '/api/ds/preset';
 const COMPOSE_ROUTE = '/api/ds/compose';
 const SAVED_ROUTE = '/api/ds/saved';
+const INSTANCE_ROUTE = '/api/ds/instance';
 // Source de verite de la validation (identique a src/pages/library/builder/render.astro).
 const PAGE_DOC_MODULE = '@waimia/ds-kernel/lib/page-document';
 // Source de verite du contrat d'instance de section (discriminatedUnion 'type' -> schema Zod).
@@ -607,6 +621,190 @@ function makeSavedHandler(server) {
   };
 }
 
+// --- Handler instance (edition in-place dans une page reelle) ------------------
+// Edite UNE instance de section dans un fichier de contenu reel (src/content/**). C'est la
+// SEULE route de cette integration qui touche le contenu du site : keyword + refus-main
+// obligatoires (comme /api/ds/save). AUCUN commit/push : le git diff est laisse a la review
+// humaine. La reecriture PRESERVE la convention de serialisation du fichier (indentation +
+// newline finale detectees sur l'original).
+//
+//   GET   /api/ds/instance?file=<rel>&index=<n>  -> { ok:true, section } (lecture).
+//   PATCH /api/ds/instance                        -> { keyword, file, index, props } :
+//       remplace sections[index] par `props` apres validation via `sectionSchema`
+//       (discriminatedUnion 'type', MEMES messages Zod detailles que /api/ds/saved).
+//       props.type doit rester EGAL au type actuel de l'instance (on ne change pas le type ici).
+//
+// `file` = chemin relatif SOUS src/content/ (ex. services/site-web-ia.json). Refus STRICT du
+// path traversal (`..`, chemin absolu, backslash, NUL) AVANT toute lecture, + verification de
+// containment (le chemin resolu reste DANS src/content/). Extension imposee .json.
+
+/**
+ * Valide un chemin de contenu relatif et renvoie son chemin absolu, ou une erreur.
+ * @param {unknown} file
+ * @returns {{ok:true,abs:string,rel:string}|{ok:false,error:string}}
+ */
+function resolveContentPath(file) {
+  const rel = typeof file === 'string' ? file.trim() : '';
+  if (!rel) return { ok: false, error: 'file manquant' };
+  // Anti-traversal : jamais de chemin absolu, backslash, NUL, ni segment `..`.
+  if (rel.startsWith('/') || /^[A-Za-z]:/.test(rel) || rel.includes('\\') || rel.includes('\0')) {
+    return { ok: false, error: 'file invalide (path traversal refuse)' };
+  }
+  if (rel.split('/').includes('..')) {
+    return { ok: false, error: 'file invalide (path traversal refuse)' };
+  }
+  if (!rel.endsWith('.json')) {
+    return { ok: false, error: 'file invalide (extension .json requise)' };
+  }
+  const abs = resolve(CONTENT_DIR, rel);
+  // Ceinture + bretelles : le chemin resolu doit rester DANS src/content/.
+  if (abs !== CONTENT_DIR && !abs.startsWith(CONTENT_DIR + sep)) {
+    return { ok: false, error: 'file invalide (hors src/content)' };
+  }
+  return { ok: true, abs, rel };
+}
+
+/**
+ * Detecte la convention de serialisation d'un JSON (unite d'indentation + newline finale) pour
+ * la reecrire a l'identique (0 reformatage parasite hors la/les ligne(s) editee(s)).
+ * @param {string} raw
+ * @returns {{indent:string,nl:string}}
+ */
+function detectJsonFormat(raw) {
+  const nl = raw.endsWith('\n') ? '\n' : '';
+  const m = raw.match(/\n([ \t]+)"/);
+  return { indent: m ? m[1] : '  ', nl };
+}
+
+function makeInstanceHandler(server) {
+  return async function instanceHandler(req, res, next) {
+    const url = new URL(req.url || '/', 'http://localhost');
+
+    // --- GET : lecture de l'instance actuelle (aucune ecriture, pas de keyword requis) ---
+    if (req.method === 'GET') {
+      const check = resolveContentPath(url.searchParams.get('file'));
+      if (!check.ok) return sendJson(res, 400, { ok: false, error: check.error });
+      if (!existsSync(check.abs)) {
+        return sendJson(res, 400, { ok: false, error: 'fichier inexistant' });
+      }
+      let data;
+      try {
+        data = JSON.parse(readFileSync(check.abs, 'utf8'));
+      } catch {
+        return sendJson(res, 400, { ok: false, error: 'fichier JSON illisible' });
+      }
+      if (!data || !Array.isArray(data.sections)) {
+        return sendJson(res, 400, { ok: false, error: 'pas de tableau sections' });
+      }
+      const rawIndex = url.searchParams.get('index');
+      const index = Number(rawIndex);
+      if (rawIndex === null || !Number.isInteger(index) || index < 0 || index >= data.sections.length) {
+        return sendJson(res, 400, { ok: false, error: 'index hors bornes' });
+      }
+      return sendJson(res, 200, { ok: true, section: data.sections[index] });
+    }
+
+    if (req.method !== 'PATCH') return next();
+
+    // 1. Lecture + parse du body
+    let body;
+    try {
+      const raw = await readBody(req);
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'corps JSON invalide' });
+    }
+
+    const { keyword, file, index: rawIndex, props } = body || {};
+
+    // 2. Save-guard keyword (jamais logue)
+    const expected = process.env.DS_SAVE_KEYWORD || DEFAULT_KEYWORD;
+    if (String(keyword || '') !== expected) {
+      return sendJson(res, 400, { ok: false, error: 'keyword' });
+    }
+
+    // 3. Chemin de contenu (anti-traversal + containment)
+    const check = resolveContentPath(file);
+    if (!check.ok) return sendJson(res, 400, { ok: false, error: check.error });
+    if (!existsSync(check.abs)) {
+      return sendJson(res, 400, { ok: false, error: 'fichier inexistant' });
+    }
+
+    // 4. Props presentes (forme minimale) avant lecture/validation
+    if (!props || typeof props !== 'object' || Array.isArray(props)) {
+      return sendJson(res, 400, { ok: false, error: 'props doit etre un objet' });
+    }
+    if (typeof props.type !== 'string' || !props.type) {
+      return sendJson(res, 400, { ok: false, error: 'props.type manquant' });
+    }
+
+    // 5. Lecture du fichier + convention de serialisation
+    let raw;
+    let data;
+    try {
+      raw = readFileSync(check.abs, 'utf8');
+      data = JSON.parse(raw);
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'fichier JSON illisible' });
+    }
+    if (!data || !Array.isArray(data.sections)) {
+      return sendJson(res, 400, { ok: false, error: 'pas de tableau sections' });
+    }
+
+    // 6. Index dans les bornes
+    const index = Number(rawIndex);
+    if (!Number.isInteger(index) || index < 0 || index >= data.sections.length) {
+      return sendJson(res, 400, { ok: false, error: 'index hors bornes' });
+    }
+
+    // 7. Type inchangé : on n'edite pas le type d'une instance ici.
+    const currentType = data.sections[index] && data.sections[index].type;
+    if (props.type !== currentType) {
+      return sendJson(res, 400, {
+        ok: false,
+        error: `type inchangeable : instance = « ${currentType} », props = « ${props.type} »`,
+      });
+    }
+
+    // 8. Validation : MEME schema que le rendu (sectionSchema, discriminatedUnion 'type').
+    let sectionSchema;
+    try {
+      ({ sectionSchema } = await server.ssrLoadModule(SECTIONS_SCHEMA_MODULE));
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: `validation indisponible : ${e.message}` });
+    }
+    const validation = sectionSchema.safeParse(props);
+    if (!validation.success) {
+      const errors = validation.error.issues.map(
+        (issue) => `${issue.path.join('.') || 'section'} : ${issue.message}`,
+      );
+      return sendJson(res, 400, { ok: false, error: 'section invalide', errors });
+    }
+
+    // 9. Refus-main : c'est la SEULE route qui touche le contenu reel (prod = waimia.com).
+    let branch;
+    try {
+      branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
+    } catch {
+      return sendJson(res, 500, { ok: false, error: 'impossible de lire la branche git' });
+    }
+    if (branch === 'main') {
+      return sendJson(res, 403, { ok: false, error: 'refus edition main' });
+    }
+
+    // 10. Remplacement in-place + reecriture PRESERVANT la convention (0 commit git).
+    data.sections[index] = props;
+    const { indent, nl } = detectJsonFormat(raw);
+    try {
+      writeFileSync(check.abs, JSON.stringify(data, null, indent) + nl, 'utf8');
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: e.message });
+    }
+
+    return sendJson(res, 200, { ok: true, file: check.rel, index, type: props.type });
+  };
+}
+
 // --- Integration -------------------------------------------------------------
 
 export default function dsSaveDev() {
@@ -618,9 +816,10 @@ export default function dsSaveDev() {
         server.middlewares.use(PRESET_ROUTE, presetHandler);
         server.middlewares.use(COMPOSE_ROUTE, makeComposeHandler(server));
         server.middlewares.use(SAVED_ROUTE, makeSavedHandler(server));
+        server.middlewares.use(INSTANCE_ROUTE, makeInstanceHandler(server));
         if (logger && typeof logger.info === 'function') {
           logger.info(
-            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections)`,
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance)`,
           );
         }
       },

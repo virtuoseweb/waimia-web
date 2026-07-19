@@ -19,7 +19,7 @@ interface Props {
 const { sections, lang } = Astro.props;
 ---
 
-{sections.map((section) => {
+{sections.map((section, i) => {
   const Component = SECTION_REGISTRY[section.type] as any;
   if (!Component) {
     console.error(`[SectionsRenderer] Type inconnu: ${section.type}`);
@@ -39,8 +39,9 @@ const { sections, lang } = Astro.props;
   const rendered = expand ? (
     <div class="container-expand" data-expand>{base}</div>
   ) : base;
-  if (!anchor) return rendered;
-  return (
+  const out = !anchor ? (
+    rendered
+  ) : (
     <>
       <span
         id={anchor}
@@ -50,4 +51,16 @@ const { sections, lang } = Astro.props;
       {rendered}
     </>
   );
+  // Repère d'atelier DEV-ONLY : chaque section porte sa position `data-atelier-idx` pour
+  // que l'atelier (library/builder) puisse la localiser en direct. `display:contents` =
+  // 0 boite generee -> aucun impact mise en page en dev. `import.meta.env.DEV` est remplace
+  // statiquement par `false` au build de prod : la branche est eliminee -> HTML prod IDENTIQUE.
+  if (import.meta.env.DEV) {
+    return (
+      <div data-atelier-idx={i} style="display:contents">
+        {out}
+      </div>
+    );
+  }
+  return out;
 })}

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/gen-section-aggregate.mjs && node scripts/gen-section-usage.mjs",
+    "prebuild": "node scripts/gen-section-aggregate.mjs && node scripts/gen-section-usage.mjs && node scripts/gen-section-instances.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -31,6 +31,7 @@
     "gen:section-quickref": "node scripts/gen-section-quickref.mjs",
     "gen:section-aggregate": "node scripts/gen-section-aggregate.mjs",
     "gen:section-usage": "node scripts/gen-section-usage.mjs",
+    "gen:section-instances": "node scripts/gen-section-instances.mjs",
     "gen:page-schemas": "npx tsx scripts/gen-page-schemas.mjs",
     "check:page-schemas": "npx tsx scripts/check-page-schemas.mjs",
     "check:section-aggregate": "node scripts/check-section-aggregate.mjs",

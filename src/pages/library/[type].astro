@@ -43,6 +43,7 @@ import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots'
 import { SECTION_DEMOS } from '../../lib/section-demos';
 import { getUsage } from '../../lib/library-manifest';
 import { getRealUsage } from '../../lib/section-usage.generated';
+import { getInstances, getInlineConsumers } from '../../lib/section-instances.generated';
 import { listDeclinaisons } from '@waimia/ds-kernel/lib/section-presets';
 
 export function getStaticPaths() {
@@ -78,11 +79,26 @@ const usage = getUsage(section.type);
 // posent cette section (routes publiques quand connues). Source = pages composables.
 const realUsage = getRealUsage(section.type);
 const consumerCount = realUsage.count;
-const usagePages = realUsage.pages;
 
 // Lien cliquable depuis un libellé de page : les routes publiques commencent par '/'
 // (cliquables) ; les chemins de fichier source restent en texte (non navigables).
 const pageHref = (page: string): string | null => (page.startsWith('/') ? page : null);
+
+// Index d'INSTANCES (Bricks U1) : chaque pose réelle de cette section sur le site, avec
+// sa localisation (route, position dans sections[]), sa variante et un label reconnaissable.
+// + consommateurs inline hand-authored (pages .astro / templates) non éditables par la vue.
+const instances = getInstances(section.type);
+const inlineConsumers = getInlineConsumers(section.type);
+const instancePageCount = new Set(instances.map((i) => i.route)).size;
+// Chips de variante d'une instance (preset / variant / background), dans cet ordre.
+const instanceVariants = (inst: (typeof instances)[number]): { key: string; value: string }[] => {
+  const out: { key: string; value: string }[] = [];
+  for (const key of ['preset', 'variant', 'background'] as const) {
+    const value = inst[key];
+    if (typeof value === 'string' && value.length > 0) out.push({ key, value });
+  }
+  return out;
+};
 
 // Badge modèle de contenu (FOSSÉ 4) : instance / global-ref / hybrid -> libellé FR + clé.
 const contentMode = section.contentMode;
@@ -178,30 +194,91 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
           </div>
         )}
 
-        {/* Pages réelles qui posent cette section (FOSSÉ 1) : routes cliquables quand
-            connues, sinon chemin source. « Catalogue uniquement » si aucune instance. */}
-        <div class="component-usage-pages">
-          <p class="component-meta-label">Sur waimia</p>
-          {usagePages.length > 0 ? (
-            <ul class="component-usage-list" aria-label={`Pages utilisant ${section.type}`}>
-              {usagePages.map((page) => {
-                const href = pageHref(page);
+      </header>
+
+      {/* Instances sur le site (Bricks U1) : le composant « global » + chacune de ses poses
+          réelles (route, position, label, variante). Consommateurs inline signalés à part
+          (non éditables par la vue). État vide propre si la section n'est qu'en bibliothèque. */}
+      <section class="component-block" aria-label="Instances sur le site">
+        <h2 class="component-block-title">Instances sur le site</h2>
+        <p class="component-instances-head">
+          <span class="component-instances-badge">Global</span>
+          {instances.length > 0 ? (
+            <span class="component-instances-count">
+              {instances.length} instance{instances.length > 1 ? 's' : ''} sur {instancePageCount} page{instancePageCount > 1 ? 's' : ''}
+            </span>
+          ) : (
+            <span class="component-instances-count">0 instance en page composable</span>
+          )}
+        </p>
+
+        {instances.length > 0 ? (
+          <div class="component-datasheet-scroll">
+            <table class="component-instances-table">
+              <thead>
+                <tr>
+                  <th scope="col">Page</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Contenu</th>
+                  <th scope="col">Variante</th>
+                </tr>
+              </thead>
+              <tbody>
+                {instances.map((inst) => {
+                  const href = pageHref(inst.route);
+                  const variants = instanceVariants(inst);
+                  return (
+                    <tr>
+                      <td>
+                        {href ? (
+                          <a class="component-usage-link" href={href}>{inst.route}</a>
+                        ) : (
+                          <code class="component-usage-path">{inst.route}</code>
+                        )}
+                      </td>
+                      <td><code class="component-instances-pos">section {inst.index + 1}</code></td>
+                      <td class="component-instances-label">{inst.label}</td>
+                      <td>
+                        {variants.length > 0 ? (
+                          <span class="component-instances-variants">
+                            {variants.map((v) => (
+                              <span class="component-instances-chip" title={v.key}>{v.value}</span>
+                            ))}
+                          </span>
+                        ) : (
+                          <span class="component-meta-note">·</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ) : inlineConsumers.length === 0 ? (
+          <p class="component-meta-note">Uniquement en bibliothèque (aucune instance en page).</p>
+        ) : null}
+
+        {inlineConsumers.length > 0 && (
+          <div class="component-instances-inline">
+            <p class="component-meta-label">Composé inline <span class="component-instances-inline-badge">inline · non éditable ici</span></p>
+            <ul class="component-usage-list" aria-label={`Consommateurs inline de ${section.type}`}>
+              {inlineConsumers.map((c) => {
+                const href = pageHref(c);
                 return (
                   <li class="component-usage-item">
                     {href ? (
-                      <a class="component-usage-link" href={href}>{page}</a>
+                      <a class="component-usage-link" href={href}>{c}</a>
                     ) : (
-                      <code class="component-usage-path">{page}</code>
+                      <code class="component-usage-path">{c}</code>
                     )}
                   </li>
                 );
               })}
             </ul>
-          ) : (
-            <p class="component-meta-note">Catalogue uniquement (aucune instance en page).</p>
-          )}
-        </div>
-      </header>
+          </div>
+        )}
+      </section>
 
       <section class="component-block" aria-label="Aperçu live">
         <h2 class="component-block-title">Aperçu</h2>
@@ -531,6 +608,106 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
   .component-usage-path {
     color: var(--muted);
   }
+
+  /* ── Instances sur le site (Bricks U1) ── */
+  .component-instances-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-5);
+  }
+  .component-instances-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--accent-text);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-instances-count {
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-instances-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+  }
+  .component-instances-table th {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .component-instances-table td {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .component-instances-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .component-instances-pos {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    white-space: nowrap;
+  }
+  .component-instances-label {
+    color: var(--ink);
+  }
+  .component-instances-variants {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .component-instances-chip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-instances-inline {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+  .component-instances-inline-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-left: var(--space-2);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: none;
+    white-space: nowrap;
+  }
+
   .component-thesis {
     max-width: 720px;
     margin: var(--space-5) 0 0;

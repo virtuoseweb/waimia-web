@@ -19,7 +19,9 @@ export const prerender = true;
 import AtelierShell from '../../../layouts/AtelierShell.astro';
 import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
-import BuilderCanvas from '@waimia/builder/BuilderCanvas.tsx';
+// Brick B6 : le coeur du nouvel editeur = l'ile `BuilderApp` (canvas par blocs, vignettes live).
+// Remplace l'ancienne ile `BuilderCanvas` (conservee dans @waimia/builder, purge = brick ulterieur).
+import BuilderApp from '@waimia/atelier-ui/app/BuilderApp.tsx';
 import type {
   BuilderCatalogueItem,
   BuilderColorScheme,
@@ -159,7 +161,7 @@ const defaultMeta = {
   </section>
 
   <section class="bld-wrap wrap-wide" aria-label="Builder visuel">
-    <BuilderCanvas
+    <BuilderApp
       client:load
       items={items}
       colorSchemes={colorSchemes}
@@ -635,6 +637,129 @@ const defaultMeta = {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+  }
+
+  /* ════ CENTRE · Canvas PAR BLOCS (brick B6) ════════════════════════════════════════════════ */
+  /* Une carte par section : en-tête (poignée + type + outils) au-dessus d'une vignette live. */
+  .bld-block.bld-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .bld-block.bld-card.is-selected {
+    border-color: var(--accent-text);
+    box-shadow: 0 0 0 1px var(--accent-text);
+  }
+  .bld-block.bld-card[draggable='true'] { cursor: default; }
+  .bld-card-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper-2);
+  }
+  .bld-card-drag {
+    flex: none;
+    cursor: grab;
+    color: var(--muted);
+    font-size: var(--text-body);
+    line-height: 1;
+    user-select: none;
+  }
+  .bld-card-drag:active { cursor: grabbing; }
+  .bld-card-index {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--muted);
+  }
+  .bld-card-type {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+  }
+  .bld-card-type:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .bld-card-tools { display: flex; gap: 2px; flex: none; }
+  .bld-card-tool {
+    width: 1.85rem;
+    height: 1.85rem;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .bld-card-tool:hover:not(:disabled) { border-color: var(--accent-text); color: var(--accent-text); }
+  .bld-card-tool:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .bld-card-tool:disabled { color: var(--muted); cursor: not-allowed; }
+  /* Vignette : iframe non interactive (pointer-events off) + voile qui capte le clic de sélection. */
+  .bld-card-thumb {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .bld-card-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: var(--paper);
+    pointer-events: none;
+  }
+  .bld-card-thumb-select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .bld-card-thumb-select:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  /* Barre d'insertion entre deux blocs (ajoute une section à un index précis). */
+  .bld-insert {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) 0;
+  }
+  .bld-insert-line { flex: 1; height: 1px; background: var(--hairline); }
+  .bld-insert-select {
+    flex: none;
+    max-width: 60%;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+  }
+
+  /* Aperçu de la PAGE COMPLÈTE (toggle « Aperçu page ») : une iframe globale. */
+  .bld-fullpreview { flex: 1; display: flex; min-height: 480px; }
+  .bld-fullpreview-frame {
+    flex: 1;
+    width: 100%;
+    min-height: 480px;
+    border: 0;
+    background: var(--paper);
   }
 
   @media (max-width: 960px) {
