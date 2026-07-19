@@ -8,6 +8,7 @@ import { upsertSubscriber } from "../../lib/mailerlite";
 import LeadMagnetDelivery from "../../lib/emails/LeadMagnetDelivery";
 import InternalLeadAlert from "../../lib/emails/InternalLeadAlert";
 import { z } from "zod";
+import { SITE } from "../../site.config";
 
 export const prerender = false;
 
@@ -50,7 +51,7 @@ function msg(key: MsgKey, lang: Lang = "fr"): string {
 }
 
 const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "https://waimia.com",
+  "Access-Control-Allow-Origin": SITE.url,
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 } as const;
@@ -70,11 +71,11 @@ const LeadMagnetSchema = z.object({
 const MAGNETS: Record<string, { title: string; pdfUrl: string }> = {
   "ai-act-readiness": {
     title: "Êtes-vous prêt pour l'AI Act ? · Checklist 47 critères",
-    pdfUrl: "https://waimia.com/pdf/ai-act-readiness.pdf",
+    pdfUrl: `${SITE.url}/pdf/ai-act-readiness.pdf`,
   },
   "revops-guide": {
     title: "Guide RevOps · Réconcilier CRM, entrepôt et finance",
-    pdfUrl: "https://waimia.com/pdf/revops-guide.pdf",
+    pdfUrl: `${SITE.url}/pdf/revops-guide.pdf`,
   },
 };
 
@@ -120,7 +121,7 @@ export const ALL: APIRoute = async ({ request }) => {
     );
   }
 
-  const pageUrl = `https://waimia.com/ressources/livres-blancs/${slug}`;
+  const pageUrl = `${SITE.url}/ressources/livres-blancs/${slug}`;
 
   try {
     await Promise.all([

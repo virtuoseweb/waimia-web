@@ -9,6 +9,7 @@ import {
   buttonLinkStyle,
   ACCENT,
 } from "./_layout";
+import { SITE } from "../../site.config";
 
 interface Props {
   firstName?: string;
@@ -48,7 +49,7 @@ export default function DevisRecap({
     `<p style="${pStyle}margin:0;font-style:italic;">« ${briefSafe} »</p>` +
     `</div>` +
     `<div style="text-align:center;padding:12px 0 24px;">` +
-    `<a href="https://waimia.com/contact" style="${buttonLinkStyle}">Réserver l'audit 10 jours →</a>` +
+    `<a href="${SITE.url}/contact" style="${buttonLinkStyle}">Réserver l'audit 10 jours →</a>` +
     `</div>` +
     `<p style="${mutedStyle}">Tous les chiffres sont indicatifs. Devis ferme après audit. Pas de frais cachés.</p>`;
 

@@ -9,6 +9,8 @@
  * React dans le graphe d'import des routes API.
  */
 
+import { SITE } from "../../site.config";
+
 export const ACCENT = "#C94F2E";
 export const PAPER = "#F6F1E8";
 export const INK = "#0C0B09";
@@ -114,7 +116,7 @@ export function wrapEmail(
             <tr><td style="border-top:1px solid ${RULE};line-height:0;font-size:0;">&nbsp;</td></tr>
             <tr>
               <td align="center" style="padding:20px 0 0;">
-                <p style="margin:0;font-size:11px;color:${MUTED};letter-spacing:0.06em;text-transform:uppercase;">Waimia · Montpellier · <a href="https://waimia.com" style="color:${MUTED};text-decoration:underline;">waimia.com</a></p>
+                <p style="margin:0;font-size:11px;color:${MUTED};letter-spacing:0.06em;text-transform:uppercase;">Waimia · Montpellier · <a href="${SITE.url}" style="color:${MUTED};text-decoration:underline;">waimia.com</a></p>
               </td>
             </tr>
             ${webLink}

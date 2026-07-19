@@ -10,6 +10,7 @@ import {
   cardSoftStyle,
   eyebrowStyle,
 } from "./_layout";
+import { SITE } from "../../site.config";
 
 interface Props {
   firstName?: string;
@@ -32,8 +33,8 @@ export default function ContactConfirmation({
     `<p style="${pStyle}margin:0;font-style:italic;">« ${briefSafe} »</p>` +
     `</div>` +
     `<p style="${pStyle}">En attendant, deux ressources qui peuvent répondre directement :</p>` +
-    `<p style="${mutedStyle}">· <a href="https://waimia.com/cas-clients" style="${accentLinkStyle}">Études de cas · refonte RevOps</a><br />· <a href="https://waimia.com/services" style="${accentLinkStyle}">Nos solutions · IA pour PME</a></p>` +
-    `<p style="${mutedStyle}">Si urgent : <a href="mailto:bonjour@waimia.com" style="${accentLinkStyle}">bonjour@waimia.com</a></p>`;
+    `<p style="${mutedStyle}">· <a href="${SITE.url}/cas-clients" style="${accentLinkStyle}">Études de cas · refonte RevOps</a><br />· <a href="${SITE.url}/services" style="${accentLinkStyle}">Nos solutions · IA pour PME</a></p>` +
+    `<p style="${mutedStyle}">Si urgent : <a href="mailto:${SITE.email}" style="${accentLinkStyle}">${SITE.email}</a></p>`;
 
   return wrapEmail(
     content,

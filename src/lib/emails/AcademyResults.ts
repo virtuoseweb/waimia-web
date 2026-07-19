@@ -10,6 +10,7 @@ import {
   ACCENT,
   MUTED,
 } from "./_layout";
+import { SITE } from "../../site.config";
 
 interface NextAction {
   title: string;
@@ -69,7 +70,7 @@ export default function AcademyResults({
     `<p style="${pStyle}">Voici les <strong>3 prochaines actions</strong> priorisées par coût-de-correction (l'inverse de la difficulté × l'impact attendu).</p>` +
     actions +
     `<div style="text-align:center;padding:20px 0;">` +
-    `<a href="https://waimia.com/contact" style="${buttonLinkStyle}">En parler 45 min →</a>` +
+    `<a href="${SITE.url}/contact" style="${buttonLinkStyle}">En parler 45 min →</a>` +
     `</div>` +
     `<p style="${mutedStyle}">Aucun rappel commercial automatique. Le diagnostic reste utile sans nous.</p>`;
 

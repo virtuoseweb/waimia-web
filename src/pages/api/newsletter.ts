@@ -7,6 +7,7 @@ import { sendEmail, emitEvent } from "../../lib/resend";
 import { upsertSubscriber } from "../../lib/mailerlite";
 import WelcomeNewsletter from "../../lib/emails/WelcomeNewsletter";
 import { z } from "zod";
+import { SITE } from "../../site.config";
 
 export const prerender = false;
 
@@ -49,7 +50,7 @@ function msg(key: MsgKey, lang: Lang = "fr"): string {
 }
 
 const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "https://waimia.com",
+  "Access-Control-Allow-Origin": SITE.url,
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 } as const;

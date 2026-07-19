@@ -25,6 +25,8 @@
  *   await sendEmail({ to, subject, html });
  */
 
+import { SITE } from "../site.config";
+
 const RESEND_API_URL = "https://api.resend.com";
 const apiKey = import.meta.env.RESEND_API_KEY;
 
@@ -32,18 +34,32 @@ if (!apiKey && import.meta.env.PROD) {
   console.error("[resend] RESEND_API_KEY missing in production env");
 }
 
-// EMAIL_FROM · alias virtuoseweb.fr (domaine déjà vérifié sur Resend, partagé
-// avec sitewebastro). Override via env Vercel : EMAIL_FROM="Waimia <…>".
-// `?.trim() ||` (et NON `??`) : une env var Vercel définie mais VIDE ("") n'est
-// ni null ni undefined → `??` ne la rattrape pas → Resend reçoit `from:""` et
-// rejette en 422 "Invalid `from` field" (bug prod 2026-06-10, GF-1). `|| défaut`
-// retombe sur l'alias vérifié dès que la valeur est vide/whitespace.
-export const EMAIL_FROM =
-  import.meta.env.EMAIL_FROM?.trim() || "Waimia <waimia@virtuoseweb.fr>";
-export const EMAIL_REPLY_TO =
-  import.meta.env.EMAIL_REPLY_TO?.trim() || "contact@virtuoseweb.fr";
-export const EMAIL_INTERNAL_TO =
-  import.meta.env.EMAIL_INTERNAL_TO?.trim() || "contact@virtuoseweb.fr";
+// resolveEnvOrSite · valide qu'une env var est non-vide ET bien formée (contient
+// un "@", donc utilisable comme adresse/from email) avant de la retenir. Une env
+// var Vercel définie mais VIDE ("") ou malformée (sans "@") n'est ni null ni
+// undefined → `??` ne la rattrape pas → Resend reçoit `from:""` et rejette en
+// 422 "Invalid `from` field" (bug prod 2026-06-10, GF-1). Fallback = SITE.* pour
+// que le comportement par défaut suive la marque configurée (forkabilité), pas
+// un littéral en dur.
+function resolveEnvOrSite(envValue: string | undefined, fallback: string): string {
+  const trimmed = envValue?.trim();
+  return trimmed && trimmed.includes("@") ? trimmed : fallback;
+}
+
+// EMAIL_FROM · override via env Vercel : EMAIL_FROM="Waimia <…>". Fallback =
+// SITE.emailFrom (source unique de marque, cf site.config.ts).
+export const EMAIL_FROM = resolveEnvOrSite(
+  import.meta.env.EMAIL_FROM,
+  SITE.emailFrom,
+);
+export const EMAIL_REPLY_TO = resolveEnvOrSite(
+  import.meta.env.EMAIL_REPLY_TO,
+  SITE.email,
+);
+export const EMAIL_INTERNAL_TO = resolveEnvOrSite(
+  import.meta.env.EMAIL_INTERNAL_TO,
+  SITE.email,
+);
 
 interface SendArgs {
   to: string | string[];
