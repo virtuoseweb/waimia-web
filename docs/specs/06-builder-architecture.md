@@ -202,3 +202,37 @@ Combler ces trous = 0 UI, 100 % contrats prouvables par GF-1 fonctionnel → ris
 - 0 UI builder/studio/chat (couches E = Φ1+). 0 refonte de présentation des hubs library.
 - 0 self-serve, 0 multi-tenant, 0 marketplace (§3 OUT).
 - Ne casse aucun rendu du site waimia en prod (le moteur sert déjà les pages composables ; Φ0 étend, ne régresse pas — GF-1 sweep des `/preview/*` + pages composables avant merge).
+
+---
+
+## 14. Addendum 2026-07-19 — MCP passe à 6 tools (`catalogue_get_preset` livré, Φ0.6 partiel)
+
+> Contexte : finition du serveur MCP capstone (#41), `mcp/waimia-catalogue-server.mjs`. Ce brick recouvre
+> **une partie** de Φ0.6 (§13) : le tool existe et est GF-1'd, mais la donnée qu'il expose reste **limitée
+> par l'artefact dist actuel** — Φ0.6 n'est donc pas totalement soldé, cf gap ci-dessous.
+
+### Ce qui est livré
+- Nouveau tool **`catalogue_get_preset`** (`mcp/waimia-catalogue-server.mjs`) : `{ type, presetId? }` →
+  sans `presetId`, liste tous les presets `{ id, label }` du type (`{ type, presetCount, presets, dataGap }`) ;
+  avec `presetId`, résout le preset exact (`{ type, preset, dataGap }`) ou renvoie une erreur de tool listant
+  les `presetId` connus. Type inconnu → erreur de tool avec suggestions (même heuristique que
+  `catalogue_get_section`). Le serveur passe donc de 5 à **6 tools**.
+- Source de lecture : `detail.presets` du même artefact tier-2 que `catalogue_get_section`
+  (`dist/client/library/section/<type>.json`), 0 nouvel artefact, 0 import `src/` (le serveur reste
+  Node pur par design).
+- GF-1 fonctionnel : client stdio jetable (JSON-RPC newline-delimited sur `child_process.spawn`,
+  `initialize` → `tools/list` → `tools/call`), **16/16 assertions PASS** sur les 6 tools (1 appel réel +
+  1 assertion sur la réponse + 1 cas limite chacun). Détail dans le rapport de session.
+
+### Gap connu — Φ0.6 pas totalement soldé
+L'artefact `dist/client/library/section/<type>.json` ne sérialise que `{ id, label }` par preset
+(`src/lib/mcp-manifest.ts:294`) ; les champs `family`, `era` et surtout **`props`** (les surcharges réelles
+de présentation : `background`, `layout`, `variant`, `illustration`, etc., définis dans
+`packages/ds-kernel/src/lib/section-presets.ts`) **ne sont pas exposés** par `catalogue_get_preset`.
+Chaque réponse du tool porte un champ `dataGap` qui documente cette limite explicitement plutôt que de
+la passer sous silence. Un agent qui veut composer une section avec les surcharges exactes d'un preset doit
+aujourd'hui contourner (lire le contrat de slots via `catalogue_get_section` + composer les slots à la main),
+il ne peut pas « appliquer » un preset MCP tel quel. **Pour solder Φ0.6 complètement** : enrichir le
+générateur `src/lib/mcp-manifest.ts` (la fonction qui construit `SectionDetail.presets`) pour qu'il
+sérialise aussi `family`, `era`, `props` par preset, puis `pnpm build` pour régénérer `dist/`. Hors scope
+du présent brick (interdiction de toucher `src/`/`scripts/` sur cette mission).

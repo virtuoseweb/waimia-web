@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 // Waimia · Serveur MCP capstone (#41).
 //
-// Expose le catalogue Design System Waimia a un agent IA via 5 tools.
-// 3 tools en lecture seule :
+// Expose le catalogue Design System Waimia a un agent IA via 6 tools.
+// 4 tools en lecture seule :
 //   - catalogue_search       : cherche / filtre l'index compact tier-1 (forme ManifestIndex).
 //   - catalogue_get_section  : recupere le detail tier-2 d'un type (forme SectionDetail, contrat de slots).
+//   - catalogue_get_preset   : liste ou resout les presets (declinaisons nommees) d'un type. GAP CONNU :
+//                              l'artefact dist n'expose que { id, label } par preset (mcp-manifest.ts:294),
+//                              pas family/era/props (source riche = packages/ds-kernel/.../section-presets.ts,
+//                              non exposee par ce serveur car hors artefacts dist).
 //   - ds_tokens              : liste les variables CSS du Design System (packages/ds-tokens/tokens.css).
 // 2 tools de composition / rendu :
 //   - page_compose           : assemble + valide une liste de sections en un PageDocument type.
@@ -265,6 +269,73 @@ server.registerTool(
     }
     const hint = suggestions.length ? ` Types proches : ${suggestions.join(', ')}.` : '';
     return errorResult(`type inconnu : ${type}.${hint}`);
+  },
+);
+
+server.registerTool(
+  'catalogue_get_preset',
+  {
+    title: 'Presets (declinaisons) d\'un type de section',
+    description:
+      'Liste ou resout les presets (declinaisons nommees, sous-ensemble du tier-2) d\'un type de section. ' +
+      'Sans presetId : retourne tous les presets { id, label } du type. ' +
+      'Avec presetId : resout le preset cible (erreur propre + liste des ids connus si absent). ' +
+      'GAP CONNU (cf champ dataGap de la reponse) : l\'artefact dist ne serialise que { id, label } par ' +
+      'preset (src/lib/mcp-manifest.ts:294) ; family/era/props (surcharges reelles) ne sont PAS exposes ' +
+      'par ce tool -- ils vivent dans packages/ds-kernel/src/lib/section-presets.ts, non lu par ce serveur ' +
+      '(qui ne lit que dist/, pas src/). Pour composer une section avec les surcharges exactes d\'un preset, ' +
+      'passer par catalogue_get_section (contrat de slots) + demo par defaut, ou enrichir le generateur.',
+    inputSchema: {
+      type: z.string().describe('Identifiant exact du type de section (ex. hero-split).'),
+      presetId: z
+        .string()
+        .optional()
+        .describe('Id exact du preset a resoudre (ex. hero-split--showcase-3-1-paper). Omis = liste tous les presets du type.'),
+    },
+  },
+  async ({ type, presetId }) => {
+    let detail;
+    try {
+      detail = loadSectionDetail(type);
+    } catch (err) {
+      if (err instanceof ArtifactMissingError) return errorResult(err.message);
+      throw err;
+    }
+
+    if (detail === null) {
+      // Type inconnu : meme logique de suggestion que catalogue_get_section.
+      let suggestions = [];
+      try {
+        const index = loadIndex();
+        const needle = lc(type);
+        suggestions = index.sections
+          .map((e) => e.type)
+          .filter((t) => lc(t).includes(needle) || needle.includes(lc(t)) || lc(t).startsWith(needle.slice(0, 4)))
+          .slice(0, 5);
+      } catch {
+        // si l'index n'est pas chargeable on renvoie juste l'erreur de type.
+      }
+      const hint = suggestions.length ? ` Types proches : ${suggestions.join(', ')}.` : '';
+      return errorResult(`type inconnu : ${type}.${hint}`);
+    }
+
+    const presets = detail.presets || [];
+    const dataGap =
+      "L'artefact dist ne serialise que { id, label } par preset (mcp-manifest.ts:294) : " +
+      'family/era/props ne sont PAS exposes par ce tool (a combler cote generateur si un agent a besoin des surcharges reelles).';
+
+    if (presetId === undefined) {
+      return textResult({ type, presetCount: presets.length, presets, dataGap });
+    }
+
+    const preset = presets.find((p) => p.id === presetId);
+    if (!preset) {
+      const known = presets.map((p) => p.id);
+      return errorResult(
+        `presetId inconnu pour ${type} : ${presetId}. Presets disponibles : ${known.length ? known.join(', ') : '(aucun preset pour ce type)'}.`,
+      );
+    }
+    return textResult({ type, preset, dataGap });
   },
 );
 
