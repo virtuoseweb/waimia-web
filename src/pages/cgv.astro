@@ -3,263 +3,41 @@
 export const prerender = true;
 
 // Composé de · TrustLegalTemplate (TOC sticky + sections empilées)
-// Sections empilées via slot `sections`. Partie contractante = VirtuoseWeb (EI Simon Beros).
+// Template-as-data (V5, 2026-07-19) : contenu en JSON (src/content/legal/cgv.json),
+// migré depuis le props/slot inline. Sections pré-rendues (headlineHtml/ledeHtml/
+// sectionsHtml) capturées depuis le rendu réel, même idiome que `body_sections[].html_fr`
+// (cases/secteurs), injectées via `set:html` (parité caractère près, page 100 % juridique).
 
+import { getEntry } from 'astro:content';
 import TrustLegalTemplate from '../components/templates/TrustLegalTemplate.astro';
-import Bi from '../components/ui/atoms/Bi.astro';
 import Callout from '../components/editorial/Callout.astro';
 import EditorialTable from '../components/editorial/EditorialTable.astro';
 
-const sections = [
-  { id: 'objet',               title_fr: 'Article 1. Objet',                                    title_en: 'Article 1. Purpose' },
-  { id: 'prestations',         title_fr: 'Article 2. Prestations',                              title_en: 'Article 2. Services' },
-  { id: 'devis',               title_fr: 'Article 3. Devis et commandes',                       title_en: 'Article 3. Quotes and orders' },
-  { id: 'tarifs',              title_fr: 'Article 4. Tarifs',                                   title_en: 'Article 4. Pricing' },
-  { id: 'paiement',            title_fr: 'Article 5. Modalités de paiement',                    title_en: 'Article 5. Payment terms' },
-  { id: 'retard',              title_fr: 'Article 6. Retard de paiement',                       title_en: 'Article 6. Late payment' },
-  { id: 'delais',              title_fr: 'Article 7. Délais de livraison',                      title_en: 'Article 7. Delivery times' },
-  { id: 'recette',             title_fr: 'Article 8. Validation et recette',                    title_en: 'Article 8. Acceptance and sign-off' },
-  { id: 'propriete',           title_fr: 'Article 9. Propriété intellectuelle',                 title_en: 'Article 9. Intellectual property' },
-  { id: 'confidentialite',     title_fr: 'Article 10. Confidentialité',                         title_en: 'Article 10. Confidentiality' },
-  { id: 'resiliation',         title_fr: 'Article 11. Résiliation',                             title_en: 'Article 11. Termination' },
-  { id: 'force-majeure',       title_fr: 'Article 12. Force majeure',                           title_en: 'Article 12. Force majeure' },
-  { id: 'responsabilite',      title_fr: 'Article 13. Responsabilité',                          title_en: 'Article 13. Liability' },
-  { id: 'litiges',             title_fr: 'Article 14. Droit applicable et litiges',             title_en: 'Article 14. Governing law and disputes' },
-  { id: 'mediation',           title_fr: 'Article 15. Médiation',                               title_en: 'Article 15. Mediation' },
-  { id: 'hebergement-vercel',  title_fr: 'Article 16. Gestion de l\'hébergement Vercel',        title_en: 'Article 16. Vercel hosting management' },
-];
+const entry = await getEntry('legal', 'cgv');
+if (!entry) throw new Error('Collection "legal" · entrée "cgv" introuvable.');
+const d = entry.data;
 ---
 <TrustLegalTemplate
-  title="Conditions générales de vente · Waimia"
-  description="Conditions générales de vente des prestations VirtuoseWeb (entreprise individuelle Simon Beros), site waimia.com."
-  kickerFr="Conditions générales de vente"
-  kickerEn="Terms of sale"
-  revisedAt="2026-06-12"
-  version="v1.0"
-  sections={sections}
+  title={d.title!}
+  description={d.description!}
+  kickerFr={d.kickerFr!}
+  kickerEn={d.kickerEn!}
+  revisedAt={d.revisedAt!}
+  version={d.version}
+  sections={d.toc!}
 >
-  <Fragment slot="headline">
-    <i>Conditions </i><br />de vente.
-  </Fragment>
-  <Fragment slot="lede">
-    Les conditions contractuelles applicables aux prestations.
-  </Fragment>
-
-  <Fragment slot="sections">
-    <section id="objet">
-      <h2><Bi fr="Article 1. Objet" en="Article 1. Purpose" /></h2>
-      <p><Bi
-        fr="Les présentes conditions générales de vente régissent les relations contractuelles entre VirtuoseWeb (représentée par Simon Beros) et les clients souhaitant bénéficier de prestations numériques."
-        en="These terms of sale govern the contractual relationship between VirtuoseWeb (represented by Simon Beros) and clients wishing to benefit from digital services."
-      /></p>
-    </section>
-
-    <section id="prestations">
-      <h2><Bi fr="Article 2. Prestations" en="Article 2. Services" /></h2>
-      <p><Bi
-        fr="VirtuoseWeb propose les prestations suivantes : création de sites internet et applications web, référencement naturel (SEO) et marketing digital, design UX/UI, automatisation de processus, conseil en stratégie digitale, maintenance technique et gestion d'hébergement Vercel."
-        en="VirtuoseWeb provides the following services: design of websites and web applications, search engine optimization (SEO) and digital marketing, UX/UI design, process automation, digital strategy consulting, technical maintenance and Vercel hosting management."
-      /></p>
-    </section>
-
-    <section id="devis">
-      <h2><Bi fr="Article 3. Devis et commandes" en="Article 3. Quotes and orders" /></h2>
-      <p><Bi
-        fr="Un devis gratuit et détaillé précède chaque projet et reste valable 30 jours. La commande devient définitive après acceptation écrite du devis et versement de l'acompte."
-        en="A free, detailed quote precedes every project and remains valid for 30 days. The order becomes final once the quote is accepted in writing and the deposit is paid."
-      /></p>
-    </section>
-
-    <section id="tarifs">
-      <h2><Bi fr="Article 4. Tarifs" en="Article 4. Pricing" /></h2>
-      <p><Bi
-        fr="Les prix sont exprimés en euros hors taxes. VirtuoseWeb peut modifier ses tarifs ultérieurement sans que cela affecte les commandes déjà acceptées."
-        en="Prices are stated in euros excluding tax. VirtuoseWeb may revise its pricing at a later date without affecting orders already accepted."
-      /></p>
-    </section>
-
-    <section id="paiement">
-      <h2><Bi fr="Article 5. Modalités de paiement" en="Article 5. Payment terms" /></h2>
-      <p><Bi
-        fr="Le paiement s'effectue en trois échéances : acompte de 30 % à la commande, étape intermédiaire de 40 % à la validation de la maquette ou du prototype, solde de 30 % à la livraison finale. Le règlement se fait par virement bancaire ou par tout autre moyen convenu."
-        en="Payment is made in three instalments: a 30% deposit on order, an intermediate 40% on approval of the mockup or prototype, and the remaining 30% balance on final delivery. Payment is made by bank transfer or by any other agreed means."
-      /></p>
-    </section>
-
-    <section id="retard">
-      <h2><Bi fr="Article 6. Retard de paiement" en="Article 6. Late payment" /></h2>
-      <p><Bi
-        fr="Tout retard de paiement entraîne des pénalités calculées au taux de trois fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40 euros pour frais de recouvrement."
-        en="Any late payment incurs penalties calculated at three times the statutory interest rate, plus a fixed indemnity of 40 euros for recovery costs."
-      /></p>
-    </section>
-
-    <section id="delais">
-      <h2><Bi fr="Article 7. Délais de livraison" en="Article 7. Delivery times" /></h2>
-      <p><Bi
-        fr="Les délais indiqués au devis sont donnés à titre indicatif. Les retards n'ouvrent pas droit à des dommages-intérêts, sauf accord écrit contraire. Les retards imputables au client décalent proportionnellement les délais de livraison."
-        en="The lead times stated in the quote are indicative. Delays do not give rise to any right to damages, unless otherwise agreed in writing. Delays attributable to the client postpone delivery times proportionally."
-      /></p>
-    </section>
-
-    <section id="recette">
-      <h2><Bi fr="Article 8. Validation et recette" en="Article 8. Acceptance and sign-off" /></h2>
-      <p><Bi
-        fr="Le client dispose de 15 jours ouvrés pour effectuer la recette et signaler toute non-conformité. Passé ce délai, la prestation est réputée acceptée. Les modifications non prévues font l'objet d'un devis supplémentaire."
-        en="The client has 15 business days to carry out acceptance testing and report any non-conformity. After this period, the service is deemed accepted. Modifications not initially planned are subject to an additional quote."
-      /></p>
-    </section>
-
-    <section id="propriete">
-      <h2><Bi fr="Article 9. Propriété intellectuelle" en="Article 9. Intellectual property" /></h2>
-      <p><Bi
-        fr="Après paiement complet, le client acquiert les droits d'utilisation sur les créations spécifiques (maquettes, code sur mesure, contenus). VirtuoseWeb conserve la propriété de ses méthodes, outils et frameworks internes, de ses composants réutilisables et bibliothèques, ainsi que de son savoir-faire technique. VirtuoseWeb peut mentionner le travail réalisé dans son portfolio, sauf accord de confidentialité contraire."
-        en="After full payment, the client acquires the usage rights to the specific deliverables (mockups, custom code, content). VirtuoseWeb retains ownership of its internal methods, tools and frameworks, its reusable components and libraries, and its technical know-how. VirtuoseWeb may reference the work performed in its portfolio, unless a confidentiality agreement provides otherwise."
-      /></p>
-    </section>
-
-    <section id="confidentialite">
-      <h2><Bi fr="Article 10. Confidentialité" en="Article 10. Confidentiality" /></h2>
-      <p><Bi
-        fr="Les deux parties s'engagent à garder confidentielles les informations reçues pendant la durée du contrat et pendant 2 ans après son terme."
-        en="Both parties undertake to keep confidential the information received during the term of the contract and for 2 years after its end."
-      /></p>
-    </section>
-
-    <section id="resiliation">
-      <h2><Bi fr="Article 11. Résiliation" en="Article 11. Termination" /></h2>
-      <p><Bi
-        fr="En cas de manquement grave, l'autre partie peut résilier le contrat après mise en demeure restée infructueuse pendant 15 jours, adressée par lettre recommandée. Les sommes dues au titre des prestations déjà réalisées restent acquises à VirtuoseWeb."
-        en="In the event of a serious breach, the other party may terminate the contract after a formal notice, sent by registered letter, has remained unanswered for 15 days. Amounts due for services already performed remain acquired by VirtuoseWeb."
-      /></p>
-    </section>
-
-    <section id="force-majeure">
-      <h2><Bi fr="Article 12. Force majeure" en="Article 12. Force majeure" /></h2>
-      <p><Bi
-        fr="VirtuoseWeb ne peut être tenue responsable de l'inexécution de ses obligations due à un cas de force majeure au sens du Code civil."
-        en="VirtuoseWeb cannot be held liable for failure to perform its obligations due to a case of force majeure within the meaning of the French Civil Code."
-      /></p>
-    </section>
-
-    <section id="responsabilite">
-      <h2><Bi fr="Article 13. Responsabilité" en="Article 13. Liability" /></h2>
-      <p><Bi
-        fr="La responsabilité de VirtuoseWeb se limite au montant des sommes effectivement perçues au titre du contrat concerné. VirtuoseWeb ne saurait être tenue responsable des dommages indirects, pertes de données ou préjudices commerciaux."
-        en="VirtuoseWeb's liability is limited to the amount actually received under the contract concerned. VirtuoseWeb cannot be held liable for indirect damages, loss of data or commercial harm."
-      /></p>
-    </section>
-
-    <section id="litiges">
-      <h2><Bi fr="Article 14. Droit applicable et litiges" en="Article 14. Governing law and disputes" /></h2>
-      <p><Bi
-        fr="Les présentes conditions sont soumises au droit français. En cas de litige, les parties rechercheront d'abord une solution amiable, puis, à défaut, saisiront les tribunaux du ressort de Montpellier."
-        en="These terms are governed by French law. In the event of a dispute, the parties will first seek an amicable solution and, failing that, will refer the matter to the courts of the Montpellier jurisdiction."
-      /></p>
-    </section>
-
-    <section id="mediation">
-      <h2><Bi fr="Article 15. Médiation" en="Article 15. Mediation" /></h2>
-      <p><Bi
-        fr="Conformément aux articles L.612-1 et suivants du Code de la consommation, le client consommateur, après avoir adressé une réclamation écrite restée sans réponse satisfaisante sous 30 jours, peut recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable du litige."
-        en="In accordance with articles L.612-1 et seq. of the French Consumer Code, a consumer client may, after sending a written complaint that has remained without a satisfactory response for 30 days, use a consumer mediator free of charge to seek an amicable resolution of the dispute."
-      /></p>
-      {/* PLACEHOLDER médiateur à confirmer : CM2C posé comme valeur par défaut plausible (médiateur généraliste web courant). Simon à valider l'adhésion effective. */}
-      <Callout variant="info"><p><Bi
-        fr="Médiateur compétent : CM2C (Centre de médiation de la consommation de conciliateurs de justice), 14 rue Saint Jean, 75017 Paris, cm2c.net. Le client peut également recourir à la plateforme européenne de règlement en ligne des litiges :"
-        en="Competent mediator: CM2C (Centre de médiation de la consommation de conciliateurs de justice), 14 rue Saint Jean, 75017 Paris, cm2c.net. The client may also use the European online dispute resolution platform:"
-      /> <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p></Callout>
-      <p><Bi
-        fr="Ce dispositif de médiation s'adresse aux clients consommateurs. Les prestations destinées aux professionnels relèvent de l'article 14 (droit applicable et litiges)."
-        en="This mediation scheme is intended for consumer clients. Services for professional clients fall under article 14 (governing law and disputes)."
-      /></p>
-    </section>
-
-    <section id="hebergement-vercel">
-      <h2><Bi fr="Article 16. Gestion de l'hébergement Vercel" en="Article 16. Vercel hosting management" /></h2>
-
-      <h3><Bi fr="16.1 Objet du forfait" en="16.1 Scope of the plan" /></h3>
-      <p><Bi
-        fr="Ce forfait mensuel est dédié à la gestion d'un hébergement Vercel. Il est souscrit via Stripe et reconduit tacitement chaque mois, sans engagement de durée."
-        en="This monthly plan is dedicated to the management of Vercel hosting. It is subscribed via Stripe and tacitly renewed each month, with no minimum commitment."
-      /></p>
-
-      <h3><Bi fr="16.2 Tarification" en="16.2 Pricing" /></h3>
-      <EditorialTable
-        caption="Forfaits de gestion d'hébergement Vercel"
-        columns={['Plan', 'Tarif mensuel', 'Périmètre']}
-        rows={[
-          ['Hobby', '24 € TTC / mois', 'Gestion d\'un compte Vercel Hobby gratuit'],
-          ['Pro', '40 € TTC / mois', 'Gestion d\'un compte Vercel Pro, gestion UTM incluse'],
-        ]}
-        variant="default"
-      />
-      <p><Bi
-        fr="Le passage au tarif Pro est automatique en cas d'évolution vers le plan Vercel Pro."
-        en="The switch to the Pro rate is automatic in the event of an upgrade to the Vercel Pro plan."
-      /></p>
-
-      <h3><Bi fr="16.3 Modèles d'hébergement" en="16.3 Hosting models" /></h3>
-      <p><Bi
-        fr="Modèle 1 (par défaut) : le site et son code résident sur les comptes Vercel et GitHub de VirtuoseWeb. Modèle 2 (recommandé) : VirtuoseWeb crée pour le client un compte Vercel et un dépôt GitHub à partir d'une adresse e-mail entreprise dédiée ; l'adresse reste la propriété du client, VirtuoseWeb opérant en tant qu'administrateur. Modèle 3 (sur demande) : VirtuoseWeb opère sur les comptes Vercel et GitHub du client, qui en fournit les accès."
-        en="Model 1 (default): the site and its code reside on VirtuoseWeb's Vercel and GitHub accounts. Model 2 (recommended): VirtuoseWeb creates a Vercel account and a GitHub repository for the client from a dedicated company e-mail address; the address remains the property of the client, with VirtuoseWeb acting as administrator. Model 3 (on request): VirtuoseWeb operates on the client's own Vercel and GitHub accounts, for which the client provides the credentials."
-      /></p>
-
-      <h3><Bi fr="16.4 Stack technique encadré" en="16.4 Supported technical stack" /></h3>
-      <p><Bi
-        fr="Le forfait couvre les sites statiques Astro avec contenu Markdown, ou les sites pilotés par un CMS headless git-based. Les autres architectures font l'objet d'un devis spécifique."
-        en="The plan covers static Astro sites with Markdown content, or sites driven by a git-based headless CMS. Other architectures are subject to a specific quote."
-      /></p>
-
-      <h3><Bi fr="16.5 Prestations incluses" en="16.5 Services included" /></h3>
-      <ul>
-        <li><Bi fr="Configuration du projet et des environnements." en="Project and environment configuration." /></li>
-        <li><Bi fr="Monitoring des déploiements." en="Deployment monitoring." /></li>
-        <li><Bi fr="Mises à jour techniques côté hébergement." en="Technical updates on the hosting side." /></li>
-        <li><Bi fr="Gestion et sécurisation des credentials." en="Management and securing of credentials." /></li>
-        <li><Bi fr="Création et maintenance des comptes Vercel et GitHub dédiés." en="Creation and maintenance of dedicated Vercel and GitHub accounts." /></li>
-        <li><Bi fr="Gestion des UTM sur le plan Pro." en="UTM management on the Pro plan." /></li>
-      </ul>
-
-      <h3><Bi fr="16.6 Prestations exclues" en="16.6 Services excluded" /></h3>
-      <ul>
-        <li><Bi fr="Développement, intégration et maintenance du code applicatif." en="Development, integration and maintenance of the application code." /></li>
-        <li><Bi fr="Création ou refonte du site." en="Creation or redesign of the site." /></li>
-        <li><Bi fr="Nouvelles fonctionnalités." en="New features." /></li>
-        <li><Bi fr="Rédaction de contenus." en="Content writing." /></li>
-        <li><Bi fr="Frais d'hébergement Vercel facturés par Vercel." en="Vercel hosting fees billed by Vercel." /></li>
-        <li><Bi fr="Architectures hors du périmètre défini à l'article 16.4." en="Architectures outside the scope defined in article 16.4." /></li>
-      </ul>
-
-      <h3><Bi fr="16.7 Facturation Vercel" en="16.7 Vercel billing" /></h3>
-      <p><Bi
-        fr="Dans les modèles 2 et 3, le client règle directement Vercel, VirtuoseWeb n'agissant pas en tant que revendeur. Dans le modèle 1, les frais Vercel sont absorbés par VirtuoseWeb dans la limite des ressources du plan ; les usages anormaux peuvent être refacturés au coût réel ou entraîner une migration."
-        en="In models 2 and 3, the client pays Vercel directly, with VirtuoseWeb not acting as a reseller. In model 1, the Vercel fees are absorbed by VirtuoseWeb within the limit of the plan's resources; abnormal usage may be re-invoiced at actual cost or lead to a migration."
-      /></p>
-
-      <h3><Bi fr="16.8 Mise à niveau" en="16.8 Upgrade" /></h3>
-      <p><Bi
-        fr="Le passage du plan Hobby au plan Pro s'effectue sur demande et prend effet le mois suivant. Une rétrogradation est possible sous réserve de compatibilité."
-        en="The move from the Hobby plan to the Pro plan is made on request and takes effect the following month. A downgrade is possible subject to compatibility."
-      /></p>
-
-      <h3><Bi fr="16.9 Réversibilité" en="16.9 Reversibility" /></h3>
-      <p><Bi
-        fr="Le client peut demander à tout moment le transfert de son site vers un autre hébergeur ou vers son propre compte. Une prestation de transfert peut être facturée selon la complexité."
-        en="The client may request at any time the transfer of its site to another host or to its own account. A transfer service may be invoiced according to its complexity."
-      /></p>
-
-      <h3><Bi fr="16.10 Résiliation du forfait" en="16.10 Plan termination" /></h3>
-      <p><Bi
-        fr="Le forfait peut être résilié à tout moment depuis l'espace Stripe ou sur demande écrite. La résiliation prend effet à la fin de la période mensuelle déjà réglée, aucune somme n'étant due au-delà."
-        en="The plan may be terminated at any time from the Stripe portal or by written request. Termination takes effect at the end of the monthly period already paid, with no amount due beyond that."
-      /></p>
-
-      <h3><Bi fr="16.11 Disponibilité" en="16.11 Availability" /></h3>
-      <Callout variant="info"><p><Bi
-        fr="VirtuoseWeb assure le bon fonctionnement de l'hébergement géré. La disponibilité de Vercel et ses conditions sont fixées par Vercel et échappent au contrôle de VirtuoseWeb. La responsabilité de VirtuoseWeb se limite aux sommes perçues au titre de ce forfait."
-        en="VirtuoseWeb ensures the proper functioning of the managed hosting. The availability of Vercel and its conditions are set by Vercel and are beyond VirtuoseWeb's control. VirtuoseWeb's liability is limited to the amounts received under this plan."
-      /></p></Callout>
-    </section>
-  </Fragment>
+  <Fragment slot="headline" set:html={d.headlineHtml} />
+  <Fragment slot="lede" set:html={d.ledeHtml} />
+  <Fragment slot="sections" set:html={d.sectionsHtml} />
 </TrustLegalTemplate>
+
+{/* Instance masquée : `sectionsHtml` ci-dessus est du HTML pré-rendu (capturé), donc
+    Callout/EditorialTable ne sont plus réellement rendus par CETTE page → leur CSS
+    scopé (Astro n'embarque le <style> d'un composant que s'il est effectivement rendu)
+    ne serait pas bundlé, cassant l'uppercase du caption de table et du footer cite.
+    Ce rendu invisible force l'inclusion de leur feuille de style, 0 impact DOM visible
+    (display:none, exclu de innerText/accessibility tree). */}
+<div style="display:none" aria-hidden="true">
+  <Callout variant="info" cite="_"><p>_</p></Callout>
+  <EditorialTable columns={['_']} rows={[['_']]} />
+</div>

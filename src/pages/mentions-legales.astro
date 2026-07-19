@@ -3,108 +3,33 @@
 export const prerender = true;
 
 // Composé de · TrustLegalTemplate (TOC sticky + sections légales empilées)
-// Sections empilées via slot `sections`.
+// Template-as-data (V5, 2026-07-19) : contenu en JSON (src/content/legal/mentions-legales.json).
+// Sections pré-rendues (headlineHtml/ledeHtml/sectionsHtml) capturées depuis le rendu réel,
+// même idiome que `body_sections[].html_fr` (cases/secteurs), injectées via `set:html`.
 
+import { getEntry } from 'astro:content';
 import TrustLegalTemplate from '../components/templates/TrustLegalTemplate.astro';
-import Bi from '../components/ui/atoms/Bi.astro';
 import Callout from '../components/editorial/Callout.astro';
 
-const sections = [
-  { id: 'editeur',        title_fr: 'Éditeur du site',          title_en: 'Site publisher' },
-  { id: 'hebergement',    title_fr: 'Hébergement',              title_en: 'Hosting' },
-  { id: 'propriete',      title_fr: 'Propriété intellectuelle', title_en: 'Intellectual property' },
-  { id: 'responsabilite', title_fr: 'Responsabilité',          title_en: 'Liability' },
-  { id: 'liens',          title_fr: 'Liens externes',           title_en: 'External links' },
-  { id: 'donnees',        title_fr: 'Données personnelles',     title_en: 'Personal data' },
-  { id: 'droit',          title_fr: 'Droit applicable',         title_en: 'Governing law' },
-];
+const entry = await getEntry('legal', 'mentions-legales');
+if (!entry) throw new Error('Collection "legal" · entrée "mentions-legales" introuvable.');
+const d = entry.data;
 ---
 <TrustLegalTemplate
-  title="Mentions légales · Waimia"
-  description="Mentions légales du site waimia.com : éditeur, hébergeur, propriété intellectuelle et responsabilité."
-  kickerFr="Mentions légales"
-  kickerEn="Legal notice"
-  revisedAt="2026-06-12"
-  version="v1.0"
-  sections={sections}
+  title={d.title!}
+  description={d.description!}
+  kickerFr={d.kickerFr!}
+  kickerEn={d.kickerEn!}
+  revisedAt={d.revisedAt!}
+  version={d.version}
+  sections={d.toc!}
 >
-  <Fragment slot="headline">
-    <i>Mentions </i><br />légales.
-  </Fragment>
-  <Fragment slot="lede">
-    Les informations légales relatives au site waimia.com et à son éditeur.
-  </Fragment>
-
-  <Fragment slot="sections">
-    <section id="editeur">
-      <h2><Bi fr="Éditeur du site" en="Site publisher" /></h2>
-      <p><Bi
-        fr="Le site waimia.com est édité par VirtuoseWeb, entreprise individuelle représentée par Simon Beros. Waimia est le second site de cette même entreprise individuelle."
-        en="The waimia.com website is published by VirtuoseWeb, a sole proprietorship represented by Simon Beros. Waimia is the second website of this same sole proprietorship."
-      /></p>
-      <ul>
-        <li><Bi fr="SIREN : 890 426 307" en="SIREN: 890 426 307" /></li>
-        <li><Bi fr="SIRET : 890 426 307 00033" en="SIRET: 890 426 307 00033" /></li>
-        <li><Bi fr="TVA intracommunautaire : FR07 890 426 307" en="Intra-community VAT: FR07 890 426 307" /></li>
-        <li><Bi fr="Code APE : 6202A (Conseil en systèmes et logiciels informatiques)" en="APE code: 6202A (Computer systems and software consulting)" /></li>
-        <li><Bi fr="Immatriculée au RCS de Montpellier" en="Registered with the Montpellier Trade and Companies Register (RCS)" /></li>
-        <li><Bi fr="Date de création : 15 octobre 2020" en="Date of creation: 15 October 2020" /></li>
-        <li><Bi fr="Siège social : Montpellier, France" en="Registered office: Montpellier, France" /></li>
-        <li><Bi fr="Contact : " en="Contact: " /><a href="mailto:bonjour@waimia.com">bonjour@waimia.com</a><Bi fr=", +33 6 20 61 56 93" en=", +33 6 20 61 56 93" /></li>
-        <li><Bi fr="Directeur de la publication : Simon Beros" en="Publication director: Simon Beros" /></li>
-      </ul>
-    </section>
-
-    <section id="hebergement">
-      <h2><Bi fr="Hébergement" en="Hosting" /></h2>
-      <p><Bi
-        fr="Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis (vercel.com)."
-        en="The website is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, United States (vercel.com)."
-      /></p>
-    </section>
-
-    <section id="propriete">
-      <h2><Bi fr="Propriété intellectuelle" en="Intellectual property" /></h2>
-      <p><Bi
-        fr="L'ensemble du contenu du site (textes, visuels, code, identité de marque) est protégé par le Code de la propriété intellectuelle. Toute reproduction ou adaptation sans autorisation écrite préalable est interdite et constitue une contrefaçon."
-        en="All content on the website (text, visuals, code, brand identity) is protected by the French Intellectual Property Code. Any reproduction or adaptation without prior written authorization is prohibited and constitutes an infringement."
-      /></p>
-    </section>
-
-    <section id="responsabilite">
-      <h2><Bi fr="Responsabilité" en="Liability" /></h2>
-      <p><Bi
-        fr="Les informations fournies sont indicatives. VirtuoseWeb ne garantit ni l'exactitude ni la mise à jour continue du contenu."
-        en="The information provided is indicative. VirtuoseWeb guarantees neither the accuracy nor the continuous updating of the content."
-      /></p>
-    </section>
-
-    <section id="liens">
-      <h2><Bi fr="Liens externes" en="External links" /></h2>
-      <p><Bi
-        fr="Le site peut renvoyer vers des sites tiers. VirtuoseWeb n'assume aucune responsabilité quant à leur contenu."
-        en="The website may link to third-party sites. VirtuoseWeb assumes no responsibility for their content."
-      /></p>
-    </section>
-
-    <section id="donnees">
-      <h2><Bi fr="Données personnelles" en="Personal data" /></h2>
-      <p><Bi
-        fr="Les traitements de données personnelles réalisés via le site sont décrits dans la politique de confidentialité."
-        en="The processing of personal data carried out through the website is described in the privacy policy."
-      /></p>
-      <Callout variant="info"><p><Bi
-        fr="Le détail des traitements et des cookies figure dans notre "
-        en="Details of data processing and cookies are set out in our "
-      /><a href="/politique-confidentialite"><Bi fr="politique de confidentialité" en="privacy policy" /></a>.</p></Callout>
-    </section>
-
-    <section id="droit">
-      <h2><Bi fr="Droit applicable" en="Governing law" /></h2>
-      <p><Bi
-        fr="Les présentes mentions relèvent du droit français. Tout litige relève de la compétence des tribunaux de Montpellier."
-        en="These legal notices are governed by French law. Any dispute falls under the jurisdiction of the courts of Montpellier."
-      /></p>
-    </section>
-  </Fragment>
+  <Fragment slot="headline" set:html={d.headlineHtml} />
+  <Fragment slot="lede" set:html={d.ledeHtml} />
+  <Fragment slot="sections" set:html={d.sectionsHtml} />
 </TrustLegalTemplate>
+
+{/* Instance masquée : force le bundling du CSS scopé de Callout (cf commentaire cgv.astro). */}
+<div style="display:none" aria-hidden="true">
+  <Callout variant="info" cite="_"><p>_</p></Callout>
+</div>

@@ -3,18 +3,20 @@
 export const prerender = true;
 
 // Composé de · UtilityTemplate variant="list" (ex-ListIndexTemplate, fusion R6) (variant outils · cards 2 cols)
+// Le LISTING est déjà 100 % piloté par données (collection `outils`, cf getCollection ci-dessous) :
+// seule la copy statique (headline/lede/labels de type) restait en props. Migrée en JSON
+// (V5, 2026-07-19, entrée `outils-hub` kind:'hub-copy' de la collection `legal`).
+// title/description restent calculés ici (dépendent du count live), donc hors JSON.
 
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import { buildCollectionPage } from '../../../lib/seo/schema-builder';
 
-const TYPE_LABELS: Record<string, string> = {
-  calculator: 'Calculateur',
-  checklist:  'Checklist',
-  template:   'Template',
-  audit:      'Audit',
-};
+const hubCopyEntry = await getEntry('legal', 'outils-hub');
+if (!hubCopyEntry) throw new Error('Collection "legal" · entrée "outils-hub" introuvable.');
+const hubCopy = hubCopyEntry.data;
+const TYPE_LABELS: Record<string, string> = hubCopy.typeLabels ?? {};
 
 const allEntries = await getCollection('outils');
 
@@ -43,12 +45,8 @@ const collectionLd = buildCollectionPage(
   jsonLd={collectionLd}
   noindex={true}
 >
-  <Fragment slot="headline">
-    Des <i>outils</i>. Pas des gadgets.
-  </Fragment>
-  <Fragment slot="lede">
-    Des ressources concrètes pour mesurer, décider et agir. Chaque outil est calibré pour des équipes B2B qui n'ont pas de temps à perdre.
-  </Fragment>
+  <Fragment slot="headline" set:html={hubCopy.headlineHtml} />
+  <Fragment slot="lede" set:html={hubCopy.ledeHtml} />
 
   <Fragment slot="filters">
     {presentTypes.map((type) => (

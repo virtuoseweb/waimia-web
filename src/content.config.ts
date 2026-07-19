@@ -845,6 +845,63 @@ const dashboardSeo = defineCollection({
 });
 
 // ═════════════════════════════════════════════════════════════════
+// ─── Legal / Welcome / Utility page-copy (V5, 2026-07-19) ───
+// Migration template-as-data des pages utilitaires légales + post-conversion.
+// UN schéma générique (`kind` discrimine le gabarit consommateur) plutôt que 3
+// collections séparées pour ~8 entrées : `legal` (TrustLegalTemplate, CGV,
+// mentions légales, politique de confidentialité, sources et méthodologie),
+// `welcome` (WelcomeTemplate : bienvenue/contact, newsletter, livre-blanc),
+// `hub-copy` (copy minimale du hub /ressources/outils, listing déjà piloté
+// par la collection `outils`). Contenu HTML pré-rendu (`*_html`) capturé
+// depuis le rendu réel (dev server, parité caractère près) et réinjecté via
+// `set:html`, même idiome que `body_sections[].html_fr` (cases/secteurs).
+// ═════════════════════════════════════════════════════════════════
+const legal = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/legal' }),
+  schema: z.object({
+    kind: z.enum(['legal', 'welcome', 'hub-copy']),
+    // SEO/meta (Base.astro), requis pour kind 'legal'/'welcome' ; 'hub-copy' calcule
+    // son title/description dans la page (dépend du count live de la collection outils).
+    title: z.string().optional(),
+    description: z.string().optional(),
+
+    // ── kind: 'legal' (TrustLegalTemplate) ──
+    kickerFr: z.string().optional(),
+    kickerEn: z.string().optional(),
+    revisedAt: z.string().optional(),
+    version: z.string().optional(),
+    legalFooterFr: z.string().optional(),
+    legalFooterEn: z.string().optional(),
+    toc: z
+      .array(z.object({ id: z.string(), title_fr: z.string(), title_en: z.string() }))
+      .optional(),
+    headlineHtml: z.string().optional(),
+    ledeHtml: z.string().optional(),
+    sectionsHtml: z.string().optional(),
+
+    // ── kind: 'welcome' (WelcomeTemplate) ──
+    kicker: z.string().optional(),
+    nextSteps: z
+      .array(
+        z.object({
+          num: z.string(),
+          title_fr: z.string(),
+          title_en: z.string(),
+          body_fr: z.string(),
+          body_en: z.string(),
+          ctaLabel: z.string().optional(),
+          ctaHref: z.string().optional(),
+        }),
+      )
+      .optional(),
+
+    // ── kind: 'hub-copy' (ressources/outils index, headline/lede/labels only,
+    //    le listing lui-même reste piloté par `getCollection('outils')`) ──
+    typeLabels: z.record(z.string(), z.string()).optional(),
+  }),
+});
+
+// ═════════════════════════════════════════════════════════════════
 
 export const collections = {
   // V1 existantes
@@ -870,4 +927,6 @@ export const collections = {
   'pages-locales': pagesLocales,
   // POC git-based (2026-07-17) : dashboard SEO, mémoire en .md
   'dashboard-seo': dashboardSeo,
+  // V5 (2026-07-19) : page-copy legal/welcome/hub-copy (template-as-data)
+  legal,
 };

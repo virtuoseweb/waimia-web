@@ -11,173 +11,46 @@ export const prerender = true;
 //  - SecteurHubTemplate.astro : chip « données marché » (famille B)
 // Elle définit les 2 familles de preuve et recense les données tierces réellement
 // citées sur le site. Source de vérité du contenu : docs/strategy/03 §5 et §6.
+//
+// Template-as-data (V5, 2026-07-19) : contenu en JSON (src/content/legal/sources-methodologie.json).
+// Sections pré-rendues (headlineHtml/ledeHtml/sectionsHtml) capturées depuis le rendu réel,
+// même idiome que `body_sections[].html_fr` (cases/secteurs), injectées via `set:html`.
 
+import { getEntry } from 'astro:content';
 import TrustLegalTemplate from '../components/templates/TrustLegalTemplate.astro';
-import Bi from '../components/ui/atoms/Bi.astro';
 import Callout from '../components/editorial/Callout.astro';
 
-const sections = [
-  { id: 'familles',     title_fr: 'Deux familles de preuves', title_en: 'Two families of proof' },
-  { id: 'sources',      title_fr: 'Nos sources',              title_en: 'Our sources' },
-  { id: 'engagement',   title_fr: 'Engagement honnêteté',     title_en: 'Honesty commitment' },
-];
+const entry = await getEntry('legal', 'sources-methodologie');
+if (!entry) throw new Error('Collection "legal" · entrée "sources-methodologie" introuvable.');
+const d = entry.data;
 ---
 <TrustLegalTemplate
-  title="Sources et méthodologie · Waimia"
-  description="Comment Waimia source ses affirmations : cas clients first-party, données marché depuis des sources tierces nommées et datées, zéro chiffre fabriqué."
-  kickerFr="Sources et méthodologie"
-  kickerEn="Sources and methodology"
-  revisedAt="2026-06-15"
-  version="v1.0"
-  sections={sections}
-  legalFooterFr="Référentiel méthodologique public"
-  legalFooterEn="Public methodology reference"
+  title={d.title!}
+  description={d.description!}
+  kickerFr={d.kickerFr!}
+  kickerEn={d.kickerEn!}
+  revisedAt={d.revisedAt!}
+  version={d.version}
+  sections={d.toc!}
+  legalFooterFr={d.legalFooterFr}
+  legalFooterEn={d.legalFooterEn}
 >
-  <Fragment slot="headline">
-    <i>Sources </i><br />et méthodologie.
-  </Fragment>
-  <Fragment slot="lede">
-    <Bi
-      fr="Nous distinguons toujours ce que nous avons mesuré sur le terrain de ce que nous reportons depuis des études tierces. Voici comment, et d'où viennent les chiffres."
-      en="We always distinguish what we measured in the field from what we report from third-party studies. Here is how, and where the numbers come from."
-    />
-  </Fragment>
-
-  <Fragment slot="sections">
-    <section id="familles">
-      <h2><Bi fr="Deux familles de preuves" en="Two families of proof" /></h2>
-      <p><Bi
-        fr="Chaque chiffre publié sur ce site porte une étiquette de provenance. Deux familles, jamais confondues, pour que vous sachiez en un coup d'œil si une affirmation vient de notre travail ou d'une analyse externe."
-        en="Every figure published on this site carries a provenance label. Two families, never conflated, so you can tell at a glance whether a claim comes from our own work or from external analysis."
-      /></p>
-
-      <h3><Bi fr="Cas client · Waimia" en="Client case · Waimia" /></h3>
-      <p><Bi
-        fr="Famille first-party. Résultats issus de missions réelles menées par Waimia (VirtuoseWeb). Client nommé (ou anonymisation justifiée), période datée, baseline chiffrée, et une distinction claire entre ce que nous avons livré et ce qui relève du client. Quand une mission n'a pas de métrique mesurée, nous ne fabriquons rien : nous l'écrivons noir sur blanc plutôt que d'inventer un résultat."
-        en="First-party family. Results from real engagements led by Waimia (VirtuoseWeb). Named client (or justified anonymization), dated period, quantified baseline, and a clear split between what we delivered and what belongs to the client. When an engagement has no measured metric, we fabricate nothing: we say so plainly rather than inventing a result."
-      /></p>
-
-      <h3><Bi fr="Analyse · sources tierces" en="Analysis · third-party sources" /></h3>
-      <p><Bi
-        fr="Famille second-party. Analyses appuyées sur des études et des données publiques nommées et datées. Ces chiffres décrivent un marché, pas nos résultats. Ils ne sont jamais présentés comme des performances obtenues par Waimia, et chacun cite sa source primaire."
-        en="Second-party family. Analysis backed by named, dated public studies and data. These figures describe a market, not our results. They are never presented as performance achieved by Waimia, and each one cites its primary source."
-      /></p>
-
-      <Callout variant="info"><p><Bi
-        fr="Sur les cas clients, le chip de provenance est plein. Sur les données marché des secteurs, il est en contour. Même distinction, partout sur le site."
-        en="On client cases, the provenance chip is filled. On industry market data, it is outlined. Same distinction, everywhere on the site."
-      /></p></Callout>
-    </section>
-
-    <section id="sources">
-      <h2><Bi fr="Nos sources" en="Our sources" /></h2>
-      <p><Bi
-        fr="Les données marché reportées sur le site, avec leur source nommée et l'année. Chaque secteur rappelle ses sources en bas de page. Aucune n'est présentée comme un résultat Waimia."
-        en="The market data reported on the site, with its named source and year. Each industry page restates its sources at the bottom. None is presented as a Waimia result."
-      /></p>
-
-      <h3><Bi fr="Transverse · acquisition et IA générative" en="Cross-cutting · acquisition and generative AI" /></h3>
-      <div id="source-afnic" class="source-anchor"><Callout variant="note" cite="Afnic, 2025"><p><Bi
-        fr="61 % des TPE et PME françaises ne suivent pas leurs performances d'acquisition et de fidélisation en ligne ; 66 % dépensent moins de 300 € par an pour le numérique."
-        en="61% of French micro and small businesses do not track their online acquisition and retention performance; 66% spend less than 300 € per year on digital."
-      /></p></Callout></div>
-      <div id="source-semrush" class="source-anchor"><Callout variant="note" cite="Semrush, 2025"><p><Bi
-        fr="Le trafic référé par les moteurs génératifs convertit environ 4,4 fois mieux que l'organique. Cité dans une réponse IA, un site convertit 14,2 % contre 2,8 % en recherche classique."
-        en="Traffic referred by generative engines converts about 4.4 times better than organic. Cited in an AI answer, a site converts 14.2% versus 2.8% in classic search."
-      /></p></Callout></div>
-
-      <h3><Bi fr="E-commerce" en="E-commerce" /></h3>
-      <div id="source-baymard" class="source-anchor"><Callout variant="note" cite="Baymard Institute"><p><Bi
-        fr="Près de 70 % des paniers sont abandonnés en moyenne."
-        en="Nearly 70% of carts are abandoned on average."
-      /></p></Callout></div>
-      <div id="source-mckinsey" class="source-anchor"><Callout variant="note" cite="McKinsey, 2025"><p><Bi
-        fr="Une IA marchande bien intégrée fait gagner 10 à 25 % de conversion et 15 à 30 % de panier moyen."
-        en="A well-integrated shopping AI lifts conversion by 10 to 25% and average order value by 15 to 30%."
-      /></p></Callout></div>
-      <div id="source-adobe" class="source-anchor"><Callout variant="note" cite="Adobe, 2025"><p><Bi
-        fr="Le trafic e-commerce référé par les IA a progressé de 693 % sur 2025."
-        en="E-commerce traffic referred by AIs grew 693% over 2025."
-      /></p></Callout></div>
-
-      <h3><Bi fr="Bâtiment" en="Construction" /></h3>
-      <div id="source-clickzou-batiment" class="source-anchor"><Callout variant="note" cite="Clickzou, 2026"><p><Bi
-        fr="Un appel issu d'une recherche Google débouche sur 25 à 45 % de devis signés."
-        en="A call coming from a Google search leads to 25 to 45% of quotes signed."
-      /></p></Callout></div>
-      <div id="source-batiweb" class="source-anchor"><Callout variant="note" cite="Batiweb, 2025"><p><Bi
-        fr="88 % des clients consultent les avis avant de décider."
-        en="88% of clients check reviews before deciding."
-      /></p></Callout></div>
-
-      <h3><Bi fr="Startup et logiciel" en="Startup and software" /></h3>
-      <div id="source-warmly" class="source-anchor"><Callout variant="note" cite="Warmly, 2026"><p><Bi
-        fr="97 % des visiteurs d'un site SaaS repartent sans remplir de formulaire ; l'identification au niveau de la personne en récupère 30 à 40 %."
-        en="97% of SaaS site visitors leave without filling a form; person-level identification recovers 30 to 40% of them."
-      /></p></Callout></div>
-
-      <h3><Bi fr="Services B2B" en="B2B services" /></h3>
-      <div id="source-6sense" class="source-anchor"><Callout variant="note" cite="6sense, 2024"><p><Bi
-        fr="81 % des acheteurs B2B ont choisi un fournisseur avant le premier contact ; 70 % du parcours d'achat se fait en autonomie."
-        en="81% of B2B buyers have chosen a supplier before first contact; 70% of the buying journey happens autonomously."
-      /></p></Callout></div>
-
-      <h3><Bi fr="Libéral et indépendant" en="Liberal and independent professions" /></h3>
-      <div id="source-cnb" class="source-anchor"><Callout variant="note" cite="CNB, 2025"><p><Bi
-        fr="59 % des justiciables se renseignent en ligne avant de consulter."
-        en="59% of litigants research online before consulting."
-      /></p></Callout></div>
-      <div id="source-reuters" class="source-anchor"><Callout variant="note" cite="Reuters Institute, 2026"><p><Bi
-        fr="Le trafic organique Google des médias a reculé de 33 % entre novembre 2024 et novembre 2025, avec une baisse de 43 % anticipée d'ici trois ans."
-        en="Media organic Google traffic fell 33% between November 2024 and November 2025, with a 43% drop anticipated within three years."
-      /></p></Callout></div>
-
-      <h3><Bi fr="Thérapeutes et bien-être" en="Therapists and wellness" /></h3>
-      <div id="source-clickzou-therapeutes" class="source-anchor"><Callout variant="note" cite="Clickzou, 2026"><p><Bi
-        fr="Un praticien doté d'un site propre optimisé en plus d'une plateforme reçoit 2,8 fois plus de demandes de nouveaux patients qu'avec la plateforme seule."
-        en="A practitioner with an optimized own site on top of a platform receives 2.8 times more new-patient requests than with the platform alone."
-      /></p></Callout></div>
-
-      <Callout variant="info"><p><Bi
-        fr="Ces chiffres sont reportés depuis des sources tierces. Ce ne sont pas nos résultats client : nos résultats mesurés vivent dans nos cas clients."
-        en="These figures are reported from third-party sources. They are not our client results: our measured results live in our client cases."
-      /></p></Callout>
-    </section>
-
-    <section id="engagement">
-      <h2><Bi fr="Engagement honnêteté" en="Honesty commitment" /></h2>
-      <p><Bi
-        fr="Quatre principes qui tiennent chaque chiffre publié."
-        en="Four principles that hold every published figure."
-      /></p>
-      <ul>
-        <li><Bi
-          fr="Provenance tracée : chaque affirmation porte son étiquette, cas client first-party ou analyse de sources tierces."
-          en="Traced provenance: every claim carries its label, first-party client case or third-party analysis."
-        /></li>
-        <li><Bi
-          fr="Pas de chiffre fabriqué : un cas sans métrique mesurée reste sans métrique ; nous ne comblons jamais un vide par un nombre inventé."
-          en="No fabricated number: a case without a measured metric stays without one; we never fill a gap with an invented figure."
-        /></li>
-        <li><Bi
-          fr="Distinction claire entre nos résultats et les données marché : une analyse de marché n'est jamais présentée comme une performance Waimia."
-          en="Clear split between our results and market data: a market analysis is never presented as a Waimia performance."
-        /></li>
-        <li><Bi
-          fr="Mise à jour datée : chaque source est nommée avec son année, et cette page indique sa date de dernière révision."
-          en="Dated updates: each source is named with its year, and this page states its last revision date."
-        /></li>
-      </ul>
-      <Callout variant="info"><p><Bi
-        fr="Une question sur une source ou un chiffre précis ? "
-        en="A question about a specific source or figure? "
-      /><a href="/contact"><Bi fr="Écrivez-nous" en="Get in touch" /></a><Bi fr=", on vous répond avec la source primaire." en=", we will reply with the primary source." /></p></Callout>
-    </section>
-  </Fragment>
+  <Fragment slot="headline" set:html={d.headlineHtml} />
+  <Fragment slot="lede" set:html={d.ledeHtml} />
+  <Fragment slot="sections" set:html={d.sectionsHtml} />
 </TrustLegalTemplate>
+
+{/* Instance masquée : force le bundling du CSS scopé de Callout (cf commentaire cgv.astro),
+    y compris le footer `cite` (cette page en compte le plus, variant="note" cite="..."). */}
+<div style="display:none" aria-hidden="true">
+  <Callout variant="note" cite="_"><p>_</p></Callout>
+</div>
 
 <style>
   /* Ancres stables « chiffre cité → sa source » : deep-link depuis les surfaces qui
-     affichent une stat (home ProofBar, pages secteurs, cas). Offset anti-masthead sticky. */
-  .source-anchor { scroll-margin-top: 100px; }
+     affichent une stat (home ProofBar, pages secteurs, cas). Offset anti-masthead sticky.
+     :global() (V5, 2026-07-19) : le contenu `.source-anchor` vit désormais en JSON, injecté
+     via `set:html` (sectionsHtml), donc hors de la portée du scoping CSS `data-astro-cid`
+     de CE fichier ; le sélecteur doit rester global pour continuer à matcher. */
+  :global(.source-anchor) { scroll-margin-top: 100px; }
 </style>
