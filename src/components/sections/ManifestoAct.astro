@@ -45,6 +45,14 @@ const stats = data.stats ?? [];
   .manifesto-act { padding-block: var(--section-loose); }
   .manifesto-act[data-tone='ink'] { background: var(--ink); color: var(--paper); }
 
+  /* Tone paper : statement encre-sur-papier, relevés muted (idiome inverse du bloc ink).
+     Sans ces règles, un preset tone:'paper' rend le statement clair-sur-clair (GF-1 w-p29-v5). */
+  .manifesto-act[data-tone='paper'] { background: var(--paper); color: var(--ink); }
+  .manifesto-act[data-tone='paper'] .manifesto-act__text { color: var(--ink); }
+  .manifesto-act[data-tone='paper'] :global(.manifesto-act__num) { color: var(--muted) !important; }
+  .manifesto-act[data-tone='paper'] :global(.manifesto-act__num) .manifesto-act__roman { color: var(--accent-text); }
+  .manifesto-act[data-tone='paper'] :global(.manifesto-act__sub) { color: var(--muted) !important; }
+
   .manifesto-act__grid {
     display: grid;
     grid-template-columns: 1fr 2fr;

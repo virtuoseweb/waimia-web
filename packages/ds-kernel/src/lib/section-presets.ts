@@ -45,7 +45,9 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
     | 'accent'
     | 'standard'
     | 'featured'
-    | 'transparent';
+    | 'transparent'
+    | 'cells'
+    | 'strip';
   /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
    *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
    *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
@@ -1339,10 +1341,11 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'persona-attributes-grid--paper-3', type: 'persona-attributes-grid', label: 'Persona attributs · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
     { id: 'persona-attributes-grid--ink', type: 'persona-attributes-grid', label: 'Persona attributs · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
   ],
-  // manifesto-act (prose) · axe RENDU = tone. SEUL tone:'ink' est stylé par le Component (aucune règle
-  // [data-tone='paper'] → statement clair-sur-clair invisible, GF-1 w-p29-v5). tone:'paper' à escalader vague 6.
+  // manifesto-act (prose) · axe RENDU = tone. Vague 6 : le Component style désormais [data-tone='paper']
+  // (statement encre-sur-papier, relevés muted) → le preset paper est lisible.
   'manifesto-act': [
     { id: 'manifesto-act--ink', type: 'manifesto-act', label: 'Acte manifeste · encre', family: 'prose', era: '2026', props: { tone: 'ink' } },
+    { id: 'manifesto-act--paper', type: 'manifesto-act', label: 'Acte manifeste · papier', family: 'prose', era: '2024', props: { tone: 'paper' } },
   ],
   // manifesto-block (prose) · axe RENDU = background. Bloc de manifeste éditorial.
   'manifesto-block': [
@@ -1357,6 +1360,75 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'manifesto-statement--accent', type: 'manifesto-statement', label: 'Déclaration manifeste · accent', family: 'quote', era: '2025', props: { tone: 'accent', show_grid: false } },
     { id: 'manifesto-statement--epure', type: 'manifesto-statement', label: 'Déclaration manifeste · épurée', family: 'quote', era: '2024', props: { tone: 'ink', show_grid: false } },
     { id: 'manifesto-statement--pinned', type: 'manifesto-statement', label: 'Déclaration manifeste · ancrée', family: 'quote', era: '2026', props: { tone: 'ink', pinned: true } },
+  ],
+
+  // ═══ Vague 6 · Catégorie Logos / social-proof (fan-out P2.9 w-p29-v6) ═══
+  // ecosystem-partners (band) · axe RENDU = background. (Axe layout wall/marquee différé vague 7 :
+  // absent des sélecteurs [data-layout] → rejeté par check-presets ; grille demo conservée.)
+  'ecosystem-partners': [
+    { id: 'ecosystem-partners--paper', type: 'ecosystem-partners', label: 'Partenaires écosystème · papier', family: 'band', era: '2023', props: { background: 'paper' } },
+    { id: 'ecosystem-partners--paper-2', type: 'ecosystem-partners', label: 'Partenaires écosystème · papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
+    { id: 'ecosystem-partners--paper-3', type: 'ecosystem-partners', label: 'Partenaires écosystème · papier 3', family: 'band', era: '2025', props: { background: 'paper-3' } },
+    { id: 'ecosystem-partners--ink', type: 'ecosystem-partners', label: 'Partenaires écosystème · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+  // logo-wall (band) · axe RENDU = background. Grille fixe de logos (pas de défilement).
+  'logo-wall': [
+    { id: 'logo-wall--paper', type: 'logo-wall', label: 'Mur de logos · papier', family: 'band', era: '2022', props: { background: 'paper' } },
+    { id: 'logo-wall--paper-2', type: 'logo-wall', label: 'Mur de logos · papier 2', family: 'band', era: '2023', props: { background: 'paper-2' } },
+    { id: 'logo-wall--paper-3', type: 'logo-wall', label: 'Mur de logos · papier 3', family: 'band', era: '2024', props: { background: 'paper-3' } },
+    { id: 'logo-wall--ink', type: 'logo-wall', label: 'Mur de logos · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+  // off-proof (quote) · axe RENDU = background, mais le Component ne câble QUE data-bg='ink'
+  // (paper/paper-2/paper-3 → même rendu clair). 2 états réels seulement ; alternance papier différée vague 7.
+  'off-proof': [
+    { id: 'off-proof--paper', type: 'off-proof', label: 'Preuve terrain · papier', family: 'quote', era: '2024', props: { background: 'paper' } },
+    { id: 'off-proof--ink', type: 'off-proof', label: 'Preuve terrain · encre', family: 'quote', era: '2026', props: { background: 'ink' } },
+  ],
+  // social-proof (marquee) · axes RENDUS = background × marquee (défilement / statique). Demo fige marquee:true.
+  'social-proof': [
+    { id: 'social-proof--marquee-paper', type: 'social-proof', label: 'Preuve sociale · défilante · papier', family: 'marquee', era: '2023', props: { background: 'paper', marquee: true } },
+    { id: 'social-proof--marquee-paper-2', type: 'social-proof', label: 'Preuve sociale · défilante · papier 2', family: 'marquee', era: '2024', props: { background: 'paper-2', marquee: true } },
+    { id: 'social-proof--static-paper-3', type: 'social-proof', label: 'Preuve sociale · statique · papier 3', family: 'marquee', era: '2022', props: { background: 'paper-3', marquee: false } },
+    { id: 'social-proof--marquee-ink', type: 'social-proof', label: 'Preuve sociale · défilante · encre', family: 'marquee', era: '2026', props: { background: 'ink', marquee: true } },
+    { id: 'social-proof--static-ink', type: 'social-proof', label: 'Preuve sociale · statique · encre', family: 'marquee', era: '2026', props: { background: 'ink', marquee: false } },
+  ],
+  // trust-badges-band (band) · axe RENDU = background (variant strip hérité de la demo).
+  // (Axe variant cells différé vague 7 : 'cells' hors union PresetProps.variant → ts2322, pas d'élargissement worker.)
+  'trust-badges-band': [
+    { id: 'trust-badges-band--paper', type: 'trust-badges-band', label: 'Bandeau de confiance · papier', family: 'band', era: '2023', props: { background: 'paper' } },
+    { id: 'trust-badges-band--paper-2', type: 'trust-badges-band', label: 'Bandeau de confiance · papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
+    { id: 'trust-badges-band--paper-3', type: 'trust-badges-band', label: 'Bandeau de confiance · papier 3', family: 'band', era: '2025', props: { background: 'paper-3' } },
+    { id: 'trust-badges-band--ink', type: 'trust-badges-band', label: 'Bandeau de confiance · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // ═══ Vague 6 · Catégorie Media / galeries (fan-out P2.9 w-p29-v6) ═══
+  // code-showcase (split-media) · axes RENDUS = background × tone (thème du panneau code) × show_line_numbers.
+  'code-showcase': [
+    { id: 'code-showcase--paper-dark', type: 'code-showcase', label: 'Vitrine code · panneau encre · papier', family: 'split-media', era: '2025', props: { background: 'paper', tone: 'ink' } },
+    { id: 'code-showcase--paper-2-dark', type: 'code-showcase', label: 'Vitrine code · panneau encre · papier 2', family: 'split-media', era: '2024', props: { background: 'paper-2', tone: 'ink' } },
+    { id: 'code-showcase--ink-light', type: 'code-showcase', label: 'Vitrine code · panneau papier · encre', family: 'split-media', era: '2026', props: { background: 'ink', tone: 'paper' } },
+    { id: 'code-showcase--paper-plain', type: 'code-showcase', label: 'Vitrine code · panneau papier · sans numéros', family: 'split-media', era: '2023', props: { background: 'paper', tone: 'paper', show_line_numbers: false } },
+  ],
+  // gallery-masonry (card-grid) · axe RENDU = background. Grille éditoriale de cartes (texte, pas d'images).
+  'gallery-masonry': [
+    { id: 'gallery-masonry--paper', type: 'gallery-masonry', label: 'Galerie mosaïque · papier', family: 'card-grid', era: '2023', props: { background: 'paper' } },
+    { id: 'gallery-masonry--paper-2', type: 'gallery-masonry', label: 'Galerie mosaïque · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'gallery-masonry--paper-3', type: 'gallery-masonry', label: 'Galerie mosaïque · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'gallery-masonry--ink', type: 'gallery-masonry', label: 'Galerie mosaïque · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // media-block (split-media) · axes RENDUS = background × display (full / inset centré prose).
+  'media-block': [
+    { id: 'media-block--full-paper', type: 'media-block', label: 'Bloc média · pleine largeur · papier', family: 'split-media', era: '2023', props: { background: 'paper', display: 'full' } },
+    { id: 'media-block--inset-paper-2', type: 'media-block', label: 'Bloc média · encart centré · papier 2', family: 'split-media', era: '2024', props: { background: 'paper-2', display: 'inset' } },
+    { id: 'media-block--inset-paper-3', type: 'media-block', label: 'Bloc média · encart centré · papier 3', family: 'split-media', era: '2025', props: { background: 'paper-3', display: 'inset' } },
+    { id: 'media-block--full-ink', type: 'media-block', label: 'Bloc média · pleine largeur · encre', family: 'split-media', era: '2026', props: { background: 'ink', display: 'full' } },
+  ],
+  // site-showcase (split-media) · axe RENDU = background. Vitrine de captures en cadres navigateur.
+  'site-showcase': [
+    { id: 'site-showcase--paper', type: 'site-showcase', label: 'Vitrine site · papier', family: 'split-media', era: '2024', props: { background: 'paper' } },
+    { id: 'site-showcase--paper-2', type: 'site-showcase', label: 'Vitrine site · papier 2', family: 'split-media', era: '2024', props: { background: 'paper-2' } },
+    { id: 'site-showcase--paper-3', type: 'site-showcase', label: 'Vitrine site · papier 3', family: 'split-media', era: '2025', props: { background: 'paper-3' } },
+    { id: 'site-showcase--ink', type: 'site-showcase', label: 'Vitrine site · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
   ],
 };
 
