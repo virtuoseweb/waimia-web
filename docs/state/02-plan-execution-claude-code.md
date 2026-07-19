@@ -845,7 +845,7 @@ _(vide)_
 - [ ] **T-4 — DS / variation / partners : finir le hub techno** (`state/01 §a`, worktree `feat/ecosystem-partners`). ▸ *réconcilié 2026-07-19 : RESTE (effort S, section ecosystem-partners construite mais orpheline : câbler sur `/technologies` ou abandonner, ARBITRAGE léger)*
   - Contexte : section `ecosystem-partners` posée (`specs/01-ecosystem-partners`), **hub `/technologies` à finir**.
   - Preuve GF-1 : hub techno rendu (screenshot above-fold) + build vert. Dépend de : —
-- [ ] **T-5 — Re-critique AWWWARDS it.13 post-deploy** (`state/01 §a` ; boucle close it.12 = 4,5/5). ▸ *réconcilié 2026-07-19 : RESTE (effort M, re-critique post-refontes)*
+- [x] **T-5 — Re-critique AWWWARDS it.13 post-deploy** (`state/01 §a` ; boucle close it.12 = 4,5/5). ▸ *LIVRÉE 2026-07-19 (agent w-t5-recritique, rapport canonique `state/06-recritique-it13.md`) : score 4,5/5 MAINTENU, 0 P1, 0 régression ; typo-transverse (directive #4) soldée sur le flagship ; top 5 = motion signature [L] (levier 4,7+), skeleton Cal /contact [S], vide actif cas-clients [M], densité cas Amploi [S], climax immersif pages phares [M].* <!-- sb commit=be7bd171 gf1=y -->
   - P3 connus à résorber : monotonie cards offres rangée « Construire » ; `/careers` colonne droite vide ;
     marqueurs timeline secteurs hétérogènes. Preuve GF-1 visuelle. Dépend de : refonte P0 déployée.
 
