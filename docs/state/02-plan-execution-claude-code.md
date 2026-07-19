@@ -720,17 +720,17 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [x] **P2.7 — `sectionBaseSchema` mixin + compléter `section-presets.ts` + `.sec--layout-*` + déployer
-  `data-palette`/`data-density` + route `/preview/[type]/[preset]` + gate `check-presets`.** Dépend de P2.3. ▸ *soldé (réconciliation 2026-07-19) : `sectionBaseSchema` + 321 presets/36 types + `data-palette`/`data-density`/`data-layout` + route preview preset + gate `check:presets`.* <!-- sb commit=5e74e4c1 gf1=n -->
+- [x] **P2.7 — `sectionBaseSchema` mixin + compléter `section-presets.ts` + `.sec--layout-*` + déployer `data-palette`/`data-density` + route `/preview/[type]/[preset]` + gate `check-presets`.** Dépend de P2.3. ▸ *soldé (réconciliation 2026-07-19) : `sectionBaseSchema` + 321 presets/36 types + `data-palette`/`data-density`/`data-layout` + route preview preset + gate `check:presets`.* <!-- sb commit=5e74e4c1 gf1=n -->
 
 ## Chantier P2.8 — DS Studio créatif (#14 Phase C)
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P2.8 — Save preset** (`POST /api/ds/preset`, garde `DS_SAVE_KEYWORD`, pipeline git) →
-  `src/data/ds-presets.json` + `[data-theme]` dans `src/styles/themes.css` ; supprimer reload
-  `loadCatalogType` ; instance overrides. Dépend de P2.7.
- ▸ *réconcilié 2026-07-19 : RESTE (chantier actif suivant).*
+- [x] **P2.8 — Save preset** (`POST /api/ds/preset`, garde `DS_SAVE_KEYWORD`, pipeline git) → `src/data/ds-presets.json` + `[data-theme]` dans `src/styles/themes.css`. Dépend de P2.7. ▸ *soldé 2026-07-19 (core save/list/apply, fiche 0022 : Option A dev-only, extension `ds-save-dev.mjs`) : GF-1 fonctionnel = POST réel 200/403/400/400 + write→read JSON+CSS + pipeline git tracé + gate `check:ds-presets` + UI round-trip (`dsStudio.presets.list().saved`). Sous-items scindés en P2.8-b/P2.8-c.* <!-- sb commit=2d23991a gf1=y -->
+- [ ] **P2.8-b — Supprimer reload `loadCatalogType`** (apply preset sans rechargement complet).
+ ▸ *scindé de P2.8 (fiche 0022), non bloquant pour P2.9.*
+- [ ] **P2.8-c — Instance overrides** (overrides de tokens par instance de section).
+ ▸ *scindé de P2.8 (fiche 0022), non bloquant pour P2.9.*
 
 ## Chantier P2.9 — Production presets en masse (#14 Phase D-E)
 ### Tâches finies
