@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `2bdf37a2` - 67/87 tâches done (77%).
+État : HEAD `770f1fe3` - 67/87 tâches done (77%).
 
 ## Avancement par phase
 
