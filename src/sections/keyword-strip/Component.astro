@@ -72,6 +72,14 @@ const Row = tone === 'ink' ? 'address' : 'p';
 
   /* ── tone muted : parite `.ap-expertise` (mots-cles) ── */
   .keyword-strip[data-tone='muted'] .keyword-strip__row {
+    /* flex-wrap : les items sont `white-space: nowrap` et les separateurs `&nbsp;·&nbsp;`
+       (non secables) -> le flux inline `block` n'offrait AUCUN point de coupure -> la rangee
+       debordait en mobile (390 -> scrollWidth 723). flex-wrap re-cree des points de coupure
+       entre items sans toucher le rendu desktop (1 seule ligne quand ca tient). Miroir du
+       tone `ink` deja en flex-wrap. */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono, 0.12em);

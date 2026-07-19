@@ -416,6 +416,105 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'hero-masthead-card--ink', type: 'hero-masthead-card', label: 'Masthead carte · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
   ],
 
+  // ── Fan-out presets P2.9 · vague 11 (w-p29-v11) · HERO tranche 1 (1re moitié alpha des ~41
+  //    types hero à 0 preset). Axe unique câblé = fond (data-bg). Deux régimes prouvés en live
+  //    (probe getComputedStyle sur /preview/<type>, 1440) :
+  //    · GROUPE A (data-bg={data.background} → paper-2/paper-3/ink honorés distinctement) :
+  //      academy-hub, atlas, author, course, essay, form-inline, hub-listing, hub-stats, landing,
+  //      lead-magnet → 3 presets bg chacun (demo défaut = paper, jamais no-op).
+  //    · GROUPE B (data-bg={background==='ink'?'ink':undefined} → paper-2/paper-3 = NOOP, seul ink
+  //      change) : asymmetric-grid, baseline-stats, capability-band, card-cover, centered-band,
+  //      editorial-kpi, editorial-masthead, grid-12, magazine-cover → 1 preset `--ink` chacun.
+  //    Aucun axe variant/layout de section (le seul enum « variant » de hero-course vit sur les
+  //    items meta, pas sur la section). 0 contenu inventé, 0 token créé.
+  'hero-academy-hub': [
+    { id: 'hero-academy-hub--paper-2', type: 'hero-academy-hub', label: 'Hero académie · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-academy-hub--paper-3', type: 'hero-academy-hub', label: 'Hero académie · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-academy-hub--ink', type: 'hero-academy-hub', label: 'Hero académie · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-atlas': [
+    { id: 'hero-atlas--paper-2', type: 'hero-atlas', label: 'Hero atlas · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-atlas--paper-3', type: 'hero-atlas', label: 'Hero atlas · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-atlas--ink', type: 'hero-atlas', label: 'Hero atlas · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-author': [
+    { id: 'hero-author--paper-2', type: 'hero-author', label: 'Hero auteur · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-author--paper-3', type: 'hero-author', label: 'Hero auteur · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-author--ink', type: 'hero-author', label: 'Hero auteur · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-course': [
+    { id: 'hero-course--paper-2', type: 'hero-course', label: 'Hero formation · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-course--paper-3', type: 'hero-course', label: 'Hero formation · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-course--ink', type: 'hero-course', label: 'Hero formation · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-essay': [
+    { id: 'hero-essay--paper-2', type: 'hero-essay', label: 'Hero essai · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-essay--paper-3', type: 'hero-essay', label: 'Hero essai · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-essay--ink', type: 'hero-essay', label: 'Hero essai · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-form-inline': [
+    { id: 'hero-form-inline--paper-2', type: 'hero-form-inline', label: 'Hero formulaire inline · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-form-inline--paper-3', type: 'hero-form-inline', label: 'Hero formulaire inline · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-form-inline--ink', type: 'hero-form-inline', label: 'Hero formulaire inline · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-hub-listing': [
+    { id: 'hero-hub-listing--paper-2', type: 'hero-hub-listing', label: 'Hero hub listing · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-hub-listing--paper-3', type: 'hero-hub-listing', label: 'Hero hub listing · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-hub-listing--ink', type: 'hero-hub-listing', label: 'Hero hub listing · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-hub-stats': [
+    { id: 'hero-hub-stats--paper-2', type: 'hero-hub-stats', label: 'Hero hub stats · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-hub-stats--paper-3', type: 'hero-hub-stats', label: 'Hero hub stats · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-hub-stats--ink', type: 'hero-hub-stats', label: 'Hero hub stats · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-landing': [
+    { id: 'hero-landing--paper-2', type: 'hero-landing', label: 'Hero landing · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-landing--paper-3', type: 'hero-landing', label: 'Hero landing · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-landing--ink', type: 'hero-landing', label: 'Hero landing · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-lead-magnet': [
+    { id: 'hero-lead-magnet--paper-2', type: 'hero-lead-magnet', label: 'Hero lead magnet · papier 2', family: 'hero', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hero-lead-magnet--paper-3', type: 'hero-lead-magnet', label: 'Hero lead magnet · papier 3', family: 'hero', era: '2024', props: { background: 'paper-3' } },
+    { id: 'hero-lead-magnet--ink', type: 'hero-lead-magnet', label: 'Hero lead magnet · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  // Groupe B · ink-toggle uniquement (paper-2/paper-3 = NOOP prouvé, écartés).
+  'hero-asymmetric-grid': [
+    { id: 'hero-asymmetric-grid--ink', type: 'hero-asymmetric-grid', label: 'Hero grille asymétrique · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-baseline-stats': [
+    { id: 'hero-baseline-stats--ink', type: 'hero-baseline-stats', label: 'Hero baseline stats · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-capability-band': [
+    { id: 'hero-capability-band--ink', type: 'hero-capability-band', label: 'Hero bande capacités · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-card-cover': [
+    { id: 'hero-card-cover--ink', type: 'hero-card-cover', label: 'Hero carte cover · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-centered-band': [
+    { id: 'hero-centered-band--ink', type: 'hero-centered-band', label: 'Hero centré bande · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-editorial-kpi': [
+    { id: 'hero-editorial-kpi--ink', type: 'hero-editorial-kpi', label: 'Hero éditorial KPI · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-editorial-masthead': [
+    { id: 'hero-editorial-masthead--ink', type: 'hero-editorial-masthead', label: 'Hero éditorial masthead · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-grid-12': [
+    { id: 'hero-grid-12--ink', type: 'hero-grid-12', label: 'Hero grille 12 · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-magazine-cover': [
+    { id: 'hero-magazine-cover--ink', type: 'hero-magazine-cover', label: 'Hero magazine cover · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
+  // hero-full-bleed · axe `background_kind` (≠ background). Demo défaut = signature-grid ; les
+  // valeurs liquid-canvas/gradient-mesh/signature-grid rendent À L'IDENTIQUE (toutes `background:
+  // var(--paper)`, aucune couche décorative dans le markup) → écartées (no-op). Seul `ink-paper`
+  // change (fond ink + titre paper) → 1 preset. (Prouvé getComputedStyle : ink-paper = rgb(12,11,9).)
+  'hero-full-bleed': [
+    { id: 'hero-full-bleed--ink-paper', type: 'hero-full-bleed', label: 'Hero pleine largeur · encre', family: 'hero', era: '2026', props: { background_kind: 'ink-paper' } },
+  ],
+  // hero-home → 0 preset : veto Simon (HeroHome intouché) + composant sans data-bg (aucun axe de
+  //   présentation câblé). hero-liquid → 0 preset : fond ink figé (canvas liquide), aucun data-bg.
+
   // statement-orbit (famille manifesto) · Batch 6 (texte/manifeste) · 3 couches :
   // layout prose|lead-aside|two-col + density/contentAlign/actionsAlign + placement atomique.
   // La carte interne reste toujours ink (signature) ; `background` agit sur la zone externe.
@@ -1698,12 +1797,15 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'guarantee-block--paper-3', type: 'guarantee-block', label: 'Garantie · papier 3', family: 'band', era: '2024', props: { background: 'paper-3' } },
     { id: 'guarantee-block--ink', type: 'guarantee-block', label: 'Garantie · encre', family: 'band', era: '2026', props: { background: 'ink' } },
   ],
-  // band · keyword-strip · axe tone (muted défaut → ink). Axe `pad` écarté : la rangée de mots-clés
-  // « muted » (.col-prose) déborde déjà en mobile (390 → scrollWidth 723) à l'état de base du composant
-  // (bug pré-existant, indépendant du padding-block) → un preset pad:tight expose ce débordement. tone:ink
-  // rend des liens qui se replient proprement (scrollWidth 390, GF-1 OK).
+  // band · keyword-strip · axe tone (muted défaut → ink) + axe pad. Le débordement mobile de la
+  // rangée « muted » (scrollWidth 723 @390 : items nowrap + séparateurs « &nbsp;·&nbsp; » non
+  // sécables → 0 point de coupure) est CORRIGÉ en v11 (row muted passée en flex-wrap, miroir du
+  // tone ink ; desktop inchangé, 1 ligne quand ça tient). L'axe `pad` redevient donc viable : la
+  // demo est `pad:tight` (0 / space-9), le preset `pad:base` (space-12 symétrique) est le seul
+  // non no-op. GF-1 v11 : scrollWidth 390 @390 pour muted-tight, ink et base ; tous OK.
   'keyword-strip': [
     { id: 'keyword-strip--ink', type: 'keyword-strip', label: 'Bande mots-clés · liens encre', family: 'band', era: '2024', props: { tone: 'ink' } },
+    { id: 'keyword-strip--base', type: 'keyword-strip', label: 'Bande mots-clés · rythme section', family: 'band', era: '2024', props: { pad: 'base' } },
   ],
   // band · provenance-chip · variant solid (défaut) → outline (sources tierces).
   'provenance-chip': [
