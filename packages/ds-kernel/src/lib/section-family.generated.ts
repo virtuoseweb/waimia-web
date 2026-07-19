@@ -154,6 +154,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'numbered-layer-list': 'list',
   'objection-handler': 'accordion',
   'off-proof': 'quote',
+  'offer-rail': 'tabs',
   'offer-tier-grid': 'card-grid',
   'operating-layer': 'card-grid',
   'pain-points': 'card-grid',

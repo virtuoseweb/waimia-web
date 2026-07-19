@@ -1,0 +1,532 @@
+---
+/**
+ * offer-rail · MONEY SLOT catalogue · diptyque/trio d'offres en onglets (familles) relie
+ * a une rangee de services par une dorsale line-art dessinee au scroll.
+ *
+ * Genese : bloc bespoke `he-offres` de la home LIVE (src/pages/index.astro, variante E gate C)
+ * eleve au catalogue (anti-orphelin, rule d'or CLAUDE.md). Le markup/CSS/scripts sont
+ * transcrits VERBATIM depuis la page ; seule la teinte de branche « complement » (#2090A8)
+ * passe du var local `--home-complement` au TOKEN DS `var(--complementary)` (meme valeur
+ * rgb(32,144,168), rule 60 : reutiliser le token existant plutot que hardcoder).
+ *
+ * Structure : header (kicker mono § + h2 display + lede) → onglets `familles` (aria tablist,
+ * clavier ←/→/Home/End, re-init ClientRouter) → par famille : intro (eyebrow + lede) + grille
+ * d'offres (`diptych` 2 col ou `trio` 3 col ; une offre peut porter accent='complement') +
+ * dorsale SVG optionnelle (dessinee au scroll) + rangee de services optionnelle + CTA panneau
+ * optionnel. Seul le 1er panneau (actif au chargement) porte les classes reveal (les panneaux
+ * masques resteraient en opacity:0 sous l'IO scroll-reveal : footgun view-transitions-io).
+ *
+ * Token-first : hairlines = box-shadow --shadow-card-rest + .hline + barre d'onglets
+ * 1px var(--hairline)/2px var(--accent-text). Exception hairline rule 60 (viewBox SVG, filets
+ * @media en px litteral car var() interdit en condition @media).
+ */
+import type { SectionByType } from '@waimia/ds-kernel';
+
+interface Props {
+  data: SectionByType<'offer-rail'>;
+  lang: 'fr' | 'en';
+}
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const t = (fr: string, en?: string) => (isFr ? fr : (en ?? fr));
+
+const kicker = t(data.kicker_fr, data.kicker_en);
+const h2 = t(data.h2_fr, data.h2_en);
+const lede = t(data.lede_fr, data.lede_en);
+const tablistLabel = t(data.tablist_label_fr, data.tablist_label_en);
+const families = data.families;
+---
+<section class="he-sec he-offres" aria-labelledby="he-offres-h2" data-bg={data.background ?? 'paper'}>
+  <div class="wrap-wide">
+    <header class="he-head reveal">
+      <p class="he-kicker">{kicker}</p>
+      <h2 id="he-offres-h2" class="he-h2 he-h2--xl u-serif-accent" set:html={h2} />
+      <p class="he-lede">{lede}</p>
+    </header>
+
+    <div class="he-tabs" data-he-tabs>
+      <div class="he-tabs__list" role="tablist" aria-label={tablistLabel}>
+        {families.map((fam, i) => (
+          <button
+            class={`he-tab${i === 0 ? ' is-active' : ''}`}
+            role="tab"
+            id={`he-tab-${fam.id}`}
+            aria-controls={`he-panel-${fam.id}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            type="button"
+          >
+            <span class="he-tab__label">{t(fam.tab_label_fr, fam.tab_label_en)}</span>
+          </button>
+        ))}
+      </div>
+
+      {families.map((fam, i) => (
+        <div
+          class={`he-tab-panel${i === 0 ? ' is-active' : ''}`}
+          role="tabpanel"
+          id={`he-panel-${fam.id}`}
+          aria-labelledby={`he-tab-${fam.id}`}
+          tabindex={0}
+          hidden={i !== 0 ? true : undefined}
+        >
+          <div class={`he-tabintro${i === 0 ? ' reveal' : ''}`}>
+            <p class="he-tabintro__eyebrow">{t(fam.intro_eyebrow_fr, fam.intro_eyebrow_en)}</p>
+            <p class="he-tabintro__lede" set:html={t(fam.intro_lede_fr, fam.intro_lede_en)} />
+          </div>
+
+          <div class={`he-diptych${fam.layout === 'trio' ? ' he-diptych--trio' : ''}${i === 0 ? ' reveal-stagger' : ''}`}>
+            {fam.offers.map((o) => (
+              <article class={`he-offer${o.accent === 'complement' ? ' he-offer--complement' : ''}`}>
+                <p class="he-offer__tag">{t(o.tag_fr, o.tag_en)}</p>
+                <h3 class="he-offer__title">{t(o.title_fr, o.title_en)}</h3>
+                <p class="he-offer__body">{t(o.body_fr, o.body_en)}</p>
+                {o.points_fr && o.points_fr.length > 0 && (
+                  <Fragment>
+                    <div class="hline"></div>
+                    <ul class="he-offer__points">
+                      {(isFr ? o.points_fr : (o.points_en ?? o.points_fr)).map((p) => <li>{p}</li>)}
+                    </ul>
+                  </Fragment>
+                )}
+                <a class="he-offer__link" href={o.link_href}>{t(o.link_label_fr, o.link_label_en)}</a>
+              </article>
+            ))}
+          </div>
+
+          {fam.rail && (
+            <div class="he-rail hd-draw" aria-hidden="true">
+              <svg class="he-rail__svg" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
+                <path class="hd-line hd-line--2" pathLength="1" d="M300 4 C 300 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
+                <path class="hd-line hd-line--2 he-rail__branch--complement" pathLength="1" d="M900 4 C 900 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
+                <path class="hd-line hd-line--3" pathLength="1" d="M600 62 L600 108" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.6"/>
+                <path class="hd-line" pathLength="1" d="M100 108 L1100 108" stroke="var(--hairline-strong)" stroke-width="1"/>
+                <path class="hd-line hd-line--3" pathLength="1" d="M100 108 L100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+                <path class="hd-line hd-line--3" pathLength="1" d="M300 108 L300 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+                <path class="hd-line hd-line--3" pathLength="1" d="M500 108 L500 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+                <path class="hd-line hd-line--3" pathLength="1" d="M700 108 L700 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+                <path class="hd-line hd-line--3" pathLength="1" d="M900 108 L900 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+                <path class="hd-line hd-line--3" pathLength="1" d="M1100 108 L1100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
+                <circle class="hd-node" cx="600" cy="62" r="4" fill="var(--accent)"/>
+                <circle class="hd-node" cx="100" cy="146" r="3" fill="var(--accent)"/>
+                <circle class="hd-node" cx="300" cy="146" r="3" fill="var(--accent)"/>
+                <circle class="hd-node" cx="500" cy="146" r="3" fill="var(--accent)"/>
+                <circle class="hd-node" cx="700" cy="146" r="3" fill="var(--accent)"/>
+                <circle class="hd-node" cx="900" cy="146" r="3" fill="var(--accent)"/>
+                <circle class="hd-node" cx="1100" cy="146" r="3" fill="var(--accent)"/>
+              </svg>
+            </div>
+          )}
+
+          {(fam.services_intro_fr || (fam.services && fam.services.length > 0)) && fam.services_intro_fr && (
+            <p class={`he-services__intro${i === 0 ? ' reveal' : ''}`}>{t(fam.services_intro_fr, fam.services_intro_en)}</p>
+          )}
+          {fam.services && fam.services.length > 0 && (
+            <div class={`he-services${i === 0 ? ' reveal-stagger' : ''}`}>
+              {fam.services.map((s) => (
+                <a class="he-svc" href={s.href}>
+                  <span class="he-svc__k">{t(s.metric_fr, s.metric_en)}</span>
+                  <span class="he-svc__label">{t(s.label_fr, s.label_en)}</span>
+                  <span class="he-svc__sub">{t(s.sub_fr, s.sub_en)}</span>
+                </a>
+              ))}
+            </div>
+          )}
+
+          {fam.panel_cta_href && (
+            <a class="he-offer__link he-panel-cta" href={fam.panel_cta_href}>{t(fam.panel_cta_label_fr ?? '', fam.panel_cta_label_en)}</a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Rythme de section (identique .he-sec home) ── */
+  .he-sec { padding-block: var(--section-base); }
+  .he-offres { padding-block: var(--section-base); }
+  /* Backgrounds paper (defaut = fond de page). Ink hors perimetre (cartes claires). */
+  .he-offres[data-bg='paper-2'] { background: var(--paper-2); }
+  .he-offres[data-bg='paper-3'] { background: var(--paper-3); }
+
+  /* ── En-tete de chapitre (kicker mono § + h2 + lede) ── */
+  .he-head {
+    max-width: var(--wrap-read);
+    margin-bottom: var(--space-7);
+  }
+  .he-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-4);
+  }
+  .he-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .he-h2--xl { font-size: var(--text-h1); line-height: var(--leading-h1); }
+  .he-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    color: var(--muted);
+    margin: var(--space-5) 0 0;
+    max-width: var(--wrap-prose);
+  }
+
+  /* ── Onglets familles · barre hairline sobre, PAS de pills (idiome FeatureTabs) ── */
+  .he-tabs { margin-bottom: var(--space-7); }
+  .he-tabs__list {
+    display: flex;
+    gap: var(--space-6);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-6);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .he-tabs__list::-webkit-scrollbar { display: none; }
+  .he-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    margin-bottom: -1px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    white-space: nowrap;
+    transition:
+      color var(--dur-trim) var(--ease),
+      border-color var(--dur-trim) var(--ease);
+  }
+  .he-tab.is-active {
+    color: var(--ink);
+    border-bottom-color: var(--accent-text);
+  }
+  .he-tab:not(.is-disabled):not(.is-active):hover { color: var(--ink); }
+  .he-tab.is-disabled { cursor: not-allowed; color: var(--muted); }
+  .he-tab__badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card-rest);
+  }
+  .he-tab-panel { display: none; }
+  .he-tab-panel.is-active { display: block; }
+  .he-tab-panel:focus-visible { outline: 2px solid var(--accent-text); outline-offset: var(--space-2); }
+
+  /* ── Intro d'un onglet (cible + promesse) ── */
+  .he-tabintro {
+    max-width: var(--wrap-read);
+    margin-bottom: var(--space-6);
+  }
+  .he-tabintro__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 var(--space-3);
+  }
+  .he-tabintro__lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+    max-width: var(--wrap-prose);
+  }
+
+  /* ── Diptyque / trio des offres ── */
+  .he-diptych {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gut);
+  }
+  .he-diptych--trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .he-panel-cta { display: inline-block; margin-top: var(--space-5); }
+  .he-offer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-7);
+    background: var(--paper-2);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-rest);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-offer:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-offer__tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0;
+  }
+  .he-offer__title {
+    font-family: var(--font-sans);
+    font-size: var(--text-title-lg);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    margin: 0;
+  }
+  .he-offer__body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin: 0;
+  }
+  .he-offer__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .he-offer__points li {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    color: var(--ink);
+  }
+  .he-offer__points li::before {
+    content: "";
+    flex: none;
+    inline-size: var(--space-2);
+    block-size: var(--space-2);
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    transform: translateY(0.5em);
+  }
+  /* Branche « complement » (Automation & IA) : teinte DS --complementary (#2090A8). */
+  .he-offer--complement .he-offer__tag,
+  .he-offer--complement .he-offer__link {
+    color: var(--complementary);
+  }
+  .he-offer--complement .he-offer__points li::before {
+    background: var(--complementary);
+  }
+  .he-offer--complement:hover {
+    box-shadow:
+      0 0 0 1px rgba(var(--complementary-rgb), 0.38),
+      0 8px 24px -16px rgba(var(--ink-rgb), 0.1);
+  }
+  .he-offer__link {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--accent-text);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .he-offer__link:hover { color: var(--accent); }
+
+  /* ── Dorsale line-art (relie les offres -> les services) ── */
+  .he-rail {
+    margin: var(--space-4) 0 var(--space-3);
+  }
+  .he-rail__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .he-rail__branch--complement {
+    stroke: var(--complementary);
+  }
+
+  /* ── Rangee compacte des services ── */
+  .he-services__intro {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+    margin: 0 0 var(--space-4);
+  }
+  .he-services {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+  .he-svc {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card-rest);
+    background: var(--paper);
+    transition:
+      transform var(--dur-hover) var(--ease),
+      box-shadow var(--dur-hover) var(--ease);
+  }
+  .he-svc:hover {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .he-svc__k {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .he-svc__label {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-h3);
+    color: var(--ink);
+  }
+  .he-svc__sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    line-height: var(--leading-relaxed);
+    color: var(--muted);
+    margin-top: auto;
+  }
+
+  /* ── SVG dessine au scroll · dorsale ──
+     pathLength=1 -> dasharray:1 ; l'IntersectionObserver ajoute .is-drawn (offset -> 0). */
+  .hd-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset var(--dur-slow) var(--ease-out);
+  }
+  .hd-line--2 { transition-delay: var(--dur-base); }
+  .hd-line--3 { transition-delay: var(--dur-panel); }
+  .hd-draw.is-drawn .hd-line { stroke-dashoffset: 0; }
+  .hd-node {
+    opacity: 0;
+    transition: opacity var(--dur-reveal) var(--ease-out) var(--dur-panel);
+  }
+  .hd-draw.is-drawn .hd-node { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hd-line { stroke-dashoffset: 0; transition: none; }
+    .hd-node { opacity: 1; transition: none; }
+    .he-offer:hover,
+    .he-svc:hover { transform: none; }
+  }
+
+  /* ── Responsive · litteraux px en @media UNIQUEMENT (var() interdit en condition) ── */
+  @media (max-width: 900px) {
+    .he-diptych { grid-template-columns: 1fr; }
+    .he-services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .he-rail { display: none; }
+  }
+  @media (max-width: 560px) {
+    .he-services { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+  /* Dessin des SVG au scroll · IntersectionObserver -> .is-drawn (stroke-dashoffset).
+     Reduced-motion : le CSS montre deja l'etat final. Re-init compatible ClientRouter. */
+  (() => {
+    if (typeof window === 'undefined') return;
+    function initHeDraw() {
+      const nodes = document.querySelectorAll('.hd-draw');
+      if (!nodes.length) return;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-drawn');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      nodes.forEach((n) => {
+        if (n.dataset.drawBound === '1') return;
+        n.dataset.drawBound = '1';
+        io.observe(n);
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeDraw);
+    } else {
+      initHeDraw();
+    }
+    document.addEventListener('astro:page-load', initHeDraw);
+  })();
+</script>
+
+<script is:inline>
+  /* Onglets familles · aria tablist/tab/tabpanel + clavier ←/→/Home/End.
+     Idiome FeatureTabs/pricing-tabs, adapte : les onglets desactives (aria-disabled) sont
+     ignores (non focusables, sans panel). Re-init compatible ClientRouter (astro:page-load)
+     + garde anti double-binding. */
+  (() => {
+    if (typeof window === 'undefined') return;
+    function initHeTabs() {
+      const root = document.querySelector('[data-he-tabs]');
+      if (!root || root.dataset.tabsBound === '1') return;
+      const tabs = Array.from(root.querySelectorAll('[role="tab"]'))
+        .filter((t) => t.getAttribute('aria-disabled') !== 'true' && !t.hasAttribute('disabled'));
+      if (!tabs.length) return;
+      root.dataset.tabsBound = '1';
+      function activate(idx) {
+        tabs.forEach((tab, i) => {
+          const active = i === idx;
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          tab.tabIndex = active ? 0 : -1;
+          tab.classList.toggle('is-active', active);
+          const pid = tab.getAttribute('aria-controls');
+          const panel = pid && document.getElementById(pid);
+          if (panel) {
+            panel.classList.toggle('is-active', active);
+            panel.toggleAttribute('hidden', !active);
+          }
+        });
+      }
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => { activate(i); tab.focus(); });
+        tab.addEventListener('keydown', (e) => {
+          const total = tabs.length;
+          if (e.key === 'ArrowRight') { e.preventDefault(); activate((i + 1) % total); tabs[(i + 1) % total].focus(); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); activate((i - 1 + total) % total); tabs[(i - 1 + total) % total].focus(); }
+          if (e.key === 'Home') { e.preventDefault(); activate(0); tabs[0].focus(); }
+          if (e.key === 'End')  { e.preventDefault(); activate(total - 1); tabs[total - 1].focus(); }
+        });
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeTabs);
+    } else {
+      initHeTabs();
+    }
+    document.addEventListener('astro:page-load', initHeTabs);
+  })();
+</script>

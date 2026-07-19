@@ -3638,6 +3638,12 @@
     "description_en": "Closing CTA band on ink: kicker + display-lg title (italic accent) + primary button. Title rendered as HTML (<em> accent).",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "button_href",
         "type": "string",
         "required": true
@@ -3711,6 +3717,14 @@
         "value": "#F6F1E8"
       },
       {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -3735,9 +3749,10 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 7,
       "samples": [
         "-0.015em",
+        "#118",
         "12px",
         "1px",
         "32px",
@@ -3745,7 +3760,7 @@
         "900px"
       ]
     },
-    "agentGuide": "Espacement : --space-12 --space-3 --space-6. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-semibold. Dette : 6 litteral(s) hardcode(s) (-0.015em, 12px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-semibold. Dette : 7 litteral(s) hardcode(s) (-0.015em, #118, 12px)."
   },
   {
     "id": "code-showcase",
@@ -14313,19 +14328,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-asymmetric-grid",
@@ -16307,19 +16322,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background`, `illustration` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background`, `illustration` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-centered",
@@ -16731,19 +16746,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-centered-band",
@@ -17745,19 +17760,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-detail-menu",
@@ -18171,19 +18186,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-editorial-kpi",
@@ -19090,19 +19105,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-form-inline",
@@ -20321,19 +20336,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-hub-masthead",
@@ -20785,19 +20800,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `align`, `background`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `align`, `background`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-hub-stats",
@@ -21539,19 +21554,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-lead-magnet",
@@ -23970,6 +23985,12 @@
     "description_en": "Problem index hero: 12° rotated rectangle SVG decoration, monumental h1, italic lede, and canonical line.",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "canonical_en",
         "type": "string",
         "required": false
@@ -24364,19 +24385,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-scope-minimap",
@@ -25336,19 +25357,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-service-masthead",
@@ -25752,19 +25773,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-social-proof",
@@ -28753,19 +28774,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 37,
+      "count": 38,
       "samples": [
         "-0.015em",
         "-0.01em",
         "-0.028em",
         "-0.02em",
         ".1em",
+        "#118",
         "0.06em",
-        "0.1em",
-        "100%"
+        "0.1em"
       ]
     },
-    "agentGuide": "Layout : `align`, `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `align`, `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "horizontal-showcase",
@@ -30957,6 +30978,12 @@
     "description_en": "Listing masthead with optional filters, open list container, and custom footer.",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "filters_html_en",
         "type": "string",
         "required": false
@@ -31065,6 +31092,22 @@
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--section-loose",
         "value": "var(--space-13)"
       },
@@ -31111,15 +31154,16 @@
       "list-lede"
     ],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 5,
       "samples": [
         "-0.015em",
+        "#118",
         "140px",
         "1px",
         "760px"
       ]
     },
-    "agentGuide": "Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.015em, 140px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.015em, #118, 140px)."
   },
   {
     "id": "logo-marquee",
@@ -34871,6 +34915,91 @@
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 100%, 640px)."
+  },
+  {
+    "id": "offer-rail",
+    "component": {
+      "name": "OfferRail",
+      "path": "src/sections/offer-rail/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "tags": [
+      "interactive",
+      "offers",
+      "pricing-adjacent",
+      "rail",
+      "services",
+      "tabs"
+    ],
+    "status": "stable",
+    "description_fr": "Offres en onglets (familles) : diptyque ou trio de cartes relie a une rangee de services par une dorsale line-art dessinee au scroll. Une branche peut etre teintee (token --complementary). Vanilla JS aria, 0 dependance.",
+    "description_en": "Tabbed offers (families): a diptych or trio of cards linked to a services row by a scroll-drawn line-art spine. One branch can be tinted (--complementary token). Vanilla JS aria, zero dependencies.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3"
+      },
+      {
+        "name": "families",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tablist_label_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "tablist_label_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [],
+    "tokensUsed": [],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 0,
+      "samples": []
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS)."
   },
   {
     "id": "offer-tier-grid",
@@ -38788,6 +38917,12 @@
     "description_en": "Editorial prose column (MDX body) with a kicker in an aside. Body lives in MDX, not frontmatter. Generic for any prose + side-eyebrow block.",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "kicker_en",
         "type": "string",
         "required": true
@@ -38832,6 +38967,22 @@
         "value": "#1A1814"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -38869,19 +39020,19 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 10,
       "samples": [
         "-0.02em",
+        "#118",
         "0.18em",
         "1.1em",
         "16px",
         "1px",
         "32px",
-        "48px",
-        "8px"
+        "48px"
       ]
     },
-    "agentGuide": "Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-sans --fw-regular. Dette : 9 litteral(s) hardcode(s) (-0.02em, 0.18em, 1.1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-sans --fw-regular. Dette : 10 litteral(s) hardcode(s) (-0.02em, #118, 0.18em)."
   },
   {
     "id": "provenance-chip",
@@ -39045,6 +39196,12 @@
         "required": true
       },
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "kicker_en",
         "type": "string",
         "required": true
@@ -39089,6 +39246,8 @@
       "ap-resource-",
       "ap-resource-index",
       "author-publications",
+      "callout-body",
+      "callout-manifesto",
       "display-md",
       "eyebrow",
       "publication-",
@@ -39157,6 +39316,22 @@
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -39202,19 +39377,19 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 12,
       "samples": [
         "-0.015em",
+        "#118",
         "0.12em",
         "16px",
         "1px",
         "32px",
         "40px",
-        "60px",
-        "72px"
+        "60px"
       ]
     },
-    "agentGuide": "Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.015em, 0.12em, 16px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, #118, 0.12em)."
   },
   {
     "id": "pull-quote-block",
@@ -40127,6 +40302,12 @@
     "description_en": "ROI band on an ink background: an eyebrow and display heading header, with KeyMetric figures placed in a 6/5 asymmetry.",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "eyebrow_en",
         "type": "string",
         "required": false,
@@ -40195,8 +40376,16 @@
         "value": "600"
       },
       {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
         "name": "--ink",
         "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
       },
       {
         "name": "--leading-h1",
@@ -40207,8 +40396,20 @@
         "value": "1.4"
       },
       {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
         "name": "--paper",
         "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
       },
       {
         "name": "--paper-rgb",
@@ -40259,15 +40460,16 @@
       "col-12"
     ],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 5,
       "samples": [
         "-0.018em",
         "-0.02em",
+        "#118",
         "0.1em",
         "1px"
       ]
     },
-    "agentGuide": "Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.018em, -0.02em, 0.1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.018em, -0.02em, #118)."
   },
   {
     "id": "scroll-gallery",
@@ -41093,6 +41295,12 @@
     "description_en": "Chronological index of signed long-form writing: date + title (link) + excerpt. Date formatted per language.",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "items",
         "type": "array",
         "required": true,
@@ -41188,6 +41396,22 @@
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -41233,19 +41457,19 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 13,
       "samples": [
         "-0.015em",
+        "#118",
         "0.12em",
         "0.4em",
         "1.5px",
         "17px",
         "1px",
-        "24px",
-        "32px"
+        "24px"
       ]
     },
-    "agentGuide": "Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, 0.12em, 0.4em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.015em, #118, 0.12em)."
   },
   {
     "id": "site-showcase",
@@ -47240,6 +47464,12 @@
     "description_en": "Documentary masthead with revision metadata and sticky contents for trust, governance, and legal pages.",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "body_html_en",
         "type": "string",
         "required": false
@@ -47387,6 +47617,22 @@
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--section-loose",
         "value": "var(--space-13)"
       },
@@ -47449,19 +47695,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 18,
+      "count": 19,
       "samples": [
         "-0.028em",
         "-0.02em",
+        "#118",
         "0.1em",
         "0.5em",
         "1.2em",
         "1.4em",
-        "1.5em",
-        "100px"
+        "1.5em"
       ]
     },
-    "agentGuide": "Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.028em, -0.02em, 0.1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-0.028em, -0.02em, #118)."
   },
   {
     "id": "tunnel-step-hero",
@@ -47696,6 +47942,12 @@
         "required": true
       },
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "cta",
         "type": "enum",
         "required": true,
@@ -47785,6 +48037,18 @@
         "value": "#F6F1E8"
       },
       {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--radius-xs",
         "value": "2px"
       },
@@ -47819,16 +48083,17 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 6,
       "samples": [
         ".06em",
+        "#118",
         "100%",
         "1200px",
         "1px",
         "700px"
       ]
     },
-    "agentGuide": "Layout : `cta` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (.06em, 100%, 1200px)."
+    "agentGuide": "Layout : `background`, `cta` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (.06em, #118, 100%)."
   },
   {
     "id": "use-case-index",
@@ -48100,6 +48365,12 @@
     "description_en": "Compact used-service callout: a list of cross-links to the services deployed on a project, with an accent left border.",
     "schemaFields": [
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "label_en",
         "type": "string",
         "required": false
@@ -48155,6 +48426,22 @@
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -48177,8 +48464,9 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 6,
       "samples": [
+        "#118",
         "0.08em",
         "0.12em",
         "0.1em",
@@ -48186,7 +48474,7 @@
         "3px"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-mono --text-small. Dette : 5 litteral(s) hardcode(s) (0.08em, 0.12em, 0.1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-mono --text-small. Dette : 6 litteral(s) hardcode(s) (#118, 0.08em, 0.12em)."
   },
   {
     "id": "versus-competitors",
@@ -48438,6 +48726,12 @@
         "required": false
       },
       {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "h1_en",
         "type": "string",
         "required": true
@@ -48540,6 +48834,10 @@
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
         "name": "--ink-2",
         "value": "#1A1814"
       },
@@ -48560,8 +48858,20 @@
         "value": "#6B6560"
       },
       {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
         "name": "--paper-2",
         "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
       },
       {
         "name": "--radius-lg",
@@ -48614,19 +48924,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 12,
       "samples": [
         "-0.018em",
         "-0.028em",
+        "#118",
         "0.04em",
         "10px",
         "18px",
         "1px",
-        "20px",
-        "2px"
+        "20px"
       ]
     },
-    "agentGuide": "Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.018em, -0.028em, 0.04em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.018em, -0.028em, #118)."
   },
   {
     "id": "why-stalls",

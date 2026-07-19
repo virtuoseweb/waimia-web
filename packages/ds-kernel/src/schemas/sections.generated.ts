@@ -153,6 +153,7 @@ import { schema as newsletterSignupSectionSchema } from '../sections/newsletter-
 import { schema as numberedLayerListSchema } from '../sections/numbered-layer-list/schema';
 import { schema as objectionHandlerSchema } from '../sections/objection-handler/schema';
 import { schema as offProofSchema } from '../sections/off-proof/schema';
+import { schema as offerRailSchema } from '../sections/offer-rail/schema';
 import { schema as offerTierGridSchema } from '../sections/offer-tier-grid/schema';
 import { schema as operatingLayerSchema } from '../sections/operating-layer/schema';
 import { schema as painPointsSchema } from '../sections/pain-points/schema';
@@ -375,6 +376,7 @@ export {
   numberedLayerListSchema,
   objectionHandlerSchema,
   offProofSchema,
+  offerRailSchema,
   offerTierGridSchema,
   operatingLayerSchema,
   painPointsSchema,
@@ -598,6 +600,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   numberedLayerListSchema,
   objectionHandlerSchema,
   offProofSchema,
+  offerRailSchema,
   offerTierGridSchema,
   operatingLayerSchema,
   painPointsSchema,

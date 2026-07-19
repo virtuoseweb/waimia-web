@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 220
+> Sections : 221
 
 ---
 
@@ -569,6 +569,7 @@
 | `all_href` | string | oui |  |  |
 | `all_label_en` | string | oui |  |  |
 | `all_label_fr` | string | oui |  |  |
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 | `manifesto_html_en` | string | oui |  |  |
@@ -578,15 +579,15 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--muted` `--space-12` `--space-2` `--space-4` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-12` `--space-2` `--space-4` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .ap-resource- .ap-resource-index .author-publications .display-md .eyebrow .publication- .publication-list .publication-manifesto .publications-panel .publications-panel__all .publications-panel__date .publications-panel__index .publications-panel__item .publications-panel__link .publications-panel__list .publications-panel__manifesto .publications-panel__pub-meta .publications-panel__pub-title .publications-panel__row .publications-panel__row-link .publications-panel__row-tag .publications-panel__row-title .resources-all .section-eyebrow
+**Classes scoped** : .ap-resource- .ap-resource-index .author-publications .callout-body .callout-manifesto .display-md .eyebrow .publication- .publication-list .publication-manifesto .publications-panel .publications-panel__all .publications-panel__date .publications-panel__index .publications-panel__item .publications-panel__link .publications-panel__list .publications-panel__manifesto .publications-panel__pub-meta .publications-panel__pub-title .publications-panel__row .publications-panel__row-link .publications-panel__row-tag .publications-panel__row-title .resources-all .section-eyebrow
 
 **Tailwind** : col-12 col-prose
 
-**Dette hardcode** : 11 valeur(s) — -0.015em, 0.12em, 16px, 1px, 32px, 40px, 60px, 72px
+**Dette hardcode** : 12 valeur(s) — -0.015em, #118, 0.12em, 16px, 1px, 32px, 40px, 60px
 
-**Agent** : Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.015em, 0.12em, 16px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, #118, 0.12em).
 
 ---
 
@@ -649,21 +650,22 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `items` | array | oui |  | min:1 |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-body-md` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-body-md` `--text-h1` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .author-essays .display-md .essay- .essays-list .eyebrow .section-eyebrow .signed-writing-list .signed-writing-list__date .signed-writing-list__excerpt .signed-writing-list__item .signed-writing-list__link .signed-writing-list__list .signed-writing-list__title
 
 **Tailwind** : col-12 col-prose
 
-**Dette hardcode** : 12 valeur(s) — -0.015em, 0.12em, 0.4em, 1.5px, 17px, 1px, 24px, 32px
+**Dette hardcode** : 13 valeur(s) — -0.015em, #118, 0.12em, 0.4em, 1.5px, 17px, 1px, 24px
 
-**Agent** : Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, 0.12em, 0.4em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.015em, #118, 0.12em).
 
 ---
 
@@ -914,18 +916,19 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--space-12` `--space-2` `--space-4` `--space-6` `--space-8` `--text-h2` `--text-h3` `--tracking-display`
+**Tokens** : `--accent-text` `--font-sans` `--fw-regular` `--hairline` `--ink` `--ink-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-12` `--space-2` `--space-4` `--space-6` `--space-8` `--text-h2` `--text-h3` `--tracking-display`
 
 **Classes scoped** : .author-prose .author-why .eyebrow .prose-aside .prose-aside__prose .section-eyebrow
 
 **Tailwind** : col-3 col-prose
 
-**Dette hardcode** : 9 valeur(s) — -0.02em, 0.18em, 1.1em, 16px, 1px, 32px, 48px, 8px
+**Dette hardcode** : 10 valeur(s) — -0.02em, #118, 0.18em, 1.1em, 16px, 1px, 32px, 48px
 
-**Agent** : Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-sans --fw-regular. Dette : 9 litteral(s) hardcode(s) (-0.02em, 0.18em, 1.1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-sans --fw-regular. Dette : 10 litteral(s) hardcode(s) (-0.02em, #118, 0.18em).
 
 ---
 
@@ -1001,6 +1004,7 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `button_href` | string | oui |  |  |
 | `button_label_en` | string | oui |  |  |
 | `button_label_fr` | string | oui |  |  |
@@ -1009,15 +1013,15 @@
 | `kicker_en` | string | oui |  |  |
 | `kicker_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h1` `--paper` `--space-12` `--space-3` `--space-6` `--space-8` `--text-h1`
+**Tokens** : `--accent-text` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h1` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-3` `--space-6` `--space-8` `--text-h1`
 
 **Classes scoped** : .author-cta .author-cta-inner .closing-cta-band .closing-cta-band__inner .display-lg .eyebrow
 
 **Tailwind** : col-prose
 
-**Dette hardcode** : 6 valeur(s) — -0.015em, 12px, 1px, 32px, 820px, 900px
+**Dette hardcode** : 7 valeur(s) — -0.015em, #118, 12px, 1px, 32px, 820px, 900px
 
-**Agent** : Espacement : --space-12 --space-3 --space-6. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-semibold. Dette : 6 litteral(s) hardcode(s) (-0.015em, 12px, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-semibold. Dette : 7 litteral(s) hardcode(s) (-0.015em, #118, 12px).
 
 ---
 
@@ -1293,6 +1297,7 @@
 |---|---|---|---|---|
 | `back_href` | string | oui |  |  |
 | `back_label` | string | oui |  |  |
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `cta` | enum | oui |  | primary | accent | ghost |
 | `prev_href` | string | non |  |  |
 | `prev_label_en` | string | non | ← Previous step |  |
@@ -1300,13 +1305,13 @@
 | `reading_en` | string | non | 2 min read |  |
 | `reading_fr` | string | non | Temps de lecture : 2 min |  |
 
-**Tokens** : `--accent` `--dur-fast` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--muted` `--paper` `--radius-xs` `--section-base` `--space-3` `--space-4` `--space-5` `--space-6` `--text-body` `--text-small`
+**Tokens** : `--accent` `--dur-fast` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--space-3` `--space-4` `--space-5` `--space-6` `--text-body` `--text-small`
 
 **Classes scoped** : .tunnel-step-nav .tunnel-step-nav__btn-cta .tunnel-step-nav__btn-cta--accent .tunnel-step-nav__btn-cta--ghost .tunnel-step-nav__btn-cta--primary .tunnel-step-nav__btn-ghost .tunnel-step-nav__meta .tunnel-step-nav__meta-back .tunnel-step-nav__meta-reading .wrap-wide
 
-**Dette hardcode** : 5 valeur(s) — .06em, 100%, 1200px, 1px, 700px
+**Dette hardcode** : 6 valeur(s) — .06em, #118, 100%, 1200px, 1px, 700px
 
-**Agent** : Layout : `cta` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (.06em, 100%, 1200px).
+**Agent** : Layout : `background`, `cta` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (.06em, #118, 100%).
 
 ---
 
@@ -2154,6 +2159,31 @@
 
 ---
 
+### `offer-rail`
+
+> Offres en onglets (familles) : diptyque ou trio de cartes relie a une rangee de services par une dorsale line-art dessinee au scroll. Une branche peut etre teintee (token --complementary). Vanilla JS aria, 0 dependance.
+> OfferRail · src/sections/offer-rail/Component.astro · marketing/feature-sections
+> status : stable · tags : interactive, offers, pricing-adjacent, rail, services, tabs
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 |
+| `families` | array | oui |  | min:1 max:6 |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `kicker_en` | string | oui |  |  |
+| `kicker_fr` | string | oui |  |  |
+| `lede_en` | string | oui |  |  |
+| `lede_fr` | string | oui |  |  |
+| `tablist_label_en` | string | oui |  |  |
+| `tablist_label_fr` | string | oui |  |  |
+
+**Agent** : Layout : `background` (schema, 0 CSS).
+
+---
+
 ### `offer-tier-grid`
 
 > Section de palier d’offres avec eyebrow, H2, lede, grille de cartes et variante hero sombre optionnelle.
@@ -2899,9 +2929,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3125,9 +3155,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background`, `illustration` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background`, `illustration` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3154,9 +3184,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3254,9 +3284,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3283,9 +3313,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3381,9 +3411,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3537,9 +3567,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3572,9 +3602,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `align`, `background`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `align`, `background`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3634,9 +3664,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -3957,6 +3987,7 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `canonical_en` | string | non |  |  |
 | `canonical_fr` | string | non |  |  |
 | `h1_en` | string | oui |  |  |
@@ -3971,9 +4002,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -4066,9 +4097,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -4093,9 +4124,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -4449,9 +4480,9 @@
 
 **Classes scoped** : .css .hero-academy-hub .hero-academy-hub__heading .hero-academy-hub__hero .hero-academy-hub__kicker .hero-academy-hub__lede .hero-academy-hub__stats .hero-academy-hub__stats-text .hero-academy-hub--unwrapped .hero-case-study .hero-case-study__deco .hero-case-study__eyebrow .hero-case-study__h1 .hero-case-study__illus .hero-case-study__mast .hero-case-study__mast--illus .hero-case-study__mast--left .hero-case-study__mast--right .hero-case-study__num .hero-case-study__spec .hero-case-study__spec-l .hero-case-study__spec-v .hero-case-study__specs .hero-case-study__specs-grid .hero-centered .hero-centered__ctas .hero-centered__inner .hero-course .hero-course__btn-ghost .hero-course__btn-primary .hero-course__btn-primary--disabled .hero-course__cta .hero-course__hd .hero-course__hd--legacy-ghost .hero-course__lede .hero-course__pill .hero-course__pill--accent .hero-course__pill--price .hero-course__pills .hero-course__title .hero-detail-menu .hero-detail-menu__h1 .hero-detail-menu__lede .hero-detail-menu__num .hero-detail-menu__parent .hero-essay .hero-essay__h1 .hero-essay__hd .hero-essay__hd--illus .hero-essay__hd--left .hero-essay__hd--right .hero-essay__illus .hero-essay__image .hero-essay__kicker .hero-essay__lede .hero-essay__meta .hero-hub-listing .hero-hub-listing__deco .hero-hub-listing__filters .hero-hub-listing__h1 .hero-hub-listing__kicker .hero-hub-listing__lede .hero-hub-listing--bordered .hero-hub-listing--standard .hero-hub-masthead .hero-hub-masthead__h1 .hero-hub-masthead__kicker .hero-hub-masthead__lede .hero-hub-masthead--standard .hero-landing .hero-landing__avail .hero-landing__btn-primary .hero-landing__btn-secondary .hero-landing__ctas .hero-landing__eyebrow .hero-landing__h1 .hero-landing__lede .hero-problem-index .hero-problem-index__canonical .hero-problem-index__geo .hero-problem-index__h1 .hero-problem-index__kicker .hero-problem-index__lede .hero-service-detail .hero-service-detail__h1 .hero-service-detail__lede .hero-service-detail__metric .hero-service-detail__metric-l .hero-service-detail__metric-v .hero-service-detail__metrics .hero-service-detail__num .hero-service-masthead .hero-service-masthead__h1 .hero-service-masthead__lede .hero-service-masthead__num .hero-utility .hero-utility__h1 .hero-utility__kicker .hero-utility__lede .hero-utility__role .hero-utility--centered .hero-utility--standard .wrap-wide
 
-**Dette hardcode** : 37 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, 0.06em, 0.1em, 100%
+**Dette hardcode** : 38 valeur(s) — -0.015em, -0.01em, -0.028em, -0.02em, .1em, #118, 0.06em, 0.1em
 
-**Agent** : Layout : `align`, `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
+**Agent** : Layout : `align`, `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 38 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em).
 
 ---
 
@@ -4572,6 +4603,7 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `filters_html_en` | string | non |  |  |
 | `filters_html_fr` | string | non |  |  |
 | `footer_html_en` | string | non |  |  |
@@ -4585,15 +4617,15 @@
 | `list_html_en` | string | non |  |  |
 | `list_html_fr` | string | non |  |  |
 
-**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-lede` `--muted` `--section-loose` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-display` `--text-h3` `--text-small`
+**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-display` `--text-h3` `--text-small`
 
 **Classes scoped** : .demo-list-row .list-body .list-filters .list-footer .list-h1 .list-hd .list-kicker .list-lede
 
 **Tailwind** : list-body list-filters list-footer list-h1 list-hd list-kicker list-lede
 
-**Dette hardcode** : 4 valeur(s) — -0.015em, 140px, 1px, 760px
+**Dette hardcode** : 5 valeur(s) — -0.015em, #118, 140px, 1px, 760px
 
-**Agent** : Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.015em, 140px, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --ink --ink-2 --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.015em, #118, 140px).
 
 ---
 
@@ -4628,17 +4660,18 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `label_en` | string | non |  |  |
 | `label_fr` | string | non |  |  |
 | `links` | array | oui |  | min:1 max:6 |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-mono` `--hairline-strong` `--ink` `--muted` `--space-2` `--space-4` `--space-6` `--text-small` `--token`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-mono` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-4` `--space-6` `--text-small` `--token`
 
 **Classes scoped** : .used-service-callout .used-service-callout__label .used-service-callout__link
 
-**Dette hardcode** : 5 valeur(s) — 0.08em, 0.12em, 0.1em, 1px, 3px
+**Dette hardcode** : 6 valeur(s) — #118, 0.08em, 0.12em, 0.1em, 1px, 3px
 
-**Agent** : Espacement : --space-2 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-mono --text-small. Dette : 5 litteral(s) hardcode(s) (0.08em, 0.12em, 0.1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-mono --text-small. Dette : 6 litteral(s) hardcode(s) (#118, 0.08em, 0.12em).
 
 ---
 
@@ -5457,21 +5490,22 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `eyebrow_en` | string | non | § Macro proof |  |
 | `eyebrow_fr` | string | non | § Preuve macro |  |
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 | `metrics` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--ink` `--leading-h1` `--leading-lede` `--paper` `--paper-rgb` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--spacing-block` `--text-h1` `--text-small`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--spacing-block` `--text-h1` `--text-small`
 
 **Classes scoped** : .eyebrow .key-metric-accent .key-metric-label .key-metric-value .kicker .roi-cell .roi-l .roi-v .section-eyebrow .sol-proof .sol-roi-grid .sol-roi-hd .sol-sec .sol-sec-dark .start-10 .start-9
 
 **Tailwind** : col-12
 
-**Dette hardcode** : 4 valeur(s) — -0.018em, -0.02em, 0.1em, 1px
+**Dette hardcode** : 5 valeur(s) — -0.018em, -0.02em, #118, 0.1em, 1px
 
-**Agent** : Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.018em, -0.02em, 0.1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.018em, -0.02em, #118).
 
 ---
 
@@ -6753,6 +6787,7 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `body_html_en` | string | non |  |  |
 | `body_html_fr` | string | non |  |  |
 | `h1_en` | string | oui |  |  |
@@ -6767,13 +6802,13 @@
 | `sections` | array | oui |  | min:1 max:12 |
 | `version` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-mono-tight`
 
 **Classes scoped** : .trust-body .trust-footer-version .trust-grid .trust-h1 .trust-hd .trust-kicker .trust-lede .trust-legal-footer .trust-meta .trust-sections .trust-toc .trust-toc-k .trust-toc-num
 
-**Dette hardcode** : 18 valeur(s) — -0.028em, -0.02em, 0.1em, 0.5em, 1.2em, 1.4em, 1.5em, 100px
+**Dette hardcode** : 19 valeur(s) — -0.028em, -0.02em, #118, 0.1em, 0.5em, 1.2em, 1.4em, 1.5em
 
-**Agent** : Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.028em, -0.02em, 0.1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-0.028em, -0.02em, #118).
 
 ---
 
@@ -6792,6 +6827,7 @@
 | `back_href` | string | non |  |  |
 | `back_label_en` | string | non |  |  |
 | `back_label_fr` | string | non |  |  |
+| `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `h1_en` | string | oui |  |  |
 | `h1_fr` | string | oui |  |  |
 | `kicker_en` | string | oui |  |  |
@@ -6800,12 +6836,12 @@
 | `lede_fr` | string | oui |  |  |
 | `next_steps` | array | oui |  | min:1 max:3 |
 
-**Tokens** : `--accent` `--accent-sur-clair` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink-2` `--leading-body` `--leading-h1` `--leading-h3` `--muted` `--paper-2` `--radius-lg` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
+**Tokens** : `--accent` `--accent-sur-clair` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .welcome .welcome-back .welcome-foot .welcome-h1 .welcome-kicker .welcome-lede .welcome-mark .welcome-step .welcome-step-cta .welcome-step-num .welcome-step-text .welcome-step-title .welcome-steps .welcome-wrap
 
-**Dette hardcode** : 11 valeur(s) — -0.018em, -0.028em, 0.04em, 10px, 18px, 1px, 20px, 2px
+**Dette hardcode** : 12 valeur(s) — -0.018em, -0.028em, #118, 0.04em, 10px, 18px, 1px, 20px
 
-**Agent** : Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.018em, -0.028em, 0.04em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.018em, -0.028em, #118).
 
 ---

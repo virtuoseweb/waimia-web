@@ -19,6 +19,129 @@
 // l'ancien frontmatter (apostrophes typographiques ’, points médians ·, flèches →,
 // balises <i class="acc"> incluses).
 import type { SectionData } from '@waimia/ds-kernel';
+import { SIX_SERVICES } from './sitemap';
+
+// ── 03 · Les deux offres · MONEY SLOT · offer-rail CATALOGUE (ex-bloc bespoke he-offres eleve
+// au catalogue, anti-orphelin). Donnee transcrite VERBATIM depuis l'ancien markup de
+// src/pages/index.astro ; les 6 services derivent de SIX_SERVICES (source unique sitemap).
+// La branche « Automation & IA » (offer 02) porte accent='complement' -> token DS --complementary
+// (#2090A8, travail frais Simon 2026-07-16). `anchor: 'offres'` preserve la cible de scroll.
+export const offerRail = {
+  type: 'offer-rail',
+  anchor: 'offres',
+  background: 'paper',
+  kicker_fr: '§ Agence d’ingénierie IA & applications pour PME',
+  kicker_en: '§ AI engineering & applications studio for SMEs',
+  h2_fr: 'On <i>conçoit le système</i>, pas juste l’outil.',
+  h2_en: 'We <i>design the system</i>, not just the tool.',
+  lede_fr: 'Un système métier IA n’est pas une automatisation isolée, c’est un ensemble cohérent d’applications, de données, de workflows et d’agents conçu autour de vos opérations.',
+  lede_en: 'A business AI system is not an isolated automation, it is a coherent set of applications, data, workflows and agents designed around your operations.',
+  tablist_label_fr: 'Familles de systèmes',
+  tablist_label_en: 'System families',
+  families: [
+    {
+      id: 'marketing',
+      tab_label_fr: 'Système d’acquisition',
+      tab_label_en: 'Acquisition system',
+      intro_eyebrow_fr: '§ Système d’acquisition · équipes marketing de PME',
+      intro_eyebrow_en: '§ Acquisition system · SME marketing teams',
+      intro_lede_fr: 'Un inbound et un outbound qui rapportent : le site qualifie chaque visite, les agents relancent et mesurent. Deux briques d’un même système marketing, à un pricing de lancement.',
+      intro_lede_en: 'Inbound and outbound that pay off: the site qualifies every visit, the agents follow up and measure. Two blocks of one marketing system, at a launch price.',
+      layout: 'diptych',
+      offers: [
+        {
+          tag_fr: 'Offre 01',
+          tag_en: 'Offer 01',
+          title_fr: 'Site web intelligent',
+          title_en: 'Smart website',
+          body_fr: 'Un site web IA sur Astro, rapide, indexé par Google et par les moteurs IA, branché à votre CRM. Il qualifie chaque visite et alimente le pipeline en continu : une vitrine qui génère des leads, pas une plaquette figée.',
+          body_en: 'An AI website on Astro, fast, indexed by Google and by AI engines, wired to your CRM. It qualifies every visit and feeds the pipeline continuously: a storefront that generates leads, not a static brochure.',
+          points_fr: ['Astro + IA, trouvé par Google et par les IA', 'Landing et tunnels reliés au CRM', 'Pages éditables, mesurées à la conversion'],
+          points_en: ['Astro + AI, found by Google and by AIs', 'Landing pages and funnels wired to the CRM', 'Editable pages, measured on conversion'],
+          link_label_fr: 'Voir l’offre →',
+          link_label_en: 'See the offer →',
+          link_href: '/services/site-web-ia',
+        },
+        {
+          tag_fr: 'Offre 02',
+          tag_en: 'Offer 02',
+          title_fr: 'Automation & IA',
+          title_en: 'Automation & AI',
+          accent: 'complement',
+          body_fr: 'Intégration IA de bout en bout : on déploie Claude, ChatGPT ou Mistral et leurs agents dans votre entreprise, branchés à vos outils via MCP (CRM, e-mail, base de données, dépôt Git). De quoi faire travailler l’IA sur vos données réelles et la faire passer de la conversation à l’action.',
+          body_en: 'End-to-end AI integration: we deploy Claude, ChatGPT or Mistral and their agents in your company, wired to your tools via MCP (CRM, email, database, Git repository). Enough to put AI to work on your real data and move it from conversation to action.',
+          points_fr: ['Claude, ChatGPT ou Mistral en production', 'Serveurs MCP propres vers vos outils', 'Gouvernance, mesure et passation incluses'],
+          points_en: ['Claude, ChatGPT or Mistral in production', 'Clean MCP servers to your tools', 'Governance, measurement and handover included'],
+          link_label_fr: 'Voir l’offre →',
+          link_label_en: 'See the offer →',
+          link_href: '/services/integration-claude',
+        },
+      ],
+      rail: true,
+      services_intro_fr: '§ Six services, une seule équipe. On active celui qui sert d’abord.',
+      services_intro_en: '§ Six services, one team. We turn on the one that serves first.',
+      services: SIX_SERVICES.map((s) => ({
+        metric_fr: s.metric.fr,
+        metric_en: s.metric.en,
+        label_fr: s.label.fr,
+        label_en: s.label.en,
+        sub_fr: s.connectors.fr,
+        sub_en: s.connectors.en,
+        href: s.href,
+      })),
+    },
+    {
+      id: 'commercial',
+      tab_label_fr: 'Système commercial',
+      tab_label_en: 'Sales system',
+      intro_eyebrow_fr: '§ Système commercial · équipes commerciales de PME',
+      intro_eyebrow_en: '§ Sales system · SME sales teams',
+      intro_lede_fr: 'Vos leads arrivent, puis se perdent. Un système commercial fait l’inverse : la prospection alimente, le CRM qualifie et route, les séquences relancent. Trois leviers sur une seule base pour transformer vos prospects en <i>clients</i>.',
+      intro_lede_en: 'Your leads arrive, then get lost. A sales system does the opposite: prospecting feeds, the CRM qualifies and routes, the sequences follow up. Three levers on one base to turn your prospects into <i>clients</i>.',
+      layout: 'trio',
+      offers: [
+        {
+          tag_fr: 'Levier 01',
+          tag_en: 'Lever 01',
+          title_fr: 'Prospection automatisée',
+          title_en: 'Automated prospecting',
+          body_fr: 'L’outbound qui vise les comptes cibles : ICP serré, listes enrichies et séquences multicanal. La prospection va chercher les comptes que l’inbound n’a pas captés, sans brûler votre domaine.',
+          body_en: 'Outbound that targets the right accounts: a tight ICP, enriched lists and multichannel sequences. Prospecting goes after the accounts inbound missed, without burning your domain.',
+          link_label_fr: 'Voir le levier →',
+          link_label_en: 'See the lever →',
+          link_href: '/services/prospection-automatisee',
+        },
+        {
+          tag_fr: 'Levier 02',
+          tag_en: 'Lever 02',
+          title_fr: 'CRM, scoring et routing',
+          title_en: 'CRM, scoring and routing',
+          body_fr: 'Chaque lead noté selon son comportement, dédoublonné et affecté au bon commercial. Le chaud ne refroidit plus dans une file : l’alerte part à temps.',
+          body_en: 'Every lead scored on behaviour, de-duplicated and assigned to the right rep. Hot leads no longer cool down in a queue: the alert fires on time.',
+          link_label_fr: 'Voir le levier →',
+          link_label_en: 'See the lever →',
+          link_href: '/services/crm-scoring-routing',
+        },
+        {
+          tag_fr: 'Levier 03',
+          tag_en: 'Lever 03',
+          title_fr: 'Séquences de suivi',
+          title_en: 'Follow-up sequences',
+          body_fr: 'Des relances multicanal déclenchées par le comportement, personnalisées par l’IA. Plus aucun compte tiède ne s’éteint par oubli.',
+          body_en: 'Multichannel follow-ups triggered by behaviour, personalised by AI. No warm account ever goes dark from being forgotten.',
+          link_label_fr: 'Voir le levier →',
+          link_label_en: 'See the lever →',
+          link_href: '/services/sequences-de-suivi',
+        },
+      ],
+      services_intro_fr: '§ Trois leviers, un seul système. On active celui qui bouche la fuite qui coûte d’abord.',
+      services_intro_en: '§ Three levers, one system. We turn on the one that plugs the costliest leak first.',
+      panel_cta_label_fr: 'Voir le système commercial →',
+      panel_cta_label_en: 'See the sales system →',
+      panel_cta_href: '/services/systeme-commercial',
+    },
+  ],
+} as unknown as SectionData;
 
 // ── 04 · statement-orbit CATALOGUE · PIVOT après le money slot · liant conceptuel :
 // les 2 offres forment UNE boucle d'amélioration continue (lire/mesurer/réinjecter).

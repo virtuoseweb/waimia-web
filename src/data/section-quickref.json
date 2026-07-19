@@ -977,6 +977,40 @@
     }
   },
   {
+    "type": "bordered-pullquote",
+    "category": "marketing",
+    "categorySlug": "manifesto-sections",
+    "subcategory": "Editorial Sections",
+    "status": "stable",
+    "description_fr": "Citation manifeste a filet gauche : corps large avec accent italique + signature mono. Rendu du corps en HTML (accent <i>).",
+    "requiredProps": [
+      {
+        "name": "quote_html_en",
+        "type": "string"
+      },
+      {
+        "name": "quote_html_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "cite_en",
+        "type": "string"
+      },
+      {
+        "name": "cite_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "bordered-pullquote",
+      "quote_html_fr": "L&rsquo;intelligence artificielle n&rsquo;est pas un outil. C&rsquo;est une <i>nouvelle façon de travailler.</i>&nbsp;",
+      "quote_html_en": "Artificial intelligence is not a tool. It&rsquo;s <i>a new way of working.</i>&nbsp;"
+    }
+  },
+  {
     "type": "branded-callout",
     "category": "marketing",
     "categorySlug": "cta-sections",
@@ -1024,8 +1058,17 @@
         "type": "string"
       },
       {
+        "name": "bodyHtml",
+        "type": "boolean"
+      },
+      {
         "name": "cta",
         "type": "object"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "rail"
       }
     ],
     "hasDemo": true,
@@ -1599,6 +1642,62 @@
           "body_en": "You ship content without knowing what converts or where to reinvest."
         }
       ]
+    }
+  },
+  {
+    "type": "closing-cta-band",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "status": "stable",
+    "description_fr": "Bande CTA de cloture sur fond ink : kicker + titre display-lg (accent italique) + bouton primaire. Titre rendu en HTML (accent <em>).",
+    "requiredProps": [
+      {
+        "name": "button_href",
+        "type": "string"
+      },
+      {
+        "name": "button_label_en",
+        "type": "string"
+      },
+      {
+        "name": "button_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "h2_html_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_html_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "closing-cta-band",
+      "kicker_fr": "§ Travailler ensemble",
+      "kicker_en": "§ Work together",
+      "h2_html_fr": "Le mardi on câble.<em> Le vendredi on mesure.</em>",
+      "h2_html_en": "On Tuesday we wire.<em> On Friday we measure.</em>",
+      "button_label_fr": "Câbler mon système →",
+      "button_label_en": "Wire my system →",
+      "button_href": "/contact"
     }
   },
   {
@@ -2759,6 +2858,71 @@
     }
   },
   {
+    "type": "curriculum-timeline",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Editorial Sections",
+    "status": "stable",
+    "description_fr": "Bloc curriculum : entete + frise verticale (experience / formation / distinctions) sur fond paper-2. Compose l’atome Timeline.",
+    "requiredProps": [
+      {
+        "name": "events",
+        "type": "array",
+        "constraint": "min:1"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "title_en",
+        "type": "string"
+      },
+      {
+        "name": "title_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "emphasis",
+        "type": "boolean"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "curriculum-timeline",
+      "kicker_fr": "§ Curriculum",
+      "kicker_en": "§ Curriculum",
+      "title_fr": "Curriculum",
+      "title_en": "Curriculum",
+      "events": [
+        {
+          "num": "2024",
+          "title_fr": "Fondateur",
+          "title_en": "Founder",
+          "meta_fr": "Waimia",
+          "meta_en": "Waimia",
+          "body_fr": "Studio d’IA appliquée : câbler les systèmes d’acquisition et opérationnels des entreprises.",
+          "body_en": "Applied AI studio: wiring the acquisition and operational systems of companies."
+        },
+        {
+          "num": "2021",
+          "title_fr": "Lead ingénierie",
+          "title_en": "Engineering lead",
+          "meta_fr": "Scale-up SaaS",
+          "meta_en": "SaaS scale-up",
+          "body_fr": "Industrialisation des workflows data et automatisation interne.",
+          "body_en": "Industrialising data workflows and internal automation."
+        }
+      ]
+    }
+  },
+  {
     "type": "data-table",
     "category": "marketing",
     "categorySlug": "table-sections",
@@ -3670,6 +3834,99 @@
     }
   },
   {
+    "type": "editorial-case-grid",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "status": "stable",
+    "description_fr": "Grille editoriale de cas clients : en-tete numerote + titre + intro, puis cartes EditorialCaseCard en 2 colonnes avec decalage vertical alterne (signature /manifesto Acte IV).",
+    "requiredProps": [
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:1 max:8"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "num_en",
+        "type": "string"
+      },
+      {
+        "name": "num_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | ink",
+        "default": "paper"
+      },
+      {
+        "name": "intro_en",
+        "type": "string"
+      },
+      {
+        "name": "intro_fr",
+        "type": "string"
+      },
+      {
+        "name": "stagger",
+        "type": "number",
+        "constraint": "int min:0 max:120",
+        "default": "60"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "editorial-case-grid",
+      "num_fr": "IV.",
+      "num_en": "IV.",
+      "kicker_fr": "Les preuves",
+      "kicker_en": "The proof",
+      "h2_fr": "Pas des démos. Des <i class=\"accent\">résultats</i>.",
+      "h2_en": "Not demos. <i class=\"accent\">Results</i>.",
+      "items": [
+        {
+          "client": "Cabinet Plateau",
+          "sector_fr": "Conseil",
+          "sector_en": "Consulting",
+          "stack": "Claude · HubSpot · Make",
+          "impact_fr": "8 semaines gagnées sur les propositions",
+          "impact_en": "8 weeks saved on proposals",
+          "duration": "4 sem.",
+          "href": "/cas-clients/plateau"
+        },
+        {
+          "client": "RevOps Studio",
+          "sector_fr": "SaaS B2B",
+          "sector_en": "B2B SaaS",
+          "stack": "Claude · CRM · Analytics",
+          "impact_fr": "Site, CRM et relances dans un pipeline",
+          "impact_en": "Site, CRM and follow-ups in one pipeline",
+          "duration": "5 sem.",
+          "href": "/cas-clients"
+        }
+      ]
+    }
+  },
+  {
     "type": "editorial-dingbat-rule",
     "category": "marketing",
     "categorySlug": "content-sections",
@@ -3896,6 +4153,19 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "figures",
+        "type": "array",
+        "constraint": "max:3"
+      },
+      {
+        "name": "html_en",
+        "type": "string"
+      },
+      {
+        "name": "html_fr",
+        "type": "string"
+      },
+      {
         "name": "maxWidth",
         "type": "enum",
         "constraint": "prose | wide"
@@ -3905,6 +4175,14 @@
     "demo": {
       "type": "editorial-prose",
       "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/woman-and-people-paper.webp",
+          "alt_fr": "Illustration : une intervenante face a un groupe",
+          "alt_en": "Illustration: a speaker facing a group",
+          "side": "right"
+        }
+      ],
       "maxWidth": "prose"
     }
   },
@@ -4337,6 +4615,11 @@
       {
         "name": "lead",
         "type": "string"
+      },
+      {
+        "name": "silo",
+        "type": "enum",
+        "constraint": "acquisition | commercial | ops | hub | generic"
       },
       {
         "name": "title",
@@ -5494,6 +5777,14 @@
         "type": "string"
       },
       {
+        "name": "kicker_html_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_html_fr",
+        "type": "string"
+      },
+      {
         "name": "layout",
         "type": "enum",
         "constraint": "inline | stacked"
@@ -5509,6 +5800,19 @@
       {
         "name": "subtitle_fr",
         "type": "string"
+      },
+      {
+        "name": "subtitle_html_en",
+        "type": "string"
+      },
+      {
+        "name": "subtitle_html_fr",
+        "type": "string"
+      },
+      {
+        "name": "texture",
+        "type": "enum",
+        "constraint": "signature-grid"
       }
     ],
     "hasDemo": true,
@@ -6354,6 +6658,11 @@
         "default": "§ Cas client"
       },
       {
+        "name": "illustration",
+        "type": "enum",
+        "constraint": "left | right"
+      },
+      {
         "name": "specs",
         "type": "array",
         "constraint": "min:2 max:6"
@@ -7021,6 +7330,10 @@
         "type": "string"
       },
       {
+        "name": "illustration",
+        "type": "unknown"
+      },
+      {
         "name": "reading_time_en",
         "type": "string"
       },
@@ -7397,6 +7710,18 @@
         "name": "decoration",
         "type": "boolean",
         "default": "false"
+      },
+      {
+        "name": "lede_reveal",
+        "type": "boolean"
+      },
+      {
+        "name": "list_border",
+        "type": "boolean"
+      },
+      {
+        "name": "top_pad",
+        "type": "string"
       }
     ],
     "hasDemo": true,
@@ -7849,6 +8174,90 @@
     }
   },
   {
+    "type": "hero-manifesto",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "status": "stable",
+    "description_fr": "Hero editorial de page de marque : fond canvas liquide + 3 zones (meta band, titre display italique + sous-titre, intro + CTA + rangee de pied), plein viewport sombre.",
+    "requiredProps": [
+      {
+        "name": "h1_en",
+        "type": "string"
+      },
+      {
+        "name": "h1_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "cta_primary_href",
+        "type": "string"
+      },
+      {
+        "name": "cta_primary_label_en",
+        "type": "string"
+      },
+      {
+        "name": "cta_primary_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "cta_secondary_href",
+        "type": "string"
+      },
+      {
+        "name": "cta_secondary_label_en",
+        "type": "string"
+      },
+      {
+        "name": "cta_secondary_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "eyebrow_en",
+        "type": "string"
+      },
+      {
+        "name": "eyebrow_fr",
+        "type": "string"
+      },
+      {
+        "name": "foot",
+        "type": "array",
+        "constraint": "max:4"
+      },
+      {
+        "name": "intro_en",
+        "type": "string"
+      },
+      {
+        "name": "intro_fr",
+        "type": "string"
+      },
+      {
+        "name": "meta",
+        "type": "array",
+        "constraint": "max:4"
+      },
+      {
+        "name": "subhead_en",
+        "type": "string"
+      },
+      {
+        "name": "subhead_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "hero-manifesto",
+      "h1_fr": "Construire du <i class=\"accent\">revenu</i>,<br />pas des démos.",
+      "h1_en": "Build <i class=\"accent\">revenue</i>,<br />not demos."
+    }
+  },
+  {
     "type": "hero-masthead-card",
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -8280,6 +8689,11 @@
     ],
     "optionalProps": [
       {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "canonical_en",
         "type": "string"
       },
@@ -8468,6 +8882,10 @@
         "name": "hero_variant",
         "type": "enum",
         "constraint": "equilibre | showcase | encadre | editorial"
+      },
+      {
+        "name": "illustration",
+        "type": "unknown"
       },
       {
         "name": "meta_en",
@@ -8812,6 +9230,10 @@
       {
         "name": "definition_kicker_fr",
         "type": "string"
+      },
+      {
+        "name": "illustration",
+        "type": "unknown"
       },
       {
         "name": "kicker_en",
@@ -10251,6 +10673,71 @@
     }
   },
   {
+    "type": "keyword-strip",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "status": "stable",
+    "description_fr": "Bande d’items inline mono-majuscule separes par « · » : mots-cles (sans lien) ou liens sociaux/contact. Generique, reutilisable pour tout profil.",
+    "requiredProps": [
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:1"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "aria_label_en",
+        "type": "string"
+      },
+      {
+        "name": "aria_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "pad",
+        "type": "enum",
+        "constraint": "tight | base"
+      },
+      {
+        "name": "tone",
+        "type": "enum",
+        "constraint": "muted | ink"
+      },
+      {
+        "name": "topRule",
+        "type": "boolean"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "keyword-strip",
+      "items": [
+        {
+          "label": "IA appliquée"
+        },
+        {
+          "label": "Automatisation"
+        },
+        {
+          "label": "Systèmes d’acquisition"
+        },
+        {
+          "label": "Data & reporting"
+        }
+      ]
+    }
+  },
+  {
     "type": "learning-path-list",
     "category": "marketing",
     "categorySlug": "index-sections",
@@ -10334,6 +10821,11 @@
       }
     ],
     "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
       {
         "name": "filters_html_en",
         "type": "string"
@@ -10695,6 +11187,11 @@
         "type": "number",
         "constraint": "int min:1 max:4",
         "default": "2"
+      },
+      {
+        "name": "scale",
+        "type": "enum",
+        "constraint": "default | display"
       },
       {
         "name": "separator",
@@ -11265,6 +11762,66 @@
     }
   },
   {
+    "type": "method-diagram-list",
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "status": "stable",
+    "description_fr": "Bloc methode : entete + diagramme de process (SVG de marque) + liste numerotee de phases (numero mono + titre + corps).",
+    "requiredProps": [
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "steps",
+        "type": "array",
+        "constraint": "min:1"
+      },
+      {
+        "name": "title_en",
+        "type": "string"
+      },
+      {
+        "name": "title_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [],
+    "hasDemo": true,
+    "demo": {
+      "type": "method-diagram-list",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "title_fr": "Comment je travaille",
+      "title_en": "How I work",
+      "steps": [
+        {
+          "title_fr": "Cartographie",
+          "title_en": "Mapping",
+          "body_fr": "On regarde le métier réel, les frictions, les outils et les décisions déjà prises hors système.",
+          "body_en": "We inspect the real work, friction, tools and decisions already made outside the system."
+        },
+        {
+          "title_fr": "Priorisation",
+          "title_en": "Prioritisation",
+          "body_fr": "On classe les workflows par ROI, risque opérationnel et capacité interne à les maintenir.",
+          "body_en": "We rank workflows by ROI, operational risk and internal ability to maintain them."
+        },
+        {
+          "title_fr": "Mesure",
+          "title_en": "Measurement",
+          "body_fr": "Chaque workflow a sa métrique avant/après : temps gagné, coûts évités, qualité produite.",
+          "body_en": "Every workflow gets a before/after metric: time saved, costs avoided, quality produced."
+        }
+      ]
+    }
+  },
+  {
     "type": "method-stepline",
     "category": "marketing",
     "categorySlug": "timelines",
@@ -11763,6 +12320,97 @@
     }
   },
   {
+    "type": "numbered-layer-list",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "status": "stable",
+    "description_fr": "Liste de couches numerotees : rang serif accent + titre + intro + sous-puces « → ». Ideale pour presenter une stack, des livrables ou des rangs par couche.",
+    "requiredProps": [
+      {
+        "name": "layers",
+        "type": "array",
+        "constraint": "min:1"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "srHeading_en",
+        "type": "string"
+      },
+      {
+        "name": "srHeading_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "numbered-layer-list",
+      "layers": [
+        {
+          "n": "01",
+          "label_fr": "Socle & donnees",
+          "label_en": "Foundation & data",
+          "intro_fr": "La base sur laquelle tout repose. On la pose proprement avant d’empiler.",
+          "intro_en": "The base everything rests on. Laid cleanly before anything is stacked.",
+          "items": [
+            {
+              "text_fr": "Sources de donnees cadrees et documentees.",
+              "text_en": "Data sources scoped and documented."
+            },
+            {
+              "text_fr": "Acces et permissions definis par role.",
+              "text_en": "Access and permissions defined per role."
+            },
+            {
+              "text_fr": "Standards ouverts, zero captivite.",
+              "text_en": "Open standards, zero lock-in."
+            }
+          ]
+        },
+        {
+          "n": "02",
+          "label_fr": "Orchestration",
+          "label_en": "Orchestration",
+          "intro_fr": "La couche qui relie les outils existants aux agents specialises.",
+          "intro_en": "The layer wiring existing tools to specialised agents.",
+          "items": [
+            {
+              "text_fr": "Un agent par tache, pas un fourre-tout.",
+              "text_en": "One agent per task, not a catch-all."
+            },
+            {
+              "text_fr": "Regles et garde-fous explicites.",
+              "text_en": "Explicit rules and guardrails."
+            }
+          ]
+        },
+        {
+          "n": "03",
+          "label_fr": "Mesure",
+          "label_en": "Measurement",
+          "intro_fr": "On mesure avant et apres. Si ca ne mesure rien, ca n’existe pas.",
+          "intro_en": "We measure before and after. If it measures nothing, it does not exist.",
+          "items": [
+            {
+              "text_fr": "Chaque action cle est tracee et attribuee.",
+              "text_en": "Every key action is tracked and attributed."
+            },
+            {
+              "text_fr": "Reporting branche quand la mesure le justifie.",
+              "text_en": "Reporting wired in when measurement justifies it."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "type": "objection-handler",
     "category": "marketing",
     "categorySlug": "faq-sections",
@@ -11901,6 +12549,64 @@
     }
   },
   {
+    "type": "offer-rail",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "status": "stable",
+    "description_fr": "Offres en onglets (familles) : diptyque ou trio de cartes relie a une rangee de services par une dorsale line-art dessinee au scroll. Une branche peut etre teintee (token --complementary). Vanilla JS aria, 0 dependance.",
+    "requiredProps": [
+      {
+        "name": "families",
+        "type": "array",
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "tablist_label_en",
+        "type": "string"
+      },
+      {
+        "name": "tablist_label_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3"
+      }
+    ],
+    "hasDemo": false,
+    "demo": {
+      "type": "offer-rail"
+    }
+  },
+  {
     "type": "offer-tier-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -11950,6 +12656,10 @@
       },
       {
         "name": "lede_max_width",
+        "type": "string"
+      },
+      {
+        "name": "pad_block",
         "type": "string"
       },
       {
@@ -13832,6 +14542,147 @@
     }
   },
   {
+    "type": "prose-aside",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "status": "stable",
+    "description_fr": "Colonne de prose editoriale (corps MDX) precedee d’un kicker en aside. Le corps vit dans le MDX, pas le frontmatter. Generique pour tout bloc prose + eyebrow lateral.",
+    "requiredProps": [
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "prose-aside",
+      "kicker_fr": "§ Pourquoi Waimia",
+      "kicker_en": "§ Why Waimia"
+    }
+  },
+  {
+    "type": "provenance-chip",
+    "category": "marketing",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "status": "stable",
+    "description_fr": "Chip de provenance E-E-A-T : badge plein (projet realise) ou outline (etude sources tierces), cliquable vers la page methodologie.",
+    "requiredProps": [
+      {
+        "name": "href",
+        "type": "string"
+      },
+      {
+        "name": "label_en",
+        "type": "string"
+      },
+      {
+        "name": "label_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "solid | outline"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "provenance-chip",
+      "label_fr": "Projet réalisé · Waimia",
+      "label_en": "Completed project · Waimia",
+      "href": "/sources-methodologie"
+    }
+  },
+  {
+    "type": "publications-panel",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Editorial Sections",
+    "status": "stable",
+    "description_fr": "Panneau publications d’un profil : entete + callout manifeste + liste de publications + index de ressources recentes + lien « tout voir ».",
+    "requiredProps": [
+      {
+        "name": "all_href",
+        "type": "string"
+      },
+      {
+        "name": "all_label_en",
+        "type": "string"
+      },
+      {
+        "name": "all_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "manifesto_html_en",
+        "type": "string"
+      },
+      {
+        "name": "manifesto_html_fr",
+        "type": "string"
+      },
+      {
+        "name": "title_en",
+        "type": "string"
+      },
+      {
+        "name": "title_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "publications",
+        "type": "array"
+      },
+      {
+        "name": "resources",
+        "type": "array"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "publications-panel",
+      "kicker_fr": "§ Publications",
+      "kicker_en": "§ Publications",
+      "title_fr": "Articles, notes, manifestes",
+      "title_en": "Articles, notes, manifestos",
+      "manifesto_html_fr": "Pas une stack. Un système. Pas un agent isolé. Une équipe d’agents.<br />Pas une démo. Une mise en production.",
+      "manifesto_html_en": "Not a stack. A system. Not a lone agent. A team of agents.<br />Not a demo. A production release.",
+      "all_href": "/ressources",
+      "all_label_fr": "Voir toutes les ressources",
+      "all_label_en": "See all resources"
+    }
+  },
+  {
     "type": "pull-quote-block",
     "category": "marketing",
     "categorySlug": "testimonial-sections",
@@ -13960,6 +14811,10 @@
       },
       {
         "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "pad_block",
         "type": "string"
       }
     ],
@@ -14272,6 +15127,11 @@
     ],
     "optionalProps": [
       {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
         "name": "eyebrow_en",
         "type": "string",
         "default": "§ Macro proof"
@@ -14421,6 +15281,98 @@
           "media_src": "/images/themes/theme-finance.webp",
           "media_alt_fr": "Illustration : pilotage et finance",
           "media_alt_en": "Illustration: steering and finance"
+        }
+      ]
+    }
+  },
+  {
+    "type": "sector-card-grid",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Content Listing Sections",
+    "status": "stable",
+    "description_fr": "Grille de hubs sectoriels en cartes cliquables : ICP en kicker, secteur, douleur en une phrase et CTA, en 3 colonnes sur fond hairline.",
+    "requiredProps": [
+      {
+        "name": "sectors",
+        "type": "array",
+        "constraint": "min:1"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "cta_label_en",
+        "type": "string",
+        "default": "See the industry →"
+      },
+      {
+        "name": "cta_label_fr",
+        "type": "string",
+        "default": "Voir le secteur →"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "sector-card-grid",
+      "sectors": [
+        {
+          "kicker_fr": "Boutiques en ligne et PME e-commerce",
+          "kicker_en": "Online stores and e-commerce SMBs",
+          "title_fr": "E-commerce",
+          "title_en": "E-commerce",
+          "pain_fr": "70 % des paniers finissent abandonnés.",
+          "pain_en": "70% of carts end up abandoned.",
+          "href": "/secteurs/e-commerce"
+        },
+        {
+          "kicker_fr": "TPE du bâtiment et artisans",
+          "kicker_en": "Construction micro-firms and craftspeople",
+          "title_fr": "Bâtiment et artisans",
+          "title_en": "Construction and trades",
+          "pain_fr": "Des appels qui ne se transforment pas en devis.",
+          "pain_en": "Calls that never turn into quotes.",
+          "href": "/secteurs/batiment"
+        },
+        {
+          "kicker_fr": "Startups, SaaS et éditeurs de logiciel",
+          "kicker_en": "Startups, SaaS and software vendors",
+          "title_fr": "Startup et éditeur logiciel",
+          "title_en": "Startup and software vendor",
+          "pain_fr": "97 % des visiteurs partent sans laisser de formulaire.",
+          "pain_en": "97% of visitors leave without filling a form.",
+          "href": "/secteurs/startup-saas"
+        },
+        {
+          "kicker_fr": "Cabinets d’expertise comptable et sociaux",
+          "kicker_en": "Accounting and payroll firms",
+          "title_fr": "Cabinets comptables",
+          "title_en": "Accounting firms",
+          "pain_fr": "La tenue se banalise, les honoraires se tassent.",
+          "pain_en": "Bookkeeping is commoditized, fees flatten.",
+          "href": "/secteurs/expertise-comptable"
+        },
+        {
+          "kicker_fr": "PME industrielles, sous-traitance et fabricants",
+          "kicker_en": "Industrial SMBs, subcontractors and makers",
+          "title_fr": "PME industrielles",
+          "title_en": "Industrial SMBs",
+          "pain_fr": "Un savoir-faire réel, mais invisible en ligne.",
+          "pain_en": "Real expertise, invisible online.",
+          "href": "/secteurs/pme-industrielle"
+        },
+        {
+          "kicker_fr": "Thérapeutes et praticiens du bien-être",
+          "kicker_en": "Therapists and wellness practitioners",
+          "title_fr": "Thérapeutes et praticiens bien-être",
+          "title_en": "Therapists and wellness practitioners",
+          "pain_fr": "Une visibilité entièrement louée aux plateformes.",
+          "pain_en": "Visibility entirely rented from platforms.",
+          "href": "/secteurs/therapeutes"
         }
       ]
     }
@@ -14686,6 +15638,160 @@
           "body_en": "Sovereign architecture, when the market stack hits your perimeter limits.",
           "connectors_fr": "Trust Center · Design System · Governance · VirtuoseOS",
           "connectors_en": "Trust Center · Design System · Governance · VirtuoseOS"
+        }
+      ]
+    }
+  },
+  {
+    "type": "signed-writing-list",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Editorial Sections",
+    "status": "stable",
+    "description_fr": "Index chronologique d’ecrits long-form signes : date + titre (lien) + extrait. Date formatee par langue.",
+    "requiredProps": [
+      {
+        "name": "items",
+        "type": "array",
+        "constraint": "min:1"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "title_en",
+        "type": "string"
+      },
+      {
+        "name": "title_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "signed-writing-list",
+      "kicker_fr": "§ Essays · Long form",
+      "kicker_en": "§ Essays · Long form",
+      "title_fr": "Ce que je publie",
+      "title_en": "What I publish",
+      "items": [
+        {
+          "date_iso": "2026-05-12T00:00:00.000Z",
+          "title_fr": "Câbler l’IA aux outils métier, sans théâtre",
+          "title_en": "Wiring AI to business tools, without theatre",
+          "href": "/blog/cabler-ia-outils-metier",
+          "excerpt_fr": "Pourquoi la plupart des projets IA échouent au moment du branchement, et comment l’éviter.",
+          "excerpt_en": "Why most AI projects fail at the wiring stage, and how to avoid it."
+        },
+        {
+          "date_iso": "2026-03-04T00:00:00.000Z",
+          "title_fr": "Le système d’acquisition avant l’outil",
+          "title_en": "The acquisition system before the tool",
+          "href": "/blog/systeme-acquisition-avant-outil"
+        }
+      ]
+    }
+  },
+  {
+    "type": "site-showcase",
+    "category": "marketing",
+    "categorySlug": "gallery-sections",
+    "subcategory": "Gallery Sections",
+    "status": "stable",
+    "description_fr": "Vitrine du site livre : captures reelles dans des cadres navigateur, capture pleine page qui defile au survol, lien nofollow vers le site en production.",
+    "requiredProps": [
+      {
+        "name": "placement",
+        "type": "unknown"
+      },
+      {
+        "name": "screens",
+        "type": "array",
+        "constraint": "min:1 max:4"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      },
+      {
+        "name": "url",
+        "type": "string"
+      },
+      {
+        "name": "url_label_en",
+        "type": "string"
+      },
+      {
+        "name": "url_label_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "site-showcase",
+      "screens": [
+        {
+          "src": "/images/cases/les-carnets-de-montpellier/home.webp",
+          "alt_fr": "Page d'accueil des Carnets de Montpellier.",
+          "alt_en": "Home page of Les Carnets de Montpellier.",
+          "kind": "frame",
+          "caption_fr": "Une entrée en matière claire : sujet, ton et abonnement dès le premier écran.",
+          "caption_en": "A clear opening: topic, tone and subscription from the very first screen."
+        },
+        {
+          "src": "/images/cases/les-carnets-de-montpellier/menu.webp",
+          "alt_fr": "Menu plein écran, navigation par thèmes.",
+          "alt_en": "Full-screen menu, navigation by themes.",
+          "kind": "frame",
+          "caption_fr": "Navigation par thèmes : le lecteur trouve son sujet sans se perdre.",
+          "caption_en": "Theme-based navigation: readers find their topic without getting lost."
+        },
+        {
+          "src": "/images/cases/les-carnets-de-montpellier/slider-dark.webp",
+          "alt_fr": "Liste des articles en mode sombre.",
+          "alt_en": "Article list in dark mode.",
+          "kind": "frame",
+          "caption_fr": "Mode sombre pour les longues lectures, confort du soir compris.",
+          "caption_en": "Dark mode for long reads, evening comfort included."
         }
       ]
     }
@@ -17265,6 +18371,19 @@
     ],
     "optionalProps": [
       {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "body_html_en",
+        "type": "string"
+      },
+      {
+        "name": "body_html_fr",
+        "type": "string"
+      },
+      {
         "name": "legal_footer_en",
         "type": "string"
       },
@@ -17386,6 +18505,11 @@
       }
     ],
     "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
       {
         "name": "prev_href",
         "type": "string"
@@ -17538,6 +18662,52 @@
           "tag_fr": "Prospection · relances · nurturing",
           "tag_en": "Prospecting · follow-ups · nurturing",
           "href": "#"
+        }
+      ]
+    }
+  },
+  {
+    "type": "used-service-callout",
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "status": "stable",
+    "description_fr": "Encadre compact « offre(s) utilisee(s) » : liste de cross-liens vers les services mobilises sur un projet, bord gauche accent.",
+    "requiredProps": [
+      {
+        "name": "links",
+        "type": "array",
+        "constraint": "min:1 max:6"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "label_en",
+        "type": "string"
+      },
+      {
+        "name": "label_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "used-service-callout",
+      "links": [
+        {
+          "label_fr": "Site web intelligent",
+          "label_en": "Intelligent website",
+          "href": "/services"
+        },
+        {
+          "label_fr": "Système de prospection",
+          "label_en": "Prospecting system",
+          "href": "/services"
         }
       ]
     }
@@ -17709,6 +18879,11 @@
       {
         "name": "back_label_fr",
         "type": "string"
+      },
+      {
+        "name": "background",
+        "type": "enum",
+        "constraint": "paper | paper-2 | paper-3 | ink"
       }
     ],
     "hasDemo": true,

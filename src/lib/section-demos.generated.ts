@@ -225,6 +225,7 @@ import { demo as methodDiagramListDemo } from '../sections/method-diagram-list/d
 import { demo as curriculumTimelineDemo } from '../sections/curriculum-timeline/demo';
 import { demo as publicationsPanelDemo } from '../sections/publications-panel/demo';
 import { demo as closingCtaBandDemo } from '../sections/closing-cta-band/demo';
+import { demo as offerRailDemo } from '../sections/offer-rail/demo';
 
 export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hero-form-inline': heroFormInlineDemo,
@@ -447,4 +448,5 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'curriculum-timeline': curriculumTimelineDemo,
   'publications-panel': publicationsPanelDemo,
   'closing-cta-band': closingCtaBandDemo,
+  'offer-rail': offerRailDemo,
 };

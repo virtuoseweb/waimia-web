@@ -20,11 +20,11 @@ export const prerender = true;
  * preuves -> methode -> confiance -> resultats -> questions -> action :
  *   01 Hero (live, paper, composant INTOUCHE)
  *   02 Ecosysteme opere · logo-marquee (SectionsRenderer, ink + grayscale) · bande courte
- *   03 Les deux offres (#offres) · MONEY SLOT · tabs familles + diptyque + rangee 6 services + dorsale SVG (paper)
+ *   03 Les deux offres (#offres) · MONEY SLOT · offer-rail CATALOGUE (SectionsRenderer, tabs familles + diptyque/trio + rangee 6 services + dorsale SVG, paper)
  *   04 La boucle · statement-orbit CATALOGUE (SectionsRenderer, carte ink dans paper) · PIVOT conceptuel
  *   05 Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (SectionsRenderer, paper ; carte quiz ink)
  *   06 La tension · 3 douleurs sobres (direct, INK · cartes surface-ink)
- *   07 Cas clients · 3 cartes compactes + 1 lien « tous les cas » (direct, paper)
+ *   07 Cas clients · case-card-grid CATALOGUE (SectionsRenderer, grid-uniform 3 col, paper)
  *   08 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, INK) · media sticky crossfade
  *   09 Temoignages · testimonial-wall CATALOGUE (SectionsRenderer, paper) · 6 avis de SWI
  *   10 Tableau de bord media · eeat-panel variant media (SectionsRenderer, ink)
@@ -33,11 +33,10 @@ export const prerender = true;
  *   13 Action · BookSession (ink) + FooterMarquee
  * (BootSplash en tete + ScrollProgress en pied = experience de marque live, hors sequence.)
  *
- * Token-first : hairlines = box-shadow --shadow-card-rest + global .hline + barre de tabs
- * en 1px var(--hairline)/2px var(--accent-text), idiome DS canonique et exception hairline
- * rule 60 ; pas d'AUTRE literal px hors @media / viewBox SVG. Exception locale 2026-07-16 :
- * --home-complement (#2090A8) sert uniquement a distinguer la branche Automation & IA du
- * money slot, sans creer de token DS global.
+ * Token-first : hairlines = box-shadow --shadow-card-rest + global .hline. La teinte
+ * « complement » de la branche Automation & IA (offer 02 du money slot) vit desormais dans le
+ * composant catalogue offer-rail via le TOKEN DS var(--complementary) (#2090A8), plus de var
+ * local --home-complement (rule 60 : reutiliser le token existant plutot que hardcoder).
  */
 import Base from '../layouts/Base.astro';
 import BootSplash from '../components/motion/BootSplash.astro';
@@ -49,12 +48,12 @@ import BookSession from '../components/ui/organisms/BookSession.astro';
 import FooterMarquee from '../components/ui/organisms/FooterMarquee.astro';
 import homeVariantC from '../data/page-variants/home/c.json';
 import swiContent from '../content/services/site-web-ia.json';
-import { SIX_SERVICES } from '../data/sitemap';
 import type { SectionData } from '@waimia/ds-kernel';
 // Séquence médiane en donnée (JSONification V1) : littéraux de section extraits du
 // frontmatter → src/data/home-sections.ts. La page garde le merge avec les bases
 // cataloguées (c.json / swi) ; le shell animé + 3 blocs bespoke restent en page.
 import {
+  offerRail,
   statementOrbit,
   maturityStages,
   mediaDashboard,
@@ -85,13 +84,11 @@ const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
   fix: it.fix_fr as string,
 }));
 
-// 06 · Cas clients · 3 cartes compactes (case-card-grid de C, contenu reel).
-const caseItems = (cByType('case-card-grid').cases as any[]).map((c) => ({
-  client: c.client as string,
-  meta: `${c.sector_fr} · ${c.duration}`,
-  impact: c.impact_fr as string,
-  href: c.href as string,
-}));
+// 07 · Cas clients · case-card-grid CATALOGUE (grid-uniform 3 col) · swap du bloc bespoke
+// he-cases vers le type catalogue (coherence DS, anti-orphelin). Base = c.json case-card-grid
+// (memes cas, memes href, source unique) ; background force paper pour garder le rythme
+// paper/ink (06 tension ink -> 07 cas paper -> 08 methode ink).
+const casesHome = { ...cByType('case-card-grid'), background: 'paper' } as SectionData;
 
 // 07 · Methode · sticky-scroll-storytelling CATALOGUE · contenu c.json TEL QUEL (4 steps home,
 // media_src illustrations, media sticky crossfade au scroll). Layout DIFFERENCIE de SWI via les
@@ -121,14 +118,8 @@ const testimonialsHome = { ...swiTestimonials, ...testimonialsOverrides } as Sec
 const faqAll = (cByType('faq-accordion').items as any[]);
 const faqItems = faqConfig.idx.map((i, k) => ({ q: faqConfig.questions[k], a: faqAll[i].a_fr }));
 
-// 03 · 6 services (label + mini-lead + lien) · ABSORPTION de ServicesGrid · source SIX_SERVICES.
-const services = SIX_SERVICES.map((s) => ({
-  metric: s.metric.fr,
-  label: s.label.fr,
-  sub: s.connectors.fr,
-  href: s.href,
-}));
-
+// 03 · Les deux offres · MONEY SLOT · offer-rail CATALOGUE (ex-bloc bespoke he-offres) → donnee
+// `offerRail` (src/data/home-sections.ts) ; 6 services derives de SIX_SERVICES (source unique).
 // 04 · statement-orbit CATALOGUE · PIVOT apres le money slot → donnee `statementOrbit`
 // (src/data/home-sections.ts). Objet litteral pur, importe tel quel.
 // 10 · eeat-panel variant media (INK), « TABLEAU DE BORD MÉDIA » → donnee `mediaDashboard`
@@ -147,162 +138,10 @@ const services = SIX_SERVICES.map((s) => ({
   {/* 02 · Ecosysteme opere · logo-marquee ink + grayscale · bande courte */}
   <SectionsRenderer sections={[logoMarquee]} lang="fr" />
 
-  {/* 03 · Les deux offres · MONEY SLOT · diptyque + dorsale SVG + rangee 6 services */}
-  <section class="he-sec he-offres" id="offres" aria-labelledby="he-offres-h2">
-    <div class="wrap-wide">
-      <header class="he-head reveal">
-        <p class="he-kicker">§ Agence d’ingénierie IA &amp; applications pour PME</p>
-        <h2 id="he-offres-h2" class="he-h2 he-h2--xl u-serif-accent">On <i>conçoit le système</i>, pas juste l’outil.</h2>
-        <p class="he-lede">Un système métier IA n’est pas une automatisation isolée, c’est un ensemble cohérent d’applications, de données, de workflows et d’agents conçu autour de vos opérations.</p>
-      </header>
-
-      {/* Niveau FAMILLES · tabs (etage V8) · 2 familles LIVE : « Systeme marketing » (actif par defaut) + « Systeme commercial » */}
-      <div class="he-tabs" data-he-tabs>
-        <div class="he-tabs__list" role="tablist" aria-label="Familles de systèmes">
-          <button
-            class="he-tab is-active"
-            role="tab"
-            id="he-tab-marketing"
-            aria-controls="he-panel-marketing"
-            aria-selected="true"
-            tabindex="0"
-            type="button"
-          >
-            <span class="he-tab__label">Système d’acquisition</span>
-          </button>
-          <button
-            class="he-tab"
-            role="tab"
-            id="he-tab-commercial"
-            aria-controls="he-panel-commercial"
-            aria-selected="false"
-            tabindex="-1"
-            type="button"
-          >
-            <span class="he-tab__label">Système commercial</span>
-          </button>
-        </div>
-
-        <div
-          class="he-tab-panel is-active"
-          role="tabpanel"
-          id="he-panel-marketing"
-          aria-labelledby="he-tab-marketing"
-          tabindex="0"
-        >
-          <div class="he-tabintro reveal">
-            <p class="he-tabintro__eyebrow">§ Système d’acquisition · équipes marketing de PME</p>
-            <p class="he-tabintro__lede">Un inbound et un outbound qui rapportent : le site qualifie chaque visite, les agents relancent et mesurent. Deux briques d’un même système marketing, à un pricing de lancement.</p>
-          </div>
-
-          <div class="he-diptych reveal-stagger">
-            <article class="he-offer">
-              <p class="he-offer__tag">Offre 01</p>
-              <h3 class="he-offer__title">Site web intelligent</h3>
-              <p class="he-offer__body">Un site web IA sur Astro, rapide, indexé par Google et par les moteurs IA, branché à votre CRM. Il qualifie chaque visite et alimente le pipeline en continu : une vitrine qui génère des leads, pas une plaquette figée.</p>
-              <div class="hline"></div>
-              <ul class="he-offer__points">
-                <li>Astro + IA, trouvé par Google et par les IA</li>
-                <li>Landing et tunnels reliés au CRM</li>
-                <li>Pages éditables, mesurées à la conversion</li>
-              </ul>
-              <a class="he-offer__link" href="/services/site-web-ia">Voir l’offre →</a>
-            </article>
-
-            <article class="he-offer he-offer--complement">
-              <p class="he-offer__tag">Offre 02</p>
-              <h3 class="he-offer__title">Automation &amp; IA</h3>
-              <p class="he-offer__body">Intégration IA de bout en bout : on déploie Claude, ChatGPT ou Mistral et leurs agents dans votre entreprise, branchés à vos outils via MCP (CRM, e-mail, base de données, dépôt Git). De quoi faire travailler l’IA sur vos données réelles et la faire passer de la conversation à l’action.</p>
-              <div class="hline"></div>
-              <ul class="he-offer__points">
-                <li>Claude, ChatGPT ou Mistral en production</li>
-                <li>Serveurs MCP propres vers vos outils</li>
-                <li>Gouvernance, mesure et passation incluses</li>
-              </ul>
-              <a class="he-offer__link" href="/services/integration-claude">Voir l’offre →</a>
-            </article>
-          </div>
-
-          {/* Dorsale line-art · relie visuellement les 2 cartes puis les 6 services · dessinee au scroll */}
-          <div class="he-rail hd-draw" aria-hidden="true">
-        <svg class="he-rail__svg" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
-          <path class="hd-line hd-line--2" pathLength="1" d="M300 4 C 300 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
-          <path class="hd-line hd-line--2 he-rail__branch--complement" pathLength="1" d="M900 4 C 900 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
-          <path class="hd-line hd-line--3" pathLength="1" d="M600 62 L600 108" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.6"/>
-          <path class="hd-line" pathLength="1" d="M100 108 L1100 108" stroke="var(--hairline-strong)" stroke-width="1"/>
-          <path class="hd-line hd-line--3" pathLength="1" d="M100 108 L100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
-          <path class="hd-line hd-line--3" pathLength="1" d="M300 108 L300 146" stroke="var(--hairline-strong)" stroke-width="1"/>
-          <path class="hd-line hd-line--3" pathLength="1" d="M500 108 L500 146" stroke="var(--hairline-strong)" stroke-width="1"/>
-          <path class="hd-line hd-line--3" pathLength="1" d="M700 108 L700 146" stroke="var(--hairline-strong)" stroke-width="1"/>
-          <path class="hd-line hd-line--3" pathLength="1" d="M900 108 L900 146" stroke="var(--hairline-strong)" stroke-width="1"/>
-          <path class="hd-line hd-line--3" pathLength="1" d="M1100 108 L1100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
-          <circle class="hd-node" cx="600" cy="62" r="4" fill="var(--accent)"/>
-          <circle class="hd-node" cx="100" cy="146" r="3" fill="var(--accent)"/>
-          <circle class="hd-node" cx="300" cy="146" r="3" fill="var(--accent)"/>
-          <circle class="hd-node" cx="500" cy="146" r="3" fill="var(--accent)"/>
-          <circle class="hd-node" cx="700" cy="146" r="3" fill="var(--accent)"/>
-          <circle class="hd-node" cx="900" cy="146" r="3" fill="var(--accent)"/>
-          <circle class="hd-node" cx="1100" cy="146" r="3" fill="var(--accent)"/>
-        </svg>
-          </div>
-
-          <p class="he-services__intro reveal">§ Six services, une seule équipe. On active celui qui sert d’abord.</p>
-          <div class="he-services reveal-stagger">
-            {services.map((s) => (
-              <a class="he-svc" href={s.href}>
-                <span class="he-svc__k">{s.metric}</span>
-                <span class="he-svc__label">{s.label}</span>
-                <span class="he-svc__sub">{s.sub}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Panel FAMILLE 2 · Systeme commercial (LIVE) · meme markup que le panel marketing.
-            Pas de classes reveal : panel masque au chargement -> l'IO scroll-reveal laisserait
-            le contenu en opacity:0 (footgun view-transitions-io). Le contenu s'affiche au clic. */}
-        <div
-          class="he-tab-panel"
-          role="tabpanel"
-          id="he-panel-commercial"
-          aria-labelledby="he-tab-commercial"
-          tabindex="0"
-          hidden
-        >
-          <div class="he-tabintro">
-            <p class="he-tabintro__eyebrow">§ Système commercial · équipes commerciales de PME</p>
-            <p class="he-tabintro__lede">Vos leads arrivent, puis se perdent. Un système commercial fait l’inverse : la prospection alimente, le CRM qualifie et route, les séquences relancent. Trois leviers sur une seule base pour transformer vos prospects en <i>clients</i>.</p>
-          </div>
-
-          <div class="he-diptych he-diptych--trio">
-            <article class="he-offer">
-              <p class="he-offer__tag">Levier 01</p>
-              <h3 class="he-offer__title">Prospection automatisée</h3>
-              <p class="he-offer__body">L’outbound qui vise les comptes cibles : ICP serré, listes enrichies et séquences multicanal. La prospection va chercher les comptes que l’inbound n’a pas captés, sans brûler votre domaine.</p>
-              <a class="he-offer__link" href="/services/prospection-automatisee">Voir le levier →</a>
-            </article>
-
-            <article class="he-offer">
-              <p class="he-offer__tag">Levier 02</p>
-              <h3 class="he-offer__title">CRM, scoring et routing</h3>
-              <p class="he-offer__body">Chaque lead noté selon son comportement, dédoublonné et affecté au bon commercial. Le chaud ne refroidit plus dans une file : l’alerte part à temps.</p>
-              <a class="he-offer__link" href="/services/crm-scoring-routing">Voir le levier →</a>
-            </article>
-
-            <article class="he-offer">
-              <p class="he-offer__tag">Levier 03</p>
-              <h3 class="he-offer__title">Séquences de suivi</h3>
-              <p class="he-offer__body">Des relances multicanal déclenchées par le comportement, personnalisées par l’IA. Plus aucun compte tiède ne s’éteint par oubli.</p>
-              <a class="he-offer__link" href="/services/sequences-de-suivi">Voir le levier →</a>
-            </article>
-          </div>
-
-          <p class="he-services__intro">§ Trois leviers, un seul système. On active celui qui bouche la fuite qui coûte d’abord.</p>
-          <a class="he-offer__link he-panel-cta" href="/services/systeme-commercial">Voir le système commercial →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  {/* 03 · Les deux offres · MONEY SLOT · offer-rail CATALOGUE (diptyque + trio + dorsale SVG +
+      rangee 6 services) · swap anti-orphelin du bloc bespoke he-offres vers le type catalogue.
+      `anchor: 'offres'` (dans la donnee) preserve la cible de scroll #offres. */}
+  <SectionsRenderer sections={[offerRail]} lang="fr" />
 
   {/* 04 · La boucle · statement-orbit CATALOGUE (carte ink dans paper) · PIVOT conceptuel */}
   <SectionsRenderer sections={[statementOrbit]} lang="fr" />
@@ -332,29 +171,9 @@ const services = SIX_SERVICES.map((s) => ({
     </div>
   </section>
 
-  {/* 07 · Cas clients · 3 cartes compactes + 1 lien « tous les cas » + micro-preuve (paper) · CTA audit retire */}
-  <section class="he-sec he-cases" aria-labelledby="he-cases-h2">
-    <div class="wrap-wide">
-      <header class="he-head reveal">
-        <p class="he-kicker">§ Cas clients</p>
-        <h2 id="he-cases-h2" class="he-h2 u-serif-accent"><i>Promesse</i> vérifiable, pas discours.</h2>
-      </header>
-      <div class="he-cases__grid reveal-stagger">
-        {caseItems.map((c) => (
-          <a class="he-case" href={c.href}>
-            <p class="he-case__client">{c.client}</p>
-            <p class="he-case__meta">{c.meta}</p>
-            <p class="he-case__impact">{c.impact}</p>
-            <span class="he-case__link">Lire le cas →</span>
-          </a>
-        ))}
-      </div>
-      <div class="he-cases__foot reveal">
-        <a class="he-cases__all" href="/cas-clients">Voir tous les cas →</a>
-        <p class="he-cases__cta">Des chiffres relevés sur les données du client, jamais une moyenne inventée.</p>
-      </div>
-    </div>
-  </section>
+  {/* 07 · Cas clients · case-card-grid CATALOGUE (grid-uniform 3 col, paper) · swap anti-orphelin
+      du bloc bespoke he-cases vers le type catalogue · memes cas, memes href (source c.json) */}
+  <SectionsRenderer sections={[casesHome]} lang="fr" />
 
   {/* 08 · Methode · sticky-scroll-storytelling CATALOGUE (ink) · media sticky crossfade au scroll */}
   <SectionsRenderer sections={[methodStory]} lang="fr" />
@@ -385,15 +204,11 @@ const services = SIX_SERVICES.map((s) => ({
 </Base>
 
 <style>
-  /* ── Rythme de section · hierarchie par l'echelle (compaction iter 6 : gagner sur les vides) ── */
+  /* ── Rythme de section · hierarchie par l'echelle (compaction iter 6 : gagner sur les vides) ──
+     Le MONEY SLOT (03) est desormais le composant catalogue offer-rail (src/components/sections/
+     OfferRail.astro) : son markup + CSS + scripts y vivent. Ne restent ici que la tension (06)
+     et les styles de chapitre partages (he-head/he-kicker/he-h2/he-lede). */
   .he-sec { padding-block: var(--section-base); }
-  /* MONEY SLOT : iter 6 passe --section-loose -> --section-base (poids porte par he-h2--xl + la
-     densite du contenu, pas par 160px de vide). Reste le slot le plus riche de la page. */
-  .he-offres {
-    --home-complement: #2090A8;
-    --home-complement-rgb: 32, 144, 168;
-    padding-block: var(--section-base);
-  }
 
   /* 05 · La tension INK (rythme iter 6) · idiome DS carte-sur-ink (repris de TestimonialWall) :
      fond ink, header en paper, cartes en surface ink elevee (rgba paper) + hairline clair.
@@ -435,8 +250,6 @@ const services = SIX_SERVICES.map((s) => ({
     margin: 0;
     text-wrap: balance;
   }
-  /* Money/proof : cran display superieur (varie l'echelle typographique) */
-  .he-h2--xl { font-size: var(--text-h1); line-height: var(--leading-h1); }
   .he-lede {
     font-family: var(--font-sans);
     font-size: var(--text-h3);
@@ -444,242 +257,6 @@ const services = SIX_SERVICES.map((s) => ({
     color: var(--muted);
     margin: var(--space-5) 0 0;
     max-width: var(--wrap-prose);
-  }
-
-  /* ── 03 · Tabs familles (etage V8) · barre hairline sobre, PAS de pills ──
-     Idiome repris de FeatureTabs (underline hairline + segment actif accent). */
-  .he-tabs { margin-bottom: var(--space-7); } /* iter 6 : space-9 -> space-7 */
-  .he-tabs__list {
-    display: flex;
-    gap: var(--space-6);
-    border-bottom: 1px solid var(--hairline);
-    margin-bottom: var(--space-6); /* iter 6 : space-8 -> space-6 */
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .he-tabs__list::-webkit-scrollbar { display: none; }
-  .he-tab {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) 0;
-    margin-bottom: -1px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    color: var(--muted);
-    white-space: nowrap;
-    transition:
-      color var(--dur-trim) var(--ease),
-      border-color var(--dur-trim) var(--ease);
-  }
-  .he-tab.is-active {
-    color: var(--ink);
-    border-bottom-color: var(--accent-text);
-  }
-  .he-tab:not(.is-disabled):not(.is-active):hover { color: var(--ink); }
-  .he-tab.is-disabled { cursor: not-allowed; color: var(--muted); }
-  .he-tab__badge {
-    font-family: var(--font-mono);
-    font-size: var(--text-micro);
-    letter-spacing: var(--tracking-caps);
-    text-transform: uppercase;
-    color: var(--accent-text);
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-card-rest);
-  }
-  .he-tab-panel { display: none; }
-  .he-tab-panel.is-active { display: block; }
-  .he-tab-panel:focus-visible { outline: 2px solid var(--accent-text); outline-offset: var(--space-2); }
-
-  /* ── 03 · Intro du tab 1 (cible + promesse) ── */
-  .he-tabintro {
-    max-width: var(--wrap-read);
-    margin-bottom: var(--space-6); /* iter 6 : space-8 -> space-6 */
-  }
-  .he-tabintro__eyebrow {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    text-transform: uppercase;
-    color: var(--accent-text);
-    margin: 0 0 var(--space-3);
-  }
-  .he-tabintro__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-relaxed);
-    color: var(--muted);
-    margin: 0;
-    max-width: var(--wrap-prose);
-  }
-
-  /* ── 03 · Diptyque des offres ── */
-  .he-diptych {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--gut);
-  }
-  /* Panel commercial : 3 leviers -> grille 3 colonnes (idiome he-services repeat/minmax,
-     0 token en dur). Repli 1fr <=900px porte par la regle @media .he-diptych plus bas. */
-  .he-diptych--trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  /* CTA systeme du panel commercial : lien mono coral (he-offer__link) sur sa propre ligne. */
-  .he-panel-cta { display: inline-block; margin-top: var(--space-5); }
-  .he-offer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    padding: var(--space-7); /* iter 6 : space-9 -> space-7 (cartes moins hautes, contenu intact) */
-    background: var(--paper-2);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card-rest);
-    transition:
-      transform var(--dur-hover) var(--ease),
-      box-shadow var(--dur-hover) var(--ease);
-  }
-  .he-offer:hover {
-    transform: translateY(calc(var(--space-1) * -1));
-    box-shadow: var(--shadow-card-hover);
-  }
-  .he-offer__tag {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent-text);
-    margin: 0;
-  }
-  .he-offer__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-title-lg);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--tracking-display);
-    color: var(--ink);
-    margin: 0;
-  }
-  .he-offer__body {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-relaxed);
-    color: var(--muted);
-    margin: 0;
-  }
-  .he-offer__points {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-  .he-offer__points li {
-    display: flex;
-    gap: var(--space-3);
-    align-items: flex-start;
-    font-size: var(--text-body);
-    line-height: var(--leading-relaxed);
-    color: var(--ink);
-  }
-  .he-offer__points li::before {
-    content: "";
-    flex: none;
-    inline-size: var(--space-2);
-    block-size: var(--space-2);
-    border-radius: var(--radius-full);
-    background: var(--accent);
-    transform: translateY(0.5em);
-  }
-  .he-offer--complement .he-offer__tag,
-  .he-offer--complement .he-offer__link {
-    color: var(--home-complement);
-  }
-  .he-offer--complement .he-offer__points li::before {
-    background: var(--home-complement);
-  }
-  .he-offer--complement:hover {
-    box-shadow:
-      0 0 0 1px rgba(var(--home-complement-rgb), 0.38),
-      0 8px 24px -16px rgba(var(--ink-rgb), 0.1);
-  }
-  .he-offer__link {
-    margin-top: auto;
-    padding-top: var(--space-4);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    color: var(--accent-text);
-    transition: color var(--dur-trim) var(--ease);
-  }
-  .he-offer__link:hover { color: var(--accent); }
-
-  /* ── 03 · Dorsale line-art (relie 2 cartes -> 6 services) ── */
-  .he-rail {
-    margin: var(--space-4) 0 var(--space-3); /* iter 6 : resserre le vide autour de la dorsale */
-  }
-  .he-rail__svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .he-rail__branch--complement {
-    stroke: var(--home-complement);
-  }
-
-  /* ── 03 · Rangee compacte des 6 services (absorption ServicesGrid) ── */
-  .he-services__intro {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    color: var(--muted);
-    margin: 0 0 var(--space-4); /* iter 6 : space-5 -> space-4 */
-  }
-  .he-services {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: var(--space-3);
-  }
-  .he-svc {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-5) var(--space-4);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card-rest);
-    background: var(--paper);
-    transition:
-      transform var(--dur-hover) var(--ease),
-      box-shadow var(--dur-hover) var(--ease);
-  }
-  .he-svc:hover {
-    transform: translateY(calc(var(--space-1) * -1));
-    box-shadow: var(--shadow-card-hover);
-  }
-  .he-svc__k {
-    font-family: var(--font-mono);
-    font-size: var(--text-micro);
-    letter-spacing: var(--tracking-caps);
-    text-transform: uppercase;
-    color: var(--accent-text);
-  }
-  .he-svc__label {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    font-weight: var(--fw-medium);
-    line-height: var(--leading-h3);
-    color: var(--ink);
-  }
-  .he-svc__sub {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    line-height: var(--leading-relaxed);
-    color: var(--muted);
-    margin-top: auto;
   }
 
   /* ── 05 · La tension · 3 douleurs graduees, sobres ── */
@@ -742,201 +319,8 @@ const services = SIX_SERVICES.map((s) => ({
     margin-right: var(--space-2);
   }
 
-  /* ── 07 · Cas clients · 3 cartes ── */
-  .he-cases__grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--gut);
-  }
-  .he-case {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-7); /* iter 6 : space-8 -> space-7 */
-    background: var(--paper-2);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card-rest);
-    transition:
-      transform var(--dur-hover) var(--ease),
-      box-shadow var(--dur-hover) var(--ease);
-  }
-  .he-case:hover {
-    transform: translateY(calc(var(--space-1) * -1));
-    box-shadow: var(--shadow-card-hover);
-  }
-  .he-case__client {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-semibold);
-    color: var(--ink);
-    margin: 0;
-  }
-  .he-case__meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    color: var(--muted);
-    margin: 0;
-  }
-  .he-case__impact {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-relaxed);
-    color: var(--muted);
-    margin: var(--space-2) 0 0;
-  }
-  .he-case__link {
-    margin-top: auto;
-    padding-top: var(--space-5);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    color: var(--accent-text);
-  }
-  .he-cases__foot {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--space-4);
-    margin-top: var(--space-6); /* iter 6 : space-8 -> space-6 */
-  }
-  .he-cases__all {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono-tight);
-    color: var(--ink);
-    transition: color var(--dur-trim) var(--ease);
-  }
-  .he-cases__all:hover { color: var(--accent-text); }
-  .he-cases__cta {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    margin: 0;
-  }
-  .he-cases__cta a {
-    color: var(--accent-text);
-    font-weight: var(--fw-medium);
-    transition: color var(--dur-trim) var(--ease);
-  }
-  .he-cases__cta a:hover { color: var(--accent); }
-
-  /* ── SVG dessine au scroll · dorsale du money slot (03) ──
-     pathLength=1 -> dasharray:1 ; l'IntersectionObserver ajoute .is-drawn (offset -> 0). */
-  .hd-line {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    transition: stroke-dashoffset var(--dur-slow) var(--ease-out);
-  }
-  .hd-line--2 { transition-delay: var(--dur-base); }
-  .hd-line--3 { transition-delay: var(--dur-panel); }
-  .hd-draw.is-drawn .hd-line { stroke-dashoffset: 0; }
-  .hd-node {
-    opacity: 0;
-    transition: opacity var(--dur-reveal) var(--ease-out) var(--dur-panel);
-  }
-  .hd-draw.is-drawn .hd-node { opacity: 1; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hd-line { stroke-dashoffset: 0; transition: none; }
-    .hd-node { opacity: 1; transition: none; }
-    .he-offer:hover,
-    .he-svc:hover,
-    .he-case:hover { transform: none; }
-  }
-
-  /* ── Responsive · litteraux px en @media UNIQUEMENT (var() interdit en condition) ── */
+  /* ── Responsive · litteral px en @media UNIQUEMENT (var() interdit en condition) ── */
   @media (max-width: 900px) {
-    .he-diptych,
-    .he-pains,
-    .he-cases__grid { grid-template-columns: 1fr; }
-    .he-services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-  @media (max-width: 760px) {
-    .he-rail { display: none; } /* la dorsale n'a de sens qu'en grille large */
-  }
-  @media (max-width: 560px) {
-    .he-services { grid-template-columns: 1fr; }
-    .he-cases__foot { flex-direction: column; align-items: flex-start; }
+    .he-pains { grid-template-columns: 1fr; }
   }
 </style>
-
-<script is:inline>
-  /* Dessin des SVG au scroll · IntersectionObserver -> .is-drawn (stroke-dashoffset).
-     Reduced-motion : le CSS montre deja l'etat final. Re-init compatible ClientRouter. */
-  (() => {
-    if (typeof window === 'undefined') return;
-    function initHeDraw() {
-      const nodes = document.querySelectorAll('.hd-draw');
-      if (!nodes.length) return;
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-drawn');
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      nodes.forEach((n) => {
-        if (n.dataset.drawBound === '1') return;
-        n.dataset.drawBound = '1';
-        io.observe(n);
-      });
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initHeDraw);
-    } else {
-      initHeDraw();
-    }
-    document.addEventListener('astro:page-load', initHeDraw);
-  })();
-</script>
-
-<script is:inline>
-  /* Tabs familles (money slot 03) · aria tablist/tab/tabpanel + clavier ←/→/Home/End.
-     Idiome FeatureTabs/pricing-tabs, adapte : les onglets desactives (aria-disabled) sont
-     ignores (non focusables, sans panel). 1 seul onglet actif ici, structure prete pour N.
-     Re-init compatible ClientRouter (astro:page-load) + garde anti double-binding. */
-  (() => {
-    if (typeof window === 'undefined') return;
-    function initHeTabs() {
-      const root = document.querySelector('[data-he-tabs]');
-      if (!root || root.dataset.tabsBound === '1') return;
-      const tabs = Array.from(root.querySelectorAll('[role="tab"]'))
-        .filter((t) => t.getAttribute('aria-disabled') !== 'true' && !t.hasAttribute('disabled'));
-      if (!tabs.length) return;
-      root.dataset.tabsBound = '1';
-      function activate(idx) {
-        tabs.forEach((tab, i) => {
-          const active = i === idx;
-          tab.setAttribute('aria-selected', active ? 'true' : 'false');
-          tab.tabIndex = active ? 0 : -1;
-          tab.classList.toggle('is-active', active);
-          const pid = tab.getAttribute('aria-controls');
-          const panel = pid && document.getElementById(pid);
-          if (panel) {
-            panel.classList.toggle('is-active', active);
-            panel.toggleAttribute('hidden', !active);
-          }
-        });
-      }
-      tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => { activate(i); tab.focus(); });
-        tab.addEventListener('keydown', (e) => {
-          const total = tabs.length;
-          if (e.key === 'ArrowRight') { e.preventDefault(); activate((i + 1) % total); tabs[(i + 1) % total].focus(); }
-          if (e.key === 'ArrowLeft')  { e.preventDefault(); activate((i - 1 + total) % total); tabs[(i - 1 + total) % total].focus(); }
-          if (e.key === 'Home') { e.preventDefault(); activate(0); tabs[0].focus(); }
-          if (e.key === 'End')  { e.preventDefault(); activate(total - 1); tabs[total - 1].focus(); }
-        });
-      });
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initHeTabs);
-    } else {
-      initHeTabs();
-    }
-    document.addEventListener('astro:page-load', initHeTabs);
-  })();
-</script>
