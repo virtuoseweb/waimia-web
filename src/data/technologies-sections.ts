@@ -155,6 +155,37 @@ export function technologiesSections(lang: Lang) {
     body2_en: 'Le principe ne change pas : on ne vous enferme nulle part. Vous gardez le code, le contenu et la documentation. Vous pouvez reprendre la stack en interne, ou la confier à un autre prestataire.',
   } satisfies SectionByType<'branded-callout'>;
 
+  // ── ÉCOSYSTÈME · ecosystem-partners (grille par catégorie, fond paper-2).
+  // Le hero dit « pas de catalogue de logos » : la copy assume donc l'inverse d'un
+  // mur de badges → les briques réellement câblées, couche par couche. Claude pointe
+  // vers la route interne /expertise-claude ; le reste en liens externes. Chaque asset
+  // vérifié présent dans public/logos/partners/. Page FR-only → _en reflète le FR. ──
+  const ecosystemData = {
+    type: 'ecosystem-partners',
+    background: 'paper-2',
+    layout: 'grid',
+    kicker_fr: '§ Écosystème',
+    kicker_en: '§ Écosystème',
+    h2_fr: "Les outils qu'on <i>câble</i> vraiment.",
+    h2_en: "Les outils qu'on <i>câble</i> vraiment.",
+    lede_fr: "Pas des badges accrochés au mur. Les briques qu'on connecte pour de vrai, couche par couche. La plupart, vous les avez déjà.",
+    lede_en: "Pas des badges accrochés au mur. Les briques qu'on connecte pour de vrai, couche par couche. La plupart, vous les avez déjà.",
+    partners: [
+      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/expertise-claude', category: 'IA & agents' },
+      { name: 'OpenAI', asset: '/logos/partners/partner-openai.png', href: 'https://openai.com', external: true, category: 'IA & agents' },
+      { name: 'GitHub Copilot', asset: '/logos/partners/partner-copilot.svg', href: 'https://github.com/features/copilot', external: true, category: 'IA & agents' },
+      { name: 'Amazon Web Services', asset: '/logos/partners/partner-aws.png', href: 'https://aws.amazon.com', external: true, category: 'Cloud & infrastructure' },
+      { name: 'Google', asset: '/logos/partners/partner-google.png', href: 'https://cloud.google.com', external: true, category: 'Cloud & infrastructure' },
+      { name: 'Microsoft', asset: '/logos/partners/partner-microsoft.png', href: 'https://www.microsoft.com', external: true, category: 'Cloud & infrastructure' },
+      { name: 'HubSpot', asset: '/logos/partners/partner-hubspot.png', href: 'https://www.hubspot.com', external: true, category: 'CRM & acquisition' },
+      { name: 'Salesforce', asset: '/logos/partners/partner-salesforce.png', href: 'https://www.salesforce.com', external: true, category: 'CRM & acquisition' },
+      { name: 'Meta Business', asset: '/logos/partners/partner-meta-business.png', href: 'https://business.meta.com', external: true, category: 'CRM & acquisition' },
+      { name: 'Slack', asset: '/logos/partners/partner-slack.svg', href: 'https://slack.com', external: true, category: 'Collaboration & outils' },
+      { name: 'GitHub', asset: '/logos/partners/partner-github.svg', href: 'https://github.com', external: true, category: 'Collaboration & outils' },
+      { name: 'Microsoft Power Apps', asset: '/logos/partners/partner-power-apps.svg', href: 'https://powerapps.microsoft.com', external: true, category: 'Collaboration & outils' },
+    ],
+  } satisfies SectionByType<'ecosystem-partners'>;
+
   // ── CTA final · reproduit la branche non-contact de UtilityTemplate (showCta) ──
   const utilityLabel = 'Stack & technologies';
   const ctaData = {
@@ -178,5 +209,5 @@ export function technologiesSections(lang: Lang) {
     background: 'paper',
   } satisfies SectionByType<'cta-final'>;
 
-  return { heroData, crumbs, layersData, specData, principlesData, anchorData, ctaData };
+  return { heroData, crumbs, layersData, specData, principlesData, anchorData, ecosystemData, ctaData };
 }

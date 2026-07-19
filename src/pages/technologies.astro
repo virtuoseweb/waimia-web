@@ -13,6 +13,7 @@ import SpecBar from '../components/sections/SpecBar.astro';
 import NumberedLayerList from '../sections/numbered-layer-list/Component.astro';
 import MetricCalloutBand from '../components/sections/MetricCalloutBand.astro';
 import BrandedCallout from '../sections/branded-callout/Component.astro';
+import EcosystemPartners from '../sections/ecosystem-partners/Component.astro';
 import CtaFinal from '../components/sections/CtaFinal.astro';
 import { langFromPath } from '../lib/i18n';
 import { SITE } from '../site.config';
@@ -21,7 +22,7 @@ import { technologiesSections } from '../data/technologies-sections';
 const lang = langFromPath(Astro.url.pathname);
 
 // Données de sections (vague V3) → `src/data/technologies-sections.ts`. Shell inchangé.
-const { heroData, crumbs, layersData, specData, principlesData, anchorData, ctaData } = technologiesSections(lang);
+const { heroData, crumbs, layersData, specData, principlesData, anchorData, ecosystemData, ctaData } = technologiesSections(lang);
 
 const techLd = {
   '@context': 'https://schema.org',
@@ -48,6 +49,8 @@ const techLd = {
   <MetricCalloutBand data={principlesData} lang={lang} />
 
   <BrandedCallout data={anchorData} lang={lang} />
+
+  <EcosystemPartners data={ecosystemData} lang={lang} />
 
   <CtaFinal data={ctaData} lang={lang} />
 </Base>
