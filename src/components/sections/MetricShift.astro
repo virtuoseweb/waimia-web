@@ -23,7 +23,7 @@ const hasHeader = Boolean(kicker || h2 || lede);
     {hasHeader && (
       <header class="metric-shift__hd">
         {kicker && <Kicker as="span" tone="accent" class="metric-shift__kicker">{kicker}</Kicker>}
-        {h2 && <h2 class="metric-shift__title u-serif-accent" set:html={h2} />}
+        {h2 && <h2 class="metric-shift__title u-h2-display u-serif-accent" set:html={h2} />}
         {lede && <p class="metric-shift__lede" set:html={lede} />}
       </header>
     )}
@@ -65,18 +65,7 @@ const hasHeader = Boolean(kicker || h2 || lede);
   :global(.metric-shift__kicker) {
     display: block;
     margin-bottom: var(--space-4);
-  }
-  .metric-shift__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-    text-wrap: balance;
-    margin: 0;
-  }
-  .metric-shift__lede {
+  } .metric-shift__lede {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--leading-body);

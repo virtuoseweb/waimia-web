@@ -54,12 +54,12 @@ const isFr = lang === 'fr';
             <article class="stk__card reveal" data-tone={tone}>
               <div class="stk__text">
                 {(isFr ? card.index_fr : card.index_en) && (
-                  <span class="stk__index u-serif-accent" aria-hidden="true"><i>{isFr ? card.index_fr : card.index_en}</i></span>
+                  <span class="stk__index u-index-num u-serif-accent" aria-hidden="true"><i>{isFr ? card.index_fr : card.index_en}</i></span>
                 )}
                 <h3>{isFr ? card.title_fr : card.title_en}</h3>
                 <p>{isFr ? card.body_fr : card.body_en}</p>
                 {card.points && card.points.length > 0 && (
-                  <ul class="stk__points">
+                  <ul class="stk__points u-list-points">
                     {card.points.map((point) => (
                       <li>{isFr ? point.label_fr : point.label_en}</li>
                     ))}
@@ -132,12 +132,7 @@ const isFr = lang === 'fr';
     flex-direction: column;
     gap: var(--space-3);
   }
-  /* Index : taille display ; couleur accent portée par l'idiome .u-serif-accent i. */
-  .stk__index {
-    font-size: var(--text-h3);
-    line-height: 1;
-  }
-  .stk__text h3 {
+  /* Index : taille display ; couleur accent portée par l'idiome .u-serif-accent i. */ .stk__text h3 {
     font-family: var(--font-sans);
     font-size: var(--text-h3);
     font-weight: var(--fw-medium);
@@ -153,17 +148,7 @@ const isFr = lang === 'fr';
     margin: 0;
     max-width: 52ch;
   }
-
-  .stk__points {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    max-width: 52ch;
-  }
-  .stk__points li {
+ .stk__points li {
     position: relative;
     padding-left: var(--space-5);
     font-family: var(--font-sans);

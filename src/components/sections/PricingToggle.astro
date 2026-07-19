@@ -59,7 +59,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
           </div>
           <ul class="pricing-toggle__features">
             {(isFr ? tier.features_fr : tier.features_en).map((f: string) => (
-              <li><span class="pricing-toggle__check" aria-hidden="true">▸</span><span>{f}</span></li>
+              <li><span class="pricing-toggle__check u-check-accent" aria-hidden="true">▸</span><span>{f}</span></li>
             ))}
           </ul>
           <Button
@@ -246,14 +246,7 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
     font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--ink-2);
-  }
-  .pricing-toggle__check {
-    color: var(--accent-text);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    flex-shrink: 0;
-  }
-  .pricing-toggle__btn { width: 100%; }
+  } .pricing-toggle__btn { width: 100%; }
   @media (max-width: 900px) {
     .pricing-toggle__grid { grid-template-columns: 1fr; }
   }

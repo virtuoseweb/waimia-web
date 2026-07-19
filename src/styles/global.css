@@ -1668,6 +1668,136 @@ a:not([class]):hover,
   font-size: var(--text-small);
   line-height: var(--leading-body);
 }
+/* Consolidation A5 (P2.2 vague 2) : 20 classes partagees, memes garanties de parite
+   que A4 (bare-class real-section-only, overrides scopes [data-astro-cid] plus
+   specifiques). NB : les grilles responsive nested (@media/container-query) sont
+   EXCLUES volontairement (une classe globale les appliquerait a tous les viewports). */
+/* En-tete compact (gap-3, mb-9, 760px), distinct de .sec-head (gap-4, spacing-block). */
+.sec-head-tight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-9);
+  max-width: 760px;
+}
+/* En-tete split 2 colonnes alignees en pied (famille tech-sec). */
+.u-sec-hd-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: end;
+  margin-bottom: var(--space-9);
+}
+/* Piles flex colonne generiques. */
+.u-stack-4 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.u-stack-5 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+/* Titres : h2 tracking-display balance / h3 semibold / nom h3 compact / index decoratif. */
+.u-h2-display {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-h3);
+  margin: 0;
+  text-wrap: balance;
+}
+.u-h3-heading {
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  line-height: var(--leading-h3);
+  margin: 0;
+}
+.u-name-h3 {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+}
+.u-index-num {
+  font-size: var(--text-h3);
+  line-height: 1;
+}
+.u-body-medium {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+}
+/* Listes reset. */
+.u-list-col {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.u-list-grid {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.u-list-points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  max-width: 52ch;
+  padding: 0;
+}
+/* Coquilles de bande de section (hors moteur section-layouts : noms distincts de
+   .sec-band/.sec-editorial qui appartiennent au systeme density). */
+.sec-prose-band {
+  border-bottom: 1px solid var(--hairline);
+  padding: var(--section-base) var(--gut);
+}
+.sec-band-rel {
+  padding: var(--section-base) 0;
+  position: relative;
+}
+.sec-band-rel-loose {
+  padding: var(--section-loose) 0;
+  position: relative;
+}
+.sec-cta-band {
+  border-block: 1px solid var(--hairline);
+  padding-block: var(--section-base);
+}
+/* Rangee de CTAs + coche pricing + colonnes prose. */
+.u-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+.u-check-accent {
+  color: var(--accent-text);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+.u-prose-col {
+  margin: 0 auto;
+  max-width: var(--wrap-prose);
+}
+.u-prose-head {
+  margin-bottom: var(--space-8);
+  max-width: var(--wrap-prose);
+}
 .sec-paper {
   background: var(--paper-2);
 }

@@ -20,7 +20,7 @@ const align = data.align ?? 'left';
 const variant = data.variant ?? (data.background === 'ink' ? 'inverted' : 'default');
 const cols = data.columns ?? 4;
 ---
-<section class="key-metric-grid" data-bg={data.background} data-density={data.density}>
+<section class="key-metric-grid sec-prose-band" data-bg={data.background} data-density={data.density}>
   <div class="wrap-wide">
     {(data.eyebrow_fr || data.eyebrow_en) && (
       <p class="key-metric-grid__eyebrow">{lang === 'fr' ? data.eyebrow_fr : data.eyebrow_en}</p>
@@ -44,12 +44,7 @@ const cols = data.columns ?? 4;
   </div>
 </section>
 
-<style>
-  .key-metric-grid {
-    padding: var(--section-base) var(--gut);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .key-metric-grid__eyebrow {
+<style> .key-metric-grid__eyebrow {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     text-transform: uppercase;

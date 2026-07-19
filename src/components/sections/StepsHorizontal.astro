@@ -20,7 +20,7 @@ const isFr = lang === 'fr';
     </div>
     <ol class="steps-horizontal__list">
       {data.steps.map((step: (typeof data.steps)[number], i: number) => (
-        <li class="steps-horizontal__step">
+        <li class="steps-horizontal__step u-stack-5">
           <div class="steps-horizontal__track" aria-hidden="true">
             <div class="steps-horizontal__pill">{i + 1}</div>
             <div class="steps-horizontal__connector"></div>
@@ -44,14 +44,7 @@ const isFr = lang === 'fr';
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
   }
-
-  .steps-horizontal__step {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  /* Track : pastille + connecteur */
+ /* Track : pastille + connecteur */
   .steps-horizontal__track {
     display: flex;
     align-items: center;

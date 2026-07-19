@@ -23,9 +23,9 @@ const events = data.steps.map((s) => ({
   variant: 'default' as const,
 }));
 ---
-<section class="tech-sec tech-sec-paper tech-integration" data-bg={data.background} data-screen-label="06 Integration">
+<section class="tech-sec sec-band-rel-loose tech-sec-paper tech-integration" data-bg={data.background} data-screen-label="06 Integration">
   <div class="wrap">
-    <div class="tech-sec-hd u-serif-accent">
+    <div class="tech-sec-hd u-sec-hd-split u-serif-accent">
       <div>
         <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         <h2 set:html={isFr ? data.title_fr : data.title_en} />
@@ -42,17 +42,7 @@ const events = data.steps.map((s) => ({
 </section>
 
 <style>
-  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */
-  .tech-sec { padding: var(--section-loose) 0; position: relative; }
-  .tech-sec-paper { background: var(--paper-2); }
-  .tech-sec-hd {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-10);
-    margin-bottom: var(--space-9);
-    align-items: end;
-  }
-  .tech-sec-hd h2 {
+  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */ .tech-sec-paper { background: var(--paper-2); } .tech-sec-hd h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: var(--leading-h1);

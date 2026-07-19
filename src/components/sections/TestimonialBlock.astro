@@ -20,7 +20,7 @@ const isFr = lang === 'fr';
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
     )}
   </div>
-  <ul class="testimonial-block__list" data-layout={data.layout}>
+  <ul class="testimonial-block__list u-list-grid" data-layout={data.layout}>
     {data.testimonials.map((t: (typeof data.testimonials)[number]) => (
       <li class="testimonial-block__item">
         <blockquote class="testimonial-block__quote">
@@ -36,14 +36,7 @@ const isFr = lang === 'fr';
   </div>
 </section>
 
-<style> .testimonial-block__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0;
-  }
-  .testimonial-block__list[data-layout="grid-2"] { grid-template-columns: repeat(2, 1fr); }
+<style> .testimonial-block__list[data-layout="grid-2"] { grid-template-columns: repeat(2, 1fr); }
   .testimonial-block__list[data-layout="rows"] { grid-template-columns: 1fr; }
   .testimonial-block__list[data-layout="carousel"] {
     grid-template-columns: repeat(2, 1fr);

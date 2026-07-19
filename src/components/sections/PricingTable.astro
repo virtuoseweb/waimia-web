@@ -29,7 +29,7 @@ const isFr = lang === 'fr';
         <ul class="pricing-table__features">
           {(isFr ? tier.features_fr : tier.features_en).map((f: string) => (
             <li>
-              <span class="pricing-table__check">▸</span>
+              <span class="pricing-table__check u-check-accent">▸</span>
               {f}
             </li>
           ))}
@@ -121,14 +121,7 @@ const isFr = lang === 'fr';
     border-bottom: 1px solid var(--hairline);
     padding-bottom: var(--space-3);
   }
-  .pricing-table__features li:last-child { border-bottom: none; padding-bottom: 0; }
-  .pricing-table__check {
-    color: var(--accent-text);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    flex-shrink: 0;
-  }
-  .pricing-table__cta { padding: var(--space-4) var(--space-5) var(--space-5); }
+  .pricing-table__features li:last-child { border-bottom: none; padding-bottom: 0; } .pricing-table__cta { padding: var(--space-4) var(--space-5) var(--space-5); }
   .pricing-table__btn { width: 100%; }
   @media (max-width: 768px) {
     .pricing-table__grid { grid-template-columns: 1fr; --col-count: 1; }

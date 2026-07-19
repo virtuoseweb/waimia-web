@@ -41,7 +41,7 @@ const title = isFr ? data.title_fr : data.title_en;
       return (
         <a class="table-row" href={row.href}>
           <span class="col-num mono">{row.num ?? String(i + 1).padStart(2, '0')}</span>
-          <span class="col-titre row-title">{rowTitle}</span>
+          <span class="col-titre row-title u-body-medium">{rowTitle}</span>
           <span class="col-niveau">
             <span class={`pill pill--${row.level}`}>{level}</span>
           </span>
@@ -117,15 +117,7 @@ const title = isFr ? data.title_fr : data.title_en;
     font-size: var(--text-small);
     color: var(--muted);
   }
-
-  .row-title {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-  }
-
-  .mono {
+ .mono {
     font-family: var(--font-mono);
     font-size: var(--text-small);
   }

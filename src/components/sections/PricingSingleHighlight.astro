@@ -31,7 +31,7 @@ const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
     <article class="pricing-single__card">
       <div class="pricing-single__lead">
         <strong class="pricing-single__name">{name}</strong>
-        {desc && <p class="pricing-single__desc">{desc}</p>}
+        {desc && <p class="pricing-single__desc u-lede-sm">{desc}</p>}
         <div class="pricing-single__price">
           {data.anchor_price && (
             <span class="pricing-single__anchor">
@@ -59,7 +59,7 @@ const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
         <span class="pricing-single__benefits-label">{isFr ? 'Inclus' : 'Included'}</span>
         <ul class="pricing-single__list">
           {(isFr ? data.benefits_fr : data.benefits_en).map((b: string) => (
-            <li><span class="pricing-single__check" aria-hidden="true">▸</span><span>{b}</span></li>
+            <li><span class="pricing-single__check u-check-accent" aria-hidden="true">▸</span><span>{b}</span></li>
           ))}
         </ul>
         {secondaryNote && <p class="pricing-single__note">{secondaryNote}</p>}
@@ -96,14 +96,7 @@ const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
     color: var(--accent-text);
     font-weight: var(--fw-regular);
   }
-  .pricing-single__desc {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-    text-wrap: pretty;
-  }
+  .pricing-single__desc { text-wrap: pretty; }
   .pricing-single__price {
     display: flex;
     flex-direction: column;
@@ -184,14 +177,7 @@ const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
     font-size: var(--text-small);
     line-height: var(--leading-body);
     color: var(--ink-2);
-  }
-  .pricing-single__check {
-    color: var(--accent-text);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    flex-shrink: 0;
-  }
-  .pricing-single__note {
+  } .pricing-single__note {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     color: var(--muted);

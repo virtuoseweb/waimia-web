@@ -107,7 +107,7 @@ const isFr = lang === 'fr';
       )}
       <h1 class="reveal-mask-up" set:html={isFr ? data.h1_fr : data.h1_en} />
       <p class="reveal reveal-fade">{isFr ? data.lede_fr : data.lede_en}</p>
-      <div class="hero-split__ctas">
+      <div class="hero-split__ctas u-cta-row">
         <Button href={data.cta_primary.href} variant={data.cta_primary.variant as any} size="lg" mag={data.cta_primary.mag ?? 0.18}>
           {isFr ? data.cta_primary.label_fr : data.cta_primary.label_en}
         </Button>
@@ -170,14 +170,7 @@ const isFr = lang === 'fr';
     color: var(--ink);
     max-width: 48ch;
     margin: 0;
-  }
-  .hero-split__ctas {
-    display: flex;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .hero-split__meta { margin-top: -8px; }
+  } .hero-split__meta { margin-top: -8px; }
   .hero-split__right {
     position: relative;
     border: 1px solid var(--hairline);

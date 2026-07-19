@@ -20,8 +20,8 @@ const events = data.events.map((e) => ({
   variant: e.variant,
 }));
 ---
-<section class="editorial-timeline" data-bg={data.background} data-density={data.density}>
-  <div class="editorial-timeline__col">
+<section class="editorial-timeline sec-prose-band" data-bg={data.background} data-density={data.density}>
+  <div class="editorial-timeline__col u-prose-col">
     {(data.eyebrow_fr || data.eyebrow_en) && (
       <p class="editorial-timeline__eyebrow">{lang === 'fr' ? data.eyebrow_fr : data.eyebrow_en}</p>
     )}
@@ -36,16 +36,7 @@ const events = data.events.map((e) => ({
   </div>
 </section>
 
-<style>
-  .editorial-timeline {
-    padding: var(--section-base) var(--gut);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .editorial-timeline__col {
-    max-width: var(--wrap-prose);
-    margin: 0 auto;
-  }
-  .editorial-timeline__eyebrow {
+<style> .editorial-timeline__eyebrow {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     text-transform: uppercase;

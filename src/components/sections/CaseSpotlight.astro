@@ -57,7 +57,7 @@ const variant = data.variant ?? 'media-left';
           {data.media_caption && <figcaption>{isFr ? data.media_caption : data.media_caption}</figcaption>}
         </figure>
       )}
-      <div class="cspot__body">
+      <div class="cspot__body u-stack-5">
         {tags.length > 0 && (
           <ul class="cspot__tags">
             {tags.map((t) => <li>{isFr ? t.fr : t.en}</li>)}
@@ -142,10 +142,7 @@ const variant = data.variant ?? 'media-left';
     padding: var(--space-3) var(--space-4);
     border-top: 1px solid var(--hairline);
   }
-
-  .cspot__body { display: flex; flex-direction: column; gap: var(--space-5); }
-
-  .cspot__tags {
+ .cspot__tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);

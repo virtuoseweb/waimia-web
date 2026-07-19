@@ -23,7 +23,7 @@ const placements = [
   { class: 'col-5 start-8', size: 'md' as const, variant: 'default' as const },
 ];
 ---
-<section class="sol-sec sol-sec-dark sol-proof reveal-stagger" data-screen-label="04 ROI Band" data-bg={data.background}>
+<section class="sol-sec sec-band-rel sol-sec-dark sol-proof reveal-stagger" data-screen-label="04 ROI Band" data-bg={data.background}>
   <div class="wrap g12 g12--full">
     <header class="sol-roi-hd section-eyebrow col-12">
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
@@ -49,9 +49,7 @@ const placements = [
 </section>
 
 <style>
-  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
-  .sol-sec { padding: var(--section-base) 0; position: relative; }
-  .sol-proof { margin-top: var(--space-10); }
+  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */ .sol-proof { margin-top: var(--space-10); }
   .sol-sec-dark { background: var(--ink); color: var(--paper); }
   /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
   .section-eyebrow :global(.eyebrow) {

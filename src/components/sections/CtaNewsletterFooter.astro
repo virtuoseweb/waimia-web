@@ -16,7 +16,7 @@ const buttonLabel = isFr ? data.button_label_fr : data.button_label_en;
 const consent = isFr ? data.consent_fr : data.consent_en;
 ---
 
-<section class="cta-newsletter" data-bg={data.background}>
+<section class="cta-newsletter sec-cta-band" data-bg={data.background}>
   <div class="wrap-wide cta-newsletter__grid">
     <div class="cta-newsletter__copy">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -48,12 +48,7 @@ const consent = isFr ? data.consent_fr : data.consent_en;
   </div>
 </section>
 
-<style>
-  .cta-newsletter {
-    padding-block: var(--section-base);
-    border-block: 1px solid var(--hairline);
-  }
-  .cta-newsletter__grid {
+<style> .cta-newsletter__grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: clamp(var(--space-6), 5vw, var(--space-10));

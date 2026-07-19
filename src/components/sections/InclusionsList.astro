@@ -21,7 +21,7 @@ const items = isFr ? data.items_fr : data.items_en;
           <Kicker as="span" tone="accent" class="inclusions-list__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         )}
         {(isFr ? data.title_fr : data.title_en) && (
-          <h2 class="inclusions-list__title" set:html={isFr ? data.title_fr : data.title_en} />
+          <h2 class="inclusions-list__title u-h2-display" set:html={isFr ? data.title_fr : data.title_en} />
         )}
       </header>
     )}
@@ -46,18 +46,7 @@ const items = isFr ? data.items_fr : data.items_en;
   :global(.inclusions-list__kicker) {
     display: block;
     margin-bottom: var(--space-4);
-  }
-  .inclusions-list__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-    text-wrap: balance;
-    margin: 0;
-  }
-  .inclusions-list__title :global(i) {
+  } .inclusions-list__title :global(i) {
     font-style: italic;
     color: var(--accent-text);
   }

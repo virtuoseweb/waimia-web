@@ -43,7 +43,7 @@ const initials = (name: string) =>
               <span class="team-bio-grid__initials">{initials(m.name)}</span>
             )}
           </span>
-          <strong class="team-bio-grid__name">
+          <strong class="team-bio-grid__name u-name-h3">
             {m.link_href ? <a href={m.link_href}>{m.name}</a> : m.name}
           </strong>
           <span class="team-bio-grid__role">{isFr ? m.role_fr : m.role_en}</span>
@@ -102,15 +102,7 @@ const initials = (name: string) =>
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-  }
-  .team-bio-grid__name {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-semibold);
-    color: var(--ink);
-    line-height: 1.2;
-  }
-  .team-bio-grid__name a {
+  } .team-bio-grid__name a {
     color: inherit;
     text-decoration: none;
     border-bottom: 1px solid transparent;

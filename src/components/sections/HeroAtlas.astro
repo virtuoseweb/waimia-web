@@ -41,7 +41,7 @@ const isFr = lang === 'fr';
         <span class="amm-dot" aria-hidden="true"></span>
         {isFr ? data.map_kicker_fr : data.map_kicker_en}
       </Kicker>
-      <ul class="amm-list">
+      <ul class="amm-list u-list-col">
         {data.pillars.map((pillar) => (
           <li class="amm-item">
             <span class="amm-num">{pillar.num}</span>
@@ -180,15 +180,7 @@ const isFr = lang === 'fr';
     border-radius: var(--radius-full);
     background: var(--accent);
     flex-shrink: 0;
-  }
-  .amm-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .amm-item {
+  } .amm-item {
     display: flex;
     gap: var(--space-4);
     align-items: flex-start;

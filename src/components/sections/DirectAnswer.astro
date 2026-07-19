@@ -18,7 +18,7 @@ const term = isFr ? data.term_fr : data.term_en;
 const answer = isFr ? data.answer_fr : data.answer_en;
 ---
 
-<section class="direct-answer" data-bg={data.background} data-density={data.density}>
+<section class="direct-answer sec-prose-band" data-bg={data.background} data-density={data.density}>
   <div class="wrap-wide">
     <p class="direct-answer__eyebrow">{isFr ? 'Réponse directe' : 'Direct answer'}</p>
     <h2 class="direct-answer__question">{question}</h2>
@@ -29,12 +29,7 @@ const answer = isFr ? data.answer_fr : data.answer_en;
   </div>
 </section>
 
-<style>
-  .direct-answer {
-    padding: var(--section-base) var(--gut);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .direct-answer__eyebrow {
+<style> .direct-answer__eyebrow {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     text-transform: uppercase;

@@ -36,7 +36,7 @@ const mediaSide = data.media_side ?? 'right';
           return (
             <li class="sgal__item reveal" data-idx={i} data-active={i === 0 ? 'true' : 'false'}>
               {(isFr ? item.index_fr : item.index_en) && (
-                <span class="sgal__index u-serif-accent" aria-hidden="true"><i>{isFr ? item.index_fr : item.index_en}</i></span>
+                <span class="sgal__index u-index-num u-serif-accent" aria-hidden="true"><i>{isFr ? item.index_fr : item.index_en}</i></span>
               )}
               <div class="sgal__body">
                 <h3>{isFr ? item.title_fr : item.title_en}</h3>
@@ -119,12 +119,7 @@ const mediaSide = data.media_side ?? 'right';
   .sgal__item[data-active='true'] {
     opacity: 1;
   }
-
-  .sgal__index {
-    font-size: var(--text-h3);
-    line-height: 1;
-  }
-  /* L'idiome .u-serif-accent stylise l'<i> enfant (police display + accent). On
+ /* L'idiome .u-serif-accent stylise l'<i> enfant (police display + accent). On
      surcharge la couleur selon l'état actif (muted hors focus, accent quand actif). */
   .sgal__index :global(i) {
     color: var(--muted);

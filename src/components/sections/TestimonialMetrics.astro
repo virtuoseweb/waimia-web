@@ -22,13 +22,13 @@ const role = isFr ? data.role_fr : data.role_en;
 const metrics = data.metrics;
 const variant = data.variant ?? 'quote-left';
 ---
-<section class="tmet" data-bg={data.background} data-variant={variant}>
+<section class="tmet sec-cta-band" data-bg={data.background} data-variant={variant}>
   <div class="wrap-wide tmet__grid">
-    <div class="tmet__quote-col reveal">
+    <div class="tmet__quote-col u-stack-5 reveal">
       {kicker && <Kicker tone="accent" class="tmet__kicker">{kicker}</Kicker>}
       <blockquote class="tmet__quote">{quote}</blockquote>
       <footer class="tmet__attr">
-        <span class="tmet__name">{data.author}</span>
+        <span class="tmet__name u-name-h3">{data.author}</span>
         <span class="tmet__role">{role}{data.company ? ` · ${data.company}` : ''}</span>
       </footer>
     </div>
@@ -43,12 +43,7 @@ const variant = data.variant ?? 'quote-left';
   </div>
 </section>
 
-<style>
-  .tmet {
-    padding-block: var(--section-base);
-    border-block: 1px solid var(--hairline);
-  }
-  .tmet[data-bg='paper-2'] { background: var(--paper-2); }
+<style> .tmet[data-bg='paper-2'] { background: var(--paper-2); }
   .tmet[data-bg='paper-3'] { background: var(--paper-3); }
   .tmet[data-bg='ink'] {
     background: var(--ink);
@@ -64,9 +59,7 @@ const variant = data.variant ?? 'quote-left';
   }
   .tmet[data-variant='quote-right'] .tmet__grid { grid-template-columns: 5fr 6fr; }
   .tmet[data-variant='quote-right'] .tmet__quote-col { order: 2; }
-
-  .tmet__quote-col { display: flex; flex-direction: column; gap: var(--space-5); }
-  :global(.tmet__kicker) { margin-bottom: 0; }
+ :global(.tmet__kicker) { margin-bottom: 0; }
 
   /* La citation EST le relevé serif (directive : serif = signature/relevé) */
   .tmet__quote {
@@ -84,15 +77,7 @@ const variant = data.variant ?? 'quote-left';
   .tmet__quote::after { content: close-quote; }
   .tmet[data-bg='ink'] .tmet__quote { color: var(--paper); }
 
-  .tmet__attr { display: flex; flex-direction: column; gap: 2px; }
-  .tmet__name {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-semibold);
-    color: var(--ink);
-    line-height: 1.2;
-  }
-  .tmet[data-bg='ink'] .tmet__name { color: var(--paper); }
+  .tmet__attr { display: flex; flex-direction: column; gap: 2px; } .tmet[data-bg='ink'] .tmet__name { color: var(--paper); }
   .tmet__role {
     font-family: var(--font-mono);
     font-size: var(--text-small);

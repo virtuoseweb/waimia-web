@@ -17,12 +17,12 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
 
 <section class="about-story sec-base" data-bg={data.background}>
   <div class="wrap-wide about-story__grid">
-    <div class="about-story__narrative">
+    <div class="about-story__narrative u-stack-5">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
-      <div class="about-story__body">
+      <div class="about-story__body u-stack-4">
         {paragraphs.map((p: string) => (
           <p>{p}</p>
         ))}
@@ -31,7 +31,7 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
 
     <div class="about-story__aside">
       {asideTitle && <span class="about-story__aside-title">{asideTitle}</span>}
-      <ol class="about-story__timeline">
+      <ol class="about-story__timeline u-list-col">
         {milestones.map((m: (typeof milestones)[number]) => (
           <li class="about-story__milestone">
             <span class="about-story__year">{m.year}</span>
@@ -49,18 +49,7 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
     grid-template-columns: 7fr 5fr;
     gap: clamp(var(--space-8), 6vw, var(--space-12));
     align-items: start;
-  }
-  .about-story__narrative {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-  .about-story__body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-  .about-story__body p {
+  } .about-story__body p {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--muted);
@@ -81,15 +70,7 @@ const asideTitle = isFr ? data.aside_title_fr : data.aside_title_en;
     letter-spacing: var(--tracking-mono);
     text-transform: uppercase;
     color: var(--muted);
-  }
-  .about-story__timeline {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .about-story__milestone {
+  } .about-story__milestone {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--space-4);

@@ -13,7 +13,7 @@ const isFr = lang === 'fr';
 const metrics = data.metrics ?? [];
 ---
 
-<section class="metric-callout" data-bg={data.background} data-count={metrics.length}>
+<section class="metric-callout sec-cta-band" data-bg={data.background} data-count={metrics.length}>
   <div class="wrap-wide">
     <div class="metric-callout__head sec-head">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
@@ -21,7 +21,7 @@ const metrics = data.metrics ?? [];
       )}
       <p class="metric-callout__context">{isFr ? data.context_fr : data.context_en}</p>
     </div>
-    <ul class="metric-callout__list">
+    <ul class="metric-callout__list u-list-grid">
       {metrics.map((m: (typeof metrics)[number]) => (
         <li class="metric-callout__item">
           <span class="metric-callout__value">{m.value}</span>
@@ -32,26 +32,14 @@ const metrics = data.metrics ?? [];
   </div>
 </section>
 
-<style>
-  .metric-callout {
-    padding-block: var(--section-base);
-    border-block: 1px solid var(--hairline);
-  } .metric-callout__context {
+<style> .metric-callout__context {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--muted);
     line-height: var(--leading-lede);
     max-width: 64ch;
     margin: 0;
-  }
-  .metric-callout__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0;
-  }
-  .metric-callout[data-count='1'] .metric-callout__list { grid-template-columns: 1fr; }
+  } .metric-callout[data-count='1'] .metric-callout__list { grid-template-columns: 1fr; }
   .metric-callout[data-count='2'] .metric-callout__list { grid-template-columns: repeat(2, 1fr); }
   .metric-callout[data-count='3'] .metric-callout__list { grid-template-columns: repeat(3, 1fr); }
   .metric-callout__item {

@@ -30,7 +30,7 @@ const revealMode = data.reveal_mode ?? 'cursor';
       )}
     </div>
 
-    <ul class="hrl__list" aria-label={isFr ? 'Réalisations' : 'Work'}>
+    <ul class="hrl__list u-list-col" aria-label={isFr ? 'Réalisations' : 'Work'}>
       {data.items.map((item: (typeof data.items)[number], i: number) => {
         const label = isFr ? item.label_fr : item.label_en;
         const meta = isFr ? item.meta_fr : item.meta_en;
@@ -86,15 +86,7 @@ const revealMode = data.reveal_mode ?? 'cursor';
   .hrl__header { max-width: 640px; }
   .hrl__header h2 :global(i) {
     font-style: italic;
-  } .hrl__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hrl__item {
+  } .hrl__item {
     border-bottom: 1px solid var(--hairline);
   }
 

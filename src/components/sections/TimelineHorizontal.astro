@@ -24,7 +24,7 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
 <section class="timeline-h" data-bg={data.background}>
   <div class="wrap-wide">
     {(kicker || h2 || intro) && (
-      <div class="timeline-h__hd">
+      <div class="timeline-h__hd sec-head-tight">
         {kicker && <Kicker tone="accent">{kicker}</Kicker>}
         {h2 && <h2 class="timeline-h__h2 u-h2-balance" set:html={h2} />}
         {intro && <p class="timeline-h__intro u-body-muted">{intro}</p>}
@@ -54,14 +54,7 @@ const statusLabel = (s: 'done' | 'active' | 'upcoming') =>
 
 <style>
   .timeline-h { padding-block: var(--section-base); }
-
-  .timeline-h__hd {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    margin-bottom: var(--space-9);
-    max-width: 760px;
-  } .timeline-h__h2 :global(i),
+ .timeline-h__h2 :global(i),
   .timeline-h__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); } .timeline-h__track {
     list-style: none;
     margin: 0;

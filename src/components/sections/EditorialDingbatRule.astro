@@ -14,7 +14,7 @@ const { data, lang } = Astro.props;
 const above = lang === 'fr' ? data.above_fr : data.above_en;
 const below = lang === 'fr' ? data.below_fr : data.below_en;
 ---
-<section class="editorial-dingbat" data-bg={data.background} data-density={data.density}>
+<section class="editorial-dingbat sec-prose-band" data-bg={data.background} data-density={data.density}>
   <div class="editorial-dingbat__col">
     {above && <p class="editorial-dingbat__caption">{above}</p>}
     <Dingbat variant={data.variant} size={data.size} />
@@ -22,12 +22,7 @@ const below = lang === 'fr' ? data.below_fr : data.below_en;
   </div>
 </section>
 
-<style>
-  .editorial-dingbat {
-    padding: var(--section-base) var(--gut);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .editorial-dingbat__col {
+<style> .editorial-dingbat__col {
     max-width: var(--wrap-prose);
     margin: 0 auto;
     text-align: center;

@@ -27,7 +27,7 @@ const groups = data.groups ?? [];
 
     <div class="integrations__groups">
       {groups.map((g: (typeof groups)[number]) => (
-        <div class="integrations__group">
+        <div class="integrations__group u-stack-4">
           <span class="integrations__group-title">{isFr ? g.group_fr : g.group_en}</span>
           <ul class="integrations__list">
             {g.items.map((it: (typeof g.items)[number]) => (
@@ -64,13 +64,7 @@ const groups = data.groups ?? [];
     display: flex;
     flex-direction: column;
     gap: var(--space-8);
-  }
-  .integrations__group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-  .integrations__group-title {
+  } .integrations__group-title {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);

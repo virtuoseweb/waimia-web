@@ -19,7 +19,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
 <section class="resource-grid" data-bg={data.background}>
   <div class="wrap-wide">
     {(kicker || h2 || intro) && (
-      <div class="resource-grid__hd">
+      <div class="resource-grid__hd sec-head-tight">
         {kicker && <Kicker tone="accent">{kicker}</Kicker>}
         {h2 && <h2 class="resource-grid__h2 u-h2-balance" set:html={h2} />}
         {intro && <p class="resource-grid__intro u-body-muted">{intro}</p>}
@@ -50,14 +50,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
 
 <style>
   .resource-grid { padding-block: var(--section-base); }
-
-  .resource-grid__hd {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    margin-bottom: var(--space-9);
-    max-width: 760px;
-  } .resource-grid__h2 :global(i),
+ .resource-grid__h2 :global(i),
   .resource-grid__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); } .resource-grid__list { display: grid; gap: var(--space-6); }
   .resource-grid__list[data-cols='2'] { grid-template-columns: repeat(2, 1fr); }
   .resource-grid__list[data-cols='3'] { grid-template-columns: repeat(3, 1fr); }

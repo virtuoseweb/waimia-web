@@ -55,7 +55,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     <div class="faq-cta__aside">
       <div class="faq-cta__card reveal reveal-fade">
         <h3 class="faq-cta__card-title" set:html={asideTitle} />
-        {asideBody && <p class="faq-cta__card-body">{asideBody}</p>}
+        {asideBody && <p class="faq-cta__card-body u-lede-sm">{asideBody}</p>}
         <Button
           href={data.aside_cta.href}
           variant={data.aside_cta.variant as any}
@@ -144,14 +144,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     margin: 0;
     font-weight: var(--fw-medium);
   }
-  .faq-cta__card-body {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-    text-wrap: pretty;
-  } /* Alternance de fonds */
+  .faq-cta__card-body { text-wrap: pretty; } /* Alternance de fonds */
   .faq-cta[data-bg='paper-2'] { background: var(--paper-2); }
   .faq-cta[data-bg='paper-3'] { background: var(--paper-3); }
   .faq-cta[data-bg='ink'] {

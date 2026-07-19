@@ -11,11 +11,11 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
 
-<section class="cta-split" data-bg={data.background ?? 'paper-2'}>
+<section class="cta-split sec-cta-band" data-bg={data.background ?? 'paper-2'}>
   <div class="wrap-wide cta-split__inner">
 
     <!-- Colonne gauche : kicker + titre + body + boutons -->
-    <div class="cta-split__text">
+    <div class="cta-split__text u-stack-5">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted" class="cta-split__kicker">
           {isFr ? data.kicker_fr : data.kicker_en}
@@ -27,7 +27,7 @@ const isFr = lang === 'fr';
           {isFr ? data.body_fr : data.body_en}
         </p>
       )}
-      <div class="cta-split__ctas reveal reveal-fade">
+      <div class="cta-split__ctas u-cta-row reveal reveal-fade">
         <Button
           href={data.cta_primary.href}
           variant={data.cta_primary.variant as any}
@@ -81,13 +81,7 @@ const isFr = lang === 'fr';
   </div>
 </section>
 
-<style>
-  .cta-split {
-    padding-block: var(--section-base);
-    border-block: 1px solid var(--hairline);
-  }
-
-  /* Fonds */
+<style> /* Fonds */
   .cta-split[data-bg="paper-2"] { background: var(--paper-2); }
   .cta-split[data-bg="paper-3"] { background: var(--paper-3); }
   .cta-split[data-bg="paper"]   { background: var(--paper); }
@@ -108,14 +102,7 @@ const isFr = lang === 'fr';
     align-items: center;
   }
 
-  /* Colonne texte */
-  .cta-split__text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  .cta-split__kicker {
+  /* Colonne texte */ .cta-split__kicker {
     margin-bottom: var(--space-1);
   }
 
@@ -127,15 +114,7 @@ const isFr = lang === 'fr';
     margin: 0;
     max-width: 52ch;
   }
-
-  .cta-split__ctas {
-    display: flex;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  /* Colonne visuelle */
+ /* Colonne visuelle */
   .cta-split__visual {
     display: flex;
     justify-content: center;

@@ -45,16 +45,16 @@ const isFr = lang === 'fr';
             data-active={i === 0 ? 'true' : 'false'}
             id={`hsh-panel-${i}`}
           >
-            <div class="hsh__text">
+            <div class="hsh__text u-stack-4">
               {index && (
-                <span class="hsh__panel-index u-serif-accent" aria-hidden="true"><i>{index}</i></span>
+                <span class="hsh__panel-index u-index-num u-serif-accent" aria-hidden="true"><i>{index}</i></span>
               )}
               <h3 class="hsh__title">{isFr ? panel.title_fr : panel.title_en}</h3>
               {(isFr ? panel.body_fr : panel.body_en) && (
                 <p class="hsh__body">{isFr ? panel.body_fr : panel.body_en}</p>
               )}
               {panel.points && panel.points.length > 0 && (
-                <ul class="hsh__points">
+                <ul class="hsh__points u-list-points">
                   {panel.points.map((point) => (
                     <li>{isFr ? point.label_fr : point.label_en}</li>
                   ))}
@@ -94,7 +94,7 @@ const isFr = lang === 'fr';
             data-active={i === 0 ? 'true' : 'false'}
             aria-controls={`hsh-panel-${i}`}
           >
-            <span class="hsh__index-num u-serif-accent" aria-hidden="true"><i>{index}</i></span>
+            <span class="hsh__index-num u-index-num u-serif-accent" aria-hidden="true"><i>{index}</i></span>
             <span class="hsh__index-label">{title}</span>
           </button>
         );
@@ -151,18 +151,7 @@ const isFr = lang === 'fr';
     background: var(--ink);
     color: var(--paper);
     border-color: rgba(var(--paper-rgb), 0.16);
-  }
-
-  .hsh__text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-  .hsh__panel-index {
-    font-size: var(--text-h3);
-    line-height: 1;
-  }
-  .hsh__panel-index :global(i) {
+  } .hsh__panel-index :global(i) {
     color: var(--accent-text);
   }
   .hsh__panel[data-tone='ink'] .hsh__panel-index :global(i) {
@@ -186,17 +175,7 @@ const isFr = lang === 'fr';
     max-width: 52ch;
   }
 
-  /* Liste chevron (modele FeatureZigzag .fz__points). */
-  .hsh__points {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    max-width: 52ch;
-  }
-  .hsh__points li {
+  /* Liste chevron (modele FeatureZigzag .fz__points). */ .hsh__points li {
     position: relative;
     padding-left: var(--space-5);
     font-family: var(--font-sans);
@@ -268,12 +247,7 @@ const isFr = lang === 'fr';
   }
   .hsh__index-btn:hover {
     color: var(--ink);
-  }
-  .hsh__index-num {
-    font-size: var(--text-h3);
-    line-height: 1;
-  }
-  .hsh__index-num :global(i) {
+  } .hsh__index-num :global(i) {
     color: var(--muted);
     transition: color var(--dur-reveal) var(--ease);
   }

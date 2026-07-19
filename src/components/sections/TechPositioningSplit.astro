@@ -15,7 +15,7 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const facts = data.facts ?? [];
 ---
-<section class="tech-sec tech-sec-paper tech-positioning reveal-stagger" data-bg={data.background} data-screen-label="02 Positioning">
+<section class="tech-sec sec-band-rel-loose tech-sec-paper tech-positioning reveal-stagger" data-bg={data.background} data-screen-label="02 Positioning">
   <div class="wrap">
     <div class="tech-pos-split">
       <div class="tech-pos-left">
@@ -45,9 +45,7 @@ const facts = data.facts ?? [];
 </section>
 
 <style>
-  /* ───── Sec common (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */
-  .tech-sec { padding: var(--section-loose) 0; position: relative; }
-  .tech-sec-paper { background: var(--paper-2); }
+  /* ───── Sec common (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */ .tech-sec-paper { background: var(--paper-2); }
   .tech-aside { max-width: 480px; }
 
   /* ───── Positioning Split (signature) — COPIE VERBATIM ───── */

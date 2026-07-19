@@ -26,7 +26,7 @@ const items = data.items ?? [];
       {items.map((item: (typeof items)[number], i: number) => (
         <article class="challenges__card">
           <span class="challenges__num">{String(i + 1).padStart(2, '0')}</span>
-          {item.icon && <span class="challenges__icon" aria-hidden="true">{item.icon}</span>}
+          {item.icon && <span class="challenges__icon u-index-num" aria-hidden="true">{item.icon}</span>}
           <h3 class="challenges__title">{isFr ? item.title_fr : item.title_en}</h3>
           <p class="challenges__body">{isFr ? item.body_fr : item.body_en}</p>
         </article>
@@ -87,12 +87,7 @@ const items = data.items ?? [];
     letter-spacing: var(--tracking-mono);
     color: var(--accent-text);
     opacity: 0.55;
-  }
-  .challenges__icon {
-    font-size: var(--text-h3);
-    line-height: 1;
-  }
-  .challenges__title {
+  } .challenges__title {
     font-family: var(--font-sans);
     font-weight: var(--fw-medium);
     font-size: var(--text-h3);

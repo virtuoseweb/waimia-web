@@ -21,7 +21,7 @@ const head = isFr
   ? ['№', 'Workflow', 'Modèle', 'Gain', 'Comment']
   : ['№', 'Workflow', 'Model', 'Gain', 'How'];
 ---
-<section class="sol-sec sol-sec-paper sol-workflows reveal-stagger" data-bg={data.background} data-screen-label="03 Workflows">
+<section class="sol-sec sec-band-rel sol-sec-paper sec-cta-band sol-workflows reveal-stagger" data-bg={data.background} data-screen-label="03 Workflows">
   <div class="wrap g12 g12--full">
     <header class="sol-sec-hd section-eyebrow col-prose u-serif-accent">
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
@@ -63,14 +63,8 @@ const head = isFr
 </section>
 
 <style>
-  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
-  .sol-sec { padding: var(--section-base) 0; position: relative; }
-  .sol-workflows { margin-top: var(--section-base); }
-  .sol-sec-paper {
-    padding-block: var(--section-base);
-    background: var(--paper-2);
-    border-block: 1px solid var(--hairline);
-  }
+  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */ .sol-workflows { margin-top: var(--section-base); }
+  .sol-sec-paper { background: var(--paper-2); }
   .sol-sec-hd {
     margin-bottom: var(--space-8);
   }

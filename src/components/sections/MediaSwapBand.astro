@@ -43,7 +43,7 @@ const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
       {data.columns.map((col) => {
         const single = col.media.length < 2;
         return (
-          <div class="msb__col reveal" data-single={single ? 'true' : 'false'}>
+          <div class="msb__col u-stack-4 reveal" data-single={single ? 'true' : 'false'}>
             <div class="msb__col-head">
               <span class="msb__label">{isFr ? col.label_fr : col.label_en}</span>
               {(isFr ? col.sublabel_fr : col.sublabel_en) && (
@@ -91,14 +91,7 @@ const ctaLabel = isFr ? data.cta_label_fr : data.cta_label_en;
     gap: var(--space-7);
     align-items: start;
   }
-
-  .msb__col {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  .msb__col-head {
+ .msb__col-head {
     display: flex;
     flex-direction: column;
     gap: var(--space-1);

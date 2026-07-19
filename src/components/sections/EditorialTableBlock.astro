@@ -37,7 +37,7 @@ const tmRows = data.type === 'tech-models-table'
   : [];
 ---
 {data.type === 'tech-models-table' ? (
-  <section class="tech-sec tech-sec-paper" data-bg={data.background} data-screen-label="04 Models">
+  <section class="tech-sec sec-band-rel-loose tech-sec-paper" data-bg={data.background} data-screen-label="04 Models">
     <div class="wrap">
       <div class="tech-sec-hd u-serif-accent">
         <div>
@@ -59,7 +59,7 @@ const tmRows = data.type === 'tech-models-table'
     </div>
   </section>
 ) : data.type === 'department-stack' ? (
-  <section class="sol-sec sol-sec-paper sol-tools reveal" data-bg={data.background} data-screen-label="06 Stack">
+  <section class="sol-sec sec-band-rel sol-sec-paper sec-cta-band sol-tools reveal" data-bg={data.background} data-screen-label="06 Stack">
     <div class="wrap g12 g12--full">
       <header class="sol-sec-hd section-eyebrow col-prose u-serif-accent">
         <Kicker as="span" tone="accent" class="eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</Kicker>
@@ -119,9 +119,7 @@ const tmRows = data.type === 'tech-models-table'
   }
 
   /* ───── tech-models-table (preset) — CSS VERBATIM TechModelsTable.astro,
-     `.wrap` scopé qualifié `:where(.tech-sec) .wrap` (spécificité inchangée) ───── */
-  .tech-sec { padding: var(--section-loose) 0; position: relative; }
-  .tech-sec-paper { background: var(--paper-2); }
+     `.wrap` scopé qualifié `:where(.tech-sec) .wrap` (spécificité inchangée) ───── */ .tech-sec-paper { background: var(--paper-2); }
   .tech-sec-hd {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -164,14 +162,8 @@ const tmRows = data.type === 'tech-models-table'
   }
 
   /* ───── department-stack (preset) — CSS VERBATIM DepartmentStack.astro ───── */
-  /* Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 */
-  .sol-sec { padding: var(--section-base) 0; position: relative; }
-  .sol-tools { margin-top: var(--section-base); }
-  .sol-sec-paper {
-    padding-block: var(--section-base);
-    background: var(--paper-2);
-    border-block: 1px solid var(--hairline);
-  }
+  /* Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 */ .sol-tools { margin-top: var(--section-base); }
+  .sol-sec-paper { background: var(--paper-2); }
   .sol-sec-hd {
     margin-bottom: var(--space-8);
   }

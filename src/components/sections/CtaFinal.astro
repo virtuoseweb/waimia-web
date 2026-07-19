@@ -22,7 +22,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
 ---
 
 {data.type === 'department-cta' ? (
-  <section class="sol-sec sol-sec-dark sol-cta reveal" data-screen-label="07 CTA">
+  <section class="sol-sec sec-band-rel sol-sec-dark sol-cta reveal" data-screen-label="07 CTA">
     <div class="wrap wrap-tight">
       <div class="sol-cta-final">
         <Dingbat variant="asterism" size="sm" />
@@ -144,9 +144,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
 
   /* ───── department-cta (preset) — CSS VERBATIM DepartmentCta.astro,
      `.wrap`/`.wrap-tight` scopés qualifiés `:where(.sol-cta)` (spécificité inchangée) ───── */
-  /* Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-484 */
-  .sol-sec { padding: var(--section-base) 0; position: relative; }
-  .sol-cta { margin-top: var(--space-10); }
+  /* Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-484 */ .sol-cta { margin-top: var(--space-10); }
   .sol-sec-dark { background: var(--ink); color: var(--paper); }
 
   /* CTA final dark — COPIE VERBATIM l.1001-1050 */

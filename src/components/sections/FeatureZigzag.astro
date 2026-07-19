@@ -159,7 +159,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
                 <h3 class="u-serif-accent u-serif-accent-em">{isFr ? row.h3_fr : row.h3_en}</h3>
                 <p>{isFr ? row.body_fr : row.body_en}</p>
                 {row.points && row.points.length > 0 && (
-                  <ul class="fz__points">
+                  <ul class="fz__points u-list-points">
                     {row.points.map((point) => (
                       <li>{isFr ? point.label_fr : point.label_en}</li>
                     ))}
@@ -392,17 +392,7 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
     max-width: 52ch;
   }
 
-  /* Touchpoints du bloc : liste à puces discrète (chevron hairline), tokens DS. */
-  .fz__points {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    max-width: 52ch;
-  }
-  .fz__points li {
+  /* Touchpoints du bloc : liste à puces discrète (chevron hairline), tokens DS. */ .fz__points li {
     position: relative;
     padding-left: var(--space-5);
     font-family: var(--font-sans);

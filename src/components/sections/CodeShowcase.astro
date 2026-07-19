@@ -21,7 +21,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
   <div class="wrap-wide">
     <div class="code-showcase__grid">
       {(kicker || h2 || intro) && (
-        <div class="code-showcase__copy">
+        <div class="code-showcase__copy u-stack-4">
           {kicker && <Kicker tone="accent">{kicker}</Kicker>}
           {h2 && <h2 class="code-showcase__h2 u-h2-balance" set:html={h2} />}
           {intro && <p class="code-showcase__intro u-body-muted">{intro}</p>}
@@ -59,8 +59,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
     gap: var(--space-9);
     align-items: center;
   }
-
-  .code-showcase__copy { display: flex; flex-direction: column; gap: var(--space-4); } .code-showcase__h2 :global(i),
+ .code-showcase__h2 :global(i),
   .code-showcase__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); } .code-showcase__frame {
     border-radius: var(--radius-card);
     border: 1px solid var(--hairline-strong);

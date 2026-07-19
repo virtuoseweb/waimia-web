@@ -22,7 +22,7 @@ const variant = data.variant ?? 'cells';
     {(kicker || h2) && (
       <header class="trust-badges__head reveal">
         {kicker && <Kicker class="trust-badges__kicker">{kicker}</Kicker>}
-        {h2 && <h2 class="trust-badges__h2" set:html={h2} />}
+        {h2 && <h2 class="trust-badges__h2 u-h3-heading" set:html={h2} />}
       </header>
     )}
     {variant === 'strip' ? (
@@ -39,7 +39,7 @@ const variant = data.variant ?? 'cells';
         {badges.map((b, i) => (
           <li class="trust-badges__cell" data-last={i === badges.length - 1 ? 'true' : 'false'}>
             {b.glyph && <span class="trust-badges__glyph" aria-hidden="true">{b.glyph}</span>}
-            <span class="trust-badges__label">{isFr ? b.label_fr : b.label_en}</span>
+            <span class="trust-badges__label u-body-medium">{isFr ? b.label_fr : b.label_en}</span>
             {(isFr ? b.value_fr : b.value_en) && (
               <span class="trust-badges__value">{isFr ? b.value_fr : b.value_en}</span>
             )}
@@ -57,17 +57,7 @@ const variant = data.variant ?? 'cells';
   .trust-badges[data-bg='ink'] { background: var(--ink); color: var(--paper); }
 
   .trust-badges__head { margin-bottom: var(--space-6); max-width: var(--wrap-prose); }
-  :global(.trust-badges__kicker) { margin-bottom: var(--space-3); }
-  .trust-badges__h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    line-height: var(--leading-h3);
-    font-weight: var(--fw-semibold);
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-
-  .trust-badges__grid {
+  :global(.trust-badges__kicker) { margin-bottom: var(--space-3); } .trust-badges__grid {
     display: grid;
     grid-template-columns: repeat(var(--tb-cols, 4), 1fr);
     border-top: 1px solid var(--hairline);
@@ -96,14 +86,7 @@ const variant = data.variant ?? 'cells';
     font-size: var(--text-glyph);
     line-height: 1;
     color: var(--accent-text);
-  }
-  .trust-badges__label {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-  }
-  .trust-badges[data-bg='ink'] .trust-badges__label { color: var(--paper); }
+  } .trust-badges[data-bg='ink'] .trust-badges__label { color: var(--paper); }
   .trust-badges__value {
     font-family: var(--font-mono);
     font-size: var(--text-small);

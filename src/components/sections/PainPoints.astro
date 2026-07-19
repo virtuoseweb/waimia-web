@@ -24,7 +24,7 @@ const events = data.items.map((item, i) => ({
   variant: i === 0 ? ('highlight' as const) : ('default' as const),
 }));
 ---
-<section class="sol-sec sol-friction reveal-stagger" data-bg={data.background} data-screen-label="02 Pain Points">
+<section class="sol-sec sec-band-rel sol-friction reveal-stagger" data-bg={data.background} data-screen-label="02 Pain Points">
   <div class="wrap g12 g12--full">
     <header class="sol-sec-hd section-eyebrow col-prose u-serif-accent">
       <Kicker as="span" tone="accent" class="eyebrow">{eyebrow}</Kicker>
@@ -46,9 +46,7 @@ const events = data.items.map((item, i) => ({
 </section>
 
 <style>
-  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */
-  .sol-sec { padding: var(--section-base) 0; position: relative; }
-  .sol-friction { margin-top: var(--section-base); }
+  /* ───── Sec common — COPIE VERBATIM SolutionsDetailTemplate l.473-518 ───── */ .sol-friction { margin-top: var(--section-base); }
   .sol-sec-hd {
     margin-bottom: var(--spacing-block);
   }

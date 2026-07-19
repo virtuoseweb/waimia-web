@@ -13,9 +13,9 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 ---
-<section class="tech-sec" data-bg={data.background} data-screen-label="03 Capabilities">
+<section class="tech-sec sec-band-rel-loose" data-bg={data.background} data-screen-label="03 Capabilities">
   <div class="wrap">
-    <div class="tech-sec-hd u-serif-accent">
+    <div class="tech-sec-hd u-sec-hd-split u-serif-accent">
       <div>
         <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
         <h2 set:html={isFr ? data.title_fr : data.title_en} />
@@ -48,16 +48,7 @@ const isFr = lang === 'fr';
 </section>
 
 <style>
-  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */
-  .tech-sec { padding: var(--section-loose) 0; position: relative; }
-  .tech-sec-hd {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-10);
-    margin-bottom: var(--space-9);
-    align-items: end;
-  }
-  .tech-sec-hd h2 {
+  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */ .tech-sec-hd h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h1);
     line-height: var(--leading-h1);

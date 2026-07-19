@@ -46,7 +46,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     >
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
       <h2 class="sec-base-h2" set:html={isFr ? data.h2_fr : data.h2_en} />
-      {lede && <p class="pricing-cards__lede">{lede}</p>}
+      {lede && <p class="pricing-cards__lede u-lede-sm">{lede}</p>}
     </div>
     <div
       class="pricing-cards__grid sec-grid"
@@ -94,14 +94,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
 
 <style>
   .pricing-cards__header { max-width: 64ch; }
-  .pricing-cards__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-    text-wrap: pretty;
-  }
+  .pricing-cards__lede { text-wrap: pretty; }
   /* La grille délègue colonnes + recettes layout au moteur (.sec-collection .sec-grid +
      data-columns/data-layout, section-layouts.css). Le composant ne garde que le gap et le
      défaut hors-layout/hors-columns. */

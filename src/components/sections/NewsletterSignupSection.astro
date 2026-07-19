@@ -18,7 +18,7 @@ const body = isFr ? data.body_fr : data.body_en;
 const hint = isFr ? data.hint_fr : data.hint_en;
 ---
 
-<section class="nl-section" data-bg={data.background}>
+<section class="nl-section sec-cta-band" data-bg={data.background}>
   <div class="wrap-wide nl-section__inner">
     <div class="nl-section__head">
       {kicker && <Kicker tone="accent">{kicker}</Kicker>}
@@ -32,12 +32,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
   </div>
 </section>
 
-<style>
-  .nl-section {
-    padding-block: var(--section-base);
-    border-block: 1px solid var(--hairline);
-  }
-  .nl-section__inner {
+<style> .nl-section__inner {
     display: flex;
     flex-direction: column;
     align-items: center;

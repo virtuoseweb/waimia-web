@@ -17,8 +17,8 @@ const initial = lead.slice(0, 1);
 const rest = lead.slice(1);
 const paragraphs = (lang === 'fr' ? data.paragraphs_fr : data.paragraphs_en) ?? [];
 ---
-<section class="editorial-dropcap" data-bg={data.background} data-density={data.density}>
-  <div class="editorial-dropcap__col">
+<section class="editorial-dropcap sec-prose-band" data-bg={data.background} data-density={data.density}>
+  <div class="editorial-dropcap__col u-prose-col">
     <p class="editorial-dropcap__lead">
       <DropCap variant={data.variant}>{initial}</DropCap>{rest}
     </p>
@@ -26,16 +26,7 @@ const paragraphs = (lang === 'fr' ? data.paragraphs_fr : data.paragraphs_en) ?? 
   </div>
 </section>
 
-<style>
-  .editorial-dropcap {
-    padding: var(--section-base) var(--gut);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .editorial-dropcap__col {
-    max-width: var(--wrap-prose);
-    margin: 0 auto;
-  }
-  .editorial-dropcap__lead {
+<style> .editorial-dropcap__lead {
     font-family: var(--font-sans);
     font-size: var(--text-body-md, 17px);
     line-height: var(--leading-body, 1.5);

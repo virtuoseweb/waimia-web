@@ -154,7 +154,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
         data-header-hide={dgHeaderHide}
       >
         <Kicker as="span" tone="accent" class="deliverables-grid__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-        <h2 class="deliverables-grid__title" set:html={isFr ? data.title_fr : data.title_en} />
+        <h2 class="deliverables-grid__title u-h2-display" set:html={isFr ? data.title_fr : data.title_en} />
         {(isFr ? data.lead_fr : data.lead_en) && (
           <p class="deliverables-grid__lead" set:html={isFr ? data.lead_fr : data.lead_en} />
         )}
@@ -649,18 +649,7 @@ const fgFillArt = fg ? inlineLineArt(fg.fillMedia) : undefined;
   :global(.deliverables-grid__kicker) {
     display: block;
     margin-bottom: var(--space-4);
-  }
-  .deliverables-grid__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-    text-wrap: balance;
-    margin: 0;
-  }
-  .deliverables-grid__title :global(i) {
+  } .deliverables-grid__title :global(i) {
     font-style: italic;
     color: var(--accent-text);
   }

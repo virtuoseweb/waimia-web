@@ -16,7 +16,7 @@ const width = data.maxWidth ?? 'prose';
 const figures = data.figures ?? [];
 const html = lang === 'en' ? data.html_en : data.html_fr;
 ---
-<section class="editorial-prose" data-bg={data.background} data-width={width}>
+<section class="editorial-prose sec-prose-band" data-bg={data.background} data-width={width}>
   <div class="editorial-prose__col">
     {figures.map((fig, i) => (
       <figure class="editorial-prose__figure" data-side={fig.side ?? (i % 2 === 0 ? 'right' : 'left')}>
@@ -34,12 +34,7 @@ const html = lang === 'en' ? data.html_en : data.html_fr;
   </div>
 </section>
 
-<style>
-  .editorial-prose {
-    padding: var(--section-base) var(--gut);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .editorial-prose__col {
+<style> .editorial-prose__col {
     max-width: var(--wrap-prose);
     margin: 0 auto;
     counter-reset: prose-section;

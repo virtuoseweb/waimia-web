@@ -19,9 +19,9 @@ const cards = data.cards;
 <section class="tlm" data-bg={data.background}>
   <div class="wrap-wide">
     {(kicker || h2) && (
-      <header class="tlm__head reveal">
+      <header class="tlm__head u-prose-head reveal">
         {kicker && <Kicker class="tlm__kicker">{kicker}</Kicker>}
-        {h2 && <h2 class="tlm__h2" set:html={h2} />}
+        {h2 && <h2 class="tlm__h2 u-h3-heading" set:html={h2} />}
       </header>
     )}
     <ul class="tlm__grid reveal-stagger" style={`--tlm-cols:${Math.min(cards.length, 3)}`}>
@@ -60,19 +60,7 @@ const cards = data.cards;
   .tlm[data-bg='paper-2'] { background: var(--paper-2); }
   .tlm[data-bg='paper-3'] { background: var(--paper-3); }
   .tlm[data-bg='ink'] { background: var(--ink); color: var(--paper); }
-
-  .tlm__head { margin-bottom: var(--space-8); max-width: var(--wrap-prose); }
-  :global(.tlm__kicker) { margin-bottom: var(--space-3); }
-  .tlm__h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    line-height: var(--leading-h3);
-    font-weight: var(--fw-semibold);
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-
-  .tlm__grid {
+ :global(.tlm__kicker) { margin-bottom: var(--space-3); } .tlm__grid {
     display: grid;
     grid-template-columns: repeat(var(--tlm-cols, 2), 1fr);
     gap: var(--space-6);

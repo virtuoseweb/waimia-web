@@ -13,8 +13,8 @@ interface Props {
 const { data, lang } = Astro.props;
 const body = lang === 'fr' ? data.body_fr : data.body_en;
 ---
-<section class="editorial-callout" data-bg={data.background} data-density={data.density}>
-  <div class="editorial-callout__col">
+<section class="editorial-callout sec-prose-band" data-bg={data.background} data-density={data.density}>
+  <div class="editorial-callout__col u-prose-col">
     <Callout
       variant={data.variant}
       cite={data.cite}
@@ -26,16 +26,7 @@ const body = lang === 'fr' ? data.body_fr : data.body_en;
   </div>
 </section>
 
-<style>
-  .editorial-callout {
-    padding: var(--section-base) var(--gut);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .editorial-callout__col {
-    max-width: var(--wrap-prose);
-    margin: 0 auto;
-  }
-  .editorial-callout[data-bg='paper-2'] { background: var(--paper-2); }
+<style> .editorial-callout[data-bg='paper-2'] { background: var(--paper-2); }
   .editorial-callout[data-bg='paper-3'] { background: var(--paper-3); }
   .editorial-callout[data-bg='ink'] {
     background: var(--ink);

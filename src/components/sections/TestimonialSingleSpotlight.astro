@@ -19,7 +19,7 @@ const initials = data.author
 
 <section class="testimonial-spotlight" data-bg={data.background}>
   <div class="wrap-wide testimonial-spotlight__grid">
-    <div class="testimonial-spotlight__main">
+    <div class="testimonial-spotlight__main u-stack-5">
       {(isFr ? data.kicker_fr : data.kicker_en) && (
         <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
       )}
@@ -39,7 +39,7 @@ const initials = data.author
         )}
       </span>
       <figcaption class="testimonial-spotlight__attr">
-        <span class="testimonial-spotlight__name">{data.author}</span>
+        <span class="testimonial-spotlight__name u-name-h3">{data.author}</span>
         <span class="testimonial-spotlight__role">
           {isFr ? data.role_fr : data.role_en}{data.company ? `, ${data.company}` : ''}
         </span>
@@ -61,13 +61,7 @@ const initials = data.author
     grid-template-columns: 8fr 4fr;
     gap: clamp(var(--space-8), 6vw, var(--space-12));
     align-items: center;
-  }
-  .testimonial-spotlight__main {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-  .testimonial-spotlight__quote {
+  } .testimonial-spotlight__quote {
     font-family: var(--font-sans);
     font-size: var(--text-h2);
     line-height: var(--leading-h3);
@@ -114,15 +108,7 @@ const initials = data.author
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
-  }
-  .testimonial-spotlight__name {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-semibold);
-    color: var(--ink);
-    line-height: 1.2;
-  }
-  .testimonial-spotlight__role {
+  } .testimonial-spotlight__role {
     font-family: var(--font-sans);
     font-size: var(--text-small);
     color: var(--muted);

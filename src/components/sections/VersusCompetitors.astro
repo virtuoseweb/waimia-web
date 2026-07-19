@@ -36,7 +36,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
 ---
 <section class="versus" data-bg={data.background}>
   <div class="wrap-wide">
-    <header class="versus__head reveal">
+    <header class="versus__head u-prose-head reveal">
       {kicker && <Kicker class="versus__kicker">{kicker}</Kicker>}
       <h2 class="versus__h2" set:html={h2} />
     </header>
@@ -67,7 +67,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
               )}
               {group.rows.map((row) => (
                 <tr class="versus__row">
-                  <th class="versus__feature" scope="row">{isFr ? row.feature_fr : row.feature_en}</th>
+                  <th class="versus__feature u-body-medium" scope="row">{isFr ? row.feature_fr : row.feature_en}</th>
                   {columns.map((c, ci) => {
                     const v = row.values[ci];
                     const kind = v === undefined ? 'no' : cellKind(v);
@@ -99,9 +99,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
   .versus[data-bg='paper-2'] { background: var(--paper-2); }
   .versus[data-bg='paper-3'] { background: var(--paper-3); }
   .versus[data-bg='ink'] { background: var(--ink); color: var(--paper); }
-
-  .versus__head { margin-bottom: var(--space-8); max-width: var(--wrap-prose); }
-  :global(.versus__kicker) { margin-bottom: var(--space-3); }
+ :global(.versus__kicker) { margin-bottom: var(--space-3); }
   .versus__h2 {
     font-family: var(--font-sans);
     font-size: var(--text-h1);
@@ -162,14 +160,7 @@ function cellKind(v: string | boolean): 'yes' | 'no' | 'text' {
     background: rgba(var(--ink-rgb), .02);
   }
   .versus[data-bg='ink'] .versus__group { background: rgba(var(--paper-rgb), .04); }
-
-  .versus__feature {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-  }
-  .versus[data-bg='ink'] .versus__feature { color: var(--paper); }
+ .versus[data-bg='ink'] .versus__feature { color: var(--paper); }
 
   .versus__cell { text-align: center; vertical-align: middle; }
   .versus__cell[data-featured='true'] { background: rgba(var(--accent-rgb), .06); }
