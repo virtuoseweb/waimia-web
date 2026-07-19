@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `433e0bf7` - 67/87 tâches done (77%).
+État : HEAD `14d55274` - 68/87 tâches done (78%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
-| P2 | 14/29 | 48% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+10) |
+| P2 | 15/29 | 52% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+9) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 1/3 | 33% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -43,7 +43,7 @@
 | P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 1/2 | 50% | 53ed1c3b fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) |
 | P2.7 — Système de variation (#14 Phase B) | P2 | 1/1 | 100% | 5e74e4c1 feat(ds): systeme de variation (Phase B) prouve sur famille HERO |
 | P2.8 — DS Studio créatif (#14 Phase C) | P2 | 1/3 | 33% | 2d23991a feat(ds): P2.8 save preset persisté · POST /api/ds/preset dev-only (fiche 0022 Option A) |
-| P2.9 — Production presets en masse (#14 Phase D-E) | P2 | 0/1 | 0% | - |
+| P2.9 — Production presets en masse (#14 Phase D-E) | P2 | 1/1 | 100% | - |
 | P3.1 — Lead sourcing + scoring | P3 | 0/2 | 0% | - |
 | P4.1 — Boilerplate produit forkable | P4 | 0/1 | 0% | - |
 | P4.2 — CMS lite + TinaCMS (visual editing 100% Astro) | P4 | 1/1 | 100% | d267b834 feat(cms): #39/#40 retrait complet de TinaCMS (ADR docs/strategy/12) |
@@ -76,5 +76,7 @@
 - `P1.3-a` : gf1=n sur une case [x]
 - `P1.3-b` : gf1=n sur une case [x]
 - `P2.7` : gf1=n sur une case [x]
+- `P2.9` : case [x] sans tag commit
+- `P2.9` : gf1=absent sur une case [x]
 - `P4.2-a` : gf1=n sur une case [x]
 
