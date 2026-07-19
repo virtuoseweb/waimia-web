@@ -15,7 +15,9 @@ const { data, lang } = Astro.props;
 
 const size = data.size ?? 'lg';
 const align = data.align ?? 'left';
-const variant = data.variant ?? 'default';
+// Sur fond ink, la valeur chiffrée (--ink par défaut) disparaît : dériver la variante
+// inverted de l'atome (existante) quand aucun variant explicite n'est fourni.
+const variant = data.variant ?? (data.background === 'ink' ? 'inverted' : 'default');
 const cols = data.columns ?? 4;
 ---
 <section class="key-metric-grid" data-bg={data.background} data-density={data.density}>

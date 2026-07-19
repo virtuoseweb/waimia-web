@@ -40,7 +40,9 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
     | 'breakout'
     | 'inline'
     | 'centered'
-    | 'rail';
+    | 'rail'
+    | 'inverted'
+    | 'accent';
   /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
    *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
    *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
@@ -710,16 +712,18 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
   // Axe RÉEL dominant de la catégorie = `background` (data-bg), lu par chaque composant :
   // bandes/box/formulaires de conversion changent de fond, pas de layout interne. Chaque preset
   // décline une intention de fond DISTINCTE de la demo par défaut (0 preset == demo). L'accent
-  // (data-bg='accent', supporté par plusieurs schémas cta-*) est VOLONTAIREMENT omis : le type
-  // PresetProps.background ne l'expose pas encore (paper|paper-2|paper-3|ink) → axe à promouvoir
-  // côté orchestrateur avant de le curer (rule 60, pas de cast local). Types SANS axe (rendu figé)
-  // exclus : closing-cta-band (ink hardcodé), department-cta (sol-cta-dark figé), booking-embed
-  // (iframe Cal, ≤1 fond distinct). footer-cta-band déjà curé (ci-dessus).
+  // (data-bg='accent', var(--accent) + texte var(--paper)) est DÉBLOQUÉ (w-p29-v2) : PresetProps.background
+  // expose désormais 'accent' (widening orchestrateur) → 1 preset accent par type dont le schéma
+  // Zod l'admet (cta-band, cta-inline, cta-final, cta-form-inline, cta-split-visual). Types SANS
+  // 'accent' au schéma : cta-newsletter-footer + branded-callout (enum paper|paper-2|paper-3|ink).
+  // Types SANS axe (rendu figé) exclus : closing-cta-band (ink hardcodé), department-cta
+  // (sol-cta-dark figé), booking-embed (iframe Cal, ≤1 fond distinct). footer-cta-band déjà curé.
 
   // cta-band (famille cta) · bande fine full-bleed border-block · fond paper-2 par défaut.
   'cta-band': [
     { id: 'cta-band--paper-3', type: 'cta-band', label: 'CTA bande · fond papier 3', family: 'cta', era: '2021', props: { background: 'paper-3' } },
     { id: 'cta-band--ink', type: 'cta-band', label: 'CTA bande · fond encre', family: 'cta', era: '2024', props: { background: 'ink' } },
+    { id: 'cta-band--accent', type: 'cta-band', label: 'CTA bande · fond accent', family: 'cta', era: '2026', props: { background: 'accent' } },
   ],
 
   // cta-inline (famille cta) · box bordée in-flow (wrap-wide) · fond paper-2 par défaut.
@@ -727,6 +731,7 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'cta-inline--paper', type: 'cta-inline', label: 'CTA en ligne · box papier', family: 'cta', era: '2020', props: { background: 'paper' } },
     { id: 'cta-inline--paper-3', type: 'cta-inline', label: 'CTA en ligne · box papier 3', family: 'cta', era: '2022', props: { background: 'paper-3' } },
     { id: 'cta-inline--ink', type: 'cta-inline', label: 'CTA en ligne · box encre', family: 'cta', era: '2025', props: { background: 'ink' } },
+    { id: 'cta-inline--accent', type: 'cta-inline', label: 'CTA en ligne · box accent', family: 'cta', era: '2026', props: { background: 'accent' } },
   ],
 
   // cta-final (famille cta) · CTA de clôture pleine largeur (kicker + dispo + sous-titre) · demo paper.
@@ -734,6 +739,7 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'cta-final--paper-2', type: 'cta-final', label: 'CTA final · fond papier 2', family: 'cta', era: '2021', props: { background: 'paper-2' } },
     { id: 'cta-final--paper-3', type: 'cta-final', label: 'CTA final · fond papier 3', family: 'cta', era: '2023', props: { background: 'paper-3' } },
     { id: 'cta-final--ink', type: 'cta-final', label: 'CTA final · fond encre', family: 'cta', era: '2025', props: { background: 'ink' } },
+    { id: 'cta-final--accent', type: 'cta-final', label: 'CTA final · fond accent', family: 'cta', era: '2026', props: { background: 'accent' } },
   ],
 
   // cta-form-inline (famille cta) · capture email inline (bloc formulaire) · demo ink.
@@ -741,6 +747,7 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'cta-form-inline--paper', type: 'cta-form-inline', label: 'CTA formulaire · fond papier', family: 'cta', era: '2022', props: { background: 'paper' } },
     { id: 'cta-form-inline--paper-2', type: 'cta-form-inline', label: 'CTA formulaire · fond papier 2', family: 'cta', era: '2023', props: { background: 'paper-2' } },
     { id: 'cta-form-inline--paper-3', type: 'cta-form-inline', label: 'CTA formulaire · fond papier 3', family: 'cta', era: '2024', props: { background: 'paper-3' } },
+    { id: 'cta-form-inline--accent', type: 'cta-form-inline', label: 'CTA formulaire · fond accent', family: 'cta', era: '2026', props: { background: 'accent' } },
   ],
 
   // cta-split-visual (famille cta) · CTA scindé texte + visuel décoratif · demo paper-2.
@@ -748,6 +755,7 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'cta-split-visual--paper', type: 'cta-split-visual', label: 'CTA scindé · fond papier', family: 'cta', era: '2022', props: { background: 'paper' } },
     { id: 'cta-split-visual--paper-3', type: 'cta-split-visual', label: 'CTA scindé · fond papier 3', family: 'cta', era: '2024', props: { background: 'paper-3' } },
     { id: 'cta-split-visual--ink', type: 'cta-split-visual', label: 'CTA scindé · fond encre', family: 'cta', era: '2026', props: { background: 'ink' } },
+    { id: 'cta-split-visual--accent', type: 'cta-split-visual', label: 'CTA scindé · fond accent', family: 'cta', era: '2026', props: { background: 'accent' } },
   ],
 
   // cta-newsletter-footer (famille newsletter) · bande newsletter de pied · demo ink.
@@ -757,14 +765,18 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'cta-newsletter-footer--paper-3', type: 'cta-newsletter-footer', label: 'Newsletter pied · fond papier 3', family: 'newsletter', era: '2024', props: { background: 'paper-3' } },
   ],
 
-  // branded-callout (famille cta) · encadré de marque. Axe curé = background. Le 2ᵉ axe RÉEL
-  // `variant: 'rail'` (filet accent à gauche + retrait éditorial) est DIFFÉRÉ : PresetProps.variant
-  // est une union fermée (split|light|…) qui n'expose pas 'rail' → axe à promouvoir côté
-  // orchestrateur avant curation (rule 60, pas de cast local ni d'édition de PresetProps ici).
+  // branded-callout (famille cta) · encadré de marque. 2 axes RÉELS curés : background + le 2ᵉ axe
+  // `variant: 'rail'` (filet accent 3px à gauche + retrait éditorial), DÉBLOQUÉ (w-p29-v2) :
+  // PresetProps.variant expose désormais 'rail' (widening orchestrateur). Le rail est scopé
+  // [data-variant='rail'] côté composant → combinable avec chaque fond. background n'admet pas
+  // 'accent' (enum paper|paper-2|paper-3|ink) → pas de preset accent ici.
   'branded-callout': [
     { id: 'branded-callout--paper-2', type: 'branded-callout', label: 'Encadré marque · fond papier 2', family: 'cta', era: '2021', props: { background: 'paper-2' } },
     { id: 'branded-callout--paper-3', type: 'branded-callout', label: 'Encadré marque · fond papier 3', family: 'cta', era: '2022', props: { background: 'paper-3' } },
     { id: 'branded-callout--ink', type: 'branded-callout', label: 'Encadré marque · fond encre', family: 'cta', era: '2024', props: { background: 'ink' } },
+    { id: 'branded-callout--rail', type: 'branded-callout', label: 'Encadré marque · filet accent à gauche', family: 'cta', era: '2025', props: { variant: 'rail' } },
+    { id: 'branded-callout--rail-paper-3', type: 'branded-callout', label: 'Encadré marque · filet accent · fond papier 3', family: 'cta', era: '2026', props: { variant: 'rail', background: 'paper-3' } },
+    { id: 'branded-callout--rail-ink', type: 'branded-callout', label: 'Encadré marque · filet accent · fond encre', family: 'cta', era: '2026', props: { variant: 'rail', background: 'ink' } },
   ],
 
   // newsletter-band (famille newsletter) · bande d'inscription · défaut = bande sombre (idiome ink).
@@ -1048,6 +1060,86 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'pull-quote-block--inline-paper', type: 'pull-quote-block', label: 'Citation détachée · filet en ligne · papier', family: 'quote', era: '2020', props: { background: 'paper', variant: 'inline' } },
     { id: 'pull-quote-block--inline-paper-3', type: 'pull-quote-block', label: 'Citation détachée · filet en ligne · papier 3', family: 'quote', era: '2024', props: { background: 'paper-3', variant: 'inline' } },
     { id: 'pull-quote-block--inline-ink', type: 'pull-quote-block', label: 'Citation détachée · filet en ligne · encre', family: 'quote', era: '2026', props: { background: 'ink', variant: 'inline' } },
+  ],
+
+  // ══════════════════════════════════════════════════════════════════════════════════════
+  // CATÉGORIE « STATS / PREUVES CHIFFRÉES » (fan-out P2.9 w-p29-v2) · presets curés.
+  // Périmètre = types dont la substance est le CHIFFRE (categorySlug stats-sections + terminal
+  // chiffré). Axes RÉELS audités par lecture schema + .astro (data-bg / data-* / --var) :
+  //   • key-metric-grid : density + columns(2-4) + size(sm|md|lg|hero) + align. RICHE.
+  //     Axe `variant`(default|inverted|accent) TYPE-BLOQUÉ (PresetProps.variant = union fermée sans
+  //     inverted/accent) → à promouvoir côté orchestrateur avant curation (rule 60, 0 cast local).
+  //     Axe `background:'ink'` COMPOSANT-BLOQUÉ (rejeté GF-1 w-p29-v2) : l'atome KeyMetric n'inverse
+  //     PAS la couleur de la VALEUR sur fond encre → chiffre dark-on-dark invisible (labels/deltas OK).
+  //     À débloquer par CSS composant (.key-metric-grid[data-bg='ink'] .value → var(--paper)) hors scope.
+  //   • metric-callout-band : background (défaut ink) → mono-axe, déclinaisons claires.
+  //   • metric-shift : background (défaut paper) → mono-axe.
+  //   • proof-bar : background + layout(horizontal|vertical-stack).
+  //   • stat-block : background + layout(grid-3|grid-4|rows-hairlines|split-quote). Demo = ink+split-quote.
+  //   • stat-counter : background (défaut ink). `animate` = axe MOTION-ONLY (valeur finale rendue en
+  //     SSR → identique en screenshot statique) → non curé (non vérifiable GF-1, rule 33).
+  //   • terminal-metrics-strip : background (paper|paper-2|ink, défaut paper) → mono-axe.
+  // EXCLUS du périmètre : stats-bento + logo-marquee + testimonial-metrics + testimonial-logo-metric
+  // (déjà curés) ; social-proof (logos, non chiffré) ; off-proof (famille quote/testimonial).
+
+  // key-metric-grid (stat-grid) · grille de KPI éditoriale. Demo = paper·4col·lg·left.
+  'key-metric-grid': [
+    { id: 'key-metric-grid--paper-2', type: 'key-metric-grid', label: 'KPI clés · grille · fond papier 2', family: 'stat-grid', era: '2022', props: { background: 'paper-2' } },
+    { id: 'key-metric-grid--paper-3', type: 'key-metric-grid', label: 'KPI clés · grille · fond papier 3', family: 'stat-grid', era: '2023', props: { background: 'paper-3' } },
+    { id: 'key-metric-grid--3col', type: 'key-metric-grid', label: 'KPI clés · trois colonnes', family: 'stat-grid', era: '2024', props: { columns: '3' } },
+    { id: 'key-metric-grid--2col-hero', type: 'key-metric-grid', label: 'KPI clés · deux colonnes · chiffres géants', family: 'stat-grid', era: '2025', props: { columns: '2', size: 'hero' } },
+    { id: 'key-metric-grid--center', type: 'key-metric-grid', label: 'KPI clés · alignés au centre', family: 'stat-grid', era: '2024', props: { align: 'center' } },
+    { id: 'key-metric-grid--hero-center-paper-2', type: 'key-metric-grid', label: 'KPI clés · chiffres géants centrés · papier 2', family: 'stat-grid', era: '2026', props: { background: 'paper-2', size: 'hero', align: 'center' } },
+    { id: 'key-metric-grid--compact-3col-paper-2', type: 'key-metric-grid', label: 'KPI clés · trois colonnes · dense · papier 2', family: 'stat-grid', era: '2026', props: { background: 'paper-2', columns: '3', density: 'compact' } },
+    { id: 'key-metric-grid--ink', type: 'key-metric-grid', label: 'KPI clés · grille · encre', family: 'stat-grid', era: '2026', props: { background: 'ink', variant: 'inverted' } },
+    { id: 'key-metric-grid--ink-hero-center', type: 'key-metric-grid', label: 'KPI clés · chiffres géants centrés · encre', family: 'stat-grid', era: '2026', props: { background: 'ink', size: 'hero', align: 'center', columns: '2', variant: 'inverted' } },
+  ],
+
+  // metric-callout-band (band) · bande d'impact 1-3 métriques. Demo = ink → déclinaisons claires.
+  'metric-callout-band': [
+    { id: 'metric-callout-band--paper', type: 'metric-callout-band', label: 'Bande impact · fond papier', family: 'band', era: '2022', props: { background: 'paper' } },
+    { id: 'metric-callout-band--paper-2', type: 'metric-callout-band', label: 'Bande impact · fond papier 2', family: 'band', era: '2023', props: { background: 'paper-2' } },
+    { id: 'metric-callout-band--paper-3', type: 'metric-callout-band', label: 'Bande impact · fond papier 3', family: 'band', era: '2025', props: { background: 'paper-3' } },
+  ],
+
+  // metric-shift (stat-grid) · avant → après. Demo = paper → déclinaisons plus sombres.
+  'metric-shift': [
+    { id: 'metric-shift--paper-2', type: 'metric-shift', label: 'Avant → après · fond papier 2', family: 'stat-grid', era: '2023', props: { background: 'paper-2' } },
+    { id: 'metric-shift--paper-3', type: 'metric-shift', label: 'Avant → après · fond papier 3', family: 'stat-grid', era: '2024', props: { background: 'paper-3' } },
+    { id: 'metric-shift--ink', type: 'metric-shift', label: 'Avant → après · fond encre', family: 'stat-grid', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // proof-bar (band) · barre de preuves chiffrées. Demo = paper·horizontal → 2 axes.
+  'proof-bar': [
+    { id: 'proof-bar--paper-2', type: 'proof-bar', label: 'Barre de preuves · fond papier 2', family: 'band', era: '2022', props: { background: 'paper-2' } },
+    { id: 'proof-bar--paper-3', type: 'proof-bar', label: 'Barre de preuves · fond papier 3', family: 'band', era: '2023', props: { background: 'paper-3' } },
+    { id: 'proof-bar--ink', type: 'proof-bar', label: 'Barre de preuves · fond encre', family: 'band', era: '2026', props: { background: 'ink' } },
+    { id: 'proof-bar--vertical-stack', type: 'proof-bar', label: 'Barre de preuves · empilée verticale', family: 'band', era: '2024', props: { layout: 'vertical-stack' } },
+    { id: 'proof-bar--vertical-stack-ink', type: 'proof-bar', label: 'Barre de preuves · empilée · encre', family: 'band', era: '2026', props: { layout: 'vertical-stack', background: 'ink' } },
+  ],
+
+  // stat-block (stat-grid) · bloc de stats. Demo = ink·split-quote → montrer les autres layouts + fonds clairs.
+  'stat-block': [
+    { id: 'stat-block--grid-3-paper', type: 'stat-block', label: 'Bloc stats · grille 3 · fond papier', family: 'stat-grid', era: '2022', props: { layout: 'grid-3', background: 'paper' } },
+    { id: 'stat-block--grid-3-paper-3', type: 'stat-block', label: 'Bloc stats · grille 3 · fond papier 3', family: 'stat-grid', era: '2023', props: { layout: 'grid-3', background: 'paper-3' } },
+    { id: 'stat-block--grid-4-paper-2', type: 'stat-block', label: 'Bloc stats · grille 4 · fond papier 2', family: 'stat-grid', era: '2024', props: { layout: 'grid-4', background: 'paper-2' } },
+    { id: 'stat-block--grid-4-ink', type: 'stat-block', label: 'Bloc stats · grille 4 · fond encre', family: 'stat-grid', era: '2026', props: { layout: 'grid-4', background: 'ink' } },
+    { id: 'stat-block--rows-hairlines-paper', type: 'stat-block', label: 'Bloc stats · lignes filets · fond papier', family: 'stat-grid', era: '2023', props: { layout: 'rows-hairlines', background: 'paper' } },
+    { id: 'stat-block--rows-hairlines-ink', type: 'stat-block', label: 'Bloc stats · lignes filets · fond encre', family: 'stat-grid', era: '2026', props: { layout: 'rows-hairlines', background: 'ink' } },
+    { id: 'stat-block--split-quote-paper', type: 'stat-block', label: 'Bloc stats · citation scindée · fond papier', family: 'stat-grid', era: '2025', props: { layout: 'split-quote', background: 'paper' } },
+  ],
+
+  // stat-counter (stat-grid) · compteurs count-up. Demo = ink → déclinaisons claires. animate = motion-only.
+  'stat-counter': [
+    { id: 'stat-counter--paper', type: 'stat-counter', label: 'Compteurs · fond papier', family: 'stat-grid', era: '2022', props: { background: 'paper' } },
+    { id: 'stat-counter--paper-2', type: 'stat-counter', label: 'Compteurs · fond papier 2', family: 'stat-grid', era: '2023', props: { background: 'paper-2' } },
+    { id: 'stat-counter--paper-3', type: 'stat-counter', label: 'Compteurs · fond papier 3', family: 'stat-grid', era: '2025', props: { background: 'paper-3' } },
+  ],
+
+  // terminal-metrics-strip (band) · bandeau télémétrie mono. Demo = paper (enum paper|paper-2|ink).
+  'terminal-metrics-strip': [
+    { id: 'terminal-metrics-strip--paper-2', type: 'terminal-metrics-strip', label: 'Bandeau télémétrie · fond papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
+    { id: 'terminal-metrics-strip--ink', type: 'terminal-metrics-strip', label: 'Bandeau télémétrie · fond encre', family: 'band', era: '2026', props: { background: 'ink' } },
   ],
 };
 
