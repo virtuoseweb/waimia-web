@@ -10,11 +10,29 @@
 //
 // Exit : 0 si tout valide · 1 si ≥1 violation · 2 si parse à 0 résultat (regex/fichier suspect).
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+
+// Racines des composants de section : un layout PEUT être générique (layouts.css, idiome
+// [data-layout]{--sec-grid}) OU interne à un composant (ex. mosaic/grid-uniform/list définis
+// dans le .astro avec leur propre grid-template-columns scopé). Les deux sont des layouts VALIDES.
+const COMPONENT_ROOTS = ['src/components/sections', 'src/sections'];
+
+/** Collecte récursive des fichiers .astro sous un dossier (absent → []). */
+function astroFiles(rel) {
+  const abs = join(ROOT, rel);
+  if (!existsSync(abs)) return [];
+  const out = [];
+  for (const ent of readdirSync(abs, { withFileTypes: true })) {
+    const child = join(rel, ent.name);
+    if (ent.isDirectory()) out.push(...astroFiles(child));
+    else if (ent.name.endsWith('.astro')) out.push(child);
+  }
+  return out;
+}
 
 const FILES = {
   // #40 T3 etape 2 : section-presets vit dans le package @waimia/ds-kernel.
@@ -44,12 +62,19 @@ const registryKeys = new Set(
   [...srcRegistry.matchAll(/^\s*['"]([a-z0-9-]+)['"]\s*:\s*\{/gm)].map((m) => m[1]),
 );
 
-// Ids de layout connus = sélecteurs [data-layout='…'] dans layouts.css.
+// Ids de layout connus = sélecteurs [data-layout='…'] GÉNÉRIQUES (layouts.css) UNION les
+// sélecteurs [data-layout='…'] INTERNES aux composants de section (.astro). Sans l'union, un
+// preset qui cible un layout scopé composant (mosaic, grid-uniform, list…) faisait faussement
+// rougir le gate alors que le layout existe et rend. GF-4 : la vérité = « défini quelque part ».
+const LAYOUT_SELECTOR = /\[data-layout='([a-z0-9-]+)'\]/g;
 const knownLayouts = new Set(
-  [...srcLayouts.matchAll(/\[data-layout='([a-z0-9-]+)'\]/g)].map((m) => m[1]),
+  [...srcLayouts.matchAll(LAYOUT_SELECTOR)].map((m) => m[1]),
 );
+for (const rel of COMPONENT_ROOTS.flatMap(astroFiles)) {
+  for (const m of read(rel).matchAll(LAYOUT_SELECTOR)) knownLayouts.add(m[1]);
+}
 
-const KNOWN_DENSITIES = new Set(['compact', 'base', 'ample']);
+const KNOWN_DENSITIES = new Set(['compact', 'base', 'ample', 'grand']);
 
 // Isole le bloc SECTION_PRESETS pour ne parser que les vrais presets (pas les helpers).
 const blockStart = srcPresets.indexOf('export const SECTION_PRESETS');

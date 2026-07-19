@@ -26,6 +26,22 @@
 [data-layout='split-1-2']      { --sec-grid: 1fr 2fr; }
 [data-layout='split-2-1']      { --sec-grid: 2fr 1fr; }
 
+/* ── P1 · vocabulaire de layout étendu (Vague 0, strat 03-library-strategy §12.2-B) ──
+   Prérequis à la production de presets en masse : sans ces ids le gate check-presets
+   refuse toute diversité de grille au-delà des 9 d'origine. Même idiome exact que
+   ci-dessus (le composant lit `grid-template-columns: var(--sec-grid, <défaut famille>)`)
+   → GÉNÉRIQUE et non-breaking : une section qui ne consomme pas --sec-grid ignore la
+   règle ; celle qui la lit prend la nouvelle fraction. Fractions STRUCTURELLES (0 token
+   couleur, 0 nouveau token DS) → conformes check-token-purity. */
+[data-layout='split-3-2']      { --sec-grid: 3fr 2fr; }              /* 60/40 (conversion 2026) */
+[data-layout='split-2-3']      { --sec-grid: 2fr 3fr; }              /* 40/60 (média dominant) */
+[data-layout='even-5']         { --sec-grid: 1fr 1fr 1fr 1fr 1fr; }
+[data-layout='even-6']         { --sec-grid: 1fr 1fr 1fr 1fr 1fr 1fr; }
+[data-layout='lead-2-1-1']     { --sec-grid: 2fr 1fr 1fr; }          /* colonne vedette + 2 appoints */
+[data-layout='lead-1-1-2']     { --sec-grid: 1fr 1fr 2fr; }
+[data-layout='golden-ab']      { --sec-grid: 1.618fr 1fr; }          /* nombre d'or (média | texte) */
+[data-layout='golden-ba']      { --sec-grid: 1fr 1.618fr; }          /* nombre d'or (texte | média) */
+
 /* [data-reversed] · inversion VISUELLE seule. L'ordre DOM reste l'ordre de
    lecture (WCAG 1.3.2) ; on ne réordonne QUE l'affichage via `order`. Les deux
    premiers enfants directs de la grille s'échangent (média ↔ texte). N'impacte
@@ -50,3 +66,6 @@
 [data-density='compact'] { --sec-pad: var(--section-tight); }
 [data-density='base']    { --sec-pad: var(--section-base); }
 [data-density='ample']   { --sec-pad: var(--section-loose); }
+/* P2 · cran maximal (Vague 0). Mappe le token --section-grand existant (256px, breakout
+   climax rare) ; réservé aux sections qui portent un moment fort. 0 nouveau token DS. */
+[data-density='grand']   { --sec-pad: var(--section-grand); }

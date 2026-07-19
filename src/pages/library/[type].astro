@@ -43,7 +43,7 @@ import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots'
 import { SECTION_DEMOS } from '../../lib/section-demos';
 import { getUsage } from '../../lib/library-manifest';
 import { getRealUsage } from '../../lib/section-usage.generated';
-import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
+import { listDeclinaisons } from '@waimia/ds-kernel/lib/section-presets';
 
 export function getStaticPaths() {
   return listSections().map((section) => ({
@@ -109,8 +109,9 @@ const sectionEntry = JSON.stringify(demo, null, 2);
 // Chemin machine tier-2 (MCP / agent) : détail JSON de la section.
 const mcpPath = `/library/section/${section.type}.json`;
 
-// Déclinaisons (presets).
-const presets = listPresets(section.type);
+// Déclinaisons : presets CURÉS (manuels) ∪ variantes GÉNÉRÉES (variantsFor, capées).
+// Comble l'angle mort « Déclinaisons · 0 » : la fiche ne lisait que les presets manuels.
+const declinaisons = listDeclinaisons(section.type);
 
 // Sections liées : 3 rails DISJOINTS, chacun capé à 6.
 const familyPeers = listFamilyPeers(section.type).slice(0, 6);
@@ -302,20 +303,31 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
         </div>
       </section>
 
-      {presets.length > 0 && (
+      {declinaisons.total > 0 && (
         <section class="component-block" aria-label="Déclinaisons de la section">
-          <h2 class="component-block-title">Déclinaisons · {presets.length}</h2>
+          <h2 class="component-block-title">Déclinaisons · {declinaisons.total}</h2>
           <p class="component-presets-lede">
             Combinaisons nommées « variante × palette × densité » appliquées à ce composant, prévisualisées en rendu isolé.
+            {declinaisons.curatedCount > 0 && declinaisons.generatedCount > 0
+              ? ` ${declinaisons.curatedCount} curée${declinaisons.curatedCount > 1 ? 's' : ''}, ${declinaisons.generatedCount} générée${declinaisons.generatedCount > 1 ? 's' : ''}.`
+              : ''}
+            {declinaisons.generatedShown < declinaisons.generatedCount
+              ? ` Échantillon des ${declinaisons.generatedShown} premières générées (sur ${declinaisons.generatedCount}) ; toutes accessibles en rendu isolé.`
+              : ''}
           </p>
           <ul class="component-presets">
-            {presets.map((preset) => (
+            {declinaisons.items.map((decl) => (
               <li class="component-preset">
                 <div class="component-preset-preview" data-preview-frame data-max-height="260" aria-hidden="true">
-                  <iframe class="component-preset-frame" src={`/preview/${section.type}/${preset.id}`} title={`Aperçu ${preset.label}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
+                  <iframe class="component-preset-frame" src={`/preview/${section.type}/${decl.id}`} title={`Aperçu ${decl.label}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
                 </div>
-                <p class="component-preset-label">{preset.label}</p>
-                <code class="component-preset-id">{preset.id}</code>
+                <div class="component-preset-head">
+                  <p class="component-preset-label">{decl.label}</p>
+                  <span class={`component-preset-origin component-preset-origin--${decl.origin}`}>
+                    {decl.origin === 'curated' ? 'curée' : 'générée'}
+                  </span>
+                </div>
+                <code class="component-preset-id">{decl.id}</code>
               </li>
             ))}
           </ul>
@@ -339,7 +351,7 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
                     interactions={peer.interactions}
                     elements={peer.elements}
                     layoutFacets={peer.layoutFacets}
-                    presetCount={listPresets(peer.type).length}
+                    presetCount={listDeclinaisons(peer.type).total}
                     href={`/library/${peer.type}`}
                     previewSlug={peer.type}
                     maxHeight={220}
@@ -672,6 +684,30 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+  }
+  /* Ligne label + badge d'origine (curée / générée). Même langage mono/hairline que
+     status/usage/mode du masthead ; 0 nouveau token DS. */
+  .component-preset-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .component-preset-origin {
+    flex: none;
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-preset-origin--curated {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
   }
   .component-preset-preview {
     display: block;

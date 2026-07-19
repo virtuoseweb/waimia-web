@@ -13,6 +13,7 @@
 // vague de production (Phase D) catégorie par catégorie.
 
 import type { SectionType, SectionData } from '../schemas/sections';
+import { variantsFor } from './section-variants';
 
 /** Sous-ensemble de présentation surchargeable par un preset (axes transverses docs/46). */
 export type PresetProps = Partial<Pick<SectionData, never>> & {
@@ -124,7 +125,9 @@ export type Preset = {
   props: PresetProps;
 };
 
-// Ids des presets de grille connus (miroir de src/styles/layouts.css → check-presets.mjs).
+// Ids des presets de grille GÉNÉRIQUES (miroir exact de src/styles/layouts.css → check-presets.mjs).
+// Ne liste QUE les layouts génériques `[data-layout]{--sec-grid}` ; les layouts internes à un
+// composant (mosaic, grid-uniform, list…) vivent dans le .astro et sont harvestés à part par le gate.
 export const KNOWN_LAYOUTS = [
   'split-3-1',
   'split-1-3',
@@ -133,9 +136,20 @@ export const KNOWN_LAYOUTS = [
   'even-4',
   'center-1-2-1',
   'editorial-6-1-1',
+  'split-1-2',
+  'split-2-1',
+  // P1 (Vague 0, strat §12.2-B) :
+  'split-3-2',
+  'split-2-3',
+  'even-5',
+  'even-6',
+  'lead-2-1-1',
+  'lead-1-1-2',
+  'golden-ab',
+  'golden-ba',
 ] as const;
 
-export const KNOWN_DENSITIES = ['compact', 'base', 'ample'] as const;
+export const KNOWN_DENSITIES = ['compact', 'base', 'ample', 'grand'] as const;
 
 /**
  * SECTION_PRESETS :catalogue des presets par type de section.
@@ -871,4 +885,72 @@ export function getPreset(type: SectionType, id: string): Preset | undefined {
 /** Tous les presets aplatis (pour getStaticPaths imbriqué / gate). */
 export function allPresets(): Preset[] {
   return Object.values(SECTION_PRESETS).flat().filter(Boolean) as Preset[];
+}
+
+/** Origine d'une déclinaison : « curée » (preset écrit à la main) vs « générée » (variantsFor). */
+export type DeclinaisonOrigin = 'curated' | 'generated';
+
+/** Une déclinaison affichable (preset curé OU variante générée), avec son origine. */
+export type Declinaison = {
+  id: string;
+  label: string;
+  props: Record<string, unknown>;
+  origin: DeclinaisonOrigin;
+};
+
+/** Listing des déclinaisons d'un type pour la fiche /library : compteurs + échantillon capé. */
+export type DeclinaisonListing = {
+  /** Déclinaisons à afficher : TOUTES les curées + les générées jusqu'au cap. */
+  items: Declinaison[];
+  /** Nombre de presets curés (manuels). */
+  curatedCount: number;
+  /** Nombre TOTAL de variantes générées (avant cap), après dédup vs curées. */
+  generatedCount: number;
+  /** curatedCount + generatedCount : le vrai total de déclinaisons du type. */
+  total: number;
+  /** Nombre de générées effectivement affichées (≤ cap). */
+  generatedShown: number;
+};
+
+/** Cap d'affichage par défaut des variantes générées (poids de page / lisibilité, pas SSG). */
+export const DEFAULT_GENERATED_CAP = 12;
+
+/**
+ * Déclinaisons EXHAUSTIVES d'un type = presets curés (listPresets) ∪ variantes générées
+ * (variantsFor, mêmes que la route /preview). Comble l'angle mort « Déclinaisons · 0 » de la
+ * fiche /library qui ne lisait que les presets manuels. Les générées sont capées (échantillon)
+ * pour ne pas alourdir la fiche ; le compteur `total` reste exact. Dédup par id : un preset
+ * curé l'emporte sur une variante générée de même id (parité avec /preview).
+ */
+export function listDeclinaisons(
+  type: SectionType,
+  opts: { generatedCap?: number } = {},
+): DeclinaisonListing {
+  const cap = opts.generatedCap ?? DEFAULT_GENERATED_CAP;
+  const curated = listPresets(type);
+  const curatedIds = new Set(curated.map((p) => p.id));
+  const generatedAll = variantsFor(type).filter((v) => !curatedIds.has(v.id));
+
+  const items: Declinaison[] = [
+    ...curated.map((p) => ({
+      id: p.id,
+      label: p.label,
+      props: p.props as Record<string, unknown>,
+      origin: 'curated' as const,
+    })),
+    ...generatedAll.slice(0, cap).map((v) => ({
+      id: v.id,
+      label: v.label,
+      props: v.props as Record<string, unknown>,
+      origin: 'generated' as const,
+    })),
+  ];
+
+  return {
+    items,
+    curatedCount: curated.length,
+    generatedCount: generatedAll.length,
+    total: curated.length + generatedAll.length,
+    generatedShown: Math.min(generatedAll.length, cap),
+  };
 }
