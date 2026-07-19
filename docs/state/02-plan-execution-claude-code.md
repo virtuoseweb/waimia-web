@@ -818,6 +818,7 @@ _(vide)_
   - Fichiers : `.claude/`, modules agents, facturation usage.
   - Preuve GF-1 : 1 agent exécute une tâche réelle bout en bout + compteur d'usage vérifié.
   - Dépend de : P4.1, P4.2.
+ ▸ *BLOQUÉ SUR SIGNAL SIMON 2026-07-19 : `strategy/13 §5` verrouille explicitement toute décision d'architecture dashboard tant que le brief builder n'est pas clos (« attendre la fin du brief builder ») ; idem memory builder (« ne pas attaquer l'archi tant que "j'ai toutes les infos" non dit »). Ne pas attaquer en autonome. Constat consigné fiche 0032 §P4.3-a.*
 
 ---
 
@@ -838,7 +839,7 @@ _(vide)_
   - Dépend de : —
 - [x] **T-3 — Arbitrage Simon : 3 types vt=0** (`TrustLegal` / `Welcome` / `ListIndex`). ▸ *soldé 2026-07-19 (arbitrage Simon « cataloguer ») : prémisse corrigée GF-4, les 3 étaient DÉJÀ catalogués (modules co-localisés Wave #38 T5) ; vrai gap = preview trust-legal-section corps vide → fallback body_html + demo (compat templates intacte, GF-1 screenshot).* <!-- sb commit=1f9bd682 gf1=y -->
   - Dépend de : décision Simon.
-- [ ] **T-4 — DS / variation / partners : finir le hub techno** (`state/01 §a`, worktree `feat/ecosystem-partners`). ▸ *réconcilié 2026-07-19 : RESTE (effort S, section ecosystem-partners construite mais orpheline : câbler sur `/technologies` ou abandonner, ARBITRAGE léger)*
+- [x] **T-4 — DS / variation / partners : finir le hub techno** (`state/01 §a`, worktree `feat/ecosystem-partners`). ▸ *SOLDÉ 2026-07-19 soir (arbitrage autonome fiche 0032 : CÂBLER, worker w-t4-partners) : section `ecosystem-partners` branchée sur `/technologies` (12 partenaires 4 catégories, paper-2, entre branded-callout et cta-final), copy anti-théâtre, swap Notion→Power Apps (asset opaque incompatible mask). GF-1 : 12/12 logos rendus, h2 opacity 1, 0 console, 0 overflow mobile, screenshots jugés + GF-1 prod post-deploy.* <!-- sb commit=f55edd2c gf1=y -->
   - Contexte : section `ecosystem-partners` posée (`specs/01-ecosystem-partners`), **hub `/technologies` à finir**.
   - Preuve GF-1 : hub techno rendu (screenshot above-fold) + build vert. Dépend de : —
 - [x] **T-5 — Re-critique AWWWARDS it.13 post-deploy** (`state/01 §a` ; boucle close it.12 = 4,5/5). ▸ *LIVRÉE 2026-07-19 (agent w-t5-recritique, rapport canonique `state/06-recritique-it13.md`) : score 4,5/5 MAINTENU, 0 P1, 0 régression ; typo-transverse (directive #4) soldée sur le flagship ; top 5 = motion signature [L] (levier 4,7+), skeleton Cal /contact [S] (EXÉCUTÉE 775b16c0 : skeleton DS + fallback 6 s dans CalEmbed), vide actif cas-clients [M], densité cas Amploi [S], climax immersif pages phares [M].* <!-- sb commit=be7bd171 gf1=y -->
@@ -848,8 +849,8 @@ _(vide)_
 - [x] **T-6 — VISION FINALE résidus** ▸ *soldé 2026-07-19 soir (investigation lecture-seule w-t6, triangulée) : les 2 items nommés sont LIVRÉS : arbo cas-par-secteur = `src/lib/sector-cases.ts` (grille cas par secteur injectée template) + maillage `meshForCase` ; étiquettes catalogue = champ `usage` `library-manifest.ts:27` + gate `check-usage-manifest.mjs` + badges fiche `/library`. Tout le reste de `docs/40` = couvert par P0/P2 ou SUPERSEDED par la refonte V7 (collections/routes redéfinies : 19 collections mais liste différente, tunnels/offres/glossary supprimées ; §8 motion lenis/gsap = non-prioritaire inchangé). 0 nouvelle tâche à créer (rouvrirait de l'obsolète). Micro-delta abandonné volontairement : breadcrumb secteur cliquable sur fiche cas (cohérent fiche 0020). `docs/40` reste archivé.* <!-- sb commit=e59c2a38 gf1=n -->
 - [x] **T-7 — Réconcilier les compteurs/statuts docs périmés** (`00-MASTER-PLAN` 147→151, etc.) — `state/01 §0`. ▸ *réconciliation compteurs livrée 2026-07-19 : canonique re-mesuré = **221 types / 221 modules co-localisés / 172 sections `.astro` / 6 templates / tokens.css 314 l / 823 presets / 221 previews** ; corrigés dans README §Compteurs, SYNTHESE §conflits, CLAUDE.md, ce NB. Reste : sweep statuts « en cours » soldés.* <!-- sb commit=3f8b5d23 gf1=n -->
   - Dépend de : —
-- [ ] **T-8 [?] — Décision 301 fintech** : `strategy/02` pose « pas de redirections » (domaine neuf) →
-  le 301 fintech de l'ex-R7b (`state/01 §b`) est **abandonné** ; confirmer que c'est volontaire.
+- [x] **T-8 [?] — Décision 301 fintech** : `strategy/02` pose « pas de redirections » (domaine neuf) →
+  le 301 fintech de l'ex-R7b (`state/01 §b`) est **abandonné** ; confirmer que c'est volontaire. ▸ *CONFIRMÉ volontaire 2026-07-19 (fiche 0032, triangulé GF-4 : 0 page fintech dans src/, 0 lien interne, 0 redirect config ; domaine neuf = aucun equity à préserver). Si un backlink fintech apparaît un jour en GSC, créer la redirection à ce moment-là.* <!-- sb commit=f55edd2c gf1=n -->
 
 > **NB design :** le DS est industrialisé en prod (**221 types**, re-mesuré 2026-07-19 ; « ~151 » périmé ; 5 touchpoints, dark `ink`) et **figé au
 > sens « 0 nouveau token ad hoc »** — mais **la refonte design n'est PAS terminée** : elle vit en
