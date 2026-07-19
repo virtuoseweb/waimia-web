@@ -22,7 +22,7 @@ import { variantsFor } from './section-variants';
  *  documenté ci-dessous au merge suivant ; le GF-1 par preset attrape les clés sans effet. */
 export type PresetProps = Partial<Pick<SectionData, never>> & {
   [key: string]: unknown;
-  background?: 'paper' | 'paper-2' | 'paper-3' | 'ink';
+  background?: 'paper' | 'paper-2' | 'paper-3' | 'ink' | 'accent';
   layout?: string;
   density?: 'compact' | 'base' | 'ample';
   /** Axe Variante : hero-conversion-funnel (split/sumie/minimal), eeat-panel (media/columns/light/hero),
@@ -39,7 +39,8 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
     | 'quote-right'
     | 'breakout'
     | 'inline'
-    | 'centered';
+    | 'centered'
+    | 'rail';
   /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
    *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
    *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
@@ -702,6 +703,83 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'footer-cta-band--atomic-spread', type: 'footer-cta-band', label: 'Bande CTA finale · atomique · boutons écartés (between)', family: 'band', era: '2026', props: { background: 'ink', placement: { actions: { justify: 'between' } } } },
     // Ordre : bloc CTA AU-DESSUS du titre (actions order 0, header order 1) en desktop.
     { id: 'footer-cta-band--atomic-cta-first', type: 'footer-cta-band', label: 'Bande CTA finale · atomique · CTA avant le titre', family: 'band', era: '2026', props: { background: 'paper', layout: 'stacked', placement: { header: { order: 1 }, actions: { order: 0, justify: 'start' } } } },
+  ],
+
+  // ══════════════════════════════════════════════════════════════════════════════════════
+  // CATÉGORIE « CTA / CONVERSION » (fan-out P2.9 w-p29-cta) · presets curés.
+  // Axe RÉEL dominant de la catégorie = `background` (data-bg), lu par chaque composant :
+  // bandes/box/formulaires de conversion changent de fond, pas de layout interne. Chaque preset
+  // décline une intention de fond DISTINCTE de la demo par défaut (0 preset == demo). L'accent
+  // (data-bg='accent', supporté par plusieurs schémas cta-*) est VOLONTAIREMENT omis : le type
+  // PresetProps.background ne l'expose pas encore (paper|paper-2|paper-3|ink) → axe à promouvoir
+  // côté orchestrateur avant de le curer (rule 60, pas de cast local). Types SANS axe (rendu figé)
+  // exclus : closing-cta-band (ink hardcodé), department-cta (sol-cta-dark figé), booking-embed
+  // (iframe Cal, ≤1 fond distinct). footer-cta-band déjà curé (ci-dessus).
+
+  // cta-band (famille cta) · bande fine full-bleed border-block · fond paper-2 par défaut.
+  'cta-band': [
+    { id: 'cta-band--paper-3', type: 'cta-band', label: 'CTA bande · fond papier 3', family: 'cta', era: '2021', props: { background: 'paper-3' } },
+    { id: 'cta-band--ink', type: 'cta-band', label: 'CTA bande · fond encre', family: 'cta', era: '2024', props: { background: 'ink' } },
+  ],
+
+  // cta-inline (famille cta) · box bordée in-flow (wrap-wide) · fond paper-2 par défaut.
+  'cta-inline': [
+    { id: 'cta-inline--paper', type: 'cta-inline', label: 'CTA en ligne · box papier', family: 'cta', era: '2020', props: { background: 'paper' } },
+    { id: 'cta-inline--paper-3', type: 'cta-inline', label: 'CTA en ligne · box papier 3', family: 'cta', era: '2022', props: { background: 'paper-3' } },
+    { id: 'cta-inline--ink', type: 'cta-inline', label: 'CTA en ligne · box encre', family: 'cta', era: '2025', props: { background: 'ink' } },
+  ],
+
+  // cta-final (famille cta) · CTA de clôture pleine largeur (kicker + dispo + sous-titre) · demo paper.
+  'cta-final': [
+    { id: 'cta-final--paper-2', type: 'cta-final', label: 'CTA final · fond papier 2', family: 'cta', era: '2021', props: { background: 'paper-2' } },
+    { id: 'cta-final--paper-3', type: 'cta-final', label: 'CTA final · fond papier 3', family: 'cta', era: '2023', props: { background: 'paper-3' } },
+    { id: 'cta-final--ink', type: 'cta-final', label: 'CTA final · fond encre', family: 'cta', era: '2025', props: { background: 'ink' } },
+  ],
+
+  // cta-form-inline (famille cta) · capture email inline (bloc formulaire) · demo ink.
+  'cta-form-inline': [
+    { id: 'cta-form-inline--paper', type: 'cta-form-inline', label: 'CTA formulaire · fond papier', family: 'cta', era: '2022', props: { background: 'paper' } },
+    { id: 'cta-form-inline--paper-2', type: 'cta-form-inline', label: 'CTA formulaire · fond papier 2', family: 'cta', era: '2023', props: { background: 'paper-2' } },
+    { id: 'cta-form-inline--paper-3', type: 'cta-form-inline', label: 'CTA formulaire · fond papier 3', family: 'cta', era: '2024', props: { background: 'paper-3' } },
+  ],
+
+  // cta-split-visual (famille cta) · CTA scindé texte + visuel décoratif · demo paper-2.
+  'cta-split-visual': [
+    { id: 'cta-split-visual--paper', type: 'cta-split-visual', label: 'CTA scindé · fond papier', family: 'cta', era: '2022', props: { background: 'paper' } },
+    { id: 'cta-split-visual--paper-3', type: 'cta-split-visual', label: 'CTA scindé · fond papier 3', family: 'cta', era: '2024', props: { background: 'paper-3' } },
+    { id: 'cta-split-visual--ink', type: 'cta-split-visual', label: 'CTA scindé · fond encre', family: 'cta', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // cta-newsletter-footer (famille newsletter) · bande newsletter de pied · demo ink.
+  'cta-newsletter-footer': [
+    { id: 'cta-newsletter-footer--paper', type: 'cta-newsletter-footer', label: 'Newsletter pied · fond papier', family: 'newsletter', era: '2021', props: { background: 'paper' } },
+    { id: 'cta-newsletter-footer--paper-2', type: 'cta-newsletter-footer', label: 'Newsletter pied · fond papier 2', family: 'newsletter', era: '2023', props: { background: 'paper-2' } },
+    { id: 'cta-newsletter-footer--paper-3', type: 'cta-newsletter-footer', label: 'Newsletter pied · fond papier 3', family: 'newsletter', era: '2024', props: { background: 'paper-3' } },
+  ],
+
+  // branded-callout (famille cta) · encadré de marque. Axe curé = background. Le 2ᵉ axe RÉEL
+  // `variant: 'rail'` (filet accent à gauche + retrait éditorial) est DIFFÉRÉ : PresetProps.variant
+  // est une union fermée (split|light|…) qui n'expose pas 'rail' → axe à promouvoir côté
+  // orchestrateur avant curation (rule 60, pas de cast local ni d'édition de PresetProps ici).
+  'branded-callout': [
+    { id: 'branded-callout--paper-2', type: 'branded-callout', label: 'Encadré marque · fond papier 2', family: 'cta', era: '2021', props: { background: 'paper-2' } },
+    { id: 'branded-callout--paper-3', type: 'branded-callout', label: 'Encadré marque · fond papier 3', family: 'cta', era: '2022', props: { background: 'paper-3' } },
+    { id: 'branded-callout--ink', type: 'branded-callout', label: 'Encadré marque · fond encre', family: 'cta', era: '2024', props: { background: 'ink' } },
+  ],
+
+  // newsletter-band (famille newsletter) · bande d'inscription · défaut = bande sombre (idiome ink).
+  // Presets = déclinaisons claires (l'inverse chromatique du défaut).
+  'newsletter-band': [
+    { id: 'newsletter-band--paper', type: 'newsletter-band', label: 'Bande newsletter · fond papier', family: 'newsletter', era: '2022', props: { background: 'paper' } },
+    { id: 'newsletter-band--paper-2', type: 'newsletter-band', label: 'Bande newsletter · fond papier 2', family: 'newsletter', era: '2023', props: { background: 'paper-2' } },
+    { id: 'newsletter-band--paper-3', type: 'newsletter-band', label: 'Bande newsletter · fond papier 3', family: 'newsletter', era: '2025', props: { background: 'paper-3' } },
+  ],
+
+  // newsletter-signup-section (famille newsletter) · section d'inscription pleine · demo ink.
+  'newsletter-signup-section': [
+    { id: 'newsletter-signup-section--paper', type: 'newsletter-signup-section', label: 'Inscription newsletter · fond papier', family: 'newsletter', era: '2021', props: { background: 'paper' } },
+    { id: 'newsletter-signup-section--paper-2', type: 'newsletter-signup-section', label: 'Inscription newsletter · fond papier 2', family: 'newsletter', era: '2023', props: { background: 'paper-2' } },
+    { id: 'newsletter-signup-section--paper-3', type: 'newsletter-signup-section', label: 'Inscription newsletter · fond papier 3', family: 'newsletter', era: '2024', props: { background: 'paper-3' } },
   ],
 
   // feature-split-media (famille split-media) : axes câblés (Vague C pilote) = background +
