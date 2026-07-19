@@ -24,6 +24,8 @@ import { langFromPath } from '../../lib/i18n';
 import { isLegacyRoutedType } from '../../lib/blog-routing';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import { blogEntryHref } from '../../lib/blog-routing';
+// Sections statiques (vague V3) → module ; le reste (dérivé collections + 2 blocs bespoke) reste ici.
+import { mastheadData, ctaData } from '../../data/ressources-hub-sections';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -257,29 +259,7 @@ const splitData = {
   },
 } satisfies SectionByType<'editorial-split-grid'>;
 
-const mastheadData = {
-  type: 'hero-hub-masthead' as const,
-  variant: 'hub' as const,
-  decoration: false,
-  align: 'left' as const,
-  kicker_fr: '§ Hub · Ressources',
-  kicker_en: '§ Hub · Resources',
-  h1_fr: 'Tout ce qu\'on <i>publie</i>.',
-  h1_en: 'Everything we <i>publish</i>.',
-  lede_fr: 'Cas mesurables, articles de fond, guides pratiques, comparatifs, diagnostics et calculateurs gratuits. Pas de pensum SEO. Tout est relu, signé, et confidentiel quand le client le demande.',
-  lede_en: 'Measurable cases, in-depth articles, practical guides, comparisons, diagnostics and free calculators. No SEO padding. Everything is reviewed, signed, and kept confidential when the client asks.',
-} satisfies SectionByType<'hero-hub-masthead'>;
-
-const ctaData = {
-  type: 'cta-final' as const,
-  h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
-  h2_en: 'Ready to ship an <em>agent</em>,<br />not a slide deck?',
-  body_fr: 'Audit IA en 5 jours. Premier agent en production en 4 semaines. ROI mesuré, jamais estimé.',
-  body_en: 'AI audit in 5 days. First agent in production in 4 weeks. Measured ROI, never estimated.',
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact', variant: 'primary' as const },
-  cta_secondary: { label_fr: 'Voir les offres →', label_en: 'See services →', href: '/services', variant: 'ghost' as const },
-  background: 'paper' as const,
-} satisfies SectionByType<'cta-final'>;
+// mastheadData + ctaData (statiques) → `src/data/ressources-hub-sections.ts` (vague V3).
 ---
 <Base
   title="Ressources IA pour PME · Waimia"
