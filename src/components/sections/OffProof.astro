@@ -30,7 +30,7 @@ const metricPlacements = [
 <section
   class="off-sec off-proof reveal-stagger"
   data-screen-label="05 Proof"
-  data-bg={data.background === 'ink' ? 'ink' : undefined}
+  data-bg={data.background}
 >
   <div class="wrap g12 g12--full">
     <header class="off-sec-hd col-12 section-eyebrow">
@@ -122,6 +122,10 @@ const metricPlacements = [
     .off-proof-main { grid-column: 1 / -1; }
     .off-proof-aside { grid-column: 1 / -1; }
   }
+
+  /* ───── Fonds papier alternés ───── */
+  [data-bg='paper-2'] { background: var(--paper-2); }
+  [data-bg='paper-3'] { background: var(--paper-3); }
 
   /* ───── Variante dark ───── */
   [data-bg='ink'] {

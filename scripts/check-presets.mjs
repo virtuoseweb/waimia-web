@@ -49,12 +49,17 @@ const FILES = {
 //   - diagram → src/components/sections/SystemFlow.astro:37,48,279 (data-layout={sfLayout} ;
 //       « diagram : recette explicite = rendu par défaut (alias nommé pour le builder) », pas de
 //       sélecteur [data-layout='diagram'] car il ÉGALE le style de base .sf)
+//   - wall / marquee → src/components/sections/EcosystemPartners.astro:19,62,72 (const layout =
+//       data.layout ?? 'grid' ; le template branche layout==='marquee' ? … : (wall), rendu et
+//       stylé par classes .eco-partners__wall / .eco-partners__marquee sans sélecteur [data-layout])
 const COMPONENT_INTERNAL_LAYOUTS = new Set([
   'alternate',
   'inline',
   'inline-left',
   'inline-right',
   'diagram',
+  'wall',
+  'marquee',
 ]);
 
 /** Collecte récursive des fichiers .astro sous un dossier (absent → []). */

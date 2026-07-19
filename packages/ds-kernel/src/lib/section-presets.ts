@@ -47,7 +47,19 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
     | 'featured'
     | 'transparent'
     | 'cells'
-    | 'strip';
+    | 'strip'
+    | 'info'
+    | 'quote'
+    | 'note'
+    | 'warn'
+    | 'manifesto'
+    | 'default'
+    | 'section'
+    | 'end'
+    | 'rule'
+    | 'asterism'
+    | 'serif'
+    | 'mono';
   /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
    *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
    *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
@@ -1363,13 +1375,16 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
   ],
 
   // ═══ Vague 6 · Catégorie Logos / social-proof (fan-out P2.9 w-p29-v6) ═══
-  // ecosystem-partners (band) · axe RENDU = background. (Axe layout wall/marquee différé vague 7 :
-  // absent des sélecteurs [data-layout] → rejeté par check-presets ; grille demo conservée.)
+  // ecosystem-partners (band) · axes RENDUS = background × layout (grid/wall/marquee). Le composant
+  // branche les 3 layouts en interne (grid groupé / wall labellisé / marquee défilant), la demo fige
+  // layout:'grid' → wall & marquee posés EXPLICITEMENT dans props (vague 7).
   'ecosystem-partners': [
     { id: 'ecosystem-partners--paper', type: 'ecosystem-partners', label: 'Partenaires écosystème · papier', family: 'band', era: '2023', props: { background: 'paper' } },
     { id: 'ecosystem-partners--paper-2', type: 'ecosystem-partners', label: 'Partenaires écosystème · papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
     { id: 'ecosystem-partners--paper-3', type: 'ecosystem-partners', label: 'Partenaires écosystème · papier 3', family: 'band', era: '2025', props: { background: 'paper-3' } },
     { id: 'ecosystem-partners--ink', type: 'ecosystem-partners', label: 'Partenaires écosystème · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+    { id: 'ecosystem-partners--wall', type: 'ecosystem-partners', label: 'Partenaires écosystème · mur labellisé', family: 'band', era: '2025', props: { layout: 'wall', background: 'paper-2' } },
+    { id: 'ecosystem-partners--marquee', type: 'ecosystem-partners', label: 'Partenaires écosystème · défilant', family: 'band', era: '2026', props: { layout: 'marquee', background: 'ink' } },
   ],
   // logo-wall (band) · axe RENDU = background. Grille fixe de logos (pas de défilement).
   'logo-wall': [
@@ -1378,10 +1393,12 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'logo-wall--paper-3', type: 'logo-wall', label: 'Mur de logos · papier 3', family: 'band', era: '2024', props: { background: 'paper-3' } },
     { id: 'logo-wall--ink', type: 'logo-wall', label: 'Mur de logos · encre', family: 'band', era: '2026', props: { background: 'ink' } },
   ],
-  // off-proof (quote) · axe RENDU = background, mais le Component ne câble QUE data-bg='ink'
-  // (paper/paper-2/paper-3 → même rendu clair). 2 états réels seulement ; alternance papier différée vague 7.
+  // off-proof (quote) · axe RENDU = background. Le Component câble désormais paper-2/paper-3 (blocs
+  // [data-bg] ajoutés vague 7) en plus de paper (défaut clair) et ink.
   'off-proof': [
     { id: 'off-proof--paper', type: 'off-proof', label: 'Preuve terrain · papier', family: 'quote', era: '2024', props: { background: 'paper' } },
+    { id: 'off-proof--paper-2', type: 'off-proof', label: 'Preuve terrain · papier 2', family: 'quote', era: '2024', props: { background: 'paper-2' } },
+    { id: 'off-proof--paper-3', type: 'off-proof', label: 'Preuve terrain · papier 3', family: 'quote', era: '2025', props: { background: 'paper-3' } },
     { id: 'off-proof--ink', type: 'off-proof', label: 'Preuve terrain · encre', family: 'quote', era: '2026', props: { background: 'ink' } },
   ],
   // social-proof (marquee) · axes RENDUS = background × marquee (défilement / statique). Demo fige marquee:true.
@@ -1392,13 +1409,16 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'social-proof--marquee-ink', type: 'social-proof', label: 'Preuve sociale · défilante · encre', family: 'marquee', era: '2026', props: { background: 'ink', marquee: true } },
     { id: 'social-proof--static-ink', type: 'social-proof', label: 'Preuve sociale · statique · encre', family: 'marquee', era: '2026', props: { background: 'ink', marquee: false } },
   ],
-  // trust-badges-band (band) · axe RENDU = background (variant strip hérité de la demo).
-  // (Axe variant cells différé vague 7 : 'cells' hors union PresetProps.variant → ts2322, pas d'élargissement worker.)
+  // trust-badges-band (band) · axes RENDUS = background × variant (strip inline / cells hairline).
+  // La demo fige variant:'strip' → les presets paper/*/ink sont des bandeaux inline ; les presets
+  // cells posent variant:'cells' EXPLICITEMENT (grille hairline glyph+label+valeur, vague 7).
   'trust-badges-band': [
     { id: 'trust-badges-band--paper', type: 'trust-badges-band', label: 'Bandeau de confiance · papier', family: 'band', era: '2023', props: { background: 'paper' } },
     { id: 'trust-badges-band--paper-2', type: 'trust-badges-band', label: 'Bandeau de confiance · papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
     { id: 'trust-badges-band--paper-3', type: 'trust-badges-band', label: 'Bandeau de confiance · papier 3', family: 'band', era: '2025', props: { background: 'paper-3' } },
     { id: 'trust-badges-band--ink', type: 'trust-badges-band', label: 'Bandeau de confiance · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+    { id: 'trust-badges-band--cells', type: 'trust-badges-band', label: 'Bandeau de confiance · cellules hairline', family: 'band', era: '2025', props: { variant: 'cells', background: 'paper' } },
+    { id: 'trust-badges-band--cells-ink', type: 'trust-badges-band', label: 'Bandeau de confiance · cellules encre', family: 'band', era: '2026', props: { variant: 'cells', background: 'ink' } },
   ],
 
   // ═══ Vague 6 · Catégorie Media / galeries (fan-out P2.9 w-p29-v6) ═══
@@ -1429,6 +1449,73 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'site-showcase--paper-2', type: 'site-showcase', label: 'Vitrine site · papier 2', family: 'split-media', era: '2024', props: { background: 'paper-2' } },
     { id: 'site-showcase--paper-3', type: 'site-showcase', label: 'Vitrine site · papier 3', family: 'split-media', era: '2025', props: { background: 'paper-3' } },
     { id: 'site-showcase--ink', type: 'site-showcase', label: 'Vitrine site · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // ═══ Vague 7 · Catégorie Content / éditorial (fan-out P2.9 w-p29-v7) ═══
+  // Axes pilotés via background (déclaré) + maxWidth/tone/size/align/stagger (index signature,
+  // honorés par les composants). L'axe `variant` éditorial (callout info/quote/note/warn/manifesto,
+  // dingbat default/section/end/rule/asterism, dropcap serif/mono) est HORS union PresetProps.variant
+  // → widening différé à l'orchestrateur (consigné rapport vague 7). 'accent' est déjà dans l'union.
+
+  // editorial-prose (prose) · axes = background (demo fige 'paper') × maxWidth (demo fige 'prose').
+  'editorial-prose': [
+    { id: 'editorial-prose--wide', type: 'editorial-prose', label: 'Prose éditoriale · pleine largeur', family: 'prose', era: '2024', props: { maxWidth: 'wide' } },
+    { id: 'editorial-prose--paper-2', type: 'editorial-prose', label: 'Prose éditoriale · papier 2', family: 'prose', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-prose--ink', type: 'editorial-prose', label: 'Prose éditoriale · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+    { id: 'editorial-prose--wide-ink', type: 'editorial-prose', label: 'Prose éditoriale · large encre', family: 'prose', era: '2026', props: { background: 'ink', maxWidth: 'wide' } },
+  ],
+  // editorial-callout (callout) · axes = background × size × align × density (variant 'quote' hérité demo).
+  'editorial-callout': [
+    { id: 'editorial-callout--paper-2', type: 'editorial-callout', label: 'Encart éditorial · papier 2', family: 'callout', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-callout--ink', type: 'editorial-callout', label: 'Encart éditorial · encre', family: 'callout', era: '2026', props: { background: 'ink' } },
+    { id: 'editorial-callout--lg-center', type: 'editorial-callout', label: 'Encart éditorial · large centré', family: 'callout', era: '2025', props: { size: 'lg', align: 'center' } },
+    { id: 'editorial-callout--compact', type: 'editorial-callout', label: 'Encart éditorial · compact', family: 'callout', era: '2024', props: { density: 'compact' } },
+  ],
+  // editorial-dingbat-rule (ornament) · axes = background × size (variant 'section' hérité demo).
+  'editorial-dingbat-rule': [
+    { id: 'editorial-dingbat-rule--paper-2', type: 'editorial-dingbat-rule', label: 'Filet dingbat · papier 2', family: 'ornament', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-dingbat-rule--ink', type: 'editorial-dingbat-rule', label: 'Filet dingbat · encre', family: 'ornament', era: '2026', props: { background: 'ink' } },
+    { id: 'editorial-dingbat-rule--lg', type: 'editorial-dingbat-rule', label: 'Filet dingbat · grand', family: 'ornament', era: '2025', props: { size: 'lg' } },
+  ],
+  // editorial-dropcap-prose (prose) · axes = variant 'accent' (dans union) × background (demo fige serif/paper).
+  'editorial-dropcap-prose': [
+    { id: 'editorial-dropcap-prose--accent', type: 'editorial-dropcap-prose', label: 'Lettrine · accent', family: 'prose', era: '2025', props: { variant: 'accent' } },
+    { id: 'editorial-dropcap-prose--paper-2', type: 'editorial-dropcap-prose', label: 'Lettrine · papier 2', family: 'prose', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-dropcap-prose--ink', type: 'editorial-dropcap-prose', label: 'Lettrine · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+  ],
+  // editorial-preview (index) · axe = background (demo sans fond → défaut clair).
+  'editorial-preview': [
+    { id: 'editorial-preview--paper-2', type: 'editorial-preview', label: 'Aperçu notes · papier 2', family: 'index', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-preview--paper-3', type: 'editorial-preview', label: 'Aperçu notes · papier 3', family: 'index', era: '2025', props: { background: 'paper-3' } },
+    { id: 'editorial-preview--ink', type: 'editorial-preview', label: 'Aperçu notes · encre', family: 'index', era: '2026', props: { background: 'ink' } },
+  ],
+  // editorial-case-grid (grid) · axe = background (enum paper/paper-2/ink ; demo fige paper).
+  'editorial-case-grid': [
+    { id: 'editorial-case-grid--paper-2', type: 'editorial-case-grid', label: 'Grille de cas · papier 2', family: 'grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-case-grid--ink', type: 'editorial-case-grid', label: 'Grille de cas · encre', family: 'grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // editorial-split-grid (split) · axe = background (demo sans fond → défaut clair).
+  'editorial-split-grid': [
+    { id: 'editorial-split-grid--paper-2', type: 'editorial-split-grid', label: 'Double colonne éditoriale · papier 2', family: 'split', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-split-grid--paper-3', type: 'editorial-split-grid', label: 'Double colonne éditoriale · papier 3', family: 'split', era: '2025', props: { background: 'paper-3' } },
+    { id: 'editorial-split-grid--ink', type: 'editorial-split-grid', label: 'Double colonne éditoriale · encre', family: 'split', era: '2026', props: { background: 'ink' } },
+  ],
+  // editorial-write-feed (feed) · axe = tone (index signature ; demo fige 'paper').
+  'editorial-write-feed': [
+    { id: 'editorial-write-feed--paper', type: 'editorial-write-feed', label: 'Fil d’écriture · papier', family: 'feed', era: '2024', props: { tone: 'paper' } },
+    { id: 'editorial-write-feed--ink', type: 'editorial-write-feed', label: 'Fil d’écriture · encre', family: 'feed', era: '2026', props: { tone: 'ink' } },
+  ],
+  // decision-list (list) · axe = background (demo sans fond → défaut clair).
+  'decision-list': [
+    { id: 'decision-list--paper-2', type: 'decision-list', label: 'Liste de décision · papier 2', family: 'list', era: '2024', props: { background: 'paper-2' } },
+    { id: 'decision-list--paper-3', type: 'decision-list', label: 'Liste de décision · papier 3', family: 'list', era: '2025', props: { background: 'paper-3' } },
+    { id: 'decision-list--ink', type: 'decision-list', label: 'Liste de décision · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+  // inclusions-list (list) · axe = background (demo sans fond → défaut clair).
+  'inclusions-list': [
+    { id: 'inclusions-list--paper-2', type: 'inclusions-list', label: 'Liste d’inclusions · papier 2', family: 'list', era: '2024', props: { background: 'paper-2' } },
+    { id: 'inclusions-list--paper-3', type: 'inclusions-list', label: 'Liste d’inclusions · papier 3', family: 'list', era: '2025', props: { background: 'paper-3' } },
+    { id: 'inclusions-list--ink', type: 'inclusions-list', label: 'Liste d’inclusions · encre', family: 'list', era: '2026', props: { background: 'ink' } },
   ],
 };
 
