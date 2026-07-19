@@ -5,6 +5,7 @@ export const prerender = true;
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Button from '../../components/ui/atoms/Button.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
+import { academySections } from '../../data/academy-sections';
 import { SITE } from '../../site.config';
 
 // JSON-LD WebApplication · décrit le diagnostic interactif (formulaire noté 6 questions →
@@ -43,53 +44,19 @@ const academyLd = {
           <input type="text" id="academy-hp" name="_hp" tabindex="-1" autocomplete="off" />
         </div>
         <input type="hidden" name="lang" value="fr" />
-      <Kicker tone="accent" class="acad-section-k">§ 01 · Données</Kicker>
-      <fieldset>
-        <legend>Q1 · Vos données métier sont-elles centralisées ?</legend>
-        <label><input type="radio" name="q1" value="0" /> Non, dispersées dans 10+ outils</label>
-        <label><input type="radio" name="q1" value="1" /> Centralisées partiellement (CRM ou warehouse)</label>
-        <label><input type="radio" name="q1" value="2" /> Centralisées dans un entrepôt unifié (dbt, Snowflake, etc.)</label>
-        <label><input type="radio" name="q1" value="3" /> Entrepôt + politique d'écriture par champ documentée</label>
-      </fieldset>
-      <fieldset>
-        <legend>Q2 · Avez-vous une source de vérité unique pour le pipeline revenue ?</legend>
-        <label><input type="radio" name="q2" value="0" /> Non, débats fréquents en comité</label>
-        <label><input type="radio" name="q2" value="1" /> CRM seul fait foi</label>
-        <label><input type="radio" name="q2" value="2" /> CRM + warehouse réconciliés</label>
-        <label><input type="radio" name="q2" value="3" /> Source unique signée par finance + revenue</label>
-      </fieldset>
-
-      <Kicker tone="accent" class="acad-section-k">§ 02 · Outillage IA</Kicker>
-      <fieldset>
-        <legend>Q3 · Avez-vous déjà déployé un agent IA en production ?</legend>
-        <label><input type="radio" name="q3" value="0" /> Non, jamais essayé</label>
-        <label><input type="radio" name="q3" value="1" /> POC seulement, jamais en prod</label>
-        <label><input type="radio" name="q3" value="2" /> 1-2 agents en prod, peu mesurés</label>
-        <label><input type="radio" name="q3" value="3" /> 3+ agents en prod avec audit trail mesurable</label>
-      </fieldset>
-      <fieldset>
-        <legend>Q4 · Connaissez-vous le coût LLM mensuel par agent ?</legend>
-        <label><input type="radio" name="q4" value="0" /> Aucune visibilité</label>
-        <label><input type="radio" name="q4" value="1" /> Total mensuel global seulement</label>
-        <label><input type="radio" name="q4" value="2" /> Par agent, sans drill-down</label>
-        <label><input type="radio" name="q4" value="3" /> Par agent + drill-down (modèle, batch, cache)</label>
-      </fieldset>
-
-      <Kicker tone="accent" class="acad-section-k">§ 03 · Conformité</Kicker>
-      <fieldset>
-        <legend>Q5 · Vos agents IA sont-ils auditables ?</legend>
-        <label><input type="radio" name="q5" value="0" /> Aucun audit trail</label>
-        <label><input type="radio" name="q5" value="1" /> Logs basiques applicatifs</label>
-        <label><input type="radio" name="q5" value="2" /> Trail structuré exportable</label>
-        <label><input type="radio" name="q5" value="3" /> Trail re-rejouable + signé (AI Act ready)</label>
-      </fieldset>
-      <fieldset>
-        <legend>Q6 · Avez-vous un humain d'astreinte nommé sur vos agents prod ?</legend>
-        <label><input type="radio" name="q6" value="0" /> Non, personne désigné</label>
-        <label><input type="radio" name="q6" value="1" /> Oui, mais seulement les heures ouvrées</label>
-        <label><input type="radio" name="q6" value="2" /> Astreinte 24/7 mais réactivité variable</label>
-        <label><input type="radio" name="q6" value="3" /> Astreinte 24/7 avec SLA réveil &lt; 15 min</label>
-      </fieldset>
+      {academySections.map((section) => (
+        <Fragment>
+          <Kicker tone="accent" class="acad-section-k">{section.kicker_fr}</Kicker>
+          {section.questions.map((q) => (
+            <fieldset>
+              <legend>{q.legend_fr}</legend>
+              {q.options.map((opt) => (
+                <label><input type="radio" name={q.name} value={opt.value} /> {opt.label_fr}</label>
+              ))}
+            </fieldset>
+          ))}
+        </Fragment>
+      ))}
 
       <div class="form-row acad-email">
         <label for="email"><span>Email pro</span><span aria-hidden>*</span></label>
