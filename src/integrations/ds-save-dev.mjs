@@ -81,6 +81,9 @@ const SAVED_SECTIONS_PATH = resolve(PROJECT_ROOT, 'src/data/saved-sections.json'
 // kernel l'importe statiquement (frontiere respectee : le package n'importe jamais src/ de l'app).
 const CUSTOM_PRESETS_PATH = resolve(PROJECT_ROOT, 'packages/ds-kernel/src/lib/custom-presets.json');
 const CONTENT_DIR = resolve(PROJECT_ROOT, 'src/content');
+// Store d'etat des apps internes (registre apps.config.ts) + scaffolder de sections.
+const APPS_STATE_PATH = resolve(PROJECT_ROOT, 'src/data/apps-state.json');
+const SCAFFOLD_SCRIPT = resolve(PROJECT_ROOT, 'scripts/scaffold-section.mjs');
 const FIXED_DELAY_SECONDS = 180;
 
 const DEFAULT_KEYWORD = 'WAIMIA-SAVE';
@@ -91,6 +94,12 @@ const SAVED_ROUTE = '/api/ds/saved';
 const INSTANCE_ROUTE = '/api/ds/instance';
 const PAGE_ROUTE = '/api/ds/page';
 const CUSTOM_PRESET_ROUTE = '/api/ds/custom-preset';
+const SCAFFOLD_ROUTE = '/api/ds/scaffold';
+const APPS_ROUTE = '/api/ds/apps';
+// Source de verite du registre des apps internes (structure + defauts + listAppsState()).
+const APPS_CONFIG_MODULE = '/src/apps.config.ts';
+// Validation kebab-case (miroir de scaffold-section.mjs) : garde locale AVANT le spawn.
+const KEBAB_RE = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
 // Source de verite du catalogue de presets (fonctions d'acces fusionnant les customs) + des
 // enums de validation (KNOWN_LAYOUTS / KNOWN_DENSITIES). Chargee via ssrLoadModule (memes raisons
 // que SECTIONS_SCHEMA_MODULE : la chaine tire des schemas/modules virtuels non importables en Node).
@@ -1081,6 +1090,197 @@ function makeCustomPresetHandler(server) {
   };
 }
 
+// --- Handler scaffold (generation d'un module de section, dev-only) ------------
+// POST /api/ds/scaffold { keyword, type, from?, dryRun? } : spawn `node scripts/scaffold-section.mjs
+// <type> [--from <from>] [--dry-run] --json` (args en tableau = 0 injection shell), capture
+// stdout (JSON machine) + stderr (logs humains). Gardes IDENTIQUES aux autres routes mutantes :
+// keyword (400, jamais logue, comme /api/ds/instance) + refus-main (403) + type/from kebab (400).
+// Reponse : { ok, type, dryRun, created[], generators[], logs } ou { ok:false, error, logs }.
+
+function makeScaffoldHandler() {
+  return async function scaffoldHandler(req, res, next) {
+    if (req.method !== 'POST') return next();
+
+    // 1. Lecture + parse du body
+    let body;
+    try {
+      const raw = await readBody(req);
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'corps JSON invalide' });
+    }
+
+    const { keyword, type, from, dryRun } = body || {};
+
+    // 2. Save-guard keyword (jamais logue) -> 400 (comme /api/ds/instance)
+    const expected = process.env.DS_SAVE_KEYWORD || DEFAULT_KEYWORD;
+    if (String(keyword || '') !== expected) {
+      return sendJson(res, 400, { ok: false, error: 'keyword' });
+    }
+
+    // 3. Validation type/from kebab-case AVANT le spawn (le scaffolder revalide de son cote)
+    if (typeof type !== 'string' || !KEBAB_RE.test(type)) {
+      return sendJson(res, 400, { ok: false, error: 'type invalide (kebab-case attendu)' });
+    }
+    if (from !== undefined && from !== null && (typeof from !== 'string' || !KEBAB_RE.test(from))) {
+      return sendJson(res, 400, { ok: false, error: 'from invalide (kebab-case attendu)' });
+    }
+
+    // 4. Refus-main : le scaffold ecrit des sources + regenere des fichiers commites.
+    let branch;
+    try {
+      branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
+    } catch {
+      return sendJson(res, 500, { ok: false, error: 'impossible de lire la branche git' });
+    }
+    if (branch === 'main') {
+      return sendJson(res, 403, { ok: false, error: 'refus scaffold main' });
+    }
+
+    // 5. Spawn du scaffolder en --json (stdout = JSON, stderr = logs humains)
+    const args = [SCAFFOLD_SCRIPT, type];
+    if (typeof from === 'string' && from) args.push('--from', from);
+    if (dryRun) args.push('--dry-run');
+    args.push('--json');
+
+    let stdout = '';
+    let stderr = '';
+    try {
+      stdout = execFileSync('node', args, {
+        cwd: PROJECT_ROOT,
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+        maxBuffer: 8 * 1024 * 1024,
+      });
+    } catch (e) {
+      // Le scaffolder emet TOUJOURS son JSON sur stdout, meme en echec (exit 1).
+      stdout = (e.stdout && String(e.stdout)) || '';
+      stderr = (e.stderr && String(e.stderr)) || e.message || '';
+    }
+
+    // 6. Parse du JSON machine du scaffolder
+    let result = null;
+    try {
+      result = JSON.parse(String(stdout).trim());
+    } catch {
+      result = null;
+    }
+    if (result && typeof result === 'object') {
+      if (result.ok) {
+        return sendJson(res, 200, {
+          ok: true,
+          type: result.type,
+          dryRun: Boolean(result.dryRun),
+          created: result.created || [],
+          generators: result.generators || [],
+          logs: stderr || null,
+        });
+      }
+      return sendJson(res, 400, { ok: false, error: result.error || 'scaffold en echec', logs: stderr || null });
+    }
+    // Pas de JSON exploitable : erreur brute (tronquee).
+    return sendJson(res, 500, {
+      ok: false,
+      error: 'sortie scaffolder illisible',
+      logs: (stderr || stdout || '').slice(0, 4000),
+    });
+  };
+}
+
+// --- Handler apps (registre des apps internes, dev-only) -----------------------
+// GET   /api/ds/apps          -> { ok, apps: AppState[] } (id, enabled=configure, active=servi,
+//                                 extracted, facade, route). Source de verite = src/apps.config.ts.
+// PATCH /api/ds/apps          -> { keyword, id, enabled } : ecrit src/data/apps-state.json (merge).
+//   Gardes : keyword (400) + refus-main (403) + id connu (400) + enabled boolean (400).
+//   UX honnete : la reponse rappelle que le toggle prend effet au REDEMARRAGE d'astro dev
+//   (la config des apps n'est evaluee qu'au boot ; le store est relu a chaud pour l'affichage).
+
+function readAppsStateFile() {
+  if (!existsSync(APPS_STATE_PATH)) return { apps: {} };
+  try {
+    const parsed = JSON.parse(readFileSync(APPS_STATE_PATH, 'utf8'));
+    if (parsed && parsed.apps && typeof parsed.apps === 'object') return { apps: parsed.apps };
+  } catch {
+    // illisible -> store vide (defauts)
+  }
+  return { apps: {} };
+}
+
+function makeAppsHandler(server) {
+  return async function appsHandler(req, res, next) {
+    // Structure des apps = src/apps.config.ts (listAppsState re-lit apps-state.json a chaud).
+    let listAppsState;
+    try {
+      ({ listAppsState } = await server.ssrLoadModule(APPS_CONFIG_MODULE));
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: `registre apps indisponible : ${e.message}` });
+    }
+
+    if (req.method === 'GET') {
+      return sendJson(res, 200, { ok: true, apps: listAppsState() });
+    }
+
+    if (req.method !== 'PATCH') return next();
+
+    // 1. Lecture + parse du body
+    let body;
+    try {
+      const raw = await readBody(req);
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'corps JSON invalide' });
+    }
+
+    const { keyword, id, enabled } = body || {};
+
+    // 2. Save-guard keyword (jamais logue)
+    const expected = process.env.DS_SAVE_KEYWORD || DEFAULT_KEYWORD;
+    if (String(keyword || '') !== expected) {
+      return sendJson(res, 400, { ok: false, error: 'keyword' });
+    }
+
+    // 3. id + enabled valides
+    if (typeof id !== 'string' || !id) {
+      return sendJson(res, 400, { ok: false, error: 'id manquant' });
+    }
+    if (typeof enabled !== 'boolean') {
+      return sendJson(res, 400, { ok: false, error: 'enabled doit etre un booleen' });
+    }
+    const known = new Set(listAppsState().map((a) => a.id));
+    if (!known.has(id)) {
+      return sendJson(res, 400, { ok: false, error: `app inconnue : ${id} (connues : ${[...known].join(', ')})` });
+    }
+
+    // 4. Refus-main : apps-state.json pilote la config du build (prod = waimia.com).
+    let branch;
+    try {
+      branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
+    } catch {
+      return sendJson(res, 500, { ok: false, error: 'impossible de lire la branche git' });
+    }
+    if (branch === 'main') {
+      return sendJson(res, 403, { ok: false, error: 'refus edition main' });
+    }
+
+    // 5. Ecriture du store (merge par id)
+    const store = readAppsStateFile();
+    store.apps[id] = enabled;
+    try {
+      mkdirSync(dirname(APPS_STATE_PATH), { recursive: true });
+      writeFileSync(APPS_STATE_PATH, `${JSON.stringify(store, null, 2)}\n`, 'utf8');
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: e.message });
+    }
+
+    return sendJson(res, 200, {
+      ok: true,
+      id,
+      enabled,
+      note: "effet au redemarrage d'astro dev (la config des apps est evaluee au boot)",
+    });
+  };
+}
+
 // --- Integration -------------------------------------------------------------
 
 export default function dsSaveDev() {
@@ -1095,9 +1295,11 @@ export default function dsSaveDev() {
         server.middlewares.use(INSTANCE_ROUTE, makeInstanceHandler(server));
         server.middlewares.use(PAGE_ROUTE, makePageHandler());
         server.middlewares.use(CUSTOM_PRESET_ROUTE, makeCustomPresetHandler(server));
+        server.middlewares.use(SCAFFOLD_ROUTE, makeScaffoldHandler());
+        server.middlewares.use(APPS_ROUTE, makeAppsHandler(server));
         if (logger && typeof logger.info === 'function') {
           logger.info(
-            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET ${PAGE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / lecture page reelle / variantes custom)`,
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET ${PAGE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} + POST ${SCAFFOLD_ROUTE} + GET/PATCH ${APPS_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / lecture page reelle / variantes custom / scaffold section / registre apps)`,
           );
         }
       },

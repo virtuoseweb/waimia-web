@@ -698,6 +698,11 @@
             "required": false
           },
           {
+            "field": "tint",
+            "type": "number",
+            "required": false
+          },
+          {
             "field": "tag",
             "type": "text",
             "required": false,
@@ -2337,6 +2342,24 @@
       }
     ]
   },
+  "bordered-pullquote": {
+    "slots": [
+      {
+        "field": "quote_html",
+        "kind": "content",
+        "type": "richtext",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "cite",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      }
+    ]
+  },
   "branded-callout": {
     "slots": [
       {
@@ -2413,6 +2436,21 @@
             "type": "number",
             "required": false
           }
+        ]
+      },
+      {
+        "field": "bodyHtml",
+        "kind": "content",
+        "type": "bool",
+        "required": false
+      },
+      {
+        "field": "variant",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "rail"
         ]
       }
     ]
@@ -3573,6 +3611,28 @@
         ]
       },
       {
+        "field": "actionsAlign",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "start",
+          "center",
+          "end",
+          "spread"
+        ]
+      },
+      {
+        "field": "reveal_mode",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "cursor",
+          "fixed"
+        ]
+      },
+      {
         "field": "placement",
         "kind": "presentation",
         "type": "object",
@@ -3887,6 +3947,17 @@
             "field": "href",
             "type": "url",
             "required": true
+          },
+          {
+            "field": "media_src",
+            "type": "image",
+            "required": false
+          },
+          {
+            "field": "media_alt",
+            "type": "text",
+            "required": false,
+            "bilingual": true
           }
         ]
       },
@@ -4261,6 +4332,49 @@
             "bilingual": true
           }
         ]
+      }
+    ]
+  },
+  "closing-cta-band": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "h2_html",
+        "kind": "content",
+        "type": "richtext",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "button_label",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "button_href",
+        "kind": "content",
+        "type": "url",
+        "required": true
       }
     ]
   },
@@ -5594,6 +5708,62 @@
           "paper-3",
           "ink",
           "accent"
+        ]
+      }
+    ]
+  },
+  "curriculum-timeline": {
+    "slots": [
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "title",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "emphasis",
+        "kind": "content",
+        "type": "bool",
+        "required": false
+      },
+      {
+        "field": "events",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "itemShape": [
+          {
+            "field": "num",
+            "type": "text",
+            "required": false
+          },
+          {
+            "field": "title",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "meta",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "body",
+            "type": "richtext",
+            "required": true,
+            "bilingual": true
+          }
         ]
       }
     ]
@@ -7469,6 +7639,60 @@
           "start",
           "center",
           "end"
+        ]
+      },
+      {
+        "field": "quizCta",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "eyebrow",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "title",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "body",
+            "type": "richtext",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "cta_label",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "cta_href",
+            "type": "url",
+            "required": true
+          },
+          {
+            "field": "media_src",
+            "type": "image",
+            "required": false
+          },
+          {
+            "field": "media_alt",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "note",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          }
         ]
       },
       {
@@ -9967,6 +10191,97 @@
       }
     ]
   },
+  "editorial-case-grid": {
+    "slots": [
+      {
+        "field": "num",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "h2",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "intro",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "ink"
+        ]
+      },
+      {
+        "field": "stagger",
+        "kind": "content",
+        "type": "number",
+        "required": false
+      },
+      {
+        "field": "items",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "max": 8,
+        "itemShape": [
+          {
+            "field": "client",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "sector",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "stack",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "impact",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "duration",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "href",
+            "type": "url",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
   "editorial-dingbat-rule": {
     "slots": [
       {
@@ -12252,6 +12567,42 @@
           "prose",
           "wide"
         ]
+      },
+      {
+        "field": "figures",
+        "kind": "content",
+        "type": "array",
+        "required": false,
+        "max": 3,
+        "itemShape": [
+          {
+            "field": "src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "alt",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "side",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "left",
+              "right"
+            ]
+          }
+        ]
+      },
+      {
+        "field": "html",
+        "kind": "content",
+        "type": "richtext",
+        "required": false,
+        "bilingual": true
       }
     ]
   },
@@ -13745,6 +14096,19 @@
         "enumValues": [
           "ink",
           "paper"
+        ]
+      },
+      {
+        "field": "silo",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "acquisition",
+          "commercial",
+          "ops",
+          "hub",
+          "generic"
         ]
       },
       {
@@ -15330,6 +15694,12 @@
             "required": false
           }
         ]
+      },
+      {
+        "field": "fillMedia",
+        "kind": "content",
+        "type": "text",
+        "required": false
       }
     ]
   },
@@ -15424,6 +15794,229 @@
           "compact",
           "base",
           "ample"
+        ]
+      },
+      {
+        "field": "placement",
+        "kind": "presentation",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "header",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "media",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "body",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "actions",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "aside",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          }
         ]
       },
       {
@@ -16088,9 +16681,248 @@
         ]
       },
       {
+        "field": "texture",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "signature-grid"
+        ]
+      },
+      {
+        "field": "placement",
+        "kind": "presentation",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "header",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "media",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "body",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "actions",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "aside",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "field": "kicker",
         "kind": "content",
         "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "kicker_html",
+        "kind": "content",
+        "type": "richtext",
         "required": false,
         "bilingual": true
       },
@@ -16105,6 +16937,13 @@
         "field": "subtitle",
         "kind": "content",
         "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "subtitle_html",
+        "kind": "content",
+        "type": "richtext",
         "required": false,
         "bilingual": true
       },
@@ -21288,6 +22127,34 @@
         "bilingual": true
       },
       {
+        "field": "illustration",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "alt",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "side",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "left",
+              "right"
+            ]
+          }
+        ]
+      },
+      {
         "field": "specs",
         "kind": "content",
         "type": "array",
@@ -26415,6 +27282,34 @@
         "type": "image",
         "required": false,
         "bilingual": true
+      },
+      {
+        "field": "illustration",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "alt",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "side",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "left",
+              "right"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -27833,6 +28728,24 @@
       },
       {
         "field": "decoration",
+        "kind": "content",
+        "type": "bool",
+        "required": false
+      },
+      {
+        "field": "top_pad",
+        "kind": "content",
+        "type": "text",
+        "required": false
+      },
+      {
+        "field": "lede_reveal",
+        "kind": "content",
+        "type": "bool",
+        "required": false
+      },
+      {
+        "field": "list_border",
         "kind": "content",
         "type": "bool",
         "required": false
@@ -29354,6 +30267,94 @@
             "field": "mag",
             "type": "number",
             "required": false
+          }
+        ]
+      }
+    ]
+  },
+  "hero-manifesto": {
+    "slots": [
+      {
+        "field": "meta",
+        "kind": "content",
+        "type": "array",
+        "required": false,
+        "max": 4,
+        "itemShape": [
+          {
+            "field": "html",
+            "type": "richtext",
+            "required": true,
+            "bilingual": true
+          }
+        ]
+      },
+      {
+        "field": "eyebrow",
+        "kind": "presentation",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "h1",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "subhead",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "intro",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "cta_primary_label",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "cta_primary_href",
+        "kind": "content",
+        "type": "url",
+        "required": false
+      },
+      {
+        "field": "cta_secondary_label",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "cta_secondary_href",
+        "kind": "content",
+        "type": "url",
+        "required": false
+      },
+      {
+        "field": "foot",
+        "kind": "content",
+        "type": "array",
+        "required": false,
+        "max": 4,
+        "itemShape": [
+          {
+            "field": "text",
+            "type": "text",
+            "required": true,
+            "bilingual": true
           }
         ]
       }
@@ -33091,6 +34092,18 @@
   "hero-problem-index": {
     "slots": [
       {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
         "field": "kicker",
         "kind": "content",
         "type": "text",
@@ -34317,7 +35330,8 @@
         "enumValues": [
           "equilibre",
           "showcase",
-          "encadre"
+          "encadre",
+          "editorial"
         ]
       },
       {
@@ -34378,6 +35392,42 @@
         ]
       },
       {
+        "field": "cta_secondary",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "label",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "href",
+            "type": "url",
+            "required": true
+          },
+          {
+            "field": "variant",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "primary",
+              "accent",
+              "ghost",
+              "ghost-dark",
+              "terminal"
+            ]
+          },
+          {
+            "field": "mag",
+            "type": "number",
+            "required": false
+          }
+        ]
+      },
+      {
         "field": "meta",
         "kind": "content",
         "type": "text",
@@ -34396,6 +35446,34 @@
             "type": "text",
             "required": true,
             "bilingual": true
+          }
+        ]
+      },
+      {
+        "field": "illustration",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "alt",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "side",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "left",
+              "right"
+            ]
           }
         ]
       }
@@ -36991,6 +38069,34 @@
         "type": "text",
         "required": false,
         "bilingual": true
+      },
+      {
+        "field": "illustration",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "alt",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "side",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "left",
+              "right"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -43275,6 +44381,329 @@
       }
     ]
   },
+  "hover-reveal-words": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "placement",
+        "kind": "presentation",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "header",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "media",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "body",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "actions",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "aside",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "field": "contentAlign",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "start",
+          "center"
+        ]
+      },
+      {
+        "field": "measure",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "prose",
+          "read",
+          "wide"
+        ]
+      },
+      {
+        "field": "thumbRatio",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "4-3",
+          "1-1",
+          "3-2",
+          "4-5"
+        ]
+      },
+      {
+        "field": "proseScale",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "lede",
+          "body"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "prose",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "triggers",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "max": 8,
+        "itemShape": [
+          {
+            "field": "word",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "media_src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "media_alt",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          }
+        ]
+      }
+    ]
+  },
   "how-we-ship": {
     "slots": [
       {
@@ -43586,17 +45015,8 @@
       {
         "field": "columns",
         "kind": "presentation",
-        "type": "enum",
-        "required": false,
-        "enumValues": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "auto"
-        ]
+        "type": "number",
+        "required": false
       },
       {
         "field": "size",
@@ -44699,6 +46119,74 @@
       }
     ]
   },
+  "keyword-strip": {
+    "slots": [
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "aria_label",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "tone",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "muted",
+          "ink"
+        ]
+      },
+      {
+        "field": "pad",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "tight",
+          "base"
+        ]
+      },
+      {
+        "field": "topRule",
+        "kind": "content",
+        "type": "bool",
+        "required": false
+      },
+      {
+        "field": "items",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "itemShape": [
+          {
+            "field": "label",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "href",
+            "type": "url",
+            "required": false
+          },
+          {
+            "field": "external",
+            "type": "bool",
+            "required": false
+          }
+        ]
+      }
+    ]
+  },
   "learning-path-list": {
     "slots": [
       {
@@ -44746,6 +46234,18 @@
   },
   "list-index-section": {
     "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
       {
         "field": "kicker",
         "kind": "content",
@@ -45093,6 +46593,16 @@
         "kind": "content",
         "type": "number",
         "required": false
+      },
+      {
+        "field": "scale",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "default",
+          "display"
+        ]
       }
     ]
   },
@@ -46872,6 +48382,45 @@
       }
     ]
   },
+  "method-diagram-list": {
+    "slots": [
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "title",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "steps",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "itemShape": [
+          {
+            "field": "title",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "body",
+            "type": "richtext",
+            "required": true,
+            "bilingual": true
+          }
+        ]
+      }
+    ]
+  },
   "method-stepline": {
     "slots": [
       {
@@ -48550,6 +50099,69 @@
       }
     ]
   },
+  "numbered-layer-list": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "srHeading",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "layers",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "itemShape": [
+          {
+            "field": "n",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "label",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "intro",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "items",
+            "type": "array",
+            "required": true,
+            "min": 1,
+            "itemShape": [
+              {
+                "field": "text",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "objection-handler": {
     "slots": [
       {
@@ -48658,6 +50270,195 @@
       }
     ]
   },
+  "offer-rail": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "h2",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "lede",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "tablist_label",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "families",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "max": 6,
+        "itemShape": [
+          {
+            "field": "id",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "tab_label",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "intro_eyebrow",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "intro_lede",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "layout",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "diptych",
+              "trio"
+            ]
+          },
+          {
+            "field": "offers",
+            "type": "array",
+            "required": true,
+            "min": 1,
+            "max": 4,
+            "itemShape": [
+              {
+                "field": "tag",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "title",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "body",
+                "type": "richtext",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "accent",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "complement"
+                ]
+              },
+              {
+                "field": "points",
+                "type": "array",
+                "required": false,
+                "bilingual": true
+              },
+              {
+                "field": "link_label",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "link_href",
+                "type": "url",
+                "required": true
+              }
+            ]
+          },
+          {
+            "field": "rail",
+            "type": "bool",
+            "required": false
+          },
+          {
+            "field": "services_intro",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "services",
+            "type": "array",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "metric",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "label",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "sub",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "href",
+                "type": "url",
+                "required": true
+              }
+            ]
+          },
+          {
+            "field": "panel_cta_label",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "panel_cta_href",
+            "type": "url",
+            "required": false
+          }
+        ]
+      }
+    ]
+  },
   "offer-tier-grid": {
     "slots": [
       {
@@ -48687,6 +50488,12 @@
         "field": "wrap",
         "kind": "content",
         "type": "bool",
+        "required": false
+      },
+      {
+        "field": "pad_block",
+        "kind": "content",
+        "type": "text",
         "required": false
       },
       {
@@ -51064,6 +52871,277 @@
       }
     ]
   },
+  "pricing-tabs-showcase": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "h1",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "h2",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "lede",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "tabs",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 2,
+        "max": 4,
+        "itemShape": [
+          {
+            "field": "label",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "cards",
+            "type": "array",
+            "required": true,
+            "min": 3,
+            "max": 5,
+            "itemShape": [
+              {
+                "field": "eyebrow",
+                "type": "text",
+                "required": false,
+                "bilingual": true
+              },
+              {
+                "field": "title",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "body",
+                "type": "richtext",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "image",
+                "type": "image",
+                "required": false
+              },
+              {
+                "field": "image_alt",
+                "type": "image",
+                "required": false,
+                "bilingual": true
+              },
+              {
+                "field": "price",
+                "type": "text",
+                "required": false
+              },
+              {
+                "field": "period",
+                "type": "text",
+                "required": false,
+                "bilingual": true
+              },
+              {
+                "field": "features",
+                "type": "array",
+                "required": true,
+                "bilingual": true,
+                "min": 3,
+                "max": 9
+              },
+              {
+                "field": "cta",
+                "type": "object",
+                "required": true,
+                "itemShape": [
+                  {
+                    "field": "label",
+                    "type": "text",
+                    "required": true,
+                    "bilingual": true
+                  },
+                  {
+                    "field": "href",
+                    "type": "url",
+                    "required": true
+                  },
+                  {
+                    "field": "variant",
+                    "type": "enum",
+                    "required": false,
+                    "enumValues": [
+                      "primary",
+                      "secondary",
+                      "ghost",
+                      "accent"
+                    ]
+                  }
+                ]
+              },
+              {
+                "field": "featured",
+                "type": "bool",
+                "required": false
+              }
+            ]
+          },
+          {
+            "field": "note",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "kicker",
+                "type": "text",
+                "required": false,
+                "bilingual": true
+              },
+              {
+                "field": "title",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "body",
+                "type": "richtext",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "price",
+                "type": "text",
+                "required": false
+              },
+              {
+                "field": "period",
+                "type": "text",
+                "required": false,
+                "bilingual": true
+              },
+              {
+                "field": "cta",
+                "type": "object",
+                "required": false,
+                "itemShape": [
+                  {
+                    "field": "label",
+                    "type": "text",
+                    "required": true,
+                    "bilingual": true
+                  },
+                  {
+                    "field": "href",
+                    "type": "url",
+                    "required": true
+                  },
+                  {
+                    "field": "variant",
+                    "type": "enum",
+                    "required": false,
+                    "enumValues": [
+                      "primary",
+                      "secondary",
+                      "ghost",
+                      "accent"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "field": "highlight",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "kicker",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "h2",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "body",
+            "type": "richtext",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "cta",
+            "type": "object",
+            "required": true,
+            "itemShape": [
+              {
+                "field": "label",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "href",
+                "type": "url",
+                "required": true
+              },
+              {
+                "field": "variant",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "primary",
+                  "secondary",
+                  "ghost",
+                  "accent"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "pricing-toggle": {
     "slots": [
       {
@@ -51462,6 +53540,164 @@
       }
     ]
   },
+  "prose-aside": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      }
+    ]
+  },
+  "provenance-chip": {
+    "slots": [
+      {
+        "field": "variant",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "solid",
+          "outline"
+        ]
+      },
+      {
+        "field": "label",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "href",
+        "kind": "content",
+        "type": "url",
+        "required": true
+      }
+    ]
+  },
+  "publications-panel": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "title",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "manifesto_html",
+        "kind": "content",
+        "type": "richtext",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "publications",
+        "kind": "content",
+        "type": "array",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "title",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "url",
+            "type": "url",
+            "required": true
+          },
+          {
+            "field": "venue",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "year",
+            "type": "text",
+            "required": true
+          }
+        ]
+      },
+      {
+        "field": "resources",
+        "kind": "content",
+        "type": "array",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "date_iso",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "title",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "href",
+            "type": "url",
+            "required": true
+          },
+          {
+            "field": "tag",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          }
+        ]
+      },
+      {
+        "field": "all_href",
+        "kind": "content",
+        "type": "url",
+        "required": true
+      },
+      {
+        "field": "all_label",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      }
+    ]
+  },
   "pull-quote-block": {
     "slots": [
       {
@@ -51567,6 +53803,12 @@
         ]
       },
       {
+        "field": "pad_block",
+        "kind": "content",
+        "type": "text",
+        "required": false
+      },
+      {
         "field": "kicker",
         "kind": "content",
         "type": "text",
@@ -51603,6 +53845,78 @@
             "field": "href",
             "type": "url",
             "required": true
+          }
+        ]
+      }
+    ]
+  },
+  "related-links": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "h2",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "groups",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "max": 5,
+        "itemShape": [
+          {
+            "field": "label",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "links",
+            "type": "array",
+            "required": true,
+            "min": 1,
+            "max": 6,
+            "itemShape": [
+              {
+                "field": "label",
+                "type": "text",
+                "required": true,
+                "bilingual": true
+              },
+              {
+                "field": "href",
+                "type": "url",
+                "required": true
+              },
+              {
+                "field": "desc",
+                "type": "text",
+                "required": false,
+                "bilingual": true
+              }
+            ]
           }
         ]
       }
@@ -52777,6 +55091,18 @@
   "roi-band": {
     "slots": [
       {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
         "field": "eyebrow",
         "kind": "presentation",
         "type": "text",
@@ -52904,6 +55230,66 @@
           {
             "field": "link_href",
             "type": "url",
+            "required": false
+          }
+        ]
+      }
+    ]
+  },
+  "sector-card-grid": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "cta_label",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "sectors",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "itemShape": [
+          {
+            "field": "kicker",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "title",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "pain",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "href",
+            "type": "url",
+            "required": true
+          },
+          {
+            "field": "transition_id",
+            "type": "text",
             "required": false
           }
         ]
@@ -53125,6 +55511,401 @@
             "field": "href",
             "type": "url",
             "required": true
+          }
+        ]
+      },
+      {
+        "field": "illustration",
+        "kind": "content",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "alt",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "caption",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          }
+        ]
+      }
+    ]
+  },
+  "signed-writing-list": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "title",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "items",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "itemShape": [
+          {
+            "field": "date_iso",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "title",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "href",
+            "type": "url",
+            "required": true
+          },
+          {
+            "field": "excerpt",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          }
+        ]
+      }
+    ]
+  },
+  "site-showcase": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "placement",
+        "kind": "presentation",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "header",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "media",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "body",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "actions",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "aside",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "h2",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "lede",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "url",
+        "kind": "content",
+        "type": "url",
+        "required": false
+      },
+      {
+        "field": "url_label",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "screens",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "max": 4,
+        "itemShape": [
+          {
+            "field": "src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "alt",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "kind",
+            "type": "enum",
+            "required": false,
+            "enumValues": [
+              "frame",
+              "tall"
+            ]
+          },
+          {
+            "field": "caption",
+            "type": "text",
+            "required": false,
+            "bilingual": true
           }
         ]
       }
@@ -54983,6 +57764,416 @@
             "type": "richtext",
             "required": true,
             "bilingual": true
+          }
+        ]
+      }
+    ]
+  },
+  "sticky-scroll-storytelling": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "placement",
+        "kind": "presentation",
+        "type": "object",
+        "required": false,
+        "itemShape": [
+          {
+            "field": "header",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "media",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "body",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "actions",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          },
+          {
+            "field": "aside",
+            "type": "object",
+            "required": false,
+            "itemShape": [
+              {
+                "field": "align",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              {
+                "field": "justify",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "start",
+                  "center",
+                  "end",
+                  "between"
+                ]
+              },
+              {
+                "field": "order",
+                "type": "number",
+                "required": false
+              },
+              {
+                "field": "hideOn",
+                "type": "enum",
+                "required": false,
+                "enumValues": [
+                  "none",
+                  "mobile",
+                  "desktop"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "field": "textSide",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "left",
+          "right"
+        ]
+      },
+      {
+        "field": "proportion",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "balanced",
+          "text-led",
+          "media-led",
+          "media-wide"
+        ]
+      },
+      {
+        "field": "mediaRatio",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "4-5",
+          "1-1",
+          "4-3",
+          "3-2"
+        ]
+      },
+      {
+        "field": "density",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "compact",
+          "base",
+          "ample"
+        ]
+      },
+      {
+        "field": "numbering",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "serif",
+          "none"
+        ]
+      },
+      {
+        "field": "frame",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "expand-ink"
+        ]
+      },
+      {
+        "field": "mediaMode",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "sticky",
+          "inline"
+        ]
+      },
+      {
+        "field": "mediaTreatment",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "card",
+          "bleed"
+        ]
+      },
+      {
+        "field": "railStyle",
+        "kind": "content",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "plain",
+          "ledger"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "h2",
+        "kind": "content",
+        "type": "text",
+        "required": true,
+        "bilingual": true
+      },
+      {
+        "field": "lede",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "steps",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 2,
+        "max": 6,
+        "itemShape": [
+          {
+            "field": "index",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "eyebrow",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "title",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "body",
+            "type": "richtext",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "media_src",
+            "type": "image",
+            "required": true
+          },
+          {
+            "field": "media_alt",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "link_label",
+            "type": "text",
+            "required": false,
+            "bilingual": true
+          },
+          {
+            "field": "link_href",
+            "type": "url",
+            "required": false
           }
         ]
       }
@@ -57237,6 +60428,121 @@
       }
     ]
   },
+  "testimonial-wall": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "kicker",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "h2",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "subtitle",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "rating",
+        "kind": "content",
+        "type": "number",
+        "required": false
+      },
+      {
+        "field": "rating_max",
+        "kind": "content",
+        "type": "number",
+        "required": false
+      },
+      {
+        "field": "rating_count",
+        "kind": "content",
+        "type": "number",
+        "required": false
+      },
+      {
+        "field": "rating_label",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "columns",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "field": "testimonials",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 3,
+        "max": 12,
+        "itemShape": [
+          {
+            "field": "quote",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "author",
+            "type": "text",
+            "required": true
+          },
+          {
+            "field": "role",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "company",
+            "type": "text",
+            "required": false
+          },
+          {
+            "field": "avatar",
+            "type": "image",
+            "required": false
+          },
+          {
+            "field": "linkedin",
+            "type": "text",
+            "required": false
+          }
+        ]
+      }
+    ]
+  },
   "tier-pyramid-svg": {
     "slots": [
       {
@@ -57473,6 +60779,18 @@
   "trust-legal-section": {
     "slots": [
       {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
         "field": "kicker",
         "kind": "content",
         "type": "text",
@@ -57509,6 +60827,13 @@
         "field": "legal_footer",
         "kind": "content",
         "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "body_html",
+        "kind": "content",
+        "type": "richtext",
         "required": false,
         "bilingual": true
       },
@@ -57573,6 +60898,18 @@
   },
   "tunnel-step-nav": {
     "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
       {
         "field": "prev_href",
         "kind": "content",
@@ -57726,6 +61063,50 @@
       }
     ]
   },
+  "used-service-callout": {
+    "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
+      {
+        "field": "label",
+        "kind": "content",
+        "type": "text",
+        "required": false,
+        "bilingual": true
+      },
+      {
+        "field": "links",
+        "kind": "content",
+        "type": "array",
+        "required": true,
+        "min": 1,
+        "max": 6,
+        "itemShape": [
+          {
+            "field": "label",
+            "type": "text",
+            "required": true,
+            "bilingual": true
+          },
+          {
+            "field": "href",
+            "type": "url",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
   "versus-competitors": {
     "slots": [
       {
@@ -57806,6 +61187,18 @@
   },
   "welcome-section": {
     "slots": [
+      {
+        "field": "background",
+        "kind": "presentation",
+        "type": "enum",
+        "required": false,
+        "enumValues": [
+          "paper",
+          "paper-2",
+          "paper-3",
+          "ink"
+        ]
+      },
       {
         "field": "kicker",
         "kind": "content",

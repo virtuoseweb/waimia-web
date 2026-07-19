@@ -1,546 +1,405 @@
 #!/usr/bin/env node
 /**
- * scaffold-section.mjs — PILIER 3 du systeme de production de sections.
- * Generateur : blueprint -> artefacts complets des 5 touchpoints.
+ * scaffold-section.mjs (v2) - Generateur de MODULES de section CO-LOCALISES (Wave #38).
  *
- * Doctrine : tasks/section-production-system.md (Pilier 3). « Produire une section =
- * generer TOUTES les familles/variantes/declinaisons/positions/layouts d'un coup depuis
- * un schema attendu, propager au contrat ; ZERO dette ». Le generateur emet les artefacts
- * complets d'un nouveau type a partir d'UN blueprint declaratif.
+ * Reecriture complete : l'ancienne version ciblait les god-files disparus (schemas.ts 5k l,
+ * section-presets.ts, snippets a coller). Le catalogue vit desormais en modules co-localises :
+ *   - packages/ds-kernel/src/sections/<type>/schema.ts   (contrat Zod, cote kernel)
+ *   - src/sections/<type>/{index.ts,meta.ts,demo.ts,Component.astro}   (facettes app)
+ *   - scripts/section-order.json                          (ordre canonique registry/demos)
+ * puis les 3 generateurs reconstruisent les fichiers .generated (registry/demos/union/slots/usage).
  *
- * APPROCHE ROBUSTE v1 (decision Pilier 3) : on EMET des fichiers/snippets prets a inserer
- * + un composant squelette complet, plutot qu'un patch AST in-place fragile des gros
- * fichiers partages (schemas.ts 5k l, registry 3.4k l, presets 700 l). L'orchestrateur
- * (humain ou agent) colle les 4 snippets aux ancres documentees, puis le composant est
- * deja ecrit. Idempotent : re-run ecrase proprement les fichiers de sortie.
+ * USAGE :
+ *   node scripts/scaffold-section.mjs <type> [--from <type-source>] [--dry-run] [--json]
  *
- * ─────────────────────────────────────────────────────────────────────────────
- * FORMAT BLUEPRINT (JSON, passe en argv[2] ; sinon EXAMPLE_BLUEPRINT inline) :
- * {
- *   "type": "pricing-tiers",            // SectionType kebab-case (NOUVEAU, unique)
- *   "archetype": "collection",          // 1 des 10 archetypes (collection|bento|split|
- *                                        //   process|editorial|table|band|hero|logos|gallery)
- *   "family": "pricing-sections",       // FamilyTag du registry (regroupement intra-categorie)
- *   "category": "marketing",            // SectionCategory (marketing|ecommerce|app-ui)
- *   "subcategory": "Pricing Sections",  // libelle humain de sous-categorie
- *   "categorySlug": "pricing-sections", // slug de categorie (CategorySlug)
- *   "title_fr": "...", "title_en": "...",
- *   "description_fr": "...", "description_en": "...",
- *   "tags": ["pricing","tiers"],        // tags marketplace
- *   "facets": {                          // facettes orthogonales (optionnel ; defauts sains)
- *     "effects": ["scroll-reveal"], "interactions": ["hover"],
- *     "elements": ["cards","list"], "layoutFacets": ["3-col"]
- *   },
- *   "capabilities": {                    // OPTIONNEL : override des defauts d'archetype
- *     "layouts": ["grid-uniform","grid-auto","list"]  // (merge shallow par cle)
- *   },
- *   "itemShape": [                       // forme d'un item de la collection (repeatable)
- *     { "field":"title",  "type":"text", "bilingual":true,  "required":true },
- *     { "field":"price",  "type":"text", "bilingual":false, "required":true },
- *     { "field":"feature","type":"text", "bilingual":true,  "required":false, "list":true }
- *   ],
- *   "demoItemCount": 6                   // nb d'items demo (defaut 6, assez pour les recettes)
- * }
+ *   <type>          SectionType kebab-case NOUVEAU et unique (ex. pricing-tiers).
+ *   --from <src>    copie adaptee d'un module source existant (schema+demo+meta+Component)
+ *                   avec renommage du discriminant `type`. Sans --from : squelette minimal
+ *                   (heading/text + background optionnel).
+ *   --dry-run       liste ce qui SERAIT ecrit, sans rien ecrire ni lancer de generateur.
+ *   --json          sortie machine (JSON sur stdout, logs humains sur stderr) : utilise par
+ *                   l'endpoint dev POST /api/ds/scaffold.
  *
- * Champs itemShape supportes : type 'text' (string), 'bool' (boolean), 'num' (string num).
- *   bilingual:true -> emet field_fr + field_en ; list:true -> z.array(...).
+ * Chaine de generation (apres ecriture, hors --dry-run) :
+ *   1. node scripts/gen-section-aggregate.mjs   (FATAL) -> union + registry + demos .generated
+ *   2. npx tsx scripts/derive-section-slots.mjs (best-effort : depend de tsx via npx)
+ *   3. node scripts/gen-section-usage.mjs       (FATAL) -> usage reel .generated
  *
- * ─────────────────────────────────────────────────────────────────────────────
- * SORTIES (dans tasks/scaffold-out/, + le composant dans src/components/sections/) :
- *   1. tasks/scaffold-out/<type>.schema.snippet.ts    -> bloc Zod (base + mixin + itemShape)
- *   2. tasks/scaffold-out/<type>.demo.snippet.ts       -> entree SECTION_DEMOS bilingue
- *   3. tasks/scaffold-out/<type>.presets.snippet.ts    -> matrice curee layouts x bg x density
- *   4. tasks/scaffold-out/<type>.registry.snippet.ts   -> entree SECTIONS (capabilities/facets)
- *   5. src/components/sections/<Pascal>.astro          -> composant SQUELETTE moteur (0 CSS layout)
- *   + tasks/scaffold-out/<type>.INSERT.md              -> instructions d'insertion (ancres)
- *
- * WORKFLOW D'INSERTION (documente dans le .INSERT.md genere) :
- *   a) coller (1) dans src/schemas/sections.ts AVANT la discriminatedUnion + ajouter le nom
- *      d'export a `z.discriminatedUnion('type', [ ... ])` ;
- *   b) coller (2) dans src/lib/section-demos.ts (objet SECTION_DEMOS) ;
- *   c) coller (3) dans src/lib/section-presets.ts (objet SECTION_PRESETS) ;
- *   d) coller (4) dans src/lib/section-registry.ts (import + entree SECTIONS) ;
- *   e) le composant (5) est deja ecrit ; affiner le contenu / le markup au besoin ;
- *   f) lancer `npm run check:completeness` -> le type doit passer les 5 couches.
- *
- * Contraintes : 0 dependance npm, deterministe, 0 U+2014 (rule 58), 0 token DS nouveau,
- * 0 CSS de layout inline dans le composant (il CONSOMME section-layouts.css).
+ * Contraintes : 0 dependance npm, deterministe, 0 U+2014 (rule 58), 0 token DS nouveau
+ * (le squelette CONSOMME des tokens existants : --space-4, --text-small, --muted, --paper*, --ink).
  */
 
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT_DIR = join(ROOT, 'tasks/scaffold-out');
-const SECTIONS_DIR = join(ROOT, 'src/components/sections');
+const MODULES_DIR = join(ROOT, 'src/sections');
+const KERNEL_SECTIONS_DIR = join(ROOT, 'packages/ds-kernel/src/sections');
+const ORDER_FILE = join(ROOT, 'scripts/section-order.json');
 
-/* Defauts de capacites par archetype (miroir leger de section-archetypes.ts → familyClass +
-   layouts/regions/axes). On ne re-declare PAS le vocabulaire : on lit la source de verite. */
-const ARCHETYPE_FAMILY_CLASS = {
-  collection: 'sec-collection',
-  bento: 'sec-bento',
-  split: 'sec-split',
-  process: 'sec-process',
-  editorial: 'sec-editorial',
-  table: 'sec-table',
-  band: 'sec-band',
-  hero: 'sec-hero',
-  logos: 'sec-logos',
-  gallery: 'sec-gallery',
-};
+// Noms interdits : collisions avec des dossiers techniques / feuilles partagees, ou identifiants
+// qui casseraient la co-location (le codegen scanne src/sections/* en excluant _shared).
+const RESERVED = new Set([
+  'shared', 'index', 'default', 'type', 'schema', 'demo', 'meta', 'component',
+  'sections', 'base', 'types', 'subschemas', 'locals', 'registry',
+]);
 
-/* ─── EXEMPLE inline (utilise si aucun blueprint passe en argv) ─── */
-const EXAMPLE_BLUEPRINT = {
-  type: 'pricing-tiers',
-  archetype: 'collection',
-  family: 'card-grid',
+// ─── helpers casse (miroir de gen-section-aggregate.mjs : camel identique) ───
+const isKebab = (s) => /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/.test(s);
+
+// ─── args ───
+function parseArgs(argv) {
+  const out = { type: null, from: null, dryRun: false, json: false };
+  const rest = argv.slice(2);
+  for (let i = 0; i < rest.length; i++) {
+    const a = rest[i];
+    if (a === '--dry-run') out.dryRun = true;
+    else if (a === '--json') out.json = true;
+    else if (a === '--from') out.from = rest[++i];
+    else if (a.startsWith('--from=')) out.from = a.slice('--from='.length);
+    else if (a.startsWith('--')) throw new Error(`option inconnue : ${a}`);
+    else if (out.type === null) out.type = a;
+    else throw new Error(`argument superflu : ${a}`);
+  }
+  return out;
+}
+
+// ─── contenus MINIMAL (sans --from) ───
+function minimalSchema(type) {
+  return `// Waimia · Co-location DS · module \`${type}\` · schema (scaffold minimal).
+// z.object SANS discriminatedUnion. \`z\` vient de 'zod' (comme tous les schemas kernel).
+// background optionnel = variante ink systematique (directive dark). A etoffer via le DS Studio.
+
+import { z } from 'zod';
+
+export const schema = z.object({
+  type: z.literal('${type}'),
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  heading_fr: z.string(),
+  heading_en: z.string(),
+  text_fr: z.string().optional(),
+  text_en: z.string().optional(),
+});
+`;
+}
+
+function minimalMeta(type) {
+  return `// Waimia · Co-location DS · module \`${type}\` · meta (scaffold minimal).
+// SectionMeta = descriptor SANS component/usage. Facettes valides (section-facets.ts).
+// status 'wip' : squelette a etoffer (layouts/atomes) avant passage 'stable'.
+
+import type { SectionMeta } from '@waimia/ds-kernel/sections/_shared/types';
+
+export const meta: SectionMeta = {
   category: 'marketing',
-  subcategory: 'Pricing Sections',
-  categorySlug: 'pricing-sections',
-  title_fr: 'Nos formules',
-  title_en: 'Our plans',
-  description_fr: 'Grille de formules tarifaires en cartes : nom, prix, liste de bénéfices et CTA par formule.',
-  description_en: 'Pricing tiers as a card grid: name, price, benefit list and CTA per plan.',
-  tags: ['pricing', 'tiers', 'plans', 'grid'],
-  facets: {
-    effects: ['scroll-reveal'],
-    interactions: ['hover', 'scroll'],
-    elements: ['cards', 'list', 'buttons'],
-    layoutFacets: ['3-col'],
-  },
-  itemShape: [
-    { field: 'name', type: 'text', bilingual: true, required: true },
-    { field: 'price', type: 'text', bilingual: false, required: true },
-    { field: 'feature', type: 'text', bilingual: true, required: false, list: true },
-    { field: 'featured', type: 'bool', bilingual: false, required: false },
-  ],
-  demoItemCount: 6,
+  subcategory: 'Content Sections',
+  categorySlug: 'content-sections',
+  family: 'prose',
+  intent: ['explain-concept'],
+  pageRole: ['body'],
+  contentMode: 'instance',
+  effects: ['static'],
+  interactions: ['none'],
+  elements: [],
+  layoutFacets: ['centered'],
+  tags: ['${type}', 'scaffold'],
+  status: 'wip',
+  description_fr: 'Section generee par scaffold : titre et texte, variante ink. A etoffer.',
+  description_en: 'Scaffolded section: heading and text, ink variant. To be extended.',
 };
-
-/* ─── helpers casse ─── */
-function toPascal(kebab) {
-  return kebab.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join('');
-}
-function toCamel(kebab) {
-  const p = toPascal(kebab);
-  return p[0].toLowerCase() + p.slice(1);
-}
-const NO_EMDASH = (s) => s.replace(/—/g, ' - ');
-
-/* ─── (1) schema snippet ─── */
-function buildSchema(bp) {
-  const camel = toCamel(bp.type);
-  const itemSchemaName = `${camel}ItemSchema`;
-  const fields = [];
-  for (const f of bp.itemShape ?? []) {
-    const base =
-      f.type === 'bool' ? 'z.boolean()' : f.type === 'num' ? 'z.string()' : 'z.string()';
-    const wrap = (inner) => {
-      let chain = inner;
-      if (f.list) chain = `z.array(${chain})`;
-      if (!f.required) chain += '.optional()';
-      else if (f.type === 'bool') chain += '.default(false)';
-      return chain;
-    };
-    if (f.bilingual) {
-      fields.push(`    ${f.field}_fr: ${wrap(base)},`);
-      fields.push(`    ${f.field}_en: ${wrap(base)},`);
-    } else {
-      fields.push(`    ${f.field}: ${wrap(base)},`);
-    }
-  }
-
-  return `// >>> [scaffold:${bp.type}] schema : coller dans src/schemas/sections.ts
-// Item repeatable de la collection.
-const ${itemSchemaName} = z.object({
-${fields.join('\n')}
-});
-
-export const ${camel}Schema = z.object({
-  type: z.literal('${bp.type}'),
-  // Mixin de variation UNIQUE (les 6 couches, toutes optionnelles → 0 régression).
-  ...sectionBaseSchema.shape,
-  kicker_fr: z.string().optional(),
-  kicker_en: z.string().optional(),
-  title_fr: z.string(),
-  title_en: z.string(),
-  lede_fr: z.string().optional(),
-  lede_en: z.string().optional(),
-  items: z.array(${itemSchemaName}).min(1),
-});
-// Ajouter \`${camel}Schema\` à z.discriminatedUnion('type', [ ... ]) (sectionSchema).
-// <<< [scaffold:${bp.type}] schema
 `;
 }
 
-/* ─── (2) demo snippet ─── */
-function buildDemo(bp) {
-  const n = bp.demoItemCount ?? 6;
-  const items = [];
-  for (let i = 1; i <= n; i++) {
-    const lines = [];
-    for (const f of bp.itemShape ?? []) {
-      if (f.type === 'bool') {
-        lines.push(`        ${f.field}: ${i === 1 ? 'true' : 'false'},`);
-      } else if (f.list) {
-        const arr = (suffix) =>
-          `['${cap(bp.type)} ${i} ${f.field} A${suffix}', '${cap(bp.type)} ${i} ${f.field} B${suffix}']`;
-        if (f.bilingual) {
-          lines.push(`        ${f.field}_fr: ${arr(' (fr)')},`);
-          lines.push(`        ${f.field}_en: ${arr(' (en)')},`);
-        } else {
-          lines.push(`        ${f.field}: ${arr('')},`);
-        }
-      } else if (f.bilingual) {
-        lines.push(`        ${f.field}_fr: 'Élément ${i} ${f.field} (fr)',`);
-        lines.push(`        ${f.field}_en: 'Item ${i} ${f.field} (en)',`);
-      } else {
-        lines.push(`        ${f.field}: '${f.type === 'num' ? i * 10 : `v${i}`}',`);
-      }
-    }
-    items.push(`      {\n${lines.join('\n')}\n      },`);
-  }
+function minimalDemo(type) {
+  return `// Waimia · Co-location DS · module \`${type}\` · demo bilingue (scaffold minimal).
 
-  return `// >>> [scaffold:${bp.type}] demo : coller dans l'objet SECTION_DEMOS (src/lib/section-demos.ts)
-  '${bp.type}': {
-    type: '${bp.type}',
-    kicker_fr: '${NO_EMDASH(bp.title_fr)}',
-    kicker_en: '${NO_EMDASH(bp.title_en)}',
-    title_fr: '${NO_EMDASH(bp.title_fr)}',
-    title_en: '${NO_EMDASH(bp.title_en)}',
-    lede_fr: '${NO_EMDASH(bp.description_fr)}',
-    lede_en: '${NO_EMDASH(bp.description_en)}',
-    items: [
-${items.join('\n')}
-    ],
-  },
-// <<< [scaffold:${bp.type}] demo
-`;
-}
-function cap(s) {
-  return toPascal(s);
-}
+import type { DemoData } from '../../lib/section-demos';
 
-/* ─── (3) presets snippet — matrice curee layouts x bg x density + placements cles ─── */
-function buildPresets(bp) {
-  const layouts =
-    bp.capabilities?.layouts ?? defaultLayoutsFor(bp.archetype);
-  const backgrounds = ['paper', 'paper-2', 'ink'];
-  const densities = ['compact', 'ample'];
-  const fam = bp.family ?? bp.archetype;
-
-  const presets = [];
-  const push = (idSuffix, label, props) => {
-    presets.push(
-      `    { id: '${bp.type}--${idSuffix}', type: '${bp.type}', label: '${NO_EMDASH(label)}', family: '${fam}', era: '2026', props: ${JSON.stringify(props).replace(/"/g, "'")} },`,
-    );
-  };
-
-  // palette de base sur le layout par defaut (1er layout)
-  const defaultLayout = layouts[0];
-  for (const bg of backgrounds) {
-    push(`${bg}`, `${bp.title_fr} · ${bg}`, { background: bg });
-  }
-  // 1 preset par layout NON-defaut (couvre capabilities.layouts → gate vert)
-  for (const l of layouts.slice(1)) {
-    push(`${l}`, `${bp.title_fr} · ${l}`, { layout: l, background: 'paper' });
-    // 1 declinaison palette + 1 densite par layout pour vitriner les recettes
-    push(`${l}-ink`, `${bp.title_fr} · ${l} · encre`, { layout: l, background: 'ink' });
-  }
-  // declinaisons densite sur le defaut
-  for (const d of densities) {
-    push(`${d}`, `${bp.title_fr} · ${d}`, { density: d });
-  }
-  // placement cle : en-tete centre (atomique)
-  push('atomic-header-center', `${bp.title_fr} · en-tête centré (placement)`, {
-    layout: defaultLayout,
-    placement: { header: { align: 'center' } },
-  });
-
-  return `// >>> [scaffold:${bp.type}] presets : coller dans l'objet SECTION_PRESETS (src/lib/section-presets.ts)
-  '${bp.type}': [
-${presets.join('\n')}
-  ],
-// <<< [scaffold:${bp.type}] presets
+export const demo: DemoData = {
+  type: '${type}',
+  background: 'paper',
+  heading_fr: 'Titre de section <i>exemple</i>',
+  heading_en: 'Example section <i>heading</i>',
+  text_fr: 'Texte de demonstration pour la section generee par le scaffolder.',
+  text_en: 'Demo copy for the scaffolded section.',
+};
 `;
 }
 
-function defaultLayoutsFor(archetype) {
-  // Sous-ensemble par defaut, miroir de ARCHETYPE_CAPABILITIES (1er = defaut).
-  switch (archetype) {
-    case 'collection':
-      return ['grid-auto', 'grid-uniform', 'list', 'rows-divided'];
-    case 'bento':
-      return ['bento', 'grid-uniform', 'mosaic'];
-    case 'split':
-      return ['split', 'media-left', 'media-right'];
-    case 'process':
-      return ['vertical-stack', 'numbered-rows', 'horizontal', 'grid-steps'];
-    case 'editorial':
-      return ['prose', 'two-col', 'lead-aside'];
-    case 'table':
-      return ['rows-divided', 'list'];
-    case 'band':
-      return ['centered', 'split'];
-    case 'hero':
-      return ['centered', 'split', 'media-right'];
-    case 'logos':
-      return ['grid-auto', 'grid-uniform'];
-    case 'gallery':
-      return ['bento', 'grid-uniform', 'mosaic'];
-    default:
-      return ['grid-auto'];
-  }
-}
-
-/* ─── (4) registry snippet ─── */
-function buildRegistry(bp) {
-  const pascal = toPascal(bp.type);
-  const f = bp.facets ?? {};
-  const arr = (a, fallback) =>
-    JSON.stringify(a && a.length ? a : fallback).replace(/"/g, "'");
-  const capOverride = bp.capabilities
-    ? `\n    capabilities: ${JSON.stringify(bp.capabilities).replace(/"/g, "'")},`
-    : '';
-
-  return `// >>> [scaffold:${bp.type}] registry : coller dans src/lib/section-registry.ts
-// 1) en haut du fichier, avec les autres imports :
-import ${pascal} from '../components/sections/${pascal}.astro';
-// 2) dans l'objet SECTIONS :
-  '${bp.type}': {
-    component: ${pascal},
-    category: '${bp.category ?? 'marketing'}',
-    subcategory: '${bp.subcategory ?? ''}',
-    categorySlug: '${bp.categorySlug ?? ''}',
-    family: '${bp.family ?? bp.archetype}',
-    effects: ${arr(f.effects, ['scroll-reveal'])},
-    interactions: ${arr(f.interactions, ['hover'])},
-    elements: ${arr(f.elements, ['cards', 'list'])},
-    layoutFacets: ${arr(f.layoutFacets, ['3-col'])},
-    tags: ${arr(bp.tags, [bp.archetype])},
-    status: 'stable',
-    description_fr: '${NO_EMDASH(bp.description_fr)}',
-    description_en: '${NO_EMDASH(bp.description_en)}',${capOverride}
-  },
-// Capacités EFFECTIVES = bundle de l'archétype '${bp.archetype}' (+ override ci-dessus si présent).
-// <<< [scaffold:${bp.type}] registry
-`;
-}
-
-/* ─── (5) composant squelette (consomme le moteur, 0 CSS layout inline) ─── */
-function buildComponent(bp) {
-  const pascal = toPascal(bp.type);
-  const familyClass = ARCHETYPE_FAMILY_CLASS[bp.archetype] ?? 'sec-collection';
-  // champs item pour le rendu
-  const renderItem = (bp.itemShape ?? [])
-    .filter((f) => f.type !== 'bool')
-    .map((f) => {
-      if (f.list) {
-        const key = f.bilingual ? `(isFr ? item.${f.field}_fr : item.${f.field}_en)` : `item.${f.field}`;
-        return `          <ul class="${bp.type}__list">{${key}?.map((v) => <li>{v}</li>)}</ul>`;
-      }
-      const key = f.bilingual ? `(isFr ? item.${f.field}_fr : item.${f.field}_en)` : `item.${f.field}`;
-      return `          <p class="${bp.type}__${f.field}">{${key}}</p>`;
-    })
-    .join('\n');
-
+function minimalComponent(type) {
   return `---
-// ${pascal} : SQUELETTE généré (scaffold-section.mjs). ARCHÉTYPE : ${bp.archetype}.
-// CONSOMME le moteur src/styles/section-layouts.css : classe de famille '${familyClass}'
-// + .sec-grid / .sec-region / .sec-item + data-attrs depuis les props. 0 CSS de layout
-// inline (le moteur porte la grille). Affiner contenu/markup au besoin. 0 token DS nouveau.
-import type { SectionByType } from '../../schemas/sections';
+// Section catalogue · ${type} (scaffold minimal)
+// Placeholder genere par scripts/scaffold-section.mjs : titre + texte, variante ink.
+// Consomme des tokens/classes DS existants (sec-base, wrap-wide, sec-base-h2). A etoffer.
+import type { SectionByType } from '@waimia/ds-kernel';
 
 interface Props {
-  data: SectionByType<'${bp.type}'>;
+  data: SectionByType<'${type}'>;
   lang: 'fr' | 'en';
 }
+
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
-
-// Résolution raccourci ↔ placement : UN data-attr par région (placement surcharge contentAlign).
-const headerAlign = data.placement?.header?.align ?? data.contentAlign;
-const actionsJustify = data.placement?.actions?.justify ?? data.actionsAlign;
+const heading = isFr ? data.heading_fr : data.heading_en;
+const text = isFr ? data.text_fr : data.text_en;
 ---
 
-<section
-  class="${bp.type} ${familyClass}"
-  data-bg={data.background}
-  data-layout={data.layout}
-  data-density={data.density}
-  data-columns={data.columns}
-  data-col-ratio={data.colRatio}
-  data-item-height={data.itemHeight}
-  data-surface={data.surface}
-  data-divider={data.divider}
-  data-radius={data.radius}
-  data-accent-edge={data.accentEdge}
->
-  <div class="wrap-wide">
-    <header class="${bp.type}__hd sec-region" data-region="header" data-align={headerAlign}>
-      {(isFr ? data.kicker_fr : data.kicker_en) && (
-        <span class="${bp.type}__kicker">{isFr ? data.kicker_fr : data.kicker_en}</span>
-      )}
-      <h2 class="${bp.type}__title" set:html={isFr ? data.title_fr : data.title_en} />
-      {(isFr ? data.lede_fr : data.lede_en) && (
-        <p class="${bp.type}__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
-      )}
-    </header>
-
-    <div class="${bp.type}__grid sec-grid" data-region="body">
-      {data.items.map((item) => (
-        <article class="${bp.type}__item sec-item">
-${renderItem || '          <!-- affiner le rendu de l\'item ici -->'}
-        </article>
-      ))}
-    </div>
-
-    <footer class="${bp.type}__actions sec-region" data-region="actions" data-justify={actionsJustify}>
-      <!-- CTA optionnel(s) ici -->
-    </footer>
+<section class="scf sec-base" data-bg={data.background}>
+  <div class="wrap-wide scf__inner">
+    <h2 class="sec-base-h2" set:html={heading} />
+    {text && <p class="scf__text">{text}</p>}
   </div>
 </section>
 
 <style>
-  /* SKIN UNIQUEMENT (couleurs/typo locales). AUCUNE recette de layout : grid-template-columns,
-     gaps de grille, spans → portés par section-layouts.css via les data-attrs ci-dessus.
-     0 token DS nouveau ; n'utiliser que des var(--token) existants. */
-  .${bp.type}__kicker {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: var(--tracking-mono);
-    text-transform: uppercase;
-    color: var(--accent-text);
-    margin-bottom: var(--space-3);
+  .scf__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 720px;
   }
-  .${bp.type}__title {
+  .scf__inner :global(h2 i) {
+    font-style: italic;
+  }
+  .scf__text {
     font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: var(--tracking-display);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
+    font-size: var(--text-small);
+    color: var(--muted);
+    line-height: var(--leading-body);
     margin: 0;
   }
-  .${bp.type}__lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-body);
-    color: var(--muted);
-    margin: var(--space-5) 0 0;
-    max-width: 680px;
+  .scf[data-bg='paper-2'] { background: var(--paper-2); }
+  .scf[data-bg='paper-3'] { background: var(--paper-3); }
+  .scf[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
   }
-  .${bp.type}__item {
-    padding: var(--space-7);
-  }
-  .${bp.type}[data-bg='paper-2'] { background: var(--paper-2); }
-  .${bp.type}[data-bg='paper-3'] { background: var(--paper-3); }
-  .${bp.type}[data-bg='ink'] { background: var(--ink); }
-  .${bp.type}[data-bg='ink'] :is(.${bp.type}__title, h3) { color: var(--paper); }
-  .${bp.type}[data-bg='ink'] :is(.${bp.type}__lede, p) { color: rgba(var(--paper-rgb), 0.72); }
+  .scf[data-bg='ink'] :is(h2, p) { color: var(--paper); }
 </style>
 `;
 }
 
-/* ─── INSERT.md (instructions d'insertion) ─── */
-function buildInsertGuide(bp) {
-  const pascal = toPascal(bp.type);
-  return `# Insertion du type \`${bp.type}\` (scaffold-section.mjs)
+// index.ts identique quel que soit le mode (minimal ou --from) : le schema vient du kernel.
+function indexContent(type) {
+  return `// Waimia · Co-location DS · module \`${type}\` · point d'agregation (scaffold).
+import { schema } from '@waimia/ds-kernel/sections/${type}/schema';
+import { demo } from './demo';
+import { meta } from './meta';
+import Component from './Component.astro';
 
-Archétype : **${bp.archetype}** · famille : **${bp.family ?? bp.archetype}** · catégorie : **${bp.categorySlug ?? ''}**
+export { schema } from '@waimia/ds-kernel/sections/${type}/schema';
+export { demo } from './demo';
+export { meta } from './meta';
+export { default as Component } from './Component.astro';
 
-Artefacts générés (idempotents) :
-- \`${bp.type}.schema.snippet.ts\`
-- \`${bp.type}.demo.snippet.ts\`
-- \`${bp.type}.presets.snippet.ts\`
-- \`${bp.type}.registry.snippet.ts\`
-- \`../../src/components/sections/${pascal}.astro\` (déjà écrit)
-
-Étapes (5 touchpoints, TOUS synchronisés sinon build cassé) :
-
-1. **Schéma** : coller \`${bp.type}.schema.snippet.ts\` dans \`src/schemas/sections.ts\`
-   (avant \`z.discriminatedUnion\`) puis ajouter \`${toCamel(bp.type)}Schema\` à la liste de
-   la \`discriminatedUnion('type', [ ... ])\`.
-2. **Demo** : coller \`${bp.type}.demo.snippet.ts\` dans l'objet \`SECTION_DEMOS\`
-   (\`src/lib/section-demos.ts\`).
-3. **Presets** : coller \`${bp.type}.presets.snippet.ts\` dans \`SECTION_PRESETS\`
-   (\`src/lib/section-presets.ts\`).
-4. **Registry** : dans \`src/lib/section-registry.ts\` : coller l'import en tête, puis
-   l'entrée \`SECTIONS\` depuis \`${bp.type}.registry.snippet.ts\`.
-5. **Composant** : \`${pascal}.astro\` est déjà écrit (squelette moteur). Affiner le markup
-   du contenu si besoin (il consomme \`${ARCHETYPE_FAMILY_CLASS[bp.archetype] ?? 'sec-collection'}\`
-   + \`.sec-grid\`/\`.sec-region\`/\`.sec-item\`, 0 CSS de layout inline).
-
-Vérification : \`node scripts/check-section-completeness.mjs --all\` → \`${bp.type}\` doit
-passer les 5 couches (composant · schéma · presets · facets · régions).
+export default {
+  id: '${type}' as const,
+  schema,
+  demo,
+  meta,
+  Component,
+};
 `;
 }
 
-/* ─── Main ─── */
-function main() {
-  const argPath = process.argv[2];
-  let bp;
-  if (argPath) {
-    const p = resolve(process.cwd(), argPath);
-    if (!existsSync(p)) {
-      console.error(`ERREUR : blueprint introuvable -> ${p}`);
-      process.exit(2);
+// ─── contenus --from (copie adaptee d'un module source) ───
+const scaffoldHeader = (type, src, facet) =>
+  `// Waimia · Co-location DS · module \`${type}\` · ${facet} (scaffold --from ${src}).\n`;
+
+function fromSchema(type, src) {
+  const p = join(KERNEL_SECTIONS_DIR, src, 'schema.ts');
+  let body = readFileSync(p, 'utf8');
+  // Renommage du discriminant : z.literal('<src>') -> z.literal('<type>').
+  const re = new RegExp(`z\\.literal\\(\\s*['"]${src}['"]\\s*\\)`, 'g');
+  if (!re.test(body)) throw new Error(`schema source ${src} : z.literal('${src}') introuvable (copie impossible)`);
+  body = body.replace(re, `z.literal('${type}')`);
+  return scaffoldHeader(type, src, 'schema') + stripLeadingComment(body);
+}
+
+function fromDemo(type, src) {
+  const p = join(MODULES_DIR, src, 'demo.ts');
+  let body = readFileSync(p, 'utf8');
+  const re = new RegExp(`(type\\s*:\\s*)['"]${src}['"]`, 'g');
+  if (!re.test(body)) throw new Error(`demo source ${src} : "type: '${src}'" introuvable (copie impossible)`);
+  body = body.replace(re, `$1'${type}'`);
+  return scaffoldHeader(type, src, 'demo') + stripLeadingComment(body);
+}
+
+function fromMeta(type, src) {
+  const p = join(MODULES_DIR, src, 'meta.ts');
+  const body = readFileSync(p, 'utf8');
+  // meta n'a pas de discriminant `type` : copie verbatim (facettes source garanties valides).
+  return scaffoldHeader(type, src, 'meta') + stripLeadingComment(body);
+}
+
+function fromComponent(type, src) {
+  const p = join(MODULES_DIR, src, 'Component.astro');
+  let body = readFileSync(p, 'utf8');
+  // Seule adaptation : le generique de type SectionByType<'src'> -> <'type'> (typecheck).
+  // On NE touche PAS au reste (classes CSS scopees Astro, imports relatifs meme profondeur).
+  const re = new RegExp(`SectionByType<\\s*['"]${src}['"]\\s*>`, 'g');
+  body = body.replace(re, `SectionByType<'${type}'>`);
+  return body;
+}
+
+// Retire un unique bloc de commentaires de tete (lignes // consecutives + ligne vide) pour eviter
+// un double en-tete quand on prefixe notre propre header. Conserve tout le reste a l'identique.
+function stripLeadingComment(src) {
+  const lines = src.split('\n');
+  let i = 0;
+  while (i < lines.length && lines[i].startsWith('//')) i++;
+  while (i < lines.length && lines[i].trim() === '') i++;
+  return lines.slice(i).join('\n');
+}
+
+// ─── ecriture d'un fichier (mkdir -p) ───
+const rel = (abs) => abs.slice(ROOT.length + 1);
+function writeFileTracked(abs, content, created) {
+  mkdirSync(dirname(abs), { recursive: true });
+  writeFileSync(abs, content, 'utf8');
+  created.push(rel(abs));
+}
+
+// ─── section-order.json : insertion (apres src si --from, sinon en fin) ───
+function readOrder() {
+  const arr = JSON.parse(readFileSync(ORDER_FILE, 'utf8'));
+  if (!Array.isArray(arr)) throw new Error('section-order.json : tableau attendu');
+  return arr;
+}
+function insertOrder(order, type, from) {
+  const next = order.slice();
+  const at = from ? next.indexOf(from) : -1;
+  if (at >= 0) next.splice(at + 1, 0, type);
+  else next.push(type);
+  return next;
+}
+
+// ─── generateurs ───
+function runGen(log, label, cmd, args, fatal) {
+  try {
+    execFileSync(cmd, args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    log(`  OK   ${label}`);
+    return { label, ok: true };
+  } catch (e) {
+    const detail = String((e.stderr || '') + (e.stdout || '') || e.message || '')
+      .split('\n').filter(Boolean).slice(-3).join(' | ');
+    log(`  ${fatal ? 'FAIL' : 'WARN'} ${label} : ${detail}`);
+    if (fatal) {
+      const err = new Error(`generateur en echec (${label}) : ${detail}`);
+      err.fatalGen = true;
+      throw err;
     }
-    bp = JSON.parse(readFileSync(p, 'utf8'));
-  } else {
-    bp = EXAMPLE_BLUEPRINT;
-    console.log("Aucun blueprint passé en argv : utilisation de l'exemple inline (pricing-tiers).");
+    return { label, ok: false };
+  }
+}
+
+// Sortie machine (--json) vs humaine. code = exit code.
+function emit(json, payload, code = 0, humanMsg = null) {
+  if (json) process.stdout.write(JSON.stringify(payload));
+  else if (payload.ok) process.stdout.write(`OK  scaffold « ${payload.type} » : ${payload.created.length} fichier(s).\n`);
+  else process.stderr.write(`FAIL ${humanMsg || payload.error}\n`);
+  process.exit(code);
+}
+
+// Abandon precoce (validation) : ok:false uniforme.
+function abort(json, error) {
+  if (json) process.stdout.write(JSON.stringify({ ok: false, error }));
+  else process.stderr.write(`FAIL ${error}\n`);
+  process.exit(1);
+}
+
+// ─── main ───
+function main() {
+  let opts;
+  try {
+    opts = parseArgs(process.argv);
+  } catch (e) {
+    return abort(process.argv.includes('--json'), e.message);
+  }
+  const { type, from, dryRun, json } = opts;
+
+  const log = (m) => (json ? process.stderr : process.stdout).write(m + '\n');
+  const abortHere = (msg) => abort(json, msg);
+
+  // 1. Validation type
+  if (!type) return abortHere('type manquant. Usage : scaffold-section.mjs <type> [--from <src>] [--dry-run] [--json]');
+  if (!isKebab(type)) return abortHere(`type invalide « ${type} » : kebab-case attendu (minuscules, chiffres, tirets simples).`);
+  if (RESERVED.has(type)) return abortHere(`type reserve « ${type} » : nom interdit (collision technique).`);
+
+  // 2. Unicite
+  const order = readOrder();
+  if (order.includes(type)) return abortHere(`type deja existant « ${type} » : present dans section-order.json.`);
+  if (existsSync(join(MODULES_DIR, type))) return abortHere(`type deja existant « ${type} » : src/sections/${type}/ existe.`);
+  if (existsSync(join(KERNEL_SECTIONS_DIR, type))) return abortHere(`type deja existant « ${type} » : packages/ds-kernel/src/sections/${type}/ existe.`);
+
+  // 3. Source --from
+  if (from) {
+    if (!isKebab(from)) return abortHere(`--from invalide « ${from} » : kebab-case attendu.`);
+    if (!order.includes(from)) return abortHere(`--from « ${from} » : type source inconnu (absent de section-order.json).`);
+    if (!existsSync(join(MODULES_DIR, from, 'Component.astro'))) return abortHere(`--from « ${from} » : module source incomplet (Component.astro absent).`);
+    if (!existsSync(join(KERNEL_SECTIONS_DIR, from, 'schema.ts'))) return abortHere(`--from « ${from} » : schema source absent (kernel).`);
   }
 
-  if (!bp.type || !bp.archetype) {
-    console.error('ERREUR : le blueprint doit définir au minimum `type` et `archetype`.');
-    process.exit(2);
+  // 4. Contenus
+  let schemaSrc, metaSrc, demoSrc, compSrc;
+  try {
+    schemaSrc = from ? fromSchema(type, from) : minimalSchema(type);
+    metaSrc = from ? fromMeta(type, from) : minimalMeta(type);
+    demoSrc = from ? fromDemo(type, from) : minimalDemo(type);
+    compSrc = from ? fromComponent(type, from) : minimalComponent(type);
+  } catch (e) {
+    return abortHere(e.message);
   }
-  if (!ARCHETYPE_FAMILY_CLASS[bp.archetype]) {
-    console.error(`ERREUR : archétype inconnu '${bp.archetype}'. Valeurs : ${Object.keys(ARCHETYPE_FAMILY_CLASS).join(', ')}.`);
-    process.exit(2);
-  }
+  const idxSrc = indexContent(type);
 
-  mkdirSync(OUT_DIR, { recursive: true });
-  const pascal = toPascal(bp.type);
-
-  const artefacts = [
-    [join(OUT_DIR, `${bp.type}.schema.snippet.ts`), buildSchema(bp)],
-    [join(OUT_DIR, `${bp.type}.demo.snippet.ts`), buildDemo(bp)],
-    [join(OUT_DIR, `${bp.type}.presets.snippet.ts`), buildPresets(bp)],
-    [join(OUT_DIR, `${bp.type}.registry.snippet.ts`), buildRegistry(bp)],
-    [join(OUT_DIR, `${bp.type}.INSERT.md`), buildInsertGuide(bp)],
-    [join(SECTIONS_DIR, `${pascal}.astro`), buildComponent(bp)],
+  const plannedFiles = [
+    `packages/ds-kernel/src/sections/${type}/schema.ts`,
+    `src/sections/${type}/index.ts`,
+    `src/sections/${type}/meta.ts`,
+    `src/sections/${type}/demo.ts`,
+    `src/sections/${type}/Component.astro`,
+    'scripts/section-order.json',
   ];
 
-  // Verification anti-emdash (rule 58) avant ecriture
-  for (const [, content] of artefacts) {
-    if (content.includes('—')) {
-      console.error('ERREUR : U+2014 détecté dans un artefact généré (rule 58). Abandon.');
-      process.exit(3);
-    }
+  // 5. Dry-run : liste + sortie, 0 ecriture, 0 generateur.
+  if (dryRun) {
+    log(`[dry-run] scaffold « ${type} »${from ? ` (--from ${from})` : ' (squelette minimal)'} :`);
+    for (const f of plannedFiles) log(`  + ${f}`);
+    log(`  ordre : ${from ? `apres « ${from} »` : 'en fin de section-order.json'}`);
+    log('  (aucune ecriture, aucun generateur lance)');
+    return emit(json, { ok: true, dryRun: true, type, from: from || null, created: plannedFiles, generators: [] });
   }
 
-  // Ne pas ecraser un composant existant en silence (anti-collision) : on previent.
-  const compPath = join(SECTIONS_DIR, `${pascal}.astro`);
-  const compExisted = existsSync(compPath);
+  // 6. Ecriture reelle
+  const created = [];
+  try {
+    writeFileTracked(join(KERNEL_SECTIONS_DIR, type, 'schema.ts'), schemaSrc, created);
+    writeFileTracked(join(MODULES_DIR, type, 'index.ts'), idxSrc, created);
+    writeFileTracked(join(MODULES_DIR, type, 'meta.ts'), metaSrc, created);
+    writeFileTracked(join(MODULES_DIR, type, 'demo.ts'), demoSrc, created);
+    writeFileTracked(join(MODULES_DIR, type, 'Component.astro'), compSrc, created);
+    const nextOrder = insertOrder(order, type, from);
+    writeFileSync(ORDER_FILE, JSON.stringify(nextOrder, null, 2) + '\n', 'utf8');
+    created.push('scripts/section-order.json');
+  } catch (e) {
+    return abortHere(`ecriture echouee : ${e.message}`);
+  }
+  for (const f of created) log(`  + ${f}`);
 
-  for (const [path, content] of artefacts) {
-    writeFileSync(path, content, 'utf8');
+  // 7. Generateurs (aggregate FATAL, derive best-effort, usage FATAL)
+  log('generateurs :');
+  const generators = [];
+  try {
+    generators.push(runGen(log, 'gen-section-aggregate', 'node', ['scripts/gen-section-aggregate.mjs'], true));
+    generators.push(runGen(log, 'derive-section-slots', 'npx', ['tsx', 'scripts/derive-section-slots.mjs'], false));
+    generators.push(runGen(log, 'gen-section-usage', 'node', ['scripts/gen-section-usage.mjs'], true));
+  } catch (e) {
+    return emit(json, { ok: false, error: e.message, type, created, generators }, 1, e.message);
   }
 
-  console.log(`\nscaffold-section — type '${bp.type}' (archétype ${bp.archetype})`);
-  console.log('Artefacts générés (idempotent) :');
-  for (const [path] of artefacts) {
-    console.log('  ' + path.replace(ROOT + '/', ''));
-  }
-  if (compExisted) {
-    console.log(`\n  ATTENTION : ${pascal}.astro existait déjà et a été RÉÉCRIT (squelette). Vérifier avant commit.`);
-  }
-  console.log(`\nWorkflow d'insertion : voir tasks/scaffold-out/${bp.type}.INSERT.md`);
-  console.log("Puis : node scripts/check-section-completeness.mjs --all");
+  return emit(json, { ok: true, dryRun: false, type, from: from || null, created, generators });
 }
 
 main();
