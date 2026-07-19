@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `f55edd2c` - 79/87 tâches done (91%).
+État : HEAD `627d121d` - 80/95 tâches done (84%).
 
 ## Avancement par phase
 
@@ -12,7 +12,7 @@
 | P1 | 5/5 | 100% | - |
 | P2 | 25/29 | 86% | P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles ; P2.11-d — Menu fini déclinaisons hover `data-hover="surface\|tint\|lift"` |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
-| P4 | 2/3 | 67% | P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
+| P4 | 3/11 | 27% | P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) ; P4.4-b — V1 vague 2 : surfaces visuelles ; P4.4-c — V1 vague 3 : assemblage + gate ; P4.4-f — V2b library instances ; P4.4-g — V4 création + config (+3) |
 
 ## Avancement par chantier
 
@@ -48,6 +48,7 @@
 | P4.1 — Boilerplate produit forkable | P4 | 1/1 | 100% | 9be38c58 fix(forkabilite): aria-label wordmark header → SITE.name + limite documentée (wordmark stylisé = actif de marque, constat démo réelle solstice-web-demo) |
 | P4.2 — CMS lite + TinaCMS (visual editing 100% Astro) | P4 | 1/1 | 100% | d267b834 feat(cms): #39/#40 retrait complet de TinaCMS (ADR docs/strategy/12) |
 | P4.3 — Dashboard / cockpit & agents à l'usage | P4 | 0/1 | 0% | - |
+| P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 1/8 | 13% | 627d121d feat(atelier): vague 1 — axes direction/itemOrder + store /api/ds/saved + AtelierShell app-shell (B1+B2+B4) |
 
 ## ⚠ Désyncs
 

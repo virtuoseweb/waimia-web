@@ -820,6 +820,29 @@ _(vide)_
   - Dépend de : P4.1, P4.2.
  ▸ *BLOQUÉ SUR SIGNAL SIMON 2026-07-19 : `strategy/13 §5` verrouille explicitement toute décision d'architecture dashboard tant que le brief builder n'est pas clos (« attendre la fin du brief builder ») ; idem memory builder (« ne pas attaquer l'archi tant que "j'ai toutes les infos" non dit »). Ne pas attaquer en autonome. Constat consigné fiche 0032 §P4.3-a.*
 
+## Chantier P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir)
+
+> Signal explicite Simon (« refaire complètement l'ui/ux du builder + ds studio + catalogue… vrai éditeur visuel… pensé comme de vraies applications ») = le « go builder » que `specs/05`/`specs/06` attendaient. Décisions Simon : app UNIFIÉE (AtelierShell) · séquence V1 éditeur visuel builder → V2 catalogue/familles → V3 pipeline 4 vues + chat MCP. Plan approuvé : `~/.claude/plans/recursive-foraging-platypus.md`. Contraintes : rule 60 (0 token neuf), axes de preset typés (pas de CSS libre), 0 régression site public.
+
+> **Révision V2 (2ᵉ message Simon, 19/07 soir + captures Relume)** : 3 exigences ajoutées — (1) créer de nouveaux items catalogue depuis l'existant (custom-presets JSON runtime + scaffolder v2 co-localisé + UI dupliquer-comme-nouveau-type) ; (2) atelier = EXTENSION (contrat verrouillé now, extraction physique `packages/apps-atelier` en V5, dashboard `/library/config` + onboarding guidé) ; (3) library globaux/instanciés (générateur `section-instances.generated`, onglet Instances sur `/library/[type]`, `PATCH /api/ds/instance`, where-used + `data-atelier-idx` dev-only). Plan révisé approuvé (mêmes fichier). Arbitrages Simon : extraction différée V5 · demo éditable now / composants sync ref = V3+.
+
+### Tâches finies
+- [x] **P4.4-a — V1 vague 1 : moteur + shell** (B1 axes `direction`/`order` item + B2 store `/api/ds/saved` git-as-DB + B4 AtelierShell + scaffold `packages/atelier-ui`). <!-- sb commit=627d121d gf1=y -->
+  - Preuve GF-1 : geometry Playwright data-direction 4 valeurs + itemOrder (B1) ; cycle POST→disque→DELETE re-vérifié indé + refus keyword 400 (B2) ; captures 3 espaces sous shell + e2e:builder 8/8 ré-exécuté orchestrateur (B4). Build Complete!, baseline 8, presets 825.
+### Tâches en attente
+- [ ] **P4.4-b — V1 vague 2 : surfaces visuelles** (B5 picker vignettes/Saved/PresetGallery + B6 canvas par blocs drag/insert + B7 inspecteur 4 onglets Variante/Layout/Contenu/Couleur, SlotForm data-driven 0 JSON brut).
+  - Preuve GF-1 : vignettes rendues (requêtes bornées), drag-reorder, 4 onglets sur 3 types hétérogènes, édition live→vignette.
+- [ ] **P4.4-c — V1 vague 3 : assemblage + gate** (B8 save-as-version → Saved + B9 BuilderApp final + purge BuilderCanvas + B3 tool MCP + B10 e2e 8→12).
+  - Preuve GF-1 : e2e:builder 12/12 ré-exécuté indé + GF-1 visuel complet + 0 régression public.
+- [ ] **P4.4-f — V2b library instances** (U1 `section-instances.generated.ts` + `data-atelier-idx` dev-only · U2 onglet Instances fiche `/library/[type]` + compteurs Relume · U3 endpoint `PATCH /api/ds/instance` écriture in-place `src/content/**`).
+  - Preuve GF-1 : diff HTML prod vide (marquage dev-only) ; PATCH refusé sans keyword/sur main ; instance éditée visible au reload.
+- [ ] **P4.4-g — V4 création + config** (S1 scaffolder v2 co-localisé + `/api/ds/scaffold` · S2 UI « dupliquer comme nouveau type » · P1-P3 custom-presets.json fusion runtime + endpoint + bouton variante · C1 `/library/config` + apps-state.json + `/api/ds/apps` · C2 onboarding guidé).
+  - Preuve GF-1 : type créé bout-en-bout → build vert → forms OK ; variante custom dans le picker ; toggle app → 404 après restart.
+- [ ] **P4.4-h — V5 extension physique** (E1 extraction `packages/apps-atelier` injectRoute + suppression src/pages/library · E2 panneau where-used preview + surlignage postMessage · demo-overrides).
+  - Preuve GF-1 : diff sitemap vide avant/après ; `enabled:false` → 404.
+- [ ] **P4.4-d — V2 : catalogue comparatif + studio refondu** (familles/compare sous shell, diff d'axes, « ouvrir dans le builder », portage panneaux studio).
+- [ ] **P4.4-e — V3 : pipeline 4 vues + chat MCP** (sitemap→wireframe→style→design, chat opt-in brouillons compose) + décision dédiée composants globaux synchronisés (`{ref}` résolue au rendu).
+
 ---
 
 ## Backlog technique hérité (non bloquant cash, à intercaler)
