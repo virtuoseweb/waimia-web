@@ -26,7 +26,7 @@ interface Props {
   title: string;
   description: string;
   /** Espace actif dans le rail. Deduit de l'URL si non fourni. */
-  active?: 'catalogue' | 'studio' | 'builder';
+  active?: 'catalogue' | 'studio' | 'builder' | 'config';
   /** Pages outil = non indexables par defaut. */
   noindex?: boolean;
 }
@@ -34,18 +34,21 @@ interface Props {
 const { title, description, active, noindex = true } = Astro.props;
 
 const path = Astro.url.pathname;
-const activeSpace: 'catalogue' | 'studio' | 'builder' =
+const activeSpace: 'catalogue' | 'studio' | 'builder' | 'config' =
   active ??
-  (path.startsWith('/library/builder')
-    ? 'builder'
-    : path.startsWith('/library/studio')
-      ? 'studio'
-      : 'catalogue');
+  (path.startsWith('/library/config')
+    ? 'config'
+    : path.startsWith('/library/builder')
+      ? 'builder'
+      : path.startsWith('/library/studio')
+        ? 'studio'
+        : 'catalogue');
 
 const NAV = [
   { id: 'catalogue', href: '/library', label: 'Catalogue' },
   { id: 'studio', href: '/library/studio', label: 'Studio' },
   { id: 'builder', href: '/library/builder', label: 'Builder' },
+  { id: 'config', href: '/library/config', label: 'Config' },
 ] as const;
 ---
 
@@ -118,6 +121,12 @@ const NAV = [
                       <rect x="3.5" y="3.5" width="17" height="5" rx="1" />
                       <rect x="3.5" y="11" width="10" height="9.5" rx="1" />
                       <rect x="16" y="11" width="4.5" height="9.5" rx="1" />
+                    </svg>
+                  )}
+                  {item.id === 'config' && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3.2" />
+                      <path d="M12 2.6v3.1M12 18.3v3.1M2.6 12h3.1M18.3 12h3.1M5.4 5.4l2.2 2.2M16.4 16.4l2.2 2.2M18.6 5.4l-2.2 2.2M7.6 16.4l-2.2 2.2" />
                     </svg>
                   )}
                 </span>
