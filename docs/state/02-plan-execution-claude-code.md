@@ -670,6 +670,7 @@ _(vide)_
   - ▸ *MESURE faite 2026-06-21 (agent Explore + vérif GF-4 orchestrateur)* : **122 tokens** (cible ~92, +30).
     **A2 serif ✅**, **A3 `.sec*` ✅** (13 classes centralisées global.css:1417-1530), **A6 ✅** (0 `spacing-section`).
     Classes scoped dupliquées = **380 groupes** (`gen-ds-registry.mjs`, cible <50) → gros effort cross-composant séparé.
+  - ▸ *scoped-dup phase 1 SOLDÉE 2026-07-19 (commit `16ee887e`, gf1=y)* : baseline réelle re-mesurée **478** (le « 380 » datait de 2026-06, catalogue passé à 221 types) → **465** (−13), 10 classes partagées global.css, 66 composants, parité 13/13 byte-identique. Vague 2 en cours (~24 groupes clean). **261 groupes = sandboxes proposals/hero-explore → arbitrage Simon (fiche nuit 0030 : archiver vs exclure de la métrique)** ; famille `.acc`/`i` = conception dédiée ultérieure.
   - ▸ *A4 purge SOLDÉE 2026-07-19 (commit `a088beb2`, gf1=y)* : triangulation exhaustive 116 tokens :root → **1 seul vrai orphelin** (`--shadow-cta`) purgé, lock 127→126 ; 115 KEEP prouvés consommés ; 14 hex tous légitimes (valeurs de définition). **Cible ~92 = périmée** (purges antérieures déjà passées ; forcer = régression). Reste de P2.2 = consolidation scoped-dup 380→<50 uniquement.
     ⚠️ **2 sur-claims de l'agent corrigés (NE PAS purger en aveugle)** : (1) les ~11 « orphelins » `--color-*`
     sont dans le bloc **`@theme` Tailwind 4** = **faux orphelins** (sémantique utility/var à vérifier par la
