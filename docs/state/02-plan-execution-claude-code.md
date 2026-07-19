@@ -781,6 +781,7 @@ _(vide)_
   - Fichiers : assets séquences, outil CRM lite.
   - Preuve GF-1 : séquence testée bout en bout + 1 prospect réel passé dans le flux.
   - Dépend de : P3.1-a, P0.9-a (landing audit comme CTA).
+ ▸ *PARTIEL 2026-07-19 soir (`38175a01`) : assets livrés et prouvés — 7 séquences J0-J12 placeholder-driven (`scripts/prospecting/sequences/`, variantes tpe-locale/pme-marketing, opt-out RGPD) + `render-sequence.mjs` (rendu par prospect scoré, ⟦MANQUANT:champ⟧ visibles, 0 MANQUANT sur panier A fixtures) + `crm-lite.mjs` (pipeline Sourcé→Gagné/Perdu sur crm.jsonl, add→move→stale round-trip vérifié). Aucun envoi automatique par design. RESTE « 1 prospect réel passé dans le flux » : bloqué sur fiche 0031 (crédits Explorium) + tout envoi externe = validation Simon.*
 
 ---
 
