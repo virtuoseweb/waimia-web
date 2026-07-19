@@ -59,7 +59,8 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
     | 'rule'
     | 'asterism'
     | 'serif'
-    | 'mono';
+    | 'mono'
+    | 'compact';
   /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
    *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
    *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
@@ -1470,18 +1471,29 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'editorial-callout--ink', type: 'editorial-callout', label: 'Encart éditorial · encre', family: 'callout', era: '2026', props: { background: 'ink' } },
     { id: 'editorial-callout--lg-center', type: 'editorial-callout', label: 'Encart éditorial · large centré', family: 'callout', era: '2025', props: { size: 'lg', align: 'center' } },
     { id: 'editorial-callout--compact', type: 'editorial-callout', label: 'Encart éditorial · compact', family: 'callout', era: '2024', props: { density: 'compact' } },
+    { id: 'editorial-callout--info', type: 'editorial-callout', label: 'Encart éditorial · info', family: 'callout', era: '2025', props: { variant: 'info' } },
+    { id: 'editorial-callout--note', type: 'editorial-callout', label: 'Encart éditorial · note (fine)', family: 'callout', era: '2024', props: { variant: 'note' } },
+    { id: 'editorial-callout--warn', type: 'editorial-callout', label: 'Encart éditorial · alerte', family: 'callout', era: '2025', props: { variant: 'warn' } },
+    { id: 'editorial-callout--manifesto', type: 'editorial-callout', label: 'Encart éditorial · manifeste', family: 'callout', era: '2026', props: { variant: 'manifesto', align: 'center' } },
   ],
   // editorial-dingbat-rule (ornament) · axes = background × size (variant 'section' hérité demo).
   'editorial-dingbat-rule': [
     { id: 'editorial-dingbat-rule--paper-2', type: 'editorial-dingbat-rule', label: 'Filet dingbat · papier 2', family: 'ornament', era: '2024', props: { background: 'paper-2' } },
     { id: 'editorial-dingbat-rule--ink', type: 'editorial-dingbat-rule', label: 'Filet dingbat · encre', family: 'ornament', era: '2026', props: { background: 'ink' } },
     { id: 'editorial-dingbat-rule--lg', type: 'editorial-dingbat-rule', label: 'Filet dingbat · grand', family: 'ornament', era: '2025', props: { size: 'lg' } },
+    { id: 'editorial-dingbat-rule--default', type: 'editorial-dingbat-rule', label: 'Filet dingbat · points', family: 'ornament', era: '2024', props: { variant: 'default' } },
+    { id: 'editorial-dingbat-rule--end', type: 'editorial-dingbat-rule', label: 'Filet dingbat · losange (fin)', family: 'ornament', era: '2025', props: { variant: 'end' } },
+    { id: 'editorial-dingbat-rule--rule', type: 'editorial-dingbat-rule', label: 'Filet dingbat · filet plein', family: 'ornament', era: '2024', props: { variant: 'rule' } },
+    { id: 'editorial-dingbat-rule--asterism', type: 'editorial-dingbat-rule', label: 'Filet dingbat · astérisme', family: 'ornament', era: '2025', props: { variant: 'asterism' } },
   ],
   // editorial-dropcap-prose (prose) · axes = variant 'accent' (dans union) × background (demo fige serif/paper).
   'editorial-dropcap-prose': [
     { id: 'editorial-dropcap-prose--accent', type: 'editorial-dropcap-prose', label: 'Lettrine · accent', family: 'prose', era: '2025', props: { variant: 'accent' } },
     { id: 'editorial-dropcap-prose--paper-2', type: 'editorial-dropcap-prose', label: 'Lettrine · papier 2', family: 'prose', era: '2024', props: { background: 'paper-2' } },
     { id: 'editorial-dropcap-prose--ink', type: 'editorial-dropcap-prose', label: 'Lettrine · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+    // NB vague 8 : variant 'mono' ÉCARTÉ (no-op visuel) — la règle globale `.drop-cap::first-letter`
+    // (global.css:168) force serif italique terracotta sur le glyphe quel que soit le variant
+    // (prouvé getComputedStyle ::first-letter). Le preset 'accent' (vague 7) est suspect au même titre.
   ],
   // editorial-preview (index) · axe = background (demo sans fond → défaut clair).
   'editorial-preview': [
@@ -1516,6 +1528,66 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'inclusions-list--paper-2', type: 'inclusions-list', label: 'Liste d’inclusions · papier 2', family: 'list', era: '2024', props: { background: 'paper-2' } },
     { id: 'inclusions-list--paper-3', type: 'inclusions-list', label: 'Liste d’inclusions · papier 3', family: 'list', era: '2025', props: { background: 'paper-3' } },
     { id: 'inclusions-list--ink', type: 'inclusions-list', label: 'Liste d’inclusions · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+
+  /* ─── Vague 8 — Catégorie Tables (lot B) ───
+   * Axe commun = background (data-bg). data-table ajoute `striped` (zébrage), editorial-table-block
+   * ajoute variant (default|compact|editorial ; compact HORS union PresetProps.variant → widening
+   * différé, consigné rapport). Tables larges = overflow-x scope conteneur (vérifié 1440 + 390). */
+  // data-table (table) · axes = background × striped. Demo fige striped=true / bg paper.
+  'data-table': [
+    { id: 'data-table--plain', type: 'data-table', label: 'Table de données · sans zébrage', family: 'table', era: '2024', props: { striped: false } },
+    { id: 'data-table--paper-2', type: 'data-table', label: 'Table de données · papier 2', family: 'table', era: '2024', props: { background: 'paper-2' } },
+    { id: 'data-table--paper-3', type: 'data-table', label: 'Table de données · papier 3', family: 'table', era: '2025', props: { background: 'paper-3' } },
+    { id: 'data-table--ink', type: 'data-table', label: 'Table de données · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+  // tech-models-table (table) · axe = background (rendu via EditorialTableBlock branche tech-sec :
+  //   seuls paper-3 et ink câblés ; paper-2 no-op sur tech-sec → écarté). Demo sans fond.
+  'tech-models-table': [
+    { id: 'tech-models-table--paper-3', type: 'tech-models-table', label: 'Table de modèles · papier 3', family: 'table', era: '2025', props: { background: 'paper-3' } },
+    { id: 'tech-models-table--ink', type: 'tech-models-table', label: 'Table de modèles · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+  // terminal-table (table) · axe = background (enum paper|paper-2|ink ; pas de paper-3). Demo fige paper.
+  'terminal-table': [
+    { id: 'terminal-table--paper-2', type: 'terminal-table', label: 'Table terminal · papier 2', family: 'table', era: '2024', props: { background: 'paper-2' } },
+    { id: 'terminal-table--ink', type: 'terminal-table', label: 'Table terminal · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+  // course-catalog-table (table) · axe = background. Demo sans fond → défaut clair.
+  'course-catalog-table': [
+    { id: 'course-catalog-table--paper-2', type: 'course-catalog-table', label: 'Catalogue de cours · papier 2', family: 'table', era: '2024', props: { background: 'paper-2' } },
+    { id: 'course-catalog-table--paper-3', type: 'course-catalog-table', label: 'Catalogue de cours · papier 3', family: 'table', era: '2025', props: { background: 'paper-3' } },
+    { id: 'course-catalog-table--ink', type: 'course-catalog-table', label: 'Catalogue de cours · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+  // editorial-table-block (table) · axes = variant (default | compact HORS union → widening | editorial=demo)
+  //   × background. Demo fige variant='editorial' (écarté). Le variant est honoré par la molécule EditorialTable.
+  'editorial-table-block': [
+    { id: 'editorial-table-block--default', type: 'editorial-table-block', label: 'Table éditoriale · standard', family: 'table', era: '2024', props: { variant: 'default' } },
+    { id: 'editorial-table-block--paper-2', type: 'editorial-table-block', label: 'Table éditoriale · papier 2', family: 'table', era: '2024', props: { background: 'paper-2' } },
+    { id: 'editorial-table-block--paper-3', type: 'editorial-table-block', label: 'Table éditoriale · papier 3', family: 'table', era: '2025', props: { background: 'paper-3' } },
+    { id: 'editorial-table-block--ink', type: 'editorial-table-block', label: 'Table éditoriale · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+
+  /* ─── Vague 8 — Catégorie List/prose (lot C) ───
+   * Axe = background (data-bg câblé paper-2/paper-3/ink). Types SANS axe de présentation
+   * (signed-writing-list, method-diagram-list, list-index-section, prose-aside, bordered-pullquote,
+   * used-service-callout) = rejetés (0 preset, pas de no-op), consignés rapport. */
+  // learning-path-list (list) · axe = background. Demo sans fond.
+  'learning-path-list': [
+    { id: 'learning-path-list--paper-2', type: 'learning-path-list', label: 'Parcours d’apprentissage · papier 2', family: 'list', era: '2024', props: { background: 'paper-2' } },
+    { id: 'learning-path-list--paper-3', type: 'learning-path-list', label: 'Parcours d’apprentissage · papier 3', family: 'list', era: '2025', props: { background: 'paper-3' } },
+    { id: 'learning-path-list--ink', type: 'learning-path-list', label: 'Parcours d’apprentissage · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+  // service-catalog-list (list) · axe = background. Demo sans fond.
+  'service-catalog-list': [
+    { id: 'service-catalog-list--paper-2', type: 'service-catalog-list', label: 'Catalogue de services · papier 2', family: 'list', era: '2024', props: { background: 'paper-2' } },
+    { id: 'service-catalog-list--paper-3', type: 'service-catalog-list', label: 'Catalogue de services · papier 3', family: 'list', era: '2025', props: { background: 'paper-3' } },
+    { id: 'service-catalog-list--ink', type: 'service-catalog-list', label: 'Catalogue de services · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+  // rich-text (prose) · axe = background (mixin sectionBaseSchema, data-bg câblé paper-2/paper-3/ink).
+  'rich-text': [
+    { id: 'rich-text--paper-2', type: 'rich-text', label: 'Texte riche · papier 2', family: 'prose', era: '2024', props: { background: 'paper-2' } },
+    { id: 'rich-text--paper-3', type: 'rich-text', label: 'Texte riche · papier 3', family: 'prose', era: '2025', props: { background: 'paper-3' } },
+    { id: 'rich-text--ink', type: 'rich-text', label: 'Texte riche · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
   ],
 };
 
