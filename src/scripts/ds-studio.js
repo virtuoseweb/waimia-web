@@ -48,6 +48,16 @@ function initStudio() {
   const previewFrame = container.querySelector('#page-preview');
   const catalogFrame = container.querySelector('#catalog-preview');
 
+  // ── P2.8-c · Overrides par instance (live-only) ────────────────────────────
+  // Un override d'instance pose la valeur en style inline SUR l'élément racine de
+  // la section ciblée : la custom property cascade et prime sur :root pour ce
+  // sous-arbre uniquement. Les autres instances gardent la valeur globale. Ces
+  // overrides ne sont PAS persistés (cf note P2.8-c) : ils vivent le temps de la
+  // session studio, en parallèle du mode global (:root) qui reste inchangé.
+  let instanceMode = false;            // true => les contrôles routent vers l'instance
+  let activeInstance = null;           // { id, el, label } de l'instance ciblée
+  const instanceOverrides = new Map(); // id -> Map(token -> value)
+
   function setSaveState(state) {
     document.body.setAttribute('data-save-state', state);
   }
@@ -132,6 +142,13 @@ function initStudio() {
         value = value + unit;
       }
       syncControls(token, ctrl.value, ctrl);
+      // P2.8-c : en mode instance, les contrôles écrivent sur l'instance ciblée
+      // (style inline) au lieu de :root ; le mode global reste intact.
+      if (instanceMode) {
+        if (activeInstance) applyInstanceToken(token, value);
+        else toast('Mode instance : clique d\'abord une section de la galerie');
+        return;
+      }
       applyToken(token, value, { sync: false });
     });
   });
@@ -1609,6 +1626,114 @@ function initStudio() {
     return performSave(keyword);
   }
 
+  // ── P2.8-c · Overrides par instance : sélection + application inline ───────
+  const instanceTool = container.querySelector('#instance-tool');
+  const instanceToggle = container.querySelector('#instance-toggle');
+  const instanceCountTag = container.querySelector('#instance-count');
+  const instanceActive = container.querySelector('#instance-active');
+  const instanceActiveName = container.querySelector('#instance-active-name');
+  const instanceResetBtn = container.querySelector('#instance-reset');
+  // Tuiles ciblables : la galerie « Sections » (rendu inline, même document → la
+  // custom property posée inline cascade sans souci cross-origin d'iframe).
+  const instanceTiles = [...container.querySelectorAll('.studio-sec-grid .studio-sec-tile')];
+
+  // Racine de section d'une tuile : 1er élément de .studio-sec-frame hors fade.
+  function instanceRootOf(tile) {
+    const frame = tile.querySelector('.studio-sec-frame');
+    if (!frame) return null;
+    const el = frame.firstElementChild;
+    if (!el || el.classList.contains('studio-sec-fade')) return null;
+    return el;
+  }
+
+  function instanceLabelOf(tile) {
+    const code = tile.querySelector('.studio-sec-head code');
+    return code ? code.textContent.trim() : 'section';
+  }
+
+  function refreshInstanceBadge() {
+    let withOverrides = 0;
+    instanceOverrides.forEach((m) => { if (m.size) withOverrides += 1; });
+    if (instanceCountTag) instanceCountTag.textContent = String(withOverrides);
+    instanceTiles.forEach((tile) => {
+      const m = instanceOverrides.get(tile.dataset.instanceId);
+      tile.classList.toggle('has-instance-override', !!(m && m.size));
+    });
+    if (activeInstance && instanceActive) {
+      instanceActive.hidden = false;
+      if (instanceActiveName) {
+        const m = instanceOverrides.get(activeInstance.id);
+        const n = m ? m.size : 0;
+        instanceActiveName.textContent = n ? `${activeInstance.label} · ${n} token(s)` : activeInstance.label;
+      }
+    } else if (instanceActive) {
+      instanceActive.hidden = true;
+    }
+  }
+
+  function applyInstanceToken(token, value) {
+    if (!activeInstance || !activeInstance.el) return;
+    const original = originals.get(token);
+    let map = instanceOverrides.get(activeInstance.id);
+    if (!map) { map = new Map(); instanceOverrides.set(activeInstance.id, map); }
+    if (value === original || value === '') {
+      activeInstance.el.style.removeProperty(token);
+      map.delete(token);
+    } else {
+      activeInstance.el.style.setProperty(token, value);
+      map.set(token, value);
+    }
+    if (!map.size) instanceOverrides.delete(activeInstance.id);
+    refreshInstanceBadge();
+  }
+
+  function selectInstance(tile) {
+    const el = instanceRootOf(tile);
+    if (!el) { toast('Cette tuile n\'expose pas de section ciblable'); return; }
+    instanceTiles.forEach((t) => t.classList.toggle('is-instance-selected', t === tile));
+    activeInstance = { id: tile.dataset.instanceId, el, label: instanceLabelOf(tile) };
+    refreshInstanceBadge();
+    toast(`Instance ciblée : ${activeInstance.label}`);
+  }
+
+  function resetActiveInstance() {
+    if (!activeInstance) return;
+    const map = instanceOverrides.get(activeInstance.id);
+    if (map) map.forEach((_v, token) => activeInstance.el.style.removeProperty(token));
+    instanceOverrides.delete(activeInstance.id);
+    refreshInstanceBadge();
+    toast(`Instance « ${activeInstance.label} » réinitialisée`);
+  }
+
+  function setInstanceMode(on) {
+    instanceMode = !!on;
+    if (instanceToggle) {
+      instanceToggle.setAttribute('aria-pressed', String(instanceMode));
+      instanceToggle.textContent = instanceMode ? 'Mode instance actif' : 'Activer le mode instance';
+    }
+    if (gallery) gallery.classList.toggle('is-instance-mode', instanceMode);
+    if (instanceTool && instanceMode && !instanceTool.open) instanceTool.open = true;
+    if (!instanceMode) {
+      // On quitte le routage vers l'instance ; les overrides déjà posés restent
+      // visibles (styles inline) et se comparent au global.
+      instanceTiles.forEach((t) => t.classList.remove('is-instance-selected'));
+      activeInstance = null;
+      refreshInstanceBadge();
+    }
+  }
+
+  instanceTiles.forEach((tile, i) => {
+    if (!tile.dataset.instanceId) tile.dataset.instanceId = `inst-${i}`;
+    tile.addEventListener('click', (event) => {
+      if (!instanceMode) return;
+      event.preventDefault(); // les sections de démo ont des liens href="#" : on neutralise
+      selectInstance(tile);
+    });
+  });
+  if (instanceToggle) instanceToggle.addEventListener('click', () => setInstanceMode(!instanceMode));
+  if (instanceResetBtn) instanceResetBtn.addEventListener('click', resetActiveInstance);
+  refreshInstanceBadge();
+
   window.dsStudio = {
     setToken,
     getToken,
@@ -1629,6 +1754,17 @@ function initStudio() {
     selectToken: showImpact,
     palette: { open: openPalette, close: closePalette },
     compare: { hold: holdBaseline, diff: () => [...dirty.entries()].map(([name, value]) => ({ name, value, old: originals.get(name) ?? '' })) },
+    instance: {
+      mode: () => instanceMode,
+      setMode: setInstanceMode,
+      list: () => instanceTiles.map((t, i) => ({ index: i, id: t.dataset.instanceId, label: instanceLabelOf(t) })),
+      select: (i) => { const t = instanceTiles[i]; if (t) selectInstance(t); return activeInstance ? { id: activeInstance.id, label: activeInstance.label } : null; },
+      active: () => (activeInstance ? { id: activeInstance.id, label: activeInstance.label } : null),
+      set: (token, value) => { applyInstanceToken(token, value); return activeInstance ? getComputedStyle(activeInstance.el).getPropertyValue(token).trim() : null; },
+      reset: resetActiveInstance,
+      overrides: () => { const o = {}; instanceOverrides.forEach((m, id) => { o[id] = Object.fromEntries(m); }); return o; },
+      readAt: (i, token) => { const t = instanceTiles[i]; const el = t && instanceRootOf(t); return el ? getComputedStyle(el).getPropertyValue(token).trim() : null; },
+    },
   };
 
   setSaveState('idle');
