@@ -60,7 +60,8 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
     | 'asterism'
     | 'serif'
     | 'mono'
-    | 'compact';
+    | 'compact'
+    | 'outline';
   /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
    *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
    *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
@@ -1676,6 +1677,101 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'use-case-index--paper-2', type: 'use-case-index', label: "Index de cas d'usage · papier 2", family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
     { id: 'use-case-index--paper-3', type: 'use-case-index', label: "Index de cas d'usage · papier 3", family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
     { id: 'use-case-index--ink', type: 'use-case-index', label: "Index de cas d'usage · encre", family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // ───────────────────────── Fan-out P2.9 · vague 10 (band / list / prose / terminal / split-media) ─────────────────────────
+  // Axes posés UNIQUEMENT sur ce que le composant câble réellement (data-bg / data-align / data-measure /
+  // data-layout / tone / variant / emphasis). Les types sans axe de présentation (contenu-only, fond CSS figé)
+  // sont consignés dans le rapport, PAS ici (no-op interdit).
+
+  // band · announcement-banner · demo tone=accent (fond accent par défaut) → data-bg surcharge le tone.
+  'announcement-banner': [
+    { id: 'announcement-banner--paper-2', type: 'announcement-banner', label: 'Annonce · papier 2', family: 'band', era: '2023', props: { background: 'paper-2' } },
+    { id: 'announcement-banner--paper-3', type: 'announcement-banner', label: 'Annonce · papier 3', family: 'band', era: '2024', props: { background: 'paper-3' } },
+    { id: 'announcement-banner--ink', type: 'announcement-banner', label: 'Annonce · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+  // band · department-cta → CONSIGNÉ (aucun preset) : CtaFinal branche sur data.type === 'department-cta'
+  // vers un markup à fond FIGÉ `.sol-sec-dark` (ink hardcodé) SANS data-bg → tout preset background = no-op.
+  // band · guarantee-block · demo sans fond · CSS data-bg paper-2/paper-3/ink.
+  'guarantee-block': [
+    { id: 'guarantee-block--paper-2', type: 'guarantee-block', label: 'Garantie · papier 2', family: 'band', era: '2023', props: { background: 'paper-2' } },
+    { id: 'guarantee-block--paper-3', type: 'guarantee-block', label: 'Garantie · papier 3', family: 'band', era: '2024', props: { background: 'paper-3' } },
+    { id: 'guarantee-block--ink', type: 'guarantee-block', label: 'Garantie · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+  // band · keyword-strip · axe tone (muted défaut → ink). Axe `pad` écarté : la rangée de mots-clés
+  // « muted » (.col-prose) déborde déjà en mobile (390 → scrollWidth 723) à l'état de base du composant
+  // (bug pré-existant, indépendant du padding-block) → un preset pad:tight expose ce débordement. tone:ink
+  // rend des liens qui se replient proprement (scrollWidth 390, GF-1 OK).
+  'keyword-strip': [
+    { id: 'keyword-strip--ink', type: 'keyword-strip', label: 'Bande mots-clés · liens encre', family: 'band', era: '2024', props: { tone: 'ink' } },
+  ],
+  // band · provenance-chip · variant solid (défaut) → outline (sources tierces).
+  'provenance-chip': [
+    { id: 'provenance-chip--outline', type: 'provenance-chip', label: 'Chip provenance · contour (sources tierces)', family: 'band', era: '2025', props: { variant: 'outline' } },
+  ],
+  // band · spec-bar · demo sans fond · CSS data-bg paper/paper-3/ink → paper-3 + ink (paper = base).
+  'spec-bar': [
+    { id: 'spec-bar--paper-3', type: 'spec-bar', label: 'Barre de specs · papier 3', family: 'band', era: '2024', props: { background: 'paper-3' } },
+    { id: 'spec-bar--ink', type: 'spec-bar', label: 'Barre de specs · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+  // band · tech-stack-band · demo sans fond · CSS data-bg paper/paper-3/ink → paper-3 + ink.
+  'tech-stack-band': [
+    { id: 'tech-stack-band--paper-3', type: 'tech-stack-band', label: 'Bande stack tech · papier 3', family: 'band', era: '2024', props: { background: 'paper-3' } },
+    { id: 'tech-stack-band--ink', type: 'tech-stack-band', label: 'Bande stack tech · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // list · coming-soon-pills · CSS data-bg paper/paper-3/ink → paper-3 + ink (paper = base).
+  'coming-soon-pills': [
+    { id: 'coming-soon-pills--paper-3', type: 'coming-soon-pills', label: 'Pastilles à venir · papier 3', family: 'list', era: '2024', props: { background: 'paper-3' } },
+    { id: 'coming-soon-pills--ink', type: 'coming-soon-pills', label: 'Pastilles à venir · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+  // list · curriculum-timeline · emphasis (titre en italique accent) off par défaut.
+  'curriculum-timeline': [
+    { id: 'curriculum-timeline--emphasis', type: 'curriculum-timeline', label: 'Curriculum · titre accentué', family: 'list', era: '2025', props: { emphasis: true } },
+  ],
+  // list · related-links · demo sans fond · CSS data-bg paper-2/paper-3/ink.
+  'related-links': [
+    { id: 'related-links--paper-2', type: 'related-links', label: 'Liens connexes · papier 2', family: 'list', era: '2023', props: { background: 'paper-2' } },
+    { id: 'related-links--paper-3', type: 'related-links', label: 'Liens connexes · papier 3', family: 'list', era: '2024', props: { background: 'paper-3' } },
+    { id: 'related-links--ink', type: 'related-links', label: 'Liens connexes · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // prose · direct-answer · sectionBaseSchema (bg) · CSS data-bg paper-2/paper-3/ink.
+  'direct-answer': [
+    { id: 'direct-answer--paper-2', type: 'direct-answer', label: 'Réponse directe · papier 2', family: 'prose', era: '2023', props: { background: 'paper-2' } },
+    { id: 'direct-answer--paper-3', type: 'direct-answer', label: 'Réponse directe · papier 3', family: 'prose', era: '2024', props: { background: 'paper-3' } },
+    { id: 'direct-answer--ink', type: 'direct-answer', label: 'Réponse directe · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+  ],
+  // prose · hover-reveal-words · axes bg (paper-2/ink) + align (center) + measure (wide).
+  'hover-reveal-words': [
+    { id: 'hover-reveal-words--paper-2', type: 'hover-reveal-words', label: 'Mots révélés · papier 2', family: 'prose', era: '2023', props: { background: 'paper-2' } },
+    { id: 'hover-reveal-words--ink', type: 'hover-reveal-words', label: 'Mots révélés · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+    { id: 'hover-reveal-words--center', type: 'hover-reveal-words', label: 'Mots révélés · contenu centré', family: 'prose', era: '2024', props: { contentAlign: 'center' } },
+    { id: 'hover-reveal-words--wide', type: 'hover-reveal-words', label: 'Mots révélés · mesure resserrée', family: 'prose', era: '2025', props: { measure: 'wide' } },
+  ],
+  // prose · problem-statement · demo sans fond · CSS data-bg paper-2/paper-3/ink.
+  'problem-statement': [
+    { id: 'problem-statement--paper-2', type: 'problem-statement', label: 'Énoncé du problème · papier 2', family: 'prose', era: '2023', props: { background: 'paper-2' } },
+    { id: 'problem-statement--paper-3', type: 'problem-statement', label: 'Énoncé du problème · papier 3', family: 'prose', era: '2024', props: { background: 'paper-3' } },
+    { id: 'problem-statement--ink', type: 'problem-statement', label: 'Énoncé du problème · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // terminal · terminal-mockup · demo bg=paper layout=split tone=ink · axes bg (paper-2/ink) + layout (full).
+  'terminal-mockup': [
+    { id: 'terminal-mockup--paper-2', type: 'terminal-mockup', label: 'Terminal · cadre papier 2', family: 'terminal-shell', era: '2023', props: { background: 'paper-2' } },
+    { id: 'terminal-mockup--ink', type: 'terminal-mockup', label: 'Terminal · cadre encre', family: 'terminal-shell', era: '2026', props: { background: 'ink' } },
+    { id: 'terminal-mockup--full', type: 'terminal-mockup', label: 'Terminal · pleine largeur', family: 'terminal-shell', era: '2024', props: { layout: 'full' } },
+  ],
+
+  // split-media · asymmetric-services · schema bg [paper,paper-2,ink] défaut paper → paper-2 + ink.
+  'asymmetric-services': [
+    { id: 'asymmetric-services--paper-2', type: 'asymmetric-services', label: 'Services asymétriques · papier 2', family: 'split-media', era: '2023', props: { background: 'paper-2' } },
+    { id: 'asymmetric-services--ink', type: 'asymmetric-services', label: 'Services asymétriques · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
+  ],
+  // split-media · tech-positioning-split · CSS data-bg paper/paper-3/ink → paper-3 + ink.
+  'tech-positioning-split': [
+    { id: 'tech-positioning-split--paper-3', type: 'tech-positioning-split', label: 'Positionnement tech · papier 3', family: 'split-media', era: '2024', props: { background: 'paper-3' } },
+    { id: 'tech-positioning-split--ink', type: 'tech-positioning-split', label: 'Positionnement tech · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
   ],
 };
 
