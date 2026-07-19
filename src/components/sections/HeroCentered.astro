@@ -152,7 +152,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     </div>
   </section>
 ) : data.type === 'hero-problem-index' ? (
-  <section class="hero-problem-index">
+  <section class="hero-problem-index" data-bg={data.background}>
     <svg class="hero-problem-index__geo" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <rect x="1060" y="-20" width="360" height="360" fill="none" stroke="currentColor" stroke-width="0.6" transform="rotate(12 1240 160)"/>
       <rect x="1140" y="60" width="220" height="220" fill="none" stroke="currentColor" stroke-width="0.4" transform="rotate(12 1250 170)"/>
@@ -583,6 +583,18 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     line-height: var(--leading-relaxed);
   }
   .hero-problem-index__canonical :global(strong) { color: var(--ink); font-weight: var(--fw-medium); }
+  /* Axe déclinaison #118 : fonds (défaut ABSENT = paper, rendu inchangé ; aligne
+     hero-problem-index sur ses frères HeroCentered). paper-2/paper-3 = tuiles claires ;
+     ink = héros sur encre (textes en paper + géo déco en screen pour rester visible). */
+  .hero-problem-index[data-bg='paper-2'] { background: var(--paper-2); }
+  .hero-problem-index[data-bg='paper-3'] { background: var(--paper-3); }
+  .hero-problem-index[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .hero-problem-index[data-bg='ink'] .hero-problem-index__geo { mix-blend-mode: screen; opacity: 0.12; }
+  .hero-problem-index[data-bg='ink'] .hero-problem-index__h1 :global(i) { color: var(--paper); }
+  .hero-problem-index[data-bg='ink'] .hero-problem-index__lede { color: rgba(var(--paper-rgb), 0.72); }
+  .hero-problem-index[data-bg='ink'] .hero-problem-index__canonical { color: rgba(var(--paper-rgb), 0.55); }
+  .hero-problem-index[data-bg='ink'] .hero-problem-index__canonical :global(strong) { color: var(--paper); }
+  .hero-problem-index[data-bg='ink'] :global(.hero-problem-index__kicker) { color: rgba(var(--paper-rgb), 0.7); }
 
   /* ── hero-utility-masthead ─────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-utility` (collision max-width). */

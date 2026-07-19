@@ -43,7 +43,7 @@ const backHref = data?.back_href ?? (isFr ? '/' : '/en');
 const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (data?.back_label_en ?? '← Back to home');
 ---
 
-<section class="welcome">
+<section class="welcome" data-bg={data?.background}>
   <div class="wrap-wide welcome-wrap">
     <div class="welcome-mark" aria-hidden="true">
       <svg viewBox="0 0 64 64" width="64" height="64">
@@ -190,4 +190,20 @@ const backLabel = isFr ? (data?.back_label_fr ?? "← Retour à l'accueil") : (d
   @media (max-width: 600px) {
     .welcome-step { grid-template-columns: 1fr; gap: var(--space-2); }
   }
+
+  /* ── Axe déclinaison #118 : fonds (défaut ABSENT = paper, rendu inchangé).
+     paper-2/paper-3 = écran teinté ; ink = confirmation sur encre (textes + cartes en paper). ── */
+  .welcome[data-bg='paper-2'] { background: var(--paper-2); }
+  .welcome[data-bg='paper-3'] { background: var(--paper-3); }
+  .welcome[data-bg='ink'] { background: var(--ink); }
+  .welcome[data-bg='ink'] .welcome-h1 { color: var(--paper); }
+  .welcome[data-bg='ink'] .welcome-lede { color: rgba(var(--paper-rgb), 0.72); }
+  .welcome[data-bg='ink'] .welcome-step {
+    background: rgba(var(--paper-rgb), 0.04);
+    border-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .welcome[data-bg='ink'] .welcome-step-title { color: var(--paper); }
+  .welcome[data-bg='ink'] .welcome-step-text { color: rgba(var(--paper-rgb), 0.6); }
+  .welcome[data-bg='ink'] .welcome-foot { border-top-color: rgba(var(--paper-rgb), 0.14); color: rgba(var(--paper-rgb), 0.55); }
+  .welcome[data-bg='ink'] .welcome-back { color: rgba(var(--paper-rgb), 0.55); }
 </style>

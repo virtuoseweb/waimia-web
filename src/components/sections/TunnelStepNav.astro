@@ -23,7 +23,7 @@ const cta_label  = lang === 'fr' ? cta.label_fr  : cta.label_en;
 const reading    = lang === 'fr' ? reading_fr     : reading_en;
 ---
 
-<footer class="tunnel-step-nav wrap-wide">
+<footer class="tunnel-step-nav wrap-wide" data-bg={data.background}>
   {prev_href && (
     <a href={prev_href} class="tunnel-step-nav__btn-ghost">
       {prev_label}
@@ -105,4 +105,27 @@ const reading    = lang === 'fr' ? reading_fr     : reading_en;
 @media (max-width: 700px) {
   .tunnel-step-nav__meta { margin-left: 0; width: 100%; }
 }
+
+/* ── Axe déclinaison #118 : fonds (défaut ABSENT = transparent/paper, rendu inchangé).
+   paper-2/paper-3 = barre teintée ; ink = barre sur encre (textes/bordures en paper,
+   CTA primaire inversé pour rester lisible). ── */
+.tunnel-step-nav[data-bg='paper-2'] { background: var(--paper-2); }
+.tunnel-step-nav[data-bg='paper-3'] { background: var(--paper-3); }
+.tunnel-step-nav[data-bg='ink'] {
+  background: var(--ink);
+  border-top-color: rgba(var(--paper-rgb), 0.14);
+}
+.tunnel-step-nav[data-bg='ink'] .tunnel-step-nav__btn-ghost {
+  color: var(--paper);
+  border-color: rgba(var(--paper-rgb), 0.24);
+}
+.tunnel-step-nav[data-bg='ink'] .tunnel-step-nav__btn-ghost:hover { border-color: var(--paper); }
+.tunnel-step-nav[data-bg='ink'] .tunnel-step-nav__btn-cta--primary { background: var(--paper); color: var(--ink); }
+.tunnel-step-nav[data-bg='ink'] .tunnel-step-nav__btn-cta--ghost {
+  color: var(--paper);
+  border-color: rgba(var(--paper-rgb), 0.24);
+}
+.tunnel-step-nav[data-bg='ink'] .tunnel-step-nav__meta-reading,
+.tunnel-step-nav[data-bg='ink'] .tunnel-step-nav__meta-back { color: rgba(var(--paper-rgb), 0.55); }
+.tunnel-step-nav[data-bg='ink'] .tunnel-step-nav__meta-back:hover { color: var(--paper); }
 </style>

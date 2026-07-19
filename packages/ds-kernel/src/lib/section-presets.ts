@@ -1942,8 +1942,67 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'hero-trizone--ink', type: 'hero-trizone', label: 'Hero trois zones · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
   ],
   // Figé (0 preset, consigné) : hero-manifesto (fond ink figé, aucun data-bg),
-  // hero-problem-index (branche HeroCentered sans attribut data-bg), tunnel-step-hero
-  // (HeroTunnelStep force bg=undefined pour ce type). Aucun preset bg possible.
+  // tunnel-step-hero (HeroTunnelStep force bg=undefined pour ce type). Aucun preset bg possible.
+
+  // ── #118 · axe de déclinaison « fond » donné aux types qui n'en avaient AUCUN ──────────
+  //  DÉFAUT ABSENT = rendu signature inchangé (byte-identique) ; les presets ci-dessous
+  //  n'exposent QUE les valeurs NON-défaut (no-op interdit). Idiome data-bg modèle BentoGrid.
+  //  ink-base (roi-band, closing-cta-band) → presets clairs ; paper-base → presets teintés + ink.
+  'roi-band': [
+    { id: 'roi-band--paper', type: 'roi-band', label: 'Bande ROI · papier', family: 'solutions', era: '2024', props: { background: 'paper' } },
+    { id: 'roi-band--paper-2', type: 'roi-band', label: 'Bande ROI · papier 2', family: 'solutions', era: '2025', props: { background: 'paper-2' } },
+    { id: 'roi-band--paper-3', type: 'roi-band', label: 'Bande ROI · papier 3', family: 'solutions', era: '2025', props: { background: 'paper-3' } },
+  ],
+  'closing-cta-band': [
+    { id: 'closing-cta-band--paper', type: 'closing-cta-band', label: 'CTA de clôture · papier', family: 'editorial', era: '2024', props: { background: 'paper' } },
+    { id: 'closing-cta-band--paper-2', type: 'closing-cta-band', label: 'CTA de clôture · papier 2', family: 'editorial', era: '2025', props: { background: 'paper-2' } },
+    { id: 'closing-cta-band--paper-3', type: 'closing-cta-band', label: 'CTA de clôture · papier 3', family: 'editorial', era: '2025', props: { background: 'paper-3' } },
+  ],
+  'trust-legal-section': [
+    { id: 'trust-legal-section--paper-2', type: 'trust-legal-section', label: 'Trust center · masthead papier 2', family: 'utility', era: '2025', props: { background: 'paper-2' } },
+    { id: 'trust-legal-section--paper-3', type: 'trust-legal-section', label: 'Trust center · masthead papier 3', family: 'utility', era: '2025', props: { background: 'paper-3' } },
+    { id: 'trust-legal-section--ink', type: 'trust-legal-section', label: 'Trust center · masthead encre', family: 'utility', era: '2026', props: { background: 'ink' } },
+  ],
+  'list-index-section': [
+    { id: 'list-index-section--paper-2', type: 'list-index-section', label: 'Index liste · masthead papier 2', family: 'utility', era: '2025', props: { background: 'paper-2' } },
+    { id: 'list-index-section--paper-3', type: 'list-index-section', label: 'Index liste · masthead papier 3', family: 'utility', era: '2025', props: { background: 'paper-3' } },
+    { id: 'list-index-section--ink', type: 'list-index-section', label: 'Index liste · masthead encre', family: 'utility', era: '2026', props: { background: 'ink' } },
+  ],
+  'welcome-section': [
+    { id: 'welcome-section--paper-2', type: 'welcome-section', label: 'Confirmation · papier 2', family: 'utility', era: '2025', props: { background: 'paper-2' } },
+    { id: 'welcome-section--paper-3', type: 'welcome-section', label: 'Confirmation · papier 3', family: 'utility', era: '2025', props: { background: 'paper-3' } },
+    { id: 'welcome-section--ink', type: 'welcome-section', label: 'Confirmation · encre', family: 'utility', era: '2026', props: { background: 'ink' } },
+  ],
+  'prose-aside': [
+    { id: 'prose-aside--paper-2', type: 'prose-aside', label: 'Prose + aside · papier 2', family: 'editorial', era: '2025', props: { background: 'paper-2' } },
+    { id: 'prose-aside--paper-3', type: 'prose-aside', label: 'Prose + aside · papier 3', family: 'editorial', era: '2025', props: { background: 'paper-3' } },
+    { id: 'prose-aside--ink', type: 'prose-aside', label: 'Prose + aside · encre', family: 'editorial', era: '2026', props: { background: 'ink' } },
+  ],
+  'publications-panel': [
+    { id: 'publications-panel--paper-2', type: 'publications-panel', label: 'Publications · papier 2', family: 'editorial', era: '2025', props: { background: 'paper-2' } },
+    { id: 'publications-panel--paper-3', type: 'publications-panel', label: 'Publications · papier 3', family: 'editorial', era: '2025', props: { background: 'paper-3' } },
+    { id: 'publications-panel--ink', type: 'publications-panel', label: 'Publications · encre', family: 'editorial', era: '2026', props: { background: 'ink' } },
+  ],
+  'signed-writing-list': [
+    { id: 'signed-writing-list--paper-2', type: 'signed-writing-list', label: 'Écrits signés · papier 2', family: 'editorial', era: '2025', props: { background: 'paper-2' } },
+    { id: 'signed-writing-list--paper-3', type: 'signed-writing-list', label: 'Écrits signés · papier 3', family: 'editorial', era: '2025', props: { background: 'paper-3' } },
+    { id: 'signed-writing-list--ink', type: 'signed-writing-list', label: 'Écrits signés · encre', family: 'editorial', era: '2026', props: { background: 'ink' } },
+  ],
+  'used-service-callout': [
+    { id: 'used-service-callout--paper-2', type: 'used-service-callout', label: 'Offre utilisée · papier 2', family: 'editorial', era: '2025', props: { background: 'paper-2' } },
+    { id: 'used-service-callout--paper-3', type: 'used-service-callout', label: 'Offre utilisée · papier 3', family: 'editorial', era: '2025', props: { background: 'paper-3' } },
+    { id: 'used-service-callout--ink', type: 'used-service-callout', label: 'Offre utilisée · encre', family: 'editorial', era: '2026', props: { background: 'ink' } },
+  ],
+  'tunnel-step-nav': [
+    { id: 'tunnel-step-nav--paper-2', type: 'tunnel-step-nav', label: 'Nav de tunnel · papier 2', family: 'navigation', era: '2025', props: { background: 'paper-2' } },
+    { id: 'tunnel-step-nav--paper-3', type: 'tunnel-step-nav', label: 'Nav de tunnel · papier 3', family: 'navigation', era: '2025', props: { background: 'paper-3' } },
+    { id: 'tunnel-step-nav--ink', type: 'tunnel-step-nav', label: 'Nav de tunnel · encre', family: 'navigation', era: '2026', props: { background: 'ink' } },
+  ],
+  'hero-problem-index': [
+    { id: 'hero-problem-index--paper-2', type: 'hero-problem-index', label: 'Hero problèmes · papier 2', family: 'hero', era: '2025', props: { background: 'paper-2' } },
+    { id: 'hero-problem-index--paper-3', type: 'hero-problem-index', label: 'Hero problèmes · papier 3', family: 'hero', era: '2025', props: { background: 'paper-3' } },
+    { id: 'hero-problem-index--ink', type: 'hero-problem-index', label: 'Hero problèmes · encre', family: 'hero', era: '2026', props: { background: 'ink' } },
+  ],
 };
 
 /** Liste les presets d'un type (vide si aucun). */

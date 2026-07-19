@@ -12,6 +12,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('signed-writing-list'),
+  // Axe de déclinaison (#118) : fond. DÉFAUT ABSENT = paper (rendu inchangé) ;
+  // paper-2/paper-3/ink déclinent l'index d'écrits (modèle BentoGrid data-bg).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   title_fr: z.string(),

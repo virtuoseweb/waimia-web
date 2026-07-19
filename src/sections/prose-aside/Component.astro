@@ -14,7 +14,7 @@ interface Props {
 const { data, lang } = Astro.props;
 const kicker = lang === 'en' ? data.kicker_en : data.kicker_fr;
 ---
-<section class="prose-aside g12 g12--full reveal">
+<section class="prose-aside g12 g12--full reveal" data-bg={data.background}>
   <header class="col-3 section-eyebrow">
     <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
   </header>
@@ -87,4 +87,17 @@ const kicker = lang === 'en' ? data.kicker_en : data.kicker_fr;
       grid-column: 1 / -1;
     }
   }
+
+  /* ── Axe déclinaison #118 : fonds (défaut ABSENT = paper, rendu inchangé).
+     paper-2/paper-3 = tuiles claires ; ink = colonne de prose sur encre (textes en paper). ── */
+  .prose-aside[data-bg='paper-2'] { background: var(--paper-2); }
+  .prose-aside[data-bg='paper-3'] { background: var(--paper-3); }
+  .prose-aside[data-bg='ink'] {
+    background: var(--ink);
+    border-top-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .prose-aside[data-bg='ink'] .prose-aside__prose { color: rgba(var(--paper-rgb), 0.72); }
+  .prose-aside[data-bg='ink'] .prose-aside__prose :global(h2),
+  .prose-aside[data-bg='ink'] .prose-aside__prose :global(h3),
+  .prose-aside[data-bg='ink'] .prose-aside__prose :global(strong) { color: var(--paper); }
 </style>

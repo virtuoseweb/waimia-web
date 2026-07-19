@@ -56,7 +56,7 @@ const revisedLabel = finalRevisedAt
   : null;
 ---
 
-<section class="trust-hd">
+<section class="trust-hd" data-bg={data?.background}>
   <div class="wrap-wide">
     <Kicker class="trust-kicker"><Bi fr={finalKickerFr} en={finalKickerEn} /></Kicker>
     <h1 class="trust-h1 reveal u-serif-accent">
@@ -238,4 +238,21 @@ const revisedLabel = finalRevisedAt
       border-bottom: 1px solid var(--hairline);
     }
   }
+
+  /* ── Axe déclinaison #118 : fond du masthead (défaut ABSENT = paper, rendu inchangé).
+     paper-2/paper-3 = bande d'en-tête teintée ; ink = masthead sur encre (textes en paper).
+     Le corps + TOC restent inchangés (l'axe ne cible que la bande d'en-tête). ── */
+  .trust-hd[data-bg='paper-2'] { background: var(--paper-2); }
+  .trust-hd[data-bg='paper-3'] { background: var(--paper-3); }
+  .trust-hd[data-bg='ink'] {
+    background: var(--ink);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .trust-hd[data-bg='ink'] .trust-h1 { color: var(--paper); }
+  .trust-hd[data-bg='ink'] .trust-lede { color: rgba(var(--paper-rgb), 0.72); }
+  .trust-hd[data-bg='ink'] .trust-meta,
+  .trust-hd[data-bg='ink'] .trust-legal-footer,
+  .trust-hd[data-bg='ink'] .trust-footer-version { color: rgba(var(--paper-rgb), 0.55); }
+  .trust-hd[data-bg='ink'] .trust-legal-footer { border-top-color: rgba(var(--paper-rgb), 0.14); }
+  .trust-hd[data-bg='ink'] :global(.trust-kicker) { color: rgba(var(--paper-rgb), 0.7); }
 </style>

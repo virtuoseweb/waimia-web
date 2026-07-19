@@ -6,6 +6,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('tunnel-step-nav'),
+  // Axe de déclinaison (#118) : fond. DÉFAUT ABSENT = transparent/paper (rendu inchangé) ;
+  // paper-2/paper-3/ink teintent la barre de navigation de tunnel (modèle BentoGrid data-bg).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   prev_href: z.string().optional(),
   prev_label_fr: z.string().default('← Étape précédente'),
   prev_label_en: z.string().default('← Previous step'),

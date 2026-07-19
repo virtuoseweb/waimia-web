@@ -22,7 +22,7 @@ const titleFor = (item: SignedWritingListData['items'][number]) =>
 const excerptFor = (item: SignedWritingListData['items'][number]) =>
   lang === 'en' ? (item.excerpt_en ?? item.excerpt_fr) : item.excerpt_fr;
 ---
-<section class="signed-writing-list g12 g12--full">
+<section class="signed-writing-list g12 g12--full" data-bg={data.background}>
   <header class="col-12 section-eyebrow reveal">
     <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
     <h2 class="display-md">{title}</h2>
@@ -129,4 +129,17 @@ const excerptFor = (item: SignedWritingListData['items'][number]) =>
       gap: var(--space-2, 8px);
     }
   }
+
+  /* ── Axe déclinaison #118 : fonds (défaut ABSENT = paper, rendu inchangé).
+     paper-2/paper-3 = tuiles claires ; ink = index sur encre (textes/hairlines en paper). ── */
+  .signed-writing-list[data-bg='paper-2'] { background: var(--paper-2); }
+  .signed-writing-list[data-bg='paper-3'] { background: var(--paper-3); }
+  .signed-writing-list[data-bg='ink'] { background: var(--ink); }
+  .signed-writing-list[data-bg='ink'] .display-md,
+  .signed-writing-list[data-bg='ink'] .signed-writing-list__title { color: var(--paper); }
+  .signed-writing-list[data-bg='ink'] .signed-writing-list__date { color: rgba(var(--paper-rgb), 0.55); }
+  .signed-writing-list[data-bg='ink'] .signed-writing-list__excerpt { color: rgba(var(--paper-rgb), 0.72); }
+  .signed-writing-list[data-bg='ink'] .signed-writing-list__item { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .signed-writing-list[data-bg='ink'] .signed-writing-list__item:first-child { border-top-color: rgba(var(--paper-rgb), 0.24); }
+  .signed-writing-list[data-bg='ink'] .signed-writing-list__item:last-child { border-bottom-color: var(--paper); }
 </style>

@@ -6,6 +6,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('list-index-section'),
+  // Axe de déclinaison (#118) : fond du masthead. DÉFAUT ABSENT = paper (rendu inchangé) ;
+  // paper-2/paper-3/ink teintent la bande d'en-tête (modèle BentoGrid data-bg).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),

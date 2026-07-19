@@ -9,6 +9,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('used-service-callout'),
+  // Axe de déclinaison (#118) : fond. DÉFAUT ABSENT = transparent/paper (rendu inchangé) ;
+  // paper-2/paper-3/ink teintent l'encadré de maillage (modèle BentoGrid data-bg).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   /** Intitule de l'encadre. Defaut : « Offre utilisee » / « Service used ». */
   label_fr: z.string().optional(),
   label_en: z.string().optional(),

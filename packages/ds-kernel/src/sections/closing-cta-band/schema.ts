@@ -12,6 +12,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('closing-cta-band'),
+  // Axe de déclinaison (#118) : fond. DÉFAUT ABSENT = ink (rendu signature inchangé) ;
+  // paper/paper-2/paper-3 déclinent la bande CTA de clôture sur fond clair (modèle BentoGrid).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   /** Titre display-lg (HTML autorise pour l'accent <em>), rendu via set:html. */

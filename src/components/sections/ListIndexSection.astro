@@ -30,7 +30,7 @@ const listHtml = isFr ? data?.list_html_fr : data?.list_html_en;
 const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
 ---
 
-<section class="list-hd">
+<section class="list-hd" data-bg={data?.background}>
   <div class="wrap-wide">
     <Kicker class="list-kicker">{finalKicker}</Kicker>
     <h1 class="list-h1 reveal-mask-up u-serif-accent">
@@ -115,4 +115,17 @@ const hasFilters = Astro.slots.has('filters') || Boolean(filtersHtml);
     color: var(--ink-2);
   }
   .list-footer { border-top: 1px solid var(--hairline); }
+
+  /* ── Axe déclinaison #118 : fond du masthead (défaut ABSENT = paper, rendu inchangé).
+     paper-2/paper-3 = bande d'en-tête teintée ; ink = masthead sur encre (textes en paper).
+     Le corps de liste + footer restent inchangés (l'axe ne cible que la bande d'en-tête). ── */
+  .list-hd[data-bg='paper-2'] { background: var(--paper-2); }
+  .list-hd[data-bg='paper-3'] { background: var(--paper-3); }
+  .list-hd[data-bg='ink'] {
+    background: var(--ink);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .list-hd[data-bg='ink'] .list-h1 { color: var(--paper); }
+  .list-hd[data-bg='ink'] .list-lede { color: rgba(var(--paper-rgb), 0.72); }
+  .list-hd[data-bg='ink'] :global(.list-kicker) { color: rgba(var(--paper-rgb), 0.7); }
 </style>

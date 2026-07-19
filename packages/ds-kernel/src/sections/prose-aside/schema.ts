@@ -9,6 +9,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('prose-aside'),
+  // Axe de déclinaison (#118) : fond. DÉFAUT ABSENT = paper (rendu inchangé) ;
+  // paper-2/paper-3/ink déclinent la colonne de prose (modèle BentoGrid data-bg).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   /** Kicker de la colonne aside (ex. « § Pourquoi Waimia »). */
   kicker_fr: z.string(),
   kicker_en: z.string(),

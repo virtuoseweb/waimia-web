@@ -32,7 +32,7 @@ const resources = (data.resources ?? []).map((r) => {
   };
 });
 ---
-<section class="publications-panel g12 g12--full reveal">
+<section class="publications-panel g12 g12--full reveal" data-bg={data.background}>
   <header class="col-12 section-eyebrow">
     <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
     <h2 class="display-md">{title}</h2>
@@ -228,4 +228,27 @@ const resources = (data.resources ?? []).map((r) => {
       justify-self: start;
     }
   }
+
+  /* ── Axe déclinaison #118 : fonds (défaut ABSENT = paper, rendu inchangé).
+     paper-2/paper-3 = tuiles claires ; ink = panneau sur encre (textes/hairlines en paper,
+     y compris le callout manifeste global via :global()). ── */
+  .publications-panel[data-bg='paper-2'] { background: var(--paper-2); }
+  .publications-panel[data-bg='paper-3'] { background: var(--paper-3); }
+  .publications-panel[data-bg='ink'] { background: var(--ink); }
+  .publications-panel[data-bg='ink'] .display-md,
+  .publications-panel[data-bg='ink'] .publications-panel__link,
+  .publications-panel[data-bg='ink'] .publications-panel__row-link { color: var(--paper); }
+  .publications-panel[data-bg='ink'] .publications-panel__pub-meta,
+  .publications-panel[data-bg='ink'] .publications-panel__date,
+  .publications-panel[data-bg='ink'] .publications-panel__row-tag { color: rgba(var(--paper-rgb), 0.55); }
+  .publications-panel[data-bg='ink'] .publications-panel__all { color: var(--paper); }
+  .publications-panel[data-bg='ink'] .publications-panel__list,
+  .publications-panel[data-bg='ink'] .publications-panel__index { border-top-color: rgba(var(--paper-rgb), 0.24); }
+  .publications-panel[data-bg='ink'] .publications-panel__item,
+  .publications-panel[data-bg='ink'] .publications-panel__row { border-bottom-color: rgba(var(--paper-rgb), 0.14); }
+  .publications-panel[data-bg='ink'] :global(.callout-manifesto) {
+    border-top-color: rgba(var(--paper-rgb), 0.24);
+    border-bottom-color: rgba(var(--paper-rgb), 0.24);
+  }
+  .publications-panel[data-bg='ink'] :global(.callout-body) { color: rgba(var(--paper-rgb), 0.72); }
 </style>

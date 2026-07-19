@@ -16,7 +16,7 @@ const isEn = lang === 'en';
 const label = isEn ? (data.label_en ?? 'Service used') : (data.label_fr ?? 'Offre utilisée');
 const links = data.links.map((l) => ({ title: isEn ? l.label_en : l.label_fr, href: l.href }));
 ---
-<section class="used-service-callout">
+<section class="used-service-callout" data-bg={data.background}>
   <p class="used-service-callout__label">{label}</p>
   <div class="used-service-callout__links">
     {links.map((l) => (
@@ -59,4 +59,20 @@ const links = data.links.map((l) => ({ title: isEn ? l.label_en : l.label_fr, hr
   }
   .used-service-callout__link:last-child { border-bottom: none; }
   .used-service-callout__link:hover { color: var(--accent-text); }
+
+  /* ── Axe déclinaison #118 : fonds (défaut ABSENT = transparent/paper, rendu inchangé).
+     paper-2/paper-3 = encadré teinté ; ink = encadré sur encre (bord accent conservé). ── */
+  .used-service-callout[data-bg='paper-2'] { background: var(--paper-2); }
+  .used-service-callout[data-bg='paper-3'] { background: var(--paper-3); }
+  .used-service-callout[data-bg='ink'] {
+    background: var(--ink);
+    border-color: rgba(var(--paper-rgb), 0.14);
+    border-left-color: var(--accent);
+  }
+  .used-service-callout[data-bg='ink'] .used-service-callout__label { color: rgba(var(--paper-rgb), 0.55); }
+  .used-service-callout[data-bg='ink'] .used-service-callout__link {
+    color: var(--paper);
+    border-bottom-color: rgba(var(--paper-rgb), 0.14);
+  }
+  .used-service-callout[data-bg='ink'] .used-service-callout__link:hover { color: var(--accent-text); }
 </style>

@@ -17,7 +17,7 @@ const kicker = isEn ? data.kicker_en : data.kicker_fr;
 const h2Html = isEn ? data.h2_html_en : data.h2_html_fr;
 const buttonLabel = isEn ? data.button_label_en : data.button_label_fr;
 ---
-<section class="closing-cta-band g12 g12--full">
+<section class="closing-cta-band g12 g12--full" data-bg={data.background}>
   <div class="col-prose closing-cta-band__inner reveal">
     <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
     <h2 class="display-lg" set:html={h2Html} />
@@ -65,4 +65,14 @@ const buttonLabel = isEn ? data.button_label_en : data.button_label_fr;
       grid-column: 1 / -1;
     }
   }
+
+  /* ── Axe déclinaison #118 : fonds clairs (défaut ABSENT = ink signature, rendu inchangé).
+     paper/paper-2/paper-3 basculent la bande CTA sur fond clair ; l'accent <em> reste coral. ── */
+  .closing-cta-band[data-bg='paper'],
+  .closing-cta-band[data-bg='paper-2'],
+  .closing-cta-band[data-bg='paper-3'] { color: var(--ink); }
+  .closing-cta-band[data-bg='paper'] { background: var(--paper); }
+  .closing-cta-band[data-bg='paper-2'] { background: var(--paper-2); }
+  .closing-cta-band[data-bg='paper-3'] { background: var(--paper-3); }
+  .closing-cta-band[data-bg^='paper'] .display-lg { color: var(--ink); }
 </style>

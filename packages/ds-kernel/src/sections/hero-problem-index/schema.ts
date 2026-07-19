@@ -6,6 +6,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('hero-problem-index'),
+  // Axe de déclinaison (#118) : fond. DÉFAUT ABSENT = paper (rendu inchangé) ; paper-2/paper-3/ink
+  // déclinent le héros (aligne hero-problem-index sur ses frères HeroCentered, modèle data-bg).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   kicker_fr: z.string(),
   kicker_en: z.string(),
   h1_fr: z.string(),

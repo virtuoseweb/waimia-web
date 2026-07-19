@@ -6,6 +6,9 @@ import { z } from 'zod';
 
 export const schema = z.object({
   type: z.literal('roi-band'),
+  // Axe de déclinaison (#118) : fond. DÉFAUT ABSENT = ink (rendu signature inchangé) ;
+  // paper/paper-2/paper-3 déclinent la bande ROI sur fond clair (modèle BentoGrid data-bg).
+  background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
   eyebrow_fr: z.string().default('§ Preuve macro'),
   eyebrow_en: z.string().default('§ Macro proof'),
   h2_fr: z.string(),
