@@ -219,6 +219,30 @@ function LazyPreview({ type, label }: { type: string; label: string }) {
   );
 }
 
+// ── Lien "comparer" du compteur de déclinaisons (cartes plate + groupe) ────
+// Le compteur "{N} décl." vit DANS le <a> de la carte : on ne peut pas y imbriquer un
+// second <a> (HTML invalide). On le rend donc cliquable directement (role="link" +
+// tabIndex + Enter/Espace) : preventDefault + stopPropagation court-circuitent la
+// navigation du lien de carte parent, puis on navigue vers la fiche #comparer.
+// Rendu visuel inchangé (mêmes classe/tokens), juste cursor:pointer inline en plus.
+function presetLinkProps(type: string, label: string) {
+  const go = (e: { preventDefault(): void; stopPropagation(): void }) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.location.assign(`/library/${type}#comparer`);
+  };
+  return {
+    role: 'link' as const,
+    tabIndex: 0,
+    'aria-label': label,
+    style: { cursor: 'pointer' } as const,
+    onClick: go,
+    onKeyDown: (e: ReactKeyboardEvent<HTMLSpanElement>) => {
+      if (e.key === 'Enter' || e.key === ' ') go(e);
+    },
+  };
+}
+
 // ── Palette de recherche full-text (⌘K / Ctrl+K) ───────────────────────────
 // Overlay role=dialog + listbox plein-texte sur TOUS les types (type + label/family +
 // description + tags + facettes). 0 fetch : opère sur la liste d'items déjà reçue en props.
@@ -1430,7 +1454,12 @@ export default function CatalogueExplorer({
                       <span className="cx-card-kind">{groupBy === 'family' ? 'famille' : 'catégorie'}</span>
                       <span className="cx-card-metrics">
                         {g.presetCount > 0 && (
-                          <span className="cx-card-presets">{g.presetCount} décl.</span>
+                          <span
+                            className="cx-card-presets"
+                            {...presetLinkProps(g.rep, `Voir les ${g.presetCount} déclinaisons de ${g.label}`)}
+                          >
+                            {g.presetCount} décl.
+                          </span>
                         )}
                         <span className="cx-card-stable">
                           {g.stableCount} stable{g.stableCount > 1 ? 's' : ''}
@@ -1523,7 +1552,12 @@ export default function CatalogueExplorer({
                         {fam} · {cat}
                       </span>
                       {it.presetCount > 0 && (
-                        <span className="cx-card-presets">{it.presetCount} décl.</span>
+                        <span
+                          className="cx-card-presets"
+                          {...presetLinkProps(it.type, `Voir les ${it.presetCount} déclinaisons de ${it.type}`)}
+                        >
+                          {it.presetCount} décl.
+                        </span>
                       )}
                     </span>
                   </span>
