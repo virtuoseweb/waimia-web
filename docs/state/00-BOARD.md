@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `57861b27` - 72/87 tâches done (83%).
+État : HEAD `fa1bd697` - 73/87 tâches done (84%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
-| P2 | 19/29 | 66% | P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.3 — `@theme` mort → `@theme inline` (+5) |
+| P2 | 20/29 | 69% | P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles (+4) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 1/3 | 33% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -37,7 +37,7 @@
 | P2.10 — Passe finale Claude Design | P2 | 0/1 | 0% | - |
 | P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 6/7 | 86% | 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 98973f26 feat(ds): P2.11-f arrondi des espacements off-scale aux tokens --space-* (120 déclarations, 46 fichiers) ; 81408f05 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
-| P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 0/1 | 0% | - |
+| P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 1/1 | 100% | adb4c3da feat(ds-tokens): P2.3 @theme mort → @theme inline pointant var(--token-maison) |
 | P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 4/5 | 80% | c6b87a28 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) ; 8391ea7f feat(ds): petit-texte-accent AA sur fond clair (--accent-text defaut accent-sur-clair #A83D20) ; 137632cb docs(plan): P2.4-e done (accent-text AA sur clair, commit 8391ea7) |
 | P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse) | P2 | 2/2 | 100% | 5d975da2 fix(typo): harmoniser heros/headers serif-full -> base sans + accent serif (P2.5, directive 01) ; cf302b92 fix(typo): raccourcir accent serif hero-landing a un mot (P2.5-b) |
 | P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 1/2 | 50% | 53ed1c3b fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) |

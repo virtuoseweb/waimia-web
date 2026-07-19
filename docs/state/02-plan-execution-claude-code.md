@@ -684,9 +684,7 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P2.3 — `@theme` mort → `@theme inline`** pointant `var(--token-maison)` (retirer les hex
-  littéraux de `tokens.css`) pour que le DS Studio repeigne les utilities Tailwind. **Bloque P2.7/P2.8.**
- ▸ *réconcilié 2026-07-19 : à re-scoper, P2.7 a shippé sans lui.*
+- [x] **P2.3 — `@theme` mort → `@theme inline`** pointant `var(--token-maison)` (retirer les hex littéraux de `tokens.css`) pour que le DS Studio repeigne les utilities Tailwind. **Bloque P2.7/P2.8.** ▸ *soldé 2026-07-19 : 15 déclarations → var(--token-maison), set de clés inchangé, live-repaint prouvé (setProperty --accent/--ink repeint .text-accent/.bg-ink), parité pixel 0 diff sur 5 pages ×2 viewports, CSS généré vérifié.* <!-- sb commit=adb4c3da gf1=y -->
 
 ## Chantier P2.4 — Nettoyage variables CSS (vagues différées + arbitrages)
 ### Tâches finies
