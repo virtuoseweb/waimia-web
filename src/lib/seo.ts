@@ -29,9 +29,7 @@ export function organization() {
     },
     sameAs: [
       'https://www.linkedin.com/company/waimia',
-      'https://x.com/waimia_ai',
-      'https://github.com/virtuoseweb/waimia',
-      'https://www.youtube.com/@waimia',
+      'https://share.google/nmlHLC5wQak9TWRPl',
     ],
     knowsAbout: [
       'Claude AI', 'Anthropic', 'agentic systems', 'MCP connectors',
