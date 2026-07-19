@@ -357,3 +357,16 @@ bouton mode **Build ▾**, **micro** (voix), **+** (pièces jointes), bandeau **
   JSON, tokens DS, MCP déjà GF-1'd) — pas l'UI existante de `BuilderCanvas.tsx`.
 
 → Architecture détaillée : **`docs/specs/06-builder-architecture.md`** (en cours de rédaction, post-grounding).
+
+---
+
+## Addendum 2026-07-19 (2ᵉ salve de captures Relume, session atelier V2)
+
+6 captures reçues pendant l'exécution du plan atelier V2 ; patterns UI confirmés/raffinés (référence d'implémentation, vagues 2+) :
+
+1. **Sitemap** : chaque page = colonne de cartes de sections (nom + description courte) ; le pipeline sitemap→wireframe travaille sur ces cartes AVANT tout rendu (V3 pipeline 4 vues).
+2. **Section globale** : panneau « Global · N instances » (badge vert) + bouton DÉTACHER (unlink) : confirme le modèle composants globaux synchronisés `{ref}` + détachement en instance locale (décision : V3+, chantier dédié). Le compteur d'instances lui-même = V2b (`section-instances.generated`).
+3. **Panneau section (wireframe)** : Nom + Description avec bouton « Prompt » (copy générée par IA), composant assigné cliquable (« Header 16 → »), toggles Asset (image/vidéo) et Element (Form/Button), bouton « Generate copy » : la section est un SLOT SÉMANTIQUE dont le composant est remplaçable ; génération de copy = V3 chat MCP.
+4. **Replace Component** : onglets « Suggested / Saved », grille de vignettes wireframe, bouton « Shuffle component » : repris dans B5 (onglets Suggérées/Sauvegardées + bouton Au hasard).
+5. **Facette Category** : liste plate de catégories fonctionnelles (About, Banner, Benefits, Blog…) : équivalent = nos familles/catégories du manifest.
+6. **Facette Layout** : axes Style (Standard/Card/Background/Off-grid/Overlapping/Edge-to-edge) · Text Alignment · Asset Alignment · Columns (1..5+) + toggle « Uncommon » + Clear : filtres par AXES DE PRESET dans le picker (B5, coaching envoyé en vol) ; nos axes couvrent déjà layout/columns/contentAlign/mediaSide/background.
