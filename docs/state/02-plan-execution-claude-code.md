@@ -629,7 +629,7 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P2.0 — Trianguler ce qui a été fait/ghosté** (GF-4, via tes logs/history/branches/worktrees/stash).
+- [x] **P2.0 — Trianguler ce qui a été fait/ghosté** (GF-4, via tes logs/history/branches/worktrees/stash). ▸ *soldé 2026-07-19 : audit docs/audits/07-p2-triangulation (verdicts sourcés + séquencement).* <!-- sb commit=01210cd2 gf1=n -->
   Te poser : commit `5924d29` « harmonisation DS Batch 1 » = quel scope (`git show 5924d29 --stat`) ?
   une branche a-t-elle tenté `@theme inline` (`git branch -a | grep -i theme`) ? `section-presets.ts`
   contient quoi au-delà de hero ? `feat/ds-coherence-v4b-phantom-color` + stash `feat/library-heroes-enrich`
