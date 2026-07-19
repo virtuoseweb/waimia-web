@@ -2,13 +2,13 @@
 
 # 00 - Board (généré)
 
-État : HEAD `c879c1af` - 65/87 tâches done (75%).
+État : HEAD `e45e4a74` - 67/87 tâches done (77%).
 
 ## Avancement par phase
 
 | Phase | done/total | % | Reste (tâches `[ ]`, cappé 5) |
 | --- | --- | --- | --- |
-| P0 | 45/48 | 94% | P0.3-k — Quizz lead magnet ; P0.9-c — Setup Google Business Profile ; P0.9-d — Setup LinkedIn personal brand Simon |
+| P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
 | P2 | 14/29 | 48% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+10) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
@@ -28,7 +28,7 @@
 | P0.6 — Assainissement véridique (fin du décor d'agence) | P0 | 3/3 | 100% | c19a2b48 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) ; c19a2b48 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) ; dd46a5a4 feat(home)!: GATE C · la variante E devient la home live (13 slots, tabs offres, quiz, maillage) + « Où en êtes-vous » remontée avant la tension |
 | P0.7 — Pages légales (conformité, BLOQUANT) | P0 | 2/2 | 100% | b2e9a7db feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer ; b2e9a7db feat(legal): pages mentions-legales, cgv, politique-confidentialite + liens footer |
 | P0.8 — Pricing (offer ladder) — SUPERSEDED par P0.A | P0 | 1/1 | 100% | 8643949b Merge P0.8 — pricing money page 3000€ HT plancher (offer ladder) + métriques honnêtes |
-| P0.9 — Fondations d'acquisition (hors-repo, cash-first) | P0 | 2/4 | 50% | 1200d1ad feat(v7): Phases B+C — cas-usages (5+hub) + audits (2) + diagnostics (2) + routes + nav ; b794106c docs: stratégie Cowork — SEO/GEO, archi 3 piliers, marketing, business, finances + nettoyage/renumérotation |
+| P0.9 — Fondations d'acquisition (hors-repo, cash-first) | P0 | 4/4 | 100% | b794106c docs: stratégie Cowork — SEO/GEO, archi 3 piliers, marketing, business, finances + nettoyage/renumérotation ; e45e4a74 fix(seo): sameAs global Organization = profils vérifiés only (LinkedIn + fiche GBP virtuoseweb) ; e45e4a74 fix(seo): sameAs global Organization = profils vérifiés only (LinkedIn + fiche GBP virtuoseweb) |
 | P1.1 — Recherche keyword gratuite → figer les H1 | P1 | 2/2 | 100% | 10e4c979 docs(strategy/14): journal · alignement modele SWI 20 sections (18/18 pages services conformes) ; b7efa99e content(seo): vague E réécriture services page-par-page · axes kw réels FR |
 | P1.2 — Cluster blog silo « Site web IA » | P1 | 1/1 | 100% | 1ec9363b content(vague5): 4 articles piliers modules orphelins + swap menu triptyque (décision 0011) |
 | P1.3 — GEO (schema, llms.txt, cohérence entité) | P1 | 2/2 | 100% | c8433a5b fix(audit): vague fixes transverses #56-#62 · FAQ system + widgets outils + blog mesh + restructure A1-A6 + contenu + dédup ; b4ac2fda fix(v7-seo): llms.txt promote (solutions périmé→silos v7 + services) + description studio IA + JSON-LD serviceType/priceRange (override page) + meta desc + maillage site-web-intelligent |

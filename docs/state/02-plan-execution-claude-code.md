@@ -383,7 +383,7 @@ _(vide)_
   - Dépend de : P0.3-pre.
 
 **Phase C — conversion (après fondations stables)**
-- [ ] **P0.3-k — Quizz lead magnet** (interactif, Q/R conditionnelles, routage vers l'offre par profil). ▸ *ARBITRAGE Simon (réconcilié 2026-07-19) : les calculateurs on-screen sont livrés ; le quizz routeur-vers-offre + capture lead est-il toujours voulu ?*
+- [ ] **P0.3-k — Quizz lead magnet** (interactif, Q/R conditionnelles, routage vers l'offre par profil). ▸ *REPORTÉ 2026-07-19 (arbitrage Simon, fiche 0023) : « pas utile pour le moment ». Ne pas exécuter sans nouveau signal.*
   - Objectif : étude de marché + lead gen + routage. S'appuie sur collections `tunnels` + `outils` existantes. Branché sur les landings `/lp/`.
   - Fichiers : `src/content/tunnels/*` ou `src/content/outils/*` (type `audit`), composant quizz.
   - Preuve GF-1 (fonctionnelle) : flow E2E Playwright (réponses → routage correct) + persistance lead vérifiée + build vert.
@@ -538,13 +538,13 @@ _(vide)_
   - Fichiers : `docs/business/06-fiches-offres.md`, `docs/business/07-pitch-rdv.md` (formaliser livrables).
   - Preuve GF-1 : livrables relus, cohérents avec pricing 3 000 € + offer ladder.
   - Dépend de : P0.8.
-- [ ] **P0.9-c — Setup Google Business Profile** (QW1). ▸ *réconcilié 2026-07-19 : RESTE (effort S, côté Simon : GBP photos+avis, hors-repo, bloquant SEO local)*
+- [x] **P0.9-c — Setup Google Business Profile** (QW1). ▸ *soldé 2026-07-19 (arbitrage Simon, fiche 0023) : fiche GBP virtuoseweb réutilisée « pour le moment » ; déjà câblée sameAs LocalBusiness (schema-builder.ts:110, redirection vérifiée kgmid /g/11vx0_x0vf) + sameAs global seo.ts aligné (profils morts x/github retirés). Photos/avis restent côté Simon.* <!-- sb commit=e45e4a74 gf1=y -->
   - Objectif : GBP complet (catégorie agence web/IA, zone Montpellier, 10 photos, description mots-clés,
     FAQ) + demander 3-5 avis clients réels.
   - Fichiers : hors repo (action Simon `[?]` pour photos/avis).
   - Preuve GF-1 : profil publié + URL fournie + cohérence entité avec le site (NAP).
   - Dépend de : P0.6 (identité véridique figée).
-- [ ] **P0.9-d — Setup LinkedIn personal brand Simon** (canal n°1, QW6). ▸ *réconcilié 2026-07-19 : RESTE (effort S, côté Simon)*
+- [x] **P0.9-d — Setup LinkedIn personal brand Simon** (canal n°1, QW6). ▸ *soldé 2026-07-19 (arbitrage Simon, fiche 0023) : page + profil actualisés et prêts (linkedin.com/company/waimia, URL vérifiée 200) ; déjà câblé footer (Footer.astro:117) + sameAs des 2 builders JSON-LD. L'animation du canal reste côté Simon.* <!-- sb commit=e45e4a74 gf1=y -->
   - Objectif : profil optimisé + 3 premiers posts orientés preuve + CTA doux audit (`marketing/04 §1`).
   - Fichiers : hors repo (action Simon `[?]`).
   - Preuve GF-1 : profil/posts publiés + CTA pointant la landing audit (P0.9-a).
