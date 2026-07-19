@@ -214,6 +214,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
         <figure class="eep-cell eep-cell--media eep-cell--media-a">
           <img
             class="eep-img"
+            data-par="-0.06"
             src={variant === 'light' ? img('augmented-self').src : img('site-health').src}
             alt={variant === 'light' ? img('augmented-self').alt : img('site-health').alt}
             loading="lazy"
@@ -266,6 +267,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
         <figure class="eep-cell eep-cell--media eep-cell--media-b">
           <img
             class="eep-img"
+            data-par="-0.06"
             src={variant === 'light' ? img('audience').src : img('growth').src}
             alt={variant === 'light' ? img('audience').alt : img('growth').alt}
             loading="lazy"
@@ -614,6 +616,16 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
     height: 100%;
     min-height: 12rem;
     object-fit: cover;
+  }
+  /* ── MOMENT motion signature (P2.10) · parallaxe de profondeur sur les duotones média ──
+     Le JS scroll-reveal.ts (parallaxe [data-par]) translate l'image au scroll. La cellule
+     clippe (overflow:hidden) ; on donne de la réserve verticale (image plus haute, recentrée)
+     pour que la translation reste couverte sans laisser de bord. reduced-motion : le JS
+     remet transform='' → image statique recentrée (réserve neutre, aucun trou). */
+  .eep-cell--media .eep-img[data-par] {
+    height: calc(100% + 56px);
+    margin-block: -28px;
+    will-change: transform;
   }
   .eep-cap {
     position: absolute;

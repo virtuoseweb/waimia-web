@@ -131,6 +131,7 @@ export function initScrollReveal(): void {
       el.classList.add('is-visible', 'in');
     });
     resetParallax();
+    neutralizeRail();
     return;
   }
   document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
@@ -162,6 +163,7 @@ export function initScrollReveal(): void {
     window.addEventListener('orientationchange', requestResizeReroute, { passive: true });
   }
   initScrollLinkedParallax();
+  initScrollRail();
 }
 
 let parallaxReady = false;
@@ -171,6 +173,58 @@ function resetParallax(): void {
   document.querySelectorAll<HTMLElement>('[data-par]').forEach((el) => {
     el.style.transform = '';
   });
+}
+
+/* ── Rail de progression scroll-driven ([data-rail]) ──
+   Ecrit --rail 0..1 sur chaque piste [data-rail] pendant son entree dans le viewport
+   (0 quand le haut de la piste est a 90% du viewport, 1 a 40%). La CSS interpole
+   (scaleX du ::before de la piste, borne par --rail-to). Meme pattern rAF que la
+   parallaxe. reduced-motion / mobile <=768 : rail fige a 1 (etat final via CSS). */
+const RAIL_MOBILE_MAX = 768;
+let railReady = false;
+let railRaf = 0;
+
+function neutralizeRail(): void {
+  document.querySelectorAll<HTMLElement>('[data-rail]').forEach((el) => {
+    el.style.setProperty('--rail', '1');
+  });
+}
+
+function updateRail(): void {
+  railRaf = 0;
+  const vh = window.innerHeight || 1;
+  const start = vh * 0.9; // --rail = 0
+  const end = vh * 0.4; // --rail = 1
+  document.querySelectorAll<HTMLElement>('[data-rail]').forEach((el) => {
+    const top = el.getBoundingClientRect().top;
+    const raw = (start - top) / (start - end);
+    const p = Math.max(0, Math.min(1, raw));
+    el.style.setProperty('--rail', p.toFixed(4));
+  });
+}
+
+function requestRailUpdate(): void {
+  if (railRaf) return;
+  railRaf = window.requestAnimationFrame(updateRail);
+}
+
+function initScrollRail(): void {
+  if (!document.querySelector('[data-rail]')) return;
+  if (
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ||
+    (window.innerWidth || 0) <= RAIL_MOBILE_MAX
+  ) {
+    neutralizeRail();
+    return;
+  }
+  if (railReady) {
+    requestRailUpdate();
+    return;
+  }
+  railReady = true;
+  window.addEventListener('scroll', requestRailUpdate, { passive: true });
+  window.addEventListener('resize', requestRailUpdate, { passive: true });
+  requestRailUpdate();
 }
 
 function updateParallax(): void {

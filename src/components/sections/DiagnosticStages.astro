@@ -31,6 +31,15 @@ const dgBodyOrder = dgPl?.body?.order;
 const dgBodyHide = dgPl?.body?.hideOn;
 // grid-steps : colonnes imposées ('auto' = nb de stades = rendu actuel via --diag-cols).
 const dgGridCols = dgLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefined;
+
+// ── MOMENT motion signature (P2.10) · rail de progression chorégraphié ──
+// Une ligne accent se dessine le long du filet supérieur de la piste au scroll (JS
+// scroll-reveal.ts → --rail 0→1 sur [data-rail]) et s'arrête au stade « current »
+// (« vous êtes ici » sur le parcours de maturité). Sans current → rail plein (1).
+// reduced-motion / mobile : --rail neutralisé à 1 (état final visible, rail figé).
+const currentIdx = stages.findIndex((s) => s.current);
+// Fraction cible = bord droit du stade current (progrès « jusqu'ici »). Absent → 1.
+const railTo = currentIdx >= 0 ? (currentIdx + 1) / stages.length : 1;
 ---
 <section
   class="diag"
@@ -54,10 +63,11 @@ const dgGridCols = dgLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefi
     )}
     <ol
       class="diag__track reveal-stagger"
-      style={`--diag-cols:${stages.length}`}
+      style={`--diag-cols:${stages.length};--rail-to:${railTo}`}
       data-columns={dgGridCols}
       data-body-order={dgBodyOrder}
       data-body-hide={dgBodyHide}
+      data-rail
     >
       {stages.map((s, i) => {
         const title = isFr ? s.title_fr : s.title_en;
@@ -122,6 +132,30 @@ const dgGridCols = dgLayout === 'grid-steps' ? (data.columns ?? 'auto') : undefi
     margin: 0;
     padding: 0;
     counter-reset: none;
+    position: relative;
+  }
+
+  /* ── MOMENT motion signature (P2.10) · rail de progression scroll-driven ──
+     Ligne accent posée sur le filet supérieur de la piste, dessinée de gauche à droite
+     au scroll (JS scroll-reveal.ts écrit --rail 0→1 sur [data-rail]) et bornée au bord
+     droit du stade « current » (--rail-to). ::before → hors du flux .reveal-stagger > *
+     (pas de conflit de transform avec le stagger). Sans JS = scaleX(0) (invisible, le
+     filet border-top reste). reduced-motion = état final figé (scaleX(--rail-to)). */
+  [data-rail].diag__track::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(calc(var(--rail, 0) * var(--rail-to, 1)));
+    transform-origin: left center;
+    pointer-events: none;
+    z-index: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-rail].diag__track::before { transform: scaleX(var(--rail-to, 1)); }
   }
   .diag__stage { display: flex; border-right: 1px solid var(--hairline); }
   .diag__stage:last-child { border-right: none; }
