@@ -85,9 +85,6 @@ const colorSchemes: BuilderColorScheme[] = COLOR_SCHEMES.map((s) => {
   };
 });
 
-const sectionCount = items.length;
-const presetCount = items.reduce((n, it) => n + it.presets.length, 0);
-
 // ── Pages composables RÉELLES exposées au sélecteur « Charger une page » du builder ──────────────
 // On scanne les collections qui portent un array `sections:` ET dont la route publique est
 // déterministe (préfixe → /route/<id>). Pour chaque entrée non vide, on expose { collection,
@@ -153,11 +150,8 @@ const defaultMeta = {
       <Kicker class="bld-kicker">§ Atelier Design System · Builder visuel</Kicker>
       <h1 class="bld-h1">Compose, <i>ne code pas</i>.</h1>
       <p class="bld-lede">
-        Charge une page existante depuis la barre pour la retrouver en wireframe, ou pioche des
-        sections dans le catalogue à gauche. Ordonne-les dans le canvas, décline chaque section
-        (preset et schéma de couleur) à droite, et vois le rendu en direct. Le document est un
-        PageDocument typé, exportable en JSON. {sectionCount} sections composables, {presetCount}
-        déclinaisons, {pages.length} pages chargeables.
+        Ouvre le projet Waimia pour éditer une page réelle, ou pars d'un brouillon vierge : tout se
+        compose depuis le catalogue de sections.
       </p>
     </div>
   </section>

@@ -206,6 +206,26 @@ export const CSS = `
 .wa-insp-empty { opacity: 0.5; font-style: italic; padding: var(--space-4); text-align: center; }
 .wa-insp-section-title { font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.55; }
 .wa-insp-placement { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+
+/* Bouton d'action secondaire réutilisé (Enregistrer comme variante) : variante « pleine ». */
+.wa-insp-add--primary { border-style: solid; background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.wa-insp-add--primary:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+
+/* Mini-modale « Enregistrer comme variante » (position fixed : échappe au clipping de la colonne). */
+.wa-insp-ov { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: var(--space-5); }
+.wa-insp-ov-backdrop { position: absolute; inset: 0; border: 0; background: rgba(var(--ink-rgb), 0.45); cursor: pointer; }
+.wa-insp-ov-panel {
+  position: relative; z-index: 1; width: min(440px, 94vw);
+  max-height: calc(100dvh - var(--space-10)); overflow: auto;
+  background: var(--paper); border: 1px solid var(--hairline); border-radius: var(--radius-md, 8px);
+  box-shadow: 0 24px 64px rgba(var(--ink-rgb), 0.25);
+  padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-4);
+}
+.wa-insp-modal-title { margin: 0; font-family: var(--font-sans, system-ui, sans-serif); font-size: 1rem; font-weight: 600; color: var(--ink); }
+.wa-insp-modal-note { margin: 0; font-size: 0.78rem; line-height: 1.5; opacity: 0.65; }
+.wa-insp-modal-actions { display: flex; justify-content: flex-end; gap: var(--space-3); }
+.wa-insp-modal-err { margin: 0; font-size: 0.75rem; color: var(--accent-text); }
+.wa-insp-modal-ok { margin: 0; font-size: 0.8rem; font-weight: 600; color: var(--complementary); }
 `;
 
 /** Injecte la feuille de style scopée une seule fois (dédupliquée par id). */

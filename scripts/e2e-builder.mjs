@@ -10,7 +10,16 @@
 // (slug `e2e-smoke`), assertion du statut UI + de la reponse HTTP 200, write->read du
 // fichier src/data/page-variants/e2e-smoke.json (structure : sections non vides, types
 // non vides, meta.slug), cas limite (POST direct doc invalide -> 4xx propre, pas 500),
-// nettoyage du fichier de test.
+// cas limite JSON malforme (400), puis (B10) :
+//   9.  navigation projet REEL : dashboard -> carte Waimia -> sitemap (118 cartes / 11 groupes)
+//       -> ouverture de /services/site-web-ia (14 blocs + bandeau « Page reelle ») ;
+//   10. edition inspecteur (onglet Contenu) -> la vignette du bloc edite recharge avec la valeur,
+//       les autres blocs restent intacts ;
+//   11. save-as-version roundtrip (/api/ds/saved) : write->read serveur + onglet Sauvegardees du
+//       picker + reinsertion + nettoyage DELETE ;
+//   12. custom-preset roundtrip via l'UI du bouton P3 « Enregistrer comme variante »
+//       (POST /api/ds/custom-preset -> GET liste -> DELETE -> GET vide) ;
+// puis nettoyage du/des fichier(s) de test. Total : 12 etapes.
 
 import { chromium } from '@playwright/test';
 import { readFileSync, existsSync, unlinkSync } from 'node:fs';
@@ -223,6 +232,190 @@ async function main() {
       malformedDetail = `fetch echoue : ${e.message}`;
     }
     step('Cas limite JSON malforme (400)', malformedOk, malformedDetail);
+
+    // ── Petits helpers de navigation dans l'app (SPA a ecrans internes) ──────────────────────────
+    const backToProjects = async () => {
+      await page.locator('.bldx-crumb__link', { hasText: 'Projets' }).first().click();
+      await page.locator('[data-testid="dash-open-project"]').waitFor({ state: 'visible', timeout: 15000 });
+    };
+    // Ouvre l'AddPanel et ajoute la 1re vignette (retourne le type ajoute = aria-label).
+    const addFirstThumb = async () => {
+      await page.locator('button.bld-add-trigger').first().click();
+      const thumb = page.locator('[data-testid="add-grid"] .wa-thumb__frame').first();
+      await thumb.waitFor({ state: 'visible', timeout: 15000 });
+      const t = ((await thumb.getAttribute('aria-label')) || '').trim();
+      await thumb.click();
+      return t;
+    };
+
+    // 9. Navigation projet REEL : dashboard -> carte Waimia -> sitemap (118 cartes / 11 groupes) ->
+    //    ouvrir /services/site-web-ia -> 14 blocs + bandeau « Page reelle ».
+    let navOk = false;
+    let navDetail = '';
+    try {
+      await backToProjects();
+      await page.locator('[data-testid="dash-open-project"]').click();
+      const cardSel = '[data-testid="sitemap-page-card"]';
+      await page.locator(cardSel).first().waitFor({ state: 'visible', timeout: 20000 });
+      const cardCount = await page.locator(cardSel).count();
+      const groupCount = await page.locator('[data-testid="sitemap-group"]').count();
+      const targetCard = page.locator(`${cardSel}[data-route="/services/site-web-ia"]`).first();
+      await targetCard.waitFor({ state: 'visible', timeout: 15000 });
+      await targetCard.click();
+      const banner = page.locator('[data-testid="editor-realpage-banner"]');
+      await banner.waitFor({ state: 'visible', timeout: 20000 });
+      const bannerText = (await banner.innerText()).trim();
+      await page.locator('li.bld-block').first().waitFor({ state: 'visible', timeout: 15000 });
+      const blockCount = await page.locator('li.bld-block').count();
+      navOk =
+        cardCount === 118 &&
+        groupCount === 11 &&
+        blockCount === 14 &&
+        /site-web-ia/.test(bannerText);
+      navDetail = `${cardCount} cartes, ${groupCount} groupes, ${blockCount} blocs, bandeau «${bannerText}»`;
+    } catch (e) {
+      navDetail = `echec navigation : ${e.message}`;
+    }
+    step('Navigation projet reel (sitemap 118/11 -> page reelle 14 blocs)', navOk, navDetail);
+
+    // 10. Edition inspecteur -> vignette : sur un brouillon a 2 blocs, editer un champ texte via
+    //     l'onglet Contenu et prouver que SEULE la vignette du bloc edite recharge avec la valeur.
+    const SENTINEL = `E2ESENTINEL${Date.now()}`;
+    let editOk = false;
+    let editDetail = '';
+    try {
+      await backToProjects();
+      await page.locator('[data-testid="dash-new-draft"]').click();
+      await page.locator('button.bld-add-trigger').first().waitFor({ state: 'visible', timeout: 15000 });
+      await addFirstThumb();
+      await page.locator('li.bld-block').first().waitFor({ state: 'visible', timeout: 8000 });
+      await addFirstThumb();
+      await page.waitForFunction(() => document.querySelectorAll('li.bld-block').length >= 2, null, {
+        timeout: 8000,
+      });
+      // Selectionne le bloc 0 (bouton type de la 1re carte) -> l'inspecteur monte.
+      await page.locator('li.bld-block .bld-card-type').first().click();
+      // Onglet Contenu.
+      await page.locator('.wa-insp-tab', { hasText: 'Contenu' }).click();
+      // 1er champ editable texte/textarea du panneau Contenu.
+      const field = page
+        .locator('.wa-insp-body input.wa-insp-input, .wa-insp-body textarea.wa-insp-textarea')
+        .first();
+      await field.waitFor({ state: 'visible', timeout: 8000 });
+      await field.fill(SENTINEL);
+      // Attend que la vignette du bloc 0 recharge avec la valeur (src GET ou srcdoc POST).
+      const frameHasSentinel = (i) =>
+        page.evaluate(
+          ({ idx, needle }) => {
+            const frames = document.querySelectorAll('li.bld-block iframe.bld-card-frame');
+            const f = frames[idx];
+            if (!f) return false;
+            const src = f.getAttribute('src') || '';
+            const srcdoc = f.getAttribute('srcdoc') || '';
+            return src.includes(needle) || src.includes(encodeURIComponent(needle)) || srcdoc.includes(needle);
+          },
+          { idx: i, needle: SENTINEL },
+        );
+      let block0 = false;
+      for (let i = 0; i < 30; i += 1) {
+        block0 = await frameHasSentinel(0);
+        if (block0) break;
+        await page.waitForTimeout(200);
+      }
+      const block1 = await frameHasSentinel(1);
+      editOk = block0 === true && block1 === false;
+      editDetail = `bloc edite reflete=${block0}, autre bloc intact=${!block1}`;
+    } catch (e) {
+      editDetail = `echec edition : ${e.message}`;
+    }
+    step('Edition Contenu -> vignette du bloc edite rechargee (pas les autres)', editOk, editDetail);
+
+    // 11. Save-as-version roundtrip : « Enregistrer comme version » -> /api/ds/saved write->read ->
+    //     onglet Sauvegardees du picker -> reinsertion -> nettoyage DELETE.
+    const VERSION_LABEL = `E2e Version ${Date.now()}`;
+    let savedOk = false;
+    let savedDetail = '';
+    let savedId = '';
+    try {
+      const blocksBefore = await page.locator('li.bld-block').count();
+      // Ouvre la mini-modale d'hote via l'outil ⭳ de la 1re carte.
+      await page.locator('li.bld-block .bld-card-tool[title="Enregistrer comme version"]').first().click();
+      const vInput = page.locator('.bldx-ov__panel--narrow input.bld-input');
+      await vInput.waitFor({ state: 'visible', timeout: 8000 });
+      await vInput.fill(VERSION_LABEL);
+      await page.locator('.bldx-save__confirm').click();
+      // La modale se ferme apres succes (POST + refresh).
+      await page.locator('.bldx-save__confirm').waitFor({ state: 'hidden', timeout: 10000 });
+      // write->read serveur.
+      const listRes = await fetch(`${BASE}/api/ds/saved`);
+      const listJson = await listRes.json().catch(() => null);
+      const entry = listJson && Array.isArray(listJson.sections)
+        ? listJson.sections.find((s) => s && s.label === VERSION_LABEL)
+        : null;
+      savedId = entry ? entry.id : '';
+      // Onglet Sauvegardees du picker : l'entree apparait.
+      await page.locator('button.bld-add-trigger').first().click();
+      await page.locator('.wa-add__tab', { hasText: 'Sauvegard' }).click();
+      const savedThumbs = page.locator('[data-testid="saved-grid"] .wa-thumb__frame');
+      await savedThumbs.first().waitFor({ state: 'visible', timeout: 8000 });
+      const savedShown = await savedThumbs.count();
+      // Reinsertion : clic sur la vignette sauvegardee -> +1 bloc.
+      await savedThumbs.first().click();
+      await page.waitForFunction(
+        (n) => document.querySelectorAll('li.bld-block').length > n,
+        blocksBefore,
+        { timeout: 8000 },
+      );
+      const blocksAfter = await page.locator('li.bld-block').count();
+      // Nettoyage DELETE + relecture vide.
+      let cleaned = false;
+      if (savedId) {
+        const del = await fetch(`${BASE}/api/ds/saved?id=${encodeURIComponent(savedId)}`, { method: 'DELETE' });
+        const delJson = await del.json().catch(() => null);
+        const after = await (await fetch(`${BASE}/api/ds/saved`)).json().catch(() => null);
+        const stillThere = after && Array.isArray(after.sections)
+          ? after.sections.some((s) => s && s.id === savedId)
+          : true;
+        cleaned = del.status === 200 && delJson && delJson.ok === true && !stillThere;
+      }
+      savedOk = !!savedId && savedShown >= 1 && blocksAfter > blocksBefore && cleaned;
+      savedDetail = `id=${savedId || '?'}, vignettes=${savedShown}, blocs ${blocksBefore}->${blocksAfter}, nettoye=${cleaned}`;
+    } catch (e) {
+      savedDetail = `echec save-as-version : ${e.message}`;
+    }
+    step('Save-as-version roundtrip (/api/ds/saved write->read->reinsert->delete)', savedOk, savedDetail);
+
+    // 12. Custom-preset roundtrip via l'UI du bouton P3 : « Enregistrer comme variante » -> POST ok
+    //     -> GET liste la contient -> DELETE nettoyage -> GET vide.
+    const VARIANT_LABEL = `E2e Variante ${Date.now()}`;
+    let variantOk = false;
+    let variantDetail = '';
+    try {
+      // Selectionne un bloc -> inspecteur, onglet Variante (defaut).
+      await page.locator('li.bld-block .bld-card-type').first().click();
+      await page.locator('.wa-insp-tab', { hasText: 'Variante' }).click();
+      await page.locator('[data-testid="variant-save-open"]').click();
+      await page.locator('[data-testid="variant-save-modal"]').waitFor({ state: 'visible', timeout: 8000 });
+      await page.locator('[data-testid="variant-save-label"]').fill(VARIANT_LABEL);
+      const variantId = (await page.locator('[data-testid="variant-save-id"]').inputValue()).trim();
+      await page.locator('[data-testid="variant-save-submit"]').click();
+      await page.locator('[data-testid="variant-save-ok"]').waitFor({ state: 'visible', timeout: 10000 });
+      // GET serveur : la variante existe.
+      const listJson = await (await fetch(`${BASE}/api/ds/custom-preset`)).json().catch(() => null);
+      const present = listJson && Array.isArray(listJson.presets)
+        ? listJson.presets.some((p) => p && p.id === variantId)
+        : false;
+      // DELETE + relecture vide.
+      const del = await fetch(`${BASE}/api/ds/custom-preset?id=${encodeURIComponent(variantId)}`, { method: 'DELETE' });
+      const delJson = await del.json().catch(() => null);
+      const after = await (await fetch(`${BASE}/api/ds/custom-preset`)).json().catch(() => null);
+      const emptied = after && Array.isArray(after.presets) && !after.presets.some((p) => p && p.id === variantId);
+      variantOk = !!variantId && present && del.status === 200 && delJson && delJson.ok === true && emptied;
+      variantDetail = `id=${variantId || '?'}, present=${present}, delete=${del.status}, vide=${emptied}`;
+    } catch (e) {
+      variantDetail = `echec custom-preset : ${e.message}`;
+    }
+    step('Custom-preset roundtrip via UI (POST->GET->DELETE->GET vide)', variantOk, variantDetail);
   } finally {
     await browser.close();
     // 7. Nettoyage du/des fichier(s) de test.

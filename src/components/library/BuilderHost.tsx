@@ -52,6 +52,14 @@ interface SavedEntry {
 /** Contrat de slots par type, tel que servi par section-slots.generated.json (charge a la demande). */
 type SlotsByType = Record<string, { slots: SectionSlot[] }>;
 
+/** Preset resolu passe a l'inspecteur (presets catalogue + variantes custom LIVE de la session). */
+interface PresetOption {
+  id: string;
+  type: string;
+  label: string;
+  props: Record<string, unknown>;
+}
+
 export interface BuilderHostProps {
   items: BuilderCatalogueItem[];
   colorSchemes: BuilderColorScheme[];
@@ -87,6 +95,19 @@ function deriveSlug(collection: string, file: string): string {
 
 /** Cles d'axes de presentation cherchees dans la demo d'un type pour alimenter les facettes du picker. */
 const AXIS_KEYS = ['background', 'layout', 'columns', 'variant', 'density', 'proportion', 'contentAlign', 'align'];
+
+// Axes de presentation surchargeables acceptes par POST /api/ds/custom-preset. MIROIR STRICT de
+// `CUSTOM_PRESET_AXES` (src/integrations/ds-save-dev.mjs) : l'endpoint refuse (400) toute cle hors
+// de cette liste, donc on ne projette QUE ces cles depuis les props de la section (jamais les slots
+// de contenu). Source de verite = l'endpoint ; ce miroir doit rester aligne (1 seul point d'ecriture).
+const CUSTOM_PRESET_AXES = new Set<string>([
+  'background', 'layout', 'density', 'variant', 'rating', 'portrait_src', 'logo_src',
+  'media_register', 'media_src', 'media_alt_fr', 'media_alt_en', 'illustration', 'media_side',
+  'reveal_mode', 'swap_mode', 'speed', 'alternate_blocks', 'reversed', 'media_sticky', 'rounded',
+  'contentAlign', 'actionsAlign', 'columns', 'colRatio', 'itemHeight', 'proportion', 'mediaSide',
+  'direction', 'itemOrder', 'hover', 'cellAlignY', 'cellBg', 'justifyContent', 'colSpan',
+  'features', 'placement',
+]);
 
 /** Extrait les axes scalaires presents dans une demo (aucune valeur en dur : lu depuis les donnees). */
 function pickAxes(demo: SectionInstance): Record<string, string | number | boolean> {
@@ -440,6 +461,10 @@ function InspectorSlot(props: {
 }): React.ReactElement {
   const { sections, selectedUid, itemByType, patchSection } = useBuilder();
   const [presetByUid, setPresetByUid] = useState<Record<string, string>>({});
+  // Variantes CUSTOM enregistrees pendant la session (LIVE) : merge par type dans la liste des
+  // variantes tant que le serveur dev n'a pas redemarre (la liste complete buildee les integrera
+  // au prochain restart, cf note de la modale). Cle = type de section, valeur = presets ajoutes.
+  const [extraPresets, setExtraPresets] = useState<Record<string, PresetOption[]>>({});
 
   const index = sections.findIndex((s) => s.uid === selectedUid);
   const selected = index >= 0 ? sections[index] : null;
@@ -460,7 +485,41 @@ function InspectorSlot(props: {
     (props.slotsByType?.[type]?.slots as SectionSlot[] | undefined) ??
     ((item?.slots as unknown as SectionSlot[]) ?? []);
   const presentationAxes = deriveAxes(slots.filter((s) => s.kind === 'presentation'));
-  const presets = (item?.presets ?? []).map((p) => ({ id: p.id, type, label: p.label, props: p.props }));
+  const presets: PresetOption[] = [
+    ...(item?.presets ?? []).map((p) => ({ id: p.id, type, label: p.label, props: p.props })),
+    ...(extraPresets[type] ?? []),
+  ];
+
+  // Projette les AXES DE PRESENTATION courants (jamais les slots de contenu) : cles limitees au
+  // miroir de l'allowlist de l'endpoint. L'hote fait le POST + integre la variante en LIVE.
+  const saveVariant = async (args: { id: string; label: string }): Promise<{ ok: boolean; error?: string }> => {
+    const axisProps: Record<string, unknown> = {};
+    for (const key of Object.keys(selected.data)) {
+      if (CUSTOM_PRESET_AXES.has(key)) axisProps[key] = (selected.data as Record<string, unknown>)[key];
+    }
+    try {
+      const res = await fetch('/api/ds/custom-preset', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ keyword: 'WAIMIA-SAVE', id: args.id, type, label_fr: args.label, props: axisProps }),
+      });
+      const payload = (await res.json().catch(() => null)) as
+        | { ok?: boolean; error?: string; errors?: string[] }
+        | null;
+      if (res.ok && payload && payload.ok) {
+        setExtraPresets((m) => {
+          const list = m[type] ?? [];
+          if (list.some((p) => p.id === args.id)) return m;
+          return { ...m, [type]: [...list, { id: args.id, type, label: args.label, props: axisProps }] };
+        });
+        return { ok: true };
+      }
+      const detail = Array.isArray(payload?.errors) ? payload!.errors!.join(' · ') : payload?.error;
+      return { ok: false, error: detail || `Echec (HTTP ${res.status}).` };
+    } catch {
+      return { ok: false, error: 'Endpoint indisponible (enregistrement dev uniquement).' };
+    }
+  };
 
   return (
     <>
@@ -473,12 +532,13 @@ function InspectorSlot(props: {
         schemes={props.schemes}
         onChange={(patch) => patchSection(index, patch)}
         onPickPreset={(id) => {
-          const preset = item?.presets.find((x) => x.id === id);
+          const preset = presets.find((x) => x.id === id);
           if (!preset) return;
-          patchSection(index, preset.props);
+          patchSection(index, preset.props as Record<string, unknown>);
           setPresetByUid((m) => ({ ...m, [selected.uid]: id }));
         }}
         selectedPresetId={presetByUid[selected.uid]}
+        onSaveVariant={saveVariant}
       />
       {props.realPage && (
         <ApplyToSite realPage={props.realPage} index={index} data={selected.data} />

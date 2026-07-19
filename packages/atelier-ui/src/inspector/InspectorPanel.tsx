@@ -48,10 +48,12 @@ export function InspectorPanel(props: InspectorPanelProps): React.ReactElement {
       <div className="wa-insp-body" role="tabpanel">
         {tab === 'variant' ? (
           <VariantTab
+            typeId={props.typeId}
             presets={props.presets}
             selectedPresetId={props.selectedPresetId}
             onPickPreset={props.onPickPreset}
             renderPresetThumb={props.renderPresetThumb}
+            onSaveVariant={props.onSaveVariant}
           />
         ) : null}
 

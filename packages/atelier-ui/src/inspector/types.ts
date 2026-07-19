@@ -124,4 +124,11 @@ export interface InspectorPanelProps {
   renderPresetThumb?: (presetId: string) => import('react').ReactNode;
   /** Preset actif (surbrillance). Optionnel. */
   selectedPresetId?: string;
+  /**
+   * Enregistre les AXES DE PRÉSENTATION courants de la section comme VARIANTE custom réutilisable.
+   * L'inspecteur (pur) fournit id + libellé saisis ; l'hôte fait le POST /api/ds/custom-preset (il
+   * connaît le keyword, le type et projette les props). Résout { ok, error? } pour le feedback inline.
+   * Absent → le bouton « Enregistrer comme variante » n'est pas rendu (contexte sans persistance dev).
+   */
+  onSaveVariant?: (args: { id: string; label: string }) => Promise<{ ok: boolean; error?: string }>;
 }
