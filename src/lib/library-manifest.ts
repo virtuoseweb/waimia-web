@@ -116,7 +116,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-offer-detail',     consumers: [] }, // P0.3-h : OffresDetailTemplate (legacy mort) supprimé → catalogue-only (section live via 7 MDX offres composables)
   { id: 'hero-tech-layer',       consumers: ['src/components/templates/TechnologiesDetailTemplate.astro'] },
   { id: 'hero-service-detail',   consumers: [] }, // R6 purge : ServiceDetailTemplate supprimé en R0 (revops full-composable) → catalogue-only
-  { id: 'hero-case-study',       consumers: ['src/components/templates/CaseStudyTemplate.astro'] },
+  { id: 'hero-case-study',       consumers: ['src/pages/cas-clients/[...slug].astro'] }, // CaseStudyTemplate.astro supprimé 2026-07-19 (mort, migré JSON template) → consommateur réel = route composable
   { id: 'hero-utility-masthead', consumers: ['src/components/templates/UtilityTemplate.astro'] },
   { id: 'hero-academy-hub',      consumers: [] }, // P0.2-F : page hub /ecole supprimée (cours stub non vendables) → catalogue-only
   { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnelTemplate.astro'] },
@@ -149,12 +149,12 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-stack-rhythm',     consumers: [] },
   { id: 'hero-magazine-cover',   consumers: [] },
   { id: 'proof-bar',             consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'method-timeline',       consumers: ['src/components/templates/CaseStudyTemplate.astro'] },
+  { id: 'method-timeline',       consumers: ['src/pages/cas-clients/[...slug].astro'] }, // CaseStudyTemplate.astro supprimé 2026-07-19 (mort, migré JSON template) → consommateur réel = route composable
   { id: 'feature-grid',          consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'social-proof',          consumers: ['src/pages/index.astro'] },
   { id: 'ecosystem-partners',    consumers: [] },
   { id: 'faq-accordion',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/CaseStudyTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // home = organism BookSession (twin merge) → cta-final après migration · R6 : ServiceDetail/Hub purgés (R0), UtilityTemplate ajouté (consommateur réel)
+  { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // home = organism BookSession (twin merge) → cta-final après migration · R6 : ServiceDetail/Hub purgés (R0), UtilityTemplate ajouté (consommateur réel) · CaseStudyTemplate.astro supprimé 2026-07-19 (mort, n'utilisait pas cta-final via la nouvelle route JSON)
   { id: 'cta-band',              consumers: ['src/components/templates/TrustLegalTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/components/templates/EssayTemplate.astro'] }, // R6 : ListIndexTemplate fusionné dans UtilityTemplate (variant list)
   // backfill 2026-06-08 — 7 ids présents au registry, consommés par des pages live (vérifié grep src/pages)
   { id: 'tier-pyramid-svg',      consumers: [] }, // R6 : /offres supprimé ; aucun consumer live (catalogue-only)

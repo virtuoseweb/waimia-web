@@ -830,6 +830,14 @@
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
       {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -872,19 +880,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 10,
       "samples": [
         "0.1em",
         "100%",
-        "10px",
-        "14px",
         "1px",
         "240px",
         "320px",
-        "700px"
+        "700px",
+        "768px",
+        "860px"
       ]
     },
-    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-5 --space-6. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (0.1em, 100%, 10px)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (0.1em, 100%, 1px)."
   },
   {
     "id": "article-grid",
@@ -1904,6 +1912,126 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 900px)."
   },
   {
+    "id": "bordered-pullquote",
+    "component": {
+      "name": "BorderedPullquote",
+      "path": "src/sections/bordered-pullquote/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "manifesto-sections",
+    "subcategory": "Editorial Sections",
+    "tags": [
+      "author",
+      "bordered",
+      "editorial",
+      "manifesto",
+      "pullquote",
+      "quote"
+    ],
+    "status": "stable",
+    "description_fr": "Citation manifeste a filet gauche : corps large avec accent italique + signature mono. Rendu du corps en HTML (accent <i>).",
+    "description_en": "Bordered manifesto pull-quote: large body with italic accent + mono signature. Body rendered as HTML (<i> accent).",
+    "schemaFields": [
+      {
+        "name": "cite_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cite_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "quote_html_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "quote_html_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "ap-pullquote",
+      "author-pullquote",
+      "bordered-pullquote",
+      "bordered-pullquote__cite",
+      "bordered-pullquote__quote"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 5,
+      "samples": [
+        "-0.015em",
+        "0.12em",
+        "1px",
+        "24px",
+        "900px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-12 --space-5 --space-8. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.015em, 0.12em, 1px)."
+  },
+  {
     "id": "branded-callout",
     "component": {
       "name": "BrandedCallout",
@@ -1951,6 +2079,11 @@
         "required": false
       },
       {
+        "name": "bodyHtml",
+        "type": "boolean",
+        "required": false
+      },
+      {
         "name": "cta",
         "type": "object",
         "required": false
@@ -1974,6 +2107,12 @@
         "name": "kicker_fr",
         "type": "string",
         "required": true
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "constraint": "rail"
       }
     ],
     "scopedClasses": [
@@ -1986,6 +2125,10 @@
       "branded-callout__kicker"
     ],
     "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
@@ -2047,8 +2190,16 @@
         "value": "0.75rem"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
       },
       {
         "name": "--space-9",
@@ -2065,17 +2216,18 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 7,
       "samples": [
         "-0.022em",
-        "18px",
         "1px",
-        "20px",
+        "2px",
+        "3px",
         "640px",
+        "64px",
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-9. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.022em, 18px, 1px)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.022em, 1px, 2px)."
   },
   {
     "id": "breadcrumb-bar",
@@ -2709,6 +2861,10 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -2731,7 +2887,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 14,
+      "count": 12,
       "samples": [
         "-0.015em",
         "-0.02em",
@@ -2739,11 +2895,11 @@
         "0.04em",
         "0px",
         "100%",
-        "10px",
-        "12px"
+        "12px",
+        "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 14 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.015em, -0.02em, -2px)."
   },
   {
     "id": "case-split",
@@ -2931,6 +3087,10 @@
         "value": "1.5rem"
       },
       {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
@@ -2949,7 +3109,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 9,
       "samples": [
         "-0.016em",
         "-0.01em",
@@ -2957,11 +3117,11 @@
         "0.1em",
         "100%",
         "1px",
-        "20px",
-        "22px"
+        "420px",
+        "480px"
       ]
     },
-    "agentGuide": "Espacement : --space-3 --space-4 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (-0.016em, -0.01em, -2px)."
+    "agentGuide": "Espacement : --space-3 --space-4 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-0.016em, -0.01em, -2px)."
   },
   {
     "id": "case-spotlight",
@@ -3455,6 +3615,139 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-4px, 1px, 3px)."
   },
   {
+    "id": "closing-cta-band",
+    "component": {
+      "name": "ClosingCtaBand",
+      "path": "src/sections/closing-cta-band/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "tags": [
+      "author",
+      "band",
+      "closing",
+      "conversion",
+      "cta",
+      "ink"
+    ],
+    "status": "stable",
+    "description_fr": "Bande CTA de cloture sur fond ink : kicker + titre display-lg (accent italique) + bouton primaire. Titre rendu en HTML (accent <em>).",
+    "description_en": "Closing CTA band on ink: kicker + display-lg title (italic accent) + primary button. Title rendered as HTML (<em> accent).",
+    "schemaFields": [
+      {
+        "name": "button_href",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "button_label_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "button_label_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_html_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_html_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "author-cta",
+      "author-cta-inner",
+      "closing-cta-band",
+      "closing-cta-band__inner",
+      "display-lg",
+      "eyebrow"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-h1",
+        "value": "0.96"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      }
+    ],
+    "tailwindUtils": [
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 6,
+      "samples": [
+        "-0.015em",
+        "12px",
+        "1px",
+        "32px",
+        "820px",
+        "900px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-12 --space-3 --space-6. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-semibold. Dette : 6 litteral(s) hardcode(s) (-0.015em, 12px, 1px)."
+  },
+  {
     "id": "code-showcase",
     "component": {
       "name": "CodeShowcase",
@@ -3827,6 +4120,14 @@
         "value": "0.5rem"
       },
       {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
@@ -3845,17 +4146,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 4,
       "samples": [
         "-0.022em",
         "0.1em",
-        "10px",
-        "18px",
         "1px",
         "640px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-6 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.022em, 0.1em, 10px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.022em, 0.1em, 1px)."
   },
   {
     "id": "commitments-grid",
@@ -4195,7 +4494,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.015em",
         "-0.018em",
@@ -4207,7 +4506,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
   },
   {
     "id": "comparison-duo",
@@ -4460,16 +4759,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 4,
       "samples": [
         "0.14em",
-        "10px",
         "1px",
         "2px",
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (0.14em, 10px, 1px)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (0.14em, 1px, 2px)."
   },
   {
     "id": "comparison-pricing-callout",
@@ -4863,19 +5161,19 @@
       "sr-only"
     ],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 11,
       "samples": [
         "-1px",
         ".14em",
         "100%",
-        "14px",
         "180px",
         "1px",
         "200px",
-        "2px"
+        "2px",
+        "40%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-1px, .14em, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-1px, .14em, 100%)."
   },
   {
     "id": "contact-form",
@@ -5459,14 +5757,13 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 3,
+      "count": 2,
       "samples": [
         "1px",
-        "200px",
-        "20px"
+        "200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 3 litteral(s) hardcode(s) (1px, 200px, 20px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (1px, 200px)."
   },
   {
     "id": "cta-final",
@@ -5476,7 +5773,6 @@
     },
     "usage": "site",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro",
       "src/components/templates/ConversionFunnelTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
@@ -5710,19 +6006,17 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 6,
       "samples": [
         "-2px",
         "1240px",
-        "14px",
         "1px",
-        "28px",
         "540px",
         "560px",
         "880px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-2px, 1240px, 14px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-2px, 1240px, 1px)."
   },
   {
     "id": "cta-form-inline",
@@ -6061,14 +6355,13 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 3,
+      "count": 2,
       "samples": [
         "1px",
-        "200px",
-        "20px"
+        "200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 3 litteral(s) hardcode(s) (1px, 200px, 20px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (1px, 200px)."
   },
   {
     "id": "cta-newsletter-footer",
@@ -6449,6 +6742,129 @@
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-3. Couleur : --accent --ink --muted. Typographie : --font-sans --leading-body. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 240px)."
   },
   {
+    "id": "curriculum-timeline",
+    "component": {
+      "name": "CurriculumTimeline",
+      "path": "src/sections/curriculum-timeline/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Editorial Sections",
+    "tags": [
+      "author",
+      "curriculum",
+      "education",
+      "eeat",
+      "experience",
+      "timeline"
+    ],
+    "status": "stable",
+    "description_fr": "Bloc curriculum : entete + frise verticale (experience / formation / distinctions) sur fond paper-2. Compose l’atome Timeline.",
+    "description_en": "Curriculum block: heading + vertical timeline (experience / education / awards) on paper-2. Composes the Timeline atom.",
+    "schemaFields": [
+      {
+        "name": "emphasis",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "events",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "author-curriculum",
+      "curriculum-timeline",
+      "curriculum-timeline__wrap",
+      "curriculum-wrap",
+      "display-md",
+      "eyebrow",
+      "section-eyebrow",
+      "timeline-vertical"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      }
+    ],
+    "tailwindUtils": [
+      "col-12",
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 5,
+      "samples": [
+        "-0.015em",
+        "1px",
+        "32px",
+        "8px",
+        "900px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-12 --space-2 --space-6. Couleur : --accent-text --paper-2. Typographie : --font-sans --fw-semibold. Dette : 5 litteral(s) hardcode(s) (-0.015em, 1px, 32px)."
+  },
+  {
     "id": "data-table",
     "component": {
       "name": "DataTable",
@@ -6806,15 +7222,14 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 3,
       "samples": [
-        "18px",
         "1px",
         "280px",
         "48px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-6 --space-9. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (18px, 1px, 280px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-6 --space-9. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 280px, 48px)."
   },
   {
     "id": "definition-extract",
@@ -7434,7 +7849,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.015em",
         "-0.018em",
@@ -7446,7 +7861,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
   },
   {
     "id": "department-cta",
@@ -7676,19 +8091,17 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 6,
       "samples": [
         "-2px",
         "1240px",
-        "14px",
         "1px",
-        "28px",
         "540px",
         "560px",
         "880px"
       ]
     },
-    "agentGuide": "Espacement : --space-10 --space-3 --space-4. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-2px, 1240px, 14px)."
+    "agentGuide": "Espacement : --space-10 --space-3 --space-4. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-2px, 1240px, 1px)."
   },
   {
     "id": "department-stack",
@@ -7929,19 +8342,18 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-0.018em",
         "1240px",
         "1px",
-        "28px",
         "480px",
         "600px",
         "760px",
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
   },
   {
     "id": "diagnostic-stages",
@@ -8730,6 +9142,187 @@
     "agentGuide": "Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-9. Couleur : --ink --paper --paper-2. Dette : 1 litteral(s) hardcode(s) (1px)."
   },
   {
+    "id": "editorial-case-grid",
+    "component": {
+      "name": "EditorialCaseGrid",
+      "path": "src/sections/editorial-case-grid/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "tags": [
+      "cards",
+      "case-study",
+      "editorial",
+      "manifesto",
+      "proof",
+      "stagger"
+    ],
+    "status": "stable",
+    "description_fr": "Grille editoriale de cas clients : en-tete numerote + titre + intro, puis cartes EditorialCaseCard en 2 colonnes avec decalage vertical alterne (signature /manifesto Acte IV).",
+    "description_en": "Editorial case-study grid: numbered header + title + intro, then EditorialCaseCard cards in 2 columns with alternating vertical offset (the /manifesto Act IV signature).",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "default": "paper",
+        "constraint": "paper | paper-2 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "intro_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:8"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "num_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "num_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "stagger",
+        "type": "number",
+        "required": false,
+        "default": "60",
+        "constraint": "int min:0 max:120"
+      }
+    ],
+    "scopedClasses": [
+      "accent",
+      "ecg",
+      "ecg__accent",
+      "ecg__acte",
+      "ecg__grid",
+      "ecg__intro",
+      "ecg__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--section-loose",
+        "value": "var(--space-13)"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 6,
+      "samples": [
+        "-0.015em",
+        "-32px",
+        "1200px",
+        "32px",
+        "768px",
+        "820px"
+      ]
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-6 --space-9. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.015em, -32px, 1200px)."
+  },
+  {
     "id": "editorial-dingbat-rule",
     "component": {
       "name": "EditorialDingbatRule",
@@ -9212,6 +9805,10 @@
         "value": "var(--space-11)"
       },
       {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -9234,7 +9831,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 14,
+      "count": 13,
       "samples": [
         "-0.015em",
         "0.14em",
@@ -9246,7 +9843,7 @@
         "32px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-6. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 14 litteral(s) hardcode(s) (-0.015em, 0.14em, 0.1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.015em, 0.14em, 0.1em)."
   },
   {
     "id": "editorial-prose",
@@ -9280,6 +9877,22 @@
         "constraint": "paper | paper-2 | paper-3 | ink"
       },
       {
+        "name": "figures",
+        "type": "array",
+        "required": false,
+        "constraint": "max:3"
+      },
+      {
+        "name": "html_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "html_fr",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "maxWidth",
         "type": "enum",
         "required": false,
@@ -9289,12 +9902,17 @@
     "scopedClasses": [
       "editorial-prose",
       "editorial-prose__col",
+      "editorial-prose__figure",
       "sector-body"
     ],
     "tokensUsed": [
       {
         "name": "--accent-text",
         "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
         "name": "--font-sans",
@@ -9345,6 +9963,10 @@
         "value": "#E6E0D0"
       },
       {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
         "name": "--section-base",
         "value": "var(--space-11)"
       },
@@ -9369,8 +9991,12 @@
         "value": "2rem"
       },
       {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
         "name": "--text-body",
@@ -9385,6 +10011,14 @@
         "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
+        "name": "--text-kicker",
+        "value": "11px"
+      },
+      {
+        "name": "--tracking-kicker",
+        "value": "0.14em"
+      },
+      {
         "name": "--wrap-prose",
         "value": "720px"
       },
@@ -9395,14 +10029,17 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 3,
+      "count": 6,
       "samples": [
         "-0.018em",
+        "100%",
         "1px",
-        "2px"
+        "2px",
+        "700px",
+        "clamp(220px, 32%, 300px)"
       ]
     },
-    "agentGuide": "Layout : `background`, `maxWidth` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (-0.018em, 1px, 2px)."
+    "agentGuide": "Layout : `background`, `maxWidth` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.018em, 100%, 1px)."
   },
   {
     "id": "editorial-split-grid",
@@ -9521,6 +10158,10 @@
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
@@ -9535,17 +10176,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 4,
       "samples": [
         "-0.022em",
         "14px",
-        "18px",
         "1px",
-        "28px",
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.022em, 14px, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.022em, 14px, 1px)."
   },
   {
     "id": "editorial-table-block",
@@ -9781,19 +10420,18 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-0.018em",
         "1240px",
         "1px",
-        "28px",
         "480px",
         "600px",
         "760px",
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
   },
   {
     "id": "editorial-timeline",
@@ -9860,7 +10498,10 @@
       "editorial-timeline",
       "editorial-timeline__col",
       "editorial-timeline__eyebrow",
-      "editorial-timeline__title"
+      "editorial-timeline__title",
+      "timeline-body",
+      "timeline-meta",
+      "timeline-title"
     ],
     "tokensUsed": [
       {
@@ -10036,6 +10677,7 @@
       }
     ],
     "scopedClasses": [
+      "css",
       "write-feed",
       "write-feed__hd",
       "write-feed__meta-link",
@@ -10152,6 +10794,12 @@
         "name": "lead",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "silo",
+        "type": "enum",
+        "required": false,
+        "constraint": "acquisition | commercial | ops | hub | generic"
       },
       {
         "name": "title",
@@ -10442,7 +11090,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 17 litteral(s) hardcode(s) (-0.015em, 0.5em, 100%)."
+    "agentGuide": "Layout : `background`, `silo`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 17 litteral(s) hardcode(s) (-0.015em, 0.5em, 100%)."
   },
   {
     "id": "faq-accordion",
@@ -10586,15 +11234,14 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 3,
       "samples": [
         "1px",
-        "20px",
         "2px",
         "56px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (1px, 20px, 2px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 2px, 56px)."
   },
   {
     "id": "faq-cta-aside",
@@ -11708,7 +12355,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.015em",
         "-0.018em",
@@ -11720,7 +12367,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
   },
   {
     "id": "feature-split-media",
@@ -12697,16 +13344,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 4,
       "samples": [
         "-0.028em",
         "-2px",
         "1px",
-        "60px",
         "760px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-9. Couleur : --ink --ink-rgb --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (-0.028em, -2px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6 --space-9. Couleur : --ink --ink-rgb --muted. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (-0.028em, -2px, 1px)."
   },
   {
     "id": "footer-cta-band",
@@ -12782,6 +13428,16 @@
         "required": false
       },
       {
+        "name": "kicker_html_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_html_fr",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "layout",
         "type": "enum",
         "required": false,
@@ -12806,6 +13462,22 @@
         "name": "subtitle_fr",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "subtitle_html_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "subtitle_html_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "texture",
+        "type": "enum",
+        "required": false,
+        "constraint": "signature-grid"
       }
     ],
     "scopedClasses": [
@@ -12818,7 +13490,8 @@
       "footer-cta__subtitle",
       "footer-cta--rounded",
       "header",
-      "justify"
+      "justify",
+      "signature-grid"
     ],
     "tokensUsed": [
       {
@@ -12924,7 +13597,7 @@
         "clamp(var(--space-6)"
       ]
     },
-    "agentGuide": "Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `layout`, `texture` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px)."
   },
   {
     "id": "gallery-masonry",
@@ -13305,7 +13978,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -13336,6 +14013,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -13546,6 +14227,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -13628,7 +14313,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -13640,7 +14325,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-asymmetric-grid",
@@ -14155,19 +14840,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 18,
+      "count": 16,
       "samples": [
         "-0.015em",
         "-0.01em",
         ".16em",
         ".18em",
-        "10px",
         "1500px",
         "1px",
-        "25%"
+        "25%",
+        "2px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.015em, -0.01em, .16em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 16 litteral(s) hardcode(s) (-0.015em, -0.01em, .16em)."
   },
   {
     "id": "hero-author",
@@ -15212,7 +15897,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro"
+      "src/pages/cas-clients/[...slug].astro"
     ],
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -15261,6 +15946,12 @@
         "required": true
       },
       {
+        "name": "illustration",
+        "type": "enum",
+        "required": false,
+        "constraint": "left | right"
+      },
+      {
         "name": "specs",
         "type": "array",
         "required": false,
@@ -15281,7 +15972,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -15312,6 +16007,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -15522,6 +16221,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -15604,7 +16307,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -15616,7 +16319,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background`, `illustration` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-centered",
@@ -15693,7 +16396,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -15724,6 +16431,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -15934,6 +16645,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -16016,7 +16731,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -16028,7 +16743,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-centered-band",
@@ -16590,7 +17305,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 34,
       "samples": [
         "-0.015em",
         "-0.035em",
@@ -16599,10 +17314,10 @@
         "0.7em",
         "0.9em",
         "100%",
-        "10px"
+        "120%"
       ]
     },
-    "agentGuide": "Layout : `background`, `media_register`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
+    "agentGuide": "Layout : `background`, `media_register`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
   },
   {
     "id": "hero-course",
@@ -16695,7 +17410,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -16726,6 +17445,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -16936,6 +17659,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -17018,7 +17745,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -17030,7 +17757,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-detail-menu",
@@ -17109,7 +17836,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -17140,6 +17871,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -17350,6 +18085,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -17432,7 +18171,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -17444,7 +18183,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-editorial-kpi",
@@ -17967,6 +18706,11 @@
         "required": false
       },
       {
+        "name": "illustration",
+        "type": "unknown",
+        "required": false
+      },
+      {
         "name": "kicker_en",
         "type": "string",
         "required": true
@@ -18011,7 +18755,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -18042,6 +18790,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -18252,6 +19004,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -18334,7 +19090,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -18346,7 +19102,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-form-inline",
@@ -19199,6 +19955,21 @@
         "name": "lede_fr",
         "type": "string",
         "required": true
+      },
+      {
+        "name": "lede_reveal",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "list_border",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "top_pad",
+        "type": "string",
+        "required": false
       }
     ],
     "scopedClasses": [
@@ -19215,7 +19986,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -19246,6 +20021,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -19456,6 +20235,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -19538,7 +20321,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -19550,7 +20333,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-hub-masthead",
@@ -19667,7 +20450,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -19698,6 +20485,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -19908,6 +20699,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -19990,7 +20785,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -20002,7 +20797,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `align`, `background`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `align`, `background`, `scale`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-hub-stats",
@@ -20012,7 +20807,6 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/agence-web-montpellier.astro",
       "src/pages/agence/index.astro",
       "src/pages/expertise-claude.astro"
     ],
@@ -20304,7 +21098,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 34,
       "samples": [
         "-0.015em",
         "-0.035em",
@@ -20313,10 +21107,10 @@
         "0.7em",
         "0.9em",
         "100%",
-        "10px"
+        "120%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
   },
   {
     "id": "hero-landing",
@@ -20410,7 +21204,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -20441,6 +21239,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -20651,6 +21453,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -20733,7 +21539,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -20745,7 +21551,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-lead-magnet",
@@ -21491,6 +22297,223 @@
       ]
     },
     "agentGuide": "Espacement : --space-10 --space-11 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.015em, 100%, 1px)."
+  },
+  {
+    "id": "hero-manifesto",
+    "component": {
+      "name": "HeroManifesto",
+      "path": "src/sections/hero-manifesto/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "tags": [
+      "canvas",
+      "dark",
+      "editorial",
+      "full-viewport",
+      "hero",
+      "manifesto",
+      "react-island"
+    ],
+    "status": "stable",
+    "description_fr": "Hero editorial de page de marque : fond canvas liquide + 3 zones (meta band, titre display italique + sous-titre, intro + CTA + rangee de pied), plein viewport sombre.",
+    "description_en": "Editorial brand hero: liquid-canvas background + 3 zones (meta band, italic display headline + subhead, intro + CTA + foot row), full-viewport dark.",
+    "schemaFields": [
+      {
+        "name": "cta_primary_href",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_primary_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_primary_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_secondary_href",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_secondary_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cta_secondary_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "eyebrow_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "eyebrow_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "foot",
+        "type": "array",
+        "required": false,
+        "constraint": "max:4"
+      },
+      {
+        "name": "h1_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h1_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "intro_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "meta",
+        "type": "array",
+        "required": false,
+        "constraint": "max:4"
+      },
+      {
+        "name": "subhead_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "subhead_fr",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "scopedClasses": [
+      "accent",
+      "hero-mf",
+      "hero-mf__bottom",
+      "hero-mf__cta",
+      "hero-mf__dim",
+      "hero-mf__foot",
+      "hero-mf__h1",
+      "hero-mf__headline",
+      "hero-mf__inner",
+      "hero-mf__lede",
+      "hero-mf__meta",
+      "hero-mf__subhead",
+      "hero-mf__tag",
+      "liquid-hero"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
+      },
+      {
+        "name": "--wrap-wide",
+        "value": "1560px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 12,
+      "samples": [
+        "-0.02em",
+        "100%",
+        "108px",
+        "10px",
+        "1400px",
+        "14px",
+        "1600px",
+        "33px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-5 --space-7 --space-8. Couleur : --accent-text --ink --paper. Typographie : --font-display --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.02em, 100%, 108px)."
   },
   {
     "id": "hero-masthead-card",
@@ -22405,6 +23428,7 @@
       "hero-detail__copy",
       "hero-detail__eyebrow",
       "hero-detail__geo",
+      "hero-detail__illus",
       "hero-detail__lead",
       "hero-detail__meta",
       "hero-detail__meta--copy",
@@ -22418,6 +23442,9 @@
       "hero-detail--editorial",
       "hero-detail--encadre",
       "hero-detail--equilibre",
+      "hero-detail--illus",
+      "hero-detail--illus-left",
+      "hero-detail--illus-right",
       "hero-detail--showcase",
       "hero-tech-layer",
       "hero-tech-layer__actions",
@@ -22597,7 +23624,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 22,
+      "count": 25,
       "samples": [
         "-0.015em",
         "-50%",
@@ -22609,7 +23636,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 22 litteral(s) hardcode(s) (-0.015em, -50%, 100%)."
+    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 25 litteral(s) hardcode(s) (-0.015em, -50%, 100%)."
   },
   {
     "id": "hero-pillar-hub",
@@ -22906,7 +23933,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 34,
       "samples": [
         "-0.015em",
         "-0.035em",
@@ -22915,10 +23942,10 @@
         "0.7em",
         "0.9em",
         "100%",
-        "10px"
+        "120%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
   },
   {
     "id": "hero-problem-index",
@@ -23002,7 +24029,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -23033,6 +24064,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -23243,6 +24278,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -23325,7 +24364,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -23337,7 +24376,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-scope-minimap",
@@ -23639,6 +24678,11 @@
         "constraint": "equilibre | showcase | encadre | editorial"
       },
       {
+        "name": "illustration",
+        "type": "unknown",
+        "required": false
+      },
+      {
         "name": "lead_en",
         "type": "string",
         "required": true
@@ -23674,6 +24718,7 @@
       "hero-detail__copy",
       "hero-detail__eyebrow",
       "hero-detail__geo",
+      "hero-detail__illus",
       "hero-detail__lead",
       "hero-detail__meta",
       "hero-detail__meta--copy",
@@ -23687,6 +24732,9 @@
       "hero-detail--editorial",
       "hero-detail--encadre",
       "hero-detail--equilibre",
+      "hero-detail--illus",
+      "hero-detail--illus-left",
+      "hero-detail--illus-right",
       "hero-detail--showcase",
       "hero-tech-layer",
       "hero-tech-layer__actions",
@@ -23866,7 +24914,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 22,
+      "count": 25,
       "samples": [
         "-0.015em",
         "-50%",
@@ -23878,7 +24926,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 22 litteral(s) hardcode(s) (-0.015em, -50%, 100%)."
+    "agentGuide": "Layout : `background`, `hero_variant` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 25 litteral(s) hardcode(s) (-0.015em, -50%, 100%)."
   },
   {
     "id": "hero-service-detail",
@@ -23953,7 +25001,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -23984,6 +25036,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -24194,6 +25250,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -24276,7 +25336,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -24288,7 +25348,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-service-masthead",
@@ -24357,7 +25417,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -24388,6 +25452,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -24598,6 +25666,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -24680,7 +25752,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -24692,7 +25764,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "hero-social-proof",
@@ -25279,6 +26351,11 @@
         "required": true
       },
       {
+        "name": "illustration",
+        "type": "unknown",
+        "required": false
+      },
+      {
         "name": "kicker_en",
         "type": "string",
         "required": false
@@ -25328,18 +26405,26 @@
       "acc",
       "btn",
       "hsm",
+      "hsm--illus",
+      "hsm--illus-left",
+      "hsm--illus-right",
       "hsm-badge",
       "hsm-badges",
       "hsm-ctas",
       "hsm-def-kicker",
       "hsm-grid",
+      "hsm-illus",
+      "hsm-illus-wrap",
       "hsm-kicker",
       "hsm-lede",
       "hsm-media",
       "hsm-subtitle",
+      "hsm-text--illus",
       "hsm-title",
+      "hsm-title--illus",
       "masthead-bar",
-      "problem-statement__text"
+      "problem-statement__text",
+      "u-serif-accent"
     ],
     "tokensUsed": [
       {
@@ -25513,19 +26598,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 16,
       "samples": [
         "-0.015em",
         "0px",
         "100%",
         "1px",
+        "38%",
         "45%",
         "50%",
-        "60%",
-        "70%"
+        "60%"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-0.015em, 0px, 100%)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 16 litteral(s) hardcode(s) (-0.015em, 0px, 100%)."
   },
   {
     "id": "hero-stack-rhythm",
@@ -26099,6 +27184,7 @@
       "hero-detail__copy",
       "hero-detail__eyebrow",
       "hero-detail__geo",
+      "hero-detail__illus",
       "hero-detail__lead",
       "hero-detail__meta",
       "hero-detail__meta--copy",
@@ -26112,6 +27198,9 @@
       "hero-detail--editorial",
       "hero-detail--encadre",
       "hero-detail--equilibre",
+      "hero-detail--illus",
+      "hero-detail--illus-left",
+      "hero-detail--illus-right",
       "hero-detail--showcase",
       "hero-tech-layer",
       "hero-tech-layer__actions",
@@ -26291,7 +27380,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 22,
+      "count": 25,
       "samples": [
         "-0.015em",
         "-50%",
@@ -26303,7 +27392,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layer_type` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 22 litteral(s) hardcode(s) (-0.015em, -50%, 100%)."
+    "agentGuide": "Layout : `background`, `layer_type` (schema, 0 CSS). Espacement : --space-10 --space-11 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 25 litteral(s) hardcode(s) (-0.015em, -50%, 100%)."
   },
   {
     "id": "hero-tech-signature",
@@ -27205,6 +28294,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
@@ -27231,19 +28324,18 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-.02em",
         ".06em",
         "100%",
-        "10px",
         "11px",
         "1200px",
         "1px",
         "700px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
   },
   {
     "id": "hero-utility-masthead",
@@ -27326,7 +28418,11 @@
       "hero-case-study__deco",
       "hero-case-study__eyebrow",
       "hero-case-study__h1",
+      "hero-case-study__illus",
       "hero-case-study__mast",
+      "hero-case-study__mast--illus",
+      "hero-case-study__mast--left",
+      "hero-case-study__mast--right",
       "hero-case-study__num",
       "hero-case-study__spec",
       "hero-case-study__spec-l",
@@ -27357,6 +28453,10 @@
       "hero-essay",
       "hero-essay__h1",
       "hero-essay__hd",
+      "hero-essay__hd--illus",
+      "hero-essay__hd--left",
+      "hero-essay__hd--right",
+      "hero-essay__illus",
       "hero-essay__image",
       "hero-essay__kicker",
       "hero-essay__lede",
@@ -27567,6 +28667,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-13",
+        "value": "clamp(calc(10rem * var(--fl-space-shrink)), calc((10rem * var(--fl-space-shrink)) + (10rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 10rem)"
+      },
+      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -27649,7 +28753,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 40,
+      "count": 37,
       "samples": [
         "-0.015em",
         "-0.01em",
@@ -27661,7 +28765,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `align`, `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 40 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
+    "agentGuide": "Layout : `align`, `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-11. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 37 litteral(s) hardcode(s) (-0.015em, -0.01em, -0.028em)."
   },
   {
     "id": "horizontal-showcase",
@@ -28378,6 +29482,10 @@
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-8",
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
@@ -28404,19 +29512,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 9,
       "samples": [
         "-0.02em",
         "-0.03em",
         "1200px",
         "120px",
-        "18px",
         "1px",
         "20px",
-        "640px"
+        "640px",
+        "900px"
       ]
     },
-    "agentGuide": "Espacement : --space-12 --space-8 --space-9. Couleur : --accent-text --muted. Typographie : --font-display --font-sans. Dette : 10 litteral(s) hardcode(s) (-0.02em, -0.03em, 1200px)."
+    "agentGuide": "Espacement : --space-12 --space-4 --space-8. Couleur : --accent-text --muted. Typographie : --font-display --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.02em, -0.03em, 1200px)."
   },
   {
     "id": "icon-trio",
@@ -28745,7 +29853,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.015em",
         "-0.018em",
@@ -28757,7 +29865,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
   },
   {
     "id": "inclusions-list",
@@ -29530,6 +30638,162 @@
     "agentGuide": "Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.018em, 0.12em, 1px)."
   },
   {
+    "id": "keyword-strip",
+    "component": {
+      "name": "KeywordStrip",
+      "path": "src/sections/keyword-strip/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "tags": [
+      "author",
+      "contact",
+      "expertise",
+      "inline",
+      "keyword",
+      "social",
+      "strip",
+      "tags"
+    ],
+    "status": "stable",
+    "description_fr": "Bande d’items inline mono-majuscule separes par « · » : mots-cles (sans lien) ou liens sociaux/contact. Generique, reutilisable pour tout profil.",
+    "description_en": "Inline mono-uppercase item strip separated by « · »: keywords (no link) or social/contact links. Generic, reusable for any profile.",
+    "schemaFields": [
+      {
+        "name": "aria_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "aria_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "pad",
+        "type": "enum",
+        "required": false,
+        "constraint": "tight | base"
+      },
+      {
+        "name": "tone",
+        "type": "enum",
+        "required": false,
+        "constraint": "muted | ink"
+      },
+      {
+        "name": "topRule",
+        "type": "boolean",
+        "required": false
+      }
+    ],
+    "scopedClasses": [
+      "ap-contact",
+      "ap-contact-sep",
+      "ap-expertise",
+      "ap-sep",
+      "author-expertise",
+      "author-social",
+      "eyebrow",
+      "keyword-strip",
+      "keyword-strip__item",
+      "keyword-strip__row",
+      "keyword-strip__sep",
+      "section-eyebrow"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-fast",
+        "value": "200ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [
+      "col-12",
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 4,
+      "samples": [
+        "0.12em",
+        "1px",
+        "32px",
+        "900px"
+      ]
+    },
+    "agentGuide": "Layout : `pad`, `tone` (schema, 0 CSS). Espacement : --space-12 --space-6 --space-8. Couleur : --accent-text --ink --muted. Typographie : --font-mono --text-small. Dette : 4 litteral(s) hardcode(s) (0.12em, 1px, 32px)."
+  },
+  {
     "id": "learning-path-list",
     "component": {
       "name": "LearningPathList",
@@ -29630,12 +30894,20 @@
         "value": "#E6E0D0"
       },
       {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
         "name": "--space-4",
         "value": "1rem"
       },
       {
         "name": "--space-5",
         "value": "1.5rem"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
         "name": "--text-body",
@@ -29656,15 +30928,12 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 1,
       "samples": [
-        "1px",
-        "20px",
-        "56px",
-        "6px"
+        "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (1px, 20px, 56px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 1 litteral(s) hardcode(s) (1px)."
   },
   {
     "id": "list-index-section",
@@ -30632,6 +31901,12 @@
         "constraint": "int min:1 max:4"
       },
       {
+        "name": "scale",
+        "type": "enum",
+        "required": false,
+        "constraint": "default | display"
+      },
+      {
         "name": "separator",
         "type": "string",
         "required": false,
@@ -30652,6 +31927,10 @@
       {
         "name": "--font-mono",
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
         "name": "--ink",
@@ -30678,22 +31957,35 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
         "name": "--text-small",
         "value": "13px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 6,
       "samples": [
+        "-0.01em",
         "-50%",
         ".1em",
-        "18px",
         "1px",
-        "28px"
+        "28px",
+        "40px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --text-small. Dette : 5 litteral(s) hardcode(s) (-50%, .1em, 18px)."
+    "agentGuide": "Layout : `background`, `scale` (schema, 0 CSS). Espacement : --space-4 --space-6. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.01em, -50%, .1em)."
   },
   {
     "id": "masthead-bar",
@@ -31627,6 +32919,177 @@
     "agentGuide": "Layout : `background`, `swap_mode` (schema, 0 CSS). Espacement : --space-1 --space-4 --space-7. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 640px)."
   },
   {
+    "id": "method-diagram-list",
+    "component": {
+      "name": "MethodDiagramList",
+      "path": "src/sections/method-diagram-list/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "tags": [
+      "author",
+      "diagram",
+      "method",
+      "numbered",
+      "process",
+      "steps"
+    ],
+    "status": "stable",
+    "description_fr": "Bloc methode : entete + diagramme de process (SVG de marque) + liste numerotee de phases (numero mono + titre + corps).",
+    "description_en": "Method block: heading + process diagram (brand SVG) + numbered phase list (mono number + title + body).",
+    "schemaFields": [
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "steps",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1"
+      },
+      {
+        "name": "title_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "author-method",
+      "author-method-diagram",
+      "author-method-list",
+      "display-md",
+      "eyebrow",
+      "method-",
+      "method-diagram-list",
+      "method-diagram-list__body",
+      "method-diagram-list__diagram",
+      "method-diagram-list__item",
+      "method-diagram-list__list",
+      "method-diagram-list__num",
+      "method-diagram-list__title",
+      "section-eyebrow"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-body-md",
+        "value": ""
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [
+      "col-12",
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 12,
+      "samples": [
+        "-0.015em",
+        "0.12em",
+        "16px",
+        "17px",
+        "1px",
+        "24px",
+        "32px",
+        "48px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink-2 --paper-2. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, 0.12em, 16px)."
+  },
+  {
     "id": "method-stepline",
     "component": {
       "name": "MethodStepline",
@@ -31887,7 +33350,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro"
+      "src/pages/cas-clients/[...slug].astro"
     ],
     "category": "marketing",
     "categorySlug": "timelines",
@@ -32701,8 +34164,16 @@
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
         "name": "--space-4",
         "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
       },
       {
         "name": "--text-body",
@@ -32725,19 +34196,18 @@
       "sr-only"
     ],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 7,
       "samples": [
         "-0.024em",
         "0.06em",
-        "10px",
-        "14px",
-        "18px",
         "1px",
-        "22px",
-        "2px"
+        "2px",
+        "400px",
+        "85%",
+        "860px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.024em, 0.06em, 10px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-0.024em, 0.06em, 1px)."
   },
   {
     "id": "newsletter-signup-section",
@@ -32897,6 +34367,188 @@
       ]
     },
     "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (0.06em, 100%, 1px)."
+  },
+  {
+    "id": "numbered-layer-list",
+    "component": {
+      "name": "NumberedLayerList",
+      "path": "src/sections/numbered-layer-list/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "tags": [
+      "deliverables",
+      "editorial",
+      "layers",
+      "list",
+      "numbered",
+      "ranked",
+      "stack"
+    ],
+    "status": "stable",
+    "description_fr": "Liste de couches numerotees : rang serif accent + titre + intro + sous-puces « → ». Ideale pour presenter une stack, des livrables ou des rangs par couche.",
+    "description_en": "Numbered layer list: serif accent rank + title + intro + « → » sub-bullets. Ideal to present a stack, deliverables or ranked layers.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "layers",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1"
+      },
+      {
+        "name": "srHeading_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "srHeading_fr",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "scopedClasses": [
+      "numbered-layer-list",
+      "numbered-layer-list__intro",
+      "numbered-layer-list__layer",
+      "numbered-layer-list__layers",
+      "numbered-layer-list__list",
+      "numbered-layer-list__n",
+      "numbered-layer-list__title",
+      "tech-layers"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--leading-prose",
+        "value": "1.65"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-body-md",
+        "value": ""
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      }
+    ],
+    "tailwindUtils": [
+      "sr-only"
+    ],
+    "hardcodedLiterals": {
+      "count": 5,
+      "samples": [
+        "1px",
+        "56px",
+        "64px",
+        "700px",
+        "920px"
+      ]
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (1px, 56px, 64px)."
   },
   {
     "id": "objection-handler",
@@ -33154,6 +34806,14 @@
         "value": "#F6F1E8"
       },
       {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
         "name": "--paper-rgb",
         "value": "246, 241, 232"
       },
@@ -33287,6 +34947,11 @@
         "type": "array",
         "required": true,
         "constraint": "min:1 max:6"
+      },
+      {
+        "name": "pad_block",
+        "type": "string",
+        "required": false
       },
       {
         "name": "variant",
@@ -33433,6 +35098,14 @@
         "value": "var(--space-13)"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
@@ -33465,13 +35138,17 @@
         "value": "13px"
       },
       {
+        "name": "--tier-section-pad-y",
+        "value": ""
+      },
+      {
         "name": "--tracking-mono",
         "value": "0.12em"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 18,
+      "count": 15,
       "samples": [
         "-0.015em",
         "-0.024em",
@@ -33483,7 +35160,7 @@
         "100%"
       ]
     },
-    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-6 --space-7 --space-9. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-display --font-mono. Dette : 18 litteral(s) hardcode(s) (-0.015em, -0.024em, -0.02em)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-6. Couleur : --accent --accent-sur-sombre --accent-text. Typographie : --font-display --font-mono. Dette : 15 litteral(s) hardcode(s) (-0.015em, -0.024em, -0.02em)."
   },
   {
     "id": "operating-layer",
@@ -33652,6 +35329,10 @@
         "value": "0.75rem"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -33694,19 +35375,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 8,
       "samples": [
         "-0.015em",
         ".1em",
-        "10px",
         "1200px",
         "140px",
-        "14px",
         "1px",
-        "20px"
+        "520px",
+        "600px",
+        "900px"
       ]
     },
-    "agentGuide": "Espacement : --space-10 --space-11 --space-2. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, .1em, 10px)."
+    "agentGuide": "Espacement : --space-10 --space-11 --space-2. Couleur : --accent-text --ink --paper. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.015em, .1em, 1200px)."
   },
   {
     "id": "pain-points",
@@ -34328,15 +36009,14 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 3,
       "samples": [
         "-0.015em",
         "1px",
-        "6px",
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (-0.015em, 1px, 6px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (-0.015em, 1px, 768px)."
   },
   {
     "id": "photo-cluster",
@@ -34845,7 +36525,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 19,
+      "count": 18,
       "samples": [
         "-0.015em",
         "-12px",
@@ -34857,7 +36537,7 @@
         "14px"
       ]
     },
-    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-mono --font-sans. Dette : 19 litteral(s) hardcode(s) (-0.015em, -12px, -3px)."
+    "agentGuide": "Layout : `actionsAlign`, `background`, `colRatio`, `columns`, `contentAlign`, `density`, `itemHeight`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-12 --space-2. Couleur : --accent-rgb --accent-sur-clair --accent-text. Typographie : --font-mono --font-sans. Dette : 18 litteral(s) hardcode(s) (-0.015em, -12px, -3px)."
   },
   {
     "id": "pricing-comparison-matrix",
@@ -35088,19 +36768,19 @@
       "sr-only"
     ],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 11,
       "samples": [
         "-1px",
         ".14em",
         "100%",
-        "14px",
         "180px",
         "1px",
         "200px",
-        "2px"
+        "2px",
+        "40%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-1px, .14em, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-1px, .14em, 100%)."
   },
   {
     "id": "pricing-single-highlight",
@@ -35257,7 +36937,8 @@
       "pricing-single__note",
       "pricing-single__period",
       "pricing-single__price",
-      "pricing-single__price-k"
+      "pricing-single__price-k",
+      "sec-base-h2"
     ],
     "tokensUsed": [
       {
@@ -35522,6 +37203,10 @@
         "value": "0.5rem"
       },
       {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
         "name": "--space-4",
         "value": "1rem"
       },
@@ -35544,19 +37229,18 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-0.015em",
         "-1px",
         ".14em",
         "100%",
-        "10px",
         "1px",
         "2px",
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.015em, -1px, .14em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.015em, -1px, .14em)."
   },
   {
     "id": "pricing-tabs-showcase",
@@ -35731,8 +37415,20 @@
         "value": "#EFE9DD"
       },
       {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
         "name": "--radius-pill",
         "value": "999px"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
       },
       {
         "name": "--space-2",
@@ -35777,19 +37473,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 32,
+      "count": 28,
       "samples": [
         "-4px",
         ".12em",
         "100%",
         "10px",
         "112px",
-        "12px",
         "144px",
-        "14px"
+        "156px",
+        "18%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 32 litteral(s) hardcode(s) (-4px, .12em, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 28 litteral(s) hardcode(s) (-4px, .12em, 100%)."
   },
   {
     "id": "pricing-toggle",
@@ -35898,7 +37594,8 @@
       "pricing-toggle__suffix",
       "pricing-toggle__switch",
       "pricing-toggle__switch-label",
-      "pricing-toggle__switch-row"
+      "pricing-toggle__switch-row",
+      "sec-base-h2"
     ],
     "tokensUsed": [
       {
@@ -36044,7 +37741,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 17,
+      "count": 16,
       "samples": [
         "-0.015em",
         "-12px",
@@ -36056,7 +37753,7 @@
         "14px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-sur-clair. Typographie : --font-mono --font-sans. Dette : 17 litteral(s) hardcode(s) (-0.015em, -12px, -3px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-sur-clair. Typographie : --font-mono --font-sans. Dette : 16 litteral(s) hardcode(s) (-0.015em, -12px, -3px)."
   },
   {
     "id": "problem-statement",
@@ -36579,7 +38276,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 23,
+      "count": 22,
       "samples": [
         "-0.015em",
         "-0.018em",
@@ -36591,7 +38288,7 @@
         "1200px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 23 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-12. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 22 litteral(s) hardcode(s) (-0.015em, -0.018em, -1px)."
   },
   {
     "id": "process-steps",
@@ -37053,7 +38750,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 11,
       "samples": [
         "-0.015em",
         "-1px",
@@ -37065,7 +38762,459 @@
         "480px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, -1px, 0.1em)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.015em, -1px, 0.1em)."
+  },
+  {
+    "id": "prose-aside",
+    "component": {
+      "name": "ProseAside",
+      "path": "src/sections/prose-aside/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "tags": [
+      "aside",
+      "author",
+      "editorial",
+      "kicker",
+      "mdx",
+      "prose"
+    ],
+    "status": "stable",
+    "description_fr": "Colonne de prose editoriale (corps MDX) precedee d’un kicker en aside. Le corps vit dans le MDX, pas le frontmatter. Generique pour tout bloc prose + eyebrow lateral.",
+    "description_en": "Editorial prose column (MDX body) with a kicker in an aside. Body lives in MDX, not frontmatter. Generic for any prose + side-eyebrow block.",
+    "schemaFields": [
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "author-prose",
+      "author-why",
+      "eyebrow",
+      "prose-aside",
+      "prose-aside__prose",
+      "section-eyebrow"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      }
+    ],
+    "tailwindUtils": [
+      "col-3",
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 9,
+      "samples": [
+        "-0.02em",
+        "0.18em",
+        "1.1em",
+        "16px",
+        "1px",
+        "32px",
+        "48px",
+        "8px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-sans --fw-regular. Dette : 9 litteral(s) hardcode(s) (-0.02em, 0.18em, 1.1em)."
+  },
+  {
+    "id": "provenance-chip",
+    "component": {
+      "name": "ProvenanceChip",
+      "path": "src/sections/provenance-chip/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "tags": [
+      "badge",
+      "case-study",
+      "chip",
+      "eeat",
+      "provenance",
+      "trust"
+    ],
+    "status": "stable",
+    "description_fr": "Chip de provenance E-E-A-T : badge plein (projet realise) ou outline (etude sources tierces), cliquable vers la page methodologie.",
+    "description_en": "E-E-A-T provenance chip: solid badge (completed project) or outline (third-party study), linking to the methodology page.",
+    "schemaFields": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "label_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "label_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "constraint": "solid | outline"
+      }
+    ],
+    "scopedClasses": [
+      "provenance-chip",
+      "provenance-chip__chip",
+      "provenance-chip__chip--outline",
+      "provenance-chip__chip--solid"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-fast",
+        "value": "200ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--radius-pill",
+        "value": "999px"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 1,
+      "samples": [
+        "1px"
+      ]
+    },
+    "agentGuide": "Layout : `variant` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-text --paper. Typographie : --font-mono --text-small. Dette : 1 litteral(s) hardcode(s) (1px)."
+  },
+  {
+    "id": "publications-panel",
+    "component": {
+      "name": "PublicationsPanel",
+      "path": "src/sections/publications-panel/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Editorial Sections",
+    "tags": [
+      "author",
+      "byline",
+      "eeat",
+      "index",
+      "manifesto",
+      "publications",
+      "resources"
+    ],
+    "status": "stable",
+    "description_fr": "Panneau publications d’un profil : entete + callout manifeste + liste de publications + index de ressources recentes + lien « tout voir ».",
+    "description_en": "Profile publications panel: heading + manifesto callout + publications list + recent resources index + « see all » link.",
+    "schemaFields": [
+      {
+        "name": "all_href",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "all_label_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "all_label_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "manifesto_html_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "manifesto_html_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "publications",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "resources",
+        "type": "array",
+        "required": false
+      },
+      {
+        "name": "title_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "ap-resource-",
+      "ap-resource-index",
+      "author-publications",
+      "display-md",
+      "eyebrow",
+      "publication-",
+      "publication-list",
+      "publication-manifesto",
+      "publications-panel",
+      "publications-panel__all",
+      "publications-panel__date",
+      "publications-panel__index",
+      "publications-panel__item",
+      "publications-panel__link",
+      "publications-panel__list",
+      "publications-panel__manifesto",
+      "publications-panel__pub-meta",
+      "publications-panel__pub-title",
+      "publications-panel__row",
+      "publications-panel__row-link",
+      "publications-panel__row-tag",
+      "publications-panel__row-title",
+      "resources-all",
+      "section-eyebrow"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-fast",
+        "value": "200ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [
+      "col-12",
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 11,
+      "samples": [
+        "-0.015em",
+        "0.12em",
+        "16px",
+        "1px",
+        "32px",
+        "40px",
+        "60px",
+        "72px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-12 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.015em, 0.12em, 16px)."
   },
   {
     "id": "pull-quote-block",
@@ -37413,6 +39562,11 @@
       },
       {
         "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "pad_block",
         "type": "string",
         "required": false
       }
@@ -38318,6 +40472,63 @@
     "agentGuide": "Layout : `background`, `media_side` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px)."
   },
   {
+    "id": "sector-card-grid",
+    "component": {
+      "name": "SectorCardGrid",
+      "path": "src/sections/sector-card-grid/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Content Listing Sections",
+    "tags": [
+      "cards",
+      "grid",
+      "hub",
+      "industries",
+      "navigation",
+      "sectors"
+    ],
+    "status": "stable",
+    "description_fr": "Grille de hubs sectoriels en cartes cliquables : ICP en kicker, secteur, douleur en une phrase et CTA, en 3 colonnes sur fond hairline.",
+    "description_en": "Grid of sector hubs as clickable cards: ICP kicker, sector, one-line pain point and CTA, in a 3-column hairline layout.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "cta_label_en",
+        "type": "string",
+        "required": false,
+        "default": "See the industry →"
+      },
+      {
+        "name": "cta_label_fr",
+        "type": "string",
+        "required": false,
+        "default": "Voir le secteur →"
+      },
+      {
+        "name": "sectors",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1"
+      }
+    ],
+    "scopedClasses": [],
+    "tokensUsed": [],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 0,
+      "samples": []
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS)."
+  },
+  {
     "id": "service-catalog-list",
     "component": {
       "name": "ServiceCatalogList",
@@ -38506,6 +40717,10 @@
         "value": "0.5rem"
       },
       {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -38544,19 +40759,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 16,
+      "count": 14,
       "samples": [
         "-0.022em",
         "-2px",
         ".14em",
         "0.1em",
         "100%",
-        "10px",
         "110px",
-        "12px"
+        "12px",
+        "180px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 16 litteral(s) hardcode(s) (-0.022em, -2px, .14em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 14 litteral(s) hardcode(s) (-0.022em, -2px, .14em)."
   },
   {
     "id": "services-grid",
@@ -38789,6 +41004,10 @@
         "value": "1rem"
       },
       {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
@@ -38835,7 +41054,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 26,
+      "count": 23,
       "samples": [
         "-0.02em",
         "-1px",
@@ -38847,7 +41066,431 @@
         "1023px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 26 litteral(s) hardcode(s) (-0.02em, -1px, -2px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 23 litteral(s) hardcode(s) (-0.02em, -1px, -2px)."
+  },
+  {
+    "id": "signed-writing-list",
+    "component": {
+      "name": "SignedWritingList",
+      "path": "src/sections/signed-writing-list/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Editorial Sections",
+    "tags": [
+      "articles",
+      "author",
+      "byline",
+      "essays",
+      "index",
+      "list",
+      "long-form"
+    ],
+    "status": "stable",
+    "description_fr": "Index chronologique d’ecrits long-form signes : date + titre (lien) + extrait. Date formatee par langue.",
+    "description_en": "Chronological index of signed long-form writing: date + title (link) + excerpt. Date formatted per language.",
+    "schemaFields": [
+      {
+        "name": "items",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title_fr",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "scopedClasses": [
+      "author-essays",
+      "display-md",
+      "essay-",
+      "essays-list",
+      "eyebrow",
+      "section-eyebrow",
+      "signed-writing-list",
+      "signed-writing-list__date",
+      "signed-writing-list__excerpt",
+      "signed-writing-list__item",
+      "signed-writing-list__link",
+      "signed-writing-list__list",
+      "signed-writing-list__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-fast",
+        "value": "200ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--space-12",
+        "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--text-body-md",
+        "value": ""
+      },
+      {
+        "name": "--text-h1",
+        "value": "clamp(34px, 5.5vw, 80px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [
+      "col-12",
+      "col-prose"
+    ],
+    "hardcodedLiterals": {
+      "count": 12,
+      "samples": [
+        "-0.015em",
+        "0.12em",
+        "0.4em",
+        "1.5px",
+        "17px",
+        "1px",
+        "24px",
+        "32px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-12 --space-2 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, 0.12em, 0.4em)."
+  },
+  {
+    "id": "site-showcase",
+    "component": {
+      "name": "SiteShowcase",
+      "path": "src/sections/site-showcase/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "gallery-sections",
+    "subcategory": "Gallery Sections",
+    "tags": [
+      "browser-frame",
+      "case-study",
+      "nofollow",
+      "result",
+      "screenshots",
+      "showcase"
+    ],
+    "status": "stable",
+    "description_fr": "Vitrine du site livre : captures reelles dans des cadres navigateur, capture pleine page qui defile au survol, lien nofollow vers le site en production.",
+    "description_en": "Delivered-site showcase: real screenshots in browser frames, a full-page capture that scrolls on hover, and a nofollow link to the live site.",
+    "schemaFields": [
+      {
+        "name": "background",
+        "type": "enum",
+        "required": false,
+        "constraint": "paper | paper-2 | paper-3 | ink"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "placement",
+        "type": "unknown",
+        "required": true
+      },
+      {
+        "name": "screens",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:4"
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "url_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "url_label_fr",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "scopedClasses": [
+      "frame",
+      "frame__addr",
+      "frame__bar",
+      "frame__dots",
+      "frame__shot",
+      "frame__view",
+      "sshow",
+      "sshow__cap",
+      "sshow__gallery",
+      "sshow__head",
+      "sshow__head-text",
+      "sshow__item",
+      "sshow__lede",
+      "sshow__visit",
+      "sshow__visit-arrow"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--dur-base",
+        "value": "400ms"
+      },
+      {
+        "name": "--dur-fast",
+        "value": "200ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-full",
+        "value": "50%"
+      },
+      {
+        "name": "--radius-lg",
+        "value": "12px"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--spacing-block",
+        "value": "clamp(28px, 3vw, 48px)"
+      },
+      {
+        "name": "--sshow-tall-dur",
+        "value": ""
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-micro",
+        "value": "9px"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 13,
+      "samples": [
+        "-0.1em",
+        "-100%",
+        "0.1em",
+        "0.66em",
+        "100%",
+        "12px",
+        "1px",
+        "20px"
+      ]
+    },
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --ink --ink-rgb --muted. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.1em, -100%, 0.1em)."
   },
   {
     "id": "social-proof",
@@ -39057,6 +41700,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -39075,17 +41722,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 5,
       "samples": [
         "0.04em",
         "0.14em",
         "1px",
         "480px",
-        "6px",
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --leading-lede. Dette : 6 litteral(s) hardcode(s) (0.04em, 0.14em, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --leading-lede. Dette : 5 litteral(s) hardcode(s) (0.04em, 0.14em, 1px)."
   },
   {
     "id": "stack-cards",
@@ -39506,7 +42152,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 11,
       "samples": [
         "-0.015em",
         "-1px",
@@ -39518,7 +42164,7 @@
         "480px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, -1px, 0.1em)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.015em, -1px, 0.1em)."
   },
   {
     "id": "stat-counter",
@@ -41168,6 +43814,10 @@
         "value": "1rem"
       },
       {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
@@ -41194,7 +43844,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 9,
       "samples": [
         "-2px",
         ".1em",
@@ -41202,11 +43852,11 @@
         "1240px",
         "12px",
         "1px",
-        "20px",
-        "2px"
+        "2px",
+        "320px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (-2px, .1em, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 9 litteral(s) hardcode(s) (-2px, .1em, 100%)."
   },
   {
     "id": "tech-capabilities-specs",
@@ -41373,6 +44023,10 @@
         "value": "0.5rem"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -41399,19 +44053,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 9,
       "samples": [
         "-0.018em",
         "10%",
         "100%",
         "1240px",
-        "14px",
         "1px",
-        "20px",
-        "22%"
+        "22%",
+        "480px",
+        "700px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.018em, 10%, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.018em, 10%, 100%)."
   },
   {
     "id": "tech-integration-flow",
@@ -41560,6 +44214,14 @@
         "value": "0.5rem"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
@@ -41574,19 +44236,17 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 6,
       "samples": [
         "-0.018em",
         "1240px",
-        "18px",
         "1px",
-        "22px",
         "480px",
         "800px",
         "820px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-9. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
   },
   {
     "id": "tech-models-table",
@@ -41809,19 +44469,18 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-0.018em",
         "1240px",
         "1px",
-        "28px",
         "480px",
         "600px",
         "760px",
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
   },
   {
     "id": "tech-positioning-split",
@@ -42025,7 +44684,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 12,
+      "count": 11,
       "samples": [
         "-0.012em",
         "-0.02em",
@@ -42033,11 +44692,11 @@
         "100%",
         "1240px",
         "140px",
-        "18px",
-        "1px"
+        "1px",
+        "28px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.012em, -0.02em, 0.1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.012em, -0.02em, 0.1em)."
   },
   {
     "id": "tech-stack-band",
@@ -42162,6 +44821,18 @@
       },
       {
         "name": "--tech-stack-band-inline",
+        "value": ""
+      },
+      {
+        "name": "--tech-stack-band-lead-leading",
+        "value": ""
+      },
+      {
+        "name": "--tech-stack-band-lead-margin",
+        "value": ""
+      },
+      {
+        "name": "--tech-stack-band-lead-size",
         "value": ""
       },
       {
@@ -42376,6 +45047,14 @@
         "value": "0.5rem"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
@@ -42398,19 +45077,18 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-0.018em",
         "1240px",
         "18px",
         "1px",
         "20px",
-        "28px",
         "480px",
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-9. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
   },
   {
     "id": "terminal-metrics-strip",
@@ -43083,6 +45761,10 @@
         "value": "1rem"
       },
       {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
@@ -43097,16 +45779,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 4,
       "samples": [
         "-1px",
         "1px",
-        "20px",
         "2px",
         "640px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-4 --space-7. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (-1px, 1px, 20px)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-1 --space-4 --space-5. Couleur : --accent-text --ink --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (-1px, 1px, 2px)."
   },
   {
     "id": "testimonial-logo-metric",
@@ -44559,6 +47240,16 @@
     "description_en": "Documentary masthead with revision metadata and sticky contents for trust, governance, and legal pages.",
     "schemaFields": [
       {
+        "name": "body_html_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "body_html_fr",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "h1_en",
         "type": "string",
         "required": true
@@ -44927,6 +47618,10 @@
         "value": "clamp(calc(6rem * var(--fl-space-shrink)), calc((6rem * var(--fl-space-shrink)) + (6rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 6rem)"
       },
       {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
         "name": "--space-6",
         "value": "2rem"
       },
@@ -44953,19 +47648,18 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
         "-.02em",
         ".06em",
         "100%",
-        "10px",
         "11px",
         "1200px",
         "1px",
         "700px"
       ]
     },
-    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
+    "agentGuide": "Espacement : --space-1 --space-10 --space-11. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-.02em, .06em, 100%)."
   },
   {
     "id": "tunnel-step-nav",
@@ -45103,6 +47797,10 @@
         "value": "0.75rem"
       },
       {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -45121,18 +47819,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 7,
+      "count": 5,
       "samples": [
         ".06em",
         "100%",
         "1200px",
-        "14px",
         "1px",
-        "28px",
         "700px"
       ]
     },
-    "agentGuide": "Layout : `cta` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (.06em, 100%, 1200px)."
+    "agentGuide": "Layout : `cta` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (.06em, 100%, 1200px)."
   },
   {
     "id": "use-case-index",
@@ -45329,6 +48025,10 @@
         "value": "var(--space-11)"
       },
       {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
         "name": "--space-4",
         "value": "1rem"
       },
@@ -45363,7 +48063,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 15,
+      "count": 13,
       "samples": [
         "-0.018em",
         ".14em",
@@ -45372,10 +48072,121 @@
         "120px",
         "12px",
         "1px",
-        "28px"
+        "32px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --space-6. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 15 litteral(s) hardcode(s) (-0.018em, .14em, .16em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.018em, .14em, .16em)."
+  },
+  {
+    "id": "used-service-callout",
+    "component": {
+      "name": "UsedServiceCallout",
+      "path": "src/sections/used-service-callout/Component.astro"
+    },
+    "usage": "library",
+    "consumers": [],
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "tags": [
+      "callout",
+      "case-study",
+      "cross-link",
+      "internal-mesh",
+      "services"
+    ],
+    "status": "stable",
+    "description_fr": "Encadre compact « offre(s) utilisee(s) » : liste de cross-liens vers les services mobilises sur un projet, bord gauche accent.",
+    "description_en": "Compact used-service callout: a list of cross-links to the services deployed on a project, with an accent left border.",
+    "schemaFields": [
+      {
+        "name": "label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "links",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:6"
+      }
+    ],
+    "scopedClasses": [
+      "used-service-callout",
+      "used-service-callout__label",
+      "used-service-callout__link"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--dur-fast",
+        "value": "200ms"
+      },
+      {
+        "name": "--ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--token",
+        "value": ""
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 5,
+      "samples": [
+        "0.08em",
+        "0.12em",
+        "0.1em",
+        "1px",
+        "3px"
+      ]
+    },
+    "agentGuide": "Espacement : --space-2 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-mono --text-small. Dette : 5 litteral(s) hardcode(s) (0.08em, 0.12em, 0.1em)."
   },
   {
     "id": "versus-competitors",
@@ -45987,19 +48798,19 @@
       "row-lines"
     ],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 8,
       "samples": [
         "-0.01em",
         "-0.02em",
         "1200px",
         "1px",
-        "20px",
-        "22px",
         "240px",
-        "280px"
+        "280px",
+        "900px",
+        "90px"
       ]
     },
-    "agentGuide": "Espacement : --space-10 --space-12 --space-2. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.01em, -0.02em, 1200px)."
+    "agentGuide": "Espacement : --space-10 --space-12 --space-2. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, -0.02em, 1200px)."
   },
   {
     "id": "workflow-table",
@@ -46238,18 +49049,18 @@
       "col-prose"
     ],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 10,
       "samples": [
         "-0.018em",
         "1000px",
         "16px",
         "1px",
-        "20px",
         "24px",
         "480px",
-        "48px"
+        "48px",
+        "60px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 11 litteral(s) hardcode(s) (-0.018em, 1000px, 16px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (-0.018em, 1000px, 16px)."
   }
 ]

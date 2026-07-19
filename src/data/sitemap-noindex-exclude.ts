@@ -78,10 +78,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // listera ≥ 3-5 diagnostics complets (politique index-on-quality, strategy/10 §3).
   "/ressources/diagnostics",
   // Vague 1 carte kw (strategy/14, 2026-07-14) · cohérence noindex↔sitemap :
-  // maquettes /lab/* + hub démos étaient noindex dans le HTML MAIS listés dans le sitemap.
-  "/lab/home-d",
-  "/lab/home-e",
-  "/lab/home-e-method",
+  // hub démos était noindex dans le HTML MAIS listé dans le sitemap.
+  // (maquettes /lab/* supprimées 2026-07-19, dette morte — fiche 0027 D6)
   "/demonstrations",
   // Nouveaux noindex vague 1 (dupes/nav pures, cf strategy/14 §4) :
   // about (quasi-dupe /agence) · partenaires (dupe /technologies) · plan du site (nav) ·

@@ -181,9 +181,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "cta-final": {
-    "count": 5,
+    "count": 4,
     "pages": [
-      "src/components/templates/CaseStudyTemplate.astro",
       "src/components/templates/ConversionFunnelTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
@@ -623,7 +622,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "hero-case-study": {
     "count": 1,
     "pages": [
-      "src/components/templates/CaseStudyTemplate.astro"
+      "src/pages/cas-clients/[...slug].astro"
     ]
   },
   "hero-centered": {
@@ -837,7 +836,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "count": 2,
     "pages": [
       "/services/template-service-ref",
-      "src/components/templates/CaseStudyTemplate.astro"
+      "src/pages/cas-clients/[...slug].astro"
     ]
   },
   "offer-tier-grid": {
