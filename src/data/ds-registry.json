@@ -50,67 +50,67 @@
     },
     {
       "name": "--color-accent",
-      "value": "#C94F2E",
+      "value": "var(--accent)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-accent-sur-clair",
-      "value": "#A83D20",
+      "value": "var(--accent-sur-clair)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-accent-sur-sombre",
-      "value": "#D96A47",
+      "value": "var(--accent-sur-sombre)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-ink",
-      "value": "#0C0B09",
+      "value": "var(--ink)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-ink-2",
-      "value": "#1A1814",
+      "value": "var(--ink-2)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-ink-3",
-      "value": "#2B2620",
+      "value": "var(--ink-3)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-muted",
-      "value": "#6B6560",
+      "value": "var(--muted)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-muted-2",
-      "value": "#746C63",
+      "value": "var(--muted-2)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-paper",
-      "value": "#F6F1E8",
+      "value": "var(--paper)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-paper-2",
-      "value": "#EFE9DD",
+      "value": "var(--paper-2)",
       "group": "color",
       "comment": ""
     },
     {
       "name": "--color-paper-3",
-      "value": "#E6E0D0",
+      "value": "var(--paper-3)",
       "group": "color",
       "comment": ""
     },
@@ -469,12 +469,6 @@
       "comment": ""
     },
     {
-      "name": "--shadow-cta",
-      "value": "0 1px 0 var(--ink), 0 12px 24px -8px rgba(var(--accent-rgb), 0.18)",
-      "group": "shadow",
-      "comment": ""
-    },
-    {
       "name": "--shadow-cta-hover",
       "value": "0 14px 32px rgba(var(--accent-rgb), 0.22)",
       "group": "shadow",
@@ -819,6 +813,7 @@
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MethodStepline.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PricingSingleHighlight.astro",
         "src/components/sections/PricingTable.astro",
@@ -866,7 +861,6 @@
         "src/layouts/Base.astro",
         "src/pages/agence/methode.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/pages/library/[category].astro",
         "src/pages/library/builder/index.astro",
         "src/pages/library/compare.astro",
@@ -998,7 +992,7 @@
     },
     {
       "token": "--accent-text",
-      "count": 241,
+      "count": 242,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/DropCap.astro",
@@ -1118,6 +1112,7 @@
         "src/components/sections/MetricCalloutBand.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -1314,15 +1309,19 @@
     },
     {
       "token": "--complementary",
-      "count": 1,
+      "count": 3,
       "files": [
-        "src/components/ui/organisms/ToolWidget.astro"
+        "src/components/sections/OfferRail.astro",
+        "src/components/ui/organisms/ToolWidget.astro",
+        "src/pages/index.astro"
       ]
     },
     {
       "token": "--complementary-rgb",
-      "count": 0,
-      "files": []
+      "count": 1,
+      "files": [
+        "src/components/sections/OfferRail.astro"
+      ]
     },
     {
       "token": "--cookie-banner-height",
@@ -1337,9 +1336,9 @@
       "files": [
         "src/components/sections/GalleryMasonry.astro",
         "src/components/sections/HeroHome.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/TeamCardGrid.astro",
         "src/components/ui/organisms/Hero.astro",
-        "src/pages/index.astro",
         "src/sections/site-showcase/Component.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css"
@@ -1433,6 +1432,7 @@
         "src/components/sections/HeroMastheadCard.astro",
         "src/components/sections/HeroSplitMedia.astro",
         "src/components/sections/LogoMarquee.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PricingCards.astro",
         "src/components/sections/PricingToggle.astro",
@@ -1448,7 +1448,6 @@
         "src/components/ui/molecules/EditorialWriteRow.astro",
         "src/components/ui/molecules/PricingTier.astro",
         "src/components/ui/organisms/Hero.astro",
-        "src/pages/index.astro",
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
         "src/styles/global.css",
@@ -1461,8 +1460,8 @@
       "files": [
         "src/components/header/Header.astro",
         "src/components/sections/HeroHome.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/ui/organisms/Hero.astro",
-        "src/pages/index.astro",
         "src/pages/library/index.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
@@ -1481,9 +1480,9 @@
         "src/components/sections/HoverRevealList.astro",
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MediaSwapBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/ScrollGallery.astro",
         "src/components/ui/organisms/BookSession.astro",
-        "src/pages/index.astro",
         "src/sections/eeat-panel/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
@@ -1496,8 +1495,8 @@
       "token": "--dur-slow",
       "count": 7,
       "files": [
+        "src/components/sections/OfferRail.astro",
         "src/components/ui/molecules/CalEmbed.astro",
-        "src/pages/index.astro",
         "src/pages/library/studio.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
         "src/styles/global.css",
@@ -1542,6 +1541,7 @@
         "src/components/sections/ManifestoAct.astro",
         "src/components/sections/ManifestoStatement.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PricingCards.astro",
         "src/components/sections/PricingToggle.astro",
@@ -1564,7 +1564,6 @@
         "src/components/ui/molecules/TagPills.astro",
         "src/components/ui/organisms/ToolWidget.astro",
         "src/pages/agence/cartographie.astro",
-        "src/pages/index.astro",
         "src/pages/plan-du-site.astro",
         "src/sections/eeat-panel/Component.astro",
         "src/sections/hover-reveal-words/Component.astro",
@@ -1628,6 +1627,7 @@
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MediaSwapBand.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PricingCards.astro",
         "src/components/sections/PricingToggle.astro",
@@ -1669,7 +1669,6 @@
         "src/pages/404.astro",
         "src/pages/agence/cartographie.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/pages/library/[category].astro",
         "src/pages/library/builder/index.astro",
         "src/pages/library/compare.astro",
@@ -1708,8 +1707,8 @@
         "src/components/sections/ComparisonTable.astro",
         "src/components/sections/ManifestoAct.astro",
         "src/components/sections/ManifestoStatement.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/TeamCardGrid.astro",
-        "src/pages/index.astro",
         "src/pages/library/studio.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css",
@@ -1856,7 +1855,7 @@
     },
     {
       "token": "--font-mono",
-      "count": 230,
+      "count": 231,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/DropCap.astro",
@@ -1977,6 +1976,7 @@
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
@@ -2092,7 +2092,7 @@
     },
     {
       "token": "--font-sans",
-      "count": 256,
+      "count": 257,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/PullQuote.astro",
@@ -2238,6 +2238,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -2354,7 +2355,7 @@
     },
     {
       "token": "--fw-medium",
-      "count": 174,
+      "count": 175,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/editorial/PullQuote.astro",
@@ -2448,6 +2449,7 @@
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -2632,7 +2634,7 @@
     },
     {
       "token": "--fw-semibold",
-      "count": 132,
+      "count": 133,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/library/hero-explore-2/Z1.astro",
@@ -2702,6 +2704,7 @@
         "src/components/sections/ManifestoStatement.astro",
         "src/components/sections/MethodStepline.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PainSeverityList.astro",
         "src/components/sections/PricingCards.astro",
@@ -2770,7 +2773,7 @@
     },
     {
       "token": "--gut",
-      "count": 49,
+      "count": 50,
       "files": [
         "src/components/header/Header.astro",
         "src/components/library/hero-explore-2/Z1.astro",
@@ -2803,6 +2806,7 @@
         "src/components/sections/HeroTunnelStep.astro",
         "src/components/sections/KeyMetricGrid.astro",
         "src/components/sections/LearningPathList.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PersonaAttributesGrid.astro",
         "src/components/sections/StatsBento.astro",
@@ -2825,7 +2829,7 @@
     },
     {
       "token": "--hairline",
-      "count": 245,
+      "count": 246,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -2961,6 +2965,7 @@
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PainPoints.astro",
         "src/components/sections/PainSeverityList.astro",
@@ -2975,6 +2980,7 @@
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/RelatedLinks.astro",
         "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/RoiBand.astro",
         "src/components/sections/ScrollGallery.astro",
         "src/components/sections/SectorCardGrid.astro",
         "src/components/sections/ServiceCatalogList.astro",
@@ -3032,7 +3038,6 @@
         "src/pages/cas-clients/[...slug].astro",
         "src/pages/cas-clients/index.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/pages/library/[category].astro",
         "src/pages/library/[type].astro",
         "src/pages/library/builder/index.astro",
@@ -3105,6 +3110,7 @@
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/PricingCards.astro",
         "src/components/sections/PricingToggle.astro",
         "src/components/sections/ProblemStatement.astro",
@@ -3133,7 +3139,6 @@
         "src/components/ui/organisms/ToolWidget.astro",
         "src/pages/404.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/pages/library/[type].astro",
         "src/pages/library/builder/index.astro",
         "src/pages/library/compare.astro",
@@ -3254,7 +3259,7 @@
     },
     {
       "token": "--ink",
-      "count": 271,
+      "count": 273,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -3408,6 +3413,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -3464,6 +3470,7 @@
         "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/VersusCompetitors.astro",
+        "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WhyStalls.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/svg/geometric/AuditMaturityTimeline.astro",
@@ -3531,7 +3538,7 @@
     },
     {
       "token": "--ink-2",
-      "count": 103,
+      "count": 104,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -3584,6 +3591,7 @@
         "src/components/sections/PricingSingleHighlight.astro",
         "src/components/sections/PricingToggle.astro",
         "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/RoiBand.astro",
         "src/components/sections/ServiceCatalogList.astro",
         "src/components/sections/ServicesGrid.astro",
         "src/components/sections/StatsBento.astro",
@@ -3667,6 +3675,7 @@
         "src/components/sections/HeroFormInline.astro",
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/MarqueeBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/SectorCardGrid.astro",
         "src/components/sections/TeamCardGrid.astro",
         "src/components/sections/TechCapabilitiesSpecs.astro",
@@ -3676,7 +3685,6 @@
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/TagPills.astro",
         "src/components/ui/molecules/TerminalMockup.astro",
-        "src/pages/index.astro",
         "src/pages/ressources/index.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/site-showcase/Component.astro",
@@ -3863,6 +3871,7 @@
         "src/components/sections/HeroTechSignature.astro",
         "src/components/sections/HeroThinMedia.astro",
         "src/components/sections/HeroTrizone.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/PainPoints.astro",
@@ -3875,7 +3884,6 @@
         "src/components/ui/organisms/BookSession.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/pages/library/builder/index.astro",
         "src/pages/library/family/index.astro",
         "src/pages/library/hero-explore-2.astro",
@@ -3892,7 +3900,7 @@
     },
     {
       "token": "--leading-h2",
-      "count": 37,
+      "count": 38,
       "files": [
         "src/components/proposals/eeat/Prop02.astro",
         "src/components/proposals/eeat/Prop03.astro",
@@ -3917,6 +3925,7 @@
         "src/components/sections/HeroSplit.astro",
         "src/components/sections/KeyMetricGrid.astro",
         "src/components/sections/MethodStepline.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/RelatedLinks.astro",
         "src/components/sections/StatementOrbit.astro",
         "src/components/sections/StatsBento.astro",
@@ -3978,6 +3987,7 @@
         "src/components/sections/MethodStepline.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/PainSeverityList.astro",
         "src/components/sections/ProcessSteps.astro",
         "src/components/sections/QuoteSpotlight.astro",
@@ -3998,14 +4008,13 @@
         "src/components/sections/WelcomeSection.astro",
         "src/pages/404.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/sections/eeat-panel/Component.astro",
         "src/styles/global.css"
       ]
     },
     {
       "token": "--leading-lede",
-      "count": 82,
+      "count": 83,
       "files": [
         "src/components/footer/Footer.astro",
         "src/components/library/hero-explore-2/Z1.astro",
@@ -4057,6 +4066,7 @@
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricCalloutBand.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/RoiBand.astro",
         "src/components/sections/SpecBar.astro",
@@ -4110,7 +4120,7 @@
     },
     {
       "token": "--leading-relaxed",
-      "count": 58,
+      "count": 59,
       "files": [
         "src/components/proposals/eeat/Prop01.astro",
         "src/components/proposals/eeat/Prop01a.astro",
@@ -4151,6 +4161,7 @@
         "src/components/sections/JourneySteps.astro",
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PainSeverityList.astro",
         "src/components/sections/StatBlock.astro",
@@ -4174,7 +4185,7 @@
     },
     {
       "token": "--muted",
-      "count": 226,
+      "count": 228,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -4289,6 +4300,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PainPoints.astro",
         "src/components/sections/PainSeverityList.astro",
@@ -4303,6 +4315,7 @@
         "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/RelatedLinks.astro",
         "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/RoiBand.astro",
         "src/components/sections/ScrollGallery.astro",
         "src/components/sections/SectorCardGrid.astro",
         "src/components/sections/ServiceCatalogList.astro",
@@ -4420,7 +4433,7 @@
     },
     {
       "token": "--paper",
-      "count": 252,
+      "count": 260,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/editorial/Timeline.astro",
@@ -4548,6 +4561,7 @@
         "src/components/sections/JourneySteps.astro",
         "src/components/sections/KeyMetricGrid.astro",
         "src/components/sections/LearningPathList.astro",
+        "src/components/sections/ListIndexSection.astro",
         "src/components/sections/LogoMarquee.astro",
         "src/components/sections/LogoWall.astro",
         "src/components/sections/ManifestoAct.astro",
@@ -4564,6 +4578,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -4616,9 +4631,11 @@
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TimelineHorizontal.astro",
         "src/components/sections/TrustBadgesBand.astro",
+        "src/components/sections/TrustLegalSection.astro",
         "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/VersusCompetitors.astro",
+        "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/templates/AuthorPageTemplate.astro",
         "src/components/ui/atoms/CursorDot.astro",
@@ -4667,10 +4684,14 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/numbered-layer-list/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/prose-aside/Component.astro",
         "src/sections/provenance-chip/Component.astro",
+        "src/sections/publications-panel/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/signed-writing-list/Component.astro",
         "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
+        "src/sections/used-service-callout/Component.astro",
         "src/styles/global.css",
         "src/styles/scroll-reveal.css",
         "src/styles/section-layouts.css"
@@ -4678,7 +4699,7 @@
     },
     {
       "token": "--paper-2",
-      "count": 203,
+      "count": 212,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -4776,6 +4797,7 @@
         "src/components/sections/JourneySteps.astro",
         "src/components/sections/KeyMetricGrid.astro",
         "src/components/sections/LearningPathList.astro",
+        "src/components/sections/ListIndexSection.astro",
         "src/components/sections/LogoMarquee.astro",
         "src/components/sections/LogoWall.astro",
         "src/components/sections/ManifestoBlock.astro",
@@ -4790,6 +4812,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/PainPoints.astro",
@@ -4807,6 +4830,7 @@
         "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/RelatedLinks.astro",
         "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/RoiBand.astro",
         "src/components/sections/ScrollGallery.astro",
         "src/components/sections/SectorCardGrid.astro",
         "src/components/sections/ServiceCatalogList.astro",
@@ -4839,6 +4863,8 @@
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TimelineHorizontal.astro",
         "src/components/sections/TrustBadgesBand.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/VersusCompetitors.astro",
         "src/components/sections/WelcomeSection.astro",
@@ -4858,7 +4884,6 @@
         "src/pages/404.astro",
         "src/pages/agence/methode.astro",
         "src/pages/cas-clients/index.astro",
-        "src/pages/index.astro",
         "src/pages/library/[category].astro",
         "src/pages/library/builder/index.astro",
         "src/pages/library/family/index.astro",
@@ -4868,6 +4893,7 @@
         "src/pages/library/index.astro",
         "src/pages/library/studio.astro",
         "src/pages/ressources/outils/index.astro",
+        "src/sections/closing-cta-band/Component.astro",
         "src/sections/curriculum-timeline/Component.astro",
         "src/sections/diagnostic-stages/Component.astro",
         "src/sections/editorial-case-grid/Component.astro",
@@ -4877,17 +4903,21 @@
         "src/sections/method-diagram-list/Component.astro",
         "src/sections/numbered-layer-list/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/prose-aside/Component.astro",
         "src/sections/provenance-chip/Component.astro",
+        "src/sections/publications-panel/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/signed-writing-list/Component.astro",
         "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
+        "src/sections/used-service-callout/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
       ]
     },
     {
       "token": "--paper-3",
-      "count": 141,
+      "count": 152,
       "files": [
         "src/components/proposals/eeat/Prop05.astro",
         "src/components/sections/AboutStorySplit.astro",
@@ -4954,6 +4984,7 @@
         "src/components/sections/JourneySteps.astro",
         "src/components/sections/KeyMetricGrid.astro",
         "src/components/sections/LearningPathList.astro",
+        "src/components/sections/ListIndexSection.astro",
         "src/components/sections/LogoMarquee.astro",
         "src/components/sections/LogoWall.astro",
         "src/components/sections/ManifestoBlock.astro",
@@ -4968,6 +4999,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/PainPoints.astro",
@@ -4985,6 +5017,7 @@
         "src/components/sections/RelatedCardsBand.astro",
         "src/components/sections/RelatedLinks.astro",
         "src/components/sections/ResourceCardGrid.astro",
+        "src/components/sections/RoiBand.astro",
         "src/components/sections/ScrollGallery.astro",
         "src/components/sections/SectorCardGrid.astro",
         "src/components/sections/ServiceCatalogList.astro",
@@ -5013,28 +5046,36 @@
         "src/components/sections/TimelineBlock.astro",
         "src/components/sections/TimelineHorizontal.astro",
         "src/components/sections/TrustBadgesBand.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/VersusCompetitors.astro",
+        "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/pages/library/studio.astro",
         "src/pages/preview/eeat-prop4-variations.astro",
         "src/pages/preview/eeat-propositions.astro",
+        "src/sections/closing-cta-band/Component.astro",
         "src/sections/diagnostic-stages/Component.astro",
         "src/sections/hero-social-proof/Component.astro",
         "src/sections/hover-reveal-words/Component.astro",
         "src/sections/media-bento/Component.astro",
         "src/sections/numbered-layer-list/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/prose-aside/Component.astro",
+        "src/sections/publications-panel/Component.astro",
         "src/sections/rich-text/Component.astro",
+        "src/sections/signed-writing-list/Component.astro",
         "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
+        "src/sections/used-service-callout/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
       ]
     },
     {
       "token": "--paper-rgb",
-      "count": 145,
+      "count": 153,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/library/hero-explore-2/Z4.astro",
@@ -5102,6 +5143,7 @@
         "src/components/sections/IntegrationsGrid.astro",
         "src/components/sections/JourneySteps.astro",
         "src/components/sections/KeyMetricGrid.astro",
+        "src/components/sections/ListIndexSection.astro",
         "src/components/sections/ManifestoAct.astro",
         "src/components/sections/ManifestoStatement.astro",
         "src/components/sections/MarqueeBand.astro",
@@ -5152,8 +5194,11 @@
         "src/components/sections/TierPyramidSvg.astro",
         "src/components/sections/TimelineHorizontal.astro",
         "src/components/sections/TrustBadgesBand.astro",
+        "src/components/sections/TrustLegalSection.astro",
+        "src/components/sections/TunnelStepNav.astro",
         "src/components/sections/UseCaseIndex.astro",
         "src/components/sections/VersusCompetitors.astro",
+        "src/components/sections/WelcomeSection.astro",
         "src/components/sections/WorkflowTable.astro",
         "src/components/ui/atoms/ChapterLabel.astro",
         "src/components/ui/atoms/Kicker.astro",
@@ -5177,8 +5222,12 @@
         "src/sections/media-bento/Component.astro",
         "src/sections/numbered-layer-list/Component.astro",
         "src/sections/pricing-tabs-showcase/Component.astro",
+        "src/sections/prose-aside/Component.astro",
+        "src/sections/publications-panel/Component.astro",
+        "src/sections/signed-writing-list/Component.astro",
         "src/sections/site-showcase/Component.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro",
+        "src/sections/used-service-callout/Component.astro",
         "src/styles/global.css",
         "src/styles/section-layouts.css"
       ]
@@ -5247,6 +5296,7 @@
         "src/components/sections/JourneySteps.astro",
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MethodStepline.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/ProcessSteps.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/ServicesGrid.astro",
@@ -5262,7 +5312,6 @@
         "src/components/ui/molecules/AuthorCard.astro",
         "src/components/ui/molecules/TechPillRow.astro",
         "src/components/ui/molecules/TerminalMockup.astro",
-        "src/pages/index.astro",
         "src/pages/library/studio.astro",
         "src/sections/eeat-panel/Component.astro",
         "src/sections/site-showcase/Component.astro",
@@ -5271,7 +5320,7 @@
     },
     {
       "token": "--radius-lg",
-      "count": 46,
+      "count": 47,
       "files": [
         "src/components/library/hero-explore-2/Z3.astro",
         "src/components/library/hero-explore-2/Z7.astro",
@@ -5303,6 +5352,7 @@
         "src/components/sections/HeroSplitMedia.astro",
         "src/components/sections/HeroThinMedia.astro",
         "src/components/sections/HorizontalShowcase.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/ScrollGallery.astro",
         "src/components/sections/StackCards.astro",
         "src/components/sections/StatementOrbit.astro",
@@ -5346,6 +5396,7 @@
         "src/components/sections/MediaSwapBand.astro",
         "src/components/sections/MethodStepline.astro",
         "src/components/sections/MethodTimeline.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PhotoCluster.astro",
         "src/components/sections/ScrollGallery.astro",
@@ -5355,7 +5406,6 @@
         "src/components/ui/molecules/CalEmbed.astro",
         "src/components/ui/organisms/Stub.astro",
         "src/components/ui/organisms/ToolWidget.astro",
-        "src/pages/index.astro",
         "src/pages/library/builder/index.astro",
         "src/pages/library/index.astro",
         "src/pages/library/studio.astro",
@@ -5366,7 +5416,7 @@
     },
     {
       "token": "--radius-pill",
-      "count": 41,
+      "count": 42,
       "files": [
         "src/components/header/Header.astro",
         "src/components/library/hero-explore-2/Z3.astro",
@@ -5393,6 +5443,7 @@
         "src/components/sections/HeroSplitMedia.astro",
         "src/components/sections/HeroThinMedia.astro",
         "src/components/sections/JourneySteps.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/PricingCards.astro",
         "src/components/sections/PricingToggle.astro",
         "src/components/sections/ResourceCardGrid.astro",
@@ -5472,7 +5523,7 @@
     },
     {
       "token": "--section-base",
-      "count": 94,
+      "count": 95,
       "files": [
         "src/components/proposals/eeat/Prop01.astro",
         "src/components/proposals/eeat/Prop01a.astro",
@@ -5528,6 +5579,7 @@
         "src/components/sections/MethodStepline.astro",
         "src/components/sections/MetricCalloutBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/PainPoints.astro",
         "src/components/sections/PainSeverityList.astro",
@@ -5650,16 +5702,16 @@
       "count": 6,
       "files": [
         "src/components/sections/BentoGrid.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/StatsBento.astro",
         "src/components/sections/TestimonialLogoMetric.astro",
         "src/components/sections/TestimonialWall.astro",
-        "src/pages/index.astro",
         "src/styles/section-layouts.css"
       ]
     },
     {
       "token": "--shadow-card-rest",
-      "count": 10,
+      "count": 11,
       "files": [
         "src/components/library/hero-explore/HeroX5.astro",
         "src/components/sections/CaseSpotlight.astro",
@@ -5667,16 +5719,12 @@
         "src/components/sections/FeatureComparisonGrid.astro",
         "src/components/sections/HeroMediaMedallion.astro",
         "src/components/sections/JourneySteps.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/TestimonialLogoMetric.astro",
         "src/components/sections/TestimonialWall.astro",
         "src/pages/index.astro",
         "src/styles/section-layouts.css"
       ]
-    },
-    {
-      "token": "--shadow-cta",
-      "count": 0,
-      "files": []
     },
     {
       "token": "--shadow-cta-hover",
@@ -5717,7 +5765,7 @@
     },
     {
       "token": "--space-1",
-      "count": 92,
+      "count": 93,
       "files": [
         "src/components/editorial/EditorialTable.astro",
         "src/components/editorial/PullQuote.astro",
@@ -5771,6 +5819,7 @@
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/MediaSwapBand.astro",
         "src/components/sections/MethodStepline.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/PainSeverityList.astro",
         "src/components/sections/PricingCards.astro",
         "src/components/sections/PricingSingleHighlight.astro",
@@ -6004,7 +6053,7 @@
     },
     {
       "token": "--space-2",
-      "count": 176,
+      "count": 177,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/KeyMetric.astro",
@@ -6092,6 +6141,7 @@
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricCalloutBand.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
@@ -6186,7 +6236,7 @@
     },
     {
       "token": "--space-3",
-      "count": 193,
+      "count": 194,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/EditorialTable.astro",
@@ -6304,6 +6354,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
@@ -6385,7 +6436,7 @@
     },
     {
       "token": "--space-4",
-      "count": 224,
+      "count": 225,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -6519,6 +6570,7 @@
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -6615,7 +6667,7 @@
     },
     {
       "token": "--space-5",
-      "count": 215,
+      "count": 216,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Dingbat.astro",
@@ -6731,6 +6783,7 @@
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -6943,6 +6996,7 @@
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/OperatingLayer.astro",
@@ -7006,7 +7060,6 @@
         "src/pages/cas-clients/[...slug].astro",
         "src/pages/cas-clients/index.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/pages/library/[category].astro",
         "src/pages/library/[type].astro",
         "src/pages/library/builder/index.astro",
@@ -7045,7 +7098,7 @@
     },
     {
       "token": "--space-7",
-      "count": 149,
+      "count": 150,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/PullQuote.astro",
@@ -7140,6 +7193,7 @@
         "src/components/sections/MethodStepline.astro",
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainSeverityList.astro",
@@ -7503,7 +7557,7 @@
     },
     {
       "token": "--text-body",
-      "count": 141,
+      "count": 142,
       "files": [
         "src/components/header/Header.astro",
         "src/components/library/hero-explore-2/Z6.astro",
@@ -7586,6 +7640,7 @@
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PainPoints.astro",
         "src/components/sections/PainSeverityList.astro",
@@ -7788,6 +7843,7 @@
         "src/components/sections/MetricCalloutBand.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OffProof.astro",
         "src/components/sections/PainPoints.astro",
@@ -7812,7 +7868,6 @@
         "src/components/ui/organisms/BookSession.astro",
         "src/components/ui/organisms/Hero.astro",
         "src/pages/agence/cartographie.astro",
-        "src/pages/index.astro",
         "src/pages/library/builder/index.astro",
         "src/pages/library/family/index.astro",
         "src/pages/library/hero-explore-2.astro",
@@ -7839,7 +7894,7 @@
     },
     {
       "token": "--text-h2",
-      "count": 101,
+      "count": 102,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/editorial/PullQuote.astro",
@@ -7888,6 +7943,7 @@
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/PainSeverityList.astro",
         "src/components/sections/PricingCards.astro",
@@ -7946,7 +8002,7 @@
     },
     {
       "token": "--text-h3",
-      "count": 140,
+      "count": 141,
       "files": [
         "src/components/editorial/Callout.astro",
         "src/components/editorial/Timeline.astro",
@@ -8018,6 +8074,7 @@
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
         "src/components/sections/ObjectionHandler.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
@@ -8092,9 +8149,10 @@
     },
     {
       "token": "--text-kicker",
-      "count": 6,
+      "count": 7,
       "files": [
         "src/components/sections/EditorialProse.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/PhotoCluster.astro",
         "src/components/ui/atoms/Kicker.astro",
         "src/pages/index.astro",
@@ -8112,7 +8170,7 @@
     },
     {
       "token": "--text-micro",
-      "count": 31,
+      "count": 32,
       "files": [
         "src/components/header/Header.astro",
         "src/components/proposals/eeat/Prop01.astro",
@@ -8127,6 +8185,7 @@
         "src/components/proposals/eeat/Prop04d.astro",
         "src/components/proposals/eeat/Prop05.astro",
         "src/components/sections/HeroSplitMedia.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/PhotoCluster.astro",
         "src/components/ui/molecules/MastheadRow.astro",
         "src/pages/index.astro",
@@ -8329,6 +8388,7 @@
         "src/components/sections/MetricShift.astro",
         "src/components/sections/NewsletterBand.astro",
         "src/components/sections/NewsletterSignupSection.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainPoints.astro",
@@ -8412,7 +8472,6 @@
         "src/pages/agence/methode.astro",
         "src/pages/cas-clients/index.astro",
         "src/pages/contact.astro",
-        "src/pages/index.astro",
         "src/pages/library/[category].astro",
         "src/pages/library/[type].astro",
         "src/pages/library/builder/index.astro",
@@ -8467,7 +8526,7 @@
       "count": 3,
       "files": [
         "src/components/sections/HoverRevealList.astro",
-        "src/pages/index.astro",
+        "src/components/sections/OfferRail.astro",
         "src/styles/global.css"
       ]
     },
@@ -8488,18 +8547,19 @@
     },
     {
       "token": "--tracking-caps",
-      "count": 5,
+      "count": 6,
       "files": [
         "src/components/header/Header.astro",
         "src/components/library/hero-explore/HeroX10.astro",
         "src/components/sections/DataTable.astro",
+        "src/components/sections/OfferRail.astro",
         "src/pages/index.astro",
         "src/styles/global.css"
       ]
     },
     {
       "token": "--tracking-display",
-      "count": 51,
+      "count": 52,
       "files": [
         "src/components/editorial/KeyMetric.astro",
         "src/components/library/hero-explore/HeroX1.astro",
@@ -8535,6 +8595,7 @@
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricCalloutBand.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainSeverityList.astro",
         "src/components/sections/ProblemStatement.astro",
@@ -8556,9 +8617,10 @@
     },
     {
       "token": "--tracking-kicker",
-      "count": 4,
+      "count": 5,
       "files": [
         "src/components/sections/EditorialProse.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/ui/atoms/Kicker.astro",
         "src/pages/index.astro",
         "src/sections/sticky-scroll-storytelling/Component.astro"
@@ -8642,6 +8704,7 @@
         "src/components/sections/MethodStepline.astro",
         "src/components/sections/MethodTimeline.astro",
         "src/components/sections/MetricShift.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/OfferTierGrid.astro",
         "src/components/sections/OperatingLayer.astro",
         "src/components/sections/PainSeverityList.astro",
@@ -8670,7 +8733,6 @@
         "src/components/ui/organisms/CookiesBanner.astro",
         "src/components/ui/organisms/ToolWidget.astro",
         "src/pages/agence/cartographie.astro",
-        "src/pages/index.astro",
         "src/pages/library/[category].astro",
         "src/pages/library/[type].astro",
         "src/pages/library/builder/index.astro",
@@ -8740,6 +8802,7 @@
         "src/components/sections/LearningPathList.astro",
         "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/PainSeverityList.astro",
         "src/components/sections/PricingSingleHighlight.astro",
         "src/components/sections/PricingToggle.astro",
@@ -8756,7 +8819,6 @@
         "src/components/ui/molecules/MastheadRow.astro",
         "src/components/ui/molecules/ShareButtons.astro",
         "src/components/ui/molecules/TagPills.astro",
-        "src/pages/index.astro",
         "src/pages/library/[type].astro",
         "src/pages/library/compare.astro",
         "src/pages/library/hero-explore-2.astro",
@@ -8814,7 +8876,7 @@
     },
     {
       "token": "--wrap-prose",
-      "count": 36,
+      "count": 37,
       "files": [
         "src/components/sections/ArchitectureDiagram.astro",
         "src/components/sections/DiagnosticStages.astro",
@@ -8831,6 +8893,7 @@
         "src/components/sections/HeroLiquid.astro",
         "src/components/sections/KeyMetricGrid.astro",
         "src/components/sections/MediaBlock.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/ProcessSteps.astro",
         "src/components/sections/QuoteSpotlight.astro",
         "src/components/sections/ServiceCatalogList.astro",
@@ -8856,11 +8919,12 @@
     },
     {
       "token": "--wrap-read",
-      "count": 9,
+      "count": 10,
       "files": [
         "src/components/sections/DefinitionExtract.astro",
         "src/components/sections/FeatureGrid.astro",
         "src/components/sections/HeroAtlas.astro",
+        "src/components/sections/OfferRail.astro",
         "src/components/sections/StatementOrbit.astro",
         "src/pages/index.astro",
         "src/pages/library/studio.astro",
@@ -12333,7 +12397,7 @@
   "scopedDuplicates": [
     {
       "signature": "background:var(--ink);color:var(--paper)",
-      "count": 134,
+      "count": 135,
       "files": [
         "src/components/library/hero-explore-2/Z1.astro",
         "src/components/library/hero-explore-2/Z2.astro",
@@ -12397,6 +12461,7 @@
         "src/components/sections/HeroBaselineStats.astro",
         "src/components/sections/HeroCapabilityBand.astro",
         "src/components/sections/HeroCardCover.astro",
+        "src/components/sections/HeroCentered.astro",
         "src/components/sections/HeroCenteredBand.astro",
         "src/components/sections/HeroEditorialKpi.astro",
         "src/components/sections/HeroEditorialMasthead.astro",
@@ -13110,6 +13175,22 @@
       ]
     },
     {
+      "signature": "background:var(--paper);color:var(--ink)",
+      "count": 10,
+      "files": [
+        "src/components/sections/CtaFormInline.astro",
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/ManifestoAct.astro",
+        "src/components/sections/NewsletterBand.astro",
+        "src/components/sections/NewsletterSignupSection.astro",
+        "src/components/sections/PainSeverityList.astro",
+        "src/components/sections/QuoteSpotlight.astro",
+        "src/components/sections/TunnelStepNav.astro",
+        "src/components/templates/AuthorPageTemplate.astro"
+      ]
+    },
+    {
       "signature": "border-bottom:1px solid var(--hairline);border-right:none",
       "count": 10,
       "files": [
@@ -13203,21 +13284,6 @@
         "src/components/sections/HeroSummaryRail.astro",
         "src/components/sections/ManifestoAct.astro",
         "src/components/sections/PhotoCluster.astro"
-      ]
-    },
-    {
-      "signature": "background:var(--paper);color:var(--ink)",
-      "count": 9,
-      "files": [
-        "src/components/sections/CtaFormInline.astro",
-        "src/components/sections/HeroCentered.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/ManifestoAct.astro",
-        "src/components/sections/NewsletterBand.astro",
-        "src/components/sections/NewsletterSignupSection.astro",
-        "src/components/sections/PainSeverityList.astro",
-        "src/components/sections/QuoteSpotlight.astro",
-        "src/components/templates/AuthorPageTemplate.astro"
       ]
     },
     {
@@ -13719,6 +13785,17 @@
       ]
     },
     {
+      "signature": "background:rgba(var(--paper-rgb), 0.04);border-color:rgba(var(--paper-rgb), 0.14)",
+      "count": 5,
+      "files": [
+        "src/components/sections/BentoGrid.astro",
+        "src/components/sections/BrandedCallout.astro",
+        "src/components/sections/MaturityPyramid.astro",
+        "src/components/sections/PricingCards.astro",
+        "src/components/sections/WelcomeSection.astro"
+      ]
+    },
+    {
       "signature": "border-bottom-color:var(--accent-text);color:var(--accent-text)",
       "count": 5,
       "files": [
@@ -13826,6 +13903,17 @@
         "src/components/sections/TestimonialLogoMetric.astro",
         "src/components/sections/TestimonialMetrics.astro",
         "src/components/ui/molecules/AuthorByline.astro"
+      ]
+    },
+    {
+      "signature": "display:flex;flex-direction:column;gap:var(--space-3);list-style:none;margin:0;padding:0",
+      "count": 5,
+      "files": [
+        "src/components/proposals/eeat/Prop04d.astro",
+        "src/components/sections/ComparisonDuo.astro",
+        "src/components/sections/FeatureComparisonGrid.astro",
+        "src/components/sections/HeroFormInline.astro",
+        "src/components/sections/OfferRail.astro"
       ]
     },
     {
@@ -13952,16 +14040,6 @@
         "src/components/sections/BentoGrid.astro",
         "src/components/sections/CaseCardGrid.astro",
         "src/components/sections/FeatureGrid.astro",
-        "src/components/sections/PricingCards.astro"
-      ]
-    },
-    {
-      "signature": "background:rgba(var(--paper-rgb), 0.04);border-color:rgba(var(--paper-rgb), 0.14)",
-      "count": 4,
-      "files": [
-        "src/components/sections/BentoGrid.astro",
-        "src/components/sections/BrandedCallout.astro",
-        "src/components/sections/MaturityPyramid.astro",
         "src/components/sections/PricingCards.astro"
       ]
     },
@@ -14226,6 +14304,16 @@
       ]
     },
     {
+      "signature": "display:block;height:auto;width:100%",
+      "count": 4,
+      "files": [
+        "src/components/library/hero-explore/HeroX7.astro",
+        "src/components/sections/HeroOfferDetail.astro",
+        "src/components/sections/OfferRail.astro",
+        "src/components/sections/ServicesGrid.astro"
+      ]
+    },
+    {
       "signature": "display:block;margin-bottom:var(--space-5)",
       "count": 4,
       "files": [
@@ -14243,16 +14331,6 @@
         "src/components/sections/PricingSingleHighlight.astro",
         "src/components/sections/PricingToggle.astro",
         "src/components/ui/molecules/PricingTier.astro"
-      ]
-    },
-    {
-      "signature": "display:flex;flex-direction:column;gap:var(--space-3);list-style:none;margin:0;padding:0",
-      "count": 4,
-      "files": [
-        "src/components/proposals/eeat/Prop04d.astro",
-        "src/components/sections/ComparisonDuo.astro",
-        "src/components/sections/FeatureComparisonGrid.astro",
-        "src/components/sections/HeroFormInline.astro"
       ]
     },
     {
@@ -14455,6 +14533,15 @@
         "src/components/proposals/eeat/Prop04a.astro",
         "src/components/proposals/eeat/Prop04c.astro",
         "src/components/proposals/eeat/Prop04d.astro"
+      ]
+    },
+    {
+      "signature": "background:var(--ink);border-bottom-color:rgba(var(--paper-rgb), 0.14)",
+      "count": 3,
+      "files": [
+        "src/components/sections/HeroCentered.astro",
+        "src/components/sections/ListIndexSection.astro",
+        "src/components/sections/TrustLegalSection.astro"
       ]
     },
     {
@@ -14683,6 +14770,15 @@
       ]
     },
     {
+      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);margin:0;text-transform:uppercase",
+      "count": 3,
+      "files": [
+        "src/components/proposals/eeat/Prop04c.astro",
+        "src/components/sections/OfferRail.astro",
+        "src/components/sections/TeamCardGrid.astro"
+      ]
+    },
+    {
       "signature": "color:var(--accent-text);padding-left:var(--space-2)",
       "count": 3,
       "files": [
@@ -14782,6 +14878,15 @@
       ]
     },
     {
+      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-relaxed);margin:0",
+      "count": 3,
+      "files": [
+        "src/components/sections/GalleryMasonry.astro",
+        "src/components/sections/MethodTimeline.astro",
+        "src/components/sections/OfferRail.astro"
+      ]
+    },
+    {
       "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-body);margin:0;text-wrap:pretty",
       "count": 3,
       "files": [
@@ -14806,15 +14911,6 @@
         "src/components/proposals/eeat/Prop04.astro",
         "src/components/proposals/eeat/Prop04a.astro",
         "src/components/proposals/eeat/Prop04d.astro"
-      ]
-    },
-    {
-      "signature": "display:block;height:auto;width:100%",
-      "count": 3,
-      "files": [
-        "src/components/library/hero-explore/HeroX7.astro",
-        "src/components/sections/HeroOfferDetail.astro",
-        "src/components/sections/ServicesGrid.astro"
       ]
     },
     {
@@ -15539,6 +15635,14 @@
       ]
     },
     {
+      "signature": "border-bottom-color:var(--accent-text);color:var(--ink)",
+      "count": 2,
+      "files": [
+        "src/components/sections/FeatureTabs.astro",
+        "src/components/sections/OfferRail.astro"
+      ]
+    },
+    {
       "signature": "border-bottom:1px solid var(--hairline);border-right:1px solid var(--hairline);display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) var(--space-5) var(--space-5) 0",
       "count": 2,
       "files": [
@@ -16051,14 +16155,6 @@
       ]
     },
     {
-      "signature": "color:var(--accent-text);font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:var(--tracking-mono);margin:0;text-transform:uppercase",
-      "count": 2,
-      "files": [
-        "src/components/proposals/eeat/Prop04c.astro",
-        "src/components/sections/TeamCardGrid.astro"
-      ]
-    },
-    {
       "signature": "color:var(--accent-text);font-weight:var(--fw-semibold)",
       "count": 2,
       "files": [
@@ -16408,14 +16504,6 @@
       "files": [
         "src/components/sections/IntegrationsGrid.astro",
         "src/components/sections/TeamBioGrid.astro"
-      ]
-    },
-    {
-      "signature": "color:var(--muted);font-family:var(--font-sans);font-size:var(--text-body);line-height:var(--leading-relaxed);margin:0",
-      "count": 2,
-      "files": [
-        "src/components/sections/GalleryMasonry.astro",
-        "src/components/sections/MethodTimeline.astro"
       ]
     },
     {
@@ -17139,6 +17227,14 @@
       ]
     },
     {
+      "signature": "stroke-dashoffset:0;transition:none",
+      "count": 2,
+      "files": [
+        "src/components/sections/ArchitectureDiagram.astro",
+        "src/components/sections/OfferRail.astro"
+      ]
+    },
+    {
       "signature": "text-align:right;text-transform:none",
       "count": 2,
       "files": [
@@ -17148,10 +17244,10 @@
     }
   ],
   "stats": {
-    "tokenCount": 127,
+    "tokenCount": 126,
     "classCount": 215,
     "duplicateGroupCount": 153,
-    "scopedDuplicateGroupCount": 475,
+    "scopedDuplicateGroupCount": 478,
     "unusedTokens": [
       "--color-accent",
       "--color-accent-sur-clair",
@@ -17164,11 +17260,9 @@
       "--color-paper",
       "--color-paper-2",
       "--color-paper-3",
-      "--complementary-rgb",
       "--fl-max-vw",
       "--fl-min-vw",
       "--fl-space-shrink",
-      "--shadow-cta",
       "--space-14"
     ]
   }
