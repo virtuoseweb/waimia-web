@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `864fd48e` - 82/95 tâches done (86%).
+État : HEAD `fe3ca7b5` - 83/96 tâches done (86%).
 
 ## Avancement par phase
 
@@ -12,7 +12,7 @@
 | P1 | 5/5 | 100% | - |
 | P2 | 25/29 | 86% | P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles ; P2.11-d — Menu fini déclinaisons hover `data-hover="surface\|tint\|lift"` |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
-| P4 | 5/11 | 45% | P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) ; P4.4-c — V1 vague 3 : assemblage + gate ; P4.4-g — V4 création + config ; P4.4-h — V5 extension physique ; P4.4-d — V2 : catalogue comparatif + studio refondu (+1) |
+| P4 | 6/12 | 50% | P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) ; P4.4-c — V1 vague 3 : assemblage + gate ; P4.4-g — V4 création + config ; P4.4-h — V5 extension physique ; P4.4-d — V2 : catalogue comparatif + studio refondu (+1) |
 
 ## Avancement par chantier
 
@@ -48,7 +48,7 @@
 | P4.1 — Boilerplate produit forkable | P4 | 1/1 | 100% | 9be38c58 fix(forkabilite): aria-label wordmark header → SITE.name + limite documentée (wordmark stylisé = actif de marque, constat démo réelle solstice-web-demo) |
 | P4.2 — CMS lite + TinaCMS (visual editing 100% Astro) | P4 | 1/1 | 100% | d267b834 feat(cms): #39/#40 retrait complet de TinaCMS (ADR docs/strategy/12) |
 | P4.3 — Dashboard / cockpit & agents à l'usage | P4 | 0/1 | 0% | - |
-| P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 3/8 | 38% | 627d121d feat(atelier): vague 1 — axes direction/itemOrder + store /api/ds/saved + AtelierShell app-shell (B1+B2+B4) ; 864fd48e feat(atelier): vague 2 — picker visuel + canvas BuilderApp + inspecteur 4 onglets + library instances + PATCH /api/ds/instance (B5+B6+B7+U1+U2+U3) ; 864fd48e feat(atelier): vague 2 — picker visuel + canvas BuilderApp + inspecteur 4 onglets + library instances + PATCH /api/ds/instance (B5+B6+B7+U1+U2+U3) |
+| P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 4/9 | 44% | 864fd48e feat(atelier): vague 2 — picker visuel + canvas BuilderApp + inspecteur 4 onglets + library instances + PATCH /api/ds/instance (B5+B6+B7+U1+U2+U3) ; 864fd48e feat(atelier): vague 2 — picker visuel + canvas BuilderApp + inspecteur 4 onglets + library instances + PATCH /api/ds/instance (B5+B6+B7+U1+U2+U3) ; fe3ca7b5 feat(atelier): P4.4-i · l'app builder s'ouvre sur le projet réel (dashboard + sitemap + édition page réelle) |
 
 ## ⚠ Désyncs
 
