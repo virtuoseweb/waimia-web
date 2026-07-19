@@ -98,7 +98,9 @@ const revisedLabel = finalRevisedAt
     </aside>
 
     <article class="trust-sections reveal-stagger">
-      <slot name="sections" />
+      {Astro.slots.has('sections')
+        ? <slot name="sections" />
+        : <Fragment set:html={(isFr ? data?.body_html_fr : data?.body_html_en) ?? ''} />}
     </article>
   </div>
 </div>

@@ -16,6 +16,8 @@ export const schema = z.object({
   version: z.string().optional(),
   legal_footer_fr: z.string().optional(),
   legal_footer_en: z.string().optional(),
+  body_html_fr: z.string().optional(),
+  body_html_en: z.string().optional(),
   sections: z
     .array(
       z.object({
