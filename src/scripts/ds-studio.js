@@ -673,7 +673,15 @@ function initStudio() {
 
   function loadCatalogType(type) {
     if (!catalogFrame || !type) return;
-    catalogFrame.setAttribute('src', `/preview/${type}`);
+    // Ne recharge l'iframe QUE si le type change réellement (même garde que loadPreview,
+    // l.657). Re-sélectionner le type déjà chargé — ce qui arrive naturellement après
+    // « Appliquer » un preset, via l'inspecteur ou la palette ⌘K — ne doit PAS déclencher
+    // un rechargement complet : il jetterait puis re-jouerait les overrides live sur le
+    // `load` (flash inutile). Les overrides d'un preset sont poussés en direct par
+    // applyOverridesToPreview() ; l'apply n'a donc jamais besoin d'un reload. Cf P2.8-b.
+    // Un vrai changement de type reste une navigation (page /preview/<type> distincte).
+    const route = `/preview/${type}`;
+    if (catalogFrame.getAttribute('src') !== route) catalogFrame.setAttribute('src', route);
     if (catalogCurrent) catalogCurrent.textContent = type;
     if (catalogOpenFiche) catalogOpenFiche.setAttribute('href', `/components/${type}`);
     if (catalogOpenPreview) catalogOpenPreview.setAttribute('href', `/preview/${type}`);
