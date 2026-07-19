@@ -89,6 +89,7 @@ const PRESET_ROUTE = '/api/ds/preset';
 const COMPOSE_ROUTE = '/api/ds/compose';
 const SAVED_ROUTE = '/api/ds/saved';
 const INSTANCE_ROUTE = '/api/ds/instance';
+const PAGE_ROUTE = '/api/ds/page';
 const CUSTOM_PRESET_ROUTE = '/api/ds/custom-preset';
 // Source de verite du catalogue de presets (fonctions d'acces fusionnant les customs) + des
 // enums de validation (KNOWN_LAYOUTS / KNOWN_DENSITIES). Chargee via ssrLoadModule (memes raisons
@@ -822,6 +823,39 @@ function makeInstanceHandler(server) {
   };
 }
 
+// --- Handler page (lecture seule d'une page reelle pour l'editeur, N4) --------
+// Renvoie les sections + meta d'une page de contenu reelle (src/content/**) pour l'ouvrir dans
+// l'editeur du builder. LECTURE SEULE : aucune ecriture, donc PAS de keyword requis (comme le GET
+// de /api/ds/instance). Anti-traversal STRICT identique (resolveContentPath : refus chemin absolu,
+// backslash, NUL, segment `..`, extension .json imposee, containment DANS src/content/).
+//
+//   GET /api/ds/page?file=<rel>  -> { ok:true, sections, meta } ; 400 si file invalide/inexistant.
+//     - sections : le tableau `sections` de la page (instances concretes).
+//     - meta     : le reste du document (title_fr / title_en / seo / ...), sections exclues.
+
+function makePageHandler() {
+  return async function pageHandler(req, res, next) {
+    if (req.method !== 'GET') return next();
+    const url = new URL(req.url || '/', 'http://localhost');
+    const check = resolveContentPath(url.searchParams.get('file'));
+    if (!check.ok) return sendJson(res, 400, { ok: false, error: check.error });
+    if (!existsSync(check.abs)) {
+      return sendJson(res, 400, { ok: false, error: 'fichier inexistant' });
+    }
+    let data;
+    try {
+      data = JSON.parse(readFileSync(check.abs, 'utf8'));
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'fichier JSON illisible' });
+    }
+    if (!data || typeof data !== 'object' || Array.isArray(data) || !Array.isArray(data.sections)) {
+      return sendJson(res, 400, { ok: false, error: 'pas de tableau sections' });
+    }
+    const { sections, ...meta } = data;
+    return sendJson(res, 200, { ok: true, sections, meta });
+  };
+}
+
 // --- Handler custom-preset (variantes officielles persistees, P1+P2) ----------
 // Cree/liste/supprime une VARIANTE officielle d'un type de section = un preset nomme (jeu d'axes
 // de presentation) persiste dans packages/ds-kernel/src/lib/custom-presets.json, SANS patcher les
@@ -1059,10 +1093,11 @@ export default function dsSaveDev() {
         server.middlewares.use(COMPOSE_ROUTE, makeComposeHandler(server));
         server.middlewares.use(SAVED_ROUTE, makeSavedHandler(server));
         server.middlewares.use(INSTANCE_ROUTE, makeInstanceHandler(server));
+        server.middlewares.use(PAGE_ROUTE, makePageHandler());
         server.middlewares.use(CUSTOM_PRESET_ROUTE, makeCustomPresetHandler(server));
         if (logger && typeof logger.info === 'function') {
           logger.info(
-            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / variantes custom)`,
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET ${PAGE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / lecture page reelle / variantes custom)`,
           );
         }
       },

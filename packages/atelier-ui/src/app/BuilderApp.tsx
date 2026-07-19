@@ -19,6 +19,7 @@
 
 import {
   useCallback,
+  useEffect,
   useMemo,
   useReducer,
   useState,
@@ -59,6 +60,13 @@ export interface BuilderAppProps {
   renderPicker?: ReactNode;
   /** Slot droit (inspecteur B7). Defaut : placeholder integre. */
   renderInspector?: ReactNode;
+  /**
+   * Document a charger au montage (N4) : quand l'editeur s'ouvre sur une PAGE REELLE, l'hote fournit
+   * ici le doc deja resolu (meta + vraies sections). L'editeur le charge une fois au montage.
+   */
+  initialDoc?: { meta: BuilderMeta; sections: SectionInstance[] };
+  /** Route de la page reelle ouverte (N4) : affiche un bandeau « Page reelle : <route> ». */
+  realPageRoute?: string;
 }
 
 export default function BuilderApp({
@@ -70,8 +78,19 @@ export default function BuilderApp({
   renderPath,
   renderPicker,
   renderInspector,
+  initialDoc,
+  realPageRoute,
 }: BuilderAppProps) {
   const [state, dispatch] = useReducer(reducer, defaultMeta, initState);
+
+  // N4 : charge la page reelle au montage (l'editeur est remonte a chaque ouverture de page cote
+  // hote, donc ce montage-effect correspond a une nouvelle page). Un doc absent = editeur vierge.
+  useEffect(() => {
+    if (initialDoc) {
+      dispatch({ kind: 'load', doc: initialDoc });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Index type -> entree catalogue (lookup O(1) pour resoudre la demo a l'ajout).
   const itemByType = useMemo(() => {
@@ -281,6 +300,29 @@ export default function BuilderApp({
   return (
     <BuilderContext.Provider value={ctx}>
       <div className="bld">
+        {/* ── BANDEAU PAGE REELLE (N4) ── */}
+        {realPageRoute && (
+          <div
+            className="bld-realpage"
+            role="status"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'var(--space-2)',
+              padding: 'var(--space-2) var(--space-4)',
+              border: '1px solid var(--complementary)',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--paper-2)',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-small)',
+              color: 'var(--ink)',
+            }}
+            data-testid="editor-realpage-banner"
+          >
+            <span style={{ color: 'var(--complementary)' }}>Page réelle :</span>
+            <strong style={{ fontWeight: 'var(--fw-semibold)' }}>{realPageRoute}</strong>
+          </div>
+        )}
         {/* ── BARRE ── */}
         <div className="bld-bar">
           <div className="bld-bar-meta">

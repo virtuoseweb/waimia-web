@@ -75,12 +75,17 @@ async function main() {
   });
 
   try {
-    // 1. Charger la page builder + hydrater l'ile React. Le picker est desormais le panneau
-    //    AddPanel (vignettes) ouvert par le declencheur « + Ajouter une section » (B5/B9).
+    // 1. Charger la page builder + hydrater l'ile React. L'app s'ouvre desormais sur le DASHBOARD
+    //    d'accueil (N2) : on clique « Nouveau brouillon » pour atteindre l'editeur vierge, puis le
+    //    picker est le panneau AddPanel (vignettes) ouvert par « + Ajouter une section » (B5/B9).
     const resp = await page.goto(BUILDER_URL, { waitUntil: 'networkidle', timeout: 45000 });
     const httpOk = resp && resp.status() === 200;
     let addedType = '';
     try {
+      // Dashboard -> editeur vierge (le harness teste le flow composer, pas l'ouverture de page reelle).
+      const newDraft = page.locator('[data-testid="dash-new-draft"]');
+      await newDraft.waitFor({ state: 'visible', timeout: 20000 });
+      await newDraft.click();
       const trigger = page.locator('button.bld-add-trigger').first();
       await trigger.waitFor({ state: 'visible', timeout: 20000 });
       await trigger.click();

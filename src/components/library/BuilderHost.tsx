@@ -24,6 +24,9 @@ import { AddPanel, type PickerType, type SavedSection } from '@waimia/atelier-ui
 import { InspectorPanel } from '@waimia/atelier-ui/inspector/InspectorPanel.tsx';
 import { deriveAxes } from '@waimia/atelier-ui/inspector/LayoutTab.tsx';
 import type { ColorScheme, SectionSlot } from '@waimia/atelier-ui/inspector/types.ts';
+import { DashboardScreen } from '@waimia/atelier-ui/screens/DashboardScreen.tsx';
+import { SitemapScreen } from '@waimia/atelier-ui/screens/SitemapScreen.tsx';
+import type { SitemapGroup, SitemapPage } from '@waimia/atelier-ui/screens/types.ts';
 import { COLOR_SCHEMES } from '@waimia/ds-kernel/lib/section-colorschemes';
 import type {
   BuilderCatalogueItem,
@@ -32,6 +35,9 @@ import type {
   BuilderPage,
   SectionInstance,
 } from '@waimia/builder/types';
+// Donnees app REELLES du site (source de verite unique, rule 59) : l'hote est le SEUL point cote
+// app autorise a connaitre ces stores ; les ecrans (atelier-ui) restent purs (props-driven).
+import { SITE_PAGES, SITE_GROUPS } from '../../lib/site-pages.generated';
 
 /** Entree du store « Saved sections » (/api/ds/saved) : type + props concretes reutilisables. */
 interface SavedEntry {
@@ -55,6 +61,30 @@ export interface BuilderHostProps {
   renderPath: string;
 }
 
+/** Ecran actif de l'app builder (dashboard d'accueil -> sitemap -> editeur). */
+type Screen = 'dashboard' | 'sitemap' | 'editor';
+
+/** Contexte d'une page REELLE ouverte dans l'editeur (N4) : route + fichier + sections d'origine. */
+interface RealPageContext {
+  route: string;
+  /** Chemin relatif SOUS src/content/ (ex. services/site-web-ia.json), pour PATCH /api/ds/instance. */
+  file: string;
+  /** Sections telles que lues sur disque : reference pour l'alignement d'index « Appliquer au site ». */
+  sections: SectionInstance[];
+}
+
+/**
+ * Derive le slug d'une page depuis sa collection + son chemin de contenu.
+ * Ex. ('services', 'services/agents-ia.json') -> 'agents-ia' ;
+ *     ('services', 'services/agents-ia/agent-support-client.json') -> 'agents-ia/agent-support-client'.
+ */
+function deriveSlug(collection: string, file: string): string {
+  let s = file.replace(/\.json$/, '');
+  const prefix = `${collection}/`;
+  if (s.startsWith(prefix)) s = s.slice(prefix.length);
+  return s;
+}
+
 /** Cles d'axes de presentation cherchees dans la demo d'un type pour alimenter les facettes du picker. */
 const AXIS_KEYS = ['background', 'layout', 'columns', 'variant', 'density', 'proportion', 'contentAlign', 'align'];
 
@@ -70,11 +100,28 @@ function pickAxes(demo: SectionInstance): Record<string, string | number | boole
   return out;
 }
 
-export default function BuilderHost({ items, ...rest }: BuilderHostProps): React.ReactElement {
+export default function BuilderHost({
+  items,
+  colorSchemes,
+  defaultMeta,
+  collections,
+  pages,
+  renderPath,
+}: BuilderHostProps): React.ReactElement {
   // Blocs sauvegardes (source de verite = /api/ds/saved, DEV-ONLY). Rafraichis apres chaque save.
   const [savedList, setSavedList] = useState<SavedEntry[]>([]);
   // Contrat de slots complet par type : charge a la demande (chunk Vite), null tant que non arrive.
   const [slotsByType, setSlotsByType] = useState<SlotsByType | null>(null);
+
+  // ── Routeur d'ecrans (dashboard -> sitemap -> editeur), navigation par etat React interne ───────
+  const [screen, setScreen] = useState<Screen>('dashboard');
+  // Page reelle ouverte dans l'editeur (null = brouillon vierge « Nouveau brouillon »).
+  const [realPage, setRealPage] = useState<RealPageContext | null>(null);
+  // Document initial charge dans l'editeur au montage (null = editeur vierge).
+  const [initialDoc, setInitialDoc] = useState<{ meta: BuilderMeta; sections: SectionInstance[] } | null>(null);
+  // Route en cours de chargement (desactive la carte) + erreur eventuelle affichee dans le sitemap.
+  const [openingRoute, setOpeningRoute] = useState('');
+  const [openError, setOpenError] = useState('');
 
   const refreshSaved = useCallback(async () => {
     try {
@@ -128,23 +175,124 @@ export default function BuilderHost({ items, ...rest }: BuilderHostProps): React
   // (id/kind/base/cells/label) : miroir self-contained, cast structurel sans re-mapper.
   const schemes = COLOR_SCHEMES as unknown as ColorScheme[];
 
+  // ── Compteurs REELS du projet (jamais hardcodes) pour le dashboard ─────────────────────────────
+  const project = useMemo(
+    () => ({
+      name: 'Waimia',
+      domain: 'waimia.com',
+      pageCount: SITE_PAGES.length,
+      groupCount: SITE_GROUPS.length,
+      sectionTypeCount: items.length,
+    }),
+    [items.length],
+  );
+
+  // ── Navigation ────────────────────────────────────────────────────────────────────────────────
+  const openDashboard = useCallback(() => setScreen('dashboard'), []);
+  const openSitemap = useCallback(() => {
+    setOpenError('');
+    setScreen('sitemap');
+  }, []);
+  const startNewDraft = useCallback(() => {
+    setRealPage(null);
+    setInitialDoc(null);
+    setScreen('editor');
+  }, []);
+
+  // N4 : ouvre une page REELLE editable -> fetch /api/ds/page (lecture seule) -> charge l'editeur.
+  const openPage = useCallback(
+    async (route: string) => {
+      const page = SITE_PAGES.find((p) => p.route === route);
+      if (!page || !page.editable || !page.file) return;
+      setOpeningRoute(route);
+      setOpenError('');
+      try {
+        const res = await fetch(`/api/ds/page?file=${encodeURIComponent(page.file)}`);
+        const json = (await res.json().catch(() => null)) as
+          | { ok?: boolean; sections?: SectionInstance[]; meta?: Record<string, unknown>; error?: string }
+          | null;
+        if (!res.ok || !json || !json.ok || !Array.isArray(json.sections)) {
+          setOpenError((json && json.error) || `Echec du chargement (HTTP ${res.status}).`);
+          return;
+        }
+        const meta: BuilderMeta = {
+          collection: collections.includes(page.collection) ? page.collection : defaultMeta.collection,
+          slug: deriveSlug(page.collection, page.file),
+          lang: 'fr',
+          title_fr: page.title,
+          title_en: typeof json.meta?.title_en === 'string' ? (json.meta.title_en as string) : undefined,
+        };
+        setInitialDoc({ meta, sections: json.sections });
+        setRealPage({ route: page.route, file: page.file, sections: json.sections });
+        setScreen('editor');
+      } catch {
+        setOpenError('Endpoint indisponible (chargement dev uniquement).');
+      } finally {
+        setOpeningRoute('');
+      }
+    },
+    [collections, defaultMeta.collection],
+  );
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: HOST_CSS }} data-wa-style="builder-host" />
-      <BuilderApp
-        items={items}
-        {...rest}
-        renderPicker={
-          <Overlays
-            types={pickerTypes}
-            savedSections={savedSections}
-            savedList={savedList}
-            thumbSrcOf={thumbSrcOf}
-            onSaved={refreshSaved}
+
+      {screen === 'dashboard' && (
+        <DashboardScreen project={project} onOpenProject={openSitemap} onNewDraft={startNewDraft} />
+      )}
+
+      {screen === 'sitemap' && (
+        <SitemapScreen
+          projectName={project.name}
+          groups={SITE_GROUPS as SitemapGroup[]}
+          pages={SITE_PAGES as SitemapPage[]}
+          onBack={openDashboard}
+          onOpenPage={openPage}
+          openingRoute={openingRoute}
+          error={openError}
+        />
+      )}
+
+      {screen === 'editor' && (
+        <>
+          <div className="bldx-crumb">
+            <button type="button" className="bldx-crumb__link" onClick={openDashboard}>
+              <span aria-hidden="true">←</span> Projets
+            </button>
+            {realPage && (
+              <button type="button" className="bldx-crumb__link" onClick={openSitemap}>
+                <span aria-hidden="true">←</span> Sitemap
+              </button>
+            )}
+            <span className="bldx-crumb__here">
+              {realPage ? realPage.route : 'Nouveau brouillon'}
+            </span>
+          </div>
+          <BuilderApp
+            items={items}
+            colorSchemes={colorSchemes}
+            defaultMeta={defaultMeta}
+            collections={collections}
+            pages={pages}
+            renderPath={renderPath}
+            initialDoc={initialDoc ?? undefined}
+            realPageRoute={realPage?.route}
+            renderPicker={
+              <Overlays
+                types={pickerTypes}
+                savedSections={savedSections}
+                savedList={savedList}
+                thumbSrcOf={thumbSrcOf}
+                onSaved={refreshSaved}
+              />
+            }
+            renderInspector={
+              <InspectorSlot slotsByType={slotsByType} schemes={schemes} realPage={realPage} />
+            }
           />
-        }
-        renderInspector={<InspectorSlot slotsByType={slotsByType} schemes={schemes} />}
-      />
+        </>
+      )}
     </>
   );
 }
@@ -288,6 +436,7 @@ function SaveVersionModal(props: {
 function InspectorSlot(props: {
   slotsByType: SlotsByType | null;
   schemes: ColorScheme[];
+  realPage: RealPageContext | null;
 }): React.ReactElement {
   const { sections, selectedUid, itemByType, patchSection } = useBuilder();
   const [presetByUid, setPresetByUid] = useState<Record<string, string>>({});
@@ -314,26 +463,121 @@ function InspectorSlot(props: {
   const presets = (item?.presets ?? []).map((p) => ({ id: p.id, type, label: p.label, props: p.props }));
 
   return (
-    <InspectorPanel
-      typeId={type}
-      props={selected.data as Record<string, unknown>}
-      slots={slots}
-      presentationAxes={presentationAxes}
-      presets={presets}
-      schemes={props.schemes}
-      onChange={(patch) => patchSection(index, patch)}
-      onPickPreset={(id) => {
-        const preset = item?.presets.find((x) => x.id === id);
-        if (!preset) return;
-        patchSection(index, preset.props);
-        setPresetByUid((m) => ({ ...m, [selected.uid]: id }));
-      }}
-      selectedPresetId={presetByUid[selected.uid]}
-    />
+    <>
+      <InspectorPanel
+        typeId={type}
+        props={selected.data as Record<string, unknown>}
+        slots={slots}
+        presentationAxes={presentationAxes}
+        presets={presets}
+        schemes={props.schemes}
+        onChange={(patch) => patchSection(index, patch)}
+        onPickPreset={(id) => {
+          const preset = item?.presets.find((x) => x.id === id);
+          if (!preset) return;
+          patchSection(index, preset.props);
+          setPresetByUid((m) => ({ ...m, [selected.uid]: id }));
+        }}
+        selectedPresetId={presetByUid[selected.uid]}
+      />
+      {props.realPage && (
+        <ApplyToSite realPage={props.realPage} index={index} data={selected.data} />
+      )}
+    </>
+  );
+}
+
+// ── « Appliquer au site » : PATCH /api/ds/instance de la section EDITEE vers la page reelle (N4) ──
+// Portee VERROUILLEE v1 : on ne patche QUE les props d'une section a un index qui correspond encore
+// a la position reelle dans le fichier. Si le doc a ete reordonne/insere/supprime, l'index de
+// l'editeur ne correspond plus a l'index disque : le bouton est desactive (tooltip explicatif).
+// Detection d'alignement : la section a l'index i doit exister dans le fichier d'origine ET avoir le
+// meme `type` (identite de position robuste aux swaps de types differents).
+function ApplyToSite(props: {
+  realPage: RealPageContext;
+  index: number;
+  data: SectionInstance;
+}): React.ReactElement {
+  const [phase, setPhase] = useState<'idle' | 'saving' | 'ok' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const { realPage, index, data } = props;
+  const original = realPage.sections[index];
+  const aligned = !!original && original.type === data.type;
+
+  const apply = useCallback(() => {
+    if (!aligned) return;
+    setPhase('saving');
+    setMessage('');
+    fetch('/api/ds/instance', {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ keyword: 'WAIMIA-SAVE', file: realPage.file, index, props: data }),
+    })
+      .then(async (res) => {
+        const payload = (await res.json().catch(() => null)) as
+          | { ok?: boolean; error?: string; errors?: string[] }
+          | null;
+        if (res.ok && payload && payload.ok) {
+          setPhase('ok');
+          setMessage(`Section #${index} appliquee a ${realPage.file}.`);
+          return;
+        }
+        setPhase('error');
+        const errs = Array.isArray(payload?.errors) ? ` : ${payload!.errors!.join(' · ')}` : '';
+        setMessage(((payload && payload.error) || `Echec (HTTP ${res.status})`) + errs);
+      })
+      .catch(() => {
+        setPhase('error');
+        setMessage('Endpoint indisponible (application dev uniquement).');
+      });
+  }, [aligned, realPage.file, index, data]);
+
+  return (
+    <div className="bldx-apply">
+      <button
+        type="button"
+        className="bld-btn bld-btn--primary bldx-apply__btn"
+        onClick={apply}
+        disabled={!aligned || phase === 'saving'}
+        title={
+          aligned
+            ? 'Ecrit les props de cette section dans le fichier de contenu reel (dev, sans commit).'
+            : 'Index desynchronise (section reordonnee, ajoutee ou supprimee) : rechargez la page pour reappliquer.'
+        }
+      >
+        {phase === 'saving' ? 'Application…' : 'Appliquer au site'}
+      </button>
+      {!aligned && (
+        <p className="bldx-apply__hint">
+          Index desynchronise avec le fichier reel (reorder/ajout/suppression). Seule l'edition de
+          contenu d'une section a sa position d'origine s'applique au site dans cette version.
+        </p>
+      )}
+      {phase === 'ok' && <p className="bldx-apply__ok">{message}</p>}
+      {phase === 'error' && <p className="bldx-apply__err">{message}</p>}
+    </div>
   );
 }
 
 const HOST_CSS = `
+.bldx-crumb{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;
+  padding:var(--space-3) 0 var(--space-4);}
+.bldx-crumb__link{display:inline-flex;align-items:center;gap:var(--space-2);
+  padding:var(--space-2) var(--space-3);border:1px solid var(--hairline-strong);
+  border-radius:var(--radius-sm);background:var(--paper);color:var(--ink-2);
+  font-family:var(--font-mono);font-size:var(--text-small);cursor:pointer;
+  transition:border-color var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease);}
+.bldx-crumb__link:hover{border-color:var(--accent-text);color:var(--accent-text);}
+.bldx-crumb__link:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+.bldx-crumb__here{font-family:var(--font-mono);font-size:var(--text-small);color:var(--muted);}
+.bldx-apply{display:flex;flex-direction:column;gap:var(--space-2);
+  padding:var(--space-4);border-top:1px solid var(--hairline);background:var(--paper-2);}
+.bldx-apply__btn{width:100%;justify-content:center;}
+.bldx-apply__hint{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);
+  line-height:1.5;color:var(--muted);}
+.bldx-apply__ok{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);color:var(--complementary);}
+.bldx-apply__err{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);color:var(--accent-text);}
 .bldx-pick{display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-3);}
 .bldx-pick__add{width:100%;justify-content:center;}
 .bldx-pick__hint{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);
