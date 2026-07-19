@@ -103,4 +103,25 @@ export interface BuilderContextValue {
   load: (doc: LoadableDoc) => void;
   /** Selectionne (ou deselectionne) une section par sa cle locale. */
   select: (uid: string | null) => void;
+
+  // ── Assemblage B8/B9 : picker par vignettes + save-as-version ────────────────────────────────
+  /**
+   * Insere une INSTANCE concrete (type + props deja resolus) a l'index donne. Complement de `add`
+   * (qui part de la demo) : sert a reinserer une section « sauvegardee » avec ses props stockees.
+   */
+  addInstance: (data: SectionInstance, atIndex?: number) => void;
+  /** Ouvre le panneau « Ajouter une section » (AddPanel), memorisant l'index d'insertion cible. */
+  openAdd: (atIndex?: number) => void;
+  /** Ferme le panneau « Ajouter une section ». */
+  closeAdd: () => void;
+  /** Le panneau « Ajouter une section » est-il ouvert ? (l'hote rend l'overlay reel). */
+  addOpen: boolean;
+  /** Index d'insertion memorise a l'ouverture du panneau (undefined = ajouter en fin). */
+  addAtIndex: number | undefined;
+  /** Demande a enregistrer une section comme VERSION reutilisable (ouvre la mini-modale d'hote). */
+  saveVersion: (data: SectionInstance) => void;
+  /** Ferme la mini-modale « Enregistrer comme version ». */
+  closeSave: () => void;
+  /** Section en attente d'enregistrement comme version (null = modale fermee). */
+  saveTarget: SectionInstance | null;
 }

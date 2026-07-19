@@ -31,6 +31,8 @@ export interface BlockCardProps {
   onMove: (from: number, to: number) => void;
   onDuplicate: (index: number) => void;
   onRemove: (index: number) => void;
+  /** enregistre l'instance courante comme VERSION reutilisable (ouvre la mini-modale d'hote). */
+  onSaveVersion: (data: SectionInstance) => void;
   /** debut de glisser (memorise l'index source). */
   onDragStart: (index: number) => void;
   /** depot sur cette carte (reordonne vers cet index). */
@@ -49,6 +51,7 @@ function BlockCardImpl({
   onMove,
   onDuplicate,
   onRemove,
+  onSaveVersion,
   onDragStart,
   onDropOn,
 }: BlockCardProps) {
@@ -128,6 +131,15 @@ function BlockCardImpl({
             title="Dupliquer"
           >
             ⧉
+          </button>
+          <button
+            type="button"
+            className="bld-card-tool"
+            onClick={() => onSaveVersion(data)}
+            aria-label={`Enregistrer la section ${type} comme version`}
+            title="Enregistrer comme version"
+          >
+            ⭳
           </button>
           <button
             type="button"

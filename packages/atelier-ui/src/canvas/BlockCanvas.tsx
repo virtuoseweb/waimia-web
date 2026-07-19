@@ -17,29 +17,21 @@ import { useRef } from 'react';
 import { useBuilder } from '../app/context';
 import { BlockCard } from './BlockCard';
 
-/** Barre d'insertion (selecteur minimal de type) inseree a un index precis du document. `<li>`. */
+/** Barre d'insertion inseree a un index precis du document. Ouvre le picker par vignettes
+ *  (AddPanel) a cet index via `openAdd(atIndex)`. `<li>`. */
 function InsertBar({ atIndex, label }: { atIndex: number; label: string }) {
-  const { items, add } = useBuilder();
+  const { openAdd } = useBuilder();
   return (
     <li className="bld-insert" role="group" aria-label={label}>
       <span className="bld-insert-line" aria-hidden="true" />
-      <select
-        className="bld-select bld-insert-select"
-        value=""
+      <button
+        type="button"
+        className="bld-btn bld-insert-btn"
         aria-label={label}
-        onChange={(e) => {
-          const type = e.target.value;
-          if (type) add(type, atIndex);
-          e.target.value = '';
-        }}
+        onClick={() => openAdd(atIndex)}
       >
-        <option value="">+ inserer une section ici</option>
-        {items.map((it) => (
-          <option key={it.type} value={it.type}>
-            {it.type}
-          </option>
-        ))}
-      </select>
+        + inserer une section ici
+      </button>
       <span className="bld-insert-line" aria-hidden="true" />
     </li>
   );
@@ -55,6 +47,7 @@ export function BlockCanvas() {
     move,
     duplicate,
     remove,
+    saveVersion,
   } = useBuilder();
 
   // Index source du glisser en cours (partage par toutes les cartes de cette instance).
@@ -99,6 +92,7 @@ export function BlockCanvas() {
             onMove={move}
             onDuplicate={duplicate}
             onRemove={remove}
+            onSaveVersion={saveVersion}
             onDragStart={(i) => {
               dragFrom.current = i;
             }}

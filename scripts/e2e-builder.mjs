@@ -75,17 +75,23 @@ async function main() {
   });
 
   try {
-    // 1. Charger la page builder + hydrater l'ile React (les items du picker apparaissent).
+    // 1. Charger la page builder + hydrater l'ile React. Le picker est desormais le panneau
+    //    AddPanel (vignettes) ouvert par le declencheur « + Ajouter une section » (B5/B9).
     const resp = await page.goto(BUILDER_URL, { waitUntil: 'networkidle', timeout: 45000 });
     const httpOk = resp && resp.status() === 200;
+    let addedType = '';
     try {
-      await page.locator('button.bld-picker-item').first().waitFor({ state: 'visible', timeout: 20000 });
-      const pickerCount = await page.locator('button.bld-picker-item').count();
+      const trigger = page.locator('button.bld-add-trigger').first();
+      await trigger.waitFor({ state: 'visible', timeout: 20000 });
+      await trigger.click();
+      // Le panneau AddPanel s'ouvre : la grille des vignettes de types apparait.
+      await page.locator('[data-testid="add-grid"] .wa-thumb__frame').first().waitFor({ state: 'visible', timeout: 15000 });
+      const thumbCount = await page.locator('[data-testid="add-grid"] .wa-thumb__frame').count();
       const fsErrors = consoleErrors.filter((e) => /@fs|403|Failed to fetch dynamically/i.test(e));
       step(
         'Hydratation ile React (picker interactif)',
-        httpOk && pickerCount > 0 && fsErrors.length === 0,
-        `HTTP ${resp ? resp.status() : '?'}, ${pickerCount} types, ${fsErrors.length} erreurs @fs`,
+        httpOk && thumbCount > 0 && fsErrors.length === 0,
+        `HTTP ${resp ? resp.status() : '?'}, ${thumbCount} vignettes, ${fsErrors.length} erreurs @fs`,
       );
       if (fsErrors.length > 0) {
         console.log('   ⚠️ erreurs @fs (worktree vite.server.fs.allow ?) :', fsErrors.slice(0, 3));
@@ -95,13 +101,12 @@ async function main() {
       throw new Error('hydratation echouee : flow interrompu');
     }
 
-    // 2. Composer : renseigner le slug de test puis ajouter 1 section via l'UI reelle (clic).
-    const slugInput = page.locator('label.bld-field', { hasText: 'Slug' }).locator('input.bld-input');
-    await slugInput.fill(TEST_SLUG);
-
-    const firstItem = page.locator('button.bld-picker-item').first();
-    const addedType = (await firstItem.locator('span.bld-picker-type').innerText()).trim();
-    await firstItem.click();
+    // 2. Composer : ajouter 1 section via l'UI reelle (clic sur une vignette du panneau AddPanel),
+    //    puis renseigner le slug de test (le panneau se ferme apres le clic).
+    const firstThumb = page.locator('[data-testid="add-grid"] .wa-thumb__frame').first();
+    // Le libelle du type = aria-label de la vignette cliquable (label_fr = id du type cote hote).
+    addedType = ((await firstThumb.getAttribute('aria-label')) || '').trim();
+    await firstThumb.click();
 
     await page.locator('li.bld-block').first().waitFor({ state: 'visible', timeout: 8000 });
     const blockCount = await page.locator('li.bld-block').count();
@@ -110,6 +115,9 @@ async function main() {
       blockCount >= 1,
       `${blockCount} bloc(s) dans le canvas, type=${addedType}`,
     );
+
+    const slugInput = page.locator('label.bld-field', { hasText: 'Slug' }).locator('input.bld-input');
+    await slugInput.fill(TEST_SLUG);
 
     // 3. Enregistrer : clic sur le bouton (POST /api/ds/compose) + assertion du statut UI.
     await page.locator('button.bld-btn', { hasText: /^Enregistrer$/ }).click();

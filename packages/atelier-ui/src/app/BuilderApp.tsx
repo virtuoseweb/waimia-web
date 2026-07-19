@@ -34,6 +34,7 @@ import type {
   BuilderColorScheme,
   BuilderMeta,
   BuilderPage,
+  SectionInstance,
 } from '@waimia/builder/types';
 import { BuilderContext } from './context';
 import { useBuilder } from './context';
@@ -95,6 +96,12 @@ export default function BuilderApp({
     },
     [itemByType],
   );
+  // Insere une instance concrete (props deja resolues) : reinsertion d'une section sauvegardee.
+  const addInstance = useCallback(
+    (data: SectionInstance, atIndex?: number) =>
+      dispatch({ kind: 'add', section: { ...data }, atIndex }),
+    [],
+  );
   const remove = useCallback((index: number) => dispatch({ kind: 'remove', index }), []);
   const duplicate = useCallback((index: number) => dispatch({ kind: 'duplicate', index }), []);
   const move = useCallback((from: number, to: number) => dispatch({ kind: 'move', from, to }), []);
@@ -108,6 +115,23 @@ export default function BuilderApp({
     [],
   );
   const select = useCallback((uid: string | null) => dispatch({ kind: 'select', uid }), []);
+
+  // ── Etats d'overlay pilotes par l'hote (AddPanel + Enregistrer comme version) ──────────────────
+  // BuilderApp DETIENT l'etat d'ouverture (source unique, accessible depuis toute la sous-arbre via
+  // le Context) ; l'HOTE rend le contenu reel des overlays (AddPanel, mini-modale de label) car lui
+  // seul connait les donnees (types/vignettes/blocs sauvegardes) et la persistance /api/ds/saved.
+  const [addState, setAddState] = useState<{ open: boolean; atIndex: number | undefined }>({
+    open: false,
+    atIndex: undefined,
+  });
+  const openAdd = useCallback(
+    (atIndex?: number) => setAddState({ open: true, atIndex }),
+    [],
+  );
+  const closeAdd = useCallback(() => setAddState({ open: false, atIndex: undefined }), []);
+  const [saveTarget, setSaveTarget] = useState<SectionInstance | null>(null);
+  const saveVersion = useCallback((data: SectionInstance) => setSaveTarget(data), []);
+  const closeSave = useCallback(() => setSaveTarget(null), []);
   const load = useCallback(
     (doc: { meta: BuilderMeta; sections: BuilderContextValue['sections'][number]['data'][] }) =>
       dispatch({ kind: 'load', doc }),
@@ -133,8 +157,16 @@ export default function BuilderApp({
       setMeta,
       load,
       select,
+      addInstance,
+      openAdd,
+      closeAdd,
+      addOpen: addState.open,
+      addAtIndex: addState.atIndex,
+      saveVersion,
+      closeSave,
+      saveTarget,
     }),
-    [state, items, itemByType, colorSchemes, renderPath, add, remove, duplicate, move, patchSection, setMeta, select, load],
+    [state, items, itemByType, colorSchemes, renderPath, add, remove, duplicate, move, patchSection, setMeta, select, load, addInstance, openAdd, closeAdd, addState.open, addState.atIndex, saveVersion, closeSave, saveTarget],
   );
 
   // ── Charger une page composable reelle dans le canvas ─────────────────────────────────────────

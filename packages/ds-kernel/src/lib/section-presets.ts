@@ -14,6 +14,12 @@
 
 import type { SectionType, SectionData } from '../schemas/sections';
 import { variantsFor } from './section-variants';
+// Store des VARIANTES CUSTOM persistées (P1+P2). Fichier PACKAGE-LOCAL fusionné au runtime dans
+// les fonctions d'accès ci-dessous : créer une variante officielle (un preset nommé) SANS patcher
+// les ~2000 lignes de presets TS. L'endpoint dev `/api/ds/custom-preset` (src/integrations/
+// ds-save-dev.mjs) écrit CE fichier. Import STATIQUE local (frontière respectée : ds-kernel n'importe
+// jamais depuis src/ de l'app ; c'est l'app/endpoint qui écrit le fichier, pas l'inverse).
+import customPresetsStoreRaw from './custom-presets.json';
 
 /** Sous-ensemble de présentation surchargeable par un preset (axes transverses docs/46).
  *  Index signature : la route preview merge `{...demo, ...props}` au runtime, donc toute clé
@@ -2025,19 +2031,69 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
   ],
 };
 
-/** Liste les presets d'un type (vide si aucun). */
+/** Forme d'une entrée du store custom-presets.json (validée par l'endpoint dev à l'écriture ;
+ *  re-vérifiée défensivement ici pour rester robuste si le fichier est édité à la main). */
+type CustomPresetEntry = {
+  id: string;
+  type: string;
+  label_fr?: string;
+  props?: Record<string, unknown>;
+};
+
+/** Presets custom NORMALISÉS en `Preset[]`, calculés une fois au chargement du module.
+ *  Fallback robuste : store absent (jamais, import statique) / vide / malformé → `[]` (0 crash).
+ *  `label` dérive de `label_fr` (défaut = id) ; family/era = 'custom' pour filtrage/traçabilité. */
+const CUSTOM_PRESETS: Preset[] = (() => {
+  const raw = customPresetsStoreRaw as unknown;
+  const list =
+    raw && typeof raw === 'object' && Array.isArray((raw as { presets?: unknown }).presets)
+      ? ((raw as { presets: unknown[] }).presets as CustomPresetEntry[])
+      : [];
+  const out: Preset[] = [];
+  for (const e of list) {
+    if (!e || typeof e !== 'object') continue;
+    if (typeof e.id !== 'string' || !e.id) continue;
+    if (typeof e.type !== 'string' || !e.type) continue;
+    const props =
+      e.props && typeof e.props === 'object' && !Array.isArray(e.props) ? e.props : {};
+    out.push({
+      id: e.id,
+      type: e.type as SectionType,
+      label: typeof e.label_fr === 'string' && e.label_fr ? e.label_fr : e.id,
+      family: 'custom',
+      era: 'custom',
+      props: props as PresetProps,
+    });
+  }
+  return out;
+})();
+
+/** Presets custom d'un type donné (sous-ensemble du store, vide si aucun). */
+function customPresetsFor(type: SectionType): Preset[] {
+  return CUSTOM_PRESETS.filter((p) => p.type === type);
+}
+
+/** Liste les presets d'un type (TS curés ∪ customs du type ; vide si aucun). */
 export function listPresets(type: SectionType): Preset[] {
-  return SECTION_PRESETS[type] ?? [];
+  const base = SECTION_PRESETS[type] ?? [];
+  const customs = customPresetsFor(type);
+  return customs.length ? [...base, ...customs] : base;
 }
 
-/** Récupère un preset par (type, id). undefined si absent. */
-export function getPreset(type: SectionType, id: string): Preset | undefined {
-  return listPresets(type).find((p) => p.id === id);
+/** Récupère un preset (TS OU custom). Deux formes acceptées :
+ *  - `getPreset(type, id)` : résolution scopée au type (rétro-compatible).
+ *  - `getPreset(id)` : résolution globale par id (TS + customs, tous types confondus). */
+export function getPreset(typeOrId: SectionType | string, id?: string): Preset | undefined {
+  if (id === undefined) {
+    return allPresets().find((p) => p.id === typeOrId);
+  }
+  return listPresets(typeOrId as SectionType).find((p) => p.id === id);
 }
 
-/** Tous les presets aplatis (pour getStaticPaths imbriqué / gate). */
+/** Tous les presets aplatis (TS curés ∪ customs) pour getStaticPaths imbriqué / gate. */
 export function allPresets(): Preset[] {
-  return Object.values(SECTION_PRESETS).flat().filter(Boolean) as Preset[];
+  const base = Object.values(SECTION_PRESETS).flat().filter(Boolean) as Preset[];
+  return CUSTOM_PRESETS.length ? [...base, ...CUSTOM_PRESETS] : base;
 }
 
 /** Origine d'une déclinaison : « curée » (preset écrit à la main) vs « générée » (variantsFor). */

@@ -19,9 +19,11 @@ export const prerender = true;
 import AtelierShell from '../../../layouts/AtelierShell.astro';
 import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
-// Brick B6 : le coeur du nouvel editeur = l'ile `BuilderApp` (canvas par blocs, vignettes live).
-// Remplace l'ancienne ile `BuilderCanvas` (conservee dans @waimia/builder, purge = brick ulterieur).
-import BuilderApp from '@waimia/atelier-ui/app/BuilderApp.tsx';
+// Assemblage B8+B9 : l'ile `BuilderApp` (canvas par blocs, vignettes live) branchee par le wrapper
+// hote `BuilderHost` (picker AddPanel + inspecteur 4 onglets + Enregistrer comme version). Le
+// wrapper est le SEUL point cote app qui connait les donnees ; l'ile reste pure (0 import app).
+// L'ancienne ile `BuilderCanvas` est SUPPRIMEE (plus aucun import).
+import BuilderHost from '../../../components/library/BuilderHost.tsx';
 import type {
   BuilderCatalogueItem,
   BuilderColorScheme,
@@ -161,7 +163,7 @@ const defaultMeta = {
   </section>
 
   <section class="bld-wrap wrap-wide" aria-label="Builder visuel">
-    <BuilderApp
+    <BuilderHost
       client:load
       items={items}
       colorSchemes={colorSchemes}

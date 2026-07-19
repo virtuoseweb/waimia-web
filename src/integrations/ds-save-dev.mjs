@@ -40,6 +40,14 @@
  *                            AUCUN commit/push : le git diff est laisse a la review humaine.
  *                            Reecriture qui PRESERVE la convention du fichier (indentation +
  *                            newline finale detectees, JSON.stringify sinon 2 espaces + '\n').
+ *   - GET/POST/DELETE
+ *     /api/ds/custom-preset : store des VARIANTES CUSTOM (presets nommes) dans
+ *                            packages/ds-kernel/src/lib/custom-presets.json, fusionne au runtime
+ *                            par @waimia/ds-kernel/lib/section-presets (listPresets/getPreset/
+ *                            allPresets). POST valide keyword + type (union sectionSchema) + id
+ *                            kebab-case prefixe `<type>--` + unicite (vs presets TS/custom) + axes
+ *                            de props connus (PresetProps) + layout/density (KNOWN_LAYOUTS/
+ *                            KNOWN_DENSITIES). Refus-main (source du DS). AUCUN commit/push.
  *
  * Garde-fous (identiques sur les 2 premieres routes ; /api/ds/compose et /api/ds/saved n'ecrivent
  * qu'un brouillon local sans push git, donc pas de garde keyword/refus-main, mais slug/id stricts
@@ -68,6 +76,10 @@ const DS_PRESETS_PATH = resolve(PROJECT_ROOT, 'src/data/ds-presets.json');
 const THEMES_CSS_PATH = resolve(PROJECT_ROOT, 'src/styles/themes.css');
 const PAGE_VARIANTS_DIR = resolve(PROJECT_ROOT, 'src/data/page-variants');
 const SAVED_SECTIONS_PATH = resolve(PROJECT_ROOT, 'src/data/saved-sections.json');
+// Store des VARIANTES CUSTOM (presets nommés) fusionnees au runtime par @waimia/ds-kernel/lib/
+// section-presets. Fichier PACKAGE-LOCAL : l'endpoint /api/ds/custom-preset ecrit ce chemin, le
+// kernel l'importe statiquement (frontiere respectee : le package n'importe jamais src/ de l'app).
+const CUSTOM_PRESETS_PATH = resolve(PROJECT_ROOT, 'packages/ds-kernel/src/lib/custom-presets.json');
 const CONTENT_DIR = resolve(PROJECT_ROOT, 'src/content');
 const FIXED_DELAY_SECONDS = 180;
 
@@ -77,6 +89,11 @@ const PRESET_ROUTE = '/api/ds/preset';
 const COMPOSE_ROUTE = '/api/ds/compose';
 const SAVED_ROUTE = '/api/ds/saved';
 const INSTANCE_ROUTE = '/api/ds/instance';
+const CUSTOM_PRESET_ROUTE = '/api/ds/custom-preset';
+// Source de verite du catalogue de presets (fonctions d'acces fusionnant les customs) + des
+// enums de validation (KNOWN_LAYOUTS / KNOWN_DENSITIES). Chargee via ssrLoadModule (memes raisons
+// que SECTIONS_SCHEMA_MODULE : la chaine tire des schemas/modules virtuels non importables en Node).
+const SECTION_PRESETS_MODULE = '@waimia/ds-kernel/lib/section-presets';
 // Source de verite de la validation (identique a src/pages/library/builder/render.astro).
 const PAGE_DOC_MODULE = '@waimia/ds-kernel/lib/page-document';
 // Source de verite du contrat d'instance de section (discriminatedUnion 'type' -> schema Zod).
@@ -805,6 +822,231 @@ function makeInstanceHandler(server) {
   };
 }
 
+// --- Handler custom-preset (variantes officielles persistees, P1+P2) ----------
+// Cree/liste/supprime une VARIANTE officielle d'un type de section = un preset nomme (jeu d'axes
+// de presentation) persiste dans packages/ds-kernel/src/lib/custom-presets.json, SANS patcher les
+// ~2000 lignes de presets TS. Le kernel (@waimia/ds-kernel/lib/section-presets) fusionne ce store
+// au runtime dans listPresets/getPreset/allPresets. Garde-fous : keyword (comme /api/ds/instance,
+// jamais logue) + refus-main (ce store est une source du DS ; on ne le mute pas sur la branche prod).
+// AUCUN commit/push : l'ecriture reste une modif de working-tree laissee a la review humaine.
+//
+//   GET    /api/ds/custom-preset          -> liste le store tel quel.
+//   POST   /api/ds/custom-preset          -> { keyword, id, type, label_fr?, props } :
+//        - keyword valide,
+//        - type existe dans le registry (union discriminee sectionSchema, source de verite),
+//        - id kebab-case prefixe `<type>--<slug>`, unicite vs presets TS/custom existants + store,
+//        - props : cles limitees aux axes de presentation connus (PresetProps),
+//          layout in KNOWN_LAYOUTS, density in KNOWN_DENSITIES.
+//        Refus 400 detaille sinon.
+//   DELETE /api/ds/custom-preset?id=<id>  -> retire du store ; id resolvant un preset TS officiel
+//                                            -> 400 (non supprimable) ; inconnu -> 404.
+
+// Axes de presentation surchargeables autorises dans un preset custom (miroir des cles TOP-LEVEL de
+// PresetProps, packages/ds-kernel/src/lib/section-presets.ts). Verrouille l'endpoint (le type TS a
+// une index-signature permissive ; ici on RESTREINT aux axes documentes).
+const CUSTOM_PRESET_AXES = new Set([
+  'background', 'layout', 'density', 'variant', 'rating', 'portrait_src', 'logo_src',
+  'media_register', 'media_src', 'media_alt_fr', 'media_alt_en', 'illustration', 'media_side',
+  'reveal_mode', 'swap_mode', 'speed', 'alternate_blocks', 'reversed', 'media_sticky', 'rounded',
+  'contentAlign', 'actionsAlign', 'columns', 'colRatio', 'itemHeight', 'proportion', 'mediaSide',
+  'direction', 'itemOrder', 'hover', 'cellAlignY', 'cellBg', 'justifyContent', 'colSpan',
+  'features', 'placement',
+]);
+
+function readCustomPresetsStore() {
+  if (!existsSync(CUSTOM_PRESETS_PATH)) return { presets: [] };
+  try {
+    const parsed = JSON.parse(readFileSync(CUSTOM_PRESETS_PATH, 'utf8'));
+    if (parsed && Array.isArray(parsed.presets)) return { presets: parsed.presets };
+  } catch {
+    // Store corrompu -> on repart d'un store vide plutot que de faire planter la route.
+  }
+  return { presets: [] };
+}
+
+function writeCustomPresetsStore(store) {
+  mkdirSync(dirname(CUSTOM_PRESETS_PATH), { recursive: true });
+  writeFileSync(CUSTOM_PRESETS_PATH, `${JSON.stringify(store, null, 2)}\n`, 'utf8');
+}
+
+/**
+ * Extrait l'ensemble des types VALIDES depuis l'union discriminee `sectionSchema` (Zod), sans
+ * charger les 200 composants du registry. Chaines d'acces robustes (versions de Zod : `.options`
+ * ou `.def.options` ; literal `.value` ou `.def.value`).
+ * @param {any} sectionSchema
+ * @returns {Set<string>}
+ */
+function sectionTypesFrom(sectionSchema) {
+  const s = sectionSchema || {};
+  const opts = s.options || (s.def && s.def.options) || (s._def && s._def.options) || [];
+  const types = new Set();
+  for (const o of opts) {
+    const shape = (o && (o.shape || (o.def && o.def.shape) || (o._def && o._def.shape))) || {};
+    const t = shape.type;
+    const val = t && (t.value ?? (t.def && t.def.value) ?? (t._def && t._def.value));
+    if (typeof val === 'string') types.add(val);
+  }
+  return types;
+}
+
+function makeCustomPresetHandler(server) {
+  return async function customPresetHandler(req, res, next) {
+    const url = new URL(req.url || '/', 'http://localhost');
+
+    // --- GET : liste du store (aucune ecriture, pas de keyword requis) ---
+    if (req.method === 'GET') {
+      return sendJson(res, 200, { ok: true, ...readCustomPresetsStore() });
+    }
+
+    // --- DELETE : retrait d'un custom ; id TS officiel -> 400 ; inconnu -> 404 ---
+    if (req.method === 'DELETE') {
+      const id = String(url.searchParams.get('id') || '').trim();
+      if (!id) return sendJson(res, 400, { ok: false, error: 'id manquant' });
+      const store = readCustomPresetsStore();
+      const idx = store.presets.findIndex((p) => p && p.id === id);
+      if (idx >= 0) {
+        const [removed] = store.presets.splice(idx, 1);
+        try {
+          writeCustomPresetsStore(store);
+        } catch (e) {
+          return sendJson(res, 500, { ok: false, error: e.message });
+        }
+        return sendJson(res, 200, { ok: true, removed });
+      }
+      // Pas dans le store : soit un preset officiel TS (non supprimable), soit un id inconnu.
+      let getPreset;
+      try {
+        ({ getPreset } = await server.ssrLoadModule(SECTION_PRESETS_MODULE));
+      } catch (e) {
+        return sendJson(res, 500, { ok: false, error: `resolution indisponible : ${e.message}` });
+      }
+      if (getPreset(id)) {
+        return sendJson(res, 400, { ok: false, error: 'preset officiel, non supprimable' });
+      }
+      return sendJson(res, 404, { ok: false, error: `preset custom inconnu : ${id}` });
+    }
+
+    if (req.method !== 'POST') return next();
+
+    // 1. Lecture + parse du body
+    let body;
+    try {
+      const raw = await readBody(req);
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'corps JSON invalide' });
+    }
+
+    const { keyword, id, type, label_fr, props } = body || {};
+
+    // 2. Save-guard keyword (jamais logue) -> 400 (comme /api/ds/instance)
+    const expected = process.env.DS_SAVE_KEYWORD || DEFAULT_KEYWORD;
+    if (String(keyword || '') !== expected) {
+      return sendJson(res, 400, { ok: false, error: 'keyword' });
+    }
+
+    // 3. Champs minimaux
+    const typeStr = typeof type === 'string' ? type.trim() : '';
+    if (!typeStr) return sendJson(res, 400, { ok: false, error: 'type manquant' });
+    const idStr = typeof id === 'string' ? id.trim() : '';
+    if (!idStr) return sendJson(res, 400, { ok: false, error: 'id manquant' });
+    if (label_fr !== undefined && typeof label_fr !== 'string') {
+      return sendJson(res, 400, { ok: false, error: 'label_fr doit etre une chaine' });
+    }
+    if (!props || typeof props !== 'object' || Array.isArray(props)) {
+      return sendJson(res, 400, { ok: false, error: 'props doit etre un objet' });
+    }
+
+    // 4. Refus-main : le store est une source du DS ; on ne le mute pas sur la branche prod.
+    let branch;
+    try {
+      branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
+    } catch {
+      return sendJson(res, 500, { ok: false, error: 'impossible de lire la branche git' });
+    }
+    if (branch === 'main') {
+      return sendJson(res, 403, { ok: false, error: 'refus edition main' });
+    }
+
+    // 5. Modules de verite : catalogue de presets (getPreset + enums) + union de types.
+    let presetsMod;
+    let schemaMod;
+    try {
+      presetsMod = await server.ssrLoadModule(SECTION_PRESETS_MODULE);
+      schemaMod = await server.ssrLoadModule(SECTIONS_SCHEMA_MODULE);
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: `validation indisponible : ${e.message}` });
+    }
+    const { KNOWN_LAYOUTS, KNOWN_DENSITIES, getPreset } = presetsMod;
+
+    // 6. Type existe dans le registry (union discriminee = source de verite)
+    const validTypes = sectionTypesFrom(schemaMod.sectionSchema);
+    if (validTypes.size > 0 && !validTypes.has(typeStr)) {
+      return sendJson(res, 400, { ok: false, error: `type inconnu : ${typeStr}` });
+    }
+
+    // 7. id kebab-case prefixe `<type>--<slug>` (convention des presets existants)
+    const prefix = `${typeStr}--`;
+    if (!idStr.startsWith(prefix)) {
+      return sendJson(res, 400, { ok: false, error: `id doit etre prefixe « ${prefix} »` });
+    }
+    const slugPart = idStr.slice(prefix.length);
+    if (!slugPart || !/^[a-z0-9-]+$/.test(idStr) || slugify(slugPart) !== slugPart) {
+      return sendJson(res, 400, {
+        ok: false,
+        error: 'id invalide (kebab-case attendu : minuscules, chiffres, tirets simples)',
+      });
+    }
+
+    // 8. props : cles limitees aux axes connus + valeurs layout/density validees
+    const unknownKeys = Object.keys(props).filter((k) => !CUSTOM_PRESET_AXES.has(k));
+    if (unknownKeys.length > 0) {
+      return sendJson(res, 400, {
+        ok: false,
+        error: `axe(s) de presentation inconnu(s) refuse(s) : ${unknownKeys.join(', ')}`,
+      });
+    }
+    if (props.layout !== undefined && !Array.from(KNOWN_LAYOUTS).includes(props.layout)) {
+      return sendJson(res, 400, {
+        ok: false,
+        error: `layout inconnu : ${props.layout} (attendus : ${Array.from(KNOWN_LAYOUTS).join(', ')})`,
+      });
+    }
+    if (props.density !== undefined && !Array.from(KNOWN_DENSITIES).includes(props.density)) {
+      return sendJson(res, 400, {
+        ok: false,
+        error: `density inconnue : ${props.density} (attendues : ${Array.from(KNOWN_DENSITIES).join(', ')})`,
+      });
+    }
+
+    // 9. Unicite : ni preset (TS OU custom deja fusionne par le module), ni entree du store disque.
+    if (getPreset(idStr)) {
+      return sendJson(res, 400, { ok: false, error: `id deja utilise : ${idStr}` });
+    }
+    const store = readCustomPresetsStore();
+    if (store.presets.some((p) => p && p.id === idStr)) {
+      return sendJson(res, 400, { ok: false, error: `id deja utilise : ${idStr}` });
+    }
+
+    // 10. Ecriture du store (tri par id = deterministe pour le gate / diff propre)
+    const entry = {
+      id: idStr,
+      type: typeStr,
+      ...(typeof label_fr === 'string' && label_fr ? { label_fr } : {}),
+      props,
+    };
+    store.presets.push(entry);
+    store.presets.sort((a, b) => String(a && a.id).localeCompare(String(b && b.id)));
+    try {
+      writeCustomPresetsStore(store);
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: e.message });
+    }
+
+    return sendJson(res, 200, { ok: true, preset: entry });
+  };
+}
+
 // --- Integration -------------------------------------------------------------
 
 export default function dsSaveDev() {
@@ -817,9 +1059,10 @@ export default function dsSaveDev() {
         server.middlewares.use(COMPOSE_ROUTE, makeComposeHandler(server));
         server.middlewares.use(SAVED_ROUTE, makeSavedHandler(server));
         server.middlewares.use(INSTANCE_ROUTE, makeInstanceHandler(server));
+        server.middlewares.use(CUSTOM_PRESET_ROUTE, makeCustomPresetHandler(server));
         if (logger && typeof logger.info === 'function') {
           logger.info(
-            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance)`,
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / variantes custom)`,
           );
         }
       },

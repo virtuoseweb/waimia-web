@@ -371,7 +371,15 @@ export default defineConfig({
     // repo parent, HORS racine worktree) → Vite `@fs` renvoie 403 sur le client
     // React et les îles n'hydratent pas sous `astro dev`. On autorise la remontée
     // jusqu'au parent. Sans effet sur le build statique (le bundling résout déjà tout).
-    server: { fs: { allow: ['.', '..', '../..'] } },
+    // DEV-ONLY · les brouillons ecrits par l'integration ds-save-dev (builder #39) ne doivent
+    // PAS declencher de HMR/full-reload : sinon l'ile du builder se remonte et le canvas en cours
+    // est perdu a chaque « Enregistrer » / « Enregistrer comme version » (exigence B8 : sauver
+    // « sans reload complet »). On exclut donc ces fichiers de donnees du watcher Vite. Aucun impact
+    // build (le watch ne concerne que le dev) ; ces fichiers ne sont lus qu'a la demande par l'API dev.
+    server: {
+      fs: { allow: ['.', '..', '../..'] },
+      watch: { ignored: ['**/src/data/saved-sections.json', '**/src/data/page-variants/**'] },
+    },
     ssr: {
       noExternal: ['resend', '@react-email/components', '@react-email/render'],
     },
