@@ -147,6 +147,10 @@ Le contenu existant (textes, cas, avis) appartient à Waimia, voir « Limites co
 Ce repo n'a pas été « désaimanté » de Waimia, il a été rendu forkable sur l'identité et
 l'infrastructure (lots L1-L4), pas sur le contenu et la nav. Vérifié point par point :
 
+- **Wordmark du header (`src/components/header/Header.astro`)** : le logo texte
+  « Waim*i*a. » (italique médian stylisé) est un **actif de marque**, pas une chaîne dérivable
+  de `SITE.name` ; un fork le remplace comme il remplacerait un logo SVG. L'`aria-label`, lui,
+  suit `SITE.name` (constat de la démo réelle solstice-web-demo, 2026-07-19).
 - **`src/data/mega-menu.ts` (948 lignes)** : structure du mega-menu **hardcodée** pour
   l'architecture de site Waimia (labels, routes, panneaux « détail » par module, contenu
   curé). Ce n'est pas piloté par `SITE` : un fork qui change de gamme de services ou

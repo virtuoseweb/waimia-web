@@ -10,6 +10,7 @@
 
 import { MEGA_MENU, type MegaMenuCategory } from '../../data/mega-menu';
 import { langFromPath, alternateHref, t, hasBilingualMirror, localizeHref } from '../../lib/i18n';
+import { SITE } from '../../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
 const altHref = alternateHref(Astro.url.pathname, lang);
@@ -50,7 +51,8 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
 <header class="hdr" data-open="" id="hdr">
   <div class="hdr-inner">
     {/* Logo */}
-    <a href={lang === 'fr' ? '/' : '/en'} class="wm" aria-label="Waimia">
+    <a href={lang === 'fr' ? '/' : '/en'} class="wm" aria-label={SITE.name}>
+      {/* Wordmark stylisé = actif de marque (l'italique médian est un choix de design) : un fork le remplace comme un logo, cf FORK.md « Limites connues ». */}
       Waim<i>i</i>a<span class="dot">.</span>
     </a>
 
