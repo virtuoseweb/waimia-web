@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `c4475156` - 77/87 tâches done (89%).
+État : HEAD `b6778110` - 78/87 tâches done (90%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
-| P2 | 24/29 | 83% | P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles ; P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées ; P2.11-d — Menu fini déclinaisons hover `data-hover="surface\|tint\|lift"` |
+| P2 | 25/29 | 86% | P2.1-d — Maintenance permanente ; P2.2 — Mesurer PUIS consolider. ; P2.4-a — Vagues perceptibles ; P2.11-d — Menu fini déclinaisons hover `data-hover="surface\|tint\|lift"` |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 1/3 | 33% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -40,7 +40,7 @@
 | P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 1/1 | 100% | adb4c3da feat(ds-tokens): P2.3 @theme mort → @theme inline pointant var(--token-maison) |
 | P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 4/5 | 80% | c6b87a28 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) ; 8391ea7f feat(ds): petit-texte-accent AA sur fond clair (--accent-text defaut accent-sur-clair #A83D20) ; 137632cb docs(plan): P2.4-e done (accent-text AA sur clair, commit 8391ea7) |
 | P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse) | P2 | 2/2 | 100% | 5d975da2 fix(typo): harmoniser heros/headers serif-full -> base sans + accent serif (P2.5, directive 01) ; cf302b92 fix(typo): raccourcir accent serif hero-landing a un mot (P2.5-b) |
-| P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 1/2 | 50% | 53ed1c3b fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) |
+| P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 2/2 | 100% | 53ed1c3b fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) ; b6778110 feat(secteurs): tech-stack-band paper→paper-3 · seule adjacence même-fond des 12 secteurs cassée (P2.6-W3) |
 | P2.7 — Système de variation (#14 Phase B) | P2 | 1/1 | 100% | 5e74e4c1 feat(ds): systeme de variation (Phase B) prouve sur famille HERO |
 | P2.8 — DS Studio créatif (#14 Phase C) | P2 | 3/3 | 100% | 2d23991a feat(ds): P2.8 save preset persisté · POST /api/ds/preset dev-only (fiche 0022 Option A) ; 05bf1d53 feat(ds-studio): P2.8-b · apply preset sans rechargement complet · garde d'idempotence loadCatalogType (src réécrit SEULEMENT si le type change ; apply = live-override, jamais de reload) · GF-1 : navs=[] + data-gf SURVIVE au re-clic type actif, 2 applys successifs live (Encre&ardoise puis Forêt sobre), 0 erreur console, gates baseline 8 + build Complete ; 7e7f62cd feat(ds-studio): P2.8-c instance overrides · tokens par instance de section (galerie inline) |
 | P2.9 — Production presets en masse (#14 Phase D-E) | P2 | 1/1 | 100% | - |

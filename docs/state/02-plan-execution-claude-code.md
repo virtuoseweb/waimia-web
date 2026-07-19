@@ -713,9 +713,7 @@ _(vide)_
 ### Tâches finies
 - [x] **P2.6-a — Fix overflow `hero-offer-detail` + habillage des médias (audit #2/#3)** <!-- sb commit=53ed1c3 gf1=y note=overflow-text-wrap-balance-H1-entier+placeholders-motif-radial-tokens-existants --> : overflow H1 `white-space:nowrap` → `text-wrap:balance` (`.hero-detail__title` partagée, H1 entier) ; placeholders média gris (`hero-split`, `feature-tabs`, `feature-zigzag`) habillés (motif diagonal + radial accent, pattern `feature-split-media`, tokens existants + variantes ink). 0 nouveau token/asset. GF-1 : screenshots `_current/v2-*` + getComputedStyle.
 ### Tâches en attente
-- [ ] **P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées** + re-critique
-  it.13 post-deploy (= T-5). Te poser : quelles sections paraissent pauvres/monotones (cards « Construire ») ? Preuve GF-1.
- ▸ *progression 2026-07-19 soir : re-critique = T-5 LIVRÉE (`be7bd171`) ; W4 partiellement couvert par l'habillage du vide actif cas-clients (`13cf6bba`, via P2.10) ; reste W1 typo hors-flagship + W3 recomposition secteurs+offres.*
+- [x] **P2.6 — W1 typo / W3 recomposition templates secteurs+offres / W4 images stylisées** + re-critique it.13 ▸ *soldé 2026-07-19 soir : re-critique = T-5 (`be7bd171`) · W1 = audit lecture-seule 11 pages (1 seule violation systémique `.timeline-body` serif→sans + /tarifs 7→5 italiques, `2294c6e1` ; double échelle H1 = intentionnel, 2 familles héros) · W3 = critique live 3 secteurs + 3 services → verdict « déjà délibérément varié » (GF-4), 1 recomposition haute-propagation `tech-stack-band` paper→paper-3 sur les 12 secteurs (seule adjacence même-fond, preset existant, `b6778110`) · W4 = placeholders habillés (P2.6-a `53ed1c3`) + vide actif cas-clients (`13cf6bba`) ; dette résiduelle consignée = contraste captures amploi light-on-light (passe contenu).* <!-- sb commit=b6778110 gf1=y -->
 
 ## Chantier P2.7 — Système de variation (#14 Phase B)
 ### Tâches finies
