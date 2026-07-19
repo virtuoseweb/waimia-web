@@ -350,12 +350,15 @@ export const sectorTemplate = defineTemplate<SectorContext>({
       } satisfies SectionByType<'diagnostic-stages'>),
     },
 
-    // 7 · tech-stack-band (paper) · réassurance technique · défaut partagé
+    // 7 · tech-stack-band (paper-3) · réassurance technique · défaut partagé.
+    //    Fond `paper-3` (preset catalogue `tech-stack-band--paper-3`) : ancre la bande stack
+    //    dans le ton papier le plus dense et casse la seule adjacence même-fond de la page
+    //    (tech-stack + editorial-prose étaient tous deux `paper` sur les 12 secteurs).
     {
       id: 'stack',
       build: () => ({
         type: 'tech-stack-band',
-        background: 'paper',
+        background: 'paper-3',
         kicker_fr: '§ La stack',
         kicker_en: '§ The stack',
         lead_fr: 'Une stack courte et auditable : des modèles Claude branchés à vos outils existants par connecteurs. Pas de refonte quand un connecteur suffit.',
