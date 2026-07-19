@@ -9,7 +9,7 @@
  * sert la PERSISTANCE et la mise a jour du deploiement preview Vercel. La version
  * hebergee multi-tenant (token serveur GitHub) = couche C' ulterieure, hors scope.
  *
- * Trois routes, memes garde-fous :
+ * Quatre routes, memes garde-fous :
  *   - POST /api/ds/save    : ecrit les tokens edites dans tokens.css (persistance DS).
  *   - POST /api/ds/preset  : enregistre un preset de THEME nomme (snapshot des tokens
  *                            modifies) dans src/data/ds-presets.json + regenere
@@ -20,9 +20,18 @@
  *                            fonction que la route de rendu (validatePageDoc, source unique,
  *                            chargee par server.ssrLoadModule car sa chaine tire des modules
  *                            virtuels Vite/astro:content non importables en Node natif).
+ *   - GET/POST/DELETE
+ *     /api/ds/saved         : store "Saved sections" (copies de sections sauvegardees depuis
+ *                            le builder) en brouillon local src/data/saved-sections.json (meme
+ *                            regime que /api/ds/compose : ecriture NON destructive, hors git).
+ *                            POST valide { type, ...props } via `sectionSchema`
+ *                            (discriminatedUnion, MEME source de verite que le rendu/compose),
+ *                            chargee par server.ssrLoadModule pour la meme raison que
+ *                            PAGE_DOC_MODULE ci-dessous.
  *
- * Garde-fous (identiques sur les 2 premieres routes ; /api/ds/compose n'ecrit qu'un brouillon
- * local sans push git, donc pas de garde keyword/refus-main, mais slug strict anti-traversal) :
+ * Garde-fous (identiques sur les 2 premieres routes ; /api/ds/compose et /api/ds/saved n'ecrivent
+ * qu'un brouillon local sans push git, donc pas de garde keyword/refus-main, mais slug/id stricts
+ * anti-traversal) :
  *   - keyword       : compare a DS_SAVE_KEYWORD (defaut WAIMIA-SAVE) -> 403 sinon
  *                     (protege contre une sauvegarde accidentelle ; jamais logue).
  *   - refus main    : lit la branche courante, refuse de pousser sur main (prod).
@@ -46,14 +55,19 @@ const TOKENS_PATH = resolve(PROJECT_ROOT, 'packages/ds-tokens/tokens.css');
 const DS_PRESETS_PATH = resolve(PROJECT_ROOT, 'src/data/ds-presets.json');
 const THEMES_CSS_PATH = resolve(PROJECT_ROOT, 'src/styles/themes.css');
 const PAGE_VARIANTS_DIR = resolve(PROJECT_ROOT, 'src/data/page-variants');
+const SAVED_SECTIONS_PATH = resolve(PROJECT_ROOT, 'src/data/saved-sections.json');
 const FIXED_DELAY_SECONDS = 180;
 
 const DEFAULT_KEYWORD = 'WAIMIA-SAVE';
 const ROUTE = '/api/ds/save';
 const PRESET_ROUTE = '/api/ds/preset';
 const COMPOSE_ROUTE = '/api/ds/compose';
+const SAVED_ROUTE = '/api/ds/saved';
 // Source de verite de la validation (identique a src/pages/library/builder/render.astro).
 const PAGE_DOC_MODULE = '@waimia/ds-kernel/lib/page-document';
+// Source de verite du contrat d'instance de section (discriminatedUnion 'type' -> schema Zod).
+// MEME module que celui dont sectionsArraySchema derive (packages/ds-kernel/src/schemas/sections.ts).
+const SECTIONS_SCHEMA_MODULE = '@waimia/ds-kernel/schemas/sections';
 
 // --- Helpers HTTP ------------------------------------------------------------
 
@@ -443,6 +457,156 @@ function makeComposeHandler(server) {
   };
 }
 
+// --- Handler saved sections ---------------------------------------------------
+// Store "Saved sections" (copies de sections sauvegardees depuis le builder) en brouillon local
+// src/data/saved-sections.json = { sections: [{ id, label, type, props, sourcePresetId?, createdAt }] }.
+// Meme regime que /api/ds/compose : ecriture NON destructive, hors git (pas de commit/push),
+// donc pas de garde keyword/refus-main (coherent avec le commentaire d'en-tete de fichier).
+//
+//   GET    /api/ds/saved         -> liste le store tel quel.
+//   POST   /api/ds/saved         -> { label, type, props, sourcePresetId? }. Valide `{ ...props,
+//                                    type }` via `sectionSchema` (discriminatedUnion 'type',
+//                                    MEME source de verite que sectionsArraySchema/le rendu),
+//                                    chargee par server.ssrLoadModule pour la meme raison que
+//                                    PAGE_DOC_MODULE (chaine de modules non importable en Node
+//                                    natif). Genere id = slugify(label) deduplique (-2, -3, ...)
+//                                    + createdAt ISO, puis upsert (par id) et ecrit le store.
+//   DELETE /api/ds/saved?id=<id> -> retire l'entree ; 404 si id inconnu.
+
+function readSavedStore() {
+  if (!existsSync(SAVED_SECTIONS_PATH)) return { sections: [] };
+  try {
+    const parsed = JSON.parse(readFileSync(SAVED_SECTIONS_PATH, 'utf8'));
+    if (parsed && Array.isArray(parsed.sections)) return { sections: parsed.sections };
+  } catch {
+    // Store corrompu -> on repart d'un store vide plutot que de faire planter la route.
+  }
+  return { sections: [] };
+}
+
+function writeSavedStore(store) {
+  mkdirSync(dirname(SAVED_SECTIONS_PATH), { recursive: true });
+  writeFileSync(SAVED_SECTIONS_PATH, `${JSON.stringify(store, null, 2)}\n`, 'utf8');
+}
+
+/**
+ * Genere un id slug depuis un label humain, deduplique contre les ids existants (-2, -3, ...).
+ * @param {string} label
+ * @param {Set<string>} existingIds
+ * @returns {string}
+ */
+export function generateSavedId(label, existingIds) {
+  const base = slugify(label) || 'section';
+  let candidate = base;
+  let n = 2;
+  while (existingIds.has(candidate)) {
+    candidate = `${base}-${n}`;
+    n += 1;
+  }
+  return candidate;
+}
+
+function makeSavedHandler(server) {
+  return async function savedHandler(req, res, next) {
+    // Parse robuste de la query (?id=...) quelle que soit la maniere dont le mount-path a ete
+    // retire de req.url par connect (les differentes versions ne s'accordent pas toutes) : on ne
+    // regarde QUE searchParams, jamais le pathname.
+    const url = new URL(req.url || '/', 'http://localhost');
+
+    if (req.method === 'GET') {
+      return sendJson(res, 200, { ok: true, ...readSavedStore() });
+    }
+
+    if (req.method === 'DELETE') {
+      const id = String(url.searchParams.get('id') || '').trim();
+      if (!id) {
+        return sendJson(res, 400, { ok: false, error: 'id manquant' });
+      }
+      const store = readSavedStore();
+      const idx = store.sections.findIndex((s) => s && s.id === id);
+      if (idx < 0) {
+        return sendJson(res, 404, { ok: false, error: `entree inconnue : ${id}` });
+      }
+      const [removed] = store.sections.splice(idx, 1);
+      try {
+        writeSavedStore(store);
+      } catch (e) {
+        return sendJson(res, 500, { ok: false, error: e.message });
+      }
+      return sendJson(res, 200, { ok: true, removed });
+    }
+
+    if (req.method !== 'POST') return next();
+
+    // 1. Lecture + parse du body
+    let body;
+    try {
+      const raw = await readBody(req);
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'corps JSON invalide' });
+    }
+
+    const { label, type, props, sourcePresetId } = body || {};
+
+    // 2. Label non vide
+    const trimmedLabel = String(label || '').trim();
+    if (!trimmedLabel) {
+      return sendJson(res, 400, { ok: false, error: 'label manquant' });
+    }
+
+    // 3. Type + props presents (forme minimale) avant validation Zod
+    if (typeof type !== 'string' || !type) {
+      return sendJson(res, 400, { ok: false, error: 'type manquant' });
+    }
+    if (!props || typeof props !== 'object' || Array.isArray(props)) {
+      return sendJson(res, 400, { ok: false, error: 'props doit etre un objet' });
+    }
+
+    // 4. Validation : MEME schema que le rendu (sectionSchema, discriminatedUnion 'type').
+    //    Un type inconnu -> issue Zod sur le champ 'type' (invalid_union) -> 400 avec le detail.
+    let sectionSchema;
+    try {
+      ({ sectionSchema } = await server.ssrLoadModule(SECTIONS_SCHEMA_MODULE));
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: `validation indisponible : ${e.message}` });
+    }
+    const candidate = { ...props, type };
+    const validation = sectionSchema.safeParse(candidate);
+    if (!validation.success) {
+      const errors = validation.error.issues.map(
+        (issue) => `${issue.path.join('.') || 'section'} : ${issue.message}`,
+      );
+      return sendJson(res, 400, { ok: false, error: 'section invalide', errors });
+    }
+
+    // 5. id (slugify + dedup) + createdAt, puis upsert par id (le dedup garantit un id neuf sauf
+    //    collision deja presente dans le store, geree defensivement par l'upsert ci-dessous).
+    const store = readSavedStore();
+    const existingIds = new Set(store.sections.map((s) => s && s.id));
+    const id = generateSavedId(trimmedLabel, existingIds);
+    const entry = {
+      id,
+      label: trimmedLabel,
+      type,
+      props,
+      ...(typeof sourcePresetId === 'string' && sourcePresetId ? { sourcePresetId } : {}),
+      createdAt: new Date().toISOString(),
+    };
+    const idx = store.sections.findIndex((s) => s && s.id === id);
+    if (idx >= 0) store.sections[idx] = entry;
+    else store.sections.push(entry);
+
+    try {
+      writeSavedStore(store);
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: e.message });
+    }
+
+    return sendJson(res, 200, { ok: true, section: entry });
+  };
+}
+
 // --- Integration -------------------------------------------------------------
 
 export default function dsSaveDev() {
@@ -453,9 +617,10 @@ export default function dsSaveDev() {
         server.middlewares.use(ROUTE, handler);
         server.middlewares.use(PRESET_ROUTE, presetHandler);
         server.middlewares.use(COMPOSE_ROUTE, makeComposeHandler(server));
+        server.middlewares.use(SAVED_ROUTE, makeSavedHandler(server));
         if (logger && typeof logger.info === 'function') {
           logger.info(
-            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose)`,
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections)`,
           );
         }
       },

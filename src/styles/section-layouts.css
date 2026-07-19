@@ -1317,3 +1317,25 @@
 .sec-grid[data-color-distribution='alternating'] > .sec-item:nth-child(even):not([data-cell-bg]) :is(h2, h3, h4, strong, p) {
   color: inherit;
 }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   COUCHE COMPOSITION — DIRECTION (axe générique, worker B1). Additif, opt-in.
+   Oriente l'axe principal d'un conteneur flex : région (déjà flex par défaut),
+   cellule, ou grille explicitement passée en flex via data-direction. Inerte sans
+   l'attribut. Les variantes `-reverse` inversent l'ordre VISUEL sans toucher l'ordre
+   DOM (lecture/SEO préservés), même idiome que [data-reversed] / [data-order].
+   100 % structurel (flex-direction/flex-wrap) : aucun token requis. 0 nouveau token.
+   NB émission DOM : un composant doit poser data-direction depuis la prop `direction`
+   (même mécanisme per-composant que data-content-align / data-reversed) — vague 2.
+   ════════════════════════════════════════════════════════════════════════════ */
+.sec-region[data-direction],
+.sec-item[data-direction],
+.sec-grid[data-direction] { display: flex; }
+[data-direction='row']            { flex-direction: row; flex-wrap: wrap; }
+[data-direction='row-reverse']    { flex-direction: row-reverse; flex-wrap: wrap; }
+[data-direction='column']         { flex-direction: column; }
+[data-direction='column-reverse'] { flex-direction: column-reverse; }
+
+/* ITEM-ORDER (axe générique `itemOrder`, worker B1) : réutilise TELLE QUELLE la recette
+   existante `.sec-item[data-order='0..9']` (COUCHE 7) — aucune règle nouvelle. Le renderer
+   mappe le tableau `itemOrder` index→data-order sur chaque .sec-item (câblage vague 2). */

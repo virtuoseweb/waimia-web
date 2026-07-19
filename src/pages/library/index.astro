@@ -16,7 +16,7 @@ export const prerender = true;
 // vit dans les sous-routes. Esprit du header catalogue (design-system.astro:161-199), composé avec
 // les tokens/atomes existants. 0 nouveau token (rule 60), 0 valeur en dur, 0 U+2014 (rule 58).
 
-import Base from '../../layouts/Base.astro';
+import AtelierShell from '../../layouts/AtelierShell.astro';
 import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import CatalogueExplorer, { type CatalogueItem } from '@waimia/catalogue-ui/CatalogueExplorer.tsx';
@@ -163,10 +163,10 @@ const familyRepEntries = [...familyReps.entries()].map(([value, type]) => ({ val
 const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({ value, type }));
 ---
 
-<Base
+<AtelierShell
   title="Atelier Design System · Library Waimia · Catalogue · Studio · Hero Lab"
   description="Atelier du Design System Waimia : catalogue des sections par intention, éditeur de tokens live et comparateur de heros. Piloté par le registry."
-  noindex
+  active="catalogue"
 >
   {/* ───────────── MASTHEAD ───────────── */}
   <section class="lib-hd">
@@ -246,7 +246,7 @@ const categoryRepEntries = [...categoryReps.entries()].map(([value, type]) => ({
   </section>
 
   <script>import '../../scripts/preview-frame.ts';</script>
-</Base>
+</AtelierShell>
 
 <style>
   /* ── Masthead ── */

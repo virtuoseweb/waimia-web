@@ -16,7 +16,7 @@ export const prerender = true;
 //
 // 0 nouveau token DS (rule 60), 0 valeur en dur, 0 tiret cadratin U+2014 (rule 58).
 
-import Base from '../../../layouts/Base.astro';
+import AtelierShell from '../../../layouts/AtelierShell.astro';
 import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import BuilderCanvas from '@waimia/builder/BuilderCanvas.tsx';
@@ -134,10 +134,10 @@ const defaultMeta = {
 };
 ---
 
-<Base
+<AtelierShell
   title="Builder visuel · composer une page · Library Waimia"
   description="Builder visuel du Design System Waimia : composez une page en piochant des sections du catalogue, réordonnez, déclinez et prévisualisez en direct. Piloté par le registry."
-  noindex
+  active="builder"
 >
   <section class="bld-hd">
     <div class="wrap-wide">
@@ -169,7 +169,7 @@ const defaultMeta = {
       renderPath="/library/builder/render"
     />
   </section>
-</Base>
+</AtelierShell>
 
 <style>
   .bld-hd {

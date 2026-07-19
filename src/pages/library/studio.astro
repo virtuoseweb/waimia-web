@@ -19,7 +19,7 @@
 
 export const prerender = true;
 
-import Base from '../../layouts/Base.astro';
+import AtelierShell from '../../layouts/AtelierShell.astro';
 
 // Atomes
 import Kicker from '../../components/ui/atoms/Kicker.astro';
@@ -334,10 +334,10 @@ const atomVariantsRendered =
 const moleculesRendered = 12;
 ---
 
-<Base
+<AtelierShell
   title="DS Studio · éditeur de tokens LIVE · Waimia"
   description="Bac à sable interactif du Design System Waimia : édite une valeur de token et vois tout le rendu changer en direct. Galerie complète des atomes, molécules et sections."
-  noindex
+  active="studio"
 >
   <div class="studio">
     <DsLocalNav active="studio" scope="library" note="Ici : personnaliser les tokens et la DA. La bibliothèque de référence reste le Catalogue." />
@@ -1219,7 +1219,7 @@ const moleculesRendered = 12;
       measure();
     })();
   </script>
-</Base>
+</AtelierShell>
 
 <style>
   .studio {

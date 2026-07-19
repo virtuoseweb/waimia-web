@@ -1,0 +1,16 @@
+{
+  "name": "@waimia/atelier-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Waimia Design System : app-shell unifie « Atelier » + primitives partagees des 3 espaces (catalogue, studio, builder). Livrable initial : useThumbQueue (file de rendu des vignettes d'apercu, port React fidele de lazy-preview). Surface consommee par les pages library de l'app hote.",
+  "exports": {
+    "./*.astro": "./src/*.astro",
+    "./*.tsx": "./src/*.tsx",
+    "./*.ts": "./src/*.ts",
+    "./*": "./src/*.tsx"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  }
+}

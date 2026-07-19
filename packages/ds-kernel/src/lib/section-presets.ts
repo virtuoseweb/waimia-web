@@ -114,6 +114,22 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   proportion?: '1-1' | '1-2' | '2-1' | '2-3' | '3-2';
   /** feature-split-media : côté du média en desktop. */
   mediaSide?: 'left' | 'right';
+  /** Axe DIRECTION (générique, câblage CSS COUCHE COMPOSITION section-layouts.css) :
+   *  oriente l'axe principal d'un conteneur flex (région / cellule / grille passée en flex).
+   *  `row`/`row-reverse` = rangée, `column`/`column-reverse` = pile. Les variantes `-reverse`
+   *  inversent l'ordre VISUEL sans toucher l'ordre DOM (lecture/SEO préservés), même idiome
+   *  que `reversed`. Lu par le sélecteur générique `[data-direction]`. L'émission DOM (un
+   *  composant posant `data-direction` depuis cette prop) reste à câbler par composant, comme
+   *  contentAlign/reversed le sont (le moteur CSS est prêt ; cf rapport worker B1). */
+  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  /** Axe ITEM-ORDER (générique) : ordre VISUEL des items d'une grille/collection, indépendant
+   *  de l'ordre DOM (lecture/SEO préservés). Tableau index→ordre : `[2, 0, 1]` place l'item DOM 0
+   *  en position visuelle 2, l'item 1 en position 0, l'item 2 en position 1. Le renderer mappe
+   *  chaque entrée sur l'attribut `data-order` de la `.sec-item` correspondante (recette CSS
+   *  `.sec-item[data-order='0..9']` déjà en place, COUCHE 7). Le câblage renderer (lecture du
+   *  tableau → `data-order` par enfant) reste en vague 2 : ici l'axe est CONTRACTUEL +
+   *  sérialisable (l'inspecteur peut déjà le lire ; cf rapport worker B1). */
+  itemOrder?: number[];
   /** feature-grid (witness moteur v2) : couches NOW exposées par preset témoin. Lues par
    *  data-* dans FeatureGrid → moteur section-layouts.css. */
   hover?: 'none' | 'lift' | 'zoom' | 'glow' | 'border' | 'tint' | 'underline' | 'reveal-cta' | 'media-zoom';
@@ -618,6 +634,10 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     },
     { id: 'feature-grid--cta-bottom', type: 'feature-grid', label: 'Grille features · CTA poussé en bas de carte', family: 'card-grid', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3', cellAlignY: 'between' } },
     { id: 'feature-grid--justify-center', type: 'feature-grid', label: 'Grille features · grille centrée (justify-content)', family: 'card-grid', era: '2026', props: { background: 'paper', layout: 'grid-auto', justifyContent: 'center' } },
+    // Presets TÉMOINS (worker B1) : prouvent la sérialisation des 2 axes génériques direction +
+    // itemOrder (moteur CSS prêt ; émission DOM par composant = vague 2, cf rapport B1).
+    { id: 'feature-grid--direction-column-demo', type: 'feature-grid', label: 'Grille features · axe direction (pile / column)', family: 'card-grid', era: '2026', props: { background: 'paper', layout: 'grid-auto', direction: 'column' } },
+    { id: 'feature-grid--item-order-demo', type: 'feature-grid', label: 'Grille features · axe item-order (réordonne les cellules)', family: 'card-grid', era: '2026', props: { background: 'paper', layout: 'grid-uniform', columns: '3', itemOrder: [2, 0, 1] } },
   ],
 
   // deliverables-grid (famille card-grid, composant FeatureGrid) : axes câblés (Vague C pilote) =
