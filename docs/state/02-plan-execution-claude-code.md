@@ -653,7 +653,7 @@ _(vide)_
     **Reste** : inventaire templates × sections + captures versionnées (→ P2.1-b/c).
   - ▸ *réconcilié 2026-07-19 : PARTIEL (sweeps `52e2c79` + `a1d54de`), manque l'inventaire templates × sections.*
 - [ ] **P2.1-b — Compléter : 1 capture above-fold par section de chaque template** (l'agent itère dessus).
-- [ ] **P2.1-c — Corriger gitignore/pipeline** : rediriger le sweep (`scripts/gf1-cloud-sweep.mjs`,
+- [x] **P2.1-c — Corriger gitignore/pipeline** : rediriger le sweep (`scripts/gf1-cloud-sweep.mjs`, ▸ *soldé 2026-07-19 : négation gitignore ciblée + sweep vers docs/visual-audit/previews, preuve sweep 3/3.* <!-- sb commit=57861b27 gf1=y -->
   `visual-check.mjs`) de `/tmp` → `docs/visual-audit/{previews,sections}/...` (versionné) ; dé-ignorer
   `design-system-*.png` (`.gitignore:42`) + `gf1-*` (`:73-74`) OU les ranger sous `docs/visual-audit/`.
 - [ ] **P2.1-d — Maintenance permanente** : à CHAQUE itération design → recapture la section touchée,
