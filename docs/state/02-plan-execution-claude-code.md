@@ -123,14 +123,14 @@ Chaque tâche ci-dessous est un **point de départ, pas une recette**. Pour chac
 
 ## Chantier P0.0 — Reliquats documentaires & hygiène repo
 
-> Sources : `docs/FINALISATION-MANIFEST.md`, `docs/CONSOLIDATION-MANIFEST.md`,
-> `docs/REPO-CLEANUP-MANIFEST.md`, `state/01 §f,§f-bis,§f-ter`.
+> Sources : `docs/archive/FINALISATION-MANIFEST.md`, `docs/archive/CONSOLIDATION-MANIFEST.md`,
+> `docs/archive/REPO-CLEANUP-MANIFEST.md` (archivés 2026-07-19, P0.0-a soldé), `state/01 §f,§f-bis,§f-ter`.
 
 ### Tâches finies
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.0-a — Exécuter les 3 manifestes de finalisation doc** (fusions + renumérotation `01..N`). ▸ *réconcilié 2026-07-19 : RESTE (effort S, supprimer les 3 manifestes + renumérotation, partiellement moot V8)*
+- [x] **P0.0-a — Exécuter les 3 manifestes de finalisation doc** (fusions + renumérotation `01..N`). ▸ *soldé 2026-07-19 : audit action par action (worker w-p00a) : archivages/fusions/corrections = FAIT via la réorg 2026-07-12 ; renumérotation stricte + « CMS→Tina » = MOOT (index README fait foi, Tina abandonné strategy/12) ; les 3 manifestes archivés dans docs/archive/ + README.md mis à jour ; grep MANIFEST hors archive = 0 référence cassée.* <!-- sb commit=c707d50b gf1=y -->
   - Objectif : set de ~25 docs vivants, numérotation cohérente par dossier, 0 contradiction ;
     supprimer les 3 manifestes à la fin.
   - Fichiers : `docs/**` (`git mv`), `docs/FINALISATION-MANIFEST.md` §1-§4, références croisées.
@@ -558,7 +558,7 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.10-a — Build + check + sitemap = base propre**. ▸ *réconcilié 2026-07-19 : RESTE (effort S, gate final de phase)*
+- [x] **P0.10-a — Build + check + sitemap = base propre**. ▸ *gate passé 2026-07-19 : build `Complete!` + astro check baseline 8 + check:board/no-emdash/section-aggregate/section-modules verts + sitemap-index généré + sweep previews 208/208 (2026-07-16) + GF-1 prod home/lp du jour.* <!-- sb commit=88819513 gf1=y -->
   - Objectif : `build` vert + `astro check` 0 + tous `check-*` verts + sitemap ~28 URLs FR + 0 orphelin
     + 0 lien mort (`check-content-refs`) + 0 page fictive indexée.
   - Fichiers : tout le repo.

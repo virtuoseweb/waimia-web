@@ -95,9 +95,11 @@ Vision produit : `waimia-web` = **socle marketing IA modulaire forkable par clie
 Claude Code/Cowork + `.claude/` du repo ; modules activables ; facturation à l'usage) —
 cf `marketing/05-boilerplate-produit`.
 
-**Finalisation doc en attente** (`docs/FINALISATION-MANIFEST.md`) : renumérotation cohérente
-par dossier (`01..N`, fini les numéros à 52), allègement `CLAUDE.md`, checks anti-contradiction.
-Tant qu'elle n'est pas exécutée, certains chemins ci-dessus portent encore les anciens numéros.
+**Finalisation doc SOLDÉE** (2026-07-19) : la réorg thématique (dossiers `strategy/ state/ audits/…`)
++ le pivot V8 ont rendu caduque la renumérotation stricte `01..N` visée par les 3 anciens manifestes ;
+CLAUDE.md est slim et le nettoyage racine est fait. Les 3 manifestes (`CONSOLIDATION-`, `REPO-CLEANUP-`,
+`FINALISATION-MANIFEST`) sont désormais dans `archive/` (référence historique). Certains chemins ci-dessus
+gardent volontairement leur numéro d'origine : la carte thématique de ce README fait foi, pas la renumérotation.
 
 **Arbitrages tranchés** (position expert, cf `strategy/02 §7`) : glossaire supprimé ;
 13 solutions Piloter/Opérer + 8 offres secondaires supprimées ; cas/secteurs/testimonials
@@ -125,8 +127,8 @@ docs/
 ├── visual-audit/          (mémoire visuelle, preuves GF-1, cf son README) · cartography/ + audit-refonte/ → archivés 2026-06-15
 ```
 > ~25 docs **vivants** clairement répartis ; le reste en `archive/` (consultable, hors chemin par défaut).
-> **Reste de la finalisation** (`FINALISATION-MANIFEST.md`) : fusions de contenu (06+07, 46/47→03, DS-COHERENCE→01),
-> corrections factuelles (`architecture/03` output static, CMS→Tina), allègement `CLAUDE.md`.
+> **Finalisation soldée** (2026-07-19) : fusions de contenu et corrections factuelles (`architecture/03` output static)
+> intégrées lors de la réorg ; les 3 manifestes d'origine sont archivés (`archive/*-MANIFEST.md`, référence).
 ```
 
 > Réorg faite (`git mv`, historique préservé). Pointeurs `CLAUDE.md` mis à jour
