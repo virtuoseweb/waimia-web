@@ -20,6 +20,8 @@
     "test:e2e:prod": "PLAYWRIGHT_BASE_URL=https://waimia.com playwright test",
     "e2e:builder": "node scripts/e2e-builder.mjs",
     "prospect:score": "node scripts/prospecting/score-icp-bant.mjs",
+    "prospect:render": "node scripts/prospecting/render-sequence.mjs",
+    "prospect:crm": "node scripts/prospecting/crm-lite.mjs",
     "clean": "rm -rf dist .astro .vercel .turbo",
     "visual": "node scripts/visual-check.mjs",
     "gen:catalog": "node scripts/gen-catalog.mjs",

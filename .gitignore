@@ -83,3 +83,10 @@ gf1-*.jpeg
 
 # Worktrees agents (orchestration multi-agents locale)
 .worktrees/
+
+# Prospection P3.1-b : store CRM (PII) + séquences rendues + exports scorés (jamais versionnés)
+scripts/prospecting/crm.jsonl
+scripts/prospecting/out/
+scripts/prospecting/*.scored.csv
+scripts/prospecting/*.scored.jsonl
+data/leads/

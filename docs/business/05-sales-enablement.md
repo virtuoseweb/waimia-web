@@ -136,3 +136,8 @@ Format : positionnement · on gagne quand · on perd quand · attaque · défens
 
 ## Mémo (à garder en RDV)
 Découvre avant de pitcher (70 % le prospect parle). Montre, n'affirme pas (GF-1, waimia.com = preuve). Le quick win gratuit est ton meilleur closing de 1er niveau. Assume tes angles morts. Paliers, pas big bang. Urgence = le marché (GEO + coût du statu quo), jamais une fausse rareté. Relance avec valeur, toujours datée.
+
+---
+
+## Addendum 2026-07-19 · assets opérables (P3.1-b)
+Les scripts ci-dessus (§6) sont la **source de vérité voix**. Leur forme **opérable, placeholder-driven** (rendue par prospect scoré, avec variante TPE locale vs PME marketing et bloc opt-out RGPD) vit dans `scripts/prospecting/sequences/` + le CLI `scripts/prospecting/render-sequence.mjs`. Le suivi du pipeline (`03` §6) est outillé par `scripts/prospecting/crm-lite.mjs`. Détail + workflow scoring→render→crm : `scripts/prospecting/README.md`. **Aucun envoi** dans ces outils (assets locaux à relire GF-1 puis envoyer à la main).
