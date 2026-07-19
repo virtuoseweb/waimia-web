@@ -13,9 +13,12 @@
  *
  * Contraintes DS : 0 valeur en dur (tokens var(--*)), styles dans <style is:global> côté page
  * (un style hydraté provoque un mismatch SSR/client, cf pattern CatalogueExplorer).
+ *
+ * App-as-plugin (fiche 0027 D3) : ce module vit dans le package @waimia/apps-seo-dashboard.
+ * Il dépend de la marque host (SITE) par import relatif vers la racine du repo.
  */
 import { useState } from "react";
-import { SITE } from "../../site.config";
+import { SITE } from "../../../src/site.config";
 
 // ─── Contrats ───
 export interface TrackedPage {

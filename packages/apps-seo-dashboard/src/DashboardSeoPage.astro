@@ -1,21 +1,33 @@
 ---
 export const prerender = true;
 
-// Page · /dashboard-seo · POC dashboard SEO git-based (outil INTERNE)
+// Entrypoint de l'app-as-plugin « dashboard SEO » · route /dashboard-seo (injectee)
 // ──────────────────────────────────────────────────────────────────────────────
-// « L'OS » waimia, 1er module. Logiciel SANS serveur/BDD : la mémoire vit dans les
-// .md de la collection `dashboard-seo` (frontmatter = page suivie, corps = mémoire).
-// CRUD = éditer le .md (commit), l'app se met à jour au build. Phase 1 = lecture +
+// App-as-plugin (fiche 0027 D3) : ce fichier vit dans le package
+// @waimia/apps-seo-dashboard et n'est PAS dans src/pages/ de l'app hote. Il est
+// injecte comme route via l'AstroIntegration `waimiaSeoDashboard()` (integration.mjs,
+// hook astro:config:setup → injectRoute). Astro le compile dans le contexte de l'app
+// hote, donc `astro:content` (collection `dashboard-seo`) resout normalement.
+//
+// Dependances vers l'app hote (seam POC, imports relatifs vers la racine du repo) :
+//   - Base / Kicker : composants du Design System host (shell + atome), forcement host.
+//   - SITE          : source unique de marque (site.config), importee relativement.
+// Un seam plus propre (options d'integration / package DS partage) serait le prochain
+// pas ; pour cette 1re extraction on garde l'import relatif, le plus simple qui builde.
+//
+// « L'OS » waimia, 1er module. Logiciel SANS serveur/BDD : la memoire vit dans les
+// .md de la collection `dashboard-seo` (frontmatter = page suivie, corps = memoire).
+// CRUD = editer le .md (commit), l'app se met a jour au build. Phase 1 = lecture +
 // analyse live PageSpeed Insights (fetch client, sans OAuth). L'OAuth Google/GSC +
-// l'auto-improve (écriture runtime) = phases suivantes. Cadrage : docs/strategy/15 §7bis.
+// l'auto-improve (ecriture runtime) = phases suivantes. Cadrage : docs/strategy/15 §7bis.
 //
 // Outil interne → noindex,follow (prop Base, comme /agence/cartographie). Hors sitemap
 // (NOINDEX_SITEMAP_PATHS) + disallow robots.txt (astro.config.mjs). 0 nouveau token DS.
 import { getCollection } from 'astro:content';
-import Base from '../layouts/Base.astro';
-import Kicker from '../components/ui/atoms/Kicker.astro';
-import DashboardSeoApp, { type TrackedPage } from '../components/dashboard-seo/DashboardSeoApp.tsx';
-import { SITE } from '../site.config';
+import Base from '../../../src/layouts/Base.astro';
+import Kicker from '../../../src/components/ui/atoms/Kicker.astro';
+import DashboardSeoApp, { type TrackedPage } from './DashboardSeoApp.tsx';
+import { SITE } from '../../../src/site.config';
 
 const ORIGIN = SITE.url;
 

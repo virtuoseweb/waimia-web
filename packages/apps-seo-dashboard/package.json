@@ -1,0 +1,15 @@
+{
+  "name": "@waimia/apps-seo-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Waimia app-as-plugin : dashboard SEO interne (POC git-based). 1re extraction reelle de l'architecture apps-as-plugins (fiche 0027 D3). Route /dashboard-seo injectee dans l'app hote via AstroIntegration (injectRoute). Le contenu suivi + la mmoire vivent dans la collection host `dashboard-seo` ; l'app depend de la marque (SITE) et du DS host (Base/Kicker) par imports relatifs vers la racine du repo.",
+  "exports": {
+    "./integration": "./integration.mjs",
+    "./*.astro": "./src/*.astro",
+    "./*.tsx": "./src/*.tsx"
+  },
+  "dependencies": {
+    "react": "^18.3.1"
+  }
+}

@@ -11,6 +11,9 @@ import llmsMdPages from './src/integrations/llms-md-pages';
 import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 import { SITE } from './src/site.config.ts';
+// Apps-as-plugins (fiche 0027 D3) : registre des apps internes extraites en packages.
+// Chaque app enabled+extraite expose une AstroIntegration qui injecte sa route.
+import { enabledAppIntegrations } from './src/apps.config.ts';
 
 // Marque centralisée (fondation forkabilité, fiche 0027 D4) : source unique = SITE.
 // Host nu (sans protocole) dérivé pour robots.txt `host`.
@@ -349,6 +352,10 @@ export default defineConfig({
     // Le hook astro:server:setup n'est actif que sous `astro dev` -> 0 impact
     // sur le static build (aucune fonction serverless en prod). Cf le fichier.
     dsSaveDev(),
+    // Apps-as-plugins : les integrations des apps internes activees (registre
+    // src/apps.config.ts) injectent leur route (ex. /dashboard-seo). Basculer
+    // `enabled: false` sur une app la retire d'ici → route 404.
+    ...enabledAppIntegrations,
   ],
   // Cast `as any` parce que tailwindcss/vite et Astro embarquent leur propre
   // version de Vite — TS détecte un mismatch nominal mais runtime OK.
