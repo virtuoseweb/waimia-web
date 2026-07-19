@@ -1,3 +1,6 @@
+// FORK : nav spécifique Waimia (labels, routes, panneaux détail), à réécrire
+// pour un fork (cf FORK.md § Limites connues).
+//
 // Waimia · structure mega-menu V3 simplifiée (2026-05-17)
 // Ressources et Agence sont explicitement définies ici.
 // Les autres sections restent mappées depuis sitemap.ts pour conserver le contenu validé.
