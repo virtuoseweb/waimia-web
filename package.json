@@ -33,7 +33,7 @@
     "check:touchpoints": "node scripts/check-touchpoints.mjs",
     "check:internal-links": "node scripts/check-internal-links.mjs",
     "check:no-emdash": "node scripts/check-no-emdash.mjs",
-    "check:presets": "node scripts/check-presets.mjs",
+    "check:presets": "npx tsx scripts/check-presets.mjs",
     "check:static-quality": "node scripts/check-static-quality.mjs",
     "check:token-purity": "node scripts/check-token-purity.mjs",
     "check:token-lock": "node scripts/check-token-lock.mjs",
