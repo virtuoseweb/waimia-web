@@ -121,6 +121,7 @@ const resolved = resolveTemplate(caseStudyTemplate, {
 });
 ---
 <Base title={`${d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd} ogType="article">
+  <div class="case-flow">
   {resolved.map((item) => {
     if (item.kind === 'slot') {
       const sp = item.props as { authorSlug?: string; date?: Date | string } | undefined;
@@ -169,13 +170,21 @@ const resolved = resolveTemplate(caseStudyTemplate, {
     }
     return <Component data={s} lang={lang} />;
   })}
+  </div>
 </Base>
 
 <style>
   /* Chrome des bandes auteur (byline/card) : padding hérité de l'ancien CaseStudyTemplate. */
   .case-author-band { padding: var(--space-9) var(--space-6) 0; }
   .case-author-card-band {
-    padding: var(--space-10) var(--space-6);
+    padding: var(--space-9) var(--space-6);
     border-top: 1px solid var(--hairline);
   }
+
+  /* Densité du flux cas (directive §E/§H.8) : resserre le rythme vertical des sections
+     de contenu du parcours cas (respirations trop larges relevées en re-critique it.13),
+     SANS toucher les défauts catalogue globaux ni amputer le contenu. Confiné à
+     .case-flow, tokens DS uniquement, réversible. Cible : les bandes en cran --section-base
+     (site-showcase, method-timeline) passent au cran intermédiaire --space-10 (96→80px). */
+  .case-flow :global(.sec-base) { padding-block: var(--space-10); }
 </style>

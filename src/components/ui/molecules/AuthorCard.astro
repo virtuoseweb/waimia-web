@@ -24,6 +24,16 @@ if (authorSlug) {
     // Fallback gracieux : ne rien rendre si l'auteur n'est pas disponible.
   }
 }
+
+// Monogramme (initiales) dérivé du nom : habille le panneau signature de la variante full.
+const initials = author
+  ? author.data.title_fr
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((w) => w[0]?.toUpperCase() ?? '')
+      .join('')
+  : '';
 ---
 
 {author && variant === 'mini' && (
@@ -40,24 +50,30 @@ if (authorSlug) {
 
 {author && variant === 'full' && (
   <aside class="acard-full">
-    <div class="acard-full-header">
-      {author.data.photo && (
-        <a href={`/equipe/${author.id}`} class="acard-full-photo-link">
-          <img src={author.data.photo} alt={author.data.photoAlt_fr ?? author.data.title_fr} class="acard-full-photo" loading="lazy" decoding="async" width="80" height="80" />
-        </a>
-      )}
-      <div>
-        <div class="acard-full-kicker">§ Écrit par</div>
-        <a href={`/equipe/${author.id}`} class="acard-full-name">{author.data.title_fr}</a>
-        <div class="acard-full-role">{author.data.role_fr}</div>
+    <div class="acard-full-main">
+      <div class="acard-full-header">
+        {author.data.photo && (
+          <a href={`/equipe/${author.id}`} class="acard-full-photo-link">
+            <img src={author.data.photo} alt={author.data.photoAlt_fr ?? author.data.title_fr} class="acard-full-photo" loading="lazy" decoding="async" width="80" height="80" />
+          </a>
+        )}
+        <div>
+          <div class="acard-full-kicker">§ Écrit par</div>
+          <a href={`/equipe/${author.id}`} class="acard-full-name">{author.data.title_fr}</a>
+          <div class="acard-full-role">{author.data.role_fr}</div>
+        </div>
+      </div>
+      <p class="acard-full-bio">{author.data.description_fr}</p>
+      <div class="acard-full-social">
+        {author.data.social?.linkedin && <a href={author.data.social.linkedin}>LinkedIn →</a>}
+        {author.data.social?.x && <a href={author.data.social.x}>X →</a>}
+        {author.data.social?.github && <a href={author.data.social.github}>GitHub →</a>}
+        <a href={`/equipe/${author.id}`} class="acard-full-cta">Voir le profil →</a>
       </div>
     </div>
-    <p class="acard-full-bio">{author.data.description_fr}</p>
-    <div class="acard-full-social">
-      {author.data.social?.linkedin && <a href={author.data.social.linkedin}>LinkedIn →</a>}
-      {author.data.social?.x && <a href={author.data.social.x}>X →</a>}
-      {author.data.social?.github && <a href={author.data.social.github}>GitHub →</a>}
-      <a href={`/equipe/${author.id}`} class="acard-full-cta">Voir le profil →</a>
+    <div class="acard-full-sig" aria-hidden="true">
+      <div class="signature-grid"></div>
+      {initials && <span class="acard-full-mono">{initials}</span>}
     </div>
   </aside>
 )}
@@ -80,14 +96,43 @@ if (authorSlug) {
   .acard-mini-name { font-family: var(--font-sans); font-weight: var(--fw-medium); font-size: var(--text-small); }
   .acard-mini-role { font-family: var(--font-mono); font-size: var(--text-small); color: var(--muted); letter-spacing: var(--tracking-mono-tight); text-transform: uppercase; }
 
-  /* Full variant */
+  /* Full variant : carte signature 2 colonnes qui remplit la bande (habillage du
+     vide actif à droite de la carte, directive §H.7). Panneau signature-grid +
+     monogramme fantôme à droite. Utilisée uniquement sur les pages cas clients. */
   .acard-full {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(200px, 300px);
+    gap: var(--space-6);
+    align-items: stretch;
     background: var(--paper-2);
     border: 1px solid rgba(var(--ink-rgb), .08);
     border-radius: 16px;
     padding: var(--space-6);
     margin: var(--space-8) 0;
-    max-width: var(--wrap-prose);
+    overflow: hidden;
+  }
+  .acard-full-main { min-width: 0; max-width: var(--wrap-prose); }
+  /* Panneau signature : grille millimétrique DS + monogramme fantôme serif. */
+  .acard-full-sig {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--paper-3);
+    border: 1px solid var(--hairline);
+    display: grid;
+    place-items: center;
+    min-height: 180px;
+  }
+  .acard-full-mono {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: rgba(var(--ink-rgb), .12);
   }
   .acard-full-header { display: flex; gap: var(--space-5); align-items: center; margin-bottom: var(--space-5); }
   .acard-full-photo {
@@ -143,4 +188,12 @@ if (authorSlug) {
   }
   .acard-full-social a:hover { color: var(--accent-text); border-bottom-color: var(--accent-text); }
   .acard-full-cta { color: var(--accent-text); border-bottom-color: var(--accent-text); }
+
+  /* Mobile : la carte signature passe en 1 colonne, le panneau devient une bande
+     compacte au-dessus du contenu (repensé, pas rétréci). */
+  @media (max-width: 700px) {
+    .acard-full { grid-template-columns: 1fr; gap: var(--space-5); }
+    .acard-full-sig { order: -1; min-height: 96px; }
+    .acard-full-mono { font-size: clamp(2.5rem, 12vw, 3.5rem); }
+  }
 </style>
