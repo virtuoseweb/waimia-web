@@ -260,12 +260,21 @@ const toggleId = `pricing-toggle-${Math.random().toString(36).slice(2, 8)}`;
   /* ── Alternance des fonds ── */
   .pricing-toggle[data-bg='paper-2'] { background: var(--paper-2); }
   .pricing-toggle[data-bg='paper-3'] { background: var(--paper-3); }
+  /* Ink : idiome BentoGrid/OfferTierGrid. On ne remappe PAS --paper (sinon
+     color:var(--paper) résout en encre = titres invisibles) ; on remappe les tokens
+     de texte/hairline existants vers du clair et on surface les cartes explicitement. */
   .pricing-toggle[data-bg='ink'] {
     background: var(--ink);
     color: var(--paper);
     --ink-2: rgba(var(--paper-rgb), 0.86);
-    --paper: var(--ink);
-    --paper-2: rgba(var(--paper-rgb), 0.06);
+    --muted: rgba(var(--paper-rgb), 0.6);
+    --hairline: rgba(var(--paper-rgb), 0.12);
+    --hairline-strong: rgba(var(--paper-rgb), 0.2);
   }
-  .pricing-toggle[data-bg='ink'] :is(h2, .pricing-toggle__price-k) { color: var(--paper); }
+  .pricing-toggle[data-bg='ink'] :is(.sec-base-h2, .pricing-toggle__price-k) { color: var(--paper); }
+  .pricing-toggle[data-bg='ink'] .pricing-toggle__card { background: rgba(var(--paper-rgb), 0.04); }
+  .pricing-toggle[data-bg='ink'] .pricing-toggle__card.is-featured { background: rgba(var(--paper-rgb), 0.07); }
+  .pricing-toggle[data-bg='ink'] .pricing-toggle__switch { background: rgba(var(--paper-rgb), 0.08); }
+  .pricing-toggle[data-bg='ink']:not(:has(.pricing-toggle__input:checked)) .pricing-toggle__switch-label[data-for='monthly'],
+  .pricing-toggle[data-bg='ink']:has(.pricing-toggle__input:checked) .pricing-toggle__switch-label[data-for='annual'] { color: var(--paper); }
 </style>

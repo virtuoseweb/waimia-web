@@ -212,12 +212,16 @@ const secondaryNote = isFr ? data.secondary_note_fr : data.secondary_note_en;
   /* ── Alternance des fonds ── */
   .pricing-single[data-bg='paper-2'] { background: var(--paper-2); }
   .pricing-single[data-bg='paper-3'] { background: var(--paper-3); }
+  /* Ink : idiome BentoGrid/OfferTierGrid. Pas de remap --paper (poison =
+     titres invisibles) ; tokens de texte clairs + surfaces cartes explicites. */
   .pricing-single[data-bg='ink'] {
     background: var(--ink);
     color: var(--paper);
     --ink-2: rgba(var(--paper-rgb), 0.86);
-    --paper: var(--ink);
-    --paper-2: rgba(var(--paper-rgb), 0.06);
+    --muted: rgba(var(--paper-rgb), 0.6);
+    --hairline: rgba(var(--paper-rgb), 0.12);
   }
-  .pricing-single[data-bg='ink'] :is(h2, .pricing-single__price-k) { color: var(--paper); }
+  .pricing-single[data-bg='ink'] :is(.sec-base-h2, .pricing-single__price-k) { color: var(--paper); }
+  .pricing-single[data-bg='ink'] .pricing-single__card { background: rgba(var(--paper-rgb), 0.04); border-color: var(--accent-text); }
+  .pricing-single[data-bg='ink'] .pricing-single__benefits { background: rgba(var(--paper-rgb), 0.03); }
 </style>

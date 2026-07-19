@@ -466,6 +466,31 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     font-size: var(--text-small);
   }
 
+  /* ── Alternance des fonds · defaut (sans data-bg) = rendu clair inchange. ── */
+  .pricing-tabs[data-bg='paper-2'] { background: var(--paper-2); }
+  .pricing-tabs[data-bg='paper-3'] { background: var(--paper-3); }
+  /* Ink : idiome BentoGrid/OfferTierGrid. Titres -> paper, tokens de texte clairs,
+     surfaces (tablist / cartes / highlight / note) en rgba(paper) sur fond encre. */
+  .pricing-tabs[data-bg='ink'] {
+    background: var(--ink);
+    color: var(--paper);
+    --ink-2: rgba(var(--paper-rgb), 0.82);
+    --muted: rgba(var(--paper-rgb), 0.6);
+    --hairline: rgba(var(--paper-rgb), 0.12);
+  }
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__title,
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__card h3,
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__price strong,
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__highlight h2,
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__note h3,
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__note-price strong { color: var(--paper); }
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__tablist { background: rgba(var(--paper-rgb), 0.06); border-color: rgba(var(--paper-rgb), 0.12); }
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__card { background: rgba(var(--paper-rgb), 0.04); border-color: rgba(var(--paper-rgb), 0.18); }
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__card:hover,
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__card.is-featured { background: rgba(var(--paper-rgb), 0.08); border-color: var(--accent-text); }
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__highlight { background: rgba(var(--paper-rgb), 0.04); }
+  .pricing-tabs[data-bg='ink'] .pricing-tabs__note { background: rgba(var(--paper-rgb), 0.04); }
+
   @keyframes pricing-tabs-panel {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }

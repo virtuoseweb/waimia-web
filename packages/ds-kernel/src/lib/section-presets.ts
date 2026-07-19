@@ -1257,8 +1257,11 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'offer-tier-grid--paper-2', type: 'offer-tier-grid', label: 'Grille offres · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
     { id: 'offer-tier-grid--paper-3', type: 'offer-tier-grid', label: 'Grille offres · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
     { id: 'offer-tier-grid--ink', type: 'offer-tier-grid', label: 'Grille offres · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
-    // NB : axe `variant` (standard/featured/transparent) NON exposé en preset — les valeurs offer-tier-grid ne sont pas
-    // dans l'union typée `PresetProps.variant` (PresetProps intact = hors scope). Demo fige variant:'featured'. À escalader.
+    // Axe `variant` (standard/featured/transparent) DÉBLOQUÉ (w-p29-v5) : PresetProps.variant couvre ces valeurs.
+    // Demo fige variant:'featured' → on pose variant EXPLICITEMENT (merge {...demo,...props} écrase la dérivation).
+    { id: 'offer-tier-grid--standard', type: 'offer-tier-grid', label: 'Grille offres · sobre', family: 'card-grid', era: '2022', props: { variant: 'standard', background: 'paper' } },
+    { id: 'offer-tier-grid--transparent', type: 'offer-tier-grid', label: 'Grille offres · cartes nues', family: 'card-grid', era: '2024', props: { variant: 'transparent', background: 'paper-2' } },
+    { id: 'offer-tier-grid--transparent-ink', type: 'offer-tier-grid', label: 'Grille offres · cartes nues encre', family: 'card-grid', era: '2026', props: { variant: 'transparent', background: 'ink' } },
   ],
   // pricing-comparison-matrix (table) · axe RENDU = background. Matrice formules × critères groupés.
   'pricing-comparison-matrix': [
@@ -1272,24 +1275,25 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'pricing-tabs-showcase--paper', type: 'pricing-tabs-showcase', label: 'Tarifs onglets · papier', family: 'tabs', era: '2023', props: { background: 'paper' } },
     { id: 'pricing-tabs-showcase--paper-2', type: 'pricing-tabs-showcase', label: 'Tarifs onglets · papier 2', family: 'tabs', era: '2024', props: { background: 'paper-2' } },
     { id: 'pricing-tabs-showcase--paper-3', type: 'pricing-tabs-showcase', label: 'Tarifs onglets · papier 3', family: 'tabs', era: '2025', props: { background: 'paper-3' } },
-    // NB : variante `ink` écartée (GF-1 vague 4) — le titre h1.pricing-tabs__title + les intitulés d'onglets (h3)
-    // restent color:var(--ink) dark-on-dark sur fond ink. Fix = PricingTabsShowcase.astro (hors scope fermé). À escalader.
+    // ink DÉBLOQUÉ (w-p29-v5) : bloc [data-bg='ink'] ajouté au Component (titres->paper, surfaces rgba(paper)).
+    { id: 'pricing-tabs-showcase--ink', type: 'pricing-tabs-showcase', label: 'Tarifs onglets · encre', family: 'tabs', era: '2026', props: { background: 'ink' } },
   ],
   // pricing-toggle (card-grid) · axe RENDU = background. Bascule mensuel/annuel, cartes de paliers.
   'pricing-toggle': [
     { id: 'pricing-toggle--paper', type: 'pricing-toggle', label: 'Tarifs bascule · papier', family: 'card-grid', era: '2023', props: { background: 'paper' } },
     { id: 'pricing-toggle--paper-2', type: 'pricing-toggle', label: 'Tarifs bascule · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
     { id: 'pricing-toggle--paper-3', type: 'pricing-toggle', label: 'Tarifs bascule · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
-    // NB : variante `ink` écartée (GF-1 vague 4) — l'override ink `:is(h2,.price-k)` ne l'emporte pas sur le global
-    // `.sec-base-h2` → titre h2 dark-on-dark sur fond ink. Fix = PricingToggle.astro (hors scope fermé). À escalader.
+    // ink DÉBLOQUÉ (w-p29-v5) : vrai bug = --paper remappé vers --ink (color:var(--paper) résolvait en encre),
+    // pas la spécificité. Fix Component = idiome BentoGrid (tokens texte clairs + surfaces rgba(paper)).
+    { id: 'pricing-toggle--ink', type: 'pricing-toggle', label: 'Tarifs bascule · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
   ],
   // pricing-single-highlight (card-grid) · axe RENDU = background. Offre unique mise en avant, prix proéminent.
   'pricing-single-highlight': [
     { id: 'pricing-single-highlight--paper', type: 'pricing-single-highlight', label: 'Offre unique · papier', family: 'card-grid', era: '2023', props: { background: 'paper' } },
     { id: 'pricing-single-highlight--paper-2', type: 'pricing-single-highlight', label: 'Offre unique · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
     { id: 'pricing-single-highlight--paper-3', type: 'pricing-single-highlight', label: 'Offre unique · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
-    // NB : variante `ink` écartée (GF-1 vague 4) — même bug que pricing-toggle : override ink `:is(h2,.price-k)`
-    // battu par le global `.sec-base-h2` → titre dark-on-dark sur fond ink. Fix = PricingSingleHighlight.astro (hors scope). À escalader.
+    // ink DÉBLOQUÉ (w-p29-v5) : même fix que pricing-toggle (retrait du remap --paper empoisonné + surfaces rgba(paper)).
+    { id: 'pricing-single-highlight--ink', type: 'pricing-single-highlight', label: 'Offre unique · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
   ],
   // comparison-pricing-callout (band) · axe RENDU = background. Bande « comparez et décidez » + CTA.
   'comparison-pricing-callout': [
@@ -1297,6 +1301,62 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'comparison-pricing-callout--paper-2', type: 'comparison-pricing-callout', label: 'Callout comparatif · papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
     { id: 'comparison-pricing-callout--paper-3', type: 'comparison-pricing-callout', label: 'Callout comparatif · papier 3', family: 'band', era: '2025', props: { background: 'paper-3' } },
     { id: 'comparison-pricing-callout--ink', type: 'comparison-pricing-callout', label: 'Callout comparatif · encre', family: 'band', era: '2026', props: { background: 'ink' } },
+  ],
+
+  // ════════ Famille ÉQUIPE / À PROPOS / PEOPLE (w-p29-v5, lot C) ════════
+  // about-story-split (split-media) · axe RENDU = background. Récit fondateur + jalons. Demo fige paper-2.
+  'about-story-split': [
+    { id: 'about-story-split--paper', type: 'about-story-split', label: 'Récit à propos · papier', family: 'split-media', era: '2022', props: { background: 'paper' } },
+    { id: 'about-story-split--paper-2', type: 'about-story-split', label: 'Récit à propos · papier 2', family: 'split-media', era: '2023', props: { background: 'paper-2' } },
+    { id: 'about-story-split--paper-3', type: 'about-story-split', label: 'Récit à propos · papier 3', family: 'split-media', era: '2024', props: { background: 'paper-3' } },
+    { id: 'about-story-split--ink', type: 'about-story-split', label: 'Récit à propos · encre', family: 'split-media', era: '2026', props: { background: 'ink' } },
+  ],
+  // author-byline (list) · axe RENDU = background (sectionBaseSchema). Ligne d'auteur d'article.
+  'author-byline': [
+    { id: 'author-byline--paper', type: 'author-byline', label: 'Signature auteur · papier', family: 'list', era: '2023', props: { background: 'paper' } },
+    { id: 'author-byline--paper-2', type: 'author-byline', label: 'Signature auteur · papier 2', family: 'list', era: '2024', props: { background: 'paper-2' } },
+    { id: 'author-byline--ink', type: 'author-byline', label: 'Signature auteur · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+  // team-bio-grid (card-grid) · axes RENDUS = background + columns (2/3/4). Demo fige paper + cols 3.
+  'team-bio-grid': [
+    { id: 'team-bio-grid--paper', type: 'team-bio-grid', label: 'Équipe bios · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
+    { id: 'team-bio-grid--paper-2', type: 'team-bio-grid', label: 'Équipe bios · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
+    { id: 'team-bio-grid--ink', type: 'team-bio-grid', label: 'Équipe bios · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+    { id: 'team-bio-grid--duo', type: 'team-bio-grid', label: 'Équipe bios · deux colonnes', family: 'card-grid', era: '2024', props: { columns: '2', background: 'paper' } },
+    { id: 'team-bio-grid--quatuor', type: 'team-bio-grid', label: 'Équipe bios · quatre colonnes', family: 'card-grid', era: '2025', props: { columns: '4', background: 'paper-2' } },
+  ],
+  // team-card-grid (card-grid) · axe RENDU = background. Cartes équipe avec compteur de publications.
+  'team-card-grid': [
+    { id: 'team-card-grid--paper', type: 'team-card-grid', label: 'Équipe cartes · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
+    { id: 'team-card-grid--paper-2', type: 'team-card-grid', label: 'Équipe cartes · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
+    { id: 'team-card-grid--paper-3', type: 'team-card-grid', label: 'Équipe cartes · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
+    { id: 'team-card-grid--ink', type: 'team-card-grid', label: 'Équipe cartes · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // persona-attributes-grid (card-grid) · axe RENDU = background. Grille d'attributs de persona.
+  'persona-attributes-grid': [
+    { id: 'persona-attributes-grid--paper', type: 'persona-attributes-grid', label: 'Persona attributs · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
+    { id: 'persona-attributes-grid--paper-2', type: 'persona-attributes-grid', label: 'Persona attributs · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
+    { id: 'persona-attributes-grid--paper-3', type: 'persona-attributes-grid', label: 'Persona attributs · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
+    { id: 'persona-attributes-grid--ink', type: 'persona-attributes-grid', label: 'Persona attributs · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // manifesto-act (prose) · axe RENDU = tone. SEUL tone:'ink' est stylé par le Component (aucune règle
+  // [data-tone='paper'] → statement clair-sur-clair invisible, GF-1 w-p29-v5). tone:'paper' à escalader vague 6.
+  'manifesto-act': [
+    { id: 'manifesto-act--ink', type: 'manifesto-act', label: 'Acte manifeste · encre', family: 'prose', era: '2026', props: { tone: 'ink' } },
+  ],
+  // manifesto-block (prose) · axe RENDU = background. Bloc de manifeste éditorial.
+  'manifesto-block': [
+    { id: 'manifesto-block--paper', type: 'manifesto-block', label: 'Bloc manifeste · papier', family: 'prose', era: '2022', props: { background: 'paper' } },
+    { id: 'manifesto-block--paper-2', type: 'manifesto-block', label: 'Bloc manifeste · papier 2', family: 'prose', era: '2023', props: { background: 'paper-2' } },
+    { id: 'manifesto-block--paper-3', type: 'manifesto-block', label: 'Bloc manifeste · papier 3', family: 'prose', era: '2024', props: { background: 'paper-3' } },
+    { id: 'manifesto-block--ink', type: 'manifesto-block', label: 'Bloc manifeste · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+  ],
+  // manifesto-statement (quote) · axes RENDUS = tone (ink/accent) + show_grid + pinned. Demo fige tone ink + grid.
+  'manifesto-statement': [
+    { id: 'manifesto-statement--ink', type: 'manifesto-statement', label: 'Déclaration manifeste · encre', family: 'quote', era: '2026', props: { tone: 'ink', show_grid: true } },
+    { id: 'manifesto-statement--accent', type: 'manifesto-statement', label: 'Déclaration manifeste · accent', family: 'quote', era: '2025', props: { tone: 'accent', show_grid: false } },
+    { id: 'manifesto-statement--epure', type: 'manifesto-statement', label: 'Déclaration manifeste · épurée', family: 'quote', era: '2024', props: { tone: 'ink', show_grid: false } },
+    { id: 'manifesto-statement--pinned', type: 'manifesto-statement', label: 'Déclaration manifeste · ancrée', family: 'quote', era: '2026', props: { tone: 'ink', pinned: true } },
   ],
 };
 
