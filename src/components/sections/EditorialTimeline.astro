@@ -70,6 +70,11 @@ const events = data.events.map((e) => ({
   }
   .editorial-timeline[data-bg='ink'] .editorial-timeline__title { color: var(--paper); }
   .editorial-timeline[data-bg='ink'] .editorial-timeline__eyebrow { color: rgba(var(--paper-rgb), 0.6); }
+  /* Recolore l'atome composé editorial/Timeline sous fond ink (l'atome est agnostique data-bg :
+     la conscience ink vit ici, dans la couche de composition qui possède data-bg). Idiome :global(). */
+  .editorial-timeline[data-bg='ink'] :global(.timeline-title) { color: var(--paper); }
+  .editorial-timeline[data-bg='ink'] :global(.timeline-body) { color: rgba(var(--paper-rgb), 0.75); }
+  .editorial-timeline[data-bg='ink'] :global(.timeline-meta) { color: rgba(var(--paper-rgb), 0.6); border-color: rgba(var(--paper-rgb), 0.18); }
   .editorial-timeline[data-density='compact'] { padding-block: var(--section-compact, var(--space-9)); }
   .editorial-timeline[data-density='ample'] { padding-block: var(--section-ample, var(--space-12)); }
 </style>

@@ -168,6 +168,7 @@ const ctaLabel = isFr ? data.aside_cta.label_fr : data.aside_cta.label_en;
     color: var(--paper);
   }
   .faq-cta[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
+  .faq-cta[data-bg='ink'] .faq-cta__q span:not(.faq-cta__q-label):not(.faq-cta__arrow) { color: var(--paper); }
   .faq-cta[data-bg='ink'] .faq-cta__card { background: rgba(var(--paper-rgb), 0.04); }
 
   @media (max-width: 900px) {

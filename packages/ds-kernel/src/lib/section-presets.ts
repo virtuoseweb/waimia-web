@@ -42,7 +42,10 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
     | 'centered'
     | 'rail'
     | 'inverted'
-    | 'accent';
+    | 'accent'
+    | 'standard'
+    | 'featured'
+    | 'transparent';
   /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
    *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
    *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
@@ -1149,8 +1152,9 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'faq-accordion--paper-2', type: 'faq-accordion', label: 'FAQ accordéon · papier 2', family: 'accordion', era: '2023', props: { background: 'paper-2' } },
     { id: 'faq-accordion--paper-3', type: 'faq-accordion', label: 'FAQ accordéon · papier 3', family: 'accordion', era: '2024', props: { background: 'paper-3' } },
     { id: 'faq-accordion--open-first', type: 'faq-accordion', label: 'FAQ accordéon · première réponse ouverte', family: 'accordion', era: '2025', props: { background: 'paper', open_first: true } },
-    // NB : variantes `ink` écartées (GF-1) — le composant laisse le titre de question (span, color:var(--ink))
-    // en dark-on-dark sur fond ink (override ink limité à :is(h2,h3,p)). Bug composant à corriger hors scope preset.
+    // Variantes `ink` réhabilitées (P2.9 vague 4) — le composant recolore désormais le titre de question sur fond ink.
+    { id: 'faq-accordion--ink', type: 'faq-accordion', label: 'FAQ accordéon · encre', family: 'accordion', era: '2026', props: { background: 'ink', open_first: false } },
+    { id: 'faq-accordion--ink-open-first', type: 'faq-accordion', label: 'FAQ accordéon · encre · première réponse ouverte', family: 'accordion', era: '2026', props: { background: 'ink', open_first: true } },
   ],
   // faq-cta-aside (accordion) · axes RENDUS = background + open_first. Demo fige paper-2 + open_first true →
   // poser explicitement dans chaque preset (le merge {...demo, ...props} n'écrase que les clés fournies).
@@ -1158,7 +1162,8 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'faq-cta-aside--paper', type: 'faq-cta-aside', label: 'FAQ + encart CTA · papier', family: 'accordion', era: '2022', props: { background: 'paper', open_first: true } },
     { id: 'faq-cta-aside--paper-2', type: 'faq-cta-aside', label: 'FAQ + encart CTA · papier 2', family: 'accordion', era: '2023', props: { background: 'paper-2', open_first: true } },
     { id: 'faq-cta-aside--paper-3', type: 'faq-cta-aside', label: 'FAQ + encart CTA · papier 3', family: 'accordion', era: '2024', props: { background: 'paper-3', open_first: true } },
-    // NB : variante `ink` écartée (GF-1) — même bug dark-on-dark sur le titre de question (span) que faq-accordion.
+    // Variante `ink` réhabilitée (P2.9 vague 4) — titre de question recoloré sur fond ink.
+    { id: 'faq-cta-aside--ink', type: 'faq-cta-aside', label: 'FAQ + encart CTA · encre', family: 'accordion', era: '2026', props: { background: 'ink', open_first: true } },
     { id: 'faq-cta-aside--closed', type: 'faq-cta-aside', label: 'FAQ + encart CTA · tout replié', family: 'accordion', era: '2025', props: { background: 'paper-2', open_first: false } },
   ],
 
@@ -1182,7 +1187,8 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'steps-horizontal--paper', type: 'steps-horizontal', label: 'Étapes horizontales · papier', family: 'timeline', era: '2022', props: { background: 'paper' } },
     { id: 'steps-horizontal--paper-2', type: 'steps-horizontal', label: 'Étapes horizontales · papier 2', family: 'timeline', era: '2023', props: { background: 'paper-2' } },
     { id: 'steps-horizontal--paper-3', type: 'steps-horizontal', label: 'Étapes horizontales · papier 3', family: 'timeline', era: '2024', props: { background: 'paper-3' } },
-    // NB : variante `ink` écartée (GF-1) — titre d'étape (strong, color:var(--ink)) dark-on-dark sur fond ink.
+    // Variante `ink` réhabilitée (P2.9 vague 4) — titre d'étape recoloré sur fond ink.
+    { id: 'steps-horizontal--ink', type: 'steps-horizontal', label: 'Étapes horizontales · encre', family: 'timeline', era: '2026', props: { background: 'ink' } },
   ],
   // numbered-layer-list (list) · axe RENDU = background (data-bg). Couches numérotées serif accent + sous-puces « → ».
   'numbered-layer-list': [
@@ -1196,7 +1202,8 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'timeline-block--paper', type: 'timeline-block', label: 'Frise datée · papier', family: 'timeline', era: '2021', props: { background: 'paper' } },
     { id: 'timeline-block--paper-2', type: 'timeline-block', label: 'Frise datée · papier 2', family: 'timeline', era: '2023', props: { background: 'paper-2' } },
     { id: 'timeline-block--paper-3', type: 'timeline-block', label: 'Frise datée · papier 3', family: 'timeline', era: '2024', props: { background: 'paper-3' } },
-    // NB : variante `ink` écartée (GF-1) — titre d'événement (strong, color:var(--ink)) dark-on-dark sur fond ink.
+    // Variante `ink` réhabilitée (P2.9 vague 4) — titre d'événement recoloré sur fond ink.
+    { id: 'timeline-block--ink', type: 'timeline-block', label: 'Frise datée · encre', family: 'timeline', era: '2026', props: { background: 'ink' } },
   ],
   // timeline-horizontal (timeline) · axe RENDU = background (data-bg). Roadmap horizontale à statuts, scroll-snap.
   'timeline-horizontal': [
@@ -1215,8 +1222,81 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'editorial-timeline--unnumbered', type: 'editorial-timeline', label: 'Frise éditoriale · sans numéros', family: 'timeline', era: '2024', props: { background: 'paper', numbered: false } },
     { id: 'editorial-timeline--compact', type: 'editorial-timeline', label: 'Frise éditoriale · dense', family: 'timeline', era: '2025', props: { background: 'paper', density: 'compact' } },
     { id: 'editorial-timeline--ample', type: 'editorial-timeline', label: 'Frise éditoriale · aérée', family: 'timeline', era: '2026', props: { background: 'paper', density: 'ample' } },
-    // NB : variantes `ink` écartées (GF-1) — l'atome editorial/Timeline rend le titre d'événement
-    // (.timeline-title, color:var(--ink)) sans override sous fond ink → dark-on-dark. Bug atome hors scope preset.
+    // Variantes `ink` réhabilitées (P2.9 vague 4) — EditorialTimeline recolore l'atome composé sous fond ink.
+    { id: 'editorial-timeline--ink', type: 'editorial-timeline', label: 'Frise éditoriale · encre', family: 'timeline', era: '2026', props: { background: 'ink', orientation: 'vertical', numbered: true } },
+    { id: 'editorial-timeline--ink-horizontal', type: 'editorial-timeline', label: 'Frise éditoriale · encre · horizontale', family: 'timeline', era: '2026', props: { background: 'ink', orientation: 'horizontal', numbered: true } },
+  ],
+
+  // ═══ Fan-out P2.9 vague 4 · catégorie Pricing / offres ═══
+  // Axe RENDU commun = background (data-bg, 4 fonds). offer-tier-grid ajoute variant (standard/featured/transparent).
+  // Contenu (prix, paliers) hérité de la demo — les presets ne surchargent QUE la présentation.
+  // feature-comparison-grid (card-grid) · axe RENDU = background. Grille « nous vs eux » à colonnes.
+  'feature-comparison-grid': [
+    { id: 'feature-comparison-grid--paper', type: 'feature-comparison-grid', label: 'Comparatif features · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
+    { id: 'feature-comparison-grid--paper-2', type: 'feature-comparison-grid', label: 'Comparatif features · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
+    { id: 'feature-comparison-grid--paper-3', type: 'feature-comparison-grid', label: 'Comparatif features · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
+    { id: 'feature-comparison-grid--ink', type: 'feature-comparison-grid', label: 'Comparatif features · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // comparison-table (table) · axe RENDU = background. Tableau capacités × paliers (coches).
+  'comparison-table': [
+    { id: 'comparison-table--paper', type: 'comparison-table', label: 'Tableau comparatif · papier', family: 'table', era: '2022', props: { background: 'paper' } },
+    { id: 'comparison-table--paper-2', type: 'comparison-table', label: 'Tableau comparatif · papier 2', family: 'table', era: '2023', props: { background: 'paper-2' } },
+    { id: 'comparison-table--paper-3', type: 'comparison-table', label: 'Tableau comparatif · papier 3', family: 'table', era: '2024', props: { background: 'paper-3' } },
+    { id: 'comparison-table--ink', type: 'comparison-table', label: 'Tableau comparatif · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+  // pricing-table (table) · axe RENDU = background. Trois paliers tarifaires, colonne mise en avant.
+  'pricing-table': [
+    { id: 'pricing-table--paper', type: 'pricing-table', label: 'Grille tarifaire · papier', family: 'table', era: '2022', props: { background: 'paper' } },
+    { id: 'pricing-table--paper-2', type: 'pricing-table', label: 'Grille tarifaire · papier 2', family: 'table', era: '2023', props: { background: 'paper-2' } },
+    { id: 'pricing-table--paper-3', type: 'pricing-table', label: 'Grille tarifaire · papier 3', family: 'table', era: '2024', props: { background: 'paper-3' } },
+    { id: 'pricing-table--ink', type: 'pricing-table', label: 'Grille tarifaire · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+  // offer-tier-grid (card-grid) · axes RENDUS = background + variant (standard/featured/transparent). Demo fige variant featured.
+  'offer-tier-grid': [
+    { id: 'offer-tier-grid--paper', type: 'offer-tier-grid', label: 'Grille offres · papier', family: 'card-grid', era: '2022', props: { background: 'paper' } },
+    { id: 'offer-tier-grid--paper-2', type: 'offer-tier-grid', label: 'Grille offres · papier 2', family: 'card-grid', era: '2023', props: { background: 'paper-2' } },
+    { id: 'offer-tier-grid--paper-3', type: 'offer-tier-grid', label: 'Grille offres · papier 3', family: 'card-grid', era: '2024', props: { background: 'paper-3' } },
+    { id: 'offer-tier-grid--ink', type: 'offer-tier-grid', label: 'Grille offres · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+    // NB : axe `variant` (standard/featured/transparent) NON exposé en preset — les valeurs offer-tier-grid ne sont pas
+    // dans l'union typée `PresetProps.variant` (PresetProps intact = hors scope). Demo fige variant:'featured'. À escalader.
+  ],
+  // pricing-comparison-matrix (table) · axe RENDU = background. Matrice formules × critères groupés.
+  'pricing-comparison-matrix': [
+    { id: 'pricing-comparison-matrix--paper', type: 'pricing-comparison-matrix', label: 'Matrice tarifaire · papier', family: 'table', era: '2022', props: { background: 'paper' } },
+    { id: 'pricing-comparison-matrix--paper-2', type: 'pricing-comparison-matrix', label: 'Matrice tarifaire · papier 2', family: 'table', era: '2023', props: { background: 'paper-2' } },
+    { id: 'pricing-comparison-matrix--paper-3', type: 'pricing-comparison-matrix', label: 'Matrice tarifaire · papier 3', family: 'table', era: '2024', props: { background: 'paper-3' } },
+    { id: 'pricing-comparison-matrix--ink', type: 'pricing-comparison-matrix', label: 'Matrice tarifaire · encre', family: 'table', era: '2026', props: { background: 'ink' } },
+  ],
+  // pricing-tabs-showcase (tabs) · axe RENDU = background. Onglets de segments tarifaires + carte highlight.
+  'pricing-tabs-showcase': [
+    { id: 'pricing-tabs-showcase--paper', type: 'pricing-tabs-showcase', label: 'Tarifs onglets · papier', family: 'tabs', era: '2023', props: { background: 'paper' } },
+    { id: 'pricing-tabs-showcase--paper-2', type: 'pricing-tabs-showcase', label: 'Tarifs onglets · papier 2', family: 'tabs', era: '2024', props: { background: 'paper-2' } },
+    { id: 'pricing-tabs-showcase--paper-3', type: 'pricing-tabs-showcase', label: 'Tarifs onglets · papier 3', family: 'tabs', era: '2025', props: { background: 'paper-3' } },
+    // NB : variante `ink` écartée (GF-1 vague 4) — le titre h1.pricing-tabs__title + les intitulés d'onglets (h3)
+    // restent color:var(--ink) dark-on-dark sur fond ink. Fix = PricingTabsShowcase.astro (hors scope fermé). À escalader.
+  ],
+  // pricing-toggle (card-grid) · axe RENDU = background. Bascule mensuel/annuel, cartes de paliers.
+  'pricing-toggle': [
+    { id: 'pricing-toggle--paper', type: 'pricing-toggle', label: 'Tarifs bascule · papier', family: 'card-grid', era: '2023', props: { background: 'paper' } },
+    { id: 'pricing-toggle--paper-2', type: 'pricing-toggle', label: 'Tarifs bascule · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'pricing-toggle--paper-3', type: 'pricing-toggle', label: 'Tarifs bascule · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    // NB : variante `ink` écartée (GF-1 vague 4) — l'override ink `:is(h2,.price-k)` ne l'emporte pas sur le global
+    // `.sec-base-h2` → titre h2 dark-on-dark sur fond ink. Fix = PricingToggle.astro (hors scope fermé). À escalader.
+  ],
+  // pricing-single-highlight (card-grid) · axe RENDU = background. Offre unique mise en avant, prix proéminent.
+  'pricing-single-highlight': [
+    { id: 'pricing-single-highlight--paper', type: 'pricing-single-highlight', label: 'Offre unique · papier', family: 'card-grid', era: '2023', props: { background: 'paper' } },
+    { id: 'pricing-single-highlight--paper-2', type: 'pricing-single-highlight', label: 'Offre unique · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'pricing-single-highlight--paper-3', type: 'pricing-single-highlight', label: 'Offre unique · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    // NB : variante `ink` écartée (GF-1 vague 4) — même bug que pricing-toggle : override ink `:is(h2,.price-k)`
+    // battu par le global `.sec-base-h2` → titre dark-on-dark sur fond ink. Fix = PricingSingleHighlight.astro (hors scope). À escalader.
+  ],
+  // comparison-pricing-callout (band) · axe RENDU = background. Bande « comparez et décidez » + CTA.
+  'comparison-pricing-callout': [
+    { id: 'comparison-pricing-callout--paper', type: 'comparison-pricing-callout', label: 'Callout comparatif · papier', family: 'band', era: '2023', props: { background: 'paper' } },
+    { id: 'comparison-pricing-callout--paper-2', type: 'comparison-pricing-callout', label: 'Callout comparatif · papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
+    { id: 'comparison-pricing-callout--paper-3', type: 'comparison-pricing-callout', label: 'Callout comparatif · papier 3', family: 'band', era: '2025', props: { background: 'paper-3' } },
+    { id: 'comparison-pricing-callout--ink', type: 'comparison-pricing-callout', label: 'Callout comparatif · encre', family: 'band', era: '2026', props: { background: 'ink' } },
   ],
 };
 
