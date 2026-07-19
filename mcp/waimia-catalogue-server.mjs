@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Waimia · Serveur MCP capstone (#41).
 //
-// Expose le catalogue Design System Waimia a un agent IA via 6 tools.
+// Expose le catalogue Design System Waimia a un agent IA via 8 tools.
 // 4 tools en lecture seule :
 //   - catalogue_search       : cherche / filtre l'index compact tier-1 (forme ManifestIndex).
 //   - catalogue_get_section  : recupere le detail tier-2 d'un type (forme SectionDetail, contrat de slots).
@@ -15,18 +15,24 @@
 //   - preview_render         : rend un PageDocument en HTML chrome-less en relayant vers
 //                              l'endpoint SSR du site /library/builder/render (source de verite
 //                              unique du rendu = SectionsRenderer ; 0 duplication de logique).
+// 2 tools de brouillons builder (#41 B3) :
+//   - builder_save_draft     : persiste un PageDocument brouillon dans src/data/page-variants/<slug>.json
+//                              (MEME format/emplacement que POST /api/ds/compose, dev-only).
+//   - builder_list_drafts    : liste les brouillons persistes (src/data/page-variants/*.json a plat).
 //
 // Source de vérité (lecture + compose) = les artefacts prerendered de dist/ (builder unique
 // src/lib/mcp-manifest.ts) :
 //   - dist/client/library/manifest.json        (tier-1 index compact)
 //   - dist/client/library/section/<type>.json  (tier-2 detail par type)
+// Les brouillons builder (write) vivent hors dist/, dans src/data/page-variants/ (meme dossier que
+// le middleware dev ds-save-dev.mjs).
 // Ce serveur n'importe PAS astro:content : il lit le JSON deja genere, donc runnable en Node pur.
 //
 // Convention stdio MCP : stdout = canal protocole, on ne logge JAMAIS dessus. Logs via console.error.
 //
 // 0 nouveau token DS, 0 valeur en dur metier.
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -43,9 +49,17 @@ const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
 const MANIFEST_PATH = path.join(REPO_ROOT, 'dist', 'client', 'library', 'manifest.json');
 const SECTION_DIR = path.join(REPO_ROOT, 'dist', 'client', 'library', 'section');
 const TOKENS_PATH = path.join(REPO_ROOT, 'packages', 'ds-tokens', 'tokens.css');
+// Brouillons du builder (#41 B3) : MEME dossier que POST /api/ds/compose (dev-only,
+// src/integrations/ds-save-dev.mjs PAGE_VARIANTS_DIR) -- 1 fichier a plat <slug>.json par
+// brouillon. NE PAS confondre avec les sous-dossiers existants (home/a.json, b.json, c.json...) :
+// ceux-la relevent d'un mecanisme distinct de variantes A/B, non lie au builder ; builder_list_drafts
+// les ignore explicitement (isFile() only).
+const PAGE_VARIANTS_DIR = path.join(REPO_ROOT, 'src', 'data', 'page-variants');
 
 const MAX_SEARCH_LIMIT = 199;
 const DEFAULT_SEARCH_LIMIT = 30;
+const DRAFT_SLUG_MAX_LENGTH = 64;
+const DRAFT_SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 // Miroir de l'enum PAGE_COLLECTIONS de src/schemas/page-document.ts (source de verite cote app).
 // On NE peut PAS importer ce schema ici car page-document.ts tire astro:content (serveur-only,
@@ -375,6 +389,141 @@ function isFilled(v) {
   return v !== undefined && v !== null;
 }
 
+/**
+ * Assainit + valide un slug de brouillon (kebab-case strict, anti path-traversal, longueur bornee).
+ * Plus strict que meta.slug du PageDocument (qui autorise les slashes, cf pageMetaSchema) : un
+ * brouillon builder est un NOM DE FICHIER a plat, jamais un chemin.
+ * @param {unknown} rawSlug
+ * @returns {{ok:true,slug:string}|{ok:false,error:string}}
+ */
+function validateDraftSlug(rawSlug) {
+  const slug = typeof rawSlug === 'string' ? rawSlug.trim() : '';
+  if (!slug) return { ok: false, error: 'slug manquant' };
+  // Verifie AVANT le pattern kebab-case pour un message plus parlant sur les tentatives de
+  // traversal explicites (le pattern les rejetterait de toute facon, ceinture + bretelles).
+  if (/[\\/]|\.\.|\0/.test(slug)) {
+    return { ok: false, error: 'slug invalide (path traversal refuse)' };
+  }
+  if (slug.length > DRAFT_SLUG_MAX_LENGTH) {
+    return { ok: false, error: `slug trop long (max ${DRAFT_SLUG_MAX_LENGTH} caracteres)` };
+  }
+  if (!DRAFT_SLUG_PATTERN.test(slug)) {
+    return {
+      ok: false,
+      error: 'slug invalide (kebab-case attendu : minuscules, chiffres, tirets simples, ex. hero-test-1)',
+    };
+  }
+  return { ok: true, slug };
+}
+
+/**
+ * Validation STRUCTURELLE stricte d'un PageDocument pour builder_save_draft.
+ * MEME logique que la validation inline de page_compose (meta.collection connue, meta.slug
+ * kebab-case, slots de contenu requis par type via le contrat tier-2 catalogue_get_section) --
+ * dupliquee ICI plutot que factorisee avec page_compose pour ne prendre AUCUN risque de regression
+ * sur les 5 tools existants (perimetre de la mission = additif). GAP CONNU (identique a page_compose,
+ * cf commentaire du tool) : on NE PEUT PAS importer validatePageDoc (@waimia/ds-kernel/lib/page-document)
+ * ici, sa chaine tirant astro:content (serveur-only, non runnable en Node pur) -- seule la PRESENCE
+ * des slots de contenu requis est verifiee, pas leur type de valeur exact (string vs number, enums de
+ * presentation, formes d'items array). Un doc qui passe cette validation reste sujet a un refus par le
+ * vrai schema Zod cote site (POST /api/ds/compose, dev-only).
+ * Peut jeter ArtifactMissingError (via loadSectionDetail) si les artefacts dist/ sont absents -- a
+ * catcher par l'appelant, comme pour les autres tools.
+ * @param {unknown} doc
+ * @returns {{errors:Array<{index:number,type:string,field:string,message:string}>,warnings:Array<{index:number,type:string,field:string,message:string}>}}
+ */
+function validateDraftDocument(doc) {
+  const errors = [];
+  const warnings = [];
+
+  if (!doc || typeof doc !== 'object' || Array.isArray(doc)) {
+    errors.push({ index: -1, type: '', field: '', message: 'doc doit etre un objet' });
+    return { errors, warnings };
+  }
+
+  if (doc.$schema !== 'waimia.page-document/v1') {
+    errors.push({ index: -1, type: '', field: '$schema', message: 'schema invalide (attendu "waimia.page-document/v1")' });
+  }
+
+  const meta = doc.meta && typeof doc.meta === 'object' && !Array.isArray(doc.meta) ? doc.meta : {};
+  if (meta.collection === undefined) {
+    errors.push({ index: -1, type: '', field: 'meta.collection', message: 'collection requise' });
+  } else if (!PAGE_COLLECTIONS.includes(meta.collection)) {
+    errors.push({ index: -1, type: '', field: 'meta.collection', message: `collection inconnue: ${meta.collection}` });
+  }
+  if (meta.slug === undefined) {
+    errors.push({ index: -1, type: '', field: 'meta.slug', message: 'slug requis' });
+  } else if (!/^[a-z0-9/-]+$/.test(meta.slug)) {
+    errors.push({ index: -1, type: '', field: 'meta.slug', message: 'slug invalide (kebab-case)' });
+  }
+
+  const sections = Array.isArray(doc.sections) ? doc.sections : null;
+  if (sections === null) {
+    errors.push({ index: -1, type: '', field: 'sections', message: 'sections doit etre un tableau' });
+    return { errors, warnings };
+  }
+  if (sections.length === 0) {
+    errors.push({ index: -1, type: '', field: 'sections', message: 'sections ne doit pas etre vide' });
+  }
+
+  for (let index = 0; index < sections.length; index += 1) {
+    const section = sections[index];
+    if (!section || typeof section !== 'object' || Array.isArray(section)) {
+      errors.push({ index, type: '', field: '', message: 'section doit etre un objet' });
+      continue;
+    }
+    const type = section.type;
+    if (typeof type !== 'string' || !type) {
+      errors.push({ index, type: '', field: 'type', message: 'type manquant' });
+      continue;
+    }
+
+    // Peut jeter ArtifactMissingError : propage volontairement (pas de catch ici), l'appelant
+    // (builder_save_draft) le traite comme les autres tools (message "build d'abord").
+    const detail = loadSectionDetail(type);
+    if (detail === null) {
+      errors.push({ index, type, field: 'type', message: 'type inconnu' });
+      continue;
+    }
+
+    const slots = detail.slots || [];
+    for (const slot of slots) {
+      if (slot.kind !== 'content' || !slot.required) continue;
+      if (slot.bilingual) {
+        const ok = isFilled(section[`${slot.field}_fr`]) && isFilled(section[`${slot.field}_en`]);
+        if (!ok) {
+          errors.push({ index, type, field: `${slot.field}_fr`, message: 'slot de contenu requis manquant ou vide' });
+        }
+      } else if (!isFilled(section[slot.field])) {
+        errors.push({ index, type, field: slot.field, message: 'slot de contenu requis manquant ou vide' });
+      }
+    }
+
+    const known = new Set(['type']);
+    for (const slot of slots) {
+      known.add(slot.field);
+      known.add(`${slot.field}_fr`);
+      known.add(`${slot.field}_en`);
+    }
+    for (const key of Object.keys(section)) {
+      if (!known.has(key)) warnings.push({ index, type, field: key, message: 'champ inconnu pour ce type' });
+    }
+  }
+
+  return { errors, warnings };
+}
+
+/** Formate une liste d'erreurs PageDocError en un message lisible pour errorResult (MEME format que le compose handler dev). */
+function formatDraftErrors(errors) {
+  return errors
+    .map((e) => {
+      const where = e.index >= 0 ? `section #${e.index}${e.type ? ` (${e.type})` : ''}` : 'document';
+      const field = e.field ? ` · champ « ${e.field} »` : '';
+      return `${where}${field} : ${e.message}`;
+    })
+    .join(' | ');
+}
+
 server.registerTool(
   'page_compose',
   {
@@ -568,6 +717,126 @@ server.registerTool(
       truncated,
       html,
     });
+  },
+);
+
+server.registerTool(
+  'builder_save_draft',
+  {
+    title: 'Enregistrer un brouillon de page composee',
+    description:
+      'Persiste un brouillon de PageDocument (typiquement la sortie de page_compose) sur disque : ' +
+      'src/data/page-variants/<slug>.json -- MEME format/emplacement que POST /api/ds/compose ' +
+      '(dev-only, src/integrations/ds-save-dev.mjs). Valide le slug (kebab-case strict, anti ' +
+      'path-traversal, max 64 caracteres -- un slug est un NOM DE FICHIER a plat, pas un chemin) ' +
+      'PUIS la structure du doc ($schema="waimia.page-document/v1", meta.collection connue, ' +
+      'meta.slug kebab-case, sections non vide + slots de contenu requis par type via le contrat ' +
+      'tier-2, MEME logique que page_compose). GAP CONNU (cf page_compose) : validation Zod complete ' +
+      'indisponible ici (chaine astro:content non importable en Node pur) -- seule la presence des ' +
+      'slots requis est verifiee, pas leur type de valeur exact. Overwrite autorise : un slug deja ' +
+      'existant est ecrase (semantique brouillon). En cas de doc invalide : AUCUNE ecriture, erreur ' +
+      'detaillee retournee (isError).',
+    inputSchema: {
+      slug: z
+        .string()
+        .describe('Identifiant du brouillon, kebab-case strict (ex. hero-test-1). Devient le nom de fichier <slug>.json.'),
+      doc: z
+        .record(z.unknown())
+        .describe('Le PageDocument a persister (forme waimia.page-document/v1, typiquement la sortie de page_compose).'),
+    },
+  },
+  async ({ slug: rawSlug, doc }) => {
+    const slugCheck = validateDraftSlug(rawSlug);
+    if (!slugCheck.ok) return errorResult(slugCheck.error);
+
+    let validation;
+    try {
+      validation = validateDraftDocument(doc);
+    } catch (err) {
+      if (err instanceof ArtifactMissingError) return errorResult(err.message);
+      throw err;
+    }
+    if (validation.errors.length > 0) {
+      return errorResult(`PageDocument invalide : ${formatDraftErrors(validation.errors)}`);
+    }
+
+    // Ceinture + bretelles (meme garde que le compose handler dev) : le chemin resolu doit rester
+    // DANS page-variants, meme si validateDraftSlug rend deja tout traversal impossible en amont.
+    const filePath = path.resolve(PAGE_VARIANTS_DIR, `${slugCheck.slug}.json`);
+    if (path.dirname(filePath) !== PAGE_VARIANTS_DIR) {
+      return errorResult('slug invalide (chemin hors page-variants)');
+    }
+
+    try {
+      mkdirSync(PAGE_VARIANTS_DIR, { recursive: true });
+      // Round-trip exact (comme le compose handler dev) : on ecrit le doc TEL QUEL, indente 2 + newline finale.
+      writeFileSync(filePath, `${JSON.stringify(doc, null, 2)}\n`, 'utf8');
+    } catch (err) {
+      return errorResult(`ecriture impossible : ${err.message}`);
+    }
+
+    return textResult({
+      ok: true,
+      path: `src/data/page-variants/${slugCheck.slug}.json`,
+      slug: slugCheck.slug,
+      warnings: validation.warnings,
+    });
+  },
+);
+
+server.registerTool(
+  'builder_list_drafts',
+  {
+    title: 'Lister les brouillons de pages composees',
+    description:
+      'Liste les brouillons persistes par builder_save_draft : fichiers a plat src/data/page-variants/*.json ' +
+      '(ignore les sous-dossiers, ex. home/a.json, b.json, c.json -- mecanisme distinct de variantes A/B, ' +
+      'non lie au builder). Retourne { slug, sectionsCount, types, mtime } par brouillon (mtime ISO), ' +
+      'trie par mtime decroissant (le plus recent en premier). Un brouillon au JSON illisible/corrompu ' +
+      'est quand meme liste (sectionsCount/types a null) plutot que de faire echouer tout le tool.',
+    inputSchema: {},
+  },
+  async () => {
+    let entries;
+    try {
+      entries = readdirSync(PAGE_VARIANTS_DIR, { withFileTypes: true });
+    } catch (err) {
+      if (err && err.code === 'ENOENT') {
+        return textResult({ count: 0, drafts: [] });
+      }
+      throw err;
+    }
+
+    const drafts = [];
+    for (const entry of entries) {
+      if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
+      const filePath = path.join(PAGE_VARIANTS_DIR, entry.name);
+      const slug = entry.name.slice(0, -'.json'.length);
+
+      let mtime;
+      try {
+        mtime = statSync(filePath).mtime.toISOString();
+      } catch {
+        continue; // fichier disparu entre le readdir et le stat : on l'omet silencieusement.
+      }
+
+      let sectionsCount = null;
+      let types = null;
+      try {
+        const parsed = readJson(filePath);
+        const sections = Array.isArray(parsed && parsed.sections) ? parsed.sections : [];
+        sectionsCount = sections.length;
+        types = sections.map((s) => (s && typeof s.type === 'string' ? s.type : null)).filter(Boolean);
+      } catch {
+        // JSON illisible/corrompu : liste quand meme l'entree (mtime connu), detail sections a null.
+      }
+
+      drafts.push({ slug, sectionsCount, types, mtime });
+    }
+
+    drafts.sort((a, b) => (a.mtime < b.mtime ? 1 : a.mtime > b.mtime ? -1 : 0));
+
+    return textResult({ count: drafts.length, drafts });
   },
 );
 
