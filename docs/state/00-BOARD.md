@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `3f8b5d23` - 69/87 tâches done (79%).
+État : HEAD `05bf1d53` - 70/87 tâches done (80%).
 
 ## Avancement par phase
 
@@ -10,7 +10,7 @@
 | --- | --- | --- | --- |
 | P0 | 47/48 | 98% | P0.3-k — Quizz lead magnet |
 | P1 | 5/5 | 100% | - |
-| P2 | 16/29 | 55% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+8) |
+| P2 | 17/29 | 59% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+7) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
 | P4 | 1/3 | 33% | P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable ; P4.3-a — Dashboard/cockpit client + agents (Claude Code/Cowork + `.claude/`) |
 
@@ -42,7 +42,7 @@
 | P2.5 — V-TYPO transverse (directive 01, jamais exécutée en transverse) | P2 | 2/2 | 100% | 5d975da2 fix(typo): harmoniser heros/headers serif-full -> base sans + accent serif (P2.5, directive 01) ; cf302b92 fix(typo): raccourcir accent serif hero-landing a un mot (P2.5-b) |
 | P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 1/2 | 50% | 53ed1c3b fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) |
 | P2.7 — Système de variation (#14 Phase B) | P2 | 1/1 | 100% | 5e74e4c1 feat(ds): systeme de variation (Phase B) prouve sur famille HERO |
-| P2.8 — DS Studio créatif (#14 Phase C) | P2 | 1/3 | 33% | 2d23991a feat(ds): P2.8 save preset persisté · POST /api/ds/preset dev-only (fiche 0022 Option A) |
+| P2.8 — DS Studio créatif (#14 Phase C) | P2 | 2/3 | 67% | 2d23991a feat(ds): P2.8 save preset persisté · POST /api/ds/preset dev-only (fiche 0022 Option A) ; 05bf1d53 feat(ds-studio): P2.8-b · apply preset sans rechargement complet · garde d'idempotence loadCatalogType (src réécrit SEULEMENT si le type change ; apply = live-override, jamais de reload) · GF-1 : navs=[] + data-gf SURVIVE au re-clic type actif, 2 applys successifs live (Encre&ardoise puis Forêt sobre), 0 erreur console, gates baseline 8 + build Complete |
 | P2.9 — Production presets en masse (#14 Phase D-E) | P2 | 1/1 | 100% | - |
 | P3.1 — Lead sourcing + scoring | P3 | 0/2 | 0% | - |
 | P4.1 — Boilerplate produit forkable | P4 | 0/1 | 0% | - |
