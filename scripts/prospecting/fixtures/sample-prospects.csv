@@ -1,0 +1,17 @@
+# FICTIF : données de démonstration inventées (aucune entreprise réelle, aucun email réel).
+# Sert uniquement au test GF-1 du scorer (node score-icp-bant.mjs fixtures/sample-prospects.csv).
+# Colonne `expected_tier` = panier attendu (IGNORÉE par le scorer, lue par test-score.mjs).
+company,website,city,region,sector,naf,employees,revenue,contact_name,contact_role,job_level,contact_email,has_website,ads_active,hiring_marketing,events,existing_ai_agency,optout,expected_tier
+Atelier Conseil Occitan,https://atelierconseil.example,Montpellier,Occitanie,Conseil en management,7022Z,30,2000000,Camille Fabre,Dirigeante,Owner,camille.fabre@atelierconseil.example,true,true,true,funding raise 2025,false,false,A
+Studio Archipel,https://studio-archipel.example,Montpellier,Hérault,Architecture,7111Z,15,600000,Léa Marin,Gérant,Owner,lea.marin@studio-archipel.example,true,true,false,,false,false,A
+Cabinet Santé Pluriel,https://sante-pluriel.example,Toulouse,Occitanie,Santé bien-être,8690F,8,,Marc Ollivier,Directeur,Director,marc.ollivier@sante-pluriel.example,true,false,false,,false,false,B
+Nova Marketing PME,https://novamkg.example,Lyon,France,Conseil marketing,7021Z,60,5000000,Sonia Bex,Chargée de communication,,,true,true,false,,false,false,B
+Brussels Logistics,https://bxl-log.example,Brussels,Belgium,Logistique transport,4941A,400,,Tom Peeters,Assistant marketing,,tom@gmail.com,true,false,false,,false,false,C
+Prime Avocats,https://prime-avocats.example,Montpellier,Occitanie,Avocats,6910Z,25,1500000,Julie Rey,Associée,Partner,julie.rey@prime-avocats.example,true,true,true,,false,true,C
+Vertex Immo,https://vertex-immo.example,Montpellier,Hérault,Immobilier,6831Z,40,3000000,Paul Giraud,Directeur général,C-level,paul.giraud@vertex-immo.example,true,true,false,,true,false,C
+Artisan Bois Cévennes,,Ganges,Occitanie,Artisanat haut de gamme,1623Z,4,,,,,,false,false,false,,false,false,C
+Solo Freelance Design,https://solodesign.example,Montpellier,Occitanie,Conseil,7022Z,1,,Alex Noe,Fondateur,Owner,alex@solodesign.example,true,false,false,,false,false,C
+Casino En Ligne Sud,https://casino-sud.example,Montpellier,Occitanie,Jeux-argent gambling,9200Z,50,8000000,Rita Vasseur,Directrice,Director,rita.vasseur@casino-sud.example,true,true,true,,false,false,C
+Barreau Nîmes Conseil,https://barreau-nimes.example,Nîmes,,Avocats,,12,,Hugo Blanc,Gérant,,hugo.blanc@barreau-nimes.example,,true,,,,,A
+Béziers Immo Prestige,https://beziers-immo.example,Béziers,Occitanie,Immobilier,6831Z,6,,Nadia Roux,Directeur,Director,nadia.roux@beziers-immo.example,true,false,false,,false,false,B
+Generic Web Shop,https://genshop.example,Paris,France,E-commerce généraliste,4791A,3,,Sam Toure,Community manager,,sam@genshop.example,true,false,false,,false,false,C

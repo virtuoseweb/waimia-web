@@ -205,3 +205,27 @@ Valider à chaque étape (fail fast). `scorer_version` = champ figé dans `scori
 - Zéro PII dans git, opt-out respecté, RGPD documenté.
 - Sortie directement consommable par `draft-outreach`/`email-sequence` sans retraitement manuel.
 - Articulation propre avec `03-plan-prospection` (l'outil sert le §3, ne le remplace pas).
+
+## Addendum 2026-07-19 : scorer ICP+BANT livré (partie [3] SCORING du pipeline)
+
+Le bloc **[3] SCORING** du pipeline §1.1 est implémenté et vérifié (GF-1 fonctionnel). Il tourne dès aujourd'hui sur des données locales, indépendamment de Firecrawl (qui alimentera plus tard le bloc « signaux d'opportunité »).
+
+### Ce qui est livré
+- `scripts/prospecting/score-icp-bant.mjs` : CLI Node (stdlib, 0 dépendance, 0 réseau). Lit un CSV **ou** JSON de prospects (colonnes style Explorium/Vibe, alias tolérants), calcule le score **ICP + BANT 4 axes** (`03` §1.2 : Fit / Budget / Authority / Need-Timing, seuil 3/4) et sort `*.scored.csv` + `*.scored.jsonl` triés A > B > C.
+- `scripts/prospecting/fixtures/sample-prospects.csv` : 13 prospects **FICTIFS** (Montpellier/Occitanie, services premium) + `fixtures/edge-empty.csv`.
+- `scripts/prospecting/test-score.mjs` : 47 assertions (paniers attendus + cas limites). `scripts/prospecting/README.md` : usage complet.
+- Script npm : `npm run prospect:score -- <input.csv>`.
+
+### Modèle appliqué (fidèle aux deux docs, périmètre local)
+Chaque axe BANT est composé de sous-critères pondérés repris de la grille ICP de **§3.2** (secteur 25, zone 20, taille 20, décideur 15, proxy budget ads/recrutement 20), regroupés sous les 4 axes de `03` §1.2. Un axe est « satisfait » si son score normalisé atteint `axisPassThreshold` (50). Paniers : **A** = 3-4 axes /4, **B** = 2/4, **C** = < 2 **ou** un disqualifiant dur de §3.2 / `03` §1.1 (opt-out, agence IA installée, secteur réglementé, aucune intention digitale ni contact, micro-budget) qui **force C** et porte sa raison dans `blocking_flags` / `tier_reason`. Poids/seuils/verticales/zones dans `SCORING_CONFIG` en tête de fichier (ajustables sans toucher la logique ; bump `scorer_version` à chaque changement, GF-3).
+
+> **Signaux d'opportunité §3.2 (2ᵉ table : perf, schema.org, HTTPS, CMS daté) NON évalués** dans cette version : ils exigent l'enrichissement Firecrawl (`enrich.mjs`, à venir). Quand il sera branché, ajouter un bloc/axe « opportunité » dans `SCORING_CONFIG` sans casser le modèle BANT.
+
+### Où l'insérer dans le cycle hebdo (`03` §3, lundi)
+`cibler → enrichir → prioriser → exporter` : **1. Cibler/enrichir** via Vibe Prospecting (`fetch-entities` + `enrich-business`/`enrich-prospects`) → **2.** `export-to-csv` de Vibe → **3.** `npm run prospect:score -- data/leads/<export>.csv` → **4.** relire le **panier A** (`tier=A`, GF-1 humain avant tout envoi), puis alimenter `sales:draft-outreach` + `marketing:email-sequence` avec les colonnes `top_reasons` (perso du hook) et `contact_email`. Le CSV de sortie est déjà au format attendu par l'aval (§3.5).
+
+### Limite / décision en attente
+L'**export Explorium/Vibe réel consomme des crédits payants** (le scorer, lui, est gratuit et hors ligne). Le déclenchement d'un pull Explorium volumineux reste une **décision Simon en attente** (fiche `0031`) : `estimate-cost` avant tout pull, volume bas. Tant que la décision n'est pas prise, le scorer se teste sur la fixture fictive ou sur un petit export manuel.
+
+### Note d'emplacement (hygiène source de vérité)
+Le §4.1 de ce doc planifie l'arborescence complète sous `scripts/leadsourcing/`. La **partie scoring livrée ici** a atterri sous **`scripts/prospecting/`** (périmètre de la tâche P3.1-a, isolé du reste du pipeline Firecrawl encore à écrire). À la construction des blocs `source-directories.mjs` / `enrich.mjs` / `run.mjs`, trancher : soit tout regrouper sous un seul dossier (renommer), soit conserver `prospecting/` comme point d'entrée scoring. À réconcilier dans le §4.1 à ce moment-là.
