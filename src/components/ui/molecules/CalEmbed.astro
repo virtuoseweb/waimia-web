@@ -55,13 +55,68 @@ const calLink = `${username}/${eventType}`.replace(/\\./g, '').replace(/\s+/g, '
    preconnect ouvre TCP+TLS en avance ; dns-prefetch = fallback navigateurs anciens. */}
 <link rel="preconnect" href="https://app.cal.com" crossorigin />
 <link rel="dns-prefetch" href="https://app.cal.com" />
-<div id={id} class="cal-inline">
+<div id={id} class="cal-inline" data-cal-embed>
+  {/* Skeleton DS · peint la bande immédiatement (HTML statique) tant que l'iframe
+     Cal.com n'est pas rendue (React `client:only` + embed.js + chunks app.cal.com
+     prennent plusieurs secondes). Retiré par le script dès que l'iframe est peinte.
+     Évite le « trou » vide constaté sur prod (bande transparente ~7 s). */}
+  <div class="cal-skeleton" data-cal-skeleton aria-hidden="true">
+    <span class="cal-skeleton-label">Chargement du calendrier…</span>
+  </div>
+  {/* Fallback · si l'embed échoue ou timeout (~6 s), la zone ne reste JAMAIS vide :
+     lien direct vers le calendrier Cal.com (même destination que le CTA aside). */}
+  <div class="cal-fallback" data-cal-fallback hidden>
+    <p class="cal-fallback-lead">Le calendrier met du temps à charger.</p>
+    <a class="btn btn-primary btn-lg" href={`https://cal.com/${calLink}`} rel="noopener" target="_blank">Réserver sur Cal.com ↗</a>
+  </div>
   <CalEmbedReact
     client:only="react"
     calLink={calLink}
     theme={theme}
   />
 </div>
+
+<script is:inline>
+  (function () {
+    function initCal(root) {
+      if (!root || root.dataset.calBound) return;
+      root.dataset.calBound = '1';
+      var skeleton = root.querySelector('[data-cal-skeleton]');
+      var fallback = root.querySelector('[data-cal-fallback]');
+      var settled = false;
+      function hideSkeleton() { if (skeleton) skeleton.hidden = true; }
+      function painted() {
+        var f = root.querySelector('iframe');
+        return f && f.offsetHeight > 100;
+      }
+      function settle(showFallback) {
+        if (settled) return;
+        settled = true;
+        if (obs) obs.disconnect();
+        hideSkeleton();
+        if (showFallback && fallback) fallback.hidden = false;
+      }
+      var obs = new MutationObserver(function () {
+        if (painted()) settle(false);
+      });
+      obs.observe(root, { childList: true, subtree: true });
+      if (painted()) settle(false);
+      // Fallback si l'iframe n'est pas peinte après 6 s (échec réseau / cal.com down).
+      setTimeout(function () { if (!painted()) settle(true); }, 6000);
+    }
+    function boot() {
+      document.querySelectorAll('[data-cal-embed]').forEach(initCal);
+    }
+    boot();
+    document.addEventListener('astro:page-load', function () {
+      // View Transitions : ré-init sur nav interne (le nœud est neuf).
+      document.querySelectorAll('[data-cal-embed]').forEach(function (r) {
+        delete r.dataset.calBound;
+        initCal(r);
+      });
+    });
+  })();
+</script>
 
 <style>
   /* Intégration éditoriale : pas de cadre wrapper.
@@ -73,5 +128,46 @@ const calLink = `${username}/${eventType}`.replace(/\\./g, '').replace(/\s+/g, '
   .cal-inline {
     width: 100%;
     min-height: 600px;
+    position: relative;
   }
+
+  /* Skeleton · recouvre la bande tant que l'iframe n'est pas peinte. */
+  .cal-skeleton,
+  .cal-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper-2);
+  }
+  .cal-skeleton { animation: cal-skeleton-pulse var(--dur-slow) var(--ease) infinite; }
+  .cal-skeleton-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  @keyframes cal-skeleton-pulse { 50% { opacity: 0.6; } }
+  @media (prefers-reduced-motion: reduce) {
+    .cal-skeleton { animation: none; }
+  }
+
+  /* Fallback · carte CTA lien direct si l'embed n'a pas chargé. */
+  .cal-fallback {
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-6);
+    text-align: center;
+  }
+  .cal-fallback-lead {
+    font-size: var(--text-body);
+    color: var(--muted);
+    margin: 0;
+  }
+  .cal-skeleton[hidden],
+  .cal-fallback[hidden] { display: none; }
 </style>
