@@ -670,6 +670,7 @@ _(vide)_
   - ▸ *MESURE faite 2026-06-21 (agent Explore + vérif GF-4 orchestrateur)* : **122 tokens** (cible ~92, +30).
     **A2 serif ✅**, **A3 `.sec*` ✅** (13 classes centralisées global.css:1417-1530), **A6 ✅** (0 `spacing-section`).
     Classes scoped dupliquées = **380 groupes** (`gen-ds-registry.mjs`, cible <50) → gros effort cross-composant séparé.
+  - ▸ *A4 purge SOLDÉE 2026-07-19 (commit `a088beb2`, gf1=y)* : triangulation exhaustive 116 tokens :root → **1 seul vrai orphelin** (`--shadow-cta`) purgé, lock 127→126 ; 115 KEEP prouvés consommés ; 14 hex tous légitimes (valeurs de définition). **Cible ~92 = périmée** (purges antérieures déjà passées ; forcer = régression). Reste de P2.2 = consolidation scoped-dup 380→<50 uniquement.
     ⚠️ **2 sur-claims de l'agent corrigés (NE PAS purger en aveugle)** : (1) les ~11 « orphelins » `--color-*`
     sont dans le bloc **`@theme` Tailwind 4** = **faux orphelins** (sémantique utility/var à vérifier par la
     **doc officielle Tailwind**, GF-6, avant toute suppression) ; (2) `global.css:1795 --accent-text` n'est PAS
