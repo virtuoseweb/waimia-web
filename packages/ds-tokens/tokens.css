@@ -292,23 +292,31 @@ body {
   --shadow-lift: 0 12px 40px rgba(var(--ink-rgb), 0.08);
 }
 
-/* ─── @theme · expose les tokens à Tailwind v4 ─── */
-@theme {
-  --color-paper:    #F6F1E8;
-  --color-paper-2:  #EFE9DD;
-  --color-paper-3:  #E6E0D0;
-  --color-ink:      #0C0B09;
-  --color-ink-2:    #1A1814;
-  --color-ink-3:    #2B2620;
-  --color-muted:    #6B6560;
-  --color-muted-2:  #746C63;
-  --color-accent:   #C94F2E;
-  --color-accent-sur-clair: #A83D20;
-  --color-accent-sur-sombre: #D96A47;
+/* ─── @theme inline · expose les tokens maison à Tailwind v4 ───
+   Option `inline` (doc Tailwind v4 theme.mdx) : les utilities émettent la valeur
+   du token, ici une REFERENCE var(--token-maison), au lieu de figer une valeur
+   resolue. Une seule source de verite couleur/typo/easing = le token maison de
+   :root ci-dessus. Consequence : le DS Studio, qui pilote --paper, --ink,
+   --accent, --font-sans, --ease-out en live sur :root, repeint aussi les
+   utilities Tailwind (bg, text, border, font, ease). Zero hex duplique ici ;
+   avant, le bloc @theme plat figeait chaque hex dans :root, deconnecte du token
+   maison. Zero nouveau token (regime DS). */
+@theme inline {
+  --color-paper:    var(--paper);
+  --color-paper-2:  var(--paper-2);
+  --color-paper-3:  var(--paper-3);
+  --color-ink:      var(--ink);
+  --color-ink-2:    var(--ink-2);
+  --color-ink-3:    var(--ink-3);
+  --color-muted:    var(--muted);
+  --color-muted-2:  var(--muted-2);
+  --color-accent:   var(--accent);
+  --color-accent-sur-clair:  var(--accent-sur-clair);
+  --color-accent-sur-sombre: var(--accent-sur-sombre);
 
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-sans:    "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-display: var(--font-display);
+  --font-sans:    var(--font-sans);
+  --font-mono:    var(--font-mono);
 
-  --ease-out:     cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-out:     var(--ease-out);
 }
