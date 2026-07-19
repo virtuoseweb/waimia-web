@@ -111,7 +111,7 @@ const additionalLd = additionalJsonLd
         },
         optional: {
           description: description,
-          siteName: 'Waimia',
+          siteName: SITE.name,
           locale: lang === 'fr' ? 'fr_FR' : 'en_US',
         },
         image: {
@@ -124,7 +124,7 @@ const additionalLd = additionalJsonLd
       }}
       twitter={{
         card: 'summary_large_image',
-        site: '@waimia_ai',
+        site: SITE.twitter.handle,
         title: title,
         description: description,
         image: finalOgImage,

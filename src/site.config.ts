@@ -46,6 +46,10 @@ export const SITE = {
   ],
   /** Raccourci LinkedIn (premier `sameAs`). */
   linkedin: 'https://www.linkedin.com/company/waimia',
+  /** Compte X/Twitter (meta twitter:site + lien footer). */
+  twitter: { handle: '@waimia_ai', url: 'https://x.com/waimia_ai' },
+  /** Chaîne YouTube (lien footer). */
+  youtube: 'https://www.youtube.com/@waimia',
   /** Cal.com · défauts de réservation (cf .env.example PUBLIC_CAL_*). */
   cal: {
     username: 'simonberos',

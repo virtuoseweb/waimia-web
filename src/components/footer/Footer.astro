@@ -86,7 +86,7 @@ const year = new Date().getFullYear();
   {/* Bottom — copyright + lang switcher + socials */}
   <div class="wrap hline ft-bottom">
     <div class="ft-bottom-left">
-      <span>© {year} Waimia · {lang === 'fr' ? 'Partenaire Intégrateur IA' : 'AI Integration Partner'}</span>
+      <span>© {year} {SITE.name} · {lang === 'fr' ? 'Partenaire Intégrateur IA' : 'AI Integration Partner'}</span>
       <a href="/mentions-legales" class="ft-link">
         {lang === 'fr' ? 'Mentions légales' : 'Legal notice'}
       </a>
@@ -116,8 +116,8 @@ const year = new Date().getFullYear();
         )}
       </div>
       <a href={SITE.linkedin} target="_blank" rel="noopener" class="ft-link">LinkedIn</a>
-      <a href="https://x.com/waimia_ai" target="_blank" rel="noopener" class="ft-link">X</a>
-      <a href="https://www.youtube.com/@waimia" target="_blank" rel="noopener" class="ft-link">YouTube</a>
+      <a href={SITE.twitter.url} target="_blank" rel="noopener" class="ft-link">X</a>
+      <a href={SITE.youtube} target="_blank" rel="noopener" class="ft-link">YouTube</a>
     </div>
   </div>
 </footer>

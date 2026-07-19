@@ -20,7 +20,7 @@ git clone <ton-fork>
 cd waimia-web
 npx -y pnpm@9.15.0 install
 npx -y pnpm@9.15.0 build   # doit finir sur "Complete!"
-npx -y pnpm@9.15.0 exec astro check   # doit finir sur 0 errors
+npx -y pnpm@9.15.0 exec astro check   # baseline attendue : 8 erreurs pré-existantes (voir CLAUDE.md), ton fork ne doit en ajouter aucune
 ```
 
 À ce stade le site build encore avec l'identité **Waimia**, c'est normal, rien n'a été changé.
@@ -47,7 +47,13 @@ Chaque champ, vérifié par grep sur son usage réel dans le code (35 fichiers a
 | `themeColor` | `<meta name="theme-color">` | `src/layouts/Base.astro` |
 | `sameAs` | Profils sociaux JSON-LD `sameAs` (tableau) | `src/lib/seo/schema-builder.ts` |
 | `linkedin` | Raccourci LinkedIn (footer, pages équipe/agence) | `src/components/footer/Footer.astro`, `src/pages/equipe/index.astro` |
+| `twitter.handle` / `twitter.url` | Compte X/Twitter (meta `twitter:site`, lien footer) | `src/layouts/Base.astro`, `src/components/footer/Footer.astro` |
+| `youtube` | Chaîne YouTube (lien footer) | `src/components/footer/Footer.astro` |
 | `cal.username` / `cal.event` | Défauts du widget de réservation Cal.com | `src/components/ui/molecules/CalEmbed.astro:44-45` |
+
+`name` pilote aussi l'`og:site_name` (meta OpenGraph, `src/layouts/Base.astro`) et le copyright du
+footer (`© {year} {SITE.name}`, `src/components/footer/Footer.astro`), désormais dérivés au lieu
+d'être en dur.
 
 Édite ces valeurs directement dans `src/site.config.ts`. Rebuild pour vérifier (`astro check` +
 `build`) : aucune erreur ne doit apparaître.
