@@ -2,13 +2,13 @@
 
 # 00 - Board (généré)
 
-État : HEAD `88819513` - 61/85 tâches done (72%).
+État : HEAD `4befa6d6` - 62/85 tâches done (73%).
 
 ## Avancement par phase
 
 | Phase | done/total | % | Reste (tâches `[ ]`, cappé 5) |
 | --- | --- | --- | --- |
-| P0 | 42/48 | 88% | P0.0-a — Exécuter les 3 manifestes de finalisation doc ; P0.3-a — Hub pilier Acquérir `/acquerir` ; P0.3-k — Quizz lead magnet ; P0.9-c — Setup Google Business Profile ; P0.9-d — Setup LinkedIn personal brand Simon (+1) |
+| P0 | 43/48 | 90% | P0.0-a — Exécuter les 3 manifestes de finalisation doc ; P0.3-k — Quizz lead magnet ; P0.9-c — Setup Google Business Profile ; P0.9-d — Setup LinkedIn personal brand Simon ; P0.10-a — Build + check + sitemap = base propre |
 | P1 | 5/5 | 100% | - |
 | P2 | 13/27 | 48% | P2.0 — Trianguler ce qui a été fait/ghosté ; P2.1-a — Établir la couverture réelle ; P2.1-b — Compléter : 1 capture above-fold par section de chaque template ; P2.1-c — Corriger gitignore/pipeline ; P2.1-d — Maintenance permanente (+9) |
 | P3 | 0/2 | 0% | P3.1-a — Sourcing prospects (Firecrawl) + outil de scoring maison ; P3.1-b — Séquences d'outreach + CRM lite |
@@ -22,7 +22,7 @@
 | P0.1 — Réparations de liens (pré-purge, anti-casse) | P0 | 3/3 | 100% | 0113bb1a Merge P0.1 — réparation liens 404 (anti-casse pré-purge) ; 0113bb1a Merge P0.1 — réparation liens 404 (anti-casse pré-purge) ; 0113bb1a Merge P0.1 — réparation liens 404 (anti-casse pré-purge) |
 | P0.10 — Vérification finale P0 (gate de phase) | P0 | 0/1 | 0% | - |
 | P0.2 — Assainissement du site (purge fictif/thin A→I) | P0 | 12/12 | 100% | 7f286ab9 docs(night): P0.2-J résolu (no-op GF-4) + P0.0-e hygiène git (70→6 branches) + P0.8 livré ; 66ec5057 Merge P0.2-K vague1 Piloter — retire faux cas clients + métriques fabriquées (5 pages) ; 4fdd6a41 docs(night): preuve GF-1 visuel vague 2 home above-fold (domaines d'intervention honnêtes) |
-| P0.3 — Silo Acquérir ouvert + piliers Piloter/Opérer (ADR-003) | P0 | 10/12 | 83% | c1d07a8e feat(services): 3 pages service silo Acquérir (P0.3-c/d/e, ADR-003) ; eb143874 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) ; eb143874 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) |
+| P0.3 — Silo Acquérir ouvert + piliers Piloter/Opérer (ADR-003) | P0 | 11/12 | 92% | c1d07a8e feat(services): 3 pages service silo Acquérir (P0.3-c/d/e, ADR-003) ; eb143874 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) ; eb143874 feat(piliers): vitrines Piloter + Operer (P0.3-f/g, ADR-003) |
 | P0.4 — Cannibalisation « site web IA » + maillage silo (ADR-003) | P0 | 2/2 | 100% | 66ec5057 Merge P0.2-K vague1 Piloter — retire faux cas clients + métriques fabriquées (5 pages) ; 0ce3b6ab fix(nav): #19 supprime 3 piliers /acquerir,/operer,/piloter → 301 /services + repointe liens live |
 | P0.5 — Méga-menu & Footer resserrés (ancres + whitelist) | P0 | 3/3 | 100% | 3b89e6d2 feat(services): 3 systemes · menu a plat + hub systeme-commercial + pricing Growth dedupliques ; 88819513 content(conversion): RDV audit Cal 30→45 min · unification libellés 5 LP + Hero home + 4 demos catalogue + quickref regen ; 3b89e6d2 feat(services): 3 systemes · menu a plat + hub systeme-commercial + pricing Growth dedupliques |
 | P0.6 — Assainissement véridique (fin du décor d'agence) | P0 | 3/3 | 100% | c19a2b48 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) ; c19a2b48 Merge P0.6 — assainissement véridique (studio solo Montpellier, retrait Paris/Genève/deux bureaux/faux chiffres) ; dd46a5a4 feat(home)!: GATE C · la variante E devient la home live (13 slots, tabs offres, quiz, maillage) + « Où en êtes-vous » remontée avant la tension |
@@ -62,6 +62,7 @@
 - `P0.2-C` : gf1=n sur une case [x]
 - `P0.2-E` : gf1=n sur une case [x]
 - `P0.2-J` : gf1=n sur une case [x]
+- `P0.3-a` : gf1=n sur une case [x]
 - `P0.4-a` : gf1=n sur une case [x]
 - `P0.4-b` : gf1=n sur une case [x]
 - `P0.5-a` : gf1=n sur une case [x]
