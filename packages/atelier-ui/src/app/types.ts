@@ -124,4 +124,11 @@ export interface BuilderContextValue {
   closeSave: () => void;
   /** Section en attente d'enregistrement comme version (null = modale fermee). */
   saveTarget: SectionInstance | null;
+
+  /** Demande a DUPLIQUER une section comme NOUVEAU TYPE de catalogue (ouvre la modale d'hote). */
+  duplicateType: (data: SectionInstance) => void;
+  /** Ferme la modale « Dupliquer comme nouveau type ». */
+  closeDuplicateType: () => void;
+  /** Section en attente de duplication-comme-type (null = modale fermee). */
+  duplicateTypeTarget: SectionInstance | null;
 }

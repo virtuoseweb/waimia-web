@@ -48,6 +48,7 @@ export function BlockCanvas() {
     duplicate,
     remove,
     saveVersion,
+    duplicateType,
   } = useBuilder();
 
   // Index source du glisser en cours (partage par toutes les cartes de cette instance).
@@ -93,6 +94,7 @@ export function BlockCanvas() {
             onDuplicate={duplicate}
             onRemove={remove}
             onSaveVersion={saveVersion}
+            onDuplicateType={duplicateType}
             onDragStart={(i) => {
               dragFrom.current = i;
             }}

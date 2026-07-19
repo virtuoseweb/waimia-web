@@ -151,6 +151,10 @@ export default function BuilderApp({
   const [saveTarget, setSaveTarget] = useState<SectionInstance | null>(null);
   const saveVersion = useCallback((data: SectionInstance) => setSaveTarget(data), []);
   const closeSave = useCallback(() => setSaveTarget(null), []);
+  // Cible de « Dupliquer comme nouveau type » (l'hote rend la modale reelle + fait le POST scaffold).
+  const [duplicateTypeTarget, setDuplicateTypeTarget] = useState<SectionInstance | null>(null);
+  const duplicateType = useCallback((data: SectionInstance) => setDuplicateTypeTarget(data), []);
+  const closeDuplicateType = useCallback(() => setDuplicateTypeTarget(null), []);
   const load = useCallback(
     (doc: { meta: BuilderMeta; sections: BuilderContextValue['sections'][number]['data'][] }) =>
       dispatch({ kind: 'load', doc }),
@@ -184,8 +188,11 @@ export default function BuilderApp({
       saveVersion,
       closeSave,
       saveTarget,
+      duplicateType,
+      closeDuplicateType,
+      duplicateTypeTarget,
     }),
-    [state, items, itemByType, colorSchemes, renderPath, add, remove, duplicate, move, patchSection, setMeta, select, load, addInstance, openAdd, closeAdd, addState.open, addState.atIndex, saveVersion, closeSave, saveTarget],
+    [state, items, itemByType, colorSchemes, renderPath, add, remove, duplicate, move, patchSection, setMeta, select, load, addInstance, openAdd, closeAdd, addState.open, addState.atIndex, saveVersion, closeSave, saveTarget, duplicateType, closeDuplicateType, duplicateTypeTarget],
   );
 
   // ── Charger une page composable reelle dans le canvas ─────────────────────────────────────────

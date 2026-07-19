@@ -109,6 +109,13 @@ const CUSTOM_PRESET_AXES = new Set<string>([
   'features', 'placement',
 ]);
 
+// Validation kebab-case LIVE du nouveau type (miroir de scaffold-section.mjs `isKebab` + de la garde
+// KEBAB_RE de l'endpoint /api/ds/scaffold) : minuscules, chiffres, tirets simples, pas de tiret en tete/fin.
+const KEBAB_RE = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
+
+/** Resultat du POST scaffold cote modale (contrat pur : succes -> liste de fichiers, echec -> message). */
+type DuplicateResult = { ok: true; created: string[] } | { ok: false; error: string };
+
 /** Extrait les axes scalaires presents dans une demo (aucune valeur en dur : lu depuis les donnees). */
 function pickAxes(demo: SectionInstance): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
@@ -353,7 +360,33 @@ function Overlays(props: {
   thumbSrcOf: (typeId: string) => string;
   onSaved: () => Promise<void>;
 }): React.ReactElement {
-  const { add, addInstance, openAdd, closeAdd, addOpen, addAtIndex, saveTarget, closeSave } = useBuilder();
+  const { add, addInstance, openAdd, closeAdd, addOpen, addAtIndex, saveTarget, closeSave, duplicateTypeTarget, closeDuplicateType } = useBuilder();
+
+  // Fetch scaffold (keyword cote HOTE, jamais dans atelier-ui) : dryRun => liste des fichiers qui
+  // SERAIENT crees ; reel => fichiers reellement crees. Contrat pur cote modale : (from, newType,
+  // dryRun) -> Promise<{ok, created}|{ok:false, error}>.
+  const runScaffold = useCallback(
+    async (from: string, newType: string, dryRun: boolean): Promise<DuplicateResult> => {
+      try {
+        const res = await fetch('/api/ds/scaffold', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ keyword: 'WAIMIA-SAVE', type: newType, from, dryRun }),
+        });
+        const payload = (await res.json().catch(() => null)) as
+          | { ok?: boolean; error?: string; created?: unknown }
+          | null;
+        if (res.ok && payload && payload.ok) {
+          const created = Array.isArray(payload.created) ? payload.created.map((f) => String(f)) : [];
+          return { ok: true, created };
+        }
+        return { ok: false, error: (payload && payload.error) || `Echec (HTTP ${res.status}).` };
+      } catch {
+        return { ok: false, error: 'Endpoint indisponible (scaffold dev uniquement).' };
+      }
+    },
+    [],
+  );
 
   const reinsertSaved = useCallback(
     (savedId: string) => {
@@ -400,6 +433,14 @@ function Overlays(props: {
       )}
 
       {saveTarget && <SaveVersionModal data={saveTarget} onClose={closeSave} onSaved={props.onSaved} />}
+
+      {duplicateTypeTarget && (
+        <DuplicateTypeModal
+          from={duplicateTypeTarget.type}
+          onDuplicateType={runScaffold}
+          onClose={closeDuplicateType}
+        />
+      )}
     </div>
   );
 }
@@ -470,6 +511,164 @@ function SaveVersionModal(props: {
           >
             {phase === 'saving' ? 'Enregistrement…' : 'Enregistrer'}
           </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Modale « Dupliquer comme nouveau type » : from -> POST /api/ds/scaffold (dryRun puis reel) ─────
+// Meme pattern que SaveVersionModal / SaveVariantModal (VariantTab) : nom kebab-case auto-suggere
+// `<from>-v2`, modifiable, validation kebab LIVE. Un clic « Verifier » = POST dryRun (liste created[]
+// AFFICHEE sans rien ecrire) ; « Creer » = POST reel (fichiers reellement crees). L'HOTE porte le
+// fetch (keyword) via `onDuplicateType`, la modale reste PURE (0 keyword, 0 fetch). UI FR honnete :
+// rappel « cree un nouveau type de section (fichiers reels + generateurs) » + note rechargement.
+function DuplicateTypeModal(props: {
+  from: string;
+  onDuplicateType: (from: string, newType: string, dryRun: boolean) => Promise<DuplicateResult>;
+  onClose: () => void;
+}): React.ReactElement {
+  const { from } = props;
+  const [name, setName] = useState(`${from}-v2`);
+  const [phase, setPhase] = useState<'idle' | 'checking' | 'checked' | 'creating' | 'created' | 'error'>('idle');
+  const [created, setCreated] = useState<string[]>([]);
+  const [error, setError] = useState('');
+
+  const trimmed = name.trim();
+  const kebabOk = KEBAB_RE.test(trimmed);
+  const sameAsSource = trimmed === from;
+  const nameValid = kebabOk && !sameAsSource;
+  const busy = phase === 'checking' || phase === 'creating';
+
+  // Editer le nom invalide la verification precedente (created[] du dryRun devient obsolete).
+  const onNameChange = useCallback((value: string) => {
+    setName(value);
+    setPhase('idle');
+    setCreated([]);
+    setError('');
+  }, []);
+
+  const run = useCallback(
+    (dryRun: boolean) => {
+      if (!nameValid || busy) return;
+      setPhase(dryRun ? 'checking' : 'creating');
+      setError('');
+      void props.onDuplicateType(from, trimmed, dryRun).then((r) => {
+        if (r.ok) {
+          setCreated(r.created);
+          setPhase(dryRun ? 'checked' : 'created');
+        } else {
+          setError(r.error);
+          setPhase('error');
+        }
+      });
+    },
+    [nameValid, busy, props, from, trimmed],
+  );
+
+  const done = phase === 'created';
+
+  return (
+    <div className="bldx-ov" role="dialog" aria-modal="true" aria-label="Dupliquer comme nouveau type">
+      <button type="button" className="bldx-ov__backdrop" aria-label="Fermer" onClick={props.onClose} />
+      <div className="bldx-ov__panel bldx-ov__panel--narrow" data-testid="dup-type-modal">
+        <h2 className="bldx-save__title">Dupliquer « {from} » comme nouveau type</h2>
+        <p className="bldx-dup__note">
+          Crée un nouveau type de section dans le catalogue : fichiers réels (schéma, demo, meta,
+          composant) et régénération des index. Ce n'est pas une simple copie de bloc.
+        </p>
+
+        {!done && (
+          <>
+            <label className="bldx-save__label">
+              <span className="bld-field-label">Nom du nouveau type (kebab-case)</span>
+              <input
+                className="bld-input"
+                value={name}
+                autoFocus
+                spellCheck={false}
+                placeholder="ex. hero-split-v2"
+                data-testid="dup-type-name"
+                onChange={(e) => onNameChange(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && phase === 'checked') run(false);
+                  else if (e.key === 'Enter') run(true);
+                }}
+              />
+            </label>
+            {trimmed.length > 0 && !kebabOk && (
+              <p className="bldx-dup__invalid" data-testid="dup-type-invalid">
+                Format invalide : minuscules, chiffres et tirets simples (ex. hero-split-v2).
+              </p>
+            )}
+            {kebabOk && sameAsSource && (
+              <p className="bldx-dup__invalid" data-testid="dup-type-invalid">
+                Choisissez un nom différent du type source.
+              </p>
+            )}
+          </>
+        )}
+
+        {phase === 'checked' && (
+          <div className="bldx-dup__result" data-testid="dup-type-checked">
+            <p className="bldx-dup__hint">
+              {created.length} fichier(s) seraient créés (vérification, rien n'est écrit) :
+            </p>
+            <ul className="bldx-dup__files" data-testid="dup-type-files">
+              {created.map((f) => (
+                <li key={f} className="bldx-dup__file">
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {done && (
+          <div className="bldx-dup__result" data-testid="dup-type-created">
+            <p className="bldx-dup__ok">Type « {trimmed} » créé. {created.length} fichier(s) :</p>
+            <ul className="bldx-dup__files" data-testid="dup-type-files">
+              {created.map((f) => (
+                <li key={f} className="bldx-dup__file">
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <p className="bldx-dup__hint">
+              Le nouveau type sera disponible dans le catalogue après rechargement (HMR / redémarrage
+              du serveur dev).
+            </p>
+          </div>
+        )}
+
+        {phase === 'error' && <p className="bldx-save__err" data-testid="dup-type-error">{error}</p>}
+
+        <div className="bldx-save__actions">
+          <button type="button" className="bld-btn" onClick={props.onClose}>
+            {done ? 'Fermer' : 'Annuler'}
+          </button>
+          {!done && (
+            <>
+              <button
+                type="button"
+                className="bld-btn"
+                onClick={() => run(true)}
+                disabled={!nameValid || busy}
+                data-testid="dup-type-check"
+              >
+                {phase === 'checking' ? 'Vérification…' : 'Vérifier'}
+              </button>
+              <button
+                type="button"
+                className="bld-btn bld-btn--primary bldx-dup__create"
+                onClick={() => run(false)}
+                disabled={!nameValid || busy}
+                data-testid="dup-type-create"
+              >
+                {phase === 'creating' ? 'Création…' : 'Créer'}
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -680,6 +879,19 @@ const HOST_CSS = `
 .bldx-save__title{margin:0;font-family:var(--font-sans);font-size:var(--text-body);
   font-weight:var(--fw-semibold);color:var(--ink);}
 .bldx-save__label{display:flex;flex-direction:column;gap:var(--space-2);}
-.bldx-save__actions{display:flex;justify-content:flex-end;gap:var(--space-3);}
+.bldx-save__actions{display:flex;justify-content:flex-end;gap:var(--space-3);flex-wrap:wrap;}
 .bldx-save__err{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);color:var(--accent-text);}
+.bldx-dup__note{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);
+  line-height:1.5;color:var(--muted);}
+.bldx-dup__invalid{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);color:var(--accent-text);}
+.bldx-dup__result{display:flex;flex-direction:column;gap:var(--space-2);
+  padding:var(--space-3);border:1px solid var(--hairline);border-radius:var(--radius-sm);
+  background:var(--paper-2);}
+.bldx-dup__hint{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);
+  line-height:1.5;color:var(--muted);}
+.bldx-dup__ok{margin:0;font-family:var(--font-mono);font-size:var(--text-micro);color:var(--complementary);}
+.bldx-dup__files{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--space-1);
+  max-height:200px;overflow-y:auto;}
+.bldx-dup__file{font-family:var(--font-mono);font-size:var(--text-micro);color:var(--ink-2);
+  word-break:break-all;}
 `;
