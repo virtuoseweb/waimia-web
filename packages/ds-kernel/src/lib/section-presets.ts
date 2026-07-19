@@ -1489,6 +1489,7 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
   // editorial-dropcap-prose (prose) · axes = variant 'accent' (dans union) × background (demo fige serif/paper).
   'editorial-dropcap-prose': [
     { id: 'editorial-dropcap-prose--accent', type: 'editorial-dropcap-prose', label: 'Lettrine · accent', family: 'prose', era: '2025', props: { variant: 'accent' } },
+    { id: 'editorial-dropcap-prose--mono', type: 'editorial-dropcap-prose', label: 'Lettrine · mono', family: 'prose', era: '2026', props: { variant: 'mono' } },
     { id: 'editorial-dropcap-prose--paper-2', type: 'editorial-dropcap-prose', label: 'Lettrine · papier 2', family: 'prose', era: '2024', props: { background: 'paper-2' } },
     { id: 'editorial-dropcap-prose--ink', type: 'editorial-dropcap-prose', label: 'Lettrine · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
     // NB vague 8 : variant 'mono' ÉCARTÉ (no-op visuel) — la règle globale `.drop-cap::first-letter`
@@ -1558,10 +1559,12 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'course-catalog-table--paper-3', type: 'course-catalog-table', label: 'Catalogue de cours · papier 3', family: 'table', era: '2025', props: { background: 'paper-3' } },
     { id: 'course-catalog-table--ink', type: 'course-catalog-table', label: 'Catalogue de cours · encre', family: 'table', era: '2026', props: { background: 'ink' } },
   ],
-  // editorial-table-block (table) · axes = variant (default | compact HORS union → widening | editorial=demo)
-  //   × background. Demo fige variant='editorial' (écarté). Le variant est honoré par la molécule EditorialTable.
+  // editorial-table-block (table) · axes = variant (default | compact widening OK dans l'union | editorial=demo)
+  //   × background. Demo fige variant='editorial' (écarté). Le variant est honoré par la molécule EditorialTable :
+  //   compact = padding cellules réduit (12px vs 16px) + font 14px vs 17px (EditorialTable.astro L108).
   'editorial-table-block': [
     { id: 'editorial-table-block--default', type: 'editorial-table-block', label: 'Table éditoriale · standard', family: 'table', era: '2024', props: { variant: 'default' } },
+    { id: 'editorial-table-block--compact', type: 'editorial-table-block', label: 'Table éditoriale · compacte', family: 'table', era: '2026', props: { variant: 'compact' } },
     { id: 'editorial-table-block--paper-2', type: 'editorial-table-block', label: 'Table éditoriale · papier 2', family: 'table', era: '2024', props: { background: 'paper-2' } },
     { id: 'editorial-table-block--paper-3', type: 'editorial-table-block', label: 'Table éditoriale · papier 3', family: 'table', era: '2025', props: { background: 'paper-3' } },
     { id: 'editorial-table-block--ink', type: 'editorial-table-block', label: 'Table éditoriale · encre', family: 'table', era: '2026', props: { background: 'ink' } },
@@ -1588,6 +1591,91 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'rich-text--paper-2', type: 'rich-text', label: 'Texte riche · papier 2', family: 'prose', era: '2024', props: { background: 'paper-2' } },
     { id: 'rich-text--paper-3', type: 'rich-text', label: 'Texte riche · papier 3', family: 'prose', era: '2025', props: { background: 'paper-3' } },
     { id: 'rich-text--ink', type: 'rich-text', label: 'Texte riche · encre', family: 'prose', era: '2026', props: { background: 'ink' } },
+  ],
+
+  /* ─── Vague 9 — Catégorie Card-grid (lot C) ───
+   * Axe principal = background (data-bg câblé paper-2/paper-3/ink, vérifié dans chaque composant).
+   * article-grid + resource-card-grid ajoutent l'axe columns (2/3, data-cols câblé). Quand la demo
+   * fige déjà un fond (challenges-grid=paper-2, resource-card-grid=paper-2), le preset homonyme est
+   * ÉCARTÉ (no-op vs default). operating-layer + why-stalls = 0 champ de présentation (pas de
+   * background ni variant/columns dans le schéma) → rejetés, aucun preset. */
+  // article-grid (card-grid) · demo bg=paper, cols=3 par défaut.
+  'article-grid': [
+    { id: 'article-grid--paper-2', type: 'article-grid', label: "Grille d'articles · papier 2", family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'article-grid--paper-3', type: 'article-grid', label: "Grille d'articles · papier 3", family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'article-grid--ink', type: 'article-grid', label: "Grille d'articles · encre", family: 'card-grid', era: '2026', props: { background: 'ink' } },
+    { id: 'article-grid--cols-2', type: 'article-grid', label: "Grille d'articles · 2 colonnes", family: 'card-grid', era: '2025', props: { columns: '2' } },
+  ],
+  // case-featured-grid (card-grid) · demo sans fond (=paper).
+  'case-featured-grid': [
+    { id: 'case-featured-grid--paper-2', type: 'case-featured-grid', label: 'Cas en vedette · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'case-featured-grid--paper-3', type: 'case-featured-grid', label: 'Cas en vedette · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'case-featured-grid--ink', type: 'case-featured-grid', label: 'Cas en vedette · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // challenges-grid (card-grid) · demo fige bg=paper-2 → --paper-2 écarté (no-op).
+  'challenges-grid': [
+    { id: 'challenges-grid--paper-3', type: 'challenges-grid', label: "Grille d'enjeux · papier 3", family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'challenges-grid--ink', type: 'challenges-grid', label: "Grille d'enjeux · encre", family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // commitments-grid (card-grid, rendu FeatureGrid) · demo sans fond.
+  'commitments-grid': [
+    { id: 'commitments-grid--paper-2', type: 'commitments-grid', label: "Grille d'engagements · papier 2", family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'commitments-grid--paper-3', type: 'commitments-grid', label: "Grille d'engagements · papier 3", family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'commitments-grid--ink', type: 'commitments-grid', label: "Grille d'engagements · encre", family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // icon-trio (card-grid, rendu FeatureGrid) · demo sans fond.
+  'icon-trio': [
+    { id: 'icon-trio--paper-2', type: 'icon-trio', label: "Trio d'icônes · papier 2", family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'icon-trio--paper-3', type: 'icon-trio', label: "Trio d'icônes · papier 3", family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'icon-trio--ink', type: 'icon-trio', label: "Trio d'icônes · encre", family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // integrations-grid (card-grid) · demo bg=paper.
+  'integrations-grid': [
+    { id: 'integrations-grid--paper-2', type: 'integrations-grid', label: "Grille d'intégrations · papier 2", family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'integrations-grid--paper-3', type: 'integrations-grid', label: "Grille d'intégrations · papier 3", family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'integrations-grid--ink', type: 'integrations-grid', label: "Grille d'intégrations · encre", family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // pain-points (card-grid) · demo sans fond.
+  'pain-points': [
+    { id: 'pain-points--paper-2', type: 'pain-points', label: 'Points de friction · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'pain-points--paper-3', type: 'pain-points', label: 'Points de friction · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'pain-points--ink', type: 'pain-points', label: 'Points de friction · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // problems-grid (card-grid, rendu FeatureGrid) · demo sans fond.
+  'problems-grid': [
+    { id: 'problems-grid--paper-2', type: 'problems-grid', label: 'Grille de problèmes · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'problems-grid--paper-3', type: 'problems-grid', label: 'Grille de problèmes · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'problems-grid--ink', type: 'problems-grid', label: 'Grille de problèmes · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // related-cards-band (card-grid) · demo sans fond.
+  'related-cards-band': [
+    { id: 'related-cards-band--paper-2', type: 'related-cards-band', label: 'Cartes liées · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'related-cards-band--paper-3', type: 'related-cards-band', label: 'Cartes liées · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'related-cards-band--ink', type: 'related-cards-band', label: 'Cartes liées · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // resource-card-grid (card-grid) · demo fige bg=paper-2 → --paper-2 écarté ; cols=3 par défaut.
+  'resource-card-grid': [
+    { id: 'resource-card-grid--paper-3', type: 'resource-card-grid', label: 'Grille de ressources · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'resource-card-grid--ink', type: 'resource-card-grid', label: 'Grille de ressources · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+    { id: 'resource-card-grid--cols-2', type: 'resource-card-grid', label: 'Grille de ressources · 2 colonnes', family: 'card-grid', era: '2025', props: { columns: '2' } },
+  ],
+  // sector-card-grid (card-grid) · demo sans fond.
+  'sector-card-grid': [
+    { id: 'sector-card-grid--paper-2', type: 'sector-card-grid', label: 'Grille de secteurs · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'sector-card-grid--paper-3', type: 'sector-card-grid', label: 'Grille de secteurs · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'sector-card-grid--ink', type: 'sector-card-grid', label: 'Grille de secteurs · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // services-grid (card-grid) · demo sans fond.
+  'services-grid': [
+    { id: 'services-grid--paper-2', type: 'services-grid', label: 'Grille de services · papier 2', family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'services-grid--paper-3', type: 'services-grid', label: 'Grille de services · papier 3', family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'services-grid--ink', type: 'services-grid', label: 'Grille de services · encre', family: 'card-grid', era: '2026', props: { background: 'ink' } },
+  ],
+  // use-case-index (card-grid) · demo sans fond.
+  'use-case-index': [
+    { id: 'use-case-index--paper-2', type: 'use-case-index', label: "Index de cas d'usage · papier 2", family: 'card-grid', era: '2024', props: { background: 'paper-2' } },
+    { id: 'use-case-index--paper-3', type: 'use-case-index', label: "Index de cas d'usage · papier 3", family: 'card-grid', era: '2025', props: { background: 'paper-3' } },
+    { id: 'use-case-index--ink', type: 'use-case-index', label: "Index de cas d'usage · encre", family: 'card-grid', era: '2026', props: { background: 'ink' } },
   ],
 };
 
