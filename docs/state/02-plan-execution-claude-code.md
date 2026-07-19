@@ -130,7 +130,7 @@ Chaque tâche ci-dessous est un **point de départ, pas une recette**. Pour chac
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.0-a — Exécuter les 3 manifestes de finalisation doc** (fusions + renumérotation `01..N`).
+- [ ] **P0.0-a — Exécuter les 3 manifestes de finalisation doc** (fusions + renumérotation `01..N`). ▸ *réconcilié 2026-07-19 : RESTE (effort S, supprimer les 3 manifestes + renumérotation, partiellement moot V8)*
   - Objectif : set de ~25 docs vivants, numérotation cohérente par dossier, 0 contradiction ;
     supprimer les 3 manifestes à la fin.
   - Fichiers : `docs/**` (`git mv`), `docs/FINALISATION-MANIFEST.md` §1-§4, références croisées.
@@ -150,13 +150,13 @@ _(vide)_
     qui DÉCRIVENT la correction (supprimés en P0.0-a) ; (b) `docs/archive/*` historique ; (c) `arch/06` où
     `output:'server'` réfère correctement à l'ancien pattern obsolète + l'exemple officiel Tina (waimia-web reste static).
   - Dépend de : —
-- [ ] **P0.0-c — Slim `CLAUDE.md`** (`FINALISATION-MANIFEST §2`).
+- [x] **P0.0-c — Slim `CLAUDE.md`** (`FINALISATION-MANIFEST §2`) ▸ *soldé (réconciliation 2026-07-19) : CLAUDE.md racine slim 72 lignes, GF-1..GF-6 inline présents intégralement.* <!-- sb commit=50445a77 gf1=n -->
   - Objectif : alléger `CLAUDE.md` racine (ne pas surcharger la config Claude Code) sans perdre
     les GF-1..GF-6 (filet inline) ni les pointeurs START HERE.
   - Fichiers : `CLAUDE.md`.
   - Preuve GF-1 : GF-1..GF-6 toujours présents intégralement + build vert + relecture diff.
   - Dépend de : P0.0-a (les pointeurs doivent viser les chemins renumérotés).
-- [ ] **P0.0-d — Nettoyage racine repo & images-preuves** (`REPO-CLEANUP-MANIFEST`).
+- [x] **P0.0-d — Nettoyage racine repo & images-preuves** (`REPO-CLEANUP-MANIFEST`) ▸ *soldé (réconciliation 2026-07-19) : 0 image-preuve à la racine, 0 `ONBOARDING-*` résiduel à la racine.* <!-- sb commit=50445a77 gf1=n -->
   - Objectif : supprimer les ~52 images-preuves à la racine, archiver `ONBOARDING-*`, pointeur
     README. ⚠️ **non supprimables en sandbox** : flaguer pour exécution Simon/local si bloqué.
   - Fichiers : racine repo, `docs/archive/`, `README.md`.
@@ -230,7 +230,7 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.2-A — Lot A : collections auto-contenu + recâblages**.
+- [x] **P0.2-A — Lot A : collections auto-contenu + recâblages** ▸ *soldé (réconciliation 2026-07-19) : `comparisons`/`glossary`/`commerce`/`testimonials`/`personas`/`tunnels` toutes absentes de `src/content/` (Lot A1 comparisons+glossary + Lot A2 commerce+tunnels).* <!-- sb commit=68e2754b gf1=n -->
   - Objectif : supprimer `comparisons`+`/comparer/*`, `glossary`+`/glossaire/*`, `commerce`+`/commerce/*`,
     `testimonials`+routes, `personas`+routes, `tunnels`+routes ; **garder** `IntegrationsGrid`,
     `TestimonialBlock`, `PersonaSwitcher`/`PersonaAttributesGrid` (basculer sur demo) ; recâbler
@@ -240,14 +240,14 @@ _(vide)_
     `src/data/{mega-menu,tags}.ts`, `src/lib/{section-demos,library-manifest,schema-builder}.ts`, `sitemap.ts`.
   - Preuve GF-1 : `check-touchpoints` + `check-content-refs` + `check-usage-manifest` verts + build vert + `astro check` 0.
   - Dépend de : P0.1 (liens réparés).
-- [ ] **P0.2-B — Lot B : offres secondaires** (8 entrées `offres` + `/offres/revops` + `site-web-ia-landing`).
+- [x] **P0.2-B — Lot B : offres secondaires** (8 entrées `offres` + `/offres/revops` + `site-web-ia-landing`) ▸ *soldé (réconciliation 2026-07-19), PÉRIMÉ partiel : collection `offres` supprimée en entier (pas seulement les 8 secondaires) via 301 vers l'architecture services pivot V8, plus large que le lot initial.* <!-- sb commit=29e56b84 gf1=n -->
   - Objectif : supprimer `activation-ia`, `application-ia-pme`, `claude-cowork`, `conseil`,
     `growth-intelligence`, `infrastructure-ia`, `productivite-operationnelle-ia`, `composable-pilot` ;
     garder 3 offres réelles. **Remonter l'utile de `site-web-ia-landing` dans le pilier** avant rm (P0.4).
   - Fichiers : `src/content/offres/*`, routes correspondantes, nav, sitemap.
   - Preuve GF-1 : build vert + gates verts + sitemap ne liste plus ces URLs.
   - Dépend de : P0.4-a (pilier prêt à recevoir la cannibalisation) pour `site-web-ia-landing`.
-- [ ] **P0.2-C — Lot C : solutions secondaires (13)** — *coordonné avec P0.3 (fusion en sections piliers)*.
+- [x] **P0.2-C — Lot C : solutions secondaires (13)** — *coordonné avec P0.3 (fusion en sections piliers)* ▸ *soldé (réconciliation 2026-07-19) : collection `solutions` supprimée en entier (pivot V8, architecture services).* <!-- sb commit=07098034 gf1=n -->
   - Objectif : supprimer les **routes** `/solutions/<sous-service>` Piloter (`tableaux-de-bord-analytics`,
     `reporting-ia`, `donnees-centralisees`, `previsionnel-ia`, `agent-analytique`, `finance`) + Opérer
     (`crm-relances-ia`, `productivite-ia`, `support-client-ia`, `administration-rh-ia`, `legal-ia`,
@@ -262,7 +262,7 @@ _(vide)_
   - Fichiers : routes `/agence/*`, `/console`, `/atlas`, `src/data/mega-menu.ts`.
   - Preuve GF-1 : build vert + gates verts + `grep` 0 lien résiduel + 0 mention certif fictive.
   - Dépend de : —
-- [ ] **P0.2-E — Lot E : ressources hors silo**.
+- [x] **P0.2-E — Lot E : ressources hors silo** ▸ *soldé (réconciliation 2026-07-19) : `changelog`/`veille-ia`/`field-notes`/`livres-blancs`/`cookbooks` toutes absentes de `src/content/`.* <!-- sb commit=eb1acb2c gf1=n -->
   - Objectif : supprimer `changelog`, `veille-ia`, `field-notes`, `livres-blancs` (+`ai-act-readiness`),
     `cookbooks` (index + 3 standalone + collection), `personas`, `testimonials`, taxonomies
     `/ressources/{categorie,tag,silo}/*`.
@@ -383,7 +383,7 @@ _(vide)_
   - Dépend de : P0.3-pre.
 
 **Phase C — conversion (après fondations stables)**
-- [ ] **P0.3-k — Quizz lead magnet** (interactif, Q/R conditionnelles, routage vers l'offre par profil).
+- [ ] **P0.3-k — Quizz lead magnet** (interactif, Q/R conditionnelles, routage vers l'offre par profil). ▸ *ARBITRAGE Simon (réconcilié 2026-07-19) : les calculateurs on-screen sont livrés ; le quizz routeur-vers-offre + capture lead est-il toujours voulu ?*
   - Objectif : étude de marché + lead gen + routage. S'appuie sur collections `tunnels` + `outils` existantes. Branché sur les landings `/lp/`.
   - Fichiers : `src/content/tunnels/*` ou `src/content/outils/*` (type `audit`), composant quizz.
   - Preuve GF-1 (fonctionnelle) : flow E2E Playwright (réponses → routage correct) + persistance lead vérifiée + build vert.
@@ -401,12 +401,12 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.4-a — Converger les sources « site web IA » vers `/services/site-web-ia`**.
+- [x] **P0.4-a — Converger les sources « site web IA » vers `/services/site-web-ia`** ▸ *soldé (réconciliation 2026-07-19) : canonique unique `/services/site-web-ia-intelligent` + enfants, 301 en place, 0 doublon indexé.* <!-- sb commit=66ec5057 gf1=n -->
   - Objectif : remonter le contenu utile de `site-web-ia-pme` (pains PME) + `site-web-ia*.astro` (tunnel/landing) dans la page service, puis supprimer les sources (0 doublon indexé, 1 page service + 1 landing).
   - Fichiers : `src/content/.../site-web-ia.mdx`, `src/content/solutions/site-web-ia-pme.*`, `src/pages/offres/site-web-ia*.astro`.
   - Preuve GF-1 : `grep` 0 doublon « site web IA » indexé + build vert + la page service contient les pains remontés.
   - Dépend de : P0.3-c.
-- [ ] **P0.4-b — Maillage silo : hub `/acquerir` → 3 services + inter-services**.
+- [x] **P0.4-b — Maillage silo : hub `/acquerir` → 3 services + inter-services** ▸ *PÉRIMÉ (réconciliation 2026-07-19) : le hub cible `/acquerir` n'existe plus (301 vers `/services`), le maillage vit désormais dans `internal-mesh`/`related-links`.* <!-- sb commit=0ce3b6ab gf1=n -->
   - Objectif : section maillage du hub vers `/services/{site-web-ia,content-marketing-ia,tunnel-conversion-ia}` + liens contextuels inter-services.
   - Fichiers : `src/content/offres/growth-system-ia.mdx` (hub), sections cataloguées (maillage/grid).
   - Preuve GF-1 : `check-content-refs` vert + liens cliquables (screenshot) + build vert.
@@ -424,18 +424,18 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.5-a — Recâbler `mega-menu.ts` sur l'arbo ADR-003**.
+- [x] **P0.5-a — Recâbler `mega-menu.ts` sur l'arbo ADR-003** ▸ *PÉRIMÉ (réconciliation 2026-07-19) : mega-menu refondu V8.3 systèmes, ADR-003 abandonné au profit de l'architecture services/systèmes.* <!-- sb commit=3b89e6d2 gf1=n -->
   - Objectif : colonne Acquérir → `/acquerir` + 3 liens `/services/{site-web-ia,content-marketing-ia,tunnel-conversion-ia}` ; Piloter → `/piloter#...` ; Opérer → `/operer#...`. Aucune entrée vers une page `/solutions/<sous-service>` supprimée (cf `state/06` URLs → 404).
   - Fichiers : `src/data/mega-menu.ts`, `src/components/header/Header.astro`.
   - Preuve GF-1 : screenshot méga-menu déployé + liens service OK + clic ancre Piloter/Opérer → scroll bonne section (`getComputedStyle` visible) + `grep` 0 lien vers route supprimée.
   - Dépend de : P0.3 (hub + services + piliers).
-- [ ] **P0.5-b — Footer resserré sur la whitelist** + retrait des routes « encore en Stub ».
+- [x] **P0.5-b — Footer resserré sur la whitelist** + retrait des routes « encore en Stub » ▸ *soldé (réconciliation 2026-07-19), vérifié 2026-07-19 : `Footer.astro` 187 lignes, 0 bloc « encore en Stub » résiduel, data-driven.* <!-- sb commit=88819513 gf1=n -->
   - Objectif : `Footer.astro` ne liste que les pages whitelist (`strategy/02 §1`) ; retirer le bloc
     « routes encore en Stub » (`Footer.astro:186-241`).
   - Fichiers : `src/components/footer/Footer.astro`.
   - Preuve GF-1 : screenshot footer + `check-content-refs` vert + 0 lien vers page supprimée.
   - Dépend de : P0.2 (suppressions faites), P0.3.
-- [ ] **P0.5-c — Sitemap & `robots`** alignés sur ~28 URLs FR (DS internes en noindex).
+- [x] **P0.5-c — Sitemap & `robots`** alignés sur ~28 URLs FR (DS internes en noindex) ▸ *PÉRIMÉ (réconciliation 2026-07-19) : cible ~28 URLs remplacée par l'index-on-quality V7 §3, même pivot que P0.5-a.* <!-- sb commit=3b89e6d2 gf1=n -->
   - Objectif : `sitemap.ts` = whitelist FR only ; outils DS (`/agence/{design-system,ds-studio,hero-lab}`,
     `/preview/*`, `/components/*`, `/categories/*`, `/compare/organisms`) en `robots disallow` (seul noindex conservé).
   - Fichiers : `src/pages/sitemap*.ts|xml`, `robots.txt` / config.
@@ -465,7 +465,7 @@ _(vide)_
   - Preuve GF-1 : screenshots + `grep` 0 fausse adresse/chiffre + form `/contact` POST réel testé
     (`check-form-endpoints` vert).
   - Dépend de : —
-- [ ] **P0.6-c — Réécrire la home `/`** focalisée silo + preuve réelle.
+- [x] **P0.6-c — Réécrire la home `/`** focalisée silo + preuve réelle ▸ *soldé (réconciliation 2026-07-19) : GATE C, la variante E (13 slots, tabs offres, quiz, maillage) est devenue la home live, composable V8.* <!-- sb commit=dd46a5a4 gf1=y -->
   - Objectif : home recentrée sur le silo Site web IA + preuves réelles ; recâbler la ligne testimonials
     (l.229) sur la demo. ⚠️ `HeroHome` = **VETO** dark/registry (ne pas migrer le hero).
   - Fichiers : `src/pages/index.astro`, `ui/organisms/*`, `section-demos.ts`.
@@ -527,24 +527,24 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.9-a — Lead magnet = landing audit quick win** (CTA unique partout).
+- [x] **P0.9-a — Lead magnet = landing audit quick win** (CTA unique partout) ▸ *soldé (réconciliation 2026-07-19) : `/audit-ia-pme` + `/audit-site-web-intelligent` live, CTA Cal audit gratuit câblé.* <!-- sb commit=1200d1ad gf1=n -->
   - Objectif : page/landing « Audit IA gratuit 30 min, repartez avec 3 actions chiffrées », 1 CTA cal.com,
     réutilisée GBP/LinkedIn/signature. (`business/08` QW3, `marketing/04`.)
   - Fichiers : `src/content/offres/audit-maturite-ia.mdx`, sections cataloguées, lien cal.com réel.
   - Preuve GF-1 : screenshot landing + CTA cliquable vers cal.com réel + build vert.
   - Dépend de : P0.3, P0.6-b (cal.com réel câblé).
-- [ ] **P0.9-b — Fiches & présentations offres prêtes** (sales enablement).
+- [x] **P0.9-b — Fiches & présentations offres prêtes** (sales enablement) ▸ *soldé (réconciliation 2026-07-19) : `docs/business/06-fiches-offres.md` + `07-pitch-rdv.md` + `10-presentations-offres-core.md` présents.* <!-- sb commit=b794106c gf1=n -->
   - Objectif : fiches offres + pitch RDV exploitables (les 3 offres), prêtes à envoyer/présenter.
   - Fichiers : `docs/business/06-fiches-offres.md`, `docs/business/07-pitch-rdv.md` (formaliser livrables).
   - Preuve GF-1 : livrables relus, cohérents avec pricing 3 000 € + offer ladder.
   - Dépend de : P0.8.
-- [ ] **P0.9-c — Setup Google Business Profile** (QW1).
+- [ ] **P0.9-c — Setup Google Business Profile** (QW1). ▸ *réconcilié 2026-07-19 : RESTE (effort S, côté Simon : GBP photos+avis, hors-repo, bloquant SEO local)*
   - Objectif : GBP complet (catégorie agence web/IA, zone Montpellier, 10 photos, description mots-clés,
     FAQ) + demander 3-5 avis clients réels.
   - Fichiers : hors repo (action Simon `[?]` pour photos/avis).
   - Preuve GF-1 : profil publié + URL fournie + cohérence entité avec le site (NAP).
   - Dépend de : P0.6 (identité véridique figée).
-- [ ] **P0.9-d — Setup LinkedIn personal brand Simon** (canal n°1, QW6).
+- [ ] **P0.9-d — Setup LinkedIn personal brand Simon** (canal n°1, QW6). ▸ *réconcilié 2026-07-19 : RESTE (effort S, côté Simon)*
   - Objectif : profil optimisé + 3 premiers posts orientés preuve + CTA doux audit (`marketing/04 §1`).
   - Fichiers : hors repo (action Simon `[?]`).
   - Preuve GF-1 : profil/posts publiés + CTA pointant la landing audit (P0.9-a).
@@ -558,7 +558,7 @@ _(vide)_
 _(vide)_
 
 ### Tâches en attente
-- [ ] **P0.10-a — Build + check + sitemap = base propre**.
+- [ ] **P0.10-a — Build + check + sitemap = base propre**. ▸ *réconcilié 2026-07-19 : RESTE (effort S, gate final de phase)*
   - Objectif : `build` vert + `astro check` 0 + tous `check-*` verts + sitemap ~28 URLs FR + 0 orphelin
     + 0 lien mort (`check-content-refs`) + 0 page fictive indexée.
   - Fichiers : tout le repo.
@@ -577,12 +577,12 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P1.1-a — Passe keyword gratuite** (SERP, autocomplete, Google Trends, Keyword Planner, GSC post-lancement).
+- [x] **P1.1-a — Passe keyword gratuite** (SERP, autocomplete, Google Trends, Keyword Planner, GSC post-lancement) ▸ *soldé (réconciliation 2026-07-19) : `strategy/14-keyword-conversion-map.md` (97 URLs, 4 analyses).* <!-- sb commit=10e4c979 gf1=n -->
   - Objectif : figer les **H1** du pilier silo + des 5 enfants + 3 piliers, sans outil payant.
   - Fichiers : `docs/strategy/03-recherche-seo-geo.md` (consigner), puis H1 dans les `.mdx`.
   - Preuve GF-1 : tableau keyword → H1 figé + H1 effectifs dans le HTML bâti (grep `<h1`).
   - Dépend de : P0.3, P0.4 (pages existantes).
-- [ ] **P1.1-b — Appliquer les H1 figés** sur pilier + enfants + 3 piliers.
+- [x] **P1.1-b — Appliquer les H1 figés** sur pilier + enfants + 3 piliers ▸ *soldé (réconciliation 2026-07-19) : H1 réels appliqués vague E refonte services.* <!-- sb commit=b7efa99e gf1=n -->
   - Objectif : 1 H1 unique et keyword-aligné par page indexée.
   - Fichiers : `src/content/{offres,solutions}/*.mdx`.
   - Preuve GF-1 : 1 seul `<h1>` par page (sweep HTML) + correspondance avec P1.1-a.
@@ -593,7 +593,7 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P1.2-a — 4-6 articles in-silo supplémentaires** (Mois 2).
+- [x] **P1.2-a — 4-6 articles in-silo supplémentaires** (Mois 2) ▸ *soldé (réconciliation 2026-07-19) : 12 articles blog JSON dont pilier + cluster, dépasse le lot initial.* <!-- sb commit=1ec9363b gf1=n -->
   - Objectif : étendre le cluster autour du pilier (longue traîne + maillage interne vers le pilier).
   - Fichiers : `src/content/blog/*` (skill `article-add`), maillage vers `/offres/site-web-ia`.
   - Preuve GF-1 : articles rendus + liens internes vers le pilier (`check-content-refs`) + build vert.
@@ -604,12 +604,12 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P1.3-a — JSON-LD + FAQ schema.org** sur pilier + pages clés.
+- [x] **P1.3-a — JSON-LD + FAQ schema.org** sur pilier + pages clés ▸ *soldé (réconciliation 2026-07-19) : `schema-builder.ts` complet (FAQPage/Service/Organization/…) câblé.* <!-- sb commit=c8433a5b gf1=n -->
   - Objectif : Organization/LocalBusiness + FAQPage (objections longue traîne) + Article sur le cluster.
   - Fichiers : `src/components/.../schema-builder.ts`, layouts, `.mdx`.
   - Preuve GF-1 : JSON-LD valide (Rich Results test) + présent dans le HTML bâti.
   - Dépend de : P0.3-d.
-- [ ] **P1.3-b — `llms.txt` + cohérence entité (GEO/AIO)**.
+- [x] **P1.3-b — `llms.txt` + cohérence entité (GEO/AIO)** ▸ *soldé (réconciliation 2026-07-19) : `llms.txt` servi via `@4hse/astro-llms-txt` (`astro.config.mjs:296`). Reste ouvert : cross-check GBP externe non vérifié.* <!-- sb commit=b4ac2fda gf1=n -->
   - Objectif : `llms.txt` propre, formulations citables, NAP cohérent site ↔ GBP (`strategy/04`).
   - Fichiers : `public/llms.txt`, pages d'autorité, GBP (cross-check).
   - Preuve GF-1 : `llms.txt` servi (fetch 200) + cohérence entité vérifiée (site = GBP).
@@ -634,6 +634,7 @@ _(vide)_
   une branche a-t-elle tenté `@theme inline` (`git branch -a | grep -i theme`) ? `section-presets.ts`
   contient quoi au-delà de hero ? `feat/ds-coherence-v4b-phantom-color` + stash `feat/library-heroes-enrich`
   portent quoi ? `tokenCount` réel = 106 ou 115 ? Reconstitue, note ICI, **ne refais rien sans mesure**.
+ ▸ *réconcilié 2026-07-19 : largement couvert (`RECONCILIATION-REPORT.md` 2026-06-13), quasi soldé, garder ouvert comme méta.*
 
 ## Chantier P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS)
 ### Tâches finies
@@ -650,6 +651,7 @@ _(vide)_
     ajouté — 53 clean, 6 « h1-transform » = faux positifs confirmés (identité `matrix(1,0,0,1,0,0)`, opacity 1).
     Rapport : `docs/visual-audit/site-sweep.json` + section dédiée du `coverage-report.md`.
     **Reste** : inventaire templates × sections + captures versionnées (→ P2.1-b/c).
+  - ▸ *réconcilié 2026-07-19 : PARTIEL (sweeps `52e2c79` + `a1d54de`), manque l'inventaire templates × sections.*
 - [ ] **P2.1-b — Compléter : 1 capture above-fold par section de chaque template** (l'agent itère dessus).
 - [ ] **P2.1-c — Corriger gitignore/pipeline** : rediriger le sweep (`scripts/gf1-cloud-sweep.mjs`,
   `visual-check.mjs`) de `/tmp` → `docs/visual-audit/{previews,sections}/...` (versionné) ; dé-ignorer
@@ -676,6 +678,7 @@ _(vide)_
     **Verdict** : aucune purge sûre en aveugle → **consolider = chantier dédié sur sa propre branche**, décision
     stratégie `@theme` (garder/minimaliser) informée doc Tailwind + GF-1 par retrait. A4 reste OUVERT (mesure faite,
     purge en attente d'arbitrage `@theme`).
+  - ▸ *réconcilié 2026-07-19 : mesure faite (122 tokens), purge en attente d'arbitrage `@theme`.*
 
 ## Chantier P2.3 — Fondation `@theme inline` (prérequis builder)
 ### Tâches finies
@@ -683,6 +686,7 @@ _(vide)_
 ### Tâches en attente
 - [ ] **P2.3 — `@theme` mort → `@theme inline`** pointant `var(--token-maison)` (retirer les hex
   littéraux de `tokens.css`) pour que le DS Studio repeigne les utilities Tailwind. **Bloque P2.7/P2.8.**
+ ▸ *réconcilié 2026-07-19 : à re-scoper, P2.7 a shippé sans lui.*
 
 ## Chantier P2.4 — Nettoyage variables CSS (vagues différées + arbitrages)
 ### Tâches finies
@@ -716,8 +720,8 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P2.7 — `sectionBaseSchema` mixin + compléter `section-presets.ts` + `.sec--layout-*` + déployer
-  `data-palette`/`data-density` + route `/preview/[type]/[preset]` + gate `check-presets`.** Dépend de P2.3.
+- [x] **P2.7 — `sectionBaseSchema` mixin + compléter `section-presets.ts` + `.sec--layout-*` + déployer
+  `data-palette`/`data-density` + route `/preview/[type]/[preset]` + gate `check-presets`.** Dépend de P2.3. ▸ *soldé (réconciliation 2026-07-19) : `sectionBaseSchema` + 321 presets/36 types + `data-palette`/`data-density`/`data-layout` + route preview preset + gate `check:presets`.* <!-- sb commit=5e74e4c1 gf1=n -->
 
 ## Chantier P2.8 — DS Studio créatif (#14 Phase C)
 ### Tâches finies
@@ -726,6 +730,7 @@ _(vide)_
 - [ ] **P2.8 — Save preset** (`POST /api/ds/preset`, garde `DS_SAVE_KEYWORD`, pipeline git) →
   `src/data/ds-presets.json` + `[data-theme]` dans `src/styles/themes.css` ; supprimer reload
   `loadCatalogType` ; instance overrides. Dépend de P2.7.
+ ▸ *réconcilié 2026-07-19 : RESTE (chantier actif suivant).*
 
 ## Chantier P2.9 — Production presets en masse (#14 Phase D-E)
 ### Tâches finies
@@ -733,6 +738,7 @@ _(vide)_
 ### Tâches en attente
 - [ ] **P2.9 — Vagues multi-agents** (1 catégorie/agent, worktrees), 40+ presets/catégorie, styles
   2010→2026, **GF-1 sur CHAQUE preset** + listing DS Studio exhaustif. Dépend de P2.7/P2.8 + sections finales (P0).
+ ▸ *réconcilié 2026-07-19 : RESTE (chantier actif suivant).*
 
 ## Chantier P2.10 — Passe finale Claude Design
 ### Tâches finies
@@ -740,6 +746,7 @@ _(vide)_
 ### Tâches en attente
 - [ ] **P2.10 — Passe design finale** (skill `design:*`) une fois les sections figées et P2.2-P2.8 avancés :
   critique structurée → corrections → preuve GF-1 sur les pages de la whitelist `strategy/02 §1`.
+ ▸ *réconcilié 2026-07-19 : RESTE (chantier actif suivant).*
 
 ## Chantier P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09`
 > **Source de vérité détaillée = `docs/state/09-plan-harmonisation-ds-page-site-web-intelligent.md`** (Phases A-E). Né de la revue live↔local de `site-web-intelligent` (2026-06-13). Principe transverse : **0 valeur hardcodée**, tout pointe un token DS existant (sync DS Studio) ; vérifier l'existant avant de créer (rule globale 60). Taxonomie DS gravée : `design-system/03 §9.6`.
@@ -799,7 +806,7 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P4.2-a — Merger le pilote TinaCMS** (`feat/tina-no-react-pilote`, byte-identique visiteur).
+- [x] **P4.2-a — Merger le pilote TinaCMS** (`feat/tina-no-react-pilote`, byte-identique visiteur) ▸ *PÉRIMÉ (réconciliation 2026-07-19) : Tina retiré entièrement (ADR `strategy/12`), la branche pilote n'existe plus.* <!-- sb commit=d267b834 gf1=n -->
   - Objectif : visual editing 100% Astro (derniers releases Tina), édition par IA des sections.
   - Fichiers : `tina/config.ts`, branche `feat/tina-no-react-pilote`.
   - Preuve GF-1 : rendu visiteur byte-identique (diff) + édition Tina fonctionnelle sur 1 page.
@@ -827,18 +834,18 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **T-1 — Migrer `SolutionsDetailTemplate` vers le registry** (dernier template props-driven).
+- [x] **T-1 — Migrer `SolutionsDetailTemplate` vers le registry** (dernier template props-driven) ▸ *PÉRIMÉ (réconciliation 2026-07-19) : `SolutionsDetailTemplate` n'existe plus (veto Solutions, migration templates soldée).* <!-- sb commit=3b89e6d2 gf1=n -->
   - Preuve GF-1 : page solutions rendue via registry (screenshot) + build vert + `check-touchpoints`.
   - Dépend de : —
-- [ ] **T-2 — GF-1 sweep des 58 previews `/preview/<type>`**.
+- [x] **T-2 — GF-1 sweep des 58 previews `/preview/<type>`** ▸ *soldé (réconciliation 2026-07-19) : chiffre périmé (58→208 previews réels 2026-07-16), sweep 208/208 fonctionnels en local parité prod.* <!-- sb commit=15ca9e86 gf1=y -->
   - Preuve GF-1 : sweep Playwright (secret `VERCEL_AUTOMATION_BYPASS_SECRET` ou `scripts/serve-dist.mjs`) = 0 FAIL.
   - Dépend de : —
-- [ ] **T-3 [?] — Arbitrage Simon : 3 types vt=0** (`TrustLegal` / `Welcome` / `ListIndex`) — cataloguer ou laisser bespoke.
+- [ ] **T-3 [?] — Arbitrage Simon : 3 types vt=0** (`TrustLegal` / `Welcome` / `ListIndex`) — cataloguer ou laisser bespoke. ▸ *ARBITRAGE Simon (réconcilié 2026-07-19) : cataloguer TrustLegal/Welcome/ListIndex ou laisser bespoke ?*
   - Dépend de : décision Simon.
-- [ ] **T-4 — DS / variation / partners : finir le hub techno** (`state/01 §a`, worktree `feat/ecosystem-partners`).
+- [ ] **T-4 — DS / variation / partners : finir le hub techno** (`state/01 §a`, worktree `feat/ecosystem-partners`). ▸ *réconcilié 2026-07-19 : RESTE (effort S, section ecosystem-partners construite mais orpheline : câbler sur `/technologies` ou abandonner, ARBITRAGE léger)*
   - Contexte : section `ecosystem-partners` posée (`specs/01-ecosystem-partners`), **hub `/technologies` à finir**.
   - Preuve GF-1 : hub techno rendu (screenshot above-fold) + build vert. Dépend de : —
-- [ ] **T-5 — Re-critique AWWWARDS it.13 post-deploy** (`state/01 §a` ; boucle close it.12 = 4,5/5).
+- [ ] **T-5 — Re-critique AWWWARDS it.13 post-deploy** (`state/01 §a` ; boucle close it.12 = 4,5/5). ▸ *réconcilié 2026-07-19 : RESTE (effort M, re-critique post-refontes)*
   - P3 connus à résorber : monotonie cards offres rangée « Construire » ; `/careers` colonne droite vide ;
     marqueurs timeline secteurs hétérogènes. Preuve GF-1 visuelle. Dépend de : refonte P0 déployée.
 
