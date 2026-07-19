@@ -33,10 +33,11 @@ export const prerender = true;
  *   13 Action · BookSession (ink) + FooterMarquee
  * (BootSplash en tete + ScrollProgress en pied = experience de marque live, hors sequence.)
  *
- * 0 valeur en dur : 100 % var(--token) (hairlines = box-shadow --shadow-card-rest + global
- * .hline + barre de tabs en 1px var(--hairline)/2px var(--accent-text), idiome DS canonique
- * et exception hairline rule 60 ; pas d'AUTRE literal px hors @media / viewBox SVG) + SVG
- * dessines au scroll.
+ * Token-first : hairlines = box-shadow --shadow-card-rest + global .hline + barre de tabs
+ * en 1px var(--hairline)/2px var(--accent-text), idiome DS canonique et exception hairline
+ * rule 60 ; pas d'AUTRE literal px hors @media / viewBox SVG. Exception locale 2026-07-16 :
+ * --home-complement (#2090A8) sert uniquement a distinguer la branche Automation & IA du
+ * money slot, sans creer de token DS global.
  */
 import Base from '../layouts/Base.astro';
 import BootSplash from '../components/motion/BootSplash.astro';
@@ -208,7 +209,7 @@ const services = SIX_SERVICES.map((s) => ({
               <a class="he-offer__link" href="/services/site-web-ia">Voir l’offre →</a>
             </article>
 
-            <article class="he-offer">
+            <article class="he-offer he-offer--complement">
               <p class="he-offer__tag">Offre 02</p>
               <h3 class="he-offer__title">Automation &amp; IA</h3>
               <p class="he-offer__body">Intégration IA de bout en bout : on déploie Claude, ChatGPT ou Mistral et leurs agents dans votre entreprise, branchés à vos outils via MCP (CRM, e-mail, base de données, dépôt Git). De quoi faire travailler l’IA sur vos données réelles et la faire passer de la conversation à l’action.</p>
@@ -226,7 +227,7 @@ const services = SIX_SERVICES.map((s) => ({
           <div class="he-rail hd-draw" aria-hidden="true">
         <svg class="he-rail__svg" viewBox="0 0 1200 150" xmlns="http://www.w3.org/2000/svg" fill="none" role="presentation" focusable="false">
           <path class="hd-line hd-line--2" pathLength="1" d="M300 4 C 300 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
-          <path class="hd-line hd-line--2" pathLength="1" d="M900 4 C 900 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
+          <path class="hd-line hd-line--2 he-rail__branch--complement" pathLength="1" d="M900 4 C 900 46, 600 22, 600 62" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.7"/>
           <path class="hd-line hd-line--3" pathLength="1" d="M600 62 L600 108" stroke="var(--accent)" stroke-width="1.2" stroke-opacity="0.6"/>
           <path class="hd-line" pathLength="1" d="M100 108 L1100 108" stroke="var(--hairline-strong)" stroke-width="1"/>
           <path class="hd-line hd-line--3" pathLength="1" d="M100 108 L100 146" stroke="var(--hairline-strong)" stroke-width="1"/>
@@ -388,7 +389,11 @@ const services = SIX_SERVICES.map((s) => ({
   .he-sec { padding-block: var(--section-base); }
   /* MONEY SLOT : iter 6 passe --section-loose -> --section-base (poids porte par he-h2--xl + la
      densite du contenu, pas par 160px de vide). Reste le slot le plus riche de la page. */
-  .he-offres { padding-block: var(--section-base); }
+  .he-offres {
+    --home-complement: #2090A8;
+    --home-complement-rgb: 32, 144, 168;
+    padding-block: var(--section-base);
+  }
 
   /* 05 · La tension INK (rythme iter 6) · idiome DS carte-sur-ink (repris de TestimonialWall) :
      fond ink, header en paper, cartes en surface ink elevee (rgba paper) + hairline clair.
@@ -589,6 +594,18 @@ const services = SIX_SERVICES.map((s) => ({
     background: var(--accent);
     transform: translateY(0.5em);
   }
+  .he-offer--complement .he-offer__tag,
+  .he-offer--complement .he-offer__link {
+    color: var(--home-complement);
+  }
+  .he-offer--complement .he-offer__points li::before {
+    background: var(--home-complement);
+  }
+  .he-offer--complement:hover {
+    box-shadow:
+      0 0 0 1px rgba(var(--home-complement-rgb), 0.38),
+      0 8px 24px -16px rgba(var(--ink-rgb), 0.1);
+  }
   .he-offer__link {
     margin-top: auto;
     padding-top: var(--space-4);
@@ -608,6 +625,9 @@ const services = SIX_SERVICES.map((s) => ({
     width: 100%;
     height: auto;
     display: block;
+  }
+  .he-rail__branch--complement {
+    stroke: var(--home-complement);
   }
 
   /* ── 03 · Rangee compacte des 6 services (absorption ServicesGrid) ── */
