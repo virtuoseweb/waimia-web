@@ -333,7 +333,7 @@ const cfMediaRegister =
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
-    margin-top: 70px;
+    margin-top: var(--space-9);
     border-top: 1px solid var(--hairline-strong);
     border-bottom: 1px solid var(--hairline);
   }
@@ -416,7 +416,7 @@ const cfMediaRegister =
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    margin-top: 70px;
+    margin-top: var(--space-9);
     border-top: 1px solid var(--hairline-strong);
     border-bottom: 1px solid var(--hairline);
   }
@@ -480,14 +480,14 @@ const cfMediaRegister =
     font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: 1.3;
-    margin: 0 0 36px;
+    margin: 0 0 var(--space-7);
     max-width: 980px;
     color: var(--muted);
     text-wrap: balance;
   }
   .hero-conversion-funnel__meta {
     display: flex;
-    gap: 10px;
+    gap: var(--space-3);
     flex-wrap: wrap;
     margin: 0 0 var(--space-6);
   }
@@ -499,7 +499,7 @@ const cfMediaRegister =
     color: var(--muted);
     border: 1px solid var(--hairline-strong);
     border-radius: var(--radius-pill);
-    padding: 7px 11px;
+    padding: var(--space-2) var(--space-3);
     background: color-mix(in srgb, var(--paper) 86%, transparent);
   }
   .hero-conversion-funnel__cta { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-bottom: 60px; }
@@ -513,11 +513,11 @@ const cfMediaRegister =
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px var(--space-6);
+    gap: var(--space-3) var(--space-6);
   }
   .hero-conversion-funnel__benefits li {
     position: relative;
-    padding-left: 18px;
+    padding-left: var(--space-4);
     font-family: var(--font-sans);
     font-weight: var(--fw-medium);
     font-size: var(--text-small);
@@ -536,7 +536,7 @@ const cfMediaRegister =
     transform: rotate(45deg);
   }
   .hero-conversion-funnel__proof {
-    margin: 0 0 28px;
+    margin: 0 0 var(--space-6);
     max-width: 760px;
     padding-top: var(--space-4);
     border-top: 1px solid var(--hairline);
@@ -548,12 +548,12 @@ const cfMediaRegister =
     line-height: var(--leading-body);
   }
   .hero-conversion-funnel__stats {
-    margin-top: 60px;
+    margin-top: var(--space-9);
     display: grid;
     grid-template-columns: 1.25fr repeat(3, 1fr);
     gap: var(--space-9);
     border-top: 1px solid var(--hairline);
-    padding-top: 28px;
+    padding-top: var(--space-6);
   }
   .hero-conversion-funnel__stat-value {
     font-family: var(--font-sans);

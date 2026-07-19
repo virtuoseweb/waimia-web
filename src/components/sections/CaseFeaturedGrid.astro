@@ -94,7 +94,7 @@ const [featured, ...rest] = items;
   .cas-card {
     display: flex;
     flex-direction: column;
-    padding: 36px var(--space-6) var(--space-6);
+    padding: var(--space-7) var(--space-6) var(--space-6);
     background: var(--paper);
     border-top: 1px solid transparent;
     text-decoration: none;
@@ -104,7 +104,7 @@ const [featured, ...rest] = items;
       border-top-color var(--dur-trim) var(--ease),
       box-shadow var(--dur-trim) var(--ease),
       transform var(--dur-trim) var(--ease);
-    gap: 10px;
+    gap: var(--space-3);
     height: 100%;
     box-sizing: border-box;
   }
@@ -118,7 +118,7 @@ const [featured, ...rest] = items;
     /* Cookie-aware : quand le bandeau cookies (fixed bottom) est visible, on ajoute
        sa hauteur au padding bas pour que le CTA de la card ne passe pas dessous
        (token DS existant, 0 hauteur quand consent acquis). */
-    padding: 56px var(--space-8) calc(var(--space-8) + var(--cookie-banner-height, 0px));
+    padding: var(--space-9) var(--space-8) calc(var(--space-8) + var(--cookie-banner-height, 0px));
   }
   .cas-card--featured .cas-card-title {
     font-size: var(--text-h2);
@@ -149,7 +149,7 @@ const [featured, ...rest] = items;
   .cas-card-body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-3);
     flex: 1;
     min-width: 0;
     border-left: 1px solid var(--hairline);

@@ -38,7 +38,7 @@ const isFr = lang === 'fr';
 <style>
   /* ───── cta-band (noyau) — CSS VERBATIM ───── */
   .cta-band {
-    padding-block: 20px;
+    padding-block: var(--space-5);
     border-block: 1px solid var(--hairline);
   }
   .cta-band__inner {
@@ -67,8 +67,8 @@ const isFr = lang === 'fr';
   .cta-inline {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: var(--space-4) 20px;
+    gap: var(--space-5);
+    padding: var(--space-4) var(--space-5);
     border: 1px solid var(--hairline);
     background: var(--paper-2);
     flex-wrap: wrap;

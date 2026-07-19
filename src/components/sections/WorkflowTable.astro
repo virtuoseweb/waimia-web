@@ -127,7 +127,7 @@ const head = isFr
     grid-template-columns: 60px 2fr 1.2fr 1fr 2.4fr;
     column-gap: var(--space-5);
     row-gap: var(--space-4, 16px);
-    padding: 20px 0;
+    padding: var(--space-5) 0;
     border-bottom: 1px solid var(--hairline);
     align-items: start;
     transition: background var(--dur-trim) var(--ease);
@@ -145,7 +145,7 @@ const head = isFr
   /* Kicker canonisé (R4) · typo portée par l'atome Kicker (size 10), ici layout seul */
   .sol-workflow-body :global(.wf-name .wf-k) {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: var(--space-2);
   }
   .sol-workflow-body :global(.wf-name h3) {
     font-family: var(--font-sans);

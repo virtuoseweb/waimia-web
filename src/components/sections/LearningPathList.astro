@@ -44,7 +44,7 @@ const title = isFr ? data.title_fr : data.title_en;
 
   /* ───── COPIE VERBATIM EcoleHubTemplate l.221-250 (PARCOURS) ───── */
   .parcours-section {
-    padding-top: 56px;
+    padding-top: var(--space-9);
     padding-bottom: var(--space-4);
     max-width: var(--wrap-wide);
     margin-inline: auto;
@@ -56,7 +56,7 @@ const title = isFr ? data.title_fr : data.title_en;
   }
 
   .parcours-item {
-    padding: 20px 0;
+    padding: var(--space-5) 0;
     border-bottom: 1px solid var(--hairline);
   }
 
@@ -65,7 +65,7 @@ const title = isFr ? data.title_fr : data.title_en;
     font-size: var(--text-body);
     font-weight: var(--fw-semibold);
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: var(--space-2);
   }
 
   .parcours-desc {

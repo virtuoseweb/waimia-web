@@ -121,7 +121,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     min-width: 0;
     background: rgba(var(--paper-rgb), 0.08);
     border: none;
-    padding: 14px 18px;
+    padding: var(--space-4) var(--space-4);
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--paper);
@@ -141,7 +141,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     background: var(--accent);
     color: var(--paper);
     border: none;
-    padding: 14px 22px;
+    padding: var(--space-4) var(--space-5);
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: 0.06em;
@@ -158,7 +158,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono-tight);
     color: var(--muted);
-    margin: 10px 0 0;
+    margin: var(--space-3) 0 0;
   }
   /* ── data-bg R4 · defaut (absent) ET 'ink' = bande sombre inchangee.
      Variantes claires paper/paper-2/paper-3 : on reflechit la palette sur fond clair. ── */

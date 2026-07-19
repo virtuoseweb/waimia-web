@@ -95,15 +95,15 @@ const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.cap
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: var(--space-6);
-    padding-bottom: 14px;
+    padding-bottom: var(--space-4);
     border-bottom: 1px solid var(--hairline);
     flex-wrap: wrap;
-    gap: 10px;
+    gap: var(--space-3);
   }
   .services-grid__chapter {
     display: inline-flex;
     align-items: baseline;
-    gap: 10px;
+    gap: var(--space-3);
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: 0.14em;
@@ -192,7 +192,7 @@ const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.cap
     font-size: var(--text-h3);
     line-height: var(--leading-h3);
     letter-spacing: -0.02em;
-    margin: 20px 0 0;
+    margin: var(--space-5) 0 0;
     font-weight: var(--fw-medium);
     text-wrap: balance;
     color: var(--ink);
@@ -208,7 +208,7 @@ const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.cap
   }
   .services-grid__cell:hover .services-grid__cell-rule { transform: scaleX(1.875); }
   .services-grid__cell-body {
-    margin-top: 14px;
+    margin-top: var(--space-4);
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: 1.55;
@@ -218,7 +218,7 @@ const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.cap
   }
   .services-grid__cell-foot {
     margin-top: auto;
-    padding-top: 18px;
+    padding-top: var(--space-4);
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
@@ -256,7 +256,7 @@ const illusCaption = isFr ? illus?.caption_fr : (illus?.caption_en ?? illus?.cap
     justify-content: space-between;
     flex-wrap: wrap;
     gap: var(--space-4);
-    padding-top: 18px;
+    padding-top: var(--space-4);
     border-top: 1px solid var(--hairline-strong);
   }
   .services-grid__foot-link {

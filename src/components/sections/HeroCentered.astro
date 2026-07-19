@@ -577,7 +577,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   }
   .hero-problem-index__canonical {
     max-width: var(--wrap-prose);
-    margin: 22px 0 0;
+    margin: var(--space-5) 0 0;
     color: var(--muted);
     font-size: var(--text-body);
     line-height: var(--leading-relaxed);
@@ -587,7 +587,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   /* ── hero-utility-masthead ─────────────────────────────────────────────
      `.wrap-wide` qualifié par `.hero-utility` (collision max-width). */
   .hero-utility {
-    padding: 140px var(--space-6) var(--space-9);
+    padding: var(--space-13) var(--space-6) var(--space-9);
     border-bottom: 1px solid var(--hairline);
   }
   .hero-utility--centered { text-align: center; }
@@ -662,7 +662,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     background: transparent;
   }
   .hero-academy-hub__hero {
-    padding-top: var(--hahub-top-pad, 72px);
+    padding-top: var(--hahub-top-pad, var(--space-10));
     padding-bottom: var(--space-8);
     border-bottom: 1px solid var(--hairline);
   }
@@ -684,7 +684,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     color: var(--muted);
   }
   .hero-academy-hub__stats {
-    padding: 20px 0;
+    padding: var(--space-5) 0;
     border-bottom: 1px solid var(--hairline);
   }
   .hero-academy-hub__stats-text {
@@ -709,7 +709,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-course { padding-top: var(--hero-course-top-pad, 24px); }
   .hero-course .wrap-wide { max-width: 1100px; margin-inline: auto; }
   .hero-course__hd {
-    padding: 56px 0 var(--space-8);
+    padding: var(--space-9) 0 var(--space-8);
     border-bottom: 1px solid var(--hairline);
   }
   .hero-course__title {
@@ -718,28 +718,28 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-weight: var(--fw-semibold);
     letter-spacing: -0.015em;
     line-height: 1.05;
-    margin: var(--space-4) 0 20px;
+    margin: var(--space-4) 0 var(--space-5);
   }
   .hero-course__lede {
     font-family: var(--font-sans);
     font-size: var(--text-h3);
     line-height: var(--leading-body);
     color: var(--muted);
-    margin: 0 0 28px;
+    margin: 0 0 var(--space-6);
     max-width: 68ch;
   }
   .hero-course__pills {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
-    margin-bottom: 28px;
+    margin-bottom: var(--space-6);
   }
   .hero-course__pill {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono-tight);
     text-transform: uppercase;
-    padding: var(--space-1) 10px;
+    padding: var(--space-1) var(--space-3);
     border: 1px solid var(--hairline);
     color: var(--muted-2);
   }
@@ -748,7 +748,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-course__cta {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: var(--space-5);
     flex-wrap: wrap;
   }
   .hero-course__btn-primary {
@@ -994,7 +994,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     border-top: 1px solid var(--hairline);
   }
   .hero-case-study__spec {
-    padding: 22px 20px;
+    padding: var(--space-5) var(--space-5);
     border-right: 1px solid var(--hairline);
   }
   .hero-case-study__spec[data-last='true'] { border-right: none; }
@@ -1112,7 +1112,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     border-bottom: 1px solid var(--hairline);
   }
   .hero-service-detail__metric {
-    padding: var(--space-6) 20px;
+    padding: var(--space-6) var(--space-5);
     border-right: 1px solid var(--hairline);
     display: flex;
     flex-direction: column;
@@ -1215,7 +1215,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-weight: var(--fw-semibold);
     background: var(--ink);
     color: var(--paper);
-    padding: 14px 28px;
+    padding: var(--space-4) var(--space-6);
     border-radius: var(--radius-xs);
     text-decoration: none;
     transition: opacity var(--dur-fast);
@@ -1226,7 +1226,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     font-size: var(--text-body);
     color: var(--ink);
     border: 1px solid var(--hairline-strong);
-    padding: 14px 28px;
+    padding: var(--space-4) var(--space-6);
     border-radius: var(--radius-xs);
     text-decoration: none;
     transition: border-color var(--dur-fast);

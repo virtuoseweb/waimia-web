@@ -76,10 +76,10 @@ const isFr = lang === 'fr';
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: var(--space-9);
-    padding-bottom: 20px;
+    padding-bottom: var(--space-5);
     border-bottom: 1px solid rgba(var(--paper-rgb), .12);
     flex-wrap: wrap;
-    gap: 14px;
+    gap: var(--space-4);
   }
   .operating-layer__spec {
     font-family: var(--font-mono);
@@ -102,7 +102,7 @@ const isFr = lang === 'fr';
     text-wrap: balance;
   }
   .operating-layer__lede {
-    margin-top: 30px;
+    margin-top: var(--space-6);
     font-size: var(--text-h3);
     line-height: 1.55;
     color: rgba(var(--paper-rgb), .68);
@@ -115,8 +115,8 @@ const isFr = lang === 'fr';
   .operating-layer__console-body {
     display: grid;
     grid-template-columns: 140px 1fr;
-    gap: 10px;
-    padding: 14px;
+    gap: var(--space-3);
+    padding: var(--space-4);
     border-radius: var(--radius-md);
     background: rgba(var(--paper-rgb), .03);
   }

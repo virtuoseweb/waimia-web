@@ -56,7 +56,7 @@ const isFr = lang === 'fr';
   }
   /* Kicker canonisé (R4) · typo portée par l'atome Kicker, ici layout seul */
   :global(.branded-callout__kicker) {
-    margin: 0 0 18px;
+    margin: 0 0 var(--space-4);
   }
   .branded-callout__h2 {
     font-family: var(--font-sans);
@@ -65,7 +65,7 @@ const isFr = lang === 'fr';
     letter-spacing: -0.022em;
     font-weight: var(--fw-medium);
     color: var(--ink);
-    margin: 0 0 20px;
+    margin: 0 0 var(--space-5);
     text-wrap: balance;
   }
   .branded-callout__h2 :global(i) {

@@ -177,7 +177,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
   .sol-cta-btns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
   .btn-accent {
     display: inline-block;
-    padding: 14px 28px;
+    padding: var(--space-4) var(--space-6);
     background: var(--accent);
     color: var(--paper);
     border-radius: var(--radius-xs);
@@ -190,7 +190,7 @@ const link = (h: string) => (h.startsWith('/') ? prefix + h : h);
   .btn-accent:hover { transform: translateY(-2px); }
   .btn-light {
     display: inline-block;
-    padding: 14px 28px;
+    padding: var(--space-4) var(--space-6);
     background: transparent;
     color: var(--paper);
     border: 1px solid rgba(var(--paper-rgb), 0.3);

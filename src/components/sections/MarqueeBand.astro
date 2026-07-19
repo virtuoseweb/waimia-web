@@ -32,7 +32,7 @@ const loops = data.repeat ?? 2;
     overflow: hidden;
     border-top: 1px solid rgba(var(--ink-rgb), .07);
     border-bottom: 1px solid rgba(var(--ink-rgb), .07);
-    padding-block: 18px;
+    padding-block: var(--space-4);
   }
   .marquee-band__track {
     display: flex;
@@ -45,7 +45,7 @@ const loops = data.repeat ?? 2;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--ink);
-    padding-inline: 28px;
+    padding-inline: var(--space-6);
     white-space: nowrap;
   }
   .marquee-band__sep {

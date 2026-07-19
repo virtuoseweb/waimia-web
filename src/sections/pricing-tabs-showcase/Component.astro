@@ -205,7 +205,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     width: fit-content;
     max-width: 100%;
     margin-inline: auto;
-    padding: 5px;
+    padding: var(--space-1);
     gap: 4px;
     border: 1px solid var(--hairline);
     border-radius: var(--radius-pill);
@@ -227,7 +227,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     font-family: var(--font-sans);
     font-size: var(--text-small);
     font-weight: var(--fw-medium);
-    padding: 12px clamp(16px, 2vw, 28px);
+    padding: var(--space-3) clamp(var(--space-4), 2vw, var(--space-6));
     white-space: nowrap;
     transition: background var(--dur-trim) var(--ease), color var(--dur-trim) var(--ease), box-shadow var(--dur-trim) var(--ease);
   }
@@ -259,7 +259,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     min-height: 100%;
     flex-direction: column;
     gap: var(--space-5);
-    padding: clamp(22px, 3vw, 34px);
+    padding: clamp(var(--space-5), 3vw, var(--space-6));
     border: 1px dashed color-mix(in srgb, var(--ink) 18%, transparent);
     border-radius: 8px;
     background: color-mix(in srgb, var(--paper) 88%, transparent);
@@ -369,7 +369,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     justify-content: space-between;
     gap: var(--space-6);
     margin-top: var(--space-8);
-    padding: clamp(28px, 5vw, 52px);
+    padding: clamp(var(--space-6), 5vw, var(--space-8));
     border: 1px solid color-mix(in srgb, var(--accent-text) 34%, transparent);
     border-radius: 8px;
     background:
@@ -400,7 +400,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     justify-content: space-between;
     gap: var(--space-6);
     margin-top: var(--space-5);
-    padding: clamp(20px, 3vw, 30px);
+    padding: clamp(var(--space-5), 3vw, var(--space-6));
     border: 1px solid var(--hairline);
     border-radius: 8px;
     background: color-mix(in srgb, var(--paper-2) 88%, transparent);
@@ -511,7 +511,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     .pricing-tabs__tab {
       flex: 1 0 auto;
       border-radius: 6px;
-      padding-inline: 14px;
+      padding-inline: var(--space-4);
     }
 
     .pricing-tabs__media {

@@ -129,7 +129,7 @@ const isFr = lang === 'fr';
   @media (max-width: 900px) {
     .dept-row {
       grid-template-columns: 1fr;
-      row-gap: 6px;
+      row-gap: var(--space-2);
       padding: var(--space-6) 0;
     }
 
@@ -168,7 +168,7 @@ const isFr = lang === 'fr';
     width: min(100%, 360px);
     min-height: 96px;
     margin-top: var(--space-7);
-    padding: var(--space-5) 28px;
+    padding: var(--space-5) var(--space-6);
     border: 1px solid var(--hairline-strong);
     color: inherit;
     background: var(--paper);
