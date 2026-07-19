@@ -20,8 +20,27 @@ export type PresetProps = Partial<Pick<SectionData, never>> & {
   background?: 'paper' | 'paper-2' | 'paper-3' | 'ink';
   layout?: string;
   density?: 'compact' | 'base' | 'ample';
-  /** Axe Variante : hero-conversion-funnel (split/sumie/minimal), eeat-panel (media/columns/light/hero). */
-  variant?: 'split' | 'sumie' | 'minimal' | 'media' | 'columns' | 'light' | 'hero';
+  /** Axe Variante : hero-conversion-funnel (split/sumie/minimal), eeat-panel (media/columns/light/hero),
+   *  testimonial-metrics (quote-left/quote-right), pull-quote-block (breakout/inline/centered). */
+  variant?:
+    | 'split'
+    | 'sumie'
+    | 'minimal'
+    | 'media'
+    | 'columns'
+    | 'light'
+    | 'hero'
+    | 'quote-left'
+    | 'quote-right'
+    | 'breakout'
+    | 'inline'
+    | 'centered';
+  /** Axe CONTENU testimonials — surcharges honorées par les composants (toggles de présence).
+   *  testimonial-wall : `rating` (undefined masque le bandeau de note d'en-tête).
+   *  testimonial-single-spotlight : `portrait_src` / `logo_src` (undefined masque l'atome). */
+  rating?: number;
+  portrait_src?: string;
+  logo_src?: string;
   /** Axe Variante « registre média » du hero split (lineart vs editorial). */
   media_register?: 'lineart' | 'editorial';
   /** Média associé au registre (surcharge la demo pour exposer le preset). */
@@ -869,6 +888,83 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'media-swap-band--paper-2-hover', type: 'media-swap-band', label: 'Bande média alternée · papier 2 · au survol', family: 'scroll-interactive', era: '2025', props: { background: 'paper-2', swap_mode: 'hover' } },
     { id: 'media-swap-band--ink-auto', type: 'media-swap-band', label: 'Bande média alternée · encre · rotation auto', family: 'scroll-interactive', era: '2026', props: { background: 'ink', swap_mode: 'auto' } },
     { id: 'media-swap-band--ink-hover', type: 'media-swap-band', label: 'Bande média alternée · encre · au survol', family: 'scroll-interactive', era: '2026', props: { background: 'ink', swap_mode: 'hover' } },
+  ],
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // CATÉGORIE « Testimonials » (P2.9 pilote, 2026-07-19) — famille preuve/quote.
+  // Axes RÉELS honorés par chaque composant (vérifiés schéma + .astro) :
+  //   testimonial-wall            → background(4) × columns(2|3|4) × rating(on/off)
+  //   testimonial-block           → background(4)   [layout data-* en double quote, non moissonné par le gate → non exposé]
+  //   testimonial-single-spotlight→ background(4) × portrait_src(on/off) × logo_src(on/off)
+  //   testimonial-metrics         → background(4) × variant(quote-left|quote-right)
+  //   testimonial-logo-metric     → background(4)
+  //   quote-spotlight             → background {paper|paper-3|ink} (pas de règle CSS paper-2 → = paper)
+  //   pull-quote-block            → background(4) × variant(breakout|inline|centered)
+  // Contenu = décliné de la demo du type (0 fausse marque, 0 chiffre inventé) ; les toggles
+  // masquent des atomes (rating/portrait/logo) sans introduire de contenu neuf.
+  // ══════════════════════════════════════════════════════════════════════════
+
+  'testimonial-wall': [
+    { id: 'testimonial-wall--dense-4-paper', type: 'testimonial-wall', label: 'Mur d’avis · dense quatre colonnes · papier', family: 'quote', era: '2024', props: { background: 'paper', columns: '4' } },
+    { id: 'testimonial-wall--editorial-2-paper-2', type: 'testimonial-wall', label: 'Mur d’avis · colonnes larges éditoriales · papier 2', family: 'quote', era: '2021', props: { background: 'paper-2', columns: '2' } },
+    { id: 'testimonial-wall--balanced-3-paper-3', type: 'testimonial-wall', label: 'Mur d’avis · équilibré trois colonnes · papier 3', family: 'quote', era: '2022', props: { background: 'paper-3', columns: '3' } },
+    { id: 'testimonial-wall--spotlight-2-ink', type: 'testimonial-wall', label: 'Mur d’avis · colonnes larges · encre', family: 'quote', era: '2026', props: { background: 'ink', columns: '2' } },
+    { id: 'testimonial-wall--dense-4-ink', type: 'testimonial-wall', label: 'Mur d’avis · dense quatre colonnes · encre', family: 'quote', era: '2026', props: { background: 'ink', columns: '4' } },
+    { id: 'testimonial-wall--norating-3-paper', type: 'testimonial-wall', label: 'Mur d’avis · sans bandeau de note · papier', family: 'quote', era: '2023', props: { background: 'paper', columns: '3', rating: undefined } },
+    { id: 'testimonial-wall--norating-4-paper-2', type: 'testimonial-wall', label: 'Mur d’avis · dense sans note · papier 2', family: 'quote', era: '2024', props: { background: 'paper-2', columns: '4', rating: undefined } },
+    { id: 'testimonial-wall--norating-2-ink', type: 'testimonial-wall', label: 'Mur d’avis · colonnes larges sans note · encre', family: 'quote', era: '2026', props: { background: 'ink', columns: '2', rating: undefined } },
+    { id: 'testimonial-wall--rating-3-paper', type: 'testimonial-wall', label: 'Mur d’avis · note en avant · papier', family: 'quote', era: '2020', props: { background: 'paper', columns: '3' } },
+  ],
+
+  'testimonial-block': [
+    { id: 'testimonial-block--paper', type: 'testimonial-block', label: 'Bloc témoignages · papier', family: 'quote', era: '2019', props: { background: 'paper' } },
+    { id: 'testimonial-block--paper-2', type: 'testimonial-block', label: 'Bloc témoignages · papier 2', family: 'quote', era: '2021', props: { background: 'paper-2' } },
+    { id: 'testimonial-block--paper-3', type: 'testimonial-block', label: 'Bloc témoignages · papier 3', family: 'quote', era: '2023', props: { background: 'paper-3' } },
+    { id: 'testimonial-block--ink', type: 'testimonial-block', label: 'Bloc témoignages · encre', family: 'quote', era: '2026', props: { background: 'ink' } },
+  ],
+
+  'testimonial-single-spotlight': [
+    { id: 'testimonial-single-spotlight--full-ink', type: 'testimonial-single-spotlight', label: 'Spot témoignage · portrait + logo · encre', family: 'quote', era: '2026', props: { background: 'ink' } },
+    { id: 'testimonial-single-spotlight--full-paper', type: 'testimonial-single-spotlight', label: 'Spot témoignage · portrait + logo · papier', family: 'quote', era: '2022', props: { background: 'paper' } },
+    { id: 'testimonial-single-spotlight--full-paper-2', type: 'testimonial-single-spotlight', label: 'Spot témoignage · portrait + logo · papier 2', family: 'quote', era: '2023', props: { background: 'paper-2' } },
+    { id: 'testimonial-single-spotlight--portrait-only-paper', type: 'testimonial-single-spotlight', label: 'Spot témoignage · portrait sans logo · papier', family: 'quote', era: '2021', props: { background: 'paper', logo_src: undefined } },
+    { id: 'testimonial-single-spotlight--portrait-only-ink', type: 'testimonial-single-spotlight', label: 'Spot témoignage · portrait sans logo · encre', family: 'quote', era: '2026', props: { background: 'ink', logo_src: undefined } },
+    { id: 'testimonial-single-spotlight--logo-only-paper-2', type: 'testimonial-single-spotlight', label: 'Spot témoignage · logo sans portrait · papier 2', family: 'quote', era: '2024', props: { background: 'paper-2', portrait_src: undefined } },
+    { id: 'testimonial-single-spotlight--bare-paper-3', type: 'testimonial-single-spotlight', label: 'Spot témoignage · sans portrait ni logo · papier 3', family: 'quote', era: '2020', props: { background: 'paper-3', portrait_src: undefined, logo_src: undefined } },
+    { id: 'testimonial-single-spotlight--bare-ink', type: 'testimonial-single-spotlight', label: 'Spot témoignage · sans portrait ni logo · encre', family: 'quote', era: '2026', props: { background: 'ink', portrait_src: undefined, logo_src: undefined } },
+  ],
+
+  'testimonial-metrics': [
+    { id: 'testimonial-metrics--quote-left-ink', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à gauche · encre', family: 'quote', era: '2026', props: { background: 'ink', variant: 'quote-left' } },
+    { id: 'testimonial-metrics--quote-left-paper', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à gauche · papier', family: 'quote', era: '2022', props: { background: 'paper', variant: 'quote-left' } },
+    { id: 'testimonial-metrics--quote-left-paper-2', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à gauche · papier 2', family: 'quote', era: '2023', props: { background: 'paper-2', variant: 'quote-left' } },
+    { id: 'testimonial-metrics--quote-right-ink', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à droite · encre', family: 'quote', era: '2026', props: { background: 'ink', variant: 'quote-right' } },
+    { id: 'testimonial-metrics--quote-right-paper', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à droite · papier', family: 'quote', era: '2021', props: { background: 'paper', variant: 'quote-right' } },
+    { id: 'testimonial-metrics--quote-right-paper-3', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à droite · papier 3', family: 'quote', era: '2024', props: { background: 'paper-3', variant: 'quote-right' } },
+    { id: 'testimonial-metrics--quote-left-paper-3', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à gauche · papier 3', family: 'quote', era: '2025', props: { background: 'paper-3', variant: 'quote-left' } },
+    { id: 'testimonial-metrics--quote-right-paper-2', type: 'testimonial-metrics', label: 'Témoignage chiffré · citation à droite · papier 2', family: 'quote', era: '2023', props: { background: 'paper-2', variant: 'quote-right' } },
+  ],
+
+  'testimonial-logo-metric': [
+    { id: 'testimonial-logo-metric--paper', type: 'testimonial-logo-metric', label: 'Cartes logo + métrique · papier', family: 'quote', era: '2021', props: { background: 'paper' } },
+    { id: 'testimonial-logo-metric--paper-2', type: 'testimonial-logo-metric', label: 'Cartes logo + métrique · papier 2', family: 'quote', era: '2023', props: { background: 'paper-2' } },
+    { id: 'testimonial-logo-metric--paper-3', type: 'testimonial-logo-metric', label: 'Cartes logo + métrique · papier 3', family: 'quote', era: '2024', props: { background: 'paper-3' } },
+    { id: 'testimonial-logo-metric--ink', type: 'testimonial-logo-metric', label: 'Cartes logo + métrique · encre', family: 'quote', era: '2026', props: { background: 'ink' } },
+  ],
+
+  'quote-spotlight': [
+    { id: 'quote-spotlight--paper', type: 'quote-spotlight', label: 'Citation à la une · papier', family: 'quote', era: '2018', props: { background: 'paper' } },
+    { id: 'quote-spotlight--paper-3', type: 'quote-spotlight', label: 'Citation à la une · papier 3', family: 'quote', era: '2022', props: { background: 'paper-3' } },
+    { id: 'quote-spotlight--ink', type: 'quote-spotlight', label: 'Citation à la une · encre', family: 'quote', era: '2026', props: { background: 'ink' } },
+  ],
+
+  'pull-quote-block': [
+    { id: 'pull-quote-block--centered-paper', type: 'pull-quote-block', label: 'Citation détachée · centrée · papier', family: 'quote', era: '2019', props: { background: 'paper', variant: 'centered' } },
+    { id: 'pull-quote-block--centered-ink', type: 'pull-quote-block', label: 'Citation détachée · centrée · encre', family: 'quote', era: '2026', props: { background: 'ink', variant: 'centered' } },
+    { id: 'pull-quote-block--centered-paper-3', type: 'pull-quote-block', label: 'Citation détachée · centrée · papier 3', family: 'quote', era: '2022', props: { background: 'paper-3', variant: 'centered' } },
+    { id: 'pull-quote-block--inline-paper', type: 'pull-quote-block', label: 'Citation détachée · filet en ligne · papier', family: 'quote', era: '2020', props: { background: 'paper', variant: 'inline' } },
+    { id: 'pull-quote-block--inline-paper-3', type: 'pull-quote-block', label: 'Citation détachée · filet en ligne · papier 3', family: 'quote', era: '2024', props: { background: 'paper-3', variant: 'inline' } },
+    { id: 'pull-quote-block--inline-ink', type: 'pull-quote-block', label: 'Citation détachée · filet en ligne · encre', family: 'quote', era: '2026', props: { background: 'ink', variant: 'inline' } },
   ],
 };
 
