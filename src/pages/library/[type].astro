@@ -129,6 +129,40 @@ const mcpPath = `/library/section/${section.type}.json`;
 // Comble l'angle mort « Déclinaisons · 0 » : la fiche ne lisait que les presets manuels.
 const declinaisons = listDeclinaisons(section.type);
 
+// ── Comparateur de déclinaisons : DIFF D'AXES de chaque déclinaison par rapport à la démo par
+//    défaut (le rendu de base du type). Les props d'une déclinaison sont des surcharges de
+//    présentation étalées sur la démo ; on ne montre QUE les axes qui changent réellement une
+//    valeur (background:ink, layout:even-3…). Un axe scalaire différent = badge `clé:valeur` ;
+//    un axe structurel (illustration/features/itemOrder/placement) différent = badge `clé`.
+const demoRecord = (demo ?? {}) as Record<string, unknown>;
+const isScalar = (v: unknown): v is string | number | boolean =>
+  typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean';
+type AxisBadge = { key: string; label: string };
+const axisDiff = (props: Record<string, unknown>): AxisBadge[] => {
+  const out: AxisBadge[] = [];
+  for (const [key, value] of Object.entries(props)) {
+    if (key === 'type' || value === undefined) continue;
+    const baseline = demoRecord[key];
+    if (isScalar(value)) {
+      if (value !== baseline) out.push({ key, label: `${key}:${value}` });
+    } else if (JSON.stringify(value) !== JSON.stringify(baseline)) {
+      out.push({ key, label: key });
+    }
+  }
+  return out;
+};
+// Les presets CURÉS sont les seuls résolvables par le builder (`item.presets` = listPresets) :
+// on ne branche le deep-link `&preset=<id>` que pour eux ; une déclinaison générée ouvre le type
+// nu (ses axes restent lisibles en badges). Cf src/pages/library/builder/index.astro:49.
+const comparisons = declinaisons.items.map((decl) => ({
+  ...decl,
+  badges: axisDiff(decl.props),
+  builderHref:
+    decl.origin === 'curated'
+      ? `/library/builder?add=${section.type}&preset=${encodeURIComponent(decl.id)}`
+      : `/library/builder?add=${section.type}`,
+}));
+
 // Sections liées : 3 rails DISJOINTS, chacun capé à 6.
 const familyPeers = listFamilyPeers(section.type).slice(0, 6);
 const categoryPeers = listCategoryPeers(section.type).slice(0, 6);
@@ -194,6 +228,11 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
           </div>
         )}
 
+        <div class="component-actions">
+          <a class="component-open-builder" href={`/library/builder?add=${section.type}`}>
+            Ouvrir dans le builder
+          </a>
+        </div>
       </header>
 
       {/* Instances sur le site (Bricks U1) : le composant « global » + chacune de ses poses
@@ -405,6 +444,40 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
                   </span>
                 </div>
                 <code class="component-preset-id">{decl.id}</code>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {comparisons.length > 0 && (
+        <section class="component-block" id="comparer" aria-label="Comparer les déclinaisons">
+          <h2 class="component-block-title">Comparer les déclinaisons · {comparisons.length}</h2>
+          <p class="component-presets-lede">
+            Chaque déclinaison, résumée par son <strong>écart d'axes</strong> face à la démo par défaut
+            du type : seuls les axes qui changent une valeur sont listés. Ouvre-la dans le builder pour
+            l'assembler dans une page.
+          </p>
+          <ul class="component-compare">
+            {comparisons.map((decl) => (
+              <li class="component-compare-card">
+                <div class="component-compare-head">
+                  <p class="component-compare-label">{decl.label}</p>
+                  <span class={`component-preset-origin component-preset-origin--${decl.origin}`}>
+                    {decl.origin === 'curated' ? 'curée' : 'générée'}
+                  </span>
+                </div>
+                <code class="component-preset-id">{decl.id}</code>
+                {decl.badges.length > 0 ? (
+                  <div class="component-compare-badges" aria-label="Écart d'axes">
+                    {decl.badges.map((b) => (
+                      <span class="component-compare-badge">{b.label}</span>
+                    ))}
+                  </div>
+                ) : (
+                  <p class="component-meta-note">Identique à la démo par défaut (aucun axe surchargé).</p>
+                )}
+                <a class="component-compare-open" href={decl.builderHref}>Ouvrir dans le builder</a>
               </li>
             ))}
           </ul>
@@ -915,6 +988,88 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
     font-family: var(--font-mono);
     font-size: var(--text-micro);
   }
+
+  /* ── Action masthead : ouvrir dans le builder ── */
+  .component-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+  .component-open-builder {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--accent-text);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-4);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .component-open-builder:hover {
+    background: var(--accent-text);
+    color: var(--paper);
+  }
+
+  /* ── Comparateur de déclinaisons (écart d'axes) ── */
+  .component-compare {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .component-compare-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper-2);
+  }
+  .component-compare-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .component-compare-label {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+  }
+  .component-compare-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .component-compare-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-compare-open {
+    margin-top: auto;
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-decoration: none;
+  }
+  .component-compare-open:hover { text-decoration: underline; }
 
   /* ── Sections liées (3 rails) ── */
   .component-rail {

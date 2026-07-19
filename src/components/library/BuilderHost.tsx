@@ -173,6 +173,31 @@ export default function BuilderHost({
     };
   }, []);
 
+  // Deep-link depuis le catalogue (fiche /library/[type]) : `?add=<type>[&preset=<id>]` saute le
+  // dashboard et ouvre l'editeur avec CE bloc deja pose (preset applique si l'id existe dans les
+  // presets curated du type). Reutilise le meme chemin que `openPage` (initialDoc + screen editor).
+  // L'URL est nettoyee (replaceState) apres montage pour ne pas re-declencher au reload / partage.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const addType = params.get('add');
+    if (!addType) return;
+    // Nettoyage inconditionnel de l'URL (param consomme) : evite tout re-declenchement.
+    window.history.replaceState({}, '', window.location.pathname);
+    const item = items.find((it) => it.type === addType);
+    if (!item) return;
+    const presetId = params.get('preset');
+    const preset = presetId ? item.presets.find((p) => p.id === presetId) : undefined;
+    const instance: SectionInstance = preset
+      ? ({ ...item.demo, ...preset.props, type: item.type } as SectionInstance)
+      : ({ ...item.demo, type: item.type } as SectionInstance);
+    setInitialDoc({ meta: defaultMeta, sections: [instance] });
+    setRealPage(null);
+    setScreen('editor');
+    // items/defaultMeta sont des props stables (serialisees une fois par la page hote) : l'effet
+    // se joue une seule fois au montage ; le nettoyage d'URL garantit l'idempotence.
+  }, [items, defaultMeta]);
+
   const thumbSrcOf = useCallback((typeId: string) => `/preview/${typeId}`, []);
 
   const pickerTypes = useMemo<PickerType[]>(
