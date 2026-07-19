@@ -829,13 +829,13 @@ _(vide)_
 ### Tâches finies
 - [x] **P4.4-a — V1 vague 1 : moteur + shell** (B1 axes `direction`/`order` item + B2 store `/api/ds/saved` git-as-DB + B4 AtelierShell + scaffold `packages/atelier-ui`). <!-- sb commit=627d121d gf1=y -->
   - Preuve GF-1 : geometry Playwright data-direction 4 valeurs + itemOrder (B1) ; cycle POST→disque→DELETE re-vérifié indé + refus keyword 400 (B2) ; captures 3 espaces sous shell + e2e:builder 8/8 ré-exécuté orchestrateur (B4). Build Complete!, baseline 8, presets 825.
+- [x] **P4.4-b — V1 vague 2 : surfaces visuelles** (B5 picker vignettes/Saved/PresetGallery + B6 canvas par blocs drag/insert + B7 inspecteur 4 onglets Variante/Layout/Contenu/Couleur, SlotForm data-driven 0 JSON brut). <!-- sb commit=864fd48e gf1=y -->
+  - Preuve GF-1 : vignettes rendues bornées maxInflight 3 (B5 11/11) ; reorder/duplicate/insert + aperçu page (B6 10/10 + e2e 8/8 ré-exécuté indé) ; 4 onglets sur 3 types hétérogènes (B7 29/29, tsc strict 0). Édition live→vignette bout-en-bout = B9 (P4.4-c, intégration picker+inspecteur dans BuilderApp).
+- [x] **P4.4-f — V2b library instances** (U1 `section-instances.generated.ts` + `data-atelier-idx` dev-only · U2 onglet Instances fiche `/library/[type]` + compteurs Relume · U3 endpoint `PATCH /api/ds/instance` écriture in-place `src/content/**`). <!-- sb commit=864fd48e gf1=y -->
+  - Preuve GF-1 : 46 types / 706 instances générés cross-checkés ; grep data-atelier-idx dist/client = 0 (prod intacte) vs 3+ en dev ; fiche « 33 instances sur 30 pages » rendue ; PATCH refusé sans keyword/traversal/index (400) et écriture réelle 1 seule ligne changée puis restauration checksum-identique (U3 8/8).
 ### Tâches en attente
-- [ ] **P4.4-b — V1 vague 2 : surfaces visuelles** (B5 picker vignettes/Saved/PresetGallery + B6 canvas par blocs drag/insert + B7 inspecteur 4 onglets Variante/Layout/Contenu/Couleur, SlotForm data-driven 0 JSON brut).
-  - Preuve GF-1 : vignettes rendues (requêtes bornées), drag-reorder, 4 onglets sur 3 types hétérogènes, édition live→vignette.
 - [ ] **P4.4-c — V1 vague 3 : assemblage + gate** (B8 save-as-version → Saved + B9 BuilderApp final + purge BuilderCanvas + B3 tool MCP + B10 e2e 8→12).
   - Preuve GF-1 : e2e:builder 12/12 ré-exécuté indé + GF-1 visuel complet + 0 régression public.
-- [ ] **P4.4-f — V2b library instances** (U1 `section-instances.generated.ts` + `data-atelier-idx` dev-only · U2 onglet Instances fiche `/library/[type]` + compteurs Relume · U3 endpoint `PATCH /api/ds/instance` écriture in-place `src/content/**`).
-  - Preuve GF-1 : diff HTML prod vide (marquage dev-only) ; PATCH refusé sans keyword/sur main ; instance éditée visible au reload.
 - [ ] **P4.4-g — V4 création + config** (S1 scaffolder v2 co-localisé + `/api/ds/scaffold` · S2 UI « dupliquer comme nouveau type » · P1-P3 custom-presets.json fusion runtime + endpoint + bouton variante · C1 `/library/config` + apps-state.json + `/api/ds/apps` · C2 onboarding guidé).
   - Preuve GF-1 : type créé bout-en-bout → build vert → forms OK ; variante custom dans le picker ; toggle app → 404 après restart.
 - [ ] **P4.4-h — V5 extension physique** (E1 extraction `packages/apps-atelier` injectRoute + suppression src/pages/library · E2 panneau where-used preview + surlignage postMessage · demo-overrides).
