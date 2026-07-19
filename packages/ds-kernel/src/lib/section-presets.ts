@@ -1141,6 +1141,83 @@ export const SECTION_PRESETS: Partial<Record<SectionType, Preset[]>> = {
     { id: 'terminal-metrics-strip--paper-2', type: 'terminal-metrics-strip', label: 'Bandeau télémétrie · fond papier 2', family: 'band', era: '2024', props: { background: 'paper-2' } },
     { id: 'terminal-metrics-strip--ink', type: 'terminal-metrics-strip', label: 'Bandeau télémétrie · fond encre', family: 'band', era: '2026', props: { background: 'ink' } },
   ],
+
+  // ═══ Fan-out P2.9 vague 3 · catégorie FAQ / questions ═══
+  // faq-accordion (accordion) · axes RENDUS = background (data-bg, 4 fonds) + open_first (ouvre item 1).
+  'faq-accordion': [
+    { id: 'faq-accordion--paper', type: 'faq-accordion', label: 'FAQ accordéon · papier', family: 'accordion', era: '2021', props: { background: 'paper' } },
+    { id: 'faq-accordion--paper-2', type: 'faq-accordion', label: 'FAQ accordéon · papier 2', family: 'accordion', era: '2023', props: { background: 'paper-2' } },
+    { id: 'faq-accordion--paper-3', type: 'faq-accordion', label: 'FAQ accordéon · papier 3', family: 'accordion', era: '2024', props: { background: 'paper-3' } },
+    { id: 'faq-accordion--open-first', type: 'faq-accordion', label: 'FAQ accordéon · première réponse ouverte', family: 'accordion', era: '2025', props: { background: 'paper', open_first: true } },
+    // NB : variantes `ink` écartées (GF-1) — le composant laisse le titre de question (span, color:var(--ink))
+    // en dark-on-dark sur fond ink (override ink limité à :is(h2,h3,p)). Bug composant à corriger hors scope preset.
+  ],
+  // faq-cta-aside (accordion) · axes RENDUS = background + open_first. Demo fige paper-2 + open_first true →
+  // poser explicitement dans chaque preset (le merge {...demo, ...props} n'écrase que les clés fournies).
+  'faq-cta-aside': [
+    { id: 'faq-cta-aside--paper', type: 'faq-cta-aside', label: 'FAQ + encart CTA · papier', family: 'accordion', era: '2022', props: { background: 'paper', open_first: true } },
+    { id: 'faq-cta-aside--paper-2', type: 'faq-cta-aside', label: 'FAQ + encart CTA · papier 2', family: 'accordion', era: '2023', props: { background: 'paper-2', open_first: true } },
+    { id: 'faq-cta-aside--paper-3', type: 'faq-cta-aside', label: 'FAQ + encart CTA · papier 3', family: 'accordion', era: '2024', props: { background: 'paper-3', open_first: true } },
+    // NB : variante `ink` écartée (GF-1) — même bug dark-on-dark sur le titre de question (span) que faq-accordion.
+    { id: 'faq-cta-aside--closed', type: 'faq-cta-aside', label: 'FAQ + encart CTA · tout replié', family: 'accordion', era: '2025', props: { background: 'paper-2', open_first: false } },
+  ],
+
+  // ═══ Fan-out P2.9 vague 3 · catégorie Process / méthode / étapes ═══
+  // process-steps (process-steps) · axe RENDU = background (data-bg). Étapes verticales numérotées, connecteurs.
+  'process-steps': [
+    { id: 'process-steps--paper', type: 'process-steps', label: 'Étapes process · papier', family: 'process-steps', era: '2021', props: { background: 'paper' } },
+    { id: 'process-steps--paper-2', type: 'process-steps', label: 'Étapes process · papier 2', family: 'process-steps', era: '2023', props: { background: 'paper-2' } },
+    { id: 'process-steps--paper-3', type: 'process-steps', label: 'Étapes process · papier 3', family: 'process-steps', era: '2024', props: { background: 'paper-3' } },
+    { id: 'process-steps--ink', type: 'process-steps', label: 'Étapes process · encre', family: 'process-steps', era: '2026', props: { background: 'ink' } },
+  ],
+  // journey-steps (process-steps) · axe RENDU = background (data-bg). Parcours icône+numéro, ligne connectrice.
+  'journey-steps': [
+    { id: 'journey-steps--paper', type: 'journey-steps', label: 'Parcours en étapes · papier', family: 'process-steps', era: '2022', props: { background: 'paper' } },
+    { id: 'journey-steps--paper-2', type: 'journey-steps', label: 'Parcours en étapes · papier 2', family: 'process-steps', era: '2023', props: { background: 'paper-2' } },
+    { id: 'journey-steps--paper-3', type: 'journey-steps', label: 'Parcours en étapes · papier 3', family: 'process-steps', era: '2024', props: { background: 'paper-3' } },
+    { id: 'journey-steps--ink', type: 'journey-steps', label: 'Parcours en étapes · encre', family: 'process-steps', era: '2026', props: { background: 'ink' } },
+  ],
+  // steps-horizontal (timeline) · axe RENDU = background (data-bg). Étapes en rail horizontal, pastilles numérotées.
+  'steps-horizontal': [
+    { id: 'steps-horizontal--paper', type: 'steps-horizontal', label: 'Étapes horizontales · papier', family: 'timeline', era: '2022', props: { background: 'paper' } },
+    { id: 'steps-horizontal--paper-2', type: 'steps-horizontal', label: 'Étapes horizontales · papier 2', family: 'timeline', era: '2023', props: { background: 'paper-2' } },
+    { id: 'steps-horizontal--paper-3', type: 'steps-horizontal', label: 'Étapes horizontales · papier 3', family: 'timeline', era: '2024', props: { background: 'paper-3' } },
+    // NB : variante `ink` écartée (GF-1) — titre d'étape (strong, color:var(--ink)) dark-on-dark sur fond ink.
+  ],
+  // numbered-layer-list (list) · axe RENDU = background (data-bg). Couches numérotées serif accent + sous-puces « → ».
+  'numbered-layer-list': [
+    { id: 'numbered-layer-list--paper', type: 'numbered-layer-list', label: 'Couches numérotées · papier', family: 'list', era: '2022', props: { background: 'paper' } },
+    { id: 'numbered-layer-list--paper-2', type: 'numbered-layer-list', label: 'Couches numérotées · papier 2', family: 'list', era: '2023', props: { background: 'paper-2' } },
+    { id: 'numbered-layer-list--paper-3', type: 'numbered-layer-list', label: 'Couches numérotées · papier 3', family: 'list', era: '2024', props: { background: 'paper-3' } },
+    { id: 'numbered-layer-list--ink', type: 'numbered-layer-list', label: 'Couches numérotées · encre', family: 'list', era: '2026', props: { background: 'ink' } },
+  ],
+  // timeline-block (timeline) · axe RENDU = background (data-bg). Frise verticale datée (dates à gauche).
+  'timeline-block': [
+    { id: 'timeline-block--paper', type: 'timeline-block', label: 'Frise datée · papier', family: 'timeline', era: '2021', props: { background: 'paper' } },
+    { id: 'timeline-block--paper-2', type: 'timeline-block', label: 'Frise datée · papier 2', family: 'timeline', era: '2023', props: { background: 'paper-2' } },
+    { id: 'timeline-block--paper-3', type: 'timeline-block', label: 'Frise datée · papier 3', family: 'timeline', era: '2024', props: { background: 'paper-3' } },
+    // NB : variante `ink` écartée (GF-1) — titre d'événement (strong, color:var(--ink)) dark-on-dark sur fond ink.
+  ],
+  // timeline-horizontal (timeline) · axe RENDU = background (data-bg). Roadmap horizontale à statuts, scroll-snap.
+  'timeline-horizontal': [
+    { id: 'timeline-horizontal--paper', type: 'timeline-horizontal', label: 'Roadmap horizontale · papier', family: 'timeline', era: '2023', props: { background: 'paper' } },
+    { id: 'timeline-horizontal--paper-2', type: 'timeline-horizontal', label: 'Roadmap horizontale · papier 2', family: 'timeline', era: '2024', props: { background: 'paper-2' } },
+    { id: 'timeline-horizontal--paper-3', type: 'timeline-horizontal', label: 'Roadmap horizontale · papier 3', family: 'timeline', era: '2025', props: { background: 'paper-3' } },
+    { id: 'timeline-horizontal--ink', type: 'timeline-horizontal', label: 'Roadmap horizontale · encre', family: 'timeline', era: '2026', props: { background: 'ink' } },
+  ],
+  // editorial-timeline (timeline) · axes RENDUS = background (data-bg) + density (data-density compact/ample) +
+  // orientation (v/h, atome Timeline) + numbered (bool). Demo = paper + vertical + numbered → poser explicitement.
+  'editorial-timeline': [
+    { id: 'editorial-timeline--paper', type: 'editorial-timeline', label: 'Frise éditoriale · papier', family: 'timeline', era: '2021', props: { background: 'paper' } },
+    { id: 'editorial-timeline--paper-2', type: 'editorial-timeline', label: 'Frise éditoriale · papier 2', family: 'timeline', era: '2023', props: { background: 'paper-2' } },
+    { id: 'editorial-timeline--paper-3', type: 'editorial-timeline', label: 'Frise éditoriale · papier 3', family: 'timeline', era: '2024', props: { background: 'paper-3' } },
+    { id: 'editorial-timeline--horizontal', type: 'editorial-timeline', label: 'Frise éditoriale · horizontale', family: 'timeline', era: '2025', props: { background: 'paper', orientation: 'horizontal' } },
+    { id: 'editorial-timeline--unnumbered', type: 'editorial-timeline', label: 'Frise éditoriale · sans numéros', family: 'timeline', era: '2024', props: { background: 'paper', numbered: false } },
+    { id: 'editorial-timeline--compact', type: 'editorial-timeline', label: 'Frise éditoriale · dense', family: 'timeline', era: '2025', props: { background: 'paper', density: 'compact' } },
+    { id: 'editorial-timeline--ample', type: 'editorial-timeline', label: 'Frise éditoriale · aérée', family: 'timeline', era: '2026', props: { background: 'paper', density: 'ample' } },
+    // NB : variantes `ink` écartées (GF-1) — l'atome editorial/Timeline rend le titre d'événement
+    // (.timeline-title, color:var(--ink)) sans override sous fond ink → dark-on-dark. Bug atome hors scope preset.
+  ],
 };
 
 /** Liste les presets d'un type (vide si aucun). */
