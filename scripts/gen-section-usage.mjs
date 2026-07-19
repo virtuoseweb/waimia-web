@@ -127,7 +127,11 @@ for (const file of jsonFiles) {
   const relFromContent = relative(CONTENT_DIR, file);
   const collection = relFromContent.split(/[\\/]/)[0];
   const collectionRoot = join(CONTENT_DIR, collection);
-  const slug = entrySlug(collectionRoot, file);
+  // Un champ `slug` frontmatter PRIME sur le chemin fichier (comportement du glob
+  // loader Astro : les enfants nested services/<parent>/<x>.json servent une route FLAT
+  // /services/<x> — sans ça, 8 liens morts nested sur les fiches library, vu prod 19/07).
+  const slug =
+    typeof data.slug === 'string' && data.slug ? data.slug : entrySlug(collectionRoot, file);
   const page = pageLabel(collection, slug, file);
 
   for (const type of collectTypesFromSections(data.sections)) {
