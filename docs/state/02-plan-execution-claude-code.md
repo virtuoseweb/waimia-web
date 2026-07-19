@@ -658,6 +658,7 @@ _(vide)_
   `design-system-*.png` (`.gitignore:42`) + `gf1-*` (`:73-74`) OU les ranger sous `docs/visual-audit/`.
 - [ ] **P2.1-d — Maintenance permanente** : à CHAQUE itération design → recapture la section touchée,
   remplace l'obsolète, supprime le périmé, garde la trace. **Chantier OUVERT tant que le design évolue.**
+ ▸ *tick 2026-07-19 soir : recapture des templates touchés par P2.6/P2.10 (sector, case-study, author-page) lancée après les livraisons motion/habillage/densité/typo/paper-3.*
 
 ## Chantier P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu)
 ### Tâches finies
@@ -774,6 +775,7 @@ _(vide)_
   - Fichiers : script/outil (hors site ou `scripts/`), `docs/business/03`.
   - Preuve GF-1 : run réel produisant une liste scorée + échantillon vérifié manuellement.
   - Dépend de : P0 (positionnement/offre figés).
+ ▸ *PARTIEL 2026-07-19 soir (`738d763a`) : outil de scoring ICP+BANT livré et prouvé (scripts/prospecting/, 47/47 assertions, critères fidèles business/03 §1.2 + 09 §3.2, npm run prospect:score) + gisement vague 1 dimensionné gratuit (7 856 PME 11-200 sal. avec site en Occitanie, fetch-entities-statistics 0 crédit). RESTE BLOQUÉ sur arbitrage Simon (fiche 0031) : le run réel Explorium (show-sample 5 crédits/table, export ~100-200 crédits/cycle) consomme des crédits payants ; 0 dépense sans signal. Enrichissement Firecrawl (perf/schema.org/CMS de 09 §3.2) = même attente.*
 - [ ] **P3.1-b — Séquences d'outreach + CRM lite**.
   - Objectif : séquences (skill `email-sequence`) + suivi léger des deals (CRM lite).
   - Fichiers : assets séquences, outil CRM lite.
@@ -792,11 +794,7 @@ _(vide)_
 ### Tâches finies
 _(vide)_
 ### Tâches en attente
-- [ ] **P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable** (modules activables).
-  - Objectif : transformer le repo en boilerplate forkable par client (modules on/off).
-  - Fichiers : structure repo, `marketing/05`.
-  - Preuve GF-1 : fork de démo qui build vert avec un sous-ensemble de modules.
-  - Dépend de : P0, P1 (base de référence stable).
+- [x] **P4.1-a — Extraire `waimia-web` en socle marketing IA modulaire forkable** ▸ *réconcilié 2026-07-19 : COUVERT par la chaîne forkabilité du mandat 19/07 : identité unique `src/site.config.ts` + apps-as-plugins par flag `src/apps.config.ts` (`packages/apps-seo-dashboard/`) + recette `FORK.md` (sweep 34 fichiers, 0 littéral applicatif). Preuve GF-1 exigée (« fork de démo qui build vert avec un sous-ensemble de modules ») = LIVRÉE deux fois : test fork Solstice (clone→build brandé ~2 min, route `/dashboard-seo` retirée puis remise par flag, `1fa9db70`) + démo réelle en ligne `solstice-web-demo.vercel.app` (`9be38c58`). Limite v0 consignée dans FORK.md : mega-menu non paramétrable (arbitrage en attente).* <!-- sb commit=9be38c58 gf1=y -->
 
 ## Chantier P4.2 — CMS lite + TinaCMS (visual editing 100% Astro)
 
@@ -846,9 +844,7 @@ _(vide)_
   - P3 connus à résorber : monotonie cards offres rangée « Construire » ; `/careers` colonne droite vide ;
     marqueurs timeline secteurs hétérogènes. Preuve GF-1 visuelle. Dépend de : refonte P0 déployée.
 
-- [ ] **T-6 — VISION FINALE résidus** (`state/01 §b`, `docs/40` archivé) : arbo **cas-par-secteur**
-  + **étiquettes catalogue** (non couverts par P0.2). Te poser : quoi reste-t-il de `docs/40` qui n'est
-    pas déjà dans P0/P2 ? Remonter ici. Dépend de : —
+- [x] **T-6 — VISION FINALE résidus** ▸ *soldé 2026-07-19 soir (investigation lecture-seule w-t6, triangulée) : les 2 items nommés sont LIVRÉS : arbo cas-par-secteur = `src/lib/sector-cases.ts` (grille cas par secteur injectée template) + maillage `meshForCase` ; étiquettes catalogue = champ `usage` `library-manifest.ts:27` + gate `check-usage-manifest.mjs` + badges fiche `/library`. Tout le reste de `docs/40` = couvert par P0/P2 ou SUPERSEDED par la refonte V7 (collections/routes redéfinies : 19 collections mais liste différente, tunnels/offres/glossary supprimées ; §8 motion lenis/gsap = non-prioritaire inchangé). 0 nouvelle tâche à créer (rouvrirait de l'obsolète). Micro-delta abandonné volontairement : breadcrumb secteur cliquable sur fiche cas (cohérent fiche 0020). `docs/40` reste archivé.* <!-- sb commit=e59c2a38 gf1=n -->
 - [x] **T-7 — Réconcilier les compteurs/statuts docs périmés** (`00-MASTER-PLAN` 147→151, etc.) — `state/01 §0`. ▸ *réconciliation compteurs livrée 2026-07-19 : canonique re-mesuré = **221 types / 221 modules co-localisés / 172 sections `.astro` / 6 templates / tokens.css 314 l / 823 presets / 221 previews** ; corrigés dans README §Compteurs, SYNTHESE §conflits, CLAUDE.md, ce NB. Reste : sweep statuts « en cours » soldés.* <!-- sb commit=3f8b5d23 gf1=n -->
   - Dépend de : —
 - [ ] **T-8 [?] — Décision 301 fintech** : `strategy/02` pose « pas de redirections » (domaine neuf) →
