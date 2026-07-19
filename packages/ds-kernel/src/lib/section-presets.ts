@@ -15,8 +15,13 @@
 import type { SectionType, SectionData } from '../schemas/sections';
 import { variantsFor } from './section-variants';
 
-/** Sous-ensemble de présentation surchargeable par un preset (axes transverses docs/46). */
+/** Sous-ensemble de présentation surchargeable par un preset (axes transverses docs/46).
+ *  Index signature : la route preview merge `{...demo, ...props}` au runtime, donc toute clé
+ *  de schéma est surchargeable sans éditer ce type (anti-conflit fan-out P2.9 multi-agents).
+ *  Un axe qui devient STABLE (réutilisé sur >=2 types) doit être remonté en champ typé
+ *  documenté ci-dessous au merge suivant ; le GF-1 par preset attrape les clés sans effet. */
 export type PresetProps = Partial<Pick<SectionData, never>> & {
+  [key: string]: unknown;
   background?: 'paper' | 'paper-2' | 'paper-3' | 'ink';
   layout?: string;
   density?: 'compact' | 'base' | 'ample';

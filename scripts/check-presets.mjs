@@ -92,7 +92,7 @@ const registryKeys = new Set(
 // sélecteurs [data-layout='…'] INTERNES aux composants de section (.astro) UNION la whitelist
 // des layouts pilotés par prop/switch interne. Sans cette union, un preset qui cible un layout
 // scopé composant faisait faussement rougir le gate alors que le layout existe et rend.
-const LAYOUT_SELECTOR = /\[data-layout='([a-z0-9-]+)'\]/g;
+const LAYOUT_SELECTOR = /\[data-layout=["']([a-z0-9-]+)["']\]/g;
 const knownLayouts = new Set([
   ...[...read(FILES.layouts).matchAll(LAYOUT_SELECTOR)].map((m) => m[1]),
   ...COMPONENT_INTERNAL_LAYOUTS,
