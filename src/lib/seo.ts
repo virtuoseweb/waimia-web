@@ -2,9 +2,10 @@
 // Cf docs/02-geo-aio-strategy.md
 
 import type { Lang } from './i18n';
+import { SITE } from '../site.config';
 
-const SITE_URL = 'https://waimia.com';
-const ORG_NAME = 'Waimia';
+const SITE_URL = SITE.url;
+const ORG_NAME = SITE.name;
 
 /** JSON-LD `Organization` réutilisable sur toutes les pages */
 export function organization() {
@@ -12,25 +13,22 @@ export function organization() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
-    legalName: 'VirtuoseWeb',
-    email: 'bonjour@waimia.com',
-    telephone: '+33 6 20 61 56 93',
-    foundingDate: '2020-10-15',
-    vatID: 'FR07890426307',
+    legalName: SITE.legalName,
+    email: SITE.email,
+    telephone: SITE.tel,
+    foundingDate: SITE.foundingDate,
+    vatID: SITE.vatID,
     name: ORG_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/favicon-256.png`,
     description: "Studio IA expert de l'écosystème Claude. Architecte de systèmes agentiques pour PME.",
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Montpellier',
-      addressRegion: 'Occitanie',
-      addressCountry: 'FR',
+      addressLocality: SITE.city,
+      addressRegion: SITE.region,
+      addressCountry: SITE.country,
     },
-    sameAs: [
-      'https://www.linkedin.com/company/waimia',
-      'https://share.google/nmlHLC5wQak9TWRPl',
-    ],
+    sameAs: [...SITE.sameAs],
     knowsAbout: [
       'Claude AI', 'Anthropic', 'agentic systems', 'MCP connectors',
       'Claude Skills', 'AI Act compliance', 'multi-agent orchestration',

@@ -10,6 +10,11 @@ import llmsTxt from '@4hse/astro-llms-txt';
 import llmsMdPages from './src/integrations/llms-md-pages';
 import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
+import { SITE } from './src/site.config.ts';
+
+// Marque centralisée (fondation forkabilité, fiche 0027 D4) : source unique = SITE.
+// Host nu (sans protocole) dérivé pour robots.txt `host`.
+const SITE_HOST = new URL(SITE.url).host;
 
 // Waimia · Astro 6 config · Static-first + API routes SSR via Vercel Functions
 // - output: 'static' : 100 % SSG par défaut, fichiers CDN immuables (T1.1 activé 2026-05-17)
@@ -25,7 +30,7 @@ import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 // embed dans le HTML statique (~3KB), pas de bundle supplémentaire mais pas de hop
 // HTTP non plus. Trade-off net neutre pour ce cas.
 export default defineConfig({
-  site: 'https://waimia.com',
+  site: SITE.url,
   // T1.1 activé 2026-05-17 — output static (95 % contenu evergreen → fichiers CDN immuables)
   // SSR opt-in via `export const prerender = false` sur les routes dynamiques.
   // Exceptions SSR justifiées (prerender=false) :
@@ -290,11 +295,11 @@ export default defineConfig({
         { userAgent: 'cohere-ai', allow: '/' },
         { userAgent: 'Bytespider', allow: '/' },
       ],
-      sitemap: 'https://waimia.com/sitemap-index.xml',
-      host: 'waimia.com',
+      sitemap: `${SITE.url}/sitemap-index.xml`,
+      host: SITE_HOST,
     }),
     llmsTxt({
-      title: 'Waimia',
+      title: SITE.name,
       description:
         "Waimia est un studio IA qui aide les PME B2B (20 à 500 personnes) à adopter l'IA de façon concrète : automatisation des workflows, acquisition, productivité opérationnelle et gouvernance.",
       details: [
@@ -306,7 +311,7 @@ export default defineConfig({
         "Chaque page est aussi disponible en version markdown : ajoutez .md à l'URL.",
       ].join('\n\n'),
       notes:
-        '- Site officiel : https://waimia.com\n- Pages markdown individuelles : ajoutez .md à toute URL.',
+        `- Site officiel : ${SITE.url}\n- Pages markdown individuelles : ajoutez .md à toute URL.`,
       docSet: [
         {
           title: 'Contenu complet',
@@ -337,7 +342,7 @@ export default defineConfig({
       ],
     }),
     llmsMdPages({
-      siteUrl: 'https://waimia.com',
+      siteUrl: SITE.url,
       exclude: ['404', 'api/**', 'bienvenue/**', 'agence/design-system', 'library/**'],
     }),
     // DEV-ONLY : persistance git-based du DS Studio (bouton "Enregistrer").

@@ -15,8 +15,9 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Kicker from '../components/ui/atoms/Kicker.astro';
 import DashboardSeoApp, { type TrackedPage } from '../components/dashboard-seo/DashboardSeoApp.tsx';
+import { SITE } from '../site.config';
 
-const ORIGIN = 'https://waimia.com';
+const ORIGIN = SITE.url;
 
 // Lecture de la « BDD » git-based : chaque .md = une page suivie. Le corps markdown
 // (entry.body) est la mémoire/notes, rendue read-only côté island.

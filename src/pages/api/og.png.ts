@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { Resvg } from "@resvg/resvg-js";
+import { SITE } from "../../site.config";
 
 export const prerender = false;
 
@@ -41,7 +42,7 @@ function splitTitle(title: string): [string, string] {
 }
 
 export const GET: APIRoute = async ({ url }) => {
-  const title = url.searchParams.get("title") ?? "Waimia";
+  const title = url.searchParams.get("title") ?? SITE.name;
   const kicker = url.searchParams.get("kicker") ?? "Intelligence artificielle";
   const author = url.searchParams.get("author") ?? "";
 
@@ -69,7 +70,7 @@ export const GET: APIRoute = async ({ url }) => {
   <rect width="1200" height="630" fill="#F6F1E8"/>
   <text fill="#8B7355" x="80" y="100" font-size="24" font-family="Georgia, serif" font-style="italic">${safeKicker}</text>${titleMarkup}
   <line x1="80" y1="560" x2="400" y2="560" stroke="#8B7355" stroke-width="2"/>${authorMarkup}
-  <text fill="#8B7355" x="1120" y="590" font-size="20" font-family="Georgia, serif" text-anchor="end">Waimia</text>
+  <text fill="#8B7355" x="1120" y="590" font-size="20" font-family="Georgia, serif" text-anchor="end">${escapeXml(SITE.name)}</text>
 </svg>`;
 
   const resvg = new Resvg(svg, {

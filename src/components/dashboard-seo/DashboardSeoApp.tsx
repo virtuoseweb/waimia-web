@@ -15,6 +15,7 @@
  * (un style hydraté provoque un mismatch SSR/client, cf pattern CatalogueExplorer).
  */
 import { useState } from "react";
+import { SITE } from "../../site.config";
 
 // ─── Contrats ───
 export interface TrackedPage {
@@ -174,7 +175,7 @@ async function runPageSpeed(fullUrl: string): Promise<{ scores: Scores; audits: 
   return { scores, audits };
 }
 
-export default function DashboardSeoApp({ pages, origin = "https://waimia.com" }: Props) {
+export default function DashboardSeoApp({ pages, origin = SITE.url }: Props) {
   const [state, setState] = useState<Record<string, Analysis>>({});
   const [batchRunning, setBatchRunning] = useState(false);
 

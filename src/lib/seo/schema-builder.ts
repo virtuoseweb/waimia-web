@@ -7,7 +7,9 @@
  *   // puis pass a <Base jsonLd={jsonLd}>
  */
 
-const SITE_URL = 'https://waimia.com';
+import { SITE } from '../../site.config';
+
+const SITE_URL = SITE.url;
 
 type Lang = 'fr' | 'en';
 type JsonLdObject = Record<string, unknown>;
@@ -82,7 +84,7 @@ function buildOrganization() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
-    name: 'Waimia',
+    name: SITE.name,
     url: SITE_URL,
     logo: `${SITE_URL}/favicon-256.png`,
     sameAs: ['https://www.linkedin.com/company/waimia'],
@@ -94,7 +96,7 @@ function buildLocalBusiness() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': `${SITE_URL}/#localbusiness`,
-    name: 'Waimia',
+    name: SITE.name,
     alternateName: 'VirtuoseWeb',
     url: SITE_URL,
     logo: `${SITE_URL}/favicon-256.png`,
@@ -126,7 +128,7 @@ function buildPersonFromAuthor(authorEntry: any, lang: Lang): JsonLdObject | und
     sameAs: [a.social?.linkedin, a.social?.x, a.social?.github, a.social?.website].filter(Boolean),
     worksFor: {
       '@type': 'Organization',
-      name: 'Waimia',
+      name: SITE.name,
       url: SITE_URL,
     },
   };
@@ -268,7 +270,7 @@ function buildArticle(
       {
         '@type': 'Organization',
         '@id': `${SITE_URL}/#organization`,
-        name: 'Waimia',
+        name: SITE.name,
         logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon-256.png` },
       },
     ...(input.mainEntityOfPage
@@ -381,7 +383,7 @@ function buildBookSchema(entry: any, lang: Lang) {
     description: lang === 'fr' ? d.description_fr : d.description_en,
     numberOfPages: d.pages,
     datePublished: new Date(d.publishedAt).toISOString().split('T')[0],
-    publisher: { '@type': 'Organization', name: 'Waimia' },
+    publisher: { '@type': 'Organization', name: SITE.name },
   };
 }
 
@@ -416,7 +418,7 @@ function buildServiceSchema(entry: any, lang: Lang) {
     description: lang === 'fr' ? d.description_fr : d.description_en,
     provider: {
       '@type': 'Organization',
-      name: 'Waimia',
+      name: SITE.name,
       url: SITE_URL,
     },
     areaServed: ['FR', 'CH'],
@@ -453,7 +455,7 @@ function buildCourseSchema(entry: any, lang: Lang): JsonLdObject {
   const title = lang === 'fr' ? d.title_fr : d.title_en;
   const description = lang === 'fr' ? d.description_fr : d.description_en;
 
-  const provider = { '@type': 'Organization', name: 'Waimia', url: SITE_URL };
+  const provider = { '@type': 'Organization', name: SITE.name, url: SITE_URL };
 
   if (d.course_type === 'atelier') {
     const ad = d;
@@ -539,7 +541,7 @@ function buildProductSchema(entry: any, lang: Lang): JsonLdObject {
     '@type': 'Service',
     name,
     description,
-    provider: { '@type': 'Organization', name: 'Waimia', url: SITE_URL },
+    provider: { '@type': 'Organization', name: SITE.name, url: SITE_URL },
     offers: {
       '@type': 'Offer',
       price: d.price_eur_monthly,
