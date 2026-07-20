@@ -1,0 +1,1120 @@
+---
+export const prerender = true;
+
+// Page static · /library/[type] · FICHE DÉTAIL CANONIQUE du catalogue DS (datasheet de composant).
+//
+// Parti pris « datasheet » (ordre vertical, pas de sticky) : fil d'Ariane mono cliquable, masthead
+// (eyebrow + h1 mono + ligne-thèse serif + status/usage + lede + tags cliquables), aperçu live
+// (VariantToggle), panneau « Comment l'utiliser » (identité sémantique intent/pageRole/contentMode +
+// facettes + contrat de slots = datasheet), déclinaisons (presets), sections liées (3 rails disjoints),
+// code (demo JSON + chemin MCP tier-2).
+//
+// Toute la donnée vient du registry (source de vérité unique) via les helpers T1 :
+//   getBreadcrumb · listFamilyPeers · listCategoryPeers · listSimilarSections.
+// 0 nouveau token DS (rule 60), 0 valeur en dur (tokens var(--*) uniquement, sauf exceptions
+// structurelles : 1px hairline, 1280px frame preview, breakpoint @media). 0 U+2014 (rule 58).
+//
+// NB collision de routes : /library/[category] et /library/[type] coexistent au même niveau ;
+// leurs getStaticPaths émettent des paths DISJOINTS (slugs de catégories vs types de section).
+
+import Base from '../../../../../src/layouts/Base.astro';
+import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
+import CopyCode from '@waimia/catalogue-ui/CopyCode.tsx';
+import VariantToggle from '@waimia/catalogue-ui/VariantToggle.tsx';
+import FacetChip from '@waimia/catalogue-ui/FacetChip.astro';
+import SectionCard from '@waimia/catalogue-ui/SectionCard.astro';
+import {
+  listSections,
+  listCategories,
+  listFamilyPeers,
+  listCategoryPeers,
+  listSimilarSections,
+  getBreadcrumb,
+  type SectionListItem,
+} from '../../../../../src/lib/section-registry';
+import {
+  INTENT_LABELS_FR,
+  PAGE_ROLE_LABELS_FR,
+  CONTENT_MODE_LABELS_FR,
+  FACET_LABELS_FR,
+  type FacetKind,
+} from '@waimia/ds-kernel/lib/section-facets';
+import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots';
+import { SECTION_DEMOS } from '../../../../../src/lib/section-demos';
+import { getUsage } from '../../../../../src/lib/library-manifest';
+import { getRealUsage } from '../../../../../src/lib/section-usage.generated';
+import { getInstances, getInlineConsumers } from '../../../../../src/lib/section-instances.generated';
+import { listDeclinaisons } from '@waimia/ds-kernel/lib/section-presets';
+
+export function getStaticPaths() {
+  return listSections().map((section) => ({
+    params: { type: section.type },
+    props: { section },
+  }));
+}
+
+interface Props {
+  section: SectionListItem;
+}
+
+const { section } = Astro.props;
+
+// Map slug -> libellé court humain (subcategory), partagée par le fil d'Ariane et les rails
+// (les rails « Similaires » peuvent traverser les catégories, d'où la résolution par map).
+const categoryLabelBySlug = new Map(listCategories().map((c) => [c.slug, c.label]));
+const labelForCategory = (slug: string, fallback: string): string =>
+  categoryLabelBySlug.get(slug) ?? fallback;
+
+const categoryLabel = labelForCategory(section.categorySlug, section.subcategory);
+
+// Fil d'Ariane (T1) : Catalogue › catégorie › famille › type.
+const crumb = getBreadcrumb(section.type);
+
+// Ligne-thèse serif : « ce que fait la section » à partir des libellés d'intention.
+const thesis = section.intent.map((t) => INTENT_LABELS_FR[t]).join(', ');
+
+// Étiquetage catalogue (docs/40 §3) : usage 'site' | 'library'.
+const usage = getUsage(section.type);
+// Usage RÉEL (section-usage.generated.ts) : compteur d'instances + pages réelles qui
+// posent cette section (routes publiques quand connues). Source = pages composables.
+const realUsage = getRealUsage(section.type);
+const consumerCount = realUsage.count;
+
+// Lien cliquable depuis un libellé de page : les routes publiques commencent par '/'
+// (cliquables) ; les chemins de fichier source restent en texte (non navigables).
+const pageHref = (page: string): string | null => (page.startsWith('/') ? page : null);
+
+// Index d'INSTANCES (Bricks U1) : chaque pose réelle de cette section sur le site, avec
+// sa localisation (route, position dans sections[]), sa variante et un label reconnaissable.
+// + consommateurs inline hand-authored (pages .astro / templates) non éditables par la vue.
+const instances = getInstances(section.type);
+const inlineConsumers = getInlineConsumers(section.type);
+const instancePageCount = new Set(instances.map((i) => i.route)).size;
+// Chips de variante d'une instance (preset / variant / background), dans cet ordre.
+const instanceVariants = (inst: (typeof instances)[number]): { key: string; value: string }[] => {
+  const out: { key: string; value: string }[] = [];
+  for (const key of ['preset', 'variant', 'background'] as const) {
+    const value = inst[key];
+    if (typeof value === 'string' && value.length > 0) out.push({ key, value });
+  }
+  return out;
+};
+
+// Badge modèle de contenu (FOSSÉ 4) : instance / global-ref / hybrid -> libellé FR + clé.
+const contentMode = section.contentMode;
+const contentModeLabel = CONTENT_MODE_LABELS_FR[contentMode];
+
+// Datasheet : contrat de slots dérivé du Zod (présentation/contenu, type, requis, bilingue, bornes/enum).
+const slots: SectionSlot[] = getSlots(section.type);
+
+// Facettes ORTHOGONALES filtrées (mêmes règles que SectionCard : on retire les valeurs vides).
+type FacetGroup = { kind: FacetKind; label: string; tags: string[] };
+const facetGroups: FacetGroup[] = ([
+  { kind: 'effects', label: 'Effets', tags: section.effects.filter((t) => t !== 'static') },
+  { kind: 'interactions', label: 'Interactions', tags: section.interactions.filter((t) => t !== 'none') },
+  { kind: 'elements', label: 'Éléments', tags: section.elements },
+  { kind: 'layoutFacets', label: 'Mise en page', tags: section.layoutFacets },
+] satisfies FacetGroup[]).filter((g) => g.tags.length > 0);
+const facetLabel = (kind: FacetKind, tag: string): string =>
+  (FACET_LABELS_FR[kind] as Record<string, string>)[tag] ?? tag;
+
+// Code copiable : l'entrée telle qu'on la placerait dans le sections[] d'une page W6.
+const demo = SECTION_DEMOS[section.type];
+const sectionEntry = JSON.stringify(demo, null, 2);
+
+// Chemin machine tier-2 (MCP / agent) : détail JSON de la section.
+const mcpPath = `/library/section/${section.type}.json`;
+
+// Déclinaisons : presets CURÉS (manuels) ∪ variantes GÉNÉRÉES (variantsFor, capées).
+// Comble l'angle mort « Déclinaisons · 0 » : la fiche ne lisait que les presets manuels.
+const declinaisons = listDeclinaisons(section.type);
+
+// ── Comparateur de déclinaisons : DIFF D'AXES de chaque déclinaison par rapport à la démo par
+//    défaut (le rendu de base du type). Les props d'une déclinaison sont des surcharges de
+//    présentation étalées sur la démo ; on ne montre QUE les axes qui changent réellement une
+//    valeur (background:ink, layout:even-3…). Un axe scalaire différent = badge `clé:valeur` ;
+//    un axe structurel (illustration/features/itemOrder/placement) différent = badge `clé`.
+const demoRecord = (demo ?? {}) as Record<string, unknown>;
+const isScalar = (v: unknown): v is string | number | boolean =>
+  typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean';
+type AxisBadge = { key: string; label: string };
+const axisDiff = (props: Record<string, unknown>): AxisBadge[] => {
+  const out: AxisBadge[] = [];
+  for (const [key, value] of Object.entries(props)) {
+    if (key === 'type' || value === undefined) continue;
+    const baseline = demoRecord[key];
+    if (isScalar(value)) {
+      if (value !== baseline) out.push({ key, label: `${key}:${value}` });
+    } else if (JSON.stringify(value) !== JSON.stringify(baseline)) {
+      out.push({ key, label: key });
+    }
+  }
+  return out;
+};
+// Les presets CURÉS sont les seuls résolvables par le builder (`item.presets` = listPresets) :
+// on ne branche le deep-link `&preset=<id>` que pour eux ; une déclinaison générée ouvre le type
+// nu (ses axes restent lisibles en badges). Cf src/pages/library/builder/index.astro:49.
+const comparisons = declinaisons.items.map((decl) => ({
+  ...decl,
+  badges: axisDiff(decl.props),
+  builderHref:
+    decl.origin === 'curated'
+      ? `/library/builder?add=${section.type}&preset=${encodeURIComponent(decl.id)}`
+      : `/library/builder?add=${section.type}`,
+}));
+
+// Sections liées : 3 rails DISJOINTS, chacun capé à 6.
+const familyPeers = listFamilyPeers(section.type).slice(0, 6);
+const categoryPeers = listCategoryPeers(section.type).slice(0, 6);
+const similarPeers = listSimilarSections(section.type, {
+  limit: 6,
+  exclude: [...familyPeers.map((s) => s.type), ...categoryPeers.map((s) => s.type)],
+}).map((r) => r.section);
+
+const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = [
+  { id: 'family', label: 'Même famille', peers: familyPeers },
+  { id: 'category', label: 'Même catégorie', peers: categoryPeers },
+  { id: 'similar', label: 'Similaires', peers: similarPeers },
+].filter((rail) => rail.peers.length > 0);
+---
+
+<Base
+  title={`${section.type} · Composant Waimia`}
+  description={section.description_fr}
+  alternate={false}
+  noindex
+>
+  <article class="component-detail">
+    <div class="wrap-wide">
+      <DsLocalNav active="catalogue" scope="library" note="Ici : la fiche technique d'une section. Aperçu en rendu isolé + données à copier dans sections[]." />
+
+      <nav class="component-crumb" aria-label="Fil d'Ariane">
+        <a class="component-crumb-link" href="/library#catalogue">Catalogue</a>
+        <span class="component-crumb-sep" aria-hidden="true">/</span>
+        <a class="component-crumb-link" href={`/library/${crumb.categorySlug}`}>{categoryLabel}</a>
+        {crumb.family && (
+          <>
+            <span class="component-crumb-sep" aria-hidden="true">/</span>
+            <a class="component-crumb-link" href={`/library/family/${crumb.family}`}>{crumb.family}</a>
+          </>
+        )}
+        <span class="component-crumb-sep" aria-hidden="true">/</span>
+        <span class="component-crumb-current" aria-current="page">{section.type}</span>
+      </nav>
+
+      <header class="component-head">
+        <p class="component-subcat">{section.subcategory}</p>
+        <div class="component-head-top">
+          <h1>{section.type}</h1>
+          <span class={`component-status component-status--${section.status}`}>{section.status}</span>
+          {usage === 'site' ? (
+            <span class="component-usage component-usage--site">Sur waimia · {consumerCount}</span>
+          ) : (
+            <span class="component-usage component-usage--library">Bibliothèque</span>
+          )}
+          {/* Badge modèle de contenu (FOSSÉ 4) : repère « global » (source partagée) vs
+              « instance » (contenu par page) d'un coup d'œil. */}
+          <span class={`component-mode component-mode--${contentMode}`} title={contentModeLabel}>
+            {contentModeLabel}
+          </span>
+        </div>
+        {thesis && <p class="component-thesis">{thesis}</p>}
+        <p class="component-lede">{section.description_fr}</p>
+        {section.tags.length > 0 && (
+          <div class="component-tags" aria-label={`Tags ${section.type}`}>
+            {section.tags.map((tag) => (
+              <FacetChip href={`/library?tag=${encodeURIComponent(tag)}`} label={tag} />
+            ))}
+          </div>
+        )}
+
+        <div class="component-actions">
+          <a class="component-open-builder" href={`/library/builder?add=${section.type}`}>
+            Ouvrir dans le builder
+          </a>
+        </div>
+      </header>
+
+      {/* Instances sur le site (Bricks U1) : le composant « global » + chacune de ses poses
+          réelles (route, position, label, variante). Consommateurs inline signalés à part
+          (non éditables par la vue). État vide propre si la section n'est qu'en bibliothèque. */}
+      <section class="component-block" aria-label="Instances sur le site">
+        <h2 class="component-block-title">Instances sur le site</h2>
+        <p class="component-instances-head">
+          <span class="component-instances-badge">Global</span>
+          {instances.length > 0 ? (
+            <span class="component-instances-count">
+              {instances.length} instance{instances.length > 1 ? 's' : ''} sur {instancePageCount} page{instancePageCount > 1 ? 's' : ''}
+            </span>
+          ) : (
+            <span class="component-instances-count">0 instance en page composable</span>
+          )}
+        </p>
+
+        {instances.length > 0 ? (
+          <div class="component-datasheet-scroll">
+            <table class="component-instances-table">
+              <thead>
+                <tr>
+                  <th scope="col">Page</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Contenu</th>
+                  <th scope="col">Variante</th>
+                </tr>
+              </thead>
+              <tbody>
+                {instances.map((inst) => {
+                  const href = pageHref(inst.route);
+                  const variants = instanceVariants(inst);
+                  return (
+                    <tr>
+                      <td>
+                        {href ? (
+                          <a class="component-usage-link" href={href}>{inst.route}</a>
+                        ) : (
+                          <code class="component-usage-path">{inst.route}</code>
+                        )}
+                      </td>
+                      <td><code class="component-instances-pos">section {inst.index + 1}</code></td>
+                      <td class="component-instances-label">{inst.label}</td>
+                      <td>
+                        {variants.length > 0 ? (
+                          <span class="component-instances-variants">
+                            {variants.map((v) => (
+                              <span class="component-instances-chip" title={v.key}>{v.value}</span>
+                            ))}
+                          </span>
+                        ) : (
+                          <span class="component-meta-note">·</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ) : inlineConsumers.length === 0 ? (
+          <p class="component-meta-note">Uniquement en bibliothèque (aucune instance en page).</p>
+        ) : null}
+
+        {inlineConsumers.length > 0 && (
+          <div class="component-instances-inline">
+            <p class="component-meta-label">Composé inline <span class="component-instances-inline-badge">inline · non éditable ici</span></p>
+            <ul class="component-usage-list" aria-label={`Consommateurs inline de ${section.type}`}>
+              {inlineConsumers.map((c) => {
+                const href = pageHref(c);
+                return (
+                  <li class="component-usage-item">
+                    {href ? (
+                      <a class="component-usage-link" href={href}>{c}</a>
+                    ) : (
+                      <code class="component-usage-path">{c}</code>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </section>
+
+      <section class="component-block" aria-label="Aperçu live">
+        <h2 class="component-block-title">Aperçu</h2>
+        <VariantToggle
+          client:visible
+          type={section.type}
+          title={`Aperçu ${section.type}`}
+        />
+      </section>
+
+      <section class="component-block" aria-label="Comment utiliser la section">
+        <h2 class="component-block-title">Comment l'utiliser</h2>
+
+        <div class="component-identity">
+          {section.intent.length > 0 && (
+            <div class="component-meta-group">
+              <p class="component-meta-label">Intention</p>
+              <div class="component-chip-row">
+                {section.intent.map((tag) => (
+                  <FacetChip href={`/library?intent=${tag}`} label={INTENT_LABELS_FR[tag]} tone="accent" />
+                ))}
+              </div>
+            </div>
+          )}
+          {section.pageRole.length > 0 && (
+            <div class="component-meta-group">
+              <p class="component-meta-label">Rôle de page</p>
+              <div class="component-chip-row">
+                {section.pageRole.map((tag) => (
+                  <FacetChip href={`/library?pageRole=${tag}`} label={PAGE_ROLE_LABELS_FR[tag]} />
+                ))}
+              </div>
+            </div>
+          )}
+          <div class="component-meta-group">
+            <p class="component-meta-label">Modèle de contenu</p>
+            <div class="component-chip-row">
+              <FacetChip href={`/library?contentMode=${section.contentMode}`} label={CONTENT_MODE_LABELS_FR[section.contentMode]} />
+            </div>
+            {section.contentSource && (
+              <p class="component-meta-note">Source partagée : <code>{section.contentSource}</code></p>
+            )}
+          </div>
+        </div>
+
+        {facetGroups.length > 0 && (
+          <div class="component-facets">
+            {facetGroups.map((group) => (
+              <div class="component-meta-group">
+                <p class="component-meta-label">{group.label}</p>
+                <div class="component-chip-row">
+                  {group.tags.map((tag) => (
+                    <FacetChip href={`/library?${group.kind}=${tag}`} label={facetLabel(group.kind, tag)} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div class="component-datasheet">
+          <p class="component-meta-label">Contrat de slots</p>
+          {slots.length > 0 ? (
+            <div class="component-datasheet-scroll">
+              <table class="component-slots">
+                <thead>
+                  <tr>
+                    <th scope="col">Champ</th>
+                    <th scope="col">Nature</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Requis</th>
+                    <th scope="col">Bilingue</th>
+                    <th scope="col">Bornes / valeurs</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {slots.map((slot) => (
+                    <tr>
+                      <td><code class="component-slot-field">{slot.field}</code></td>
+                      <td>{slot.kind === 'content' ? 'Contenu' : 'Présentation'}</td>
+                      <td><code class="component-slot-type">{slot.type}</code></td>
+                      <td>{slot.required ? 'Oui' : 'Non'}</td>
+                      <td>{slot.bilingual ? 'fr / en' : '·'}</td>
+                      <td class="component-slot-bounds">
+                        {slot.enumValues && slot.enumValues.length > 0
+                          ? slot.enumValues.join(' · ')
+                          : (slot.min !== undefined || slot.max !== undefined)
+                            ? `${slot.min ?? 0}..${slot.max ?? '∞'}`
+                            : '·'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p class="component-meta-note">Pas de contrat de slots dérivé.</p>
+          )}
+        </div>
+      </section>
+
+      {declinaisons.total > 0 && (
+        <section class="component-block" aria-label="Déclinaisons de la section">
+          <h2 class="component-block-title">Déclinaisons · {declinaisons.total}</h2>
+          <p class="component-presets-lede">
+            Combinaisons nommées « variante × palette × densité » appliquées à ce composant, prévisualisées en rendu isolé.
+            {declinaisons.curatedCount > 0 && declinaisons.generatedCount > 0
+              ? ` ${declinaisons.curatedCount} curée${declinaisons.curatedCount > 1 ? 's' : ''}, ${declinaisons.generatedCount} générée${declinaisons.generatedCount > 1 ? 's' : ''}.`
+              : ''}
+            {declinaisons.generatedShown < declinaisons.generatedCount
+              ? ` Échantillon des ${declinaisons.generatedShown} premières générées (sur ${declinaisons.generatedCount}) ; toutes accessibles en rendu isolé.`
+              : ''}
+          </p>
+          <ul class="component-presets">
+            {declinaisons.items.map((decl) => (
+              <li class="component-preset">
+                <div class="component-preset-preview" data-preview-frame data-max-height="260" aria-hidden="true">
+                  <iframe class="component-preset-frame" src={`/preview/${section.type}/${decl.id}`} title={`Aperçu ${decl.label}`} loading="lazy" tabindex="-1" scrolling="no"></iframe>
+                </div>
+                <div class="component-preset-head">
+                  <p class="component-preset-label">{decl.label}</p>
+                  <span class={`component-preset-origin component-preset-origin--${decl.origin}`}>
+                    {decl.origin === 'curated' ? 'curée' : 'générée'}
+                  </span>
+                </div>
+                <code class="component-preset-id">{decl.id}</code>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {comparisons.length > 0 && (
+        <section class="component-block" id="comparer" aria-label="Comparer les déclinaisons">
+          <h2 class="component-block-title">Comparer les déclinaisons · {comparisons.length}</h2>
+          <p class="component-presets-lede">
+            Chaque déclinaison, résumée par son <strong>écart d'axes</strong> face à la démo par défaut
+            du type : seuls les axes qui changent une valeur sont listés. Ouvre-la dans le builder pour
+            l'assembler dans une page.
+          </p>
+          <ul class="component-compare">
+            {comparisons.map((decl) => (
+              <li class="component-compare-card">
+                <div class="component-compare-head">
+                  <p class="component-compare-label">{decl.label}</p>
+                  <span class={`component-preset-origin component-preset-origin--${decl.origin}`}>
+                    {decl.origin === 'curated' ? 'curée' : 'générée'}
+                  </span>
+                </div>
+                <code class="component-preset-id">{decl.id}</code>
+                {decl.badges.length > 0 ? (
+                  <div class="component-compare-badges" aria-label="Écart d'axes">
+                    {decl.badges.map((b) => (
+                      <span class="component-compare-badge">{b.label}</span>
+                    ))}
+                  </div>
+                ) : (
+                  <p class="component-meta-note">Identique à la démo par défaut (aucun axe surchargé).</p>
+                )}
+                <a class="component-compare-open" href={decl.builderHref}>Ouvrir dans le builder</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {relatedRails.length > 0 && (
+        <section class="component-block" aria-label="Sections liées">
+          <h2 class="component-block-title">Sections liées</h2>
+          {relatedRails.map((rail) => (
+            <div class="component-rail">
+              <p class="component-rail-title">{rail.label}</p>
+              <div class="component-rail-grid">
+                {rail.peers.map((peer) => (
+                  <SectionCard
+                    type={peer.type}
+                    family={peer.family}
+                    categoryLabel={labelForCategory(peer.categorySlug, peer.subcategory)}
+                    status={peer.status}
+                    effects={peer.effects}
+                    interactions={peer.interactions}
+                    elements={peer.elements}
+                    layoutFacets={peer.layoutFacets}
+                    presetCount={listDeclinaisons(peer.type).total}
+                    href={`/library/${peer.type}`}
+                    previewSlug={peer.type}
+                    maxHeight={220}
+                    description={peer.description_fr}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      <section class="component-block" aria-label="Code de la section">
+        <h2 class="component-block-title">Code</h2>
+        <CopyCode
+          client:visible
+          code={sectionEntry}
+          label="Données de la section (à placer dans sections[])"
+        />
+        <div class="component-mcp">
+          <p class="component-meta-label">Pour un agent / MCP</p>
+          <p class="component-meta-note">Détail machine de cette section (intention, rôle, contrat de slots, sections liées).</p>
+          <p class="component-mcp-path"><code>{mcpPath}</code></p>
+          <CopyCode client:visible code={mcpPath} label="Chemin du détail machine" />
+        </div>
+      </section>
+    </div>
+  </article>
+
+  <script>import '@waimia/catalogue-ui/lazy-preview.ts';</script>
+  <script>import '../../../../../src/scripts/preview-frame.ts';</script>
+</Base>
+
+<style>
+  .component-detail {
+    padding: var(--section-base) 0 var(--section-base);
+  }
+  .component-detail .wrap-wide {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  /* ── Fil d'Ariane mono ── */
+  .component-crumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-crumb-link {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .component-crumb-link:hover { color: var(--accent-text); }
+  .component-crumb-sep {
+    color: var(--hairline-strong);
+  }
+  .component-crumb-current {
+    color: var(--ink);
+  }
+
+  /* ── Masthead ── */
+  .component-head {
+    margin-bottom: var(--space-9);
+  }
+  .component-subcat {
+    margin: 0 0 var(--space-4);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+  .component-head-top {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .component-head h1 {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .component-status {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .component-status--stable {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  .component-status--wip {
+    border-color: var(--muted-2);
+    color: var(--muted);
+  }
+  .component-status--deprecated {
+    border-color: var(--hairline-strong);
+    color: var(--muted-2);
+  }
+  .component-usage {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    white-space: nowrap;
+    letter-spacing: var(--tracking-mono-tight);
+  }
+  .component-usage--site {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  .component-usage--library {
+    border-color: var(--hairline-strong);
+    color: var(--muted);
+  }
+  /* Badge modèle de contenu (instance / global-ref / hybrid). Même langage mono que
+     status/usage ; « global » accentué pour le repérage rapide. 0 nouveau token. */
+  .component-mode {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    white-space: nowrap;
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+  }
+  .component-mode--global-ref {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  /* Liste des pages réelles qui posent la section (datasheet usage). */
+  .component-usage-pages {
+    margin-top: var(--space-5);
+  }
+  .component-usage-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .component-usage-link,
+  .component-usage-path {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-usage-link {
+    color: var(--accent-text);
+    text-decoration: none;
+  }
+  .component-usage-link:hover {
+    text-decoration: underline;
+  }
+  .component-usage-path {
+    color: var(--muted);
+  }
+
+  /* ── Instances sur le site (Bricks U1) ── */
+  .component-instances-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-5);
+  }
+  .component-instances-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--accent-text);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-instances-count {
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-instances-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+  }
+  .component-instances-table th {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .component-instances-table td {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .component-instances-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .component-instances-pos {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    white-space: nowrap;
+  }
+  .component-instances-label {
+    color: var(--ink);
+  }
+  .component-instances-variants {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .component-instances-chip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-instances-inline {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+  .component-instances-inline-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-left: var(--space-2);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  .component-thesis {
+    max-width: 720px;
+    margin: var(--space-5) 0 0;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    font-weight: var(--fw-medium);
+  }
+  .component-lede {
+    max-width: 680px;
+    margin: var(--space-4) 0 0;
+    color: var(--ink-2);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+  }
+  .component-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+  }
+
+  /* ── Blocs ── */
+  .component-block {
+    margin-top: var(--space-9);
+  }
+  .component-block-title {
+    margin: 0 0 var(--space-5);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+
+  /* ── Panneau « Comment l'utiliser » ── */
+  .component-meta-label {
+    margin: 0 0 var(--space-3);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+  .component-meta-note {
+    margin: var(--space-2) 0 0;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+  }
+  .component-meta-note code {
+    font-family: var(--font-mono);
+    color: var(--ink-2);
+  }
+  .component-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .component-identity {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+  .component-meta-group {
+    min-width: 0;
+  }
+  .component-facets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+
+  /* ── Datasheet (contrat de slots) ── */
+  .component-datasheet {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+  .component-datasheet-scroll {
+    overflow-x: auto;
+  }
+  .component-slots {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+  }
+  .component-slots th {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .component-slots td {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .component-slots tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .component-slot-field {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+  }
+  .component-slot-type {
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-slot-bounds {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+  }
+
+  /* ── Déclinaisons (presets) ── */
+  .component-presets-lede {
+    margin: 0 0 var(--space-5);
+    max-width: 60ch;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+  }
+  .component-presets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .component-preset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  /* Ligne label + badge d'origine (curée / générée). Même langage mono/hairline que
+     status/usage/mode du masthead ; 0 nouveau token DS. */
+  .component-preset-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .component-preset-origin {
+    flex: none;
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-preset-origin--curated {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  .component-preset-preview {
+    display: block;
+    position: relative;
+    min-height: 140px;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  .component-preset-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    border: 0;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+  .component-preset-label {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+  }
+  .component-preset-id {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+  }
+
+  /* ── Action masthead : ouvrir dans le builder ── */
+  .component-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+  .component-open-builder {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--accent-text);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-4);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .component-open-builder:hover {
+    background: var(--accent-text);
+    color: var(--paper);
+  }
+
+  /* ── Comparateur de déclinaisons (écart d'axes) ── */
+  .component-compare {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .component-compare-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper-2);
+  }
+  .component-compare-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .component-compare-label {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+  }
+  .component-compare-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .component-compare-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-2);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .component-compare-open {
+    margin-top: auto;
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-decoration: none;
+  }
+  .component-compare-open:hover { text-decoration: underline; }
+
+  /* ── Sections liées (3 rails) ── */
+  .component-rail {
+    margin-top: var(--space-6);
+  }
+  .component-rail:first-child {
+    margin-top: 0;
+  }
+  .component-rail-title {
+    margin: 0 0 var(--space-4);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+  .component-rail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-5);
+  }
+
+  /* ── Code / MCP ── */
+  .component-mcp {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+  }
+  .component-mcp-path {
+    margin: var(--space-3) 0;
+  }
+  .component-mcp-path code {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+
+  @media (max-width: 720px) {
+    .component-detail .wrap-wide {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .component-identity,
+    .component-facets {
+      gap: var(--space-5);
+    }
+  }
+</style>

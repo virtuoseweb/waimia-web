@@ -13,11 +13,36 @@ import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 import { SITE } from './src/site.config.ts';
 // Apps-as-plugins (fiche 0027 D3) : registre des apps internes extraites en packages.
 // Chaque app enabled+extraite expose une AstroIntegration qui injecte sa route.
-import { enabledAppIntegrations } from './src/apps.config.ts';
+import { enabledAppIntegrations, APPS } from './src/apps.config.ts';
 
 // Marque centralisée (fondation forkabilité, fiche 0027 D4) : source unique = SITE.
 // Host nu (sans protocole) dérivé pour robots.txt `host`.
 const SITE_HOST = new URL(SITE.url).host;
+
+// Apps-as-plugins (E1) · redirections dont la DESTINATION est une route /library/*
+// (servie par l'app extraite « atelier »). Astro leve InvalidRedirectDestination si la
+// cible n'existe pas → ces 301 ne sont valides QUE lorsque l'atelier est monte. On les
+// conditionne donc au flag APPS.atelier.enabled : atelier off → les routes /library/*
+// ET ces redirections disparaissent ensemble (le reste du site public reste intact).
+/** @type {Record<string, string>} */
+const atelierRedirects = APPS.atelier?.enabled
+  ? {
+      // Cutover atelier DS → /library/* (decision docs/design-system/03 §11.2).
+      '/agence/design-system': '/library',
+      '/agence/ds-studio': '/library/studio',
+      '/agence/hero-lab': '/library/hero-lab',
+      // Fiche detail catalogue → page canonique /library/[type] (vague #60).
+      '/components/[type]': '/library/[type]',
+      '/categories/[category]': '/library/[category]',
+      // Wave #34 · nettoyage taxonomie degeneree du catalogue DS.
+      '/library/call-to-action-sections': '/library/cta-sections',
+      '/library/trust-proof': '/library/trust-sections',
+      '/library/family/eeat': '/library/family/prose',
+      '/library/family/manifesto': '/library/family/prose',
+      '/library/family/pain': '/library/family/prose',
+      '/library/family/flow': '/library/family/process-steps',
+    }
+  : {};
 
 // Waimia · Astro 6 config · Static-first + API routes SSR via Vercel Functions
 // - output: 'static' : 100 % SSG par défaut, fichiers CDN immuables (T1.1 activé 2026-05-17)
@@ -136,16 +161,10 @@ export default defineConfig({
     // les URLs internes/indexées. Cibles existantes (pas de 301-vers-404). Avec l'adapter
     // static Vercel, Astro émet une 301 (GET) dans .vercel/output/config.json (doc Astro
     // « redirects » : status 301 par défaut, supporté en static adapter).
-    '/agence/design-system': '/library',
-    '/agence/ds-studio': '/library/studio',
-    '/agence/hero-lab': '/library/hero-lab',
-    // 2026-06-28 · Cutover fiche detail catalogue vers la page canonique unique
-    // /library/[type] (blueprint tasks/wave-preview-redesign-spec.md, vague #60).
-    // Les pages doublons /components/[type].astro et /categories/[slug].astro sont
-    // supprimees ; ces redirects dynamiques preservent les URLs internes/indexees
-    // (noindex). Astro substitue le param du source dans la destination (doc redirects).
-    '/components/[type]': '/library/[type]',
-    '/categories/[category]': '/library/[category]',
+    // Apps-as-plugins (E1) · les 301 vers /library/* (cutover atelier + fiche detail
+    // /components|/categories + taxonomie #34) sont conditionnees au flag atelier :
+    // voir `atelierRedirects` en tete de fichier. Spread ici pour garder leur position.
+    ...atelierRedirects,
     // V7-FOLD 2026-06-22 · refonte Phase 1 : la page service /tunnel-conversion-intelligent
     // (prod-live, indexée) est renommée /landing-page-scoring et absorbe le scoring.
     // 301 obligatoire pour préserver le ranking de l'ancienne URL.
@@ -185,12 +204,7 @@ export default defineConfig({
     // Catégories dé-dupliquées (slug singleton fusionné dans son équivalent) et
     // familles singleton repliées sur leur cible même-archétype. 301 pour préserver
     // les URLs /library/* internes/indexées (noindex). Cibles existantes (pas de 301-vers-404).
-    '/library/call-to-action-sections': '/library/cta-sections',
-    '/library/trust-proof': '/library/trust-sections',
-    '/library/family/eeat': '/library/family/prose',
-    '/library/family/manifesto': '/library/family/prose',
-    '/library/family/pain': '/library/family/prose',
-    '/library/family/flow': '/library/family/process-steps',
+    // (E1) Ces 301 taxonomie /library/* → voir `atelierRedirects` (conditionnees au flag atelier).
     // Refonte v7 2026-06-29 · suppression du hub /offres (3-piliers / pyramide).
     // L'architecture v7 = 2 offres sous /services. audit-maturite-ia migré en page
     // top-level /audit-maturite-ia ; growth-system-ia supprimé (301 → /services).

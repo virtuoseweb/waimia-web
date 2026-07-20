@@ -1,0 +1,15 @@
+{
+  "name": "@waimia/apps-atelier",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Waimia app-as-plugin : l'atelier DS (catalogue /library, fiche section /library/[type], DS Studio /library/studio, builder /library/builder, config, hero-lab, hero-explore). 2e extraction reelle de l'architecture apps-as-plugins (fiche 0027 D3). Toutes les routes /library/* sont injectees dans l'app hote via AstroIntegration (injectRoute) avec des patterns d'URL identiques. Les entrypoints dependent du host (DS, layouts, lib, data, scripts, SectionsRenderer) par imports relatifs vers la racine du repo, et des packages workspace @waimia/* par leur nom.",
+  "exports": {
+    "./integration": "./integration.mjs",
+    "./*.astro": "./src/*.astro",
+    "./*.tsx": "./src/*.tsx"
+  },
+  "dependencies": {
+    "react": "^18.3.1"
+  }
+}

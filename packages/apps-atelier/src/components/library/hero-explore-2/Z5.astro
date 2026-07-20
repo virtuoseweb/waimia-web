@@ -1,0 +1,253 @@
+---
+/**
+ * Z5 · « Tri-zone asymétrique » (multi-zone, PAS 2-col)
+ * Héro de page service EXPLORATOIRE (page-labo, contenu de démo bake FR).
+ * ADN éditorial repris de HeroHome : MastheadRow + signature-grid + titre serif
+ * accent italique PLEINE LARGEUR, puis une rangée de 3 zones asymétriques
+ * (1.6fr / 1.1fr / 0.9fr) séparées par hairlines verticales :
+ *   A = lede + CTA dual · B = mini-map capacités compacte · C = 2 KPI serif.
+ * Full-viewport + responsive + paper/ink. 0 hardcode (tokens DS only). Magazine.
+ */
+import MastheadRow from '../../../../../../src/components/ui/molecules/MastheadRow.astro';
+import Kicker from '../../../../../../src/components/ui/atoms/Kicker.astro';
+import Button from '../../../../../../src/components/ui/atoms/Button.astro';
+
+interface Props {
+  bg?: 'paper' | 'ink';
+}
+const { bg = 'paper' } = Astro.props;
+const isInk = bg === 'ink';
+
+const capacities = [
+  { label: 'Acquisition', items: 'SEA · SEO · Ads' },
+  { label: 'Contenu', items: 'Brief · Rédaction · SEO' },
+  { label: 'Web', items: 'Sites · Apps · CMS' },
+  { label: 'Sales', items: 'CRM · Séquences · Scoring' },
+  { label: 'Data', items: 'Tracking · Dashboards' },
+  { label: 'Marque', items: 'DA · Charte · Design system' },
+];
+const proofs = [
+  { num: '+12 h', label: 'gagnées par semaine et par équipe' },
+  { num: '100 %', label: 'de vos données restent chez vous' },
+];
+---
+<section class="z5" data-bg={isInk ? 'ink' : undefined}>
+  <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>
+
+  <div class="wrap-wide">
+    <MastheadRow tone={isInk ? 'ink' : 'paper'} />
+
+    <Kicker class="z5-fig">§ 01 · Service</Kicker>
+    <h1 class="z5-title" set:html={`L'IA <i class="acc">intégrée</i> à vos opérations, <i>sans friction</i>.`} />
+
+    <div class="z5-zones">
+      <div class="z5-zone z5-zone--a">
+        <p class="z5-lede" set:html={`On installe Claude Code dans vos outils, vos données et vos flux. Vos équipes gardent la main, <i>l'IA fait le reste</i>.`} />
+        <div class="z5-ctas">
+          <Button href="/contact" variant="primary" size="lg">Démarrer un diagnostic</Button>
+          <Button href="#methode" variant="ghost" size="lg">Voir la méthode</Button>
+        </div>
+        <p class="z5-cta-sub" set:html={`Réponse sous 48 h. <i>Sans engagement.</i>`} />
+      </div>
+
+      <div class="z5-zone z5-zone--b">
+        <Kicker class="z5-fig z5-fig--rail">§ 02 · Périmètre</Kicker>
+        <ul class="z5-minimap" aria-label="Périmètre opérationnel · 6 territoires">
+          {capacities.map((c) => (
+            <li class="z5-mm-item">
+              <span class="z5-mm-label">{c.label}</span>
+              <span class="z5-mm-items">{c.items}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="z5-zone z5-zone--c">
+        <Kicker class="z5-fig z5-fig--rail">§ 03 · Résultats</Kicker>
+        <ul class="z5-proofs">
+          {proofs.map((p) => (
+            <li class="z5-proof">
+              <span class="z5-proof-num">{p.num}</span>
+              <span class="z5-proof-label">{p.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .z5 {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-7));
+    padding-bottom: var(--space-7);
+  }
+  .z5[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .z5 > *:not(.signature-grid) { position: relative; z-index: 1; }
+  .z5 .signature-grid { z-index: 0; }
+
+  :global(.z5-fig) { margin-bottom: var(--space-4); }
+  .z5 :global(.z5-fig) { margin-top: var(--space-8); }
+  .z5 :global(.z5-fig--rail) { margin-top: 0; }
+
+  .z5-title {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.015em;
+    max-width: 22ch;
+    margin: 0 0 var(--space-7);
+  }
+  .z5-title :global(i) { font-style: italic; }
+  .z5-title :global(i.acc) { color: var(--accent-text); }
+
+  .z5-zones {
+    display: grid;
+    grid-template-columns: 1.6fr 1.1fr 0.9fr;
+    gap: var(--space-8);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-zones { border-top-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-zone { display: flex; flex-direction: column; }
+  .z5-zone--b, .z5-zone--c {
+    padding-left: var(--space-8);
+    border-left: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-zone--b,
+  .z5[data-bg='ink'] .z5-zone--c { border-left-color: rgba(var(--paper-rgb), 0.12); }
+
+  .z5-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .z5[data-bg='ink'] .z5-lede { color: var(--paper-2); }
+  .z5-lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z5-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .z5-cta-sub {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .z5[data-bg='ink'] .z5-cta-sub { color: var(--paper-2); }
+  .z5-cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z5-minimap {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-minimap { border-top-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-mm-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-3) var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-mm-item { border-bottom-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-mm-item:nth-child(odd) { border-right: 1px solid var(--hairline); }
+  .z5[data-bg='ink'] .z5-mm-item:nth-child(odd) { border-right-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-mm-item:nth-child(even) { padding-left: var(--space-3); }
+  .z5-mm-item:nth-last-child(-n+2) { border-bottom: none; }
+  .z5-mm-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .z5-mm-items {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+  }
+  .z5[data-bg='ink'] .z5-mm-items { color: var(--paper-2); }
+
+  .z5-proofs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-proofs { border-top-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-proof {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .z5[data-bg='ink'] .z5-proof { border-bottom-color: rgba(var(--paper-rgb), 0.12); }
+  .z5-proof:last-child { border-bottom: 0; }
+  .z5-proof-num {
+    font-family: var(--font-display);
+    font-size: var(--text-numeral-md);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--accent-text);
+    font-weight: var(--fw-regular);
+  }
+  .z5-proof-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-lede);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .z5[data-bg='ink'] .z5-proof-label { color: var(--paper); }
+
+  @media (max-width: 768px) {
+    .z5 {
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-5);
+    }
+    .z5-title { max-width: none; margin-bottom: var(--space-5); }
+    .z5-zones { grid-template-columns: 1fr; gap: var(--space-6); padding-top: var(--space-6); }
+    .z5 :global(.z5-fig) { margin-top: var(--space-5); }
+    .z5-zone--b, .z5-zone--c {
+      padding-left: 0;
+      border-left: none;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--hairline);
+    }
+    .z5[data-bg='ink'] .z5-zone--b,
+    .z5[data-bg='ink'] .z5-zone--c { border-top-color: rgba(var(--paper-rgb), 0.12); }
+    .z5-ctas { gap: var(--space-2); }
+    .z5-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+  }
+  @media (max-width: 440px) {
+    .z5-minimap { grid-template-columns: 1fr; }
+    .z5-mm-item:nth-child(odd) { border-right: none; }
+    .z5-mm-item:nth-child(even) { padding-left: 0; }
+    .z5-mm-item:not(:last-child) { border-bottom: 1px solid var(--hairline); }
+    .z5-mm-item:last-child { border-bottom: none; }
+  }
+</style>

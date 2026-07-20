@@ -1,0 +1,656 @@
+---
+export const prerender = true;
+
+// Page static · /library/compare · COMPARATEUR de sections du catalogue DS (#65).
+//
+// Compare 2 à 4 types de sections côte à côte (colonnes parallèles + table de specs),
+// pour un humain ET un agent IA/MCP. Pense « comparer avant de choisir » (Webflow / Relume).
+//
+// Approche SSG (output:static) la plus simple et robuste pour lire ?types :
+//   - la page est UN seul artefact statique (pas de getStaticPaths combinatoire) ;
+//   - on sérialise tout le catalogue (facettes + thèse + similaires) dans un JSON inline
+//     (data-compare-data) au build, depuis le registry (source de vérité unique) ;
+//   - un petit script CLIENT lit ?types=a,b,c (cap 4) dans Astro.url.searchParams côté
+//     navigateur (window.location.search), retient les types VALIDES, et construit les
+//     colonnes + la table + le bloc « similaires » depuis le JSON. Aucune donnée n'est
+//     hardcodée : tout vient du registry sérialisé.
+//
+// Le markup/CSS du fil d'Ariane et des chips reprend EXACTEMENT le langage de la fiche
+// détail /library/[type] (classes .component-crumb*, chips façon FacetChip), mêmes tokens.
+// 0 nouveau token DS (rule 60), 0 valeur en dur (var(--*) ; exceptions structurelles :
+// 1px hairline, 1280px frame preview, breakpoint @media). 0 U+2014 (rule 58).
+
+import Base from '../../../../../src/layouts/Base.astro';
+import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
+import {
+  listSections,
+  listSimilarSections,
+} from '../../../../../src/lib/section-registry';
+import {
+  INTENT_LABELS_FR,
+  PAGE_ROLE_LABELS_FR,
+  CONTENT_MODE_LABELS_FR,
+} from '@waimia/ds-kernel/lib/section-facets';
+import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
+import { getSlots } from '@waimia/ds-kernel/lib/section-slots';
+
+// Sérialisation du catalogue pour le moteur client (1 entrée par type). On ne descend que
+// ce dont les colonnes + la table + les suggestions ont besoin (libellés FR pré-résolus,
+// pour 0 logique de label côté client). Similaires : top 5 pré-calculé par type.
+type CompareEntry = {
+  type: string;
+  thesis: string; // ligne-thèse serif = intentions jointes (libellés FR)
+  family: string;
+  categoryLabel: string; // subcategory humain
+  intent: string[]; // libellés FR
+  pageRole: string[]; // libellés FR
+  contentMode: string; // libellé FR
+  presetCount: number;
+  requiredSlotCount: number;
+  similar: string[]; // types similaires (suggestions de comparaison)
+};
+
+const compareData: CompareEntry[] = listSections().map((s) => {
+  const slots = getSlots(s.type);
+  return {
+    type: s.type,
+    thesis: s.intent.map((t) => INTENT_LABELS_FR[t]).join(', '),
+    family: s.family,
+    categoryLabel: s.subcategory,
+    intent: s.intent.map((t) => INTENT_LABELS_FR[t]),
+    pageRole: s.pageRole.map((t) => PAGE_ROLE_LABELS_FR[t]),
+    contentMode: CONTENT_MODE_LABELS_FR[s.contentMode],
+    presetCount: listPresets(s.type).length,
+    requiredSlotCount: slots.filter((slot) => slot.required).length,
+    similar: listSimilarSections(s.type, { limit: 5 }).map((r) => r.section.type),
+  };
+});
+
+const dataJson = JSON.stringify(compareData);
+---
+
+<Base
+  title="Comparer des sections · Catalogue Waimia"
+  description="Compare 2 à 4 sections du catalogue Design System côte à côte : aperçu live, intention, rôle de page, modèle de contenu, déclinaisons et slots."
+  alternate={false}
+  noindex
+>
+  <article class="component-detail" data-compare-data={dataJson}>
+    <div class="wrap-wide">
+      <DsLocalNav active="catalogue" scope="library" note="Ici : comparer des sections côte à côte avant de choisir. Aperçus en rendu isolé + table de specs alignées." />
+
+      <nav class="component-crumb" aria-label="Fil d'Ariane">
+        <a class="component-crumb-link" href="/library#catalogue">Catalogue</a>
+        <span class="component-crumb-sep" aria-hidden="true">/</span>
+        <span class="component-crumb-current" aria-current="page">Comparer</span>
+      </nav>
+
+      <header class="component-head">
+        <p class="component-subcat">Comparateur</p>
+        <div class="component-head-top">
+          <h1>Comparer</h1>
+          <span class="cmp-count" data-compare-pill hidden></span>
+        </div>
+        <p class="component-thesis">Mets 2 à 4 sections côte à côte, et choisis sur pièces.</p>
+        <p class="component-lede">
+          Chaque colonne montre l'aperçu en rendu isolé et le lien vers sa fiche. La table aligne
+          les facettes (intention, rôle de page, modèle de contenu, famille, catégorie, déclinaisons,
+          slots requis) pour trancher d'un coup d'oeil.
+        </p>
+      </header>
+
+      {/* État vide : aucun ?types valide. Renvoie au catalogue pour faire une sélection. */}
+      <section class="component-block cmp-empty" data-compare-empty hidden aria-label="Aucune section à comparer">
+        <h2 class="component-block-title">Rien à comparer</h2>
+        <p class="component-lede">
+          Choisis des sections à comparer depuis le <a class="cmp-inline-link" href="/library#catalogue">catalogue</a>
+          (bouton « Comparer »), ou ouvre cette page avec un paramètre <code>?types=a,b</code>.
+        </p>
+      </section>
+
+      {/* Colonnes parallèles (construites côté client depuis le JSON). Cap 4. */}
+      <section class="component-block" data-compare-columns-block hidden aria-label="Colonnes comparées">
+        <h2 class="component-block-title">Aperçus</h2>
+        <div class="cmp-columns" data-compare-columns></div>
+      </section>
+
+      {/* Table de comparaison des facettes alignées par ligne. */}
+      <section class="component-block" data-compare-table-block hidden aria-label="Table de comparaison">
+        <h2 class="component-block-title">Comparaison des facettes</h2>
+        <div class="component-datasheet-scroll">
+          <table class="cmp-table" data-compare-table></table>
+        </div>
+      </section>
+
+      {/* Suggestions : autres comparaisons via sections similaires. */}
+      <section class="component-block" data-compare-similar-block hidden aria-label="Autres comparaisons">
+        <h2 class="component-block-title">Sections similaires</h2>
+        <p class="component-meta-note">Ajoute une section proche pour enrichir la comparaison.</p>
+        <div class="cmp-similar" data-compare-similar></div>
+      </section>
+    </div>
+  </article>
+
+  <script>import '../../../../../src/scripts/preview-frame.ts';</script>
+  <script>
+    // Moteur client du comparateur : lit ?types, construit colonnes + table + similaires
+    // depuis le JSON inline. SSG-friendly (1 artefact statique, filtrage runtime).
+    type CompareEntry = {
+      type: string;
+      thesis: string;
+      family: string;
+      categoryLabel: string;
+      intent: string[];
+      pageRole: string[];
+      contentMode: string;
+      presetCount: number;
+      requiredSlotCount: number;
+      similar: string[];
+    };
+
+    const MAX_COLS = 4;
+    const root = document.querySelector<HTMLElement>('[data-compare-data]');
+    if (root) {
+      const data: CompareEntry[] = JSON.parse(root.dataset.compareData || '[]');
+      const byType = new Map(data.map((e) => [e.type, e]));
+
+      // ?types=a,b,c -> entrées VALIDES, dédoublonnées, capées à MAX_COLS.
+      const raw = new URLSearchParams(window.location.search).get('types') || '';
+      const requested = raw
+        .split(',')
+        .map((t) => t.trim())
+        .filter(Boolean);
+      const seen = new Set<string>();
+      const chosen: CompareEntry[] = [];
+      for (const t of requested) {
+        if (seen.has(t)) continue;
+        const entry = byType.get(t);
+        if (!entry) continue;
+        seen.add(t);
+        chosen.push(entry);
+        if (chosen.length >= MAX_COLS) break;
+      }
+
+      const el = (sel: string) => document.querySelector<HTMLElement>(sel);
+      const show = (node: HTMLElement | null, on: boolean) => {
+        if (node) node.hidden = !on;
+      };
+
+      const emptyBlock = el('[data-compare-empty]');
+      const columnsBlock = el('[data-compare-columns-block]');
+      const tableBlock = el('[data-compare-table-block]');
+      const similarBlock = el('[data-compare-similar-block]');
+      const pill = el('[data-compare-pill]');
+
+      if (chosen.length === 0) {
+        show(emptyBlock, true);
+      } else {
+        show(emptyBlock, false);
+        show(columnsBlock, true);
+        show(tableBlock, true);
+
+        if (pill) {
+          pill.textContent = `${chosen.length} / ${MAX_COLS}`;
+          pill.hidden = false;
+        }
+
+        renderColumns(chosen);
+        renderTable(chosen);
+        renderSimilar(chosen, byType, similarBlock);
+      }
+
+      // Re-câble le scaling preview-frame.ts après injection des iframes.
+      document.dispatchEvent(new Event('astro:page-load'));
+
+      function chipRow(values: string[], accent: boolean): HTMLElement {
+        const row = document.createElement('div');
+        row.className = 'component-chip-row';
+        if (values.length === 0) {
+          const dash = document.createElement('span');
+          dash.className = 'cmp-dash';
+          dash.textContent = '.';
+          row.appendChild(dash);
+          return row;
+        }
+        for (const v of values) {
+          const chip = document.createElement('span');
+          chip.className = accent ? 'cmp-chip cmp-chip--accent' : 'cmp-chip';
+          chip.textContent = v;
+          row.appendChild(chip);
+        }
+        return row;
+      }
+
+      function renderColumns(entries: CompareEntry[]) {
+        const wrap = el('[data-compare-columns]');
+        if (!wrap) return;
+        wrap.innerHTML = '';
+        wrap.style.setProperty('--cmp-cols', String(entries.length));
+        for (const e of entries) {
+          const col = document.createElement('div');
+          col.className = 'cmp-col';
+
+          const name = document.createElement('code');
+          name.className = 'cmp-col-name';
+          name.textContent = e.type;
+
+          const thesis = document.createElement('p');
+          thesis.className = 'cmp-col-thesis';
+          thesis.textContent = e.thesis || e.categoryLabel;
+
+          const frame = document.createElement('div');
+          frame.className = 'cmp-col-preview';
+          frame.setAttribute('data-preview-frame', '');
+          frame.setAttribute('data-max-height', '300');
+          frame.setAttribute('aria-hidden', 'true');
+          const iframe = document.createElement('iframe');
+          iframe.className = 'cmp-col-frame';
+          iframe.src = `/preview/${e.type}`;
+          iframe.title = `Aperçu ${e.type}`;
+          iframe.loading = 'lazy';
+          iframe.tabIndex = -1;
+          iframe.setAttribute('scrolling', 'no');
+          frame.appendChild(iframe);
+
+          const link = document.createElement('a');
+          link.className = 'cmp-col-link';
+          link.href = `/library/${e.type}`;
+          link.textContent = 'Ouvrir la fiche';
+
+          col.append(name, thesis, frame, link);
+          wrap.appendChild(col);
+        }
+      }
+
+      function renderTable(entries: CompareEntry[]) {
+        const table = el('[data-compare-table]') as HTMLTableElement | null;
+        if (!table) return;
+        table.innerHTML = '';
+
+        // En-tête : 1ʳᵉ cellule = libellé de facette, puis 1 colonne par type comparé.
+        const thead = document.createElement('thead');
+        const headRow = document.createElement('tr');
+        const corner = document.createElement('th');
+        corner.scope = 'col';
+        corner.textContent = 'Facette';
+        headRow.appendChild(corner);
+        for (const e of entries) {
+          const th = document.createElement('th');
+          th.scope = 'col';
+          const code = document.createElement('code');
+          code.className = 'cmp-th-code';
+          code.textContent = e.type;
+          th.appendChild(code);
+          headRow.appendChild(th);
+        }
+        thead.appendChild(headRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        const rows: { label: string; cell: (e: CompareEntry) => HTMLElement }[] = [
+          { label: 'Intention', cell: (e) => chipRow(e.intent, true) },
+          { label: 'Rôle de page', cell: (e) => chipRow(e.pageRole, false) },
+          { label: 'Modèle de contenu', cell: (e) => chipRow([e.contentMode], false) },
+          { label: 'Famille', cell: (e) => textCell(e.family) },
+          { label: 'Catégorie', cell: (e) => textCell(e.categoryLabel) },
+          { label: 'Déclinaisons', cell: (e) => textCell(String(e.presetCount)) },
+          { label: 'Slots requis', cell: (e) => textCell(String(e.requiredSlotCount)) },
+        ];
+        for (const r of rows) {
+          const tr = document.createElement('tr');
+          const th = document.createElement('th');
+          th.scope = 'row';
+          th.className = 'cmp-row-head';
+          th.textContent = r.label;
+          tr.appendChild(th);
+          for (const e of entries) {
+            const td = document.createElement('td');
+            td.appendChild(r.cell(e));
+            tr.appendChild(td);
+          }
+          tbody.appendChild(tr);
+        }
+        table.appendChild(tbody);
+      }
+
+      function textCell(value: string): HTMLElement {
+        const span = document.createElement('span');
+        span.className = 'cmp-cell-text';
+        span.textContent = value;
+        return span;
+      }
+
+      function renderSimilar(
+        entries: CompareEntry[],
+        index: Map<string, CompareEntry>,
+        block: HTMLElement | null,
+      ) {
+        const wrap = el('[data-compare-similar]');
+        if (!wrap || !block) return;
+        const chosenTypes = new Set(entries.map((e) => e.type));
+
+        // Union ordonnée des similaires des colonnes, hors types déjà comparés, capée à 8.
+        const suggestions: string[] = [];
+        const added = new Set<string>();
+        for (const e of entries) {
+          for (const sim of e.similar) {
+            if (chosenTypes.has(sim) || added.has(sim)) continue;
+            if (!index.has(sim)) continue;
+            added.add(sim);
+            suggestions.push(sim);
+            if (suggestions.length >= 8) break;
+          }
+          if (suggestions.length >= 8) break;
+        }
+
+        if (suggestions.length === 0) {
+          block.hidden = true;
+          return;
+        }
+        block.hidden = false;
+        wrap.innerHTML = '';
+        for (const sim of suggestions) {
+          // Lien = comparaison enrichie : on ajoute le type suggéré aux colonnes actuelles
+          // (si on a déjà 4 colonnes, on remplace la dernière pour rester dans le cap).
+          const base = entries.map((e) => e.type);
+          const next = base.length >= MAX_COLS ? [...base.slice(0, MAX_COLS - 1), sim] : [...base, sim];
+          const a = document.createElement('a');
+          a.className = 'cmp-chip cmp-chip--link';
+          a.href = `/library/compare?types=${next.join(',')}`;
+          a.textContent = `+ ${sim}`;
+          wrap.appendChild(a);
+        }
+      }
+    }
+  </script>
+</Base>
+
+<style>
+  /* Reprend le langage de la fiche détail /library/[type] : mêmes classes .component-*
+     (datasheet, crumb, masthead, blocs), mêmes tokens. Les classes .cmp-* sont propres au
+     comparateur (colonnes parallèles + table N colonnes) et n'utilisent QUE des var(--*). */
+
+  .component-detail {
+    padding: var(--section-base) 0 var(--section-base);
+  }
+  .component-detail .wrap-wide {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  /* ── Fil d'Ariane mono (identique à /library/[type]) ── */
+  .component-crumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .component-crumb-link {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .component-crumb-link:hover { color: var(--accent-text); }
+  .component-crumb-sep { color: var(--hairline-strong); }
+  .component-crumb-current { color: var(--ink); }
+
+  /* ── Masthead (identique à /library/[type]) ── */
+  .component-head {
+    margin-bottom: var(--space-9);
+  }
+  .component-subcat {
+    margin: 0 0 var(--space-4);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+  .component-head-top {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .component-head h1 {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .cmp-count {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--accent-text);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    padding: var(--space-1) var(--space-2);
+    white-space: nowrap;
+    letter-spacing: var(--tracking-mono-tight);
+  }
+  .component-thesis {
+    max-width: 720px;
+    margin: var(--space-5) 0 0;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    font-weight: var(--fw-medium);
+  }
+  .component-lede {
+    max-width: 680px;
+    margin: var(--space-4) 0 0;
+    color: var(--ink-2);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+  }
+  .cmp-inline-link,
+  .component-lede a {
+    color: var(--accent-text);
+    text-decoration: underline;
+  }
+
+  /* ── Blocs (identique à /library/[type]) ── */
+  .component-block {
+    margin-top: var(--space-9);
+  }
+  .component-block-title {
+    margin: 0 0 var(--space-5);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+  .component-meta-note {
+    margin: 0 0 var(--space-4);
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+  }
+  .component-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .component-datasheet-scroll {
+    overflow-x: auto;
+  }
+
+  /* ── Colonnes parallèles ── */
+  .cmp-columns {
+    display: grid;
+    grid-template-columns: repeat(var(--cmp-cols, 2), minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+  .cmp-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+  .cmp-col-name {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    font-weight: var(--fw-semibold);
+    line-height: 1.25;
+    word-break: break-word;
+  }
+  .cmp-col-thesis {
+    margin: 0;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-lede);
+  }
+  .cmp-col-preview {
+    display: block;
+    position: relative;
+    min-height: 140px;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  /* transform + height pilotés par src/scripts/preview-frame.ts (scale responsive) */
+  .cmp-col-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    border: 0;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+  .cmp-col-link {
+    align-self: flex-start;
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    text-decoration: none;
+  }
+  .cmp-col-link:hover { text-decoration: underline; }
+
+  /* ── Table de comparaison ── */
+  .cmp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+  }
+  .cmp-table th {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    vertical-align: top;
+  }
+  .cmp-th-code {
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+    text-transform: none;
+    letter-spacing: var(--tracking-mono-tight);
+    word-break: break-word;
+  }
+  .cmp-table td {
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .cmp-row-head {
+    white-space: nowrap;
+  }
+  .cmp-table tbody tr:last-child td,
+  .cmp-table tbody tr:last-child th {
+    border-bottom: 0;
+  }
+  .cmp-cell-text {
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .cmp-dash {
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+
+  /* ── Chips (langage FacetChip : mono, pill, hairline-strong) ── */
+  .cmp-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* constante structurelle identique à .fc-chip / .cx-chip */
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-pill);
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1;
+    letter-spacing: var(--tracking-mono-tight);
+    white-space: nowrap;
+  }
+  .cmp-chip--accent {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  .cmp-chip--link {
+    text-decoration: none;
+    transition:
+      border-color var(--dur-fast) var(--ease),
+      color var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease);
+  }
+  .cmp-chip--link:hover {
+    border-color: var(--accent-text);
+    color: var(--accent-text);
+  }
+  .cmp-chip--link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  .cmp-similar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 720px) {
+    .component-detail .wrap-wide {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    /* Colonnes : sur mobile, 1 colonne défilable horizontalement pour garder la comparaison
+       côte à côte (snap), sinon l'empilement perd le sens « parallèle ». */
+    .cmp-columns {
+      grid-auto-flow: column;
+      grid-auto-columns: 78%;
+      grid-template-columns: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+    .cmp-col {
+      scroll-snap-align: start;
+    }
+  }
+</style>

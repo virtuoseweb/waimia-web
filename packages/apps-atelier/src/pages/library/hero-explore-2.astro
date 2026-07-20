@@ -1,0 +1,200 @@
+---
+// Page-labo · /library/hero-explore-2 · galerie d'exploration des 9 héros ASYMÉTRIQUES (round 2).
+// Outil interne NOINDEX : rend chaque héro Z1..Z9 DEUX fois (paper + ink), avec un en-tête de
+// séparation mono avant chaque variante + une mini-nav sticky d'ancres. Les 9 héros sont créés
+// par 3 workers en parallèle (ZA: Z1-Z3, ZB: Z4-Z6, ZC: Z7-Z9) avec ces noms EXACTS : ils
+// existent au build (l'orchestrateur build après que tout le monde a fini).
+// Source : /tmp/hero2/SPEC.md + /tmp/hero2/briefs.md. Calqué sur hero-explore.astro.
+export const prerender = true;
+
+import Base from '../../../../../src/layouts/Base.astro';
+
+import Z1 from '../../components/library/hero-explore-2/Z1.astro';
+import Z2 from '../../components/library/hero-explore-2/Z2.astro';
+import Z3 from '../../components/library/hero-explore-2/Z3.astro';
+import Z4 from '../../components/library/hero-explore-2/Z4.astro';
+import Z5 from '../../components/library/hero-explore-2/Z5.astro';
+import Z6 from '../../components/library/hero-explore-2/Z6.astro';
+import Z7 from '../../components/library/hero-explore-2/Z7.astro';
+import Z8 from '../../components/library/hero-explore-2/Z8.astro';
+import Z9 from '../../components/library/hero-explore-2/Z9.astro';
+
+// Registre des 9 héros asymétriques : composant + nom de layout + caption courte.
+const heroes = [
+  { n: 1, C: Z1, name: 'Édition 65/35 · rail KPI', caption: 'Hero home rendue asymétrique : 3 KPI serif verticaux à droite.' },
+  { n: 2, C: Z2, name: 'Promesse 60/40 · mini-map', caption: 'Le rail droit montre le périmètre (mini-map 6 capacités), pas un média.' },
+  { n: 3, C: Z3, name: 'Asymétrie 72/28 · média mince', caption: 'Média line-art en bande verticale fine (3/5) : la colonne droite ne pèse plus.' },
+  { n: 4, C: Z4, name: 'Tech-grid 68/32 · signature', caption: 'Signature-grid dominante (sigil V·9) ; rail KPI minimal.' },
+  { n: 5, C: Z5, name: 'Tri-zone asymétrique', caption: 'Titre pleine largeur puis 3 zones 1.6/1.1/0.9 : lede+CTA, mini-map, KPI.' },
+  { n: 6, C: Z6, name: 'Cover 60/40 · grand numéral', caption: 'Le rail = une stat de couverture serif géante, pas un média.' },
+  { n: 7, C: Z7, name: 'Masthead 64/36 · carte ink', caption: 'Carte média ink réduite (4/5) bornée à 36 % + 2 micro-KPI mono.' },
+  { n: 8, C: Z8, name: 'Bandeau capacités', caption: 'Titre left 70 % puis bande 5 cellules asymétriques, 3e accent KPI.' },
+  { n: 9, C: Z9, name: 'Magazine 70/30 · sommaire', caption: 'Rail droit = sommaire typographique § A/§ B/§ C, zéro média.' },
+];
+---
+
+<Base
+  title="Hero Explore 2 · Labo · Waimia"
+  description="Labo interne round 2 : 9 layouts de héros de service ASYMÉTRIQUES (ADN éditorial home), rendus en paper et ink, côte à côte."
+  noindex
+>
+  <section class="hxl-mast">
+    <div class="wrap-wide">
+      <p class="hxl-kicker">§ Hero Explore · round 2 · asymétriques</p>
+      <h1 class="hxl-h1">Neuf héros <i>asymétriques</i>, <i class="acc">paper</i> et ink.</h1>
+      <p class="hxl-lede">
+        Neuf layouts de héros de service à grille asymétrique (la gauche domine, le rail droit
+        reste léger), portant l’ADN éditorial de la home : masthead, signature-grid, sigil V·9,
+        titre serif accentué. Rendus deux fois chacun (clair puis sombre) pour comparer d’un coup
+        d’œil et en retenir une ou deux.
+      </p>
+      <nav class="hxl-nav" aria-label="Index des héros">
+        {heroes.map((h) => (
+          <a class="hxl-nav-chip" href={`#z${h.n}`}>
+            <span class="hxl-nav-num">Z{h.n}</span>
+            <span class="hxl-nav-name">{h.name}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <div class="hxl-gallery">
+    {heroes.map((h) => {
+      const C = h.C as any;
+      return (
+        <section class="hxl-item" id={`z${h.n}`} aria-labelledby={`z${h.n}-h`}>
+          <header class="hxl-item-head wrap-wide">
+            <span class="hxl-item-tag" id={`z${h.n}-h`}>Z{h.n} · {h.name}</span>
+            <p class="hxl-item-caption">{h.caption}</p>
+          </header>
+
+          <header class="hxl-variant-head wrap-wide">
+            <span class="hxl-variant-tag">Z{h.n} · {h.name} · PAPER</span>
+          </header>
+          <div class="hxl-stage"><C bg="paper" /></div>
+
+          <header class="hxl-variant-head wrap-wide">
+            <span class="hxl-variant-tag">Z{h.n} · {h.name} · INK</span>
+          </header>
+          <div class="hxl-stage"><C bg="ink" /></div>
+        </section>
+      );
+    })}
+  </div>
+</Base>
+
+<style>
+  /* La page reste sobre : les héros portent leurs styles. Tout en tokens DS. */
+  .hxl-mast {
+    padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-8);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hxl-kicker {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hxl-h1 {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .hxl-h1 i { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); }
+  .hxl-h1 i.acc { color: var(--accent-text); }
+  .hxl-lede {
+    max-width: 62ch;
+    margin: 0 0 var(--space-7);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--muted);
+  }
+
+  /* Mini-nav sticky d'ancres. */
+  .hxl-nav {
+    position: sticky;
+    top: var(--header-height);
+    z-index: var(--z-sticky);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    background: var(--paper);
+  }
+  .hxl-nav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-xs);
+    background: var(--paper-2);
+    text-decoration: none;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .hxl-nav-chip:hover { border-color: var(--accent-text); }
+  .hxl-nav-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--accent-text);
+  }
+  .hxl-nav-name {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--ink-2);
+  }
+
+  /* Galerie : chaque héro isolé, en-têtes mono + hairlines + espacement généreux. */
+  .hxl-item { border-top: 1px solid var(--hairline); }
+  .hxl-item-head {
+    margin-inline: auto;
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .hxl-item-tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .hxl-item-caption {
+    margin: 0;
+    max-width: 70ch;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--muted);
+  }
+  .hxl-variant-head {
+    margin-inline: auto;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-3);
+  }
+  .hxl-variant-tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  /* La scène isole le héro réel. La hauteur s'adapte au contenu rendu. */
+  .hxl-stage {
+    position: relative;
+    border-top: 1px solid var(--hairline);
+    overflow: hidden;
+  }
+</style>

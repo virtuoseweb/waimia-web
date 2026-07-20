@@ -1,0 +1,768 @@
+---
+export const prerender = true;
+
+// Page static · /library/builder · le BUILDER VISUEL (#39 T3), pièce maîtresse de l'outil pro.
+//
+// Forme : shell Astro statique (chrome /library : DsLocalNav + masthead) qui charge le catalogue
+// au BUILD (registry + presets résolus + colorschemes + slots + demos) et passe ces données
+// sérialisables en props à l'île React `BuilderCanvas` (client:load). L'interactivité (picker,
+// canvas, inspecteur, aperçu live, export) est 100 % côté client ; le serveur ne fournit que la
+// graine de données + la route de rendu chrome-less (/library/builder/render, #67).
+//
+// Pourquoi tout précalculer ici : l'île n'importe AUCUN module serveur (registry ~4000 l,
+// astro:content, zod) → bundle client léger + un seul point de vérité (le build). resolvePreset
+// transforme chaque preset en props CONCRÈTES (background/layout/density) que l'île étale sur la
+// démo, donc le sélecteur de déclinaison agit réellement sur l'aperçu.
+//
+// 0 nouveau token DS (rule 60), 0 valeur en dur, 0 tiret cadratin U+2014 (rule 58).
+
+import AtelierShell from '../../../layouts/AtelierShell.astro';
+import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
+import Kicker from '../../../../../../src/components/ui/atoms/Kicker.astro';
+// Assemblage B8+B9 : l'ile `BuilderApp` (canvas par blocs, vignettes live) branchee par le wrapper
+// hote `BuilderHost` (picker AddPanel + inspecteur 4 onglets + Enregistrer comme version). Le
+// wrapper est le SEUL point cote app qui connait les donnees ; l'ile reste pure (0 import app).
+// L'ancienne ile `BuilderCanvas` est SUPPRIMEE (plus aucun import).
+import BuilderHost from '../../../components/library/BuilderHost.tsx';
+import type {
+  BuilderCatalogueItem,
+  BuilderColorScheme,
+  SectionInstance,
+  VariationOption,
+} from '@waimia/builder/types';
+import { getCollection } from 'astro:content';
+import type { BuilderPage } from '@waimia/builder/types';
+import { listSections, listCategories } from '../../../../../../src/lib/section-registry';
+import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
+import { resolvePreset } from '@waimia/ds-kernel/lib/page-document';
+import { COLOR_SCHEMES, schemeProps } from '@waimia/ds-kernel/lib/section-colorschemes';
+import { getSlots } from '@waimia/ds-kernel/lib/section-slots';
+import { SECTION_DEMOS } from '../../../../../../src/lib/section-demos';
+import { PAGE_COLLECTIONS } from '@waimia/ds-kernel';
+
+const sections = listSections();
+const categories = listCategories();
+const categoryLabelBySlug = new Map(categories.map((c) => [c.slug, c.label]));
+
+// Catalogue exposé à l'île : 1 entrée par type, avec démo + presets résolus + slots.
+const items: BuilderCatalogueItem[] = sections.map((section) => {
+  const presets: VariationOption[] = listPresets(section.type).map((p) => ({
+    id: p.id,
+    label: p.label,
+    // resolvePreset renvoie les props concrètes à étaler (undefined si id inconnu, ici jamais).
+    props: (resolvePreset(section.type, p.id) ?? p.props) as Record<string, unknown>,
+  }));
+  const demo = (SECTION_DEMOS[section.type] ?? { type: section.type }) as SectionInstance;
+  return {
+    type: section.type,
+    family: section.family ?? 'autres',
+    categorySlug: section.categorySlug,
+    categoryLabel: categoryLabelBySlug.get(section.categorySlug) ?? section.subcategory,
+    status: section.status,
+    description_fr: section.description_fr,
+    tags: section.tags,
+    demo,
+    presets,
+    slots: getSlots(section.type).map((s) => ({
+      field: s.field,
+      kind: s.kind,
+      type: s.type,
+      required: s.required,
+      bilingual: s.bilingual,
+      enumValues: s.enumValues,
+    })),
+  };
+});
+
+// Les 16 schémas de couleur DS (axe couleur global), aplatis en props honorées par les composants.
+const colorSchemes: BuilderColorScheme[] = COLOR_SCHEMES.map((s) => {
+  const props = schemeProps(s);
+  return {
+    id: s.id,
+    label: s.label,
+    background: props.background,
+    cellCycle: props.cellCycle ?? [],
+  };
+});
+
+// ── Pages composables RÉELLES exposées au sélecteur « Charger une page » du builder ──────────────
+// On scanne les collections qui portent un array `sections:` ET dont la route publique est
+// déterministe (préfixe → /route/<id>). Pour chaque entrée non vide, on expose { collection,
+// slug, label, route, sections } : `sections` est le tableau BRUT de la page (instances concrètes
+// déjà déclinées), chargé tel quel dans le canvas. Source de vérité = le contenu, pas un fork.
+const PAGE_ROUTE_PREFIX: Record<string, string> = {
+  services: '/services',
+  'cas-usages': '/cas-usages',
+  secteurs: '/secteurs',
+  cases: '/cas-clients',
+  lp: '/lp',
+  implantations: '/implantations',
+  demonstrations: '/demonstrations',
+  guides: '/ressources/guides',
+  diagnostics: '/ressources/diagnostics',
+  comparatifs: '/ressources/comparatifs',
+};
+
+const pageGroups = await Promise.all(
+  Object.entries(PAGE_ROUTE_PREFIX).map(async ([collection, prefix]) => {
+    const entries = (await getCollection(
+      collection as Parameters<typeof getCollection>[0],
+    )) as Array<{ id: string; data: Record<string, unknown> }>;
+    return entries
+      .filter((entry) => Array.isArray((entry.data as any).sections) && (entry.data as any).sections.length > 0)
+      .map((entry): BuilderPage => {
+        const data = entry.data as any;
+        return {
+          collection,
+          slug: entry.id,
+          label: (data.title_fr as string) ?? entry.id,
+          route: `${prefix}/${entry.id}`,
+          sections: data.sections as BuilderPage['sections'],
+        };
+      });
+  }),
+);
+// Aplati + trié par route lisible (regroupe visuellement les pages d'une même collection).
+const pages: BuilderPage[] = pageGroups
+  .flat()
+  .sort((a, b) => a.route.localeCompare(b.route));
+
+const defaultMeta = {
+  collection: 'offres',
+  slug: 'brouillon',
+  lang: 'fr' as const,
+  title_fr: 'Page en brouillon',
+};
+---
+
+<AtelierShell
+  title="Builder visuel · composer une page · Library Waimia"
+  description="Builder visuel du Design System Waimia : composez une page en piochant des sections du catalogue, réordonnez, déclinez et prévisualisez en direct. Piloté par le registry."
+  active="builder"
+>
+  <section class="bld-hd">
+    <div class="wrap-wide">
+      <DsLocalNav
+        active="catalogue"
+        scope="library"
+        note="Ici : le builder visuel. Pioche des sections, réordonne, décline et prévisualise en direct."
+      />
+      <Kicker class="bld-kicker">§ Atelier Design System · Builder visuel</Kicker>
+      <h1 class="bld-h1">Compose, <i>ne code pas</i>.</h1>
+      <p class="bld-lede">
+        Ouvre le projet Waimia pour éditer une page réelle, ou pars d'un brouillon vierge : tout se
+        compose depuis le catalogue de sections.
+      </p>
+    </div>
+  </section>
+
+  <section class="bld-wrap wrap-wide" aria-label="Builder visuel">
+    <BuilderHost
+      client:load
+      items={items}
+      colorSchemes={colorSchemes}
+      defaultMeta={defaultMeta}
+      collections={[...PAGE_COLLECTIONS]}
+      pages={pages}
+      renderPath="/library/builder/render"
+    />
+  </section>
+</AtelierShell>
+
+<style>
+  .bld-hd {
+    padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-6);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .bld-kicker {
+    margin: 0 0 var(--space-4);
+  }
+  .bld-h1 {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .bld-h1 i {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-regular);
+    color: var(--accent-text);
+  }
+  .bld-lede {
+    max-width: 64ch;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .bld-wrap {
+    margin: 0 auto;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-10);
+  }
+  @media (max-width: 720px) {
+    .bld-hd .wrap-wide,
+    .bld-wrap {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>
+
+{/* CSS de l'île BuilderCanvas : sorti du composant React (un style hydraté provoque un mismatch
+    SSR/client). is:global car les classes bld-* sont sur du markup rendu par React, hors scoping
+    Astro. 0 nouveau token DS (rule 60) : variables canoniques uniquement. */}
+<style is:global>
+  .bld { display: flex; flex-direction: column; gap: var(--space-4); }
+
+  /* ── Barre (meta + Exporter) ── */
+  .bld-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper-2);
+  }
+  .bld-bar-meta { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+  .bld-bar-actions { display: flex; align-items: center; gap: var(--space-4); }
+  .bld-bar-count {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--ink-2);
+  }
+
+  .bld-field { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+  .bld-field-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bld-input,
+  .bld-select {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .bld-input:focus-visible,
+  .bld-select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .bld-select { cursor: pointer; }
+
+  .bld-btn {
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .bld-btn:hover { border-color: var(--accent-text); color: var(--accent-text); }
+  .bld-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .bld-btn--primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .bld-btn--primary:hover { color: var(--paper); border-color: var(--ink); }
+
+  /* ── Export ── */
+  .bld-export {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background: var(--paper-2);
+  }
+  .bld-export-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  /* Onglets de format (segmented control discret) : JSON / MDX. Les boutons portent
+     aussi .bld-btn ; on resserre le rythme et on signale l'onglet actif (.is-active). */
+  .bld-export-tabs {
+    display: flex;
+    gap: var(--space-2);
+  }
+  .bld-export-tab.is-active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .bld-export-tab.is-active:hover {
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .bld-export-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+  }
+  .bld-export-area {
+    width: 100%;
+    min-height: 220px;
+    padding: var(--space-3);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1.5;
+    resize: vertical;
+  }
+  .bld-note {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  /* ── App-shell colonnes ── */
+  .bld-picker,
+  .bld-canvas,
+  .bld-inspector { padding: 0; }
+
+  /* GAUCHE · Picker */
+  .bld-picker-search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 2;
+  }
+  .bld-picker-search .bld-input { flex: 1; font-family: var(--font-sans); }
+  .bld-picker-count {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--muted);
+  }
+  .bld-picker-list { padding: var(--space-3); display: flex; flex-direction: column; gap: var(--space-4); }
+  .bld-picker-group { display: flex; flex-direction: column; gap: var(--space-2); }
+  .bld-picker-family {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+  .bld-picker-items { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .bld-picker-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    background: var(--paper-2);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  }
+  .bld-picker-item:hover { border-color: var(--accent-text); background: var(--paper); }
+  .bld-picker-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .bld-picker-type { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bld-picker-add {
+    flex: none;
+    font-size: var(--text-body);
+    line-height: 1;
+    color: var(--accent-text);
+  }
+
+  /* CENTRE · Canvas */
+  .bld-canvas-stack { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+  .bld-blocks { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+  .bld-block {
+    display: flex;
+    align-items: stretch;
+    gap: 1px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--hairline);
+  }
+  .bld-block.is-selected { border-color: var(--accent-text); }
+  .bld-block-main {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex: 1;
+    min-width: 0;
+    padding: var(--space-3);
+    border: 0;
+    background: var(--paper);
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+  }
+  .bld-block.is-selected .bld-block-main { background: var(--paper-2); }
+  .bld-block-main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .bld-block-index {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--muted);
+  }
+  .bld-block-type {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+  }
+  .bld-block-variation {
+    flex: none;
+    max-width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--accent-text);
+  }
+  .bld-block-tools { display: flex; }
+  .bld-tool {
+    width: 2.25rem;
+    border: 0;
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .bld-tool:hover:not(:disabled) { background: var(--paper-2); color: var(--accent-text); }
+  .bld-tool:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .bld-tool:disabled { color: var(--muted); cursor: not-allowed; }
+  .bld-tool--danger:hover:not(:disabled) { color: var(--accent-text); }
+
+  /* Aperçu live */
+  .bld-preview {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--hairline);
+    flex: 1;
+    min-height: 360px;
+  }
+  .bld-preview-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper-2);
+  }
+  .bld-preview-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bld-preview-mode {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--accent-text);
+  }
+  .bld-preview-frame {
+    flex: 1;
+    width: 100%;
+    min-height: 360px;
+    border: 0;
+    background: var(--paper);
+  }
+
+  /* DROITE · Inspector */
+  .bld-insp { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); }
+  .bld-insp-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .bld-insp-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bld-insp-type {
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    word-break: break-word;
+  }
+  .bld-insp-family {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--accent-text);
+  }
+  .bld-insp-slots { display: flex; flex-direction: column; gap: var(--space-2); }
+  /* Conteneur des slots (passé <ul>→<div>) : pile verticale de slots éditables. */
+  .bld-slot-list { display: flex; flex-direction: column; gap: var(--space-3); }
+  /* Un slot = en-tête (champ + meta) + un ou deux contrôles empilés (scalaire/JSON, FR/EN). */
+  .bld-slot {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .bld-slot-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+  .bld-slot-field {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--ink);
+    word-break: break-word;
+  }
+  .bld-slot-meta {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  /* Wrapper d'un contrôle (label englobant) : sous-libellé optionnel + input/select/textarea. */
+  .bld-slot-control {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+  }
+  .bld-slot-control .bld-input,
+  .bld-slot-control .bld-select { width: 100%; }
+  /* Sous-libellé (FR / EN, ou intitulé booléen). */
+  .bld-slot-sub {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  /* Zone de texte (texte long / richtext) + variante JSON avancé (monospace dense). */
+  .bld-slot-textarea {
+    width: 100%;
+    line-height: 1.5;
+    resize: vertical;
+  }
+  .bld-slot-json { font-family: var(--font-mono); }
+  /* Ligne case à cocher (slot booléen) : la case puis son libellé, alignés. */
+  .bld-slot-check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+  }
+  .bld-slot-check input { cursor: pointer; }
+  .bld-slot-check:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* Message d'erreur (JSON invalide non appliqué) : rôle texte accent. */
+  .bld-slot-err {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--accent-text);
+  }
+  .bld-hint {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--muted);
+  }
+
+  /* États vides + utilitaires */
+  .bld-empty {
+    padding: var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .bld-empty--canvas {
+    border: 1px dashed var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    text-align: center;
+  }
+  .bld-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ════ CENTRE · Canvas PAR BLOCS (brick B6) ════════════════════════════════════════════════ */
+  /* Une carte par section : en-tête (poignée + type + outils) au-dessus d'une vignette live. */
+  .bld-block.bld-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .bld-block.bld-card.is-selected {
+    border-color: var(--accent-text);
+    box-shadow: 0 0 0 1px var(--accent-text);
+  }
+  .bld-block.bld-card[draggable='true'] { cursor: default; }
+  .bld-card-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper-2);
+  }
+  .bld-card-drag {
+    flex: none;
+    cursor: grab;
+    color: var(--muted);
+    font-size: var(--text-body);
+    line-height: 1;
+    user-select: none;
+  }
+  .bld-card-drag:active { cursor: grabbing; }
+  .bld-card-index {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--muted);
+  }
+  .bld-card-type {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+  }
+  .bld-card-type:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .bld-card-tools { display: flex; gap: 2px; flex: none; }
+  .bld-card-tool {
+    width: 1.85rem;
+    height: 1.85rem;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .bld-card-tool:hover:not(:disabled) { border-color: var(--accent-text); color: var(--accent-text); }
+  .bld-card-tool:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .bld-card-tool:disabled { color: var(--muted); cursor: not-allowed; }
+  /* Vignette : iframe non interactive (pointer-events off) + voile qui capte le clic de sélection. */
+  .bld-card-thumb {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .bld-card-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: var(--paper);
+    pointer-events: none;
+  }
+  .bld-card-thumb-select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .bld-card-thumb-select:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  /* Barre d'insertion entre deux blocs (ajoute une section à un index précis). */
+  .bld-insert {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) 0;
+  }
+  .bld-insert-line { flex: 1; height: 1px; background: var(--hairline); }
+  .bld-insert-select {
+    flex: none;
+    max-width: 60%;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+  }
+
+  /* Aperçu de la PAGE COMPLÈTE (toggle « Aperçu page ») : une iframe globale. */
+  .bld-fullpreview { flex: 1; display: flex; min-height: 480px; }
+  .bld-fullpreview-frame {
+    flex: 1;
+    width: 100%;
+    min-height: 480px;
+    border: 0;
+    background: var(--paper);
+  }
+
+  @media (max-width: 960px) {
+    /* App-shell : empilement vertical sur petit écran (le grid 3-col devient 1-col). */
+    .bld > div[style] { grid-template-columns: 1fr !important; }
+    .bld-picker,
+    .bld-canvas,
+    .bld-inspector { max-height: none !important; }
+  }
+</style>

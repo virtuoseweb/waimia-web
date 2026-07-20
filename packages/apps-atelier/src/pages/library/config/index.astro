@@ -1,0 +1,278 @@
+---
+export const prerender = true;
+
+// Page static · /library/config · CONFIG de l'atelier (4e surface du rail, C1-UI P4.4-g).
+//
+// Rôle : donner la carte des « apps internes » (registre apps.config.ts) et permettre, EN DEV,
+// de les activer/désactiver sans toucher au code. C'est le pendant UI de la façade dev-only
+// PATCH /api/ds/apps (middleware ds-save-dev.mjs).
+//
+// Données BUILDÉES côté serveur : listAppsState() lit apps.config.ts (défauts + override
+// apps-state.json figé au build) → passé en props à l'île ConfigPanel. En dev, l'île re-fetch
+// GET /api/ds/apps pour l'état runtime éditable ; en prod (endpoint absent) elle retombe sur ces
+// données buildées, en lecture seule. Source de vérité unique = apps.config.ts (0 duplication).
+//
+// noindex + hors sitemap : hérité du pattern /library/* (AtelierShell noindex par défaut, robots
+// disallow /library/, sitemap exclut library/**). Rien à ajouter côté SEO.
+// 0 nouveau token DS (rule 60). 0 valeur en dur (var/clamp/% only). 0 U+2014 (rule 58).
+
+import AtelierShell from '../../../layouts/AtelierShell.astro';
+import Kicker from '../../../../../../src/components/ui/atoms/Kicker.astro';
+import ConfigPanel from '../../../components/library/ConfigPanel.tsx';
+import { listAppsState } from '../../../../../../src/apps.config';
+
+// État buildé (source de vérité prod, fallback dev). Sérialisable → props de l'île.
+const apps = listAppsState();
+
+// Libellés lisibles par id. Fallback = id brut si une future app n'est pas mappée (l'ajout d'une
+// app est une tâche dédiée qui pourra enrichir cette map ; pas de faux affichage entre-temps).
+const APP_LABELS: Record<string, string> = {
+  seoDashboard: 'Dashboard SEO',
+  dsStudio: 'DS Studio',
+  builder: 'Builder de pages',
+};
+
+// Mot-clé de sauvegarde (miroir DS Studio) attendu par PATCH /api/ds/apps côté middleware dev.
+const SAVE_KEYWORD = 'WAIMIA-SAVE';
+
+const enabledCount = apps.filter((a) => a.enabled).length;
+---
+
+<AtelierShell
+  title="Config · registre des apps internes · Library Waimia"
+  description="Configuration de l'atelier Waimia : carte des apps internes (dashboard SEO, DS Studio, builder), leur statut et leur route. Activation/désactivation en dev, lecture seule en prod."
+  active="config"
+>
+  <section class="cfg-hd">
+    <div class="cfg-wrap">
+      <Kicker class="cfg-kicker">§ Atelier Design System · Configuration</Kicker>
+      <h1 class="cfg-h1">Pilote tes <i>apps internes</i>.</h1>
+      <p class="cfg-lede">
+        Le registre <code>apps.config.ts</code> déclare chaque outil interne (dashboard SEO,
+        DS Studio, builder) : son statut, sa route et son état d'activation. Bascule une app en dev,
+        consulte la carte en prod.
+      </p>
+      <p class="cfg-meta">
+        {apps.length} app{apps.length > 1 ? 's' : ''} déclarée{apps.length > 1 ? 's' : ''} ·
+        {enabledCount} activée{enabledCount > 1 ? 's' : ''}
+      </p>
+      <a class="cfg-onboarding-link" href="/library/config/onboarding" data-mag="0.14">
+        Démarrer un nouveau site
+        <span class="cfg-onboarding-arrow" aria-hidden="true">&#8594;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cfg-body cfg-wrap" aria-label="Registre des apps internes">
+    <ConfigPanel
+      client:load
+      initialApps={apps}
+      labels={APP_LABELS}
+      saveKeyword={SAVE_KEYWORD}
+    />
+  </section>
+</AtelierShell>
+
+<style>
+  /* Markup rendu par Astro (en-tête) : styles scopés classiques. */
+  .cfg-wrap {
+    width: min(100%, var(--wrap-tight));
+    margin-inline: auto;
+    padding-inline: var(--space-6);
+  }
+  .cfg-hd {
+    padding-block: var(--space-8) var(--space-5);
+  }
+  .cfg-kicker {
+    display: block;
+    margin-bottom: var(--space-3);
+  }
+  .cfg-h1 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .cfg-h1 i {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-regular);
+    color: var(--accent-text);
+  }
+  .cfg-lede {
+    margin-top: var(--space-3);
+    max-width: 62ch;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .cfg-lede code,
+  .cfg-h1 + .cfg-lede code {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--ink);
+    background: var(--paper-2);
+    padding: 0 var(--space-1);
+    border-radius: var(--radius-sm);
+  }
+  .cfg-meta {
+    margin-top: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+  }
+  .cfg-onboarding-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--paper);
+    background: var(--ink);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  }
+  .cfg-onboarding-link:hover { background: var(--accent-text); }
+  .cfg-onboarding-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .cfg-onboarding-arrow { font-size: var(--text-body); line-height: 1; }
+  .cfg-body {
+    padding-block: var(--space-4) var(--space-10);
+  }
+</style>
+
+<style is:global>
+  /* Markup rendu par React (ConfigPanel) : hors scoping Astro → is:global.
+     0 nouveau token, tout en var(--token) existants. */
+  .cfg-panel { display: flex; flex-direction: column; gap: var(--space-4); }
+
+  .cfg-statusbar { display: flex; }
+  .cfg-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+    background: var(--paper-2);
+  }
+  .cfg-badge--live { color: var(--accent-text); border-color: var(--accent); }
+  .cfg-badge--ro { color: var(--ink-2); }
+
+  .cfg-hint {
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .cfg-hint code {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    background: var(--paper-2);
+    padding: 0 var(--space-1);
+    border-radius: var(--radius-sm);
+  }
+
+  .cfg-feedback {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--hairline);
+    margin: 0;
+  }
+  .cfg-feedback--ok { color: var(--ink); background: var(--paper-2); border-color: var(--accent); }
+  .cfg-feedback--err { color: var(--paper); background: var(--ink); }
+
+  .cfg-table-wrap { overflow-x: auto; border: 1px solid var(--hairline); border-radius: var(--radius-md); }
+  .cfg-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+  }
+  .cfg-table thead th {
+    text-align: left;
+    padding: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--hairline);
+    white-space: nowrap;
+  }
+  .cfg-table tbody td,
+  .cfg-table tbody th {
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+    text-align: left;
+  }
+  .cfg-table tbody tr:last-child td,
+  .cfg-table tbody tr:last-child th { border-bottom: none; }
+
+  .cfg-app { display: flex; flex-direction: column; gap: 2px; }
+  .cfg-app-name { font-weight: var(--fw-semibold); color: var(--ink); }
+  .cfg-app-id { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--muted); }
+
+  .cfg-tag {
+    display: inline-flex;
+    padding: 2px var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--hairline);
+  }
+  .cfg-tag[data-kind='extracted'] { color: var(--accent-text); border-color: var(--accent); }
+  .cfg-tag[data-kind='facade'] { color: var(--ink-2); }
+
+  .cfg-route { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--ink); text-decoration: none; }
+  .cfg-route:hover { color: var(--accent-text); text-decoration: underline; }
+  .cfg-route--none { color: var(--muted); }
+
+  .cfg-state { font-family: var(--font-mono); font-size: var(--text-micro); }
+  .cfg-state[data-on='true'] { color: var(--ink); }
+  .cfg-state[data-on='false'] { color: var(--muted); }
+  .cfg-diverge {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    color: var(--accent-text);
+  }
+
+  .cfg-toggle {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .cfg-toggle:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+  .cfg-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .cfg-toggle:disabled { opacity: 0.6; cursor: progress; }
+  .cfg-toggle--disabled {
+    border-color: var(--hairline);
+    color: var(--muted);
+    background: var(--paper-2);
+    cursor: not-allowed;
+  }
+</style>

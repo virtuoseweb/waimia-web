@@ -33,6 +33,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import waimiaSeoDashboard from '../packages/apps-seo-dashboard/integration.mjs';
+import waimiaAtelier from '../packages/apps-atelier/integration.mjs';
 import type { AstroIntegration } from 'astro';
 
 export interface AppEntry {
@@ -78,17 +79,15 @@ const APP_DEFS: Record<string, { defaultEnabled: boolean; integration?: AstroInt
     integration: waimiaSeoDashboard(),
     route: '/dashboard-seo',
   },
-  // Façades declaratives (code non deplace, decision D3) : activees, servies par
-  // leurs pages actuelles sous src/pages/library/*. Documentees ici pour la carte.
-  dsStudio: {
+  // App extraite (E1) : l'atelier DS complet. Toutes les routes /library/* (catalogue,
+  // fiche section, DS Studio, builder, config, hero-lab, hero-explore) sont injectees
+  // par packages/apps-atelier/integration.mjs. Remplace les anciennes façades
+  // dsStudio + builder (code desormais deplace dans le package). enabled:false ->
+  // toutes les routes /library/* deviennent 404 (au redemarrage d'astro).
+  atelier: {
     defaultEnabled: true,
-    facade: true,
-    route: '/library/studio',
-  },
-  builder: {
-    defaultEnabled: true,
-    facade: true,
-    route: '/library/builder',
+    integration: waimiaAtelier(),
+    route: '/library',
   },
 };
 

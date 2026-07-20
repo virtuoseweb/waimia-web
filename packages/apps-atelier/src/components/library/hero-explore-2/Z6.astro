@@ -1,0 +1,169 @@
+---
+/**
+ * Z6 · « Cover 60/40 · grand numéral »
+ * Héro de page service EXPLORATOIRE (page-labo, contenu de démo bake FR).
+ * ADN éditorial repris de HeroHome : MastheadRow + signature-grid + titre serif
+ * accent italique. Grille asymétrique 1.5fr / 1fr (~60/40). Rail droit LÉGER =
+ * UN grand numéral éditorial (« 100 % » serif géant accent) + caption + sous-stat
+ * mono, encadré de hairlines haut/bas. « Stat de couverture », pas un média.
+ * Full-viewport + responsive + paper/ink. 0 hardcode (tokens DS only).
+ */
+import MastheadRow from '../../../../../../src/components/ui/molecules/MastheadRow.astro';
+import Kicker from '../../../../../../src/components/ui/atoms/Kicker.astro';
+import Button from '../../../../../../src/components/ui/atoms/Button.astro';
+
+interface Props {
+  bg?: 'paper' | 'ink';
+}
+const { bg = 'paper' } = Astro.props;
+const isInk = bg === 'ink';
+---
+<section class="z6" data-bg={isInk ? 'ink' : undefined}>
+  <div class:list={['signature-grid', { 'on-dark': isInk }]}></div>
+
+  <div class="wrap-wide">
+    <MastheadRow tone={isInk ? 'ink' : 'paper'} />
+
+    <div class="z6-grid">
+      <div class="z6-main">
+        <Kicker class="z6-fig">§ 01 · Service</Kicker>
+        <h1 class="z6-title" set:html={`L'IA <i class="acc">intégrée</i> à vos<br />opérations, <i>sans friction</i>.`} />
+        <p class="z6-lede" set:html={`On installe Claude Code dans vos outils, vos données et vos flux. Vos équipes gardent la main, <i>l'IA fait le reste</i>.`} />
+        <div class="z6-ctas">
+          <Button href="/contact" variant="primary" size="lg">Démarrer un diagnostic</Button>
+          <Button href="#methode" variant="ghost" size="lg">Voir la méthode</Button>
+        </div>
+        <p class="z6-cta-sub" set:html={`Réponse sous 48 h. <i>Sans engagement.</i>`} />
+      </div>
+
+      <aside class="z6-rail" aria-label="Souveraineté des données">
+        <Kicker class="z6-fig z6-fig--rail">§ 02 · Garantie</Kicker>
+        <div class="z6-cover">
+          <span class="z6-numeral">100 %</span>
+          <span class="z6-caption">de vos données restent chez vous</span>
+          <span class="z6-substat">0 donnée envoyée à un tiers</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .z6 {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: calc(var(--viewport-h) - var(--hero-chrome-above));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: calc(var(--header-height) + var(--space-7));
+    padding-bottom: var(--space-7);
+  }
+  .z6[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .z6 > *:not(.signature-grid) { position: relative; z-index: 1; }
+  .z6 .signature-grid { z-index: 0; }
+
+  :global(.z6-fig) { margin-bottom: var(--space-4); }
+
+  .z6-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+    margin-top: var(--space-9);
+  }
+  .z6-main { display: flex; flex-direction: column; }
+
+  .z6-title {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
+    letter-spacing: -0.015em;
+    max-width: 16ch;
+    margin: 0 0 var(--space-5);
+  }
+  .z6-title :global(i) { font-style: italic; }
+  .z6-title :global(i.acc) { color: var(--accent-text); }
+
+  .z6-lede {
+    font-family: var(--font-sans);
+    font-size: var(--text-lede, clamp(20px, 1.7vw, 24px));
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    max-width: 46ch;
+    margin: 0 0 var(--space-6);
+    text-wrap: pretty;
+  }
+  .z6[data-bg='ink'] .z6-lede { color: var(--paper-2); }
+  .z6-lede :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z6-ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .z6-cta-sub {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .z6[data-bg='ink'] .z6-cta-sub { color: var(--paper-2); }
+  .z6-cta-sub :global(i) { font-style: italic; color: var(--accent-text); }
+
+  .z6-rail { display: flex; flex-direction: column; }
+  .z6-cover {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-7) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .z6[data-bg='ink'] .z6-cover {
+    border-top-color: rgba(var(--paper-rgb), 0.12);
+    border-bottom-color: rgba(var(--paper-rgb), 0.12);
+  }
+  .z6-numeral {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-h1), 9vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--accent-text);
+    font-weight: var(--fw-regular);
+  }
+  .z6-caption {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--ink);
+    text-wrap: balance;
+    max-width: 24ch;
+  }
+  .z6[data-bg='ink'] .z6-caption { color: var(--paper); }
+  .z6-substat {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .z6[data-bg='ink'] .z6-substat { color: var(--paper-2); }
+
+  @media (max-width: 768px) {
+    .z6 {
+      padding-top: calc(var(--header-height) + var(--space-5));
+      padding-bottom: var(--space-5);
+    }
+    .z6-grid { grid-template-columns: 1fr; gap: var(--space-7); margin-top: var(--space-6); }
+    .z6-title { max-width: none; margin-bottom: var(--space-4); }
+    .z6-lede { margin-bottom: var(--space-5); }
+    .z6-ctas { gap: var(--space-2); }
+    .z6-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
+    .z6-rail :global(.z6-fig--rail) { margin-top: var(--space-2); }
+    .z6-cover { padding: var(--space-6) 0; }
+  }
+</style>
