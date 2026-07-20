@@ -840,8 +840,8 @@ _(vide)_
   - Preuve GF-1 : sitemap affiche N pages réelles cross-checkées, groupes lisibles, clic page → builder chargé avec les sections exactes de la page, édition contenu → PATCH → visible au reload de la vraie page.
 - [x] **P4.4-g — V4 création + config** (S1 scaffolder v2 co-localisé + `/api/ds/scaffold` + `/api/ds/apps` (`6e6e024a`) · S2 UI « dupliquer comme nouveau type » depuis le canvas (`e1904ae4`) · P1-P3 custom-presets (fusion runtime + endpoint `dd517a02`, bouton variante `af5328d2`) · C1 `/library/config` + apps-state.json + C2 onboarding guidé (`d0d70e34`)).
   - Preuve GF-1 : type scaffoldé bout-en-bout → preview HTTP 200 rendu réel → nettoyage grep=0 ; variante custom LIVE dans l'onglet Variante (e2e étape 12) ; toggle app → apps-state écrit → 404 après restart → revert 200 ; e2e 12/12 ré-exécuté indé à chaque brique. <!-- sb commit=e1904ae4 gf1=y -->
-- [ ] **P4.4-h — V5 extension physique** (E1 extraction `packages/apps-atelier` injectRoute + suppression src/pages/library · E2 panneau where-used preview + surlignage postMessage · demo-overrides).
-  - Preuve GF-1 : diff sitemap vide avant/après ; `enabled:false` → 404.
+- [ ] **P4.4-h — V5 extension physique** (E1 extraction `packages/apps-atelier` injectRoute + suppression src/pages/library — LIVRÉ `db240fe2` (42 fichiers, redirects conditionnés au flag, parité 502 routes, e2e 12/12) · E2 panneau where-used preview + surlignage postMessage · demo-overrides — EN COURS).
+  - Preuve GF-1 : diff sitemap vide avant/après ; `enabled:false` → 404 (E1 : validé). Reste E2 avant de cocher.
 - [ ] **P4.4-d — V2 : catalogue comparatif + studio refondu** (familles/compare sous shell, diff d'axes, « ouvrir dans le builder », portage panneaux studio).
 - [ ] **P4.4-e — V3 : pipeline 4 vues + chat MCP** (sitemap→wireframe→style→design, chat opt-in brouillons compose) + décision dédiée composants globaux synchronisés (`{ref}` résolue au rendu).
 
