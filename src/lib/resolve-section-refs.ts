@@ -9,6 +9,7 @@
 //   clone) tant qu'aucun champ n'est déclaré référençable. Les phases suivantes n'ont qu'à
 //   enrichir DEUX registres (`SOURCE_ACCESSORS`, `PROJECTIONS`) sans toucher à la boucle.
 
+import { getCollection, type CollectionEntry } from 'astro:content';
 import type { SectionData } from '@waimia/ds-kernel';
 import {
   REF_TARGETS,
@@ -17,6 +18,7 @@ import {
   parseRef,
   type RefSource,
 } from '@waimia/ds-kernel/sections/_shared/refs';
+import { LOGOS } from '../data/logos';
 
 // ─── Memo module-scope ────────────────────────────────────────────────────────
 // Garantit qu'une même source de collection n'est chargée qu'UNE fois par build (même
@@ -53,13 +55,40 @@ const SOURCE_ACCESSORS: Record<RefSource, (id: string) => unknown | Promise<unkn
     {} as Record<RefSource, (id: string) => unknown | Promise<unknown>>,
   );
 
+// ─── P4.4-e Phase 1 : câblage des sources réelles (logos + cases) ───────────────
+// logos : store synchrone src/data/logos.ts. `LOGOS[id]` a DÉJÀ la forme
+// `logoMarqueeItemSchema` → accessor IDENTITÉ (aucune projection déclarée ci-dessous).
+SOURCE_ACCESSORS.logos = (id) => LOGOS[id];
+// cases : collection Astro chargée UNE fois par build (memo loadSourceOnce). Matching par
+// `c.id` = EXACTEMENT le critère de CaseCardGrid.astro avant migration (Map indexée sur c.id).
+SOURCE_ACCESSORS.cases = async (id) => {
+  const cases = await loadSourceOnce('cases', () => getCollection('cases'));
+  return cases.find((c) => c.id === id);
+};
+
 /**
  * Projection par champ : `(entrée résolue) => forme inline attendue par le composant`.
  * Clé = même format que REF_TARGETS (`'<sectionType>.<field>'`). Identité par défaut si
  * aucune projection déclarée. Vide en Phase 0.
  */
 const PROJECTIONS: Record<string, (resolved: unknown) => unknown> = {
-  // (aucune projection en Phase 0)
+  // case-card-grid.cases : l'entrée résolue est une CollectionEntry<'cases'> (forme collection,
+  // ≠ forme d'item du composant). Projection reproduite VERBATIM depuis CaseCardGrid.astro
+  // (mapping `caseRefs` pré-migration) : stack[] → 'a · b · c', href /cas-clients/<id>, sélection
+  // des mêmes champs (les médias de reveal ne sont pas dérivés d'une ref, comme avant).
+  'case-card-grid.cases': (resolved) => {
+    const c = resolved as CollectionEntry<'cases'>;
+    return {
+      client: c.data.client,
+      sector_fr: c.data.sector_fr,
+      sector_en: c.data.sector_en,
+      duration: c.data.duration,
+      stack: c.data.stack.join(' · '),
+      impact_fr: c.data.impact_fr,
+      impact_en: c.data.impact_en,
+      href: `/cas-clients/${c.id}`,
+    };
+  },
 };
 
 // ─── Résolution ────────────────────────────────────────────────────────────────

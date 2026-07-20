@@ -39,7 +39,7 @@ function read(rel) {
 // ── 0. Inventaire des slugs par collection (slug frontmatter, fallback nom de fichier) ──
 // Collections supprimées (SEO état final, §0ter) : collection retirée de content.config,
 // dossier supprimé. Dir absent = retour map vide, PAS un FATAL (la collection n'existe plus).
-const REMOVED_COLLECTIONS = new Set(['solutions']);
+const REMOVED_COLLECTIONS = new Set(['solutions', 'offres']);
 function collectSlugs(collection) {
   const dir = join(ROOT, 'src/content', collection);
   if (!existsSync(dir)) {
@@ -63,7 +63,7 @@ function collectSlugs(collection) {
   // Collections légitimement vidables (purge P0.2-H : cas/secteurs fictifs retirés,
   // reconstruction réelle en P0.6) + supprimées (SEO état final). Un dossier vide
   // n'est PAS une erreur : les références vers ces slugs sont nettoyées en amont.
-  const MAY_BE_EMPTY = new Set(['cases', 'secteurs', 'solutions']);
+  const MAY_BE_EMPTY = new Set(['cases', 'secteurs', 'solutions', 'offres']);
   if (slugs.size === 0 && !MAY_BE_EMPTY.has(collection)) {
     console.error(`✗ FATAL : 0 entrée parsée dans src/content/${collection}`);
     process.exit(2);
@@ -83,7 +83,7 @@ const SLUGS = {
 // provenance valides mais ne sont plus vérifiées sur disque.
 // + solutions : collection supprimée (SEO état final) → mêmes traces de provenance
 //   tolérées dans pain-points.ts / proof-points.ts (contenu fusionné en sections piliers).
-const ARCHIVED_COLLECTIONS = new Set(['pain-points', 'proof-points', 'guarantees', 'solutions']);
+const ARCHIVED_COLLECTIONS = new Set(['pain-points', 'proof-points', 'guarantees', 'solutions', 'offres']);
 
 // ── 1. Référentiels src/data ──
 function parseReferential(rel) {
@@ -210,9 +210,78 @@ for (const [slug, file] of SLUGS.offres) {
   checkRelated(`offres/${slug}`, frontmatter('offres', file));
 }
 
+// ── 5. Refs `{ref}` (P4.4-e) : pointeurs { "ref": "source/id" } dans src/content/**/*.json ──
+// BLOC ISOLÉ : scan JSON.parse propre (PAS la fonction frontmatter() héritée MDX, cassée sur
+// JSON — laissée intacte, dette séparée). Valide que chaque pointeur cible une source CÂBLÉE à
+// ce stade ET un id existant. WIRED_REF_SOURCES = sources réellement branchées dans le résolveur
+// (REF_TARGETS). À ÉTENDRE au fil des phases suivantes (testimonials, pricing, pain-points, ...).
+console.log('── 5. Refs {ref} : pointeurs de contenu global (P4.4-e)');
+const WIRED_REF_SOURCES = new Set(['logos', 'cases']);
+
+// Ids valides par source câblée.
+//  - logos : CLÉS D'OBJET du store LOGOS (`  claude: {`), PAS un champ `id:` (regex dédié).
+//  - cases : noms de fichiers (sans extension) de src/content/cases/*.json.
+const logoIds = new Set(
+  [...read('src/data/logos.ts').matchAll(/^ {2}([a-z][a-z0-9-]*):\s*\{\s*$/gm)].map((m) => m[1]),
+);
+const caseIds = new Set(
+  readdirSync(join(ROOT, 'src/content/cases'))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => f.replace(/\.json$/, '')),
+);
+const REF_IDS = { logos: logoIds, cases: caseIds };
+if (logoIds.size === 0) fail('src/data/logos.ts : 0 clé de logo parsée (regex à revoir)');
+if (caseIds.size === 0) fail('src/content/cases : 0 fichier de cas');
+
+// Scan récursif de tous les .json sous src/content.
+function walkJson(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...walkJson(p));
+    else if (entry.isFile() && entry.name.endsWith('.json')) out.push(p);
+  }
+  return out;
+}
+// Collecte récursive des pointeurs { ref: 'source/id' } (objet à clé UNIQUE `ref` string).
+function collectRefs(node, acc) {
+  if (Array.isArray(node)) {
+    for (const v of node) collectRefs(v, acc);
+  } else if (node && typeof node === 'object') {
+    const keys = Object.keys(node);
+    if (keys.length === 1 && keys[0] === 'ref' && typeof node.ref === 'string') acc.push(node.ref);
+    else for (const v of Object.values(node)) collectRefs(v, acc);
+  }
+  return acc;
+}
+
+let refCount = 0;
+for (const file of walkJson(join(ROOT, 'src/content'))) {
+  const rel = file.slice(ROOT.length + 1);
+  let parsed;
+  try {
+    parsed = JSON.parse(readFileSync(file, 'utf8'));
+  } catch (e) {
+    fail(`${rel} : JSON invalide (${e.message})`);
+    continue;
+  }
+  for (const ref of collectRefs(parsed, [])) {
+    refCount++;
+    const slash = ref.indexOf('/');
+    const source = slash === -1 ? ref : ref.slice(0, slash);
+    const id = slash === -1 ? '' : ref.slice(slash + 1);
+    if (!WIRED_REF_SOURCES.has(source)) {
+      fail(`${rel} : ref source non câblée « ${source} » (${ref})`);
+      continue;
+    }
+    if (!REF_IDS[source].has(id)) fail(`${rel} : ref cassée → ${ref} (id absent de « ${source} »)`);
+  }
+}
+console.log(`  ${refCount} pointeur(s) {ref} scanné(s) · sources câblées : ${[...WIRED_REF_SOURCES].join(', ')}`);
+
 // ── Verdict ──
 if (errors > 0) {
   console.error(`\nFAIL — ${errors} référence(s) cassée(s)`);
   process.exit(1);
 }
-console.log('\nPASS — référentiels, need, facets et maillage related* intègres');
+console.log('\nPASS — référentiels, need, facets, maillage related* et refs {ref} intègres');

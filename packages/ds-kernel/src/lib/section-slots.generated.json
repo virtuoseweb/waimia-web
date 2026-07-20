@@ -3904,17 +3904,12 @@
         "bilingual": true
       },
       {
-        "field": "caseRefs",
-        "kind": "content",
-        "type": "array",
-        "required": false
-      },
-      {
         "field": "cases",
         "kind": "content",
         "type": "array",
         "required": false,
         "max": 6,
+        "refable": true,
         "itemShape": [
           {
             "field": "client",
@@ -3959,7 +3954,8 @@
             "required": false,
             "bilingual": true
           }
-        ]
+        ],
+        "refSource": "cases"
       },
       {
         "field": "all_label",
@@ -46312,18 +46308,13 @@
         "bilingual": true
       },
       {
-        "field": "logoIds",
-        "kind": "content",
-        "type": "array",
-        "required": false
-      },
-      {
         "field": "logos",
         "kind": "content",
         "type": "array",
         "required": false,
         "min": 4,
         "max": 24,
+        "refable": true,
         "itemShape": [
           {
             "field": "src",
@@ -46341,7 +46332,8 @@
             "type": "url",
             "required": false
           }
-        ]
+        ],
+        "refSource": "logos"
       },
       {
         "field": "speed",

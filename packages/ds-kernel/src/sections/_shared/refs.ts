@@ -80,5 +80,7 @@ export function parseRef(value: { ref: string }): { source: string; id: string }
  * À PEUPLER par les phases suivantes (migration de sections) — VIDE en Phase 0 (fondation inerte).
  */
 export const REF_TARGETS: Record<string, RefSource> = {
-  // (aucune entrée en Phase 0 : la fondation reste inerte)
+  // P4.4-e Phase 1 : premiers champs câblés (walking skeleton + projection non triviale).
+  'logo-marquee.logos': 'logos',
+  'case-card-grid.cases': 'cases',
 };

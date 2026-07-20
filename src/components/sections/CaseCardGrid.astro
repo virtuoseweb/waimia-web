@@ -2,7 +2,6 @@
 // Section W6 · case-card-grid
 // Table éditoriale 6 colonnes : index · client · secteur · stack · impact · arrow.
 // Markup + style = copie VERBATIM de `Cases.astro` (Acte IV — Les preuves, 4 dossiers).
-import { getCollection } from 'astro:content';
 import ChapterLabel from '../ui/atoms/ChapterLabel.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -14,28 +13,12 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 
-// Résolution GLOBAL : si caseRefs présent → résout la collection `cases` filtrée par
-// slug (ordre du caseRefs préservé, slugs inconnus ignorés = anti-404) et mappe vers
-// la forme `cases` attendue par le markup (stack[] → 'a · b · c') ; sinon fallback
-// aux cases inline (rétrocompat, 0 régression).
-let resolvedCases = data.cases;
-if (data.caseRefs && data.caseRefs.length > 0) {
-  const all = await getCollection('cases');
-  const bySlug = new Map(all.map((c) => [c.id, c]));
-  resolvedCases = data.caseRefs
-    .map((slug) => bySlug.get(slug))
-    .filter((c): c is NonNullable<typeof c> => Boolean(c))
-    .map((c) => ({
-      client: c.data.client,
-      sector_fr: c.data.sector_fr,
-      sector_en: c.data.sector_en,
-      duration: c.data.duration,
-      stack: c.data.stack.join(' · '),
-      impact_fr: c.data.impact_fr,
-      impact_en: c.data.impact_en,
-      href: `/cas-clients/${c.id}`,
-    }));
-}
+// `data.cases` est DÉJÀ résolu ET projeté par resolveSectionRefs (SectionsRenderer) : les
+// pointeurs `{ ref: 'cases/<slug>' }` ont été remplacés par la forme d'item (stack joint, href
+// construit) ; les cas inline sont laissés tels quels. On restreint le type union (item | ref)
+// à l'item inline seul (branche `{ client }`).
+type CaseItem = Extract<NonNullable<SectionByType<'case-card-grid'>['cases']>[number], { client: string }>;
+const resolvedCases = (data.cases ?? []) as CaseItem[];
 
 // GAP-B · état vide honnête : < 2 cas (ou 0) → encart « premiers cas en cours de
 // rédaction » au lieu d'une table famélique. Porté DANS le composant catalogué pour
