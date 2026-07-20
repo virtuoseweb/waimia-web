@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `a2a08f72` - 86/96 tâches done (90%).
+État : HEAD `597c797f` - 86/96 tâches done (90%).
 
 ## Avancement par phase
 
@@ -48,7 +48,7 @@
 | P4.1 — Boilerplate produit forkable | P4 | 1/1 | 100% | 9be38c58 fix(forkabilite): aria-label wordmark header → SITE.name + limite documentée (wordmark stylisé = actif de marque, constat démo réelle solstice-web-demo) |
 | P4.2 — CMS lite + TinaCMS (visual editing 100% Astro) | P4 | 1/1 | 100% | d267b834 feat(cms): #39/#40 retrait complet de TinaCMS (ADR docs/strategy/12) |
 | P4.3 — Dashboard / cockpit & agents à l'usage | P4 | 0/1 | 0% | - |
-| P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 7/9 | 78% | 864fd48e feat(atelier): vague 2 — picker visuel + canvas BuilderApp + inspecteur 4 onglets + library instances + PATCH /api/ds/instance (B5+B6+B7+U1+U2+U3) ; 864fd48e feat(atelier): vague 2 — picker visuel + canvas BuilderApp + inspecteur 4 onglets + library instances + PATCH /api/ds/instance (B5+B6+B7+U1+U2+U3) ; fe3ca7b5 feat(atelier): P4.4-i · l'app builder s'ouvre sur le projet réel (dashboard + sitemap + édition page réelle) |
+| P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 7/9 | 78% | fe3ca7b5 feat(atelier): P4.4-i · l'app builder s'ouvre sur le projet réel (dashboard + sitemap + édition page réelle) ; e1904ae4 feat(atelier): P4.4-g S2 · « Dupliquer comme nouveau type » depuis le canvas ; a2a08f72 feat(atelier): P4.4-h E2 · where-used actionnable (deep-link ?atelier-focus + outline dev-only) + demo-overrides (store + endpoint + bandeau fiche) |
 
 ## ⚠ Désyncs
 
@@ -81,10 +81,4 @@
 - `P2.9` : case [x] sans tag commit
 - `P2.9` : gf1=absent sur une case [x]
 - `P4.2-a` : gf1=n sur une case [x]
-- `P4.4-c` : case [x] sans tag commit
-- `P4.4-c` : gf1=absent sur une case [x]
-- `P4.4-g` : case [x] sans tag commit
-- `P4.4-g` : gf1=absent sur une case [x]
-- `P4.4-h` : case [x] sans tag commit
-- `P4.4-h` : gf1=absent sur une case [x]
 
