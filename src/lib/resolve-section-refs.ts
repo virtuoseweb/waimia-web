@@ -1,0 +1,136 @@
+// Waimia · P4.4-e Phase 0 · résolveur `{ref}` côté app (fondation inerte).
+//
+// Résout, au rendu (build SSG), les champs de section qui portent un pointeur
+// `{ ref: 'source/id' }` vers leur forme inline, en lisant la table de vérité UNIQUE
+// `REF_TARGETS` (packages/ds-kernel/.../refs.ts). Consommé par SectionsRenderer.astro.
+//
+// FONDATION INERTE (Phase 0) : `REF_TARGETS` est VIDE et les accessors sont des stubs.
+// → `resolveSectionRefs` est un PASSTHROUGH strict (retourne la section inchangée, aucun
+//   clone) tant qu'aucun champ n'est déclaré référençable. Les phases suivantes n'ont qu'à
+//   enrichir DEUX registres (`SOURCE_ACCESSORS`, `PROJECTIONS`) sans toucher à la boucle.
+
+import type { SectionData } from '@waimia/ds-kernel';
+import {
+  REF_TARGETS,
+  REF_SOURCES,
+  isRef,
+  parseRef,
+  type RefSource,
+} from '@waimia/ds-kernel/sections/_shared/refs';
+
+// ─── Memo module-scope ────────────────────────────────────────────────────────
+// Garantit qu'une même source de collection n'est chargée qu'UNE fois par build (même
+// si Astro mémoïse déjà getCollection côté content layer). Les accessors async des phases
+// suivantes passent leur `getCollection` par ce helper.
+const sourceMemo = new Map<RefSource, Promise<unknown>>();
+
+/** Charge (et mémoïse) une source une seule fois par build. */
+export function loadSourceOnce<T>(source: RefSource, loader: () => Promise<T>): Promise<T> {
+  let pending = sourceMemo.get(source);
+  if (!pending) {
+    pending = loader();
+    sourceMemo.set(source, pending);
+  }
+  return pending as Promise<T>;
+}
+
+// ─── Registres à enrichir par les phases suivantes (les 2 SEULS points d'extension) ──
+
+/**
+ * Accessor par source : `(id) => entrée résolue` (sync ou async).
+ * Phase 0 : stubs qui THROW explicitement (jamais un échec silencieux). Le résolveur
+ * capture ce throw et le convertit en `console.warn` → le rendu ne casse jamais, mais
+ * une source déclarée dans REF_TARGETS sans accessor câblé reste VISIBLE dans les logs.
+ */
+const SOURCE_ACCESSORS: Record<RefSource, (id: string) => unknown | Promise<unknown>> =
+  REF_SOURCES.reduce(
+    (acc, source) => {
+      acc[source] = () => {
+        throw new Error(`[resolveSectionRefs] source « ${source} » non câblée (à brancher en phase suivante)`);
+      };
+      return acc;
+    },
+    {} as Record<RefSource, (id: string) => unknown | Promise<unknown>>,
+  );
+
+/**
+ * Projection par champ : `(entrée résolue) => forme inline attendue par le composant`.
+ * Clé = même format que REF_TARGETS (`'<sectionType>.<field>'`). Identité par défaut si
+ * aucune projection déclarée. Vide en Phase 0.
+ */
+const PROJECTIONS: Record<string, (resolved: unknown) => unknown> = {
+  // (aucune projection en Phase 0)
+};
+
+// ─── Résolution ────────────────────────────────────────────────────────────────
+
+/**
+ * Résout un pointeur unique. Ne throw JAMAIS côté rendu : toute source non câblée / id
+ * introuvable / accessor en échec → `console.warn` + `undefined` (l'appelant filtre l'item).
+ */
+async function resolveOne(source: string, id: string, ctx: string): Promise<unknown> {
+  const accessor = (SOURCE_ACCESSORS as Record<string, ((id: string) => unknown | Promise<unknown>) | undefined>)[source];
+  if (!accessor) {
+    console.warn(`[resolveSectionRefs] source inconnue « ${source} » (ref ${source}/${id} depuis ${ctx})`);
+    return undefined;
+  }
+  try {
+    const entry = await accessor(id);
+    if (entry === undefined || entry === null) {
+      console.warn(`[resolveSectionRefs] ref cassée : ${source}/${id} introuvable (depuis ${ctx})`);
+      return undefined;
+    }
+    return entry;
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.warn(`[resolveSectionRefs] échec résolution ${source}/${id} (depuis ${ctx}) : ${msg}`);
+    return undefined;
+  }
+}
+
+/** Résout un item (inline → gardé tel quel ; `{ref}` → résolu + projeté ; cassé → undefined). */
+async function resolveItem(item: unknown, projKey: string): Promise<unknown> {
+  if (!isRef(item)) return item;
+  const { source, id } = parseRef(item);
+  const resolved = await resolveOne(source, id, projKey);
+  if (resolved === undefined) return undefined;
+  const project = PROJECTIONS[projKey];
+  return project ? project(resolved) : resolved;
+}
+
+/** Résout la valeur d'un champ référençable (tableau d'items OU valeur scalaire). */
+async function resolveField(sectionType: string, field: string, value: unknown): Promise<unknown> {
+  const projKey = `${sectionType}.${field}`;
+  if (Array.isArray(value)) {
+    const out = await Promise.all(value.map((item) => resolveItem(item, projKey)));
+    return out.filter((v) => v !== undefined); // items cassés retirés (warn déjà émis)
+  }
+  return resolveItem(value, projKey);
+}
+
+/**
+ * Résout les refs d'une section avant rendu. Passthrough strict tant qu'aucun champ du
+ * type n'est déclaré dans REF_TARGETS (cas Phase 0). `lang` est propagé pour les phases
+ * suivantes (projections bilingues) ; inutilisé ici.
+ */
+export async function resolveSectionRefs(
+  section: SectionData,
+  lang: 'fr' | 'en',
+): Promise<SectionData> {
+  void lang;
+  const prefix = `${(section as { type: string }).type}.`;
+  const refFields = Object.keys(REF_TARGETS)
+    .filter((key) => key.startsWith(prefix))
+    .map((key) => key.slice(prefix.length));
+
+  // Fondation inerte : 0 champ référençable → passthrough strict (aucun clone).
+  if (refFields.length === 0) return section;
+
+  const clone: Record<string, unknown> = { ...(section as Record<string, unknown>) };
+  const sectionType = (section as { type: string }).type;
+  for (const field of refFields) {
+    if (!(field in clone)) continue;
+    clone[field] = await resolveField(sectionType, field, clone[field]);
+  }
+  return clone as SectionData;
+}
