@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `597c797f` - 86/96 tâches done (90%).
+État : HEAD `cfd51311` - 86/96 tâches done (90%).
 
 ## Avancement par phase
 
@@ -43,7 +43,7 @@
 | P2.6 — Awwwards (directive 03) W1/W3/W4 + re-critique it.13 | P2 | 2/2 | 100% | 53ed1c3b fix(design): overflow hero-offer-detail + habillage medias (audit #2/#3) ; b6778110 feat(secteurs): tech-stack-band paper→paper-3 · seule adjacence même-fond des 12 secteurs cassée (P2.6-W3) |
 | P2.7 — Système de variation (#14 Phase B) | P2 | 1/1 | 100% | 5e74e4c1 feat(ds): systeme de variation (Phase B) prouve sur famille HERO |
 | P2.8 — DS Studio créatif (#14 Phase C) | P2 | 3/3 | 100% | 2d23991a feat(ds): P2.8 save preset persisté · POST /api/ds/preset dev-only (fiche 0022 Option A) ; 05bf1d53 feat(ds-studio): P2.8-b · apply preset sans rechargement complet · garde d'idempotence loadCatalogType (src réécrit SEULEMENT si le type change ; apply = live-override, jamais de reload) · GF-1 : navs=[] + data-gf SURVIVE au re-clic type actif, 2 applys successifs live (Encre&ardoise puis Forêt sobre), 0 erreur console, gates baseline 8 + build Complete ; 7e7f62cd feat(ds-studio): P2.8-c instance overrides · tokens par instance de section (galerie inline) |
-| P2.9 — Production presets en masse (#14 Phase D-E) | P2 | 1/1 | 100% | - |
+| P2.9 — Production presets en masse (#14 Phase D-E) | P2 | 1/1 | 100% | 14d55274 feat(presets): vague 12 FINALE Hero P2.9 · 16 types +30 presets (760→790, régimes A/B probés live, 3 types fond figé consignés) · GF-1 sweep 30/30 (200, data-bg, h1 visible, luminance ink 241/11, scrollX=0 desktop+mobile) · fan-out COMPLET : tous les types à axe câblé couverts, restent 14 types 0-axe + hero-home/hero-liquid consignés |
 | P3.1 — Lead sourcing + scoring | P3 | 0/2 | 0% | - |
 | P4.1 — Boilerplate produit forkable | P4 | 1/1 | 100% | 9be38c58 fix(forkabilite): aria-label wordmark header → SITE.name + limite documentée (wordmark stylisé = actif de marque, constat démo réelle solstice-web-demo) |
 | P4.2 — CMS lite + TinaCMS (visual editing 100% Astro) | P4 | 1/1 | 100% | d267b834 feat(cms): #39/#40 retrait complet de TinaCMS (ADR docs/strategy/12) |
@@ -78,7 +78,5 @@
 - `P1.3-b` : gf1=n sur une case [x]
 - `P2.0` : gf1=n sur une case [x]
 - `P2.7` : gf1=n sur une case [x]
-- `P2.9` : case [x] sans tag commit
-- `P2.9` : gf1=absent sur une case [x]
 - `P4.2-a` : gf1=n sur une case [x]
 
