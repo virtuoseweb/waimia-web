@@ -36,6 +36,14 @@ export interface SlotItemField {
   min?: number;
   max?: number;
   itemShape?: SlotItemField[];
+  /**
+   * MIROIR du contrat de slots ds-kernel (P4.4-e) : un slot `array` référençable accepte, PAR
+   * ITEM, soit sa forme inline (itemShape), soit un pointeur `{ ref: '<source>/<id>' }` résolu
+   * au rendu vers une source de contenu GLOBAL. Toujours vrai avec `refSource` renseigné.
+   */
+  refable?: boolean;
+  /** Source de contenu global ciblée (`logos`, `cases`, `testimonials`…). Présent ssi `refable`. */
+  refSource?: string;
 }
 
 /** Un slot de section : un champ du contrat de contenu/présentation. */
@@ -49,6 +57,10 @@ export interface SectionSlot {
   min?: number;
   max?: number;
   itemShape?: SlotItemField[];
+  /** Slot `array` référençable par item (cf SlotItemField.refable). Miroir du JSON généré. */
+  refable?: boolean;
+  /** Source de contenu global ciblée. Présent ssi `refable`. */
+  refSource?: string;
 }
 
 /** Un schéma de couleur (miroir de ColorScheme, section-colorschemes.ts). */

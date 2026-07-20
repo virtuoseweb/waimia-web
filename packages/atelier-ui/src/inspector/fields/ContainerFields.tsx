@@ -112,6 +112,8 @@ function ContainerField(props: {
         hint={hint}
         itemShape={field.itemShape}
         max={field.max}
+        refable={field.refable}
+        refSource={field.refSource}
         value={(container[dataKey] as unknown[]) ?? []}
         onChange={setVal}
         lang={lang}
