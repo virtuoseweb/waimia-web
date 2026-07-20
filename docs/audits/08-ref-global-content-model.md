@@ -151,17 +151,47 @@ qu'il garde les composants inchangés et reste 100 % SSG sans forcer la conversi
 - **Intégrité** : une ref cassée ne doit jamais casser la prod silencieusement. Gate build obligatoire.
 - **Sur-portée** : viser « tout » (memory `no-hardcode`) ferait exploser le périmètre. Rester sur §3.
 
-## 8. Ce qui reste à trancher par Simon (avant tout code)
+## 8. Arbitrage (tranché 2026-07-20)
 
-1. **Périmètre §3** : la liste (cas, logos, avis, auteur, prix, pain/proof/garanties) ou un démarrage plus
-   étroit (cas + avis + prix) ?
-2. **Option §4** : la reco hybride C+B, ou une autre (A central pur / D reference Astro / B ad hoc pur) ?
-3. **Convention de champ** : `{ ref: 'source/id' }` unique, ou refs typées par champ (`caseRefs`, `pricingRef`…) ?
-4. **Sources = stores `src/data` ou collections ?** (détermine C vs D ; les avis n'existent en collection nulle part).
-5. **Couplage builder** : P4.4-e doit-il livrer l'écriture de `{ref}` depuis l'UI dès la V3, ou d'abord le
-   pipeline 4 vues en lecture puis l'écriture de refs en V3.1 ?
+1. **Périmètre** : **liste large** — cas, logos, avis (testimonials), auteur, prix, pain-points,
+   proof-points, garanties, partenaires. (Décision Simon.)
+2. **Option** : **hybride C+B** (résolveur central build-time + câblage incrémental section par section).
+   (Décision Simon, reco §5.)
+3. **Convention de champ** : **enveloppe générique `{ ref: 'source/id' }`** sur les champs refables
+   (union `<forme inline> | { ref: string }`). Choisi plutôt que des refs typées par champ pour que le
+   résolveur central reste un point unique (1 prédicat, 1 fonction de résolution, 1 fallback anti-404),
+   cohérent avec l'Option C retenue au point 2 — évite la dérive « chaque section réinvente son
+   fallback » identifiée en §4-Option B. (Décision Opus, déléguée par Simon.)
+4. **Sources = split par nature du contenu, pas un choix uniforme** :
+   - **Collections Astro** (`src/content/`) pour le contenu document-like à identité propre / page
+     potentielle : `cases` (déjà), `authors` (déjà), **`testimonials` à créer** (les avis n'existent
+     aujourd'hui ni en store ni en collection — seul contenu du périmètre à créer de zéro).
+   - **Stores `src/data/*.ts`** pour les catalogues compacts énumérables sans page propre : `pricing`,
+     `pain-points`, `proof-points`, `guarantees`, `partners`, `logos` — déjà en place avec accesseurs
+     stables, résolution synchrone.
+   - Généralise le split déjà existant (`caseRefs`→collection, `logoIds`→store) plutôt que de le
+     remplacer par un système uniforme. `SectionsRenderer` reste synchrone pour les stores, async
+     uniquement pour les 3 sources collection (pattern déjà prouvé par `CaseCardGrid.astro:22`).
+     (Décision Opus, déléguée par Simon : « je sais pas le mieux, tu conseilles quoi ».)
+5. **Couplage builder** : **oui dès la V3** — le pipeline 4 vues doit permettre d'écrire un `{ref}`
+   depuis l'UI (pas seulement le lire), donc `/api/ds/instance` et `/api/ds/compose` doivent apprendre
+   à écrire des refs, pas seulement de l'inline. (Décision Simon.)
+
+## 9. Registre source→accessor (verrouillé par l'arbitrage §8)
+
+| `source` (dans `ref: 'source/id'`) | Nature | Accessor de résolution | Fichier |
+| --- | --- | --- | --- |
+| `cases` | collection | `getCollection('cases')` + `Map` bySlug (existant) | `src/components/sections/CaseCardGrid.astro:22-38` (précédent à généraliser) |
+| `authors` | collection | `getEntry('authors', id)` | `content.config.ts:609` |
+| `testimonials` | collection **(à créer)** | `getCollection('testimonials')` | nouvelle collection |
+| `pricing` | store | `tierById(id)` | `src/data/pricing.ts:89` |
+| `pain-points` | store | `getPainPoint(id)` | `src/data/pain-points.ts:271` |
+| `proof-points` | store | `getProofPoint(id)` | `src/data/proof-points.ts:287` |
+| `guarantees` | store | `GUARANTEE_BY_ID.get(id)` | `src/data/guarantees.ts:128` |
+| `partners` | store | trouver par `slug` dans `PARTNERS` | `src/data/partners.ts:42` |
+| `logos` | store | `LOGOS[id]` (précédent existant) | `src/data/logos.ts:26` + `LogoMarquee.astro:20-22` |
 
 ---
 
-**Prochaine étape** : validation Simon des points §8. Aucune ligne de code ne sera écrite avant.
-Une fois tranché, l'implémentation se décompose (worker isolé + GF-1 parité) selon l'option retenue.
+**Statut** : arbitrage soldé. Passage en Plan Mode pour la séquence d'implémentation (schéma, résolveur,
+collection `testimonials`, migration des 2 précédents, câblage large, écriture builder V3, gates).
