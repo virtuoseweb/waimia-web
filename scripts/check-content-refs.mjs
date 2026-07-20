@@ -216,7 +216,19 @@ for (const [slug, file] of SLUGS.offres) {
 // ce stade ET un id existant. WIRED_REF_SOURCES = sources réellement branchées dans le résolveur
 // (REF_TARGETS). À ÉTENDRE au fil des phases suivantes (testimonials, pricing, pain-points, ...).
 console.log('── 5. Refs {ref} : pointeurs de contenu global (P4.4-e)');
-const WIRED_REF_SOURCES = new Set(['logos', 'cases', 'testimonials']);
+// P4.4-e Phase 3 : ajout des stores src/data. `pricing` = ACCESSOR-ONLY (aucun champ de section
+// refable à ce stade car son référentiel mince prix/période/label n'a pas de forme cible sans
+// fabriquer cta+features) → listé WIRED pour valider les ids si un ref apparaît, 0 usage actuel.
+const WIRED_REF_SOURCES = new Set([
+  'logos',
+  'cases',
+  'testimonials',
+  'guarantees',
+  'proof-points',
+  'pain-points',
+  'partners',
+  'pricing',
+]);
 
 // Ids valides par source câblée.
 //  - logos : CLÉS D'OBJET du store LOGOS (`  claude: {`), PAS un champ `id:` (regex dédié).
@@ -236,10 +248,31 @@ const testimonialIds = new Set(
     .filter((f) => f.endsWith('.json'))
     .map((f) => f.replace(/\.json$/, '')),
 );
-const REF_IDS = { logos: logoIds, cases: caseIds, testimonials: testimonialIds };
+// P4.4-e Phase 3 : ids des stores src/data (extraction HÉTÉROGÈNE par store).
+//  - guarantees / proof-points / pain-points : ids déjà parsés en §1 (parseReferential, champ `id:`).
+//  - partners : clé d'identité `slug: '<slug>'` de src/data/partners.ts.
+//  - pricing  : id de palier `tier: '<id>'` de src/data/pricing.ts (accessor-only, ids [a-z-]).
+const partnerIds = new Set(
+  [...read('src/data/partners.ts').matchAll(/^\s*slug: '([a-z0-9-]+)',$/gm)].map((m) => m[1]),
+);
+const pricingIds = new Set(
+  [...read('src/data/pricing.ts').matchAll(/tier: '([a-z-]+)',/g)].map((m) => m[1]),
+);
+const REF_IDS = {
+  logos: logoIds,
+  cases: caseIds,
+  testimonials: testimonialIds,
+  guarantees: guarantees.ids,
+  'proof-points': proofs.ids,
+  'pain-points': pains.ids,
+  partners: partnerIds,
+  pricing: pricingIds,
+};
 if (logoIds.size === 0) fail('src/data/logos.ts : 0 clé de logo parsée (regex à revoir)');
 if (caseIds.size === 0) fail('src/content/cases : 0 fichier de cas');
 if (testimonialIds.size === 0) fail('src/content/testimonials : 0 fichier de testimonial');
+if (partnerIds.size === 0) fail('src/data/partners.ts : 0 slug de partenaire parsé (regex à revoir)');
+if (pricingIds.size === 0) fail('src/data/pricing.ts : 0 palier tarifaire parsé (regex à revoir)');
 
 // Scan récursif de tous les .json sous src/content.
 function walkJson(dir) {

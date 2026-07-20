@@ -9044,6 +9044,7 @@
         "type": "array",
         "required": true,
         "min": 1,
+        "refable": true,
         "itemShape": [
           {
             "field": "name",
@@ -9087,7 +9088,8 @@
               }
             ]
           }
-        ]
+        ],
+        "refSource": "partners"
       }
     ]
   },
@@ -17090,6 +17092,7 @@
         "required": true,
         "min": 1,
         "max": 4,
+        "refable": true,
         "itemShape": [
           {
             "field": "title",
@@ -17103,7 +17106,8 @@
             "required": true,
             "bilingual": true
           }
-        ]
+        ],
+        "refSource": "guarantees"
       }
     ]
   },
@@ -50801,6 +50805,7 @@
         "required": true,
         "min": 2,
         "max": 6,
+        "refable": true,
         "itemShape": [
           {
             "field": "num",
@@ -50819,7 +50824,8 @@
             "required": true,
             "bilingual": true
           }
-        ]
+        ],
+        "refSource": "pain-points"
       }
     ]
   },
@@ -53488,6 +53494,7 @@
         "required": true,
         "min": 2,
         "max": 6,
+        "refable": true,
         "itemShape": [
           {
             "field": "value",
@@ -53505,7 +53512,8 @@
             "type": "bool",
             "required": false
           }
-        ]
+        ],
+        "refSource": "proof-points"
       },
       {
         "field": "layout",

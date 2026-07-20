@@ -19,6 +19,11 @@ import {
   type RefSource,
 } from '@waimia/ds-kernel/sections/_shared/refs';
 import { LOGOS } from '../data/logos';
+import { GUARANTEE_BY_ID, type Guarantee, type GuaranteeId } from '../data/guarantees';
+import { getProofPoint, type ProofPoint, type ProofPointId } from '../data/proof-points';
+import { getPainPoint, type PainPoint, type PainPointId } from '../data/pain-points';
+import { PARTNERS, type Partner } from '../data/partners';
+import { PRICING_GRID, type PricingTierId } from '../data/pricing';
 
 // ─── Memo module-scope ────────────────────────────────────────────────────────
 // Garantit qu'une même source de collection n'est chargée qu'UNE fois par build (même
@@ -73,6 +78,21 @@ SOURCE_ACCESSORS.testimonials = async (id) => {
   const all = await loadSourceOnce('testimonials', () => getCollection('testimonials'));
   return all.find((t) => t.id === id);
 };
+// ─── P4.4-e Phase 3 : câblage des stores SYNCHRONES src/data (accessors sync, 0 loadSourceOnce) ──
+// guarantees : Map indexée par id. Projection déballe label/promise → title/body (plus bas).
+SOURCE_ACCESSORS.guarantees = (id) => GUARANTEE_BY_ID.get(id as GuaranteeId);
+// proof-points : helper find getProofPoint(id). Projection value/label (superset → subset).
+SOURCE_ACCESSORS['proof-points'] = (id) => getProofPoint(id as ProofPointId);
+// pain-points : helper find getPainPoint(id). Projection label/description → title/body.
+SOURCE_ACCESSORS['pain-points'] = (id) => getPainPoint(id as PainPointId);
+// partners : store tableau, identité par `slug`. Projection retire `slug`.
+SOURCE_ACCESSORS.partners = (id) => PARTNERS.find((p) => p.slug === id);
+// pricing : ACCESSOR-ONLY (aucune entrée REF_TARGETS ne le cible → jamais appelé par le
+// résolveur à ce stade). Référentiel MINCE (prix/période/label) : aucun schéma de tier de
+// section n'accepte cette forme sans fabriquer cta+features (rule 60 : 0 valeur inventée).
+// Accessor câblé pour qu'une phase future n'ait qu'à ajouter REF_TARGETS + projection une fois
+// un champ « prix seul » disponible (ou pricing-cards à cta/features optionnels).
+SOURCE_ACCESSORS.pricing = (id) => PRICING_GRID.find((t) => t.tier === (id as PricingTierId));
 
 /**
  * Projection par champ : `(entrée résolue) => forme inline attendue par le composant`.
@@ -112,6 +132,29 @@ const PROJECTIONS: Record<string, (resolved: unknown) => unknown> = {
       avatar: t.data.avatar,
       linkedin: t.data.linkedin,
     };
+  },
+  // ─── P4.4-e Phase 3 : projections des stores synchrones vers la forme d'item du composant ──
+  // guarantee-block.guarantees : Guarantee (label/promise) → item (title/body).
+  'guarantee-block.guarantees': (resolved) => {
+    const g = resolved as Guarantee;
+    return { title_fr: g.label_fr, title_en: g.label_en, body_fr: g.promise_fr, body_en: g.promise_en };
+  },
+  // proof-bar.metrics : ProofPoint (superset) → metricSchema (value + label). On ne dérive que
+  // les 3 champs lus par le composant ; description/category/sources sont écartés.
+  'proof-bar.metrics': (resolved) => {
+    const p = resolved as ProofPoint;
+    return { value: p.value, label_fr: p.label_fr, label_en: p.label_en };
+  },
+  // pain-points.items : PainPoint (label/description) → item (title/body). `num` omis (optionnel :
+  // le composant retombe sur l'index).
+  'pain-points.items': (resolved) => {
+    const p = resolved as PainPoint;
+    return { title_fr: p.label_fr, title_en: p.label_en, body_fr: p.description_fr, body_en: p.description_en };
+  },
+  // ecosystem-partners.partners : Partner → item (retire `slug`, sinon identité de forme).
+  'ecosystem-partners.partners': (resolved) => {
+    const p = resolved as Partner;
+    return { name: p.name, asset: p.asset, href: p.href, external: p.external, category: p.category, box: p.box };
   },
 };
 

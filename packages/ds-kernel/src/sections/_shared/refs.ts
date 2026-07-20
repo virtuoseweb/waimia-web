@@ -85,4 +85,11 @@ export const REF_TARGETS: Record<string, RefSource> = {
   'case-card-grid.cases': 'cases',
   // P4.4-e Phase 2 : mur d'avis référençable vers la collection GLOBAL `testimonials`.
   'testimonial-wall.testimonials': 'testimonials',
+  // P4.4-e Phase 3 : câblage large des stores src/data (sync). `pricing` reste HORS table
+  // (accessor-only) : référentiel mince (prix/période/label) sans forme de section cible
+  // — tous les schémas de tier exigent cta+features absents du store (cf resolve-section-refs).
+  'guarantee-block.guarantees': 'guarantees',
+  'proof-bar.metrics': 'proof-points',
+  'pain-points.items': 'pain-points',
+  'ecosystem-partners.partners': 'partners',
 };

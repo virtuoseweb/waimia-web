@@ -8,12 +8,16 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+// P4.4-e : data.guarantees est DÉJÀ résolu/projeté par resolveSectionRefs (SectionsRenderer) ;
+// on restreint le type union (item | {ref}) à la branche inline (l'item porte `title_fr`).
+type GuaranteeItem = Extract<SectionByType<'guarantee-block'>['guarantees'][number], { title_fr: string }>;
+const guarantees = data.guarantees as GuaranteeItem[];
 ---
 
 <section class="guarantee-block sec-base" data-bg={data.background}>
   <div class="wrap-wide">
   <ul class="guarantee-block__list">
-    {data.guarantees.map((g: (typeof data.guarantees)[number], i: number) => (
+    {guarantees.map((g, i) => (
       <li class="guarantee-block__item">
         <Kicker tone="accent" size={10} class="guarantee-block__num">◉ {String(i + 1).padStart(2, '0')}</Kicker>
         <div class="guarantee-block__content">
