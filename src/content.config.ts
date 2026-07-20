@@ -691,6 +691,28 @@ const authors = defineCollection({
   }),
 });
 
+// ─── Testimonials (P4.4-e Phase 2) ───
+// Collection GLOBAL des avis clients, source unique référençable par la section cataloguée
+// `testimonial-wall` via un pointeur `{ ref: 'testimonials/<slug>' }` (résolu au rendu par
+// src/lib/resolve-section-refs.ts). Convention bilingue-en-un-fichier (`_fr`/`_en` dans le
+// même JSON, comme cases/authors). Schéma aligné sur `testimonialWallItemSchema`
+// (packages/ds-kernel/.../testimonial-wall/schema.ts) + un `slug` kebab stable = id de ref
+// (le loader glob dérive `entry.id` depuis `data.slug` quand présent → filename === slug).
+const testimonials = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/testimonials' }),
+  schema: z.object({
+    slug: z.string().regex(/^[a-z0-9-]+$/, 'kebab-case lowercase'),
+    quote_fr: z.string(),
+    quote_en: z.string(), // phrases a surligner entourees de **doubles asterisques**
+    author: z.string(),
+    role_fr: z.string(),
+    role_en: z.string(),
+    company: z.string().optional(),
+    avatar: z.string().optional(), // chemin image /images/... optionnel
+    linkedin: z.string().optional(), // URL profil LinkedIn optionnelle
+  }),
+});
+
 // ═════════════════════════════════════════════════════════════════
 // ─── NOUVELLES COLLECTIONS V2 (2026-05-15) ───
 // ═════════════════════════════════════════════════════════════════
@@ -910,6 +932,8 @@ export const collections = {
   secteurs,
   outils,
   authors,
+  // P4.4-e Phase 2 : avis clients GLOBAL référençables (testimonial-wall {ref})
+  testimonials,
   // V2 nouvelles (2026-05-15)
   courses,
   // ADR-003 (2026-06-13) : services (silo /lp supprimé, audit #60 A1)

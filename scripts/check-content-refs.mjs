@@ -216,11 +216,13 @@ for (const [slug, file] of SLUGS.offres) {
 // ce stade ET un id existant. WIRED_REF_SOURCES = sources réellement branchées dans le résolveur
 // (REF_TARGETS). À ÉTENDRE au fil des phases suivantes (testimonials, pricing, pain-points, ...).
 console.log('── 5. Refs {ref} : pointeurs de contenu global (P4.4-e)');
-const WIRED_REF_SOURCES = new Set(['logos', 'cases']);
+const WIRED_REF_SOURCES = new Set(['logos', 'cases', 'testimonials']);
 
 // Ids valides par source câblée.
 //  - logos : CLÉS D'OBJET du store LOGOS (`  claude: {`), PAS un champ `id:` (regex dédié).
 //  - cases : noms de fichiers (sans extension) de src/content/cases/*.json.
+//  - testimonials : noms de fichiers (sans extension) de src/content/testimonials/*.json
+//    (filename === slug → id de ref, même méthode que caseIds).
 const logoIds = new Set(
   [...read('src/data/logos.ts').matchAll(/^ {2}([a-z][a-z0-9-]*):\s*\{\s*$/gm)].map((m) => m[1]),
 );
@@ -229,9 +231,15 @@ const caseIds = new Set(
     .filter((f) => f.endsWith('.json'))
     .map((f) => f.replace(/\.json$/, '')),
 );
-const REF_IDS = { logos: logoIds, cases: caseIds };
+const testimonialIds = new Set(
+  readdirSync(join(ROOT, 'src/content/testimonials'))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => f.replace(/\.json$/, '')),
+);
+const REF_IDS = { logos: logoIds, cases: caseIds, testimonials: testimonialIds };
 if (logoIds.size === 0) fail('src/data/logos.ts : 0 clé de logo parsée (regex à revoir)');
 if (caseIds.size === 0) fail('src/content/cases : 0 fichier de cas');
+if (testimonialIds.size === 0) fail('src/content/testimonials : 0 fichier de testimonial');
 
 // Scan récursif de tous les .json sous src/content.
 function walkJson(dir) {

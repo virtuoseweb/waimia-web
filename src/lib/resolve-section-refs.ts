@@ -65,6 +65,14 @@ SOURCE_ACCESSORS.cases = async (id) => {
   const cases = await loadSourceOnce('cases', () => getCollection('cases'));
   return cases.find((c) => c.id === id);
 };
+// ─── P4.4-e Phase 2 : câblage de la source `testimonials` ───────────────────────
+// Collection Astro chargée UNE fois par build (memo loadSourceOnce). Matching par `t.id`
+// (= `data.slug` via le loader glob quand présent, i.e. filename === slug pour cette
+// collection). Projection déclarée plus bas (déballe `.data` + retire le `slug`).
+SOURCE_ACCESSORS.testimonials = async (id) => {
+  const all = await loadSourceOnce('testimonials', () => getCollection('testimonials'));
+  return all.find((t) => t.id === id);
+};
 
 /**
  * Projection par champ : `(entrée résolue) => forme inline attendue par le composant`.
@@ -87,6 +95,22 @@ const PROJECTIONS: Record<string, (resolved: unknown) => unknown> = {
       impact_fr: c.data.impact_fr,
       impact_en: c.data.impact_en,
       href: `/cas-clients/${c.id}`,
+    };
+  },
+  // testimonial-wall.testimonials : l'entrée résolue est une CollectionEntry<'testimonials'>
+  // (forme collection avec `.data` + un `slug` en trop). Projection = déballe `.data` vers la
+  // forme d'item `testimonialWallItemSchema` attendue par TestimonialWall.astro (retire `slug`).
+  'testimonial-wall.testimonials': (resolved) => {
+    const t = resolved as CollectionEntry<'testimonials'>;
+    return {
+      quote_fr: t.data.quote_fr,
+      quote_en: t.data.quote_en,
+      author: t.data.author,
+      role_fr: t.data.role_fr,
+      role_en: t.data.role_en,
+      company: t.data.company,
+      avatar: t.data.avatar,
+      linkedin: t.data.linkedin,
     };
   },
 };

@@ -83,4 +83,6 @@ export const REF_TARGETS: Record<string, RefSource> = {
   // P4.4-e Phase 1 : premiers champs câblés (walking skeleton + projection non triviale).
   'logo-marquee.logos': 'logos',
   'case-card-grid.cases': 'cases',
+  // P4.4-e Phase 2 : mur d'avis référençable vers la collection GLOBAL `testimonials`.
+  'testimonial-wall.testimonials': 'testimonials',
 };
