@@ -76,6 +76,9 @@ const DS_PRESETS_PATH = resolve(PROJECT_ROOT, 'src/data/ds-presets.json');
 const THEMES_CSS_PATH = resolve(PROJECT_ROOT, 'src/styles/themes.css');
 const PAGE_VARIANTS_DIR = resolve(PROJECT_ROOT, 'src/data/page-variants');
 const SAVED_SECTIONS_PATH = resolve(PROJECT_ROOT, 'src/data/saved-sections.json');
+// Store DEV-ONLY des démos éditées localement (P4.4-h E2) : { overrides: { <type>: <props partiels> } }.
+// Consommé par src/lib/section-demos.ts (overlay dev-only). Écriture NON destructive, hors git.
+const DEMO_OVERRIDES_PATH = resolve(PROJECT_ROOT, 'src/data/demo-overrides.json');
 // Store des VARIANTES CUSTOM (presets nommés) fusionnees au runtime par @waimia/ds-kernel/lib/
 // section-presets. Fichier PACKAGE-LOCAL : l'endpoint /api/ds/custom-preset ecrit ce chemin, le
 // kernel l'importe statiquement (frontiere respectee : le package n'importe jamais src/ de l'app).
@@ -96,6 +99,7 @@ const PAGE_ROUTE = '/api/ds/page';
 const CUSTOM_PRESET_ROUTE = '/api/ds/custom-preset';
 const SCAFFOLD_ROUTE = '/api/ds/scaffold';
 const APPS_ROUTE = '/api/ds/apps';
+const DEMO_OVERRIDE_ROUTE = '/api/ds/demo-override';
 // Source de verite du registre des apps internes (structure + defauts + listAppsState()).
 const APPS_CONFIG_MODULE = '/src/apps.config.ts';
 // Validation kebab-case (miroir de scaffold-section.mjs) : garde locale AVANT le spawn.
@@ -109,6 +113,9 @@ const PAGE_DOC_MODULE = '@waimia/ds-kernel/lib/page-document';
 // Source de verite du contrat d'instance de section (discriminatedUnion 'type' -> schema Zod).
 // MEME module que celui dont sectionsArraySchema derive (packages/ds-kernel/src/schemas/sections.ts).
 const SECTIONS_SCHEMA_MODULE = '@waimia/ds-kernel/schemas/sections';
+// Démos GÉNÉRÉES (pures, sans overlay dev) : base de validation d'un override (démo ⊕ props).
+// Chargé via ssrLoadModule pour la même raison que les autres (chaîne de modules virtuels Vite).
+const GENERATED_DEMOS_MODULE = '/src/lib/section-demos.generated.ts';
 
 // --- Helpers HTTP ------------------------------------------------------------
 
@@ -1281,6 +1288,132 @@ function makeAppsHandler(server) {
   };
 }
 
+// --- Handler demo-override (démos éditées localement, P4.4-h E2) ----------------
+// « Modifier le composant » = éditer sa démo. Store DEV-ONLY src/data/demo-overrides.json
+// = { overrides: { <type>: <props partiels> } }, consommé par l'overlay dev de
+// src/lib/section-demos.ts (la fiche + les previews affichent alors la démo modifiée ;
+// les INSTANCES réelles ne bougent pas). Écriture NON destructive, hors git (comme
+// /api/ds/saved), + garde keyword (comme /api/ds/instance : jamais loguée, 400 si absente).
+//
+//   GET    /api/ds/demo-override                     -> liste le store tel quel.
+//   PUT    /api/ds/demo-override                      -> { keyword, type, props } :
+//        - keyword valide,
+//        - type existe (démo générée présente),
+//        - le RÉSULTAT (démo de base ⊕ props, type forcé) est valide via `sectionSchema`
+//          (discriminatedUnion 'type', MÊME source de vérité que le rendu) -> tolère un
+//          override PARTIEL sans casser la section. On stocke `props` (le partiel, sans `type`).
+//   DELETE /api/ds/demo-override?keyword=&type=       -> retire l'override ; 404 si absent.
+
+function readDemoOverridesStore() {
+  if (!existsSync(DEMO_OVERRIDES_PATH)) return { overrides: {} };
+  try {
+    const parsed = JSON.parse(readFileSync(DEMO_OVERRIDES_PATH, 'utf8'));
+    if (parsed && parsed.overrides && typeof parsed.overrides === 'object' && !Array.isArray(parsed.overrides)) {
+      return { overrides: parsed.overrides };
+    }
+  } catch {
+    // Store corrompu -> on repart d'un store vide plutot que de faire planter la route.
+  }
+  return { overrides: {} };
+}
+
+function writeDemoOverridesStore(store) {
+  mkdirSync(dirname(DEMO_OVERRIDES_PATH), { recursive: true });
+  writeFileSync(DEMO_OVERRIDES_PATH, `${JSON.stringify(store, null, 2)}\n`, 'utf8');
+}
+
+function makeDemoOverrideHandler(server) {
+  return async function demoOverrideHandler(req, res, next) {
+    const url = new URL(req.url || '/', 'http://localhost');
+    const expected = process.env.DS_SAVE_KEYWORD || DEFAULT_KEYWORD;
+
+    // --- GET : liste du store (aucune ecriture, pas de keyword requis) ---
+    if (req.method === 'GET') {
+      return sendJson(res, 200, { ok: true, ...readDemoOverridesStore() });
+    }
+
+    // --- DELETE ?keyword=&type= : retire l'override d'un type ; 404 si absent ---
+    if (req.method === 'DELETE') {
+      if (String(url.searchParams.get('keyword') || '') !== expected) {
+        return sendJson(res, 400, { ok: false, error: 'keyword' });
+      }
+      const type = String(url.searchParams.get('type') || '').trim();
+      if (!type) return sendJson(res, 400, { ok: false, error: 'type manquant' });
+      const store = readDemoOverridesStore();
+      if (!Object.prototype.hasOwnProperty.call(store.overrides, type)) {
+        return sendJson(res, 404, { ok: false, error: `aucun override pour : ${type}` });
+      }
+      delete store.overrides[type];
+      try {
+        writeDemoOverridesStore(store);
+      } catch (e) {
+        return sendJson(res, 500, { ok: false, error: e.message });
+      }
+      return sendJson(res, 200, { ok: true, type });
+    }
+
+    if (req.method !== 'PUT') return next();
+
+    // 1. Lecture + parse du body
+    let body;
+    try {
+      const raw = await readBody(req);
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return sendJson(res, 400, { ok: false, error: 'corps JSON invalide' });
+    }
+
+    const { keyword, type, props } = body || {};
+
+    // 2. Save-guard keyword (jamais logue) -> 400 (comme /api/ds/instance)
+    if (String(keyword || '') !== expected) {
+      return sendJson(res, 400, { ok: false, error: 'keyword' });
+    }
+
+    // 3. Champs minimaux
+    const typeStr = typeof type === 'string' ? type.trim() : '';
+    if (!typeStr) return sendJson(res, 400, { ok: false, error: 'type manquant' });
+    if (!props || typeof props !== 'object' || Array.isArray(props)) {
+      return sendJson(res, 400, { ok: false, error: 'props doit etre un objet' });
+    }
+
+    // 4. Modules de verite : schema (validation) + demos generees (base pure de l'overlay).
+    let sectionSchema;
+    let baseDemos;
+    try {
+      ({ sectionSchema } = await server.ssrLoadModule(SECTIONS_SCHEMA_MODULE));
+      ({ SECTION_DEMOS: baseDemos } = await server.ssrLoadModule(GENERATED_DEMOS_MODULE));
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: `validation indisponible : ${e.message}` });
+    }
+    const base = baseDemos && baseDemos[typeStr];
+    if (!base) return sendJson(res, 400, { ok: false, error: `type inconnu : ${typeStr}` });
+
+    // 5. On stocke le partiel SANS `type` (on n'edite jamais le discriminant), puis on valide le
+    //    RESULTAT (base demo ⊕ partiel, type force) : un override partiel reste ainsi accepte
+    //    tant que la section finale est valide.
+    const { type: _ignoredType, ...cleanProps } = props;
+    const candidate = { ...base, ...cleanProps, type: typeStr };
+    const validation = sectionSchema.safeParse(candidate);
+    if (!validation.success) {
+      const errors = validation.error.issues.map(
+        (issue) => `${issue.path.join('.') || 'section'} : ${issue.message}`,
+      );
+      return sendJson(res, 400, { ok: false, error: 'override invalide', errors });
+    }
+
+    // 6. Upsert du partiel dans le store.
+    const store = readDemoOverridesStore();
+    store.overrides[typeStr] = cleanProps;
+    try {
+      writeDemoOverridesStore(store);
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: e.message });
+    }
+    return sendJson(res, 200, { ok: true, type: typeStr, props: cleanProps });
+  };
+}
+
 // --- Integration -------------------------------------------------------------
 
 export default function dsSaveDev() {
@@ -1297,9 +1430,10 @@ export default function dsSaveDev() {
         server.middlewares.use(CUSTOM_PRESET_ROUTE, makeCustomPresetHandler(server));
         server.middlewares.use(SCAFFOLD_ROUTE, makeScaffoldHandler());
         server.middlewares.use(APPS_ROUTE, makeAppsHandler(server));
+        server.middlewares.use(DEMO_OVERRIDE_ROUTE, makeDemoOverrideHandler(server));
         if (logger && typeof logger.info === 'function') {
           logger.info(
-            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET ${PAGE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} + POST ${SCAFFOLD_ROUTE} + GET/PATCH ${APPS_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / lecture page reelle / variantes custom / scaffold section / registre apps)`,
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET ${PAGE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} + POST ${SCAFFOLD_ROUTE} + GET/PATCH ${APPS_ROUTE} + GET/PUT/DELETE ${DEMO_OVERRIDE_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / lecture page reelle / variantes custom / scaffold section / registre apps / demo-overrides)`,
           );
         }
       },

@@ -40,7 +40,7 @@ import {
   type FacetKind,
 } from '@waimia/ds-kernel/lib/section-facets';
 import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots';
-import { SECTION_DEMOS } from '../../../../../src/lib/section-demos';
+import { SECTION_DEMOS, DEV_DEMO_OVERRIDES } from '../../../../../src/lib/section-demos';
 import { getUsage } from '../../../../../src/lib/library-manifest';
 import { getRealUsage } from '../../../../../src/lib/section-usage.generated';
 import { getInstances, getInlineConsumers } from '../../../../../src/lib/section-instances.generated';
@@ -176,6 +176,12 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
   { id: 'category', label: 'Même catégorie', peers: categoryPeers },
   { id: 'similar', label: 'Similaires', peers: similarPeers },
 ].filter((rail) => rail.peers.length > 0);
+
+// Atelier DEV-ONLY (P4.4-h E2) : import.meta.env.DEV -> false au build de prod, ces branches
+// (liens « Voir sur la page » avec ?atelier-focus + bandeau override) sont éliminées du HTML servi.
+const isDev = import.meta.env.DEV;
+// Override de démo ACTIF pour ce type (dev-only ; DEV_DEMO_OVERRIDES = {} en prod). Sert au bandeau.
+const hasDemoOverride = isDev && !!DEV_DEMO_OVERRIDES[section.type];
 ---
 
 <Base
@@ -274,6 +280,14 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
                         ) : (
                           <code class="component-usage-path">{inst.route}</code>
                         )}
+                        {/* Where-used actionnable DEV-ONLY : deep-link vers la pose réelle,
+                            surlignée à l'arrivée via ?atelier-focus (SectionsRenderer). */}
+                        {isDev && href && (
+                          <a
+                            class="component-instances-focus"
+                            href={`${href}?atelier-focus=${inst.index}`}
+                          >Voir sur la page →</a>
+                        )}
                       </td>
                       <td><code class="component-instances-pos">section {inst.index + 1}</code></td>
                       <td class="component-instances-label">{inst.label}</td>
@@ -321,6 +335,29 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
 
       <section class="component-block" aria-label="Aperçu live">
         <h2 class="component-block-title">Aperçu</h2>
+        {/* Bandeau override DEV-ONLY (P4.4-h E2) : « modifier le composant = éditer sa démo ».
+            Rendu UNIQUEMENT quand un override local est actif (hasDemoOverride = false en prod,
+            branche éliminée) -> le bouton + son script inline ne fuient jamais en prod. */}
+        {hasDemoOverride && (
+          <div class="component-demo-override" role="status">
+            <p class="component-demo-override-text">
+              Démo modifiée localement <span class="component-demo-override-note">(n'affecte pas les instances)</span>
+            </p>
+            <button type="button" class="component-demo-override-reset" data-demo-reset>Réinitialiser</button>
+            <script is:inline define:vars={{ resetType: section.type, resetKeyword: 'WAIMIA-SAVE' }}>
+              (function () {
+                var btn = document.querySelector('[data-demo-reset]');
+                if (!btn) return;
+                btn.addEventListener('click', function () {
+                  btn.disabled = true;
+                  fetch('/api/ds/demo-override?keyword=' + encodeURIComponent(resetKeyword) + '&type=' + encodeURIComponent(resetType), { method: 'DELETE' })
+                    .then(function () { window.location.reload(); })
+                    .catch(function () { btn.disabled = false; });
+                });
+              })();
+            </script>
+          </div>
+        )}
         <VariantToggle
           client:visible
           type={section.type}
@@ -761,10 +798,65 @@ const relatedRails: { id: string; label: string; peers: SectionListItem[] }[] = 
     letter-spacing: var(--tracking-mono-tight);
     white-space: nowrap;
   }
+  /* Lien where-used actionnable (DEV) : deep-link vers la pose réelle surlignée. */
+  .component-instances-focus {
+    display: inline-block;
+    margin-top: var(--space-1);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-mono-tight);
+    text-decoration: none;
+  }
+  .component-instances-focus:hover { text-decoration: underline; }
   .component-instances-inline {
     margin-top: var(--space-6);
     padding-top: var(--space-6);
     border-top: 1px solid var(--hairline);
+  }
+
+  /* ── Bandeau override de démo (DEV) ── */
+  .component-demo-override {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-5);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--accent-text);
+    border-radius: var(--radius-sm);
+    background: var(--paper-2);
+  }
+  .component-demo-override-text {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+  }
+  .component-demo-override-note {
+    color: var(--muted);
+  }
+  .component-demo-override-reset {
+    margin-left: auto;
+    border: 1px solid var(--accent-text);
+    border-radius: var(--radius-sm);
+    padding: var(--space-1) var(--space-3);
+    background: var(--paper);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .component-demo-override-reset:hover {
+    background: var(--accent-text);
+    color: var(--paper);
+  }
+  .component-demo-override-reset:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
   .component-instances-inline-badge {
     display: inline-flex;

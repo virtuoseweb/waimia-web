@@ -64,3 +64,47 @@ const { sections, lang } = Astro.props;
   }
   return out;
 })}
+{/* Focus d'atelier DEV-ONLY (P4.4-h E2) : la fiche /library/[type] deep-linke une instance via
+    `?atelier-focus=<idx>`. Ce script scrolle vers `[data-atelier-idx]`, pose un outline temporaire
+    (~2,6 s) puis nettoie le param (history.replaceState). Même garde que `data-atelier-idx` :
+    `import.meta.env.DEV` -> `false` au build de prod, la branche + le script sont éliminés
+    (`is:inline` = 0 hoist Astro) -> HTML prod IDENTIQUE, aucun `atelier-focus` servi. */}
+{import.meta.env.DEV && (
+  <script is:inline>
+    (function () {
+      function run() {
+        var u = new URL(window.location.href);
+        var idx = u.searchParams.get('atelier-focus');
+        if (idx === null) return;
+        var wrapper = document.querySelector('[data-atelier-idx="' + (window.CSS && CSS.escape ? CSS.escape(idx) : idx) + '"]');
+        u.searchParams.delete('atelier-focus');
+        window.history.replaceState({}, '', u.pathname + (u.search ? u.search : '') + u.hash);
+        if (!wrapper) return;
+        var target = wrapper;
+        var kids = wrapper.querySelectorAll('*');
+        for (var i = 0; i < kids.length; i++) {
+          var r = kids[i].getBoundingClientRect();
+          if (r.height > 0 && r.width > 0) { target = kids[i]; break; }
+        }
+        try { target.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        catch (e) { target.scrollIntoView(); }
+        var prevOutline = target.style.outline;
+        var prevOffset = target.style.outlineOffset;
+        var prevTransition = target.style.transition;
+        target.style.transition = 'outline-color 0.3s ease';
+        target.style.outline = '3px solid var(--accent)';
+        target.style.outlineOffset = '4px';
+        setTimeout(function () {
+          target.style.outline = prevOutline;
+          target.style.outlineOffset = prevOffset;
+          target.style.transition = prevTransition;
+        }, 2600);
+      }
+      if (window.__waAtelierFocusBound) return;
+      window.__waAtelierFocusBound = true;
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+      else run();
+      document.addEventListener('astro:page-load', run);
+    })();
+  </script>
+)}
