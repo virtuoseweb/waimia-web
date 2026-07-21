@@ -57,3 +57,31 @@ export interface SitemapGroup {
   /** Libellé FR affiché en en-tête de colonne. */
   label_fr: string;
 }
+
+/** Palette d'aperçu d'un thème (valeurs LITTÉRALES issues des tokens du preset). */
+export interface StyleThemeSwatch {
+  /** Couleur d'accent (--accent), ou absente si le thème ne la porte pas. */
+  accent?: string;
+  /** Fond principal (--paper). */
+  paper?: string;
+  /** Encre / texte (--ink). */
+  ink?: string;
+}
+
+/**
+ * Un thème applicable à la page en cours dans le builder : jeu de tokens coordonnés (accent/paper/
+ * ink...) appliqués en LIVE sur `document.documentElement` (même mécanisme que le DS Studio, P2.8).
+ * Composant PUR : l'hôte fournit la liste (démos + presets persistés) et exécute l'application.
+ */
+export interface StyleTheme {
+  /** Id stable (slug) : clé de sélection + data-testid. */
+  id: string;
+  /** Nom lisible affiché sur la carte. */
+  label: string;
+  /** Origine du thème : démo compile-time ou preset persisté (git, DS Studio). */
+  kind: 'demo' | 'saved';
+  /** Tokens à appliquer en LIVE ({ "--token": "valeur" }). */
+  tokens: Record<string, string>;
+  /** Palette représentative pour la carte (dérivée des tokens réels). */
+  swatch: StyleThemeSwatch;
+}

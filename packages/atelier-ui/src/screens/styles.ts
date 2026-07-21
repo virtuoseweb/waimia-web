@@ -116,6 +116,86 @@ button.wa-scr-page:focus-visible { outline: 2px solid var(--accent); outline-off
 .wa-scr-page-link:hover { text-decoration: underline; }
 
 .wa-scr-err { font-family: var(--font-mono); font-size: var(--text-small); color: var(--accent-text); }
+
+/* ── Style (thème) : boutons d'action ── */
+.wa-scr-btn { display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-4); border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-sm); background: var(--paper); color: var(--ink-2);
+  font-family: var(--font-mono); font-size: var(--text-small); cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease); }
+.wa-scr-btn:hover:not(:disabled) { border-color: var(--accent-text); color: var(--accent-text); }
+.wa-scr-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.wa-scr-btn:disabled { color: var(--muted); cursor: not-allowed; }
+.wa-scr-btn--primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.wa-scr-btn--primary:hover:not(:disabled) { color: var(--paper); border-color: var(--ink); }
+.wa-scr-style-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.wa-scr-style-active { font-family: var(--font-mono); font-size: var(--text-micro);
+  color: var(--muted); }
+.wa-scr-style-active strong { color: var(--ink); font-weight: var(--fw-semibold); }
+
+/* ── Style (thème) : layout deux colonnes (grille de thèmes | aperçu live sticky) ── */
+.wa-scr-style-cols { display: grid; gap: var(--space-6);
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr); align-items: start; }
+@media (max-width: 860px) { .wa-scr-style-cols { grid-template-columns: 1fr; } }
+
+/* ── Style (thème) : grille de cartes de thème ── */
+.wa-scr-style-grid { display: grid; gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.wa-scr-theme { display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-md); background: var(--paper); color: var(--ink);
+  text-align: left; cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease); }
+.wa-scr-theme:hover { border-color: var(--accent-text); box-shadow: var(--shadow-card-hover); }
+.wa-scr-theme:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wa-scr-theme.is-active { border-color: var(--accent-text);
+  box-shadow: 0 0 0 1px var(--accent-text); }
+.wa-scr-theme-swatches { display: flex; gap: var(--space-2); }
+.wa-scr-theme-chip { width: 28px; height: 28px; border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline-strong); }
+.wa-scr-theme-row { display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-2); }
+.wa-scr-theme-name { font-family: var(--font-sans); font-size: var(--text-small);
+  font-weight: var(--fw-semibold); color: var(--ink); }
+.wa-scr-theme-kind { font-family: var(--font-mono); font-size: var(--text-micro);
+  letter-spacing: var(--tracking-mono); text-transform: uppercase; padding: 2px var(--space-2);
+  border-radius: var(--radius-pill); border: 1px solid var(--hairline-strong); color: var(--muted); }
+.wa-scr-theme-kind--demo { color: var(--accent-text); border-color: var(--accent-text); }
+.wa-scr-theme-kind--saved { color: var(--complementary); border-color: var(--complementary); }
+.wa-scr-theme-check { font-family: var(--font-mono); font-size: var(--text-micro);
+  color: var(--accent-text); }
+.wa-scr-style-empty { padding: var(--space-4); font-family: var(--font-mono);
+  font-size: var(--text-micro); color: var(--muted); border: 1px dashed var(--hairline-strong);
+  border-radius: var(--radius-sm); }
+
+/* ── Style (thème) : panneau d'aperçu LIVE (DOM inline var(--token), repeint à l'application) ── */
+.wa-scr-style-preview { position: sticky; top: var(--space-4);
+  border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); overflow: hidden;
+  background: var(--paper); }
+.wa-scr-prev-head { display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-2); padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--hairline); background: var(--paper-2); }
+.wa-scr-prev-tag { font-family: var(--font-mono); font-size: var(--text-micro);
+  letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--muted); }
+.wa-scr-prev-body { display: flex; flex-direction: column; gap: var(--space-4);
+  padding: var(--space-6); background: var(--paper); }
+.wa-scr-prev-kicker { font-family: var(--font-mono); font-size: var(--text-micro);
+  letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--accent-text); }
+.wa-scr-prev-title { margin: 0; font-family: var(--font-sans); font-size: var(--text-h3);
+  line-height: var(--leading-h3); letter-spacing: var(--tracking-display);
+  font-weight: var(--fw-semibold); color: var(--ink); }
+.wa-scr-prev-lede { margin: 0; font-size: var(--text-small); line-height: 1.55; color: var(--ink-2); }
+.wa-scr-prev-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.wa-scr-prev-cta { padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm);
+  border: 1px solid var(--ink); background: var(--ink); color: var(--paper);
+  font-family: var(--font-mono); font-size: var(--text-small); }
+.wa-scr-prev-cta--ghost { background: transparent; color: var(--accent-text);
+  border-color: var(--accent-text); }
+.wa-scr-prev-ink { display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-4); border-radius: var(--radius-sm); background: var(--ink); color: var(--paper); }
+.wa-scr-prev-ink-label { font-family: var(--font-mono); font-size: var(--text-micro);
+  letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--paper); opacity: 0.7; }
+.wa-scr-prev-ink-text { font-family: var(--font-sans); font-size: var(--text-small); color: var(--paper); }
 `;
 
 /** Injecte la feuille de style scopée une seule fois (dédupliquée par id). */
