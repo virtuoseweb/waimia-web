@@ -4,17 +4,18 @@
 
 import { z } from 'zod';
 import { logoMarqueeItemSchema } from '../_shared/locals';
+import { refOrInline } from '../_shared/refs';
 
 export const schema = z.object({
   type: z.literal('logo-marquee'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).default('paper'),
   kicker_fr: z.string().optional(),
   kicker_en: z.string().optional(),
-  // logoIds : résolution GLOBAL via le store src/data/logos.ts (anti-duplication
-  // des src/name inline répétés dans les MDX). Optionnel → si présent, le composant
-  // résout chaque id via LOGOS[id] ; sinon il retombe sur `logos` inline (rétrocompat).
-  logoIds: z.array(z.string()).optional(),
-  logos: z.array(logoMarqueeItemSchema).min(4).max(24).optional(),
+  // logos : chaque item porte SOIT sa forme inline, SOIT un pointeur `{ ref: 'logos/id' }`
+  // résolu au rendu via le store GLOBAL src/data/logos.ts (P4.4-e). Résolution centralisée
+  // par resolveSectionRefs (REF_TARGETS['logo-marquee.logos'] = 'logos') : le composant reçoit
+  // un tableau d'items déjà résolus. Bornes min/max = nombre d'items (indépendant de leur forme).
+  logos: z.array(refOrInline(logoMarqueeItemSchema)).min(4).max(24).optional(),
   speed: z.enum(['slow', 'base']).default('base'),
   grayscale: z.boolean().default(true),
 });

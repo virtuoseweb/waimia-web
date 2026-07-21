@@ -4,6 +4,27 @@
 
 import { z } from 'zod';
 import { placementSchema } from '../_shared/base';
+import { refOrInline } from '../_shared/refs';
+
+// Item de cas de la table éditoriale. Extrait en const nommée (P4.4-e) pour être enveloppé
+// par `refOrInline` : chaque cas porte SOIT sa forme inline, SOIT un pointeur
+// `{ ref: 'cases/<slug>' }` résolu au rendu via la collection GLOBAL `cases` et PROJETÉ à
+// cette forme (stack[] → 'a · b · c', href /cas-clients/<id>) par resolveSectionRefs.
+const caseItemSchema = z.object({
+  client: z.string(),
+  sector_fr: z.string(),
+  sector_en: z.string(),
+  duration: z.string(),
+  stack: z.string(),
+  impact_fr: z.string(),
+  impact_en: z.string(),
+  href: z.string(),
+  // Média du reveal desktop : illustration révélée au survol de la ligne. Optionnels →
+  // absents = ligne sans reveal (rétrocompat). N'a d'effet que si `reveal_mode` est défini.
+  media_src: z.string().optional(),
+  media_alt_fr: z.string().optional(),
+  media_alt_en: z.string().optional(),
+});
 
 export const schema = z.object({
   type: z.literal('case-card-grid'),
@@ -51,30 +72,11 @@ export const schema = z.object({
   sector_label_en: z.string().default('Sector'),
   impact_label_fr: z.string().default('Impact'),
   impact_label_en: z.string().default('Impact'),
-  // caseRefs : résolution GLOBAL via la collection `cases` (slugs). Optionnel → si
-  // présent, le composant fait getCollection('cases') filtré par slug et mappe les
-  // champs ; sinon il retombe sur `cases` inline (rétrocompat, 0 régression).
-  caseRefs: z.array(z.string()).optional(),
-  cases: z
-    .array(
-      z.object({
-        client: z.string(),
-        sector_fr: z.string(),
-        sector_en: z.string(),
-        duration: z.string(),
-        stack: z.string(),
-        impact_fr: z.string(),
-        impact_en: z.string(),
-        href: z.string(),
-        // Média du reveal desktop : illustration révélée au survol de la ligne. Optionnels →
-        // absents = ligne sans reveal (rétrocompat). N'a d'effet que si `reveal_mode` est défini.
-        media_src: z.string().optional(),
-        media_alt_fr: z.string().optional(),
-        media_alt_en: z.string().optional(),
-      }),
-    )
-    .max(6)
-    .default([]),
+  // cases : chaque item porte SOIT sa forme inline (`caseItemSchema`), SOIT un pointeur
+  // `{ ref: 'cases/<slug>' }` résolu au rendu via la collection GLOBAL `cases` et projeté à
+  // la forme d'item par resolveSectionRefs (REF_TARGETS['case-card-grid.cases'] = 'cases').
+  // Les 34 instances actuelles utilisent la forme inline → restent valides sous l'union.
+  cases: z.array(refOrInline(caseItemSchema)).max(6).default([]),
   all_label_fr: z.string().optional(),
   all_label_en: z.string().optional(),
   all_href: z.string().optional(),

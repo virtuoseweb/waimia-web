@@ -211,6 +211,10 @@ async function loadSectionMeta(orderedIds, legacyComponentMap) {
 function inferZodType(chain) {
   if (/z\.literal\(/.test(chain)) return 'literal';
   if (/\.array\(|z\.array\(/.test(chain)) return 'array';
+  // Enveloppe de référence globale `{ref}` (P4.4-e) : détectée AVANT z.object/z.union car
+  // `refOrInline(z.object({...}))` contient `z.object(`. Un tableau `z.array(refOrInline(...))`
+  // reste 'array' (l'array match ci-dessus l'emporte). Aucun schema ne l'utilise en Phase 0.
+  if (/refOrInline\(/.test(chain)) return 'ref';
   if (/\.enum\(/.test(chain)) return 'enum';
   if (/z\.object\(/.test(chain)) return 'object';
   if (/z\.number\(/.test(chain)) return 'number';

@@ -11,7 +11,7 @@ export const meta: SectionMeta = {
     intent: ['showcase-work', 'social-proof'],
     pageRole: ['proof'],
     contentMode: 'global-ref',
-    contentSource: 'caseRefs → cas collection',
+    contentSource: 'cases {ref} → cas collection',
     effects: ['scroll-reveal'],
     interactions: ['hover', 'scroll'],
     elements: ['cards', 'list'],

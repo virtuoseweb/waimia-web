@@ -3904,17 +3904,12 @@
         "bilingual": true
       },
       {
-        "field": "caseRefs",
-        "kind": "content",
-        "type": "array",
-        "required": false
-      },
-      {
         "field": "cases",
         "kind": "content",
         "type": "array",
         "required": false,
         "max": 6,
+        "refable": true,
         "itemShape": [
           {
             "field": "client",
@@ -3959,7 +3954,8 @@
             "required": false,
             "bilingual": true
           }
-        ]
+        ],
+        "refSource": "cases"
       },
       {
         "field": "all_label",
@@ -9048,6 +9044,7 @@
         "type": "array",
         "required": true,
         "min": 1,
+        "refable": true,
         "itemShape": [
           {
             "field": "name",
@@ -9091,7 +9088,8 @@
               }
             ]
           }
-        ]
+        ],
+        "refSource": "partners"
       }
     ]
   },
@@ -17094,6 +17092,7 @@
         "required": true,
         "min": 1,
         "max": 4,
+        "refable": true,
         "itemShape": [
           {
             "field": "title",
@@ -17107,7 +17106,8 @@
             "required": true,
             "bilingual": true
           }
-        ]
+        ],
+        "refSource": "guarantees"
       }
     ]
   },
@@ -46312,18 +46312,13 @@
         "bilingual": true
       },
       {
-        "field": "logoIds",
-        "kind": "content",
-        "type": "array",
-        "required": false
-      },
-      {
         "field": "logos",
         "kind": "content",
         "type": "array",
         "required": false,
         "min": 4,
         "max": 24,
+        "refable": true,
         "itemShape": [
           {
             "field": "src",
@@ -46341,7 +46336,8 @@
             "type": "url",
             "required": false
           }
-        ]
+        ],
+        "refSource": "logos"
       },
       {
         "field": "speed",
@@ -50809,6 +50805,7 @@
         "required": true,
         "min": 2,
         "max": 6,
+        "refable": true,
         "itemShape": [
           {
             "field": "num",
@@ -50827,7 +50824,8 @@
             "required": true,
             "bilingual": true
           }
-        ]
+        ],
+        "refSource": "pain-points"
       }
     ]
   },
@@ -53496,6 +53494,7 @@
         "required": true,
         "min": 2,
         "max": 6,
+        "refable": true,
         "itemShape": [
           {
             "field": "value",
@@ -53513,7 +53512,8 @@
             "type": "bool",
             "required": false
           }
-        ]
+        ],
+        "refSource": "proof-points"
       },
       {
         "field": "layout",
@@ -60506,6 +60506,7 @@
         "required": true,
         "min": 3,
         "max": 12,
+        "refable": true,
         "itemShape": [
           {
             "field": "quote",
@@ -60539,7 +60540,8 @@
             "type": "text",
             "required": false
           }
-        ]
+        ],
+        "refSource": "testimonials"
       }
     ]
   },

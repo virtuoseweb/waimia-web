@@ -18,12 +18,15 @@ const h2 = isFr ? data.h2_fr : data.h2_en;
 const lede = isFr ? data.lede_fr : data.lede_en;
 const layout = data.layout ?? 'grid';
 
-type PartnerItem = (typeof data.partners)[number];
+// P4.4-e : data.partners est DÉJÀ résolu/projeté par resolveSectionRefs (SectionsRenderer) ;
+// on restreint le type union (item | {ref}) à la branche inline (l'item porte `name`).
+type PartnerItem = Extract<(typeof data.partners)[number], { name: string }>;
+const partners = data.partners as PartnerItem[];
 
 // En layout grid : regrouper par catégorie (ordre d'apparition conservé).
 const groups: { category: string; items: PartnerItem[] }[] = [];
 if (layout === 'grid') {
-  for (const p of data.partners) {
+  for (const p of partners) {
     const cat = p.category ?? 'autres';
     let g = groups.find((x) => x.category === cat);
     if (!g) {
@@ -62,7 +65,7 @@ if (layout === 'grid') {
   ) : layout === 'marquee' ? (
     <div class="eco-partners__marquee-wrap" aria-hidden="true">
       <ul class="eco-partners__marquee">
-        {[...data.partners, ...data.partners].map((p) => (
+        {[...partners, ...partners].map((p) => (
           <li class="eco-partners__cell">
             <PartnerLogo name={p.name} asset={p.asset} h={p.box?.h ?? '28px'} w={p.box?.w ?? '120px'} />
           </li>
@@ -72,7 +75,7 @@ if (layout === 'grid') {
   ) : (
     <div class="wrap-wide">
       <ul class="eco-partners__wall">
-        {data.partners.map((p) => (
+        {partners.map((p) => (
           <li class="eco-partners__cell eco-partners__cell--labeled">
             <PartnerLogo name={p.name} asset={p.asset} href={p.href} external={p.external} h={p.box?.h ?? '44px'} w={p.box?.w ?? '64px'} />
             <span class="eco-partners__wall-label">{p.name}</span>
