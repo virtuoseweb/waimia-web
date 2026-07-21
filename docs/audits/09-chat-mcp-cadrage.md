@@ -78,3 +78,23 @@ GF-1'd) est la seule surface, utilisée depuis Claude Code ou un client MCP exte
 Comme l'audit 08 avant lui : aucune ligne de code applicative sur cette brique tant que la section 4
 n'est pas tranchée. Les 3 bricks déjà livrées cette session (props gap MCP, écran style, sandboxes
 P2.2) restent indépendantes et ne sont pas concernées par ce gel.
+
+## 6. Décisions Simon (2026-07-21)
+
+- **Q2 (plafond d'usage)** — TRANCHÉ : les deux mécanismes, pas un choix exclusif. Compteur visible
+  dans le dashboard atelier **et** plafond dur 50 messages/jour dès le v1.
+- **Q4 (scope v1)** — TRANCHÉ : le périmètre réduit du §3 (prompt → tool calls → preview, sans
+  toolbar interactive) confirmé comme point de départ.
+- **Q1 (modèle de coût/architecture)** — TRANCHÉ partiellement : garder les **3 options A/B/C du §2
+  disponibles/configurables** plutôt qu'un choix figé unique (pas seulement A comme recommandé au §3).
+  Implique un point d'abstraction entre le chat et le "backend LLM" dès la conception, pas une
+  intégration Anthropic-only en dur.
+- **Q3 (modèle LLM)** — **AMBIGU, à clarifier avant code sur CE point précis uniquement** : la réponse
+  cite littéralement « haiku » (correspond au mot utilisé au §3 pour le défaut recommandé), mais le
+  même message ouvre aussi par « utilise l'API OpenAI avec le modèle léger, effort minimum, pour
+  économiser les coûts API lors du dev » — une mention qui peut vouloir dire (a) remplacer Anthropic
+  par OpenAI comme fournisseur du chat-MCP, (b) utiliser OpenAI seulement pendant le dev/test de la
+  feature (économie d'itération) alors que la prod reste Haiku, ou (c) autre chose. Question posée à
+  Simon en direct plutôt que de trancher au hasard entre deux architectures aux implications différentes
+  (clé API, endpoint, coût, sécurité). **Le reste (Q1/Q2/Q4 + l'architecture "3 options configurables")
+  peut avancer immédiatement** ; seul le choix précis du fournisseur/modèle LLM par défaut reste gelé.
