@@ -39,6 +39,10 @@ import { COLOR_SCHEMES, schemeProps } from '@waimia/ds-kernel/lib/section-colors
 import { getSlots } from '@waimia/ds-kernel/lib/section-slots';
 import { SECTION_DEMOS } from '../../../../../../src/lib/section-demos';
 import { PAGE_COLLECTIONS } from '@waimia/ds-kernel';
+// Themes de page (ecran Style N3.5) : demos compile-time + presets persistes (git). Source de verite
+// UNIQUE partagee avec le DS Studio (rule 59) : src/data/ds-theme-presets.ts + src/data/ds-presets.json.
+import dsPresets from '../../../../../../src/data/ds-presets.json';
+import { buildStyleThemes, type PersistedThemePreset } from '../../../../../../src/data/ds-theme-presets';
 
 const sections = listSections();
 const categories = listCategories();
@@ -133,6 +137,12 @@ const defaultMeta = {
   lang: 'fr' as const,
   title_fr: 'Page en brouillon',
 };
+
+// Themes exposes a l'ecran Style : demos + presets persistes normalises (palette d'apercu derivee).
+const persistedThemePresets = (Array.isArray((dsPresets as { presets?: unknown }).presets)
+  ? (dsPresets as { presets: PersistedThemePreset[] }).presets
+  : []) as PersistedThemePreset[];
+const themes = buildStyleThemes(persistedThemePresets);
 ---
 
 <AtelierShell
@@ -165,6 +175,7 @@ const defaultMeta = {
       collections={[...PAGE_COLLECTIONS]}
       pages={pages}
       renderPath="/library/builder/render"
+      themes={themes}
     />
   </section>
 </AtelierShell>

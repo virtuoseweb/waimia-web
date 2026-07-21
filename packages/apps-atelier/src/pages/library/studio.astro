@@ -55,6 +55,9 @@ import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
 import registry from '../../../../../src/data/ds-registry.json';
 import sectionManifest from '../../../../../src/data/ds-section-manifest.json';
 import dsPresets from '../../../../../src/data/ds-presets.json';
+// Presets de theme de demonstration : source de verite UNIQUE (rule 59), partagee avec le builder
+// (ecran Style N3.5) via src/data/ds-theme-presets.ts. Etait un const inline ici (duplique) ; extrait.
+import { DEMO_PRESETS } from '../../../../../src/data/ds-theme-presets';
 
 const lang = 'fr' as const;
 
@@ -128,25 +131,9 @@ for (const entry of sectionManifest as ManifestEntry[]) {
 for (const list of Object.values(tokenSectionMap)) list.sort();
 
 // ── Presets de démonstration soignés (couche C, palette cohérente) ────────────
-// Seedés au 1er chargement si l'utilisateur n'a aucun preset perso. Chaque preset
-// déplace accent + paper + ink de façon coordonnée (RGB miroir des hex inclus).
-const DEMO_PRESETS: Record<string, Record<string, string>> = {
-  'Encre & ardoise': {
-    '--accent': '#3B6EA5', '--accent-sur-clair': '#2C5681', '--accent-rgb': '59, 110, 165',
-    '--paper': '#F2F3F5', '--paper-2': '#E8EAEE', '--paper-3': '#DDE0E6',
-    '--ink': '#10151C', '--ink-2': '#1C242F', '--ink-rgb': '16, 21, 28',
-  },
-  'Forêt sobre': {
-    '--accent': '#2F7D5B', '--accent-sur-clair': '#246347', '--accent-rgb': '47, 125, 91',
-    '--paper': '#F4F2EC', '--paper-2': '#EBE8DF', '--paper-3': '#E1DDD1',
-    '--ink': '#101410', '--ink-2': '#1B221B', '--ink-rgb': '16, 20, 16',
-  },
-  'Nuit prune': {
-    '--accent': '#B5547E', '--accent-sur-clair': '#933F64', '--accent-rgb': '181, 84, 126',
-    '--paper': '#F4F1F3', '--paper-2': '#EBE6E9', '--paper-3': '#E1DADF',
-    '--ink': '#161019', '--ink-2': '#241B28', '--ink-rgb': '22, 16, 25',
-  },
-};
+// Seedés au 1er chargement si l'utilisateur n'a aucun preset perso. Chaque preset déplace accent +
+// paper + ink de façon coordonnée (RGB miroir des hex inclus). DEFINITION = src/data/ds-theme-presets.ts
+// (source de vérité unique, rule 59), importée ci-dessus et partagée avec le builder (écran Style).
 
 // Presets de theme PERSISTES (src/data/ds-presets.json, ecrits par le DS Studio en
 // dev via POST /api/ds/preset). Source de verite de la LISTE cote client (apply).

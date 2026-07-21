@@ -5,9 +5,13 @@ export { DashboardScreen } from './DashboardScreen';
 export type { DashboardScreenProps } from './DashboardScreen';
 export { SitemapScreen } from './SitemapScreen';
 export type { SitemapScreenProps } from './SitemapScreen';
+export { StyleScreen } from './StyleScreen';
+export type { StyleScreenProps } from './StyleScreen';
 export type {
   ProjectSummary,
   SitemapGroup,
   SitemapPage,
   SitemapSection,
+  StyleTheme,
+  StyleThemeSwatch,
 } from './types';

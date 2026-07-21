@@ -26,7 +26,8 @@ import { deriveAxes } from '@waimia/atelier-ui/inspector/LayoutTab.tsx';
 import type { ColorScheme, SectionSlot } from '@waimia/atelier-ui/inspector/types.ts';
 import { DashboardScreen } from '@waimia/atelier-ui/screens/DashboardScreen.tsx';
 import { SitemapScreen } from '@waimia/atelier-ui/screens/SitemapScreen.tsx';
-import type { SitemapGroup, SitemapPage } from '@waimia/atelier-ui/screens/types.ts';
+import { StyleScreen } from '@waimia/atelier-ui/screens/StyleScreen.tsx';
+import type { SitemapGroup, SitemapPage, StyleTheme } from '@waimia/atelier-ui/screens/types.ts';
 import { COLOR_SCHEMES } from '@waimia/ds-kernel/lib/section-colorschemes';
 import type {
   BuilderCatalogueItem,
@@ -67,10 +68,12 @@ export interface BuilderHostProps {
   collections: string[];
   pages?: BuilderPage[];
   renderPath: string;
+  /** Themes de page (demos + presets persistes) proposes par l'ecran Style (N3.5). */
+  themes?: StyleTheme[];
 }
 
-/** Ecran actif de l'app builder (dashboard d'accueil -> sitemap -> editeur). */
-type Screen = 'dashboard' | 'sitemap' | 'editor';
+/** Ecran actif de l'app builder (dashboard d'accueil -> sitemap -> style -> editeur). */
+type Screen = 'dashboard' | 'sitemap' | 'style' | 'editor';
 
 /** Contexte d'une page REELLE ouverte dans l'editeur (N4) : route + fichier + sections d'origine. */
 interface RealPageContext {
@@ -135,6 +138,7 @@ export default function BuilderHost({
   collections,
   pages,
   renderPath,
+  themes = [],
 }: BuilderHostProps): React.ReactElement {
   // Blocs sauvegardes (source de verite = /api/ds/saved, DEV-ONLY). Rafraichis apres chaque save.
   const [savedList, setSavedList] = useState<SavedEntry[]>([]);
@@ -150,6 +154,41 @@ export default function BuilderHost({
   // Route en cours de chargement (desactive la carte) + erreur eventuelle affichee dans le sitemap.
   const [openingRoute, setOpeningRoute] = useState('');
   const [openError, setOpenError] = useState('');
+
+  // ── Style (N3.5) : theme applique en LIVE a la page en cours de composition ─────────────────────
+  // MECANIQUE = celle du DS Studio (P2.8) : on pose les tokens du theme sur document.documentElement
+  // via setProperty ; comme tout le rendu consomme var(--token), le sous-arbre du builder repeint en
+  // direct. PORTEE = session/apercu (la page ouverte ici), PAS le site : aucun POST /api/ds/preset
+  // (qui persisterait GLOBALEMENT). Reinitialiser = retirer les overrides -> retour a la baseline
+  // tokens.css. Un store de theme PAGE-SCOPED cote backend n'existe pas encore (hors scope brique).
+  const [activeThemeId, setActiveThemeId] = useState<string | null>(null);
+  // Union de toutes les cles de tokens presentes dans les themes : sert au nettoyage avant apply et
+  // a la reinitialisation (retire exactement ce qui a pu etre pose, sans toucher aux autres tokens).
+  const themeTokenKeys = useMemo(() => {
+    const set = new Set<string>();
+    for (const theme of themes) for (const key of Object.keys(theme.tokens)) set.add(key);
+    return [...set];
+  }, [themes]);
+
+  const applyTheme = useCallback(
+    (id: string) => {
+      const theme = themes.find((t) => t.id === id);
+      if (!theme || typeof document === 'undefined') return;
+      const root = document.documentElement;
+      // Nettoyage d'abord (un theme peut porter moins de cles qu'un autre) puis pose du theme choisi.
+      for (const key of themeTokenKeys) root.style.removeProperty(key);
+      for (const [key, value] of Object.entries(theme.tokens)) root.style.setProperty(key, value);
+      setActiveThemeId(id);
+    },
+    [themes, themeTokenKeys],
+  );
+
+  const resetTheme = useCallback(() => {
+    if (typeof document === 'undefined') return;
+    const root = document.documentElement;
+    for (const key of themeTokenKeys) root.style.removeProperty(key);
+    setActiveThemeId(null);
+  }, [themeTokenKeys]);
 
   const refreshSaved = useCallback(async () => {
     try {
@@ -246,11 +285,16 @@ export default function BuilderHost({
     setOpenError('');
     setScreen('sitemap');
   }, []);
+  // Pipeline : le choix du STYLE (N3.5) precede l'editeur. Un brouillon vierge passe aussi par le
+  // style (la portee « page en cours » vaut aussi pour un brouillon), avec un theme optionnel.
   const startNewDraft = useCallback(() => {
     setRealPage(null);
     setInitialDoc(null);
-    setScreen('editor');
+    setScreen('style');
   }, []);
+  // Retour a l'ecran Style depuis l'editeur (fil d'ariane) : le doc reste charge, on ne recharge rien.
+  const openStyle = useCallback(() => setScreen('style'), []);
+  const continueToEditor = useCallback(() => setScreen('editor'), []);
 
   // N4 : ouvre une page REELLE editable -> fetch /api/ds/page (lecture seule) -> charge l'editeur.
   const openPage = useCallback(
@@ -277,7 +321,8 @@ export default function BuilderHost({
         };
         setInitialDoc({ meta, sections: json.sections });
         setRealPage({ route: page.route, file: page.file, sections: json.sections });
-        setScreen('editor');
+        // N3.5 : on ouvre l'ecran Style (choix de theme pour CETTE page) avant l'editeur.
+        setScreen('style');
       } catch {
         setOpenError('Endpoint indisponible (chargement dev uniquement).');
       } finally {
@@ -307,6 +352,18 @@ export default function BuilderHost({
         />
       )}
 
+      {screen === 'style' && (
+        <StyleScreen
+          pageLabel={realPage ? realPage.route : 'Nouveau brouillon'}
+          themes={themes}
+          activeThemeId={activeThemeId}
+          onApply={applyTheme}
+          onReset={resetTheme}
+          onBack={realPage ? openSitemap : openDashboard}
+          onContinue={continueToEditor}
+        />
+      )}
+
       {screen === 'editor' && (
         <>
           <div className="bldx-crumb">
@@ -318,6 +375,9 @@ export default function BuilderHost({
                 <span aria-hidden="true">←</span> Sitemap
               </button>
             )}
+            <button type="button" className="bldx-crumb__link" onClick={openStyle}>
+              <span aria-hidden="true">←</span> Style
+            </button>
             <span className="bldx-crumb__here">
               {realPage ? realPage.route : 'Nouveau brouillon'}
             </span>
