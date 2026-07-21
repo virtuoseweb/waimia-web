@@ -6481,6 +6481,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/pages/en/index.astro",
     "src/pages/index.astro"
   ],
+  "bordered-pullquote": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
   "case-card-grid": [
     "src/pages/atlas.astro",
     "src/pages/en/atlas.astro",
@@ -6496,6 +6499,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/content/solutions/publicite-en-ligne.mdx",
     "src/content/solutions/tunnel-de-vente.mdx"
   ],
+  "closing-cta-band": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
   "coming-soon-pills": [
     "src/pages/secteurs/index.astro"
   ],
@@ -6510,6 +6516,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/pages/atlas.astro",
     "src/pages/en/atlas.astro"
   ],
+  "curriculum-timeline": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
   "department-cta": [
     "src/content/solutions/agent-marketing-commercial.mdx",
     "src/content/solutions/content-marketing-ia.mdx",
@@ -6523,6 +6532,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/content/solutions/contenu-seo-geo-ia.mdx",
     "src/content/solutions/publicite-en-ligne.mdx",
     "src/content/solutions/tunnel-de-vente.mdx"
+  ],
+  "editorial-case-grid": [
+    "src/pages/manifesto.astro"
   ],
   "editorial-preview": [
     "src/pages/atlas.astro",
@@ -6574,18 +6586,33 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   "hero-lead-magnet": [
     "src/components/templates/LeadMagnetTemplate.astro"
   ],
+  "hero-manifesto": [
+    "src/pages/manifesto.astro"
+  ],
   "hero-tech-layer": [
     "src/components/templates/TechnologiesDetailTemplate.astro"
   ],
   "hero-utility-masthead": [
     "src/components/templates/UtilityTemplate.astro"
   ],
+  "keyword-strip": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
   "maturity-pyramid": [
     "src/pages/en/index.astro",
     "src/pages/index.astro"
   ],
+  "method-diagram-list": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
   "method-timeline": [
     "src/pages/cas-clients/[...slug].astro"
+  ],
+  "numbered-layer-list": [
+    "src/pages/technologies.astro"
+  ],
+  "offer-rail": [
+    "src/pages/index.astro"
   ],
   "offer-tier-grid": [
     "src/pages/services/index.astro"
@@ -6604,6 +6631,12 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/pages/en/index.astro",
     "src/pages/index.astro"
   ],
+  "prose-aside": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
+  "publications-panel": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
   "roi-band": [
     "src/content/solutions/agent-marketing-commercial.mdx",
     "src/content/solutions/content-marketing-ia.mdx",
@@ -6611,9 +6644,18 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/content/solutions/publicite-en-ligne.mdx",
     "src/content/solutions/tunnel-de-vente.mdx"
   ],
+  "sector-card-grid": [
+    "src/pages/secteurs/index.astro"
+  ],
   "services-grid": [
     "src/pages/en/index.astro",
     "src/pages/index.astro"
+  ],
+  "signed-writing-list": [
+    "src/components/templates/AuthorPageTemplate.astro"
+  ],
+  "site-showcase": [
+    "src/pages/cas-clients/[...slug].astro"
   ],
   "social-proof": [
     "src/pages/index.astro"

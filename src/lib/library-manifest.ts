@@ -298,6 +298,27 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'testimonial-wall',           consumers: [] },
   { id: 'related-links',              consumers: [] },
   // <<< [t5-touchpoint-sync] end
+  // >>> [ci-fix-2026-07-21] start
+  // Fix CI drift-guard : 17 types ajoutés au catalogue entre le 2026-07-16 et le 2026-07-19,
+  // jamais répercutés ici (5e touchpoint hand-authored). Consumers vérifiés par grep ciblé.
+  { id: 'bordered-pullquote',    consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'closing-cta-band',      consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'curriculum-timeline',   consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'editorial-case-grid',   consumers: ['src/pages/manifesto.astro'] },
+  { id: 'hero-manifesto',        consumers: ['src/pages/manifesto.astro'] },
+  { id: 'keyword-strip',         consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'method-diagram-list',   consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'numbered-layer-list',   consumers: ['src/pages/technologies.astro'] },
+  { id: 'offer-rail',            consumers: ['src/pages/index.astro'] },
+  { id: 'pricing-tabs-showcase', consumers: [] },
+  { id: 'prose-aside',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'provenance-chip',       consumers: [] },
+  { id: 'publications-panel',    consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'sector-card-grid',      consumers: ['src/pages/secteurs/index.astro'] },
+  { id: 'signed-writing-list',   consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
+  { id: 'site-showcase',         consumers: ['src/pages/cas-clients/[...slug].astro'] },
+  { id: 'used-service-callout',  consumers: [] },
+  // <<< [ci-fix-2026-07-21] end
 ];
 
 // ── Overrides d'étiquetage manuels (docs/40 §3) ──────────────────────────────

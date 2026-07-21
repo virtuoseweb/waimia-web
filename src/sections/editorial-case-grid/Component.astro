@@ -75,7 +75,7 @@ const stagger = data.stagger ?? 60;
   .ecg__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: var(--space-6);
   }
   @media (max-width: 768px) {
     .ecg__grid { grid-template-columns: 1fr; }
