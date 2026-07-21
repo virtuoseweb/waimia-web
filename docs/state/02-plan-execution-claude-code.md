@@ -682,7 +682,8 @@ _(vide)_
     stratégie `@theme` (garder/minimaliser) informée doc Tailwind + GF-1 par retrait. A4 reste OUVERT (mesure faite,
     purge en attente d'arbitrage `@theme`).
   - ▸ *réconcilié 2026-07-19 : mesure faite (122 tokens), purge en attente d'arbitrage `@theme`.*
-  - ▸ *arbitrage scoped-dup TRANCHÉ 2026-07-21 (délégué par Simon, fiche 0030) : option 1 — archiver les 35 fichiers sandboxes (`proposals/eeat/`, `apps-atelier/.../hero-explore{,-2}/`) plutôt qu'exclure de la métrique. Exécution en cours (worker).*
+  - ▸ *arbitrage scoped-dup TRANCHÉ 2026-07-21 (délégué par Simon, fiche 0030) : option 1 — archiver les 35 fichiers sandboxes (`proposals/eeat/`, `apps-atelier/.../hero-explore{,-2}/`) plutôt qu'exclure de la métrique.*
+  - ▸ *scoped-dup sandboxes MERGÉ 2026-07-21 (PR #42, commit `93c9434` sur main, CI vert, prod re-vérifiée 404 sur route retirée) : 341→253 groupes (-88, -26%). Reste 253 (familles `.acc`/`i` + responsive, conception dédiée) — hors scope mécanique autonome.*
 
 ## Chantier P2.3 — Fondation `@theme inline` (prérequis builder)
 ### Tâches finies

@@ -89,12 +89,16 @@ P2.2) restent indépendantes et ne sont pas concernées par ce gel.
   disponibles/configurables** plutôt qu'un choix figé unique (pas seulement A comme recommandé au §3).
   Implique un point d'abstraction entre le chat et le "backend LLM" dès la conception, pas une
   intégration Anthropic-only en dur.
-- **Q3 (modèle LLM)** — **AMBIGU, à clarifier avant code sur CE point précis uniquement** : la réponse
-  cite littéralement « haiku » (correspond au mot utilisé au §3 pour le défaut recommandé), mais le
-  même message ouvre aussi par « utilise l'API OpenAI avec le modèle léger, effort minimum, pour
-  économiser les coûts API lors du dev » — une mention qui peut vouloir dire (a) remplacer Anthropic
-  par OpenAI comme fournisseur du chat-MCP, (b) utiliser OpenAI seulement pendant le dev/test de la
-  feature (économie d'itération) alors que la prod reste Haiku, ou (c) autre chose. Question posée à
-  Simon en direct plutôt que de trancher au hasard entre deux architectures aux implications différentes
-  (clé API, endpoint, coût, sécurité). **Le reste (Q1/Q2/Q4 + l'architecture "3 options configurables")
-  peut avancer immédiatement** ; seul le choix précis du fournisseur/modèle LLM par défaut reste gelé.
+- **Q3 (modèle LLM)** — TRANCHÉ (clarification directe 2026-07-21) : **les deux fournisseurs, OpenAI ET
+  Anthropic, tous deux disponibles en dev ET en prod** — pas un choix unique figé, un vrai commutateur
+  configurable. Concrètement : `/api/ds/chat` porte une **couche d'abstraction provider** (interface
+  commune tool-calling, un adapter par fournisseur) plutôt qu'un appel Anthropic en dur ; modèle par
+  défaut = le plus léger de chaque famille (Haiku côté Anthropic, équivalent mini/nano + `reasoning_effort`
+  minimal côté OpenAI), sélectionnable par variable d'env/config sans redéploiement de code. Cohérent
+  avec Q1 (garder les 3 options d'architecture A/B/C configurables : même logique de flexibilité
+  appliquée au choix du fournisseur LLM qu'au choix du mode d'hébergement).
+
+**Statut** : les 4 questions sont tranchées. Le gel de code du §5 est levé pour cette brique — la
+prochaine étape est une mission de conception/implémentation (Task subagent `model: opus`, raisonnement
+résiduel non trivial : design de l'interface provider-agnostique + les 2 adapters + le double plafond
+compteur/50-jour), pas un cadrage supplémentaire.
