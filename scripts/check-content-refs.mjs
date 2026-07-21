@@ -125,12 +125,20 @@ console.log(
 );
 
 // ── Parsing frontmatter minimal (champs plats + bloc facets) ──
+// `.json` (cases/offres/solutions sont 100% JSON, cf ADR docs/strategy/12) : objet natif
+// JSON.parse, aucun regex nécessaire. `.mdx` (hérité, si un fichier venait à en réapparaître) :
+// bloc YAML `---...---` extrait puis lu via les mêmes helpers scalar/inlineArray sur le texte.
 function frontmatter(collection, file) {
   const src = readFileSync(join(ROOT, 'src/content', collection, file), 'utf8');
+  if (file.endsWith('.json')) return JSON.parse(src);
   const m = src.match(/^---\n([\s\S]*?)\n---/);
   return m ? m[1] : '';
 }
 const inlineArray = (fm, key) => {
+  if (typeof fm !== 'string') {
+    const v = fm?.[key];
+    return Array.isArray(v) ? v : null;
+  }
   const m = fm.match(new RegExp(`^${key}:\\s*\\[(.*)\\]\\s*$`, 'm'));
   if (!m) return null;
   return m[1]
@@ -139,10 +147,21 @@ const inlineArray = (fm, key) => {
     .filter(Boolean);
 };
 const scalar = (fm, key) => {
+  if (typeof fm !== 'string') return fm?.[key] ?? null;
   const m = fm.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, 'm'));
   return m ? m[1].trim() : null;
 };
 function facetsBlock(fm) {
+  if (typeof fm !== 'string') {
+    const f = fm?.facets;
+    if (!f) return null;
+    return {
+      sector: f.sector ?? null,
+      painPoints: Array.isArray(f.painPoints) ? f.painPoints : [],
+      solutions: Array.isArray(f.solutions) ? f.solutions : [],
+      results: Array.isArray(f.results) ? f.results : [],
+    };
+  }
   const m = fm.match(/^facets:\n((?:[ \t]+.*\n?)*)/m);
   if (!m) return null;
   const block = m[1];
@@ -211,10 +230,11 @@ for (const [slug, file] of SLUGS.offres) {
 }
 
 // ── 5. Refs `{ref}` (P4.4-e) : pointeurs { "ref": "source/id" } dans src/content/**/*.json ──
-// BLOC ISOLÉ : scan JSON.parse propre (PAS la fonction frontmatter() héritée MDX, cassée sur
-// JSON — laissée intacte, dette séparée). Valide que chaque pointeur cible une source CÂBLÉE à
-// ce stade ET un id existant. WIRED_REF_SOURCES = sources réellement branchées dans le résolveur
-// (REF_TARGETS). À ÉTENDRE au fil des phases suivantes (testimonials, pricing, pain-points, ...).
+// BLOC ISOLÉ : scan JSON.parse récursif indépendant de frontmatter() (qui ne couvre que
+// cases/offres/solutions, pas les autres collections comme testimonials/secteurs/blog).
+// Valide que chaque pointeur cible une source CÂBLÉE à ce stade ET un id existant.
+// WIRED_REF_SOURCES = sources réellement branchées dans le résolveur (REF_TARGETS).
+// À ÉTENDRE au fil des phases suivantes (testimonials, pricing, pain-points, ...).
 console.log('── 5. Refs {ref} : pointeurs de contenu global (P4.4-e)');
 // P4.4-e Phase 3 : ajout des stores src/data. `pricing` = ACCESSOR-ONLY (aucun champ de section
 // refable à ce stade car son référentiel mince prix/période/label n'a pas de forme cible sans
