@@ -18,7 +18,7 @@
  *
  * Token-first : hairlines = box-shadow --shadow-card-rest + .hline + barre d'onglets
  * 1px var(--hairline)/2px var(--accent-text). Exception hairline rule 60 (viewBox SVG, filets
- * @media en px litteral car var() interdit en condition @media).
+ * en @media : px litteral car les custom properties sont interdites en condition de media query).
  */
 import type { SectionByType } from '@waimia/ds-kernel';
 
@@ -439,7 +439,7 @@ const families = data.families;
     .he-svc:hover { transform: none; }
   }
 
-  /* ── Responsive · litteraux px en @media UNIQUEMENT (var() interdit en condition) ── */
+  /* ── Responsive · litteraux px en @media UNIQUEMENT (custom properties interdites en condition) ── */
   @media (max-width: 900px) {
     .he-diptych { grid-template-columns: 1fr; }
     .he-services { grid-template-columns: repeat(3, minmax(0, 1fr)); }

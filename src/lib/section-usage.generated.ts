@@ -43,6 +43,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/standardiser-processus"
     ]
   },
+  "bordered-pullquote": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ]
+  },
   "branded-callout": {
     "count": 2,
     "pages": [
@@ -103,6 +109,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/solutions/contenu-seo-geo-ia.mdx",
       "src/content/solutions/publicite-en-ligne.mdx",
       "src/content/solutions/tunnel-de-vente.mdx"
+    ]
+  },
+  "closing-cta-band": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
     ]
   },
   "coming-soon-pills": {
@@ -187,6 +199,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro"
+    ]
+  },
+  "curriculum-timeline": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
     ]
   },
   "data-table": {
@@ -335,6 +353,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides/claude-pme"
+    ]
+  },
+  "editorial-case-grid": {
+    "count": 1,
+    "pages": [
+      "src/pages/manifesto.astro"
     ]
   },
   "editorial-preview": {
@@ -673,6 +697,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/components/templates/LeadMagnetTemplate.astro"
     ]
   },
+  "hero-manifesto": {
+    "count": 1,
+    "pages": [
+      "src/pages/manifesto.astro"
+    ]
+  },
   "hero-masthead-card": {
     "count": 29,
     "pages": [
@@ -778,6 +808,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme"
     ]
   },
+  "keyword-strip": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ]
+  },
   "logo-marquee": {
     "count": 2,
     "pages": [
@@ -796,6 +832,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "src/pages/en/index.astro",
       "src/pages/index.astro"
+    ]
+  },
+  "method-diagram-list": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
     ]
   },
   "method-stepline": {
@@ -837,6 +879,18 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "/services/template-service-ref",
       "src/pages/cas-clients/[...slug].astro"
+    ]
+  },
+  "numbered-layer-list": {
+    "count": 1,
+    "pages": [
+      "src/pages/technologies.astro"
+    ]
+  },
+  "offer-rail": {
+    "count": 1,
+    "pages": [
+      "src/pages/index.astro"
     ]
   },
   "offer-tier-grid": {
@@ -1008,6 +1062,18 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/pages/index.astro"
     ]
   },
+  "prose-aside": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ]
+  },
+  "publications-panel": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ]
+  },
   "pull-quote-block": {
     "count": 2,
     "pages": [
@@ -1051,11 +1117,29 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/solutions/tunnel-de-vente.mdx"
     ]
   },
+  "sector-card-grid": {
+    "count": 1,
+    "pages": [
+      "src/pages/secteurs/index.astro"
+    ]
+  },
   "services-grid": {
     "count": 2,
     "pages": [
       "src/pages/en/index.astro",
       "src/pages/index.astro"
+    ]
+  },
+  "signed-writing-list": {
+    "count": 1,
+    "pages": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ]
+  },
+  "site-showcase": {
+    "count": 1,
+    "pages": [
+      "src/pages/cas-clients/[...slug].astro"
     ]
   },
   "social-proof": {

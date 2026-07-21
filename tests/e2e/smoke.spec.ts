@@ -1,25 +1,21 @@
 // Tests de CONTRAT (durables, resistants au redesign visuel) : statut 200 + h1 present + 0 erreur console.
 // Ne teste PAS le texte/CSS (volontairement, pour survivre aux redesigns).
-// Routes verifiees contre le routage reel de waimia.com (waimia-web main, 2026-06-15).
+// Routes verifiees contre le routage reel de waimia.com (waimia-web main, 2026-07-21).
 import { test, expect } from "@playwright/test";
 
 const ROUTES = [
   "/",
-  "/acquerir",
-  "/piloter",
-  "/operer",
-  "/offres",
+  "/services",
   "/secteurs",
-  "/realisations",
+  "/cas-clients",
   "/expertise-claude",
   "/agence",
   "/agence/methode",
-  "/agence/about",
-  "/agence-web-montpellier",
+  "/implantations/montpellier",
   "/contact",
   "/manifesto",
   "/ressources",
-  "/ressources/blog",
+  "/blog",
   "/ressources/outils",
   "/cgv",
   "/mentions-legales",

@@ -281,8 +281,11 @@ function main() {
 
   for (const file of allHtml) {
     if (isExcludedPath(file)) { excludedPath++; continue; }
-    const html = readFileSync(file, 'utf8');
-    if (isNoindex(html)) { excludedNoindex++; continue; }
+    const rawHtml = readFileSync(file, 'utf8');
+    if (isNoindex(rawHtml)) { excludedNoindex++; continue; }
+    // Commentaires HTML (<!-- ... -->) exclus du scan : ils documentent parfois du markup
+    // en exemple (ex. "<img> n'herite pas de currentColor") et faussent les regex ci-dessous.
+    const html = rawHtml.replace(/<!--[\s\S]*?-->/g, '');
     indexed.push({ file, html });
   }
 

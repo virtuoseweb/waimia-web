@@ -107,10 +107,13 @@ jobs:
             --header "x-vercel-protection-bypass: $BYPASS" \
             --header "x-vercel-set-bypass-cookie: true"
 
-      - name: Upload screenshots + summary
-        if: steps.preflight.outputs.run == 'true'
+      # Upload uniquement en cas d'échec : sur un run PASS (majorité des cas), les 223
+      # screenshots (~4 Mo) n'ont aucune valeur de debug. Évite d'épuiser le quota de
+      # stockage Actions du compte (cf incident 2026-07-21, artefacts PASS accumulés).
+      - name: Upload screenshots + summary (si échec)
+        if: steps.preflight.outputs.run == 'true' && failure()
         uses: actions/upload-artifact@v4
         with:
           name: gf1-vercel-sweep
           path: gf1-artifacts/
-          retention-days: 14
+          retention-days: 3
