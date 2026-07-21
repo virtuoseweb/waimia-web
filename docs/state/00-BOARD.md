@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `416f49a7` - 88/97 tâches done (91%).
+État : HEAD `b0f4e600` - 88/97 tâches done (91%).
 
 ## Avancement par phase
 
@@ -48,13 +48,9 @@
 | P4.1 — Boilerplate produit forkable | P4 | 1/1 | 100% | 9be38c58 fix(forkabilite): aria-label wordmark header → SITE.name + limite documentée (wordmark stylisé = actif de marque, constat démo réelle solstice-web-demo) |
 | P4.2 — CMS lite + TinaCMS (visual editing 100% Astro) | P4 | 1/1 | 100% | d267b834 feat(cms): #39/#40 retrait complet de TinaCMS (ADR docs/strategy/12) |
 | P4.3 — Dashboard / cockpit & agents à l'usage | P4 | 0/1 | 0% | - |
-| P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 9/10 | 90% | e1904ae4 feat(atelier): P4.4-g S2 · « Dupliquer comme nouveau type » depuis le canvas ; a2a08f72 feat(atelier): P4.4-h E2 · where-used actionnable (deep-link ?atelier-focus + outline dev-only) + demo-overrides (store + endpoint + bandeau fiche) ; db240fe2 feat(atelier): P4.4-h E1 · extraction physique en packages/apps-atelier (app-as-plugin) |
+| P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 9/10 | 90% | a2a08f72 feat(atelier): P4.4-h E2 · where-used actionnable (deep-link ?atelier-focus + outline dev-only) + demo-overrides (store + endpoint + bandeau fiche) ; db240fe2 feat(atelier): P4.4-h E1 · extraction physique en packages/apps-atelier (app-as-plugin) ; 99286966 feat(ref): P4.4-e — mécanisme {ref} composants globaux (V3 builder inclus) (#40) |
 
 ## ⚠ Désyncs
-
-### Dures (bloquantes)
-
-- `P4.4-e` : commit=99286966 absent de git
 
 ### Warnings
 
