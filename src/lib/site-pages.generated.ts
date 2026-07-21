@@ -2065,13 +2065,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
+        "type": "testimonial-wall",
+        "label": "Ce que disent les équipes qui ont mis leur site au travail",
+        "background": "paper-2"
+      },
+      {
         "type": "pricing-cards",
         "label": "Combien coûte un site internet qui vend",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#12",
         "variant": "media"
       },
       {

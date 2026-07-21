@@ -1971,8 +1971,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 11,
-      "label": "#11",
+      "index": 12,
+      "label": "#12",
       "variant": "media"
     },
     {
@@ -2459,7 +2459,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 12,
+      "index": 13,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -3610,7 +3610,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 13,
+      "index": 14,
       "label": "Transformez votre site en machine à qualifier.",
       "background": "ink"
     },
@@ -5256,7 +5256,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 10,
+      "index": 11,
       "label": "Combien coûte un site internet qui vend",
       "background": "paper"
     },
@@ -6422,6 +6422,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/sequences-de-suivi",
       "index": 12,
       "label": "Ce que disent les équipes dont les leads ne refroidissent plus",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia.json",
+      "slug": "site-web-ia",
+      "route": "/services/site-web-ia",
+      "index": 10,
+      "label": "Ce que disent les équipes qui ont mis leur site au travail",
       "background": "paper-2"
     },
     {

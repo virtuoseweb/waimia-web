@@ -1154,7 +1154,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "testimonial-wall": {
-    "count": 16,
+    "count": 17,
     "pages": [
       "/services/agent-support-client",
       "/services/automatisation-n8n",
@@ -1170,6 +1170,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/seo-local",
       "/services/sequences-de-suivi",
+      "/services/site-web-ia",
       "/services/systeme-acquisition",
       "/services/systeme-commercial"
     ]
