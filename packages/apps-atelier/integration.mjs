@@ -1,6 +1,6 @@
 /**
  * integration.mjs - AstroIntegration de l'app-as-plugin « atelier » (catalogue DS,
- * fiche section, DS Studio, builder, config, onboarding, hero-lab, hero-explore).
+ * fiche section, DS Studio, builder, config, onboarding, hero-lab).
  *
  * 2e extraction reelle de la convention apps-as-plugins (fiche 0027 D3), apres
  * apps-seo-dashboard. Tout l'atelier — l'ensemble des routes /library/* qui vivaient
@@ -30,8 +30,6 @@ const ATELIER_ROUTES = [
   { pattern: '/library/[category]',         entry: '[category].astro',         prerender: true },
   { pattern: '/library/compare',            entry: 'compare.astro',            prerender: true },
   { pattern: '/library/hero-lab',           entry: 'hero-lab.astro',           prerender: true },
-  { pattern: '/library/hero-explore',       entry: 'hero-explore.astro',       prerender: true },
-  { pattern: '/library/hero-explore-2',     entry: 'hero-explore-2.astro',     prerender: true },
   { pattern: '/library/studio',             entry: 'studio.astro',             prerender: true },
   { pattern: '/library/manifest.json',      entry: 'manifest.json.ts',         prerender: true },
   { pattern: '/library/builder',            entry: 'builder/index.astro',      prerender: true },
