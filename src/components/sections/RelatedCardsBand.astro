@@ -26,11 +26,13 @@ const cards = data.cards.map((c) => ({
     {(isFr ? data.kicker_fr : data.kicker_en) && (
       <Kicker as="span" class="related-cards-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
+    <h2 class="sr-only">{isFr ? "Cas d'usage associés" : 'Related use cases'}</h2>
     <RelatedCards cards={cards} class="related-cards-band__grid reveal-stagger" />
   </div>
 </section>
 
 <style>
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   .related-cards-band {
     /* Inset horizontal porté par le seul .wrap-wide interne (max-width + --gut),
        comme les sections voisines (problems-grid/deliverables-grid) : pas de

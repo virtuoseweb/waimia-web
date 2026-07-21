@@ -51,6 +51,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
             data-panel-index={tabIndex}
             hidden={tabIndex !== 0}
           >
+            <h2 class="sr-only">{isFr ? 'Nos formules' : 'Our plans'}</h2>
             <div class="pricing-tabs__grid">
               {tab.cards.map((card) => {
                 const imageAlt = isFr ? card.image_alt_fr : card.image_alt_en;
@@ -164,6 +165,8 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
 </script>
 
 <style>
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
   .pricing-tabs {
     overflow: clip;
   }
@@ -206,7 +209,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     max-width: 100%;
     margin-inline: auto;
     padding: var(--space-1);
-    gap: 4px;
+    gap: var(--space-1);
     border: 1px solid var(--hairline);
     border-radius: var(--radius-pill);
     background: color-mix(in srgb, var(--paper-2) 88%, transparent);
@@ -261,7 +264,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     gap: var(--space-5);
     padding: clamp(var(--space-5), 3vw, var(--space-6));
     border: 1px dashed color-mix(in srgb, var(--ink) 18%, transparent);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background: color-mix(in srgb, var(--paper) 88%, transparent);
     transition: border-color var(--dur-hover) var(--ease), transform var(--dur-hover) var(--ease), background var(--dur-hover) var(--ease);
   }
@@ -371,7 +374,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     margin-top: var(--space-8);
     padding: clamp(var(--space-6), 5vw, var(--space-8));
     border: 1px solid color-mix(in srgb, var(--accent-text) 34%, transparent);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background:
       radial-gradient(44rem 18rem at 92% 20%, rgba(var(--accent-rgb), .14), transparent 70%),
       var(--paper-2);
@@ -402,7 +405,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     margin-top: var(--space-5);
     padding: clamp(var(--space-5), 3vw, var(--space-6));
     border: 1px solid var(--hairline);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background: color-mix(in srgb, var(--paper-2) 88%, transparent);
   }
 
@@ -530,7 +533,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
     .pricing-tabs__tablist {
       width: 100%;
       justify-content: flex-start;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
     }
 
     .pricing-tabs__tab {
