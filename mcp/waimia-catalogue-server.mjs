@@ -5,7 +5,10 @@
 // 4 tools en lecture seule :
 //   - catalogue_search       : cherche / filtre l'index compact tier-1.
 //   - catalogue_get_section  : recupere le detail tier-2 d'un type (contrat de slots).
-//   - catalogue_get_preset   : liste ou resout les presets (declinaisons nommees) d'un type.
+//   - catalogue_get_preset   : liste ou resout les presets (declinaisons nommees) d'un type. GAP COMBLE
+//                              (mcp-manifest.ts:300) : l'artefact dist expose desormais { id, label,
+//                              family, era, props } par preset -- family/era optionnels (miroir du type
+//                              `Preset`), props toujours present (peut etre {}).
 //   - ds_tokens              : liste les variables CSS du Design System.
 // 2 tools de composition / rendu :
 //   - page_compose           : assemble + valide une liste de sections en un PageDocument type.
@@ -119,13 +122,12 @@ server.registerTool(
     title: 'Presets (declinaisons) d\'un type de section',
     description:
       'Liste ou resout les presets (declinaisons nommees, sous-ensemble du tier-2) d\'un type de section. ' +
-      'Sans presetId : retourne tous les presets { id, label } du type. ' +
+      'Sans presetId : retourne tous les presets { id, label, family, era, props } du type. ' +
       'Avec presetId : resout le preset cible (erreur propre + liste des ids connus si absent). ' +
-      'GAP CONNU (cf champ dataGap de la reponse) : l\'artefact dist ne serialise que { id, label } par ' +
-      'preset (src/lib/mcp-manifest.ts:294) ; family/era/props (surcharges reelles) ne sont PAS exposes ' +
-      'par ce tool -- ils vivent dans packages/ds-kernel/src/lib/section-presets.ts, non lu par ce serveur ' +
-      '(qui ne lit que dist/, pas src/). Pour composer une section avec les surcharges exactes d\'un preset, ' +
-      'passer par catalogue_get_section (contrat de slots) + demo par defaut, ou enrichir le generateur.',
+      '`family`/`era` sont optionnels (tous les presets n\'en portent pas) ; `props` contient les ' +
+      'surcharges reelles de presentation (background/layout/variant/illustration/...) appliquees ' +
+      'par-dessus la demo par defaut du type -- source = packages/ds-kernel/src/lib/section-presets.ts, ' +
+      'serialisee dans l\'artefact dist par src/lib/mcp-manifest.ts.',
     inputSchema: {
       type: z.string().describe('Identifiant exact du type de section (ex. hero-split).'),
       presetId: z

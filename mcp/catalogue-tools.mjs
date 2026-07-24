@@ -359,12 +359,9 @@ export function runCatalogueGetPreset({ type, presetId } = {}) {
   }
 
   const presets = detail.presets || [];
-  const dataGap =
-    "L'artefact dist ne serialise que { id, label } par preset (mcp-manifest.ts:294) : " +
-    'family/era/props ne sont PAS exposes par ce tool (a combler cote generateur si un agent a besoin des surcharges reelles).';
 
   if (presetId === undefined) {
-    return { type, presetCount: presets.length, presets, dataGap };
+    return { type, presetCount: presets.length, presets };
   }
 
   const preset = presets.find((p) => p.id === presetId);
@@ -374,7 +371,7 @@ export function runCatalogueGetPreset({ type, presetId } = {}) {
       `presetId inconnu pour ${type} : ${presetId}. Presets disponibles : ${known.length ? known.join(', ') : '(aucun preset pour ce type)'}.`,
     );
   }
-  return { type, preset, dataGap };
+  return { type, preset };
 }
 
 /** ds_tokens : liste les variables CSS du Design System, filtrables par prefixe. */
@@ -626,7 +623,7 @@ export const CATALOGUE_TOOL_DEFS = [
   {
     name: 'catalogue_get_preset',
     description:
-      'Liste ou resout les presets (declinaisons nommees) d\'un type de section. Sans presetId : liste tous les presets { id, label }. Avec presetId : resout le preset cible.',
+      'Liste ou resout les presets (declinaisons nommees) d\'un type de section. Sans presetId : liste tous les presets { id, label, family, era, props } (props = surcharges reelles de presentation). Avec presetId : resout le preset cible.',
     parameters: {
       type: 'object',
       properties: {

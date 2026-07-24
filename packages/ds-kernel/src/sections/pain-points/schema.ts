@@ -3,6 +3,19 @@
 // z vient d'astro:content (build Astro + pattern codegen). Imports partages reresolus.
 
 import { z } from 'zod';
+import { refOrInline } from '../_shared/refs';
+
+// Item de friction extrait en const nommée (P4.4-e Phase 3) pour être enveloppé par
+// `refOrInline` : chaque item porte SOIT sa forme inline, SOIT un pointeur
+// `{ ref: 'pain-points/<id>' }` résolu au rendu via le référentiel GLOBAL src/data/pain-points.ts
+// et PROJETÉ à cette forme (label → title, description → body) par resolveSectionRefs.
+const painPointItemSchema = z.object({
+  num: z.string().optional(),
+  title_fr: z.string(),
+  title_en: z.string(),
+  body_fr: z.string(),
+  body_en: z.string(),
+});
 
 export const schema = z.object({
   type: z.literal('pain-points'),
@@ -13,16 +26,7 @@ export const schema = z.object({
   h2_en: z.string(),
   aside_fr: z.string().optional(),
   aside_en: z.string().optional(),
-  items: z
-    .array(
-      z.object({
-        num: z.string().optional(),
-        title_fr: z.string(),
-        title_en: z.string(),
-        body_fr: z.string(),
-        body_en: z.string(),
-      }),
-    )
-    .min(2)
-    .max(6),
+  // items : forme inline OU pointeur `{ ref: 'pain-points/<id>' }`
+  // (REF_TARGETS['pain-points.items'] = 'pain-points'). Bornes = nombre d'items.
+  items: z.array(refOrInline(painPointItemSchema)).min(2).max(6),
 });

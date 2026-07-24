@@ -12,6 +12,16 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 
+// `data.testimonials` est DÉJÀ résolu ET projeté par resolveSectionRefs (SectionsRenderer) : les
+// pointeurs `{ ref: 'testimonials/<slug>' }` ont été remplacés par la forme d'item ; les avis
+// inline sont laissés tels quels. On restreint le type union (item | ref) à l'item inline seul
+// (branche `{ quote_fr }`), calqué sur CaseCardGrid.astro.
+type TestimonialItem = Extract<
+  NonNullable<SectionByType<'testimonial-wall'>['testimonials']>[number],
+  { quote_fr: string }
+>;
+const resolvedTestimonials = (data.testimonials ?? []) as TestimonialItem[];
+
 // Initiales de secours quand aucun avatar n'est fourni (calque TeamBioGrid).
 const initials = (name: string) =>
   name
@@ -79,7 +89,7 @@ const headerHasContent =
     )}
 
     <div class="tw__wall reveal-stagger" data-columns={data.columns}>
-      {data.testimonials.map((t: (typeof data.testimonials)[number]) => (
+      {resolvedTestimonials.map((t) => (
         <figure class="tw__card">
           <blockquote class="tw__quote" set:html={highlight(isFr ? t.quote_fr : t.quote_en)} />
           <figcaption class="tw__author">

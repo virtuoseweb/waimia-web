@@ -15,6 +15,10 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
+// P4.4-e : en branche proof-bar, data.metrics est DÉJÀ résolu/projeté par resolveSectionRefs
+// (SectionsRenderer) ; on restreint le type union (metricSchema | {ref}) à la branche inline
+// (l'item porte `value`). stat-block n'est PAS référençable → son type reste inchangé.
+type ProofBarMetric = Extract<SectionByType<'proof-bar'>['metrics'][number], { value: string }>;
 const sb = data.type === 'stat-block' ? data : null;
 const quote = sb ? (isFr ? sb.quote_fr : sb.quote_en) : undefined;
 const cite = sb ? (isFr ? sb.cite_fr : sb.cite_en) : undefined;
@@ -29,7 +33,7 @@ const metricsLayout = sb ? (isSplitQuote ? 'split-quote' : sb.layout === 'split-
       <Kicker tone="muted" class="proof-bar__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
     )}
     <ul class="proof-bar__list u-list-grid">
-      {data.metrics.map((m: (typeof data.metrics)[number]) => (
+      {(data.metrics as ProofBarMetric[]).map((m) => (
         <li class:list={['proof-bar__item', m.emphasis && 'proof-bar__item--emphasis']}>
           <span class="proof-bar__value">{m.value}</span>
           <span class="proof-bar__label">{isFr ? m.label_fr : m.label_en}</span>

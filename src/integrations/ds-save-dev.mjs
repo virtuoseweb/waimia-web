@@ -63,7 +63,7 @@
  * le CLI `npm run ds:apply` (packages/ds-tokens/ds-tokens.mjs).
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve, sep } from 'node:path';
@@ -100,6 +100,7 @@ const CUSTOM_PRESET_ROUTE = '/api/ds/custom-preset';
 const SCAFFOLD_ROUTE = '/api/ds/scaffold';
 const APPS_ROUTE = '/api/ds/apps';
 const DEMO_OVERRIDE_ROUTE = '/api/ds/demo-override';
+const REF_OPTIONS_ROUTE = '/api/ds/ref-options';
 // Source de verite du registre des apps internes (structure + defauts + listAppsState()).
 const APPS_CONFIG_MODULE = '/src/apps.config.ts';
 // Validation kebab-case (miroir de scaffold-section.mjs) : garde locale AVANT le spawn.
@@ -1416,6 +1417,114 @@ function makeDemoOverrideHandler(server) {
 
 // --- Integration -------------------------------------------------------------
 
+// --- Handler ref-options (liste dev-only des ids choisissables par source, P4.4-e Phase 5) ----
+// Le widget « Référencer » de l'inspecteur a besoin de LISTER les ids d'une source de contenu
+// global pour qu'un item de slot `refable` pointe `{ ref: '<source>/<id>' }`. Les accessors du
+// resolveur (src/lib/resolve-section-refs.ts) ne font que du get-BY-id : ce handler est le SEUL
+// point de listage. LECTURE SEULE (aucune ecriture) -> pas de keyword. `source` valide contre
+// REF_SOURCES (source de verite partagee @waimia/ds-kernel/sections/_shared/refs, chargee via
+// ssrLoadModule -> 0 liste dupliquee). Stores synchrones src/data -> ssrLoadModule + extraction
+// {id,label} ; collections src/content -> lecture directe des noms de fichiers (id = basename =
+// c.id du glob loader Astro) + label depuis un champ lisible du JSON. Toute source valide non
+// listable -> { ids: [] } (honnete, jamais 500).
+//
+//   GET /api/ds/ref-options?source=<source>  -> { ok:true, source, ids:[{id,label}] }
+
+// Stores synchrones src/data : module a charger + projection vers {id,label} lisible.
+const REF_OPTION_STORES = {
+  logos: {
+    module: '/src/data/logos.ts',
+    list: (m) => Object.entries(m.LOGOS).map(([id, v]) => ({ id, label: v.name_fr || v.name_en || id })),
+  },
+  guarantees: {
+    module: '/src/data/guarantees.ts',
+    list: (m) => m.GUARANTEES.map((g) => ({ id: g.id, label: g.label_fr || g.id })),
+  },
+  'proof-points': {
+    module: '/src/data/proof-points.ts',
+    list: (m) => m.PROOF_POINTS.map((p) => ({ id: p.id, label: p.label_fr || p.value || p.id })),
+  },
+  'pain-points': {
+    module: '/src/data/pain-points.ts',
+    list: (m) => m.PAIN_POINTS.map((p) => ({ id: p.id, label: p.label_fr || p.id })),
+  },
+  partners: {
+    module: '/src/data/partners.ts',
+    list: (m) => m.PARTNERS.map((p) => ({ id: p.slug, label: p.name || p.slug })),
+  },
+  pricing: {
+    module: '/src/data/pricing.ts',
+    list: (m) => m.PRICING_GRID.map((t) => ({ id: t.tier, label: (t.label && t.label.fr) || t.tier })),
+  },
+};
+// Collections src/content resolues par nom de fichier (id = basename = c.id du glob loader).
+const REF_OPTION_COLLECTIONS = new Set(['cases', 'authors', 'testimonials']);
+// Champs candidats pour un label lisible d'entree de collection (1er present non vide gagne).
+const COLLECTION_LABEL_FIELDS = ['title_fr', 'client', 'name', 'author', 'label_fr', 'name_fr'];
+
+function makeRefOptionsHandler(server) {
+  return async function refOptionsHandler(req, res, next) {
+    if (req.method !== 'GET') return next();
+    const url = new URL(req.url || '/', 'http://localhost');
+    const source = url.searchParams.get('source') || '';
+
+    // 1. Valide `source` contre la source de verite partagee (9 sources connues).
+    let REF_SOURCES;
+    try {
+      ({ REF_SOURCES } = await server.ssrLoadModule('@waimia/ds-kernel/sections/_shared/refs'));
+    } catch (e) {
+      return sendJson(res, 500, { ok: false, error: `sources indisponibles : ${e.message}` });
+    }
+    if (!Array.isArray(REF_SOURCES) || !REF_SOURCES.includes(source)) {
+      return sendJson(res, 400, { ok: false, error: `source inconnue « ${source} »` });
+    }
+
+    // 2. Store synchrone src/data -> module charge via ssrLoadModule + projection {id,label}.
+    const store = REF_OPTION_STORES[source];
+    if (store) {
+      try {
+        const mod = await server.ssrLoadModule(store.module);
+        const ids = store.list(mod).filter((o) => o && o.id);
+        return sendJson(res, 200, { ok: true, source, ids });
+      } catch (e) {
+        return sendJson(res, 500, { ok: false, error: `lecture ${source} : ${e.message}` });
+      }
+    }
+
+    // 3. Collection src/content -> lecture des noms de fichiers (id = basename) + label du JSON.
+    if (REF_OPTION_COLLECTIONS.has(source)) {
+      const dir = resolve(CONTENT_DIR, source);
+      if (!existsSync(dir)) return sendJson(res, 200, { ok: true, source, ids: [] });
+      let files;
+      try {
+        files = readdirSync(dir).filter((f) => f.endsWith('.json'));
+      } catch (e) {
+        return sendJson(res, 500, { ok: false, error: `lecture ${source} : ${e.message}` });
+      }
+      const ids = files
+        .map((f) => {
+          const id = f.slice(0, -'.json'.length);
+          let label = id;
+          try {
+            const data = JSON.parse(readFileSync(resolve(dir, f), 'utf8'));
+            const picked = COLLECTION_LABEL_FIELDS.map((k) => data && data[k]).find(
+              (v) => typeof v === 'string' && v.trim(),
+            );
+            if (picked) label = picked;
+          } catch {
+            /* label = id (JSON illisible : on n'echoue pas le listage pour autant) */
+          }
+          return { id, label };
+        })
+        .sort((a, b) => a.id.localeCompare(b.id));
+      return sendJson(res, 200, { ok: true, source, ids });
+    }
+
+    // 4. Source valide mais sans listage cable (defensif : ne devrait pas arriver, 9/9 couvertes).
+    return sendJson(res, 200, { ok: true, source, ids: [] });
+  };
+}
+
 export default function dsSaveDev() {
   return {
     name: 'ds-save-dev',
@@ -1431,9 +1540,10 @@ export default function dsSaveDev() {
         server.middlewares.use(SCAFFOLD_ROUTE, makeScaffoldHandler());
         server.middlewares.use(APPS_ROUTE, makeAppsHandler(server));
         server.middlewares.use(DEMO_OVERRIDE_ROUTE, makeDemoOverrideHandler(server));
+        server.middlewares.use(REF_OPTIONS_ROUTE, makeRefOptionsHandler(server));
         if (logger && typeof logger.info === 'function') {
           logger.info(
-            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET ${PAGE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} + POST ${SCAFFOLD_ROUTE} + GET/PATCH ${APPS_ROUTE} + GET/PUT/DELETE ${DEMO_OVERRIDE_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / lecture page reelle / variantes custom / scaffold section / registre apps / demo-overrides)`,
+            `DEV-ONLY : POST ${ROUTE} + ${PRESET_ROUTE} + ${COMPOSE_ROUTE} + GET/POST/DELETE ${SAVED_ROUTE} + GET/PATCH ${INSTANCE_ROUTE} + GET ${PAGE_ROUTE} + GET/POST/DELETE ${CUSTOM_PRESET_ROUTE} + POST ${SCAFFOLD_ROUTE} + GET/PATCH ${APPS_ROUTE} + GET/PUT/DELETE ${DEMO_OVERRIDE_ROUTE} + GET ${REF_OPTIONS_ROUTE} actifs (DS Studio "Enregistrer" / presets / builder compose / saved sections / edition instance / lecture page reelle / variantes custom / scaffold section / registre apps / demo-overrides / options de reference)`,
           );
         }
       },

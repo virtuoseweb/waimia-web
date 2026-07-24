@@ -176,7 +176,7 @@ const ctaText = pick(ctaLabel_fr ?? 'Réserver un audit gratuit →', ctaLabel_e
   .tw-input,
   .tw-select {
     width: 100%;
-    padding: 12px var(--space-4);
+    padding: var(--space-3) var(--space-4);
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--ink);
@@ -258,7 +258,7 @@ const ctaText = pick(ctaLabel_fr ?? 'Réserver un audit gratuit →', ctaLabel_e
     font-size: var(--text-small);
     color: var(--muted);
     max-width: 42ch;
-    line-height: 1.4;
+    line-height: var(--leading-lede);
   }
 
   /* CTA : neutralise le gradient de lien hérité de .essay-prose :global(a)
@@ -267,7 +267,7 @@ const ctaText = pick(ctaLabel_fr ?? 'Réserver un audit gratuit →', ctaLabel_e
   .tool-widget .tw-cta:hover {
     background-image: none;
     text-decoration: none;
-    padding: 14px 24px;
+    padding: 14px var(--space-5);
     color: var(--paper);
   }
   .tool-widget .tw-cta:hover {

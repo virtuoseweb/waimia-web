@@ -80,7 +80,7 @@ const APP_DEFS: Record<string, { defaultEnabled: boolean; integration?: AstroInt
     route: '/dashboard-seo',
   },
   // App extraite (E1) : l'atelier DS complet. Toutes les routes /library/* (catalogue,
-  // fiche section, DS Studio, builder, config, hero-lab, hero-explore) sont injectees
+  // fiche section, DS Studio, builder, config, hero-lab) sont injectees
   // par packages/apps-atelier/integration.mjs. Remplace les anciennes façades
   // dsStudio + builder (code desormais deplace dans le package). enabled:false ->
   // toutes les routes /library/* deviennent 404 (au redemarrage d'astro).

@@ -6,7 +6,6 @@
 // Le track est dupliqué (×2) pour une boucle continue (translateX -50%).
 import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
-import { LOGOS } from '../../data/logos';
 
 interface Props {
   data: SectionByType<'logo-marquee'>;
@@ -15,11 +14,11 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const kicker = isFr ? data.kicker_fr : data.kicker_en;
-// Résolution GLOBAL : si logoIds présent → mappe via le store LOGOS (les ids
-// inconnus sont ignorés, anti-404) ; sinon fallback aux logos inline (rétrocompat).
-const logos = data.logoIds
-  ? data.logoIds.map((id) => LOGOS[id]).filter(Boolean)
-  : (data.logos ?? []);
+// `data.logos` est DÉJÀ résolu par resolveSectionRefs (SectionsRenderer) : les pointeurs
+// `{ ref: 'logos/id' }` ont été remplacés par leur forme inline. On restreint donc le type
+// union (item | ref) à l'item inline seul (branche `{ src }` = logoMarqueeItemSchema).
+type LogoItem = Extract<NonNullable<SectionByType<'logo-marquee'>['logos']>[number], { src: string }>;
+const logos = (data.logos ?? []) as LogoItem[];
 const speed = data.speed ?? 'base';
 const grayscale = data.grayscale ?? true;
 ---
