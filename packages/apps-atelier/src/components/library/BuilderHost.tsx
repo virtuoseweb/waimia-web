@@ -29,6 +29,9 @@ import { SitemapScreen } from '@waimia/atelier-ui/screens/SitemapScreen.tsx';
 import type { SitemapGroup, SitemapPage } from '@waimia/atelier-ui/screens/types.ts';
 import { ChatPanel } from '@waimia/atelier-ui/chat/ChatPanel.tsx';
 import type { ChatMessage, ChatPhase, ChatUsage } from '@waimia/atelier-ui/chat/types.ts';
+// BYOK : les en-tetes de session (cle du navigateur, choisie dans l'ecran Reglages) transitent par
+// ce module partage. byokHeaders() = {} tant qu'aucune cle BYOK n'est saisie (flux serveur inchange).
+import { byokHeaders } from '@waimia/atelier-ui/chat/byok.ts';
 import { COLOR_SCHEMES } from '@waimia/ds-kernel/lib/section-colorschemes';
 import type {
   BuilderCatalogueItem,
@@ -161,7 +164,9 @@ export default function BuilderHost({
 
   const refreshChatState = useCallback(async () => {
     try {
-      const res = await fetch('/api/ds/chat');
+      // BYOK : reflete l'etat (configured/provider) VU par le serveur pour la cle active du
+      // navigateur si elle existe, sinon la cle serveur. Aucune cle => en-tetes vides.
+      const res = await fetch('/api/ds/chat', { headers: { ...byokHeaders() } });
       if (!res.ok) return;
       const json = (await res.json()) as { ok?: boolean; usage?: ChatUsage; configured?: boolean };
       if (json && json.ok) {
@@ -948,7 +953,9 @@ function ChatHost(props: {
     try {
       const res = await fetch('/api/ds/chat', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        // BYOK : la cle du navigateur (si saisie dans Reglages) part en en-tete, prioritaire sur la
+        // cle serveur. Vide sinon : 0 changement pour le flux existant.
+        headers: { 'content-type': 'application/json', ...byokHeaders() },
         body: JSON.stringify({ messages: history.map((m) => ({ role: m.role, content: m.text })) }),
       });
       const json = (await res.json().catch(() => null)) as ChatPostResponse | null;

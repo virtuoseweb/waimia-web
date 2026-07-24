@@ -17,7 +17,7 @@ import {
 } from '../mcp/catalogue-tools.mjs';
 import { dispatchTool, LLM_TOOLS } from '../packages/apps-atelier/src/lib/chat/tools.ts';
 import { runChatTurn } from '../packages/apps-atelier/src/lib/chat/run-chat.ts';
-import { createProvider } from '../packages/apps-atelier/src/lib/chat/provider.ts';
+import { createProvider, resolveProviderConfig } from '../packages/apps-atelier/src/lib/chat/provider.ts';
 import { createAnthropicProvider } from '../packages/apps-atelier/src/lib/chat/providers/anthropic.ts';
 import { createOpenAiProvider } from '../packages/apps-atelier/src/lib/chat/providers/openai.ts';
 import { ProviderNotConfiguredError } from '../packages/apps-atelier/src/lib/chat/types.ts';
@@ -125,6 +125,36 @@ async function main() {
     threw = err instanceof ProviderNotConfiguredError;
   }
   assert(threw, 'createProvider jette ProviderNotConfiguredError quand la cle est vide');
+
+  console.log('== 7. BYOK : resolveProviderConfig priorise la cle des en-tetes sur la cle d\'env ==');
+  // Env de reference : openai avec une cle serveur + un modele d'env.
+  const envOpenai = { provider: 'openai', openaiApiKey: 'env-openai-key', model: 'gpt-5-mini' };
+
+  const noOverride = resolveProviderConfig(envOpenai);
+  assert(noOverride.source === 'env' && noOverride.apiKey === 'env-openai-key' && noOverride.configured === true,
+    'sans en-tete : source=env, cle serveur utilisee (0 regression)');
+  assert(noOverride.provider === 'openai' && noOverride.model === 'gpt-5-mini',
+    'sans en-tete : provider + modele d\'env conserves');
+
+  const emptyOverride = resolveProviderConfig(envOpenai, { apiKey: '   ' });
+  assert(emptyOverride.source === 'env' && emptyOverride.apiKey === 'env-openai-key',
+    'en-tete cle vide/blanche : retombe sur la cle d\'env (source=env)');
+
+  const sameProvider = resolveProviderConfig(envOpenai, { provider: 'openai', apiKey: 'byok-openai-key' });
+  assert(sameProvider.source === 'byok' && sameProvider.apiKey === 'byok-openai-key' && sameProvider.configured === true,
+    'BYOK meme fournisseur : la cle de l\'en-tete prend le pas sur la cle serveur');
+  assert(sameProvider.provider === 'openai' && sameProvider.model === 'gpt-5-mini',
+    'BYOK meme fournisseur : le modele d\'env est reutilise');
+
+  const crossProvider = resolveProviderConfig(envOpenai, { provider: 'anthropic', apiKey: 'byok-anthropic-key' });
+  assert(crossProvider.source === 'byok' && crossProvider.provider === 'anthropic' && crossProvider.apiKey === 'byok-anthropic-key',
+    'BYOK fournisseur different : provider bascule sur l\'en-tete');
+  assert(crossProvider.model === undefined,
+    'BYOK fournisseur different : le modele d\'env (openai) n\'est PAS envoye a anthropic');
+
+  const noEnvKey = resolveProviderConfig({ provider: 'anthropic' }, { provider: 'anthropic', apiKey: 'byok-only' });
+  assert(noEnvKey.configured === true && noEnvKey.apiKey === 'byok-only' && noEnvKey.source === 'byok',
+    'BYOK sans aucune cle serveur : configured=true grace a la cle de l\'en-tete');
 
   console.log(`\n== RESULTAT : ${passed} PASS, ${failed} FAIL ==`);
   if (failed > 0) process.exit(1);

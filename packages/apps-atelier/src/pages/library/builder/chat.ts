@@ -46,6 +46,31 @@ function json(payload: unknown, status = 200): Response {
   });
 }
 
+/**
+ * BYOK : lit la cle et le fournisseur dans les EN-TETES de la requete (jamais l'URL/query/cookie).
+ * Si presents, ils prennent le pas sur la cle serveur pour CETTE requete uniquement (cf provider.ts).
+ */
+function readKeyOverride(request: Request): { provider?: string; apiKey?: string } {
+  return {
+    provider: request.headers.get('x-chat-provider') ?? undefined,
+    apiKey: request.headers.get('x-chat-api-key') ?? undefined,
+  };
+}
+
+/**
+ * Filet de securite : ne JAMAIS ecrire une cle API dans un log. Retire la cle exacte utilisee
+ * (BYOK ou env) + tout token Bearer / sk-... d'une chaine avant journalisation. La valeur du secret
+ * n'est deja jamais posee dans nos erreurs (elle ne vit que dans les en-tetes des adapters) ; cette
+ * redaction couvre le cas ou une API amont l'echoerait.
+ */
+function redactSecrets(msg: string, apiKey: string): string {
+  let out = msg;
+  if (apiKey && apiKey.length >= 8) out = out.split(apiKey).join('[redacted-key]');
+  return out
+    .replace(/Bearer\s+[A-Za-z0-9._-]+/gi, 'Bearer [redacted]')
+    .replace(/sk-[A-Za-z0-9._-]{8,}/g, 'sk-[redacted]');
+}
+
 /** Convertit les messages du client ({role, content}) en historique canonique (user/assistant). */
 function toTurns(messages: Array<{ role?: unknown; content?: unknown }>): ChatTurn[] {
   const turns: ChatTurn[] = [];
@@ -60,13 +85,19 @@ function toTurns(messages: Array<{ role?: unknown; content?: unknown }>): ChatTu
 
 export const ALL: APIRoute = async ({ request }) => {
   const env = readEnv();
-  const config = resolveProviderConfig({
-    provider: env.provider,
-    anthropicApiKey: env.anthropicApiKey,
-    openaiApiKey: env.openaiApiKey,
-    model: env.model,
-    reasoningEffort: env.reasoningEffort,
-  });
+  // BYOK (en-tetes) : si une cle est fournie par le navigateur, elle prend le pas sur la cle d'env
+  // pour cette requete uniquement. Absente => flux existant inchange (cle serveur).
+  const override = readKeyOverride(request);
+  const config = resolveProviderConfig(
+    {
+      provider: env.provider,
+      anthropicApiKey: env.anthropicApiKey,
+      openaiApiKey: env.openaiApiKey,
+      model: env.model,
+      reasoningEffort: env.reasoningEffort,
+    },
+    override,
+  );
   const usageStore = createUsageStore({
     redisUrl: env.redisUrl,
     redisToken: env.redisToken,
@@ -81,6 +112,9 @@ export const ALL: APIRoute = async ({ request }) => {
       configured: config.configured,
       provider: config.provider,
       model: config.model ?? defaultModelFor(config.provider),
+      // 'byok' = une cle du navigateur est active pour cette requete ; 'env' = cle serveur. Permet
+      // a l'ecran Reglages de confirmer que ses en-tetes sont bien pris en compte (sans divulguer la cle).
+      source: config.source,
       usage,
     });
   }
@@ -156,10 +190,15 @@ export const ALL: APIRoute = async ({ request }) => {
     if (err instanceof ProviderNotConfiguredError) {
       return json({ ok: false, error: 'CHAT_PROVIDER_NOT_CONFIGURED', provider: err.provider, message: err.message }, 503);
     }
-    console.error('[api/ds/chat] upstream error', err);
-    return json(
-      { ok: false, error: 'CHAT_UPSTREAM_ERROR', message: err instanceof Error ? err.message : String(err) },
-      502,
-    );
+    // Logue le fournisseur + la SOURCE de la cle (env|byok), jamais la valeur de la cle : la clef
+    // exacte (et tout token amont echoue) est retiree du message avant journalisation.
+    const rawMessage = err instanceof Error ? err.message : String(err);
+    const safeMessage = redactSecrets(rawMessage, config.apiKey);
+    console.error('[api/ds/chat] upstream error', {
+      provider: config.provider,
+      source: config.source,
+      message: safeMessage,
+    });
+    return json({ ok: false, error: 'CHAT_UPSTREAM_ERROR', message: safeMessage }, 502);
   }
 };

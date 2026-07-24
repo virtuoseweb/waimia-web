@@ -23,37 +23,76 @@ export interface ChatEnv {
   reasoningEffort?: string;
 }
 
+/**
+ * Override BYOK issu des EN-TETES de la requete (X-Chat-Provider / X-Chat-Api-Key). Optionnel :
+ * si `apiKey` est non vide, il prend le pas sur la cle d'environnement pour CETTE requete
+ * uniquement (jamais persistee, jamais loggee, cf chat.ts). Absent/vide => comportement d'env.
+ */
+export interface ChatKeyOverride {
+  provider?: string;
+  apiKey?: string;
+}
+
+/** D'ou vient la cle utilisee : env serveur (defaut) ou cle BYOK du navigateur (en-tete). */
+export type ChatKeySource = 'env' | 'byok';
+
 /** Normalise un identifiant de fournisseur (defaut anthropic si absent/inconnu). */
 export function normalizeProviderId(raw: string | undefined): ChatProviderId {
   return raw && raw.trim().toLowerCase() === 'openai' ? 'openai' : 'anthropic';
 }
 
 /**
- * Resout la config d'env en ProviderConfig. Ne jette PAS ici (la validation de cle se fait dans
- * createProvider) : retourne { provider, configured, apiKey } pour que l'appelant puisse decider
- * (503 config manquante vs. appel reel).
+ * Resout la config (env + override BYOK) en ProviderConfig. Ne jette PAS ici (la validation de cle
+ * se fait dans createProvider) : retourne { provider, configured, apiKey, source } pour que
+ * l'appelant puisse decider (503 config manquante vs. appel reel).
+ *
+ * BYOK (override.apiKey non vide) : prend le pas sur la cle d'env. Le fournisseur suit l'en-tete
+ * X-Chat-Provider s'il est fourni, sinon celui d'env. Le modele/effort d'env ne sont reutilises que
+ * si le fournisseur BYOK est le MEME que celui d'env (sinon un nom de modele OpenAI partirait vers
+ * Anthropic et vice-versa) ; sinon l'adapter retombe sur son modele par defaut.
  */
-export function resolveProviderConfig(env: ChatEnv): {
+export function resolveProviderConfig(
+  env: ChatEnv,
+  override?: ChatKeyOverride,
+): {
   provider: ChatProviderId;
   apiKey: string;
   configured: boolean;
   model?: string;
   reasoningEffort?: ProviderConfig['reasoningEffort'];
+  source: ChatKeySource;
 } {
-  const provider = normalizeProviderId(env.provider);
-  const apiKeyRaw = provider === 'openai' ? env.openaiApiKey : env.anthropicApiKey;
-  const apiKey = typeof apiKeyRaw === 'string' ? apiKeyRaw.trim() : '';
   const effort = env.reasoningEffort?.trim();
   const validEfforts = ['minimal', 'low', 'medium', 'high'] as const;
   const reasoningEffort = validEfforts.includes(effort as never)
     ? (effort as ProviderConfig['reasoningEffort'])
     : undefined;
+  const envProvider = normalizeProviderId(env.provider);
+  const envModel = env.model?.trim() || undefined;
+
+  const overrideKey = typeof override?.apiKey === 'string' ? override.apiKey.trim() : '';
+  if (overrideKey) {
+    const provider = normalizeProviderId(override?.provider ?? env.provider);
+    const sameProvider = provider === envProvider;
+    return {
+      provider,
+      apiKey: overrideKey,
+      configured: true,
+      model: sameProvider ? envModel : undefined,
+      reasoningEffort: sameProvider ? reasoningEffort : undefined,
+      source: 'byok',
+    };
+  }
+
+  const apiKeyRaw = envProvider === 'openai' ? env.openaiApiKey : env.anthropicApiKey;
+  const apiKey = typeof apiKeyRaw === 'string' ? apiKeyRaw.trim() : '';
   return {
-    provider,
+    provider: envProvider,
     apiKey,
     configured: apiKey.length > 0,
-    model: env.model?.trim() || undefined,
+    model: envModel,
     reasoningEffort,
+    source: 'env',
   };
 }
 
