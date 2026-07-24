@@ -131,4 +131,12 @@ export interface BuilderContextValue {
   closeDuplicateType: () => void;
   /** Section en attente de duplication-comme-type (null = modale fermee). */
   duplicateTypeTarget: SectionInstance | null;
+
+  // ── Φ3 : chat-IA in-app (drawer dockable) ─────────────────────────────────────────────────────
+  /** Le drawer chat-IA est-il ouvert ? (l'hote rend le contenu reel via `renderChat`). */
+  chatOpen: boolean;
+  /** Ouvre le drawer chat-IA. */
+  openChat: () => void;
+  /** Ferme le drawer chat-IA (branche sur ChatPanel.onClose cote hote). */
+  closeChat: () => void;
 }

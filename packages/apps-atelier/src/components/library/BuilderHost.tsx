@@ -28,6 +28,11 @@ import { DashboardScreen } from '@waimia/atelier-ui/screens/DashboardScreen.tsx'
 import { SitemapScreen } from '@waimia/atelier-ui/screens/SitemapScreen.tsx';
 import { StyleScreen } from '@waimia/atelier-ui/screens/StyleScreen.tsx';
 import type { SitemapGroup, SitemapPage, StyleTheme } from '@waimia/atelier-ui/screens/types.ts';
+import { ChatPanel } from '@waimia/atelier-ui/chat/ChatPanel.tsx';
+import type { ChatMessage, ChatPhase, ChatUsage } from '@waimia/atelier-ui/chat/types.ts';
+// BYOK : les en-tetes de session (cle du navigateur, choisie dans l'ecran Reglages) transitent par
+// ce module partage. byokHeaders() = {} tant qu'aucune cle BYOK n'est saisie (flux serveur inchange).
+import { byokHeaders } from '@waimia/atelier-ui/chat/byok.ts';
 import { COLOR_SCHEMES } from '@waimia/ds-kernel/lib/section-colorschemes';
 import type {
   BuilderCatalogueItem,
@@ -154,6 +159,32 @@ export default function BuilderHost({
   // Route en cours de chargement (desactive la carte) + erreur eventuelle affichee dans le sitemap.
   const [openingRoute, setOpeningRoute] = useState('');
   const [openError, setOpenError] = useState('');
+
+  // ── Φ3 · etat chat-IA PARTAGE (usage 50/jour visible sur le dashboard ET dans le drawer) ────────
+  // Source unique de l'usage : lifte ici pour que le compteur du dashboard et celui du drawer chat
+  // restent synchrones (l'un lit au montage, l'autre met a jour apres chaque message).
+  const [chatUsage, setChatUsage] = useState<ChatUsage | undefined>(undefined);
+  const [chatConfigured, setChatConfigured] = useState(true);
+
+  const refreshChatState = useCallback(async () => {
+    try {
+      // BYOK : reflete l'etat (configured/provider) VU par le serveur pour la cle active du
+      // navigateur si elle existe, sinon la cle serveur. Aucune cle => en-tetes vides.
+      const res = await fetch('/api/ds/chat', { headers: { ...byokHeaders() } });
+      if (!res.ok) return;
+      const json = (await res.json()) as { ok?: boolean; usage?: ChatUsage; configured?: boolean };
+      if (json && json.ok) {
+        if (json.usage) setChatUsage(json.usage);
+        if (typeof json.configured === 'boolean') setChatConfigured(json.configured);
+      }
+    } catch {
+      /* endpoint indisponible (build statique) : le compteur reste undefined, pas d'erreur. */
+    }
+  }, []);
+
+  useEffect(() => {
+    void refreshChatState();
+  }, [refreshChatState]);
 
   // ── Style (N3.5) : theme applique en LIVE a la page en cours de composition ─────────────────────
   // MECANIQUE = celle du DS Studio (P2.8) : on pose les tokens du theme sur document.documentElement
@@ -337,7 +368,12 @@ export default function BuilderHost({
       <style dangerouslySetInnerHTML={{ __html: HOST_CSS }} data-wa-style="builder-host" />
 
       {screen === 'dashboard' && (
-        <DashboardScreen project={project} onOpenProject={openSitemap} onNewDraft={startNewDraft} />
+        <DashboardScreen
+          project={project}
+          onOpenProject={openSitemap}
+          onNewDraft={startNewDraft}
+          chatUsage={chatUsage}
+        />
       )}
 
       {screen === 'sitemap' && (
@@ -402,6 +438,15 @@ export default function BuilderHost({
             }
             renderInspector={
               <InspectorSlot slotsByType={slotsByType} schemes={schemes} realPage={realPage} />
+            }
+            renderChat={
+              <ChatHost
+                defaultMeta={defaultMeta}
+                usage={chatUsage}
+                configured={chatConfigured}
+                onUsage={setChatUsage}
+                onConfigured={setChatConfigured}
+              />
             }
           />
         </>
@@ -901,6 +946,124 @@ function ApplyToSite(props: {
       {phase === 'ok' && <p className="bldx-apply__ok">{message}</p>}
       {phase === 'error' && <p className="bldx-apply__err">{message}</p>}
     </div>
+  );
+}
+
+// ── ChatHost : branche le panneau chat-IA (Φ3) sur la boucle agentique /api/ds/chat ──────────────
+// Rendu comme `renderChat` (DANS le Provider) : il lit `load` + `closeChat` par useBuilder(). Porte
+// l'etat de conversation, le POST vers l'endpoint, et APPLIQUE le PageDocument compose au canvas
+// (load -> preview live mise a jour). L'usage remonte a l'hote (compteur partage dashboard/drawer).
+// Q4 scope v1 : prompt -> compose -> preview. Pas de toolbar select/annotate ni de modes plan/build.
+
+/** Reponse POST /api/ds/chat (succes ou erreur, jamais un 500 muet). */
+interface ChatPostResponse {
+  ok?: boolean;
+  error?: string;
+  message?: string;
+  text?: string;
+  toolTrace?: Array<{ name?: unknown; ok?: unknown }>;
+  pageDocument?: { meta?: Record<string, unknown>; sections?: unknown } | null;
+  usage?: ChatUsage;
+}
+
+/** Applique un PageDocument compose par l'IA au canvas (remplace le document courant). */
+function applyDocToCanvas(
+  doc: NonNullable<ChatPostResponse['pageDocument']>,
+  defaultMeta: BuilderMeta,
+  load: (d: { meta: BuilderMeta; sections: SectionInstance[] }) => void,
+): void {
+  const meta = (doc.meta ?? {}) as Record<string, unknown>;
+  const builderMeta: BuilderMeta = {
+    collection: typeof meta.collection === 'string' ? meta.collection : defaultMeta.collection,
+    slug: typeof meta.slug === 'string' && meta.slug ? (meta.slug as string) : defaultMeta.slug,
+    lang: meta.lang === 'en' ? 'en' : 'fr',
+    title_fr: typeof meta.title_fr === 'string' ? (meta.title_fr as string) : defaultMeta.title_fr,
+    title_en: typeof meta.title_en === 'string' ? (meta.title_en as string) : undefined,
+  };
+  const sections = Array.isArray(doc.sections)
+    ? (doc.sections.filter(
+        (s) => s && typeof s === 'object' && typeof (s as { type?: unknown }).type === 'string',
+      ) as SectionInstance[])
+    : [];
+  load({ meta: builderMeta, sections });
+}
+
+function ChatHost(props: {
+  defaultMeta: BuilderMeta;
+  usage?: ChatUsage;
+  configured: boolean;
+  onUsage: (u: ChatUsage) => void;
+  onConfigured: (c: boolean) => void;
+}): React.ReactElement {
+  const { load, closeChat } = useBuilder();
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState('');
+  const [phase, setPhase] = useState<ChatPhase>('idle');
+  const [error, setError] = useState('');
+
+  const send = useCallback(async () => {
+    const text = input.trim();
+    if (!text || phase === 'thinking') return;
+    const userMsg: ChatMessage = { id: `u${Date.now()}`, role: 'user', text };
+    const history = [...messages, userMsg];
+    setMessages(history);
+    setInput('');
+    setPhase('thinking');
+    setError('');
+    try {
+      const res = await fetch('/api/ds/chat', {
+        method: 'POST',
+        // BYOK : la cle du navigateur (si saisie dans Reglages) part en en-tete, prioritaire sur la
+        // cle serveur. Vide sinon : 0 changement pour le flux existant.
+        headers: { 'content-type': 'application/json', ...byokHeaders() },
+        body: JSON.stringify({ messages: history.map((m) => ({ role: m.role, content: m.text })) }),
+      });
+      const json = (await res.json().catch(() => null)) as ChatPostResponse | null;
+
+      if (!res.ok || !json || !json.ok) {
+        // 503 config manquante, 429 plafond, 502 upstream : message clair, jamais un crash.
+        if (json?.error === 'CHAT_PROVIDER_NOT_CONFIGURED') props.onConfigured(false);
+        if (json?.usage) props.onUsage(json.usage);
+        setPhase('error');
+        setError(json?.message || json?.error || `Echec de la requete (HTTP ${res.status}).`);
+        return;
+      }
+
+      const applied = !!json.pageDocument;
+      const assistantMsg: ChatMessage = {
+        id: `a${Date.now()}`,
+        role: 'assistant',
+        text: json.text || '(aucune reponse texte)',
+        toolTrace: Array.isArray(json.toolTrace)
+          ? json.toolTrace.map((t) => ({ name: String(t.name), ok: !!t.ok }))
+          : undefined,
+        applied,
+      };
+      setMessages((prev) => [...prev, assistantMsg]);
+      if (json.usage) props.onUsage(json.usage);
+      props.onConfigured(true);
+      if (applied && json.pageDocument) {
+        applyDocToCanvas(json.pageDocument, props.defaultMeta, load);
+      }
+      setPhase('idle');
+    } catch {
+      setPhase('error');
+      setError('Endpoint indisponible ou erreur reseau.');
+    }
+  }, [input, phase, messages, load, props]);
+
+  return (
+    <ChatPanel
+      messages={messages}
+      input={input}
+      onInput={setInput}
+      onSend={send}
+      phase={phase}
+      error={error}
+      usage={props.usage}
+      configured={props.configured}
+      onClose={closeChat}
+    />
   );
 }
 

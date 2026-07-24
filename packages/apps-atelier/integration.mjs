@@ -34,6 +34,10 @@ const ATELIER_ROUTES = [
   { pattern: '/library/manifest.json',      entry: 'manifest.json.ts',         prerender: true },
   { pattern: '/library/builder',            entry: 'builder/index.astro',      prerender: true },
   { pattern: '/library/builder/render',     entry: 'builder/render.astro',     prerender: false },
+  // Chat-IA in-app (Φ3) : endpoint SSR REEL (pas dev-only) de la boucle agentique MCP. Pattern
+  // /api/ds/chat (le middleware dev ds-save-dev.mjs n'intercepte QUE save/preset/compose/saved/
+  // instance/page/custom-preset/scaffold/apps/demo-override -> pas de collision sur /chat).
+  { pattern: '/api/ds/chat',                entry: 'builder/chat.ts',          prerender: false },
   { pattern: '/library/config',             entry: 'config/index.astro',       prerender: true },
   { pattern: '/library/config/onboarding',  entry: 'config/onboarding.astro',  prerender: true },
   { pattern: '/library/family',             entry: 'family/index.astro',       prerender: true },

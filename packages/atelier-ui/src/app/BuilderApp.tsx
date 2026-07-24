@@ -61,6 +61,12 @@ export interface BuilderAppProps {
   /** Slot droit (inspecteur B7). Defaut : placeholder integre. */
   renderInspector?: ReactNode;
   /**
+   * Slot chat-IA in-app (Φ3). Fourni par l'hote (ChatHost : fetch /api/ds/chat + application du
+   * PageDocument au canvas). Rendu DANS le Provider (drawer dockable a droite) ; absent = pas de
+   * bouton « Assistant IA ». La composition manuelle reste inchangee (IA facultative, cf specs/05).
+   */
+  renderChat?: ReactNode;
+  /**
    * Document a charger au montage (N4) : quand l'editeur s'ouvre sur une PAGE REELLE, l'hote fournit
    * ici le doc deja resolu (meta + vraies sections). L'editeur le charge une fois au montage.
    */
@@ -78,10 +84,16 @@ export default function BuilderApp({
   renderPath,
   renderPicker,
   renderInspector,
+  renderChat,
   initialDoc,
   realPageRoute,
 }: BuilderAppProps) {
   const [state, dispatch] = useReducer(reducer, defaultMeta, initState);
+  // Φ3 · drawer chat-IA (ouvert/ferme). Etat DETENU ici (source unique via Context) : le bouton
+  // « Assistant IA » de la barre le bascule, le ChatHost (renderChat) lit closeChat par useBuilder().
+  const [chatOpen, setChatOpen] = useState(false);
+  const openChat = useCallback(() => setChatOpen(true), []);
+  const closeChat = useCallback(() => setChatOpen(false), []);
 
   // N4 : charge la page reelle au montage (l'editeur est remonte a chaque ouverture de page cote
   // hote, donc ce montage-effect correspond a une nouvelle page). Un doc absent = editeur vierge.
@@ -191,8 +203,11 @@ export default function BuilderApp({
       duplicateType,
       closeDuplicateType,
       duplicateTypeTarget,
+      chatOpen,
+      openChat,
+      closeChat,
     }),
-    [state, items, itemByType, colorSchemes, renderPath, add, remove, duplicate, move, patchSection, setMeta, select, load, addInstance, openAdd, closeAdd, addState.open, addState.atIndex, saveVersion, closeSave, saveTarget, duplicateType, closeDuplicateType, duplicateTypeTarget],
+    [state, items, itemByType, colorSchemes, renderPath, add, remove, duplicate, move, patchSection, setMeta, select, load, addInstance, openAdd, closeAdd, addState.open, addState.atIndex, saveVersion, closeSave, saveTarget, duplicateType, closeDuplicateType, duplicateTypeTarget, chatOpen, openChat, closeChat],
   );
 
   // ── Charger une page composable reelle dans le canvas ─────────────────────────────────────────
@@ -409,6 +424,18 @@ export default function BuilderApp({
             >
               {pagePreview ? 'Vue blocs' : 'Aperçu page'}
             </button>
+            {renderChat && (
+              <button
+                type="button"
+                className={`bld-btn${chatOpen ? ' bld-btn--primary' : ''}`}
+                onClick={() => setChatOpen((v) => !v)}
+                aria-pressed={chatOpen}
+                title="Ouvrir l'assistant IA : composez une page en langage naturel"
+                data-testid="chat-toggle"
+              >
+                Assistant IA
+              </button>
+            )}
             {saveState.phase !== 'idle' && (
               <span
                 className={saveState.phase === 'error' ? 'bld-slot-err' : 'bld-bar-count'}
@@ -545,6 +572,30 @@ export default function BuilderApp({
             {renderInspector ?? <InspectorPlaceholder />}
           </aside>
         </div>
+
+        {/* ── Φ3 · DRAWER CHAT-IA (docke a droite, hors flux) ── */}
+        {/* Position fixed : le drawer flotte au-dessus du shell SANS backdrop plein -> le canvas
+            reste visible et se met a jour en direct quand l'IA applique un PageDocument (load). */}
+        {chatOpen && renderChat && (
+          <div
+            className="bld-chat-dock"
+            style={{
+              position: 'fixed',
+              top: 'var(--header-height)',
+              right: 0,
+              bottom: 0,
+              width: 'min(420px, 94vw)',
+              display: 'flex',
+              flexDirection: 'column',
+              borderLeft: '1px solid var(--hairline)',
+              background: 'var(--paper)',
+              boxShadow: '0 0 48px rgba(var(--ink-rgb), 0.18)',
+              zIndex: 40,
+            }}
+          >
+            {renderChat}
+          </div>
+        )}
       </div>
     </BuilderContext.Provider>
   );

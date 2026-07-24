@@ -682,6 +682,8 @@ _(vide)_
     stratégie `@theme` (garder/minimaliser) informée doc Tailwind + GF-1 par retrait. A4 reste OUVERT (mesure faite,
     purge en attente d'arbitrage `@theme`).
   - ▸ *réconcilié 2026-07-19 : mesure faite (122 tokens), purge en attente d'arbitrage `@theme`.*
+  - ▸ *arbitrage scoped-dup TRANCHÉ 2026-07-21 (délégué par Simon, fiche 0030) : option 1 — archiver les 35 fichiers sandboxes (`proposals/eeat/`, `apps-atelier/.../hero-explore{,-2}/`) plutôt qu'exclure de la métrique.*
+  - ▸ *scoped-dup sandboxes MERGÉ 2026-07-21 (PR #42, commit `93c9434` sur main, CI vert, prod re-vérifiée 404 sur route retirée) : 341→253 groupes (-88, -26%). Reste 253 (familles `.acc`/`i` + responsive, conception dédiée) — hors scope mécanique autonome.*
 
 ## Chantier P2.3 — Fondation `@theme inline` (prérequis builder)
 ### Tâches finies
@@ -817,7 +819,7 @@ _(vide)_
   - Fichiers : `.claude/`, modules agents, facturation usage.
   - Preuve GF-1 : 1 agent exécute une tâche réelle bout en bout + compteur d'usage vérifié.
   - Dépend de : P4.1, P4.2.
- ▸ *BLOQUÉ SUR SIGNAL SIMON 2026-07-19 : `strategy/13 §5` verrouille explicitement toute décision d'architecture dashboard tant que le brief builder n'est pas clos (« attendre la fin du brief builder ») ; idem memory builder (« ne pas attaquer l'archi tant que "j'ai toutes les infos" non dit »). Ne pas attaquer en autonome. Constat consigné fiche 0032 §P4.3-a.*
+ ▸ *GATE LEVÉ 2026-07-21 (Simon : « j'ai toutes les infos » + « 4.3 a ok ») : `strategy/13` addendum consigne un constat honnête plutôt qu'un cadrage prématuré — la vision reste une session unique (pas le niveau de détail UX du brief builder), 3 points restent bloquants avant une archi type doc06 (priorisation 1ʳᵉ intégration, références UX, modèle multi-tenant). Ne pas attaquer le code en autonome tant que ces 3 points n'ont pas de réponse Simon.*
 
 ## Chantier P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir)
 

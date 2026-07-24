@@ -113,6 +113,42 @@ Cohérence commerciale : ça matérialise exactement la promesse V8 de la famill
 - **Aucune décision d'architecture prise ici** : attendre la fin du brief builder
   (Simon fournit messages + captures) avant tout choix de stack dashboard.
 
+## Addendum 2026-07-21 — gate levé (« j'ai toutes les infos » + « 4.3 a ok »), constat honnête avant cadrage
+
+Le brief builder est clos (Simon, `docs/specs/05` — confirmé et relancé le 2026-07-21 : « j'ai toutes
+les infos », `4.3 a ok`). Le gate posé au §5 (« attendre la fin du brief builder avant tout choix de
+stack dashboard ») est donc **levé** — P4.3-a n'est plus bloqué sur ce critère.
+
+**Constat avant d'aller plus loin** : contrairement au builder, qui disposait de 5 messages détaillés
++ captures d'écran d'apps de référence (Relume/Webflow/Lovable) avant que `docs/specs/06` puisse être
+écrit avec des contrats précis, ce document reste une **vision en une session** (2026-07-12), sans le
+même niveau de détail UX. Rédiger une architecture cadrée (contrats, phases, stack) sur cette seule
+base reviendrait à **inventer** des décisions (lequel des ~10 intégrations tierces en premier ? quelle
+stack pour l'app dashboard elle-même ? modèle multi-tenant dès le v1 ou après ?) que Simon n'a pas
+encore données — c'est exactement le travers que l'audit 08 ({ref}) et l'audit 09 (chat-MCP) ont évité
+en posant des options + des questions plutôt qu'en tranchant à la place de Simon.
+
+**Ce qui est raisonnablement clair déjà** (dérivable de ce doc + de l'existant, pas une invention) :
+- Le dashboard est une **nouvelle app du monorepo** (§5), pas une extension du site Astro — cohérent
+  avec le pattern déjà prouvé `packages/apps-*` (apps-atelier, apps-seo-dashboard) + `injectRoute`.
+- Le premier « plugin » à forte valeur déjà nommé par Simon est **l'app SEO autonome** (§4bis) —
+  candidat naturel de première brique si/quand le chantier s'ouvre, car elle réutilise du **livré** :
+  MCP catalogue (#41), couche métadonnées C2, `catalogue_search`/`page_compose`/`preview_render`.
+
+**Ce qui manque encore avant un vrai cadrage type doc06** :
+1. Une **priorisation** : quelle est LA première intégration/fonctionnalité à livrer (GSC seul ? SEO
+   autonome seul ? autre ?) plutôt que le catalogue complet des ~10 options du §4.
+2. Des **références UX concrètes** (captures d'un dashboard existant qui plaît, comme Relume l'a été
+   pour le builder) si Simon veut un niveau de précision comparable à doc06.
+3. Un arbitrage **modèle multi-tenant** : v1 mono-client (comme le builder, §2 cadrage doc06) ou
+   multi-tenant dès le départ (le dashboard sert plusieurs clients par nature, contrairement au builder
+   interne) — ce choix structure toute l'archi (auth, isolation données), donc bloquant réel.
+
+**Action prise ici** : aucune, volontairement — ce constat remplace un cadrage prématuré. Prochaine
+étape si Simon veut avancer : répondre aux 3 points ci-dessus (peut être aussi léger qu'un message),
+puis un cadrage détaillé (façon doc06) devient possible sans inventer à sa place.
+
 ## Historique
 
 - 2026-07-12 : création (directive Simon, verbatim condensé, session home E gate B).
+- 2026-07-21 : addendum gate-levé + constat honnête (voir ci-dessus).

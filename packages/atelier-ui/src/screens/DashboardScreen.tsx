@@ -10,6 +10,7 @@
 import React from 'react';
 import { useScreensStyles } from './styles';
 import type { ProjectSummary } from './types';
+import type { ChatUsage } from '../chat/types';
 
 export interface DashboardScreenProps {
   /** Résumé du projet réel (compteurs déjà calculés côté hôte). */
@@ -18,11 +19,13 @@ export interface DashboardScreenProps {
   onOpenProject: () => void;
   /** Ouvre l'éditeur sur un document vierge (ancien comportement du builder). */
   onNewDraft: () => void;
+  /** Compteur d'usage du chat-IA (Φ3, Q2b : plafond 50/jour visible). undefined = non chargé. */
+  chatUsage?: ChatUsage;
 }
 
 export function DashboardScreen(props: DashboardScreenProps): React.ReactElement {
   useScreensStyles();
-  const { project, onOpenProject, onNewDraft } = props;
+  const { project, onOpenProject, onNewDraft, chatUsage } = props;
 
   return (
     <div className="wa-scr">
@@ -33,6 +36,20 @@ export function DashboardScreen(props: DashboardScreenProps): React.ReactElement
           Ouvrez le projet Waimia pour retrouver le sitemap réel du site et éditer une page en
           détail, ou partez d'un brouillon vierge pour composer une page depuis le catalogue.
         </p>
+        {chatUsage && (
+          <p
+            className="wa-scr-lede"
+            data-testid="dash-chat-usage"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-small)',
+              color: chatUsage.used >= chatUsage.limit ? 'var(--accent-text)' : 'var(--ink-2)',
+            }}
+          >
+            Assistant IA : <strong>{chatUsage.used}/{chatUsage.limit}</strong> messages aujourd'hui
+            {chatUsage.durable === false ? ' (compteur best-effort en mémoire)' : ''}.
+          </p>
+        )}
       </header>
 
       <div className="wa-scr-projects">
