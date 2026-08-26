@@ -2,7 +2,7 @@
 
 # 00 - Board (généré)
 
-État : HEAD `b0f4e600` - 88/97 tâches done (91%).
+État : HEAD `d0588391` - 88/97 tâches done (91%).
 
 ## Avancement par phase
 
@@ -35,7 +35,7 @@
 | P2.0 — Reconstituer l'état réel du design (ghost, AVANT de toucher) | P2 | 1/1 | 100% | 01210cd2 docs(audit): triangulation P2.0 · verdicts sourcés FAIT/PARTIEL/GHOSTÉ par tâche P2.1-P2.11 + séquencement 8 étapes (P2.3 fondation → P2.2-A4 → P2.1-c/a/b → V9e-h arbitrage → scoped-dup → P2.10 capstone) |
 | P2.1 — Couverture & maintenance des captures (NE SE FERME JAMAIS) | P2 | 3/4 | 75% | 467a48bc feat(visual-audit): P2.1-a/b · inventaire templates × sections + 62 captures above-fold versionnées ; 467a48bc feat(visual-audit): P2.1-a/b · inventaire templates × sections + 62 captures above-fold versionnées ; 57861b27 feat(visual-audit): P2.1-c · captures persistées · négation .gitignore ciblée !docs/visual-audit/** (jetables racine toujours ignorés, contre-vérifié check-ignore exit 1/0) + gf1-cloud-sweep sortie par défaut docs/visual-audit/previews (override --out) + convention en tête · preuve : sweep réel 3/3 PASS fichiers trackables |
 | P2.10 — Passe finale Claude Design | P2 | 1/1 | 100% | c4475156 feat(motion): 3 moments signature scroll-driven · rail diagnostic-stages + expand case-grid service + parallaxe duotones eeat (top 5 it.13 n°1+5) |
-| P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 6/7 | 86% | 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 98973f26 feat(ds): P2.11-f arrondi des espacements off-scale aux tokens --space-* (120 déclarations, 46 fichiers) ; 81408f05 feat(ds): P2.11 — 33 font-size bruts → tokens de rôle DS (sync DS Studio prouvée) |
+| P2.11 — Harmonisation hover + no-hardcode → DS (rule 60) — détail : `state/09` | P2 | 6/7 | 86% | f8ce276e chore(ds): Phase B — hover reflow-safe (tokens DS existants) + ServicesGrid spacing + gate check-hover-reflow ; 331b7c2a fix(ds): P2.11-e — 6 :hover geometriques hors sections/ -> reflow-safe (translate) ; 98973f26 feat(ds): P2.11-f arrondi des espacements off-scale aux tokens --space-* (120 déclarations, 46 fichiers) |
 | P2.2 — Consolidation socle DS (#14 Phase A, anti-dette, 0 changement de rendu) | P2 | 0/1 | 0% | - |
 | P2.3 — Fondation `@theme inline` (prérequis builder) | P2 | 1/1 | 100% | adb4c3da feat(ds-tokens): P2.3 @theme mort → @theme inline pointant var(--token-maison) |
 | P2.4 — Nettoyage variables CSS (vagues différées + arbitrages) | P2 | 4/5 | 80% | c6b87a28 feat(ds): P2.4-d accent-sur-sombre #D96A47, role var --accent-text (AA petit-texte sur fond sombre) ; 8391ea7f feat(ds): petit-texte-accent AA sur fond clair (--accent-text defaut accent-sur-clair #A83D20) ; 137632cb docs(plan): P2.4-e done (accent-text AA sur clair, commit 8391ea7) |
@@ -51,6 +51,13 @@
 | P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir) | P4 | 9/10 | 90% | a2a08f72 feat(atelier): P4.4-h E2 · where-used actionnable (deep-link ?atelier-focus + outline dev-only) + demo-overrides (store + endpoint + bandeau fiche) ; db240fe2 feat(atelier): P4.4-h E1 · extraction physique en packages/apps-atelier (app-as-plugin) ; 99286966 feat(ref): P4.4-e — mécanisme {ref} composants globaux (V3 builder inclus) (#40) |
 
 ## ⚠ Désyncs
+
+### Dures (bloquantes)
+
+- `P0.2-A` : commit=68e2754b absent de git
+- `P0.2-C` : commit=07098034 absent de git
+- `P0.2-E` : commit=eb1acb2c absent de git
+- `P2.11-g` : commit=81408f0 absent de git
 
 ### Warnings
 
