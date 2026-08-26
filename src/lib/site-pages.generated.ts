@@ -4181,6 +4181,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/savoir-therapeutique-seo-geo-praticiens",
+    "title": "Savoir thérapeutique : le guide SEO et GEO des praticiens",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/savoir-therapeutique-seo-geo-praticiens.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/seo-geo-etre-cite-par-les-ia-generatives",
     "title": "Être cité par les IA : les mécaniques du GEO",
     "group": "blog",
@@ -4723,6 +4732,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/essai-pillar-ia-pme-2026",
       "/blog/google-ads-vs-meta-ads-pme-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
+      "/blog/savoir-therapeutique-seo-geo-praticiens",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/webflow-vs-wordpress-vs-site-code-ia-2026"
