@@ -353,7 +353,7 @@ export type PageRoleTag =
 // Modèle de contenu (les 2 fonctionnements Waimia).
 export type ContentMode =
   | 'instance' // contenu inline en frontmatter uniquement
-  | 'global-ref' // contenu issu d'une source partagée (caseRefs, logoIds, *PACK, collection)
+  | 'global-ref' // contenu issu d'une source partagée (champs {ref} cases/logos, *PACK, collection)
   | 'hybrid'; // peut faire les deux
 
 export const INTENT_TAGS = [

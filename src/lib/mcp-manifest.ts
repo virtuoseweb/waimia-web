@@ -35,7 +35,7 @@ import {
   type ContentMode,
 } from '@waimia/ds-kernel/lib/section-facets';
 import { getSlots, type SectionSlot } from '@waimia/ds-kernel/lib/section-slots';
-import { listPresets } from '@waimia/ds-kernel/lib/section-presets';
+import { listPresets, type PresetProps } from '@waimia/ds-kernel/lib/section-presets';
 import { getUsage } from './library-manifest';
 
 /** Version du schéma du manifest (tier 1 ET tier 2). */
@@ -106,7 +106,13 @@ export interface SectionDetail {
   description_fr: string;
   description_en: string;
   slots: SectionSlot[]; // CONTRAT DE CONTENU (C2-A) : coeur du tier 2
-  presets: { id: string; label: string }[];
+  /**
+   * Presets (déclinaisons nommées) du type, source riche (section-presets.ts, comble le
+   * gap historique { id, label } uniquement — cf mcp/waimia-catalogue-server.mjs
+   * catalogue_get_preset). `family`/`era` optionnels (miroir de `Preset`, tous les presets
+   * n'en portent pas) ; `props` toujours présent (peut être `{}`).
+   */
+  presets: { id: string; label: string; family?: string; era?: string; props: PresetProps }[];
   presetCount: number;
   /**
    * Sections SIMILAIRES (scoring registry, source unique → 0 drift tier-1/tier-2).
@@ -291,7 +297,7 @@ export function buildSectionDetail(type: SectionType): SectionDetail | null {
     description_fr: section.description_fr,
     description_en: section.description_en,
     slots: getSlots(type),
-    presets: presets.map((p) => ({ id: p.id, label: p.label })),
+    presets: presets.map((p) => ({ id: p.id, label: p.label, family: p.family, era: p.era, props: p.props })),
     presetCount: presets.length,
     related,
   };

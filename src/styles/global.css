@@ -910,7 +910,7 @@ a:not([class]):hover,
   /* V7-FOLD 2026-06-22 : titre ramené à --text-h3 (≤26px) pour tenir sur 1 ligne
      (« Site web intelligent », « Résoudre un problème ») et alléger/aérer le menu. */
   font-size: var(--text-h3);
-  line-height: 1.1;
+  line-height: var(--leading-h3);
   letter-spacing: -0.015em;
   text-wrap: balance;
 }

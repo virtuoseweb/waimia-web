@@ -117,7 +117,7 @@ const initials = author
   .acard-full-sig {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     background: var(--paper-3);
     border: 1px solid var(--hairline);
     display: grid;
@@ -129,7 +129,7 @@ const initials = author
     z-index: 1;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-size: var(--text-stat);
     line-height: 1;
     letter-spacing: -0.02em;
     color: rgba(var(--ink-rgb), .12);
@@ -194,6 +194,5 @@ const initials = author
   @media (max-width: 700px) {
     .acard-full { grid-template-columns: 1fr; gap: var(--space-5); }
     .acard-full-sig { order: -1; min-height: 96px; }
-    .acard-full-mono { font-size: clamp(2.5rem, 12vw, 3.5rem); }
   }
 </style>

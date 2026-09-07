@@ -25,6 +25,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
         {intro && <p class="article-grid__intro u-body-muted">{intro}</p>}
       </div>
     )}
+    <h2 class="sr-only">{isFr ? 'Derniers articles' : 'Latest articles'}</h2>
     <div class="article-grid__list" data-cols={data.columns}>
       {data.articles.map((a) => {
         const tag = isFr ? a.tag_fr : a.tag_en;
@@ -60,6 +61,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
 </section>
 
 <style>
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   .article-grid { padding-block: var(--section-base); }
  .article-grid__h2 :global(i),
   .article-grid__h2 :global(i.acc) { font-family: var(--font-display); font-style: italic; color: var(--accent-text); } .article-grid__list { display: grid; gap: var(--space-6); }

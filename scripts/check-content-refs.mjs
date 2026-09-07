@@ -39,7 +39,7 @@ function read(rel) {
 // ── 0. Inventaire des slugs par collection (slug frontmatter, fallback nom de fichier) ──
 // Collections supprimées (SEO état final, §0ter) : collection retirée de content.config,
 // dossier supprimé. Dir absent = retour map vide, PAS un FATAL (la collection n'existe plus).
-const REMOVED_COLLECTIONS = new Set(['solutions']);
+const REMOVED_COLLECTIONS = new Set(['solutions', 'offres']);
 function collectSlugs(collection) {
   const dir = join(ROOT, 'src/content', collection);
   if (!existsSync(dir)) {
@@ -63,7 +63,7 @@ function collectSlugs(collection) {
   // Collections légitimement vidables (purge P0.2-H : cas/secteurs fictifs retirés,
   // reconstruction réelle en P0.6) + supprimées (SEO état final). Un dossier vide
   // n'est PAS une erreur : les références vers ces slugs sont nettoyées en amont.
-  const MAY_BE_EMPTY = new Set(['cases', 'secteurs', 'solutions']);
+  const MAY_BE_EMPTY = new Set(['cases', 'secteurs', 'solutions', 'offres']);
   if (slugs.size === 0 && !MAY_BE_EMPTY.has(collection)) {
     console.error(`✗ FATAL : 0 entrée parsée dans src/content/${collection}`);
     process.exit(2);
@@ -83,7 +83,7 @@ const SLUGS = {
 // provenance valides mais ne sont plus vérifiées sur disque.
 // + solutions : collection supprimée (SEO état final) → mêmes traces de provenance
 //   tolérées dans pain-points.ts / proof-points.ts (contenu fusionné en sections piliers).
-const ARCHIVED_COLLECTIONS = new Set(['pain-points', 'proof-points', 'guarantees', 'solutions']);
+const ARCHIVED_COLLECTIONS = new Set(['pain-points', 'proof-points', 'guarantees', 'solutions', 'offres']);
 
 // ── 1. Référentiels src/data ──
 function parseReferential(rel) {
@@ -125,12 +125,20 @@ console.log(
 );
 
 // ── Parsing frontmatter minimal (champs plats + bloc facets) ──
+// `.json` (cases/offres/solutions sont 100% JSON, cf ADR docs/strategy/12) : objet natif
+// JSON.parse, aucun regex nécessaire. `.mdx` (hérité, si un fichier venait à en réapparaître) :
+// bloc YAML `---...---` extrait puis lu via les mêmes helpers scalar/inlineArray sur le texte.
 function frontmatter(collection, file) {
   const src = readFileSync(join(ROOT, 'src/content', collection, file), 'utf8');
+  if (file.endsWith('.json')) return JSON.parse(src);
   const m = src.match(/^---\n([\s\S]*?)\n---/);
   return m ? m[1] : '';
 }
 const inlineArray = (fm, key) => {
+  if (typeof fm !== 'string') {
+    const v = fm?.[key];
+    return Array.isArray(v) ? v : null;
+  }
   const m = fm.match(new RegExp(`^${key}:\\s*\\[(.*)\\]\\s*$`, 'm'));
   if (!m) return null;
   return m[1]
@@ -139,10 +147,21 @@ const inlineArray = (fm, key) => {
     .filter(Boolean);
 };
 const scalar = (fm, key) => {
+  if (typeof fm !== 'string') return fm?.[key] ?? null;
   const m = fm.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, 'm'));
   return m ? m[1].trim() : null;
 };
 function facetsBlock(fm) {
+  if (typeof fm !== 'string') {
+    const f = fm?.facets;
+    if (!f) return null;
+    return {
+      sector: f.sector ?? null,
+      painPoints: Array.isArray(f.painPoints) ? f.painPoints : [],
+      solutions: Array.isArray(f.solutions) ? f.solutions : [],
+      results: Array.isArray(f.results) ? f.results : [],
+    };
+  }
   const m = fm.match(/^facets:\n((?:[ \t]+.*\n?)*)/m);
   if (!m) return null;
   const block = m[1];
@@ -210,9 +229,120 @@ for (const [slug, file] of SLUGS.offres) {
   checkRelated(`offres/${slug}`, frontmatter('offres', file));
 }
 
+// ── 5. Refs `{ref}` (P4.4-e) : pointeurs { "ref": "source/id" } dans src/content/**/*.json ──
+// BLOC ISOLÉ : scan JSON.parse récursif indépendant de frontmatter() (qui ne couvre que
+// cases/offres/solutions, pas les autres collections comme testimonials/secteurs/blog).
+// Valide que chaque pointeur cible une source CÂBLÉE à ce stade ET un id existant.
+// WIRED_REF_SOURCES = sources réellement branchées dans le résolveur (REF_TARGETS).
+// À ÉTENDRE au fil des phases suivantes (testimonials, pricing, pain-points, ...).
+console.log('── 5. Refs {ref} : pointeurs de contenu global (P4.4-e)');
+// P4.4-e Phase 3 : ajout des stores src/data. `pricing` = ACCESSOR-ONLY (aucun champ de section
+// refable à ce stade car son référentiel mince prix/période/label n'a pas de forme cible sans
+// fabriquer cta+features) → listé WIRED pour valider les ids si un ref apparaît, 0 usage actuel.
+const WIRED_REF_SOURCES = new Set([
+  'logos',
+  'cases',
+  'testimonials',
+  'guarantees',
+  'proof-points',
+  'pain-points',
+  'partners',
+  'pricing',
+]);
+
+// Ids valides par source câblée.
+//  - logos : CLÉS D'OBJET du store LOGOS (`  claude: {`), PAS un champ `id:` (regex dédié).
+//  - cases : noms de fichiers (sans extension) de src/content/cases/*.json.
+//  - testimonials : noms de fichiers (sans extension) de src/content/testimonials/*.json
+//    (filename === slug → id de ref, même méthode que caseIds).
+const logoIds = new Set(
+  [...read('src/data/logos.ts').matchAll(/^ {2}([a-z][a-z0-9-]*):\s*\{\s*$/gm)].map((m) => m[1]),
+);
+const caseIds = new Set(
+  readdirSync(join(ROOT, 'src/content/cases'))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => f.replace(/\.json$/, '')),
+);
+const testimonialIds = new Set(
+  readdirSync(join(ROOT, 'src/content/testimonials'))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => f.replace(/\.json$/, '')),
+);
+// P4.4-e Phase 3 : ids des stores src/data (extraction HÉTÉROGÈNE par store).
+//  - guarantees / proof-points / pain-points : ids déjà parsés en §1 (parseReferential, champ `id:`).
+//  - partners : clé d'identité `slug: '<slug>'` de src/data/partners.ts.
+//  - pricing  : id de palier `tier: '<id>'` de src/data/pricing.ts (accessor-only, ids [a-z-]).
+const partnerIds = new Set(
+  [...read('src/data/partners.ts').matchAll(/^\s*slug: '([a-z0-9-]+)',$/gm)].map((m) => m[1]),
+);
+const pricingIds = new Set(
+  [...read('src/data/pricing.ts').matchAll(/tier: '([a-z-]+)',/g)].map((m) => m[1]),
+);
+const REF_IDS = {
+  logos: logoIds,
+  cases: caseIds,
+  testimonials: testimonialIds,
+  guarantees: guarantees.ids,
+  'proof-points': proofs.ids,
+  'pain-points': pains.ids,
+  partners: partnerIds,
+  pricing: pricingIds,
+};
+if (logoIds.size === 0) fail('src/data/logos.ts : 0 clé de logo parsée (regex à revoir)');
+if (caseIds.size === 0) fail('src/content/cases : 0 fichier de cas');
+if (testimonialIds.size === 0) fail('src/content/testimonials : 0 fichier de testimonial');
+if (partnerIds.size === 0) fail('src/data/partners.ts : 0 slug de partenaire parsé (regex à revoir)');
+if (pricingIds.size === 0) fail('src/data/pricing.ts : 0 palier tarifaire parsé (regex à revoir)');
+
+// Scan récursif de tous les .json sous src/content.
+function walkJson(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...walkJson(p));
+    else if (entry.isFile() && entry.name.endsWith('.json')) out.push(p);
+  }
+  return out;
+}
+// Collecte récursive des pointeurs { ref: 'source/id' } (objet à clé UNIQUE `ref` string).
+function collectRefs(node, acc) {
+  if (Array.isArray(node)) {
+    for (const v of node) collectRefs(v, acc);
+  } else if (node && typeof node === 'object') {
+    const keys = Object.keys(node);
+    if (keys.length === 1 && keys[0] === 'ref' && typeof node.ref === 'string') acc.push(node.ref);
+    else for (const v of Object.values(node)) collectRefs(v, acc);
+  }
+  return acc;
+}
+
+let refCount = 0;
+for (const file of walkJson(join(ROOT, 'src/content'))) {
+  const rel = file.slice(ROOT.length + 1);
+  let parsed;
+  try {
+    parsed = JSON.parse(readFileSync(file, 'utf8'));
+  } catch (e) {
+    fail(`${rel} : JSON invalide (${e.message})`);
+    continue;
+  }
+  for (const ref of collectRefs(parsed, [])) {
+    refCount++;
+    const slash = ref.indexOf('/');
+    const source = slash === -1 ? ref : ref.slice(0, slash);
+    const id = slash === -1 ? '' : ref.slice(slash + 1);
+    if (!WIRED_REF_SOURCES.has(source)) {
+      fail(`${rel} : ref source non câblée « ${source} » (${ref})`);
+      continue;
+    }
+    if (!REF_IDS[source].has(id)) fail(`${rel} : ref cassée → ${ref} (id absent de « ${source} »)`);
+  }
+}
+console.log(`  ${refCount} pointeur(s) {ref} scanné(s) · sources câblées : ${[...WIRED_REF_SOURCES].join(', ')}`);
+
 // ── Verdict ──
 if (errors > 0) {
   console.error(`\nFAIL — ${errors} référence(s) cassée(s)`);
   process.exit(1);
 }
-console.log('\nPASS — référentiels, need, facets et maillage related* intègres');
+console.log('\nPASS — référentiels, need, facets, maillage related* et refs {ref} intègres');

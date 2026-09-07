@@ -682,6 +682,8 @@ _(vide)_
     stratégie `@theme` (garder/minimaliser) informée doc Tailwind + GF-1 par retrait. A4 reste OUVERT (mesure faite,
     purge en attente d'arbitrage `@theme`).
   - ▸ *réconcilié 2026-07-19 : mesure faite (122 tokens), purge en attente d'arbitrage `@theme`.*
+  - ▸ *arbitrage scoped-dup TRANCHÉ 2026-07-21 (délégué par Simon, fiche 0030) : option 1 — archiver les 35 fichiers sandboxes (`proposals/eeat/`, `apps-atelier/.../hero-explore{,-2}/`) plutôt qu'exclure de la métrique.*
+  - ▸ *scoped-dup sandboxes MERGÉ 2026-07-21 (PR #42, commit `93c9434` sur main, CI vert, prod re-vérifiée 404 sur route retirée) : 341→253 groupes (-88, -26%). Reste 253 (familles `.acc`/`i` + responsive, conception dédiée) — hors scope mécanique autonome.*
 
 ## Chantier P2.3 — Fondation `@theme inline` (prérequis builder)
 ### Tâches finies
@@ -817,7 +819,7 @@ _(vide)_
   - Fichiers : `.claude/`, modules agents, facturation usage.
   - Preuve GF-1 : 1 agent exécute une tâche réelle bout en bout + compteur d'usage vérifié.
   - Dépend de : P4.1, P4.2.
- ▸ *BLOQUÉ SUR SIGNAL SIMON 2026-07-19 : `strategy/13 §5` verrouille explicitement toute décision d'architecture dashboard tant que le brief builder n'est pas clos (« attendre la fin du brief builder ») ; idem memory builder (« ne pas attaquer l'archi tant que "j'ai toutes les infos" non dit »). Ne pas attaquer en autonome. Constat consigné fiche 0032 §P4.3-a.*
+ ▸ *GATE LEVÉ 2026-07-21 (Simon : « j'ai toutes les infos » + « 4.3 a ok ») : `strategy/13` addendum consigne un constat honnête plutôt qu'un cadrage prématuré — la vision reste une session unique (pas le niveau de détail UX du brief builder), 3 points restent bloquants avant une archi type doc06 (priorisation 1ʳᵉ intégration, références UX, modèle multi-tenant). Ne pas attaquer le code en autonome tant que ces 3 points n'ont pas de réponse Simon.*
 
 ## Chantier P4.4 — Atelier unifié : refonte UI/UX builder + DS Studio + catalogue (GO Simon 2026-07-19 soir)
 
@@ -843,7 +845,9 @@ _(vide)_
   - Preuve GF-1 : diff sitemap vide avant/après ; `enabled:false` → 404 → revert 200 (E1). E2 rejoué indé : outline SECTION 3px var(--accent) wrapper idx=17 + param nettoyé (Playwright), roundtrip endpoint (400 keyword/Zod, fiche modifiée + bandeau, DELETE → origine), e2e 12/12, 0 `data-atelier-idx`/`atelier-focus`/fuite override dans le HTML prod, baseline 8.
 - [x] **P4.4-d — V2 : catalogue comparatif + studio refondu** (familles/compare sous shell + diff d'axes + « ouvrir dans le builder » = fiche `#comparer` + `?add=<type>&preset=<id>` (`86396dbf`, `7ef73e72`) · portage studio = `/library/studio` sous AtelierShell via l'extraction E1, mêmes endpoints couches A/C, `/agence/ds-studio` → 301 (`db240fe2`)). <!-- sb commit=db240fe2 gf1=y -->
   - Preuve GF-1 : studio vérifié EN PROD (waimia.com/library/studio 200, H1 opacity 1, rail 4 entrées, éditeur LIVE rendu, screenshot) + redirect 301 prod vérifié curl + e2e 12/12 (port 4745) + endpoints save/preset joignables (403 sans keyword avant tout write) + round-trip write→read→restore byte-identique sur le même middleware + build Complete! baseline 8.
-- [ ] **P4.4-e — V3 : pipeline 4 vues + chat MCP** (sitemap→wireframe→style→design, chat opt-in brouillons compose) + décision dédiée composants globaux synchronisés (`{ref}` résolue au rendu).
+- [x] **P4.4-e — composants globaux synchronisés `{ref}`** (résolveur central `resolve-section-refs.ts` + enveloppe `{ ref: 'source/id' }` + 6 phases : fondation, logo-marquee/case-card-grid, testimonials, câblage large pricing/pain-points/proof-points/guarantees/partners, gate `check-content-refs.mjs`, widget picker builder V3). <!-- sb commit=99286966 gf1=y -->
+  - Preuve GF-1 : `astro check` 8 baseline inchangé, `pnpm build` Complete!, `check-touchpoints` 221/221 aligné, `check-content-refs` PASS (25 refs scannés, sources intègres), CI PR #40 100% verte (Build/E2E/2×Vercel/gf1-sweep 223/223 en 13m10s), round-trip builder ref-picker vérifié (screenshots widget inline/ref-mode + carte résolue rendue).
+- [ ] **P4.4-e (suite) — V3 : pipeline 4 vues + chat MCP** (sitemap→wireframe→style→design, chat opt-in brouillons compose). Hors scope du lot `{ref}` ci-dessus.
 
 ---
 

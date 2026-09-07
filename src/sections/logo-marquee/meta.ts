@@ -11,7 +11,7 @@ export const meta: SectionMeta = {
     intent: ['social-proof'],
     pageRole: ['proof'],
     contentMode: 'hybrid',
-    contentSource: 'logoIds → src/data/logos.ts',
+    contentSource: 'logos {ref} → src/data/logos.ts',
     effects: ['marquee'],
     interactions: ['hover', 'autoplay'],
     elements: ['logos'],

@@ -17,7 +17,10 @@ const isFr = lang === 'fr';
 const eyebrow = isFr ? data.eyebrow_fr : data.eyebrow_en;
 const h2 = isFr ? data.h2_fr : data.h2_en;
 const aside = isFr ? data.aside_fr : data.aside_en;
-const events = data.items.map((item, i) => ({
+// P4.4-e : data.items est DÉJÀ résolu/projeté par resolveSectionRefs (SectionsRenderer) ;
+// on restreint le type union (item | {ref}) à la branche inline (l'item porte `title_fr`).
+type PainItem = Extract<SectionByType<'pain-points'>['items'][number], { title_fr: string }>;
+const events = (data.items as PainItem[]).map((item, i) => ({
   num: item.num ?? String(i + 1).padStart(2, '0'),
   title: isFr ? item.title_fr : item.title_en,
   body: isFr ? item.body_fr : item.body_en,

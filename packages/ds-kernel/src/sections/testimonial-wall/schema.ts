@@ -3,6 +3,7 @@
 // (cohérence build Astro + codegen). Item enrichi (quote surlignable + linkedin).
 
 import { z } from 'zod';
+import { refOrInline } from '../_shared/refs';
 
 const testimonialWallItemSchema = z.object({
   quote_fr: z.string(),
@@ -30,5 +31,10 @@ export const schema = z.object({
   rating_label_fr: z.string().optional(),
   rating_label_en: z.string().optional(), // ex "avis"
   columns: z.enum(['2', '3', '4']).default('3'),
-  testimonials: z.array(testimonialWallItemSchema).min(3).max(12),
+  // testimonials : chaque item porte SOIT sa forme inline (`testimonialWallItemSchema`), SOIT un
+  // pointeur `{ ref: 'testimonials/<slug>' }` résolu au rendu via la collection GLOBAL
+  // `testimonials` et projeté à la forme d'item par resolveSectionRefs
+  // (REF_TARGETS['testimonial-wall.testimonials'] = 'testimonials'). Bornes inchangées : les
+  // instances 100% inline actuelles restent valides sous l'union.
+  testimonials: z.array(refOrInline(testimonialWallItemSchema)).min(3).max(12),
 });
