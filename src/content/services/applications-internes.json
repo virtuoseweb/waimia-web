@@ -25,7 +25,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte une application métier sur mesure ?",
-      "a": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier écran métier en production, 4 000 € HT pour une application de 3 à 5 écrans branchée à vos données, à partir de 7 000 € HT pour plusieurs métiers sur un socle commun, à partir de 10 000 € HT pour un socle complet. Les évolutions se font ensuite à 99 € HT de l'heure."
+      "a": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier écran métier en production, 4 000 € HT pour une application de 3 à 5 écrans branchée à vos données, à partir de 7 000 € HT pour plusieurs métiers sur un socle commun, à partir de 10 000 € HT pour un socle complet. Les évolutions se font ensuite à {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Combien de temps pour développer un logiciel sur mesure ?",
@@ -51,7 +51,7 @@
   "faq_en": [
     {
       "q": "How much does a custom business application cost?",
-      "a": "Four tiers by scope: from €2,000 excl. VAT for a first business screen in production, €4,000 for a 3-to-5-screen application wired to your data, from €7,000 for several functions on a shared base, from €10,000 for a full base. Changes are then billed €99 per hour excl. VAT."
+      "a": "Four tiers by scope: from €2,000 excl. VAT for a first business screen in production, €4,000 for a 3-to-5-screen application wired to your data, from €7,000 for several functions on a shared base, from €10,000 for a full base. Changes are then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "How long does it take to develop custom software?",
@@ -441,8 +441,8 @@
           }
         }
       ],
-      "footnote_fr": "Le premier outil démarre à partir de 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT), les mêmes bases qu'un site web, une application, ou les deux. Le travail autour (nouveaux écrans, évolutions, connexions) se fait ensuite en régie, 99 € de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
-      "footnote_en": "The first tool starts from 2,000 € ex VAT: four tiers by scope (2,000, 4,000, 7,000, 10,000 € ex VAT), the same bases as a website, an application, or both. The work around it (new screens, evolutions, connections) then runs on a time and materials, 99 € an hour, in sprints: we size the time together, you validate, we execute. No hidden subscription, no lock-in: you keep the source code and the hosting."
+      "footnote_fr": "Le premier outil démarre à partir de 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT), les mêmes bases qu'un site web, une application, ou les deux. Le travail autour (nouveaux écrans, évolutions, connexions) se fait ensuite en régie, {{prix.horaire}} € de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
+      "footnote_en": "The first tool starts from 2,000 € ex VAT: four tiers by scope (2,000, 4,000, 7,000, 10,000 € ex VAT), the same bases as a website, an application, or both. The work around it (new screens, evolutions, connections) then runs on a time and materials, {{prix.horaire}} € an hour, in sprints: we size the time together, you validate, we execute. No hidden subscription, no lock-in: you keep the source code and the hosting."
     },
     {
       "type": "eeat-panel",
@@ -459,9 +459,9 @@
       "items": [
         {
           "q_fr": "Combien coûte une application métier sur mesure ?",
-          "a_fr": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier écran métier en production, 4 000 € HT pour une application de 3 à 5 écrans branchée à vos données, à partir de 7 000 € HT pour plusieurs métiers sur un socle commun, à partir de 10 000 € HT pour un socle complet. Les évolutions se font ensuite à 99 € HT de l'heure.",
+          "a_fr": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier écran métier en production, 4 000 € HT pour une application de 3 à 5 écrans branchée à vos données, à partir de 7 000 € HT pour plusieurs métiers sur un socle commun, à partir de 10 000 € HT pour un socle complet. Les évolutions se font ensuite à {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does a custom business application cost?",
-          "a_en": "Four tiers by scope: from €2,000 excl. VAT for a first business screen in production, €4,000 for a 3-to-5-screen application wired to your data, from €7,000 for several functions on a shared base, from €10,000 for a full base. Changes are then billed €99 per hour excl. VAT."
+          "a_en": "Four tiers by scope: from €2,000 excl. VAT for a first business screen in production, €4,000 for a 3-to-5-screen application wired to your data, from €7,000 for several functions on a shared base, from €10,000 for a full base. Changes are then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Combien de temps pour développer un logiciel sur mesure ?",

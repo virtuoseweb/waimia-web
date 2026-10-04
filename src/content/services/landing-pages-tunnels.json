@@ -24,7 +24,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte une landing page ?",
-      "a": "Le sprint découverte est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés 99 € HT de l'heure."
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Quelle différence entre une landing page et une page de site ?",
@@ -46,7 +46,7 @@
   "faq_en": [
     {
       "q": "How much does a landing page cost?",
-      "a": "The discovery sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €99 per hour excl. VAT."
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "What is the difference between a landing page and a site page?",
@@ -119,8 +119,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
+          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -372,8 +372,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : une première landing scorée à l'entrée, le copywriting et le tracking posés, avec un livrable qui convertit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent l'A/B testing, le scoring prédictif et la connexion CRM, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous disposez de landing pages qui convertissent et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a first landing scored on entry, the copywriting and the tracking in place, with a deliverable that converts by the end. What follows is quoted: we estimate together the time A/B testing, predictive scoring and CRM connection require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, you have landing pages that convert and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : une première landing scorée à l'entrée, le copywriting et le tracking posés, avec un livrable qui convertit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent l'A/B testing, le scoring prédictif et la connexion CRM, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous disposez de landing pages qui convertissent et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a first landing scored on entry, the copywriting and the tracking in place, with a deliverable that converts by the end. What follows is quoted: we estimate together the time A/B testing, predictive scoring and CRM connection require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, you have landing pages that convert and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
     },
     {
       "type": "eeat-panel",
@@ -390,9 +390,9 @@
       "items": [
         {
           "q_fr": "Combien coûte une landing page ?",
-          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés 99 € HT de l'heure.",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does a landing page cost?",
-          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €99 per hour excl. VAT."
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Quelle différence entre une landing page et une page de site ?",

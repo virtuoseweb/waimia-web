@@ -11,6 +11,7 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { SITE } from '../../site.config';
 import { AUDIT_BOOKING_HREF } from '../../data/sitemap';
+import { HOURLY_RATE_EUR, MAINTENANCE_TIERS_EUR } from '../../data/pricing';
 
 const solutionsJsonLd = {
   '@context': 'https://schema.org',
@@ -207,8 +208,8 @@ const conseilData = {
       price_en: 'PRICING',
       title_fr: 'Tarifs',
       title_en: 'Pricing',
-      lead_fr: 'Audit gratuit, sprint de cadrage à 999 € HT, pilote dès 2 000 € HT, accompagnement à 99 € HT de l’heure.',
-      lead_en: 'Free audit, scoping sprint at 999 € ex VAT, pilot from 2,000 € ex VAT, ongoing support at 99 € ex VAT an hour.',
+      lead_fr: `Audit gratuit, sprint de cadrage à 999 € HT, pilote dès 2 000 € HT, maintenance dès ${MAINTENANCE_TIERS_EUR[0]} € HT par mois, interventions à ${HOURLY_RATE_EUR} € HT de l’heure.`,
+      lead_en: `Free audit, scoping sprint at 999 € ex VAT, pilot from 2,000 € ex VAT, maintenance from ${MAINTENANCE_TIERS_EUR[0]} € ex VAT a month, extra work at ${HOURLY_RATE_EUR} € ex VAT an hour.`,
       cta_fr: 'Voir les tarifs →',
       cta_en: 'See pricing →',
       href: '/tarifs',

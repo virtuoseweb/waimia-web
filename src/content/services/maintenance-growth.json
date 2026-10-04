@@ -1,9 +1,9 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Maintenance de site web pour PME · forfait dès 99 €/mois",
-  "title_en": "Website maintenance for SMEs · plan from 99 €/month",
-  "description_fr": "Maintenance de site web et WordPress pour PME : forfait mensuel dès 99 €, SEO continu, reporting et correctifs en SLA. Sans engagement. Bordeaux.",
-  "description_en": "Website and WordPress maintenance for SMEs: monthly plan from 99 €, continuous SEO, reporting and SLA fixes. No commitment. Bordeaux.",
+  "title_fr": "Maintenance de site web pour PME · forfait dès {{prix.maintenance.p1}} €/mois",
+  "title_en": "Website maintenance for SMEs · plan from {{prix.maintenance.p1}} €/month",
+  "description_fr": "Maintenance de site web et WordPress pour PME : forfait mensuel dès {{prix.maintenance.p1}} €, SEO continu, reporting et correctifs en SLA. Sans engagement. Bordeaux.",
+  "description_en": "Website and WordPress maintenance for SMEs: monthly plan from {{prix.maintenance.p1}} €, continuous SEO, reporting and SLA fixes. No commitment. Bordeaux.",
   "slug": "maintenance-growth",
   "publishedAt": "2026-06-22T00:00:00.000Z",
   "updatedAt": "2026-07-15T00:00:00.000Z",
@@ -18,9 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Maintenance et growth de site intelligent",
-    "priceRange": "99-1980€/mois",
+    "priceRange": "99-449€/mois",
     "priceMin": 99,
-    "priceMax": 1980
+    "priceMax": 449
   },
   "faq_fr": [
     {
@@ -32,12 +32,12 @@
       "a": "La création est un chantier ponctuel : design, contenu, structure, instrumentation posés et déployés. La maintenance et growth est le récurrent qui prend le relais : on fait vivre l'actif livré, on l'améliore sur la donnée et on traite les correctifs. La création construit, le forfait exploite. Beaucoup de sites meurent faute du second : c'est exactement ce qu'on évite."
     },
     {
-      "q": "Qu'est-ce qui est inclus dans les 99 € par mois ?",
+      "q": "Qu'est-ce qui est inclus dans le premier palier, à {{prix.maintenance.p1}} € par mois ?",
       "a": "La maintenance de base, tout inclus : la gestion de l'hébergement Vercel, quelques modifications chaque mois, les mises à jour et la sécurité en continu, l'hébergement web o2switch.fr et le nom de domaine avec sa gestion DNS. C'est le forfait qui garde votre site en vie, rapide et sûr, sans que vous ayez à y penser."
     },
     {
-      "q": "Comment marche la régie growth ?",
-      "a": "La régie se vend à l'heure, 99 € HT non dégressif, en trois forfaits mensuels : Starter (5 h, 495 €), Growth (10 h, 990 €) et Scale (20 h, 1 980 €). Au-delà de 20 h par mois, on passe sur devis. Vous arbitrez vous-même où passent ces heures : formation, consulting, SEO/GEO/CRO, design, développement, ads, IA, automation, et de l'outbound multicanal (Lemlist, Instantly, Apollo, Pharow, appels et SMS via Twilio). La maintenance de base est incluse dans chaque forfait."
+      "q": "Comment sont facturées les interventions hors forfait ?",
+      "a": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, selon le nombre et la criticité des systèmes suivis. Le périmètre de chaque palier est précisé au devis. Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution."
     },
     {
       "q": "Vous gérez le SEO dans la durée, ou juste la technique ?",
@@ -74,12 +74,12 @@
       "a": "The build is a one-off project: design, content, structure, instrumentation laid in and deployed. Maintenance and growth is the recurring work that takes over: we keep the delivered asset alive, improve it on the data and handle fixes. The build constructs, the retainer operates. Many sites die for lack of the second: that's exactly what we prevent."
     },
     {
-      "q": "What's included in the 99 € a month?",
+      "q": "What's included in the first tier, at {{prix.maintenance.p1}} € a month?",
       "a": "Base maintenance, all included: Vercel hosting managed for you, a few content edits each month, continuous updates and security, web hosting on o2switch.fr and the domain name with its DNS management. It's the retainer that keeps your site alive, fast and secure, without you having to think about it."
     },
     {
-      "q": "How does the growth retainer work?",
-      "a": "The retainer is sold by the hour, 99 € ex-VAT flat rate, in three monthly tiers: Starter (5 h, 495 €), Growth (10 h, 990 €) and Scale (20 h, 1,980 €). Above 20 h a month, we quote. You decide yourself where those hours go: training, consulting, SEO/GEO/CRO, design, development, ads, AI, automation, and multichannel outbound (Lemlist, Instantly, Apollo, Pharow, calls and SMS via Twilio). Base maintenance is included in every tier."
+      "q": "How is work outside the plan billed?",
+      "a": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month, depending on the number and criticality of the systems covered. The scope of each tier is set out in the quote. Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
     },
     {
       "q": "Do you handle SEO over time, or just the technical side?",
@@ -155,9 +155,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "99 €",
-          "label_fr": "maintenance de base HT par mois, régie growth dès 495 €",
-          "label_en": "ex-VAT base maintenance per month, growth retainer from 495 €",
+          "value": "{{prix.maintenance.p1}} €",
+          "label_fr": "premier palier de maintenance, HT par mois ; paliers suivants à {{prix.maintenance.p2}} et {{prix.maintenance.p3}} €",
+          "label_en": "first maintenance tier, ex VAT per month; next tiers at {{prix.maintenance.p2}} and {{prix.maintenance.p3}} €",
           "emphasis": true
         },
         {
@@ -616,13 +616,13 @@
       "kicker_en": "§ Retainers",
       "h2_fr": "Combien coûte la maintenance de votre site",
       "h2_en": "How much your site maintenance costs",
-      "lede_fr": "La base, c'est 99 € par mois, tout inclus : on garde votre site en vie. Au-dessus, la régie growth se vend à l'heure (99 € HT non dégressif) en trois forfaits mensuels : 5, 10 ou 20 h, et au-delà sur devis. Vous arbitrez vous-même où passent ces heures. Sans engagement de durée.",
-      "lede_en": "The base is 99 € a month, all included: we keep your site alive. Above it, the growth retainer is sold by the hour (flat 99 € ex-VAT) in three monthly tiers: 5, 10 or 20 h, and above that on quote. You decide yourself where those hours go. No duration commitment.",
+      "lede_fr": "Trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, selon le nombre et la criticité des systèmes suivis. Le périmètre de chaque palier est précisé au devis. Les interventions hors forfait sont facturées {{prix.horaire}} € HT de l'heure. Sans engagement de durée.",
+      "lede_en": "Three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month, depending on the number and criticality of the systems covered. The scope of each tier is set out in the quote. Work outside the plan is billed {{prix.horaire}} € ex VAT an hour. No duration commitment.",
       "tiers": [
         {
-          "name_fr": "Maintenance",
-          "name_en": "Maintenance",
-          "price": "99 €",
+          "name_fr": "Palier 1",
+          "name_en": "Tier 1",
+          "price": "{{prix.maintenance.p1}} €",
           "period_fr": "/ mois · tout inclus · HT",
           "period_en": "/ month · all included · ex VAT",
           "features_fr": [
@@ -647,84 +647,59 @@
           }
         },
         {
-          "name_fr": "Starter",
-          "name_en": "Starter",
-          "price": "495 €",
-          "period_fr": "/ mois · 5 h de régie · HT",
-          "period_en": "/ month · 5 h of retainer · ex VAT",
+          "name_fr": "Palier 2",
+          "name_en": "Tier 2",
+          "price": "{{prix.maintenance.p2}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · ex VAT",
           "features_fr": [
-            "5 h de régie par mois (99 €/h)",
-            "À vous d'arbitrer : SEO/GEO/CRO, design, dev, ads, IA ou automation",
-            "Maintenance de base incluse",
-            "Heures priorisées avec vous, sans engagement de durée"
+            "Pour davantage de systèmes suivis, ou des systèmes plus critiques",
+            "Périmètre précisé au devis",
+            "Interventions hors forfait : {{prix.horaire}} € HT de l'heure",
+            "Sans engagement de durée"
           ],
           "features_en": [
-            "5 h of retainer per month (99 €/h)",
-            "You arbitrate: SEO/GEO/CRO, design, dev, ads, AI or automation",
-            "Base maintenance included",
-            "Hours prioritised with you, no duration commitment"
-          ],
-          "cta": {
-            "label_fr": "Démarrer en Starter →",
-            "label_en": "Start with Starter →",
-            "href": "/contact?offer=maintenance-growth&intent=starter",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Growth",
-          "name_en": "Growth",
-          "price": "990 €",
-          "period_fr": "/ mois · 10 h de régie · HT",
-          "period_en": "/ month · 10 h of retainer · ex VAT",
-          "features_fr": [
-            "10 h de régie par mois (99 €/h non dégressif)",
-            "Formation, consulting, SEO/GEO/CRO, design, dev, ads, IA et automation",
-            "Outbound multicanal : Lemlist, Instantly, Apollo, Pharow, Twilio",
-            "Maintenance de base incluse"
-          ],
-          "features_en": [
-            "10 h of retainer per month (flat 99 €/h)",
-            "Training, consulting, SEO/GEO/CRO, design, dev, ads, AI and automation",
-            "Multichannel outbound: Lemlist, Instantly, Apollo, Pharow, Twilio",
-            "Base maintenance included"
+            "For more systems covered, or more critical ones",
+            "Scope set out in the quote",
+            "Work outside the plan: {{prix.horaire}} € ex VAT an hour",
+            "No duration commitment"
           ],
           "cta": {
             "label_fr": "Réserver un audit IA gratuit →",
             "label_en": "Book a free AI audit →",
-            "href": "/contact?offer=maintenance-growth&intent=growth",
+            "href": "/contact?offer=maintenance-growth&intent=palier-2",
             "variant": "primary"
           },
           "featured": true
         },
         {
-          "name_fr": "Scale",
-          "name_en": "Scale",
-          "price": "1 980 €",
-          "period_fr": "/ mois · 20 h de régie · HT",
-          "period_en": "/ month · 20 h of retainer · ex VAT",
+          "name_fr": "Palier 3",
+          "name_en": "Tier 3",
+          "price": "{{prix.maintenance.p3}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · ex VAT",
           "features_fr": [
-            "20 h de régie par mois (99 €/h non dégressif)",
-            "Toute la régie growth, en volume soutenu",
-            "Outbound multicanal piloté et appels/SMS via Twilio",
-            "Maintenance de base incluse"
+            "Pour davantage de systèmes suivis, ou des systèmes plus critiques",
+            "Périmètre précisé au devis",
+            "Interventions hors forfait : {{prix.horaire}} € HT de l'heure",
+            "Sans engagement de durée"
           ],
           "features_en": [
-            "20 h of retainer per month (flat 99 €/h)",
-            "The full growth retainer, at sustained volume",
-            "Managed multichannel outbound and calls/SMS via Twilio",
-            "Base maintenance included"
+            "For more systems covered, or more critical ones",
+            "Scope set out in the quote",
+            "Work outside the plan: {{prix.horaire}} € ex VAT an hour",
+            "No duration commitment"
           ],
           "cta": {
-            "label_fr": "Passer à l'échelle →",
-            "label_en": "Move to Scale →",
-            "href": "/contact?offer=maintenance-growth&intent=scale",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=maintenance-growth&intent=palier-3",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Base régie : 99 € HT l'heure, taux plat non dégressif. Besoin de plus de 20 h ou d'un périmètre spécifique (multi-sites, intégrations lourdes) ? Forfait sur mesure sur devis. Site qu'on n'a pas créé ? On commence par un audit et on cale le forfait sur l'état réel. Sans engagement de durée, sans abonnement caché : vous gardez la stack et le forfait s'arrête quand vous le décidez.",
-      "footnote_en": "Retainer base: 99 € ex-VAT per hour, flat rate. Need more than 20 h or a specific scope (multi-site, heavy integrations)? Bespoke retainer on quote. A site we didn't build? We start with an audit and set the retainer on the real state. No duration commitment, no hidden subscription: you keep the stack and the retainer stops when you decide."
+      "footnote_fr": "Hors forfait : {{prix.horaire}} € HT de l'heure, taux unique non dégressif, sur un temps estimé et validé avant exécution. Site ou système qu'on n'a pas créé ? On commence par un audit et on cale le palier sur l'état réel. Sans engagement de durée, sans abonnement caché : vous gardez la stack et le forfait s'arrête quand vous le décidez.",
+      "footnote_en": "Outside the plan: {{prix.horaire}} € ex VAT an hour, single flat rate, on a time estimate validated before work starts. A site or system we didn't build? We start with an audit and set the tier on the real state. No duration commitment, no hidden subscription: you keep the stack and the plan stops when you decide."
     },
     {
       "type": "eeat-panel",
@@ -752,16 +727,16 @@
           "a_en": "The build is a one-off project: design, content, structure, instrumentation laid in and deployed. Maintenance and growth is the recurring work that takes over: we keep the delivered asset alive, improve it on the data and handle fixes. The build constructs, the retainer operates. Many sites die for lack of the second: that's exactly what we prevent."
         },
         {
-          "q_fr": "Qu'est-ce qui est inclus dans les 99 € par mois ?",
-          "q_en": "What's included in the 99 € a month?",
+          "q_fr": "Qu'est-ce qui est inclus dans le premier palier, à {{prix.maintenance.p1}} € par mois ?",
+          "q_en": "What's included in the first tier, at {{prix.maintenance.p1}} € a month?",
           "a_fr": "La maintenance de base, tout inclus : la gestion de l'hébergement Vercel, quelques modifications chaque mois, les mises à jour et la sécurité en continu, l'hébergement web o2switch.fr et le nom de domaine avec sa gestion DNS. C'est le forfait qui garde votre site en vie, rapide et sûr, sans que vous ayez à y penser.",
           "a_en": "Base maintenance, all included: Vercel hosting managed for you, a few content edits each month, continuous updates and security, web hosting on o2switch.fr and the domain name with its DNS management. It's the retainer that keeps your site alive, fast and secure, without you having to think about it."
         },
         {
-          "q_fr": "Comment marche la régie growth ?",
-          "q_en": "How does the growth retainer work?",
-          "a_fr": "La régie se vend à l'heure, 99 € HT non dégressif, en trois forfaits mensuels : Starter (5 h, 495 €), Growth (10 h, 990 €) et Scale (20 h, 1 980 €). Au-delà de 20 h par mois, on passe sur devis. Vous arbitrez vous-même où passent ces heures : formation, consulting, SEO/GEO/CRO, design, développement, ads, IA, automation, et de l'outbound multicanal (Lemlist, Instantly, Apollo, Pharow, appels et SMS via Twilio). La maintenance de base est incluse dans chaque forfait.",
-          "a_en": "The retainer is sold by the hour, 99 € ex-VAT flat rate, in three monthly tiers: Starter (5 h, 495 €), Growth (10 h, 990 €) and Scale (20 h, 1,980 €). Above 20 h a month, we quote. You decide yourself where those hours go: training, consulting, SEO/GEO/CRO, design, development, ads, AI, automation, and multichannel outbound (Lemlist, Instantly, Apollo, Pharow, calls and SMS via Twilio). Base maintenance is included in every tier."
+          "q_fr": "Comment sont facturées les interventions hors forfait ?",
+          "q_en": "How is work outside the plan billed?",
+          "a_fr": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, selon le nombre et la criticité des systèmes suivis. Le périmètre de chaque palier est précisé au devis. Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution.",
+          "a_en": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month, depending on the number and criticality of the systems covered. The scope of each tier is set out in the quote. Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
         },
         {
           "q_fr": "Vous gérez le SEO dans la durée, ou juste la technique ?",

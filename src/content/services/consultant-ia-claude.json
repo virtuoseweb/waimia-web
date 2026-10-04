@@ -24,7 +24,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte un consultant IA pour une PME ?",
-      "a": "Le sprint découverte est à 999 € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée 99 € HT de l'heure."
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Consultant IA ou freelance IA : quelle différence ?",
@@ -50,7 +50,7 @@
   "faq_en": [
     {
       "q": "How much does an AI consultant cost for an SMB?",
-      "a": "The discovery sprint is €999 excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €99 per hour excl. VAT."
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "AI consultant or AI freelancer: what is the difference?",
@@ -127,8 +127,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
+          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -392,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : diagnostic de maturité, repérage des cas d'usage et feuille de route chiffrée, avec une décision actionnable dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le pilotage et les chantiers, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : la mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: maturity diagnostic, use-case spotting and a costed roadmap, with an actionable decision by the end. What follows is quoted: we estimate together the time steering and projects require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: technical implementation, if decided, moves to integration."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : diagnostic de maturité, repérage des cas d'usage et feuille de route chiffrée, avec une décision actionnable dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le pilotage et les chantiers, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : la mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: maturity diagnostic, use-case spotting and a costed roadmap, with an actionable decision by the end. What follows is quoted: we estimate together the time steering and projects require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: technical implementation, if decided, moves to integration."
     },
     {
       "type": "eeat-panel",
@@ -410,9 +410,9 @@
       "items": [
         {
           "q_fr": "Combien coûte un consultant IA pour une PME ?",
-          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée 99 € HT de l'heure.",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does an AI consultant cost for an SMB?",
-          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €99 per hour excl. VAT."
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Consultant IA ou freelance IA : quelle différence ?",

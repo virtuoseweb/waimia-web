@@ -24,7 +24,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation d'un processus en PME ?",
-      "a": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés 99 € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge."
+      "a": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge."
     },
     {
       "q": "Combien de temps faut-il pour automatiser un processus ?",
@@ -50,7 +50,7 @@
   "faq_en": [
     {
       "q": "How much does it cost to automate a process in an SMB?",
-      "a": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €99 per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
+      "a": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
     },
     {
       "q": "How long does it take to automate a process?",
@@ -127,8 +127,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
+          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -445,8 +445,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows suivants, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows, vos accès et la documentation sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next workflows require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your workflows, your access and the documentation are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows suivants, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows, vos accès et la documentation sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next workflows require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your workflows, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
@@ -463,9 +463,9 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation d'un processus en PME ?",
-          "a_fr": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés 99 € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge.",
+          "a_fr": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge.",
           "q_en": "How much does it cost to automate a process in an SMB?",
-          "a_en": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €99 per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
+          "a_en": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
         },
         {
           "q_fr": "Combien de temps faut-il pour automatiser un processus ?",

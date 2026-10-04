@@ -118,14 +118,14 @@ export const demo: DemoData = {
       {
         "label_fr": "Maintenance d'un site en production",
         "label_en": "Maintenance of a live website",
-        "price_fr": "99 € HT/mois",
-        "price_en": "99 € ex VAT/month"
+        "price_fr": "dès 99 € HT/mois",
+        "price_en": "from 99 € ex VAT/month"
       },
       {
         "label_fr": "SEO, GEO et contenu",
         "label_en": "SEO, GEO and content",
-        "price_fr": "sprint à 999 € HT, puis 99 € HT/h",
-        "price_en": "sprint at 999 € ex VAT, then 99 €/h",
+        "price_fr": "sprint à 999 € HT, puis 80 € HT/h",
+        "price_en": "sprint at 999 € ex VAT, then 80 €/h",
         "href": "/services/seo-geo-contenu"
       },
       {
@@ -137,6 +137,6 @@ export const demo: DemoData = {
       }
     ]
   },
-  "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de 99 € HT, non dégressif.",
-  "footnote_en": "Prices exclude VAT. \"From\" amounts are floors: the firm quote is drawn up after the free audit, on a time estimate made with you and validated before work starts. Single hourly rate of 99 € ex VAT, flat."
+  "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de 80 € HT, non dégressif.",
+  "footnote_en": "Prices exclude VAT. \"From\" amounts are floors: the firm quote is drawn up after the free audit, on a time estimate made with you and validated before work starts. Single hourly rate of 80 € ex VAT, flat."
 };

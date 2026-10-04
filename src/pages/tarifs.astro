@@ -6,7 +6,11 @@ export const prerender = true;
 
 import Base from '../layouts/Base.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
-import data from '../data/pages/tarifs.json';
+import rawData from '../data/pages/tarifs.json';
+import { applyPricingTokens } from '../data/pricing';
+
+// Jetons `{{prix.*}}` résolus depuis la source unique src/data/pricing.ts.
+const data = applyPricingTokens(rawData);
 
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const title = lang === 'en' ? data.title_en : data.title_fr;
