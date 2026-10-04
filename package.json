@@ -63,6 +63,10 @@
     "check:public-surface": "node scripts/check-public-surface.mjs",
     "check:internal-mesh": "node scripts/check-internal-mesh.mjs",
     "gen:lastmod": "node scripts/gen-lastmod.mjs",
+    "seo:routine": "node scripts/seo-routine/run.mjs",
+    "seo:feeds": "node scripts/seo-routine/feeds.mjs --check",
+    "check:seo-routine": "node scripts/seo-routine/check-config.mjs",
+    "test:seo-routine": "node --test \"scripts/seo-routine/tests/*.test.mjs\"",
     "board:regen": "node scripts/sync-board.mjs --regen",
     "ds:apply": "node scripts/apply-ds-export.mjs"
   },

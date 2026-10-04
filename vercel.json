@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "npx -y pnpm@9.15.0 install --no-frozen-lockfile",
   "buildCommand": "npx astro build",
+  "ignoreCommand": "bash scripts/seo-routine/vercel-ignore-build.sh",
+  "git": {
+    "deploymentEnabled": {
+      "seo-data/*": false
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
