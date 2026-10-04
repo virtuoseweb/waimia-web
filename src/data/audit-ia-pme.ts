@@ -139,7 +139,7 @@ export const fit = {
     "Une personne qui connaît les process au quotidien peut participer aux 45 minutes, pas seulement la direction.",
   ],
   no: [
-    "Vous cherchez une formation pour vos équipes : c'est une autre prestation, passez par le formulaire de contact.",
+    'Vous cherchez une formation pour vos équipes : c\'est une autre prestation, décrite sur la page <a href="/formations">formations IA et automatisation</a>.',
     "Vous attendez un audit de conformité RGPD ou AI Act, ou un audit de sécurité : ce n'est pas ce format.",
     "Votre besoin est un site vitrine ou une campagne marketing : l'audit porte sur vos process internes, pas sur votre communication.",
     "Vous êtes moins de cinq et rien n'est encore répétitif : il n'y a pas assez de volume pour qu'une automatisation se justifie.",

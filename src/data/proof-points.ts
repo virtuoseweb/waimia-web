@@ -134,11 +134,11 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
   {
     id: 'time-5-jours-audit',
     category: 'time',
-    value: '5 jours',
-    label_fr: 'Audit maturité IA complet livré en 5 jours',
-    label_en: 'Complete AI maturity audit delivered in 5 days',
-    description_fr: 'Engagement standard audit Waimia, inclus dans les offres de diagnostic.',
-    description_en: 'Standard Waimia audit engagement, included in diagnostic offers.',
+    value: '45 min',
+    label_fr: 'Audit IA gratuit : un échange de 45 minutes en visio',
+    label_en: 'Free AI audit: a 45-minute call',
+    description_fr: "L'audit est gratuit et sans engagement. Le sprint de cadrage qui peut suivre dure 10 heures, pour 999 € HT.",
+    description_en: 'The audit is free, with no commitment. The scoping sprint that may follow lasts 10 hours, for €999 excl. VAT.',
     sources: ['proof-points/time-5-jours-audit'],
   },
   {

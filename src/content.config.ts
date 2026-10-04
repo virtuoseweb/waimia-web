@@ -418,6 +418,9 @@ const blog = defineCollection({
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
+    // H1 distinct du title (optionnel) : le title reste court pour la SERP, le H1 peut
+    // porter la formulation complète de la requête. Absent → H1 = title_fr.
+    h1_fr: z.string().optional(),
     // Corps de page (prose) en DONNÉE (template-as-data) : RÉUTILISE le schéma kernel
     // editorial-prose (background/maxWidth/figures/type) + le texte rich-html porté par
     // `html_fr` (injecté au slot body d'EssayTemplate). Miroir du champ `body_sections`

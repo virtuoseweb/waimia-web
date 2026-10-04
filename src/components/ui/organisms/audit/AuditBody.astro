@@ -66,7 +66,8 @@ const cols = session.map((s) => `minmax(190px, ${s.to - s.from}fr)`).join(' ');
       <div class="ab-fit-col ab-fit-no">
         <h3 class="ab-h3">Pas le bon format si</h3>
         <ul>
-          {fit.no.map((t) => <li>{t}</li>)}
+          {/* set:html : un item peut porter un lien interne (ex. vers /formations) */}
+          {fit.no.map((t) => <li set:html={t} />)}
         </ul>
         <p class="ab-fit-link"><a href="/contact?intent=message">Envoyer une demande par le formulaire</a></p>
       </div>
