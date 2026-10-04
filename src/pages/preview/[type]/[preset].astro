@@ -13,8 +13,11 @@ import { SECTION_PRESETS } from '@waimia/ds-kernel/lib/section-presets';
 import { variantsFor, colorVariantsFor, coverageVariantsFor } from '@waimia/ds-kernel/lib/section-variants';
 import { SECTIONS } from '../../../lib/section-registry';
 import type { SectionType } from '@waimia/ds-kernel';
+import { internalToolsEnabled } from '../../../lib/seo/internal-tools.mjs';
 
 export function getStaticPaths() {
+  // Surface interne : non générée dans le build de production (cf lib/seo/internal-tools.mjs).
+  if (!internalToolsEnabled()) return [];
   // Témoin de complétude couleur : un seul type rend ses 16 schémas (axe orthogonal,
   // pas multiplié sur tout le catalogue).
   const COLOR_WITNESS: SectionType = 'feature-grid';

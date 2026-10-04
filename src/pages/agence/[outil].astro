@@ -9,9 +9,17 @@
 // Le sitemap.xml reste INCHANGÉ : cette page ne fait que le refléter + le compléter.
 export const prerender = true;
 
+// Route à un seul chemin (/agence/cartographie). Le fichier est dynamique ([outil]) pour
+// une seule raison : getStaticPaths peut renvoyer [] et ne PAS générer cet outil interne
+// dans le build de production (cf src/lib/seo/internal-tools.mjs).
+export function getStaticPaths() {
+  return internalToolsEnabled() ? [{ params: { outil: 'cartographie' } }] : [];
+}
+
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { DEPUBLISHED_SERVICE_IDS } from '../../data/depublished';
 import Base from '../../layouts/Base.astro';
+import { internalToolsEnabled } from '../../lib/seo/internal-tools.mjs';
 import { NOINDEX_SITEMAP_PATHS } from '../../data/sitemap-noindex-exclude';
 import { listSections, listCategories } from '../../lib/section-registry';
 import { allPresets } from '@waimia/ds-kernel/lib/section-presets';

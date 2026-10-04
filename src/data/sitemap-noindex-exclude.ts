@@ -52,7 +52,6 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // Page locale Bordeaux : seo.noindex tant que le NAP/GBP réel n'est pas posé (audit pré-lancement
   // 2026-07-14) → hors sitemap pour cohérence noindex↔crawl. Retirer cette entrée ET le noindex
   // de bordeaux.json quand les vraies coordonnées Bordeaux seront fournies.
-  "/implantations/bordeaux",
   // Secteurs noindex (seo.noindex:true frontmatter) → hors sitemap pour cohérence noindex↔crawl.
   // (2026-07-14 vague 1) complétés par les 6 autres secteurs noindex (politique index ⟺ caseRef
   // réel, cf strategy/14 §4) détectés par le gate check-seo noindex-not-in-sitemap.

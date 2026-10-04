@@ -83,6 +83,73 @@ jobs:
       - name: Gate gutter canonique (var(--gut) unique, anti-override .wrap*)
         run: node scripts/check-gutter.mjs
 
+  # Gates SEO sur le build TEL QUE DÉPLOYÉ EN PRODUCTION (WAIMIA_INTERNAL_TOOLS=0 : sans le
+  # catalogue interne /preview, /library, /dashboard-seo, comme sur waimia.com). Le job
+  # `build` ci-dessus garde le build complet, dont dépendent le sweep GF-1 et les e2e.
+  # Ce job échoue si : une URL du sitemap n'est pas 200 / indexable / canonique, un JSON-LD
+  # est invalide, une page indexable n'a pas de title / description / h1 / canonical, une
+  # redirection fait une chaîne ou pointe un 404, une surface interne est générée ou liée.
+  seo:
+    name: SEO (build de production)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build de production (sans surfaces internes)
+        run: pnpm build
+        env:
+          WAIMIA_INTERNAL_TOOLS: '0'
+
+      # title, meta description, h1 unique, canonical, Open Graph sur chaque page indexable.
+      - name: Gate head (title + description + h1 + canonical)
+        run: node scripts/check-head.mjs
+
+      # Syntaxe, propriétés requises par type, références @id, couverture par type de page,
+      # FAQ balisée seulement si visible, prix balisé seulement si affiché.
+      - name: Gate JSON-LD (données structurées valides)
+        run: node scripts/check-jsonld.mjs
+
+      # Chaque URL du sitemap : 200, indexable, canonique, non redirigée, explorable, lastmod réel.
+      - name: Gate sitemap (sitemap / robots / noindex cohérents)
+        run: node scripts/check-sitemap.mjs
+
+      # Config Vercel générée : un seul saut, cible 200, ni chaîne ni boucle, slash final.
+      - name: Gate redirections (config Vercel générée)
+        run: node scripts/check-redirects.mjs
+
+      # Aucune surface interne générée ni liée, .md et llms.txt limités aux pages indexables,
+      # aucun résidu /en, robots.txt et en-têtes X-Robots-Tag cohérents.
+      - name: Gate surface publique (catalogue interne hors production)
+        run: node scripts/check-public-surface.mjs --prod
+
+      - name: Gate SEO historique (meta-length + noindex<->sitemap) sur le build de production
+        run: node scripts/check-seo.mjs
+
+      - name: Gate qualité statique sur le build de production (liens internes, titres, alt)
+        run: node scripts/check-static-quality.mjs
+
+      # Rapport de maillage : liens entrants contextuels par page, orphelines, profondeur.
+      # Mode avertissement : n'échoue jamais, le rapport est dans le log du job.
+      - name: Rapport maillage interne (avertissement)
+        run: node scripts/check-internal-mesh.mjs
+        continue-on-error: true
+
   # Suite Playwright e2e contre le BUILD servi (parité prod — le dev diverge du build).
   # Job SÉPARÉ, hors required-checks pour l'instant : visible mais non-bloquant le temps
   # de prouver sa stabilité en CI, puis promotion en gate. Couvre le DYNAMIQUE que le gate
