@@ -82,6 +82,8 @@ interface AuthorSocial {
 interface Author {
   title_fr: string;
   title_en: string;
+  seoTitle_fr?: string;
+  seoTitle_en?: string;
   description_fr: string;
   description_en: string;
   role_fr: string;
@@ -138,7 +140,8 @@ const displayName = lang === 'fr' ? author.title_fr : author.title_en;
 const role = lang === 'fr' ? author.role_fr : author.role_en;
 const description = lang === 'fr' ? author.description_fr : author.description_en;
 const teamHref = localizeHref('/equipe', lang);
-const contactHref = localizeHref('/contact', lang);
+const auditHref = localizeHref('/audit-ia-pme', lang);
+const seoTitle = (lang === 'fr' ? author.seoTitle_fr : author.seoTitle_en) ?? `${displayName} · ${role} · Waimia`;
 const resourcesHref = localizeHref('/ressources', lang);
 
 const socialUrls = [
@@ -434,14 +437,14 @@ const ctaData = {
   kicker_en: '§ Work together',
   h2_html_fr: 'Le mardi on câble.<em> Le vendredi on mesure.</em>',
   h2_html_en: 'On Tuesday we wire.<em> On Friday we measure.</em>',
-  button_label_fr: 'Câbler mon système →',
-  button_label_en: 'Wire my system →',
-  button_href: contactHref,
+  button_label_fr: 'Réserver un audit →',
+  button_label_en: 'Book an audit →',
+  button_href: auditHref,
 } satisfies ClosingCtaBandData;
 ---
 
 <Base
-  title={`${displayName} · ${role} · Waimia`}
+  title={seoTitle}
   description={description}
   jsonLd={jsonLd}
 >

@@ -69,38 +69,38 @@ const pageTransitionId = Astro.url.pathname
         <Kicker class="hero-fig">§ 01 · {lang === 'fr' ? 'Promesse' : 'Promise'}</Kicker>
         <p class="hero-lede reveal reveal-fade">
           {lang === 'fr' ? (
-            <>On conseille, on intègre et on connecte l'IA dans vos outils marketing, sales, contenu et web, puis on la met <i>en production</i> : site intelligent, acquisition, CRM, analytics, marque, sans changer vos process.</>
+            <>On conseille, on conçoit et on met <i>en production</i> vos automatisations, agents IA et applications métier, branchés sur vos outils, sans changer vos process.</>
           ) : (
-            <>We advise, integrate and connect AI across your marketing, sales, content and web stack, then ship it <i>to production</i> : smart site, acquisition, CRM, analytics, brand, without changing your process.</>
+            <>We advise, design and ship <i>to production</i> your automations, AI agents and business applications, connected to your tools, without changing your process.</>
           )}
         </p>
 
-        {/* V7 §12 · Mini-map scope · 6 territoires Waimia en cartographie 3×2
+        {/* V7 §12 · Mini-map scope · 6 territoires de l'offre (pivot IA 2026-10) en cartographie 3×2
             (vs strip linéaire) · chaque territoire = label + items éditoriaux */}
         <ul class="hero-minimap reveal reveal-fade" aria-label={lang === 'fr' ? 'Périmètre opérationnel · 6 territoires' : 'Operational scope · 6 territories'}>
           <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Acquisition' : 'Acquisition'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'Ads · Landing · Pipeline' : 'Ads · Landing · Pipeline'}</span>
+            <span class="hero-mm-label">{lang === 'fr' ? 'Automatisation' : 'Automation'}</span>
+            <span class="hero-mm-items">{lang === 'fr' ? 'n8n · Make · workflows' : 'n8n · Make · workflows'}</span>
           </li>
           <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Contenu' : 'Content'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'SEO/GEO · Articles · Posts' : 'SEO/GEO · Articles · Posts'}</span>
+            <span class="hero-mm-label">{lang === 'fr' ? 'Agents IA' : 'AI agents'}</span>
+            <span class="hero-mm-items">{lang === 'fr' ? 'Support · Prospection · Back-office' : 'Support · Prospecting · Back office'}</span>
           </li>
           <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Web' : 'Web'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'Site IA-first · CMS · Pages' : 'AI-first · CMS · Pages'}</span>
+            <span class="hero-mm-label">{lang === 'fr' ? 'Apps métier' : 'Business apps'}</span>
+            <span class="hero-mm-items">{lang === 'fr' ? 'Outils internes · Sur mesure' : 'Internal tools · Custom built'}</span>
           </li>
           <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Sales' : 'Sales'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'CRM · Relances · Scoring' : 'CRM · Follow-ups · Scoring'}</span>
+            <span class="hero-mm-label">{lang === 'fr' ? 'Commercial' : 'Sales'}</span>
+            <span class="hero-mm-items">{lang === 'fr' ? 'CRM · Relances · Devis' : 'CRM · Follow-ups · Quotes'}</span>
           </li>
           <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Data' : 'Data'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'GA4 · Search Console · Insights' : 'GA4 · Search Console · Insights'}</span>
+            <span class="hero-mm-label">{lang === 'fr' ? 'Données' : 'Data'}</span>
+            <span class="hero-mm-items">{lang === 'fr' ? 'Reporting · Tableaux de bord' : 'Reporting · Dashboards'}</span>
           </li>
           <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Marque' : 'Brand'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'Design system · Decks · PDF' : 'Design system · Decks · PDF'}</span>
+            <span class="hero-mm-label">{lang === 'fr' ? 'Conformité' : 'Compliance'}</span>
+            <span class="hero-mm-items">{lang === 'fr' ? 'RGPD · AI Act' : 'GDPR · AI Act'}</span>
           </li>
         </ul>
 

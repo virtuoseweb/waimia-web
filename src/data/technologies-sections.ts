@@ -197,7 +197,7 @@ export function technologiesSections(lang: Lang) {
     cta_primary: {
       label_fr: 'Réserver un audit →',
       label_en: 'Book an audit →',
-      href: localizeHref('/contact', lang),
+      href: localizeHref('/audit-ia-pme', lang),
       variant: 'primary',
     },
     cta_secondary: {

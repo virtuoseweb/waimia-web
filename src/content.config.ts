@@ -610,6 +610,9 @@ const authors = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/authors' }),
   schema: z.object({
     ...baseFields,
+    // <title> SEO dédié (optionnel) : sinon le template compose « nom · rôle · marque ».
+    seoTitle_fr: z.string().optional(),
+    seoTitle_en: z.string().optional(),
     role_fr: z.string(),
     role_en: z.string(),
     bio_fr: z.string().min(120),

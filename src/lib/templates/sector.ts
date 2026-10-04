@@ -187,11 +187,12 @@ const defaultStackPills = [
 
 // ── DÉFAUT PARTAGÉ · badges de réassurance finale (génériques, pas de claim non détenu). ──
 const defaultTrustBadges = [
+  // Pivot IA 2026-10 : uniquement le référencement détenu + des engagements factuels.
+  // Retirés : « Claude certified », « AI Act ready », « RGPD », « ISO 27001 » (non détenus).
   { glyph: '◉', label_fr: 'Activateur France Num', label_en: 'France Num activator' },
-  { glyph: '✓', label_fr: 'Claude certified', label_en: 'Claude certified' },
-  { glyph: '⚖', label_fr: 'AI Act ready', label_en: 'AI Act ready' },
-  { glyph: '⚿', label_fr: 'RGPD', label_en: 'GDPR' },
-  { glyph: '⛨', label_fr: 'ISO 27001', label_en: 'ISO 27001' },
+  { glyph: '✓', label_fr: 'Audit gratuit de 45 min', label_en: 'Free 45-min audit' },
+  { glyph: '⚿', label_fr: 'Code et workflows transférés', label_en: 'Code and workflows handed over' },
+  { glyph: '⚖', label_fr: 'Validation humaine sur les actions sensibles', label_en: 'Human validation on sensitive actions' },
 ];
 
 // ── Illustration duotone de la prose (habillage editorial) · pool DISJOINT du pool

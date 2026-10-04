@@ -3772,7 +3772,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 0,
-      "label": "Un agent de support client.",
+      "label": "Chatbot et agent IA pour votre service client",
       "background": "paper"
     },
     {
@@ -3781,7 +3781,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agents-ia",
       "route": "/services/agents-ia",
       "index": 0,
-      "label": "Des agents IA qui exécutent vos tâches. Sous votre contrôle.",
+      "label": "Agents IA pour votre entreprise",
       "background": "paper"
     },
     {
@@ -3790,7 +3790,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "applications-internes",
       "route": "/services/applications-internes",
       "index": 0,
-      "label": "Une application métier sur mesure.",
+      "label": "Application métier et logiciel sur mesure",
       "background": "paper"
     },
     {
@@ -3799,7 +3799,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
       "index": 0,
-      "label": "Automatisation n8n pour PME.",
+      "label": "Agence n8n pour PME",
       "background": "paper"
     },
     {
@@ -3808,7 +3808,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 0,
-      "label": "Automatisez vos processus métier. Fini la ressaisie entre six outils.",
+      "label": "Automatisation de vos processus métier",
       "background": "paper"
     },
     {
@@ -3826,7 +3826,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
       "index": 0,
-      "label": "Consultant IA pour PME.",
+      "label": "Consultant IA indépendant pour PME",
       "background": "paper"
     },
     {
@@ -3835,7 +3835,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
       "index": 0,
-      "label": "Un CRM avec lead scoring qui ne perd plus un lead.",
+      "label": "Automatisation de votre CRM",
       "background": "paper"
     },
     {
@@ -3853,7 +3853,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 0,
-      "label": "Intégration Claude en entreprise.",
+      "label": "Intégrer Claude dans votre entreprise",
       "background": "paper"
     },
     {
@@ -3907,7 +3907,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 0,
-      "label": "Prospection automatisée pour PME B2B.",
+      "label": "Prospection automatisée par l'IA",
       "background": "paper"
     },
     {
@@ -3961,7 +3961,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 0,
-      "label": "Le lead nurturing qui réveille vos prospects dormants.",
+      "label": "Devis automatisés et relances sans oubli",
       "background": "paper"
     },
     {
@@ -4006,7 +4006,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 0,
-      "label": "Automatisez votre entreprise avec l'IA, sans perdre le contrôle.",
+      "label": "Agence d'automatisation IA pour PME",
       "background": "paper"
     },
     {
@@ -4152,7 +4152,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 0,
-      "label": "Claude vs ChatGPT pour une PME.",
+      "label": "Claude vs ChatGPT pour une PME",
       "background": "paper"
     },
     {

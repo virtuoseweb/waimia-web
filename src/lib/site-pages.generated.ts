@@ -58,7 +58,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/agents-ia",
-    "title": "Agents IA pour PME · des agents autonomes qui exécutent",
+    "title": "Agents IA pour entreprise : conception et mise en production · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/agents-ia.json",
@@ -66,7 +66,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Des agents IA qui exécutent vos tâches. Sous votre contrôle.",
+        "label": "Agents IA pour votre entreprise",
         "background": "paper"
       },
       {
@@ -137,7 +137,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/agents-ia/agent-support-client",
-    "title": "Agent support client · chatbot IA service client pour PME",
+    "title": "Agence chatbot et agent IA de service client · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/agents-ia/agent-support-client.json",
@@ -145,7 +145,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Un agent de support client.",
+        "label": "Chatbot et agent IA pour votre service client",
         "background": "paper"
       },
       {
@@ -249,7 +249,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Une application métier sur mesure.",
+        "label": "Application métier et logiciel sur mesure",
         "background": "paper"
       },
       {
@@ -401,7 +401,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisations",
-    "title": "Automatisation des processus métier · workflows autonomes",
+    "title": "Automatisation des processus métier par l'IA · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisations.json",
@@ -409,7 +409,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Automatisez vos processus métier. Fini la ressaisie entre six outils.",
+        "label": "Automatisation de vos processus métier",
         "background": "paper"
       },
       {
@@ -488,7 +488,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Automatisation n8n pour PME.",
+        "label": "Agence n8n pour PME",
         "background": "paper"
       },
       {
@@ -584,7 +584,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/consultant-ia-claude",
-    "title": "Consultant IA pour PME · cadrage et feuille de route",
+    "title": "Consultant IA pour PME : conseil et mise en œuvre · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/consultant-ia-claude.json",
@@ -592,7 +592,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Consultant IA pour PME.",
+        "label": "Consultant IA indépendant pour PME",
         "background": "paper"
       },
       {
@@ -664,7 +664,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/crm-scoring-routing",
-    "title": "CRM pour PME et lead scoring · un pipeline sans fuite",
+    "title": "Automatisation CRM et CRM sur mesure pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/crm-scoring-routing.json",
@@ -672,7 +672,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Un CRM avec lead scoring qui ne perd plus un lead.",
+        "label": "Automatisation de votre CRM",
         "background": "paper"
       },
       {
@@ -923,7 +923,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/integration-claude",
-    "title": "Intégration Claude en entreprise · agents branchés via MCP",
+    "title": "Claude en entreprise : intégration et déploiement · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/integration-claude.json",
@@ -931,7 +931,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Intégration Claude en entreprise.",
+        "label": "Intégrer Claude dans votre entreprise",
         "background": "paper"
       },
       {
@@ -1248,7 +1248,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/prospection-automatisee",
-    "title": "Prospection automatisée B2B pour PME · RGPD et multicanal",
+    "title": "Prospection automatisée par l'IA pour PME B2B · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/prospection-automatisee.json",
@@ -1256,7 +1256,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Prospection automatisée pour PME B2B.",
+        "label": "Prospection automatisée par l'IA",
         "background": "paper"
       },
       {
@@ -1763,7 +1763,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/sequences-de-suivi",
-    "title": "Lead nurturing et relance automatisée des prospects B2B",
+    "title": "Devis automatisé et relances clients · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/sequences-de-suivi.json",
@@ -1771,7 +1771,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Le lead nurturing qui réveille vos prospects dormants.",
+        "label": "Devis automatisés et relances sans oubli",
         "background": "paper"
       },
       {
@@ -2438,7 +2438,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/systemes-operationnels-ia",
-    "title": "Système opérationnel IA pour PME · orchestrer et piloter",
+    "title": "Agence d'automatisation IA pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/systemes-operationnels-ia.json",
@@ -2446,7 +2446,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Automatisez votre entreprise avec l'IA, sans perdre le contrôle.",
+        "label": "Agence d'automatisation IA pour PME",
         "background": "paper"
       },
       {
@@ -3499,7 +3499,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-    "title": "Claude vs ChatGPT pour une PME : lequel choisir en 2026",
+    "title": "Claude vs ChatGPT : lequel choisir en entreprise · Waimia",
     "group": "ressources",
     "collection": "comparatifs",
     "file": "comparatifs/claude-vs-chatgpt-pme.json",
@@ -3507,7 +3507,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Claude vs ChatGPT pour une PME.",
+        "label": "Claude vs ChatGPT pour une PME",
         "background": "paper"
       },
       {

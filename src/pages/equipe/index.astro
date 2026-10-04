@@ -132,7 +132,7 @@ const ctaData = {
   h2_en: 'Ready to ship an <em>agent</em>,<br />not a slide deck?',
   body_fr: 'Audit IA en 5 jours. Premier agent en production en 4 semaines. ROI mesuré, jamais estimé.',
   body_en: 'AI audit in 5 days. First agent in production in 4 weeks. Measured ROI, never estimated.',
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact', variant: 'primary' as const },
+  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/audit-ia-pme', variant: 'primary' as const },
   cta_secondary: { label_fr: 'Voir les offres →', label_en: 'See services →', href: '/services', variant: 'ghost' as const },
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;
@@ -143,7 +143,7 @@ const teamBodyData = {
   kicker_en: '§ Studio',
   title_fr: 'Un studio solo, pas une agence anonyme',
   title_en: 'A solo studio, not an anonymous agency',
-  body_md_fr: `Waimia est le studio solo de **Simon Beros**, basé à Montpellier. Une seule
+  body_md_fr: `Waimia est le studio solo de **Simon Beros**, basé à Bordeaux. Une seule
 signature derrière chaque article, chaque cas et chaque guide publiés : pas de
 ghostwriting, pas d'account manager qui tourne, pas d'agence relai.
 
@@ -170,7 +170,7 @@ de productivité opérationnelle, pour PME et low-ETI.
 Il écrit en français, lit la documentation, livre du code et mesure le pipeline.
 Le détail de son profil, ses publications et son CV complet vivent sur sa
 [fiche auteur](/equipe/simon-beros).`,
-  body_md_en: `Waimia is the solo studio of **Simon Beros**, based in Montpellier. One signature
+  body_md_en: `Waimia is the solo studio of **Simon Beros**, based in Bordeaux. One signature
 behind every article, case and guide published: no ghostwriting, no rotating
 account manager, no relay agency.
 
@@ -204,7 +204,7 @@ const sections: SectionData[] = [mastheadData, gridData, teamBodyData, ctaData];
 
 <Base
   title="L'équipe Waimia · auteurs et contributeurs"
-  description="Les auteurs et contributeurs Waimia. Bios, CV, expertise, publications. Studio solo à Montpellier."
+  description="Les auteurs et contributeurs Waimia. Bios, CV, expertise, publications. Studio solo basé à Bordeaux."
   jsonLd={[breadcrumbLd, collectionPageLd]}
 >
   <SectionsRenderer sections={sections} lang="fr" />
