@@ -53,7 +53,8 @@ export interface EeatPack {
    * gagne un lien « voir tous » vers sa page d'index. Routes RÉELLES (vérifiées dans dist/client).
    */
   hubs: {
-    sectors: { label: string; href: string };
+    /** Absent depuis le retrait du hub /secteurs (301 vers /services) : pas de lien « tous ». */
+    sectors?: { label: string; href: string };
     articles: { label: string; href: string };
     services: { label: string; href: string };
     tools: { label: string; href: string };
@@ -62,8 +63,13 @@ export interface EeatPack {
   commitments: { label: string; detail: string }[];
   /** Note d'honnêteté à afficher près du bloc avis/preuves. */
   honestyNote: string;
-  /** Labels & certifications officiels (badges couleur, ex. France Num, Meta Business Partner). */
-  credentials?: { src: string; alt: string }[];
+  /**
+   * Labels & certifications officiels. `src` = badge officiel présent dans public/logos ; absent,
+   * le libellé `alt` est rendu en texte sobre (jamais de logo redessiné). `scope` précise
+   * l'activité concernée : Meta Business Partner et Google Partner relèvent de la publicité et
+   * de la visibilité, PAS de l'IA (aucun partenariat éditeur IA n'est revendiqué).
+   */
+  credentials?: { src?: string; alt: string; scope?: string }[];
 }
 
 /**
@@ -209,7 +215,6 @@ export const EEAT_PACK: EeatPack = {
     'seo-geo-contenu',
   ),
   hubs: {
-    sectors: { label: 'Tous les secteurs', href: '/secteurs' },
     articles: { label: 'Tous les articles', href: '/blog' },
     services: { label: 'Tous les services', href: '/services' },
     tools: { label: 'Tous les outils', href: '/ressources/outils' },
@@ -223,6 +228,10 @@ export const EEAT_PACK: EeatPack = {
   honestyNote: 'Studio solo · un ingénieur, cinq missions documentées.',
   credentials: [
     { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num' },
+    // Confirmés par Simon (2026-10) : références du volet publicité et visibilité.
+    { src: '/logos/badge-meta-business-partner.svg', alt: 'Meta Business Partner', scope: 'Publicité et visibilité' },
+    // Pas de badge officiel Google Partner dans le repo → libellé texte.
+    { alt: 'Google Partner', scope: 'Publicité et visibilité' },
   ],
 };
 

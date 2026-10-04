@@ -1617,8 +1617,8 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/secteurs",
-    "title": "Secteurs",
+    "route": "/secteurs/_index",
+    "title": "_index",
     "group": "secteurs",
     "collection": "bespoke",
     "editable": false,
@@ -3237,8 +3237,8 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/demonstrations",
-    "title": "Demonstrations",
+    "route": "/demonstrations/_index",
+    "title": "_index",
     "group": "autres",
     "collection": "bespoke",
     "editable": false,
@@ -3478,7 +3478,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "id": "secteurs",
     "label_fr": "Secteurs",
     "routes": [
-      "/secteurs",
+      "/secteurs/_index",
       "/secteurs/agence",
       "/secteurs/batiment",
       "/secteurs/comptabilite",
@@ -3597,7 +3597,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/_audit-site-web-intelligent",
       "/_expertise-claude",
       "/cgv",
-      "/demonstrations",
+      "/demonstrations/_index",
       "/equipe/_index",
       "/implantations",
       "/implantations/bordeaux",

@@ -75,6 +75,11 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   '/secteurs/services-b2b': '/services',
   '/secteurs/therapeutes': '/services',
   '/secteurs/liberal-independant': '/services',
+  // Hubs retirés (décision Simon 2026-10) : les trois pages secteur et la démonstration
+  // restantes restent publiées en noindex, sans page d'index. Pages statiques renommées
+  // `_index.astro` (src/pages/secteurs, src/pages/demonstrations) pour sortir du routing.
+  '/secteurs': '/services',
+  '/demonstrations': '/services',
 };
 
 /** Vrai si `pathname` est une page redirigée (donc ni générée, ni listée, ni liée). */

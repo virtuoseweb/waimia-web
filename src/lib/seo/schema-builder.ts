@@ -890,8 +890,8 @@ export function buildSchemaForPage(
         buildBreadcrumbList([
           { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
           {
-            name: lang === 'fr' ? 'Secteurs' : 'Sectors',
-            url: `${SITE_URL}/secteurs`,
+            name: 'Services',
+            url: `${SITE_URL}/services`,
           },
           { name: d.title_fr },
         ]),
