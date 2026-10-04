@@ -1,5 +1,5 @@
 // src/data/pain-points.ts — Référentiel UNIQUE des douleurs prospects (refonte R7a, docs/37 §2.1).
-// Consolidation de l'existant, 0 invention : chaque entrée provient des douleurs déjà écrites
+// Consolidation de l'existant, 0 invention, 0 statistique non sourcée (refonte contenus 2026-10) : chaque entrée provient des douleurs déjà écrites
 // dans src/content/pain-points/*.mdx (ids repris tels quels) ou des pains inline éparpillés
 // (solutions.pains, offres.problem_statement, secteurs.pains_fr, corps des cas), dédupliqués ici.
 // `sources` = chemins de contenu (collection/slug) où la douleur apparaît aujourd'hui.
@@ -43,9 +43,9 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Leads non qualifiés',
     label_en: 'Unqualified leads',
     description_fr:
-      "Les commerciaux passent 40 à 60 % de leur temps sur des leads tièdes ou hors ICP. Le taux de conversion stagne malgré les investissements en acquisition.",
+      "Les commerciaux passent une part importante de leur temps sur des leads tièdes ou hors cible. Le taux de conversion stagne malgré les investissements en acquisition.",
     description_en:
-      'Sales reps spend 40 to 60% of their time on lukewarm or off-ICP leads. Conversion rates stagnate despite acquisition investment.',
+      'Sales reps spend a large share of their time on lukewarm or off-target leads. Conversion rates stagnate despite acquisition investment.',
     sources: [
       'pain-points/leads-non-qualifies',
       'solutions/agent-marketing-commercial',
@@ -71,9 +71,9 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Landing pages qui ne convertissent pas',
     label_en: 'Low-converting landing pages',
     description_fr:
-      "Le site génère du trafic mais convertit sous les 2 % : l'expérience de page ne répond pas aux objections réelles et le coût d'acquisition explose.",
+      "Le site génère du trafic mais convertit peu : l'expérience de page ne répond pas aux objections réelles et le coût d'acquisition explose.",
     description_en:
-      'The site generates traffic but converts below 2%: the page experience does not address real objections and acquisition cost skyrockets.',
+      'The site generates traffic but converts poorly: the page experience does not address real objections and acquisition cost skyrockets.',
     sources: [
       'pain-points/landing-pages-low-convert',
       'solutions/tunnel-de-vente',
@@ -155,9 +155,9 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Tâches répétitives qui dévorent le temps',
     label_en: 'Repetitive tasks devouring time',
     description_fr:
-      "40 % du temps des équipes part en formules, copier-coller, devis et documents faits à la main, au détriment de l'analyse et de la décision.",
+      "Une part importante du temps des équipes part en formules, copier-coller, devis et documents faits à la main, au détriment de l'analyse et de la décision.",
     description_en:
-      'Teams lose 40% of their time to formulas, copy-paste, hand-made quotes and documents, at the expense of analysis and decision-making.',
+      'Teams lose a large share of their time to formulas, copy-paste, hand-made quotes and documents, at the expense of analysis and decision-making.',
     sources: [
       'pain-points/taches-repetitives-quotidiennes',
     ],
@@ -167,9 +167,9 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Onboarding collaborateur trop lent',
     label_en: 'Slow employee onboarding',
     description_fr:
-      "Intégrer un collaborateur prend six semaines de productivité partielle : les procédures sont éparpillées dans des emails, des drives et des têtes.",
+      "Intégrer un collaborateur prend des semaines de productivité partielle : les procédures sont éparpillées dans des emails, des drives et des têtes.",
     description_en:
-      "Onboarding a new hire takes six weeks of partial productivity: procedures are scattered across emails, drives, and people's heads.",
+      "Onboarding a new hire takes weeks of partial productivity: procedures are scattered across emails, drives, and people's heads.",
     sources: ['pain-points/onboarding-collaborateurs-lent'],
   },
   {
@@ -197,9 +197,9 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Pilotes IA qui ne passent jamais en production',
     label_en: 'AI pilots that never reach production',
     description_fr:
-      "Des pilotes IA partout, aucun en production : chaque équipe réinvente la roue, la donnée ne circule pas, et personne n'a le mandat pour un projet de 6 mois.",
+      "Des pilotes IA partout, aucun en production : chaque équipe réinvente la roue, la donnée ne circule pas, et personne n'a le mandat pour mener le projet.",
     description_en:
-      'AI pilots everywhere, none in production: every team reinvents the wheel, data does not flow, and nobody has the mandate for a 6-month project.',
+      'AI pilots everywhere, none in production: every team reinvents the wheel, data does not flow, and nobody has the mandate to run the project.',
     sources: ['pain-points/pilotes-ia-sans-production'],
   },
   {
@@ -229,9 +229,9 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Gouvernance RGPD des données IA floue',
     label_en: 'Unclear GDPR governance of AI data',
     description_fr:
-      "Les agents IA accèdent aux données clients sans politique de rétention ni base légale documentée : un contrôle CNIL serait intenable sous 72 heures.",
+      "Les agents IA accèdent aux données clients sans politique de rétention ni base légale documentée : répondre à un contrôle de la CNIL serait difficile.",
     description_en:
-      'AI agents access client data without retention policy or documented legal basis: a CNIL audit could not be answered within 72 hours.',
+      'AI agents access client data without retention policy or documented legal basis: answering a CNIL audit would be difficult.',
     sources: ['pain-points/donnees-clients-rgpd-flou'],
   },
   {

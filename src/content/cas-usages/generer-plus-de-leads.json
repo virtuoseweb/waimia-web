@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/cas-usages.page.schema.json",
-  "title_fr": "Générer plus de leads · transformer son site en machine à qualifier",
-  "title_en": "Generate more leads · turn your site into a qualifying machine",
-  "description_fr": "Votre site attire du trafic mais ne convertit pas ? On le transforme en machine à qualifier : scoring, formulaires courts et capture CRM.",
-  "description_en": "Your site draws traffic but doesn't convert? We turn it into a qualifying machine: scoring, short forms and CRM-connected capture.",
+  "title_fr": "Automatiser le suivi commercial d'une PME · Waimia",
+  "title_en": "Automating an SMB's sales follow-up · Waimia",
+  "description_fr": "Automatiser le suivi commercial : aucune demande perdue, chaque lead noté et affecté, chaque devis relancé. Exemple type, outils et limites pour une PME.",
+  "description_en": "Automating sales follow-up: no request lost, every lead scored and assigned, every quote chased. Typical example, tools and limits for an SMB.",
   "slug": "generer-plus-de-leads",
   "publishedAt": "2026-06-26T00:00:00.000Z",
-  "updatedAt": "2026-06-26T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "generer-leads",
@@ -20,62 +20,46 @@
   },
   "faq_fr": [
     {
-      "q": "Pourquoi mon site attire du trafic sans générer de leads ?",
-      "a": "Le plus souvent, trois fuites se cumulent : un formulaire trop long qui décourage, aucun parcours qui guide le visiteur vers l'action, et personne qui rappelle assez vite. Un formulaire de trois champs convertit deux à trois fois mieux qu'un formulaire de sept. Et un lead rappelé dans les cinq minutes a beaucoup plus de chances d'aboutir qu'un lead rappelé le lendemain. On corrige la chaîne entière, pas un seul maillon."
+      "q": "Comment ne plus perdre de demandes entrantes ?",
+      "a": "En supprimant les étapes manuelles entre la demande et le CRM : chaque formulaire, email ou appel crée une fiche avec sa source, attribuée à une personne avec une tâche datée. Ce qui n'est pas dans le CRM n'existe pas."
     },
     {
-      "q": "C'est quoi le scoring d'un visiteur, concrètement ?",
-      "a": "Chaque visite reçoit une note calculée sur des signaux réels : pages vues, temps passé, source d'arrivée, récurrence. Un visiteur qui lit la page tarifs, revient deux fois et vient d'une requête à intention d'achat n'a pas la même valeur qu'un clic de passage. Seuls les leads au-dessus d'un seuil de qualification remontent au commercial. Le reste entre dans une séquence plus douce. Votre temps va sur les contacts prêts à parler."
+      "q": "Faut-il plus de leads ou un meilleur suivi ?",
+      "a": "Un meilleur suivi d'abord, presque toujours. Tant que des demandes restent sans réponse et des devis sans relance, en ajouter augmente surtout les pertes."
     },
     {
-      "q": "Vous garantissez un nombre de leads par mois ?",
-      "a": "Non, et personne d'honnête ne le peut sans connaître votre marché, votre offre et votre trafic. Ce qu'on garantit, c'est un système qui capte mieux ce qui arrive déjà : formulaires courts, parcours clair, scoring et capture branchés au CRM. On mesure l'avant et l'après sur vos propres chiffres. Le volume dépend de votre acquisition, qu'on cadre au diagnostic."
+      "q": "Quel CRM pour automatiser le suivi commercial ?",
+      "a": "Celui que vous avez, s'il a une API : HubSpot, Pipedrive et Salesforce conviennent. Changer d'outil ne règle pas un problème de saisie ou de règles."
     },
     {
-      "q": "Faut-il refaire tout le site pour mieux convertir ?",
-      "a": "Pas forcément. Si le site tient debout, on instrumente l'existant : on ajoute les landing pages par cible, le scoring, les formulaires branchés au CRM et le suivi. On ne casse pas ce qui marche. Si le site est obsolète ou absent, la création est intégrée au projet et chiffrée au cadrage."
+      "q": "L'IA peut-elle répondre aux prospects à notre place ?",
+      "a": "Elle peut préparer la réponse et, sur des demandes simples et répétitives, l'envoyer si vous l'avez décidé. Pour un devis ou une négociation, elle prépare ; le commercial valide et envoie."
     },
     {
-      "q": "Mes formulaires sont-ils vraiment branchés à mon CRM ?",
-      "a": "Oui, c'est le cœur du dispositif. Chaque formulaire crée et met à jour une fiche dans votre CRM sans recopie manuelle, avec le contexte de la conversion : pages visitées, contenu consulté, score et source. Un contact qui revient est reconnu. Aucun lead ne tombe dans un fichier oublié ou une boîte mail."
-    },
-    {
-      "q": "Combien de temps avant de voir des résultats ?",
-      "a": "Les briques de conversion, landing pages, scoring et capture, produisent un effet dès les premières semaines, parce qu'elles agissent sur le trafic que vous avez déjà. Le SEO et le contenu, eux, sont à effet différé : ils construisent l'autorité sur plusieurs mois. On pose des attentes réalistes avant de signer, sans promesse magique."
-    },
-    {
-      "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-      "a": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition."
+      "q": "Combien de temps pour mettre en place ce suivi ?",
+      "a": "Habituellement 2 à 4 semaines pour la capture, la notation et l'affectation ; autant pour les devis et les relances. On commence par le maillon où vous perdez le plus."
     }
   ],
   "faq_en": [
     {
-      "q": "Why does my site draw traffic without generating leads?",
-      "a": "Most often three leaks add up: a form too long that discourages, no path guiding the visitor toward the action, and no one calling back fast enough. A three-field form converts two to three times better than a seven-field one. And a lead called back within five minutes is far more likely to close than one called back the next day. We fix the whole chain, not a single link."
+      "q": "How do you stop losing incoming requests?",
+      "a": "By removing manual steps between the request and the CRM: every form, email or call creates a record with its source, assigned to a person with a dated task. What is not in the CRM does not exist."
     },
     {
-      "q": "What is visitor scoring, concretely?",
-      "a": "Each visit gets a score computed on real signals: pages viewed, time spent, arrival source, recurrence. A visitor who reads the pricing page, returns twice and comes from a purchase-intent query isn't worth the same as a passing click. Only leads above a qualification threshold reach sales. The rest enter a softer sequence. Your time goes to contacts ready to talk."
+      "q": "Do you need more leads or better follow-up?",
+      "a": "Better follow-up first, almost always. As long as requests go unanswered and quotes unchased, adding more mostly increases the losses."
     },
     {
-      "q": "Do you guarantee a number of leads per month?",
-      "a": "No, and no honest provider can without knowing your market, your offer and your traffic. What we guarantee is a system that captures what already arrives better: short forms, a clear path, scoring and capture wired to the CRM. We measure before and after on your own figures. Volume depends on your acquisition, which we frame at the diagnostic."
+      "q": "Which CRM for automating sales follow-up?",
+      "a": "The one you have, if it has an API: HubSpot, Pipedrive and Salesforce all work. Switching tools does not fix a data-entry or rules problem."
     },
     {
-      "q": "Do we need to rebuild the whole site to convert better?",
-      "a": "Not necessarily. If the site holds up, we instrument what exists: we add landing pages per target, scoring, CRM-connected forms and tracking. We don't break what works. If the site is dated or absent, the build is integrated into the project and costed at scoping."
+      "q": "Can AI reply to prospects for us?",
+      "a": "It can prepare the reply and, on simple repetitive requests, send it if you have decided so. For a quote or a negotiation, it prepares; the salesperson approves and sends."
     },
     {
-      "q": "Are my forms really wired to my CRM?",
-      "a": "Yes, that's the heart of the setup. Each form creates and updates a record in your CRM with no manual retyping, with the conversion context: pages visited, content viewed, score and source. A returning contact is recognised. No lead falls into a forgotten file or a mailbox."
-    },
-    {
-      "q": "How long before we see results?",
-      "a": "The conversion blocks, landing pages, scoring and capture, have an effect from the first weeks, because they act on the traffic you already have. SEO and content are delayed-effect: they build authority over several months. We set realistic expectations before signing, with no magic promise."
-    },
-    {
-      "q": "Where are you based, and do we need to be in Bordeaux?",
-      "a": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+      "q": "How long does it take to set up this follow-up?",
+      "a": "Usually 2 to 4 weeks for capture, scoring and assignment; as much again for quotes and follow-ups. We start with the link where you lose the most."
     }
   ],
   "sections": [
@@ -85,292 +69,101 @@
       "media_src": "/images/illustrations/ds/money-money-paper.webp",
       "media_alt_fr": "Illustration : le trafic capté et qualifié se transforme en leads qui rapportent",
       "media_alt_en": "Illustration: traffic captured and qualified turning into leads that pay off",
-      "kicker_fr": "§ Résoudre un problème",
-      "kicker_en": "§ Solve a problem",
-      "h1_fr": "Générer plus de <i class=\"acc\">leads</i>.",
-      "h1_en": "Generate more <i class=\"acc\">leads</i>.",
-      "definition_kicker_fr": "Le problème",
-      "definition_kicker_en": "The problem",
-      "lede_fr": "Votre site reçoit des visites mais le téléphone ne sonne pas. Le trafic arrive, regarde, et repart sans laisser de trace. Le vrai sujet n'est pas d'attirer plus, c'est de <i>capter et qualifier</i> ce qui arrive déjà : formulaires courts, parcours clair, scoring et capture branchés à votre CRM.",
-      "lede_en": "Your site gets visits but the phone stays silent. Traffic arrives, looks, and leaves without a trace. The real issue isn't attracting more, it's <i>capturing and qualifying</i> what already arrives: short forms, a clear path, scoring and capture wired to your CRM.",
+      "kicker_fr": "§ Cas d'usage · fonction commerciale",
+      "kicker_en": "§ Use case · sales function",
+      "h1_fr": "Automatiser le <i class=\"acc\">suivi commercial</i>",
+      "h1_en": "Automating <i class=\"acc\">sales follow-up</i>",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Automatiser le suivi commercial, c'est s'assurer qu'une demande entrante devient une fiche dans le CRM, qu'elle est attribuée à quelqu'un le jour même et que le devis qui suit est relancé. Ce cas d'usage concerne les PME qui ont des demandes mais en perdent une partie entre le site, les boîtes mail et l'agenda des commerciaux.",
+      "lede_en": "Automating sales follow-up means making sure an incoming request becomes a CRM record, is assigned to someone the same day and that the quote that follows is chased. This use case concerns SMBs that get requests but lose some between the site, mailboxes and salespeople's calendars.",
       "badges": [
         {
-          "label_fr": "Scoring comportemental · 4 signaux",
-          "label_en": "Behavioural scoring · 4 signals"
+          "label_fr": "Demandes entrantes",
+          "label_en": "Incoming requests"
         },
         {
-          "label_fr": "Formulaires branchés au CRM",
-          "label_en": "Forms wired to the CRM"
+          "label_fr": "CRM à jour",
+          "label_en": "Up-to-date CRM"
         },
         {
-          "label_fr": "Mesuré sur vos propres données",
-          "label_en": "Measured on your own data"
+          "label_fr": "Devis relancés",
+          "label_en": "Quotes chased"
         }
       ],
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?intent=leads",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Comment on le résout",
-        "label_en": "How we solve it",
-        "href": "#methode",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       }
     },
     {
-      "type": "feature-zigzag",
+      "type": "editorial-prose",
       "background": "paper-2",
-      "layout": "alternate",
-      "mediaSide": "left",
-      "kicker_fr": "§ Le problème",
-      "kicker_en": "§ The problem",
-      "h2_fr": "Là où les leads fuient",
-      "h2_en": "Where leads leak",
-      "rows": [
-        {
-          "kicker_fr": "01 · Formulaire qui décourage",
-          "kicker_en": "01 · Form that discourages",
-          "h3_fr": "Trop de champs, trop d'effort",
-          "h3_en": "Too many fields, too much effort",
-          "body_fr": "Le formulaire demande nom, prénom, société, fonction, téléphone, budget et message. Chaque champ en trop fait partir une part des visiteurs. Le prospect qui hésitait abandonne avant d'envoyer, et vous ne saurez jamais qu'il était venu.",
-          "body_en": "The form asks for first name, last name, company, role, phone, budget and message. Every extra field sends a share of visitors away. The prospect who hesitated gives up before sending, and you'll never know they came.",
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Un formulaire trop long qui décourage l'envoi",
-          "media_alt_en": "A form too long that discourages submission"
-        },
-        {
-          "kicker_fr": "02 · Aucune qualification",
-          "kicker_en": "02 · No qualification",
-          "h3_fr": "Tous les contacts dans le même sac",
-          "h3_en": "Every contact in the same bucket",
-          "body_fr": "Un curieux et un acheteur prêt à signer arrivent au même endroit, sans distinction. Le commercial traite tout à la main, dans l'ordre d'arrivée, et perd un temps considérable à trier des contacts qui ne sont pas mûrs.",
-          "body_en": "A browser and a buyer ready to sign land in the same place, with no distinction. Sales handle everything by hand, in order of arrival, and lose considerable time sorting contacts that aren't ripe.",
-          "media_src": "/images/illustrations/ds/fruits-paper.webp",
-          "media_alt_fr": "Des contacts non triés mélangés sans priorité",
-          "media_alt_en": "Unsorted contacts mixed with no priority"
-        },
-        {
-          "kicker_fr": "03 · Rappel trop tardif",
-          "kicker_en": "03 · Callback too late",
-          "h3_fr": "Le lead refroidit avant le contact",
-          "h3_en": "The lead cools before contact",
-          "body_fr": "Le formulaire arrive dans une boîte mail, lue le lendemain, traitée la semaine suivante. Or un lead rappelé dans les cinq minutes a bien plus de chances d'aboutir qu'un lead rappelé une heure après. Le délai mange vos meilleures opportunités.",
-          "body_en": "The form lands in a mailbox, read the next day, handled the following week. Yet a lead called back within five minutes is far more likely to close than one called back an hour later. Delay eats your best opportunities.",
-          "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
-          "media_alt_fr": "Un lead qui refroidit faute de rappel rapide",
-          "media_alt_en": "A lead cooling for lack of a quick callback"
-        }
-      ]
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "methode",
-      "background": "paper",
-      "layout": "alternate",
-      "mediaSide": "right",
-      "kicker_fr": "§ Comment on le résout",
-      "kicker_en": "§ How we solve it",
-      "h2_fr": "Une chaîne de conversion <i>sans fuite</i>",
-      "h2_en": "A conversion chain <i>with no leak</i>",
-      "lede_fr": "On reprend le parcours de bout en bout : capter avec un formulaire court, qualifier chaque visite par le scoring, router vers la bonne suite et brancher la capture au CRM. Chaque brique bouche une fuite identifiée.",
-      "lede_en": "We rework the path end to end: capture with a short form, qualify each visit through scoring, route to the right follow-up and wire capture to the CRM. Each block plugs an identified leak.",
-      "rows": [
-        {
-          "kicker_fr": "Capter",
-          "kicker_en": "Capture",
-          "h3_fr": "Formulaires courts et parcours clair",
-          "h3_en": "Short forms and a clear path",
-          "body_fr": "On réduit les formulaires à l'essentiel et on collecte le reste progressivement. Des landing pages par cible et un lead magnet ou un quiz guident chaque visiteur vers l'action qui lui correspond, au lieu de le laisser chercher seul.",
-          "body_en": "We cut forms to the essentials and collect the rest progressively. Landing pages per target and a lead magnet or quiz guide each visitor toward the matching action, instead of leaving them to search alone.",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Un parcours clair qui capte le visiteur au lieu de le laisser partir",
-          "media_alt_en": "A clear path that captures the visitor instead of letting them leave",
-          "points": [
-            {
-              "label_fr": "Formulaire court, réassurance visible",
-              "label_en": "Short form, visible reassurance"
-            },
-            {
-              "label_fr": "Landing pages par cible",
-              "label_en": "Landing pages per target"
-            },
-            {
-              "label_fr": "Lead magnet ou quiz de routing",
-              "label_en": "Lead magnet or routing quiz"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Qualifier",
-          "kicker_en": "Qualify",
-          "h3_fr": "Scoring comportemental en temps réel",
-          "h3_en": "Behavioural scoring in real time",
-          "body_fr": "Chaque visiteur est noté sur quatre signaux : pages visitées, temps passé, source d'arrivée et récurrence. Seuls les leads au-dessus du seuil remontent au commercial. Les autres entrent dans une séquence plus douce, sans mobiliser votre temps.",
-          "body_en": "Every visitor is scored on four signals: pages visited, time spent, arrival source and recurrence. Only leads above the threshold reach sales. The others enter a softer sequence, without using your time.",
-          "media_src": "/images/illustrations/ds/style-10-paper.webp",
-          "media_alt_fr": "Chaque visite notée sur des signaux réels pour qualifier les leads",
-          "media_alt_en": "Each visit scored on real signals to qualify leads",
-          "points": [
-            {
-              "label_fr": "Score sur 4 signaux réels",
-              "label_en": "Score on 4 real signals"
-            },
-            {
-              "label_fr": "Seuil de qualification réglable",
-              "label_en": "Adjustable qualification threshold"
-            },
-            {
-              "label_fr": "Le bon lead au bon moment",
-              "label_en": "The right lead at the right time"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Router",
-          "kicker_en": "Route",
-          "h3_fr": "Capture branchée au CRM",
-          "h3_en": "Capture wired to the CRM",
-          "body_fr": "Le formulaire crée et met à jour la fiche dans votre CRM, sans recopie, avec le contexte de la conversion : pages vues, score, source. Le commercial reçoit un lead déjà contextualisé, pas un nom seul dans une boîte mail.",
-          "body_en": "The form creates and updates the record in your CRM, with no retyping, with the conversion context: pages viewed, score, source. Sales receive an already-contextualised lead, not a bare name in a mailbox.",
-          "media_src": "/images/illustrations/ds/money-in-the-pig-paper.webp",
-          "media_alt_fr": "Le lead qualifié routé proprement dans le CRM, prêt à convertir",
-          "media_alt_en": "The qualified lead routed cleanly into the CRM, ready to convert",
-          "points": [
-            {
-              "label_fr": "Fiche créée et enrichie sans recopie",
-              "label_en": "Record created and enriched without retyping"
-            },
-            {
-              "label_fr": "Contexte complet de la conversion",
-              "label_en": "Full conversion context"
-            },
-            {
-              "label_fr": "Aucun lead perdu",
-              "label_en": "No lead lost"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Mesurer",
-          "kicker_en": "Measure",
-          "h3_fr": "Attribution et suivi",
-          "h3_en": "Attribution and tracking",
-          "body_fr": "Un tableau de pilotage relie chaque lead à la page ou à la campagne qui l'a généré. Vous savez enfin ce qui convertit, par cible et par canal, et vous arbitrez sur des chiffres au lieu d'une impression.",
-          "body_en": "A management dashboard links each lead to the page or campaign that generated it. You finally know what converts, by target and by channel, and you decide on figures instead of a hunch.",
-          "media_src": "/images/illustrations/ds/pretty-woman-paper.webp",
-          "media_alt_fr": "Un tableau de pilotage qui relie chaque lead à sa source",
-          "media_alt_en": "A management dashboard linking each lead to its source",
-          "points": [
-            {
-              "label_fr": "Attribution multi-touch des leads",
-              "label_en": "Multi-touch lead attribution"
-            },
-            {
-              "label_fr": "Taux de conversion par cible",
-              "label_en": "Conversion rate per target"
-            },
-            {
-              "label_fr": "Décision sur des chiffres",
-              "label_en": "Decision on figures"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "bento-grid",
-      "background": "ink",
-      "kicker_fr": "§ Ce que Waimia met en place",
-      "kicker_en": "§ What Waimia sets up",
-      "h2_fr": "Les briques qui captent vos leads",
-      "h2_en": "The blocks that capture your leads",
-      "cells": [
-        {
-          "glyph": "◆",
-          "title_fr": "Landing page et scoring",
-          "title_en": "Landing page and scoring",
-          "body_fr": "La brique conversion dédiée : landing pages par persona et scoring comportemental branché au CRM. C'est le cœur du dispositif de capture, détaillé sur sa page service.",
-          "body_en": "The dedicated conversion block: landing pages per persona and behavioural scoring wired to the CRM. It's the heart of the capture setup, detailed on its service page.",
-          "span": "lg"
-        },
-        {
-          "glyph": "⇄",
-          "title_fr": "Site web intelligent",
-          "title_en": "Intelligent website",
-          "body_fr": "Le système complet quand la capture s'inscrit dans un site instrumenté de bout en bout : SEO, données branchées, pilotage temps réel. La conversion devient un rouage de la plateforme.",
-          "body_en": "The full system when capture fits into an end-to-end instrumented site: SEO, wired data, real-time management. Conversion becomes a cog of the platform.",
-          "span": "wide"
-        },
-        {
-          "glyph": "▣",
-          "title_fr": "Audit IA pour PME",
-          "title_en": "AI audit for SMBs",
-          "body_fr": "Le point d'entrée si vous voulez d'abord savoir où sont vos fuites. On cartographie le parcours, on chiffre le potentiel, on priorise. Sans engagement de chantier.",
-          "body_en": "The entry point if you first want to know where your leaks are. We map the path, size the potential, prioritise. With no project commitment.",
-          "span": "sm"
-        },
-        {
-          "glyph": "↺",
-          "title_fr": "Content marketing",
-          "title_en": "Content marketing",
-          "body_fr": "Pour alimenter le haut du parcours : des articles qui attirent un trafic qualifié et nourrissent la chaîne de conversion sur la durée.",
-          "body_en": "To feed the top of the path: articles that draw qualified traffic and feed the conversion chain over time.",
-          "span": "sm"
-        }
-      ]
+      "maxWidth": "prose",
+      "html_fr": "<h2>Où les demandes se perdent</h2>\n<p>Rarement faute de demandes. Le plus souvent, elles arrivent par trois canaux, sont notées à des endroits différents et traitées dans l'ordre où quelqu'un y pense. Un formulaire envoie un email à une adresse générique. Un appel est noté sur un carnet. Un devis part, et personne ne sait trois semaines plus tard s'il a été relancé. Avant de chercher plus de demandes, il faut traiter correctement celles qui existent.</p>\n<h2>La chaîne à mettre en place</h2>\n<p>Trois maillons. La capture : chaque demande, quel que soit le canal, crée une fiche dans le CRM avec sa source. La qualification et l'affectation : un score classe la demande et une règle l'attribue à un commercial avec une tâche datée, comme décrit sur la page <a href=\"/services/crm-scoring-routing\">automatisation CRM</a>. Le suivi : devis pré-rempli, relances déclenchées à date, voir <a href=\"/services/sequences-de-suivi\">devis automatisé et relances</a>.</p>\n<p>Si le volume de demandes est réellement insuffisant, la <a href=\"/services/prospection-automatisee\">prospection automatisée</a> alimente la chaîne en amont. L'ensemble est présenté sur la page <a href=\"/services/systeme-commercial\">système commercial</a>.</p>\n<h2>Ce que l'IA apporte, précisément</h2>\n<p>Elle lit une demande rédigée librement et en extrait le besoin, l'échéance et le budget quand ils sont mentionnés. Elle résume l'historique d'un compte avant un appel. Elle rédige un brouillon de relance dans votre ton. Elle ne décide ni du prix, ni de la priorité commerciale, ni de l'envoi.</p>\n<h2>Les limites</h2>\n<p>Un CRM que les commerciaux ne remplissent pas ne sera pas sauvé par l'automatisation : il faut d'abord réduire la saisie au minimum. Un cycle de vente fondé sur la relation directe et quelques comptes n'a pas besoin de cette mécanique. Et l'automatisation ne corrige pas une offre mal définie.</p>\n<p>Le projet <a href=\"/cas-clients/amploi\">Amploi</a> illustre le premier maillon : les demandes du site sont captées et routées dans HubSpot sans ressaisie. Pour suivre le trajet d'une demande chez vous, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Where requests get lost</h2>\n<p>Rarely for lack of requests. Most often they come through three channels, are noted in different places and handled in the order someone thinks of them. A form sends an email to a generic address. A call is noted in a notebook. A quote goes out, and three weeks later nobody knows whether it was chased. Before looking for more requests, handle the existing ones properly.</p>\n<h2>The chain to set up</h2>\n<p>Three links. Capture: every request, whatever the channel, creates a CRM record with its source. Qualification and assignment: a score ranks the request and a rule gives it to a salesperson with a dated task, as described on the <a href=\"/services/crm-scoring-routing\">CRM automation</a> page. Follow-up: pre-filled quote, reminders on schedule, see <a href=\"/services/sequences-de-suivi\">automated quotes and follow-ups</a>.</p>\n<p>If request volume is truly insufficient, <a href=\"/services/prospection-automatisee\">automated prospecting</a> feeds the chain upstream. The whole is presented on the <a href=\"/services/systeme-commercial\">sales system</a> page.</p>\n<h2>What AI brings, precisely</h2>\n<p>It reads a freely worded request and extracts the need, timing and budget when mentioned. It summarises an account's history before a call. It drafts a follow-up in your tone. It decides neither price, nor sales priority, nor sending.</p>\n<h2>The limits</h2>\n<p>A CRM salespeople do not fill in will not be saved by automation: first cut data entry to the minimum. A sales cycle built on direct relationships and a few accounts does not need this machinery. And automation does not fix a poorly defined offer.</p>\n<p>The <a href=\"/cas-clients/amploi\">Amploi</a> project illustrates the first link: site requests are captured and routed into HubSpot with no retyping. To follow a request's path in your company, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Avant / après",
-      "kicker_en": "§ Before / after",
-      "h2_fr": "Du trafic perdu au lead qualifié",
-      "h2_en": "From lost traffic to a qualified lead",
-      "without_label_fr": "Sans",
-      "without_label_en": "Without",
-      "without_title_fr": "Site qui subit le trafic",
-      "without_title_en": "Site that endures traffic",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : une PME de services aux entreprises",
+      "h2_en": "Typical example: a business services SMB",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Trois canaux, aucun suivi commun",
+      "without_title_en": "Three channels, no shared tracking",
       "without_items": [
         {
-          "text_fr": "Le visiteur arrive, hésite devant un long formulaire, et repart sans laisser de trace.",
-          "text_en": "The visitor arrives, hesitates at a long form, and leaves without a trace."
+          "text_fr": "Le formulaire du site envoie un email à contact@.",
+          "text_en": "The site form sends an email to contact@."
         },
         {
-          "text_fr": "Tous les contacts arrivent en vrac, sans priorité ni contexte.",
-          "text_en": "All contacts arrive in bulk, with no priority or context."
+          "text_fr": "Les appels sont notés par la personne qui décroche.",
+          "text_en": "Calls are noted by whoever picks up."
         },
         {
-          "text_fr": "Le lead refroidit dans une boîte mail avant le premier rappel.",
-          "text_en": "The lead cools in a mailbox before the first callback."
+          "text_fr": "Chaque commercial tient sa propre liste de devis en cours.",
+          "text_en": "Each salesperson keeps their own list of open quotes."
         },
         {
-          "text_fr": "Vous ne savez pas quelle page ou quel canal génère vraiment du pipeline.",
-          "text_en": "You don't know which page or channel really generates pipeline."
+          "text_fr": "Le dirigeant découvre les affaires perdues en fin de mois.",
+          "text_en": "The owner finds out about lost deals at month end."
         }
       ],
-      "with_label_fr": "Avec",
-      "with_label_en": "With",
-      "with_title_fr": "Site qui qualifie",
-      "with_title_en": "Site that qualifies",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Une fiche par demande, une action datée",
+      "with_title_en": "One record per request, one dated action",
       "with_items": [
         {
-          "text_fr": "Un formulaire court et un parcours clair captent ce qui serait parti.",
-          "text_en": "A short form and a clear path capture what would have left."
+          "text_fr": "Formulaire, email et appel créent une fiche dans le CRM.",
+          "text_en": "Form, email and call create a CRM record."
         },
         {
-          "text_fr": "Le scoring fait remonter les leads chauds en haut de la pile.",
-          "text_en": "Scoring brings hot leads to the top of the pile."
+          "text_fr": "La demande est résumée, notée et affectée le jour même.",
+          "text_en": "The request is summarised, scored and assigned the same day."
         },
         {
-          "text_fr": "Le commercial reçoit un lead contextualisé, prêt à être rappelé vite.",
-          "text_en": "Sales receive a contextualised lead, ready to be called back quickly."
+          "text_fr": "Le devis est préparé à partir de la fiche, validé par le commercial.",
+          "text_en": "The quote is prepared from the record, approved by the salesperson."
         },
         {
-          "text_fr": "L'attribution dit exactement ce qui convertit, par cible et par canal.",
-          "text_en": "Attribution tells exactly what converts, by target and by channel."
+          "text_fr": "Une relance est proposée à J+5 sans réponse.",
+          "text_en": "A follow-up is proposed at day 5 with no reply."
+        },
+        {
+          "text_fr": "Le dirigeant voit les affaires en cours et celles qui stagnent.",
+          "text_en": "The owner sees open deals and those stalling."
         }
       ]
     },
@@ -379,35 +172,44 @@
       "background": "paper",
       "authorId": "simon-beros",
       "name": "Simon Beros",
-      "role_fr": "Fondateur · architecte de sites instrumentés pour PME",
-      "role_en": "Founder · architect of instrumented sites for SMBs",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "26 juin 2026",
-      "updatedDate": "26 juin 2026"
+      "updatedDate": "4 octobre 2026"
     },
     {
       "type": "related-cards-band",
       "background": "paper-2",
-      "kicker_fr": "§ Un cas réel",
-      "kicker_en": "§ A real case",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
       "cards": [
         {
-          "kicker_fr": "Cas client · RH et santé au travail",
-          "kicker_en": "Client case · HR and occupational health",
-          "title_fr": "Amploi",
-          "title_en": "Amploi",
-          "lead_fr": "Les demandes entrantes captées proprement et routées automatiquement dans le CRM HubSpot, sans ressaisie : le commercial reçoit une fiche contextualisée plutôt qu'un nom seul dans une boîte mail.",
-          "lead_en": "Inbound requests captured cleanly and routed automatically into the HubSpot CRM, no re-entry: sales get a contextualised record rather than a bare name in an inbox.",
-          "href": "/cas-clients/amploi"
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Automatisation CRM",
+          "title_en": "CRM automation",
+          "lead_fr": "Fiches sans ressaisie, notation et affectation des leads.",
+          "lead_en": "Records with no retyping, lead scoring and assignment.",
+          "href": "/services/crm-scoring-routing"
         },
         {
-          "kicker_fr": "Tous les cas",
-          "kicker_en": "All cases",
-          "title_fr": "Cas clients",
-          "title_en": "Client cases",
-          "lead_fr": "Les projets réels que nous avons livrés, résultats à l'appui.",
-          "lead_en": "The real projects we have delivered, results to back them.",
-          "href": "/cas-clients"
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Devis automatisé et relances",
+          "title_en": "Automated quotes and follow-ups",
+          "lead_fr": "Devis pré-rempli, relances à date, validation avant envoi.",
+          "lead_en": "Pre-filled quote, scheduled follow-ups, approval before sending.",
+          "href": "/services/sequences-de-suivi"
+        },
+        {
+          "kicker_fr": "Cas client",
+          "kicker_en": "Client case",
+          "title_fr": "Amploi",
+          "title_en": "Amploi",
+          "lead_fr": "Les demandes du site captées et routées dans HubSpot.",
+          "lead_en": "Site requests captured and routed into HubSpot.",
+          "href": "/cas-clients/amploi"
         }
       ]
     },
@@ -415,51 +217,39 @@
       "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Automatiser le suivi commercial : vos questions",
+      "h2_en": "Automating sales follow-up: your questions",
       "items": [
         {
-          "q_fr": "Pourquoi mon site attire du trafic sans générer de leads ?",
-          "q_en": "Why does my site draw traffic without generating leads?",
-          "a_fr": "Le plus souvent, trois fuites se cumulent : un formulaire trop long qui décourage, aucun parcours qui guide le visiteur vers l'action, et personne qui rappelle assez vite. Un formulaire de trois champs convertit deux à trois fois mieux qu'un formulaire de sept. Et un lead rappelé dans les cinq minutes a beaucoup plus de chances d'aboutir qu'un lead rappelé le lendemain. On corrige la chaîne entière, pas un seul maillon.",
-          "a_en": "Most often three leaks add up: a form too long that discourages, no path guiding the visitor toward the action, and no one calling back fast enough. A three-field form converts two to three times better than a seven-field one. And a lead called back within five minutes is far more likely to close than one called back the next day. We fix the whole chain, not a single link."
+          "q_fr": "Comment ne plus perdre de demandes entrantes ?",
+          "a_fr": "En supprimant les étapes manuelles entre la demande et le CRM : chaque formulaire, email ou appel crée une fiche avec sa source, attribuée à une personne avec une tâche datée. Ce qui n'est pas dans le CRM n'existe pas.",
+          "q_en": "How do you stop losing incoming requests?",
+          "a_en": "By removing manual steps between the request and the CRM: every form, email or call creates a record with its source, assigned to a person with a dated task. What is not in the CRM does not exist."
         },
         {
-          "q_fr": "C'est quoi le scoring d'un visiteur, concrètement ?",
-          "q_en": "What is visitor scoring, concretely?",
-          "a_fr": "Chaque visite reçoit une note calculée sur des signaux réels : pages vues, temps passé, source d'arrivée, récurrence. Un visiteur qui lit la page tarifs, revient deux fois et vient d'une requête à intention d'achat n'a pas la même valeur qu'un clic de passage. Seuls les leads au-dessus d'un seuil de qualification remontent au commercial. Le reste entre dans une séquence plus douce. Votre temps va sur les contacts prêts à parler.",
-          "a_en": "Each visit gets a score computed on real signals: pages viewed, time spent, arrival source, recurrence. A visitor who reads the pricing page, returns twice and comes from a purchase-intent query isn't worth the same as a passing click. Only leads above a qualification threshold reach sales. The rest enter a softer sequence. Your time goes to contacts ready to talk."
+          "q_fr": "Faut-il plus de leads ou un meilleur suivi ?",
+          "a_fr": "Un meilleur suivi d'abord, presque toujours. Tant que des demandes restent sans réponse et des devis sans relance, en ajouter augmente surtout les pertes.",
+          "q_en": "Do you need more leads or better follow-up?",
+          "a_en": "Better follow-up first, almost always. As long as requests go unanswered and quotes unchased, adding more mostly increases the losses."
         },
         {
-          "q_fr": "Vous garantissez un nombre de leads par mois ?",
-          "q_en": "Do you guarantee a number of leads per month?",
-          "a_fr": "Non, et personne d'honnête ne le peut sans connaître votre marché, votre offre et votre trafic. Ce qu'on garantit, c'est un système qui capte mieux ce qui arrive déjà : formulaires courts, parcours clair, scoring et capture branchés au CRM. On mesure l'avant et l'après sur vos propres chiffres. Le volume dépend de votre acquisition, qu'on cadre au diagnostic.",
-          "a_en": "No, and no honest provider can without knowing your market, your offer and your traffic. What we guarantee is a system that captures what already arrives better: short forms, a clear path, scoring and capture wired to the CRM. We measure before and after on your own figures. Volume depends on your acquisition, which we frame at the diagnostic."
+          "q_fr": "Quel CRM pour automatiser le suivi commercial ?",
+          "a_fr": "Celui que vous avez, s'il a une API : HubSpot, Pipedrive et Salesforce conviennent. Changer d'outil ne règle pas un problème de saisie ou de règles.",
+          "q_en": "Which CRM for automating sales follow-up?",
+          "a_en": "The one you have, if it has an API: HubSpot, Pipedrive and Salesforce all work. Switching tools does not fix a data-entry or rules problem."
         },
         {
-          "q_fr": "Faut-il refaire tout le site pour mieux convertir ?",
-          "q_en": "Do we need to rebuild the whole site to convert better?",
-          "a_fr": "Pas forcément. Si le site tient debout, on instrumente l'existant : on ajoute les landing pages par cible, le scoring, les formulaires branchés au CRM et le suivi. On ne casse pas ce qui marche. Si le site est obsolète ou absent, la création est intégrée au projet et chiffrée au cadrage.",
-          "a_en": "Not necessarily. If the site holds up, we instrument what exists: we add landing pages per target, scoring, CRM-connected forms and tracking. We don't break what works. If the site is dated or absent, the build is integrated into the project and costed at scoping."
+          "q_fr": "L'IA peut-elle répondre aux prospects à notre place ?",
+          "a_fr": "Elle peut préparer la réponse et, sur des demandes simples et répétitives, l'envoyer si vous l'avez décidé. Pour un devis ou une négociation, elle prépare ; le commercial valide et envoie.",
+          "q_en": "Can AI reply to prospects for us?",
+          "a_en": "It can prepare the reply and, on simple repetitive requests, send it if you have decided so. For a quote or a negotiation, it prepares; the salesperson approves and sends."
         },
         {
-          "q_fr": "Mes formulaires sont-ils vraiment branchés à mon CRM ?",
-          "q_en": "Are my forms really wired to my CRM?",
-          "a_fr": "Oui, c'est le cœur du dispositif. Chaque formulaire crée et met à jour une fiche dans votre CRM sans recopie manuelle, avec le contexte de la conversion : pages visitées, contenu consulté, score et source. Un contact qui revient est reconnu. Aucun lead ne tombe dans un fichier oublié ou une boîte mail.",
-          "a_en": "Yes, that's the heart of the setup. Each form creates and updates a record in your CRM with no manual retyping, with the conversion context: pages visited, content viewed, score and source. A returning contact is recognised. No lead falls into a forgotten file or a mailbox."
-        },
-        {
-          "q_fr": "Combien de temps avant de voir des résultats ?",
-          "q_en": "How long before we see results?",
-          "a_fr": "Les briques de conversion, landing pages, scoring et capture, produisent un effet dès les premières semaines, parce qu'elles agissent sur le trafic que vous avez déjà. Le SEO et le contenu, eux, sont à effet différé : ils construisent l'autorité sur plusieurs mois. On pose des attentes réalistes avant de signer, sans promesse magique.",
-          "a_en": "The conversion blocks, landing pages, scoring and capture, have an effect from the first weeks, because they act on the traffic you already have. SEO and content are delayed-effect: they build authority over several months. We set realistic expectations before signing, with no magic promise."
-        },
-        {
-          "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-          "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_fr": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition.",
-          "a_en": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+          "q_fr": "Combien de temps pour mettre en place ce suivi ?",
+          "a_fr": "Habituellement 2 à 4 semaines pour la capture, la notation et l'affectation ; autant pour les devis et les relances. On commence par le maillon où vous perdez le plus.",
+          "q_en": "How long does it take to set up this follow-up?",
+          "a_en": "Usually 2 to 4 weeks for capture, scoring and assignment; as much again for quotes and follow-ups. We start with the link where you lose the most."
         }
       ]
     },
@@ -467,23 +257,23 @@
       "type": "footer-cta-band",
       "background": "ink",
       "rounded": true,
-      "kicker_fr": "§ Prêt à capter vos leads ?",
-      "kicker_en": "§ Ready to capture your leads?",
-      "h2_fr": "Arrêtez de perdre le trafic que vous <i>payez déjà</i>.",
-      "h2_en": "Stop losing the traffic you <i>already pay for</i>.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on repère ensemble vos fuites de conversion et on chiffre le potentiel, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we spot your conversion leaks together and size the potential, whether we work together or not. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Où vos demandes attendent-elles ?",
+      "h2_en": "Where do your requests wait?",
+      "subtitle_fr": "En 45 minutes, on suit une demande réelle du premier contact au devis et on repère chaque endroit où elle attend ou se perd.",
+      "subtitle_en": "In 45 minutes, we follow a real request from first contact to quote and spot every place where it waits or gets lost.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?intent=leads",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir la landing page et scoring",
-          "label_en": "See landing page and scoring",
-          "href": "/services/landing-pages-tunnels",
+          "label_fr": "Le système commercial",
+          "label_en": "The sales system",
+          "href": "/services/systeme-commercial",
           "variant": "ghost"
         }
       ]

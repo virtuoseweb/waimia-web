@@ -1,8 +1,8 @@
 {
-  "title_fr": "Amploi : site marketing IA-ready et orienté conversion",
-  "title_en": "Amploi: an AI-ready marketing site built to convert",
-  "description_fr": "Site marketing Astro pour Amploi, entreprise adaptée RH : design system sur mesure, CRM HubSpot et couche GEO/AIO pour la visibilité moteurs et IA.",
-  "description_en": "Astro marketing site for Amploi, an HR adapted company: custom design system, HubSpot CRM and a GEO/AIO layer for search and AI visibility.",
+  "title_fr": "Amploi : site marketing, CRM HubSpot et couche GEO",
+  "title_en": "Amploi: marketing site, HubSpot CRM and GEO layer",
+  "description_fr": "Amploi, entreprise adaptée RH : un site marketing Astro, les demandes routées dans HubSpot sans ressaisie et une couche schema.org pour les moteurs IA.",
+  "description_en": "Amploi, an HR adapted company: an Astro marketing site, requests routed into HubSpot with no retyping and a schema.org layer for AI engines.",
   "slug": "amploi",
   "publishedAt": "2026-06-15",
   "provenance": "first-party",
@@ -19,8 +19,8 @@
     "schema.org (GEO/AIO)",
     "Vercel"
   ],
-  "impact_fr": "Site marketing IA-ready livré en 6 semaines, CRM HubSpot intégré et couche GEO/AIO (graphe schema.org et llm.md) mise en production.",
-  "impact_en": "AI-ready marketing site delivered in 6 weeks, HubSpot CRM integrated and a GEO/AIO layer (schema.org graph and llm.md) wired in.",
+  "impact_fr": "Site marketing livré en 6 semaines, demandes routées automatiquement dans HubSpot, couche GEO (graphe schema.org et fichier llm.md) en production. Pas de mesure d'impact publiée à ce jour.",
+  "impact_en": "Marketing site delivered in 6 weeks, requests routed automatically into HubSpot, GEO layer (schema.org graph and llm.md file) in production. No impact measurement published to date.",
   "illustration": {
     "src": "/images/illustrations/ds/super-girl-paper.webp",
     "alt_fr": "Une figure dynamique qui capte et qualifie les leads, illustration éditoriale duotone.",
@@ -58,8 +58,8 @@
   },
   "author": "simon-beros",
   "featured": false,
-  "contextStatement_fr": "Amploi, entreprise adaptée et SCIC du groupe Vigiscope active depuis 2010 à Beauvais et Cergy, accompagne les grandes entreprises multi-sites sur leurs obligations RH (visites médicales, paie, données) via la plateforme VigiScope. Il fallait un site marketing moderne, conforme, orienté conversion et visible des moteurs comme des IA.",
-  "contextStatement_en": "Amploi, an adapted company and SCIC of the Vigiscope group active since 2010 in Beauvais and Cergy, supports large multi-site companies with their HR obligations (medical check-ups, payroll, data) through the VigiScope platform. It needed a modern marketing site, compliant, conversion-focused, and visible to search engines and AI alike.",
+  "contextStatement_fr": "Amploi, entreprise adaptée et SCIC du groupe Vigiscope active depuis 2010 à Beauvais et Cergy, accompagne les grandes entreprises multi-sites sur leurs obligations RH via la plateforme VigiScope. Le projet comporte deux volets : un site marketing, et une couche données et IA (demandes routées dans le CRM, contenu lisible par les moteurs IA).",
+  "contextStatement_en": "Amploi, an adapted company and cooperative of the Vigiscope group active since 2010 in Beauvais and Cergy, supports large multi-site companies with their HR obligations through the VigiScope platform. The project has two strands: a marketing site, and a data and AI layer (requests routed into the CRM, content readable by AI engines).",
   "contextStats": [
     {
       "value": "6 sem.",
@@ -73,8 +73,8 @@
     },
     {
       "value": "3",
-      "label_fr": "Couches livrées (site, CRM, GEO/AIO)",
-      "label_en": "Layers delivered (site, CRM, GEO/AIO)"
+      "label_fr": "Livrables : site, CRM, couche GEO",
+      "label_en": "Deliverables: site, CRM, GEO layer"
     }
   ],
   "bottlenecks": [
@@ -102,15 +102,15 @@
       "kicker_en": "§ Visibility",
       "title_fr": "Être lu par les moteurs et les IA",
       "title_en": "Be read by search engines and AI",
-      "body_fr": "Au-delà du SEO classique, le site devait être structuré pour être compris et cité par les moteurs de recherche comme par les IA génératives.",
-      "body_en": "Beyond classic SEO, the site had to be structured to be understood and cited by search engines and generative AI alike."
+      "body_fr": "Au-delà du référencement classique, le site devait être structuré pour être compris par les moteurs de recherche comme par les assistants IA.",
+      "body_en": "Beyond classic SEO, the site had to be structured to be understood by search engines and AI assistants alike."
     }
   ],
   "phases": [
     {
       "num": "01",
-      "label_fr": "Site marketing Astro performant",
-      "label_en": "High-performance Astro marketing site",
+      "label_fr": "Volet site · site marketing Astro",
+      "label_en": "Site strand · Astro marketing site",
       "body_fr": "Construction d'un site marketing Astro en rendu statique (SSG/ISR), rapide et robuste, piloté par un design system sur mesure et éditable via TinaCMS.",
       "body_en": "Build of a static-rendered Astro marketing site (SSG/ISR), fast and robust, driven by a custom design system and editable through TinaCMS.",
       "meta_fr": "Astro · Tailwind · TinaCMS",
@@ -118,8 +118,8 @@
     },
     {
       "num": "02",
-      "label_fr": "Intégration CRM HubSpot",
-      "label_en": "HubSpot CRM integration",
+      "label_fr": "Volet données · demandes routées dans HubSpot",
+      "label_en": "Data strand · requests routed into HubSpot",
       "body_fr": "Branchement de HubSpot pour la capture des leads via la Forms API et leur routage automatique dans le CRM.",
       "body_en": "Wiring of HubSpot for lead capture through the Forms API and automatic routing into the CRM.",
       "meta_fr": "HubSpot · Forms API",
@@ -127,8 +127,8 @@
     },
     {
       "num": "03",
-      "label_fr": "Couche GEO/AIO",
-      "label_en": "GEO/AIO layer",
+      "label_fr": "Volet IA · couche GEO pour les moteurs IA",
+      "label_en": "AI strand · GEO layer for AI engines",
       "body_fr": "Mise en place d'un graphe schema.org structuré et d'un fichier /.well-known/llm.md pour maximiser la visibilité auprès des moteurs et des IA génératives.",
       "body_en": "Set-up of a structured schema.org graph and a /.well-known/llm.md file to maximize visibility for search engines and generative AI.",
       "meta_fr": "schema.org · llm.md",
@@ -141,46 +141,46 @@
       "title_en": "High-performance Astro site",
       "body_fr": "Un site marketing rapide en SSG/ISR, bâti sur un design system sur mesure et éditable sans technique via TinaCMS.",
       "body_en": "A fast SSG/ISR marketing site, built on a custom design system and editable without code via TinaCMS.",
-      "format_fr": "Site web",
-      "format_en": "Website"
+      "format_fr": "VOLET SITE",
+      "format_en": "VOLET SITE"
     },
     {
       "title_fr": "Intégration CRM HubSpot",
       "title_en": "HubSpot CRM integration",
       "body_fr": "Capture des leads via la Forms API et routage automatique dans HubSpot, sans ressaisie.",
       "body_en": "Lead capture through the Forms API and automatic routing into HubSpot, with no re-entry.",
-      "format_fr": "CRM",
-      "format_en": "CRM"
+      "format_fr": "VOLET DONNÉES",
+      "format_en": "VOLET DONNÉES"
     },
     {
       "title_fr": "Couche GEO/AIO",
       "title_en": "GEO/AIO layer",
       "body_fr": "Un graphe schema.org @graph et un fichier llm.md pour rendre le site lisible et citable par les moteurs et les IA.",
       "body_en": "A schema.org @graph and an llm.md file to make the site readable and citable by search engines and AI.",
-      "format_fr": "SEO / GEO / AIO",
-      "format_en": "SEO / GEO / AIO"
+      "format_fr": "VOLET IA",
+      "format_en": "VOLET IA"
     }
   ],
   "bottlenecksHeading_fr": "Trois attentes pour le site.",
   "bottlenecksHeading_en": "Three expectations for the site.",
-  "approachHeading_fr": "Trois couches, six semaines.",
-  "approachHeading_en": "Three layers, six weeks.",
-  "deliverablesHeading_fr": "Site, CRM et couche IA.",
-  "deliverablesHeading_en": "Site, CRM and AI layer.",
-  "stackLead_fr": "Astro, TinaCMS, HubSpot et une couche schema.org/llm.md : chaque choix sert la conversion et la lisibilité par les moteurs comme par les IA.",
-  "stackLead_en": "Astro, TinaCMS, HubSpot and a schema.org/llm.md layer: each choice serves conversion and readability by search engines and AI alike.",
-  "ctaHeading_fr": "Un site qui <i>convertit</i> et que les IA savent lire.",
-  "ctaHeading_en": "A site that <i>converts</i> and that AI can read.",
-  "ctaSubtitle_fr": "Si vous voulez un site marketing IA-ready branché à votre CRM, on cadre le vôtre en 45 minutes et on vous dit vite si le terrain est opérable.",
-  "ctaSubtitle_en": "If you want an AI-ready marketing site wired to your CRM, we frame yours in 45 minutes and tell you quickly whether the field is operationally viable.",
+  "approachHeading_fr": "Deux volets, six semaines.",
+  "approachHeading_en": "Two strands, six weeks.",
+  "deliverablesHeading_fr": "Un volet site, un volet données et IA.",
+  "deliverablesHeading_en": "A site strand, a data and AI strand.",
+  "stackLead_fr": "Astro et TinaCMS pour le site, la Forms API de HubSpot pour le routage des demandes, schema.org et un fichier llm.md pour la lecture par les moteurs IA.",
+  "stackLead_en": "Astro and TinaCMS for the site, the HubSpot Forms API for request routing, schema.org and an llm.md file for AI engines.",
+  "ctaHeading_fr": "Vos demandes arrivent-elles <i>seules</i> dans votre CRM ?",
+  "ctaHeading_en": "Do your requests reach your CRM <i>on their own</i>?",
+  "ctaSubtitle_fr": "L'audit gratuit de 45 minutes sert à suivre le trajet d'une demande chez vous et à repérer ce qui s'automatise.",
+  "ctaSubtitle_en": "The free 45-minute audit follows a request through your company and spots what can be automated.",
   "card": {
     "order": 3,
     "sector_fr": "RH et santé au travail",
     "sector_en": "HR and occupational health",
     "title_fr": "Amploi",
     "title_en": "Amploi",
-    "headline_fr": "Un site marketing IA-ready, CRM et GEO/AIO mis en production en 6 semaines.",
-    "headline_en": "An AI-ready marketing site, CRM and GEO/AIO wired in 6 weeks.",
+    "headline_fr": "Un site marketing, un CRM branché et une couche GEO, livrés en 6 semaines.",
+    "headline_en": "A marketing site, a connected CRM and a GEO layer, delivered in 6 weeks.",
     "duration_fr": "6 semaines",
     "duration_en": "6 weeks"
   },
@@ -209,7 +209,8 @@
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<p>Amploi accompagne depuis 2010 les grandes entreprises multi-sites sur leurs obligations RH : visites médicales, paie, données. Entreprise adaptée et SCIC du groupe Vigiscope, basée à Beauvais et Cergy, elle s'appuie sur la plateforme VigiScope. Son besoin : un site marketing moderne, conforme et orienté conversion, visible autant des moteurs de recherche que des IA génératives.</p><p>La réponse a tenu en trois couches livrées en six semaines. D'abord un site marketing Astro performant (SSG/ISR), bâti sur un design system sur mesure et éditable via TinaCMS. Ensuite l'intégration de HubSpot pour capter les leads via la Forms API et les router automatiquement dans le CRM. Enfin une couche GEO/AIO, avec un graphe schema.org structuré et un fichier /.well-known/llm.md, pour rendre le site lisible et citable par les moteurs comme par les IA.</p><p>Résultat : un socle marketing IA-ready, conforme et mesurable, où chaque demande entrante arrive proprement dans le CRM et où le contenu est conçu pour être compris des moteurs et des assistants de demain.</p>"
+      "html_fr": "<p>Amploi accompagne depuis 2010 les grandes entreprises multi-sites sur leurs obligations RH : visites médicales, paie, données. Entreprise adaptée et SCIC du groupe Vigiscope, basée à Beauvais et Cergy, elle s'appuie sur la plateforme VigiScope. Le projet a comporté deux volets, livrés ensemble en six semaines.</p>\n<h2>Volet site et marketing</h2>\n<p>Un site marketing construit avec Astro, en rendu statique, sur un design system dédié. Les équipes d'Amploi modifient les contenus elles-mêmes dans TinaCMS, sans passer par un développeur.</p>\n<h2>Volet IA et données</h2>\n<p>Deux éléments. Le premier est une automatisation : chaque demande envoyée depuis le site est transmise à HubSpot par la Forms API et rangée dans le CRM, sans ressaisie ni perte d'information. C'est le mécanisme décrit sur la page <a href=\"/services/crm-scoring-routing\">automatisation CRM</a>. Le second est une couche de lisibilité pour les moteurs IA : un graphe schema.org structuré et un fichier /.well-known/llm.md, pour que le contenu soit compris et cité correctement par les moteurs de recherche et les assistants IA. La démarche est expliquée sur la page <a href=\"/services/seo-geo-contenu\">SEO et GEO</a>.</p>\n<h2>Ce qui n'est pas mesuré</h2>\n<p>Cette fiche décrit ce qui a été livré. Nous ne publions pas de chiffre d'impact (volume de demandes, citations par les IA) : ils seront ajoutés quand ils auront été mesurés avec le client.</p>",
+      "html_en": "<p>Since 2010 Amploi has supported large multi-site companies with their HR obligations: medical visits, payroll, data. An adapted company and cooperative of the Vigiscope group, based in Beauvais and Cergy, it relies on the VigiScope platform. The project had two strands, delivered together in six weeks.</p>\n<h2>Site and marketing strand</h2>\n<p>A marketing site built with Astro, statically rendered, on a dedicated design system. Amploi's teams edit content themselves in TinaCMS, without a developer.</p>\n<h2>AI and data strand</h2>\n<p>Two elements. The first is an automation: every request sent from the site is passed to HubSpot through the Forms API and filed in the CRM, with no retyping or information loss. This is the mechanism described on the <a href=\"/services/crm-scoring-routing\">CRM automation</a> page. The second is a readability layer for AI engines: a structured schema.org graph and a /.well-known/llm.md file, so content is understood and cited correctly by search engines and AI assistants. The approach is explained on the <a href=\"/services/seo-geo-contenu\">SEO and GEO</a> page.</p>\n<h2>What is not measured</h2>\n<p>This page describes what was delivered. We publish no impact figure (request volume, AI citations): they will be added once measured with the client.</p>"
     }
   ]
 }
