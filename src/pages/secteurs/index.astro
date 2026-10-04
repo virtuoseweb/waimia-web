@@ -31,8 +31,13 @@ const shortSectorLabel = (full: string): string => {
 // d'equity/crawl vers les secteurs noindex (agence, comptabilite, conseil, esn, formation,
 // industrie + startup-logiciel repassé noindex). La grille suit automatiquement la politique
 // d'index de chaque secteur.
+// Pivot IA 2026-10 · tous les secteurs sont désormais noindex (hors cible) : filtrer sur
+// `!seo.noindex` vidait la grille (plus aucune carte → plus de h2, saut h1→h3, section
+// absente). Le hub liste donc les secteurs visibles adossés à un cas client réel
+// (`caseRef`), critère de preuve indépendant de la politique d'index. Les pages liées
+// restent noindex,follow.
 const visibleSectors = (await getCollection('secteurs'))
-  .filter((e) => e.data.visible && !e.data.seo?.noindex)
+  .filter((e) => e.data.visible && Boolean(e.data.caseRef))
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id));
 
 // Cartes bilingues pour la section cataloguée `sector-card-grid` (contentMode instance).
