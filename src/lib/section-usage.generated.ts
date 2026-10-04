@@ -124,7 +124,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 41,
+    "count": 40,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -152,7 +152,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
-      "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/template-service-ref",
       "src/content/services/applications-internes/mvp-saas.json",
@@ -270,7 +269,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 32,
+    "count": 31,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -289,7 +288,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
-      "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/template-service-ref",
       "src/content/services/applications-internes/mvp-saas.json",
@@ -417,6 +415,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/services/site-web-ia/wordpress.json"
     ]
   },
+  "engagement-ledger": {
+    "count": 1,
+    "pages": [
+      "src/pages/tarifs.astro"
+    ]
+  },
   "faq-accordion": {
     "count": 57,
     "pages": [
@@ -480,7 +484,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 36,
+    "count": 35,
     "pages": [
       "/lp/hub",
       "/lp/systeme-acquisition",
@@ -500,7 +504,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
-      "/services/systeme-commercial",
       "src/content/services/applications-internes/mvp-saas.json",
       "src/content/services/crm-scoring-routing/integration-crm.json",
       "src/content/services/landing-pages-tunnels/landing-page-google-ads.json",
@@ -527,7 +530,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-zigzag": {
-    "count": 33,
+    "count": 31,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -552,8 +555,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/crm-scoring-routing",
       "/services/prospection-automatisee",
       "/services/sequences-de-suivi",
-      "/services/systeme-acquisition",
-      "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "src/content/demonstrations/integration-claude.json",
       "src/content/services/crm-scoring-routing/integration-crm.json",
@@ -841,7 +842,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "method-stepline": {
-    "count": 29,
+    "count": 27,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -858,8 +859,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
-      "/services/systeme-acquisition",
-      "/services/systeme-commercial",
       "src/content/services/applications-internes/mvp-saas.json",
       "src/content/services/crm-scoring-routing/integration-crm.json",
       "src/content/services/landing-pages-tunnels/landing-page-google-ads.json",
@@ -911,7 +910,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 31,
+    "count": 29,
     "pages": [
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
@@ -930,8 +929,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
-      "/services/systeme-acquisition",
-      "/services/systeme-commercial",
       "src/content/services/applications-internes/mvp-saas.json",
       "src/content/services/crm-scoring-routing/integration-crm.json",
       "src/content/services/landing-pages-tunnels/landing-page-google-ads.json",
@@ -1183,7 +1180,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "system-flow": {
-    "count": 20,
+    "count": 19,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -1196,7 +1193,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/prospection-automatisee",
       "/services/seo-geo-contenu",
       "/services/sequences-de-suivi",
-      "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "src/content/services/crm-scoring-routing/integration-crm.json",
       "src/content/services/landing-pages-tunnels/landing-page-google-ads.json",

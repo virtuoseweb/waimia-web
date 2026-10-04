@@ -27,8 +27,8 @@ const year = new Date().getFullYear();
     </div>
     <p style="font-family:var(--font-sans);font-weight:var(--fw-medium);font-size:var(--text-h3);color:var(--muted);max-width:640px;margin-top:var(--space-6);line-height:var(--leading-lede);text-wrap:balance">
       {lang === 'fr'
-        ? 'Systèmes IA pour PME et ETI. Acquisition. Opérations. Pilotage. Bordeaux.'
-        : 'AI systems for SMBs. Acquisition. Operations. Intelligence. Bordeaux, France.'}
+        ? "Studio de développement IA et cabinet d'automatisation des processus pour PME et ETI. Bordeaux, missions à distance."
+        : 'AI development studio and process automation practice for SMEs. Bordeaux, remote engagements.'}
     </p>
   </div>
 
@@ -53,8 +53,8 @@ const year = new Date().getFullYear();
         </p>
         <p style="font-family:var(--font-sans);font-size:var(--text-h3);color:var(--ink-2);max-width:320px;line-height:var(--leading-lede);text-wrap:balance;margin:0;font-weight:var(--fw-medium)">
           {lang === 'fr'
-            ? "Les décisions IA de la semaine, distillées pour les dirigeants."
-            : "The week's AI decisions, distilled for leaders."}
+            ? "Automatisation et IA en PME : les notes de terrain du studio, quand il y a quelque chose à dire."
+            : "Automation and AI in SMEs: field notes from the studio, when there is something to say."}
         </p>
       </div>
       <NewsletterSignup lang={lang} variant="inline" />
@@ -86,7 +86,7 @@ const year = new Date().getFullYear();
   {/* Bottom — copyright + lang switcher + socials */}
   <div class="wrap hline ft-bottom">
     <div class="ft-bottom-left">
-      <span>© {year} {SITE.name} · {lang === 'fr' ? 'Partenaire Intégrateur IA' : 'AI Integration Partner'}</span>
+      <span>© {year} {SITE.name} · {lang === 'fr' ? 'Studio de développement IA' : 'AI development studio'}</span>
       <a href="/mentions-legales" class="ft-link">
         {lang === 'fr' ? 'Mentions légales' : 'Legal notice'}
       </a>

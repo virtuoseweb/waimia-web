@@ -85,7 +85,7 @@ const listCtaData = {
   cta: {
     label_fr: 'Réserver un audit →',
     label_en: 'Book an audit →',
-    href: localizeHref('/audit-ia-pme', lang),
+    href: '/contact?offer=audit-ia-pme&intent=audit',
     variant: 'primary',
   },
   background: 'paper-2',
@@ -132,20 +132,20 @@ const ctaData: SectionByType<'cta-final'> = isContactPage
     }
   : {
       type: 'cta-final',
-      h2_fr: 'Prêt à passer du <i>texte</i> au terrain ?',
-      h2_en: 'Ready to move from <i>text</i> to the field?',
-      body_fr: `${utilityLabel} clarifié. Reste à cadrer le chantier, le bon niveau d'engagement et le premier livrable utile.`,
-      body_en: `${utilityLabel} clarified. Now it is about framing the engagement, the right level of involvement, and the first useful deliverable.`,
+      h2_fr: 'On regarde votre cas en <i>45 minutes</i> ?',
+      h2_en: 'Shall we look at your case in <i>45 minutes</i>?',
+      body_fr: "Un audit gratuit, en visio, avec l'ingénieur qui fera le travail. On repère trois automatisations rentables dans vos processus, sans engagement.",
+      body_en: 'A free audit, on a call, with the engineer who will do the work. We spot three profitable automations in your processes, with no commitment.',
       cta_primary: {
         label_fr: 'Réserver un audit →',
         label_en: 'Book an audit →',
-        href: localizeHref('/audit-ia-pme', lang),
+        href: '/contact?offer=audit-ia-pme&intent=audit',
         variant: 'primary',
       },
       cta_secondary: {
-        label_fr: 'Voir les offres →',
-        label_en: 'See services →',
-        href: localizeHref('/services', lang),
+        label_fr: 'Voir les tarifs →',
+        label_en: 'See pricing →',
+        href: localizeHref('/tarifs', lang),
         variant: 'ghost',
       },
       background: 'paper',

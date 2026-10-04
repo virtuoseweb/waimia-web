@@ -63,7 +63,7 @@ const bg: 'ink' | 'paper' = background ?? (variant === 'light' ? 'paper' : 'ink'
 
 // Valeurs éditoriales par défaut (rôle), surchargées par les props si fournies.
 const kicker = eyebrow ?? {
-  media: 'Tableau de bord média',
+  media: 'Le studio en bref',
   columns: 'Colonnes E-E-A-T',
   light: 'Tableau de bord · variante claire',
   hero: 'Tableau de bord illustré',
@@ -220,7 +220,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
             loading="lazy"
           />
           <figcaption class="eep-cap">
-            {variant === 'light' ? "Travail augmenté par l'IA" : 'Monitoring continu · santé du site'}
+            {variant === 'light' ? "Travail augmenté par l'IA" : 'Supervision continue · workflows et agents'}
           </figcaption>
         </figure>
 

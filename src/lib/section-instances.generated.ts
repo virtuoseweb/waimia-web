@@ -322,8 +322,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 10,
-      "label": "Résultats sur le terrain",
+      "index": 4,
+      "label": "Des missions réelles, documentées",
       "background": "ink"
     },
     {
@@ -331,8 +331,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 11,
-      "label": "Résultats sur le terrain",
+      "index": 7,
+      "label": "Des missions réelles, documentées",
       "background": "ink"
     },
     {
@@ -341,7 +341,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 5,
-      "label": "Résultats sur le terrain",
+      "label": "Des missions réelles, documentées",
       "background": "ink"
     },
     {
@@ -690,19 +690,10 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/systeme-acquisition.json",
-      "slug": "systeme-acquisition",
-      "route": "/services/systeme-acquisition",
-      "index": 4,
-      "label": "Pourquoi un système instrumenté change l'équation",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 4,
+      "index": 3,
       "label": "Externaliser à une agence de SDR, ou installer un système",
       "background": "paper-2"
     },
@@ -1172,7 +1163,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1181,7 +1172,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1190,7 +1181,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1458,19 +1449,10 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/systeme-acquisition.json",
-      "slug": "systeme-acquisition",
-      "route": "/services/systeme-acquisition",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 6,
+      "index": 4,
       "label": "Ce que vous récupérez concrètement",
       "background": "paper"
     },
@@ -1899,8 +1881,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 12,
-      "label": "#12",
+      "index": 6,
+      "label": "#6",
       "variant": "media"
     },
     {
@@ -1908,8 +1890,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 13,
-      "label": "#13",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2378,7 +2360,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 13,
+      "index": 7,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2387,7 +2369,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 14,
+      "index": 10,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2704,17 +2686,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 7,
-      "label": "Les briques, de l'acquisition au commercial",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-commercial.json",
-      "slug": "systeme-commercial",
-      "route": "/services/systeme-commercial",
-      "index": 7,
-      "label": "Les modules qui alimentent votre pipeline commercial",
+      "index": 3,
+      "label": "Trois outils, branchés au reste",
       "background": "paper"
     },
     {
@@ -3106,24 +3079,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/sequences-de-suivi",
       "index": 10,
       "label": "Les séquences continuent de s'affiner après le lancement",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-acquisition.json",
-      "slug": "systeme-acquisition",
-      "route": "/services/systeme-acquisition",
-      "index": 9,
-      "label": "Comment l'acquisition alimente le système commercial",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-commercial.json",
-      "slug": "systeme-commercial",
-      "route": "/services/systeme-commercial",
-      "index": 10,
-      "label": "Le système commercial continue d'apprendre après le lancement",
       "background": "paper-2"
     },
     {
@@ -3529,8 +3484,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 14,
-      "label": "Une infrastructure qui attire, capte et qualifie, puis passe le relais au commercial.",
+      "index": 8,
+      "label": "La visibilité n'a de valeur que si la demande est traitée.",
       "background": "ink"
     },
     {
@@ -3538,7 +3493,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 15,
+      "index": 11,
       "label": "Un système qui alimente, qualifie et relance votre pipeline.",
       "background": "ink"
     },
@@ -3548,7 +3503,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 9,
-      "label": "Faites tourner vos opérations sur un système, plus sur des personnes.",
+      "label": "Quarante-cinq minutes pour savoir quoi automatiser.",
       "background": "ink"
     },
     {
@@ -3898,7 +3853,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 0,
-      "label": "Générer des leads B2B qualifiés, sans racheter un flux chaque mois.",
+      "label": "Des outils de visibilité au service de votre système.",
       "background": "paper"
     },
     {
@@ -4333,7 +4288,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 8,
+      "index": 5,
       "label": "Trois leviers, une même base",
       "background": "paper-3"
     },
@@ -4595,24 +4550,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/site-web-ia",
       "index": 5,
       "label": "Les 6 niveaux d'un site web intelligent",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-acquisition.json",
-      "slug": "systeme-acquisition",
-      "route": "/services/systeme-acquisition",
-      "index": 5,
-      "label": "Les 6 niveaux d'acquisition",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-commercial.json",
-      "slug": "systeme-commercial",
-      "route": "/services/systeme-commercial",
-      "index": 5,
-      "label": "Les 6 niveaux d'un développement commercial",
       "background": "paper-3"
     },
     {
@@ -4887,24 +4824,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/site-web-ia",
       "index": 3,
       "label": "Votre site est joli, et il ne vend rien ?",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-acquisition.json",
-      "slug": "systeme-acquisition",
-      "route": "/services/systeme-acquisition",
-      "index": 3,
-      "label": "Pourquoi vos prospects vous échappent",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-commercial.json",
-      "slug": "systeme-commercial",
-      "route": "/services/systeme-commercial",
-      "index": 3,
-      "label": "Vos mois creux en rendez-vous ont une cause",
       "background": "ink"
     },
     {
@@ -5184,8 +5103,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 11,
-      "label": "Quatre socles pour lancer votre acquisition",
+      "index": 5,
+      "label": "Quatre socles pour un site",
       "background": "paper"
     },
     {
@@ -5193,7 +5112,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 12,
+      "index": 8,
       "label": "Trois formules pour alimenter votre pipeline",
       "background": "paper"
     },
@@ -6217,19 +6136,10 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/systeme-acquisition.json",
-      "slug": "systeme-acquisition",
-      "route": "/services/systeme-acquisition",
-      "index": 8,
-      "label": "Comment tout s'articule",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 9,
+      "index": 6,
       "label": "Comment un lead devient client",
       "background": "ink"
     },
@@ -6413,6 +6323,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   "editorial-split-grid": [
     "src/pages/en/ressources/index.astro",
     "src/pages/ressources/index.astro"
+  ],
+  "engagement-ledger": [
+    "src/pages/tarifs.astro"
   ],
   "faq-accordion": [
     "src/pages/en/index.astro",

@@ -1,74 +1,48 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Méthode · /agence/methode · données de section extraites (JSONification, vague V3)
+// Méthode · /agence/methode · données de section
 // ─────────────────────────────────────────────────────────────────────────────
-// Extraction des littéraux DE DONNÉE de `src/pages/agence/methode.astro` (fiche 0027 D6 ·
-// vague V3). La page reste sur `UtilityTemplate` avec un `slot="body"` BESPOKE (blocs
-// `.meth-garanties` et `.meth-os` sans équivalent catalogué → conservés dans la page,
-// DETTE consignée conformément à D6 « ne pas décomposer le markup bespoke, risque parité »).
-// Ici : les phases (réutilisées 3× dans la page : Timeline + HowTo + source) et les 2
-// sections cataloguées pilotées par donnée (SpecBar cadence, MetricCalloutBand impact).
-//
-// 0 valeur réécrite : transcription CARACTÈRE POUR CARACTÈRE de l'ancien frontmatter.
-import { getProofPoint } from './proof-points';
+// Refonte positionnement 2026-10 : la méthode du studio tient en quatre étapes, toujours
+// dans cet ordre : audit, pilote, mesure, transfert. Un ingénieur travaille avec les équipes
+// métier, sur leurs outils et leurs données (forward deployed engineer).
+// Les étapes alimentent la Timeline ET le JSON-LD HowTo de la page (source unique).
+// Retirée : la bande « impact » (5 jours / 2 semaines / 100 %), promesses chiffrées non
+// vérifiables et contradictoires avec l'audit de 45 minutes.
 import type { SectionByType } from '@waimia/ds-kernel';
 
-// ── Cinq phases · source unique (alimente Timeline + JSON-LD HowTo dans la page) ──
+// ── Quatre étapes · source unique (Timeline + JSON-LD HowTo) ──
 export const phases = [
   {
     n: '01',
-    label_fr: 'Cartographie',
-    body_fr: "On regarde votre métier, pas vos présentations. Vos vrais workflows, vos vrais bouchons. Le mardi on observe, le vendredi on chiffre.",
+    label_fr: 'Audit',
+    body_fr: "Quarante-cinq minutes en visio, gratuites. On regarde vos processus réels, pas vos présentations : qui fait quoi, dans quel outil, avec quelle donnée. On repère trois automatisations rentables et on vous dit par laquelle commencer. Si rien ne vaut le coup aujourd'hui, on vous le dit aussi.",
   },
   {
     n: '02',
-    label_fr: 'Priorisation',
-    body_fr: "On classe les workflows par ROI, pas par sophistication technique. Le gain rapide passe en premier.",
+    label_fr: 'Pilote',
+    body_fr: "Un premier système en production : une automatisation, un agent IA ou une application métier. Il se branche à vos outils existants (Excel, HubSpot, Outlook, votre ERP), sans migration imposée. Le périmètre de ce que l'agent a le droit de faire est écrit avant de coder, et les actions sensibles passent par une validation humaine.",
   },
   {
     n: '03',
-    label_fr: 'Câblage',
-    body_fr: "On câble les agents IA dans vos outils existants : Excel, HubSpot, Outlook, votre ERP. Pas de migration. On connecte ce qui marche.",
+    label_fr: 'Mesure',
+    body_fr: "Chaque workflow a sa mesure avant et après, relevée sur vos données : temps rendu, erreurs évitées, coût des modèles. C'est ce relevé qui décide si on étend, si on corrige ou si on s'arrête là.",
   },
   {
     n: '04',
-    label_fr: 'Mesure',
-    body_fr: "Chaque workflow a sa métrique avant/après. Si ça ne mesure rien, ça n'existe pas.",
-  },
-  {
-    n: '05',
-    label_fr: 'Passation',
-    body_fr: "Vous prenez la main. Documentation, mode opératoire, formation. Pas de boîte noire : vous pouvez nous virer.",
+    label_fr: 'Transfert',
+    body_fr: "Le code, les workflows et la documentation vous sont remis, dans vos comptes. Vos équipes sont formées pour faire évoluer le système. Vous pouvez continuer sans le studio ; l'accompagnement continu reste une option.",
   },
 ];
 
-// ── Cadence de la méthode · SpecBar (rythme rejouable, fond paper-2) ──
+// ── Repères de la méthode · SpecBar (faits vérifiables, fond paper-2) ──
 export const cadenceData = {
   type: 'spec-bar' as const,
   background: 'paper-2' as const,
-  kicker_fr: '§ Cadence',
-  kicker_en: '§ Cadence',
+  kicker_fr: '§ Repères',
+  kicker_en: '§ Markers',
   specs: [
-    { label_fr: 'Phases', label_en: 'Phases', value: '5' },
-    { label_fr: 'Audit livré', label_en: 'Audit delivered', value: '5 jours' },
-    { label_fr: 'Pilote en prod', label_en: 'Pilot in prod', value: '2 semaines' },
-    { label_fr: 'Pour démarrer', label_en: 'To get started', value: '45 min' },
+    { label_fr: 'Audit', label_en: 'Audit', value: '45 min · gratuit' },
+    { label_fr: 'Sprint de cadrage', label_en: 'Scoping sprint', value: '10 h · 999 € HT' },
+    { label_fr: 'Pilote', label_en: 'Pilot', value: 'Un système en production' },
+    { label_fr: 'Transfert', label_en: 'Handover', value: 'Code et workflows à vous' },
   ],
 } satisfies SectionByType<'spec-bar'>;
-
-// ── Impact mesuré · MetricCalloutBand INK · 3 chiffres canoniques (proof-points.ts, 0 invention) ──
-const _audit = getProofPoint('time-5-jours-audit');
-const _pilote = getProofPoint('time-2-semaines-pilote');
-const _equipe = getProofPoint('adoption-100pct-equipe');
-export const impactData = {
-  type: 'metric-callout-band' as const,
-  background: 'ink' as const,
-  kicker_fr: '§ Ce que la méthode garantit',
-  kicker_en: '§ What the method guarantees',
-  context_fr: 'On ne vend pas un cabinet : un protocole rejouable, chiffré à chaque étape. Trois engagements tenus sur chaque mission.',
-  context_en: 'We do not sell a consultancy: a replayable protocol, measured at every step. Three commitments kept on every mission.',
-  metrics: [
-    { value: _audit?.value ?? '5 jours', label_fr: 'pour l\'audit complet de maturité IA', label_en: 'for the full AI maturity audit' },
-    { value: _pilote?.value ?? '2 semaines', label_fr: 'pour un premier pilote en production', label_en: 'for a first pilot in production' },
-    { value: _equipe?.value ?? '100%', label_fr: 'des équipes formées et autonomes', label_en: 'of teams trained and autonomous' },
-  ],
-} satisfies SectionByType<'metric-callout-band'>;

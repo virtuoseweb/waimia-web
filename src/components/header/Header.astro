@@ -19,7 +19,8 @@ const altHref = alternateHref(Astro.url.pathname, lang);
 // (sinon il pointerait vers un /en/* en 404). Infra i18n conservée :
 // restaurer `hasBilingualMirror(Astro.url.pathname)` pour réactiver l'EN.
 const enMirror = false;
-const ctaHref = lang === 'fr' ? '/audit-ia-pme' : '/en/audit-ia-pme';
+// Prise de rendez-vous : URL unique (décision Simon 2026-10), la page contact porte le calendrier.
+const ctaHref = '/contact?offer=audit-ia-pme&intent=audit';
 
 // i18n · tous les liens de panel passent par la localisation (R3 fix) :
 // en EN, `/solutions/x` → `/en/solutions/x`. `localizeHref` ne préfixe que les
@@ -205,7 +206,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                       ))}
                       {sys.href && (
                         <a class="mega-sys-cta" href={lh(sys.href)}>
-                          {lang === 'fr' ? 'Voir le système →' : 'See the system →'}
+                          {sys.hubLabel ? t(sys.hubLabel, lang) : (lang === 'fr' ? 'Voir le système →' : 'See the system →')}
                         </a>
                       )}
                     </div>
@@ -430,7 +431,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
         {item.lead && <span>{t(item.lead, lang)}</span>}
         {item.parentHref && (
           <a href={lh(item.parentHref)}>
-            {lang === 'fr' ? `Voir le hub ${t(item.label, lang)} →` : `See the ${t(item.label, lang)} hub →`}
+            {lang === 'fr' ? `Tout voir : ${t(item.label, lang)} →` : `See all: ${t(item.label, lang)} →`}
           </a>
         )}
       </div>
@@ -569,7 +570,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                             ))}
                             {sys.href && (
                               <a class="m-sys-hub" href={lh(sys.href)}>
-                                {lang === 'fr' ? 'Voir le système →' : 'See the system →'}
+                                {sys.hubLabel ? t(sys.hubLabel, lang) : (lang === 'fr' ? 'Voir le système →' : 'See the system →')}
                               </a>
                             )}
                           </div>

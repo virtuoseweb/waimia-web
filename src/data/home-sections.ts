@@ -1,222 +1,253 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Home LIVE · données de la SÉQUENCE MÉDIANE en donnée (JSONification, vague V1)
+// Home LIVE · données des sections rendues par SectionsRenderer
 // ─────────────────────────────────────────────────────────────────────────────
-// Extraction des littéraux de section qui vivaient inline dans le frontmatter de
-// `src/pages/index.astro` (fiche 0027 D6 : « JSONifier la séquence médiane, garder
-// le shell animé Hero/BootSplash bespoke »). Le shell animé (BootSplash, Hero) et
-// les 3 blocs bespoke sans équivalent catalogué (03 money-slot offres, 06 tension,
-// 07 cas clients) restent dans la page (markup + dérivations c.json). Ici : la
-// DONNÉE (props inline) des sections cataloguées rendues par SectionsRenderer.
+// Refonte positionnement 2026-10 : la home dit le métier (studio de développement IA et
+// cabinet d'automatisation des processus pour PME et ETI) et présente l'offre DANS SON ORDRE :
+// (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation, puis en
+// retrait (4) outils commerciaux et (5) visibilité web. Le site web et la prospection sont des
+// outils parmi d'autres, plus le cœur de l'offre.
 //
-// Mécanisme choisi = module de données `src/data/*.ts` (comme pain-points.ts,
-// sitemap.ts, pricing.ts, logos.ts…) : c'est le plus cohérent avec l'existant et le
-// plus SÛR pour la parité stricte (0 schéma à valider, pur déplacement d'objets ;
-// une collection Astro aurait imposé un schéma sur des shapes hétérogènes — full
-// SectionData + bags de surcharges + config FAQ). La page merge ces données avec
-// les bases cataloguées (home/c.json, site-web-ia.json) comme avant.
+// Séquence de la page (src/pages/index.astro) : Hero · Offre (offer-rail) · Méthode
+// (sticky-scroll) · Réalisations (case-card-grid) · Où en êtes-vous (diagnostic-stages) ·
+// Qui (eeat-panel) · FAQ · Action. Sections retirées car sans information utile à la
+// décision : mur de logos, « la boucle », « la tension », bento de chiffres.
 //
-// 0 valeur réécrite : chaque littéral est transcrit CARACTÈRE POUR CARACTÈRE depuis
-// l'ancien frontmatter (apostrophes typographiques ’, points médians ·, flèches →,
-// balises <i class="acc"> incluses).
+// Les cas, la méthode et les réponses de FAQ restent sourcés dans
+// `src/data/page-variants/home/c.json` (source unique, mergée dans la page).
 import type { SectionData } from '@waimia/ds-kernel';
-import { SIX_SERVICES } from './sitemap';
 
-// ── 03 · Les deux offres · MONEY SLOT · offer-rail CATALOGUE (ex-bloc bespoke he-offres eleve
-// au catalogue, anti-orphelin). Donnee transcrite VERBATIM depuis l'ancien markup de
-// src/pages/index.astro ; les 6 services derivent de SIX_SERVICES (source unique sitemap).
-// La branche « Automation & IA » (offer 02) porte accent='complement' -> token DS --complementary
-// (#2090A8, travail frais Simon 2026-07-16). `anchor: 'offres'` preserve la cible de scroll.
+// ── 02 · L'offre · offer-rail CATALOGUE. Un onglet par domaine, dans l'ordre de l'offre.
+// `anchor: 'offres'` préserve la cible de scroll #offres.
 export const offerRail = {
   type: 'offer-rail',
   anchor: 'offres',
   background: 'paper',
-  kicker_fr: '§ Agence d’ingénierie IA & applications pour PME',
-  kicker_en: '§ AI engineering & applications studio for SMEs',
-  h2_fr: 'On <i>conçoit le système</i>, pas juste l’outil.',
-  h2_en: 'We <i>design the system</i>, not just the tool.',
-  lede_fr: 'Un système métier IA n’est pas une automatisation isolée, c’est un ensemble cohérent d’applications, de données, de workflows et d’agents conçu autour de vos opérations.',
-  lede_en: 'A business AI system is not an isolated automation, it is a coherent set of applications, data, workflows and agents designed around your operations.',
-  tablist_label_fr: 'Familles de systèmes',
-  tablist_label_en: 'System families',
+  kicker_fr: '§ Ce qu’on construit',
+  kicker_en: '§ What we build',
+  h2_fr: 'Des systèmes <i>en production</i>, pas des démonstrations.',
+  h2_en: 'Systems <i>in production</i>, not demos.',
+  lede_fr: 'Trois métiers : automatiser les processus, développer les applications qui manquent, conseiller et former. Le site web et la prospection viennent en appui, quand le système en a besoin.',
+  lede_en: 'Three trades: automating processes, building the applications that are missing, advising and training. The website and prospecting come in support, when the system needs them.',
+  tablist_label_fr: 'Domaines d’intervention',
+  tablist_label_en: 'Areas of work',
   families: [
     {
-      id: 'marketing',
-      tab_label_fr: 'Système d’acquisition',
-      tab_label_en: 'Acquisition system',
-      intro_eyebrow_fr: '§ Système d’acquisition · équipes marketing de PME',
-      intro_eyebrow_en: '§ Acquisition system · SME marketing teams',
-      intro_lede_fr: 'Un inbound et un outbound qui rapportent : le site qualifie chaque visite, les agents relancent et mesurent. Deux briques d’un même système marketing, à un pricing de lancement.',
-      intro_lede_en: 'Inbound and outbound that pay off: the site qualifies every visit, the agents follow up and measure. Two blocks of one marketing system, at a launch price.',
+      id: 'automatisation',
+      tab_label_fr: 'Automatisation et agents IA',
+      tab_label_en: 'Automation and AI agents',
+      intro_eyebrow_fr: '§ Automatisation et agents IA · le cœur du studio',
+      intro_eyebrow_en: '§ Automation and AI agents · the core of the studio',
+      intro_lede_fr: 'Une automatisation suit des règles fixes. Un agent IA raisonne sur une tâche et enchaîne les étapes. On utilise le plus simple des deux qui fait le travail.',
+      intro_lede_en: 'An automation follows fixed rules. An AI agent reasons about a task and chains the steps. We use the simpler of the two that does the job.',
       layout: 'diptych',
       offers: [
         {
-          tag_fr: 'Offre 01',
-          tag_en: 'Offer 01',
-          title_fr: 'Site web intelligent',
-          title_en: 'Smart website',
-          body_fr: 'Un site web IA sur Astro, rapide, indexé par Google et par les moteurs IA, branché à votre CRM. Il qualifie chaque visite et alimente le pipeline en continu : une vitrine qui génère des leads, pas une plaquette figée.',
-          body_en: 'An AI website on Astro, fast, indexed by Google and by AI engines, wired to your CRM. It qualifies every visit and feeds the pipeline continuously: a storefront that generates leads, not a static brochure.',
-          points_fr: ['Astro + IA, trouvé par Google et par les IA', 'Landing et tunnels reliés au CRM', 'Pages éditables, mesurées à la conversion'],
-          points_en: ['Astro + AI, found by Google and by AIs', 'Landing pages and funnels wired to the CRM', 'Editable pages, measured on conversion'],
-          link_label_fr: 'Voir l’offre →',
-          link_label_en: 'See the offer →',
-          link_href: '/services/site-web-ia',
+          tag_fr: 'Automatisation',
+          tag_en: 'Automation',
+          title_fr: 'Automatisation des processus',
+          title_en: 'Process automation',
+          body_fr: 'Les workflows n8n et Make qui suppriment la ressaisie entre vos outils : une donnée saisie une fois circule du formulaire au CRM, du CRM à la facturation, du tableur au tableau de bord.',
+          body_en: 'The n8n and Make workflows that remove re-keying between your tools: data entered once flows from the form to the CRM, from the CRM to invoicing, from the spreadsheet to the dashboard.',
+          points_fr: ['n8n ou Make, selon vos contraintes', 'Branché à vos outils par API', 'Workflows documentés et transférés'],
+          points_en: ['n8n or Make, depending on your constraints', 'Connected to your tools through API', 'Workflows documented and handed over'],
+          link_label_fr: 'Voir l’automatisation des processus →',
+          link_label_en: 'See process automation →',
+          link_href: '/services/automatisations',
         },
         {
-          tag_fr: 'Offre 02',
-          tag_en: 'Offer 02',
-          title_fr: 'Automation & IA',
-          title_en: 'Automation & AI',
+          tag_fr: 'Agents IA',
+          tag_en: 'AI agents',
+          title_fr: 'Agents IA',
+          title_en: 'AI agents',
           accent: 'complement',
-          body_fr: 'Intégration IA de bout en bout : on déploie Claude, ChatGPT ou Mistral et leurs agents dans votre entreprise, branchés à vos outils via MCP (CRM, e-mail, base de données, dépôt Git). De quoi faire travailler l’IA sur vos données réelles et la faire passer de la conversation à l’action.',
-          body_en: 'End-to-end AI integration: we deploy Claude, ChatGPT or Mistral and their agents in your company, wired to your tools via MCP (CRM, email, database, Git repository). Enough to put AI to work on your real data and move it from conversation to action.',
-          points_fr: ['Claude, ChatGPT ou Mistral en production', 'Serveurs MCP propres vers vos outils', 'Gouvernance, mesure et passation incluses'],
-          points_en: ['Claude, ChatGPT or Mistral in production', 'Clean MCP servers to your tools', 'Governance, measurement and handover included'],
-          link_label_fr: 'Voir l’offre →',
-          link_label_en: 'See the offer →',
-          link_href: '/services/integration-claude',
+          body_fr: 'Des agents sur Claude ou OpenAI, branchés à vos outils via MCP (CRM, e-mail, base de données). Ils lisent vos données réelles et agissent dans un périmètre défini. Les actions sensibles passent par une validation humaine.',
+          body_en: 'Agents on Claude or OpenAI, connected to your tools through MCP (CRM, email, database). They read your real data and act within a defined scope. Sensitive actions go through human validation.',
+          points_fr: ['Claude ou OpenAI en production', 'Périmètre d’action et permissions explicites', 'Journal des actions, validation humaine'],
+          points_en: ['Claude or OpenAI in production', 'Explicit scope of action and permissions', 'Action log, human validation'],
+          link_label_fr: 'Voir les agents IA →',
+          link_label_en: 'See AI agents →',
+          link_href: '/services/agents-ia',
         },
       ],
       rail: true,
-      services_intro_fr: '§ Six services, une seule équipe. On active celui qui sert d’abord.',
-      services_intro_en: '§ Six services, one team. We turn on the one that serves first.',
-      services: SIX_SERVICES.map((s) => ({
-        metric_fr: s.metric.fr,
-        metric_en: s.metric.en,
-        label_fr: s.label.fr,
-        label_en: s.label.en,
-        sub_fr: s.connectors.fr,
-        sub_en: s.connectors.en,
-        href: s.href,
-      })),
+      services_intro_fr: '§ Les pages qui détaillent chaque prestation.',
+      services_intro_en: '§ The pages that detail each service.',
+      services: [
+        { metric_fr: 'Vue d’ensemble', metric_en: 'Overview', label_fr: 'Automatisation IA pour PME', label_en: 'AI automation for SMEs', sub_fr: 'Workflows · Agents · Intégrations', sub_en: 'Workflows · Agents · Integrations', href: '/services/systemes-operationnels-ia' },
+        { metric_fr: 'n8n', metric_en: 'n8n', label_fr: 'Automatisation n8n', label_en: 'n8n automation', sub_fr: 'Workflows · Connecteurs · API', sub_en: 'Workflows · Connectors · API', href: '/services/automatisation-n8n' },
+        { metric_fr: 'Support', metric_en: 'Support', label_fr: 'Agent support client', label_en: 'Customer support agent', sub_fr: 'Réponses · Tri · Escalade humaine', sub_en: 'Answers · Triage · Human escalation', href: '/services/agent-support-client' },
+        { metric_fr: 'Claude', metric_en: 'Claude', label_fr: 'Intégration Claude', label_en: 'Claude integration', sub_fr: 'Claude · MCP · Gouvernance', sub_en: 'Claude · MCP · Governance', href: '/services/integration-claude' },
+        { metric_fr: 'Données', metric_en: 'Data', label_fr: 'Données et reporting', label_en: 'Data and reporting', sub_fr: 'Centralisation · Tableaux de bord', sub_en: 'Centralisation · Dashboards', href: '/services/donnees-reporting' },
+        { metric_fr: 'Problèmes', metric_en: 'Problems', label_fr: 'Cas d’usage', label_en: 'Use cases', sub_fr: 'Processus · Données · Reporting', sub_en: 'Processes · Data · Reporting', href: '/cas-usages' },
+      ],
     },
     {
-      id: 'commercial',
-      tab_label_fr: 'Système commercial',
-      tab_label_en: 'Sales system',
-      intro_eyebrow_fr: '§ Système commercial · équipes commerciales de PME',
-      intro_eyebrow_en: '§ Sales system · SME sales teams',
-      intro_lede_fr: 'Vos leads arrivent, puis se perdent. Un système commercial fait l’inverse : la prospection alimente, le CRM qualifie et route, les séquences relancent. Trois leviers sur une seule base pour transformer vos prospects en <i>clients</i>.',
-      intro_lede_en: 'Your leads arrive, then get lost. A sales system does the opposite: prospecting feeds, the CRM qualifies and routes, the sequences follow up. Three levers on one base to turn your prospects into <i>clients</i>.',
-      layout: 'trio',
+      id: 'applications',
+      tab_label_fr: 'Applications métier',
+      tab_label_en: 'Business applications',
+      intro_eyebrow_fr: '§ Applications métier · développement sur mesure',
+      intro_eyebrow_en: '§ Business applications · custom development',
+      intro_lede_fr: 'Quand le tableur ou le logiciel du marché ne suffit plus, on développe l’outil dont l’équipe a besoin. Avant de coder, on vérifie qu’un outil existant ne fait pas déjà le travail.',
+      intro_lede_en: 'When the spreadsheet or off-the-shelf software is no longer enough, we build the tool the team needs. Before coding, we check that an existing tool does not already do the job.',
+      layout: 'diptych',
       offers: [
         {
-          tag_fr: 'Levier 01',
-          tag_en: 'Lever 01',
-          title_fr: 'Prospection automatisée',
-          title_en: 'Automated prospecting',
-          body_fr: 'L’outbound qui vise les comptes cibles : ICP serré, listes enrichies et séquences multicanal. La prospection va chercher les comptes que l’inbound n’a pas captés, sans brûler votre domaine.',
-          body_en: 'Outbound that targets the right accounts: a tight ICP, enriched lists and multichannel sequences. Prospecting goes after the accounts inbound missed, without burning your domain.',
-          link_label_fr: 'Voir le levier →',
-          link_label_en: 'See the lever →',
-          link_href: '/services/prospection-automatisee',
+          tag_fr: 'Développement',
+          tag_en: 'Development',
+          title_fr: 'Applications internes',
+          title_en: 'Internal applications',
+          body_fr: 'L’application métier sur mesure : une interface simple, branchée à vos données et à vos automatisations. Le code est livré et hébergé chez vous.',
+          body_en: 'The custom business application: a simple interface, connected to your data and your automations. The code is delivered and hosted on your side.',
+          points_fr: ['Interface conçue avec les utilisateurs', 'Branchée aux données et aux workflows', 'Vous gardez le code'],
+          points_en: ['Interface designed with its users', 'Connected to data and workflows', 'You keep the code'],
+          link_label_fr: 'Voir les applications internes →',
+          link_label_en: 'See internal applications →',
+          link_href: '/services/applications-internes',
         },
         {
-          tag_fr: 'Levier 02',
-          tag_en: 'Lever 02',
-          title_fr: 'CRM, scoring et routing',
-          title_en: 'CRM, scoring and routing',
-          body_fr: 'Chaque lead noté selon son comportement, dédoublonné et affecté au bon commercial. Le chaud ne refroidit plus dans une file : l’alerte part à temps.',
-          body_en: 'Every lead scored on behaviour, de-duplicated and assigned to the right rep. Hot leads no longer cool down in a queue: the alert fires on time.',
-          link_label_fr: 'Voir le levier →',
-          link_label_en: 'See the lever →',
-          link_href: '/services/crm-scoring-routing',
-        },
-        {
-          tag_fr: 'Levier 03',
-          tag_en: 'Lever 03',
-          title_fr: 'Séquences de suivi',
-          title_en: 'Follow-up sequences',
-          body_fr: 'Des relances multicanal déclenchées par le comportement, personnalisées par l’IA. Plus aucun compte tiède ne s’éteint par oubli.',
-          body_en: 'Multichannel follow-ups triggered by behaviour, personalised by AI. No warm account ever goes dark from being forgotten.',
-          link_label_fr: 'Voir le levier →',
-          link_label_en: 'See the lever →',
-          link_href: '/services/sequences-de-suivi',
+          tag_fr: 'Pilotage',
+          tag_en: 'Steering',
+          title_fr: 'Données et reporting',
+          title_en: 'Data and reporting',
+          accent: 'complement',
+          body_fr: 'Les données dispersées entre vos outils rassemblées dans une seule base, et un reporting qui se produit tout seul au lieu d’occuper le vendredi soir.',
+          body_en: 'Data scattered across your tools gathered in one base, and reporting that produces itself instead of taking up Friday evening.',
+          points_fr: ['Une base, plusieurs sources', 'Tableaux de bord à jour', 'Alertes sur les anomalies'],
+          points_en: ['One base, several sources', 'Up-to-date dashboards', 'Alerts on anomalies'],
+          link_label_fr: 'Voir données et reporting →',
+          link_label_en: 'See data and reporting →',
+          link_href: '/services/donnees-reporting',
         },
       ],
-      services_intro_fr: '§ Trois leviers, un seul système. On active celui qui bouche la fuite qui coûte d’abord.',
-      services_intro_en: '§ Three levers, one system. We turn on the one that plugs the costliest leak first.',
-      panel_cta_label_fr: 'Voir le système commercial →',
-      panel_cta_label_en: 'See the sales system →',
-      panel_cta_href: '/services/systeme-commercial',
+    },
+    {
+      id: 'conseil',
+      tab_label_fr: 'Conseil et formation',
+      tab_label_en: 'Advisory and training',
+      intro_eyebrow_fr: '§ Conseil et formation · avant et après le projet',
+      intro_eyebrow_en: '§ Advisory and training · before and after the project',
+      intro_lede_fr: 'Savoir où l’IA crée de la valeur avant d’investir, puis rendre vos équipes capables de faire évoluer ce qui a été construit.',
+      intro_lede_en: 'Know where AI creates value before investing, then make your teams able to evolve what was built.',
+      layout: 'diptych',
+      offers: [
+        {
+          tag_fr: 'Conseil',
+          tag_en: 'Advisory',
+          title_fr: 'Audit et feuille de route',
+          title_en: 'Audit and roadmap',
+          body_fr: 'L’audit gratuit de 45 minutes repère trois automatisations rentables. Le sprint de cadrage (10 h, 999 € HT) transforme la première en plan chiffré, avec un premier livrable en main.',
+          body_en: 'The free 45-minute audit spots three profitable automations. The scoping sprint (10 h, 999 € ex VAT) turns the first into a costed plan, with a first deliverable in hand.',
+          points_fr: ['Audit IA gratuit, 45 min', 'Sprint de cadrage, 10 h', 'RGPD et AI Act regardés au cadrage'],
+          points_en: ['Free AI audit, 45 min', 'Scoping sprint, 10 h', 'GDPR and AI Act reviewed during scoping'],
+          link_label_fr: 'En savoir plus sur l’audit →',
+          link_label_en: 'More about the audit →',
+          link_href: '/audit-ia-pme',
+        },
+        {
+          tag_fr: 'Formation',
+          tag_en: 'Training',
+          title_fr: 'Formation IA et automatisation',
+          title_en: 'AI and automation training',
+          accent: 'complement',
+          body_fr: 'Former vos équipes à n8n, Make et Claude à partir de vos propres processus. Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.',
+          body_en: 'Train your teams in n8n, Make and Claude from your own processes. Training delivered through Akigora, a Qualiopi-certified body. Funding possible depending on your situation.',
+          points_fr: ['Ateliers sur vos cas réels', 'Programme défini après l’audit', 'Référent IA accompagné en interne'],
+          points_en: ['Workshops on your real cases', 'Programme defined after the audit', 'In-house AI lead supported'],
+          link_label_fr: 'Voir le conseil IA →',
+          link_label_en: 'See AI advisory →',
+          link_href: '/services/consultant-ia-claude',
+        },
+      ],
+    },
+    {
+      id: 'appui',
+      tab_label_fr: 'Outils en appui',
+      tab_label_en: 'Supporting tools',
+      intro_eyebrow_fr: '§ En appui · commercial et visibilité web',
+      intro_eyebrow_en: '§ In support · sales and web visibility',
+      intro_lede_fr: 'Waimia n’est pas une agence web ni une agence marketing. Un site ou une séquence de prospection sont des outils qu’on branche au système quand ils servent le processus.',
+      intro_lede_en: 'Waimia is neither a web agency nor a marketing agency. A website or a prospecting sequence are tools we connect to the system when they serve the process.',
+      layout: 'diptych',
+      offers: [
+        {
+          tag_fr: 'Commercial',
+          tag_en: 'Sales',
+          title_fr: 'Outils commerciaux',
+          title_en: 'Sales tooling',
+          body_fr: 'Prospection automatisée, CRM avec scoring et affectation, relances déclenchées par le comportement. Les mêmes briques d’automatisation, appliquées au pipeline.',
+          body_en: 'Automated prospecting, CRM with scoring and assignment, follow-ups triggered by behaviour. The same automation building blocks, applied to the pipeline.',
+          link_label_fr: 'Voir les outils commerciaux →',
+          link_label_en: 'See sales tooling →',
+          link_href: '/services/systeme-commercial',
+        },
+        {
+          tag_fr: 'Visibilité',
+          tag_en: 'Visibility',
+          title_fr: 'Visibilité web',
+          title_en: 'Web visibility',
+          accent: 'complement',
+          body_fr: 'Un site rapide et mesuré, lisible par Google et par les moteurs IA, relié au CRM. Il amène la demande que les automatisations traitent ensuite.',
+          body_en: 'A fast, measured site, readable by Google and AI engines, connected to the CRM. It brings the demand the automations then process.',
+          link_label_fr: 'Voir les outils de visibilité →',
+          link_label_en: 'See visibility tooling →',
+          link_href: '/services/systeme-acquisition',
+        },
+      ],
     },
   ],
 } as unknown as SectionData;
 
-// ── 04 · statement-orbit CATALOGUE · PIVOT après le money slot · liant conceptuel :
-// les 2 offres forment UNE boucle d'amélioration continue (lire/mesurer/réinjecter).
-// Copy neuf adapté home (0 reprise du copy SWI). Carte ink contenue → pleine largeur
-// au scroll (motion signature). media = globe filaire line-art `orbit-network.svg`
-// INLINE par le composant (import ?raw) → currentColor = paper sur ink. Pas de CTA
-// (le hero + la ligne cas clients + BookSession couvrent déjà /contact).
-export const statementOrbit: SectionData = {
-  type: 'statement-orbit',
-  background: 'paper',
-  density: 'compact', // iter 6 : carte ink garde sa présence, inner padding space-11 → space-9.
-  kicker_fr: '§ La boucle',
-  kicker_en: '§ The loop',
-  h2_fr: 'Vos systèmes forment une <i class="acc">boucle</i> : lire, mesurer, réinjecter.',
-  h2_en: 'Your systems form one <i class="acc">loop</i>: read, measure, feed back.',
-  lede_fr: 'Votre site qualifie chaque visite, les agents traitent et mesurent, ce qui remonte nourrit le cycle suivant. Une ingénierie qui gagne en justesse à chaque tour, sans refonte à chaque palier.',
-  lede_en: 'Your site qualifies every visit, the agents process and measure, what comes back feeds the next cycle. A setup that sharpens with every turn, with no rebuild at each tier.',
-  media_src: '/images/line-art/orbit-network.svg',
-  media_alt_fr: 'Globe filaire aux nœuds relies par des arcs : le site, le CRM, le contenu et les agents tournent en une seule boucle d’acquisition.',
-  media_alt_en: 'Wireframe globe with nodes linked by arcs: site, CRM, content and agents turn as one acquisition loop.',
-} as SectionData;
-
 // ── 05 · Où en êtes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (axe quizCta).
-// 5 stades de maturité SYSTÈME/IA d'une PME (current = stade 2, prospect type).
-// Fond paper ; la carte quiz est TOUJOURS ink (rendue par le composant). density
-// compact. Bande quiz → route réelle /ressources/diagnostics/maturite-ia. media_src
-// omis = défaut DS `no-no-yes-ink.webp` (carte ink).
+// 5 stades de maturité d'une PME face à l'automatisation (current = stade 2, cas le plus
+// fréquent). Fond paper-2 ; la carte quiz est TOUJOURS ink (rendue par le composant).
 export const maturityStages: SectionData = {
   type: 'diagnostic-stages',
-  background: 'paper',
+  background: 'paper-2',
   density: 'compact',
   kicker_fr: '§ Où en êtes-vous ?',
   kicker_en: '§ Where do you stand?',
-  h2_fr: 'Cinq stades, du <i class="acc">tout-manuel</i> à l’entreprise qui tourne sur ses systèmes.',
-  h2_en: 'Five stages, from <i class="acc">all-manual</i> to a company that runs on its systems.',
-  lede_fr: 'Situez votre PME sur la trajectoire des systèmes métier IA, jusqu’à ce qu’ils deviennent le système d’exploitation de votre entreprise. La plupart démarrent au stade 2 : des outils, mais rien qui pilote l’ensemble.',
-  lede_en: 'Place your SME on the business-AI-system path, up to the point where it becomes your company’s operating system. Most start at stage 2: tools, but nothing steering the whole.',
+  h2_fr: 'Cinq stades, du <i class="acc">tout-manuel</i> au système qui tourne.',
+  h2_en: 'Five stages, from <i class="acc">all-manual</i> to a system that runs.',
+  lede_fr: 'Situez votre entreprise. Beaucoup de PME en sont au stade 2 : des outils, mais rien qui les relie.',
+  lede_en: 'Place your company. Many SMEs are at stage 2: tools, but nothing connecting them.',
   stages: [
     {
       glyph: '○', phase_fr: 'Stade 1', phase_en: 'Stage 1',
       title_fr: 'Tout à la main', title_en: 'All by hand',
-      body_fr: 'Les tâches répétitives à faible valeur monopolisent vos équipes. Rien n’est outillé, tout repose sur des personnes et un temps qu’elles n’ont pas.',
-      body_en: 'Low-value repetitive tasks monopolise your teams. Nothing is tooled, everything rests on people and time they don’t have.',
+      body_fr: 'Les tâches répétitives occupent les équipes. Rien n’est outillé, tout repose sur des personnes et sur leur mémoire.',
+      body_en: 'Repetitive tasks occupy the teams. Nothing is tooled, everything rests on people and their memory.',
     },
     {
       glyph: '◔', phase_fr: 'Stade 2', phase_en: 'Stage 2', current: true,
       title_fr: 'Outils dispersés', title_en: 'Scattered tools',
-      body_fr: 'Un CRM, des SaaS, des tableurs, mais déconnectés. La donnée se ressaisit à la main et personne ne pilote l’ensemble.',
-      body_en: 'A CRM, SaaS apps, spreadsheets, but disconnected. Data is re-keyed by hand and no one steers the whole.',
+      body_fr: 'Un CRM, des logiciels, des tableurs, mais déconnectés. La donnée se ressaisit à la main d’un outil à l’autre.',
+      body_en: 'A CRM, software, spreadsheets, but disconnected. Data is re-keyed by hand from one tool to the next.',
     },
     {
       glyph: '◑', phase_fr: 'Stade 3', phase_en: 'Stage 3',
       title_fr: 'Premières automatisations', title_en: 'First automations',
-      body_fr: 'Vous commencez à déléguer les tâches répétitives à l’IA : quelques workflows, un premier agent sur une tâche ciblée, des résultats que vous suivez.',
-      body_en: 'You start delegating repetitive tasks to AI: a few workflows, a first agent on a targeted task, results you track.',
+      body_fr: 'Quelques workflows, un premier agent sur une tâche ciblée, un gain que vous mesurez.',
+      body_en: 'A few workflows, a first agent on a targeted task, a gain you measure.',
     },
     {
       glyph: '◕', phase_fr: 'Stade 4', phase_en: 'Stage 4',
       title_fr: 'Système connecté', title_en: 'Connected system',
-      body_fr: 'Applications et agents branchés à vos outils via MCP. La donnée circule, les coûts opérationnels baissent, chaque décision est mesurée.',
-      body_en: 'Applications and agents wired to your tools via MCP. Data flows, operating costs drop, every decision is measured.',
+      body_fr: 'Applications et agents branchés à vos outils. La donnée circule sans ressaisie, les actions sont journalisées.',
+      body_en: 'Applications and agents connected to your tools. Data flows without re-keying, actions are logged.',
     },
     {
       glyph: '●', phase_fr: 'Stade 5', phase_en: 'Stage 5',
-      title_fr: 'L’entreprise-système', title_en: 'The system-company',
-      body_fr: 'L’équipe pilote, l’IA exécute. Votre entreprise tourne sur ses systèmes : une PME IA-ready, qui gagne en justesse à chaque cycle.',
-      body_en: 'The team steers, AI executes. Your company runs on its systems: an AI-ready SME that sharpens with every cycle.',
+      title_fr: 'L’équipe pilote, le système exécute', title_en: 'The team steers, the system executes',
+      body_fr: 'Les processus répétitifs tournent seuls, sous supervision. L’équipe sait les faire évoluer sans prestataire.',
+      body_en: 'Repetitive processes run on their own, under supervision. The team knows how to evolve them without a provider.',
     },
   ],
   quizCta: {
     eyebrow_fr: '§ Diagnostic de maturité', eyebrow_en: '§ Maturity diagnostic',
     title_fr: 'À quel stade est votre PME aujourd’hui ?',
     title_en: 'Which stage is your company at today?',
-    body_fr: 'Situez votre PME sur les cinq niveaux de maturité IA et repartez avec les prochaines étapes concrètes pour monter d’un cran.',
-    body_en: 'Place your company on the five AI maturity levels and leave with the concrete next steps to climb one level.',
+    body_fr: 'Situez votre PME sur les cinq niveaux et repartez avec les prochaines étapes concrètes pour monter d’un cran.',
+    body_en: 'Place your company on the five levels and leave with the concrete next steps to climb one level.',
     cta_label_fr: 'Faire le diagnostic →', cta_label_en: 'Run the diagnostic →',
     cta_href: '/ressources/diagnostics/maturite-ia',
     media_alt_fr: 'Illustration : évaluer des options et trancher pour avancer d’un stade.',
@@ -225,32 +256,19 @@ export const maturityStages: SectionData = {
   },
 } as SectionData;
 
-// ── 10 · Tableau de bord média · eeat-panel variant media (INK) = profil auteur,
-// repères, secteurs, badges E-E-A-T. Contenu + liens internes GLOBAUX portés par le
-// composant (source unique, même rendu que SWI).
+// ── 06 · Qui · eeat-panel variant media (INK) = profil du fondateur, repères, liens.
+// Silo `ops` : le maillage du panneau pointe vers l'automatisation et les agents IA.
 export const mediaDashboard: SectionData = {
   type: 'eeat-panel',
   variant: 'media',
+  silo: 'ops',
   background: 'ink',
 } as SectionData;
 
-// ── Surcharges des sections cataloguées DÉRIVÉES d'une base (home/c.json ou
-// site-web-ia.json) : la page garde le merge `{ ...base, ...override }` (la base reste
-// source unique — logos, avis SWI, bento). Seuls les littéraux home-spécifiques
-// vivent ici.
-
-// 02 · écosystème opéré · logo-marquee sur fond ink + grayscale (base = c.json logo-marquee).
-export const logoMarqueeOverrides = {
-  background: 'ink',
-  grayscale: true,
-  kicker_fr: '§ Les outils que nous connectons',
-} as const;
-
-// 08 · Méthode · sticky-scroll-storytelling (base = c.json). Les steps.media_src
-// basculent sur leur variante `-ink.webp` (mappé dans la page, dépend de la base).
+// ── 03 · Méthode · sticky-scroll-storytelling (base = c.json : audit, pilote, mesure,
+// transfert). Les steps.media_src basculent sur leur variante `-ink.webp` dans la page.
 export const methodOverrides = {
   background: 'ink',
-  kicker_fr: '§ Méthode · l’ingénierie se construit par paliers',
   textSide: 'right',
   proportion: 'media-wide',
   mediaRatio: '3-2',
@@ -258,32 +276,10 @@ export const methodOverrides = {
   numbering: 'serif',
 } as const;
 
-// 11 · Climax chiffre = 2e stats-bento de c.json (base). density base (retire le
-// surdimensionnement de la base 'ample'), paper-2, kicker pre-FAQ.
-export const statsBentoOverrides = {
-  background: 'paper-2',
-  density: 'base',
-  kicker_fr: '§ Ce que ça change',
-} as const;
-
-// 06 · La tension · libellés de sévérité des 3 douleurs (données réelles = c.json
-// pain-severity-list, mappées dans la page). Bloc markup bespoke (pas de section
-// cataloguée) → reste dans la page.
-export const severityLabels: Record<string, string> = { critical: 'Critique', high: 'Élevé', medium: 'Moyen' };
-
-// 12 · FAQ · 6 questions reformulées en requêtes conversationnelles AIO (surface AIO
-// citable) ; les RÉPONSES restent celles de c.json (0 désync, mappées dans la page via
-// `idx`). heading/intro de FaqAccordion inclus.
+// ── 07 · FAQ · 6 questions (index dans c.json faq-accordion.items ; questions et réponses
+// viennent de c.json, source unique). heading/intro de FaqAccordion inclus.
 export const faqConfig = {
-  idx: [0, 1, 2, 3, 4, 6],
-  questions: [
-    'Combien coûte un système IA pour une PME ?',
-    'À quelle taille d’entreprise s’adresse un système métier IA ?',
-    'En combien de temps une PME voit-elle un retour sur l’IA ?',
-    'Faut-il remplacer nos outils pour intégrer l’IA ?',
-    'L’IA peut-elle se brancher à notre CRM et à nos outils existants ?',
-    'Nos équipes restent-elles autonomes après la livraison ?',
-  ],
+  idx: [0, 1, 2, 3, 5, 6],
   heading: 'Ce qu’on écrit par mail avant de se parler.',
-  intro: 'Six réponses nettes, pas des slides, pas du jargon.',
+  intro: 'Six réponses nettes, sans jargon.',
 } as const;
