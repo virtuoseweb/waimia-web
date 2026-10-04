@@ -311,6 +311,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'numbered-layer-list',   consumers: ['src/pages/technologies.astro'] },
   { id: 'offer-rail',            consumers: ['src/pages/index.astro'] },
   { id: 'pricing-tabs-showcase', consumers: [] },
+  // Refonte positionnement 2026-10 : registre tarifaire de /tarifs (remplace pricing-tabs-showcase sur la page).
+  { id: 'engagement-ledger',     consumers: ['src/pages/tarifs.astro'] },
   { id: 'prose-aside',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'provenance-chip',       consumers: [] },
   { id: 'publications-panel',    consumers: ['src/components/templates/AuthorPageTemplate.astro'] },

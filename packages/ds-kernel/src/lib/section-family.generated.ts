@@ -59,6 +59,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'editorial-timeline': 'timeline',
   'editorial-write-feed': 'prose',
   'eeat-panel': 'prose',
+  'engagement-ledger': 'table',
   'faq-accordion': 'accordion',
   'faq-cta-aside': 'accordion',
   'faq-two-column': 'accordion',
