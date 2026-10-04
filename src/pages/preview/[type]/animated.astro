@@ -18,8 +18,11 @@ import '../../../styles/scroll-reveal.css';
 import { listSections, SECTION_REGISTRY } from '../../../lib/section-registry';
 import { SECTION_DEMOS } from '../../../lib/section-demos';
 import { getUsage, getConsumers } from '../../../lib/library-manifest';
+import { internalToolsEnabled } from '../../../lib/seo/internal-tools.mjs';
 
 export function getStaticPaths() {
+  // Surface interne : non générée dans le build de production (cf lib/seo/internal-tools.mjs).
+  if (!internalToolsEnabled()) return [];
   return listSections().map((section) => ({ params: { type: section.type } }));
 }
 

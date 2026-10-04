@@ -1,76 +1,43 @@
-// Waimia · seo.ts · builders JSON-LD pour GEO/AIO
-// Cf docs/02-geo-aio-strategy.md
+// Waimia · seo.ts · façade historique des builders JSON-LD.
+//
+// Refonte C 2026-10 · il existait DEUX constructeurs d'Organization/WebSite/Service/Article
+// (ici et dans `seo/schema-builder.ts`), avec deux descriptions différentes de l'entreprise.
+// La source unique est désormais `src/lib/seo/schema-builder.ts`. Ce fichier ne contient
+// plus aucune donnée : il conserve les noms d'export historiques (`organization`,
+// `website`, `service`, `article`, `faqPage`, `breadcrumbs`) pour ne casser aucun import.
 
 import type { Lang } from './i18n';
-import { SITE } from '../site.config';
+import {
+  buildArticle,
+  buildBreadcrumbList,
+  buildFAQPage,
+  buildOrganization,
+  buildService,
+  buildWebSite,
+  SCHEMA_IDS,
+} from './seo/schema-builder';
 
-const SITE_URL = SITE.url;
-const ORG_NAME = SITE.name;
-
-/** JSON-LD `Organization` réutilisable sur toutes les pages */
+/** JSON-LD `Organization` (identité unique du site). */
 export function organization() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': `${SITE_URL}/#organization`,
-    legalName: SITE.legalName,
-    email: SITE.email,
-    telephone: SITE.tel,
-    foundingDate: SITE.foundingDate,
-    vatID: SITE.vatID,
-    name: ORG_NAME,
-    url: SITE_URL,
-    logo: `${SITE_URL}/favicon-256.png`,
-    description: "Studio IA expert de l'écosystème Claude. Architecte de systèmes agentiques pour PME.",
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: SITE.city,
-      addressRegion: SITE.region,
-      addressCountry: SITE.country,
-    },
-    sameAs: [...SITE.sameAs],
-    knowsAbout: [
-      'Claude AI', 'Anthropic', 'agentic systems', 'MCP connectors',
-      'Claude Skills', 'AI Act compliance', 'multi-agent orchestration',
-      'self-hosted LLM', 'Process Intelligence',
-    ],
-  };
+  return buildOrganization();
 }
 
-/** JSON-LD `WebSite` (utile pour search box future) */
+/** JSON-LD `WebSite`. */
 export function website(lang: Lang) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    url: SITE_URL,
-    name: ORG_NAME,
-    inLanguage: lang === 'en' ? 'en-US' : 'fr-FR',
-    publisher: { '@id': `${SITE_URL}/#organization` },
-  };
+  return buildWebSite(lang);
 }
 
-/** JSON-LD `Service` pour les pages Offres / Solutions */
-export function service(opts: {
-  name: string;
-  description: string;
-  url: string;
-  serviceType: string;
-  lang: Lang;
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+/** JSON-LD `Service` pour une page de prestation. */
+export function service(opts: { name: string; description: string; url: string; serviceType: string; lang: Lang }) {
+  return buildService({
     name: opts.name,
     description: opts.description,
     url: opts.url,
     serviceType: opts.serviceType,
-    inLanguage: opts.lang === 'en' ? 'en-US' : 'fr-FR',
-    provider: { '@type': 'Organization', name: ORG_NAME, url: SITE_URL },
-    areaServed: ['FR', 'CH', 'BE', 'LU', 'EU'],
-  };
+  });
 }
 
-/** JSON-LD `Article` pour blog / cas */
+/** JSON-LD `Article` pour blog / cas. */
 export function article(opts: {
   headline: string;
   description: string;
@@ -81,46 +48,31 @@ export function article(opts: {
   image?: string;
   lang: Lang;
 }) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+  return buildArticle({
     headline: opts.headline,
     description: opts.description,
-    url: opts.url,
-    datePublished: opts.datePublished,
-    dateModified: opts.dateModified ?? opts.datePublished,
-    inLanguage: opts.lang === 'en' ? 'en-US' : 'fr-FR',
     image: opts.image,
-    author: opts.authorName
-      ? { '@type': 'Person', name: opts.authorName }
-      : { '@type': 'Organization', name: ORG_NAME },
-    publisher: { '@type': 'Organization', name: ORG_NAME, logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon-256.png` } },
-  };
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified,
+    author: {
+      '@type': 'Person',
+      '@id': SCHEMA_IDS.founder,
+      name: opts.authorName ?? 'Simon Beros',
+    },
+    mainEntityOfPage: opts.url,
+  });
 }
 
-/** JSON-LD `FAQPage` — bloc à dupliquer sur les pages-hub */
+/**
+ * JSON-LD `FAQPage`. À n'émettre que depuis le composant qui AFFICHE la FAQ (les sections
+ * `faq-*` du catalogue) : une FAQ balisée mais invisible est une donnée structurée
+ * trompeuse (gate : scripts/check-jsonld.mjs, règle faq-visible).
+ */
 export function faqPage(items: Array<{ q: string; a: string }>) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: items.map((it) => ({
-      '@type': 'Question',
-      name: it.q,
-      acceptedAnswer: { '@type': 'Answer', text: it.a },
-    })),
-  };
+  return buildFAQPage(items) ?? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [] };
 }
 
-/** JSON-LD `BreadcrumbList` */
+/** JSON-LD `BreadcrumbList`. */
 export function breadcrumbs(items: Array<{ label: string; url: string }>) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.label,
-      item: it.url,
-    })),
-  };
+  return buildBreadcrumbList(items.map((it) => ({ name: it.label, url: it.url })));
 }

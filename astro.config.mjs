@@ -5,19 +5,64 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
-import robotsTxt from 'astro-robots-txt';
-import llmsTxt from '@4hse/astro-llms-txt';
+import robots from './src/integrations/robots.mjs';
 import llmsMdPages from './src/integrations/llms-md-pages';
 import dsSaveDev from './src/integrations/ds-save-dev.mjs';
+import sitemapHygiene from './src/integrations/sitemap-hygiene.mjs';
+import seoPostbuild from './src/integrations/seo-postbuild.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 import { SITE } from './src/site.config.ts';
+import {
+  internalToolsEnabled,
+  isInternalPath,
+  INTERNAL_PATH_PREFIXES,
+  INTERNAL_API_PREFIXES,
+} from './src/lib/seo/internal-tools.mjs';
+import { lastmodFor } from './src/lib/seo/lastmod.mjs';
+import { SITE_IDENTITY } from './src/lib/seo/page-schema.ts';
 // Apps-as-plugins (fiche 0027 D3) : registre des apps internes extraites en packages.
 // Chaque app enabled+extraite expose une AstroIntegration qui injecte sa route.
 import { enabledAppIntegrations, APPS } from './src/apps.config.ts';
 
-// Marque centralisée (fondation forkabilité, fiche 0027 D4) : source unique = SITE.
-// Host nu (sans protocole) dérivé pour robots.txt `host`.
-const SITE_HOST = new URL(SITE.url).host;
+// Refonte C 2026-10 · surfaces INTERNES (catalogue DS /preview, atelier /library, dashboard
+// SEO, cartographie) : générées partout SAUF dans le build de production Vercel. Elles
+// représentaient ~4 300 des ~4 400 pages HTML du build et exposaient en prod des outils
+// de travail (dont l'endpoint serverless /api/ds/chat). Cf src/lib/seo/internal-tools.mjs.
+const INTERNAL_TOOLS = internalToolsEnabled();
+
+// Interdictions d'exploration communes à TOUS les robots. Chaque préfixe interne est
+// interdit en « segment entier » : `/library$` (la page hub) et `/library/` (son
+// sous-arbre), pour ne pas mordre sur une future URL publique qui commencerait pareil.
+const ROBOTS_DISALLOW = [
+  '/admin/',
+  '/api/',
+  ...[...INTERNAL_PATH_PREFIXES, ...INTERNAL_API_PREFIXES].flatMap((p) => [`${p}$`, `${p}/`]),
+].filter((rule, i, all) => !rule.startsWith('/api/ds') && all.indexOf(rule) === i);
+
+// /api/ est interdit SAUF l'image Open Graph dynamique : Twitterbot, LinkedInBot et
+// Googlebot-Image respectent robots.txt, sans cette exception aucune carte de partage
+// n'avait d'image (og:image pointe /api/og.png). La règle la plus longue l'emporte.
+const ROBOTS_ALLOW = ['/', '/api/og.png'];
+
+// Robots des moteurs génératifs explicitement nommés dans robots.txt (exploration,
+// recherche et requêtes utilisateur). Ils partagent le groupe de `*` : mêmes règles.
+const AI_USER_AGENTS = [
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'Claude-SearchBot',
+  'Claude-User',
+  'anthropic-ai',
+  'PerplexityBot',
+  'Perplexity-User',
+  'Google-Extended',
+  'Applebot-Extended',
+  'MistralAI-User',
+  'CCBot',
+  'cohere-ai',
+  'Bytespider',
+];
 
 // Apps-as-plugins (E1) · redirections dont la DESTINATION est une route /library/*
 // (servie par l'app extraite « atelier »). Astro leve InvalidRedirectDestination si la
@@ -25,7 +70,7 @@ const SITE_HOST = new URL(SITE.url).host;
 // conditionne donc au flag APPS.atelier.enabled : atelier off → les routes /library/*
 // ET ces redirections disparaissent ensemble (le reste du site public reste intact).
 /** @type {Record<string, string>} */
-const atelierRedirects = APPS.atelier?.enabled
+const atelierRedirects = APPS.atelier?.enabled && INTERNAL_TOOLS
   ? {
       // Cutover atelier DS → /library/* (decision docs/design-system/03 §11.2).
       '/agence/design-system': '/library',
@@ -47,9 +92,9 @@ const atelierRedirects = APPS.atelier?.enabled
 // Waimia · Astro 6 config · Static-first + API routes SSR via Vercel Functions
 // - output: 'static' : 100 % SSG par défaut, fichiers CDN immuables (T1.1 activé 2026-05-17)
 // - adapter: vercel() · Vercel Functions on-demand pour /api/* (prerender=false)
-// - i18n: FR default at /, EN at /en/* — content-routed for proper SEO/GEO
+// - i18n: site monolingue FR (pas de miroir /en)
 // - Tailwind v4 CSS-first
-// - Sitemap auto-generated with hreflang
+// - Sitemap : URL indexables uniquement, lastmod réel par URL
 //
 // Note · Astro 6 dev server a un bug avec les `<script>` de composants servis
 // via virtual paths Vite (`?astro&type=script&index=0&lang.ts` → 500). Notre
@@ -79,11 +124,18 @@ export default defineConfig({
       exclude: ['/api/contact', '/api/newsletter', '/api/academy', '/api/devis', '/api/lead-magnet', '/api/healthcheck'],
     },
   }),
-  prefetch: { prefetchAll: true, defaultStrategy: 'viewport' },
+  // Refonte C 2026-10 · préchargement au survol/toucher, plus à l'entrée dans le viewport :
+  // avec le mega menu et le footer, `viewport` déclenchait le téléchargement de dizaines de
+  // pages HTML à chaque affichage (réseau mobile gaspillé, sans gain mesurable sur la page vue).
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
+  // Une seule forme d'URL : sans slash final. L'adapter Vercel émet la 308 `/x/` → `/x`
+  // (1re règle de .vercel/output/config.json), vérifiée par scripts/check-redirects.mjs.
   trailingSlash: 'never',
+  // Site monolingue FR (le miroir /en n'existe pas : /en répond 404). Une seule locale
+  // déclarée → aucune route, aucun alternate ni aucun lien /en n'est émis.
   i18n: {
     defaultLocale: 'fr',
-    locales: ['fr', 'en'],
+    locales: ['fr'],
     routing: { prefixDefaultLocale: false, redirectToDefaultLocale: false },
   },
   // Pattern redirections · single source of truth pour les renames d'URL.
@@ -272,119 +324,75 @@ export default defineConfig({
     // repliés sur le diagnostic de maturité.
     '/ressources/outils/score-maturite-ia': '/ressources/diagnostics/maturite-ia',
     '/ressources/academy': '/ressources/diagnostics/maturite-ia',
+    // Refonte C 2026-10 · l'ancien index « structure » pour moteurs génératifs n'est plus
+    // produit (llms.txt le remplace, structuré par silo) : l'URL connue garde une cible.
+    '/llms-small.txt': '/llms.txt',
+    // Refonte C 2026-10 · FILET TRANSITOIRE, build de production uniquement. Le footer
+    // (src/data/sitemap.ts, hors périmètre de cette PR) lie encore /library et
+    // /agence/cartographie, qui ne sont plus générés en production. Tant que ces deux
+    // liens existent, ils retombent sur le plan du site au lieu d'un 404. À supprimer dès
+    // que les deux entrées de FOOTER_COLS sont retirées (gate : check-public-surface).
+    ...(INTERNAL_TOOLS
+      ? {}
+      : {
+          '/library': '/plan-du-site',
+          '/agence/cartographie': '/plan-du-site',
+        }),
   },
   integrations: [
     react(),
     mdx(),
     sitemap({
-      // P0.2-I · lancement FR monolingue : sitemap FR only (plus de miroir /en).
-      // Réactiver `en: 'en-US'` ici quand le miroir EN sera regénéré.
-      i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR' } },
-      // Filtre sitemap.xml :
-      //  · /bienvenue/* : thank-you pages post-conversion (déjà noindex sur la page,
-      //    pas de raison qu'elles soient crawlables/indexées)
-      //  · /agence/design-system : showcase interne (déjà noindex)
-      //  · /preview/* + /components/* : pages catalogue DS internes (déjà noindex,follow
-      //    sur chaque page) — les lister dans le sitemap crée une incohérence
-      //    noindex↔sitemap qui gaspille le budget crawl (148 URLs). Cf docs SEO.
-      //  · /ecole/formation/* : route générique [type]/[slug] qui duplique la forme
-      //    canonique /ecole/cours/{slug} (les formations sont rendues 2× — cf
-      //    CourseDetailTemplate qui force le canonical vers /ecole/cours/). On retire
-      //    la forme dupliquée du sitemap pour ne garder que la forme canonique.
+      // Sitemap = uniquement des URL publiques, canoniques, indexables, qui répondent 200.
+      // Deux étages :
+      //  1. ce filtre écarte ce qu'on SAIT ne pas vouloir (surfaces internes, pages de
+      //     remerciement, landing pages de campagne, stubs noindex listés à la main) ;
+      //  2. l'intégration sitemapHygiene (juste après) relit le HTML bâti et retire toute
+      //     URL noindex, redirigée ou au canonical différent. C'est elle la garantie : une
+      //     page qui passe en noindex sort du sitemap sans liste à tenir à jour.
       filter: (page) => {
-        // Stubs noindex du catch-all [...slug].astro (routes de nav sans contenu
-        // propre) : listés ici pour résorber l'incohérence noindex↔sitemap.
-        // Liste figée data-driven (cf src/data/sitemap-noindex-exclude.ts).
-        const path = new URL(page).pathname.replace(/\/$/, '');
+        const path = new URL(page).pathname.replace(/\/$/, '') || '/';
         if (NOINDEX_SITEMAP_PATHS.has(path)) return false;
-        return (
-          !page.includes('/bienvenue/') &&
-          !page.includes('/agence/design-system') &&
-          !page.includes('/preview/') &&
-          !page.includes('/components/') &&
-          !page.includes('/ecole/formation/') &&
-          // Catalogue DS interne + page de comparaison : noindex,follow → hors sitemap
-          // (même famille que /preview/ et /components/, cohérence budget crawl).
-          !page.includes('/categories/') &&
-          !page.includes('/compare/') &&
-          // Commerce détail (/commerce/product|subscription/*) : CTA Stripe placeholder
-          // (liens test_/portail fictif) → pages noindex défensif tant que le checkout
-          // réel n'est pas branché. Hors sitemap pour cohérence noindex↔crawl.
-          !page.includes('/commerce/') &&
-          // Landing pages (/lp/*) : noindex par défaut (ADR-003) → hors sitemap.
-          !page.includes('/lp/') &&
-          // Variantes A/B internes (/preview-v/*, /preview-swi/*) : noindex,follow →
-          // hors sitemap pour cohérence noindex↔crawl (audit maillage 2026-07-14).
-          !page.includes('/preview-v/') &&
-          !page.includes('/preview-swi/') &&
-          // Atelier DS interne (/library/* : hub + Studio + Hero Lab + catalogue) : public
-          // mais non référencé (noindex + footer only, décision docs/design-system/03 §11.2)
-          // → hors sitemap pour cohérence noindex↔crawl, comme /preview/ et /components/.
-          !page.includes('/library/') &&
-          !page.endsWith('/library')
-        );
+        if (isInternalPath(path)) return false;
+        return !path.startsWith('/bienvenue/') && path !== '/lp' && !path.startsWith('/lp/');
       },
+      // lastmod RÉEL par URL (date de modification du contenu, jamais la date de build).
+      // Une route sans date connue n'émet pas de lastmod plutôt qu'une date inventée.
+      serialize: (item) => {
+        const lastmod = lastmodFor(new URL(item.url).pathname);
+        return lastmod ? { ...item, lastmod } : item;
+      },
+      // Espaces de noms inutilisés retirés de l'en-tête XML (pas d'actualités, de vidéos ni
+      // d'alternates de langue sur un site monolingue).
+      namespaces: { news: false, xhtml: false, image: false, video: false },
     }),
-    robotsTxt({
-      policy: [
-        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/cartographie', '/agence/ds-studio', '/agence/hero-lab', '/dashboard-seo', '/library/', '/preview/', '/preview-v/', '/preview-swi/', '/components/', '/categories/'] },
-        { userAgent: 'GPTBot', allow: '/' },
-        { userAgent: 'ClaudeBot', allow: '/' },
-        { userAgent: 'anthropic-ai', allow: '/' },
-        { userAgent: 'PerplexityBot', allow: '/' },
-        { userAgent: 'Perplexity-User', allow: '/' },
-        { userAgent: 'Google-Extended', allow: '/' },
-        { userAgent: 'CCBot', allow: '/' },
-        { userAgent: 'cohere-ai', allow: '/' },
-        { userAgent: 'Bytespider', allow: '/' },
-      ],
+    sitemapHygiene(),
+    // JSON-LD : normalisation des blocs émis par les composants + fil d'Ariane réparé ou
+    // ajouté sur chaque page publique (cf src/integrations/seo-postbuild.mjs).
+    seoPostbuild({ siteUrl: SITE.url, site: SITE_IDENTITY }),
+    // robots.txt : un seul groupe pour tous les robots (cf src/integrations/robots.mjs).
+    robots({
+      userAgents: AI_USER_AGENTS,
+      allow: ROBOTS_ALLOW,
+      disallow: ROBOTS_DISALLOW,
       sitemap: `${SITE.url}/sitemap-index.xml`,
-      host: SITE_HOST,
+      llms: `${SITE.url}/llms.txt`,
     }),
-    llmsTxt({
-      title: SITE.name,
-      description:
-        "Waimia est un studio de conseil, d'intégration et de développement IA pour PME et ETI : automatisation métier, agents IA, applications métier.",
-      details: [
-        "Waimia accompagne les dirigeants (DG, DAF, COO) de PME et ETI de 10 à 250 collaborateurs dans l'intégration de l'intelligence artificielle au cœur de leurs opérations.",
-        "Approche IA-first : chaque solution combine stratégie, mise en œuvre et montée en compétence des équipes.",
-        "Domaines : automatisation (CRM, relances, process), acquisition (SEO/GEO, contenu), productivité opérationnelle, pilotage et gouvernance IA.",
-        "Ressources : guides, études de cas, comparatifs, diagnostics et outils.",
-        '',
-        "Chaque page est aussi disponible en version markdown : ajoutez .md à l'URL.",
-      ].join('\n\n'),
-      notes:
-        `- Site officiel : ${SITE.url}\n- Pages markdown individuelles : ajoutez .md à toute URL.`,
-      docSet: [
-        {
-          title: 'Contenu complet',
-          description: 'Toutes les pages Waimia avec contenu intégral',
-          url: '/llms-full.txt',
-          include: ['!{preview/**,404}'],
-          promote: [
-            'services/**',
-            'secteurs/**',
-            'agence/**',
-            'contact/**',
-          ],
-        },
-        {
-          title: 'Structure du site',
-          description: 'Arborescence et titres des pages Waimia',
-          url: '/llms-small.txt',
-          include: ['!{preview/**,404}'],
-          onlyStructure: true,
-          promote: [
-            'services/**',
-            'secteurs/**',
-            'agence/**',
-          ],
-        },
-      ],
-    }),
+    // GEO · sorties pour moteurs génératifs, limitées aux pages publiques indexables :
+    // un .md par page, /llms.txt structuré par silo, /llms-full.txt. Remplace le couple
+    // (@4hse/astro-llms-txt + ancien llms-md-pages) qui produisait ~4 100 .md et un
+    // llms-full.txt de 5,7 Mo, catalogue interne compris.
     llmsMdPages({
       siteUrl: SITE.url,
-      exclude: ['404', 'api/**', 'bienvenue/**', 'agence/design-system', 'library/**'],
+      summary:
+        "Waimia est un studio de développement IA et un cabinet de transformation IA et d'automatisation des processus pour PME et ETI françaises (10 à 250 collaborateurs).",
+      details: [
+        "Ce que fait Waimia : conseil (audit, feuille de route), intégration (automatisation n8n et Make, agents IA sur Claude et OpenAI, bases de connaissance), développement (applications métier sur mesure), formation (IA et automatisation).",
+        "Comment : un ingénieur travaille avec les équipes métier (forward deployed engineer). Audit, pilote en production, mesure, transfert du code. RGPD et AI Act pris en compte dès la conception, validation humaine sur les actions sensibles.",
+        "Qui : Simon Beros, fondateur, studio solo. Basé à Bordeaux, missions à distance ou sur site (Bordeaux, Montpellier, Lyon, Paris).",
+        "Chaque lien ci-dessous pointe la version markdown d'une page publique. L'URL canonique est la même sans l'extension .md. Contenu complet en un seul fichier : " +
+          `${SITE.url}/llms-full.txt`,
+      ],
     }),
     // DEV-ONLY : persistance git-based du DS Studio (bouton "Enregistrer").
     // Le hook astro:server:setup n'est actif que sous `astro dev` -> 0 impact
@@ -393,7 +401,9 @@ export default defineConfig({
     // Apps-as-plugins : les integrations des apps internes activees (registre
     // src/apps.config.ts) injectent leur route (ex. /dashboard-seo). Basculer
     // `enabled: false` sur une app la retire d'ici → route 404.
-    ...enabledAppIntegrations,
+    // Refonte C 2026-10 · jamais montées dans le build de production (INTERNAL_TOOLS) :
+    // /dashboard-seo, /library/* et l'endpoint /api/ds/chat n'existent plus sur waimia.com.
+    ...(INTERNAL_TOOLS ? enabledAppIntegrations : []),
   ],
   // Cast `as any` parce que tailwindcss/vite et Astro embarquent leur propre
   // version de Vite — TS détecte un mismatch nominal mais runtime OK.

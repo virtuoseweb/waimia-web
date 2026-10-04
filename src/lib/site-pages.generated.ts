@@ -3132,14 +3132,6 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/agence/cartographie",
-    "title": "Cartographie",
-    "group": "confiance",
-    "collection": "bespoke",
-    "editable": false,
-    "sections": []
-  },
-  {
     "route": "/agence/methode",
     "title": "Methode",
     "group": "confiance",
@@ -3636,7 +3628,6 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "label_fr": "Confiance et agence",
     "routes": [
       "/agence",
-      "/agence/cartographie",
       "/agence/methode",
       "/equipe",
       "/equipe/simon-beros",
