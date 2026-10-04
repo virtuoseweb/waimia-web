@@ -1,12 +1,11 @@
 ---
 // Footer · 5 colonnes éditoriales · pur Astro (pas d'interactivité)
 import { FOOTER_COLS, TRUST_BADGES } from '../../data/sitemap';
-import { langFromPath, t, hasBilingualMirror } from '../../lib/i18n';
+import { langFromPath, t } from '../../lib/i18n';
 import NewsletterSignup from '../ui/molecules/NewsletterSignup.astro';
 import { SITE } from '../../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
-const enMirror = hasBilingualMirror(Astro.url.pathname);
 // `year` est résolu au build (SSG). En cas de site non rebuilt en début d'année,
 // le copyright reste figé. Atténuation : Vercel cron annuel ou simplement push
 // d'un commit start-of-year. À défaut, accepter le glissement (faible criticité).
@@ -83,7 +82,8 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  {/* Bottom — copyright + lang switcher + socials */}
+  {/* Bas de page : copyright, liens légaux, LinkedIn (seul profil social réel). Site FR
+      monolingue : pas de sélecteur de langue. */}
   <div class="wrap hline ft-bottom">
     <div class="ft-bottom-left">
       <span>© {year} {SITE.name} · {lang === 'fr' ? 'Studio de développement IA' : 'AI development studio'}</span>
@@ -96,28 +96,7 @@ const year = new Date().getFullYear();
       </a>
     </div>
     <div class="ft-bottom-right">
-      <div class="ft-lang-switch" aria-label={lang === 'fr' ? 'Changer de langue' : 'Change language'}>
-        <a
-          href={lang === 'fr' ? Astro.url.pathname : (Astro.url.pathname.replace(/^\/en(\/|$)/, '/') || '/')}
-          class={`ft-link ft-lang-a ${lang === 'fr' ? 'ft-lang-active' : ''}`}
-          aria-label="Version française"
-          aria-current={lang === 'fr' ? 'page' : undefined}
-        >FR</a>
-        <span aria-hidden="true" class="ft-lang-sep">·</span>
-        {(lang === 'en' || enMirror) ? (
-          <a
-            href={lang === 'en' ? Astro.url.pathname : `/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`}
-            class={`ft-link ft-lang-a ${lang === 'en' ? 'ft-lang-active' : ''}`}
-            aria-label="English version"
-            aria-current={lang === 'en' ? 'page' : undefined}
-          >EN</a>
-        ) : (
-          <span class="ft-link ft-lang-a ft-lang-disabled" aria-disabled="true" title="Version anglaise indisponible pour cette page">EN</span>
-        )}
-      </div>
       <a href={SITE.linkedin} target="_blank" rel="noopener" class="ft-link">LinkedIn</a>
-      <a href={SITE.twitter.url} target="_blank" rel="noopener" class="ft-link">X</a>
-      <a href={SITE.youtube} target="_blank" rel="noopener" class="ft-link">YouTube</a>
     </div>
   </div>
 </footer>
@@ -164,7 +143,7 @@ const year = new Date().getFullYear();
 
   /* Bottom row */
   .ft-bottom{
-    padding:var(--space-5) 0;
+    padding-block:var(--space-5);
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -177,11 +156,6 @@ const year = new Date().getFullYear();
   }
   .ft-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
   .ft-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-  .ft-lang-switch{display:flex;align-items:center;gap:6px}
-  .ft-lang-sep{opacity:.4}
-  .ft-lang-a{color:var(--muted);transition:color var(--dur-trim) var(--ease)}
-  .ft-lang-active{color:var(--ink);font-weight:var(--fw-semibold)}
-  .ft-lang-disabled{opacity:.4;cursor:default;pointer-events:none}
   @media(max-width:640px){
     .ft-bottom{flex-direction:column;align-items:flex-start}
   }

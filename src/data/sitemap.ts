@@ -44,8 +44,9 @@ export type SimpleNav = { key: string; label: BiText; href: string; simple: true
 // l'offre : (1) automatisation et agents IA, (2) applications métier, (3) conseil et
 // formation, puis en retrait (4) outils commerciaux et (5) visibilité web.
 
-/** URL unique de prise de rendez-vous (la page contact porte le calendrier et le formulaire). */
-export const AUDIT_BOOKING_HREF = '/contact?offer=audit-ia-pme&intent=audit';
+/** URL unique de prise de rendez-vous : source unique dans conversion.ts, ré-exportée ici. */
+import { AUDIT_BOOKING_HREF } from './conversion';
+export { AUDIT_BOOKING_HREF };
 
 // ─── MEGA-MENU 1 · SOLUTIONS
 export const MM_SOLUTIONS_NEW: MegaMenu = {
@@ -63,9 +64,11 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       items: [
         { href: '/services/systemes-operationnels-ia', label: { en: 'AI automation for SMEs', fr: 'Automatisation IA pour PME' }, featured: true },
         { href: '/services/automatisations', label: { en: 'Process automation', fr: 'Automatisation des processus' } },
-        { href: '/services/automatisation-n8n', label: { en: 'n8n automation', fr: 'Automatisation n8n' } },
+        { href: '/services/automatisation-n8n', label: { en: 'n8n agency', fr: 'Agence n8n' } },
+        { href: '/services/automatisation-make', label: { en: 'Make agency', fr: 'Agence Make' } },
         { href: '/services/agents-ia', label: { en: 'AI agents', fr: 'Agents IA' } },
         { href: '/services/agent-support-client', label: { en: 'Customer support agent', fr: 'Agent support client' } },
+        { href: '/services/base-de-connaissance-ia', label: { en: 'AI knowledge base', fr: 'Base de connaissance IA' } },
         { href: '/services/integration-claude', label: { en: 'Claude integration', fr: 'Intégration Claude' } },
       ],
     },
@@ -83,6 +86,18 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       items: [
         { href: '/audit-ia-pme', label: { en: 'SME AI audit', fr: 'Audit IA PME' } },
         { href: '/services/consultant-ia-claude', label: { en: 'AI consultant', fr: 'Consultant IA' } },
+        { href: '/conformite-ia', label: { en: 'AI compliance: GDPR and AI Act', fr: 'Conformité IA : RGPD et AI Act' } },
+      ],
+    },
+    {
+      kicker: { en: 'TRAINING', fr: 'FORMATIONS' },
+      label: { en: 'Training', fr: 'Formations' },
+      items: [
+        { href: '/formations', label: { en: 'AI and automation training', fr: 'Formations IA et automatisation' }, featured: true },
+        { href: '/formations/automatisation', label: { en: 'Automation training', fr: 'Formation automatisation' } },
+        { href: '/formations/n8n', label: { en: 'n8n training', fr: 'Formation n8n' } },
+        { href: '/formations/make', label: { en: 'Make training', fr: 'Formation Make' } },
+        { href: '/formations/claude', label: { en: 'Claude training', fr: 'Formation Claude' } },
       ],
     },
     {
@@ -118,17 +133,15 @@ export const MM_OFFRES_NEW: MegaMenu = {
       kicker: { en: 'OPERATIONS', fr: 'OPÉRATIONS' },
       label: { en: 'Operations', fr: 'Opérations' },
       items: [
-        { href: '/cas-usages/standardiser-processus', label: { en: 'Standardize processes', fr: 'Standardiser les processus' } },
-        { href: '/cas-usages/centraliser-donnees', label: { en: 'Centralize data', fr: 'Centraliser les données' } },
-        { href: '/cas-usages/reduire-reporting', label: { en: 'Cut reporting time', fr: 'Réduire le temps de reporting' } },
+        { href: '/cas-usages/standardiser-processus', label: { en: 'Standardize processes', fr: "Automatiser l'administratif" } },
+        { href: '/cas-usages/centraliser-donnees', label: { en: 'Centralize data', fr: 'Centraliser données et reporting' } },
       ],
     },
     {
-      kicker: { en: 'SALES AND CONTENT', fr: 'COMMERCIAL ET CONTENU' },
-      label: { en: 'Sales and content', fr: 'Commercial et contenu' },
+      kicker: { en: 'SALES', fr: 'COMMERCIAL' },
+      label: { en: 'Sales', fr: 'Commercial' },
       items: [
-        { href: '/cas-usages/generer-plus-de-leads', label: { en: 'Generate more leads', fr: 'Générer plus de leads' } },
-        { href: '/cas-usages/reduire-temps-cms', label: { en: 'Cut time spent on the CMS', fr: 'Réduire le temps passé sur le CMS' } },
+        { href: '/cas-usages/generer-plus-de-leads', label: { en: 'Generate more leads', fr: 'Automatiser le suivi commercial' } },
       ],
     },
   ],
@@ -198,6 +211,8 @@ export const MM_RESOURCES: MegaMenu = {
       items: [
         { href: '/blog', label: { en: 'Blog', fr: 'Blog' }, featured: true },
         { href: '/ressources/guides/claude-pme', label: { en: 'Guide: deploying Claude in an SME', fr: 'Guide : déployer Claude en PME' } },
+        { href: '/ressources/guides/claude-cowork', label: { en: 'Claude Cowork guide', fr: 'Guide Claude Cowork' } },
+        { href: '/ressources/comparatifs/n8n-vs-make', label: { en: 'n8n or Make', fr: 'n8n ou Make' } },
         { href: '/ressources/comparatifs/claude-vs-chatgpt-pme', label: { en: 'Claude or ChatGPT at work', fr: 'Claude ou ChatGPT en entreprise' } },
       ],
     },
@@ -208,6 +223,8 @@ export const MM_RESOURCES: MegaMenu = {
       items: [
         { href: '/ressources/outils/calculateur-roi-ia', label: { en: 'AI ROI calculator', fr: 'Calculateur ROI IA' }, featured: true },
         { href: '/ressources/diagnostics/maturite-ia', label: { en: 'AI maturity diagnostic', fr: 'Diagnostic maturité IA' } },
+        { href: '/ressources/outils/grille-taches-a-automatiser', label: { en: 'Task automation grid', fr: 'Grille des tâches à automatiser' } },
+        { href: '/ressources/outils/charte-ia-entreprise', label: { en: 'AI charter template', fr: 'Modèle de charte IA' } },
       ],
     },
   ],
@@ -237,7 +254,18 @@ export const MM_AGENCY_NEW: MegaMenu = {
         { href: '/agence', label: { en: 'About Waimia', fr: 'À propos de Waimia' } },
         { href: '/equipe/simon-beros', label: { en: 'Simon Beros, founder', fr: 'Simon Beros, fondateur' } },
         { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifeste' } },
+        { href: '/conformite-ia', label: { en: 'AI compliance', fr: 'Conformité IA' } },
         { href: '/contact', label: { en: 'Contact', fr: 'Contact' } },
+      ],
+    },
+    {
+      kicker: { en: 'PRESENCE', fr: 'PRÉSENCE' },
+      label: { en: 'Presence', fr: 'Présence' },
+      items: [
+        { href: '/implantations', label: { en: 'Where the studio works', fr: 'Où le studio intervient' } },
+        { href: '/implantations/bordeaux', label: { en: 'Bordeaux', fr: 'Bordeaux' } },
+        { href: '/implantations/montpellier', label: { en: 'Montpellier', fr: 'Montpellier' } },
+        { href: '/implantations/lyon', label: { en: 'Lyon', fr: 'Lyon' } },
       ],
     },
   ],
@@ -262,17 +290,19 @@ export type FooterCol = {
 };
 
 // Colonnes ordonnées sur le positionnement (refonte 2026-10). Règle : aucun lien vers une
-// page dépubliée ou noindex (index /ressources/outils, /demonstrations, /library,
-// /agence/cartographie, /plan-du-site et /implantations/bordeaux retirés tant qu'ils sont noindex).
+// page dépubliée, redirigée ou noindex (index /ressources/outils, /demonstrations, /library,
+// /agence/cartographie et /plan-du-site n'y figurent pas).
 export const FOOTER_COLS: FooterCol[] = [
   // Col 1 : le métier.
   {
     heading: { en: 'Automation and AI', fr: 'Automatisation et IA' },
     items: [
       { href: '/services/automatisations', label: { en: 'Process automation', fr: 'Automatisation des processus' } },
-      { href: '/services/automatisation-n8n', label: { en: 'n8n automation', fr: 'Automatisation n8n' } },
+      { href: '/services/automatisation-n8n', label: { en: 'n8n agency', fr: 'Agence n8n' } },
+      { href: '/services/automatisation-make', label: { en: 'Make agency', fr: 'Agence Make' } },
       { href: '/services/agents-ia', label: { en: 'AI agents', fr: 'Agents IA' } },
       { href: '/services/agent-support-client', label: { en: 'Customer support agent', fr: 'Agent support client' } },
+      { href: '/services/base-de-connaissance-ia', label: { en: 'AI knowledge base', fr: 'Base de connaissance IA' } },
       { href: '/services/integration-claude', label: { en: 'Claude integration', fr: 'Intégration Claude' } },
       { href: '/services/applications-internes', label: { en: 'Business applications', fr: 'Applications métier' } },
       { href: '/services/donnees-reporting', label: { en: 'Data and reporting', fr: 'Données et reporting' } },
@@ -287,6 +317,7 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/tarifs', label: { en: 'Pricing', fr: 'Tarifs' } },
       { href: '/agence/methode', label: { en: 'Method', fr: 'Méthode' } },
       { href: '/cas-usages', label: { en: 'Use cases', fr: "Cas d'usage" } },
+      { href: '/formations', label: { en: 'Training', fr: 'Formations' } },
       { href: '/ressources/outils/calculateur-roi-ia', label: { en: 'AI ROI calculator', fr: 'Calculateur ROI IA' } },
       { href: '/ressources/diagnostics/maturite-ia', label: { en: 'AI maturity diagnostic', fr: 'Diagnostic maturité IA' } },
       { href: AUDIT_BOOKING_HREF, label: { en: 'Book an audit', fr: 'Réserver un audit' } },
@@ -311,10 +342,13 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/agence', label: { en: 'About Waimia', fr: 'À propos' } },
       { href: '/equipe/simon-beros', label: { en: 'Simon Beros, founder', fr: 'Simon Beros, fondateur' } },
       { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifeste' } },
+      { href: '/conformite-ia', label: { en: 'AI compliance', fr: 'Conformité IA' } },
       { href: '/cas-clients', label: { en: 'Work', fr: 'Réalisations' } },
       { href: '/blog', label: { en: 'Blog', fr: 'Blog' } },
       { href: '/ressources', label: { en: 'Resources', fr: 'Ressources' } },
+      { href: '/implantations/bordeaux', label: { en: 'Bordeaux', fr: 'Bordeaux' } },
       { href: '/implantations/montpellier', label: { en: 'Montpellier', fr: 'Montpellier' } },
+      { href: '/implantations/lyon', label: { en: 'Lyon', fr: 'Lyon' } },
       { href: '/contact', label: { en: 'Contact', fr: 'Contact' } },
     ],
   },
@@ -354,7 +388,7 @@ export const CLIENT_LOGOS = [
 // Honnêteté : on affiche notre MÉTHODE (vérifiable) plutôt que des résultats
 // clients moyens inventés. Pas de chiffres de pipeline ni de ROI fabriqués.
 export const HERO_METRICS = [
-  { k: '01', n: '5 jours', label: { en: 'to audit and pinpoint the lever', fr: 'pour auditer et cibler le levier' } },
+  { k: '01', n: '45 min', label: { en: 'free audit to pinpoint the lever', fr: "d'audit gratuit pour cibler le levier" } },
   { k: '02', n: '4 sem.', label: { en: 'to a first workflow in production', fr: 'jusqu’au premier workflow en production' } },
   { k: '03', n: '1', label: { en: 'single point of contact, end to end', fr: 'interlocuteur unique, de bout en bout' } },
   { k: '04', n: 'Mesuré', label: { en: 'ROI measured on your data, never invented', fr: 'ROI mesuré sur vos données, jamais inventé' } },
@@ -366,7 +400,7 @@ export const PYRAMID_TIERS = [
     tag: { en: 'ACTIVATION', fr: 'ACTIVATION' },
     label: { en: 'Fast activation', fr: 'Activation rapide' },
     lead: { en: 'One week to identify the lever, train the team, and ship the first workflow in production.', fr: "Une semaine pour identifier le levier, former l'équipe et livrer un premier workflow en production." },
-    items: ['Audit process · 5j', 'Formation équipe · 1 sem', 'Gain rapide Excel'],
+    items: ['Audit IA gratuit · 45 min', 'Sprint de cadrage · 10 h', 'Formation équipe'],
     href: '/services',
   },
   {

@@ -208,7 +208,8 @@ function mapLegacyFeatured(featured: LegacyFeaturedCard, image?: string): MegaMe
 // PRÉSENTE l'audit (liens « Audit IA PME ») ; les « Réserver un audit » mènent au contact.
 
 // ─── RESSOURCES · uniquement des pages indexables (les index /ressources/guides,
-// /comparatifs, /outils, /diagnostics sont noindex : on lie les pages de contenu directement).
+// /comparatifs et /outils sont noindex, /ressources/diagnostics est redirigé : on lie les
+// pages de contenu directement).
 const RESSOURCES: MegaMenuSection = {
   parent: 'ressources',
   label: MM_RESOURCES.label,
@@ -237,6 +238,10 @@ const RESSOURCES: MegaMenuSection = {
           href: '/ressources/guides/claude-pme',
         },
         {
+          label: { fr: 'Guide Claude Cowork', en: 'Claude Cowork guide' },
+          href: '/ressources/guides/claude-cowork',
+        },
+        {
           label: { fr: 'Agent IA ou automatisation', en: 'AI agent or automation' },
           href: '/blog/agent-ia-vs-automatisation-classique-2026',
         },
@@ -251,16 +256,16 @@ const RESSOURCES: MegaMenuSection = {
       title: { fr: 'Comparatifs', en: 'Comparisons' },
       links: [
         {
+          label: { fr: 'n8n ou Make', en: 'n8n or Make' },
+          href: '/ressources/comparatifs/n8n-vs-make',
+        },
+        {
           label: { fr: 'Claude ou ChatGPT en entreprise', en: 'Claude or ChatGPT at work' },
           href: '/ressources/comparatifs/claude-vs-chatgpt-pme',
         },
         {
           label: { fr: 'n8n ou Zapier', en: 'n8n or Zapier' },
           href: '/blog/avis-n8n-vs-zapier-2026',
-        },
-        {
-          label: { fr: 'Claude Code ou Cursor', en: 'Claude Code or Cursor' },
-          href: '/ressources/comparatifs/claude-code-vs-cursor',
         },
         {
           label: { fr: 'Application interne : développer ou acheter', en: 'Internal app: build or buy' },
@@ -285,12 +290,12 @@ const RESSOURCES: MegaMenuSection = {
           href: '/ressources/diagnostics/maturite-ia',
         },
         {
-          label: { fr: 'Diagnostic Claude PME', en: 'Claude SME diagnostic' },
-          href: '/ressources/diagnostics/claude-pme',
+          label: { fr: 'Grille des tâches à automatiser', en: 'Task automation grid' },
+          href: '/ressources/outils/grille-taches-a-automatiser',
         },
         {
-          label: { fr: 'Diagnostic référent IA', en: 'AI lead diagnostic' },
-          href: '/ressources/diagnostics/referent-ia',
+          label: { fr: 'Modèle de charte IA', en: 'AI charter template' },
+          href: '/ressources/outils/charte-ia-entreprise',
         },
       ],
     },
@@ -309,7 +314,7 @@ const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
   parentHref: '/services',
-  matchPrefixes: ['/services'],
+  matchPrefixes: ['/services', '/formations', '/audit-ia-pme'],
   lead: {
     fr: 'Studio de développement IA et cabinet d\'automatisation des processus pour PME et ETI. Le site web et la prospection sont des outils, pas le métier.',
     en: 'AI development studio and process automation practice for SMEs. The website and prospecting are tools, not the job.',
@@ -334,21 +339,22 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Déclinaisons', en: 'Editions' },
                   links: [
-                    { label: { fr: 'Automatisation n8n', en: 'n8n automation' }, href: '/services/automatisation-n8n' },
+                    { label: { fr: 'Agence n8n', en: 'n8n agency' }, href: '/services/automatisation-n8n' },
+                    { label: { fr: 'Agence Make', en: 'Make agency' }, href: '/services/automatisation-make' },
                   ],
                 },
                 {
                   label: { fr: 'Cas d\'usage', en: 'Use cases' },
                   links: [
-                    { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
-                    { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
+                    { label: { fr: "Automatiser l'administratif", en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
                   ],
                 },
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'n8n ou Zapier en 2026', en: 'n8n or Zapier in 2026' }, href: '/blog/avis-n8n-vs-zapier-2026' },
-                    { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
+                    { label: { fr: 'n8n ou Make : le comparatif', en: 'n8n or Make: the comparison' }, href: '/ressources/comparatifs/n8n-vs-make' },
+                    { label: { fr: 'Grille des tâches à automatiser', en: 'Task automation grid' }, href: '/ressources/outils/grille-taches-a-automatiser' },
+                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },
               ],
@@ -362,6 +368,7 @@ const SOLUTIONS: MegaMenuSection = {
                   label: { fr: 'Déclinaisons', en: 'Editions' },
                   links: [
                     { label: { fr: 'Agent support client', en: 'Customer support agent' }, href: '/services/agent-support-client' },
+                    { label: { fr: 'Base de connaissance IA', en: 'AI knowledge base' }, href: '/services/base-de-connaissance-ia' },
                   ],
                 },
                 {
@@ -383,7 +390,8 @@ const SOLUTIONS: MegaMenuSection = {
                   links: [
                     { label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' }, href: '/ressources/comparatifs/claude-vs-chatgpt-pme' },
                     { label: { fr: 'Guide : déployer Claude en PME', en: 'Guide: deploying Claude in an SME' }, href: '/ressources/guides/claude-pme' },
-                    { label: { fr: 'Diagnostic Claude PME', en: 'Claude SME diagnostic' }, href: '/ressources/diagnostics/claude-pme' },
+                    { label: { fr: 'Guide Claude Cowork', en: 'Claude Cowork guide' }, href: '/ressources/guides/claude-cowork' },
+                    { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
                   ],
                 },
               ],
@@ -416,8 +424,8 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Cas d\'usage', en: 'Use cases' },
                   links: [
-                    { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
-                    { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
+                    { label: { fr: 'Centraliser données et reporting', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
+                    { label: { fr: "Automatiser l'administratif", en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
                   ],
                 },
                 {
@@ -437,8 +445,7 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Cas d\'usage', en: 'Use cases' },
                   links: [
-                    { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
-                    { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
+                    { label: { fr: 'Centraliser données et reporting', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
                   ],
                 },
                 {
@@ -491,8 +498,25 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
-                    { label: { fr: 'Diagnostic référent IA', en: 'AI lead diagnostic' }, href: '/ressources/diagnostics/referent-ia' },
+                    { label: { fr: 'Conformité IA : RGPD et AI Act', en: 'AI compliance: GDPR and AI Act' }, href: '/conformite-ia' },
+                    { label: { fr: 'Modèle de charte IA', en: 'AI charter template' }, href: '/ressources/outils/charte-ia-entreprise' },
                     { label: { fr: 'La méthode du studio', en: 'The studio method' }, href: '/agence/methode' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'Formations', en: 'Training' },
+              href: '/formations',
+              description: { fr: 'IA et automatisation, pour que vos équipes reprennent la main.', en: 'AI and automation, so your teams take over.' },
+              detail: [
+                {
+                  label: { fr: 'Programmes', en: 'Programmes' },
+                  links: [
+                    { label: { fr: 'Formation automatisation', en: 'Automation training' }, href: '/formations/automatisation' },
+                    { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n' },
+                    { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make' },
+                    { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
                   ],
                 },
               ],
@@ -587,7 +611,6 @@ const SOLUTIONS: MegaMenuSection = {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
-                    { label: { fr: 'Diagnostic site intelligent', en: 'Smart website diagnostic' }, href: '/ressources/diagnostics/site-web-intelligent' },
                   ],
                 },
               ],
@@ -652,9 +675,9 @@ const SOLUTIONS: MegaMenuSection = {
   problemBand: {
     label: { fr: 'Vous partez d\'un problème ?', en: 'Starting from a problem?' },
     links: [
-      { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
-      { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
-      { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
+      { label: { fr: "Automatiser l'administratif", en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
+      { label: { fr: 'Centraliser données et reporting', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
+      { label: { fr: 'Automatiser le suivi commercial', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
       { label: { fr: 'Tous les cas d\'usage', en: 'All use cases' }, href: '/cas-usages' },
       { label: { fr: 'Réserver un audit', en: 'Book an audit' }, href: AUDIT_BOOKING_HREF },
     ],
@@ -662,8 +685,8 @@ const SOLUTIONS: MegaMenuSection = {
 };
 
 // ─── CAS D'USAGE · remplace « Nos formules » (refonte positionnement 2026-10). Entrée par
-// le problème à résoudre : les cinq pages /cas-usages existantes, classées dans l'ordre de
-// l'offre (opérations d'abord, commercial et contenu ensuite). « Tarifs » vit désormais
+// le problème à résoudre : les trois pages /cas-usages publiées, classées dans l'ordre de
+// l'offre (opérations d'abord, commercial ensuite). « Tarifs » vit désormais
 // dans « Le studio ».
 const CAS_USAGES: MegaMenuSection = {
   parent: 'cas-usages',
@@ -680,18 +703,16 @@ const CAS_USAGES: MegaMenuSection = {
       title: { fr: 'Opérations', en: 'Operations' },
       goal: { fr: 'Rendre du temps aux équipes', en: 'Give time back to teams' },
       links: [
-        { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
-        { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
-        { label: { fr: 'Réduire le temps de reporting', en: 'Cut reporting time' }, href: '/cas-usages/reduire-reporting' },
+        { label: { fr: "Automatiser l'administratif", en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
+        { label: { fr: 'Centraliser données et reporting', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
       ],
     },
     {
-      kicker: { fr: 'COMMERCIAL ET CONTENU', en: 'SALES AND CONTENT' },
-      title: { fr: 'Commercial et contenu', en: 'Sales and content' },
+      kicker: { fr: 'COMMERCIAL', en: 'SALES' },
+      title: { fr: 'Commercial', en: 'Sales' },
       goal: { fr: 'Outiller ce qui amène la demande', en: 'Tool up what brings demand' },
       links: [
-        { label: { fr: 'Générer plus de leads', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
-        { label: { fr: 'Réduire le temps passé sur le CMS', en: 'Cut time spent on the CMS' }, href: '/cas-usages/reduire-temps-cms' },
+        { label: { fr: 'Automatiser le suivi commercial', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
       ],
     },
     {
@@ -700,6 +721,7 @@ const CAS_USAGES: MegaMenuSection = {
       goal: { fr: 'Savoir si ça vaut le coup', en: 'Know if it is worth it' },
       links: [
         { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
+        { label: { fr: 'Grille des tâches à automatiser', en: 'Task automation grid' }, href: '/ressources/outils/grille-taches-a-automatiser' },
         { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
         { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
       ],
@@ -724,7 +746,7 @@ const CAS: MegaMenuSection = {
   parent: 'cas',
   label: { fr: 'Réalisations', en: 'Work' },
   parentHref: '/cas-clients',
-  matchPrefixes: ['/cas-clients', '/secteurs', '/etudes-de-cas'],
+  matchPrefixes: ['/cas-clients', '/secteurs'],
   lead: {
     fr: 'Cinq missions réelles, documentées. Les chiffres cités viennent des études de cas, jamais d\'une moyenne.',
     en: 'Five real engagements, documented. The figures quoted come from the case studies, never from an average.',
@@ -771,7 +793,7 @@ const AGENCE: MegaMenuSection = {
   parent: 'agence',
   label: { fr: 'Le studio', en: 'The studio' },
   parentHref: '/agence',
-  matchPrefixes: ['/agence', '/tarifs', '/manifesto', '/technologies', '/equipe', '/implantations'],
+  matchPrefixes: ['/agence', '/tarifs', '/manifesto', '/technologies', '/equipe', '/implantations', '/conformite-ia'],
   lead: {
     fr: 'Un studio solo basé à Bordeaux, missions à distance. Un ingénieur qui travaille avec vos équipes métier.',
     en: 'A solo studio based in Bordeaux, working remotely. One engineer working with your business teams.',
@@ -799,6 +821,14 @@ const AGENCE: MegaMenuSection = {
           description: {
             fr: 'Une IA en production, pas en démonstration.',
             en: 'AI in production, not in a demo.',
+          },
+        },
+        {
+          label: { fr: 'Conformité IA', en: 'AI compliance' },
+          href: '/conformite-ia',
+          description: {
+            fr: 'RGPD et AI Act pris en compte dès la conception.',
+            en: 'GDPR and AI Act addressed from the design stage.',
           },
         },
       ],
@@ -846,6 +876,10 @@ const AGENCE: MegaMenuSection = {
         {
           label: { fr: 'Montpellier', en: 'Montpellier' },
           href: '/implantations/montpellier',
+        },
+        {
+          label: { fr: 'Lyon', en: 'Lyon' },
+          href: '/implantations/lyon',
         },
       ],
       footer: {
