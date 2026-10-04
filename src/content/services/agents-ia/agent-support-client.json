@@ -2,11 +2,11 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence chatbot et agent IA de service client · Waimia",
   "title_en": "Chatbot and AI customer service agent agency · Waimia",
-  "description_fr": "Chatbot et agent IA de service client branché à vos données : il répond au récurrent et escalade aux humains. Vous gardez la main. Audit gratuit.",
-  "description_en": "Chatbot and AI customer service agent wired to your data: it handles the recurring and escalates to humans. You keep control. Free audit.",
+  "description_fr": "Chatbot et agent IA de service client pour PME : il répond depuis votre base de connaissance, crée le ticket et passe la main à un humain. Dès 999 € HT.",
+  "description_en": "Customer service chatbot and AI agent for SMBs: it answers from your knowledge base, creates the ticket and hands over to a human. From €999 excl. VAT.",
   "slug": "agent-support-client",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-07-16T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "agent-support-client",
@@ -23,96 +23,96 @@
   },
   "faq_fr": [
     {
-      "q": "En quoi votre chatbot IA de service client est différent d'un bot scripté ?",
-      "a": "Un bot scripté récite un arbre de réponses figé et déçoit dès qu'on sort du script. Notre agent de support est branché à vos données réelles via MCP : il lit votre base de connaissances, votre CRM et vos commandes, comprend la demande, y répond quand il sait, et escalade à un humain quand il ne sait pas. Il agit, il ne récite pas."
+      "q": "Combien coûte un chatbot de service client pour une PME ?",
+      "a": "La conception démarre par un sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure selon le nombre de sources et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur selon le volume de conversations, estimé avant le lancement."
     },
     {
-      "q": "L'agent peut-il faire des actions, ou juste répondre ?",
-      "a": "Les deux, sous permissions. Il répond aux questions récurrentes, mais il peut aussi créer un ticket, mettre à jour une fiche, envoyer un suivi ou déclencher une relance. Les actions sensibles, un remboursement, un geste commercial, une modification de contrat, passent par une validation humaine. L'agent prépare, vous tranchez."
+      "q": "Chatbot scripté ou agent IA : quelle différence ?",
+      "a": "Un chatbot scripté suit un arbre de questions prévu à l'avance et bloque dès qu'on en sort. Un agent IA comprend une demande formulée librement, cherche la réponse dans vos sources et peut agir dans vos outils. Il coûte plus cher à concevoir et demande une base de connaissance tenue à jour."
     },
     {
-      "q": "Comment je garde la main sur ce qu'il répond aux clients ?",
-      "a": "Vous gardez la main de bout en bout. L'agent a un périmètre défini, des permissions explicites et des points de validation sur les actions à risque. Les échanges sont tracés, les serveurs MCP cloisonnés, l'arrêt est possible à tout moment. Rien ne part en boîte noire vers un client sans que vous puissiez le voir et le cadrer."
+      "q": "Le chatbot peut-il donner une mauvaise réponse à un client ?",
+      "a": "Oui, c'est le risque principal. On le réduit en l'obligeant à répondre uniquement depuis vos sources et à escalader quand il n'en trouve pas. Les réponses sont journalisées et un échantillon est relu chaque semaine au démarrage."
     },
     {
-      "q": "Il gère les demandes dans plusieurs langues et sur plusieurs canaux ?",
-      "a": "Oui. L'agent répond sur le canal où arrive la demande, e-mail, formulaire, chat du site, et dans la langue du client. Il qualifie, route vers le bon service ou la bonne personne, et garde une trace unique dans votre CRM. Un seul agent, une mission cadrée : le support récurrent."
+      "q": "Chatbot service client et RGPD : que faut-il prévoir ?",
+      "a": "Informer le client qu'il parle à un agent automatisé, limiter les données envoyées au modèle, fixer une durée de conservation des échanges et inscrire le traitement à votre registre. On fournit la fiche descriptive du traitement."
     },
     {
-      "q": "Est-ce que ça remplace mon équipe support ?",
-      "a": "Non. L'agent prend la part répétitive et chronophage, les questions qui reviennent dix fois par jour, pour rendre du temps à votre équipe sur les cas qui demandent du jugement et de l'empathie. Il agit sous supervision. L'objectif n'est pas de retirer des personnes, c'est de retirer des heures de tri et de réponses copiées-collées."
+      "q": "Combien de temps pour automatiser un service client ?",
+      "a": "Quelques semaines pour un premier lot de questions récurrentes. La durée dépend de l'état de votre documentation : si les réponses sont déjà écrites, c'est rapide ; s'il faut les rédiger, c'est l'essentiel du travail."
     },
     {
-      "q": "Combien de temps avant un premier agent de support en production ?",
-      "a": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines selon le périmètre. On commence par les demandes qui reviennent le plus souvent, on les met en production, on mesure le volume traité et le taux d'escalade, puis on étend à d'autres types de demandes."
+      "q": "Sur quels canaux l'agent répond-il ?",
+      "a": "Sur ceux que vos clients utilisent déjà : boîte email du support, formulaire de contact, chat du site. On commence par un seul canal, celui qui concentre le plus de demandes récurrentes."
     }
   ],
   "faq_en": [
     {
-      "q": "How is your AI customer service chatbot different from a scripted bot?",
-      "a": "A scripted bot recites a fixed answer tree and disappoints as soon as you leave the script. Our support agent is wired to your real data via MCP: it reads your knowledge base, your CRM and your orders, understands the request, answers when it knows, and escalates to a human when it doesn't. It acts, it doesn't recite."
+      "q": "How much does a customer service chatbot cost for an SMB?",
+      "a": "Design starts with a discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT depending on the number of sources and tools to connect. Add model usage, billed by the vendor based on conversation volume, estimated before launch."
     },
     {
-      "q": "Can the agent take actions, or only answer?",
-      "a": "Both, under permissions. It answers recurring questions, but it can also create a ticket, update a record, send a follow-up or trigger a chase. Sensitive actions, a refund, a goodwill gesture, a contract change, go through a human validation. The agent prepares, you decide."
+      "q": "Scripted chatbot or AI agent: what is the difference?",
+      "a": "A scripted chatbot follows a pre-set question tree and gets stuck as soon as you leave it. An AI agent understands a freely worded request, looks up the answer in your sources and can act in your tools. It costs more to design and needs a maintained knowledge base."
     },
     {
-      "q": "How do I keep control over what it tells customers?",
-      "a": "You keep control end to end. The agent has a defined scope, explicit permissions and validation points on risky actions. Exchanges are traced, MCP servers compartmentalised, a stop is possible at any time. Nothing goes to a customer as a black box without you being able to see it and frame it."
+      "q": "Can the chatbot give a customer a wrong answer?",
+      "a": "Yes, that is the main risk. We reduce it by forcing it to answer only from your sources and to escalate when it finds none. Answers are logged and a sample is reviewed every week at the start."
     },
     {
-      "q": "Does it handle requests in several languages and channels?",
-      "a": "Yes. The agent answers on the channel the request arrives on, email, form, site chat, and in the customer's language. It qualifies, routes to the right team or person, and keeps a single trace in your CRM. One agent, one framed mission: recurring support."
+      "q": "Customer service chatbot and GDPR: what should be planned?",
+      "a": "Tell the customer they are talking to an automated agent, limit the data sent to the model, set a retention period for exchanges and record the processing in your register. We provide the processing description sheet."
     },
     {
-      "q": "Does it replace my support team?",
-      "a": "No. The agent takes the repetitive, time-consuming part, the questions that come back ten times a day, to give your team back time for cases that need judgement and empathy. It acts under supervision. The goal isn't to remove people, it's to remove hours of sorting and copy-pasted answers."
+      "q": "How long does it take to automate customer service?",
+      "a": "A few weeks for a first batch of recurring questions. It depends on the state of your documentation: if answers are already written, it is quick; if they need writing, that is most of the work."
     },
     {
-      "q": "How long before a first support agent in production?",
-      "a": "Scoping takes a few days, the first useful agent ships in a few weeks depending on scope. We start with the requests that come back most often, put them into production, measure the volume handled and the escalation rate, then extend to other request types."
+      "q": "On which channels does the agent answer?",
+      "a": "On those your customers already use: support mailbox, contact form, site chat. We start with one channel, the one with the most recurring requests."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Agent support client · brique du système opérationnel",
-      "kicker_en": "§ Customer support agent · block of the operational system",
+      "kicker_fr": "§ Chatbot et agent de service client",
+      "kicker_en": "§ Customer service chatbot and agent",
       "h1_fr": "<i class=\"acc\">Chatbot</i> et agent IA pour votre service client",
       "h1_en": "<i class=\"acc\">Chatbot</i> and AI agent for your customer service",
-      "lede_fr": "Un chatbot qui récite une FAQ déçoit dès la première vraie question. Un agent de support client fait l'inverse : branché à vos données via MCP, il comprend la demande, répond au récurrent, crée le ticket, met à jour la fiche, et escalade à un humain quand il faut. Sur les actions sensibles, vous gardez la main. Une brique du système opérationnel de votre entreprise.",
-      "lede_en": "A chatbot reciting a FAQ disappoints on the first real question. A customer support agent does the opposite: wired to your data via MCP, it understands the request, answers the recurring, creates the ticket, updates the record, and escalates to a human when needed. On sensitive actions, you keep control. A building block of your company's operational system.",
+      "lede_fr": "Un agent IA de service client répond aux questions récurrentes de vos clients à partir de votre documentation, de votre CRM et de votre suivi de commandes, puis transmet à un humain ce qu'il ne sait pas traiter. Waimia le conçoit pour les PME qui reçoivent chaque semaine les mêmes demandes par email, formulaire ou chat, et le livre avec ses règles d'escalade et son tableau de suivi.",
+      "lede_en": "A customer service AI agent answers your customers' recurring questions from your documentation, CRM and order tracking, then passes on to a human what it cannot handle. Waimia designs it for SMBs that receive the same requests every week by email, form or chat, and ships it with its escalation rules and its tracking dashboard.",
       "badges": [
         {
-          "label_fr": "Chatbot IA branché à vos données",
-          "label_en": "AI chatbot wired to your data"
+          "label_fr": "Répond depuis vos sources",
+          "label_en": "Answers from your sources"
         },
         {
-          "label_fr": "Répond, trie, escalade",
-          "label_en": "Answers, sorts, escalates"
+          "label_fr": "Email, formulaire, chat",
+          "label_en": "Email, form, chat"
         },
         {
-          "label_fr": "Vous gardez la main",
-          "label_en": "You keep control"
+          "label_fr": "Escalade vers un humain",
+          "label_en": "Escalation to a human"
         },
         {
-          "label_fr": "Mesurable",
-          "label_en": "Measurable"
+          "label_fr": "Taux d'escalade suivi",
+          "label_en": "Escalation rate tracked"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement : on part des demandes qui reviennent le plus souvent.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment: we start from the requests that come back most often.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=agent-support-client&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir les capacités",
-        "label_en": "See the capabilities",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -123,782 +123,210 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "Un agent",
-          "label_fr": "une mission cadrée, le support récurrent",
-          "label_en": "one framed mission, recurring support"
+          "value": "Quelques semaines",
+          "label_fr": "premier agent de support en production",
+          "label_en": "first support agent in production",
+          "emphasis": false
         },
         {
-          "value": "Tri, réponse, escalade",
-          "label_fr": "le récurrent exécuté, pas récité",
-          "label_en": "the recurring executed, not recited"
+          "value": "Vos sources",
+          "label_fr": "FAQ, documentation, CRM, suivi de commandes",
+          "label_en": "FAQ, documentation, CRM, order tracking",
+          "emphasis": false
         },
         {
-          "value": "Vous gardez la main",
-          "label_fr": "validation humaine sur le sensible",
-          "label_en": "human validation on the sensitive"
+          "value": "À vous",
+          "label_fr": "base de connaissance, règles et connecteurs",
+          "label_en": "knowledge base, rules and connectors",
+          "emphasis": false
         }
       ]
     },
     {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Chaîne d'exécution",
-      "kicker_en": "FIG 1.5 · Execution chain",
-      "h2_fr": "Un chatbot vitrine parle. Un <i class=\"acc\">agent</i> de support répond, agit dans vos outils, et vous passe la main quand il faut.",
-      "h2_en": "A brochure chatbot talks. A support <i class=\"acc\">agent</i> answers, acts in your tools, and hands over when it must.",
-      "lede_fr": "De demandes dispersées entre boîtes mail, chat et formulaires à un flux de support supervisé, vos données se parlent via MCP et le récurrent se traite tout seul. Chaque demande qui revient rejoint un agent qui répond, qualifie, et escalade les cas sensibles à un humain. Le support est une brique du <a href=\"/services/systemes-operationnels-ia\">système opérationnel et IA</a>.",
-      "lede_en": "From requests scattered across inboxes, chat and forms to a supervised support flow, your data talks via MCP and the recurring handles itself. Every returning request joins an agent that answers, qualifies, and escalates sensitive cases to a human. Support is one block of the <a href=\"/services/systemes-operationnels-ia\">operational and AI system</a>.",
-      "cta": {
-        "label_fr": "Voir les capacités →",
-        "label_en": "See the capabilities →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : des demandes clients dispersées rejoignent une chaîne de support supervisée.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: scattered customer requests join one supervised support chain."
-    },
-    {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">agent de support client</i> est un chatbot IA autonome branché à vos données via MCP, qui répond aux demandes récurrentes, qualifie, crée des tickets et route, sous supervision humaine sur les actions sensibles. Waimia conçoit cet agent, le met en production et le mesure, quel que soit le modèle.",
-      "statement_en": "A <i class=\"acc\">customer support agent</i> is an autonomous AI chatbot wired to your data via MCP, answering recurring requests, qualifying, creating tickets and routing, under human supervision on sensitive actions. Waimia designs this agent, ships it to production and measures it, whatever the model.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">chatbot de service client</i> branché à vos données est un agent IA qui comprend la demande, cherche la réponse dans vos sources, répond quand elle s'y trouve, et crée un ticket pour un humain dans le cas contraire. Il ne répond pas de mémoire : sans source, il escalade.",
+      "statement_en": "A <i class=\"acc\">customer service chatbot</i> wired to your data is an AI agent that understands the request, looks for the answer in your sources, replies when it is there, and creates a ticket for a human otherwise. It does not answer from memory: with no source, it escalates.",
       "pills": [
         {
-          "label_fr": "Chatbot branché aux données",
-          "label_en": "Chatbot wired to data"
-        },
-        {
-          "label_fr": "Une mission cadrée",
-          "label_en": "One framed mission"
-        },
-        {
-          "label_fr": "Branché via MCP",
-          "label_en": "Wired via MCP"
-        },
-        {
-          "label_fr": "Escalade humaine",
-          "label_en": "Human escalation"
-        },
-        {
-          "label_fr": "Mesurable",
-          "label_en": "Measurable"
-        }
-      ],
-      "specs": [
-        {
-          "label_fr": "Réponse au récurrent",
-          "label_en": "Recurring answers"
-        },
-        {
-          "label_fr": "Tri et qualification",
-          "label_en": "Sorting and qualifying"
+          "label_fr": "Réponses sourcées",
+          "label_en": "Sourced answers"
         },
         {
           "label_fr": "Création de tickets",
           "label_en": "Ticket creation"
         },
         {
-          "label_fr": "Routage vers l'humain",
-          "label_en": "Routing to a human"
+          "label_fr": "Escalade",
+          "label_en": "Escalation"
         },
         {
-          "label_fr": "CRM et base de connaissances",
-          "label_en": "CRM and knowledge base"
+          "label_fr": "Échanges tracés",
+          "label_en": "Logged exchanges"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Claude ou OpenAI",
+          "label_en": "Claude or OpenAI"
+        },
+        {
+          "label_fr": "Base de connaissance",
+          "label_en": "Knowledge base"
+        },
+        {
+          "label_fr": "CRM et outil de tickets",
+          "label_en": "CRM and ticketing tool"
         },
         {
           "label_fr": "Validation sur le sensible",
-          "label_en": "Validation on the sensitive"
+          "label_en": "Approval on sensitive actions"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où le support déborde · par sévérité",
-      "kicker_en": "Where support overflows · by severity",
-      "h2_fr": "Le support qu'un <i class=\"acc\">agent</i> soulage.",
-      "h2_en": "The support an <i class=\"acc\">agent</i> relieves.",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Les mêmes questions dix fois par jour",
-          "title_en": "The same questions ten times a day",
-          "desc_fr": "Où en est ma commande, comment je change mon abonnement, quel est le délai : les mêmes demandes reviennent en boucle et mangent le temps de l'équipe, qui répond en copier-coller.",
-          "desc_en": "Where's my order, how do I change my subscription, what's the lead time: the same requests loop and eat the team's time, answered by copy-paste.",
-          "fix_fr": "Un agent qui répond au récurrent, branché aux données.",
-          "fix_en": "An agent that answers the recurring, wired to the data."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Le délai de réponse qui s'allonge",
-          "title_en": "The response time that stretches",
-          "desc_fr": "Les demandes s'empilent aux heures de pointe, le client attend, et l'insatisfaction monte. Le soir et le week-end, personne ne répond, et les tickets s'accumulent pour lundi.",
-          "desc_en": "Requests pile up at peak times, the customer waits, and dissatisfaction rises. In the evening and at weekends, no one answers, and tickets stack up for Monday.",
-          "fix_fr": "Une première réponse immédiate, à toute heure.",
-          "fix_en": "An immediate first answer, at any hour."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Le bot scripté qui déçoit",
-          "title_en": "The scripted bot that disappoints",
-          "desc_fr": "Un chatbot qui récite un arbre figé, ne lit rien de vos données, et renvoie vers un formulaire dès qu'on sort du script. Le client se sent baladé, pas aidé.",
-          "desc_en": "A chatbot reciting a fixed tree, reading none of your data, bouncing to a form as soon as you leave the script. The customer feels tossed around, not helped.",
-          "fix_fr": "Un agent branché aux vraies données, pas un script.",
-          "fix_en": "An agent wired to real data, not a script."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce qu'il fait, et ce qu'il ne fait pas</h2>\n<p>Il traite ce qui revient : où en est ma commande, comment modifier mon rendez-vous, quel est le délai, où trouver ma facture, comment fonctionne telle option. Il peut créer un ticket, mettre à jour une fiche client ou envoyer un document. Il ne décide pas d'un remboursement, d'un geste commercial ou d'une modification de contrat : ces actions sont préparées, puis validées par votre équipe.</p>\n<p>C'est un cas particulier d'<a href=\"/services/agents-ia\">agent IA</a> : une mission, un périmètre écrit, un journal.</p>\n<h2>Le vrai chantier : la base de connaissance</h2>\n<p>La qualité des réponses dépend de vos sources, pas du modèle. Si la procédure de retour n'est écrite nulle part, l'agent ne peut pas l'inventer et ne doit pas le faire. Le premier livrable est donc un inventaire des demandes récurrentes et des sources qui y répondent. Les trous sont comblés avec la personne qui répond aujourd'hui. Ce travail sert aussi à votre équipe, agent ou non.</p>\n<h2>Avec quels outils</h2>\n<p>Un modèle Claude ou OpenAI, une base de connaissance construite sur vos documents, des connexions à votre CRM et à votre outil de tickets, et un workflow <a href=\"/services/automatisation-n8n\">n8n</a> pour l'aiguillage. L'agent s'intègre au canal existant (boîte support, formulaire, chat du site) plutôt que d'en créer un nouveau.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour cartographier les demandes, quelques semaines pour un agent en production sur un premier lot de questions. On élargit ensuite par lots, en regardant deux chiffres : le volume traité sans intervention et le taux d'escalade.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La réponse fausse donnée avec aplomb : on la prévient en imposant la citation d'une source et l'escalade quand il n'y en a pas. Le client qui veut un humain : il doit pouvoir l'obtenir en un message. Les données personnelles : on limite ce qui est envoyé au modèle et on le documente. Enfin la base qui vieillit : quelqu'un chez vous doit en être responsable.</p>\n<p>Pour évaluer votre volume et vos sources, passez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> ou estimez le temps en jeu avec le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a>.</p>",
+      "html_en": "<h2>What it does, and what it does not</h2>\n<p>It handles what comes back: where is my order, how do I change my appointment, what is the lead time, where is my invoice, how does this option work. It can create a ticket, update a customer record or send a document. It does not decide on a refund, a commercial gesture or a contract change: those actions are prepared, then approved by your team.</p>\n<p>It is a specific kind of <a href=\"/services/agents-ia\">AI agent</a>: one mission, a written scope, a log.</p>\n<h2>The real work: the knowledge base</h2>\n<p>Answer quality depends on your sources, not on the model. If the return procedure is written nowhere, the agent cannot invent it and must not. The first deliverable is therefore an inventory of recurring requests and the sources that answer them. Gaps are filled with the person who answers today. This work helps your team too, agent or not.</p>\n<h2>With which tools</h2>\n<p>A Claude or OpenAI model, a knowledge base built on your documents, connections to your CRM and ticketing tool, and an <a href=\"/services/automatisation-n8n\">n8n</a> workflow for routing. The agent fits into the existing channel (support mailbox, form, site chat) rather than creating a new one.</p>\n<h2>How long</h2>\n<p>A few days to map requests, a few weeks for an agent in production on a first batch of questions. We then widen batch by batch, watching two figures: volume handled without intervention and escalation rate.</p>\n<h2>What can go wrong</h2>\n<p>A wrong answer given with confidence: we prevent it by requiring a cited source and escalation when there is none. A customer who wants a human: they must get one in a single message. Personal data: we limit what is sent to the model and document it. And an ageing knowledge base: someone on your side must own it.</p>\n<p>To assess your volume and sources, go through the <a href=\"/audit-ia-pme\">free AI audit</a> or estimate the time at stake with the <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Bot scripté vs agent branché",
-      "kicker_en": "§ Scripted bot vs wired agent",
-      "h2_fr": "Pourquoi un <i class=\"acc\">agent</i> change le support",
-      "h2_en": "Why an <i class=\"acc\">agent</i> changes support",
-      "without_label_fr": "Bot scripté, FAQ figée",
-      "without_label_en": "Scripted bot, fixed FAQ",
-      "without_title_fr": "Ce qui déçoit le client",
-      "without_title_en": "What disappoints the customer",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : le SAV d'un distributeur B2B",
+      "h2_en": "Typical example: after-sales at a B2B distributor",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Deux personnes, les mêmes questions",
+      "without_title_en": "Two people, the same questions",
       "without_items": [
         {
-          "text_fr": "Un arbre de réponses figé qui ne lit rien de vos données réelles.",
-          "text_en": "A fixed answer tree that reads none of your real data."
+          "text_fr": "Les demandes arrivent par email et par formulaire, sans distinction.",
+          "text_en": "Requests arrive by email and form, undifferentiated."
         },
         {
-          "text_fr": "Un renvoi vers un formulaire dès que la question sort du script.",
-          "text_en": "A bounce to a form as soon as the question leaves the script."
+          "text_fr": "« Où en est ma commande ? » : il faut ouvrir l'ERP, puis le site du transporteur.",
+          "text_en": "\"Where is my order?\": someone has to open the ERP, then the carrier site."
         },
         {
-          "text_fr": "Aucune action possible : il parle, il ne crée ni ne met à jour rien.",
-          "text_en": "No action possible: it talks, it neither creates nor updates anything."
+          "text_fr": "Les réponses types sont copiées depuis un document personnel.",
+          "text_en": "Template answers are copied from a personal document."
         },
         {
-          "text_fr": "Personne ne sait ce qu'il a répondu, ni quand escalader.",
-          "text_en": "No one knows what it answered, or when to escalate."
+          "text_fr": "Une réclamation sérieuse attend derrière dix demandes simples.",
+          "text_en": "A serious complaint waits behind ten simple requests."
         }
       ],
-      "with_label_fr": "Agent de support",
-      "with_label_en": "Support agent",
-      "with_title_fr": "Ce qui aide vraiment",
-      "with_title_en": "What actually helps",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un agent en première ligne, l'équipe sur les cas difficiles",
+      "with_title_en": "An agent on the front line, the team on hard cases",
       "with_items": [
         {
-          "text_fr": "Branché à votre base et votre CRM via MCP, il répond sur du concret.",
-          "text_en": "Wired to your base and CRM via MCP, it answers on the concrete."
+          "text_fr": "L'agent identifie le client et la commande dans le CRM.",
+          "text_en": "The agent identifies the customer and order in the CRM."
         },
         {
-          "text_fr": "Il crée le ticket, met à jour la fiche, envoie le suivi, sous permissions.",
-          "text_en": "It creates the ticket, updates the record, sends the follow-up, under permissions."
+          "text_fr": "Suivi de commande, délais, documents : il répond en citant sa source.",
+          "text_en": "Order tracking, lead times, documents: it answers and cites its source."
         },
         {
-          "text_fr": "Sur le sensible, il escalade à un humain qui valide. Rien en boîte noire.",
-          "text_en": "On the sensitive, it escalates to a human who validates. Nothing as a black box."
+          "text_fr": "Réclamation ou demande de remboursement : ticket créé avec le résumé, assigné à un humain.",
+          "text_en": "Complaint or refund request: ticket created with a summary, assigned to a human."
         },
         {
-          "text_fr": "Chaque échange tracé et mesuré : volume traité, taux d'escalade suivis.",
-          "text_en": "Every exchange traced and measured: volume handled, escalation rate tracked."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un support assisté",
-      "h2_en": "The 6 levels of assisted support",
-      "lede_fr": "De la boîte mail partagée à l'agent de support supervisé, six paliers. La plupart des PME calent au bot scripté. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From a shared inbox to a supervised support agent, six tiers. Most SMEs stall at the scripted bot. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Boîte mail partagée",
-          "title_en": "Shared inbox",
-          "sub_fr": "Tri et réponses à la main",
-          "sub_en": "Sorting and answers by hand"
+          "text_fr": "Le client peut demander un humain à tout moment.",
+          "text_en": "The customer can ask for a human at any time."
         },
         {
-          "title_fr": "FAQ et modèles",
-          "title_en": "FAQ and templates",
-          "sub_fr": "Réponses copiées-collées",
-          "sub_en": "Copy-pasted answers"
-        },
-        {
-          "title_fr": "Bot scripté",
-          "title_en": "Scripted bot",
-          "sub_fr": "Arbre figé, déconnecté",
-          "sub_en": "Fixed tree, disconnected"
-        },
-        {
-          "title_fr": "Agent branché",
-          "title_en": "Wired agent",
-          "sub_fr": "Une mission cadrée, branchée MCP",
-          "sub_en": "One framed mission, wired via MCP"
-        },
-        {
-          "title_fr": "Support supervisé",
-          "title_en": "Supervised support",
-          "sub_fr": "Escalade et validation humaine",
-          "sub_en": "Escalation and human validation"
-        },
-        {
-          "title_fr": "Support mesuré",
-          "title_en": "Measured support",
-          "sub_fr": "Volume et escalade suivis, extension",
-          "sub_en": "Volume and escalation tracked, extension"
+          "text_fr": "Chaque semaine, la liste des questions restées sans source alimente la base.",
+          "text_en": "Every week, the list of questions with no source feeds the knowledge base."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce qu'on met en production",
-      "title_en": "What we put into production",
-      "lead_fr": "Un agent de support qui tourne et se mesure, pas une démo. Vous gardez la main.",
-      "lead_en": "A support agent that runs and gets measured, not a demo. You keep control.",
-      "items": [
-        {
-          "title_fr": "Cartographie des demandes",
-          "title_en": "Map of requests",
-          "body_fr": "L'inventaire des demandes qui reviennent le plus, qualifiées par volume et faisabilité. On commence par celles qui mangent le plus de temps chaque semaine.",
-          "body_en": "An inventory of the most recurring requests, qualified by volume and feasibility. We start with the ones that eat the most time each week.",
-          "format_fr": "CARTE",
-          "format_en": "MAP",
-          "illustration_src": "/images/line-art/livrable-connecteurs-mcp.svg",
-          "illustration_alt_fr": "Une cartographie des demandes de support récurrentes priorisées",
-          "illustration_alt_en": "A map of prioritised recurring support requests"
-        },
-        {
-          "title_fr": "Agent de support en production",
-          "title_en": "Support agent in production",
-          "body_fr": "Un agent sur sa mission cadrée, le support récurrent, qui répond, qualifie et route dans vos outils. Pas un POC qui dort : un agent qui tourne, branché via MCP, sous permissions.",
-          "body_en": "An agent on its framed mission, recurring support, that answers, qualifies and routes in your tools. Not a sleeping POC: an agent that runs, wired via MCP, under permissions.",
-          "format_fr": "AGENT",
-          "format_en": "AGENT",
-          "illustration_src": "/images/line-art/livrable-agents-production.svg",
-          "illustration_alt_fr": "Un agent de support en exécution dans les outils métier",
-          "illustration_alt_en": "A support agent running inside the business tools"
-        },
-        {
-          "title_fr": "Chatbot et connexions MCP propres",
-          "title_en": "Chatbot and clean MCP connections",
-          "body_fr": "Le chatbot branché à votre base de connaissances et votre CRM, et les serveurs MCP qui relient l'agent à vos outils, cloisonnés, sécurisés et documentés. De la conversation à l'action, sans script jetable.",
-          "body_en": "The chatbot wired to your knowledge base and CRM, and the MCP servers linking the agent to your tools, compartmentalised, secured and documented. From conversation to action, with no throwaway script.",
-          "format_fr": "CONNECTEURS",
-          "format_en": "CONNECTORS",
-          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
-          "illustration_alt_fr": "Des connexions MCP cloisonnées entre l'agent de support et vos outils",
-          "illustration_alt_en": "Compartmentalised MCP connections between the support agent and your tools"
-        },
-        {
-          "title_fr": "Périmètre, escalade et supervision",
-          "title_en": "Scope, escalation and supervision",
-          "body_fr": "Le périmètre d'action de l'agent, ses permissions, ses règles d'escalade et ses points de validation humaine. Les échanges sont tracés, l'arrêt possible, rien ne part en boîte noire vers un client.",
-          "body_en": "The agent's scope of action, its permissions, its escalation rules and its human validation points. Exchanges are traced, a stop possible, nothing goes to a customer as a black box.",
-          "format_fr": "RUNBOOK",
-          "format_en": "RUNBOOK",
-          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
-          "illustration_alt_fr": "Un cadre de supervision avec règles d'escalade et validation",
-          "illustration_alt_en": "A supervision frame with escalation rules and validation"
-        },
-        {
-          "title_fr": "Mesure du support",
-          "title_en": "Support measurement",
-          "body_fr": "Le suivi de ce que fait l'agent : volume traité, taux d'escalade, délai de première réponse. On décide d'étendre ou d'ajuster sur des chiffres, pas sur une impression.",
-          "body_en": "The tracking of what the agent does: volume handled, escalation rate, first-response time. We decide to extend or adjust on figures, not on an impression.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Un tableau de mesure de l'activité de l'agent de support",
-          "illustration_alt_en": "A dashboard measuring the support agent's activity"
-        },
-        {
-          "title_fr": "Passation et autonomie",
-          "title_en": "Handover and autonomy",
-          "body_fr": "La documentation de l'agent, sa mission, ses connexions et ses règles d'escalade, plus la formation de vos équipes à l'ajuster. Changer une réponse ou une règle ne dépend plus d'un prestataire.",
-          "body_en": "The documentation of the agent, its mission, its connections and its escalation rules, plus training your teams to adjust it. Changing an answer or a rule no longer depends on a provider.",
-          "format_fr": "PASSATION",
-          "format_en": "HANDOVER",
-          "illustration_src": "/images/line-art/livrable-passation-formation.svg",
-          "illustration_alt_fr": "Une passation de compétence sur l'agent de support déployé",
-          "illustration_alt_en": "A skill handover on the deployed support agent"
-        }
-      ]
-    },
-    {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on branche à votre agent de support",
-      "kicker_en": "§ The tools we wire to your support agent",
-      "grayscale": true,
-      "logos": [
-        { "ref": "logos/claude" },
-        { "ref": "logos/openai" },
-        { "ref": "logos/hubspot" },
-        { "ref": "logos/salesforce" },
-        { "ref": "logos/slack" },
-        { "ref": "logos/notion" },
-        { "ref": "logos/github" },
-        { "ref": "logos/aws" },
-        { "ref": "logos/google" },
-        { "ref": "logos/microsoft" },
-        { "ref": "logos/sap" },
-        { "ref": "logos/meta" }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Ce qu'un agent de support exécute chez vous",
-      "h2_en": "What a support agent executes for you",
-      "lede_fr": "Sept briques du support, une seule base composable. On active celles qui servent vos demandes récurrentes, quand elles servent. Pas de gadget qu'on vous facture pour rien.",
-      "lede_en": "Seven support building blocks, a single composable base. We activate the ones that serve your recurring requests, when they serve. No gadget billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "chatbot",
-          "title_fr": "Chatbot IA",
-          "title_en": "AI chatbot",
-          "body_fr": "Branché à votre base de connaissances et vos données, pas un bot scripté : il comprend la demande, y répond sur du concret et qualifie ce qui doit l'être.",
-          "body_en": "Wired to your knowledge base and your data, not a scripted bot: it understands the request, answers on the concrete and qualifies what needs it."
-        },
-        {
-          "icon": "mcp",
-          "title_fr": "Intégration MCP",
-          "title_en": "MCP integration",
-          "body_fr": "Le protocole qui connecte l'agent à vos outils : CRM, base de commandes, outil de tickets, agenda. C'est ce qui le fait passer de la conversation à l'action.",
-          "body_en": "The protocol connecting the agent to your tools: CRM, order base, ticket tool, calendar. That is what moves it from conversation to action."
-        },
-        {
-          "icon": "workflow",
-          "title_fr": "Traitement des demandes",
-          "title_en": "Request handling",
-          "body_fr": "Une chaîne orchestrée : lire la demande, la qualifier, chercher la réponse, créer le ticket, répondre, planifier le suivi. Le support récurrent de bout en bout.",
-          "body_en": "An orchestrated chain: read the request, qualify it, find the answer, create the ticket, reply, schedule the follow-up. Recurring support end to end."
-        },
-        {
-          "icon": "agents",
-          "title_fr": "Escalade et routage",
-          "title_en": "Escalation and routing",
-          "body_fr": "Ce qu'il ne sait pas, il le route vers la bonne personne ou le bon service, avec le contexte. Un agent, une mission : le support, pas un fourre-tout.",
-          "body_en": "What it doesn't know, it routes to the right person or team, with the context. One agent, one mission: support, not a catch-all."
-        },
-        {
-          "icon": "connexion",
-          "title_fr": "Connexion aux outils",
-          "title_en": "Tools connection",
-          "body_fr": "Branché à ce que vous utilisez déjà : CRM, base de commandes, outil de support. L'agent lit, interroge et agit sur vos données réelles, qui restent chez vous.",
-          "body_en": "Wired to what you already use: CRM, order base, support tool. The agent reads, queries and acts on your real data, which stays with you."
-        },
-        {
-          "icon": "auto",
-          "title_fr": "Réponse continue",
-          "title_en": "Continuous answering",
-          "body_fr": "Une première réponse immédiate, à toute heure, y compris le soir et le week-end. Le récurrent traité sans fatigue ni file d'attente qui s'allonge.",
-          "body_en": "An immediate first answer, at any hour, evenings and weekends included. The recurring handled with no fatigue and no growing queue."
-        },
-        {
-          "icon": "supervision",
-          "title_fr": "Supervision humaine",
-          "title_en": "Human supervision",
-          "body_fr": "Sur les actions sensibles, remboursement, geste commercial, contrat, un humain valide. Échanges tracés, arrêt possible : l'agent rend du temps, pas le contrôle.",
-          "body_en": "On sensitive actions, a refund, a goodwill gesture, a contract, a human validates. Traced exchanges, a stop possible: the agent gives back time, not control."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "systeme",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système ops et IA",
-      "kicker_en": "§ The ops and AI system",
-      "h2_fr": "L'agent de support ouvre sur le <i>système</i>",
-      "h2_en": "The support agent opens onto the <i>system</i>",
-      "lede_fr": "L'agent de support ne travaille jamais seul. Il s'appuie sur les autres agents, vos workflows, vos outils internes et vos données. Survolez une porte pour la voir.",
-      "lede_en": "The support agent never works alone. It leans on the other agents, your workflows, your internal tools and your data. Hover a door to preview it.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "La base de connaissance est le livrable le plus durable : elle sert à l'agent comme à vos équipes.",
+      "lead_en": "The knowledge base is the most lasting deliverable: it serves the agent and your teams alike.",
       "items": [
         {
-          "label_fr": "Agents IA",
-          "label_en": "AI agents",
-          "meta_fr": "L'offre mère · tous les agents métier",
-          "meta_en": "The parent offer · all business agents",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : les agents métier au sens large.",
-          "media_alt_en": "A chessboard: business agents at large.",
-          "link_href": "/services/agents-ia"
+          "title_fr": "La cartographie des demandes",
+          "title_en": "The request map",
+          "body_fr": "Les types de demandes, leur volume, et pour chacune : réponse automatique ou escalade.",
+          "body_en": "Request types, their volume, and for each: automatic answer or escalation.",
+          "format_fr": "CARTE",
+          "format_en": "CARTE"
         },
         {
-          "label_fr": "Automatisations",
-          "label_en": "Automations",
-          "meta_fr": "Workflows · orchestrer vos process",
-          "meta_en": "Workflows · orchestrate your processes",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : les étapes d'un workflow qui s'enchaînent.",
-          "media_alt_en": "A validated handshake: the steps of a workflow chaining together.",
-          "link_href": "/services/automatisations"
+          "title_fr": "La base de connaissance",
+          "title_en": "The knowledge base",
+          "body_fr": "Vos procédures et réponses mises au propre, structurées, avec un responsable de mise à jour.",
+          "body_en": "Your procedures and answers cleaned up, structured, with an owner for updates.",
+          "format_fr": "BASE",
+          "format_en": "BASE"
         },
         {
-          "label_fr": "Applications internes",
-          "label_en": "Internal applications",
-          "meta_fr": "Outils métier sur mesure",
-          "meta_en": "Bespoke business tools",
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Un ordinateur ausculté : l'outil interne que l'agent pilote.",
-          "media_alt_en": "A computer being checked: the internal tool the agent drives.",
-          "link_href": "/services/applications-internes"
+          "title_fr": "L'agent et ses règles",
+          "title_en": "The agent and its rules",
+          "body_fr": "Consignes, périmètre, règles d'escalade et connexions, sur vos comptes.",
+          "body_en": "Instructions, scope, escalation rules and connections, on your accounts.",
+          "format_fr": "AGENT",
+          "format_en": "AGENT"
         },
         {
-          "label_fr": "Intégration Claude",
-          "label_en": "Claude integration",
-          "meta_fr": "MCP · déployer Claude dans l'entreprise",
-          "meta_en": "MCP · deploy Claude in the enterprise",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Une figure dynamique : Claude branché à toute l'entreprise.",
-          "media_alt_en": "A dynamic figure: Claude wired into the whole enterprise.",
-          "link_href": "/services/integration-claude"
-        },
-        {
-          "label_fr": "Le système complet",
-          "label_en": "The complete system",
-          "meta_fr": "Le hub systèmes opérationnels et IA",
-          "meta_en": "The operational and AI systems hub",
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Une équipe réunie : le système opérationnel de bout en bout.",
-          "media_alt_en": "A team gathered: the end-to-end operational system.",
-          "link_href": "/services/systemes-operationnels-ia"
+          "title_fr": "Le tableau de suivi",
+          "title_en": "The tracking dashboard",
+          "body_fr": "Volume traité, taux d'escalade, questions sans réponse.",
+          "body_en": "Volume handled, escalation rate, unanswered questions.",
+          "format_fr": "SUIVI",
+          "format_en": "SUIVI"
         }
       ]
     },
     {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "L'agent de support, de bout en bout",
-      "fig_title_en": "The support agent, end to end",
-      "meta_fr": "PowerLoop · v1",
-      "meta_en": "PowerLoop · v1",
-      "h2_fr": "Comment un agent de support répond vraiment",
-      "h2_en": "How a support agent really answers",
-      "lede_fr": "Un agent de support n'est pas un bot posé sur le site. C'est un circuit. Chaque maillon transforme une demande qui revient en réponse exécutée ou en escalade cadrée, puis renvoie la mesure pour ajuster le support.",
-      "lede_en": "A support agent is not a bot dropped on the site. It's a circuit. Each link turns a returning request into an executed answer or a framed escalation, then feeds the measurement back to adjust support.",
-      "steps": [
-        {
-          "title_fr": "Demande",
-          "title_en": "Request",
-          "desc_fr": "Une demande client sur e-mail, chat ou formulaire, dans sa langue.",
-          "desc_en": "A customer request by email, chat or form, in their language."
-        },
-        {
-          "title_fr": "Compréhension",
-          "title_en": "Understanding",
-          "desc_fr": "L'agent lit la base et le CRM via MCP, comprend l'intention.",
-          "desc_en": "The agent reads the base and CRM via MCP, grasps the intent."
-        },
-        {
-          "title_fr": "Réponse",
-          "title_en": "Answer",
-          "desc_fr": "Il répond quand il sait, crée le ticket, met à jour la fiche.",
-          "desc_en": "It answers when it knows, creates the ticket, updates the record."
-        },
-        {
-          "title_fr": "Escalade",
-          "title_en": "Escalation",
-          "desc_fr": "Le cas sensible part vers un humain qui valide, avec le contexte.",
-          "desc_en": "The sensitive case goes to a human who validates, with the context."
-        },
-        {
-          "title_fr": "Mesure",
-          "title_en": "Measure",
-          "desc_fr": "Volume traité, taux d'escalade, délai de réponse, tout suivi.",
-          "desc_en": "Volume handled, escalation rate, response time, all tracked."
-        },
-        {
-          "title_fr": "Extension",
-          "title_en": "Extension",
-          "desc_fr": "La preuve chiffrée débloque un nouveau type de demande. La boucle se referme.",
-          "desc_en": "The measured proof unlocks a new request type. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle de support supervisé",
-      "loop_label_en": "supervised support loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
+      "type": "decision-list",
       "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · l'agent de support prend forme",
-      "kicker_en": "§ Method · the support agent takes shape",
-      "h2_fr": "Du cadrage à l'agent de support en production",
-      "h2_en": "From scoping to a live support agent",
-      "lede_fr": "On commence par les demandes qui reviennent le plus, on les confie à un agent, on mesure, puis on étend. Vous savez avant de signer ce que l'agent traite seul et ce qu'il escalade.",
-      "lede_en": "We start with the most recurring requests, hand them to an agent, measure, then extend. You know before signing what the agent handles on its own and what it escalates.",
-      "steps": [
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Un chatbot de support n'est pas utile si",
+      "heading_en": "A support chatbot is not useful if",
+      "items": [
         {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Cadrage",
-          "eyebrow_en": "Scoping",
-          "title_fr": "Repérer les demandes récurrentes",
-          "title_en": "Spot the recurring requests",
-          "body_fr": "Quelques jours d'écoute : on identifie les demandes qui reviennent le plus, celles où une réponse claire existe, et celles qui doivent toujours passer par un humain. Livrable : le périmètre du support récurrent, clair et mesurable.",
-          "body_en": "A few days of listening: we identify the most recurring requests, the ones with a clear answer, and the ones that must always go through a human. Deliverable: the recurring support scope, clear and measurable.",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Cadrage des demandes récurrentes à confier à l'agent de support",
-          "media_alt_en": "Scoping the recurring requests to hand to the support agent"
+          "label_fr": "Vous recevez moins d'une dizaine de demandes par semaine : une FAQ à jour suffit.",
+          "label_en": "You get fewer than ten requests a week: an up-to-date FAQ is enough."
         },
         {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Conception",
-          "eyebrow_en": "Design",
-          "title_fr": "Concevoir l'agent et ses règles d'escalade",
-          "title_en": "Design the agent and its escalation rules",
-          "body_fr": "On définit la mission de l'agent, son périmètre, ses permissions et surtout ses règles d'escalade : ce qu'il répond seul, ce qu'il fait valider. Livrable : la spécification de l'agent et la ligne entre le récurrent et le sensible.",
-          "body_en": "We define the agent's mission, its scope, its permissions and above all its escalation rules: what it answers on its own, what it sends for validation. Deliverable: the agent spec and the line between the recurring and the sensitive.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Conception de l'agent de support et de ses règles d'escalade",
-          "media_alt_en": "Designing the support agent and its escalation rules"
+          "label_fr": "Chaque demande est un cas particulier qui exige un expert.",
+          "label_en": "Every request is a special case that needs an expert."
         },
         {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Déploiement",
-          "eyebrow_en": "Deployment",
-          "title_fr": "Brancher via MCP et déployer",
-          "title_en": "Wire via MCP and deploy",
-          "body_fr": "On câble l'agent à votre base de connaissances, votre CRM et votre outil de tickets via des serveurs MCP propres et cloisonnés, on le met en production sur le support récurrent. Livrable : un agent qui répond vraiment, sous permissions explicites.",
-          "body_en": "We wire the agent to your knowledge base, your CRM and your ticket tool through clean, compartmentalised MCP servers and put it into production on recurring support. Deliverable: an agent that truly answers, under explicit permissions.",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Branchement de l'agent de support via MCP et mise en production",
-          "media_alt_en": "Wiring the support agent via MCP and going live"
+          "label_fr": "Vos procédures ne sont pas écrites et personne n'a le temps de les écrire.",
+          "label_en": "Your procedures are not written and nobody has time to write them."
         },
         {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Mesure et supervision",
-          "eyebrow_en": "Measure and supervision",
-          "title_fr": "Mesurer et superviser",
-          "title_en": "Measure and supervise",
-          "body_fr": "On suit ce que l'agent traite : volume, taux d'escalade, délai de première réponse, et on ajuste les règles. Livrable : un tableau de mesure et une supervision posée, pour décider d'étendre sur des chiffres.",
-          "body_en": "We track what the agent handles: volume, escalation rate, first-response time, and we adjust the rules. Deliverable: a measurement board and supervision in place, to decide on extending by the numbers.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Mesure de l'activité de l'agent de support et supervision",
-          "media_alt_en": "Measuring the support agent's activity and supervising it"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Extension et passation",
-          "eyebrow_en": "Extension and handover",
-          "title_fr": "Étendre et passer la main",
-          "title_en": "Extend and hand over",
-          "body_fr": "Une fois la valeur prouvée, on élargit l'agent à d'autres types de demandes et on forme vos équipes à ajuster les réponses et les règles. Livrable : un support assisté que vous pilotez vous-même, sans dépendre de nous.",
-          "body_en": "Once the value is proven, we widen the agent to other request types and train your teams to adjust answers and rules. Deliverable: assisted support that you steer yourself, without depending on us.",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Extension de l'agent de support et passation à l'équipe",
-          "media_alt_en": "Extending the support agent and handing over to the team",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
+          "label_fr": "Vous attendez de lui qu'il remplace l'équipe : il prend le récurrent, pas les cas difficiles.",
+          "label_en": "You expect it to replace the team: it takes the recurring, not the hard cases."
         }
       ]
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "apres-production",
-      "background": "paper-2",
-      "kicker_fr": "§ Après la mise en production",
-      "kicker_en": "§ After go-live",
-      "h2_fr": "L'agent de support continue de rendre du temps après son déploiement",
-      "h2_en": "The support agent keeps giving back time after deployment",
-      "lede_fr": "Un agent de support livré n'est pas un agent fini. La plupart des bots s'arrêtent à la démo, et déçoivent en vrai. Ici, il devient un actif : une réponse mesurée, une extension par preuve, un ajustement sans chantier et une autonomie complète sur vos règles.",
-      "lede_en": "A delivered support agent is not a finished agent. Most bots stop at the demo, and disappoint for real. Here, it becomes an asset: measured answering, extension by proof, adjustment without a project and full autonomy over your rules.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "Mesure du support",
-          "h3_en": "Support measurement",
-          "body_fr": "Le suivi de ce que fait l'agent : volume traité, taux d'escalade, délai de première réponse. On décide d'étendre ou d'ajuster les règles sur des chiffres, pas sur une impression de démo.",
-          "body_en": "The tracking of what the agent does: volume handled, escalation rate, first-response time. We decide to extend or adjust the rules on figures, not on a demo impression.",
-          "points": [
-            {
-              "label_fr": "Volume et taux d'escalade suivis",
-              "label_en": "Volume and escalation rate tracked"
-            },
-            {
-              "label_fr": "Délai de première réponse mesuré",
-              "label_en": "First-response time measured"
-            },
-            {
-              "label_fr": "Décision d'étendre sur des chiffres",
-              "label_en": "Decision to extend on figures"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "Mesure de l'activité de l'agent de support sur un tableau de suivi, illustration éditoriale",
-          "media_alt_en": "Measuring the support agent's activity on a tracking board, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Extension par preuve",
-          "h3_en": "Extension by proof",
-          "body_fr": "On prouve le gain sur les premières demandes, on le mesure, puis on élargit à un nouveau type de demande. Le support grandit par preuve, pas par pari. Chaque extension justifie sa place par les chiffres.",
-          "body_en": "We prove the gain on the first requests, measure it, then widen to a new request type. Support grows by proof, not by bet. Each extension earns its place by the numbers.",
-          "points": [
-            {
-              "label_fr": "Un type de demande, puis le suivant",
-              "label_en": "One request type, then the next"
-            },
-            {
-              "label_fr": "Le support grandit par preuve",
-              "label_en": "Support grows by proof"
-            },
-            {
-              "label_fr": "Chaque extension justifie sa place",
-              "label_en": "Each extension earns its place"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Le support assisté qui s'étend une demande prouvée après l'autre, illustration éditoriale",
-          "media_alt_en": "Assisted support extending one proven request after another, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Ajustement sans chantier",
-          "h3_en": "Adjustment without a project",
-          "body_fr": "Modifier une réponse, changer une règle d'escalade, brancher un nouvel outil : les ajustements se font en minutes, pas en projets. La mission de l'agent est documentée et réversible.",
-          "body_en": "Change an answer, change an escalation rule, wire a new tool: adjustments happen in minutes, not in projects. The agent's mission is documented and reversible.",
-          "points": [
-            {
-              "label_fr": "Réponses et règles modifiables",
-              "label_en": "Answers and rules adjustable"
-            },
-            {
-              "label_fr": "Mission documentée et réversible",
-              "label_en": "Documented, reversible mission"
-            },
-            {
-              "label_fr": "Ajustements en minutes",
-              "label_en": "Adjustments in minutes"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Ajustement d'un agent de support sans chantier, en quelques minutes, illustration éditoriale",
-          "media_alt_en": "Adjusting a support agent with no project, in minutes, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Autonomie et passation",
-          "h3_en": "Autonomy and handover",
-          "body_fr": "On documente l'agent et on forme vos équipes : mission, permissions, connexions MCP, règles d'escalade. Vous gardez la stack et la main, pas de captivité : vous ajustez et étendez le support sans dépendre de nous.",
-          "body_en": "We document the agent and train your teams: mission, permissions, MCP connections, escalation rules. You keep the stack and the control, no lock-in: you adjust and extend support without depending on us.",
-          "points": [
-            {
-              "label_fr": "Mission, permissions et règles documentées",
-              "label_en": "Documented mission, permissions and rules"
-            },
-            {
-              "label_fr": "Vos équipes formées à ajuster",
-              "label_en": "Your teams trained to adjust"
-            },
-            {
-              "label_fr": "Vous gardez la stack, zéro captivité",
-              "label_en": "You keep the stack, zero lock-in"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour rester autonomes sur l'agent de support, illustration éditoriale",
-          "media_alt_en": "Handover and team training to stay autonomous on the support agent, editorial illustration"
-        }
-      ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · agents et automatisations en production",
-      "spec_en": "Client cases · agents and automations in production",
-      "h2_fr": "Des agents tenus sur le terrain",
-      "h2_en": "Agents held in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Agents · Claude · MCP",
-          "impact_fr": "Tâches répétitives cadrées puis confiées à des agents branchés via MCP : qualification des entrants et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Repetitive tasks framed then handed to agents wired via MCP: qualification of incoming leads and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les demandes entrantes.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies incoming requests."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Automatisation · Refonte · Perf",
-          "impact_fr": "Priorité posée sur la fiabilisation du répétitif et la performance, puis exécutée : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Priority set on making the repetitive reliable and on performance, then executed: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable fiabilisé et allégé.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store made reliable and leaner."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Pipeline IA · Création · SEO",
-          "impact_fr": "Production éditoriale répétitive assistée par un pipeline IA : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Repetitive editorial production assisted by an AI pipeline: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
@@ -907,10 +335,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage des demandes récurrentes et un premier agent de support en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez votre agent, vos accès et la documentation.",
-      "lede_en": "We start with a fixed-price discovery sprint: scoping of the recurring requests and a first support agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep your agent, your access and the documentation.",
+      "h2_fr": "Prix d'un chatbot de service client",
+      "h2_en": "Price of a customer service chatbot",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage des demandes récurrentes et un premier agent de support en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez votre agent, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price discovery sprint: scoping of the recurring requests and a first support agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your agent, your access and the documentation.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -931,9 +359,9 @@
             "A first deliverable that answers, not a mockup"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=agent-support-client&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -946,13 +374,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Nouveaux types de demandes couverts sur preuve",
             "Vous gardez l'agent, les accès et la documentation"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "New request types covered on proof",
             "You keep the agent, access and documentation"
           ],
@@ -964,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage des demandes récurrentes, un premier agent de support branché via MCP et mis en production, avec un livrable qui répond dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux types de demandes, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, votre agent, vos accès et la documentation sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the recurring requests, a first support agent wired via MCP and put into production, with a deliverable that answers by the end. What follows is quoted: we estimate together the time the new request types require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your agent, your access and the documentation are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage des demandes récurrentes, un premier agent de support branché via MCP et mis en production, avec un livrable qui répond dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux types de demandes, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, votre agent, vos accès et la documentation sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the recurring requests, a first support agent wired via MCP and put into production, with a deliverable that answers by the end. What follows is quoted: we estimate together the time the new request types require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your agent, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
@@ -976,45 +404,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Chatbot et agent de service client : vos questions",
+      "h2_en": "Customer service chatbot and agent: your questions",
       "items": [
         {
-          "q_fr": "En quoi votre chatbot IA de service client est différent d'un bot scripté ?",
-          "q_en": "How is your AI customer service chatbot different from a scripted bot?",
-          "a_fr": "Un bot scripté récite un arbre de réponses figé et déçoit dès qu'on sort du script. Notre agent de support est branché à vos données réelles via MCP : il lit votre base de connaissances, votre CRM et vos commandes, comprend la demande, y répond quand il sait, et escalade à un humain quand il ne sait pas. Il agit, il ne récite pas.",
-          "a_en": "A scripted bot recites a fixed answer tree and disappoints as soon as you leave the script. Our support agent is wired to your real data via MCP: it reads your knowledge base, your CRM and your orders, understands the request, answers when it knows, and escalates to a human when it doesn't. It acts, it doesn't recite."
+          "q_fr": "Combien coûte un chatbot de service client pour une PME ?",
+          "a_fr": "La conception démarre par un sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure selon le nombre de sources et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur selon le volume de conversations, estimé avant le lancement.",
+          "q_en": "How much does a customer service chatbot cost for an SMB?",
+          "a_en": "Design starts with a discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT depending on the number of sources and tools to connect. Add model usage, billed by the vendor based on conversation volume, estimated before launch."
         },
         {
-          "q_fr": "L'agent peut-il faire des actions, ou juste répondre ?",
-          "q_en": "Can the agent take actions, or only answer?",
-          "a_fr": "Les deux, sous permissions. Il répond aux questions récurrentes, mais il peut aussi créer un ticket, mettre à jour une fiche, envoyer un suivi ou déclencher une relance. Les actions sensibles, un remboursement, un geste commercial, une modification de contrat, passent par une validation humaine. L'agent prépare, vous tranchez.",
-          "a_en": "Both, under permissions. It answers recurring questions, but it can also create a ticket, update a record, send a follow-up or trigger a chase. Sensitive actions, a refund, a goodwill gesture, a contract change, go through a human validation. The agent prepares, you decide."
+          "q_fr": "Chatbot scripté ou agent IA : quelle différence ?",
+          "a_fr": "Un chatbot scripté suit un arbre de questions prévu à l'avance et bloque dès qu'on en sort. Un agent IA comprend une demande formulée librement, cherche la réponse dans vos sources et peut agir dans vos outils. Il coûte plus cher à concevoir et demande une base de connaissance tenue à jour.",
+          "q_en": "Scripted chatbot or AI agent: what is the difference?",
+          "a_en": "A scripted chatbot follows a pre-set question tree and gets stuck as soon as you leave it. An AI agent understands a freely worded request, looks up the answer in your sources and can act in your tools. It costs more to design and needs a maintained knowledge base."
         },
         {
-          "q_fr": "Comment je garde la main sur ce qu'il répond aux clients ?",
-          "q_en": "How do I keep control over what it tells customers?",
-          "a_fr": "Vous gardez la main de bout en bout. L'agent a un périmètre défini, des permissions explicites et des points de validation sur les actions à risque. Les échanges sont tracés, les serveurs MCP cloisonnés, l'arrêt est possible à tout moment. Rien ne part en boîte noire vers un client sans que vous puissiez le voir et le cadrer.",
-          "a_en": "You keep control end to end. The agent has a defined scope, explicit permissions and validation points on risky actions. Exchanges are traced, MCP servers compartmentalised, a stop is possible at any time. Nothing goes to a customer as a black box without you being able to see it and frame it."
+          "q_fr": "Le chatbot peut-il donner une mauvaise réponse à un client ?",
+          "a_fr": "Oui, c'est le risque principal. On le réduit en l'obligeant à répondre uniquement depuis vos sources et à escalader quand il n'en trouve pas. Les réponses sont journalisées et un échantillon est relu chaque semaine au démarrage.",
+          "q_en": "Can the chatbot give a customer a wrong answer?",
+          "a_en": "Yes, that is the main risk. We reduce it by forcing it to answer only from your sources and to escalate when it finds none. Answers are logged and a sample is reviewed every week at the start."
         },
         {
-          "q_fr": "Il gère les demandes dans plusieurs langues et sur plusieurs canaux ?",
-          "q_en": "Does it handle requests in several languages and channels?",
-          "a_fr": "Oui. L'agent répond sur le canal où arrive la demande, e-mail, formulaire, chat du site, et dans la langue du client. Il qualifie, route vers le bon service ou la bonne personne, et garde une trace unique dans votre CRM. Un seul agent, une mission cadrée : le support récurrent.",
-          "a_en": "Yes. The agent answers on the channel the request arrives on, email, form, site chat, and in the customer's language. It qualifies, routes to the right team or person, and keeps a single trace in your CRM. One agent, one framed mission: recurring support."
+          "q_fr": "Chatbot service client et RGPD : que faut-il prévoir ?",
+          "a_fr": "Informer le client qu'il parle à un agent automatisé, limiter les données envoyées au modèle, fixer une durée de conservation des échanges et inscrire le traitement à votre registre. On fournit la fiche descriptive du traitement.",
+          "q_en": "Customer service chatbot and GDPR: what should be planned?",
+          "a_en": "Tell the customer they are talking to an automated agent, limit the data sent to the model, set a retention period for exchanges and record the processing in your register. We provide the processing description sheet."
         },
         {
-          "q_fr": "Est-ce que ça remplace mon équipe support ?",
-          "q_en": "Does it replace my support team?",
-          "a_fr": "Non. L'agent prend la part répétitive et chronophage, les questions qui reviennent dix fois par jour, pour rendre du temps à votre équipe sur les cas qui demandent du jugement et de l'empathie. Il agit sous supervision. L'objectif n'est pas de retirer des personnes, c'est de retirer des heures de tri et de réponses copiées-collées.",
-          "a_en": "No. The agent takes the repetitive, time-consuming part, the questions that come back ten times a day, to give your team back time for cases that need judgement and empathy. It acts under supervision. The goal isn't to remove people, it's to remove hours of sorting and copy-pasted answers."
+          "q_fr": "Combien de temps pour automatiser un service client ?",
+          "a_fr": "Quelques semaines pour un premier lot de questions récurrentes. La durée dépend de l'état de votre documentation : si les réponses sont déjà écrites, c'est rapide ; s'il faut les rédiger, c'est l'essentiel du travail.",
+          "q_en": "How long does it take to automate customer service?",
+          "a_en": "A few weeks for a first batch of recurring questions. It depends on the state of your documentation: if answers are already written, it is quick; if they need writing, that is most of the work."
         },
         {
-          "q_fr": "Combien de temps avant un premier agent de support en production ?",
-          "q_en": "How long before a first support agent in production?",
-          "a_fr": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines selon le périmètre. On commence par les demandes qui reviennent le plus souvent, on les met en production, on mesure le volume traité et le taux d'escalade, puis on étend à d'autres types de demandes.",
-          "a_en": "Scoping takes a few days, the first useful agent ships in a few weeks depending on scope. We start with the requests that come back most often, put them into production, measure the volume handled and the escalation rate, then extend to other request types."
+          "q_fr": "Sur quels canaux l'agent répond-il ?",
+          "a_fr": "Sur ceux que vos clients utilisent déjà : boîte email du support, formulaire de contact, chat du site. On commence par un seul canal, celui qui concentre le plus de demandes récurrentes.",
+          "q_en": "On which channels does the agent answer?",
+          "a_en": "On those your customers already use: support mailbox, contact form, site chat. We start with one channel, the one with the most recurring requests."
         }
       ]
     },
@@ -1025,22 +453,22 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à soulager votre support ?",
-      "kicker_en": "§ Ready to relieve your support?",
-      "h2_fr": "Confiez le support récurrent à un agent qui <i>répond</i>.",
-      "h2_en": "Hand recurring support to an agent that <i>answers</i>.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec la liste des demandes qu'un agent de support pourrait traiter et une première estimation du temps gagné, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et supervise lui-même, pas une démo vendue comme une production.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with the list of requests a support agent could handle and a first estimate of the time saved, whether we work together or not. Across the table, the founder who designs and supervises himself, not a demo sold as production.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de demandes identiques recevez-vous chaque semaine ?",
+      "h2_en": "How many identical requests do you get every week?",
+      "subtitle_fr": "En 45 minutes, on regarde vos demandes entrantes et vos sources, et on vous dit si un agent de support est justifié à votre volume.",
+      "subtitle_en": "In 45 minutes, we look at your incoming requests and your sources, and tell you whether a support agent is justified at your volume.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=agent-support-client&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir tous les agents IA",
-          "label_en": "See all AI agents",
+          "label_fr": "Agents IA pour entreprise",
+          "label_en": "AI agents for business",
           "href": "/services/agents-ia",
           "variant": "ghost"
         }
