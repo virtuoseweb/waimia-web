@@ -27,6 +27,7 @@ if (!s) {
     const count = i.status === 'simulation' ? `${i.wouldSubmit} URL partiraient` : `${i.submitted} URL soumises`;
     lines.push(`Indexing API : ${i.status} (${count} ; ${i.added} nouvelles, ${i.modified} modifiées, ${i.prioritizedNotIndexed} non indexées en tête, ${i.deferred} reportées ; quota ${i.quota.used}/${i.quota.cap}).${i.note ? ` ${i.note}` : ''}`);
   }
+  if (s.brave) lines.push(`Brave : ${s.brave.count} URL dans la file à soumettre par le navigateur (aucune API).${s.brave.count === 0 && s.brave.note ? ` ${s.brave.note}` : ''}`);
   if (s.feeds) lines.push(`Flux : ${s.feeds.entryCount} entrées, ${s.feeds.feedsInError.length} flux en erreur.`);
   if (s.competitors) lines.push(`Concurrents : ${s.competitors.totalNew} URL nouvelles.`);
 }

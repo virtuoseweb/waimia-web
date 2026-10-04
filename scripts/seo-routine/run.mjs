@@ -3,16 +3,18 @@
  *   docs/seo/data/AAAA-Www/<source>.json   une sortie brute par source
  *   docs/seo/data/AAAA-Www/summary.json    le résumé de la semaine (archive)
  *   docs/seo/data/latest.json              le même résumé, lu par la session Claude hebdomadaire
- *   docs/seo/data/state/*.json             état persistant (indexation, IndexNow, Indexing API, concurrents)
+ *   docs/seo/data/state/*.json             état persistant (indexation, IndexNow, Indexing API, Brave, concurrents)
  *
  * Chaque étape échoue isolément : son erreur est écrite dans `steps` du résumé et les autres
  * étapes tournent. Sans GSC_SERVICE_ACCOUNT_JSON, les étapes Search Console et Indexing API sont
  * marquées « non configuré » et le reste tourne.
  *
- * Usage : node scripts/seo-routine/run.mjs [--dry-run] [--indexing-all] [--only=feeds,competitors]
+ * Usage : node scripts/seo-routine/run.mjs [--dry-run] [--indexing-all] [--brave-all] [--only=feeds,competitors]
  *   --dry-run : aucune écriture externe (ni IndexNow, ni Indexing API, ni resoumission du sitemap).
  *   --indexing-all : l'Indexing API reprend tout le sitemap (première passe complète, refonte),
  *     au lieu des seules URL nouvelles ou modifiées.
+ *   --brave-all : la file Brave reprend tout le sitemap (le script ne soumet rien : la soumission
+ *     passe par le navigateur de Simon, voir docs/seo/ROUTINE.md, section Brave Search).
  *   SEO_DATA_DIR=<dossier> : écrit ailleurs que docs/seo/data (essai local).
  */
 import { join } from 'node:path';
@@ -25,12 +27,14 @@ import { collectIndex } from './gsc-index.mjs';
 import { submitSitemap } from './gsc-sitemap.mjs';
 import { runIndexNow } from './indexnow.mjs';
 import { runIndexingApi } from './indexing-api.mjs';
+import { runBraveQueue } from './brave-queue.mjs';
 import { collectFeeds } from './feeds.mjs';
 import { collectCompetitors } from './competitors.mjs';
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const indexingAll = args.includes('--indexing-all');
+const braveAll = args.includes('--brave-all');
 const only = args.find((a) => a.startsWith('--only='))?.slice(7).split(',') ?? null;
 
 const now = new Date();
@@ -44,6 +48,8 @@ const STEPS = [
   { name: 'indexnow', run: () => runIndexNow({ dryRun, persist: !dryRun }) },
   // Après gsc-index : les URL relevées non indexées pendant ce run passent en premier.
   { name: 'indexing-api', run: () => runIndexingApi({ dryRun, all: indexingAll, persist: !dryRun, today: now, indexOutput: outputs['gsc-index'] ?? null }) },
+  // Brave n'a pas d'API : l'étape calcule seulement la file des URL à soumettre par le navigateur.
+  { name: 'brave-queue', run: () => runBraveQueue({ all: braveAll, persist: !dryRun, today: now }) },
   { name: 'feeds', run: () => collectFeeds({ now }) },
   { name: 'competitors', run: () => collectCompetitors({ today: now }) },
 ];
@@ -92,6 +98,7 @@ const summary = buildSummary({
   sitemap: outputs['gsc-sitemap'],
   indexnow: outputs.indexnow,
   indexingApi: outputs['indexing-api'],
+  brave: outputs['brave-queue'],
   feeds: outputs.feeds,
   competitors: outputs.competitors,
   keywords: keywordsFile.keywords ?? [],
