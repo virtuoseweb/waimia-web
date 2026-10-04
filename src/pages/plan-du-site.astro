@@ -6,6 +6,7 @@
 export const prerender = true;
 
 import { getCollection } from 'astro:content';
+import { DEPUBLISHED_SERVICE_IDS } from '../data/depublished';
 import Base from '../layouts/Base.astro';
 import {
   MM_SOLUTIONS,
@@ -124,6 +125,7 @@ const allOutils = (await getCollection('outils'))
 
 // services → /services/<entry.id> · pas de filtre (cf services/[...slug].astro mappe tout)
 const allServices = (await getCollection('services'))
+  .filter((e) => e.id !== 'template-service-ref' && !DEPUBLISHED_SERVICE_IDS.has(e.id))
   .map((e) => ({ href: `/services/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
 // Collection `offres` retirée (refonte v7). L'audit de maturité (/audit-maturite-ia)

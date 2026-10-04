@@ -19,7 +19,9 @@ export async function getStaticPaths() {
   // Les types field-note / veille-ia sont servis par leurs routes héritées
   // (/ressources/field-notes, /ressources/veille-ia) · cf src/lib/blog-routing.ts.
   return entries
-    .filter((entry) => !entry.data.seo?.noindex && !isLegacyRoutedType(entry))
+    // Pivot IA 2026-10 · `seo.noindex` ne dépublie plus l'article : la page reste générée
+    // (liens entrants préservés) et porte un meta robots noindex (prop `noindex` → Base).
+    .filter((entry) => !isLegacyRoutedType(entry))
     .map((entry) => ({
       params: { slug: entry.id },
       props: { entry },
@@ -116,7 +118,7 @@ const ctx: EssayContext = {
 };
 const essayProps = buildEssayProps(ctx);
 ---
-<EssayTemplate {...essayProps}>
+<EssayTemplate {...essayProps} noindex={d.seo?.noindex}>
   <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>
   <Fragment slot="body" set:html={bodyHtml} />

@@ -37,7 +37,7 @@ export const ctaData = {
   h2_en: 'Ready to ship an <em>agent</em>,<br />not a slide deck?',
   body_fr: 'Audit IA en 5 jours. Premier agent en production en 4 semaines. ROI mesuré, jamais estimé.',
   body_en: 'AI audit in 5 days. First agent in production in 4 weeks. Measured ROI, never estimated.',
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact', variant: 'primary' as const },
+  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/audit-ia-pme', variant: 'primary' as const },
   cta_secondary: { label_fr: 'Voir les offres →', label_en: 'See services →', href: '/services', variant: 'ghost' as const },
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;

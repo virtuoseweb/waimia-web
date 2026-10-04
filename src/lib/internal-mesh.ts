@@ -80,12 +80,12 @@ const SERVICES: Record<string, MeshLink> = {
     label_en: 'n8n automation',
   },
   'referencement-ia': {
-    href: '/services/referencement-ia',
+    href: '/services/seo-geo-contenu',
     label_fr: 'Référencement IA',
     label_en: 'AI-driven search',
   },
   'seo-local': {
-    href: '/services/seo-local',
+    href: '/services/seo-geo-contenu',
     label_fr: 'SEO local',
     label_en: 'Local SEO',
   },
@@ -116,7 +116,7 @@ const SERVICES: Record<string, MeshLink> = {
     label_en: 'Sales system',
   },
   'maintenance-growth': {
-    href: '/services/maintenance-growth',
+    href: '/services/site-web-ia',
     label_fr: 'Maintenance & growth',
     label_en: 'Maintenance & growth',
   },

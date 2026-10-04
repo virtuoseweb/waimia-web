@@ -3,7 +3,7 @@
 // `public/logos/partners/partner-<slug>.<ext>` ; la couleur vient du CSS
 // (`currentColor`) via l'atome `PartnerLogo.astro`.
 //
-// Règle href : JAMAIS de 404. Page interne dédiée si elle existe (ex. /expertise-claude),
+// Règle href : JAMAIS de 404. Page interne dédiée si elle existe (ex. /services/integration-claude),
 // sinon URL officielle (external:true).
 
 export type PartnerCategory =
@@ -46,7 +46,7 @@ export const PARTNERS: Partner[] = [
     name: 'Claude (Anthropic)',
     asset: '/logos/partners/partner-claude.png',
     category: 'ai',
-    href: '/expertise-claude',
+    href: '/services/integration-claude',
     // Wordmark + étoile : large mais moins étiré que les pleins wordmarks.
     box: { w: '108px' },
   },
@@ -178,7 +178,7 @@ export const PARTNERS: Partner[] = [
     name: 'Claude',
     asset: '/logos/partners/partner-claude-mark.png',
     category: 'ai',
-    href: '/expertise-claude',
+    href: '/services/integration-claude',
     // Mark étoile compact → boîte étroite.
     box: { w: '54px' },
   },

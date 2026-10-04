@@ -70,7 +70,7 @@ const blogCards = sortedBlog.slice(0, 3).map((b, i) => ({
 // ── Compteurs RÉELS par catégorie (0 invention) ──
 const blogLongReads = sortedBlog.filter((b) => !isLegacyRoutedType(b));
 const nBlog = blogLongReads.length;
-const allOutils = await getCollection('outils');
+const allOutils = (await getCollection('outils')).filter((e) => !e.data.seo?.noindex);
 const nOutils = allOutils.length;
 const [allComparatifs, allDiagnostics, allGuides] = await Promise.all([
   getCollection('comparatifs'),
@@ -133,12 +133,12 @@ const categories = [
   },
   {
     kind_fr: 'Diagnostic', kind_en: 'Diagnostic',
-    title_fr: 'Diagnostic IA gratuit', title_en: 'Free AI diagnostic',
-    desc_fr: 'Six questions notées, un scorecard personnalisé par email, relu par un humain. Trois actions priorisées.',
-    desc_en: 'Six scored questions, a personalised scorecard by email, reviewed by a human. Three prioritised actions.',
-    format: 'Scorecard email',
-    href: '/ressources/academy',
-    cta_label_fr: 'Faire le diagnostic', cta_label_en: 'Take the diagnostic',
+    title_fr: 'Diagnostic de maturité IA', title_en: 'AI maturity diagnostic',
+    desc_fr: "La grille des 5 niveaux, les dimensions qui comptent et les questions clés pour situer votre entreprise avant d'investir.",
+    desc_en: 'The 5-level grid, the dimensions that matter and the key questions to place your company before investing.',
+    format: 'Grille 5 niveaux',
+    href: '/ressources/diagnostics/maturite-ia',
+    cta_label_fr: 'Lire le diagnostic', cta_label_en: 'Read the diagnostic',
   },
 ].filter(Boolean) as Array<{
   kind_fr: string; kind_en: string; title_fr: string; title_en: string;

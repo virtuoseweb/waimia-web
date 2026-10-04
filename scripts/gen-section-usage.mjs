@@ -84,9 +84,20 @@ function entrySlug(collectionRoot, filePath) {
 }
 
 /** Page lisible pour une entrée de collection (route publique sinon chemin source). */
+// Entrées DÉPUBLIÉES (pivot IA 2026-10, miroir de src/data/depublished.ts) : contenu conservé
+// mais plus de route publique (301) → chemin source, jamais un lien vers une URL redirigée.
+const DEPUBLISHED = {
+  services: new Set([
+    'mvp-saas', 'cold-email-b2b', 'integration-crm', 'relance-devis', 'wordpress', 'webflow',
+    'sur-mesure-headless', 'maintenance-growth', 'referencement-ia', 'seo-local',
+    'landing-page-google-ads', 'publicite-en-ligne',
+  ]),
+  demonstrations: new Set(['integration-claude']),
+};
+
 function pageLabel(collection, slug, filePath) {
   const router = ROUTE_OF[collection];
-  if (router) return router(slug);
+  if (router && !DEPUBLISHED[collection]?.has(slug)) return router(slug);
   return relative(ROOT, filePath);
 }
 

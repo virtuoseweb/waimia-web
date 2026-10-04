@@ -177,12 +177,12 @@ const art = (...ids: string[]): EeatLink[] => ids.map((id) => ARTICLE_LINKS[id])
 export const EEAT_PACK: EeatPack = {
   author: {
     name: 'Simon Beros',
-    role: 'Fondateur · architecte systèmes IA pour PME',
-    location: 'Montpellier, France',
+    role: 'Fondateur · Architecte de systèmes IA',
+    location: 'Bordeaux, France',
     profileHref: '/equipe/simon-beros',
     initials: 'SB',
     bio: "Studio solo. Simon conçoit, câble et suit lui-même chaque mission : pas de junior qui découvre le sujet en même temps que vous, pas de pool de sous-traitants entre vous et le travail.",
-    signature: 'Conçu, câblé et tenu en production par Simon Beros · Waimia, Montpellier.',
+    signature: 'Conçu, câblé et tenu en production par Simon Beros · Waimia, Bordeaux.',
   },
   expertise: [
     'Systèmes IA pour PME B2B',

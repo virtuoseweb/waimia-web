@@ -90,9 +90,21 @@ function entrySlug(collectionRoot, filePath) {
 }
 
 /** Route publique d'une entrée (sinon chemin source relatif au repo, toujours lisible). */
+// Entrées DÉPUBLIÉES (pivot IA 2026-10, miroir de src/data/depublished.ts) : le fichier de
+// contenu est conservé mais n'a plus de route publique (301 dans astro.config.mjs) → on
+// retombe sur le chemin source, pour ne jamais émettre de lien vers une URL redirigée.
+const DEPUBLISHED = {
+  services: new Set([
+    'mvp-saas', 'cold-email-b2b', 'integration-crm', 'relance-devis', 'wordpress', 'webflow',
+    'sur-mesure-headless', 'maintenance-growth', 'referencement-ia', 'seo-local',
+    'landing-page-google-ads', 'publicite-en-ligne',
+  ]),
+  demonstrations: new Set(['integration-claude']),
+};
+
 function routeFor(collection, slug, filePath) {
   const router = ROUTE_OF[collection];
-  if (router) return router(slug);
+  if (router && !DEPUBLISHED[collection]?.has(slug)) return router(slug);
   return relative(ROOT, filePath);
 }
 

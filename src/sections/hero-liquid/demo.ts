@@ -12,5 +12,5 @@ export const demo: DemoData = {
     lede_fr: "Un manifeste en cinq actes. Lu d’une traite, dix minutes. Appliqué chez vous, quatre semaines.",
     lede_en: 'A manifesto in five acts. Read in one sitting, ten minutes. Applied at your company, four weeks.',
     cta_primary_label_fr: 'Prendre RDV →', cta_primary_label_en: 'Book a session →', cta_primary_href: '/contact',
-    cta_secondary_label_fr: 'La plateforme', cta_secondary_label_en: 'The platform', cta_secondary_href: '/expertise-claude',
+    cta_secondary_label_fr: 'La plateforme', cta_secondary_label_en: 'The platform', cta_secondary_href: '/services/integration-claude',
   };

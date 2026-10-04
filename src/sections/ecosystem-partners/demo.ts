@@ -11,7 +11,7 @@ export const demo: DemoData = {
     h2_en: 'A proven stack, certified partners',
     layout: 'grid',
     partners: [
-      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/expertise-claude', category: 'ai' },
+      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/services/integration-claude', category: 'ai' },
       { name: 'OpenAI', asset: '/logos/partners/partner-openai.png', href: 'https://openai.com', external: true, category: 'ai' },
       { name: 'Amazon Web Services', asset: '/logos/partners/partner-aws.png', href: 'https://aws.amazon.com', external: true, category: 'cloud' },
       { name: 'Microsoft', asset: '/logos/partners/partner-microsoft.png', category: 'cloud' },

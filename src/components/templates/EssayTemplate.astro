@@ -42,6 +42,8 @@ interface RelatedCard {
 interface Props {
   title: string;
   description: string;
+  /** Exclure la page de l'index (robots noindex) · forwarded to Base */
+  noindex?: boolean;
   /** Catégorie + numéro éditorial (Essay 03, Note 12) */
   kicker: string;
   /** Date publication ISO ou format libre */
@@ -119,6 +121,7 @@ const {
   publishedAt,
   illustration,
   faqItems,
+  noindex = false,
 } = Astro.props as Props;
 
 const headlineHtml = (await Astro.slots.render('headline')).trim();
@@ -165,7 +168,7 @@ const ctaData = {
   cta: {
     label_fr: 'Réserver un audit →',
     label_en: 'Book an audit →',
-    href: localizeHref('/contact', lang),
+    href: localizeHref('/audit-ia-pme', lang),
     variant: 'primary',
   },
   background: 'paper-2',
@@ -194,7 +197,7 @@ const articleLd = buildArticle({
   keywords: tags,
 });
 ---
-<Base title={title} description={description} jsonLd={articleLd}>
+<Base title={title} description={description} jsonLd={articleLd} noindex={noindex}>
   {breadcrumbItems && breadcrumbItems.length > 0 && (
     <MastheadBar lang={lang ?? 'fr'} items={breadcrumbItems} />
   )}

@@ -273,10 +273,6 @@ const RESSOURCES: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Score maturité IA', en: 'AI maturity score' },
-          href: '/ressources/outils/score-maturite-ia',
-        },
-        {
           label: { fr: 'Guide déploiement Claude', en: 'Claude deployment guide' },
           href: '/ressources/guides/claude-pme',
         },
@@ -296,8 +292,8 @@ const RESSOURCES: MegaMenuSection = {
 
 // ─── SOLUTIONS · mega menu « systèmes → modules → module en détail » (refonte
 // V8.3 2026-07-16) :
-// Col 1 = SÉLECTEUR « Nos systèmes », trois systèmes cliquables (acquisition [défaut],
-// opérationnels et IA, commerciaux). Le survol/focus d'un système bascule les cols 2 ET 4.
+// Col 1 = SÉLECTEUR « Nos systèmes », trois systèmes cliquables (pivot IA 2026-10 :
+// automatisation et agents IA [défaut, 1er], commerciaux, acquisition en dernier). Le survol/focus d'un système bascule les cols 2 ET 4.
 // Col 2 = PANNEAU MODULES du système actif (survol système). Le survol/focus d'un
 // MODULE (avec léger délai d'intention) pilote la col 3 seule ; défaut = 1er module du
 // système actif. Col 3 = « LE MODULE EN DÉTAIL » : pages ENFANT curées du module
@@ -319,119 +315,17 @@ const SOLUTIONS: MegaMenuSection = {
     // Col 1 · SÉLECTEUR « Nos systèmes » (directive Simon 2026-07-13, MAJ V8.1
     // 2026-07-14) : la colonne liste les systèmes ; survol/clic/focus d'un système →
     // le panneau jumeau (col 2) affiche ses modules. Les trois systèmes sont
-    // cliquables : « Systèmes d'acquisition » (défaut actif, hub /services/systeme-
-    // acquisition), « Systèmes opérationnels et IA » (hub /services/systemes-
-    // operationnels-ia) et « Systèmes commerciaux » (hub /services/systeme-commercial).
+    // cliquables, dans l'ordre (pivot IA 2026-10) : « Automatisation et agents IA »
+    // (défaut actif, hub /services/systemes-operationnels-ia), « Systèmes commerciaux »
+    // (hub /services/systeme-commercial), « Systèmes d'acquisition » (hub
+    // /services/systeme-acquisition).
     {
       kicker: { fr: 'NOS SYSTÈMES', en: 'OUR SYSTEMS' },
       title: { fr: 'Nos systèmes', en: 'Our systems' },
       systems: [
         {
-          label: { fr: 'Systèmes d\'acquisition', en: 'Acquisition systems' },
-          key: 'acquisition',
-          href: '/services/systeme-acquisition',
-          description: { fr: 'Concevoir l\'infrastructure qui attire et capte la demande : site, visibilité, landing pages.', en: 'Design the infrastructure that attracts and captures demand: website, visibility, landing pages.' },
-          // Modules à plat (aucun sous-groupe titré) : site, visibilité, landing pages.
-          links: [
-            {
-              label: { fr: 'Site web intelligent', en: 'Intelligent website' },
-              href: '/services/site-web-ia',
-              description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
-              badge: { fr: 'Offre phare', en: 'Flagship' },
-              // Sous-modules réels du site intelligent + compléments (cas, diagnostic, audit).
-              detail: [
-                {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Sur mesure Astro / React', en: 'Custom Astro / React' }, href: '/services/sur-mesure-headless' },
-                    { label: { fr: 'WordPress', en: 'WordPress' }, href: '/services/wordpress' },
-                    { label: { fr: 'Webflow', en: 'Webflow' }, href: '/services/webflow' },
-                  ],
-                },
-                {
-                  label: { fr: 'Aller plus loin', en: 'Go further' },
-                  links: [
-                    { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
-                    { label: { fr: 'Quelle techno pour votre site en 2026', en: 'Which tech for your site in 2026' }, href: '/blog/webflow-vs-wordpress-vs-site-code-ia-2026' },
-                    { label: { fr: 'Diagnostic site intelligent', en: 'Smart website diagnostic' }, href: '/ressources/diagnostics/site-web-intelligent' },
-                  ],
-                },
-              ],
-            },
-            {
-              label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
-              href: '/services/seo-geo-contenu',
-              description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
-              detail: [
-                {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
-                    { label: { fr: 'Référencement IA', en: 'AI search visibility' }, href: '/services/referencement-ia' },
-                  ],
-                },
-                {
-                  label: { fr: 'Aller plus loin', en: 'Go further' },
-                  links: [
-                    { label: { fr: 'Le cas Desangles Peinture', en: 'The Desangles Peinture case' }, href: '/cas-clients/desangles-peinture' },
-                    { label: { fr: 'SEO ou GEO, quelle différence', en: 'SEO or GEO, what differs' }, href: '/ressources/comparatifs/geo-vs-seo' },
-                    { label: { fr: 'Audit site web', en: 'Website audit' }, href: '/audit-site-web-intelligent' },
-                  ],
-                },
-              ],
-            },
-            {
-              label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
-              href: '/services/landing-pages-tunnels',
-              description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
-              detail: [
-                {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Landing page Google Ads', en: 'Google Ads landing page' }, href: '/services/landing-page-google-ads' },
-                  ],
-                },
-                {
-                  label: { fr: 'Aller plus loin', en: 'Go further' },
-                  links: [
-                    { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
-                    { label: { fr: 'Landing page qui convertit : la méthode', en: 'Landing pages that convert: the method' }, href: '/blog/landing-page-qui-convertit-methode-2026' },
-                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
-                  ],
-                },
-              ],
-            },
-            {
-              label: { fr: 'Publicité en ligne', en: 'Online advertising' },
-              href: '/services/publicite-en-ligne',
-              description: { fr: 'Google Ads, Meta et formats IA, branchés à vos landing pages et votre CRM.', en: 'Google Ads, Meta and AI formats, wired to your landing pages and your CRM.' },
-              detail: [
-                {
-                  label: { fr: 'Aller plus loin', en: 'Go further' },
-                  links: [
-                    { label: { fr: 'Le cas Balzeo', en: 'The Balzeo case' }, href: '/cas-clients/balzeo' },
-                    { label: { fr: 'Google Ads ou Meta Ads en 2026', en: 'Google Ads or Meta Ads in 2026' }, href: '/blog/google-ads-vs-meta-ads-pme-2026' },
-                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
-                  ],
-                },
-              ],
-            },
-          ],
-          // Col 4 featured STATIQUE du système d'acquisition (renvoie au hub).
-          featured: {
-            kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
-            label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
-            body: {
-              fr: 'L\'infrastructure qui attire et capte la demande : site, visibilité, landing pages. Packs sur devis à tarif dégressif.',
-              en: 'The infrastructure that attracts and captures demand: website, visibility, landing pages. Packs on quote with degressive pricing.',
-            },
-            cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
-            href: '/services/systeme-acquisition',
-            image: '/images/besoins/besoin-piloter.webp',
-          },
-        },
-        {
-          label: { fr: 'Systèmes opérationnels et IA', en: 'Operational & AI systems' },
+          // Libellé de NAVIGATION (pivot IA 2026-10) : le hub reste /services/systemes-operationnels-ia.
+          label: { fr: 'Automatisation et agents IA', en: 'Automation and AI agents' },
           key: 'ia',
           href: '/services/systemes-operationnels-ia',
           description: { fr: 'Automatiser les processus et développer les outils métier dont les équipes ont besoin.', en: 'Automate processes and build the internal tools teams need.' },
@@ -519,12 +413,6 @@ const SOLUTIONS: MegaMenuSection = {
                   description: { fr: 'Développer les outils métier sur mesure dont vos équipes ont besoin.', en: 'Build the custom internal tools your teams need.' },
                   detail: [
                     {
-                      label: { fr: 'Déclinaisons', en: 'Editions' },
-                      links: [
-                        { label: { fr: 'MVP SaaS', en: 'SaaS MVP' }, href: '/services/mvp-saas' },
-                      ],
-                    },
-                    {
                       label: { fr: 'Cas d\'usage', en: 'Use cases' },
                       links: [
                         { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
@@ -595,12 +483,6 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, wired to your CRM.' },
               detail: [
                 {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Cold email B2B', en: 'B2B cold email' }, href: '/services/cold-email-b2b' },
-                  ],
-                },
-                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
@@ -616,12 +498,6 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'CRM branché, scoring des leads et routing vers le bon commercial.', en: 'Wired CRM, lead scoring and routing to the right rep.' },
               detail: [
                 {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Intégration CRM', en: 'CRM integration' }, href: '/services/integration-crm' },
-                  ],
-                },
-                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
@@ -636,12 +512,6 @@ const SOLUTIONS: MegaMenuSection = {
               href: '/services/sequences-de-suivi',
               description: { fr: 'Séquences de relance automatisées qui réchauffent et convertissent.', en: 'Automated follow-up sequences that nurture and convert.' },
               detail: [
-                {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Relance de devis', en: 'Quote follow-up' }, href: '/services/relance-devis' },
-                  ],
-                },
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
@@ -668,12 +538,80 @@ const SOLUTIONS: MegaMenuSection = {
             image: '/images/besoins/besoin-acquerir.webp',
           },
         },
+        {
+          label: { fr: 'Systèmes d\'acquisition', en: 'Acquisition systems' },
+          key: 'acquisition',
+          href: '/services/systeme-acquisition',
+          description: { fr: 'Concevoir l\'infrastructure qui attire et capte la demande : site, visibilité, landing pages.', en: 'Design the infrastructure that attracts and captures demand: website, visibility, landing pages.' },
+          // Modules à plat (aucun sous-groupe titré) : site, visibilité, landing pages
+          // (publicité en ligne fusionnée dans landing pages et tunnels, pivot IA 2026-10).
+          links: [
+            {
+              label: { fr: 'Site web intelligent', en: 'Intelligent website' },
+              href: '/services/site-web-ia',
+              description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
+              // Compléments (cas, comparatif, diagnostic). Déclinaisons fusionnées dans la page (pivot IA 2026-10).
+              detail: [
+                {
+                  label: { fr: 'Aller plus loin', en: 'Go further' },
+                  links: [
+                    { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
+                    { label: { fr: 'Quelle techno pour votre site en 2026', en: 'Which tech for your site in 2026' }, href: '/blog/webflow-vs-wordpress-vs-site-code-ia-2026' },
+                    { label: { fr: 'Diagnostic site intelligent', en: 'Smart website diagnostic' }, href: '/ressources/diagnostics/site-web-intelligent' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
+              href: '/services/seo-geo-contenu',
+              description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
+              detail: [
+                {
+                  label: { fr: 'Aller plus loin', en: 'Go further' },
+                  links: [
+                    { label: { fr: 'Le cas Desangles Peinture', en: 'The Desangles Peinture case' }, href: '/cas-clients/desangles-peinture' },
+                    { label: { fr: 'SEO ou GEO, quelle différence', en: 'SEO or GEO, what differs' }, href: '/ressources/comparatifs/geo-vs-seo' },
+                    { label: { fr: 'Audit site web', en: 'Website audit' }, href: '/audit-site-web-intelligent' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
+              href: '/services/landing-pages-tunnels',
+              description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
+              detail: [
+                {
+                  label: { fr: 'Aller plus loin', en: 'Go further' },
+                  links: [
+                    { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
+                    { label: { fr: 'Landing page qui convertit : la méthode', en: 'Landing pages that convert: the method' }, href: '/blog/landing-page-qui-convertit-methode-2026' },
+                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
+                  ],
+                },
+              ],
+            },
+          ],
+          // Col 4 featured STATIQUE du système d'acquisition (renvoie au hub).
+          featured: {
+            kicker: { fr: 'L\'OFFRE COMPLÈTE', en: 'THE COMPLETE OFFER' },
+            label: { fr: 'Système d\'acquisition', en: 'Acquisition system' },
+            body: {
+              fr: 'L\'infrastructure qui attire et capte la demande : site, visibilité, landing pages. Packs sur devis à tarif dégressif.',
+              en: 'The infrastructure that attracts and captures demand: website, visibility, landing pages. Packs on quote with degressive pricing.',
+            },
+            cta: { fr: 'Découvrir le système →', en: 'Explore the system →' },
+            href: '/services/systeme-acquisition',
+            image: '/images/besoins/besoin-piloter.webp',
+          },
+        },
       ],
       links: [],
     },
     // Col 2 · PANNEAU DYNAMIQUE jumeau du sélecteur. Rend tous les groupes de
     // modules côté serveur ; le survol du sélecteur bascule la visibilité.
-    // Défaut = Système d'acquisition. `title` non rendu (l'en-tête du panneau
+    // Défaut = 1er système (Automatisation et agents IA). `title` non rendu (l'en-tête du panneau
     // = le nom du système actif) mais requis par MegaMenuColumn.
     {
       systemsPanel: true,
@@ -704,7 +642,7 @@ const SOLUTIONS: MegaMenuSection = {
       { label: { fr: 'Standardiser les processus', en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
       { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
       { label: { fr: 'Voir tous les problèmes', en: 'See all problems' }, href: '/cas-usages' },
-      { label: { fr: 'Réserver un audit', en: 'Book an audit' }, href: '/contact' },
+      { label: { fr: 'Réserver un audit', en: 'Book an audit' }, href: '/audit-ia-pme' },
     ],
   },
 };
@@ -802,7 +740,7 @@ const CAS: MegaMenuSection = {
     {
       kicker: { fr: 'ÉTUDES DE CAS', en: 'CASE STUDIES' },
       title: { fr: 'Études de cas', en: 'Case studies' },
-      goal: { fr: 'Cinq cas réels, résultats mesurés', en: 'Five real cases, measured results' },
+      goal: { fr: 'Cinq réalisations documentées', en: 'Five documented projects' },
       links: [
         { label: { fr: 'Toutes les études de cas', en: 'All case studies' }, href: '/cas-clients', description: { fr: 'Cinq réalisations documentées.', en: 'Five documented projects.' } },
       ],
@@ -833,8 +771,8 @@ const AGENCE: MegaMenuSection = {
   label: { fr: "L'Agence", en: 'The Agency' },
   parentHref: '/agence',
   lead: {
-    fr: 'Un studio solo basé à Montpellier. Une méthode anti-théâtre, des livrables signés.',
-    en: 'A solo studio based in Montpellier. An anti-theatre method, with signed deliverables.',
+    fr: 'Un studio solo basé à Bordeaux, missions à distance. Une méthode anti-théâtre, des livrables signés.',
+    en: 'A solo studio based in Bordeaux, working remotely. An anti-theatre method, with signed deliverables.',
   },
   columns: [
     {
@@ -900,6 +838,10 @@ const AGENCE: MegaMenuSection = {
       title: { fr: 'Présence', en: 'Presence' },
       links: [
         {
+          label: { fr: 'Bordeaux', en: 'Bordeaux' },
+          href: '/implantations/bordeaux',
+        },
+        {
           label: { fr: 'Montpellier', en: 'Montpellier' },
           href: '/implantations/montpellier',
         },
@@ -907,20 +849,16 @@ const AGENCE: MegaMenuSection = {
           label: { fr: 'France entière', en: 'All of France' },
           href: '/implantations',
         },
-        {
-          label: { fr: 'Bordeaux', en: 'Bordeaux' },
-          href: '/implantations/bordeaux',
-        },
       ],
       footer: {
         label: { fr: 'Réserver un audit →', en: 'Book an audit →' },
-        href: '/contact',
+        href: '/audit-ia-pme',
       },
     },
   ],
   featured: {
     kicker: { fr: 'ANCRAGE', en: 'LOCATION' },
-    label: { fr: 'Montpellier · France', en: 'Montpellier · France' },
+    label: { fr: 'Bordeaux · France', en: 'Bordeaux · France' },
     body: {
       fr: 'Un studio solo. Une seule méthode. Interlocuteur direct, pas un comité.',
       en: 'A solo studio. One method. A direct contact, not a committee.',

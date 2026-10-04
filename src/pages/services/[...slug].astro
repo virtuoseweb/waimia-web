@@ -9,6 +9,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildService } from '../../lib/seo/schema-builder';
+import { DEPUBLISHED_SERVICE_IDS } from '../../data/depublished';
 
 export async function getStaticPaths() {
   const entries = await getCollection('services');
@@ -17,7 +18,9 @@ export async function getStaticPaths() {
   // interne de la séquence canonique de sections (le schéma services n'a pas de champ
   // `visible` : on exclut par id, seul gabarit non-livrable de la collection).
   return entries
-    .filter((entry) => entry.id !== 'template-service-ref')
+    // Pivot IA 2026-10 · services fusionnés : même mécanisme (exclusion par id + 301),
+    // liste dans src/data/depublished.ts. Les fichiers de contenu sont conservés.
+    .filter((entry) => entry.id !== 'template-service-ref' && !DEPUBLISHED_SERVICE_IDS.has(entry.id))
     .map((entry) => ({
       params: { slug: entry.id },
       props: { entry },

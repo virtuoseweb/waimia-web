@@ -31,7 +31,7 @@ export const agenceSections: SectionData[] = [
     lede_fr: "Waimia câble des agents IA dans les outils des PME et ETI. On livre du code le mardi, on lit le pipeline le vendredi. Pas de chaîne offshore, pas de diaporama de comité.",
     lede_en: 'Waimia wires AI agents into the tools of mid-market companies. We ship code on Tuesdays, we read the pipeline on Fridays. No offshore chain, no committee slideshow.',
     stats: [
-      { value: 'Montpellier', label_fr: 'ancrage · France', label_en: 'based in · France', emphasis: false },
+      { value: 'Bordeaux', label_fr: 'ancrage · missions à distance', label_en: 'based in · remote engagements', emphasis: false },
       { value: 'Solo', label_fr: 'votre interlocuteur direct', label_en: 'your direct contact', emphasis: true },
       { value: 'Claude', label_fr: 'écosystème Anthropic', label_en: 'Anthropic ecosystem', emphasis: false },
       { value: 'FR', label_fr: 'français, par choix', label_en: 'French, by choice', emphasis: false },
@@ -120,8 +120,8 @@ export const agenceSections: SectionData[] = [
     media_caption: 'Process Intelligence · du diagnostic à la mesure',
     quote_fr: "On ne vend pas de l'IA pour faire de l'IA. On trace le workflow, on pose l'automatisation là où elle compte (HubSpot, Stripe, dbt, vos outils existants), et on mesure l'avant/après. Pas de refonte si un connecteur suffit : c'est la base d'un <a href=\"/services/systeme-acquisition\">système d'acquisition</a> qui tient.",
     quote_en: "We don't sell AI for AI's sake. We trace the workflow, place automation where it matters (HubSpot, Stripe, dbt, your existing tools), and measure before/after. No rebuild when a connector is enough: it is the base of an <a href=\"/services/systeme-acquisition\">acquisition system</a> that holds.",
-    attribution_fr: 'Waimia · studio solo · Montpellier',
-    attribution_en: 'Waimia · solo studio · Montpellier',
+    attribution_fr: 'Waimia · studio solo · Bordeaux',
+    attribution_en: 'Waimia · solo studio · Bordeaux',
     metrics: [
       { k: '5 j', label_fr: 'pour cibler le levier', label_en: 'to pinpoint the lever' },
       { k: '4 sem.', label_fr: 'au premier workflow', label_en: 'to first workflow' },
@@ -188,7 +188,7 @@ export const agenceSections: SectionData[] = [
     body_en: 'Waimia starts from a recurring observation: a POC clears committee, shines in the showroom, then stalls in June. The studio takes the problem from the other end. Simon Beros wires and runs every engagement himself: no relay agency, no rotating account manager, you talk to the person who ships. What the studio refuses: AI theatre, framing workshops with no signed deliverable, non-auditable agents that turn software into a black box.',
     points: [
       { label_fr: 'Studio · praticien solo, Simon Beros', label_en: 'Studio · solo practitioner, Simon Beros' },
-      { label_fr: 'Montpellier · ancrage France, à distance partout', label_en: 'Montpellier · based in France, remote everywhere' },
+      { label_fr: 'Bordeaux · missions à distance (Bordeaux, Montpellier, Lyon, Paris)', label_en: 'Bordeaux · remote engagements (Bordeaux, Montpellier, Lyon, Paris)' },
       { label_fr: 'France Num · activateur, expert IA & numérique', label_en: 'France Num · activator, AI & digital expert' },
     ],
     media_src: '/images/editorial/gentlemanhandcraftergoworknow.webp',
@@ -208,7 +208,7 @@ export const agenceSections: SectionData[] = [
     specs: [
       { label_fr: 'Forme', label_en: 'Structure', value: 'Studio solo · Waimia / VirtuoseWeb' },
       { label_fr: 'Fondateur', label_en: 'Founder', value: 'Simon Beros' },
-      { label_fr: 'Ancrage', label_en: 'Based in', value: 'Montpellier (FR) · à distance partout' },
+      { label_fr: 'Ancrage', label_en: 'Based in', value: 'Bordeaux (FR) · missions à distance : Bordeaux, Montpellier, Lyon, Paris' },
       { label_fr: 'Interlocuteur', label_en: 'Contact', value: 'Direct · celui qui câble est celui qui livre' },
       { label_fr: 'Périmètre', label_en: 'Scope', value: 'PME et ETI · acquisition, CRM, productivité' },
       { label_fr: 'Référencement', label_en: 'Listing', value: 'Référencé Activateur France Num' },
@@ -239,8 +239,8 @@ export const agenceSections: SectionData[] = [
 const lang = langFromPath(Astro.url.pathname);
 ---
 <Base
-  title="L'Agence · Studio IA solo à Montpellier · Waimia"
-  description="Studio IA solo à Montpellier. Méthode Process Intelligence, expert de l'écosystème Anthropic. On livre des agents qui exécutent, pas des slides."
+  title="L'Agence · Studio IA solo à Bordeaux · Waimia"
+  description="Studio IA solo basé à Bordeaux, missions à distance. Automatisations, agents IA et applications métier pour PME et ETI. Des systèmes qui exécutent."
 >
   <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },

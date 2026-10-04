@@ -30,7 +30,7 @@ const lang = langFromPath(Astro.url.pathname);
       {lang === 'fr' ? body_fr : body_en}
     </p>
     <div style="margin-top:48px;display:flex;gap:var(--space-3);flex-wrap:wrap">
-      <a href={localizeHref('/contact', lang)} class="btn btn-primary btn-lg" data-mag="0.18">
+      <a href={localizeHref('/audit-ia-pme', lang)} class="btn btn-primary btn-lg" data-mag="0.18">
         {lang === 'fr' ? 'Réserver un audit' : 'Book an audit'} <span aria-hidden>→</span>
       </a>
       <a href={localizeHref('/', lang)} class="btn btn-ghost btn-lg">

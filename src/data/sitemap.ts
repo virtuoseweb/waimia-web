@@ -159,7 +159,7 @@ export const MM_CASES_NEW: MegaMenu = {
 export const MM_TECH: MegaMenu = {
   key: 'expertise-claude',
   label: { en: 'Claude expertise', fr: 'Expertise Claude' },
-  href: '/expertise-claude',
+  href: '/services/integration-claude',
   lead: {
     en: 'Anthropic-first for demanding enterprise use. One Claude model per task profile.',
     fr: "Anthropic d'abord pour les usages enterprise exigeants. Un modèle Claude par profil de tâche.",
@@ -170,7 +170,7 @@ export const MM_TECH: MegaMenu = {
       label: { en: 'Anthropic · primary', fr: 'Anthropic · modèle principal' },
       tint: '#C94F2E',
       items: [
-        { href: '/expertise-claude', label: { en: 'Claude expertise · Opus · Sonnet · Haiku', fr: 'Expertise Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.' }, featured: true },
+        { href: '/services/integration-claude', label: { en: 'Claude expertise · Opus · Sonnet · Haiku', fr: 'Expertise Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.' }, featured: true },
       ],
     },
   ],
@@ -207,7 +207,7 @@ export const MM_RESOURCES: MegaMenu = {
       tint: '#C94F2E',
       items: [
         { href: '/ressources/outils', label: { en: 'Tools catalog', fr: 'Catalogue outils' }, lead: { en: 'ROI, TCO, AI Act compliance. No form, no funnel.', fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.' }, featured: true },
-        { href: '/expertise-claude', label: { en: 'Claude expertise · the stack', fr: 'Expertise Claude · la stack' }, lead: { en: 'Claude ecosystem positioning.', fr: "Positionnement écosystème Claude." } },
+        { href: '/services/integration-claude', label: { en: 'Claude expertise · the stack', fr: 'Expertise Claude · la stack' }, lead: { en: 'Claude ecosystem positioning.', fr: "Positionnement écosystème Claude." } },
       ],
     },
   ],
@@ -226,8 +226,8 @@ export const MM_AGENCY_NEW: MegaMenu = {
   label: { en: 'The Agency', fr: "L'Agence" },
   href: '/agence',
   lead: {
-    en: 'A solo studio based in Montpellier. An anti-theatre method, with signed deliverables.',
-    fr: 'Un studio solo basé à Montpellier. Une méthode anti-théâtre, des livrables signés.',
+    en: 'A solo studio based in Bordeaux, working remotely. An anti-theatre method, with signed deliverables.',
+    fr: 'Un studio solo basé à Bordeaux, missions à distance. Une méthode anti-théâtre, des livrables signés.',
   },
   cols: [
     {
@@ -250,7 +250,7 @@ export const MM_AGENCY_NEW: MegaMenu = {
   ],
   featured: {
     kicker: { en: 'LOCATION', fr: 'ANCRAGE' },
-    label: { en: 'Montpellier · France', fr: 'Montpellier · France' },
+    label: { en: 'Bordeaux · France', fr: 'Bordeaux · France' },
     body: { en: 'A solo studio. One method. A direct contact, not a committee.', fr: 'Un studio solo. Une seule méthode. Interlocuteur direct, pas un comité.' },
     cta: { en: 'Discover the studio →', fr: 'Découvrir le studio →' },
     href: '/agence',
@@ -342,7 +342,7 @@ export const FOOTER_COLS: FooterCol[] = [
     ],
   },
   // Col 3 — Audits & diagnostics (footer cible strat 10 §4 : 2 audits transactionnels
-  // + 2 diagnostics + réserver un audit → /contact gratuit).
+  // + 2 diagnostics + réserver un audit → /audit-ia-pme, pivot IA 2026-10).
   {
     heading: { en: 'Audits & diagnostics', fr: 'Audits & diagnostics' },
     items: [
@@ -363,7 +363,7 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Smart website diagnostic', fr: 'Diagnostic Site Web Intelligent' },
       },
       {
-        href: '/contact',
+        href: '/audit-ia-pme',
         label: { en: 'Book an audit', fr: 'Réserver un audit' },
       },
     ],
@@ -382,16 +382,8 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Free tools', fr: 'Outils gratuits' },
       },
       {
-        href: '/ressources/academy',
-        label: { en: 'Academy', fr: 'Academy' },
-      },
-      {
         href: '/demonstrations',
         label: { en: 'Demos', fr: 'Démonstrations' },
-      },
-      {
-        href: '/expertise-claude',
-        label: { en: 'Claude expertise', fr: 'Expertise Claude' },
       },
       {
         href: '/ressources/#newsletter',

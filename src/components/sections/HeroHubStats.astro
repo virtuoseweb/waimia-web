@@ -342,6 +342,9 @@ const cfMediaRegister =
     min-width: 0;
     padding: var(--space-7) var(--space-5);
     border-right: 1px solid var(--hairline);
+    /* La cellule est le conteneur de référence (cqi) de sa valeur : une valeur textuelle
+       longue (ex. un nom de ville) se dimensionne sur SA cellule et ne déborde plus sur la voisine. */
+    container-type: inline-size;
   }
   .hero-hub-stats__cell:last-child { border-right: none; }
   .hero-hub-stats__value {
@@ -352,8 +355,15 @@ const cfMediaRegister =
     line-height: 1;
     color: var(--ink);
     margin-bottom: var(--space-2);
+    /* Filet de sécurité : retour à la ligne plutôt que débordement hors cellule. */
+    overflow-wrap: anywhere;
   }
-  .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: var(--text-h1); }
+  /* Cellule de tête : taille fluide bornée par des tokens existants (h2 de repli sans cqi,
+     puis h3 → h1 selon la largeur de la cellule). 0 nouvelle variable. */
+  .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: var(--text-h2); }
+  @supports (font-size: 1cqi) {
+    .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: clamp(var(--text-h3), 22cqi, var(--text-h1)); }
+  }
   .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent-text); }
   .hero-hub-stats__label {
     font-family: var(--font-mono);

@@ -24,7 +24,7 @@ export const demo = {
   cta_primary_href: '/contact',
   cta_secondary_label_fr: 'Notre expertise Claude',
   cta_secondary_label_en: 'Our Claude expertise',
-  cta_secondary_href: '/expertise-claude',
+  cta_secondary_href: '/services/integration-claude',
   foot: [
     { text_fr: 'SCROLL TO BEGIN ↓', text_en: 'SCROLL TO BEGIN ↓' },
     { text_fr: 'FIVE ACTS · ONE DOCUMENT', text_en: 'FIVE ACTS · ONE DOCUMENT' },

@@ -158,7 +158,7 @@ export function technologiesSections(lang: Lang) {
   // ── ÉCOSYSTÈME · ecosystem-partners (grille par catégorie, fond paper-2).
   // Le hero dit « pas de catalogue de logos » : la copy assume donc l'inverse d'un
   // mur de badges → les briques réellement câblées, couche par couche. Claude pointe
-  // vers la route interne /expertise-claude ; le reste en liens externes. Chaque asset
+  // vers la route interne /services/integration-claude ; le reste en liens externes. Chaque asset
   // vérifié présent dans public/logos/partners/. Page FR-only → _en reflète le FR. ──
   const ecosystemData = {
     type: 'ecosystem-partners',
@@ -171,7 +171,7 @@ export function technologiesSections(lang: Lang) {
     lede_fr: "Pas des badges accrochés au mur. Les briques qu'on connecte pour de vrai, couche par couche. La plupart, vous les avez déjà.",
     lede_en: "Pas des badges accrochés au mur. Les briques qu'on connecte pour de vrai, couche par couche. La plupart, vous les avez déjà.",
     partners: [
-      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/expertise-claude', category: 'IA & agents' },
+      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/services/integration-claude', category: 'IA & agents' },
       { name: 'OpenAI', asset: '/logos/partners/partner-openai.png', href: 'https://openai.com', external: true, category: 'IA & agents' },
       { name: 'GitHub Copilot', asset: '/logos/partners/partner-copilot.svg', href: 'https://github.com/features/copilot', external: true, category: 'IA & agents' },
       { name: 'Amazon Web Services', asset: '/logos/partners/partner-aws.png', href: 'https://aws.amazon.com', external: true, category: 'Cloud & infrastructure' },
@@ -197,7 +197,7 @@ export function technologiesSections(lang: Lang) {
     cta_primary: {
       label_fr: 'Réserver un audit →',
       label_en: 'Book an audit →',
-      href: localizeHref('/contact', lang),
+      href: localizeHref('/audit-ia-pme', lang),
       variant: 'primary',
     },
     cta_secondary: {

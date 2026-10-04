@@ -168,7 +168,7 @@ export const essayTemplate = defineTemplate<EssayContext>({
           cta: {
             label_fr: 'Réserver un audit →',
             label_en: 'Book an audit →',
-            href: localizeHref('/contact', lang),
+            href: localizeHref('/audit-ia-pme', lang),
             variant: 'primary',
           },
           background: 'paper-2',

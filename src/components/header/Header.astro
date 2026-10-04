@@ -19,7 +19,7 @@ const altHref = alternateHref(Astro.url.pathname, lang);
 // (sinon il pointerait vers un /en/* en 404). Infra i18n conservée :
 // restaurer `hasBilingualMirror(Astro.url.pathname)` pour réactiver l'EN.
 const enMirror = false;
-const ctaHref = lang === 'fr' ? '/contact' : '/en/contact';
+const ctaHref = lang === 'fr' ? '/audit-ia-pme' : '/en/audit-ia-pme';
 
 // i18n · tous les liens de panel passent par la localisation (R3 fix) :
 // en EN, `/solutions/x` → `/en/solutions/x`. `localizeHref` ne préfixe que les
