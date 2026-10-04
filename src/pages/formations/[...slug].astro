@@ -6,7 +6,7 @@ export const prerender = true;
 // Source : src/content/formations/*.json via src/lib/formations.ts (index.json = hub).
 // JSON-LD : Service sur le hub ; Service + Course (buildCourse) sur chaque page de formation.
 // Aucun prix balisé (les formations sont sur devis) ; Akigora est déclaré comme organisme
-// qui dispense la formation, conformément à la mention affichée sur les pages.
+// qui dispense la formation (provider), conformément à la mention affichée sur les pages.
 
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
@@ -30,14 +30,20 @@ const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const title = lang === 'en' ? data.title_en : data.title_fr;
 const description = lang === 'en' ? data.description_en : data.description_fr;
 
-const serviceLd = buildService({ name: title, description, serviceType: data.seo?.serviceType });
+const pageUrl = `${SITE.url}/formations${isHub ? '' : `/${entry.id}`}`;
+const serviceLd = buildService({ name: title, description, url: pageUrl, serviceType: data.seo?.serviceType });
+// Modalités : balisées seulement si la page les affiche (« à distance ou sur site »).
+// Durée et tarif sont définis au cadrage : ni `courseWorkload` ni `offers`.
+const showsBothModes = /à distance ou sur site/i.test(JSON.stringify(data));
 const courseLd = isHub
   ? null
   : buildCourse({
       name: title.split(' · ')[0],
       description,
-      url: `${SITE.url}/formations/${entry.id}`,
-      deliveredBy: { name: 'Akigora' },
+      url: pageUrl,
+      ...(showsBothModes ? { modes: ['online', 'onsite'] as const } : {}),
+      // Mention affichée sur les pages : « Formations dispensées via Akigora, organisme certifié Qualiopi ».
+      deliveredBy: { name: 'Akigora', description: 'Organisme certifié Qualiopi' },
     });
 const pageLd = courseLd ? [serviceLd, courseLd] : [serviceLd];
 const hubLabel = lang === 'fr' ? 'Formations' : 'Training';

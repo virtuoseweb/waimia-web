@@ -26,15 +26,15 @@ export interface HeroIllustration {
 // page en `mix-blend-mode: multiply` ; les motifs plein-cadre feraient un rectangle colle).
 const ALT: Record<string, { fr: string; en: string }> = {
   'man-and-woman-hi': { fr: 'Illustration : deux personnes se saluent, relation client', en: 'Illustration: two people greeting, client relationship' },
-  'men-on-hand': { fr: 'Illustration : une main qui porte une equipe, cadre et gouvernance', en: 'Illustration: a hand carrying a team, framing and governance' },
+  'men-on-hand': { fr: 'Illustration : une main qui porte une équipe, cadre et gouvernance', en: 'Illustration: a hand carrying a team, framing and governance' },
   'money-in-the-pig': { fr: 'Illustration : une tirelire, revenus et acquisition', en: 'Illustration: a piggy bank, revenue and acquisition' },
-  'money-money': { fr: 'Illustration : des piles de pieces qui montent, retour sur investissement', en: 'Illustration: rising stacks of coins, return on investment' },
+  'money-money': { fr: 'Illustration : des piles de pièces qui montent, retour sur investissement', en: 'Illustration: rising stacks of coins, return on investment' },
   'computer-health': { fr: 'Illustration : un poste informatique sain, outillage logiciel', en: 'Illustration: a healthy workstation, software tooling' },
-  'woman-and-people': { fr: 'Illustration : une intervenante face a un groupe, transmission', en: 'Illustration: a speaker facing a group, knowledge transfer' },
+  'woman-and-people': { fr: 'Illustration : une intervenante face à un groupe, transmission', en: 'Illustration: a speaker facing a group, knowledge transfer' },
   'woman-computer': { fr: 'Illustration : une personne au travail sur son poste, studio', en: 'Illustration: a person at work at their desk, studio' },
-  chess: { fr: "Illustration : une piece d'echecs, strategie et maturite", en: 'Illustration: a chess piece, strategy and maturity' },
-  'style-8': { fr: 'Illustration : des silhouettes reparties par paliers, niveaux', en: 'Illustration: figures arranged by tiers, levels' },
-  'style-11': { fr: 'Illustration : une silhouette qui court, elan et visibilite', en: 'Illustration: a running figure, momentum and visibility' },
+  chess: { fr: "Illustration : une pièce d'échecs, stratégie et maturité", en: 'Illustration: a chess piece, strategy and maturity' },
+  'style-8': { fr: 'Illustration : des silhouettes réparties par paliers, niveaux', en: 'Illustration: figures arranged by tiers, levels' },
+  'style-11': { fr: 'Illustration : une silhouette qui court, élan et visibilité', en: 'Illustration: a running figure, momentum and visibility' },
   'style-12': { fr: 'Illustration : une courbe de signal continue, pilotage et mesure', en: 'Illustration: a continuous signal line, steering and measurement' },
 };
 

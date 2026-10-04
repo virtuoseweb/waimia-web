@@ -7,8 +7,9 @@
  *   1. applique la même normalisation (schema-normalize.mjs) à TOUS les blocs de la page :
  *      auteur Person relié, éditeur, date de mise à jour réelle, provider relié… ;
  *   2. répare le fil d'Ariane : un niveau intermédiaire sans URL reçoit celle de la page
- *      parente qui existe dans le build, sinon il est retiré ; un fil d'Ariane réduit à un
- *      seul niveau (accueil) est supprimé ;
+ *      parente qui existe dans le build, sinon il est retiré ; le dernier niveau reçoit l'URL
+ *      canonique de la page (aucun ListItem sans `item`) ; un fil d'Ariane réduit à un seul
+ *      niveau (accueil) est supprimé ;
  *   3. ajoute un fil d'Ariane aux pages qui n'en émettent aucun, construit depuis l'URL :
  *      Accueil > [chaque parent présent dans le build] > page courante, libellé = H1.
  * Les surfaces internes (catalogue, atelier) ne sont pas traitées.
@@ -103,7 +104,7 @@ export default function seoPostbuild({ siteUrl, site, root = process.cwd() }) {
             for (const block of list) {
               if (!block || typeof block !== 'object') continue;
               if (typesOf(block).includes('BreadcrumbList')) {
-                const repaired = pathname === '/' ? null : repairBreadcrumb(block, (_name, i) => ancestorUrl[i] ?? null);
+                const repaired = pathname === '/' ? null : repairBreadcrumb(block, (_name, i) => ancestorUrl[i] ?? null, canonicalUrl);
                 if (!repaired) {
                   stats.removed++;
                   continue;
@@ -138,8 +139,8 @@ export default function seoPostbuild({ siteUrl, site, root = process.cwd() }) {
                   '@type': 'ListItem',
                   position: i + 1,
                   name: it.name,
-                  // Dernier élément = page courante : pas d'`item` (recommandation Google).
-                  ...(i < items.length - 1 ? { item: it.url } : {}),
+                  // Chaque niveau porte son URL ; le dernier = URL canonique de la page.
+                  item: i === items.length - 1 ? canonicalUrl : it.url,
                 })),
               };
               next = next.replace('</head>', `<script type="application/ld+json">${serialize(ld)}</script></head>`);

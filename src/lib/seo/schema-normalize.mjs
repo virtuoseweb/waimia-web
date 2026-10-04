@@ -16,7 +16,8 @@ export function typesOf(node) {
 
 /**
  * @typedef {{ url: string, name: string, organizationId: string, founderId: string,
- *             founderName: string, founderUrl: string, logoUrl: string, areaServed: object[] }} SiteIdentity
+ *             founderName: string, founderUrl: string, founderSameAs?: string[], logoUrl: string,
+ *             areaServed: object[] }} SiteIdentity
  * @typedef {{ canonicalUrl: string, ogImage?: string, lastmod?: string | null, lang?: string }} PageContext
  */
 
@@ -26,7 +27,13 @@ function isOrganizationStub(value, site) {
 }
 
 function founderAuthor(site) {
-  return { '@type': 'Person', '@id': site.founderId, name: site.founderName, url: site.founderUrl };
+  return {
+    '@type': 'Person',
+    '@id': site.founderId,
+    name: site.founderName,
+    url: site.founderUrl,
+    ...(site.founderSameAs?.length ? { sameAs: [...site.founderSameAs] } : {}),
+  };
 }
 
 function normalizeAuthor(author, site) {
@@ -34,7 +41,8 @@ function normalizeAuthor(author, site) {
   // Un article signé par l'organisation n'a pas d'auteur identifiable : on relie le fondateur.
   // (y compris quand la marque a été saisie comme nom de personne).
   if (!typesOf(author).includes('Person') || !author.name || author.name === site.name) return founderAuthor(site);
-  if (author.name === site.founderName) return { ...author, '@id': site.founderId, url: author.url ?? site.founderUrl };
+  // Le fondateur est une seule entité : même @id, même URL de fiche, même profil LinkedIn.
+  if (author.name === site.founderName) return { ...author, ...founderAuthor(site) };
   return author;
 }
 
@@ -67,12 +75,8 @@ export function normalizeNode(node, ctx, site) {
     if (!out.headline && typeof out.name === 'string') out.headline = out.name;
     if (typeof out.headline === 'string') out.headline = out.headline.replace(brandSuffix, '').trim();
     out.author = normalizeAuthor(out.author, site);
-    out.publisher = {
-      '@type': 'Organization',
-      '@id': site.organizationId,
-      name: site.name,
-      logo: { '@type': 'ImageObject', url: site.logoUrl },
-    };
+    // Un seul nœud Organization complet par page : l'éditeur le référence par @id.
+    out.publisher = orgRef;
     if (!out.mainEntityOfPage) out.mainEntityOfPage = { '@type': 'WebPage', '@id': ctx.canonicalUrl };
     // /og/default.png n'existe pas (404 vérifié en production) : une image d'article morte
     // invalide le résultat enrichi. On retombe sur l'image Open Graph de la page.
@@ -112,24 +116,27 @@ export function normalizeNode(node, ctx, site) {
 }
 
 /**
- * Répare un BreadcrumbList : chaque niveau intermédiaire doit porter une URL.
- * Un niveau sans URL reçoit celle de la page parente si elle existe (`resolveUrl`), sinon
- * il est retiré. Retourne null si le fil d'Ariane n'a plus au moins 2 niveaux.
+ * Répare un BreadcrumbList : CHAQUE niveau doit porter une URL, dernier niveau compris.
+ * Un niveau intermédiaire sans URL reçoit celle de la page parente si elle existe
+ * (`resolveUrl`), sinon il est retiré. Le dernier niveau reçoit l'URL canonique de la page
+ * (`currentUrl`) s'il n'en a pas. Retourne null si le fil d'Ariane n'a plus au moins 2 niveaux.
  * @param {Record<string, any>} block
  * @param {(name: string, index: number) => string | null} resolveUrl
+ * @param {string} [currentUrl] URL canonique de la page courante
  */
-export function repairBreadcrumb(block, resolveUrl) {
+export function repairBreadcrumb(block, resolveUrl, currentUrl) {
   const items = [].concat(block.itemListElement || []);
   const kept = [];
   items.forEach((it, i) => {
     const last = i === items.length - 1;
     if (!it || !it.name) return;
-    if (last || it.item) {
+    if (it.item) {
       kept.push({ ...it });
       return;
     }
-    const url = resolveUrl(it.name, i);
+    const url = last ? currentUrl : resolveUrl(it.name, i);
     if (url) kept.push({ ...it, item: url });
+    else if (last) kept.push({ ...it }); // sans URL connue : laissé tel quel, le gate le signale
   });
   if (kept.length < 2) return null;
   return { ...block, itemListElement: kept.map((it, i) => ({ ...it, position: i + 1 })) };

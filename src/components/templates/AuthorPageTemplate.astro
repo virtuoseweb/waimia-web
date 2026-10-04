@@ -17,6 +17,7 @@ import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { langFromPath, localizeHref, t } from '../../lib/i18n';
 import { SITE } from '../../site.config';
+import { absoluteUrl, buildBreadcrumbList, buildPerson, buildProfilePage } from '../../lib/seo/schema-builder';
 
 import KeywordStrip from '../../sections/keyword-strip/Component.astro';
 import type { KeywordStripData } from '@waimia/ds-kernel/sections/keyword-strip/schema';
@@ -155,52 +156,27 @@ const socialUrls = [
   author.social?.mastodon,
 ].filter((url): url is string => Boolean(url));
 
-// ── JSON-LD (Person / ProfilePage / BreadcrumbList) : PRESERVE a l'identique. ──
-const personLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
+// ── JSON-LD (Person / ProfilePage / BreadcrumbList) via les constructeurs uniques. ──
+// Uniquement des faits affichés sur la fiche : nom, rôle, description, expertises, liens.
+const authorSlug = Astro.url.pathname.replace(/\/$/, '').split('/').pop()!;
+const personLd = buildPerson({
+  slug: authorSlug,
   name: displayName,
   jobTitle: role,
-  description: description,
-  image: author.photo ? `${SITE.url}${author.photo}` : undefined,
+  description,
+  image: author.photo,
   sameAs: socialUrls,
-  worksFor: {
-    '@type': 'Organization',
-    name: SITE.name,
-    url: SITE.url,
-  },
-};
-
-const profilePageLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  mainEntity: personLd,
-};
-
-const breadcrumbLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: t({ fr: 'Accueil', en: 'Home' }, lang),
-      item: lang === 'fr' ? `${SITE.url}/` : `${SITE.url}/en/`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: t({ fr: 'Le studio', en: 'The studio' }, lang),
-      item: `${SITE.url}${teamHref}`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: displayName,
-      item: Astro.url.href,
-    },
+  knowsAbout: author.expertise,
+});
+const profilePageLd = buildProfilePage({ slug: authorSlug, name: displayName });
+const breadcrumbLd = buildBreadcrumbList(
+  [
+    { name: t({ fr: 'Accueil', en: 'Home' }, lang), url: lang === 'fr' ? '/' : '/en' },
+    { name: t({ fr: 'Le studio', en: 'The studio' }, lang), url: teamHref },
+    { name: displayName },
   ],
-};
+  absoluteUrl(Astro.url.pathname),
+);
 
 const jsonLd = [personLd, profilePageLd, breadcrumbLd];
 

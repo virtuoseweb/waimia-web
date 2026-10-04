@@ -187,12 +187,6 @@ const articleLd = buildArticle({
     ...(authorSlug ? { '@id': `${siteUrl}/equipe/${authorSlug}#person`, url: `${siteUrl}/equipe/${authorSlug}` } : {}),
     name: author,
   },
-  publisher: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-    name: SITE.name,
-    logo: { '@type': 'ImageObject', url: `${siteUrl}/og/default.png` },
-  },
   mainEntityOfPage: canonicalUrl,
   articleSection,
   keywords: tags,

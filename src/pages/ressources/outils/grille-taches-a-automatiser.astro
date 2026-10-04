@@ -15,24 +15,12 @@ import TaskPriorityGrid from '../../../components/ui/organisms/conversion/TaskPr
 import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
 import { SITE } from '../../../site.config';
+import { buildWebApplication } from '../../../lib/seo/schema-builder';
 import { GRILLE_HREF, auditCtaFinal } from '../../../data/conversion';
 
 const title = 'Quelles tâches automatiser en premier ? Grille gratuite';
 const description = "Listez vos tâches répétitives, leur fréquence et leur durée : la grille calcule les heures par mois et les classe par priorité. Sans inscription.";
-const ld = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: 'Grille des tâches à automatiser',
-  url: `${SITE.url}${GRILLE_HREF}`,
-  description,
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web',
-  browserRequirements: 'Requires JavaScript',
-  inLanguage: 'fr',
-  isAccessibleForFree: true,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
-  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
-};
+const ld = buildWebApplication({ name: 'Grille des tâches à automatiser', description, url: `${SITE.url}${GRILLE_HREF}` });
 const cta = auditCtaFinal(
   'Votre grille remplie est le meilleur point de départ de l\'audit.',
   'Apportez-la au rendez-vous : en 45 minutes on vérifie les durées, on tranche les cas limites et on retient un ou deux chantiers. Gratuit, en visio.',
