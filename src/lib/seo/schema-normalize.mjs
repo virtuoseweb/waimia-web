@@ -7,6 +7,7 @@
 // JS pur, sans import : l'appelant fournit l'identité du site dans `site`.
 
 const ARTICLE_TYPES = new Set(['Article', 'BlogPosting', 'NewsArticle', 'TechArticle']);
+const DEAD_IMAGE = /\/og\/default\.png$/;
 
 export function typesOf(node) {
   const t = node && node['@type'];
@@ -50,6 +51,8 @@ export function normalizeNode(node, ctx, site) {
   const orgRef = { '@id': site.organizationId };
 
   if (types.includes('Service')) {
+    // Le nom d'une prestation ne porte pas le suffixe de marque du <title>.
+    if (typeof out.name === 'string') out.name = out.name.replace(brandSuffix, '').trim();
     if (!out.provider || isOrganizationStub(out.provider, site)) out.provider = orgRef;
     // Anciens codes pays ('FR', 'CH'…) → zone réellement desservie.
     if (!out.areaServed || (Array.isArray(out.areaServed) && out.areaServed.every((x) => typeof x === 'string'))) {
@@ -71,7 +74,12 @@ export function normalizeNode(node, ctx, site) {
       logo: { '@type': 'ImageObject', url: site.logoUrl },
     };
     if (!out.mainEntityOfPage) out.mainEntityOfPage = { '@type': 'WebPage', '@id': ctx.canonicalUrl };
-    if (!out.image && ctx.ogImage) out.image = [ctx.ogImage];
+    // /og/default.png n'existe pas (404 vérifié en production) : une image d'article morte
+    // invalide le résultat enrichi. On retombe sur l'image Open Graph de la page.
+    const images = [].concat(out.image || []).filter((u) => typeof u === 'string' && !DEAD_IMAGE.test(u));
+    if (images.length > 0) out.image = images;
+    else if (ctx.ogImage) out.image = [ctx.ogImage];
+    else delete out.image;
     if (!out.inLanguage) out.inLanguage = ctx.lang === 'en' ? 'en-US' : 'fr-FR';
     // dateModified : la plus récente entre la donnée de la page et la date réelle du contenu.
     const day = (v) => (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v) ? v.slice(0, 10) : undefined);
@@ -85,11 +93,19 @@ export function normalizeNode(node, ctx, site) {
     if (!out.url) out.url = ctx.canonicalUrl;
   }
 
-  if (types.includes('Person') && isOrganizationStub(out.worksFor, site)) out.worksFor = orgRef;
+  if (types.includes('Person')) {
+    if (isOrganizationStub(out.worksFor, site)) out.worksFor = orgRef;
+    // Le fondateur est une seule entité sur tout le site : même @id partout.
+    if (out.name === site.founderName) {
+      out['@id'] = site.founderId;
+      if (!out.url) out.url = site.founderUrl;
+    }
+  }
 
-  if (types.includes('ProfilePage') && out.mainEntity && typeof out.mainEntity === 'object' && out.mainEntity['@id']) {
+  if (types.includes('ProfilePage') && out.mainEntity && typeof out.mainEntity === 'object') {
     // La Person est émise en bloc autonome : on la référence au lieu de la dupliquer.
-    out.mainEntity = { '@id': out.mainEntity['@id'] };
+    const id = out.mainEntity['@id'] || (out.mainEntity.name === site.founderName ? site.founderId : null);
+    if (id) out.mainEntity = { '@id': id };
   }
 
   return out;

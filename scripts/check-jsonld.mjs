@@ -18,7 +18,9 @@
  * Exit  : 0 propre · 1 erreur(s) · 2 dist/client absent.
  */
 
-import { scanDist, isIndexable, textOf, SITE_ORIGIN } from './lib/dist-scan.mjs';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { scanDist, isIndexable, textOf, SITE_ORIGIN, DIST } from './lib/dist-scan.mjs';
 
 const VERBOSE = process.argv.includes('--report');
 const AS_JSON = process.argv.includes('--json');
@@ -156,6 +158,14 @@ function checkPage(page) {
         if (URL_PROPS.has(k)) {
           for (const u of [].concat(v)) {
             if (typeof u === 'string' && !/^https?:\/\//.test(u)) err('vocabulaire', `${where}.${k} n'est pas une URL absolue : ${u}`);
+          }
+        }
+        if (k === 'image' || k === 'logo') {
+          for (const u of [].concat(v)) {
+            const url = typeof u === 'string' ? u : u && typeof u === 'object' ? u.url : null;
+            if (typeof url !== 'string' || !url.startsWith(SITE_ORIGIN + '/') || url.startsWith(SITE_ORIGIN + '/api/')) continue;
+            const file = join(DIST, url.slice(SITE_ORIGIN.length + 1).split('?')[0]);
+            if (!existsSync(file)) err('requis', `${where}.${k} pointe un fichier absent du build : ${url}`);
           }
         }
         if (/^date|Date$/.test(k) && typeof v === 'string' && !ISO_DATE.test(v)) err('vocabulaire', `${where}.${k} n'est pas une date ISO : ${v}`);

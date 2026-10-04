@@ -181,7 +181,7 @@ function buildLocalBusiness(): JsonLdObject {
     alternateName: SITE.legalName,
     description: ORGANIZATION_DESCRIPTION,
     url: SITE_URL,
-    image: `${SITE_URL}/og/default.png`,
+    image: LOGO_URL,
     logo: LOGO_URL,
     telephone: SITE.telE164,
     email: SITE.email,
