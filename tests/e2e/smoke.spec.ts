@@ -8,7 +8,7 @@ const ROUTES = [
   "/services",
   "/secteurs",
   "/cas-clients",
-  "/expertise-claude",
+  "/services/integration-claude",
   "/agence",
   "/agence/methode",
   "/implantations/montpellier",
