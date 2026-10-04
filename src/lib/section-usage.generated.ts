@@ -217,22 +217,26 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 14,
+    "count": 18,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
-      "/implantations/bordeaux",
       "/implantations/montpellier",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides/claude-pme",
-      "src/content/demonstrations/integration-claude.json"
+      "src/content/demonstrations/integration-claude.json",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
     ]
   },
   "definition-extract": {
@@ -270,17 +274,20 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 32,
+    "count": 35,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
+      "/conformite-ia",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
       "/services/agent-support-client",
       "/services/applications-internes",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
+      "/services/base-de-connaissance-ia",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/integration-claude",
@@ -337,22 +344,42 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 14,
+    "count": 24,
     "pages": [
+      "/conformite-ia",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/lyon",
       "/implantations/montpellier",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
+      "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
-      "src/content/demonstrations/integration-claude.json"
+      "/services/automatisation-make",
+      "/services/base-de-connaissance-ia",
+      "src/content/demonstrations/integration-claude.json",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
+    ]
+  },
+  "editorial-callout": {
+    "count": 5,
+    "pages": [
+      "/conformite-ia",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
     ]
   },
   "editorial-case-grid": {
@@ -371,9 +398,22 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 1,
+    "count": 19,
     "pages": [
-      "secteurs/[...slug]"
+      "/conformite-ia",
+      "/implantations/bordeaux",
+      "/implantations/lyon",
+      "/implantations/montpellier",
+      "/ressources/comparatifs/n8n-vs-make",
+      "/ressources/guides/claude-cowork",
+      "/services/automatisation-make",
+      "/services/base-de-connaissance-ia",
+      "secteurs/[...slug]",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/index.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
     ]
   },
   "editorial-split-grid": {
@@ -381,6 +421,29 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "src/pages/en/ressources/index.astro",
       "src/pages/ressources/index.astro"
+    ]
+  },
+  "editorial-table-block": {
+    "count": 6,
+    "pages": [
+      "/ressources/comparatifs/n8n-vs-make",
+      "/ressources/guides/claude-cowork",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
+    ]
+  },
+  "editorial-timeline": {
+    "count": 7,
+    "pages": [
+      "/conformite-ia",
+      "/services/automatisation-make",
+      "/services/base-de-connaissance-ia",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
     ]
   },
   "eeat-panel": {
@@ -418,7 +481,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 57,
+    "count": 68,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -427,9 +490,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
       "/cas-usages/standardiser-processus",
+      "/conformite-ia",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/lyon",
       "/implantations/montpellier",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -438,17 +503,21 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
+      "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
       "/services/agent-support-client",
       "/services/agents-ia",
       "/services/applications-internes",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisations",
+      "/services/base-de-connaissance-ia",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
@@ -463,6 +532,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref",
       "src/content/demonstrations/integration-claude.json",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/index.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json",
       "src/content/services/applications-internes/mvp-saas.json",
       "src/content/services/crm-scoring-routing/integration-crm.json",
       "src/content/services/landing-pages-tunnels/landing-page-google-ads.json",
@@ -527,7 +601,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-zigzag": {
-    "count": 33,
+    "count": 31,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -537,8 +611,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/standardiser-processus",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
-      "/implantations/bordeaux",
-      "/implantations/montpellier",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
@@ -562,7 +634,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 56,
+    "count": 67,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -571,9 +643,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
       "/cas-usages/standardiser-processus",
+      "/conformite-ia",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/lyon",
       "/implantations/montpellier",
       "/lp/hub",
       "/lp/site-web-intelligent",
@@ -583,17 +657,21 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
+      "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
       "/services/agent-support-client",
       "/services/agents-ia",
       "/services/applications-internes",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisations",
+      "/services/base-de-connaissance-ia",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
@@ -608,6 +686,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/systemes-operationnels-ia",
       "/services/template-service-ref",
       "src/content/demonstrations/integration-claude.json",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/index.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json",
       "src/content/services/applications-internes/mvp-saas.json",
       "src/content/services/crm-scoring-routing/integration-crm.json",
       "src/content/services/landing-pages-tunnels/landing-page-google-ads.json",
@@ -738,7 +821,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 21,
+    "count": 32,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -747,20 +830,31 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
       "/cas-usages/standardiser-processus",
+      "/conformite-ia",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/lyon",
       "/implantations/montpellier",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
+      "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
-      "src/content/demonstrations/integration-claude.json"
+      "/services/automatisation-make",
+      "/services/base-de-connaissance-ia",
+      "src/content/demonstrations/integration-claude.json",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/index.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
     ]
   },
   "hero-tech-layer": {
@@ -1004,20 +1098,21 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 12,
+    "count": 13,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
-      "/implantations/montpellier",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
+      "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
-      "src/content/demonstrations/integration-claude.json"
+      "src/content/demonstrations/integration-claude.json",
+      "src/content/formations/index.json"
     ]
   },
   "proof-bar": {
@@ -1082,7 +1177,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 21,
+    "count": 31,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1091,20 +1186,30 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
       "/cas-usages/standardiser-processus",
+      "/conformite-ia",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/lyon",
       "/implantations/montpellier",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
+      "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
-      "src/content/demonstrations/integration-claude.json"
+      "/services/automatisation-make",
+      "/services/base-de-connaissance-ia",
+      "src/content/demonstrations/integration-claude.json",
+      "src/content/formations/automatisation.json",
+      "src/content/formations/claude.json",
+      "src/content/formations/make.json",
+      "src/content/formations/n8n.json"
     ]
   },
   "roi-band": {
@@ -1121,6 +1226,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "count": 1,
     "pages": [
       "src/pages/secteurs/index.astro"
+    ]
+  },
+  "service-catalog-list": {
+    "count": 1,
+    "pages": [
+      "src/content/formations/index.json"
     ]
   },
   "services-grid": {
@@ -1235,6 +1346,15 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "count": 1,
     "pages": [
       "src/pages/_expertise-claude.astro"
+    ]
+  },
+  "tech-when-dual": {
+    "count": 4,
+    "pages": [
+      "/implantations/lyon",
+      "/ressources/guides/claude-cowork",
+      "/services/automatisation-make",
+      "/services/base-de-connaissance-ia"
     ]
   },
   "testimonial-wall": {

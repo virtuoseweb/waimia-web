@@ -320,6 +320,66 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/automatisation-make",
+    "title": "Agence Make : automatisation de vos processus · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/automatisation-make.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence Make pour PME",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand Make est le bon choix, et quand il ne l'est pas",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui est livré",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-timeline",
+        "label": "Comment se passe une mission Make",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commencez par la tâche qui vous coûte le plus d'heures.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/automatisations",
     "title": "Automatisation des processus métier par l'IA · Waimia",
     "group": "offres",
@@ -498,6 +558,66 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Faites de n8n votre socle d'automatisation.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/base-de-connaissance-ia",
+    "title": "Base de connaissance IA pour entreprise · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/base-de-connaissance-ia.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Base de connaissance IA : le second cerveau de votre entreprise",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand ça vaut le coût, et quand non",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "L'architecture en mots simples",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-timeline",
+        "label": "De la première question au déploiement",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vérifions d'abord si vous en avez besoin.",
         "background": "ink"
       }
     ]
@@ -2598,6 +2718,62 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/n8n-vs-make",
+    "title": "n8n vs Make : lequel choisir pour une PME · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/n8n-vs-make.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "n8n vs Make : lequel choisir pour votre PME",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "n8n vs Make, critère par critère",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Notre verdict, situation par situation",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le bon outil se choisit sur vos tâches, pas sur un tableau.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
     "title": "Site Web Intelligent vs WordPress · le comparatif honnête pour PME",
     "group": "ressources",
@@ -2924,6 +3100,67 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/guides/claude-cowork",
+    "title": "Claude Cowork : guide pour les PME (2026) · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-cowork.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Cowork : ce que c'est, ce qui change, comment l'utiliser en PME",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Où Cowork est disponible, selon Anthropic",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand l'utiliser en PME, et quand s'abstenir",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Démarrer en PME en quatre étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir quelles tâches confier à Claude, et avec quelles règles.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-pme",
     "title": "Déployer Claude dans une PME : le guide pratique, des prérequis aux 90 premiers jours",
     "group": "ressources",
@@ -3075,6 +3312,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/essai-pillar-ia-pme-2026.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/forward-deployed-engineer",
+    "title": "Forward deployed engineer : définition et rôle en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/forward-deployed-engineer.json",
     "editable": false,
     "sections": []
   },
@@ -3320,6 +3566,67 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/conformite-ia",
+    "title": "IA conforme en PME : AI Act et RGPD · Waimia",
+    "group": "conversion",
+    "collection": "audits",
+    "file": "audits/conformite-ia.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Déployer l'IA en conformité : AI Act et RGPD pour les PME",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-timeline",
+        "label": "Le calendrier de l'AI Act",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que Waimia fait concrètement",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#5",
+        "variant": "warn",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Faire l'inventaire de vos usages d'IA avant qu'on vous le demande.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/contact",
     "title": "Contact",
     "group": "conversion",
@@ -3369,7 +3676,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/implantations/bordeaux",
-    "title": "Agence IA à Bordeaux · Sites web et intégration Claude · Waimia en Gironde",
+    "title": "Agence IA à Bordeaux : automatisation et agents IA · Waimia",
     "group": "autres",
     "collection": "implantations",
     "file": "implantations/bordeaux.json",
@@ -3377,7 +3684,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Agence IA à Bordeaux.",
+        "label": "Agence IA et automatisation à Bordeaux",
         "background": "paper"
       },
       {
@@ -3386,19 +3693,14 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Deux leviers, un seul partenaire",
+        "type": "editorial-prose",
+        "label": "#2",
         "background": "paper"
       },
       {
         "type": "process-steps",
-        "label": "De l'audit au résultat mesuré",
+        "label": "Comment on démarre",
         "background": "paper-2"
-      },
-      {
-        "type": "decision-list",
-        "label": "Waimia est pour vous si vous vous reconnaissez",
-        "background": "paper"
       },
       {
         "type": "related-cards-band",
@@ -3407,19 +3709,64 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que les PME bordelaises nous demandent",
+        "label": "Questions fréquentes",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Bordeaux, Gironde. Commençons par un audit gratuit.",
+        "label": "Parlons de vos processus, à Bordeaux ou en visio.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/implantations/lyon",
+    "title": "Agence IA à Lyon : automatisation et agents IA · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/lyon.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA et automatisation à Lyon",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se fait à distance, ce qui se fait à Lyon",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commençons par 45 minutes en visio.",
         "background": "ink"
       }
     ]
   },
   {
     "route": "/implantations/montpellier",
-    "title": "Agence IA à Montpellier · Sites web et intégration Claude · Waimia",
+    "title": "Agence IA à Montpellier : automatisation et agents IA · Waimia",
     "group": "autres",
     "collection": "implantations",
     "file": "implantations/montpellier.json",
@@ -3427,7 +3774,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Votre studio IA à Montpellier.",
+        "label": "Agence IA et automatisation à Montpellier",
         "background": "paper"
       },
       {
@@ -3436,19 +3783,14 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Ce que change un partenaire à Montpellier",
+        "type": "editorial-prose",
+        "label": "#2",
         "background": "paper"
-      },
-      {
-        "type": "process-steps",
-        "label": "De l'audit local au site en production",
-        "background": "paper-2"
       },
       {
         "type": "decision-list",
-        "label": "Six signes qu'un studio IA local vous aiderait",
-        "background": "paper"
+        "label": "Trois situations, trois premiers pas",
+        "background": "paper-2"
       },
       {
         "type": "related-cards-band",
@@ -3457,12 +3799,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que les entreprises de Montpellier nous demandent",
+        "label": "Questions fréquentes",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Un studio IA près de chez vous, dans l'Hérault.",
+        "label": "Deux processus à automatiser, identifiés en 45 minutes.",
         "background": "ink"
       }
     ]
@@ -3517,8 +3859,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
+      "/services/automatisation-make",
       "/services/automatisations",
       "/services/automatisations/automatisation-n8n",
+      "/services/base-de-connaissance-ia",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
@@ -3600,6 +3944,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics",
       "/ressources/diagnostics/claude-pme",
@@ -3607,6 +3952,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides",
+      "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
       "/ressources/outils",
       "/ressources/outils/calculateur-roi-ia"
@@ -3624,6 +3970,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/brain-circuit",
       "/blog/cabler-son-crm-en-10-jours",
       "/blog/essai-pillar-ia-pme-2026",
+      "/blog/forward-deployed-engineer",
       "/blog/google-ads-vs-meta-ads-pme-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
@@ -3653,6 +4000,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/bienvenue/contact",
       "/bienvenue/livre-blanc",
       "/bienvenue/newsletter",
+      "/conformite-ia",
       "/contact",
       "/tarifs"
     ]
@@ -3666,6 +4014,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/demonstrations",
       "/implantations",
       "/implantations/bordeaux",
+      "/implantations/lyon",
       "/implantations/montpellier",
       "/mentions-legales",
       "/plan-du-site",

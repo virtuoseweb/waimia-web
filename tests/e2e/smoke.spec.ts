@@ -23,6 +23,20 @@ const ROUTES = [
   "/sources-methodologie",
   "/plan-du-site",
   "/equipe",
+  // Refonte D (2026-10-04) : nouvelles pages.
+  "/services/automatisation-make",
+  "/services/base-de-connaissance-ia",
+  "/ressources/comparatifs/n8n-vs-make",
+  "/ressources/guides/claude-cowork",
+  "/blog/forward-deployed-engineer",
+  "/formations",
+  "/formations/automatisation",
+  "/formations/n8n",
+  "/formations/make",
+  "/formations/claude",
+  "/implantations/bordeaux",
+  "/implantations/lyon",
+  "/conformite-ia",
 ];
 
 for (const path of ROUTES) {

@@ -1,0 +1,403 @@
+{
+  "title_fr": "Formation n8n pour entreprises · Waimia",
+  "title_en": "n8n training for companies · Waimia",
+  "description_fr": "Formation n8n en intra-entreprise : construire, fiabiliser et maintenir vos workflows. Programme en modules, sur vos cas réels, à distance ou sur site.",
+  "description_en": "In-company n8n training: build, harden and maintain your workflows. Modular programme, on your real cases, remote or on site.",
+  "slug": "n8n",
+  "publishedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "tags": [
+    "formation-n8n",
+    "n8n",
+    "formation-intra-entreprise"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Formation n8n en entreprise"
+  },
+  "faq_fr": [
+    {
+      "q": "Faut-il savoir programmer pour suivre la formation n8n ?",
+      "a": "Non, mais il faut être à l'aise avec la logique. Le module sur le nœud Code est adapté au niveau du groupe et peut être écarté pour un public non technique."
+    },
+    {
+      "q": "La formation se fait-elle sur n8n cloud ou auto-hébergé ?",
+      "a": "Sur l'environnement que vous utilisez ou que vous allez utiliser. Si le choix n'est pas fait, on le traite au cadrage : c'est une décision qui dépend de vos contraintes de données et de qui assurera la maintenance."
+    },
+    {
+      "q": "Nous avons déjà des workflows. Peut-on travailler dessus ?",
+      "a": "Oui, et c'est le meilleur support : on les lit ensemble, on repère ce qui manque (gestion d'erreur, documentation) et on les corrige pendant la formation."
+    },
+    {
+      "q": "Combien de temps dure la formation et combien coûte-t-elle ?",
+      "a": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise."
+    },
+    {
+      "q": "La formation peut-elle être financée ?",
+      "a": "Les formations sont dispensées via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation. On vérifie ce point avec vous et avec Akigora au cadrage, avant tout engagement."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Do you need to know programming to follow the n8n training?",
+      "a": "No, but you need to be comfortable with logic. The Code node module is adapted to the group level and can be dropped for a non-technical audience."
+    },
+    {
+      "q": "Is the training done on n8n cloud or self-hosted?",
+      "a": "On the environment you use or will use. If the choice is not made, we handle it during scoping: it depends on your data constraints and on who will handle maintenance."
+    },
+    {
+      "q": "We already have workflows. Can we work on them?",
+      "a": "Yes, and it is the best material: we read them together, spot what is missing (error handling, documentation) and fix them during the training."
+    },
+    {
+      "q": "How long does the training last and how much does it cost?",
+      "a": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+    },
+    {
+      "q": "Can the training be funded?",
+      "a": "Training is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. We check this with you and Akigora during scoping, before any commitment."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h1_fr": "Formation n8n",
+      "h1_en": "n8n training",
+      "lede_fr": "Vos équipes apprennent à construire des workflows n8n qui tiennent en production : connectés à vos outils, avec une gestion des erreurs, et maintenables par quelqu'un d'autre que leur auteur.",
+      "lede_en": "Your teams learn to build n8n workflows that hold up in production: connected to your tools, with error handling, and maintainable by someone other than their author.",
+      "badges": [
+        {
+          "label_fr": "Intra-entreprise",
+          "label_en": "In-company"
+        },
+        {
+          "label_fr": "À distance ou sur site",
+          "label_en": "Remote or on site"
+        },
+        {
+          "label_fr": "Sur vos cas réels",
+          "label_en": "On your real cases"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-passation-formation.svg",
+      "media_alt_fr": "Schéma : une passation de compétences entre un formateur et une équipe",
+      "media_alt_en": "Diagram: a skills handover between a trainer and a team"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "À qui s'adresse cette formation ?",
+      "question_en": "Who is this training for?",
+      "term_fr": "Public",
+      "term_en": "Audience",
+      "answer_fr": "Aux profils techniques ou à l'aise avec la logique : responsables des opérations, administrateurs d'outils, développeurs, chefs de projet digitaux. Elle convient aussi à une entreprise qui a fait installer n8n par un prestataire et veut reprendre la main. Pour une équipe métier sans profil technique, la formation Make est souvent plus adaptée.",
+      "answer_en": "Technical profiles or people comfortable with logic: operations managers, tool administrators, developers, digital project managers. It also suits a company that had n8n installed by a contractor and wants to take back control. For a business team with no technical profile, the Make training is often a better fit."
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Objectifs",
+      "kicker_en": "§ Goals",
+      "heading_fr": "À l'issue, vos équipes savent",
+      "heading_en": "By the end, your teams can",
+      "items": [
+        {
+          "label_fr": "Lire un workflow existant et comprendre ce qu'il fait.",
+          "label_en": "Read an existing workflow and understand what it does."
+        },
+        {
+          "label_fr": "Connecter n8n à leurs outils, y compris par requête HTTP quand il n'existe pas de connecteur.",
+          "label_en": "Connect n8n to their tools, including by HTTP request when no connector exists."
+        },
+        {
+          "label_fr": "Écrire des conditions, des boucles et des transformations de données.",
+          "label_en": "Write conditions, loops and data transformations."
+        },
+        {
+          "label_fr": "Gérer les erreurs et être prévenus quand un workflow échoue.",
+          "label_en": "Handle errors and be alerted when a workflow fails."
+        },
+        {
+          "label_fr": "Intégrer un modèle d'IA dans un workflow.",
+          "label_en": "Integrate an AI model into a workflow."
+        },
+        {
+          "label_fr": "Choisir entre n8n cloud et n8n auto-hébergé en connaissant ce que chacun implique.",
+          "label_en": "Choose between n8n cloud and self-hosted n8n knowing what each implies."
+        }
+      ]
+    },
+    {
+      "type": "editorial-timeline",
+      "background": "paper-3",
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Programme",
+      "eyebrow_en": "§ Programme",
+      "title_fr": "Le programme, module par module",
+      "title_en": "The programme, module by module",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Lire un workflow",
+          "title_en": "Read a workflow",
+          "body_fr": "Déclencheurs, nœuds, circulation des données d'un nœud à l'autre, historique d'exécution.",
+          "body_en": "Triggers, nodes, how data flows from node to node, execution history."
+        },
+        {
+          "num": "02",
+          "title_fr": "Connecter vos outils",
+          "title_en": "Connect your tools",
+          "body_fr": "Connecteurs existants, identifiants, webhooks et requêtes HTTP.",
+          "body_en": "Existing connectors, credentials, webhooks and HTTP requests."
+        },
+        {
+          "num": "03",
+          "title_fr": "Écrire la logique",
+          "title_en": "Write the logic",
+          "body_fr": "Conditions, branches, boucles, expressions pour transformer les données.",
+          "body_en": "Conditions, branches, loops, expressions to transform data."
+        },
+        {
+          "num": "04",
+          "title_fr": "Fiabiliser",
+          "title_en": "Harden",
+          "body_fr": "Gestion des erreurs, reprises, alertes, tests sur des cas limites.",
+          "body_en": "Error handling, retries, alerts, tests on edge cases."
+        },
+        {
+          "num": "05",
+          "title_fr": "Le nœud Code",
+          "title_en": "The Code node",
+          "body_fr": "Quand un peu de JavaScript ou de Python évite dix nœuds. Module adapté au niveau du groupe.",
+          "body_en": "When a bit of JavaScript or Python saves ten nodes. Adapted to the group level."
+        },
+        {
+          "num": "06",
+          "title_fr": "L'IA dans n8n",
+          "title_en": "AI in n8n",
+          "body_fr": "Appeler un modèle pour classer, extraire ou rédiger ; principes d'un agent ; validation humaine.",
+          "body_en": "Calling a model to classify, extract or draft; agent principles; human approval."
+        },
+        {
+          "num": "07",
+          "title_fr": "Héberger et maintenir",
+          "title_en": "Host and maintain",
+          "body_fr": "Cloud ou auto-hébergé, mises à jour, sauvegardes, documentation des workflows.",
+          "body_en": "Cloud or self-hosted, updates, backups, workflow documentation."
+        },
+        {
+          "num": "08",
+          "title_fr": "Atelier",
+          "title_en": "Workshop",
+          "body_fr": "Chaque participant construit un workflow sur une tâche réelle de l'entreprise.",
+          "body_en": "Each participant builds a workflow on a real company task."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Ce que cette formation n8n ne fait pas</h2>\n<p>Elle ne remplace pas une mission d'intégration. Si le besoin est d'avoir dix workflows en production le mois prochain, il vaut mieux nous les confier, puis former l'équipe à les maintenir. La formation prend son sens quand l'entreprise veut que la compétence reste en interne.</p>\n<p>Elle ne fait pas non plus de vos équipes des administrateurs système. Sur l'auto-hébergement, on explique ce que cela implique (serveur, mises à jour, sauvegardes) pour que la décision soit prise en connaissance de cause.</p>",
+      "html_en": "<h2>What this n8n training does not do</h2>\n<p>It does not replace an integration engagement. If the need is ten workflows in production next month, better to hand them to us, then train the team to maintain them. Training makes sense when the company wants the skill to stay in-house.</p>\n<p>Nor does it turn your teams into system administrators. On self-hosting, we explain what it involves (server, updates, backups) so the decision is made knowingly.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Fiche pratique",
+      "kicker_en": "§ Practical details",
+      "heading_fr": "Prérequis, format, durée et tarif",
+      "heading_en": "Prerequisites, format, duration and price",
+      "columns_fr": [
+        "Rubrique",
+        "Détail"
+      ],
+      "columns_en": [
+        "Item",
+        "Detail"
+      ],
+      "rows_fr": [
+        [
+          "Prérequis",
+          "Être à l'aise avec la logique « si, alors » et les outils en ligne. Une instance n8n accessible (on vous aide à la mettre en place au cadrage)"
+        ],
+        [
+          "Format",
+          "Intra-entreprise, à distance ou sur site, sur les cas réels de votre entreprise"
+        ],
+        [
+          "Durée",
+          "Définie au cadrage, selon le niveau de départ et les objectifs"
+        ],
+        [
+          "Tarif",
+          "Défini au cadrage, sur devis"
+        ],
+        [
+          "Formateur",
+          "Simon Beros, fondateur de Waimia. Il conçoit et met en production des automatisations et des agents IA pour des PME, et forme sur ce qu'il pratique."
+        ],
+        [
+          "Organisme",
+          "Akigora, organisme certifié Qualiopi"
+        ],
+        [
+          "Financement",
+          "Prise en charge possible selon votre situation"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Prerequisites",
+          "Being comfortable with if-then logic and online tools. An accessible n8n instance (we help you set it up during scoping)"
+        ],
+        [
+          "Format",
+          "In-company, remote or on site, on your company's real cases"
+        ],
+        [
+          "Duration",
+          "Set during scoping, depending on starting level and goals"
+        ],
+        [
+          "Price",
+          "Set during scoping, on quote"
+        ],
+        [
+          "Trainer",
+          "Simon Beros, founder of Waimia. He designs and ships automations and AI agents for SMEs, and trains on what he practises."
+        ],
+        [
+          "Training organisation",
+          "Akigora, a Qualiopi-certified training organisation"
+        ],
+        [
+          "Funding",
+          "Funding may be possible depending on your situation"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "note",
+      "body_fr": "Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation : on regarde ce point avec vous et avec Akigora au cadrage.",
+      "body_en": "Training delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation: we look at this with you and Akigora during scoping."
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agence n8n",
+          "title_en": "n8n agency",
+          "lead_fr": "Nous confier la conception et la mise en production.",
+          "lead_en": "Have us design and ship them.",
+          "href": "/services/automatisation-n8n"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "n8n vs Make",
+          "title_en": "n8n vs Make",
+          "lead_fr": "Vérifier que n8n est le bon outil avant de former.",
+          "lead_en": "Check that n8n is the right tool before training.",
+          "href": "/ressources/comparatifs/n8n-vs-make"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Toutes les formations",
+          "title_en": "All training courses",
+          "lead_fr": "Automatisation, Make, Claude et agents IA.",
+          "lead_en": "Automation, Make, Claude and AI agents.",
+          "href": "/formations"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Faut-il savoir programmer pour suivre la formation n8n ?",
+          "q_en": "Do you need to know programming to follow the n8n training?",
+          "a_fr": "Non, mais il faut être à l'aise avec la logique. Le module sur le nœud Code est adapté au niveau du groupe et peut être écarté pour un public non technique.",
+          "a_en": "No, but you need to be comfortable with logic. The Code node module is adapted to the group level and can be dropped for a non-technical audience."
+        },
+        {
+          "q_fr": "La formation se fait-elle sur n8n cloud ou auto-hébergé ?",
+          "q_en": "Is the training done on n8n cloud or self-hosted?",
+          "a_fr": "Sur l'environnement que vous utilisez ou que vous allez utiliser. Si le choix n'est pas fait, on le traite au cadrage : c'est une décision qui dépend de vos contraintes de données et de qui assurera la maintenance.",
+          "a_en": "On the environment you use or will use. If the choice is not made, we handle it during scoping: it depends on your data constraints and on who will handle maintenance."
+        },
+        {
+          "q_fr": "Nous avons déjà des workflows. Peut-on travailler dessus ?",
+          "q_en": "We already have workflows. Can we work on them?",
+          "a_fr": "Oui, et c'est le meilleur support : on les lit ensemble, on repère ce qui manque (gestion d'erreur, documentation) et on les corrige pendant la formation.",
+          "a_en": "Yes, and it is the best material: we read them together, spot what is missing (error handling, documentation) and fix them during the training."
+        },
+        {
+          "q_fr": "Combien de temps dure la formation et combien coûte-t-elle ?",
+          "q_en": "How long does the training last and how much does it cost?",
+          "a_fr": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise.",
+          "a_en": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+        },
+        {
+          "q_fr": "La formation peut-elle être financée ?",
+          "q_en": "Can the training be funded?",
+          "a_fr": "Les formations sont dispensées via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation. On vérifie ce point avec vous et avec Akigora au cadrage, avant tout engagement.",
+          "a_en": "Training is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. We check this with you and Akigora during scoping, before any commitment."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h2_fr": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "h2_en": "We build the programme on your tasks, not on a catalogue.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On repère les tâches sur lesquelles former votre équipe, le niveau de départ, et on vous dit si une formation est la bonne réponse.",
+      "subtitle_en": "The 45-minute audit is free. We identify the tasks to train your team on, the starting level, and tell you whether training is the right answer.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

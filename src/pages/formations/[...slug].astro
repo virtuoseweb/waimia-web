@@ -1,0 +1,44 @@
+---
+export const prerender = true;
+
+// Page SSG · /formations (hub) et /formations/[slug] · rendu 100 % composable (registry).
+// Route minimale : aucun markup propre, tout passe par <SectionsRenderer>.
+// Source : src/content/formations/*.json via src/lib/formations.ts (index.json = hub).
+// JSON-LD : Service (existant sur main). Un schema Course serait plus juste pour les pages
+// de formation : besoin signale a l'integration (aucun builder Course exporte a ce jour).
+
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
+import { buildService } from '../../lib/seo/schema-builder';
+import { listFormations } from '../../lib/formations';
+
+export function getStaticPaths() {
+  return listFormations().map((entry) => ({
+    params: { slug: entry.id === 'index' ? undefined : entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+const isHub = entry.id === 'index';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const description = lang === 'en' ? data.description_en : data.description_fr;
+
+const serviceLd = buildService({ name: title, description, serviceType: data.seo?.serviceType });
+const hubLabel = lang === 'fr' ? 'Formations' : 'Training';
+---
+
+<Base title={title} description={description} jsonLd={[serviceLd]} noindex={data.seo?.noindex}>
+  <MastheadBar
+    lang={lang}
+    items={[
+      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+      ...(isHub ? [{ label: hubLabel }] : [{ label: hubLabel, href: '/formations' }, { label: title.split(' · ')[0] }]),
+    ]}
+  />
+  <SectionsRenderer sections={data.sections} lang={lang} />
+</Base>
