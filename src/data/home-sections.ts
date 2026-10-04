@@ -243,7 +243,7 @@ export const mediaDashboard: SectionData = {
 export const logoMarqueeOverrides = {
   background: 'ink',
   grayscale: true,
-  kicker_fr: '§ L’écosystème qu’on opère',
+  kicker_fr: '§ Les outils que nous connectons',
 } as const;
 
 // 08 · Méthode · sticky-scroll-storytelling (base = c.json). Les steps.media_src
@@ -256,18 +256,6 @@ export const methodOverrides = {
   mediaRatio: '3-2',
   density: 'compact',
   numbering: 'serif',
-} as const;
-
-// 09 · Témoignages · testimonial-wall (base = les 6 avis de site-web-ia.json, source
-// unique, 0 avis réinventé). En-tête adapté home.
-export const testimonialsOverrides = {
-  background: 'paper',
-  kicker_fr: '§ Ils ont mis leur système au travail',
-  kicker_en: '§ They put their system to work',
-  h2_fr: 'Ce que disent les équipes qui ont mis leur système au travail',
-  h2_en: 'What teams who put their system to work are saying',
-  subtitle_fr: 'Des dirigeants et des équipes qui ont arrêté de subir leurs outils et fait travailler leur système d’acquisition.',
-  subtitle_en: 'Leaders and teams who stopped enduring their tools and put their acquisition system to work.',
 } as const;
 
 // 11 · Climax chiffre = 2e stats-bento de c.json (base). density base (retire le

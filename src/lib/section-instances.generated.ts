@@ -1773,8 +1773,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 17,
-      "label": "#17",
+      "index": 16,
+      "label": "#16",
       "variant": "media"
     },
     {
@@ -1800,8 +1800,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 17,
-      "label": "#17",
+      "index": 16,
+      "label": "#16",
       "variant": "media"
     },
     {
@@ -1818,8 +1818,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee/cold-email-b2b.json",
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
-      "index": 15,
-      "label": "#15",
+      "index": 14,
+      "label": "#14",
       "variant": "media"
     },
     {
@@ -1836,8 +1836,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 14,
-      "label": "#14",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -1863,8 +1863,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing/integration-crm.json",
       "slug": "integration-crm",
       "route": "/services/integration-crm",
-      "index": 14,
-      "label": "#14",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -1872,8 +1872,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels/landing-page-google-ads.json",
       "slug": "landing-page-google-ads",
       "route": "/services/landing-page-google-ads",
-      "index": 12,
-      "label": "#12",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -1881,8 +1881,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 12,
-      "label": "#12",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -1908,8 +1908,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 15,
-      "label": "#15",
+      "index": 14,
+      "label": "#14",
       "variant": "media"
     },
     {
@@ -1917,8 +1917,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "/services/publicite-en-ligne",
-      "index": 12,
-      "label": "#12",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -1926,8 +1926,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu/referencement-ia.json",
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
-      "index": 12,
-      "label": "#12",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -1935,8 +1935,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "/services/relance-devis",
-      "index": 14,
-      "label": "#14",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -1944,8 +1944,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 12,
-      "label": "#12",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -1962,8 +1962,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 14,
-      "label": "#14",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -1989,8 +1989,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 13,
-      "label": "#13",
+      "index": 12,
+      "label": "#12",
       "variant": "media"
     },
     {
@@ -1998,8 +1998,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 14,
-      "label": "#14",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -2261,7 +2261,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 18,
+      "index": 17,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2288,7 +2288,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 18,
+      "index": 17,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2306,7 +2306,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee/cold-email-b2b.json",
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
-      "index": 16,
+      "index": 15,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2324,7 +2324,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 15,
+      "index": 14,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2351,7 +2351,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing/integration-crm.json",
       "slug": "integration-crm",
       "route": "/services/integration-crm",
-      "index": 15,
+      "index": 14,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2360,7 +2360,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels/landing-page-google-ads.json",
       "slug": "landing-page-google-ads",
       "route": "/services/landing-page-google-ads",
-      "index": 13,
+      "index": 12,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2369,7 +2369,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 13,
+      "index": 12,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2396,7 +2396,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 16,
+      "index": 15,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2405,7 +2405,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "/services/publicite-en-ligne",
-      "index": 13,
+      "index": 12,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2414,7 +2414,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu/referencement-ia.json",
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
-      "index": 13,
+      "index": 12,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2423,7 +2423,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "/services/relance-devis",
-      "index": 15,
+      "index": 14,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2432,7 +2432,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 13,
+      "index": 12,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2450,7 +2450,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 15,
+      "index": 14,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2477,7 +2477,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 14,
+      "index": 13,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2486,7 +2486,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 15,
+      "index": 14,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -3412,7 +3412,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 19,
+      "index": 18,
       "label": "Confiez le support récurrent à un agent qui répond.",
       "background": "ink"
     },
@@ -3439,7 +3439,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 19,
+      "index": 18,
       "label": "Faites de n8n votre socle d'automatisation.",
       "background": "ink"
     },
@@ -3457,7 +3457,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee/cold-email-b2b.json",
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
-      "index": 17,
+      "index": 16,
       "label": "Faites arriver vos cold emails en boîte.",
       "background": "ink"
     },
@@ -3475,7 +3475,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 16,
+      "index": 15,
       "label": "Transformez votre CRM en machine à prioriser.",
       "background": "ink"
     },
@@ -3502,7 +3502,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing/integration-crm.json",
       "slug": "integration-crm",
       "route": "/services/integration-crm",
-      "index": 16,
+      "index": 15,
       "label": "Faites remonter votre donnée toute seule.",
       "background": "ink"
     },
@@ -3511,7 +3511,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels/landing-page-google-ads.json",
       "slug": "landing-page-google-ads",
       "route": "/services/landing-page-google-ads",
-      "index": 14,
+      "index": 13,
       "label": "Convertissez le trafic que vous payez.",
       "background": "ink"
     },
@@ -3520,7 +3520,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 14,
+      "index": 13,
       "label": "Transformez le trafic en leads qualifiés et priorisés.",
       "background": "ink"
     },
@@ -3547,7 +3547,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 17,
+      "index": 16,
       "label": "Transformez votre prospection en machine à rendez-vous.",
       "background": "ink"
     },
@@ -3556,7 +3556,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "/services/publicite-en-ligne",
-      "index": 14,
+      "index": 13,
       "label": "Transformez votre budget pub en leads mesurés.",
       "background": "ink"
     },
@@ -3565,7 +3565,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu/referencement-ia.json",
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
-      "index": 14,
+      "index": 13,
       "label": "Cité par ChatGPT, Claude et Perplexity.",
       "background": "ink"
     },
@@ -3574,7 +3574,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "/services/relance-devis",
-      "index": 16,
+      "index": 15,
       "label": "Faites signer les devis que vous oubliez.",
       "background": "ink"
     },
@@ -3583,7 +3583,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 14,
+      "index": 13,
       "label": "Visible sur Google, durablement.",
       "background": "ink"
     },
@@ -3601,7 +3601,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 16,
+      "index": 15,
       "label": "Transformez votre suivi en machine à réchauffer.",
       "background": "ink"
     },
@@ -3628,7 +3628,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 15,
+      "index": 14,
       "label": "Une infrastructure qui attire, capte et qualifie, puis passe le relais au commercial.",
       "background": "ink"
     },
@@ -3637,7 +3637,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 16,
+      "index": 15,
       "label": "Un système qui alimente, qualifie et relance votre pipeline.",
       "background": "ink"
     },
@@ -5058,7 +5058,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 16,
+      "index": 15,
       "label": "Une offre, deux manières d'avancer",
       "background": "paper"
     },
@@ -5085,7 +5085,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 16,
+      "index": 15,
       "label": "Une offre, deux manières d'avancer",
       "background": "paper"
     },
@@ -5103,7 +5103,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee/cold-email-b2b.json",
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
-      "index": 14,
+      "index": 13,
       "label": "Trois formules, un abonnement mensuel sans engagement",
       "background": "paper"
     },
@@ -5121,7 +5121,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 13,
+      "index": 12,
       "label": "Deux façons de remettre votre CRM au travail",
       "background": "paper"
     },
@@ -5148,7 +5148,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing/integration-crm.json",
       "slug": "integration-crm",
       "route": "/services/integration-crm",
-      "index": 13,
+      "index": 12,
       "label": "Deux façons de brancher votre CRM",
       "background": "paper"
     },
@@ -5157,7 +5157,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels/landing-page-google-ads.json",
       "slug": "landing-page-google-ads",
       "route": "/services/landing-page-google-ads",
-      "index": 11,
+      "index": 10,
       "label": "Deux façons de faire convertir vos clics Ads",
       "background": "paper"
     },
@@ -5166,7 +5166,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 11,
+      "index": 10,
       "label": "Deux façons de faire convertir votre trafic",
       "background": "paper"
     },
@@ -5193,7 +5193,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 14,
+      "index": 13,
       "label": "Trois formules, un abonnement mensuel sans engagement",
       "background": "paper"
     },
@@ -5202,7 +5202,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "/services/publicite-en-ligne",
-      "index": 11,
+      "index": 10,
       "label": "Deux façons de mettre votre budget pub au travail",
       "background": "paper"
     },
@@ -5211,7 +5211,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu/referencement-ia.json",
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
-      "index": 11,
+      "index": 10,
       "label": "Deux façons de rendre votre marque citable",
       "background": "paper"
     },
@@ -5220,7 +5220,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "/services/relance-devis",
-      "index": 13,
+      "index": 12,
       "label": "Deux façons de relancer vos devis",
       "background": "paper"
     },
@@ -5229,7 +5229,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 11,
+      "index": 10,
       "label": "Deux façons de lancer votre machine éditoriale",
       "background": "paper"
     },
@@ -5247,7 +5247,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 13,
+      "index": 12,
       "label": "Deux façons de remettre votre suivi au travail",
       "background": "paper"
     },
@@ -5274,7 +5274,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 12,
+      "index": 11,
       "label": "Quatre socles pour lancer votre acquisition",
       "background": "paper"
     },
@@ -5283,7 +5283,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 13,
+      "index": 12,
       "label": "Trois formules pour alimenter votre pipeline",
       "background": "paper"
     },
@@ -6300,146 +6300,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "testimonial-wall": [
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 15,
-      "label": "Ce que disent les équipes qui ont délégué le récurrent",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 15,
-      "label": "Ce que disent les équipes passées à n8n",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "/services/cold-email-b2b",
-      "index": 13,
-      "label": "Ce que disent les équipes dont les mails arrivent enfin en boîte",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing.json",
-      "slug": "crm-scoring-routing",
-      "route": "/services/crm-scoring-routing",
-      "index": 12,
-      "label": "Ce que disent les équipes dont le CRM trie enfin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing/integration-crm.json",
-      "slug": "integration-crm",
-      "route": "/services/integration-crm",
-      "index": 12,
-      "label": "Ce que disent les équipes dont la donnée remonte enfin seule",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels/landing-page-google-ads.json",
-      "slug": "landing-page-google-ads",
-      "route": "/services/landing-page-google-ads",
-      "index": 10,
-      "label": "Ce que disent les équipes dont la landing convertit enfin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels.json",
-      "slug": "landing-pages-tunnels",
-      "route": "/services/landing-pages-tunnels",
-      "index": 10,
-      "label": "Ce que disent les équipes dont le tunnel trie enfin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 13,
-      "label": "Ce que disent les équipes dont le pipeline se remplit enfin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/publicite-en-ligne.json",
-      "slug": "publicite-en-ligne",
-      "route": "/services/publicite-en-ligne",
-      "index": 10,
-      "label": "Ce que disent les équipes dont la pub est enfin mesurée",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "/services/referencement-ia",
-      "index": 10,
-      "label": "Ce que disent les équipes enfin citées par les IA",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi/relance-devis.json",
-      "slug": "relance-devis",
-      "route": "/services/relance-devis",
-      "index": 12,
-      "label": "Ce que disent les équipes dont les devis ne dorment plus",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu.json",
-      "slug": "seo-geo-contenu",
-      "route": "/services/seo-geo-contenu",
-      "index": 10,
-      "label": "Ce que disent les équipes dont le contenu travaille enfin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
       "file": "services/seo-geo-contenu/seo-local.json",
       "slug": "seo-local",
       "route": "/services/seo-local",
       "index": 10,
       "label": "Ce que disent les équipes enfin visibles localement",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 12,
-      "label": "Ce que disent les équipes dont les leads ne refroidissent plus",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-acquisition.json",
-      "slug": "systeme-acquisition",
-      "route": "/services/systeme-acquisition",
-      "index": 11,
-      "label": "Ce que disent les équipes dont l'acquisition tourne enfin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/systeme-commercial.json",
-      "slug": "systeme-commercial",
-      "route": "/services/systeme-commercial",
-      "index": 12,
-      "label": "Ce que disent les équipes dont le pipeline convertit enfin",
       "background": "paper-2"
     }
   ],

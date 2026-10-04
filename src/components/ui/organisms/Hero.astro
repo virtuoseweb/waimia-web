@@ -10,8 +10,8 @@
  * - HeroFullBleed (Tier 2 signature impact)
  * Source : docs/34-AMBIGUS-VERDICTS-OPUS.md§5 + docs/28-DESIGN-SYSTEM-CONTRACT.md§1
  *
- * M4 recadre la home : promesse lisible en 5 secondes, CTA vers contact
- * et offre Growth System IA, métriques de ROI conservées.
+ * M4 recadre la home : promesse lisible en 5 secondes, CTA vers l'audit IA PME
+ * et le calculateur de ROI, engagements factuels (pas de chiffres non sourcés).
  */
 
 import { langFromPath, localizeHref } from '../../../lib/i18n';
@@ -21,8 +21,8 @@ import Kicker from '../atoms/Kicker.astro';
 import Button from '../atoms/Button.astro';
 
 const lang = langFromPath(Astro.url.pathname);
-const ctaHref = localizeHref('/contact', lang);
-const offerHref = localizeHref('/services', lang);
+const ctaHref = localizeHref('/audit-ia-pme', lang);
+const offerHref = localizeHref('/ressources/outils/calculateur-roi-ia', lang);
 const pageTransitionId = Astro.url.pathname
   .replace(/^\/(?:en\/)?/, '')
   .replace(/\/$/, '')
@@ -109,7 +109,7 @@ const pageTransitionId = Astro.url.pathname
             {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
           </Button>
           <Button href={offerHref} variant="ghost" size="lg">
-            {lang === 'fr' ? 'Voir Growth System IA' : 'See AI Growth System'}
+            {lang === 'fr' ? 'Calculer mon ROI' : 'Calculate my ROI'}
           </Button>
         </div>
         <p class="hero-cta-sub">
@@ -120,32 +120,28 @@ const pageTransitionId = Astro.url.pathname
       </div>
 
       <div>
-        <Kicker class="hero-fig">§ 02 · {lang === 'fr' ? 'Résultats concrets' : 'Concrete results'}</Kicker>
+        <Kicker class="hero-fig">§ 02 · {lang === 'fr' ? 'Nos engagements' : 'Our commitments'}</Kicker>
 
-        {/* 3 preuves verticales · format "n · label" éditorial · hairline 1px entre */}
-        <ul class="hero-proofs reveal reveal-fade" aria-label={lang === 'fr' ? 'Preuves de résultats' : 'Result proofs'}>
+        {/* 3 engagements factuels (pas de chiffres de résultat non sourcés) · hairline 1px entre */}
+        <ul class="hero-proofs reveal reveal-fade" aria-label={lang === 'fr' ? 'Nos engagements' : 'Our commitments'}>
           <li class="hero-proof">
-            <span class="hero-proof-num">+12h</span>
+            <span class="hero-proof-num">01</span>
             <span class="hero-proof-label">
-              {lang === 'fr'
-                ? <>économisées par équipe · semaine</>
-                : <>saved per team · week</>}
+              {lang === 'fr' ? <>Audit gratuit de 45 min</> : <>Free 45-min audit</>}
             </span>
           </li>
           <li class="hero-proof">
-            <span class="hero-proof-num">{lang === 'fr' ? '5 j' : '5 d'}</span>
+            <span class="hero-proof-num">02</span>
             <span class="hero-proof-label">
-              {lang === 'fr'
-                ? <>jusqu'au premier système livré</>
-                : <>to the first system shipped</>}
+              {lang === 'fr' ? <>Code et workflows transférés</> : <>Code and workflows handed over</>}
             </span>
           </li>
           <li class="hero-proof">
-            <span class="hero-proof-num">100%</span>
+            <span class="hero-proof-num">03</span>
             <span class="hero-proof-label">
               {lang === 'fr'
-                ? <>intégré · sans changer vos outils</>
-                : <>integrated · no migration</>}
+                ? <>Validation humaine sur les actions sensibles</>
+                : <>Human validation on sensitive actions</>}
             </span>
           </li>
         </ul>

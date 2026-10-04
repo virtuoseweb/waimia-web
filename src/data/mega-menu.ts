@@ -227,14 +227,10 @@ const RESSOURCES: MegaMenuSection = {
         {
           label: { fr: 'Guides', en: 'Guides' },
           href: '/ressources/guides',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Comparatifs', en: 'Comparisons' },
           href: '/ressources/comparatifs',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
       footer: {
@@ -257,14 +253,10 @@ const RESSOURCES: MegaMenuSection = {
         {
           label: { fr: 'Diagnostic Claude PME', en: 'Claude SME diagnostic' },
           href: '/ressources/diagnostics/claude-pme',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Diagnostic Référent IA', en: 'AI lead diagnostic' },
           href: '/ressources/diagnostics/referent-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
       ],
     },
@@ -283,8 +275,6 @@ const RESSOURCES: MegaMenuSection = {
         {
           label: { fr: 'Score maturité IA', en: 'AI maturity score' },
           href: '/ressources/outils/score-maturite-ia',
-          soon: true,
-          badge: { fr: 'À venir', en: 'Soon' },
         },
         {
           label: { fr: 'Guide déploiement Claude', en: 'Claude deployment guide' },
@@ -512,6 +502,11 @@ const SOLUTIONS: MegaMenuSection = {
                       ],
                     },
                   ],
+                },
+                {
+                  label: { fr: 'Consultant IA', en: 'AI consultant' },
+                  href: '/services/consultant-ia-claude',
+                  description: { fr: 'Cadrer où l\'IA crée de la valeur, tracer la feuille de route, former les équipes.', en: 'Frame where AI creates value, set the roadmap, train the teams.' },
                 },
               ],
             },
@@ -809,9 +804,7 @@ const CAS: MegaMenuSection = {
       title: { fr: 'Études de cas', en: 'Case studies' },
       goal: { fr: 'Cinq cas réels, résultats mesurés', en: 'Five real cases, measured results' },
       links: [
-        { label: { fr: 'Toutes les études de cas', en: 'All case studies' }, href: '/cas-clients', description: { fr: 'Cinq cas réels, ROI mesuré sur les données du client.', en: 'Five real cases, ROI measured on client data.' } },
-        { label: { fr: 'Site Web Intelligent', en: 'Smart website' }, href: '/etudes-de-cas/site-web-intelligent', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
-        { label: { fr: 'Intégration Claude', en: 'Claude integration' }, href: '/etudes-de-cas/integration-claude', soon: true, badge: { fr: 'À venir', en: 'Soon' } },
+        { label: { fr: 'Toutes les études de cas', en: 'All case studies' }, href: '/cas-clients', description: { fr: 'Cinq réalisations documentées.', en: 'Five documented projects.' } },
       ],
     },
     // La colonne « Résultats obtenus » (taxonomie « par résultat » vers

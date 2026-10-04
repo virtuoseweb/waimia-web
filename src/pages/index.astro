@@ -26,7 +26,6 @@ export const prerender = true;
  *   06 La tension · 3 douleurs sobres (direct, INK · cartes surface-ink)
  *   07 Cas clients · case-card-grid CATALOGUE (SectionsRenderer, grid-uniform 3 col, paper)
  *   08 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, INK) · media sticky crossfade
- *   09 Temoignages · testimonial-wall CATALOGUE (SectionsRenderer, paper) · 6 avis de SWI
  *   10 Tableau de bord media · eeat-panel variant media (SectionsRenderer, ink)
  *   11 Climax chiffre · 2e stats-bento de C (SectionsRenderer, paper-2) · pre-FAQ
  *   12 FAQ · 6 questions reformulees en requetes conversationnelles AIO, prix garde (FaqAccordion, paper)
@@ -47,7 +46,6 @@ import FaqAccordion from '../components/sections/FaqAccordion.astro';
 import BookSession from '../components/ui/organisms/BookSession.astro';
 import FooterMarquee from '../components/ui/organisms/FooterMarquee.astro';
 import homeVariantC from '../data/page-variants/home/c.json';
-import swiContent from '../content/services/site-web-ia.json';
 import type { SectionData } from '@waimia/ds-kernel';
 // Séquence médiane en donnée (JSONification V1) : littéraux de section extraits du
 // frontmatter → src/data/home-sections.ts. La page garde le merge avec les bases
@@ -59,7 +57,6 @@ import {
   mediaDashboard,
   logoMarqueeOverrides,
   methodOverrides,
-  testimonialsOverrides,
   statsBentoOverrides,
   severityLabels,
   faqConfig,
@@ -67,7 +64,6 @@ import {
 
 const sectionsC = homeVariantC.sections as any[];
 const cByType = (t: string) => sectionsC.find((s) => s.type === t);
-const swiTestimonials = (swiContent.sections as any[]).find((s) => s.type === 'testimonial-wall');
 
 // 02 · ecosysteme opere · logo-marquee sur fond ink + grayscale (base c.json + surcharges data).
 const logoMarquee = { ...cByType('logo-marquee'), ...logoMarqueeOverrides } as SectionData;
@@ -109,9 +105,6 @@ const methodStory = {
 // 05 · Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz → donnee `maturityStages`
 // (src/data/home-sections.ts). Objet litteral pur, importe tel quel.
 
-// 09 · Temoignages · testimonial-wall CATALOGUE · base = les 6 avis de SWI (source unique) +
-// surcharges en-tete data (`testimonialsOverrides`).
-const testimonialsHome = { ...swiTestimonials, ...testimonialsOverrides } as SectionData;
 
 // 12 · FAQ · 6 questions reformulees AIO (data `faqConfig.questions`) ; les REPONSES restent celles
 // de c.json (0 desync), mappees par `faqConfig.idx`.
@@ -177,9 +170,6 @@ const faqItems = faqConfig.idx.map((i, k) => ({ q: faqConfig.questions[k], a: fa
 
   {/* 08 · Methode · sticky-scroll-storytelling CATALOGUE (ink) · media sticky crossfade au scroll */}
   <SectionsRenderer sections={[methodStory]} lang="fr" />
-
-  {/* 09 · Temoignages · testimonial-wall CATALOGUE (paper) · 6 avis de SWI, en-tete home */}
-  <SectionsRenderer sections={[testimonialsHome]} lang="fr" />
 
   {/* 10 · Tableau de bord media · eeat-panel variant media (ink) · profil, reperes, secteurs, liens globaux */}
   <SectionsRenderer sections={[mediaDashboard]} lang="fr" />

@@ -218,18 +218,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes qui ont délégué le récurrent",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Une offre, deux manières d'avancer",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#17",
+        "label": "#16",
         "variant": "media"
       },
       {
@@ -246,7 +241,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/applications-internes",
-    "title": "Application métier sur mesure pour PME · le code est à vous",
+    "title": "Application métier sur mesure pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/applications-internes.json",
@@ -485,7 +480,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisations/automatisation-n8n",
-    "title": "Automatisation n8n pour PME · workflows self-hosted, agence n8n",
+    "title": "Agence n8n : automatisation de vos processus · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisations/automatisation-n8n.json",
@@ -566,18 +561,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes passées à n8n",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Une offre, deux manières d'avancer",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#17",
+        "label": "#16",
         "variant": "media"
       },
       {
@@ -741,18 +731,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont le CRM trie enfin",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de remettre votre CRM au travail",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#14",
+        "label": "#13",
         "variant": "media"
       },
       {
@@ -836,18 +821,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont la donnée remonte enfin seule",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de brancher votre CRM",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#14",
+        "label": "#13",
         "variant": "media"
       },
       {
@@ -1085,18 +1065,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont le tunnel trie enfin",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de faire convertir votre trafic",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#12",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -1170,18 +1145,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont la landing convertit enfin",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de faire convertir vos clics Ads",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#12",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -1350,18 +1320,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont le pipeline se remplit enfin",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Trois formules, un abonnement mensuel sans engagement",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#15",
+        "label": "#14",
         "variant": "media"
       },
       {
@@ -1450,18 +1415,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont les mails arrivent enfin en boîte",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Trois formules, un abonnement mensuel sans engagement",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#15",
+        "label": "#14",
         "variant": "media"
       },
       {
@@ -1535,18 +1495,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont la pub est enfin mesurée",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de mettre votre budget pub au travail",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#12",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -1620,18 +1575,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont le contenu travaille enfin",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de lancer votre machine éditoriale",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#12",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -1705,18 +1655,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes enfin citées par les IA",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de rendre votre marque citable",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#12",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -1885,18 +1830,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont les leads ne refroidissent plus",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de remettre votre suivi au travail",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#14",
+        "label": "#13",
         "variant": "media"
       },
       {
@@ -1980,18 +1920,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont les devis ne dorment plus",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Deux façons de relancer vos devis",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#14",
+        "label": "#13",
         "variant": "media"
       },
       {
@@ -2390,18 +2325,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont l'acquisition tourne enfin",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Quatre socles pour lancer votre acquisition",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#13",
+        "label": "#12",
         "variant": "media"
       },
       {
@@ -2485,18 +2415,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes dont le pipeline convertit enfin",
-        "background": "paper-2"
-      },
-      {
         "type": "pricing-cards",
         "label": "Trois formules pour alimenter votre pipeline",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#14",
+        "label": "#13",
         "variant": "media"
       },
       {

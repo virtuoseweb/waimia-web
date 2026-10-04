@@ -167,7 +167,7 @@ export const MM_TECH: MegaMenu = {
   cols: [
     {
       kicker: { en: 'THE CLAUDE ECOSYSTEM', fr: 'ÉCOSYSTÈME CLAUDE' },
-      label: { en: 'Anthropic · primary', fr: 'Anthropic · premier partenaire' },
+      label: { en: 'Anthropic · primary', fr: 'Anthropic · modèle principal' },
       tint: '#C94F2E',
       items: [
         { href: '/expertise-claude', label: { en: 'Claude expertise · Opus · Sonnet · Haiku', fr: 'Expertise Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.' }, featured: true },
@@ -277,8 +277,6 @@ export type FooterCol = {
 
 export const FOOTER_COLS: FooterCol[] = [
   // Col 1 — L'Agence (R3 ; trust-center/careers/console/atlas retirés P0.2-D).
-  // Méga-menu V1 (§0ter) : ajout du front local « Agence web Montpellier »
-  // (hors top-nav, reachable via footer + /agence — silo Acquérir).
   {
     heading: { en: 'The Agency', fr: "L'Agence" },
     items: [
@@ -292,10 +290,6 @@ export const FOOTER_COLS: FooterCol[] = [
         },
       },
       { href: '/manifesto', label: { en: 'Manifesto', fr: 'Manifesto' } },
-      {
-        href: '/implantations/montpellier',
-        label: { en: 'Web agency Montpellier', fr: 'Agence web Montpellier' },
-      },
       { href: '/contact', label: { en: 'Contact', fr: 'Nous contacter' } },
     ],
   },
@@ -324,6 +318,18 @@ export const FOOTER_COLS: FooterCol[] = [
       {
         href: '/services/integration-claude',
         label: { en: 'Claude integration', fr: 'Intégration Claude' },
+      },
+      {
+        href: '/services/automatisations',
+        label: { en: 'Automations', fr: 'Automatisations' },
+      },
+      {
+        href: '/services/agents-ia',
+        label: { en: 'AI agents', fr: 'Agents IA' },
+      },
+      {
+        href: '/services/applications-internes',
+        label: { en: 'Business applications', fr: 'Applications métier' },
       },
       {
         href: '/services/seo-geo-contenu',
@@ -542,7 +548,7 @@ export const SIX_SERVICES = [
   {
     k: '03',
     metric: { en: 'Qualified leads', fr: 'Leads qualifiés' },
-    label: { en: 'Landing page & scoring', fr: 'Landing page & scoring' },
+    label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' },
     body: { en: 'Landing pages that convert and scoring that prioritises: from visitor to qualified lead, wired to your CRM.', fr: 'Landing pages qui convertissent et scoring qui priorise : du visiteur au lead qualifié, branché à votre CRM.' },
     connectors: { en: 'Landing · Scoring · CRM · Qualification', fr: 'Landing · Scoring · CRM · Qualification' },
     href: '/services/landing-pages-tunnels',
@@ -550,7 +556,7 @@ export const SIX_SERVICES = [
   {
     k: '04',
     metric: { en: 'In production', fr: 'En production' },
-    label: { en: 'Claude integrator', fr: 'Intégrateur Claude' },
+    label: { en: 'Claude integration', fr: 'Intégration Claude' },
     body: { en: 'Deploy Claude, Claude Code and MCP wired to your tools, with AI-lead training and governance. In production, not in a POC.', fr: "Déployer Claude, Claude Code et MCP branchés à vos outils, avec formation du référent IA et gouvernance. En production, pas en POC." },
     connectors: { en: 'Claude · Claude Code · MCP · Governance', fr: 'Claude · Claude Code · MCP · Gouvernance' },
     href: '/services/integration-claude',
