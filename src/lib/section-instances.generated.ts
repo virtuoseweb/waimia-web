@@ -6488,8 +6488,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
 
 export const INLINE_CONSUMERS: Record<string, string[]> = {
   "architecture-diagram": [
-    "src/pages/en/index.astro",
-    "src/pages/index.astro"
+    "src/pages/en/index.astro"
   ],
   "bordered-pullquote": [
     "src/components/templates/AuthorPageTemplate.astro"
@@ -6543,14 +6542,16 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/content/solutions/publicite-en-ligne.mdx",
     "src/content/solutions/tunnel-de-vente.mdx"
   ],
+  "diagnostic-stages": [
+    "src/pages/index.astro"
+  ],
   "editorial-case-grid": [
     "src/pages/manifesto.astro"
   ],
   "editorial-preview": [
     "src/pages/atlas.astro",
     "src/pages/en/atlas.astro",
-    "src/pages/en/index.astro",
-    "src/pages/index.astro"
+    "src/pages/en/index.astro"
   ],
   "editorial-prose": [
     "secteurs/[...slug]"
@@ -6558,6 +6559,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   "editorial-split-grid": [
     "src/pages/en/ressources/index.astro",
     "src/pages/ressources/index.astro"
+  ],
+  "eeat-panel": [
+    "src/pages/index.astro"
   ],
   "engagement-ledger": [
     "src/pages/tarifs.astro"
@@ -6567,8 +6571,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/pages/index.astro"
   ],
   "feature-grid": [
-    "src/pages/en/index.astro",
-    "src/pages/index.astro"
+    "src/pages/en/index.astro"
   ],
   "hero-atlas": [
     "src/pages/atlas.astro",
@@ -6612,8 +6615,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/components/templates/AuthorPageTemplate.astro"
   ],
   "maturity-pyramid": [
-    "src/pages/en/index.astro",
-    "src/pages/index.astro"
+    "src/pages/en/index.astro"
   ],
   "method-diagram-list": [
     "src/components/templates/AuthorPageTemplate.astro"
@@ -6641,8 +6643,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/pages/ressources/personas/[slug].astro"
   ],
   "proof-bar": [
-    "src/pages/en/index.astro",
-    "src/pages/index.astro"
+    "src/pages/en/index.astro"
   ],
   "prose-aside": [
     "src/components/templates/AuthorPageTemplate.astro"
@@ -6661,8 +6662,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/pages/secteurs/index.astro"
   ],
   "services-grid": [
-    "src/pages/en/index.astro",
-    "src/pages/index.astro"
+    "src/pages/en/index.astro"
   ],
   "signed-writing-list": [
     "src/components/templates/AuthorPageTemplate.astro"
@@ -6670,7 +6670,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   "site-showcase": [
     "src/pages/cas-clients/[...slug].astro"
   ],
-  "social-proof": [
+  "sticky-scroll-storytelling": [
     "src/pages/index.astro"
   ],
   "team-card-grid": [
@@ -6689,8 +6689,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/pages/_expertise-claude.astro"
   ],
   "use-case-index": [
-    "src/pages/en/index.astro",
-    "src/pages/index.astro"
+    "src/pages/en/index.astro"
   ],
   "workflow-table": [
     "src/content/solutions/agent-marketing-commercial.mdx",

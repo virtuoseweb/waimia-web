@@ -17,10 +17,9 @@ export interface SectionUsageStat {
 
 export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "architecture-diagram": {
-    "count": 2,
+    "count": 1,
     "pages": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ]
   },
   "author-byline": {
@@ -326,13 +325,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "diagnostic-stages": {
-    "count": 5,
+    "count": 6,
     "pages": [
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/services/template-service-ref"
+      "/services/template-service-ref",
+      "src/pages/index.astro"
     ]
   },
   "direct-answer": {
@@ -381,12 +381,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-preview": {
-    "count": 4,
+    "count": 3,
     "pages": [
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro",
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ]
   },
   "editorial-prose": {
@@ -457,7 +456,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 29,
+    "count": 30,
     "pages": [
       "/services/agent-support-client",
       "/services/agents-ia",
@@ -487,7 +486,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/services/sequences-de-suivi/relance-devis.json",
       "src/content/services/site-web-ia/sur-mesure.json",
       "src/content/services/site-web-ia/webflow.json",
-      "src/content/services/site-web-ia/wordpress.json"
+      "src/content/services/site-web-ia/wordpress.json",
+      "src/pages/index.astro"
     ]
   },
   "engagement-ledger": {
@@ -570,7 +570,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 19,
+    "count": 18,
     "pages": [
       "/lp/hub",
       "/lp/systeme-acquisition",
@@ -588,8 +588,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/services/site-web-ia/sur-mesure.json",
       "src/content/services/site-web-ia/webflow.json",
       "src/content/services/site-web-ia/wordpress.json",
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ]
   },
   "feature-split-media": {
@@ -884,10 +883,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "maturity-pyramid": {
-    "count": 2,
+    "count": 1,
     "pages": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ]
   },
   "method-diagram-list": {
@@ -1047,7 +1045,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "proof-bar": {
-    "count": 37,
+    "count": 36,
     "pages": [
       "/lp/hub",
       "/lp/site-web-intelligent",
@@ -1084,8 +1082,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/services/site-web-ia/sur-mesure.json",
       "src/content/services/site-web-ia/webflow.json",
       "src/content/services/site-web-ia/wordpress.json",
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ]
   },
   "prose-aside": {
@@ -1164,10 +1161,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "services-grid": {
-    "count": 2,
+    "count": 1,
     "pages": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ]
   },
   "signed-writing-list": {
@@ -1182,12 +1178,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/pages/cas-clients/[...slug].astro"
     ]
   },
-  "social-proof": {
-    "count": 1,
-    "pages": [
-      "src/pages/index.astro"
-    ]
-  },
   "stats-bento": {
     "count": 1,
     "pages": [
@@ -1199,6 +1189,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms"
+    ]
+  },
+  "sticky-scroll-storytelling": {
+    "count": 1,
+    "pages": [
+      "src/pages/index.astro"
     ]
   },
   "system-flow": {
@@ -1264,10 +1260,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "use-case-index": {
-    "count": 2,
+    "count": 1,
     "pages": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ]
   },
   "versus-competitors": {

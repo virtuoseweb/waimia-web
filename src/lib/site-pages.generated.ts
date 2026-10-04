@@ -773,7 +773,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/landing-pages-tunnels",
-    "title": "Landing pages qui convertissent · tunnels de qualification PME",
+    "title": "Landing pages qui convertissent · tunnels de qualification",
     "group": "offres",
     "collection": "services",
     "file": "services/landing-pages-tunnels.json",
@@ -903,7 +903,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/seo-geo-contenu",
-    "title": "Agence SEO et GEO pour PME · classé sur Google, cité par les IA",
+    "title": "Agence SEO et GEO pour PME : visible sur Google et les IA",
     "group": "offres",
     "collection": "services",
     "file": "services/seo-geo-contenu.json",
@@ -1163,7 +1163,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/systeme-commercial",
-    "title": "Développement commercial B2B pour PME : le système commercial",
+    "title": "Développement commercial B2B pour PME : système commercial",
     "group": "offres",
     "collection": "services",
     "file": "services/systeme-commercial.json",
@@ -2466,8 +2466,8 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/ressources/diagnostics",
-    "title": "Diagnostics",
+    "route": "/ressources/diagnostics/_index",
+    "title": "_index",
     "group": "ressources",
     "collection": "bespoke",
     "editable": false,
@@ -2770,7 +2770,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/claude-pme",
-    "title": "Déployer Claude dans une PME : le guide pratique, des prérequis aux 90 premiers jours",
+    "title": "Déployer Claude dans une PME : le guide pratique",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/claude-pme.json",
@@ -2845,7 +2845,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/outils/calculateur-roi-ia",
-    "title": "Calculateur ROI IA : le temps récupérable et le budget à ne pas dépasser",
+    "title": "Calculateur ROI IA : temps récupérable et budget maximal",
     "group": "ressources",
     "collection": "outils",
     "file": "outils/calculateur-roi-ia.json",
@@ -3012,14 +3012,6 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/equipe",
-    "title": "Equipe",
-    "group": "confiance",
-    "collection": "bespoke",
-    "editable": false,
-    "sections": []
-  },
-  {
     "route": "/equipe/simon-beros",
     "title": "Simon Beros",
     "group": "confiance",
@@ -3046,7 +3038,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/audit-ia-pme",
-    "title": "Audit IA gratuit pour PME · 45 min, une cartographie de vos tâches",
+    "title": "Audit IA gratuit pour PME : 45 min, vos tâches classées",
     "group": "conversion",
     "collection": "audits",
     "file": "audits/audit-ia-pme.json",
@@ -3221,6 +3213,14 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/_audit-site-web-intelligent",
+    "title": "_audit site web intelligent",
+    "group": "autres",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/_expertise-claude",
     "title": "_expertise claude",
     "group": "autres",
@@ -3239,6 +3239,14 @@ export const SITE_PAGES: SitePage[] = [
   {
     "route": "/demonstrations",
     "title": "Demonstrations",
+    "group": "autres",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/equipe/_index",
+    "title": "_index",
     "group": "autres",
     "collection": "bespoke",
     "editable": false,
@@ -3523,7 +3531,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
-      "/ressources/diagnostics",
+      "/ressources/diagnostics/_index",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
@@ -3563,7 +3571,6 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "routes": [
       "/agence",
       "/agence/methode",
-      "/equipe",
       "/equipe/simon-beros",
       "/manifesto",
       "/technologies"
@@ -3587,9 +3594,11 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "id": "autres",
     "label_fr": "Autres",
     "routes": [
+      "/_audit-site-web-intelligent",
       "/_expertise-claude",
       "/cgv",
       "/demonstrations",
+      "/equipe/_index",
       "/implantations",
       "/implantations/bordeaux",
       "/implantations/lyon",
