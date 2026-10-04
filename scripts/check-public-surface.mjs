@@ -27,10 +27,9 @@ import { isInternalPath, INTERNAL_PATH_PREFIXES, INTERNAL_API_PREFIXES } from '.
 const VERBOSE = process.argv.includes('--report');
 const PROD = process.argv.includes('--prod');
 
-// DETTE TRACKÉE (pas un masquage) : liens du footer vers des outils internes, portés par
-// src/data/sitemap.ts (FOOTER_COLS), hors périmètre de la PR qui a créé ce gate. Tant
-// qu'ils existent ils restent AFFICHÉS ci-dessous ; les retirer du footer puis d'ici.
-const KNOWN_INTERNAL_LINKS = new Set(['/library', '/agence/cartographie']);
+// Dette soldée à l'intégration (octobre 2026) : le footer ne lie plus aucun outil interne.
+// L'ensemble reste, vide, pour tracer une éventuelle dette future sans la masquer.
+const KNOWN_INTERNAL_LINKS = new Set([]);
 
 const errors = [];
 const known = [];
@@ -180,7 +179,6 @@ for (const [rule, list] of Object.entries(grouped)) {
 if (known.length > 0) {
   console.log(`\n⚠  Connus (dette trackée, non bloquants) : ${known.length}`);
   for (const m of known) console.log(`  ⚠ ${m}`);
-  console.log('     → liens internes : retirer les entrées de FOOTER_COLS (src/data/sitemap.ts), puis de KNOWN_INTERNAL_LINKS.');
 }
 
 console.log(`\n${LINE}`);

@@ -57,25 +57,16 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // réel, cf strategy/14 §4) détectés par le gate check-seo noindex-not-in-sitemap.
   // 2026-07-16 (post-audit #50) : batiment (caseRef desangles-peinture) et therapeutes (caseRef
   // isabelle-diaz-naturopathe) repassés index ⟹ retirés de cette liste pour entrer au sitemap.
-  "/secteurs/services-b2b",
-  "/secteurs/agence",
-  "/secteurs/comptabilite",
-  "/secteurs/conseil",
-  "/secteurs/esn",
-  "/secteurs/formation",
-  "/secteurs/industrie",
   // F1 hygiène d'index 2026-07-17 (post-audit c-preuve §1a) : startup-logiciel repassé
   // noindex (seo.noindex:true frontmatter) → caseRef amploi hors-ICP SaaS. Réindexable
   // dès qu'un vrai cas éditeur/SaaS remplace le caseRef.
   "/secteurs/startup-logiciel",
   // Hubs noindex (politique hub < 3-5 enfants réels) encore listés dans le sitemap (gate 2026-07-14).
-  "/implantations",
   "/ressources/comparatifs",
   "/ressources/guides",
   // Hub diagnostics (V7-FOLD Phase C) : noindex tant que < 3-5 enfants réels (2 pour l'instant :
   // maturite-ia, site-web-intelligent) → hors sitemap pour cohérence. Retirer quand le hub
   // listera ≥ 3-5 diagnostics complets (politique index-on-quality, strategy/10 §3).
-  "/ressources/diagnostics",
   // Vague 1 carte kw (strategy/14, 2026-07-14) · cohérence noindex↔sitemap :
   // hub démos était noindex dans le HTML MAIS listé dans le sitemap.
   // (maquettes /lab/* supprimées 2026-07-19, dette morte — fiche 0027 D6)
@@ -95,11 +86,12 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // → hors sitemap pour cohérence noindex↔crawl. Pages conservées (noindex,follow).
   "/secteurs/batiment",
   "/secteurs/e-commerce",
-  "/secteurs/liberal-independant",
-  "/secteurs/therapeutes",
   // Pivot IA 2026-10 · articles hors positionnement passés noindex (seo.noindex:true,
   // page toujours générée avec meta robots noindex, cf blog/[...slug].astro).
-  "/blog/webflow-vs-wordpress-vs-site-code-ia-2026",
-  "/blog/google-ads-vs-meta-ads-pme-2026",
-  "/blog/landing-page-qui-convertit-methode-2026",
+  // Intégration refonte IA 2026-10 · les secteurs, articles et hubs retirés de cette liste
+  // sont désormais REDIRIGÉS en 301 (src/data/depublished.ts → REDIRECTED_PATHS) : ils ne
+  // sont plus générés, donc plus à exclure. Le hub /implantations est repassé indexable.
+  // Deux pages hors positionnement restent en ligne en noindex (seo.noindex dans le contenu).
+  "/ressources/comparatifs/claude-code-vs-cursor",
+  "/blog/brain-circuit",
 ]);

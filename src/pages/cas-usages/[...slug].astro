@@ -4,7 +4,7 @@ export const prerender = true;
 // Page SSG · /cas-usages/[slug] · rendu 100 % composable (registry) · mirror de
 // services/[...slug].astro. MDX sans `sections:` = erreur de build volontaire (anti-orphelin).
 
-import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import type { SectionData } from '@waimia/ds-kernel';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
@@ -14,7 +14,7 @@ import { meshForCasUsage } from '../../lib/internal-mesh';
 import { SITE } from '../../site.config';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('cas-usages');
+  const entries = await getLiveCollection('cas-usages');
   return entries.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
@@ -68,7 +68,8 @@ const sections: SectionData[] = [
 ];
 ---
 
-<Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
+{/* showUpdated={false} : la signature d'auteur de la page affiche déjà « Publié le … Mis à jour le … ». */}
+<Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex} showUpdated={false}>
   <MastheadBar
     lang={lang}
     items={[

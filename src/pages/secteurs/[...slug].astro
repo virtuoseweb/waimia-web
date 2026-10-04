@@ -8,7 +8,8 @@
 // Le frontmatter `sections:` du JSON, s'il existe, prend le pas (override total).
 export const prerender = true;
 
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import { resolveTemplate } from '@waimia/ds-kernel/templates';
 import { sectorTemplate } from '../../lib/templates/sector';
 import Base from '../../layouts/Base.astro';
@@ -21,7 +22,7 @@ import type { SectionData } from '@waimia/ds-kernel';
 import { SITE } from '../../site.config';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('secteurs');
+  const entries = await getLiveCollection('secteurs');
   return entries
     .filter((entry) => entry.data.visible)
     .map((entry) => ({

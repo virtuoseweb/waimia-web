@@ -5,7 +5,7 @@ export const prerender = true;
 // mirror de ressources/diagnostics/[...slug].astro. MDX sans `sections:` = erreur de build (anti-orphelin).
 // Profondeur 2 niveaux (demonstrations/) → imports en `../../`.
 
-import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
@@ -14,7 +14,7 @@ import { SITE } from '../../site.config';
 import { DEPUBLISHED_DEMONSTRATION_IDS } from '../../data/depublished';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('demonstrations');
+  const entries = await getLiveCollection('demonstrations');
   // Pivot IA 2026-10 · démonstrations dépubliées (301 dans astro.config.mjs), contenu conservé.
   return entries.filter((entry) => !DEPUBLISHED_DEMONSTRATION_IDS.has(entry.id)).map((entry) => ({
     params: { slug: entry.id },

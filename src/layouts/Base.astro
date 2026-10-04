@@ -121,7 +121,7 @@ const UPDATED_PREFIXES = [
   '/secteurs/',
   '/demonstrations/',
 ];
-const UPDATED_EXACT = ['/audit-ia-pme', '/audit-site-web-intelligent', '/conformite-ia', '/agence/methode', '/technologies'];
+const UPDATED_EXACT = ['/audit-ia-pme', '/conformite-ia', '/agence/methode', '/technologies'];
 const wantsUpdated =
   showUpdated ?? (UPDATED_EXACT.includes(pagePath) || UPDATED_PREFIXES.some((prefix) => pagePath.startsWith(prefix)));
 const updatedDate = wantsUpdated && !robotsNoindex ? lastmod : null;

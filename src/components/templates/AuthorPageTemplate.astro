@@ -139,7 +139,9 @@ const pageTransitionId = Astro.url.pathname
 const displayName = lang === 'fr' ? author.title_fr : author.title_en;
 const role = lang === 'fr' ? author.role_fr : author.role_en;
 const description = lang === 'fr' ? author.description_fr : author.description_en;
-const teamHref = localizeHref('/equipe', lang);
+// Studio solo : la page /equipe est redirigée vers la fiche du fondateur, le fil d'Ariane
+// remonte donc vers la page du studio.
+const teamHref = localizeHref('/agence', lang);
 const auditHref = localizeHref('/audit-ia-pme', lang);
 const seoTitle = (lang === 'fr' ? author.seoTitle_fr : author.seoTitle_en) ?? `${displayName} · ${role} · Waimia`;
 const resourcesHref = localizeHref('/ressources', lang);
@@ -188,7 +190,7 @@ const breadcrumbLd = {
     {
       '@type': 'ListItem',
       position: 2,
-      name: t({ fr: "L'équipe", en: 'The team' }, lang),
+      name: t({ fr: 'Le studio', en: 'The studio' }, lang),
       item: `${SITE.url}${teamHref}`,
     },
     {
@@ -214,8 +216,8 @@ const ledeFr = (author.bio_fr.trim().split(/\n\s*\n/).filter(Boolean)[0] ?? auth
 const ledeEn = (author.bio_en.trim().split(/\n\s*\n/).filter(Boolean)[0] ?? author.description_en).replace(/\*\*/g, '');
 const heroData = {
   type: 'hero-author' as const,
-  team_label_fr: "L'équipe",
-  team_label_en: 'The team',
+  team_label_fr: 'Le studio',
+  team_label_en: 'The studio',
   team_href: teamHref,
   name: displayName,
   name_lead: nameParts.lead,

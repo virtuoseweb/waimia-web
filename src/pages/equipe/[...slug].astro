@@ -9,6 +9,7 @@
 export const prerender = true;
 
 import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import type { CollectionEntry } from 'astro:content';
 import AuthorPageTemplate from '../../components/templates/AuthorPageTemplate.astro';
 
@@ -38,7 +39,7 @@ const bodyHtml = entry.data.body_sections?.[0]?.html_fr ?? '';
 // Auto-jointure : tous les contenus de cet auteur, triés par date desc.
 // SEO état final : cookbooks + livres-blancs supprimés ; il reste le blog in-silo.
 const [allBlog] = await Promise.all([
-  getCollection('blog'),
+  getLiveCollection('blog'),
 ]);
 
 // Filtre par auteur — la ref `author: reference('authors')` n'est pas encore appliquée

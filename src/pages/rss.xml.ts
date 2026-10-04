@@ -1,7 +1,7 @@
 export const prerender = true;
 
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../lib/live-collection';
 import type { APIContext } from 'astro';
 import { blogEntryHref } from '../lib/blog-routing';
 import { SITE } from '../site.config';
@@ -9,7 +9,7 @@ import { SITE } from '../site.config';
 export async function GET(context: APIContext) {
   // Post-fusion R1 : blog porte aussi les types field-note / veille-ia
   // (liens construits vers leur URL canonique via blogEntryHref).
-  const blog = await getCollection('blog');
+  const blog = await getLiveCollection('blog');
 
   const items = blog
     .map((entry) => ({

@@ -17,6 +17,7 @@ export function getStaticPaths() {
 }
 
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import { DEPUBLISHED_SERVICE_IDS } from '../../data/depublished';
 import Base from '../../layouts/Base.astro';
 import { internalToolsEnabled } from '../../lib/seo/internal-tools.mjs';
@@ -69,10 +70,10 @@ function inSitemapExclude(url: string): boolean {
 // outils → /ressources/outils/<id> · EssayTemplate (ressources/outils/[...slug].astro:5,26)
 // authors → /equipe/<id> · AuthorPageTemplate (equipe/[...slug].astro:13)
 const cases = await getCollection('cases');
-const secteurs = await getCollection('secteurs');
+const secteurs = await getLiveCollection('secteurs');
 // Services fusionnés (301, src/data/depublished.ts) : plus de page réelle → hors cartographie.
 const services = (await getCollection('services')).filter((e) => !DEPUBLISHED_SERVICE_IDS.has(e.id));
-const blog = await getCollection('blog');
+const blog = await getLiveCollection('blog');
 // Outils dépubliés (seo.noindex → route non générée, cf outils/[...slug].astro) : hors cartographie.
 const outils = (await getCollection('outils')).filter((e) => !e.data.seo?.noindex);
 const authors = await getCollection('authors');
@@ -117,7 +118,6 @@ const staticPublic: Row[] = [
   { url: '/secteurs', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'secteurs/index.astro' },
   { url: '/agence', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'agence/index.astro' },
   { url: '/agence/methode', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/methode.astro' },
-  { url: '/equipe', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'equipe/index.astro' },
   { url: '/contact', collection: { fr: 'page statique', en: 'static page' }, template: 'contact.astro' },
   { url: '/manifesto', collection: { fr: 'page statique', en: 'static page' }, template: 'manifesto.astro' },
   { url: '/sources-methodologie', collection: { fr: 'page statique', en: 'static page' }, template: 'sources-methodologie.astro' },

@@ -6,7 +6,7 @@
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
-import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import { langFromPath, localizeHref } from '../../lib/i18n';
 import type { SectionByType } from '@waimia/ds-kernel';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
@@ -36,7 +36,7 @@ const shortSectorLabel = (full: string): string => {
 // absente). Le hub liste donc les secteurs visibles adossés à un cas client réel
 // (`caseRef`), critère de preuve indépendant de la politique d'index. Les pages liées
 // restent noindex,follow.
-const visibleSectors = (await getCollection('secteurs'))
+const visibleSectors = (await getLiveCollection('secteurs'))
   .filter((e) => e.data.visible && Boolean(e.data.caseRef))
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id));
 

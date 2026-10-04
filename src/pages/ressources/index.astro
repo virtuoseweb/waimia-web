@@ -8,6 +8,7 @@ export const prerender = true;
 // Cases + WritingNotes (blog) + Cookbooks + Newsletter band + CtaBand.
 
 import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -37,7 +38,7 @@ const collectionLd = buildCollectionPage(
 );
 
 const [allBlog, allCases] = await Promise.all([
-  getCollection('blog'),
+  getLiveCollection('blog'),
   getCollection('cases'),
 ]);
 
@@ -74,7 +75,7 @@ const nBlog = blogLongReads.length;
 const allOutils = (await getCollection('outils')).filter((e) => !e.data.seo?.noindex);
 const nOutils = allOutils.length;
 const [allComparatifs, allGuides] = await Promise.all([
-  getCollection('comparatifs'),
+  getLiveCollection('comparatifs'),
   getCollection('guides'),
 ]);
 const nComparatifs = allComparatifs.length;

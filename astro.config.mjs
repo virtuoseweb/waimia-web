@@ -11,6 +11,7 @@ import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import sitemapHygiene from './src/integrations/sitemap-hygiene.mjs';
 import seoPostbuild from './src/integrations/seo-postbuild.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
+import { REDIRECTED_PATHS } from './src/data/depublished.ts';
 import { SITE } from './src/site.config.ts';
 import {
   internalToolsEnabled,
@@ -165,11 +166,11 @@ export default defineConfig({
     // supprimées → ces 301 re-pointent vers la page canonique de chaque intention.
     // Le disallow robots.txt + le filtre sitemap `/lp/` restent (couvrent ces 301).
     '/lp/audit-ia-pme': '/audit-ia-pme',
-    '/lp/audit-site-web-intelligent': '/audit-site-web-intelligent',
+    '/lp/audit-site-web-intelligent': '/audit-ia-pme',
     '/lp/content-marketing-intelligent': '/services/seo-geo-contenu',
     '/lp/diagnostic-maturite-ia': '/ressources/diagnostics/maturite-ia',
-    '/lp/diagnostic-site-web-intelligent': '/ressources/diagnostics/site-web-intelligent',
-    '/lp/exemple-industrialisation': '/demonstrations',
+    '/lp/diagnostic-site-web-intelligent': '/ressources/diagnostics/maturite-ia',
+    '/lp/exemple-industrialisation': '/cas-clients',
     '/lp/integrateur-claude': '/services/integration-claude',
     // 2026-07-17 · 301 /lp/site-web-intelligent levé : la LP1 du CdC strategy/16 vit désormais à cette URL.
     '/lp/tunnel-conversion-intelligent': '/services/landing-pages-tunnels',
@@ -234,11 +235,7 @@ export default defineConfig({
     // Audit #60 A5 2026-07-16 · gabarit interne `template-service-ref` sorti du routing
     // (visible:false → getStaticPaths). Le fichier de contenu reste la référence interne.
     '/services/template-service-ref': '/services',
-    // Audit #60 A4 2026-07-16 · /secteurs/services-b2b (noindex, umbrella générique sans
-    // angle propre : tous les verticaux SONT des services B2B) dépublié (visible:false).
-    // 301 vers le hub /secteurs (qui joue déjà le rôle d'ombrelle). L'angle « l'acheteur
-    // B2B s'auto-évalue » est reporté dans le hub.
-    '/secteurs/services-b2b': '/secteurs',
+    // (/secteurs/services-b2b : 301 désormais portée par REDIRECTED_PATHS, cible /services.)
     // Refonte V8 2026-07-12 · retitrage + renommage de slugs des 2 offres phares
     // (docs/strategy/10 §0bis.3, décisions Simon). Les anciennes URLs prod-live indexées
     // sont 301 vers les nouveaux slugs orientés requête réelle. Les URLs nues
@@ -297,7 +294,7 @@ export default defineConfig({
     // survivant cannibalisait /cas-usages (hub à moitié vide après les 3 301 ci-dessus).
     '/cas-clients/resultats': '/cas-usages',
     '/cas-clients/resultats/plus-de-leads': '/cas-usages/generer-plus-de-leads',
-    '/cas-clients/resultats/reduction-temps-marketing': '/cas-usages/reduire-reporting',
+    '/cas-clients/resultats/reduction-temps-marketing': '/cas-usages/centraliser-donnees',
     // Cluster « déployer Claude » dédupliqué : la checklist est absorbée par le guide pilier.
     '/ressources/guides/checklist-deploiement-claude': '/ressources/guides/claude-pme',
     // Pivot IA 2026-10 · fusions (validées Simon). 16 pages dépubliées, fichiers de contenu
@@ -327,17 +324,12 @@ export default defineConfig({
     // Refonte C 2026-10 · l'ancien index « structure » pour moteurs génératifs n'est plus
     // produit (llms.txt le remplace, structuré par silo) : l'URL connue garde une cible.
     '/llms-small.txt': '/llms.txt',
-    // Refonte C 2026-10 · FILET TRANSITOIRE, build de production uniquement. Le footer
-    // (src/data/sitemap.ts, hors périmètre de cette PR) lie encore /library et
-    // /agence/cartographie, qui ne sont plus générés en production. Tant que ces deux
-    // liens existent, ils retombent sur le plan du site au lieu d'un 404. À supprimer dès
-    // que les deux entrées de FOOTER_COLS sont retirées (gate : check-public-surface).
-    ...(INTERNAL_TOOLS
-      ? {}
-      : {
-          '/library': '/plan-du-site',
-          '/agence/cartographie': '/plan-du-site',
-        }),
+    // Intégration refonte IA 2026-10 · pages retirées à l'intégration (audit site web, anciens
+    // diagnostics, pages « site web », page équipe, articles et secteurs hors positionnement).
+    // Source unique : src/data/depublished.ts (les routes et les listings filtrent dessus).
+    // Les cibles sont finales : les anciennes 301 qui pointaient une de ces pages ont été
+    // re-ciblées ci-dessus (un seul saut, gate check-redirects).
+    ...REDIRECTED_PATHS,
   },
   integrations: [
     react(),

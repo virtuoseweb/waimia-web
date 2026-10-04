@@ -8,6 +8,7 @@
 export const prerender = true;
 
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import EssayTemplate from '../../components/templates/EssayTemplate.astro';
 import { computeReadingTime } from '../../lib/seo/reading-time';
 import { isLegacyRoutedType } from '../../lib/blog-routing';
@@ -15,7 +16,7 @@ import { blogHeroIllustration } from '../../lib/hero-illustrations';
 import { buildEssayProps, type EssayContext } from '../../lib/templates/essay';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('blog');
+  const entries = await getLiveCollection('blog');
   // Les types field-note / veille-ia sont servis par leurs routes héritées
   // (/ressources/field-notes, /ressources/veille-ia) · cf src/lib/blog-routing.ts.
   return entries
@@ -72,7 +73,7 @@ const authorLabel = getAuthorLabel(d.author) ?? 'Waimia';
 // readingTime = frontmatter (tous les articles le portent) ; repli = calcul sur le corps rendu.
 const readingTimeMin = d.readingTime ?? computeReadingTime(bodyHtml.replace(/<[^>]+>/g, ' '));
 
-const allBlog = await getCollection('blog');
+const allBlog = await getLiveCollection('blog');
 const allCases = await getCollection('cases');
 
 const relatedCasesData = (d.relatedCases ?? [])
@@ -119,7 +120,7 @@ const ctx: EssayContext = {
 const essayProps = buildEssayProps(ctx);
 ---
 <EssayTemplate {...essayProps} noindex={d.seo?.noindex}>
-  <Fragment slot="headline">{d.title_fr}</Fragment>
+  <Fragment slot="headline">{d.h1_fr ?? d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>
   <Fragment slot="body" set:html={bodyHtml} />
 </EssayTemplate>

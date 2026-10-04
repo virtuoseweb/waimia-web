@@ -1,13 +1,13 @@
 export const prerender = true;
 
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import type { APIContext } from 'astro';
 import { blogEntryHref } from '../../lib/blog-routing';
 import { SITE } from '../../site.config';
 
 export async function GET(context: APIContext) {
-  const blog = await getCollection('blog');
+  const blog = await getLiveCollection('blog');
 
   // Post-fusion R1 : liens type-aware (field-note / veille-ia → routes héritées).
   const items = blog

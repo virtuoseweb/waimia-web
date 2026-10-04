@@ -26,7 +26,7 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS } from '../data/depublished';
+import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS, isRedirectedPath } from '../data/depublished';
 import { NOINDEX_SITEMAP_PATHS } from '../data/sitemap-noindex-exclude';
 import { listRouteSources } from './seo/lastmod.mjs';
 
@@ -84,7 +84,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/automatisation-make': { label_fr: 'Automatisation Make', label_en: 'Make automation', kind: 'service', topics: ['automatisation'] },
   '/ressources/comparatifs/n8n-vs-make': { label_fr: 'n8n ou Make : le comparatif', label_en: 'n8n vs Make', kind: 'comparatif', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
-  '/cas-usages/standardiser-processus': { label_fr: 'Standardiser ses processus', label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
+  '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
   '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation classique', label_en: 'AI agent or classic automation', kind: 'article', topics: ['agents', 'automatisation'] },
 
   // ── Agents IA et Claude ──
@@ -96,7 +96,6 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/claude-cowork': { label_fr: 'Guide Claude Cowork', label_en: 'Claude Cowork guide', kind: 'guide', topics: ['claude'] },
   '/ressources/comparatifs/claude-vs-chatgpt-pme': { label_fr: 'Claude ou ChatGPT pour une PME', label_en: 'Claude or ChatGPT for an SMB', kind: 'comparatif', topics: ['claude', 'agents'] },
   '/ressources/comparatifs/claude-code-vs-cursor': { label_fr: 'Claude Code ou Cursor', label_en: 'Claude Code or Cursor', kind: 'comparatif', topics: ['claude', 'applications'] },
-  '/ressources/diagnostics/claude-pme': { label_fr: 'Diagnostic : prêt à déployer Claude ?', label_en: 'Diagnostic: ready for Claude?', kind: 'diagnostic', topics: ['claude'] },
 
   // ── Applications métier et données ──
   '/services/applications-internes': { label_fr: 'Application métier sur mesure', label_en: 'Custom business application', kind: 'service', topics: ['applications', 'donnees'] },
@@ -104,8 +103,7 @@ const PAGES: Record<string, PageDef> = {
   '/cas-clients/les-carnets-de-montpellier': { label_fr: 'Cas client : Les Carnets de Montpellier', label_en: 'Case: Les Carnets de Montpellier', kind: 'cas-client', topics: ['applications', 'acquisition'] },
   '/services/donnees-reporting': { label_fr: 'Tableau de bord automatisé', label_en: 'Automated dashboard', kind: 'service', topics: ['donnees', 'applications'] },
   '/blog/tableau-de-bord-pme-quelles-donnees-suivre': { label_fr: 'Tableau de bord : quelles données suivre', label_en: 'Dashboard: which data to track', kind: 'article', topics: ['donnees'] },
-  '/cas-usages/centraliser-donnees': { label_fr: 'Centraliser ses données', label_en: 'Centralise your data', kind: 'cas-usage', topics: ['donnees'] },
-  '/cas-usages/reduire-reporting': { label_fr: 'Réduire le temps de reporting', label_en: 'Cut reporting time', kind: 'cas-usage', topics: ['donnees'] },
+  '/cas-usages/centraliser-donnees': { label_fr: 'Centraliser données et reporting', label_en: 'Centralise your data', kind: 'cas-usage', topics: ['donnees'] },
 
   // ── Commercial : prospection, CRM, suivi ──
   '/services/systeme-commercial': { label_fr: 'Système commercial', label_en: 'Sales system', kind: 'service', topics: ['commercial'] },
@@ -114,15 +112,16 @@ const PAGES: Record<string, PageDef> = {
   '/services/sequences-de-suivi': { label_fr: 'Devis automatisé et relances', label_en: 'Automated quotes and follow-ups', kind: 'service', topics: ['commercial'] },
   '/blog/cabler-son-crm-en-10-jours': { label_fr: 'Câbler son CRM en 10 jours', label_en: 'Wire your CRM in 10 days', kind: 'article', topics: ['commercial', 'donnees'] },
   '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil': { label_fr: 'Automatiser ses relances B2B', label_en: 'Automate B2B follow-ups', kind: 'article', topics: ['commercial'] },
-  '/cas-usages/generer-plus-de-leads': { label_fr: 'Générer plus de leads', label_en: 'Generate more leads', kind: 'cas-usage', topics: ['commercial', 'acquisition'] },
+  '/cas-usages/generer-plus-de-leads': { label_fr: 'Automatiser le suivi commercial', label_en: 'Generate more leads', kind: 'cas-usage', topics: ['commercial', 'acquisition'] },
 
   // ── Conseil, audit, conformité ──
   '/audit-ia-pme': { label_fr: "L'audit IA pour PME", label_en: 'AI audit for SMBs', kind: 'audit', topics: ['conseil'], emit: false },
   '/services/consultant-ia-claude': { label_fr: 'Consultant IA', label_en: 'AI consultant', kind: 'service', topics: ['conseil', 'claude'] },
   '/conformite-ia': { label_fr: 'Conformité IA : RGPD et AI Act', label_en: 'AI compliance: GDPR and AI Act', kind: 'service', topics: ['conseil', 'claude'] },
   '/ressources/diagnostics/maturite-ia': { label_fr: 'Diagnostic de maturité IA', label_en: 'AI maturity diagnostic', kind: 'diagnostic', topics: ['conseil'] },
-  '/ressources/diagnostics/referent-ia': { label_fr: 'Diagnostic : faut-il un référent IA ?', label_en: 'Diagnostic: do you need an AI lead?', kind: 'diagnostic', topics: ['conseil', 'formation'] },
   '/ressources/outils/calculateur-roi-ia': { label_fr: 'Calculateur de ROI IA', label_en: 'AI ROI calculator', kind: 'diagnostic', topics: ['conseil', 'automatisation'] },
+  '/ressources/outils/grille-taches-a-automatiser': { label_fr: 'Grille des tâches à automatiser', label_en: 'Task automation grid', kind: 'diagnostic', topics: ['automatisation', 'conseil'] },
+  '/ressources/outils/charte-ia-entreprise': { label_fr: 'Modèle de charte IA pour PME', label_en: 'AI charter template for SMBs', kind: 'guide', topics: ['conseil', 'claude'] },
   '/blog/essai-pillar-ia-pme-2026': { label_fr: "L'IA appliquée aux PME en 2026", label_en: 'Applied AI for SMBs in 2026', kind: 'article', topics: ['conseil'] },
   '/blog/forward-deployed-engineer': { label_fr: "Forward deployed engineer : le rôle", label_en: 'Forward deployed engineer: the role', kind: 'article', topics: ['conseil', 'studio'] },
   '/tarifs': { label_fr: 'Tarifs', label_en: 'Pricing', kind: 'studio', topics: ['conseil', 'studio'], emit: false },
@@ -139,13 +138,8 @@ const PAGES: Record<string, PageDef> = {
   '/services/site-web-ia': { label_fr: 'Création de site internet', label_en: 'Website creation', kind: 'service', topics: ['acquisition'] },
   '/services/seo-geo-contenu': { label_fr: 'SEO, GEO et contenu', label_en: 'SEO, GEO and content', kind: 'service', topics: ['acquisition'] },
   '/services/landing-pages-tunnels': { label_fr: 'Landing pages et tunnels', label_en: 'Landing pages and funnels', kind: 'service', topics: ['acquisition', 'commercial'] },
-  '/audit-site-web-intelligent': { label_fr: 'Audit gratuit de site web', label_en: 'Free website audit', kind: 'audit', topics: ['acquisition'], emit: false },
   '/ressources/comparatifs/geo-vs-seo': { label_fr: 'GEO ou SEO', label_en: 'GEO or SEO', kind: 'comparatif', topics: ['acquisition'] },
-  '/ressources/comparatifs/site-web-intelligent-vs-wordpress': { label_fr: 'Site sur mesure ou WordPress', label_en: 'Custom site or WordPress', kind: 'comparatif', topics: ['acquisition'] },
-  '/ressources/diagnostics/site-web-intelligent': { label_fr: 'Diagnostic de site web', label_en: 'Website diagnostic', kind: 'diagnostic', topics: ['acquisition'] },
   '/blog/seo-geo-etre-cite-par-les-ia-generatives': { label_fr: 'Être cité par les IA génératives', label_en: 'Get cited by generative AI', kind: 'article', topics: ['acquisition'] },
-  '/cas-usages/reduire-temps-cms': { label_fr: 'Réduire le temps passé sur le CMS', label_en: 'Cut time spent on the CMS', kind: 'cas-usage', topics: ['acquisition'] },
-  '/demonstrations/avant-apres': { label_fr: 'Démonstration avant / après', label_en: 'Before / after demo', kind: 'article', topics: ['acquisition'] },
   '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
@@ -154,7 +148,6 @@ const PAGES: Record<string, PageDef> = {
   // ── Studio : qui, comment, où ──
   '/agence': { label_fr: 'Le studio', label_en: 'The studio', kind: 'studio', topics: ['studio'], emit: false },
   '/agence/methode': { label_fr: 'La méthode', label_en: 'The method', kind: 'studio', topics: ['studio', 'conseil'], emit: false },
-  '/equipe': { label_fr: "L'équipe", label_en: 'The team', kind: 'studio', topics: ['studio'], emit: false },
   '/equipe/simon-beros': { label_fr: 'Simon Beros, fondateur', label_en: 'Simon Beros, founder', kind: 'studio', topics: ['studio'], emit: false },
   '/technologies': { label_fr: 'Les technologies utilisées', label_en: 'Technologies used', kind: 'studio', topics: ['studio', 'automatisation'], emit: false },
   '/manifesto': { label_fr: 'Le manifeste', label_en: 'The manifesto', kind: 'studio', topics: ['studio'], emit: false },
@@ -215,7 +208,7 @@ function computeLiveRoutes(root: string): Set<string> {
     return live; // pas d'accès disque (rendu serverless) : aucun lien émis plutôt qu'un lien faux
   }
   for (const { route, file } of sources) {
-    if (!(route in PAGES) || NOINDEX_SITEMAP_PATHS.has(route)) continue;
+    if (!(route in PAGES) || NOINDEX_SITEMAP_PATHS.has(route) || isRedirectedPath(route)) continue;
     const id = route.split('/').pop() ?? '';
     if (route.startsWith('/services/') && (DEPUBLISHED_SERVICE_IDS.has(id) || id === 'template-service-ref')) continue;
     if (route.startsWith('/demonstrations/') && DEPUBLISHED_DEMONSTRATION_IDS.has(id)) continue;
@@ -257,6 +250,10 @@ function buildGraph(root: string): Graph {
     }
   }
 
+  // Un cas client ne lie pas un autre cas client depuis ce bloc : le gabarit pose déjà la
+  // bande « Autres cas » juste au-dessus (sinon les deux blocs listent les mêmes pages).
+  const allowed = (from: string, to: string) => !(PAGES[from].kind === 'cas-client' && PAGES[to].kind === 'cas-client');
+
   // 1. Anneaux : chaque page émettrice lie les pages qui la suivent dans chacun de ses thèmes.
   const out = new Map<string, string[]>(emitters.map((r) => [r, []]));
   for (const route of emitters) {
@@ -266,7 +263,7 @@ function buildGraph(root: string): Graph {
       const at = ring.indexOf(route);
       for (let step = 1, added = 0; step < ring.length && added < LINKS_PER_TOPIC; step++) {
         const target = ring[(at + step) % ring.length];
-        if (target === route || links.includes(target)) continue;
+        if (target === route || links.includes(target) || !allowed(route, target)) continue;
         links.push(target);
         added++;
       }
@@ -282,7 +279,7 @@ function buildGraph(root: string): Graph {
   for (const target of order) {
     while ((inbound.get(target) ?? 0) < MIN_INBOUND) {
       const candidates = emitters
-        .filter((e) => e !== target && !out.get(e)!.includes(target))
+        .filter((e) => e !== target && !out.get(e)!.includes(target) && allowed(e, target))
         .sort(
           (a, b) =>
             shares(b, target) - shares(a, target) ||
