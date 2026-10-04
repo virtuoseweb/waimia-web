@@ -106,7 +106,7 @@ export function tierPriceLabel(id: PricingTierId, lang: 'fr' | 'en' = 'fr'): str
 // Changer un prix = changer une valeur ici. Gate : `node scripts/check-pricing.mjs`.
 
 /** Taux horaire unique, en euros HT (interventions hors forfait, travail à l'heure). */
-export const HOURLY_RATE_EUR = 80 as const;
+export const HOURLY_RATE_EUR = 99 as const;
 
 /** Paliers mensuels de maintenance, en euros HT par mois (ordre croissant). */
 export const MAINTENANCE_TIERS_EUR = [99, 249, 449] as const;
