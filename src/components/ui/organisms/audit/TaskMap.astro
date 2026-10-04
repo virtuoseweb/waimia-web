@@ -1,0 +1,194 @@
+---
+// Organism · TaskMap · « feuille » de cartographie des tâches (hors catalogue).
+//
+// Rend l'exemple de livrable de l'audit comme un document : en-tête, tableau des
+// tâches, base de calcul. Deux densités :
+//   - variant="excerpt" : 3 premières lignes, colonnes réduites (hero de /audit-ia-pme)
+//   - variant="full"    : tableau complet + propositions + mises à l'écart
+// L'étiquette « Exemple illustratif » est rendue dans les deux cas (jamais optionnelle) :
+// l'entreprise est fictive, les chiffres servent à montrer le format.
+import {
+  exampleCompany,
+  exampleTasks,
+  exampleProposals,
+  exampleSetAside,
+} from '../../../../data/audit-ia-pme';
+
+interface Props {
+  variant?: 'excerpt' | 'full';
+}
+const { variant = 'full' } = Astro.props as Props;
+const isFull = variant === 'full';
+const rows = isFull ? exampleTasks : exampleTasks.slice(0, 3);
+const verdictLabel = { oui: 'Oui', partiel: 'En partie', non: 'Non' } as const;
+---
+<figure class:list={['tm', isFull ? 'tm--full' : 'tm--excerpt']}>
+  <div class="tm-sheet">
+    <div class="tm-top">
+      <p class="tm-title">Cartographie des tâches</p>
+      <p class="tm-co">{exampleCompany}</p>
+      <p class="tm-flag">Exemple illustratif, entreprise fictive</p>
+    </div>
+
+    <div class="tm-scroll" tabindex={isFull ? 0 : undefined} role={isFull ? 'region' : undefined} aria-label={isFull ? 'Tableau : exemple de cartographie des tâches' : undefined}>
+      <table class="tm-table">
+        {isFull && <caption class="tm-caption">Exemple de cartographie remise après un audit : six tâches, leur volume mensuel et le verdict d'automatisation.</caption>}
+        <thead>
+          <tr>
+            <th scope="col">Tâche</th>
+            {isFull && <th scope="col">Qui</th>}
+            <th scope="col">Fréquence</th>
+            {isFull && <th scope="col">Durée</th>}
+            <th scope="col" class="tm-num">Temps par mois</th>
+            <th scope="col">Automatisable</th>
+            {isFull && <th scope="col">Priorité</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr data-verdict={r.verdict}>
+              <th scope="row" class="tm-task">{r.task}</th>
+              {isFull && <td data-label="Qui">{r.who}</td>}
+              <td data-label="Fréquence">{r.frequency}</td>
+              {isFull && <td data-label="Durée">{r.unit}</td>}
+              <td class="tm-num" data-label="Temps par mois"><span class="tm-hours">{r.monthly}</span></td>
+              <td class="tm-auto" data-label="Automatisable">
+                <span class="tm-verdict">{verdictLabel[r.verdict]}</span>
+                {isFull && <span class="tm-reason">{r.reason}</span>}
+              </td>
+              {isFull && <td class="tm-rank" data-label="Priorité">{r.rank}</td>}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {isFull ? (
+      <div class="tm-after">
+        <p class="tm-basis">Base de calcul : 21 jours ouvrés et 4,33 semaines par mois. Temps par mois = occurrences × durée d'une occurrence, arrondi à la demi-heure. Les durées sont celles que l'équipe déclare pendant l'échange, pas une mesure chronométrée.</p>
+        <div class="tm-props">
+          {exampleProposals.map((p) => (
+            <div class="tm-prop">
+              <p class="tm-prop-t">{p.title}</p>
+              <p class="tm-prop-b">{p.body}</p>
+            </div>
+          ))}
+        </div>
+        <p class="tm-aside">{exampleSetAside}</p>
+      </div>
+    ) : (
+      <p class="tm-more">3 lignes sur 6. <a href="#livrable">Voir l'exemple complet</a></p>
+    )}
+  </div>
+  {isFull && (
+    <figcaption class="tm-figcap">Ce document est un exemple construit pour montrer le format. Il ne décrit aucun client de Waimia et ses chiffres ne sont pas des résultats.</figcaption>
+  )}
+</figure>
+
+<style>
+  .tm { margin: 0; min-width: 0; }
+  .tm-sheet {
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lift);
+  }
+  .tm-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-1) var(--space-4);
+    align-items: baseline;
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--ink);
+  }
+  .tm-title { margin: 0; font-size: var(--text-body); font-weight: var(--fw-semibold); letter-spacing: -0.01em; }
+  .tm-co { margin: 0; grid-column: 1; font-size: var(--text-small); color: var(--muted); }
+  .tm-flag {
+    margin: 0;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: var(--text-small);
+    color: var(--accent-text);
+    border: 1px solid currentColor;
+    border-radius: var(--radius-xs);
+    padding: var(--space-1) var(--space-2);
+    line-height: 1.3;
+    max-width: 16ch;
+    text-align: center;
+  }
+  .tm--full .tm-flag { max-width: none; }
+
+  .tm-scroll { overflow-x: auto; }
+  .tm-scroll:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  .tm-table { width: 100%; border-collapse: collapse; font-size: var(--text-small); line-height: var(--leading-lede); }
+  .tm--full .tm-table { min-width: 860px; }
+  .tm-caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .tm-table th, .tm-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: var(--space-3) var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+    font-weight: var(--fw-regular);
+  }
+  .tm-table th:first-child, .tm-table td:first-child { padding-left: var(--space-5); }
+  .tm-table th:last-child, .tm-table td:last-child { padding-right: var(--space-5); }
+  .tm-table thead th {
+    font-size: var(--text-small);
+    color: var(--muted);
+    border-bottom-color: var(--hairline-strong);
+    white-space: nowrap;
+    background: var(--paper-2);
+  }
+  .tm-task { color: var(--ink); font-weight: var(--fw-medium) !important; min-width: 15ch; }
+  .tm--full .tm-task { width: 26%; }
+  .tm-num { text-align: right !important; white-space: nowrap; }
+  .tm-hours { font-variant-numeric: tabular-nums; font-weight: var(--fw-medium); }
+  .tm-verdict { font-weight: var(--fw-semibold); display: block; }
+  tr[data-verdict='oui'] .tm-verdict { color: var(--ink); }
+  tr[data-verdict='partiel'] .tm-verdict { color: var(--muted); }
+  tr[data-verdict='non'] .tm-verdict { color: var(--accent-text); }
+  tr[data-verdict='non'] .tm-task { color: var(--muted); }
+  .tm-reason { display: block; color: var(--muted); margin-top: 2px; }
+  .tm-rank { white-space: nowrap; font-weight: var(--fw-medium) !important; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+
+  .tm-more { margin: 0; padding: var(--space-3) var(--space-5); border-top: 1px solid var(--hairline-strong); font-size: var(--text-small); color: var(--muted); }
+  .tm-more a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+
+  .tm-after { border-top: 1px solid var(--ink); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-5); }
+  .tm-basis { margin: 0; font-size: var(--text-small); line-height: var(--leading-body); color: var(--muted); max-width: 90ch; }
+  .tm-props { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+  .tm-prop-t { margin: 0 0 var(--space-2); font-size: var(--text-body); font-weight: var(--fw-semibold); }
+  .tm-prop-b { margin: 0; font-size: var(--text-small); line-height: 1.55; color: var(--ink); max-width: 60ch; }
+  .tm-aside { margin: 0; font-size: var(--text-small); line-height: 1.55; padding-left: var(--space-4); border-left: 3px solid var(--accent); max-width: 90ch; }
+  .tm-figcap { margin-top: var(--space-3); font-size: var(--text-small); line-height: var(--leading-body); color: var(--muted); max-width: 80ch; }
+
+  @media (max-width: 700px) {
+    .tm-top { grid-template-columns: 1fr; padding: var(--space-4); }
+    .tm-flag { grid-column: 1; grid-row: auto; justify-self: start; max-width: none; margin-top: var(--space-2); }
+    .tm-props { grid-template-columns: 1fr; gap: var(--space-5); }
+    .tm-after { padding: var(--space-4); }
+    .tm-more { padding: var(--space-3) var(--space-4); }
+
+    /* Mobile : chaque tâche devient une fiche (pas de défilement horizontal qui
+       cacherait le verdict). L'en-tête de colonnes reste lisible par les lecteurs
+       d'écran ; chaque cellule porte son libellé (data-label). */
+    .tm-scroll { overflow: visible; }
+    .tm--full .tm-table { min-width: 0; }
+    .tm-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .tm-table, .tm-table tbody { display: block; }
+    .tm-table tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2) var(--space-4);
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--hairline-strong);
+    }
+    .tm-table tbody tr:last-child { border-bottom: 0; }
+    .tm-table th, .tm-table td { display: block; padding: 0 !important; border: 0; text-align: left !important; }
+    .tm-task { grid-column: 1 / -1; width: auto !important; font-size: var(--text-body); }
+    .tm-table td::before { content: attr(data-label); display: block; font-size: var(--text-small); color: var(--muted); font-weight: var(--fw-regular); }
+    .tm-auto { grid-column: 1 / -1; }
+  }
+</style>

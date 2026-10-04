@@ -1,11 +1,15 @@
 ---
-// Page · /contact · Form RDV
+// Page · /contact · prise de rendez-vous (audit IA, 45 min) + formulaire de demande.
+//
+// Décision Simon (4 octobre 2026) : le rendez-vous se prend ICI. Tous les boutons
+// « Réserver un audit » du site pointent vers /contact?offer=audit-ia-pme&intent=audit.
+// La lecture des paramètres d'URL et l'ordre des blocs vivent dans l'organism
+// ContactConversion (source unique du markup, règle anti-orphelin).
 export const prerender = true;
 
-import UtilityTemplate from '../components/templates/UtilityTemplate.astro';
-import Button from '../components/ui/atoms/Button.astro';
-import CalEmbed from '../components/ui/molecules/CalEmbed.astro';
-import Kicker from '../components/ui/atoms/Kicker.astro';
+import Base from '../layouts/Base.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
+import ContactConversion from '../components/ui/organisms/conversion/ContactConversion.astro';
 import { SITE } from '../site.config';
 
 const contactLd = {
@@ -27,273 +31,17 @@ const contactLd = {
   },
 };
 ---
-<UtilityTemplate
-  title="Contact · Réserver une séance de travail · Waimia"
-  description="Une séance de 45 minutes pour un problème diagnostiqué, ou pas de relance. À distance, Meet ou Zoom, depuis Bordeaux. Réponse en 24 h ouvrées."
-  kicker="§ Contact"
-  align="centered"
+<Base
+  title="Contact · Réserver un audit IA gratuit de 45 min · Waimia"
+  description="Choisissez un créneau de 45 minutes en visio pour l'audit IA gratuit, ou envoyez votre demande par formulaire. Réponse de Simon Beros sous 24 h ouvrées."
   jsonLd={contactLd}
-  headlineFr="Une <i>séance</i>.<br />Pas un pitch."
-  headlineEn="A <i>session</i>.<br />Not a pitch."
-  ledeFr="45 minutes. On revient avec un problème diagnostiqué, ou on ne relance pas."
-  ledeEn="45 minutes. We come back with a diagnosed problem, or we don't follow up."
 >
-  <Fragment slot="body">
-    <div class="contact-grid">
-      {/* Form */}
-      <form class="contact-form" method="POST" action="/api/contact" name="contact" data-contact-form novalidate>
-        <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden">
-          <label for="contact-hp">Ne pas remplir</label>
-          <input type="text" id="contact-hp" name="_hp" tabindex="-1" autocomplete="off" />
-        </div>
-        <input type="hidden" name="lang" value="fr" />
-        <div class="form-row">
-          <label for="company"><span>Entreprise</span><span aria-hidden>*</span></label>
-          <input id="company" name="company" type="text" required autocomplete="organization" />
-        </div>
-        <div class="form-row">
-          <label for="name"><span>Votre nom</span><span aria-hidden>*</span></label>
-          <input id="name" name="name" type="text" required autocomplete="name" />
-        </div>
-        <div class="form-row">
-          <label for="email"><span>Email pro</span><span aria-hidden>*</span></label>
-          <input id="email" name="email" type="email" required autocomplete="email" />
-          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" />
-        </div>
-        <div class="form-row">
-          <label for="role">Fonction</label>
-          <input id="role" name="role" type="text" autocomplete="organization-title" />
-        </div>
-        <div class="form-row form-row-full">
-          <label for="brief"><span>Le problème en 3 phrases</span><span aria-hidden>*</span></label>
-          <textarea id="brief" name="brief" rows="4" required></textarea>
-        </div>
-        <p class="form-error-global" role="alert" aria-live="assertive" hidden data-contact-error></p>
-        <Button as="button" type="submit" variant="primary" size="lg">Réserver 45 min →</Button>
-      </form>
-
-      {/* Aside · contact direct */}
-      <div class="contact-aside">
-        <h2 class="contact-aside-h2">Ou directement</h2>
-        <ul class="contact-list">
-          <li>
-            <span class="contact-k">Email</span>
-            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-          </li>
-          <li>
-            <span class="contact-k">Booking</span>
-            <a href={`https://cal.com/${SITE.cal.username}/${SITE.cal.event}`} rel="noopener" target="_blank">cal.com/{SITE.cal.username}/{SITE.cal.event} ↗</a>
-          </li>
-          <li>
-            <span class="contact-k">LinkedIn</span>
-            <a href="https://linkedin.com/company/waimia" rel="noopener" target="_blank">/company/waimia ↗</a>
-          </li>
-          <li>
-            <span class="contact-k">Ancrage</span>
-            <span>Bordeaux · France</span>
-          </li>
-          <li>
-            <span class="contact-k">Rendez-vous</span>
-            <span>À distance · Meet ou Zoom</span>
-          </li>
-        </ul>
-        <p class="contact-foot">Réponse en 24 h ouvrées. Tout est NDA-protected. Pas de pitch automatisé.</p>
-      </div>
-    </div>
-
-    {/* Cal.com embed inline · option directe sans passer par form */}
-    <div class="contact-cal">
-      <Kicker tone="accent" class="contact-cal-k">§ Ou directement · réserver maintenant</Kicker>
-      <h2 class="contact-cal-h2">Pas de form. Choisissez un créneau.</h2>
-      <p class="contact-cal-lead">
-        Si vous savez déjà ce dont vous avez besoin, sautez le formulaire et bookez directement
-        45 minutes ci-dessous. Créneaux en direct, fuseau Europe/Paris.
-      </p>
-      <CalEmbed layout="inline" />
-    </div>
-  </Fragment>
-</UtilityTemplate>
-
-<style>
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: var(--space-10);
-    max-width: 1100px;
-    margin: 0 auto;
-    /* Conversion : remonte le formulaire dans le fold en reprenant une partie
-       du padding-top `--section-base` (96px) du `.util-body`, sans casser le
-       rythme des sections suivantes (Cal embed garde sa marge propre). */
-    margin-top: calc(-1 * var(--space-7));
-  }
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-  .form-row { display: flex; flex-direction: column; gap: 6px; }
-  .form-row-full { grid-column: 1 / -1; }
-  .form-row label {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: flex;
-    gap: var(--space-1);
-  }
-  .form-row label span:last-child { color: var(--accent-text); }
-  .form-row input,
-  .form-row textarea {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    padding: var(--space-3) 14px;
-    border: 1px solid var(--hairline-strong);
-    border-radius: var(--radius-xs);
-    background: var(--paper);
-    color: var(--ink);
-    transition: border-color var(--dur-fast) var(--ease);
-  }
-  .form-row input:focus,
-  .form-row textarea:focus {
-    border-color: var(--accent-text);
-  }
-  .form-errors { color: var(--accent-text); font-size: var(--text-small); margin-top: var(--space-2); min-height: 1em; }
-  .contact-form :global(.btn) { border-radius: var(--radius-xs); }
-
-  .contact-aside {
-    border-left: 1px solid var(--hairline);
-    padding-left: var(--space-7);
-  }
-  .contact-aside-h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h3);
-    letter-spacing: -0.018em;
-    font-weight: var(--fw-semibold);
-    margin: 0 0 var(--space-5);
-  }
-  .contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-5);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .contact-list li { display: flex; flex-direction: column; gap: var(--space-1); }
-  .contact-k {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .contact-list a {
-    color: var(--accent-text);
-    transition: color var(--dur-fast) var(--ease);
-  }
-  .contact-list a:hover { color: var(--accent-sur-clair, var(--accent)); }
-  .contact-foot {
-    font-size: var(--text-small);
-    color: var(--muted);
-    line-height: var(--leading-body);
-    margin: 0;
-  }
-
-  .contact-cal {
-    max-width: 1100px;
-    margin: var(--space-11) auto 0;
-    padding-top: var(--space-9);
-    border-top: 1px solid var(--hairline);
-  }
-  :global(.contact-cal-k) { display: block; margin-bottom: 18px; }
-  .contact-cal-h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: var(--leading-h1);
-    letter-spacing: -0.024em;
-    margin: 0 0 18px;
-    text-wrap: balance;
-    font-weight: var(--fw-semibold);
-  }
-  .contact-cal-h2 :global(i) { font-style: italic; color: var(--accent-text); }
-  .contact-cal-lead {
-    font-size: var(--text-body);
-    line-height: 1.55;
-    color: var(--muted);
-    margin: 0 0 var(--space-6);
-    max-width: 680px;
-  }
-
-  .form-error-global {
-    color: var(--accent-text);
-    font-size: var(--text-small);
-    line-height: var(--leading-body);
-    margin: 0;
-  }
-
-  @media (max-width: 800px) {
-    .contact-grid { grid-template-columns: 1fr; }
-    .contact-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: var(--space-6); }
-  }
-</style>
-
-<script is:inline>
-(function () {
-  function bindForm(form) {
-    if (form.dataset.contactBound) return;
-    form.dataset.contactBound = '1';
-
-    var langInput = form.querySelector('input[name="lang"]');
-    var lang = langInput ? langInput.value : 'fr';
-    var errorEl = form.querySelector('[data-contact-error]');
-    var btn = form.querySelector('button[type="submit"]');
-
-    function showError(msg) {
-      if (!errorEl) return;
-      errorEl.textContent = msg;
-      errorEl.removeAttribute('hidden');
-    }
-    function clearError() {
-      if (!errorEl) return;
-      errorEl.setAttribute('hidden', '');
-      errorEl.textContent = '';
-    }
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      clearError();
-      if (btn) btn.disabled = true;
-
-      var payload = Object.fromEntries(new FormData(form).entries());
-
-      try {
-        var res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        var data = await res.json();
-        if (data.ok && data.redirect) {
-          window.location.href = data.redirect;
-        } else {
-          showError(data.error || (lang === 'fr' ? 'Erreur, veuillez réessayer.' : 'Error, please try again.'));
-          if (btn) btn.disabled = false;
-        }
-      } catch (_) {
-        showError(lang === 'fr' ? 'Erreur réseau, veuillez réessayer.' : 'Network error, please try again.');
-        if (btn) btn.disabled = false;
-      }
-    });
-  }
-
-  document.querySelectorAll('form[data-contact-form]').forEach(bindForm);
-  document.addEventListener('astro:page-load', function () {
-    document.querySelectorAll('form[data-contact-form]').forEach(function (form) {
-      delete form.dataset.contactBound;
-      bindForm(form);
-    });
-  });
-})();
-</script>
+  <MastheadBar
+    lang="fr"
+    items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Contact' },
+    ]}
+  />
+  <ContactConversion />
+</Base>

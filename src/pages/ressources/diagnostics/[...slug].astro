@@ -13,7 +13,8 @@ import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('diagnostics');
+  // `maturite-ia` a sa route explicite (maturite-ia.astro : diagnostic interactif).
+  const entries = (await getCollection('diagnostics')).filter((e) => e.id !== 'maturite-ia');
   return entries.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },

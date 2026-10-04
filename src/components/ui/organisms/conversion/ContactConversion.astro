@@ -1,0 +1,273 @@
+---
+// Organism · ContactConversion · corps de la page /contact (hors catalogue).
+//
+// Deux blocs toujours présents dans le DOM :
+//   #rdv      prise de rendez-vous (calendrier Cal `SITE.cal`, event « audit », 45 min)
+//   #message  formulaire de demande (POST /api/contact) + coordonnées directes
+//
+// Lecture de l'URL (script inline, exécuté avant le premier affichage du bloc) :
+//   ?offer=<slug>&intent=<slug>
+//   - intent=audit (ou aucun paramètre, ou une intention de rendez-vous) : #rdv en premier,
+//     l'offre audit est annoncée dans le bloc et pré-sélectionnée dans le formulaire.
+//   - intent=message|devis|formation|question, ou offer=formation-* : #message en premier.
+//   - `offer` et `intent` (slugs) sont recopiés dans les champs cachés du formulaire et
+//     transmis à l'alerte interne de /api/contact.
+// La page est statique (prerender) : sans JavaScript, l'ordre par défaut (#rdv puis
+// #message) reste valable et le lien direct Cal.com sert de repli.
+import CalEmbed from '../../molecules/CalEmbed.astro';
+import ContactForm from './ContactForm.astro';
+import { SITE } from '../../../../site.config';
+import { AUDIT_PAGE_HREF } from '../../../../data/conversion';
+
+const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
+---
+<div class="cc" data-contact-root data-first="rdv">
+  <header class="cc-head">
+    <div class="wrap-wide cc-head-in">
+      <div class="cc-head-text">
+        <h1 class="cc-h1">Réserver l'audit IA, ou écrire à Waimia</h1>
+        <p class="cc-lede">Un créneau de 45 minutes en visio avec Simon Beros, ou un message si votre demande porte sur autre chose.</p>
+      </div>
+      <nav class="cc-switch" aria-label="Aller à">
+        <a href="#rdv" data-switch="rdv" aria-current="true">Choisir un créneau</a>
+        <a href="#message" data-switch="message">Écrire un message</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="cc-blocks">
+    <section class="cc-block cc-rdv" id="rdv" aria-labelledby="rdv-h2" data-block="rdv">
+      <div class="wrap-wide cc-rdv-in">
+        <div class="cc-rdv-info">
+          <p class="cc-selected" data-offer-selected>
+            <span class="cc-selected-k">Rendez-vous sélectionné</span>
+            <span class="cc-selected-v" data-offer-label>Audit IA pour PME</span>
+          </p>
+          <h2 class="cc-h2" id="rdv-h2">45 minutes, en visio, gratuit</h2>
+          <dl class="cc-facts">
+            <div><dt>Avec qui</dt><dd>Simon Beros, fondateur. C'est lui qui mènerait le projet ensuite.</dd></div>
+            <div><dt>Où</dt><dd>Google Meet ou Zoom. Le lien arrive avec la confirmation.</dd></div>
+            <div><dt>À préparer</dt><dd>La liste de vos outils (CRM, messagerie, facturation) et deux ou trois tâches qui reviennent chaque semaine.</dd></div>
+            <div><dt>Ensuite</dt><dd>Vous recevez la cartographie de vos tâches par e-mail. Aucune relance si vous ne donnez pas suite.</dd></div>
+          </dl>
+          <p class="cc-more"><a href={AUDIT_PAGE_HREF}>Voir le déroulé et un exemple de livrable</a></p>
+        </div>
+        <div class="cc-rdv-cal">
+          <CalEmbed layout="inline" />
+          <p class="cc-cal-alt">Le calendrier ne s'affiche pas ? <a href={calUrl} rel="noopener" target="_blank">Ouvrir cal.com/{SITE.cal.username}/{SITE.cal.event}</a> ou <a href="#message">écrire un message</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cc-block cc-msg" id="message" aria-labelledby="msg-h2" data-block="message">
+      <div class="wrap-wide cc-msg-in">
+        <div class="cc-msg-info">
+          <h2 class="cc-h2" id="msg-h2">Une autre demande ? Écrivez.</h2>
+          <p class="cc-msg-lede">Projet déjà cadré, formation, question sur une offre, ou simplement pas de créneau qui vous convient : le formulaire arrive directement dans la boîte de Simon.</p>
+          <ul class="cc-direct">
+            <li><span>E-mail</span><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+            <li><span>Téléphone</span><a href={`tel:${SITE.telE164}`}>{SITE.tel}</a></li>
+            <li><span>LinkedIn</span><a href={SITE.linkedin} rel="noopener" target="_blank">linkedin.com/company/waimia</a></li>
+            <li><span>Lieu</span><span class="cc-direct-v">Bordeaux. Missions à distance, déplacements à Bordeaux, Montpellier, Lyon et Paris.</span></li>
+          </ul>
+        </div>
+        <div class="cc-msg-form">
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script is:inline>
+(function () {
+  // Objets connus → libellé du rendez-vous + objet pré-sélectionné dans le formulaire.
+  var OFFERS = {
+    'audit-ia-pme': { label: 'Audit IA pour PME', subject: 'audit' },
+    'maturite-ia': { label: 'Audit IA pour PME, suite du diagnostic de maturité', subject: 'audit' },
+    'diagnostic-maturite-ia': { label: 'Audit IA pour PME, suite du diagnostic de maturité', subject: 'audit' },
+  };
+  var FORM_FIRST_INTENTS = ['message', 'devis', 'formation', 'question', 'contact', 'projet'];
+  var SLUG = /^[a-z0-9-]{1,60}$/;
+
+  function apply() {
+    var root = document.querySelector('[data-contact-root]');
+    if (!root) return;
+    var params = new URLSearchParams(window.location.search);
+    var offer = (params.get('offer') || '').toLowerCase();
+    var intent = (params.get('intent') || '').toLowerCase();
+    if (!SLUG.test(offer)) offer = '';
+    if (!SLUG.test(intent)) intent = '';
+
+    var known = OFFERS[offer];
+    var subject = known ? known.subject
+      : offer.indexOf('formation') === 0 || intent === 'formation' ? 'formation'
+      : offer.indexOf('audit') === 0 || intent === 'audit' ? 'audit'
+      : offer || FORM_FIRST_INTENTS.indexOf(intent) !== -1 ? 'projet'
+      : 'audit';
+    var formFirst = FORM_FIRST_INTENTS.indexOf(intent) !== -1 || subject === 'formation';
+    var first = formFirst ? 'message' : 'rdv';
+
+    root.dataset.first = first;
+    root.dataset.offer = offer;
+    root.dataset.intent = intent;
+
+    var label = root.querySelector('[data-offer-label]');
+    if (label && known) label.textContent = known.label;
+
+    var sel = root.querySelector('[data-contact-subject]');
+    if (sel) sel.value = subject;
+    var o = root.querySelector('[data-contact-offer]');
+    if (o) o.value = offer;
+    var i = root.querySelector('[data-contact-intent]');
+    if (i) i.value = intent;
+
+    root.querySelectorAll('[data-switch]').forEach(function (a) {
+      if (a.dataset.switch === first) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  apply();
+  document.addEventListener('astro:page-load', apply);
+})();
+</script>
+
+<style>
+  .cc-head { padding: var(--space-7) 0 var(--space-6); }
+  .cc-head-in {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+  .cc-h1 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: 1.04;
+    letter-spacing: var(--tracking-display);
+    font-weight: var(--fw-semibold);
+    margin: 0 0 var(--space-3);
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+  .cc-lede {
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    color: var(--muted);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  /* Bascule : deux ancres, pas des onglets ARIA (les deux blocs restent visibles). */
+  .cc-switch {
+    display: inline-flex;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-xs);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .cc-switch a {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-small);
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .cc-switch a + a { border-left: 1px solid var(--ink); }
+  .cc-switch a[aria-current='true'] { background: var(--ink); color: var(--paper); }
+  .cc-switch a:not([aria-current='true']):hover { background: var(--paper-2); }
+  .cc-switch a:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -4px; }
+
+  /* Ordre des blocs piloté par l'URL (data-first posé par le script). */
+  .cc-blocks { display: flex; flex-direction: column; }
+  .cc[data-first='message'] .cc-msg { order: -1; }
+
+  .cc-block { border-top: 1px solid var(--hairline-strong); scroll-margin-top: var(--header-height); }
+  .cc-rdv { background: var(--paper-2); padding: var(--space-7) 0 var(--space-9); }
+  .cc-msg { padding: var(--space-9) 0 var(--space-10); }
+
+  .cc-rdv-in {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 2fr);
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .cc-selected {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin: 0 0 var(--space-5);
+    padding: var(--space-3) var(--space-4);
+    border-left: 3px solid var(--accent);
+    background: var(--paper);
+  }
+  .cc-selected-k { font-size: var(--text-small); color: var(--muted); }
+  .cc-selected-v { font-size: var(--text-body); font-weight: var(--fw-semibold); color: var(--ink); }
+  .cc-h2 {
+    font-family: var(--font-sans);
+    font-size: calc(var(--text-h3) * 1.15);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    font-weight: var(--fw-semibold);
+    margin: 0 0 var(--space-5);
+    text-wrap: balance;
+  }
+  .cc-facts { margin: 0; display: flex; flex-direction: column; }
+  .cc-facts div {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .cc-facts dt { font-size: var(--text-small); color: var(--muted); line-height: var(--leading-body); }
+  .cc-facts dd { margin: 0; font-size: var(--text-small); line-height: var(--leading-body); color: var(--ink); }
+  .cc-more { margin: var(--space-4) 0 0; font-size: var(--text-small); }
+  .cc-more a,
+  .cc-cal-alt a,
+  .cc-direct a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .cc-rdv-cal { min-width: 0; }
+  .cc-cal-alt { margin: var(--space-4) 0 0; font-size: var(--text-small); color: var(--muted); line-height: var(--leading-body); }
+
+  .cc-msg-in {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr);
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .cc-msg-lede { font-size: var(--text-body); line-height: 1.55; color: var(--muted); margin: 0 0 var(--space-6); max-width: 44ch; }
+  .cc-direct { list-style: none; margin: 0; padding: 0; }
+  .cc-direct li {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--hairline-strong);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+  }
+  .cc-direct li > span:first-child { color: var(--muted); }
+  .cc-direct a { overflow-wrap: anywhere; }
+  .cc-msg-form { max-width: 760px; }
+
+  @media (max-width: 900px) {
+    .cc-head { padding: var(--space-5) 0 var(--space-5); }
+    .cc-lede { font-size: var(--text-body); }
+    .cc-switch { width: 100%; }
+    .cc-switch a { flex: 1; text-align: center; padding: var(--space-3) var(--space-2); }
+    .cc-rdv-in, .cc-msg-in { grid-template-columns: 1fr; gap: var(--space-6); }
+    .cc-rdv { padding: var(--space-5) 0 var(--space-8); }
+    /* Mobile : le calendrier d'abord, les détails pratiques ensuite. */
+    .cc-rdv-info { display: contents; }
+    .cc-selected { order: -2; margin: 0; }
+    .cc-rdv-cal { order: -1; }
+    .cc-rdv-in { display: flex; flex-direction: column; gap: var(--space-5); }
+    .cc-rdv-in > .cc-rdv-info > * { width: 100%; }
+    .cc-h2 { margin-bottom: 0; }
+  }
+</style>

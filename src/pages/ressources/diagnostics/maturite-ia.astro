@@ -1,0 +1,83 @@
+---
+export const prerender = true;
+
+// Page SSG · /ressources/diagnostics/maturite-ia · LE diagnostic du site (route explicite,
+// prioritaire sur [...slug].astro qui exclut ce slug).
+//
+// Refonte 4 octobre 2026 : la page était un contenu de lecture sans questionnaire. Elle
+// porte désormais le diagnostic interactif de bout en bout (organism MaturityDiagnostic :
+// questions, score, restitution à l'écran, e-mail facultatif, CTA audit), suivi du contenu
+// d'explication (niveaux, dimensions, FAQ) rendu depuis l'entrée `diagnostics/maturite-ia`.
+
+import { getEntry } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import MastheadBar from '../../../components/sections/MastheadBar.astro';
+import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
+import MaturityDiagnostic from '../../../components/ui/organisms/conversion/MaturityDiagnostic.astro';
+import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
+import { buildArticle } from '../../../lib/seo/schema-builder';
+import { SITE } from '../../../site.config';
+
+const entry = await getEntry('diagnostics', 'maturite-ia');
+if (!entry) throw new Error('diagnostics/maturite-ia introuvable.');
+const data = entry.data;
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error('diagnostics/maturite-ia : `sections` requis (niveaux, dimensions, FAQ, bande finale).');
+}
+
+const title = data.title_fr;
+const description = data.description_fr;
+const canonicalUrl = `${SITE.url}/ressources/diagnostics/maturite-ia`;
+
+const articleLd = buildArticle({
+  headline: title,
+  description,
+  datePublished: new Date(data.publishedAt).toISOString().slice(0, 10),
+  dateModified: data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : undefined,
+  mainEntityOfPage: canonicalUrl,
+});
+const webAppLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Diagnostic de maturité IA',
+  url: canonicalUrl,
+  description,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  browserRequirements: 'Requires JavaScript',
+  inLanguage: 'fr',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+};
+
+// Le questionnaire s'insère après la réponse directe (première section du JSON).
+const [first, ...rest] = data.sections!;
+---
+
+<Base title={title} description={description} jsonLd={[articleLd, webAppLd]} noindex={data.seo?.noindex}>
+  <MastheadBar
+    lang="fr"
+    items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Ressources', href: '/ressources' },
+      { label: 'Diagnostic de maturité IA' },
+    ]}
+  />
+  <ToolIntro
+    h1="Diagnostic IA : la maturité de votre entreprise en dix questions"
+    lede="Cinq dimensions, deux questions chacune. Vous obtenez un niveau de 1 à 5, une note par dimension et le point à traiter en premier."
+    facts={[
+      { label: 'Durée', value: '4 minutes' },
+      { label: 'Résultat', value: "Affiché sur la page" },
+      { label: 'E-mail', value: 'Facultatif, pour garder le détail' },
+      { label: 'Vos réponses', value: 'Restent dans votre navigateur' },
+    ]}
+  />
+  <MaturityDiagnostic />
+  <SectionsRenderer sections={[first]} lang="fr" />
+  <SectionsRenderer sections={rest.slice(0, -2)} lang="fr" />
+  <ResourceLinks exclude={['diagnostic']} background="paper-2" />
+  <SectionsRenderer sections={rest.slice(-2)} lang="fr" />
+</Base>

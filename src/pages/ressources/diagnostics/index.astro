@@ -1,154 +1,56 @@
 ---
 export const prerender = true;
 
-// Page SSG · /ressources/diagnostics · HUB diagnostics · rendu 100 % composable.
-// noindex=true : hub mince (2 enfants seulement, politique index-on-quality strategy/10 §3).
-// Hero court + cartes dérivées via la section catalogue `related-cards-band` (cap .max(3),
-// .min(2)). Compile collection vide (les .mdx arrivent en parallèle) : si <2 cartes, 0 band.
-// Profondeur 3 niveaux (ressources/diagnostics/) → imports en `../../../`.
+// Page SSG · /ressources/diagnostics · hub (noindex).
+// Refonte 4 octobre 2026 : il n'y a plus QU'UN diagnostic, celui de maturité IA
+// (interactif). Les anciennes pages claude-pme, referent-ia et site-web-intelligent sont
+// sorties des parcours (301 à poser, cf rapport de la PR) : ce hub ne les liste plus.
+// Tant que la redirection /ressources/diagnostics → /ressources/diagnostics/maturite-ia
+// n'est pas posée, la page oriente vers le diagnostic et les autres outils gratuits.
 
-import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
-import type { SectionData, SectionByType } from '@waimia/ds-kernel';
-
-const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
-const isFr = lang === 'fr';
-
-type Card = SectionByType<'related-cards-band'>['cards'][number];
-
-// Micro-repère de différenciation par diagnostic : la question précise que chacun tranche,
-// pour choisir vite entre quatre libellés proches.
-const cue: Record<string, { fr: string; en: string }> = {
-  'claude-pme': {
-    fr: 'Êtes-vous prêts à déployer Claude ? Les cinq fondations à poser avant de connecter l\'IA à vos outils.',
-    en: 'Are you ready to deploy Claude? The five foundations to lay before wiring AI to your tools.',
-  },
-  'maturite-ia': {
-    fr: 'À quel niveau de maturité IA se situe votre entreprise ? La grille des cinq niveaux et les dimensions qui comptent.',
-    en: 'What AI maturity level is your company at? The five-level grid and the dimensions that matter.',
-  },
-  'referent-ia': {
-    fr: 'Vous faut-il un référent IA en interne, et avec quels moyens ? Les cinq signaux qui le rendent nécessaire.',
-    en: 'Do you need an internal AI lead, and with what means? The five signals that make one necessary.',
-  },
-  'site-web-intelligent': {
-    fr: 'Votre site qualifie-t-il vos visiteurs ou reste-t-il une vitrine passive ? La checklist qui tranche.',
-    en: 'Does your site qualify visitors or stay a passive brochure? The checklist that settles it.',
-  },
-};
-
-const cards: Card[] = (await getCollection('diagnostics'))
-  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
-  .map((e) => {
-    const d = e.data;
-    const slug = d.slug ?? e.id;
-    const shortTitle = (full: string) => full.split(' · ')[0].trim();
-    return {
-      kicker_fr: 'Diagnostic',
-      kicker_en: 'Diagnostic',
-      title_fr: shortTitle(d.title_fr),
-      title_en: shortTitle(d.title_en),
-      lead_fr: cue[slug]?.fr ?? d.description_fr,
-      lead_en: cue[slug]?.en ?? d.description_en,
-      href: `/ressources/diagnostics/${slug}`,
-    };
-  });
-
-// Chunker équilibré 2-3 (jamais de singleton) : respecte .min(2)/.max(3) du schéma.
-function chunkCards(items: Card[]): Card[][] {
-  if (items.length < 2) return [];
-  const chunks: Card[][] = [];
-  let rest = [...items];
-  while (rest.length > 0) {
-    if (rest.length === 4) {
-      chunks.push(rest.slice(0, 2));
-      chunks.push(rest.slice(2, 4));
-      rest = [];
-    } else if (rest.length <= 3) {
-      chunks.push(rest);
-      rest = [];
-    } else {
-      chunks.push(rest.slice(0, 3));
-      rest = rest.slice(3);
-    }
-  }
-  return chunks;
-}
-
-const hero: SectionByType<'hero-hub-masthead'> = {
-  type: 'hero-hub-masthead',
-  background: 'paper',
-  variant: 'listing',
-  decoration: false,
-  align: 'left',
-  kicker_fr: '§ Diagnostics · évaluez avant de décider',
-  kicker_en: '§ Diagnostics · assess before you decide',
-  h1_fr: '<span>Diagnostics</span><br/><span><i>gratuits</i>.</span>',
-  h1_en: '<span>Free</span><br/><span><i>diagnostics</i>.</span>',
-  lede_fr: "Quatre repérages pour situer votre entreprise avant tout engagement : préparation à Claude, maturité IA, besoin d'un référent, qualité de votre site. Vous repartez avec une lecture claire, pas un argumentaire commercial.",
-  lede_en: 'Four reads to place your company before any commitment: Claude readiness, AI maturity, need for a lead, website quality. You leave with a clear read, not a sales pitch.',
-};
+import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
+import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
+import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, DIAGNOSTIC_HREF } from '../../../data/conversion';
 
 const ctaFinal: SectionByType<'cta-final'> = {
   type: 'cta-final',
   background: 'ink',
-  h2_fr: 'Envie d\'en parler ?',
-  h2_en: 'Want to talk about it?',
-  body_fr: 'Un diagnostic de 45 minutes, gratuit et sans engagement : on lit votre contexte ensemble et on vous dit vite où sont les leviers.',
-  body_en: 'A 45-minute diagnostic, free and with no commitment: we read your context together and tell you quickly where the levers are.',
-  cta_primary: {
-    label_fr: 'Réserver un diagnostic (45 min) →',
-    label_en: 'Book a diagnostic (45 min) →',
-    href: '/contact',
-    variant: 'primary',
-  },
-  cta_secondary: {
-    label_fr: "Voir l'audit IA pour PME →",
-    label_en: 'See the AI audit for SMBs →',
-    href: '/audit-ia-pme',
-    variant: 'ghost',
-  },
+  h2_fr: 'Le diagnostic situe. L\'audit dit par quoi commencer.',
+  h2_en: 'The diagnostic places you. The audit says where to start.',
+  body_fr: '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, une cartographie écrite à la fin.',
+  body_en: '45 minutes by video call, free: your processes reviewed task by task, a written map at the end.',
+  cta_primary: { label_fr: 'Réserver l\'audit IA', label_en: 'Book the AI audit', href: AUDIT_BOOKING_HREF, variant: 'primary' },
+  cta_secondary: { label_fr: 'Ce que couvre l\'audit', label_en: 'What the audit covers', href: AUDIT_PAGE_HREF, variant: 'ghost' },
 };
-
-const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
-  type: 'related-cards-band',
-  background: i % 2 === 0 ? 'paper' : 'paper-2',
-  ...(i === 0
-    ? { kicker_fr: '§ Les diagnostics disponibles', kicker_en: '§ Available diagnostics' }
-    : {}),
-  cards: chunk,
-}) satisfies SectionByType<'related-cards-band'>);
-
-const signature: SectionByType<'branded-callout'> = {
-  type: 'branded-callout',
-  background: 'paper-2',
-  kicker_fr: '§ Le principe',
-  kicker_en: '§ The principle',
-  h2_fr: 'Un repérage honnête, pas un argumentaire.',
-  h2_en: 'An honest read, not a sales pitch.',
-  body1_fr: 'Chaque diagnostic vous situe sur une grille claire et vous dit quelle fondation poser en premier. Vous repartez avec une lecture, pas une facture.',
-  body1_en: 'Each diagnostic places you on a clear grid and tells you which foundation to lay first. You leave with a read, not an invoice.',
-};
-
-const sections: SectionData[] = [hero, signature, ...cardBands, ctaFinal];
 ---
 
 <Base
-  title={isFr ? 'Diagnostics IA gratuits · Waimia' : 'Free AI diagnostics · Waimia'}
-  description={isFr
-    ? 'Diagnostics gratuits pour situer votre maturité IA et la qualité de votre site web avant tout engagement. Une lecture claire, sans argumentaire.'
-    : 'Free diagnostics to assess your AI maturity and website quality before any commitment. A clear read, no sales pitch.'}
+  title="Diagnostic IA gratuit · Waimia"
+  description="Un diagnostic de maturité IA en dix questions, avec un résultat immédiat et sans e-mail, et trois outils gratuits pour préparer un projet d'automatisation."
   noindex={true}
 >
   <MastheadBar
-    lang={lang}
+    lang="fr"
     items={[
-      { label: isFr ? 'Accueil' : 'Home', href: isFr ? '/' : '/en' },
-      { label: isFr ? 'Ressources' : 'Resources', href: isFr ? '/ressources' : '/en/ressources' },
+      { label: 'Accueil', href: '/' },
+      { label: 'Ressources', href: '/ressources' },
       { label: 'Diagnostics' },
     ]}
   />
-  <SectionsRenderer sections={sections} lang={lang} />
+  <ToolIntro
+    h1="Un seul diagnostic : votre maturité IA"
+    lede="Dix questions, un niveau de 1 à 5 et le point à traiter en premier. Le résultat s'affiche tout de suite, sans e-mail."
+    facts={[
+      { label: 'Durée', value: '4 minutes' },
+      { label: 'E-mail', value: 'Facultatif' },
+    ]}
+  >
+    <a slot="actions" class="btn btn-primary btn-lg" href={DIAGNOSTIC_HREF}>Commencer le diagnostic</a>
+  </ToolIntro>
+  <ResourceLinks exclude={['diagnostic']} background="paper-2" title="Les autres outils, sans inscription" />
+  <CtaFinal data={ctaFinal} lang="fr" />
 </Base>

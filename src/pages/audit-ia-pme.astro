@@ -1,20 +1,28 @@
 ---
 export const prerender = true;
 
-// Page SSG · /audit-ia-pme · route EXPLICITE (pas de [slug]) · rendu 100 % composable.
-// Money page conversion (politique index-on-quality strategy/10 §3) → indexée.
-// Source = entrée unique getEntry('audits','audit-ia-pme'). MDX sans `sections:` = build throw.
+// Page SSG · /audit-ia-pme · la page qui PRÉSENTE l'audit (refonte 4 octobre 2026).
+// Son CTA mène à /contact?offer=audit-ia-pme&intent=audit (prise de rendez-vous).
+//
+// Composition : organisms dédiés (src/components/ui/organisms/audit/*, contenu dans
+// src/data/audit-ia-pme.ts) + sections catalogue pour la FAQ et la bande finale
+// (entrée `audits/audit-ia-pme`, rendues par SectionsRenderer : la FAQ émet le FAQPage
+// JSON-LD, source canonique). Aucun markup inline dans cette page.
 
 import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../components/sections/MastheadBar.astro';
+import AuditHero from '../components/ui/organisms/audit/AuditHero.astro';
+import AuditBody from '../components/ui/organisms/audit/AuditBody.astro';
+import ResourceLinks from '../components/ui/organisms/conversion/ResourceLinks.astro';
 import { buildService, buildOffer } from '../lib/seo/schema-builder';
 import { SITE } from '../site.config';
+import { AUDIT_BOOKING_HREF } from '../data/conversion';
 
 const entry = await getEntry('audits', 'audit-ia-pme');
 if (!entry) {
-  throw new Error("audit-ia-pme : entrée `audits/audit-ia-pme` introuvable (contenu requis, créé en parallèle).");
+  throw new Error("audit-ia-pme : entrée `audits/audit-ia-pme` introuvable.");
 }
 const data = entry.data;
 
@@ -23,15 +31,14 @@ const title = lang === 'en' ? data.title_en : data.title_fr;
 const description = lang === 'en' ? data.description_en : data.description_fr;
 
 if (!Array.isArray(data.sections) || data.sections.length === 0) {
-  throw new Error("audit-ia-pme : frontmatter `sections:` requis (page composable, anti-orphelin).");
+  throw new Error("audit-ia-pme : `sections` requis (FAQ + bande finale).");
 }
 
-// JSON-LD métier · Service + Offer (audit positionné comme prestation gratuite, levier
-// conversion) + FAQPage depuis faq_fr/faq_en (miroir de la section faq-two-column).
+// JSON-LD métier · Service + Offer (prestation gratuite). FAQPage émis par `faq-accordion`.
 const serviceLd = buildService({
   name: title,
   description,
-  serviceType: data.seo?.serviceType ?? 'Audit IA / Diagnostic',
+  serviceType: data.seo?.serviceType ?? 'Audit IA / Diagnostic IA',
   priceRange: data.seo?.priceRange,
   priceMin: data.seo?.priceMin,
   priceMax: data.seo?.priceMax,
@@ -40,10 +47,8 @@ const offerLd = buildOffer({
   name: title,
   price: data.seo?.priceMin ?? 0,
   priceCurrency: 'EUR',
-  url: `${SITE.url}/contact`,
+  url: `${SITE.url}${AUDIT_BOOKING_HREF}`,
 });
-// FAQPage JSON-LD émis une seule fois par la section catalogue `faq-accordion`
-// (source canonique, cf docs/audits #56). La page ne le duplique plus ici.
 const pageLd = [serviceLd, offerLd];
 ---
 
@@ -55,5 +60,8 @@ const pageLd = [serviceLd, offerLd];
       { label: lang === 'fr' ? 'Audit IA pour PME' : 'AI audit for SMBs' },
     ]}
   />
+  <AuditHero />
+  <AuditBody />
+  <ResourceLinks exclude={['audit']} title="Pour préparer l'audit, seul et sans inscription" />
   <SectionsRenderer sections={data.sections!} lang={lang} />
 </Base>
