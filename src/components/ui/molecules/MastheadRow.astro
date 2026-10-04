@@ -9,7 +9,7 @@
 //   <MastheadRow breadcrumb={[{label:'Accueil',href:'/'},{label:'Services'}]} />
 
 import { langFromPath } from '../../../lib/i18n';
-import { SITE } from '../../../site.config';
+import { absoluteUrl, buildBreadcrumbList } from '../../../lib/seo/schema-builder';
 
 interface Crumb {
   /** Libellé déjà résolu par langue */
@@ -68,16 +68,9 @@ const lang_label = lang === 'fr' ? 'Édition française' : 'French edition';
   <span class="u-masthead-cell u-masthead-status"><span class="u-masthead-dot">◉</span> {status}</span>
 </div>
 {hasCrumbs && (
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumb!.map((c, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: c.label,
-      ...(c.href ? { item: `${SITE.url}${c.href}` } : {}),
-    })),
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(
+    buildBreadcrumbList(breadcrumb!.map((c) => ({ name: c.label, url: c.href })), absoluteUrl(Astro.url.pathname)),
+  )} />
 )}
 
 <style>

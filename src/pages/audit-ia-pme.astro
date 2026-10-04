@@ -17,6 +17,7 @@ import AuditHero from '../components/ui/organisms/audit/AuditHero.astro';
 import AuditBody from '../components/ui/organisms/audit/AuditBody.astro';
 import ResourceLinks from '../components/ui/organisms/conversion/ResourceLinks.astro';
 import { buildService, buildOffer } from '../lib/seo/schema-builder';
+import { engagementOffer } from '../data/pricing';
 import { SITE } from '../site.config';
 import { AUDIT_BOOKING_HREF } from '../data/conversion';
 
@@ -34,22 +35,23 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
   throw new Error("audit-ia-pme : `sections` requis (FAQ + bande finale).");
 }
 
-// JSON-LD métier · Service + Offer (prestation gratuite). FAQPage émis par `faq-accordion`.
+// JSON-LD métier · Service avec son offre (prestation gratuite). FAQPage émis par `faq-accordion`.
+const auditOffer = engagementOffer('audit');
 const serviceLd = buildService({
   name: title,
   description,
+  url: `${SITE.url}/audit-ia-pme`,
   serviceType: data.seo?.serviceType ?? 'Audit IA / Diagnostic IA',
-  priceRange: data.seo?.priceRange,
-  priceMin: data.seo?.priceMin,
-  priceMax: data.seo?.priceMax,
+  // Prix ferme (0 €) lu dans la source de prix ; l'offre pointe la page de prise de rendez-vous.
+  offers: buildOffer({
+    name: auditOffer.name,
+    price: auditOffer.pricing.price,
+    priceCurrency: 'EUR',
+    url: `${SITE.url}${AUDIT_BOOKING_HREF}`,
+    nested: true,
+  }),
 });
-const offerLd = buildOffer({
-  name: title,
-  price: data.seo?.priceMin ?? 0,
-  priceCurrency: 'EUR',
-  url: `${SITE.url}${AUDIT_BOOKING_HREF}`,
-});
-const pageLd = [serviceLd, offerLd];
+const pageLd = [serviceLd];
 ---
 
 <Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>

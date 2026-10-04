@@ -8,6 +8,8 @@ import Base from '../layouts/Base.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
 import rawData from '../data/pages/tarifs.json';
 import { applyPricingTokens } from '../data/pricing';
+import { buildPricingCatalog } from '../lib/seo/schema-builder';
+import { SITE } from '../site.config';
 
 // Jetons `{{prix.*}}` résolus depuis la source unique src/data/pricing.ts.
 const data = applyPricingTokens(rawData);
@@ -19,8 +21,11 @@ const description = lang === 'en' ? data.description_en : data.description_fr;
 if (!Array.isArray(data.sections) || data.sections.length === 0) {
   throw new Error('tarifs : `sections` requis (page composable, anti-orphelin).');
 }
+
+// JSON-LD · catalogue des offres, ligne pour ligne, depuis la source de prix (pricing.ts).
+const catalogLd = buildPricingCatalog(title.split(' · ')[0], `${SITE.url}/tarifs`);
 ---
 
-<Base title={title} description={description} alternate={false}>
+<Base title={title} description={description} alternate={false} jsonLd={catalogLd}>
   <SectionsRenderer sections={data.sections as any} lang={lang} />
 </Base>

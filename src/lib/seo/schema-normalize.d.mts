@@ -7,6 +7,8 @@ export interface SiteIdentity {
   founderId: string;
   founderName: string;
   founderUrl: string;
+  /** Profils du fondateur ailleurs sur le web (LinkedIn). */
+  founderSameAs?: string[];
   logoUrl: string;
   areaServed: Json[];
 }
@@ -20,4 +22,8 @@ export interface PageContext {
 
 export function typesOf(node: Json): string[];
 export function normalizeNode(node: Json, ctx: PageContext, site: SiteIdentity): Json;
-export function repairBreadcrumb(block: Json, resolveUrl: (name: string, index: number) => string | null): Json | null;
+export function repairBreadcrumb(
+  block: Json,
+  resolveUrl: (name: string, index: number) => string | null,
+  currentUrl?: string,
+): Json | null;

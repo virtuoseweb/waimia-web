@@ -8,6 +8,8 @@
  */
 
 import { SITE } from '../../site.config';
+import founderData from '../../content/authors/simon-beros.json';
+import { ENGAGEMENT_OFFERS, type EngagementPricing } from '../../data/pricing';
 
 const SITE_URL = SITE.url;
 
@@ -31,6 +33,8 @@ interface BuildServiceInput {
   priceRange?: string;
   priceMin?: number;
   priceMax?: number;
+  /** Page hub : catalogue des services enfants (pages réelles). */
+  catalog?: { name: string; services: Array<{ name: string; url: string }> };
 }
 
 interface BuildOfferInput {
@@ -40,6 +44,8 @@ interface BuildOfferInput {
   priceSpecification?: JsonLdObject;
   availability?: string;
   url?: string;
+  /** Offre imbriquée dans un autre nœud (Service.offers) : pas de `@context` propre. */
+  nested?: boolean;
 }
 
 interface BuildArticleInput {
@@ -68,16 +74,36 @@ interface BuildContext {
   authorEntry?: any;
 }
 
-function buildBreadcrumbList(items: Array<{ name: string; url?: string }>) {
+/** URL absolue canonique d'un chemin du site (sans slash final, sauf la racine). */
+export function absoluteUrl(pathOrUrl: string): string {
+  if (/^https?:\/\//.test(pathOrUrl)) return pathOrUrl;
+  const clean = pathOrUrl.split('#')[0].split('?')[0].replace(/\/+$/, '');
+  return clean === '' ? `${SITE_URL}/` : `${SITE_URL}${clean.startsWith('/') ? '' : '/'}${clean}`;
+}
+
+/**
+ * JSON-LD `BreadcrumbList`. SOURCE UNIQUE du fil d'Ariane structuré : les composants
+ * `<Breadcrumb>` et `<MastheadRow>` passent par ici.
+ *
+ * Chaque `ListItem` porte `position`, `name` ET `item` (URL absolue), dernier niveau
+ * compris : Google tolère l'absence d'`item` sur le dernier élément, mais Search Console
+ * la remonte en avertissement « Champ "item" manquant ». `currentUrl` = URL canonique de la
+ * page, attribuée au dernier niveau quand il n'a pas d'URL propre. Un niveau intermédiaire
+ * sans URL est complété après le build (seo-postbuild.mjs : URL de la page parente réelle).
+ */
+function buildBreadcrumbList(items: Array<{ name: string; url?: string }>, currentUrl?: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      name: item.name,
-      ...(item.url ? { item: item.url } : {}),
-    })),
+    itemListElement: items.map((item, idx) => {
+      const url = item.url ?? (idx === items.length - 1 ? currentUrl : undefined);
+      return {
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: item.name,
+        ...(url ? { item: absoluteUrl(url) } : {}),
+      };
+    }),
   };
 }
 
@@ -108,6 +134,31 @@ export const AREA_SERVED: JsonLdObject[] = [
 
 const LOGO_URL = `${SITE_URL}/favicon-256.png`;
 
+/**
+ * Fondateur : une seule entité sur tout le site (même `@id` partout). Nom et profil LinkedIn
+ * viennent de la fiche auteur (src/content/authors/simon-beros.json), pas d'une copie.
+ */
+export const FOUNDER = {
+  id: SCHEMA_IDS.founder,
+  name: founderData.title_fr,
+  url: `${SITE_URL}/equipe/simon-beros`,
+  sameAs: [founderData.social?.linkedin].filter((u): u is string => Boolean(u)),
+} as const;
+
+/** Nœud `Person` court du fondateur (auteur d'article, fondateur de l'organisation). */
+export function founderPerson(): JsonLdObject {
+  return {
+    '@type': 'Person',
+    '@id': FOUNDER.id,
+    name: FOUNDER.name,
+    url: FOUNDER.url,
+    ...(FOUNDER.sameAs.length > 0 ? { sameAs: [...FOUNDER.sameAs] } : {}),
+  };
+}
+
+/** Référence à l'Organization du site : un seul nœud complet par page, relié par `@id`. */
+export const ORGANIZATION_REF = { '@id': SCHEMA_IDS.organization } as const;
+
 /** Adresse légale (siège). Ne change pas avec la zone desservie. */
 function postalAddress(): JsonLdObject {
   return {
@@ -136,7 +187,15 @@ function buildOrganization(): JsonLdObject {
     vatID: SITE.vatID,
     address: postalAddress(),
     areaServed: AREA_SERVED,
-    founder: { '@type': 'Person', '@id': SCHEMA_IDS.founder, name: 'Simon Beros', url: `${SITE_URL}/equipe/simon-beros` },
+    founder: founderPerson(),
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: SITE.email,
+      telephone: SITE.telE164,
+      availableLanguage: ['fr'],
+      areaServed: { '@type': 'Country', name: 'France' },
+    },
     sameAs: [...SITE.sameAs],
     knowsAbout: [
       'Automatisation des processus',
@@ -192,22 +251,63 @@ function buildLocalBusiness(): JsonLdObject {
   };
 }
 
+export interface BuildPersonInput {
+  /** Slug de la fiche auteur (`/equipe/<slug>`). */
+  slug: string;
+  name: string;
+  jobTitle?: string;
+  description?: string;
+  /** Chemin ou URL de la photo. */
+  image?: string;
+  sameAs?: Array<string | undefined>;
+  /** Domaines d'expertise affichés sur la fiche. */
+  knowsAbout?: string[];
+}
+
+/** JSON-LD `Person` complet (fiche auteur). N'y mettre que des faits affichés sur la fiche. */
+function buildPerson(input: BuildPersonInput): JsonLdObject {
+  // `sameAs` = profils de la personne ailleurs sur le web ; le site lui-même n'en est pas un.
+  const sameAs = (input.sameAs ?? []).filter((u): u is string => Boolean(u) && u !== SITE_URL && u !== `${SITE_URL}/`);
+  return withContext({
+    '@type': 'Person',
+    '@id': `${SITE_URL}/equipe/${input.slug}#person`,
+    name: input.name,
+    url: `${SITE_URL}/equipe/${input.slug}`,
+    ...(input.jobTitle ? { jobTitle: input.jobTitle } : {}),
+    ...(input.description ? { description: input.description } : {}),
+    ...(input.image ? { image: absoluteUrl(input.image) } : {}),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+    ...(input.knowsAbout?.length ? { knowsAbout: input.knowsAbout } : {}),
+    worksFor: ORGANIZATION_REF,
+  });
+}
+
+/** JSON-LD `ProfilePage` d'une fiche auteur : référence la `Person` émise à côté. */
+function buildProfilePage(input: { slug: string; name: string }): JsonLdObject {
+  const url = `${SITE_URL}/equipe/${input.slug}`;
+  return withContext({
+    '@type': 'ProfilePage',
+    '@id': `${url}#profilepage`,
+    url,
+    name: input.name,
+    inLanguage: 'fr-FR',
+    isPartOf: { '@id': SCHEMA_IDS.website },
+    mainEntity: { '@id': `${url}#person` },
+  });
+}
+
 function buildPersonFromAuthor(authorEntry: any, lang: Lang): JsonLdObject | undefined {
   if (!authorEntry) return undefined;
   const a = authorEntry.data;
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${SITE_URL}/equipe/${authorEntry.id}#person`,
+  return buildPerson({
+    slug: authorEntry.id,
     name: a.title_fr,
     jobTitle: lang === 'fr' ? a.role_fr : a.role_en,
     description: lang === 'fr' ? a.description_fr : a.description_en,
-    image: a.photo ? `${SITE_URL}${a.photo}` : undefined,
-    url: `${SITE_URL}/equipe/${authorEntry.id}`,
-    sameAs: [a.social?.linkedin, a.social?.x, a.social?.github, a.social?.website].filter(Boolean),
-    worksFor: { '@id': SCHEMA_IDS.organization },
-  };
+    image: a.photo,
+    sameAs: [a.social?.linkedin, a.social?.github, a.social?.website],
+    knowsAbout: a.expertise,
+  });
 }
 
 function buildCitations(sources: any[]) {
@@ -241,6 +341,134 @@ function withContext(schema: JsonLdObject): JsonLdObject {
   return { '@context': 'https://schema.org', ...schema };
 }
 
+// ─── Prix (source unique des nœuds Offer) ────────────────────────────────────
+// Tous les prix du site sont hors taxes : `valueAddedTaxIncluded: false` partout.
+// Aucun montant n'est écrit ici : ils viennent de src/data/pricing.ts ou du contenu de la
+// page (champ `seo.priceMin` du service, affiché par sa section de prix).
+
+/** Spécification de prix d'une offre, selon sa nature (ferme, « dès », mensuel, horaire). */
+function priceFields(pricing: EngagementPricing): JsonLdObject {
+  const base = { priceCurrency: 'EUR', valueAddedTaxIncluded: false };
+  switch (pricing.kind) {
+    case 'fixed':
+      return {
+        price: pricing.price,
+        priceCurrency: 'EUR',
+        priceSpecification: { '@type': 'PriceSpecification', price: pricing.price, ...base },
+      };
+    case 'from':
+      return {
+        priceCurrency: 'EUR',
+        priceSpecification: { '@type': 'PriceSpecification', minPrice: pricing.price, ...base },
+      };
+    case 'monthly':
+      return {
+        price: pricing.price,
+        priceCurrency: 'EUR',
+        priceSpecification: { '@type': 'UnitPriceSpecification', price: pricing.price, unitCode: 'MON', ...base },
+      };
+    case 'hourly':
+      return {
+        price: pricing.price,
+        priceCurrency: 'EUR',
+        priceSpecification: { '@type': 'UnitPriceSpecification', price: pricing.price, unitCode: 'HUR', ...base },
+      };
+  }
+}
+
+/**
+ * Offre d'une page service à partir de ses prix affichés (`seo.priceMin` / `seo.priceMax`,
+ * `seo.priceRange` pour l'unité). « Dès X € » → `minPrice` seul : jamais de plafond inventé.
+ * Une fourchette mensuelle (« €/mois ») sort en `UnitPriceSpecification` (unitCode MON).
+ */
+function buildServiceOffer(input: {
+  name: string;
+  url?: string;
+  priceMin?: number;
+  priceMax?: number;
+  priceRange?: string;
+}): JsonLdObject | undefined {
+  if (input.priceMin == null && input.priceMax == null) return undefined;
+  const monthly = /\/\s*mois/i.test(input.priceRange ?? '');
+  return {
+    '@type': 'Offer',
+    name: input.name,
+    ...(input.url ? { url: input.url } : {}),
+    priceCurrency: 'EUR',
+    priceSpecification: {
+      '@type': monthly ? 'UnitPriceSpecification' : 'PriceSpecification',
+      priceCurrency: 'EUR',
+      ...(input.priceMin != null ? { minPrice: input.priceMin } : {}),
+      ...(input.priceMax != null ? { maxPrice: input.priceMax } : {}),
+      ...(monthly ? { unitCode: 'MON' } : {}),
+      valueAddedTaxIncluded: false,
+    },
+  };
+}
+
+export interface CatalogService {
+  name: string;
+  /** Chemin ou URL de la page du service. */
+  url: string;
+}
+
+/**
+ * `OfferCatalog` listant des services (pages réelles du site). Sans prix : le prix d'un
+ * service est balisé sur SA page, là où il est affiché.
+ */
+function buildServiceCatalog(name: string, services: CatalogService[], id?: string): JsonLdObject {
+  return {
+    '@type': 'OfferCatalog',
+    ...(id ? { '@id': id } : {}),
+    name,
+    numberOfItems: services.length,
+    itemListElement: services.map((svc) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: svc.name, url: absoluteUrl(svc.url) },
+    })),
+  };
+}
+
+/**
+ * Catalogue complet de /services : un `OfferCatalog` par domaine, chacun listant ses pages.
+ * Relié à l'Organization par `hasOfferCatalog` (page-schema.ts).
+ */
+function buildServicesHubCatalog(
+  name: string,
+  url: string,
+  domains: Array<{ name: string; services: CatalogService[] }>,
+): JsonLdObject {
+  return withContext({
+    '@type': 'OfferCatalog',
+    '@id': `${url}#catalogue`,
+    name,
+    url,
+    numberOfItems: domains.length,
+    itemListElement: domains.map((d) => buildServiceCatalog(d.name, d.services)),
+  });
+}
+
+/**
+ * Catalogue des offres de /tarifs, ligne pour ligne, depuis src/data/pricing.ts
+ * (ENGAGEMENT_OFFERS). Chaque montant balisé est affiché sur la page (gate check-jsonld).
+ */
+function buildPricingCatalog(name: string, url: string): JsonLdObject {
+  return withContext({
+    '@type': 'OfferCatalog',
+    '@id': `${url}#catalogue`,
+    name,
+    url,
+    numberOfItems: ENGAGEMENT_OFFERS.length,
+    itemListElement: ENGAGEMENT_OFFERS.map((offer) => ({
+      '@type': 'Offer',
+      name: offer.name,
+      url,
+      ...priceFields(offer.pricing),
+      seller: ORGANIZATION_REF,
+    })),
+  });
+}
+
 function buildService(input: BuildServiceInput): JsonLdObject;
 function buildService(name: string, description: string, provider?: JsonLdObject, areaServed?: Array<string | JsonLdObject>): JsonLdObject;
 function buildService(
@@ -249,37 +477,68 @@ function buildService(
   provider?: JsonLdObject,
   areaServed?: Array<string | JsonLdObject>,
 ): JsonLdObject {
-  const input =
+  const input: BuildServiceInput =
     typeof inputOrName === 'string'
       ? { name: inputOrName, description: description ?? '', provider, areaServed }
       : inputOrName;
 
-  const derivedOffers =
-    !input.offers && (input.priceMin != null || input.priceMax != null)
-      ? {
-          '@type': 'Offer',
-          priceCurrency: 'EUR',
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            priceCurrency: 'EUR',
-            ...(input.priceMin != null ? { minPrice: input.priceMin } : {}),
-            ...(input.priceMax != null ? { maxPrice: input.priceMax } : {}),
-          },
-        }
-      : undefined;
-
   // `priceRange` n'est PAS une propriété de Service dans schema.org (elle appartient à
-  // LocalBusiness) : elle n'est plus émise. Le prix passe par `offers.priceSpecification`,
-  // et seulement si la page fournit un prix (donc l'affiche).
+  // LocalBusiness) : elle n'est pas émise, elle sert seulement à lire l'unité (« /mois »).
+  // Le prix passe par `offers`, et seulement si la page fournit un prix (donc l'affiche).
+  const offers =
+    input.offers ??
+    buildServiceOffer({
+      name: input.name,
+      url: input.url,
+      priceMin: input.priceMin,
+      priceMax: input.priceMax,
+      priceRange: input.priceRange,
+    });
+
   return withContext({
     '@type': 'Service',
     name: input.name,
     description: input.description,
-    provider: input.provider ?? { '@id': SCHEMA_IDS.organization },
+    provider: input.provider ?? ORGANIZATION_REF,
     areaServed: input.areaServed ?? AREA_SERVED,
     serviceType: input.serviceType || input.name,
     ...(input.url ? { url: input.url } : {}),
-    ...(input.offers ? { offers: input.offers } : derivedOffers ? { offers: derivedOffers } : {}),
+    ...(offers ? { offers } : {}),
+    ...(input.catalog && input.catalog.services.length > 0
+      ? { hasOfferCatalog: buildServiceCatalog(input.catalog.name, input.catalog.services) }
+      : {}),
+  });
+}
+
+/**
+ * Présence dans une ville SANS bureau (Bordeaux, Lyon…) : `ProfessionalService` rattaché à
+ * l'Organization, `areaServed` = la ville, AUCUNE adresse postale. L'adresse n'existe que
+ * sur l'entité du siège (buildLocalBusiness).
+ */
+function buildCityService(input: { city: string; url: string; description?: string }): JsonLdObject {
+  return withContext({
+    '@type': 'ProfessionalService',
+    '@id': `${input.url}#service-local`,
+    name: SITE.name,
+    url: input.url,
+    ...(input.description ? { description: input.description } : {}),
+    image: LOGO_URL,
+    email: SITE.email,
+    areaServed: { '@type': 'City', name: input.city },
+    parentOrganization: ORGANIZATION_REF,
+  });
+}
+
+/** JSON-LD `ContactPage` : l'entité contactée est l'Organization du site (référence). */
+function buildContactPage(input: { name: string; url: string }): JsonLdObject {
+  return withContext({
+    '@type': 'ContactPage',
+    '@id': `${input.url}#contactpage`,
+    name: input.name,
+    url: input.url,
+    inLanguage: 'fr-FR',
+    isPartOf: { '@id': SCHEMA_IDS.website },
+    mainEntity: ORGANIZATION_REF,
   });
 }
 
@@ -293,8 +552,8 @@ export interface BuildCourseInput {
   url: string;
   /** Durée totale en heures (ex. 14 pour 2 jours). */
   durationHours?: number;
-  /** Modalité : distanciel, présentiel ou mixte. */
-  mode?: 'online' | 'onsite' | 'blended';
+  /** Modalités réellement proposées (affichées sur la page). */
+  modes?: ReadonlyArray<'online' | 'onsite' | 'blended'>;
   /** Niveau visé, en clair (ex. « Débutant »). */
   level?: string;
   /** Prérequis, en clair. */
@@ -309,10 +568,10 @@ export interface BuildCourseInput {
    */
   priceEur?: number;
   /** Organisme qui dispense la formation, si ce n'est pas Waimia en direct. */
-  deliveredBy?: { name: string; url?: string };
+  deliveredBy?: { name: string; description?: string; url?: string };
 }
 
-const COURSE_MODE: Record<NonNullable<BuildCourseInput['mode']>, string> = {
+const COURSE_MODE: Record<'online' | 'onsite' | 'blended', string> = {
   online: 'Online',
   onsite: 'Onsite',
   blended: 'Blended',
@@ -322,15 +581,17 @@ const COURSE_MODE: Record<NonNullable<BuildCourseInput['mode']>, string> = {
  * JSON-LD `Course` pour une page /formations/*. Champs requis par Google : name,
  * description, provider. `hasCourseInstance` porte la modalité et la durée.
  *
- *   buildCourse({ name, description, url, durationHours: 14, mode: 'online',
- *                 deliveredBy: { name: 'Akigora', url: 'https://akigora.com' } })
+ *   buildCourse({ name, description, url, modes: ['online', 'onsite'],
+ *                 deliveredBy: { name: 'Akigora', description: 'Organisme certifié Qualiopi' } })
  */
 function buildCourse(input: BuildCourseInput): JsonLdObject {
+  // `hasCourseInstance` seulement s'il existe une modalité ou une durée RÉELLE.
+  const modes = (input.modes ?? []).map((m) => COURSE_MODE[m]);
   const instance =
-    input.mode || input.durationHours
+    modes.length > 0 || input.durationHours
       ? {
           '@type': 'CourseInstance',
-          ...(input.mode ? { courseMode: COURSE_MODE[input.mode] } : {}),
+          ...(modes.length > 0 ? { courseMode: modes.length === 1 ? modes[0] : modes } : {}),
           ...(input.durationHours ? { courseWorkload: `PT${input.durationHours}H` } : {}),
           instructor: { '@id': SCHEMA_IDS.founder },
         }
@@ -342,16 +603,19 @@ function buildCourse(input: BuildCourseInput): JsonLdObject {
     description: input.description,
     url: input.url,
     inLanguage: 'fr-FR',
-    provider: { '@id': SCHEMA_IDS.organization },
-    ...(input.deliveredBy
-      ? {
-          sourceOrganization: {
+    // Waimia apporte le formateur et le contenu ; l'organisme qui dispense la formation
+    // (Akigora) est déclaré à côté, avec la mention exacte affichée sur la page.
+    provider: input.deliveredBy
+      ? [
+          ORGANIZATION_REF,
+          {
             '@type': 'Organization',
             name: input.deliveredBy.name,
+            ...(input.deliveredBy.description ? { description: input.deliveredBy.description } : {}),
             ...(input.deliveredBy.url ? { url: input.deliveredBy.url } : {}),
           },
-        }
-      : {}),
+        ]
+      : ORGANIZATION_REF,
     ...(input.level ? { educationalLevel: input.level } : {}),
     ...(input.prerequisites?.length ? { coursePrerequisites: input.prerequisites } : {}),
     ...(input.teaches?.length ? { teaches: input.teaches } : {}),
@@ -426,7 +690,7 @@ function buildOffer(
       ? inputOrPrice
       : { price: inputOrPrice, priceCurrency: priceCurrency ?? 'EUR', name: name ?? 'Waimia service' };
 
-  return withContext({
+  const offer: JsonLdObject = {
     '@type': 'Offer',
     name: input.name,
     ...(input.price !== undefined ? { price: input.price } : {}),
@@ -434,7 +698,8 @@ function buildOffer(
     ...(input.priceSpecification ? { priceSpecification: input.priceSpecification } : {}),
     availability: input.availability ?? 'https://schema.org/InStock',
     ...(input.url ? { url: input.url } : {}),
-  });
+  };
+  return 'nested' in input && input.nested ? offer : withContext(offer);
 }
 
 function buildArticle(input: BuildArticleInput): JsonLdObject;
@@ -462,10 +727,14 @@ function buildArticle(
           author,
         }
       : inputOrHeadline;
+  // Sans auteur fourni (ou auteur = le fondateur), l'article est signé du fondateur, relié
+  // à sa fiche et à son profil LinkedIn.
   const authorSchema =
-    typeof input.author === 'string'
-      ? { '@type': 'Person', name: input.author }
-      : input.author;
+    !input.author || input.author === FOUNDER.name
+      ? founderPerson()
+      : typeof input.author === 'string'
+        ? { '@type': 'Person', name: input.author }
+        : input.author;
 
   return withContext({
     '@type': 'Article',
@@ -474,15 +743,8 @@ function buildArticle(
     ...(input.image ? { image: Array.isArray(input.image) ? input.image : [input.image] } : {}),
     datePublished: input.datePublished,
     dateModified: input.dateModified ?? input.datePublished,
-    ...(authorSchema ? { author: authorSchema } : {}),
-    publisher:
-      input.publisher ??
-      {
-        '@type': 'Organization',
-        '@id': `${SITE_URL}/#organization`,
-        name: SITE.name,
-        logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon-256.png` },
-      },
+    author: authorSchema,
+    publisher: input.publisher ?? ORGANIZATION_REF,
     ...(input.mainEntityOfPage
       ? {
           mainEntityOfPage:
@@ -982,8 +1244,16 @@ export {
   buildWebApplication,
   buildLocalBusiness,
   buildOffer,
+  buildPerson,
   buildPersonFromAuthor,
+  buildProfilePage,
   buildProductSchema,
+  buildServiceOffer,
+  buildServiceCatalog,
+  buildServicesHubCatalog,
+  buildPricingCatalog,
+  buildCityService,
+  buildContactPage,
   buildFAQPage,
   buildService,
 };

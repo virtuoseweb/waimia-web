@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../../../site.config';
+import { absoluteUrl, buildBreadcrumbList } from '../../../lib/seo/schema-builder';
 
 interface Crumb {
   label: string;
@@ -12,6 +12,11 @@ interface Props {
   noJsonLd?: boolean;
 }
 const { items, lang = 'fr', noJsonLd = false } = Astro.props;
+// JSON-LD via le constructeur unique : chaque niveau porte `item`, le dernier = URL de la page.
+const breadcrumbLd = buildBreadcrumbList(
+  items.map((c) => ({ name: c.label, url: c.href })),
+  absoluteUrl(Astro.url.pathname),
+);
 ---
 <div class="breadcrumb-bar">
   <nav class="breadcrumb wrap-wide" aria-label={lang === 'fr' ? "Fil d'Ariane" : 'Breadcrumb'}>
@@ -27,16 +32,7 @@ const { items, lang = 'fr', noJsonLd = false } = Astro.props;
       })}
     </ol>
   </nav>
-  {!noJsonLd && <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((c, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: c.label,
-      ...(c.href ? { item: `${SITE.url}${c.href}` } : {}),
-    })),
-  })} />}
+  {!noJsonLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
 </div>
 
 <style>

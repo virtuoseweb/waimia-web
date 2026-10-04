@@ -10,6 +10,8 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildService } from '../../lib/seo/schema-builder';
 import { DEPUBLISHED_SERVICE_IDS } from '../../data/depublished';
+import { hubChildren } from '../../lib/seo/service-catalog';
+import { SITE } from '../../site.config';
 
 export async function getStaticPaths() {
   const entries = await getCollection('services');
@@ -41,10 +43,16 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
 // JSON-LD métier · Service (GEO/AIO). BreadcrumbList émis par le composant <Breadcrumb>.
 // Le FAQPage JSON-LD est émis UNE seule fois par la section catalogue `faq-accordion`
 // (source canonique, cf docs/audits #56). La page ne le duplique plus ici.
+// Prix : `seo.priceMin` / `seo.priceMax` du contenu (affichés par la section de prix de la page).
+// Hub : `hasOfferCatalog` liste ses services enfants (source : menu Solutions).
+const pagePath = `/services/${entry.id}`;
+const children = hubChildren(pagePath);
 const serviceLd = buildService({
   name: title,
   description,
+  url: `${SITE.url}${pagePath}`,
   serviceType: data.seo?.serviceType,
+  ...(children.length > 0 ? { catalog: { name: title.split(' · ')[0], services: children } } : {}),
   priceRange: data.seo?.priceRange,
   priceMin: data.seo?.priceMin,
   priceMax: data.seo?.priceMax,

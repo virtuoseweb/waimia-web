@@ -11,25 +11,10 @@ import Base from '../layouts/Base.astro';
 import MastheadBar from '../components/sections/MastheadBar.astro';
 import ContactConversion from '../components/ui/organisms/conversion/ContactConversion.astro';
 import { SITE } from '../site.config';
+import { buildContactPage } from '../lib/seo/schema-builder';
 
-const contactLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Contact Waimia',
-  url: `${SITE.url}/contact`,
-  mainEntity: {
-    '@type': 'Organization',
-    name: SITE.name,
-    email: SITE.email,
-    contactPoint: [{
-      '@type': 'ContactPoint',
-      contactType: 'sales',
-      email: SITE.email,
-      areaServed: ['FR', 'CH', 'BE', 'LU'],
-      availableLanguage: ['French', 'English'],
-    }],
-  },
-};
+// L'entité contactée est l'Organization du site (nœud unique, avec son `contactPoint`).
+const contactLd = buildContactPage({ name: 'Contact Waimia', url: `${SITE.url}/contact` });
 ---
 <Base
   title="Contact · Réserver un audit IA gratuit de 45 min · Waimia"

@@ -265,8 +265,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
         "type": "direct-answer",
-        "label": "#1",
+        "label": "#2",
         "background": "paper-2"
       },
       {
@@ -276,7 +281,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#3",
+        "label": "#4",
         "background": "paper-2"
       },
       {
@@ -291,7 +296,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#6",
+        "label": "#7",
         "background": "paper"
       },
       {
@@ -460,8 +465,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
         "type": "direct-answer",
-        "label": "#1",
+        "label": "#2",
         "background": "paper-2"
       },
       {
@@ -471,7 +481,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#3",
+        "label": "#4",
         "background": "paper"
       },
       {
@@ -481,7 +491,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#5",
+        "label": "#6",
         "background": "paper"
       },
       {

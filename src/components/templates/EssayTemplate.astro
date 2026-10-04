@@ -187,12 +187,6 @@ const articleLd = buildArticle({
     ...(authorSlug ? { '@id': `${siteUrl}/equipe/${authorSlug}#person`, url: `${siteUrl}/equipe/${authorSlug}` } : {}),
     name: author,
   },
-  publisher: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-    name: SITE.name,
-    logo: { '@type': 'ImageObject', url: `${siteUrl}/og/default.png` },
-  },
   mainEntityOfPage: canonicalUrl,
   articleSection,
   keywords: tags,
@@ -501,7 +495,12 @@ const articleLd = buildArticle({
   margin: 0 0 1.4em 1.5em;
   max-width: 640px;
 }
-.essay-prose :global(li) { margin-bottom: 0.4em; line-height: var(--leading-body); }
+/* Listes du corps : mêmes taille et couleur que les paragraphes, puces visibles (le reset
+   global retire les marqueurs et les listes héritaient de la taille « small » du conteneur). */
+.essay-prose :global(ul) { list-style: disc; }
+.essay-prose :global(ol) { list-style: decimal; }
+.essay-prose :global(li) { margin-bottom: 0.4em; font-size: var(--text-body); line-height: var(--leading-body); }
+.essay-prose :global(li)::marker { color: var(--accent-text); }
 
 .essay-prose :global(hr) {
   border: none;

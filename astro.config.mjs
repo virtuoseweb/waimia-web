@@ -21,6 +21,7 @@ import {
 } from './src/lib/seo/internal-tools.mjs';
 import { lastmodFor } from './src/lib/seo/lastmod.mjs';
 import { SITE_IDENTITY } from './src/lib/seo/page-schema.ts';
+import { LLMS_SUMMARY, llmsDetails } from './src/lib/seo/llms-summary.ts';
 // Apps-as-plugins (fiche 0027 D3) : registre des apps internes extraites en packages.
 // Chaque app enabled+extraite expose une AstroIntegration qui injecte sa route.
 import { enabledAppIntegrations, APPS } from './src/apps.config.ts';
@@ -374,17 +375,12 @@ export default defineConfig({
     // un .md par page, /llms.txt structuré par silo, /llms-full.txt. Remplace le couple
     // (@4hse/astro-llms-txt + ancien llms-md-pages) qui produisait ~4 100 .md et un
     // llms-full.txt de 5,7 Mo, catalogue interne compris.
+    // L'en-tête (positionnement, offre, parcours et prix, formations, garde-fous, contact) est
+    // dérivé des sources uniques : src/lib/seo/llms-summary.ts.
     llmsMdPages({
       siteUrl: SITE.url,
-      summary:
-        "Waimia est un studio de développement IA et un cabinet de transformation IA et d'automatisation des processus pour PME et ETI françaises (10 à 250 collaborateurs).",
-      details: [
-        "Ce que fait Waimia : conseil (audit, feuille de route), intégration (automatisation n8n et Make, agents IA sur Claude et OpenAI, bases de connaissance), développement (applications métier sur mesure), formation (IA et automatisation).",
-        "Comment : un ingénieur travaille avec les équipes métier (forward deployed engineer). Audit, pilote en production, mesure, transfert du code. RGPD et AI Act pris en compte dès la conception, validation humaine sur les actions sensibles.",
-        "Qui : Simon Beros, fondateur, studio solo. Basé à Bordeaux, missions à distance ou sur site (Bordeaux, Montpellier, Lyon, Paris).",
-        "Chaque lien ci-dessous pointe la version markdown d'une page publique. L'URL canonique est la même sans l'extension .md. Contenu complet en un seul fichier : " +
-          `${SITE.url}/llms-full.txt`,
-      ],
+      summary: LLMS_SUMMARY,
+      details: llmsDetails(),
     }),
     // DEV-ONLY : persistance git-based du DS Studio (bouton "Enregistrer").
     // Le hook astro:server:setup n'est actif que sous `astro dev` -> 0 impact

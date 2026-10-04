@@ -146,3 +146,82 @@ export function applyPricingTokens<T>(value: T): T {
   }
   return value;
 }
+
+// ─── Parcours d'engagement (page /tarifs) · SOURCE UNIQUE des montants balisés ───────────
+// Les cinq étapes affichées sur /tarifs, avec leur prix d'entrée. Le JSON-LD `OfferCatalog`
+// de la page (src/lib/seo/schema-builder.ts → buildPricingCatalog) et le résumé de
+// /llms.txt lisent ces valeurs ; le gate check-jsonld vérifie que chaque montant balisé est
+// bien affiché sur la page.
+
+/** Sprint de cadrage : prix fixe, en euros HT, et durée en heures. */
+export const SCOPING_SPRINT_EUR = 999 as const;
+export const SCOPING_SPRINT_HOURS = 10 as const;
+
+/** Durée de l'audit gratuit, en minutes. */
+export const AUDIT_DURATION_MIN = 45 as const;
+
+/** Pilote : prix d'entrée (= plancher de la grille). */
+export const PILOT_FLOOR_EUR = PRICE_FLOOR_EUR;
+
+/** Déploiement sur mesure : prix d'entrée (= palier « avancé » de la grille). */
+export const DEPLOYMENT_FLOOR_EUR = tierById('avance').price as number;
+
+export type EngagementPricing =
+  /** Prix ferme. */
+  | { kind: 'fixed'; price: number }
+  /** « Dès X € » : prix d'entrée, devis ferme après audit. */
+  | { kind: 'from'; price: number }
+  /** Forfait mensuel. */
+  | { kind: 'monthly'; price: number }
+  /** Taux horaire. */
+  | { kind: 'hourly'; price: number };
+
+export interface EngagementOffer {
+  id: string;
+  /** Libellé tel qu'affiché sur /tarifs. */
+  name: string;
+  pricing: EngagementPricing;
+}
+
+/** Lignes de /tarifs, dans l'ordre du parcours. Tous les montants sont hors taxes. */
+export const ENGAGEMENT_OFFERS: readonly EngagementOffer[] = [
+  {
+    id: 'audit',
+    name: 'Audit IA',
+    pricing: { kind: 'fixed', price: 0 },
+  },
+  {
+    id: 'sprint-cadrage',
+    name: 'Sprint de cadrage',
+    pricing: { kind: 'fixed', price: SCOPING_SPRINT_EUR },
+  },
+  {
+    id: 'pilote',
+    name: 'Pilote',
+    pricing: { kind: 'from', price: PILOT_FLOOR_EUR },
+  },
+  {
+    id: 'deploiement',
+    name: 'Déploiement sur mesure',
+    pricing: { kind: 'from', price: DEPLOYMENT_FLOOR_EUR },
+  },
+  ...MAINTENANCE_TIERS_EUR.map(
+    (price, i): EngagementOffer => ({
+      id: `maintenance-p${i + 1}`,
+      name: `Accompagnement continu, palier ${i + 1}`,
+      pricing: { kind: 'monthly', price },
+    }),
+  ),
+  {
+    id: 'taux-horaire',
+    name: 'Interventions hors forfait',
+    pricing: { kind: 'hourly', price: HOURLY_RATE_EUR },
+  },
+];
+
+/** Ligne du parcours par id (échec de build si l'id n'existe pas). */
+export function engagementOffer(id: string): EngagementOffer {
+  const found = ENGAGEMENT_OFFERS.find((o) => o.id === id);
+  if (!found) throw new Error(`offre du parcours inconnue : ${id}`);
+  return found;
+}
