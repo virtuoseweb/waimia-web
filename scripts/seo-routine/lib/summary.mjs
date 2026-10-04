@@ -38,7 +38,7 @@ export function summarizeKeywordsWithoutGsc(keywords) {
   return keywords.map((k) => ({ query: k.query, cluster: k.cluster, priority: k.priority, volume: k.volume, difficulty: k.difficulty, target: k.target, visible: null, position: null, rankedPage: null }));
 }
 
-export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, indexnow, indexingApi, feeds, competitors, keywords = [], sitemapPaths = null }) {
+export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, indexnow, indexingApi, brave, feeds, competitors, keywords = [], sitemapPaths = null }) {
   const gsc = summarizePerformance(perf, keywords);
   const targets = [...new Set(keywords.map((k) => k.target).filter(Boolean))];
   return {
@@ -86,6 +86,8 @@ export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, i
       submittedPaths: indexingApi.submitted.map(pathOf),
       note: indexingApi.note ?? null,
     },
+    // File à soumettre à la main sur search.brave.com/submit-url (aucune API) : voir brave-queue.mjs.
+    brave: !brave ? null : { toSubmit: brave.toSubmit, count: brave.toSubmit.length, note: brave.note ?? null },
     feeds: !feeds ? null : {
       entryCount: feeds.entryCount,
       byTheme: feeds.byTheme,

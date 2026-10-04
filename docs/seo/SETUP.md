@@ -1,6 +1,15 @@
 # Routine SEO/GEO : mise en route
 
-Ce que Simon fait lui-même, une seule fois. Compter quinze minutes. Tant que ce n'est pas fait, la collecte tourne quand même chaque lundi, sans les données Search Console ni les notifications de l'Indexing API (flux, concurrents et IndexNow seulement).
+> **État au 4 octobre 2026 : mise en route faite.** Les étapes 1 à 4 ci-dessous sont terminées :
+>
+> - les deux API (Google Search Console API et Web Search Indexing API) sont activées dans le projet `master-well-486317-d9` ;
+> - le compte de service est propriétaire de `sc-domain:waimia.com` ;
+> - le secret `GSC_SERVICE_ACCOUNT_JSON` est posé dans le repo ;
+> - la première collecte complète a réussi (2026-W40) : 7 étapes `ok`, 73 URL soumises à l'Indexing API et à IndexNow.
+>
+> La procédure reste ici pour référence : changement de clé, nouveau compte de service, dépannage, autre site. La file Brave Search, ajoutée ensuite, ne demande aucune configuration (ni secret ni compte) : voir `docs/seo/ROUTINE.md`, section 12.
+
+Ce que Simon fait lui-même, une seule fois. Compter quinze minutes. Tant que ce n'est pas fait, la collecte tourne quand même chaque lundi, sans les données Search Console ni les notifications de l'Indexing API (flux, concurrents, IndexNow et file Brave seulement).
 
 Étapes vérifiées dans la documentation Google le 4 octobre 2026 (liens en bas de page). Les libellés des consoles peuvent changer.
 
@@ -65,7 +74,7 @@ Le fichier ne se commite jamais, dans aucun repo. Après l'avoir collé dans le 
 
 Pour voir ce qui partirait sans rien envoyer : cocher la simulation à la place. Elle n'écrit ni état ni commit.
 
-À quoi sert l'option de première passe : elle soumet tout le sitemap, sans tenir compte de l'historique. Au tout premier lancement, l'historique est vide, donc toutes les URL sont « nouvelles » et partent de toute façon ; l'option sert surtout à forcer une nouvelle passe complète plus tard, après une refonte. Ne pas la cocher en routine : resoumettre des pages inchangées consomme le quota pour rien. Le sitemap compte 74 URL le 4 octobre 2026, sous le plafond de 200 par jour ; au-delà, le reste part à la collecte suivante.
+À quoi sert l'option de première passe : elle soumet tout le sitemap, sans tenir compte de l'historique. Au tout premier lancement, l'historique est vide, donc toutes les URL sont « nouvelles » et partent de toute façon ; l'option sert surtout à forcer une nouvelle passe complète plus tard, après une refonte. Ne pas la cocher en routine : resoumettre des pages inchangées consomme le quota pour rien. Le sitemap comptait 73 URL à la première collecte du 4 octobre 2026, sous le plafond de 200 par jour ; au-delà, le reste part à la collecte suivante.
 
 Attendre au moins 60 secondes entre la création d'une clé et ce premier lancement : une clé toute neuve peut être refusée.
 
@@ -93,9 +102,12 @@ La routine prévient déjà Bing par IndexNow, sans compte. Déclarer le site da
 
 La clé IndexNow n'est pas un secret : c'est le fichier `public/34c4e7bcd4aa2c942247305687c341d9.txt`, servi à la racine du site, qui prouve que l'envoi vient du propriétaire. Tant que ce fichier n'est pas en production, la routine n'envoie rien et l'indique (« clé non déployée »).
 
-## 6. Planifier la session Claude
+## 6. Planifier la session Claude et la tâche Brave
 
-La collecte tourne le lundi à 04:30 UTC. Planifier la session Claude hebdomadaire après (le lundi en début de matinée, heure de Paris), avec pour consigne : « Exécute `docs/seo/ROUTINE.md` dans le repo `virtuoseweb/waimia-web`. »
+La collecte tourne le lundi à 04:30 UTC. Deux tâches planifiées la suivent, le lundi :
+
+- la session Claude hebdomadaire de contenu (en début de matinée, heure de Paris), avec pour consigne : « Exécute `docs/seo/ROUTINE.md` dans le repo `virtuoseweb/waimia-web`. » Elle ne se sert que des données du repo, jamais du navigateur ;
+- la tâche « Soumission Brave hebdomadaire Waimia », qui soumet la file `latest.json > brave.toSubmit` au formulaire de Brave Search par le navigateur de Simon. Elle exige son ordinateur allumé. Procédure : `docs/seo/ROUTINE.md`, section 12.
 
 ## Ce que la routine fait pour l'indexation, et ce que Google garantit
 
@@ -123,9 +135,11 @@ Quotas par défaut de l'Indexing API, par projet Google Cloud : 200 requêtes `p
 
 **IndexNow, pour les autres moteurs.** Bing, Yandex, Seznam et Naver. Google n'y participe pas.
 
+**Brave Search, hors API.** Brave n'a ni API d'indexation, ni outil pour webmasters, ni IndexNow (vérifié le 4 octobre 2026, <https://search.brave.com/help/brave-search-crawler>). Seul existe un formulaire, une URL à la fois : <https://search.brave.com/submit-url>. La collecte calcule donc seulement la file des URL nouvelles ou modifiées (`scripts/seo-routine/brave-queue.mjs`, clé `brave` de `latest.json`) ; la soumission se fait par le navigateur de Simon, dans la tâche planifiée dédiée. Les 73 URL du sitemap ont été soumises une première fois à la main le 4 octobre 2026. Détail : `docs/seo/ROUTINE.md`, section 12.
+
 Le bouton « Demander l'indexation » de Search Console reste manuel : le compte rendu hebdomadaire dit quand une page le mérite.
 
-Après la fusion d'une PR de contenu, il n'y a rien à lancer : les pages créées ou modifiées (celles dont `updatedAt`, donc le `lastmod` du sitemap, a changé) partent à la collecte suivante, par IndexNow et par l'Indexing API. Pour ne pas attendre le lundi, lancer le workflow à la main (sans cocher la première passe).
+Après la fusion d'une PR de contenu, il n'y a rien à lancer : les pages créées ou modifiées (celles dont `updatedAt`, donc le `lastmod` du sitemap, a changé) partent à la collecte suivante, par IndexNow et par l'Indexing API, et entrent dans la file Brave. Pour ne pas attendre le lundi, lancer le workflow à la main (sans cocher la première passe).
 
 ## Où vont les données, et pourquoi
 
@@ -143,8 +157,9 @@ Le repo est privé sur un plan GitHub gratuit : la protection de branche n'y est
 
 | Commande | Rôle |
 | --- | --- |
-| `node scripts/seo-routine/run.mjs` | Collecte complète, écrit `docs/seo/data/`. `--dry-run` : aucune écriture externe. `--indexing-all` : première passe complète de l'Indexing API. `--only=feeds,competitors` : étapes choisies. `SEO_DATA_DIR=<dossier>` : écrit ailleurs (essai local). |
+| `node scripts/seo-routine/run.mjs` | Collecte complète, écrit `docs/seo/data/`. `--dry-run` : aucune écriture externe. `--indexing-all` : première passe complète de l'Indexing API. `--brave-all` : tout le sitemap dans la file Brave. `--only=feeds,competitors` : étapes choisies. `SEO_DATA_DIR=<dossier>` : écrit ailleurs (essai local). |
 | `node scripts/seo-routine/indexing-api.mjs` | Indexing API seule : URL nouvelles ou modifiées. `--all` : tout le sitemap. `--dry-run` : liste ce qui partirait. `--url <url>` : soumet une URL précise. `--status <url>` : dernière notification connue de Google pour cette URL (`urlNotifications.getMetadata`). Demande `GSC_SERVICE_ACCOUNT_JSON` dans l'environnement. |
+| `node scripts/seo-routine/brave-queue.mjs` | File Brave seule : URL nouvelles ou modifiées depuis la dernière file. Ne soumet rien. `--all` : tout le sitemap. `--dry-run` : affiche la file sans écrire l'état. |
 | `node scripts/seo-routine/feeds.mjs --check` | État de chaque flux de `feeds.json`. |
 | `node scripts/seo-routine/check-config.mjs` | Vérifie `keywords.json` (chaque page cible existe), `feeds.json`, `competitors.json`, la clé IndexNow. |
 | `node --test "scripts/seo-routine/tests/*.test.mjs"` | Tests unitaires. |
@@ -169,4 +184,5 @@ Quotas de l'API d'inspection d'URL : 2 000 requêtes par jour et 600 par minute 
 - Indexing API, quotas : <https://developers.google.com/search/apis/indexing-api/v3/quota-pricing>
 - Indexing API, erreurs (403, 429) : <https://developers.google.com/search/apis/indexing-api/v3/core-errors>
 - IndexNow : <https://www.indexnow.org/documentation>
+- Brave Search, robot et formulaire de soumission (lu le 4 octobre 2026) : <https://search.brave.com/help/brave-search-crawler>, <https://search.brave.com/submit-url>
 - Vercel, `ignoreCommand` et `git.deploymentEnabled` : <https://vercel.com/docs/project-configuration/vercel-json>, <https://vercel.com/docs/project-configuration/git-configuration>
