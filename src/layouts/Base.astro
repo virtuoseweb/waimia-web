@@ -13,9 +13,13 @@ import CursorDot from '../components/ui/atoms/CursorDot.astro';
 import ProgressBar from '../components/ui/atoms/ProgressBar.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
 import { SEO } from 'astro-seo';
-import { organization, website } from '../lib/seo';
+import PageUpdated from '../components/seo/PageUpdated.astro';
+import RelatedLinks from '../components/sections/RelatedLinks.astro';
+import { meshForPath } from '../lib/internal-mesh';
+import { finalizePageSchema } from '../lib/seo/page-schema';
+import { lastmodFor } from '../lib/seo/lastmod.mjs';
 import { SITE } from '../site.config';
-import { langFromPath, alternateHref, hasBilingualMirror, HREFLANG } from '../lib/i18n';
+import { langFromPath, HREFLANG } from '../lib/i18n';
 import { ClientRouter } from 'astro:transitions';
 
 interface Props {
@@ -31,12 +35,18 @@ interface Props {
   noindex?: boolean;
   /** Override canonical (sinon dérivé du chemin) */
   canonical?: string;
-  /** Surcharge ou supprime le lien hreflang alternatif.
-   * - `undefined` : calculé automatiquement (via hasBilingualMirror)
-   * - `string` : URL miroir explicite
-   * - `false` : page FR-only, aucune balise en-US émise
-   */
+  /** Conservé pour compatibilité des appelants : le site est monolingue FR, aucun
+   * alternate de langue n'est émis (le miroir /en n'existe pas). */
   alternate?: string | false;
+  /** Ligne « Page mise à jour le … » en fin de contenu.
+   * - `undefined` : affichée sur les pages de contenu indexables (cf UPDATED_PREFIXES)
+   * - `false` : jamais (page qui affiche déjà sa propre date)
+   * - `true` : forcée */
+  showUpdated?: boolean;
+  /** Bloc de maillage interne calculé (« Sur le même sujet ») en fin de contenu.
+   * - `undefined` : affiché si la page est au registre de lib/internal-mesh.ts
+   * - `false` : jamais (page qui pose elle-même sa section related-links) */
+  showMesh?: boolean;
   /** Couleur thème navigateur */
   themeColor?: string;
   /** Type OG (og:type). Défaut 'website' ; utiliser 'article' pour les pages de contenu éditorial. */
@@ -51,29 +61,20 @@ const {
   ogImage,
   noindex = false,
   canonical,
-  alternate,
+  showUpdated,
+  showMesh,
   themeColor = SITE.themeColor,
   ogType = 'website',
 } = Astro.props;
 
 const lang = langFromPath(Astro.url.pathname);
 const siteUrl = SITE.url;
-const canonicalUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
+// Une seule forme d'URL : sans slash final (sauf l'accueil), quel que soit le chemin
+// réellement demandé (`/x/` en dev ou derrière un proxy).
+const pagePath = Astro.url.pathname.length > 1 ? Astro.url.pathname.replace(/\/+$/, '') : '/';
+const canonicalUrl = canonical ?? `${siteUrl}${pagePath}`;
 // Staging non-indexable : forcé sur les projets Vercel de preview (env PUBLIC_STAGING_NOINDEX=1), inactif sur waimia.com.
 const robotsNoindex = noindex || import.meta.env.PUBLIC_STAGING_NOINDEX === '1';
-
-// altUrl : URL du miroir linguistique pour hreflang.
-// - alternate===false → page FR-only, pas de hreflang alternatif
-// - alternate (string) → URL explicite fournie par la page
-// - sinon → hasBilingualMirror décide d'après la liste FR_ONLY
-const altUrl: string | null = (() => {
-  if (alternate === false) return null;
-  if (typeof alternate === 'string') {
-    return alternate.startsWith('http') ? alternate : `${siteUrl}${alternate}`;
-  }
-  if (!hasBilingualMirror(Astro.url.pathname)) return null;
-  return `${siteUrl}${alternateHref(Astro.url.pathname, lang)}`;
-})();
 
 // T1.6b · OG image dynamique via /api/og.png si pas d'image fournie
 // Utilise title + kicker dérivé de la description (first sentence) pour le rendu SVG
@@ -82,11 +83,60 @@ const ogKicker = encodeURIComponent(lang === 'fr' ? 'Studio IA pour PME' : 'AI s
 const dynamicOgUrl = `${siteUrl}/api/og.png?title=${ogTitle}&kicker=${ogKicker}`;
 const finalOgImage = ogImage ?? dynamicOgUrl;
 
-const baseLd = [organization(), website(lang)];
 const pageLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const additionalLd = additionalJsonLd
   ? (Array.isArray(additionalJsonLd) ? additionalJsonLd : [additionalJsonLd])
   : [];
+
+// Date réelle de dernière modification du contenu (null si inconnue ; lecture disque au
+// build uniquement, d'où le garde-fou pour un éventuel rendu serverless).
+let lastmod: string | null = null;
+try {
+  lastmod = lastmodFor(pagePath);
+} catch {
+  lastmod = null;
+}
+
+// JSON-LD final : Organization + WebSite + blocs de la page, complétés et dédoublonnés.
+const allLd = finalizePageSchema([...pageLd, ...additionalLd], {
+  pathname: pagePath,
+  canonicalUrl,
+  lang,
+  ogImage: finalOgImage,
+  lastmod,
+});
+
+// Ligne « Page mise à jour le … par … » : pages de contenu que l'on veut voir citées.
+// Les articles de blog et la page auteur affichent déjà leur date et leur signature.
+const UPDATED_PREFIXES = [
+  '/services/',
+  '/formations/',
+  '/cas-clients/',
+  '/cas-usages/',
+  '/ressources/guides/',
+  '/ressources/comparatifs/',
+  '/ressources/diagnostics/',
+  '/ressources/outils/',
+  '/implantations/',
+  '/secteurs/',
+  '/demonstrations/',
+];
+const UPDATED_EXACT = ['/audit-ia-pme', '/conformite-ia', '/agence/methode', '/technologies'];
+const wantsUpdated =
+  showUpdated ?? (UPDATED_EXACT.includes(pagePath) || UPDATED_PREFIXES.some((prefix) => pagePath.startsWith(prefix)));
+const updatedDate = wantsUpdated && !robotsNoindex ? lastmod : null;
+
+// Maillage interne automatique : liens vers les pages du même sujet (lib/internal-mesh.ts).
+// Les gabarits cas client et cas d'usage posent déjà cette section eux-mêmes.
+const OWN_MESH_PREFIXES = ['/cas-clients/', '/cas-usages/'];
+let autoMesh: ReturnType<typeof meshForPath> = null;
+if (showMesh !== false && !robotsNoindex && !OWN_MESH_PREFIXES.some((prefix) => pagePath.startsWith(prefix))) {
+  try {
+    autoMesh = meshForPath(pagePath, lang);
+  } catch {
+    autoMesh = null;
+  }
+}
 ---
 <!doctype html>
 <html lang={HREFLANG[lang]} data-lang={lang}>
@@ -124,7 +174,6 @@ const additionalLd = additionalJsonLd
       }}
       twitter={{
         card: 'summary_large_image',
-        site: SITE.twitter.handle,
         title: title,
         description: description,
         image: finalOgImage,
@@ -132,10 +181,11 @@ const additionalLd = additionalJsonLd
       }}
     />
 
-    {/* Hreflang · pivot SEO bilingue */}
+    {/* Hreflang · site monolingue FR : la page est sa propre version fr-FR et x-default.
+        Aucun alternate en-US (le miroir /en n'existe pas). twitter:site n'est pas émis :
+        le compte déclaré dans site.config n'existe pas sur X (404 vérifié le 4 octobre 2026). */}
     <link rel="alternate" hreflang={HREFLANG[lang]} href={canonicalUrl} />
-    {altUrl && <link rel="alternate" hreflang={HREFLANG[lang === 'fr' ? 'en' : 'fr']} href={altUrl} />}
-    <link rel="alternate" hreflang="x-default" href={lang === 'fr' ? canonicalUrl : (altUrl ?? canonicalUrl)} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
 
     {/* Favicons + PWA manifest · nouveau mark PNG (identité géométrique) */}
@@ -151,8 +201,8 @@ const additionalLd = additionalJsonLd
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-tight-regular.woff2" crossorigin fetchpriority="high" />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-regular.woff2" crossorigin />
 
-    {/* JSON-LD baseline (Organization + WebSite) + custom blocks */}
-    <JsonLd data={[...baseLd, ...pageLd, ...additionalLd]} />
+    {/* JSON-LD : Organization + WebSite + blocs de la page (cf lib/seo/page-schema.ts) */}
+    <JsonLd data={allLd} />
 
     {/* Sitemap & RSS */}
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -170,6 +220,8 @@ const additionalLd = additionalJsonLd
     <Header />
     <main id="main" tabindex="-1">
       <slot />
+      {autoMesh && <RelatedLinks data={{ ...autoMesh, background: 'paper-2' } as any} lang={lang} />}
+      {updatedDate && <PageUpdated date={updatedDate} />}
     </main>
     <Footer />
     {import.meta.env.DEV && <PagePill />}

@@ -126,8 +126,8 @@ test.describe.skip("Quality sweep · régressions verrouillées", () => {
 
   /* ───── 5. liens internes cassés réparés ─────
    * /technologies ne doit plus pointer vers /technologies/mcp-connectors
-   * (réparé en /offres/mcp-connectors). Et /equipe doit répondre 200
-   * (ex-lien /agence/team réparé vers la route réelle). */
+   * (réparé en /offres/mcp-connectors). La page équipe est la fiche du fondateur
+   * (/equipe est une 301 vers /equipe/simon-beros). */
   test("liens · /technologies ne pointe plus vers /technologies/mcp-connectors", async ({
     page,
   }) => {
@@ -139,11 +139,13 @@ test.describe.skip("Quality sweep · régressions verrouillées", () => {
     ).not.toContain('href="/technologies/mcp-connectors"');
   });
 
-  test("liens · /equipe répond 200 (cible réparée ex-/agence/team)", async ({
+  test("liens · /equipe/simon-beros répond 200 (/equipe y est redirigé en 301)", async ({
     page,
   }) => {
-    const resp = await page.goto("/equipe");
-    expect(resp?.status(), "/equipe doit répondre 200").toBe(200);
+    const resp = await page.goto("/equipe/simon-beros");
+    expect(resp?.status(), "/equipe/simon-beros doit répondre 200").toBe(200);
+    // Le fil d'Ariane ne lie plus la page /equipe (redirigée) : il remonte vers le studio.
+    await expect(page.locator('main a[href="/equipe"]')).toHaveCount(0);
   });
 
   /* ───── 6. JSON-LD Article sur les pages cas (GEO/AIO) ─────

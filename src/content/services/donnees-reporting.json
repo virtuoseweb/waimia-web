@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Tableau de bord automatisé pour PME · reporting temps réel",
   "title_en": "Automated dashboard for SMEs · real-time reporting",
-  "description_fr": "Un tableau de bord automatisé pour PME : on centralise vos données éparpillées, vos KPI se mettent à jour en temps réel, fini le reporting refait à la main.",
-  "description_en": "An automated dashboard for SMEs: we centralise your scattered data, your KPIs update in real time, no more reporting redone by hand. Free diagnostic.",
+  "description_fr": "Tableau de bord automatisé pour PME : vos données rassemblées, des indicateurs définis une fois, un reporting qui se met à jour seul. Dès 999 € HT.",
+  "description_en": "Automated dashboard for SMBs: your data gathered, indicators defined once, reporting that updates itself. From €999 excl. VAT.",
   "slug": "donnees-reporting",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "data",
   "tags": [
     "centralisation-donnees",
@@ -23,120 +23,96 @@
   },
   "faq_fr": [
     {
-      "q": "Nos chiffres ne concordent jamais d'un outil à l'autre, pourquoi ?",
-      "a": "Parce que chaque outil compte à sa façon et que personne n'a fixé la définition commune. On pose des indicateurs uniques et une source de vérité : un chiffre, une définition, la même partout. Fini les réunions passées à savoir qui a raison."
+      "q": "Combien coûte un tableau de bord automatisé pour une PME ?",
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources branchées, un premier tableau en ligne. Les sources et indicateurs suivants sont estimés en heures puis facturés 99 € HT de l'heure. L'outil de tableaux de bord et l'hébergement de la base sont à votre nom."
     },
     {
-      "q": "Qu'est-ce que vous centralisez, exactement ?",
-      "a": "Vos données éparpillées dans le CRM, la facturation, les tableurs, l'e-commerce, la pub et vos outils métier. On les rassemble dans un socle unique, propre et à jour, à la place des exports manuels recopiés chaque semaine."
+      "q": "Peut-on automatiser un reporting fait sur Excel ?",
+      "a": "Oui. On garde le tableur comme point d'arrivée si vos équipes y tiennent, et on automatise son alimentation. Ou on le remplace par une base et un tableau de bord quand le fichier est devenu trop fragile."
     },
     {
-      "q": "Le reporting automatisé, ça remplace notre analyste ?",
-      "a": "Non. Ça lui rend ses heures. L'automatisation fait la collecte et la mise en forme, votre équipe garde l'analyse et la décision. On supprime la corvée du vendredi soir, pas le cerveau qui interprète."
+      "q": "Combien de temps pour mettre en place un tableau de bord ?",
+      "a": "Habituellement 2 à 6 semaines pour un premier tableau sur un périmètre restreint. Le délai dépend de la qualité des données sources et du temps nécessaire à la direction pour valider les définitions."
     },
     {
-      "q": "Vous construisez des dashboards, ou une vraie base de données ?",
-      "a": "Les deux selon le besoin. Parfois un tableau de bord branché sur vos outils suffit. Parfois il faut d'abord centraliser dans un socle propre avant d'afficher. On cadre le juste niveau, on ne vous vend pas une usine si un dashboard suffit."
+      "q": "Quels indicateurs suivre dans une PME ?",
+      "a": "Ceux qui déclenchent une décision. En général : chiffre d'affaires facturé et encaissé, marge, carnet de commandes, délai de paiement, charge des équipes, et un ou deux indicateurs propres à votre métier. Notre article sur le tableau de bord PME détaille la sélection."
     },
     {
-      "q": "Peut-on automatiser un tableau de bord Excel ?",
-      "a": "Oui. Plutôt que de recopier un tableur chaque semaine, on branche vos sources à un tableau de bord qui se rafraîchit seul. Excel reste possible en affichage, mais la donnée remonte automatiquement, sans ressaisie ni fichier périmé."
+      "q": "Où sont stockées les données du reporting ?",
+      "a": "Dans une base de données ouverte à votre nom, chez l'hébergeur de votre choix. On documente les données personnelles qui y figurent et les droits d'accès par tableau."
     },
     {
-      "q": "Les tableaux sont à jour quand on les ouvre ?",
-      "a": "Oui. Les données se rafraîchissent automatiquement à la fréquence utile : temps réel, chaque heure ou chaque nuit selon le cas. Vous ne rassemblez plus rien à la main avant une réunion."
-    },
-    {
-      "q": "Combien de temps avant un premier tableau de bord utile ?",
-      "a": "Un premier dashboard branché sur vos indicateurs clés tourne souvent en quelques semaines. On commence par le chiffre qui vous coûte le plus de réunions, puis on étend."
-    },
-    {
-      "q": "Nos données restent chez nous et protégées ?",
-      "a": "Oui. Le socle est hébergé sur une infra que vous contrôlez, avec des accès par rôle : chacun voit les chiffres qui le concernent. Vos données ne partent pas dans un outil tiers opaque."
-    },
-    {
-      "q": "Une fois livré, on ajoute un indicateur sans vous ?",
-      "a": "Oui. On documente le socle et on forme un référent chez vous. Ajouter un indicateur ou une vue se fait en interne. Vous gardez la stack, sans captivité."
+      "q": "L'IA peut-elle commenter les chiffres à notre place ?",
+      "a": "Elle peut rédiger une synthèse qui signale les écarts par rapport à la période précédente. Elle ne remplace pas l'analyse : elle ne connaît pas le contexte d'un client perdu ou d'un chantier décalé. On l'ajoute seulement si un destinataire la demande."
     }
   ],
   "faq_en": [
     {
-      "q": "Our figures never match from one tool to another, why?",
-      "a": "Because each tool counts its own way and no one set the shared definition. We put in single indicators and a source of truth: one figure, one definition, the same everywhere. No more meetings spent working out who's right."
+      "q": "How much does an automated dashboard cost for an SMB?",
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: priority indicators, first sources connected, a first dashboard online. Further sources and indicators are estimated in hours then billed €99 per hour excl. VAT. The dashboard tool and database hosting are in your name."
     },
     {
-      "q": "What exactly do you centralise?",
-      "a": "Your data scattered across the CRM, billing, spreadsheets, e-commerce, ads and your business tools. We gather it into a single, clean, up-to-date base, in place of manual exports recopied every week."
+      "q": "Can reporting done in Excel be automated?",
+      "a": "Yes. We keep the spreadsheet as the destination if your teams want it and automate its feed. Or we replace it with a database and dashboard when the file has become too fragile."
     },
     {
-      "q": "Does automated reporting replace our analyst?",
-      "a": "No. It gives them their hours back. The automation handles collection and formatting, your team keeps the analysis and the decision. We remove the Friday-night chore, not the brain that interprets."
+      "q": "How long does it take to set up a dashboard?",
+      "a": "Usually 2 to 6 weeks for a first dashboard on a narrow scope. It depends on source data quality and on the time management needs to approve definitions."
     },
     {
-      "q": "Do you build dashboards, or a real database?",
-      "a": "Both, depending on the need. Sometimes a dashboard wired to your tools is enough. Sometimes you first need to centralise into a clean base before displaying. We scope the right level, we don't sell you a factory when a dashboard is enough."
+      "q": "Which indicators should an SMB track?",
+      "a": "Those that trigger a decision. Typically: revenue invoiced and collected, margin, order book, payment delay, team workload, and one or two indicators specific to your trade. Our SMB dashboard article details the selection."
     },
     {
-      "q": "Can you automate an Excel dashboard?",
-      "a": "Yes. Rather than recopying a spreadsheet every week, we wire your sources to a dashboard that refreshes on its own. Excel can stay as a display, but the data flows up automatically, with no re-entry and no stale file."
+      "q": "Where is the reporting data stored?",
+      "a": "In a database opened in your name, at the host of your choice. We document the personal data it contains and access rights per dashboard."
     },
     {
-      "q": "Are the boards up to date when we open them?",
-      "a": "Yes. The data refreshes automatically at the useful frequency: real time, hourly or nightly depending on the case. You no longer gather anything by hand before a meeting."
-    },
-    {
-      "q": "How long before a first useful dashboard?",
-      "a": "A first dashboard wired to your key indicators often runs within a few weeks. We start with the figure that costs you the most meetings, then extend."
-    },
-    {
-      "q": "Does our data stay with us and protected?",
-      "a": "Yes. The base is hosted on infrastructure you control, with role-based access: each sees the figures that concern them. Your data doesn't go into an opaque third-party tool."
-    },
-    {
-      "q": "Once delivered, can we add an indicator without you?",
-      "a": "Yes. We document the base and train an in-house referent. Adding an indicator or a view happens internally. You keep the stack, no lock-in."
+      "q": "Can AI comment on the figures for us?",
+      "a": "It can write a summary flagging gaps versus the previous period. It does not replace analysis: it does not know the context of a lost customer or a delayed project. We add it only if a reader asks for it."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Tableau de bord & reporting",
-      "kicker_en": "§ Dashboard & reporting",
+      "kicker_fr": "§ Tableau de bord et reporting automatisé",
+      "kicker_en": "§ Dashboard and automated reporting",
       "h1_fr": "Un <i class=\"acc\">tableau de bord</i> à jour, sans reporting refait à la main.",
       "h1_en": "A <i class=\"acc\">dashboard</i> that stays up to date, no reporting by hand.",
-      "lede_fr": "Vos chiffres vivent dans six outils et ne concordent jamais. Le reporting du vendredi soir se refait à la main, et vos décisions se prennent au doigt mouillé faute de vue claire. On centralise vos données, on fixe une source de vérité, et on branche un tableau de bord à jour quand vous l'ouvrez. Vous ne recopiez plus rien avant une réunion.",
-      "lede_en": "Your figures live in six tools and never match. The Friday-night reporting is redone by hand, and your decisions get made on gut feel for lack of a clear view. We centralise your data, set a source of truth, and wire a dashboard that's up to date when you open it. You no longer recopy anything before a meeting.",
+      "lede_fr": "Un tableau de bord automatisé rassemble les données de vos différents logiciels dans une base unique et calcule vos indicateurs sans export ni recopie. Waimia le met en place pour les PME dont le reporting mensuel se fabrique encore à la main dans un tableur : on branche les sources, on fixe la définition de chaque chiffre, et le tableau se met à jour seul.",
+      "lede_en": "An automated dashboard gathers data from your various tools into a single base and computes your indicators with no export or retyping. Waimia sets it up for SMBs whose monthly reporting is still hand-made in a spreadsheet: we connect the sources, fix the definition of each figure, and the dashboard updates itself.",
       "badges": [
         {
-          "label_fr": "Source unique",
-          "label_en": "Single source"
+          "label_fr": "Sources branchées",
+          "label_en": "Sources connected"
         },
         {
-          "label_fr": "Temps réel",
-          "label_en": "Real time"
+          "label_fr": "Définitions écrites",
+          "label_en": "Written definitions"
         },
         {
-          "label_fr": "0 export manuel",
-          "label_en": "Zero manual export"
+          "label_fr": "Mise à jour automatique",
+          "label_en": "Automatic refresh"
         },
         {
-          "label_fr": "Vos données chez vous",
-          "label_en": "Your data on your side"
+          "label_fr": "Données chez vous",
+          "label_en": "Data on your side"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=donnees-reporting&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir ce qu'on centralise",
-        "label_en": "See what we centralise",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -147,465 +123,210 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "2–6 sem.",
-          "label_fr": "premier tableau de bord en ligne",
-          "label_en": "first dashboard deployed"
+          "value": "2 à 6 semaines",
+          "label_fr": "délai habituel pour un premier tableau de bord en ligne",
+          "label_en": "usual lead time for a first dashboard online",
+          "emphasis": false
         },
         {
-          "value": "Temps réel",
-          "label_fr": "données rafraîchies automatiquement",
-          "label_en": "data refreshed automatically"
+          "value": "Une base",
+          "label_fr": "les données de vos outils réunies au même endroit",
+          "label_en": "data from your tools gathered in one place",
+          "emphasis": false
         },
         {
-          "value": "0 export",
-          "label_fr": "plus de recopie avant réunion",
-          "label_en": "no more recopying before a meeting"
+          "value": "À vous",
+          "label_fr": "base de données, tableaux et dictionnaire des indicateurs",
+          "label_en": "database, dashboards and indicator dictionary",
+          "emphasis": false
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Le principe",
-      "kicker_en": "FIG 1.5 · The principle",
-      "h2_fr": "Un tableur de reporting fige la photo d'hier. Un socle de <i class=\"acc\">données</i> rassemble tout, fixe une définition et se met à jour tout seul.",
-      "h2_en": "A reporting spreadsheet freezes yesterday's snapshot. A <i class=\"acc\">data</i> foundation gathers everything, sets a definition and updates on its own.",
-      "lede_fr": "Tant que vos chiffres dorment dans des exports recopiés à la main, ils sont périmés à l'ouverture et personne n'est d'accord sur la définition. On sort de là : vos données convergent vers une source unique, chaque indicateur a une définition claire, et les tableaux se rafraîchissent seuls. On ajoute une vue quand il en faut une, on ne refait pas tout. Les sources se branchent via l'<a href=\"/services/integration-claude\">intégration Claude</a> et les <a href=\"/services/automatisations\">automatisations</a> qui alimentent les tableaux.",
-      "lede_en": "As long as your figures sleep in exports recopied by hand, they're stale on opening and no one agrees on the definition. We take you out of there: your data converges into a single source, each indicator has a clear definition, and the boards refresh on their own. We add a view when one is needed, we don't redo everything. The sources wire in through <a href=\"/services/integration-claude\">Claude integration</a> and the <a href=\"/services/automatisations\">automations</a> that feed the boards.",
-      "cta": {
-        "label_fr": "Voir les briques →",
-        "label_en": "See the building blocks →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : vos outils, vos données et vos indicateurs réunis dans un seul socle de reporting.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: your tools, your data and your indicators brought together into a single reporting foundation."
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">dispositif données et reporting</i>, tel que Waimia le met en place pour les PME, centralise vos données métier éparpillées dans un socle unique, fixe une définition claire pour chaque indicateur, et produit des tableaux de bord et rapports automatisés, à jour en temps réel. Il remplace les exports recopiés à la main par une source de vérité que tout le monde partage.",
-      "statement_en": "A <i class=\"acc\">data and reporting setup</i>, as Waimia builds it for SMEs, centralises your business data scattered across tools into a single base, sets a clear definition for each indicator, and produces automated dashboards and reports, up to date in real time. It replaces hand-copied exports with a source of truth everyone shares.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">reporting automatisé</i> est un dispositif en trois parties : des connexions qui récupèrent les données de vos logiciels à intervalle régulier, une base qui les stocke avec une définition unique pour chaque indicateur, et des tableaux de bord qui lisent cette base. Aucun chiffre n'est ressaisi.",
+      "statement_en": "<i class=\"acc\">Automated reporting</i> is a three-part setup: connections that fetch data from your software at regular intervals, a base that stores it with a single definition per indicator, and dashboards that read that base. No figure is retyped.",
       "pills": [
         {
-          "label_fr": "Source unique",
-          "label_en": "Single source"
+          "label_fr": "Collecte automatique",
+          "label_en": "Automatic collection"
         },
         {
-          "label_fr": "Indicateurs définis",
-          "label_en": "Defined indicators"
+          "label_fr": "Base unique",
+          "label_en": "Single base"
         },
         {
-          "label_fr": "Rafraîchissement auto",
-          "label_en": "Auto refresh"
+          "label_fr": "Une définition par indicateur",
+          "label_en": "One definition per indicator"
         },
         {
-          "label_fr": "Temps réel",
-          "label_en": "Real time"
-        },
-        {
-          "label_fr": "Accès par rôle",
-          "label_en": "Role-based access"
+          "label_fr": "Alertes sur seuil",
+          "label_en": "Threshold alerts"
         }
       ],
       "specs": [
         {
-          "label_fr": "Connexion CRM, facturation, pub",
-          "label_en": "CRM, billing, ads connection"
+          "label_fr": "CRM, facturation, tableurs",
+          "label_en": "CRM, invoicing, spreadsheets"
         },
         {
-          "label_fr": "API et connecteurs MCP",
-          "label_en": "API and MCP connectors"
+          "label_fr": "n8n pour la collecte",
+          "label_en": "n8n for collection"
         },
         {
-          "label_fr": "Socle de données propre",
-          "label_en": "Clean data base"
+          "label_fr": "Base de données",
+          "label_en": "Database"
         },
         {
-          "label_fr": "Tableaux de bord et alertes",
-          "label_en": "Dashboards and alerts"
-        },
-        {
-          "label_fr": "Hébergé chez vous",
-          "label_en": "Hosted on your side"
+          "label_fr": "Outil de tableaux de bord",
+          "label_en": "Dashboard tool"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où les chiffres se perdent",
-      "kicker_en": "Where the figures get lost",
-      "h2_fr": "Pourquoi vous décidez sans y voir clair",
-      "h2_en": "Why you decide without a clear view",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Des chiffres qui ne concordent pas",
-          "title_en": "Figures that don't match",
-          "desc_fr": "Le CRM dit une chose, la facturation une autre, le tableur une troisième. Les réunions passent à savoir qui a raison au lieu de décider.",
-          "desc_en": "The CRM says one thing, billing another, the spreadsheet a third. Meetings are spent working out who's right instead of deciding.",
-          "fix_fr": "Une source unique, une définition.",
-          "fix_en": "A single source, one definition."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Le reporting refait à la main",
-          "title_en": "Reporting redone by hand",
-          "desc_fr": "Chaque vendredi soir, quelqu'un exporte, recopie, met en forme. Des heures perdues pour une photo déjà périmée le lundi matin.",
-          "desc_en": "Every Friday night, someone exports, recopies, formats. Hours lost for a snapshot already stale on Monday morning.",
-          "fix_fr": "Des tableaux rafraîchis tout seuls.",
-          "fix_en": "Boards that refresh on their own."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Des décisions au doigt mouillé",
-          "title_en": "Decisions on gut feel",
-          "desc_fr": "Sans vue claire et à jour, on tranche à l'instinct. Parfois ça passe, parfois ça coûte cher, et on ne sait jamais vraiment pourquoi.",
-          "desc_en": "Without a clear, up-to-date view, you decide on instinct. Sometimes it works, sometimes it costs dearly, and you never really know why.",
-          "fix_fr": "Des KPI lisibles en un coup d'œil.",
-          "fix_en": "KPIs readable at a glance."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Pourquoi vos chiffres ne concordent pas</h2>\n<p>Parce que chaque outil compte à sa façon. Le CRM compte un client à la signature, la facturation à la première facture, le tableur du commercial à la poignée de main. Le problème n'est pas technique : personne n'a écrit ce que « un client » ou « le chiffre d'affaires du mois » veut dire. Le premier travail est donc un dictionnaire : une définition par indicateur, validée par la direction.</p>\n<h2>Ce qu'on met en place</h2>\n<p>Des connexions vers vos sources (CRM, facturation, e-commerce, tableurs, outil métier), le plus souvent avec <a href=\"/services/automatisation-n8n\">n8n</a>. Une base de données qui conserve l'historique. Des tableaux de bord limités à ce qui se décide : cinq à dix indicateurs par destinataire, pas cinquante. L'article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> aide à choisir. Quand un tableur fait encore office de source, on le garde tant qu'il est fiable et on le remplace par une <a href=\"/services/applications-internes\">application métier</a> s'il ne l'est plus.</p>\n<p>On peut ajouter une synthèse rédigée par un modèle d'IA : un commentaire hebdomadaire qui signale les écarts. Elle est utile si quelqu'un la lit ; on ne l'installe pas par défaut.</p>\n<h2>Combien de temps</h2>\n<p>Un premier tableau de bord est habituellement en ligne en 2 à 6 semaines, sur un périmètre restreint : une fonction, quelques indicateurs. La durée dépend de la qualité des données sources. Des fiches clients en double ou des dates saisies en texte se corrigent avant d'être affichées.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Des données sources sales : un tableau de bord les rend visibles, il ne les répare pas. Trop d'indicateurs : personne ne regarde. Un tableau sans destinataire : chaque écran a un lecteur nommé et une décision associée. Le détail de la démarche est dans le cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a>.</p>\n<p>Pour savoir quelles sources brancher en premier, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Why your figures do not match</h2>\n<p>Because each tool counts its own way. The CRM counts a customer at signature, invoicing at the first invoice, the salesperson's spreadsheet at the handshake. The problem is not technical: nobody wrote down what \"a customer\" or \"this month's revenue\" means. The first job is a dictionary: one definition per indicator, approved by management.</p>\n<h2>What we set up</h2>\n<p>Connections to your sources (CRM, invoicing, e-commerce, spreadsheets, business tool), most often with <a href=\"/services/automatisation-n8n\">n8n</a>. A database that keeps history. Dashboards limited to what gets decided: five to ten indicators per reader, not fifty. The article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">SMB dashboard: the data that matters</a> helps choose. When a spreadsheet still acts as a source, we keep it while it is reliable and replace it with a <a href=\"/services/applications-internes\">business application</a> when it is not.</p>\n<p>We can add a summary written by an AI model: a weekly comment flagging deviations. It is useful if someone reads it; we do not install it by default.</p>\n<h2>How long</h2>\n<p>A first dashboard is usually online within 2 to 6 weeks, on a narrow scope: one function, a few indicators. It depends on source data quality. Duplicate customer records or dates typed as text are fixed before being displayed.</p>\n<h2>What can go wrong</h2>\n<p>Dirty source data: a dashboard makes it visible, it does not repair it. Too many indicators: nobody looks. A dashboard with no reader: each screen has a named reader and an associated decision. The approach is detailed in the use case <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a>.</p>\n<p>To know which sources to connect first, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ L'équation",
-      "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi une donnée <i class=\"acc\">centralisée</i> change l'équation",
-      "h2_en": "Why <i class=\"acc\">centralised</i> data changes the equation",
-      "without_label_fr": "Reporting manuel",
-      "without_label_en": "Manual reporting",
-      "without_title_fr": "Ce qu'il vous coûte",
-      "without_title_en": "What it costs you",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : le reporting mensuel d'une PME de services",
+      "h2_en": "Typical example: monthly reporting at a services SMB",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Deux jours de tableur par mois",
+      "without_title_en": "Two days of spreadsheet a month",
       "without_items": [
         {
-          "text_fr": "Des heures d'export et de recopie chaque semaine, jamais rendues.",
-          "text_en": "Hours of export and recopying every week, never returned."
+          "text_fr": "La responsable administrative exporte le CRM, la facturation et les temps passés.",
+          "text_en": "The office manager exports the CRM, invoicing and time tracking."
         },
         {
-          "text_fr": "Des chiffres qui se contredisent d'un outil à l'autre.",
-          "text_en": "Figures that contradict each other from one tool to the next."
+          "text_fr": "Elle colle les trois exports dans un tableur et corrige les écarts à la main.",
+          "text_en": "She pastes the three exports into a spreadsheet and fixes gaps by hand."
         },
         {
-          "text_fr": "Une photo déjà périmée au moment où vous la lisez.",
-          "text_en": "A snapshot already stale by the time you read it."
+          "text_fr": "Le rapport part le 10 du mois ; les chiffres ont déjà dix jours.",
+          "text_en": "The report goes out on the 10th; the figures are already ten days old."
         },
         {
-          "text_fr": "Des décisions prises à l'instinct, faute de vue fiable.",
-          "text_en": "Decisions made on instinct, for lack of a reliable view."
+          "text_fr": "Chaque question de la direction demande un nouvel export.",
+          "text_en": "Every management question requires a new export."
         }
       ],
-      "with_label_fr": "Données centralisées",
-      "with_label_en": "Centralised data",
-      "with_title_fr": "Ce qu'elle vous rend",
-      "with_title_en": "What it gives back",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un tableau à jour chaque matin",
+      "with_title_en": "A dashboard up to date every morning",
       "with_items": [
         {
-          "text_fr": "Les heures de reporting rendues à votre équipe pour l'analyse.",
-          "text_en": "The reporting hours given back to your team for analysis."
+          "text_fr": "Les trois sources sont relevées chaque nuit.",
+          "text_en": "The three sources are fetched every night."
         },
         {
-          "text_fr": "Un chiffre, une définition, le même partout, sans débat.",
-          "text_en": "One figure, one definition, the same everywhere, no debate."
+          "text_fr": "Les écarts de définition ont été tranchés une fois, par écrit.",
+          "text_en": "Definition gaps were settled once, in writing."
         },
         {
-          "text_fr": "Des tableaux à jour à la seconde où vous les ouvrez.",
-          "text_en": "Boards up to date the second you open them."
+          "text_fr": "La direction ouvre le tableau quand elle veut, sans demander.",
+          "text_en": "Management opens the dashboard whenever it wants, without asking."
         },
         {
-          "text_fr": "Des décisions appuyées sur des chiffres, pas sur un ressenti.",
-          "text_en": "Decisions backed by figures, not by a gut feel."
+          "text_fr": "Une alerte signale un indicateur qui sort de sa plage habituelle.",
+          "text_en": "An alert flags an indicator leaving its usual range."
+        },
+        {
+          "text_fr": "La responsable administrative vérifie, elle ne compile plus.",
+          "text_en": "The office manager checks; she no longer compiles."
         }
       ]
     },
     {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un reporting automatisé qui tient",
-      "h2_en": "The building blocks of automated reporting that holds",
-      "lede_fr": "Sept briques, un seul socle fiable. On active celles que le pilotage réclame, pas un graphique qu'on vous facture pour rien.",
-      "lede_en": "Seven building blocks, one reliable base. We activate the ones steering calls for, not a chart billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "crm",
-          "title_fr": "Collecte",
-          "title_en": "Collection",
-          "body_fr": "Vos données remontées automatiquement depuis le CRM, la facturation, la pub, l'e-commerce et vos outils, via API ou MCP. Plus d'export à la main.",
-          "body_en": "Your data pulled automatically from the CRM, billing, ads, e-commerce and your tools, via API or MCP. No more hand exports."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Source unique",
-          "title_en": "Single source",
-          "body_fr": "Un socle propre où les données se rejoignent et se réconcilient. Une seule vérité, à jour, à la place de six exports qui se contredisent.",
-          "body_en": "A clean base where data joins and reconciles. One truth, up to date, in place of six exports that contradict each other."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "Indicateurs définis",
-          "title_en": "Defined indicators",
-          "body_fr": "Chaque KPI avec sa règle de calcul écrite noir sur blanc. Le chiffre veut dire la même chose pour tout le monde, dans chaque réunion.",
-          "body_en": "Each KPI with its calculation rule written in black and white. The figure means the same thing to everyone, in every meeting."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Tableaux de bord",
-          "title_en": "Dashboards",
-          "body_fr": "Vos chiffres affichés en clair, lisibles en un coup d'œil, rafraîchis à la fréquence utile. Vous ouvrez, c'est à jour, sans rien préparer.",
-          "body_en": "Your figures shown in plain view, readable at a glance, refreshed at the useful frequency. You open it, it's up to date, with nothing to prepare."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Alertes",
-          "title_en": "Alerts",
-          "body_fr": "Un seuil franchi, une anomalie, une chute : vous êtes prévenu quand ça bouge, au lieu de le découvrir au rapport du mois suivant.",
-          "body_en": "A threshold crossed, an anomaly, a drop: you're warned when things move, instead of finding out in next month's report."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Synthèse IA",
-          "title_en": "AI synthesis",
-          "body_fr": "Là où c'est utile, un LLM lit vos KPI et en tire une synthèse en clair : ce qui monte, ce qui baisse, ce qui mérite votre attention.",
-          "body_en": "Where useful, an LLM reads your KPIs and draws a plain-language synthesis: what's up, what's down, what deserves your attention."
-        },
-        {
-          "icon": "design",
-          "title_fr": "Gouvernance",
-          "title_en": "Governance",
-          "body_fr": "Accès par rôle, hébergement chez vous et données protégées : chacun voit ce qui le concerne, et rien ne part dans un outil tiers opaque.",
-          "body_en": "Role-based access, hosting on your side and protected data: each sees what concerns them, and nothing goes into an opaque third-party tool."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "declinaisons",
+      "type": "deliverables-grid",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système ops & IA",
-      "kicker_en": "§ The ops & AI system",
-      "h2_fr": "Le reporting est une <i>brique</i> du système",
-      "h2_en": "Reporting is one <i>block</i> of the system",
-      "lede_fr": "Mesurer n'a de sens que branché au reste. Vos données nourrissent des automatisations qui agissent, des agents qui décident, des outils internes qui les produisent. Survolez une brique voisine pour la voir.",
-      "lede_en": "Measuring only makes sense wired to the rest. Your data feeds automations that act, agents that decide, internal tools that produce it. Hover a neighbouring block to preview it.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Les données restent les vôtres, dans une base que vous contrôlez.",
+      "lead_en": "The data stays yours, in a base you control.",
       "items": [
         {
-          "label_fr": "Automatisations",
-          "label_en": "Automations",
-          "meta_fr": "Agir · sur ce que les chiffres révèlent",
-          "meta_en": "Act · on what the figures reveal",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : les workflows qui agissent sur ce que le reporting révèle.",
-          "media_alt_en": "A car on the road: the workflows that act on what the reporting reveals.",
-          "link_href": "/services/automatisations"
+          "title_fr": "Le dictionnaire des indicateurs",
+          "title_en": "The indicator dictionary",
+          "body_fr": "La définition écrite de chaque chiffre, sa source et son mode de calcul.",
+          "body_en": "The written definition of each figure, its source and calculation.",
+          "format_fr": "DICTIONNAIRE",
+          "format_en": "DICTIONNAIRE"
         },
         {
-          "label_fr": "Applications internes",
-          "label_en": "Internal applications",
-          "meta_fr": "Produire · la donnée à la source",
-          "meta_en": "Produce · the data at the source",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : l'outil interne qui produit la donnée propre à la source.",
-          "media_alt_en": "A craftsman at work: the internal tool that produces clean data at the source.",
-          "link_href": "/services/applications-internes"
+          "title_fr": "La base de données",
+          "title_en": "The database",
+          "body_fr": "Hébergée sur votre compte, avec l'historique conservé.",
+          "body_en": "Hosted on your account, with history kept.",
+          "format_fr": "DONNÉES",
+          "format_en": "DONNÉES"
         },
         {
-          "label_fr": "Agents IA",
-          "label_en": "AI agents",
-          "meta_fr": "Décider · à partir des indicateurs",
-          "meta_en": "Decide · from the indicators",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : l'agent qui décide à partir des indicateurs mesurés.",
-          "media_alt_en": "A chessboard: the agent that decides from the measured indicators.",
-          "link_href": "/services/agents-ia"
+          "title_fr": "Les workflows de collecte",
+          "title_en": "The collection workflows",
+          "body_fr": "Documentés, avec une alerte quand une source ne répond plus.",
+          "body_en": "Documented, with an alert when a source stops responding.",
+          "format_fr": "COLLECTE",
+          "format_en": "COLLECTE"
         },
         {
-          "label_fr": "Intégration Claude",
-          "label_en": "Claude integration",
-          "meta_fr": "Brancher · l'IA à vos données via MCP",
-          "meta_en": "Wire · AI to your data via MCP",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : l'IA branchée proprement à votre socle de données.",
-          "media_alt_en": "A validated handshake: AI wired cleanly to your data foundation.",
-          "link_href": "/services/integration-claude"
-        },
-        {
-          "label_fr": "Le système ops & IA",
-          "label_en": "The ops & AI system",
-          "meta_fr": "Assembler · l'ensemble, de bout en bout",
-          "meta_en": "Assemble · the whole, end to end",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Une équipe alignée : le système opérationnel et IA assemblé de bout en bout.",
-          "media_alt_en": "An aligned team: the operational and AI system assembled end to end.",
-          "link_href": "/services/systemes-operationnels-ia"
+          "title_fr": "Les tableaux de bord",
+          "title_en": "The dashboards",
+          "body_fr": "Un écran par destinataire, modifiable par votre équipe.",
+          "body_en": "One screen per reader, editable by your team.",
+          "format_fr": "TABLEAUX",
+          "format_en": "TABLEAUX"
         }
       ]
     },
     {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
+      "type": "decision-list",
       "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille ensemble",
-      "kicker_en": "§ Method · how we work together",
-      "h2_fr": "Comment on travaille ensemble",
-      "h2_en": "How we work together",
-      "lede_fr": "Du cadrage des indicateurs qui comptent au premier tableau de bord en ligne, puis au socle qui s'étend. Vous savez avant de signer quel chiffre on fiabilise en premier et ce que ça vous rend. Pas de zone d'ombre.",
-      "lede_en": "From scoping the indicators that matter to a first dashboard deployed, then to a base that expands. You know before signing which figure we make reliable first and what it gives back. No grey zone.",
-      "steps": [
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ne lancez pas ce chantier si",
+      "heading_en": "Do not start this project if",
+      "items": [
         {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Cadrage des indicateurs",
-          "eyebrow_en": "Indicator scoping",
-          "title_fr": "Fixer les chiffres qui comptent",
-          "title_en": "Set the figures that matter",
-          "body_fr": "Quelques jours avec vos équipes : on repère les KPI qui pilotent vraiment, on fixe leur définition et on identifie les sources. Livrable : un dictionnaire d'indicateurs et un premier périmètre de reporting, chiffré.",
-          "body_en": "A few days with your teams: we spot the KPIs that truly steer, set their definition and identify the sources. Deliverable: an indicator dictionary and a first reporting perimeter, costed.",
-          "media_src": "/images/illustrations/ds/pretty-woman-paper.webp",
-          "media_alt_fr": "Cadrage des indicateurs clés avec vos équipes pour poser le premier tableau de bord",
-          "media_alt_en": "Scoping the key indicators with your teams to lay down the first dashboard"
+          "label_fr": "Vos chiffres tiennent dans un seul logiciel qui a déjà un bon module de rapports.",
+          "label_en": "Your figures sit in one tool that already has a good reporting module."
         },
         {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Sources & socle",
-          "eyebrow_en": "Sources & base",
-          "title_fr": "Centraliser et réconcilier la donnée",
-          "title_en": "Centralise and reconcile the data",
-          "body_fr": "On branche vos outils via API ou MCP, on rassemble les données dans un socle propre et on réconcilie ce qui se contredit. Ce qui vivait dans six exports devient une source unique, validée avec vous avant l'affichage.",
-          "body_en": "We wire your tools via API or MCP, gather the data into a clean base and reconcile what contradicts. What lived in six exports becomes a single source, validated with you before any display.",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Réconciliation des sources de données : ce qu'on garde, ce qu'on écarte",
-          "media_alt_en": "Reconciling the data sources: what we keep, what we drop"
+          "label_fr": "Personne n'a l'autorité pour trancher la définition des indicateurs.",
+          "label_en": "Nobody has the authority to settle indicator definitions."
         },
         {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Tableaux de bord",
-          "eyebrow_en": "Dashboards",
-          "title_fr": "Construire les vues et les alertes",
-          "title_en": "Build the views and alerts",
-          "body_fr": "On construit les tableaux de bord sur une base composable : KPI lisibles en un coup d'œil, rafraîchissement automatique, alertes sur les anomalies. Pensés pour ajouter une vue plus tard sans tout refaire.",
-          "body_en": "We build the dashboards on a composable base: KPIs readable at a glance, automatic refresh, alerts on anomalies. Made to add a view later without redoing everything.",
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Construction des tableaux de bord sur une base composable, comme une jonction validée",
-          "media_alt_en": "Building the dashboards on a composable base, like a validated handshake"
+          "label_fr": "Les données sources ne sont pas saisies : il faut d'abord régler la saisie.",
+          "label_en": "Source data is not entered: fix data entry first."
         },
         {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Gouvernance & mesure",
-          "eyebrow_en": "Governance & measurement",
-          "title_fr": "Poser les accès et vérifier la valeur",
-          "title_en": "Set the accesses and check the value",
-          "body_fr": "On câble le contrôle des accès par rôle, l'hébergement chez vous, et on mesure ce que le dispositif remplace : heures de reporting rendues, réunions raccourcies, décisions appuyées sur des chiffres. Des faits sur votre propre activité, pas une promesse.",
-          "body_en": "We wire role-based access control, hosting on your side, and measure what the setup replaces: reporting hours returned, meetings shortened, decisions backed by figures. Facts on your own activity, not a promise.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Mesure de la valeur rendue par le reporting automatisé, accès posés",
-          "media_alt_en": "Measuring the value returned by automated reporting, accesses in place"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Mise en ligne & passation",
-          "eyebrow_en": "Go-live & handover",
-          "title_fr": "Mettre en ligne et rendre l'équipe autonome",
-          "title_en": "Go live and make the team autonomous",
-          "body_fr": "Les tableaux passent en production sur un périmètre cadré, puis on étend : nouveaux indicateurs, nouvelles vues, nouvelles sources, au rythme des besoins. La passation fait partie du livrable : documentation, formation d'un référent. Vous gardez le socle et vos données.",
-          "body_en": "The boards go into production on a framed perimeter, then we extend: new indicators, new views, new sources, at the pace of needs. Handover is part of the deliverable: documentation, training of a referent. You keep the base and your data.",
-          "media_src": "/images/illustrations/ds/band-showing-tv-paper.webp",
-          "media_alt_fr": "Mise en ligne des tableaux de bord et passation de l'autonomie aux équipes",
-          "media_alt_en": "Taking the dashboards live and handing autonomy over to the teams",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
+          "label_fr": "Le reporting actuel prend une heure par mois.",
+          "label_en": "Current reporting takes an hour a month."
         }
       ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "CRM HubSpot · Attribution · Schema",
-          "impact_fr": "CRM HubSpot intégré avec attribution des leads et graphe schema.org : les demandes tracées de la source à la conversion, sans recopie manuelle.",
-          "impact_en": "HubSpot CRM integrated with lead attribution and a schema.org graph: requests traced from source to conversion, with no manual recopying.",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : les leads tracés et attribués de la source à la conversion.",
-          "media_alt_en": "A dynamic figure: leads traced and attributed from source to conversion."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "E-commerce · Mesure · Perf",
-          "impact_fr": "Activité remise sous mesure : rétention en hausse de 35 %, catalogue trois fois plus consulté et temps de chargement divisé par deux.",
-          "impact_en": "Activity put back under measurement: retention up 35%, catalog browsed three times more and load time halved.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : l'activité e-commerce remise sous mesure et suivie.",
-          "media_alt_en": "Fresh fruit: the e-commerce activity put back under measurement and tracked."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Abonnement · Suivi membres · SEO",
-          "impact_fr": "Funnel d'audience suivi de bout en bout : 40 articles, 150 membres et 35 abonnés payants mesurés en 3 mois, plus un top 10 Google local.",
-          "impact_en": "Audience funnel tracked end to end: 40 articles, 150 members and 35 paying subscribers measured in 3 months, plus a local Google top 10.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local : le funnel d'audience suivi et mesuré de bout en bout.",
-          "media_alt_en": "A local media outlet: the audience funnel tracked and measured end to end."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
@@ -614,10 +335,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage des KPI prioritaires et un premier tableau de bord en ligne. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez vos données, vos accès et votre socle.",
-      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority KPIs and a first dashboard online. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep your data, your access and your base.",
+      "h2_fr": "Prix d'un tableau de bord automatisé",
+      "h2_en": "Price of an automated dashboard",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage des KPI prioritaires et un premier tableau de bord en ligne. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos données, vos accès et votre socle.",
+      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority KPIs and a first dashboard online. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your data, your access and your base.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -638,9 +359,9 @@
             "A first dashboard that runs, not a mockup"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=donnees-reporting&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -653,13 +374,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Nouveaux indicateurs et sources ajoutés",
             "Vous gardez données, accès et socle"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "New indicators and sources added",
             "You keep the data, access and base"
           ],
@@ -671,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage des KPI prioritaires, sources branchées et un premier tableau de bord mis en ligne, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux indicateurs, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre socle sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority KPIs, wired sources and a first dashboard put online, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the new indicators require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your base are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage des KPI prioritaires, sources branchées et un premier tableau de bord mis en ligne, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux indicateurs, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre socle sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority KPIs, wired sources and a first dashboard put online, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the new indicators require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your base are yours."
     },
     {
       "type": "eeat-panel",
@@ -683,63 +404,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Tableau de bord et reporting automatisé : vos questions",
+      "h2_en": "Dashboard and automated reporting: your questions",
       "items": [
         {
-          "q_fr": "Nos chiffres ne concordent jamais d'un outil à l'autre, pourquoi ?",
-          "q_en": "Our figures never match from one tool to another, why?",
-          "a_fr": "Parce que chaque outil compte à sa façon et que personne n'a fixé la définition commune. On pose des indicateurs uniques et une source de vérité : un chiffre, une définition, la même partout. Fini les réunions passées à savoir qui a raison.",
-          "a_en": "Because each tool counts its own way and no one set the shared definition. We put in single indicators and a source of truth: one figure, one definition, the same everywhere. No more meetings spent working out who's right."
+          "q_fr": "Combien coûte un tableau de bord automatisé pour une PME ?",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources branchées, un premier tableau en ligne. Les sources et indicateurs suivants sont estimés en heures puis facturés 99 € HT de l'heure. L'outil de tableaux de bord et l'hébergement de la base sont à votre nom.",
+          "q_en": "How much does an automated dashboard cost for an SMB?",
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: priority indicators, first sources connected, a first dashboard online. Further sources and indicators are estimated in hours then billed €99 per hour excl. VAT. The dashboard tool and database hosting are in your name."
         },
         {
-          "q_fr": "Qu'est-ce que vous centralisez, exactement ?",
-          "q_en": "What exactly do you centralise?",
-          "a_fr": "Vos données éparpillées dans le CRM, la facturation, les tableurs, l'e-commerce, la pub et vos outils métier. On les rassemble dans un socle unique, propre et à jour, à la place des exports manuels recopiés chaque semaine.",
-          "a_en": "Your data scattered across the CRM, billing, spreadsheets, e-commerce, ads and your business tools. We gather it into a single, clean, up-to-date base, in place of manual exports recopied every week."
+          "q_fr": "Peut-on automatiser un reporting fait sur Excel ?",
+          "a_fr": "Oui. On garde le tableur comme point d'arrivée si vos équipes y tiennent, et on automatise son alimentation. Ou on le remplace par une base et un tableau de bord quand le fichier est devenu trop fragile.",
+          "q_en": "Can reporting done in Excel be automated?",
+          "a_en": "Yes. We keep the spreadsheet as the destination if your teams want it and automate its feed. Or we replace it with a database and dashboard when the file has become too fragile."
         },
         {
-          "q_fr": "Le reporting automatisé, ça remplace notre analyste ?",
-          "q_en": "Does automated reporting replace our analyst?",
-          "a_fr": "Non. Ça lui rend ses heures. L'automatisation fait la collecte et la mise en forme, votre équipe garde l'analyse et la décision. On supprime la corvée du vendredi soir, pas le cerveau qui interprète.",
-          "a_en": "No. It gives them their hours back. The automation handles collection and formatting, your team keeps the analysis and the decision. We remove the Friday-night chore, not the brain that interprets."
+          "q_fr": "Combien de temps pour mettre en place un tableau de bord ?",
+          "a_fr": "Habituellement 2 à 6 semaines pour un premier tableau sur un périmètre restreint. Le délai dépend de la qualité des données sources et du temps nécessaire à la direction pour valider les définitions.",
+          "q_en": "How long does it take to set up a dashboard?",
+          "a_en": "Usually 2 to 6 weeks for a first dashboard on a narrow scope. It depends on source data quality and on the time management needs to approve definitions."
         },
         {
-          "q_fr": "Vous construisez des dashboards, ou une vraie base de données ?",
-          "q_en": "Do you build dashboards, or a real database?",
-          "a_fr": "Les deux selon le besoin. Parfois un tableau de bord branché sur vos outils suffit. Parfois il faut d'abord centraliser dans un socle propre avant d'afficher. On cadre le juste niveau, on ne vous vend pas une usine si un dashboard suffit.",
-          "a_en": "Both, depending on the need. Sometimes a dashboard wired to your tools is enough. Sometimes you first need to centralise into a clean base before displaying. We scope the right level, we don't sell you a factory when a dashboard is enough."
+          "q_fr": "Quels indicateurs suivre dans une PME ?",
+          "a_fr": "Ceux qui déclenchent une décision. En général : chiffre d'affaires facturé et encaissé, marge, carnet de commandes, délai de paiement, charge des équipes, et un ou deux indicateurs propres à votre métier. Notre article sur le tableau de bord PME détaille la sélection.",
+          "q_en": "Which indicators should an SMB track?",
+          "a_en": "Those that trigger a decision. Typically: revenue invoiced and collected, margin, order book, payment delay, team workload, and one or two indicators specific to your trade. Our SMB dashboard article details the selection."
         },
         {
-          "q_fr": "Peut-on automatiser un tableau de bord Excel ?",
-          "q_en": "Can you automate an Excel dashboard?",
-          "a_fr": "Oui. Plutôt que de recopier un tableur chaque semaine, on branche vos sources à un tableau de bord qui se rafraîchit seul. Excel reste possible en affichage, mais la donnée remonte automatiquement, sans ressaisie ni fichier périmé.",
-          "a_en": "Yes. Rather than recopying a spreadsheet every week, we wire your sources to a dashboard that refreshes on its own. Excel can stay as a display, but the data flows up automatically, with no re-entry and no stale file."
+          "q_fr": "Où sont stockées les données du reporting ?",
+          "a_fr": "Dans une base de données ouverte à votre nom, chez l'hébergeur de votre choix. On documente les données personnelles qui y figurent et les droits d'accès par tableau.",
+          "q_en": "Where is the reporting data stored?",
+          "a_en": "In a database opened in your name, at the host of your choice. We document the personal data it contains and access rights per dashboard."
         },
         {
-          "q_fr": "Les tableaux sont à jour quand on les ouvre ?",
-          "q_en": "Are the boards up to date when we open them?",
-          "a_fr": "Oui. Les données se rafraîchissent automatiquement à la fréquence utile : temps réel, chaque heure ou chaque nuit selon le cas. Vous ne rassemblez plus rien à la main avant une réunion.",
-          "a_en": "Yes. The data refreshes automatically at the useful frequency: real time, hourly or nightly depending on the case. You no longer gather anything by hand before a meeting."
-        },
-        {
-          "q_fr": "Combien de temps avant un premier tableau de bord utile ?",
-          "q_en": "How long before a first useful dashboard?",
-          "a_fr": "Un premier dashboard branché sur vos indicateurs clés tourne souvent en quelques semaines. On commence par le chiffre qui vous coûte le plus de réunions, puis on étend.",
-          "a_en": "A first dashboard wired to your key indicators often runs within a few weeks. We start with the figure that costs you the most meetings, then extend."
-        },
-        {
-          "q_fr": "Nos données restent chez nous et protégées ?",
-          "q_en": "Does our data stay with us and protected?",
-          "a_fr": "Oui. Le socle est hébergé sur une infra que vous contrôlez, avec des accès par rôle : chacun voit les chiffres qui le concernent. Vos données ne partent pas dans un outil tiers opaque.",
-          "a_en": "Yes. The base is hosted on infrastructure you control, with role-based access: each sees the figures that concern them. Your data doesn't go into an opaque third-party tool."
-        },
-        {
-          "q_fr": "Une fois livré, on ajoute un indicateur sans vous ?",
-          "q_en": "Once delivered, can we add an indicator without you?",
-          "a_fr": "Oui. On documente le socle et on forme un référent chez vous. Ajouter un indicateur ou une vue se fait en interne. Vous gardez la stack, sans captivité.",
-          "a_en": "Yes. We document the base and train an in-house referent. Adding an indicator or a view happens internally. You keep the stack, no lock-in."
+          "q_fr": "L'IA peut-elle commenter les chiffres à notre place ?",
+          "a_fr": "Elle peut rédiger une synthèse qui signale les écarts par rapport à la période précédente. Elle ne remplace pas l'analyse : elle ne connaît pas le contexte d'un client perdu ou d'un chantier décalé. On l'ajoute seulement si un destinataire la demande.",
+          "q_en": "Can AI comment on the figures for us?",
+          "a_en": "It can write a summary flagging gaps versus the previous period. It does not replace analysis: it does not know the context of a lost customer or a delayed project. We add it only if a reader asks for it."
         }
       ]
     },
@@ -750,22 +453,22 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à y voir clair ?",
-      "kicker_en": "§ Ready to see clearly?",
-      "h2_fr": "Décidez sur des chiffres à jour, pas au doigt mouillé.",
-      "h2_en": "Decide on up-to-date figures, not on gut feel.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec la liste des indicateurs à fiabiliser et un premier périmètre de reporting, qu'on travaille ensemble ou non. En face, un interlocuteur unique, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with the list of indicators to make reliable and a first reporting perimeter, whether we work together or not. Across the table, a single contact, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de jours par mois passez-vous à compiler des chiffres ?",
+      "h2_en": "How many days a month do you spend compiling figures?",
+      "subtitle_fr": "En 45 minutes, on liste vos sources et vos indicateurs, et on vous dit ce qui s'automatise et dans quel ordre.",
+      "subtitle_en": "In 45 minutes, we list your sources and indicators, and tell you what can be automated and in what order.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=donnees-reporting&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir le système opérationnel et IA",
-          "label_en": "See the operational and AI system",
+          "label_fr": "Voir l'offre automatisation IA",
+          "label_en": "See the AI automation offer",
           "href": "/services/systemes-operationnels-ia",
           "variant": "ghost"
         }

@@ -7,7 +7,7 @@ export const demo: DemoData = {
     type: 'hero-author',
     team_label_fr: "L'équipe",
     team_label_en: 'The team',
-    team_href: '/equipe',
+    team_href: '/agence',
     name: 'Simon Beros',
     name_lead: 'Simon ',
     name_accent: 'Beros',

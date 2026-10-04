@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Landing pages qui convertissent · tunnels de qualification PME",
+  "title_fr": "Landing pages qui convertissent · tunnels de qualification",
   "title_en": "Landing pages that convert · qualification funnels for SMEs",
-  "description_fr": "Le trafic payé repart sans convertir ? Des landing pages qui convertissent et des tunnels de qualification qui trient vos leads, branchés à votre CRM.",
-  "description_en": "Paid traffic leaves without converting? Landing pages that convert and qualification funnels that sort your leads, wired to your CRM. Free diagnostic.",
+  "description_fr": "Landing pages et tunnels de qualification pour PME : une page par offre, un formulaire qui qualifie, des leads triés dans votre CRM. Dès 999 € HT.",
+  "description_en": "Landing pages and qualification funnels for SMBs: one page per offer, a form that qualifies, leads sorted in your CRM. From €999 excl. VAT.",
   "slug": "landing-pages-tunnels",
   "publishedAt": "2026-06-22T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "landing-pages-tunnels",
@@ -23,128 +23,88 @@
   },
   "faq_fr": [
     {
-      "q": "Landing pages et tunnels, qu'est-ce que ça couvre exactement ?",
-      "a": "Deux moments d'une même chaîne. La landing page capte : des pages à paliers par persona, un lead magnet qui score l'intention, un copywriting orienté conversion et des variantes testées. Le tunnel de qualification trie et fait avancer : chaque lead est noté, nourri et remonte dans votre CRM dans le bon ordre. La landing remplit le pipeline, le tunnel le priorise et le suit."
+      "q": "Combien coûte une landing page ?",
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés 99 € HT de l'heure."
     },
     {
-      "q": "En quoi une landing page intelligente diffère d'une page classique ?",
-      "a": "Une page classique présente. Une landing intelligente convertit et qualifie : elle est structurée par persona, instrumentée pour mesurer chaque palier, et chaque visiteur y laisse des signaux comportementaux exploitables. Le lead magnet d'entrée score l'intention dès la capture, les variantes A/B testées tranchent sur données plutôt que sur intuition, et le tracking relie chaque lead à la page qui l'a généré."
+      "q": "Quelle différence entre une landing page et une page de site ?",
+      "a": "Une page de site informe et renvoie vers d'autres pages. Une landing page ne propose qu'une action et retire tout ce qui en détourne : menu réduit, un seul formulaire, un seul message."
     },
     {
-      "q": "Combien de temps dure un test A/B, et si on a peu de trafic ?",
-      "a": "Ça dépend d'abord de votre trafic. Un test A/B a besoin d'assez de visiteurs et de conversions pour que l'écart entre deux variantes soit fiable, pas dû au hasard : comptez souvent deux à quatre semaines sur une page bien fréquentée. Sur une page à faible trafic, un A/B classique n'atteint jamais ce seuil : on teste alors en séquentiel, une version puis l'autre, ou en avant/après, et on assume l'incertitude au lieu de la maquiller. On décide sur un volume suffisant, jamais sur les trois premiers jours."
+      "q": "Combien de questions poser dans un formulaire de qualification ?",
+      "a": "Celles dont la réponse change ce que vous ferez de la demande, et pas une de plus. En pratique, trois à cinq. Chaque question supplémentaire fait perdre des visiteurs."
     },
     {
-      "q": "Le scoring des leads, ça fait quoi concrètement ?",
-      "a": "Il attribue à chaque lead une note de probabilité d'achat, à partir de ses signaux comportementaux : pages vues, contenus téléchargés, fréquence des visites, formulaire rempli, secteur, taille. Au lieu de traiter les contacts dans l'ordre d'arrivée, votre commercial voit en haut de sa liste les leads les plus chauds. Le scoring ne remplace pas le commercial, il lui dit qui rappeler en premier pour ne pas perdre de temps sur les contacts froids."
+      "q": "Gérez-vous les campagnes Google Ads ?",
+      "a": "Non. On construit les pages de destination et la chaîne de traitement des demandes. La gestion des campagnes reste chez vous ou chez votre agence média."
     },
     {
-      "q": "Comment ça se branche à nos outils existants ?",
-      "a": "Le tunnel se calcule à partir des signaux remontés par vos landing pages et vos formulaires, puis s'écrit directement dans votre CRM, sur la fiche du lead. Votre équipe ne change pas d'interface : elle voit juste apparaître une note et un classement là où elle travaille déjà. On branche via les connexions standards (HubSpot, Salesforce, Pipedrive) plutôt que d'imposer un nouvel outil."
-    },
-    {
-      "q": "Faut-il refaire tout notre dispositif existant ?",
-      "a": "Non. On instrumente ce que vous avez, palier par palier. On ajoute la landing, le lead magnet, la qualification et les relances là où la valeur fuit, sans casser ce qui marche déjà. Si une base de données exploitable existe, le scoring démarre dessus ; sinon on commence par des règles métier explicites et on bascule vers un modèle prédictif quand le volume le permet."
-    },
-    {
-      "q": "Gérez-vous aussi le paramétrage des publicités Google Ads et Meta ?",
-      "a": "On câble la mesure côté ads, et on peut piloter les campagnes selon votre cadrage. Le pixel Meta, la Conversions API et les balises Google Ads sont posés sur les vrais événements de valeur (lead qualifié, pas simple clic), via Tag Manager et déduplication, pour que les régies optimisent sur ce qui rapporte vraiment. Chaque campagne atterrit sur la landing accordée à son audience, et l'attribution relie chaque lead à la campagne qui l'a généré. L'objectif n'est pas de dépenser plus en ads, mais de faire convertir le trafic que vous payez déjà."
-    },
-    {
-      "q": "Comment fonctionne le tracking, et résiste-t-il aux bloqueurs ?",
-      "a": "On part d'un plan de mesure GA4 centré sur les événements qui comptent (lead magnet ouvert, formulaire soumis, devis demandé), posé via Google Tag Manager. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side (Conversions API Meta, GA4 server-side) et une approche first-party : le signal part de votre serveur, plus fiable et plus durable. Le tout en mode consenti et conforme RGPD, pour que la donnée qui nourrit la qualification soit complète, attribuée et collectée dans les règles."
-    },
-    {
-      "q": "Quel est le taux de conversion moyen d'une landing page ?",
-      "a": "En moyenne, une landing page convertit entre 2 et 5 % du trafic, les meilleures dépassent 10 %. Le chiffre dépend de la source de trafic, de la clarté de la promesse et de la vitesse de chargement. On mesure votre taux réel, puis on le fait monter par tests A/B."
-    },
-    {
-      "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-      "a": "Le studio est à Bordeaux et accompagne des PME en local comme à distance. Le cadrage des landing pages, du tunnel et le branchement au CRM se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers et la lecture de votre pipeline, mais elle n'est pas une condition."
+      "q": "Faut-il beaucoup de trafic pour tester des variantes ?",
+      "a": "Oui. Avec peu de visites, un test ne permet pas de conclure. Dans ce cas, on applique des principes éprouvés et on suit les conversions dans la durée plutôt que de comparer des variantes."
     }
   ],
   "faq_en": [
     {
-      "q": "Landing pages and funnels, what does it actually cover?",
-      "a": "Two moments of one chain. The landing page captures: tiered pages per persona, a lead magnet that scores intent, conversion-oriented copywriting and tested variants. The qualification funnel sorts and advances: each lead is scored, nurtured and surfaced in your CRM in the right order. The landing fills the pipeline, the funnel prioritises and follows it."
+      "q": "How much does a landing page cost?",
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €99 per hour excl. VAT."
     },
     {
-      "q": "How does an intelligent landing page differ from a classic one?",
-      "a": "A classic page presents. An intelligent landing converts and qualifies: it is structured per persona, instrumented to measure each stage, and every visitor leaves usable behavioural signals. The entry lead magnet scores intent from capture, A/B tested variants decide on data rather than intuition, and tracking links each lead to the page that generated it."
+      "q": "What is the difference between a landing page and a site page?",
+      "a": "A site page informs and links to other pages. A landing page offers one action and removes whatever distracts from it: reduced menu, one form, one message."
     },
     {
-      "q": "How long does an A/B test run, and what if we have little traffic?",
-      "a": "It depends first on your traffic. An A/B test needs enough visitors and conversions for the gap between two variants to be reliable, not down to chance: often count two to four weeks on a well-visited page. On a low-traffic page, a classic A/B never reaches that threshold: we then test sequentially, one version then the other, or before/after, and we own the uncertainty instead of hiding it. We decide on enough volume, never on the first three days."
+      "q": "How many questions should a qualification form ask?",
+      "a": "Those whose answer changes what you will do with the request, and not one more. In practice, three to five. Each extra question loses visitors."
     },
     {
-      "q": "What does lead scoring actually do?",
-      "a": "It assigns each lead a purchase-likelihood score, based on behavioural signals: pages viewed, content downloaded, visit frequency, form filled, sector, size. Instead of working contacts in order of arrival, your salesperson sees the hottest leads at the top of the list. Scoring doesn't replace the salesperson, it tells them who to call first so they don't waste time on cold contacts."
+      "q": "Do you manage Google Ads campaigns?",
+      "a": "No. We build the destination pages and the request handling chain. Campaign management stays with you or your media agency."
     },
     {
-      "q": "How does it connect to our existing tools?",
-      "a": "The funnel is computed from signals sent by your landing pages and forms, then written straight into your CRM, on the lead's record. Your team doesn't switch interface: they just see a score and a ranking appear where they already work. We connect through standard links (HubSpot, Salesforce, Pipedrive) rather than imposing a new tool."
-    },
-    {
-      "q": "Do we need to rebuild our whole existing setup?",
-      "a": "No. We instrument what you have, stage by stage. We add the landing, the lead magnet, the qualification and the follow-ups where value leaks, without breaking what already works. If a usable database exists, scoring starts on it; otherwise we begin with explicit business rules and move to a predictive model once volume allows."
-    },
-    {
-      "q": "Do you also handle Google Ads and Meta ad setup?",
-      "a": "We wire the measurement on the ads side, and we can drive the campaigns depending on your scope. The Meta pixel, the Conversions API and the Google Ads tags are set on real value events (qualified lead, not a mere click), through Tag Manager and deduplication, so the platforms optimise on what truly returns. Each campaign lands on the landing matched to its audience, and attribution links each lead to the campaign that generated it. The goal isn't to spend more on ads, but to convert the traffic you already pay for."
-    },
-    {
-      "q": "How does tracking work, and does it resist blockers?",
-      "a": "We start from a GA4 measurement plan centred on the events that matter (lead magnet opened, form submitted, quote requested), set through Google Tag Manager. To resist blockers and the end of third-party cookies, we route through server-side tracking (Meta Conversions API, GA4 server-side) and a first-party approach: the signal leaves your server, more reliable and more durable. All in consent mode and GDPR-compliant, so the data that feeds qualification is complete, attributed and collected by the rules."
-    },
-    {
-      "q": "What is the average landing page conversion rate?",
-      "a": "On average a landing page converts between 2 and 5 % of traffic, the best pass 10 %. The figure depends on the traffic source, the clarity of the promise and load speed. We measure your real rate, then lift it through A/B tests."
-    },
-    {
-      "q": "Where are you based, and do we need to be in Bordeaux?",
-      "a": "The studio is in Bordeaux and supports SMBs locally and remotely. Scoping the landing pages, the funnel and wiring to the CRM happen by video or on site depending on your preference. Proximity helps for the first workshops and reading your pipeline, but it is not a condition."
+      "q": "Do you need a lot of traffic to test variants?",
+      "a": "Yes. With few visits, a test is inconclusive. In that case, we apply proven principles and track conversions over time rather than compare variants."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Landing pages et tunnels",
-      "kicker_en": "§ Landing pages and funnels",
+      "kicker_fr": "§ Landing pages · un outil du système",
+      "kicker_en": "§ Landing pages · a tool in the system",
       "h1_fr": "Des landing pages qui <i class=\"acc\">convertissent</i>, un tunnel qui trie vos leads.",
       "h1_en": "Landing pages that <i class=\"acc\">convert</i>, a funnel that sorts your leads.",
-      "lede_fr": "Le trafic que vous payez arrive, regarde, et repart sans laisser de trace. Le formulaire ne qualifie rien, les leads finissent dans un fichier que personne ne rappelle. Waimia inverse ça : des landing pages à paliers qui convertissent, un tunnel de qualification qui trie, branchés à votre CRM. Le commercial sait enfin qui rappeler en premier. C'est l'étage conversion de votre système d'acquisition. Si ce trafic vient de Google Ads, la landing page Google Ads pousse le sujet plus loin : message match, Quality Score et coût par lead.",
-      "lede_en": "The traffic you pay for lands, looks, and leaves without a trace. The form qualifies nothing, leads end up in a file no one calls back. Waimia flips that: tiered landing pages that convert, a qualification funnel that sorts, wired to your CRM. Sales finally know who to call first. It is the conversion layer of your acquisition system. When that traffic comes from Google Ads, the Google Ads landing page takes it further: message match, Quality Score and cost per lead.",
+      "lede_fr": "Une landing page est une page consacrée à une seule offre et à une seule action. Un tunnel de qualification y ajoute quelques questions qui permettent de trier les demandes avant qu'elles n'arrivent chez vos commerciaux. Waimia les construit quand elles alimentent un process automatisé : la demande est notée, affectée et suivie dans votre CRM. C'est une prestation secondaire, au service du système commercial.",
+      "lede_en": "A landing page is a page devoted to one offer and one action. A qualification funnel adds a few questions that sort requests before they reach your salespeople. Waimia builds them when they feed an automated process: the request is scored, assigned and tracked in your CRM. It is a secondary service, supporting the sales system.",
       "badges": [
         {
-          "label_fr": "Landing pages à paliers · par persona",
-          "label_en": "Tiered landing pages · per persona"
+          "label_fr": "Une offre, une page",
+          "label_en": "One offer, one page"
         },
         {
-          "label_fr": "Tunnel de qualification",
-          "label_en": "Qualification funnel"
+          "label_fr": "Questions de qualification",
+          "label_en": "Qualification questions"
         },
         {
-          "label_fr": "Branché à votre CRM",
-          "label_en": "Wired to your CRM"
+          "label_fr": "Leads notés dans le CRM",
+          "label_en": "Leads scored in the CRM"
         },
         {
-          "label_fr": "Leads triés, chauds d'abord",
-          "label_en": "Leads sorted, hot ones first"
+          "label_fr": "Mesure des conversions",
+          "label_en": "Conversion tracking"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=landing-pages-tunnels&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir les capacités",
-        "label_en": "See the capabilities",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -155,458 +115,198 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "4–8 sem.",
-          "label_fr": "dispositif exploitable livré",
-          "label_en": "usable setup delivered"
+          "value": "4 à 8 semaines",
+          "label_fr": "délai habituel pour un dispositif complet",
+          "label_en": "usual lead time for a full setup",
+          "emphasis": false
         },
         {
-          "value": "Par persona",
-          "label_fr": "landing pages à paliers, scorées à l'entrée",
-          "label_en": "tiered landing pages, scored on entry"
+          "value": "CRM branché",
+          "label_fr": "chaque réponse du formulaire alimente la fiche",
+          "label_en": "each form answer feeds the record",
+          "emphasis": false
         },
         {
-          "value": "Priorité",
-          "label_fr": "leads triés, chauds rappelés d'abord",
-          "label_en": "leads sorted, hot ones called first"
+          "value": "À vous",
+          "label_fr": "pages, formulaires et données",
+          "label_en": "pages, forms and data",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">tunnel de conversion</i> transforme votre trafic en leads qualifiés et priorisés : des landing pages à paliers par persona qui captent, un lead magnet qui score l'intention, et une remontée CRM qui dit qui rappeler en premier. C'est le dispositif que Waimia branche au CRM des PME : la page convertit, le tunnel qualifie et suit.",
-      "statement_en": "A <i class=\"acc\">conversion funnel</i> turns your traffic into qualified, prioritised leads: tiered landing pages per persona that capture, a lead magnet that scores intent, and a CRM handover that says who to call first. It is the setup Waimia wires to the CRM of SMEs: the page converts, the funnel qualifies and follows up.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">tunnel de qualification</i> est une suite courte de questions posées au visiteur avant la prise de contact (besoin, taille, échéance, budget) dont les réponses sont enregistrées dans le CRM et servent à classer la demande. Il réduit le temps passé sur les demandes hors cible.",
+      "statement_en": "A <i class=\"acc\">qualification funnel</i> is a short series of questions asked before contact (need, size, timing, budget) whose answers are stored in the CRM and used to rank the request. It cuts time spent on off-target requests.",
       "pills": [
         {
-          "label_fr": "Paliers par persona",
-          "label_en": "Tiers per persona"
+          "label_fr": "Formulaire à étapes",
+          "label_en": "Multi-step form"
         },
         {
-          "label_fr": "Capture d'intention",
-          "label_en": "Intent capture"
+          "label_fr": "Réponses enregistrées",
+          "label_en": "Stored answers"
         },
         {
-          "label_fr": "Qualification",
-          "label_en": "Qualification"
+          "label_fr": "Classement des demandes",
+          "label_en": "Request ranking"
         },
         {
-          "label_fr": "Branché au CRM",
-          "label_en": "CRM-connected"
-        },
-        {
-          "label_fr": "Suivi conditionnel",
-          "label_en": "Conditional follow-up"
+          "label_fr": "Test de variantes",
+          "label_en": "Variant testing"
         }
       ],
       "specs": [
         {
-          "label_fr": "Landing à paliers",
-          "label_en": "Tiered landing"
+          "label_fr": "Landing pages par offre",
+          "label_en": "Landing pages per offer"
         },
         {
-          "label_fr": "Lead magnets",
-          "label_en": "Lead magnets"
+          "label_fr": "HubSpot, Pipedrive, Salesforce",
+          "label_en": "HubSpot, Pipedrive, Salesforce"
         },
         {
-          "label_fr": "Scoring d'intention",
-          "label_en": "Intent scoring"
+          "label_fr": "Mesure avec consentement",
+          "label_en": "Consent-based tracking"
         },
         {
-          "label_fr": "Priorisation CRM",
-          "label_en": "CRM prioritisation"
-        },
-        {
-          "label_fr": "Nurturing conditionnel",
-          "label_en": "Conditional nurturing"
+          "label_fr": "Relances automatiques",
+          "label_en": "Automatic follow-ups"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où le trafic se perd",
-      "kicker_en": "Where the traffic gets lost",
-      "h2_fr": "Pourquoi votre trafic ne devient pas du business",
-      "h2_en": "Why your traffic doesn't become business",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Un trafic payé qui repart sans convertir",
-          "title_en": "Paid traffic that leaves without converting",
-          "desc_fr": "La page parle à tout le monde de la même façon : aucun palier par persona, aucun lead magnet. Le trafic regarde et repart sans laisser de signal. Le budget Google Ads et Meta se dépense, la conversion ne suit pas.",
-          "desc_en": "The page speaks to everyone the same way: no tier per persona, no lead magnet. Traffic looks and leaves without a signal. The Google Ads and Meta budget goes out, the conversion doesn't follow.",
-          "fix_fr": "Landing à paliers + capture d'intention.",
-          "fix_en": "Tiered landing + intent capture."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Un formulaire générique qui ne qualifie rien",
-          "title_en": "A generic form that qualifies nothing",
-          "desc_fr": "Nom, email, message, et c'est tout. Le lead arrive anonyme, sans budget, sans timing, sans périmètre. Le commercial repart de zéro à chaque contact et dépense autant sur un curieux que sur un acheteur.",
-          "desc_en": "Name, email, message, and that's it. The lead arrives anonymous, with no budget, no timing, no scope. Sales start from scratch on each contact and spend as much on a browser as on a buyer.",
-          "fix_fr": "Lead magnet qui score l'intention dès l'entrée.",
-          "fix_en": "Lead magnet that scores intent from entry."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Des leads jamais rappelés",
-          "title_en": "Leads never called back",
-          "desc_fr": "Les contacts sont traités dans l'ordre d'arrivée, les chauds attendent derrière les froids, et les dormants tombent dans un fichier oublié. Les bons signaux d'achat passent inaperçus, personne ne les lit.",
-          "desc_en": "Contacts are worked in order of arrival, hot ones wait behind cold ones, and dormant ones fall into a forgotten file. Real buying signals go unnoticed, no one reads them.",
-          "fix_fr": "Priorisation et relance conditionnelle.",
-          "fix_en": "Prioritisation and conditional follow-up."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>À quoi ça sert dans le système</h2>\n<p>Une landing page ne vaut que par ce qui se passe ensuite. La demande arrive dans le <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> avec les réponses du formulaire, reçoit un score, est affectée à un commercial, et entre dans une <a href=\"/services/sequences-de-suivi\">séquence de relance</a> si elle reste sans suite. Sans cette chaîne, une meilleure page produit seulement plus de demandes non traitées. C'est l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>\n<h2>Ce qui est livré</h2>\n<p>Une page par offre ou par cible, écrite autour d'une seule action. Un formulaire en quelques étapes qui pose les questions que votre commercial poserait au premier appel. La mesure des conversions, configurée avec le consentement. On ne gère pas vos campagnes publicitaires : on construit ce vers quoi elles pointent.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Trop de questions : le visiteur abandonne. Trop peu de trafic pour tirer une conclusion d'un test de variantes : dans ce cas on ne teste pas, on applique les bonnes pratiques et on observe. Une promesse de page qui ne correspond pas à l'annonce. Pour vérifier que le problème est bien la page, et pas ce qui suit, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What it is for in the system</h2>\n<p>A landing page is only worth what happens next. The request lands in the <a href=\"/services/crm-scoring-routing\">automated CRM</a> with the form answers, gets a score, is assigned to a salesperson, and enters a <a href=\"/services/sequences-de-suivi\">follow-up sequence</a> if left unanswered. Without that chain, a better page just produces more unhandled requests. It is the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>\n<h2>What is delivered</h2>\n<p>One page per offer or target, written around a single action. A few-step form asking the questions your salesperson would ask on the first call. Conversion tracking, configured with consent. We do not manage your ad campaigns: we build what they point to.</p>\n<h2>What can go wrong</h2>\n<p>Too many questions: the visitor drops out. Too little traffic to conclude from a variant test: in that case we do not test, we apply good practice and observe. A page promise that does not match the ad. To check that the problem is the page, and not what follows, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ L'équation",
-      "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi un tunnel <i class=\"acc\">instrumenté</i> change l'équation",
-      "h2_en": "Why an <i class=\"acc\">instrumented</i> funnel changes the equation",
-      "without_label_fr": "Conversion subie",
-      "without_label_en": "Conversion endured",
-      "without_title_fr": "Ce qu'il laisse passer",
-      "without_title_en": "What it lets slip",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : la page d'offre d'un organisme de formation",
+      "h2_en": "Typical example: a training provider's offer page",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Un formulaire « contactez-nous »",
+      "without_title_en": "A \"contact us\" form",
       "without_items": [
         {
-          "text_fr": "Le trafic arrive et repart sans laisser de signal exploitable.",
-          "text_en": "Traffic comes and goes without leaving a usable signal."
+          "text_fr": "Toutes les campagnes pointent vers la page d'accueil.",
+          "text_en": "All campaigns point to the home page."
         },
         {
-          "text_fr": "Les leads sont traités au hasard de l'arrivée, sans priorité.",
-          "text_en": "Leads are worked at random of arrival, with no priority."
+          "text_fr": "Le formulaire demande un nom, un email et un message libre.",
+          "text_en": "The form asks for a name, an email and a free message."
         },
         {
-          "text_fr": "Les bons signaux d'achat passent inaperçus, personne ne les lit.",
-          "text_en": "Real buying signals go unnoticed, no one reads them."
-        },
-        {
-          "text_fr": "On pilote au ressenti, sans taux de passage fiable par palier.",
-          "text_en": "Management runs on gut feel, with no reliable pass-through rate per stage."
+          "text_fr": "Le commercial rappelle tout le monde, dans l'ordre d'arrivée.",
+          "text_en": "The salesperson calls everyone back, in order of arrival."
         }
       ],
-      "with_label_fr": "Tunnel instrumenté",
-      "with_label_en": "Instrumented funnel",
-      "with_title_fr": "Ce qu'il met au travail",
-      "with_title_en": "What it puts to work",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Une page par formation, des demandes triées",
+      "with_title_en": "One page per course, sorted requests",
       "with_items": [
         {
-          "text_fr": "Chaque visiteur est capté par la landing et scoré dès l'entrée.",
-          "text_en": "Each visitor is captured by the landing and scored from entry."
+          "text_fr": "Chaque campagne pointe vers la page de la formation concernée.",
+          "text_en": "Each campaign points to the relevant course page."
         },
         {
-          "text_fr": "Le commercial rappelle d'abord les leads chauds, sans deviner.",
-          "text_en": "Sales call hot leads first, without guessing."
+          "text_fr": "Le formulaire demande l'effectif, l'échéance et le mode de financement.",
+          "text_en": "The form asks for headcount, timing and funding method."
         },
         {
-          "text_fr": "Les signaux sont agrégés en une note explicable et vivante.",
-          "text_en": "Signals are aggregated into an explainable, living score."
+          "text_fr": "Les demandes d'entreprises avec une échéance proche sont rappelées en premier.",
+          "text_en": "Requests from companies with a near deadline are called first."
         },
         {
-          "text_fr": "Le pilotage est temps réel, mesuré sur vos propres données.",
-          "text_en": "Management is real-time, measured on your own data."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un tunnel de conversion",
-      "h2_en": "The 6 levels of a conversion funnel",
-      "lede_fr": "De la page qui présente au tunnel qui priorise et suit, six paliers. La plupart des PME stagnent au deuxième. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From a page that presents to a funnel that prioritises and follows up, six tiers. Most SMEs stall at the second. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Page vitrine",
-          "title_en": "Brochure page",
-          "sub_fr": "Présente, ne capte rien",
-          "sub_en": "Presents, captures nothing"
-        },
-        {
-          "title_fr": "Formulaire simple",
-          "title_en": "Simple form",
-          "sub_fr": "Capte, mais ne qualifie pas",
-          "sub_en": "Captures, but doesn't qualify"
-        },
-        {
-          "title_fr": "Landing tracée",
-          "title_en": "Tracked landing",
-          "sub_fr": "Tracking et paliers mesurés",
-          "sub_en": "Tracking and stages measured"
-        },
-        {
-          "title_fr": "Landing qui score",
-          "title_en": "Scoring landing",
-          "sub_fr": "Lead magnet et intention notée",
-          "sub_en": "Lead magnet and intent scored"
-        },
-        {
-          "title_fr": "Tunnel branché CRM",
-          "title_en": "CRM-wired funnel",
-          "sub_fr": "Priorisation et relance conditionnelle",
-          "sub_en": "Prioritisation and conditional follow-up"
-        },
-        {
-          "title_fr": "Tunnel optimisé",
-          "title_en": "Optimised funnel",
-          "sub_fr": "A/B testing et réglage continu",
-          "sub_en": "A/B testing and continuous tuning"
+          "text_fr": "Les autres reçoivent le programme et une proposition de créneau.",
+          "text_en": "The others receive the programme and a proposed slot."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce qu'on branche chez vous",
-      "title_en": "What we wire at your side",
-      "lead_fr": "Des landing pages qui convertissent et une note opérationnelle dans le CRM, pas un tableau de bord de plus. Vous gardez la stack quand on part.",
-      "lead_en": "Landing pages that convert and an operational score inside the CRM, not one more dashboard. You keep the stack when we leave.",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Les pages sont sur votre site, les données dans votre CRM.",
+      "lead_en": "The pages are on your site, the data in your CRM.",
       "items": [
         {
-          "title_fr": "Landing pages à paliers",
-          "title_en": "Tiered landing pages",
-          "body_fr": "Pages par persona et par palier de prix, optimisées SEO et GEO, tracking complet, déployées en production et branchées au CRM.",
-          "body_en": "Pages per persona and pricing tier, SEO and GEO optimised, full tracking, deployed to production and wired to the CRM.",
-          "format_fr": "CODE + LIVE",
-          "format_en": "CODE + LIVE"
+          "title_fr": "Les landing pages",
+          "title_en": "The landing pages",
+          "body_fr": "Publiées sur votre domaine, modifiables par votre équipe.",
+          "body_en": "Published on your domain, editable by your team.",
+          "format_fr": "PAGES",
+          "format_en": "PAGES"
         },
         {
-          "title_fr": "Lead magnet de qualification",
-          "title_en": "Qualification lead magnet",
-          "body_fr": "Parcours d'entrée à faible friction qui capte le visiteur et qualifie son intention sur budget, timing et périmètre, branché au scoring.",
-          "body_en": "Low-friction entry journey that captures the visitor and qualifies intent on budget, timing and scope, wired to the scoring.",
-          "format_fr": "PARCOURS",
-          "format_en": "JOURNEY"
+          "title_fr": "Le formulaire de qualification",
+          "title_en": "The qualification form",
+          "body_fr": "Les questions, leur ordre et la règle de classement, écrits.",
+          "body_en": "The questions, their order and the ranking rule, written down.",
+          "format_fr": "FORMULAIRE",
+          "format_en": "FORMULAIRE"
         },
         {
-          "title_fr": "Tunnel de scoring",
-          "title_en": "Scoring funnel",
-          "body_fr": "La logique qui transforme les signaux d'un lead en note de priorité, calée sur votre historique gagné/perdu. Lisible, pas une boîte noire.",
-          "body_en": "The logic that turns a lead's signals into a priority score, calibrated on your won/lost history. Readable, not a black box.",
-          "format_fr": "MODÈLE",
-          "format_en": "MODEL"
+          "title_fr": "La connexion au CRM",
+          "title_en": "The CRM connection",
+          "body_fr": "Chaque réponse enregistrée dans la fiche, documentée.",
+          "body_en": "Each answer stored in the record, documented.",
+          "format_fr": "CRM",
+          "format_en": "CRM"
         },
         {
-          "title_fr": "Note écrite dans le CRM",
-          "title_en": "Score written into the CRM",
-          "body_fr": "Le score et le rang de priorité apparaissent sur la fiche du lead, dans l'outil que votre équipe utilise déjà. Pas de nouvel écran à adopter.",
-          "body_en": "The score and priority rank appear on the lead's record, inside the tool your team already uses. No new screen to adopt.",
-          "format_fr": "INTÉGRATION",
-          "format_en": "INTEGRATION"
-        },
-        {
-          "title_fr": "Nurturing conditionnel",
-          "title_en": "Conditional nurturing",
-          "body_fr": "Séquence email qui se déclenche et s'adapte selon les interactions et le score. Réveil des contacts dormants inclus.",
-          "body_en": "Email sequence that triggers and adapts on interactions and score. Dormant contact wake-up included.",
-          "format_fr": "AUTOMATION",
-          "format_en": "AUTOMATION"
-        },
-        {
-          "title_fr": "Tracking et pixels posés",
-          "title_en": "Tracking and pixels set",
-          "body_fr": "Plan de mesure GA4, Tag Manager, pixel Meta et balises Google Ads câblés sur les vrais événements de valeur, tracking server-side et consentement RGPD inclus.",
-          "body_en": "GA4 measurement plan, Tag Manager, Meta pixel and Google Ads tags wired to real value events, server-side tracking and GDPR consent included.",
-          "format_fr": "TRACKING",
-          "format_en": "TRACKING"
+          "title_fr": "La mesure",
+          "title_en": "The tracking",
+          "body_fr": "Taux de conversion par page et par source.",
+          "body_en": "Conversion rate per page and per source.",
+          "format_fr": "MESURE",
+          "format_en": "MESURE"
         }
       ]
     },
     {
-      "type": "feature-grid",
-      "anchor": "capacites",
+      "type": "decision-list",
       "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un tunnel qui convertit",
-      "h2_en": "The building blocks of a funnel that converts",
-      "lede_fr": "Sept briques, une seule chaîne. On active celles qui servent, quand elles servent. Pas de gadget qu'on vous facture pour rien.",
-      "lede_en": "Seven building blocks, a single chain. We activate the ones that serve, when they serve. No gadget billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Une landing page ne changera rien si",
+      "heading_en": "A landing page will change nothing if",
+      "items": [
         {
-          "icon": "qualif",
-          "title_fr": "Landing pages à paliers",
-          "title_en": "Tiered landing pages",
-          "body_fr": "Des pages par persona et par palier de prix, accordées à chaque campagne, qui parlent à chacun dans sa langue plutôt qu'à tout le monde à la fois.",
-          "body_en": "Pages per persona and pricing tier, matched to each campaign, that speak to each one in their language rather than to everyone at once."
+          "label_fr": "Vous n'avez pas de trafic à y envoyer.",
+          "label_en": "You have no traffic to send to it."
         },
         {
-          "icon": "ia",
-          "title_fr": "Lead magnet qui score",
-          "title_en": "Lead magnet that scores",
-          "body_fr": "Un parcours d'entrée à faible friction qui capte le visiteur et qualifie déjà son intention sur budget, timing et périmètre.",
-          "body_en": "A low-friction entry journey that captures the visitor and already qualifies their intent on budget, timing and scope."
+          "label_fr": "Les demandes actuelles ne sont déjà pas rappelées.",
+          "label_en": "Current requests are already not called back."
         },
         {
-          "icon": "contenu",
-          "title_fr": "Copywriting de conversion",
-          "title_en": "Conversion copywriting",
-          "body_fr": "Promesse claire, preuve, levée d'objection et appel à l'action à chaque palier, écrits à partir de la voix de vos clients.",
-          "body_en": "Clear promise, proof, objection handling and a call to action at each stage, written from your customers' voice."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Tracking et pixels",
-          "title_en": "Tracking and pixels",
-          "body_fr": "GA4, Tag Manager, pixel Meta et balises Google Ads sur les vrais événements de valeur, tracking server-side, consentement RGPD.",
-          "body_en": "GA4, Tag Manager, Meta pixel and Google Ads tags on real value events, server-side tracking, GDPR consent."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Scoring et priorisation",
-          "title_en": "Scoring and prioritisation",
-          "body_fr": "Une note qui agrège les signaux du lead et dit au commercial qui rappeler en premier. Explicable, vivante, pas une boîte noire.",
-          "body_en": "A score that aggregates the lead's signals and tells sales who to call first. Explainable, living, not a black box."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "Connexion CRM",
-          "title_en": "CRM connection",
-          "body_fr": "Le lead qualifié remonte sur sa fiche CRM avec sa note et son rang, via les connexions standards, sans nouvel écran à adopter.",
-          "body_en": "The qualified lead surfaces on its CRM record with its score and rank, through standard links, no new screen to adopt."
-        },
-        {
-          "icon": "design",
-          "title_fr": "A/B testing et CRO",
-          "title_en": "A/B testing and CRO",
-          "body_fr": "Variantes de landing, d'accroche et de formulaire testées sur de vrais visiteurs. Chaque test part d'une hypothèse tirée des données, une seule variable à la fois, et attend un volume suffisant avant de trancher sur le taux de conversion. Sur une page à faible trafic, on teste en séquentiel ou en avant/après plutôt qu'en A/B classique.",
-          "body_en": "Landing, hook and form variants tested on real visitors. Each test starts from a data-driven hypothesis, one variable at a time, and waits for enough volume before deciding on conversion rate. On a low-traffic page, we test sequentially or before/after rather than classic A/B."
+          "label_fr": "Votre offre n'est pas arrêtée : prix, cible, périmètre.",
+          "label_en": "Your offer is not settled: price, target, scope."
         }
       ]
-    },
-    {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "Le tunnel, de bout en bout",
-      "fig_title_en": "The funnel, end to end",
-      "meta_fr": "FunnelLoop · v1",
-      "meta_en": "FunnelLoop · v1",
-      "h2_fr": "Comment tout fonctionne ensemble",
-      "h2_en": "How it all works together",
-      "lede_fr": "Les sept briques ne sont pas des options à la carte. Elles forment un circuit. Chaque maillon transforme une visite anonyme en lead qualifié, puis renvoie la mesure au tunnel pour prioriser le suivant.",
-      "lede_en": "The seven blocks are not options on a menu. They form a circuit. Each link turns an anonymous visit into a qualified lead, then feeds the measurement back to the funnel to prioritise the next.",
-      "steps": [
-        {
-          "title_fr": "Visite",
-          "title_en": "Visit",
-          "desc_fr": "Le trafic atterrit sur la landing accordée à son audience et son mot-clé.",
-          "desc_en": "Traffic lands on the landing matched to its audience and keyword."
-        },
-        {
-          "title_fr": "Landing",
-          "title_en": "Landing",
-          "desc_fr": "Pages à paliers par persona, copywriting orienté conversion, points de capture clairs.",
-          "desc_en": "Tiered pages per persona, conversion-oriented copywriting, clear capture points."
-        },
-        {
-          "title_fr": "Lead magnet",
-          "title_en": "Lead magnet",
-          "desc_fr": "Un parcours d'entrée à faible friction qui capte et score déjà l'intention.",
-          "desc_en": "A low-friction entry journey that captures and already scores intent."
-        },
-        {
-          "title_fr": "Qualification",
-          "title_en": "Qualification",
-          "desc_fr": "Budget, timing, périmètre : le lead arrive noté, pas anonyme.",
-          "desc_en": "Budget, timing, scope: the lead arrives scored, not anonymous."
-        },
-        {
-          "title_fr": "CRM",
-          "title_en": "CRM",
-          "desc_fr": "Score et rang écrits sur la fiche, alerte commerciale sur les leads chauds.",
-          "desc_en": "Score and rank written on the record, sales alert on hot leads."
-        },
-        {
-          "title_fr": "Rappel priorisé",
-          "title_en": "Prioritised callback",
-          "desc_fr": "Le commercial rappelle le plus chaud d'abord. La mesure revient au tunnel. La boucle se referme.",
-          "desc_en": "Sales call the hottest first. The measurement returns to the funnel. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'optimisation continue",
-      "loop_label_en": "continuous optimisation loop"
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · leads captés, qualifiés, priorisés",
-      "spec_en": "Client cases · leads captured, qualified, prioritised",
-      "h2_fr": "Leads mieux captés sur le terrain",
-      "h2_en": "Leads better captured in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · Conversion · Rétention",
-          "impact_fr": "Parcours et performance retravaillés pour mieux capter et garder : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Journey and performance reworked to capture and keep better: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu pour mieux convertir.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt to convert better."
-        },
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Site · Formulaires · HubSpot",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot : les leads entrants remontent qualifiés dans le CRM, prêts à être priorisés, avec un balisage schema.org pensé pour les citations IA.",
-          "impact_en": "Site built with HubSpot-connected forms: incoming leads arrive qualified in the CRM, ready to be prioritised, with schema.org markup designed for AI citations.",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Audience · Conversion",
-          "impact_fr": "Pipeline d'audience construit avec un contenu assisté par IA et des paliers de conversion : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Audience pipeline built with AI-assisted content and conversion tiers: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et convertit une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and converting a community of subscribers."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
@@ -615,10 +315,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Deux façons de faire convertir votre trafic",
-      "h2_en": "Two ways to make your traffic convert",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : une première landing scorée à l'entrée et le tracking posé. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez les pages, la note dans le CRM et la donnée.",
-      "lede_en": "We start with a fixed-price discovery sprint: a first landing scored on entry and the tracking in place. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the pages, the score in the CRM and the data.",
+      "h2_fr": "Prix d'une landing page et d'un tunnel",
+      "h2_en": "Price of a landing page and funnel",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : une première landing scorée à l'entrée et le tracking posé. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez les pages, la note dans le CRM et la donnée.",
+      "lede_en": "We start with a fixed-price discovery sprint: a first landing scored on entry and the tracking in place. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the pages, the score in the CRM and the data.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -639,9 +339,9 @@
             "A first deliverable that converts, not a mockup"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=landing-pages-tunnels&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -654,13 +354,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "A/B testing, scoring prédictif et connexion CRM",
             "Vous gardez les pages, la note et la donnée"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "A/B testing, predictive scoring and CRM connection",
             "You keep the pages, the score and the data"
           ],
@@ -672,8 +372,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : une première landing scorée à l'entrée, le copywriting et le tracking posés, avec un livrable qui convertit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent l'A/B testing, le scoring prédictif et la connexion CRM, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous disposez de landing pages qui convertissent et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a first landing scored on entry, the copywriting and the tracking in place, with a deliverable that converts by the end. What follows is quoted: we estimate together the time A/B testing, predictive scoring and CRM connection require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, you have landing pages that convert and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : une première landing scorée à l'entrée, le copywriting et le tracking posés, avec un livrable qui convertit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent l'A/B testing, le scoring prédictif et la connexion CRM, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous disposez de landing pages qui convertissent et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a first landing scored on entry, the copywriting and the tracking in place, with a deliverable that converts by the end. What follows is quoted: we estimate together the time A/B testing, predictive scoring and CRM connection require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, you have landing pages that convert and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
     },
     {
       "type": "eeat-panel",
@@ -684,63 +384,39 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Landing pages et tunnels : vos questions",
+      "h2_en": "Landing pages and funnels: your questions",
       "items": [
         {
-          "q_fr": "Landing pages et tunnels, qu'est-ce que ça couvre exactement ?",
-          "q_en": "Landing pages and funnels, what does it actually cover?",
-          "a_fr": "Deux moments d'une même chaîne. La landing page capte : des pages à paliers par persona, un lead magnet qui score l'intention, un copywriting orienté conversion et des variantes testées. Le tunnel de qualification trie et fait avancer : chaque lead est noté, nourri et remonte dans votre CRM dans le bon ordre. La landing remplit le pipeline, le tunnel le priorise et le suit.",
-          "a_en": "Two moments of one chain. The landing page captures: tiered pages per persona, a lead magnet that scores intent, conversion-oriented copywriting and tested variants. The qualification funnel sorts and advances: each lead is scored, nurtured and surfaced in your CRM in the right order. The landing fills the pipeline, the funnel prioritises and follows it."
+          "q_fr": "Combien coûte une landing page ?",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés 99 € HT de l'heure.",
+          "q_en": "How much does a landing page cost?",
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €99 per hour excl. VAT."
         },
         {
-          "q_fr": "En quoi une landing page intelligente diffère d'une page classique ?",
-          "q_en": "How does an intelligent landing page differ from a classic one?",
-          "a_fr": "Une page classique présente. Une landing intelligente convertit et qualifie : elle est structurée par persona, instrumentée pour mesurer chaque palier, et chaque visiteur y laisse des signaux comportementaux exploitables. Le lead magnet d'entrée score l'intention dès la capture, les variantes A/B testées tranchent sur données plutôt que sur intuition, et le tracking relie chaque lead à la page qui l'a généré.",
-          "a_en": "A classic page presents. An intelligent landing converts and qualifies: it is structured per persona, instrumented to measure each stage, and every visitor leaves usable behavioural signals. The entry lead magnet scores intent from capture, A/B tested variants decide on data rather than intuition, and tracking links each lead to the page that generated it."
+          "q_fr": "Quelle différence entre une landing page et une page de site ?",
+          "a_fr": "Une page de site informe et renvoie vers d'autres pages. Une landing page ne propose qu'une action et retire tout ce qui en détourne : menu réduit, un seul formulaire, un seul message.",
+          "q_en": "What is the difference between a landing page and a site page?",
+          "a_en": "A site page informs and links to other pages. A landing page offers one action and removes whatever distracts from it: reduced menu, one form, one message."
         },
         {
-          "q_fr": "Combien de temps dure un test A/B, et si on a peu de trafic ?",
-          "q_en": "How long does an A/B test run, and what if we have little traffic?",
-          "a_fr": "Ça dépend d'abord de votre trafic. Un test A/B a besoin d'assez de visiteurs et de conversions pour que l'écart entre deux variantes soit fiable, pas dû au hasard : comptez souvent deux à quatre semaines sur une page bien fréquentée. Sur une page à faible trafic, un A/B classique n'atteint jamais ce seuil : on teste alors en séquentiel, une version puis l'autre, ou en avant/après, et on assume l'incertitude au lieu de la maquiller. On décide sur un volume suffisant, jamais sur les trois premiers jours.",
-          "a_en": "It depends first on your traffic. An A/B test needs enough visitors and conversions for the gap between two variants to be reliable, not down to chance: often count two to four weeks on a well-visited page. On a low-traffic page, a classic A/B never reaches that threshold: we then test sequentially, one version then the other, or before/after, and we own the uncertainty instead of hiding it. We decide on enough volume, never on the first three days."
+          "q_fr": "Combien de questions poser dans un formulaire de qualification ?",
+          "a_fr": "Celles dont la réponse change ce que vous ferez de la demande, et pas une de plus. En pratique, trois à cinq. Chaque question supplémentaire fait perdre des visiteurs.",
+          "q_en": "How many questions should a qualification form ask?",
+          "a_en": "Those whose answer changes what you will do with the request, and not one more. In practice, three to five. Each extra question loses visitors."
         },
         {
-          "q_fr": "Le scoring des leads, ça fait quoi concrètement ?",
-          "q_en": "What does lead scoring actually do?",
-          "a_fr": "Il attribue à chaque lead une note de probabilité d'achat, à partir de ses signaux comportementaux : pages vues, contenus téléchargés, fréquence des visites, formulaire rempli, secteur, taille. Au lieu de traiter les contacts dans l'ordre d'arrivée, votre commercial voit en haut de sa liste les leads les plus chauds. Le scoring ne remplace pas le commercial, il lui dit qui rappeler en premier pour ne pas perdre de temps sur les contacts froids.",
-          "a_en": "It assigns each lead a purchase-likelihood score, based on behavioural signals: pages viewed, content downloaded, visit frequency, form filled, sector, size. Instead of working contacts in order of arrival, your salesperson sees the hottest leads at the top of the list. Scoring doesn't replace the salesperson, it tells them who to call first so they don't waste time on cold contacts."
+          "q_fr": "Gérez-vous les campagnes Google Ads ?",
+          "a_fr": "Non. On construit les pages de destination et la chaîne de traitement des demandes. La gestion des campagnes reste chez vous ou chez votre agence média.",
+          "q_en": "Do you manage Google Ads campaigns?",
+          "a_en": "No. We build the destination pages and the request handling chain. Campaign management stays with you or your media agency."
         },
         {
-          "q_fr": "Comment ça se branche à nos outils existants ?",
-          "q_en": "How does it connect to our existing tools?",
-          "a_fr": "Le tunnel se calcule à partir des signaux remontés par vos landing pages et vos formulaires, puis s'écrit directement dans votre CRM, sur la fiche du lead. Votre équipe ne change pas d'interface : elle voit juste apparaître une note et un classement là où elle travaille déjà. On branche via les connexions standards (HubSpot, Salesforce, Pipedrive) plutôt que d'imposer un nouvel outil.",
-          "a_en": "The funnel is computed from signals sent by your landing pages and forms, then written straight into your CRM, on the lead's record. Your team doesn't switch interface: they just see a score and a ranking appear where they already work. We connect through standard links (HubSpot, Salesforce, Pipedrive) rather than imposing a new tool."
-        },
-        {
-          "q_fr": "Faut-il refaire tout notre dispositif existant ?",
-          "q_en": "Do we need to rebuild our whole existing setup?",
-          "a_fr": "Non. On instrumente ce que vous avez, palier par palier. On ajoute la landing, le lead magnet, la qualification et les relances là où la valeur fuit, sans casser ce qui marche déjà. Si une base de données exploitable existe, le scoring démarre dessus ; sinon on commence par des règles métier explicites et on bascule vers un modèle prédictif quand le volume le permet.",
-          "a_en": "No. We instrument what you have, stage by stage. We add the landing, the lead magnet, the qualification and the follow-ups where value leaks, without breaking what already works. If a usable database exists, scoring starts on it; otherwise we begin with explicit business rules and move to a predictive model once volume allows."
-        },
-        {
-          "q_fr": "Gérez-vous aussi le paramétrage des publicités Google Ads et Meta ?",
-          "q_en": "Do you also handle Google Ads and Meta ad setup?",
-          "a_fr": "On câble la mesure côté ads, et on peut piloter les campagnes selon votre cadrage. Le pixel Meta, la Conversions API et les balises Google Ads sont posés sur les vrais événements de valeur (lead qualifié, pas simple clic), via Tag Manager et déduplication, pour que les régies optimisent sur ce qui rapporte vraiment. Chaque campagne atterrit sur la landing accordée à son audience, et l'attribution relie chaque lead à la campagne qui l'a généré. L'objectif n'est pas de dépenser plus en ads, mais de faire convertir le trafic que vous payez déjà.",
-          "a_en": "We wire the measurement on the ads side, and we can drive the campaigns depending on your scope. The Meta pixel, the Conversions API and the Google Ads tags are set on real value events (qualified lead, not a mere click), through Tag Manager and deduplication, so the platforms optimise on what truly returns. Each campaign lands on the landing matched to its audience, and attribution links each lead to the campaign that generated it. The goal isn't to spend more on ads, but to convert the traffic you already pay for."
-        },
-        {
-          "q_fr": "Comment fonctionne le tracking, et résiste-t-il aux bloqueurs ?",
-          "q_en": "How does tracking work, and does it resist blockers?",
-          "a_fr": "On part d'un plan de mesure GA4 centré sur les événements qui comptent (lead magnet ouvert, formulaire soumis, devis demandé), posé via Google Tag Manager. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side (Conversions API Meta, GA4 server-side) et une approche first-party : le signal part de votre serveur, plus fiable et plus durable. Le tout en mode consenti et conforme RGPD, pour que la donnée qui nourrit la qualification soit complète, attribuée et collectée dans les règles.",
-          "a_en": "We start from a GA4 measurement plan centred on the events that matter (lead magnet opened, form submitted, quote requested), set through Google Tag Manager. To resist blockers and the end of third-party cookies, we route through server-side tracking (Meta Conversions API, GA4 server-side) and a first-party approach: the signal leaves your server, more reliable and more durable. All in consent mode and GDPR-compliant, so the data that feeds qualification is complete, attributed and collected by the rules."
-        },
-        {
-          "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-          "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_fr": "Le studio est à Bordeaux et accompagne des PME en local comme à distance. Le cadrage des landing pages, du tunnel et le branchement au CRM se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers et la lecture de votre pipeline, mais elle n'est pas une condition.",
-          "a_en": "The studio is in Bordeaux and supports SMBs locally and remotely. Scoping the landing pages, the funnel and wiring to the CRM happen by video or on site depending on your preference. Proximity helps for the first workshops and reading your pipeline, but it is not a condition."
+          "q_fr": "Faut-il beaucoup de trafic pour tester des variantes ?",
+          "a_fr": "Oui. Avec peu de visites, un test ne permet pas de conclure. Dans ce cas, on applique des principes éprouvés et on suit les conversions dans la durée plutôt que de comparer des variantes.",
+          "q_en": "Do you need a lot of traffic to test variants?",
+          "a_en": "Yes. With few visits, a test is inconclusive. In that case, we apply proven principles and track conversions over time rather than compare variants."
         }
       ]
     },
@@ -751,23 +427,23 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à convertir ?",
-      "kicker_en": "§ Ready to convert?",
-      "h2_fr": "Transformez le trafic en leads qualifiés et priorisés.",
-      "h2_en": "Turn traffic into qualified and prioritised leads.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on lit votre parcours et votre pipeline, on repère où le trafic se perd et quels signaux prédisent l'achat chez vous, et on vous montre à quoi ressembleraient des landing pages scorées branchées à votre CRM. En face, le fondateur qui cadre et branche lui-même, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we read your journey and pipeline, spot where traffic is lost and which signals predict purchase for you, and show you what scored landing pages wired to your CRM would look like. Across the table, the founder who frames and wires it himself, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Le problème vient-il de la page, ou de ce qui suit ?",
+      "h2_en": "Is the problem the page, or what follows?",
+      "subtitle_fr": "En 45 minutes, on regarde vos pages d'entrée et le traitement des demandes, et on vous dit où agir en premier.",
+      "subtitle_en": "In 45 minutes, we look at your entry pages and how requests are handled, and tell you where to act first.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=landing-pages-tunnels&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir le SEO, GEO et contenu",
-          "label_en": "See SEO, GEO and content",
-          "href": "/services/seo-geo-contenu",
+          "label_fr": "Automatisation CRM",
+          "label_en": "CRM automation",
+          "href": "/services/crm-scoring-routing",
           "variant": "ghost"
         }
       ]

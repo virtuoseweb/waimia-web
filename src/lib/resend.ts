@@ -27,7 +27,11 @@
 
 import { SITE } from "../site.config";
 
-const RESEND_API_URL = "https://api.resend.com";
+// RESEND_API_URL · override optionnel (tests locaux contre un serveur factice, pour
+// prouver le chemin « e-mail envoyé » sans clé réelle). Absent en production.
+const RESEND_API_URL =
+  (import.meta.env.RESEND_API_URL as string | undefined)?.trim() ||
+  "https://api.resend.com";
 const apiKey = import.meta.env.RESEND_API_KEY;
 
 if (!apiKey && import.meta.env.PROD) {
@@ -118,6 +122,7 @@ export async function sendEmail({
 type EventName =
   | "lead_magnet_downloaded"
   | "academy_completed"
+  | "diagnostic_completed"
   | "contact_submitted";
 
 interface EventPayload {

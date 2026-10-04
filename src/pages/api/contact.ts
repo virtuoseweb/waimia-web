@@ -32,6 +32,7 @@ const MSGS = {
     send_failed: "Erreur lors de l'envoi. Veuillez réessayer.",
     too_many_requests: "Trop de tentatives. Veuillez patienter.",
     invalid_body: "Corps de la requête invalide.",
+    not_configured: `Le formulaire est indisponible pour le moment. Écrivez-nous à ${SITE.email}.`,
   },
   en: {
     missing_email: "Missing or invalid email.",
@@ -41,6 +42,7 @@ const MSGS = {
     send_failed: "Send error. Please try again.",
     too_many_requests: "Too many attempts. Please wait.",
     invalid_body: "Invalid request body.",
+    not_configured: `The form is unavailable right now. Write to ${SITE.email}.`,
   },
 } as const;
 
@@ -58,10 +60,15 @@ const CORS_HEADERS = {
 
 const ContactSchema = z.object({
   email: z.string().email(),
-  name: z.string().max(100).optional(),
+  name: z.string().min(1).max(100),
   brief: z.string().min(1).max(5000),
   company: z.string().max(100).optional(),
   role: z.string().max(100).optional(),
+  /** Objet choisi dans le formulaire (audit, projet, formation, autre). */
+  subject: z.enum(["audit", "projet", "formation", "autre"]).optional(),
+  /** Paramètres d'URL d'origine (?offer=…&intent=…), slugs uniquement. */
+  offer: z.string().regex(/^[a-z0-9-]{1,60}$/).optional().or(z.literal("")),
+  intent: z.string().regex(/^[a-z0-9-]{1,40}$/).optional().or(z.literal("")),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
   website: z.string().optional(),
 });
@@ -97,35 +104,44 @@ export const ALL: APIRoute = async ({ request }) => {
   const parsed = ContactSchema.safeParse(rawPayload);
   if (!parsed.success) {
     const rawLang = (rawPayload as Record<string, string>).lang === "en" ? "en" : "fr";
+    const fields = [...new Set(parsed.error.issues.map((i) => String(i.path[0])))];
     return Response.json(
-      { ok: false, error: msg("missing_fields", rawLang as Lang) },
+      { ok: false, code: "invalid_fields", fields, error: msg("missing_fields", rawLang as Lang) },
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, name, brief, company, role, website } = parsed.data;
+  const { email, lang, name, brief, company, role, website, subject, offer, intent } = parsed.data;
+  const details = [
+    ...(subject ? [{ label: "Objet", value: subject }] : []),
+    ...(offer ? [{ label: "Offre (URL)", value: offer }] : []),
+    ...(intent ? [{ label: "Intention (URL)", value: intent }] : []),
+    ...(name ? [{ label: "Nom", value: name }] : []),
+  ];
   // Honeypot : un bot a rempli le champ caché → faux succès silencieux
   if (website) {
     return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
   }
   const firstName = name?.split(" ")[0] ?? undefined;
   try {
-    await Promise.all([
+    const [, internal] = await Promise.all([
       sendEmail({
         to: email,
-        subject: "Votre brief est arrivé · Waimia",
+        subject: "Votre message est arrivé · Waimia",
         html: ContactConfirmation({ firstName, brief }),
         tags: [{ name: "event", value: "contact_submitted" }],
         replyTo: EMAIL_INTERNAL_TO,
       }),
       sendEmail({
         to: EMAIL_INTERNAL_TO,
-        subject: `[Lead] contact · ${email}${company ? " · " + company : ""}`,
+        subject: `[Lead] contact${subject ? " · " + subject : ""} · ${email}${company ? " · " + company : ""}`,
         html: InternalLeadAlert({
           source: "contact",
           email,
           company,
           role,
           brief,
+          details,
+          tags: [subject, offer].filter((t): t is string => Boolean(t)),
         }),
         tags: [
           { name: "event", value: "contact_submitted" },
@@ -134,6 +150,14 @@ export const ALL: APIRoute = async ({ request }) => {
       }),
       emitEvent("contact_submitted", { email, firstName }),
     ]);
+    // Pas de clé d'envoi : la demande n'a atteint personne. On le dit, pas de faux succès.
+    if (internal.skipped) {
+      console.error("[api/contact] RESEND_API_KEY absente : demande non transmise");
+      return Response.json(
+        { ok: false, code: "email_not_configured", error: msg("not_configured", lang) },
+        { status: 503, headers: CORS_HEADERS },
+      );
+    }
     await upsertSubscriber({
       email,
       name: firstName,

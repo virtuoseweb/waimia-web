@@ -2,40 +2,27 @@
 export const prerender = true;
 
 /**
- * Homepage LIVE · variante E promue (gate C 2026-07-13).
+ * Homepage LIVE · refonte positionnement 2026-10.
  *
- * Genealogie : issue de la maquette design-lab home-e (gate B, iterations 1 -> 6).
- * Le contenu de l'ex-src/pages/lab/home-e.astro (validee gate B iter 6) devient la
- * home live et remplace l'ancienne recomposition V-F3. La maquette lab/home-e.astro
- * a ete supprimee 2026-07-19 (dette morte, orpheline, fiche 0027 D6) une fois sa
- * genealogie absorbee ici ; cette page-ci est INDEXEE (indexation par defaut, prop
- * robots supprimee) et porte le title/description live du positionnement V8.
+ * La home dit en moins de 5 secondes que Waimia est un studio de développement IA et un
+ * cabinet d'automatisation des processus pour PME et ETI (plus une agence web ni marketing).
+ * L'offre est présentée dans son ordre : (1) automatisation et agents IA, (2) applications
+ * métier, (3) conseil et formation, puis en retrait (4) outils commerciaux, (5) visibilité web.
  *
- * Objectif E = la home LIVE raccourcie, hierarchisee, dedoublonnee, clarifiee, en
- * gardant la richesse visuelle du live (SVG line-art dessine au scroll, animations,
- * tabs familles). Corrige la variante D : ici 0 valeur en dur.
+ * Séquence (8 slots) · alternance paper/ink :
+ *   01 Hero (organism home, paper) · H1 métier + l'offre en trois lignes
+ *   02 L'offre (#offres) · offer-rail CATALOGUE (paper) · un onglet par domaine, dans l'ordre
+ *   03 Méthode · sticky-scroll-storytelling CATALOGUE (ink) · audit, pilote, mesure, transfert
+ *   04 Réalisations · case-card-grid CATALOGUE (paper) · cas réels, chiffres des études de cas
+ *   05 Où en êtes-vous · diagnostic-stages CATALOGUE + bande quiz (paper-2)
+ *   06 Qui · eeat-panel variant media (ink) · le fondateur, seul, assumé
+ *   07 FAQ · 6 questions (paper)
+ *   08 Action · BookSession (ink) + FooterMarquee
+ * (BootSplash en tête + ScrollProgress en pied = expérience de marque, hors séquence.)
  *
- * Sequence (13 slots) · alternance paper/ink stricte, jamais 2 ink pleins adjacents.
- * Fil narratif des kickers « § » : constat -> offres -> boucle -> ou en etes-vous -> tension ->
- * preuves -> methode -> confiance -> resultats -> questions -> action :
- *   01 Hero (live, paper, composant INTOUCHE)
- *   02 Ecosysteme opere · logo-marquee (SectionsRenderer, ink + grayscale) · bande courte
- *   03 Les deux offres (#offres) · MONEY SLOT · offer-rail CATALOGUE (SectionsRenderer, tabs familles + diptyque/trio + rangee 6 services + dorsale SVG, paper)
- *   04 La boucle · statement-orbit CATALOGUE (SectionsRenderer, carte ink dans paper) · PIVOT conceptuel
- *   05 Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (SectionsRenderer, paper ; carte quiz ink)
- *   06 La tension · 3 douleurs sobres (direct, INK · cartes surface-ink)
- *   07 Cas clients · case-card-grid CATALOGUE (SectionsRenderer, grid-uniform 3 col, paper)
- *   08 Methode · sticky-scroll-storytelling CATALOGUE (SectionsRenderer, INK) · media sticky crossfade
- *   10 Tableau de bord media · eeat-panel variant media (SectionsRenderer, ink)
- *   11 Climax chiffre · 2e stats-bento de C (SectionsRenderer, paper-2) · pre-FAQ
- *   12 FAQ · 6 questions reformulees en requetes conversationnelles AIO, prix garde (FaqAccordion, paper)
- *   13 Action · BookSession (ink) + FooterMarquee
- * (BootSplash en tete + ScrollProgress en pied = experience de marque live, hors sequence.)
- *
- * Token-first : hairlines = box-shadow --shadow-card-rest + global .hline. La teinte
- * « complement » de la branche Automation & IA (offer 02 du money slot) vit desormais dans le
- * composant catalogue offer-rail via le TOKEN DS var(--complementary) (#2090A8), plus de var
- * local --home-complement (rule 60 : reutiliser le token existant plutot que hardcoder).
+ * Retirées (aucune information utile à la décision) : mur de logos, « la boucle »
+ * (statement-orbit), « la tension » (3 cartes de douleurs), bento de chiffres pré-FAQ.
+ * Toutes les sections passent par SectionsRenderer ou un organism : 0 markup inline.
  */
 import Base from '../layouts/Base.astro';
 import BootSplash from '../components/motion/BootSplash.astro';
@@ -47,54 +34,16 @@ import BookSession from '../components/ui/organisms/BookSession.astro';
 import FooterMarquee from '../components/ui/organisms/FooterMarquee.astro';
 import homeVariantC from '../data/page-variants/home/c.json';
 import type { SectionData } from '@waimia/ds-kernel';
-// Séquence médiane en donnée (JSONification V1) : littéraux de section extraits du
-// frontmatter → src/data/home-sections.ts. La page garde le merge avec les bases
-// cataloguées (c.json / swi) ; le shell animé + 3 blocs bespoke restent en page.
-import {
-  offerRail,
-  statementOrbit,
-  maturityStages,
-  mediaDashboard,
-  logoMarqueeOverrides,
-  methodOverrides,
-  statsBentoOverrides,
-  severityLabels,
-  faqConfig,
-} from '../data/home-sections';
+import { offerRail, maturityStages, mediaDashboard, methodOverrides, faqConfig } from '../data/home-sections';
 
 const sectionsC = homeVariantC.sections as any[];
 const cByType = (t: string) => sectionsC.find((s) => s.type === t);
 
-// 02 · ecosysteme opere · logo-marquee sur fond ink + grayscale (base c.json + surcharges data).
-const logoMarquee = { ...cByType('logo-marquee'), ...logoMarqueeOverrides } as SectionData;
-
-// 11 · climax chiffre = 2e stats-bento de C (base c.json[1]) + surcharges data (paper-2, density
-// base, kicker). La 4e cellule autonomie est DEJA dans la base c.json → le spread la rend telle quelle.
-const statsBentoDashboard = { ...sectionsC.filter((s) => s.type === 'stats-bento')[1], ...statsBentoOverrides } as SectionData;
-
-// 05 · La tension · 3 douleurs les plus critiques (pain-severity-list de C, contenu reel).
-const painItems = (cByType('pain-severity-list').items as any[]).map((it) => ({
-  severity: it.severity as string,
-  title: it.title_fr as string,
-  desc: it.desc_fr as string,
-  fix: it.fix_fr as string,
-}));
-
-// 07 · Cas clients · case-card-grid CATALOGUE (grid-uniform 3 col) · swap du bloc bespoke
-// he-cases vers le type catalogue (coherence DS, anti-orphelin). Base = c.json case-card-grid
-// (memes cas, memes href, source unique) ; background force paper pour garder le rythme
-// paper/ink (06 tension ink -> 07 cas paper -> 08 methode ink).
-const casesHome = { ...cByType('case-card-grid'), background: 'paper' } as SectionData;
-
-// 07 · Methode · sticky-scroll-storytelling CATALOGUE · contenu c.json TEL QUEL (4 steps home,
-// media_src illustrations, media sticky crossfade au scroll). Layout DIFFERENCIE de SWI via les
-// SEULS axes existants du schema. Layout V1 CHOISI (verdict Simon 2026-07-12, gate B iter 3 :
-// « je garde la mise en page actuelle pour méthode ») ; V2/V3/V4 restent au catalogue (lab/home-e-method).
+// 03 · Méthode · base c.json (4 étapes : audit, pilote, mesure, transfert) + surcharges de
+// mise en page. Les illustrations basculent sur leur variante `-ink.webp` (fond sombre).
 const methodBase = cByType('sticky-scroll-storytelling');
 const methodStory = {
   ...methodBase,
-  // Les 4 illustrations basculent sur leur variante `-ink.webp` (theme sombre catalogue DS) ;
-  // l'idiome data-bg='ink' remappe deja h2/titres/corps en paper. Surcharges data = methodOverrides.
   steps: (methodBase.steps as any[]).map((st) => ({
     ...st,
     media_src: typeof st.media_src === 'string' ? st.media_src.replace('-paper.webp', '-ink.webp') : st.media_src,
@@ -102,82 +51,39 @@ const methodStory = {
   ...methodOverrides,
 } as SectionData;
 
-// 05 · Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz → donnee `maturityStages`
-// (src/data/home-sections.ts). Objet litteral pur, importe tel quel.
+// 04 · Réalisations · base c.json case-card-grid (cas réels, source unique), fond paper.
+const casesHome = { ...cByType('case-card-grid'), background: 'paper' } as SectionData;
 
-
-// 12 · FAQ · 6 questions reformulees AIO (data `faqConfig.questions`) ; les REPONSES restent celles
-// de c.json (0 desync), mappees par `faqConfig.idx`.
-const faqAll = (cByType('faq-accordion').items as any[]);
-const faqItems = faqConfig.idx.map((i, k) => ({ q: faqConfig.questions[k], a: faqAll[i].a_fr }));
-
-// 03 · Les deux offres · MONEY SLOT · offer-rail CATALOGUE (ex-bloc bespoke he-offres) → donnee
-// `offerRail` (src/data/home-sections.ts) ; 6 services derives de SIX_SERVICES (source unique).
-// 04 · statement-orbit CATALOGUE · PIVOT apres le money slot → donnee `statementOrbit`
-// (src/data/home-sections.ts). Objet litteral pur, importe tel quel.
-// 10 · eeat-panel variant media (INK), « TABLEAU DE BORD MÉDIA » → donnee `mediaDashboard`
-// (contenu + liens internes GLOBAUX portes par le composant, source unique).
+// 07 · FAQ · questions ET réponses de c.json (source unique), sélection par `faqConfig.idx`.
+const faqAll = cByType('faq-accordion').items as any[];
+const faqItems = faqConfig.idx.map((i) => ({ q: faqAll[i].q_fr, a: faqAll[i].a_fr }));
 ---
 <Base
-  title="Studio d'intégration IA et d'automatisation pour PME · Waimia"
-  description="Studio de conseil, d'intégration et de développement IA pour PME et ETI : automatisations, agents IA et applications métier. Audit gratuit de 45 min."
+  title="Studio de développement IA et cabinet d'automatisation PME · Waimia"
+  description="Studio de développement IA et cabinet d'automatisation des processus pour PME et ETI : automatisations, agents IA, applications métier. Audit gratuit de 45 min."
 >
-  {/* Splash · respiration cinematique 1.1s · CSS-only (zero JS bundle) */}
+  {/* Splash · respiration 1.1s · CSS-only (zéro JS bundle) */}
   <BootSplash lang="fr" />
 
-  {/* 01 · Hero live · promesse + mini-map 6 territoires + CTAs · INTOUCHE (reference qualite) */}
+  {/* 01 · Hero · le métier en une phrase + l'offre en trois lignes */}
   <Hero />
 
-  {/* 02 · Ecosysteme opere · logo-marquee ink + grayscale · bande courte */}
-  <SectionsRenderer sections={[logoMarquee]} lang="fr" />
-
-  {/* 03 · Les deux offres · MONEY SLOT · offer-rail CATALOGUE (diptyque + trio + dorsale SVG +
-      rangee 6 services) · swap anti-orphelin du bloc bespoke he-offres vers le type catalogue.
-      `anchor: 'offres'` (dans la donnee) preserve la cible de scroll #offres. */}
+  {/* 02 · L'offre · offer-rail CATALOGUE · `anchor: 'offres'` (dans la donnée) = cible #offres */}
   <SectionsRenderer sections={[offerRail]} lang="fr" />
 
-  {/* 04 · La boucle · statement-orbit CATALOGUE (carte ink dans paper) · PIVOT conceptuel */}
-  <SectionsRenderer sections={[statementOrbit]} lang="fr" />
-
-  {/* 05 · Ou en etes-vous · diagnostic-stages CATALOGUE + bande CTA quiz (paper ; carte quiz ink) ·
-      amendement Simon 2026-07-13 : remonte au-dessus de la tension (auto-positionnement AVANT la douleur) */}
-  <SectionsRenderer sections={[maturityStages]} lang="fr" />
-
-  {/* 06 · La tension · 3 douleurs sobres · INK (rythme iter 6, section dramatique) */}
-  <section class="he-sec he-tension" data-bg="ink" aria-labelledby="he-tension-h2">
-    <div class="wrap-wide">
-      <header class="he-head reveal">
-        <p class="he-kicker">§ La tension</p>
-        <h2 id="he-tension-h2" class="he-h2 u-serif-accent">Là où l’argent <i>fuit</i> en interne.</h2>
-      </header>
-      <ul class="he-pains reveal-stagger">
-        {painItems.map((p) => (
-          <li class="he-pain">
-            <span class="he-pain__sev" data-sev={p.severity}>{severityLabels[p.severity] ?? p.severity}</span>
-            <h3 class="he-pain__title">{p.title}</h3>
-            <p class="he-pain__desc">{p.desc}</p>
-            <div class="hline"></div>
-            <p class="he-pain__fix">{p.fix}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  {/* 07 · Cas clients · case-card-grid CATALOGUE (grid-uniform 3 col, paper) · swap anti-orphelin
-      du bloc bespoke he-cases vers le type catalogue · memes cas, memes href (source c.json) */}
-  <SectionsRenderer sections={[casesHome]} lang="fr" />
-
-  {/* 08 · Methode · sticky-scroll-storytelling CATALOGUE (ink) · media sticky crossfade au scroll */}
+  {/* 03 · Méthode · audit, pilote, mesure, transfert (ink) */}
   <SectionsRenderer sections={[methodStory]} lang="fr" />
 
-  {/* 10 · Tableau de bord media · eeat-panel variant media (ink) · profil, reperes, secteurs, liens globaux */}
+  {/* 04 · Réalisations · cas réels (paper) */}
+  <SectionsRenderer sections={[casesHome]} lang="fr" />
+
+  {/* 05 · Où en êtes-vous · 5 stades + bande diagnostic (paper-2) */}
+  <SectionsRenderer sections={[maturityStages]} lang="fr" />
+
+  {/* 06 · Qui · le fondateur (ink) */}
   <SectionsRenderer sections={[mediaDashboard]} lang="fr" />
 
-  {/* 11 · Climax chiffre (2e stats-bento de C, paper-2) · pre-FAQ · cellule autonomie deja dans la base */}
-  <SectionsRenderer sections={[statsBentoDashboard]} lang="fr" />
-
-  {/* 12 · FAQ · 6 questions reformulees AIO · Q.01 prix ouverte (SEULE mention de prix de la page) */}
+  {/* 07 · FAQ · Q.01 prix ouverte */}
   <FaqAccordion
     items={faqItems}
     heading={faqConfig.heading}
@@ -186,131 +92,9 @@ const faqItems = faqConfig.idx.map((i, k) => ({ q: faqConfig.questions[k], a: fa
     openFirst
   />
 
-  {/* 13 · Action · BookSession (ink) + FooterMarquee */}
+  {/* 08 · Action · BookSession (ink) + FooterMarquee */}
   <BookSession />
   <FooterMarquee />
 
   <ScrollProgress />
 </Base>
-
-<style>
-  /* ── Rythme de section · hierarchie par l'echelle (compaction iter 6 : gagner sur les vides) ──
-     Le MONEY SLOT (03) est desormais le composant catalogue offer-rail (src/components/sections/
-     OfferRail.astro) : son markup + CSS + scripts y vivent. Ne restent ici que la tension (06)
-     et les styles de chapitre partages (he-head/he-kicker/he-h2/he-lede). */
-  .he-sec { padding-block: var(--section-base); }
-
-  /* 05 · La tension INK (rythme iter 6) · idiome DS carte-sur-ink (repris de TestimonialWall) :
-     fond ink, header en paper, cartes en surface ink elevee (rgba paper) + hairline clair.
-     Le contexte [data-bg='ink'] remappe deja --muted/--hairline/--accent-text (global.css) →
-     desc/severite/hairlines passent clairs automatiquement. 0 nouveau token. */
-  .he-tension[data-bg='ink'] {
-    background: var(--ink);
-    color: var(--paper);
-  }
-  .he-tension[data-bg='ink'] .he-h2 { color: var(--paper); }
-  .he-tension[data-bg='ink'] .he-pain {
-    background: rgba(var(--paper-rgb), 0.04);
-    border: 1px solid rgba(var(--paper-rgb), 0.12);
-    box-shadow: none;
-  }
-  .he-tension[data-bg='ink'] .he-pain__title,
-  .he-tension[data-bg='ink'] .he-pain__fix { color: var(--paper); }
-
-  /* ── En-tete de chapitre (kicker mono § + h2 + lede) ── */
-  .he-head {
-    max-width: var(--wrap-read);
-    margin-bottom: var(--space-7); /* iter 6 : space-9 -> space-7 (respiration gardee, vide reduit) */
-  }
-  .he-kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-kicker);
-    letter-spacing: var(--tracking-kicker);
-    text-transform: uppercase;
-    color: var(--accent-text);
-    margin: 0 0 var(--space-4);
-  }
-  .he-h2 {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    font-weight: var(--fw-medium);
-    line-height: var(--leading-h2);
-    letter-spacing: var(--tracking-display);
-    color: var(--ink);
-    margin: 0;
-    text-wrap: balance;
-  }
-  .he-lede {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    line-height: var(--leading-lede);
-    color: var(--muted);
-    margin: var(--space-5) 0 0;
-    max-width: var(--wrap-prose);
-  }
-
-  /* ── 05 · La tension · 3 douleurs graduees, sobres ── */
-  .he-pains {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--gut);
-  }
-  .he-pain {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-7); /* iter 6 : space-8 -> space-7 */
-    background: var(--paper);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card-rest);
-  }
-  .he-pain__sev {
-    align-self: flex-start;
-    font-family: var(--font-mono);
-    font-size: var(--text-micro);
-    letter-spacing: var(--tracking-caps);
-    text-transform: uppercase;
-    padding: var(--space-1) var(--space-3);
-    border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-card-rest);
-    color: var(--muted);
-  }
-  .he-pain__sev[data-sev="critical"] {
-    color: var(--accent-text);
-    background: rgba(var(--accent-rgb), 0.08);
-  }
-  .he-pain__title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    font-weight: var(--fw-semibold);
-    color: var(--ink);
-    margin: 0;
-  }
-  .he-pain__desc {
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    line-height: var(--leading-relaxed);
-    color: var(--muted);
-    margin: 0;
-  }
-  .he-pain__fix {
-    margin: 0;
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    font-weight: var(--fw-medium);
-    color: var(--ink);
-  }
-  .he-pain__fix::before {
-    content: "→";
-    color: var(--accent-text);
-    margin-right: var(--space-2);
-  }
-
-  /* ── Responsive · litteral px en @media UNIQUEMENT (custom properties interdites en condition) ── */
-  @media (max-width: 900px) {
-    .he-pains { grid-template-columns: 1fr; }
-  }
-</style>

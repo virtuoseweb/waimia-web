@@ -1,0 +1,49 @@
+---
+export const prerender = true;
+
+// Page SSG · /conformite-ia · route EXPLICITE · rendu 100 % composable (miroir de audit-ia-pme.astro).
+// Source = entrée unique getEntry('audits','conformite-ia') (la collection `audits` porte les pages
+// composables de premier niveau servies sous `/<id>`, cf scripts/gen-site-pages.mjs).
+// JSON sans `sections:` = build throw (anti-orphelin).
+
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
+import MastheadBar from '../components/sections/MastheadBar.astro';
+import { buildArticle } from '../lib/seo/schema-builder';
+import { SITE } from '../site.config';
+
+const entry = await getEntry('audits', 'conformite-ia');
+if (!entry) {
+  throw new Error('conformite-ia : entrée `audits/conformite-ia` introuvable.');
+}
+const data = entry.data;
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const description = lang === 'en' ? data.description_en : data.description_fr;
+
+if (!Array.isArray(data.sections) || data.sections.length === 0) {
+  throw new Error('conformite-ia : `sections` requis (page composable, anti-orphelin).');
+}
+
+// JSON-LD · Article (page d'information datée et sourcée). FAQPage émis par la section faq-accordion.
+const articleLd = buildArticle({
+  headline: title,
+  description,
+  datePublished: new Date(data.publishedAt).toISOString().slice(0, 10),
+  dateModified: data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : undefined,
+  mainEntityOfPage: `${SITE.url}/conformite-ia`,
+});
+---
+
+<Base title={title} description={description} jsonLd={[articleLd]} noindex={data.seo?.noindex}>
+  <MastheadBar
+    lang={lang}
+    items={[
+      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+      { label: lang === 'fr' ? 'Conformité IA' : 'AI compliance' },
+    ]}
+  />
+  <SectionsRenderer sections={data.sections!} lang={lang} />
+</Base>

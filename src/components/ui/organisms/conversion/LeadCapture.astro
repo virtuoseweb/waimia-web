@@ -1,0 +1,176 @@
+---
+// Organism · LeadCapture · capture d'e-mail OPTIONNELLE d'une ressource (hors catalogue).
+//
+// La valeur de la page reste accessible sans e-mail : ce bloc ne sert qu'à recevoir une
+// copie à garder. POST JSON vers /api/lead-magnet { email, slug, summary?, headline? }.
+//
+// Récupération des résultats de la page : avant l'envoi, le composant émet l'événement
+// `cv:collect` (bubbles) avec `detail = { slug, summary: [], headline: '' }`. L'outil de
+// la page (diagnostic, calculateur, grille) remplit `detail.summary` (lignes
+// { label, value }) et `detail.headline`. Aucun couplage direct entre composants.
+//
+// États : vide · erreur de saisie (message sous le champ) · envoi (bouton désactivé) ·
+// succès (le formulaire est remplacé par la confirmation, focus déplacé) · échec serveur
+// (dont 503 `email_not_configured` : on affiche que l'envoi est indisponible, jamais un
+// faux succès).
+import './form.css';
+import type { LeadMagnetSlug } from '../../../../data/conversion';
+import { SITE } from '../../../../site.config';
+
+interface Props {
+  slug: LeadMagnetSlug;
+  /** Titre court du bloc. */
+  title?: string;
+  /** Ce que contient l'e-mail, en une phrase. */
+  description: string;
+  buttonLabel?: string;
+  /** Rend le bloc masqué (attribut hidden) : la page l'affiche quand un résultat existe. */
+  initiallyHidden?: boolean;
+  /** Rend le bloc dans sa propre bande pleine largeur (pages outil). */
+  band?: boolean;
+}
+const {
+  slug,
+  title = 'Recevoir une copie par e-mail',
+  description,
+  buttonLabel = 'Envoyer la copie',
+  initiallyHidden = false,
+  band = false,
+} = Astro.props as Props;
+const fid = `lc-${slug}`;
+---
+<div class:list={[band && 'lc-band']}><div class:list={[band && 'wrap-wide']}>
+<div class="lc" data-lead-capture data-slug={slug} hidden={initiallyHidden}>
+  <form class="lc-form" method="POST" action="/api/lead-magnet" novalidate data-lead-form>
+    <div class="lc-text">
+      <p class="lc-title">{title} <span class="lc-opt">(facultatif)</span></p>
+      <p class="cv-note" id={`${fid}-desc`}>{description}</p>
+    </div>
+    <div class="lc-row">
+      <div class="cv-hp" aria-hidden="true">
+        <label for={`${fid}-website`}>Ne pas remplir</label>
+        <input type="text" id={`${fid}-website`} name="website" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="hidden" name="slug" value={slug} />
+      <div class="cv-field lc-field">
+        <label class="cv-label" for={`${fid}-email`}>Votre e-mail</label>
+        <input class="cv-input" id={`${fid}-email`} name="email" type="email" autocomplete="email" inputmode="email" required placeholder="prenom@entreprise.fr" aria-describedby={`${fid}-desc ${fid}-err`} />
+      </div>
+      <button class="btn btn-ghost cv-btn lc-btn" type="submit" data-label={buttonLabel} data-label-busy="Envoi en cours…">{buttonLabel}</button>
+    </div>
+    <p class="cv-error" id={`${fid}-err`} data-lead-error hidden></p>
+    <label class="lc-optin">
+      <input type="checkbox" name="newsletter" />
+      <span>Recevoir aussi la lettre mensuelle de Waimia (un envoi par mois, désinscription en un clic).</span>
+    </label>
+    <p class="cv-note lc-legal">Sans cette case, vous recevez un seul e-mail et votre adresse n'est ajoutée à aucune liste. <a href="/politique-confidentialite">Confidentialité</a>.</p>
+  </form>
+  <p class="cv-status" data-kind="success" data-lead-success tabindex="-1" hidden></p>
+</div>
+</div></div>
+
+<script is:inline define:vars={{ fallbackEmail: SITE.email }}>
+(function () {
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function bind(root) {
+    if (root.dataset.bound) return;
+    root.dataset.bound = '1';
+    var form = root.querySelector('[data-lead-form]');
+    var input = form.querySelector('input[name="email"]');
+    var err = root.querySelector('[data-lead-error]');
+    var ok = root.querySelector('[data-lead-success]');
+    var btn = form.querySelector('button[type="submit"]');
+
+    function fail(msg) {
+      err.innerHTML = msg;
+      err.hidden = false;
+      input.setAttribute('aria-invalid', 'true');
+    }
+    function clear() {
+      err.hidden = true;
+      input.setAttribute('aria-invalid', 'false');
+    }
+    function busy(on) {
+      btn.disabled = on;
+      btn.textContent = on ? btn.dataset.labelBusy : btn.dataset.label;
+    }
+    input.addEventListener('input', function () { if (!err.hidden) clear(); });
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clear();
+      var email = input.value.trim();
+      if (!email) { fail('Saisissez votre adresse e-mail pour recevoir la copie.'); input.focus(); return; }
+      if (!EMAIL_RE.test(email)) { fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr'); input.focus(); return; }
+
+      var detail = { slug: root.dataset.slug, summary: [], headline: '' };
+      root.dispatchEvent(new CustomEvent('cv:collect', { bubbles: true, detail: detail }));
+
+      busy(true);
+      var mail = '<a href="mailto:' + fallbackEmail + '">' + fallbackEmail + '</a>';
+      try {
+        var res = await fetch('/api/lead-magnet', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            slug: detail.slug,
+            summary: detail.summary.slice(0, 40),
+            headline: detail.headline || undefined,
+            newsletter: form.elements.newsletter.checked,
+            website: form.elements.website.value,
+            lang: 'fr',
+          }),
+        });
+        var data = await res.json().catch(function () { return {}; });
+        if (res.ok && data.ok) {
+          form.hidden = true;
+          ok.textContent = 'C\'est envoyé à ' + email + '. Si rien n\'arrive d\'ici quelques minutes, regardez dans les indésirables.';
+          ok.hidden = false;
+          ok.focus();
+          return;
+        }
+        if (data.code === 'invalid_email') fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr');
+        else if (res.status === 429) fail('Trop de demandes en peu de temps. Réessayez dans quelques minutes.');
+        else if (data.code === 'email_not_configured') fail('L\'envoi par e-mail est indisponible pour le moment : rien n\'a été envoyé. Tout reste consultable sur cette page, ou écrivez à ' + mail + '.');
+        else fail('L\'e-mail n\'est pas parti (erreur ' + res.status + '). Réessayez, ou écrivez à ' + mail + '.');
+        busy(false);
+      } catch (_) {
+        fail('Connexion interrompue : rien n\'a été envoyé. Réessayez.');
+        busy(false);
+      }
+    });
+  }
+  function boot() { document.querySelectorAll('[data-lead-capture]').forEach(bind); }
+  boot();
+  document.addEventListener('astro:page-load', boot);
+})();
+</script>
+
+<style>
+  .lc {
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    padding: var(--space-5);
+    background: var(--paper);
+  }
+  .lc[hidden] { display: none; }
+  .lc-band { padding: var(--space-8) 0; }
+  .lc-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-4) var(--space-6); align-items: end; }
+  .lc-form[hidden] { display: none; }
+  .lc-title { margin: 0 0 var(--space-1); font-size: var(--text-body); font-weight: var(--fw-semibold); }
+  .lc-opt { font-weight: var(--fw-regular); color: var(--muted); }
+  .lc-row { display: flex; gap: var(--space-3); align-items: flex-end; position: relative; }
+  .lc-field { flex: 1; }
+  .lc-btn { white-space: nowrap; padding-top: 13px; padding-bottom: 13px; }
+  .lc .cv-error, .lc-legal, .lc-optin { grid-column: 1 / -1; }
+  .lc-optin { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-small); line-height: var(--leading-body); color: var(--ink); cursor: pointer; }
+  .lc-optin input { margin: 3px 0 0; accent-color: var(--ink); width: 15px; height: 15px; flex-shrink: 0; }
+  .lc-optin input:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  @media (max-width: 760px) {
+    .lc-form { grid-template-columns: 1fr; }
+    .lc-row { flex-direction: column; align-items: stretch; }
+    .lc-btn { justify-content: center; }
+  }
+</style>

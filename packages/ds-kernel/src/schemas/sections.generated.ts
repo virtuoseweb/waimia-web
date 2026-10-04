@@ -58,6 +58,7 @@ import { schema as editorialTableBlockSchema } from '../sections/editorial-table
 import { schema as editorialTimelineSchema } from '../sections/editorial-timeline/schema';
 import { schema as editorialWriteFeedSchema } from '../sections/editorial-write-feed/schema';
 import { schema as eeatPanelSchema } from '../sections/eeat-panel/schema';
+import { schema as engagementLedgerSchema } from '../sections/engagement-ledger/schema';
 import { schema as faqAccordionSchema } from '../sections/faq-accordion/schema';
 import { schema as faqCtaAsideSchema } from '../sections/faq-cta-aside/schema';
 import { schema as faqTwoColumnSchema } from '../sections/faq-two-column/schema';
@@ -281,6 +282,7 @@ export {
   editorialTimelineSchema,
   editorialWriteFeedSchema,
   eeatPanelSchema,
+  engagementLedgerSchema,
   faqAccordionSchema,
   faqCtaAsideSchema,
   faqTwoColumnSchema,
@@ -505,6 +507,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   editorialTimelineSchema,
   editorialWriteFeedSchema,
   eeatPanelSchema,
+  engagementLedgerSchema,
   faqAccordionSchema,
   faqCtaAsideSchema,
   faqTwoColumnSchema,

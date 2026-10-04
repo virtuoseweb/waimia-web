@@ -16,6 +16,8 @@ interface Props {
   brief?: string;
   /** Score academy (0-18) si source=academy */
   score?: number;
+  /** Lignes libres « libellé : valeur » (objet de la demande, score du diagnostic, etc.) */
+  details?: { label: string; value: string }[];
   /** Liste tags pour qualification (ex: ['hot', 'fintech']) */
   tags?: string[];
 }
@@ -28,6 +30,7 @@ export default function InternalLeadAlert({
   brief,
   score,
   tags,
+  details,
 }: Props): string {
   const isHot = source === "academy" && score !== undefined && score < 9;
   const sourceSafe = escapeHtml(source);
@@ -46,6 +49,16 @@ export default function InternalLeadAlert({
             ? "· prospect chaud (relance équipe sous 24h)"
             : "· prospect tiède"
         }</p>`
+      : "";
+
+  const detailsLine =
+    details && details.length > 0
+      ? details
+          .map(
+            (d) =>
+              `<p style="${pStyle}margin:0 0 6px;">${escapeHtml(d.label)} : <strong>${escapeHtml(d.value)}</strong></p>`,
+          )
+          .join("")
       : "";
 
   const briefLine = brief
@@ -68,6 +81,7 @@ export default function InternalLeadAlert({
     `<div style="background:#EFEAE0;padding:18px;border-radius:8px;margin:16px 0;">` +
     identityLine +
     scoreLine +
+    detailsLine +
     briefLine +
     `</div>` +
     tagsLine +

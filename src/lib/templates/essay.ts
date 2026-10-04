@@ -23,6 +23,7 @@
 //     le JSON, dériver le cross-entry, appeler ce mapper, et rendre `<EssayTemplate>`.
 // Fidélité : mêmes données, mêmes valeurs, mêmes conditions que l'ancienne route/ template.
 
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -109,8 +110,8 @@ export const essayTemplate = defineTemplate<EssayContext>({
           type: 'hero-essay',
           kicker_fr: essayKicker(data),
           kicker_en: essayKicker(data),
-          h1_fr: data.title_fr,
-          h1_en: data.title_fr,
+          h1_fr: data.h1_fr ?? data.title_fr,
+          h1_en: data.h1_fr ?? data.title_fr,
           lede_fr: data.description_fr,
           lede_en: data.description_fr,
           author: authorLabel,
@@ -166,9 +167,9 @@ export const essayTemplate = defineTemplate<EssayContext>({
           text_fr: `Si ${section} touche votre équipe, on le traduit en plan d'action opérable plutôt qu'en débat abstrait.`,
           text_en: `If ${section} matters to your team, we turn it into an operational plan instead of an abstract debate.`,
           cta: {
-            label_fr: 'Réserver un audit →',
-            label_en: 'Book an audit →',
-            href: localizeHref('/audit-ia-pme', lang),
+            label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+            label_en: `${AUDIT_BOOKING_LABEL.en} →`,
+            href: AUDIT_BOOKING_HREF,
             variant: 'primary',
           },
           background: 'paper-2',
@@ -190,7 +191,7 @@ export function buildEssayProps(ctx: EssayContext) {
   const publishedISO = new Date(data.publishedAt).toISOString().slice(0, 10);
   const modifiedISO = data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : publishedISO;
   return {
-    title: `${data.title_fr} · Blog Waimia`,
+    title: `${data.title_fr} · Waimia`,
     description: data.description_fr,
     kicker: essayKicker(data),
     date: dateStr,

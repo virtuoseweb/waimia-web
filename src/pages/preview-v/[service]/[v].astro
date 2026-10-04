@@ -18,6 +18,7 @@ export const prerender = true;
 
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import { internalToolsEnabled } from '../../../lib/seo/internal-tools.mjs';
 
 type Variant = { variant?: string; label?: string; sections: unknown[] };
 
@@ -37,6 +38,8 @@ for (const [path, mod] of Object.entries(modules)) {
 }
 
 export async function getStaticPaths() {
+  // Surface interne : non générée dans le build de production (cf lib/seo/internal-tools.mjs).
+  if (!internalToolsEnabled()) return [];
   const all = import.meta.glob<{ default: Variant }>(
     '../../../data/page-variants/*/*.json',
     { eager: true },

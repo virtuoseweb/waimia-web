@@ -1,15 +1,14 @@
 ---
-// Page · /agence/methode · Méthode Waimia · Process Intelligence
+// Page · /agence/methode · Méthode Waimia : audit, pilote, mesure, transfert
 export const prerender = true;
 
 import UtilityTemplate from '../../components/templates/UtilityTemplate.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import Timeline from '../../components/editorial/Timeline.astro';
-import MetricCalloutBand from '../../components/sections/MetricCalloutBand.astro';
 import SpecBar from '../../components/sections/SpecBar.astro';
 import { buildHowTo } from '../../lib/seo/schema-builder';
 // Données de section (vague V3) → `src/data/methode-sections.ts`. Le body bespoke reste ici.
-import { phases, cadenceData, impactData } from '../../data/methode-sections';
+import { phases, cadenceData } from '../../data/methode-sections';
 
 const timelineEvents = phases.map(p => ({
   num: p.n,
@@ -18,21 +17,22 @@ const timelineEvents = phases.map(p => ({
 }));
 
 // JSON-LD HowTo dérivé des phases (source unique = `methode-sections.ts`, 0 duplication).
-const howToLd = buildHowTo('Notre méthode · Process Intelligence',
+const howToLd = buildHowTo('Méthode Waimia : audit, pilote, mesure, transfert',
   phases.map(p => ({ name: p.label_fr, text: p.body_fr })),
 );
 ---
 <UtilityTemplate
-  title="Notre méthode · Process Intelligence · Waimia"
-  description="Cinq phases. Audit, priorisation, câblage, mesure, passation. Pas de diaporama. Le mardi on câble, le vendredi on mesure."
+  title="Méthode : audit, pilote, mesure, transfert · Waimia"
+  description="La méthode du studio en quatre étapes : audit gratuit, pilote en production, mesure sur vos données, transfert du code et des workflows."
   jsonLd={howToLd}
-  kicker="§ Notre méthode · Process Intelligence"
+  kicker="§ La méthode"
+  breadcrumb={[{ label: 'Accueil', href: '/' }, { label: 'Le studio', href: '/agence' }, { label: 'Méthode' }]}
   align="left"
   showCta={true}
-  headlineFr="Cinq <i>phases</i>. Pas de diaporama."
-  headlineEn="Five <i>phases</i>. No slideshow."
-  ledeFr="On documente, on mesure, on corrige. Un protocole rejouable, pas un cabinet."
-  ledeEn="We have a method. We write it. We measure it. We correct it. Not a cabinet secret: a protocol that can be replayed."
+  headlineFr="Audit, pilote, mesure, <i>transfert</i>."
+  headlineEn="Audit, pilot, measure, <i>handover</i>."
+  ledeFr="Quatre étapes, toujours dans cet ordre. Un ingénieur travaille avec vos équipes métier, sur vos outils et vos données, jusqu'à ce que le système tourne sans lui."
+  ledeEn="Four steps, always in this order. One engineer works with your business teams, on your tools and your data, until the system runs without him."
 >
   <Fragment slot="body">
 
@@ -42,29 +42,24 @@ const howToLd = buildHowTo('Notre méthode · Process Intelligence',
     </div>
 
     {/* ── PHASES via Timeline ── */}
-    <h2 class="sr-only">Les cinq phases</h2>
+    <h2 class="sr-only">Les quatre étapes</h2>
     <Timeline events={timelineEvents} numbered={true} />
-
-    {/* ── IMPACT MESURÉ · bande INK + 3 métriques réelles ── */}
-    <div class="meth-impact reveal">
-      <MetricCalloutBand data={impactData} lang="fr" />
-    </div>
 
     {/* ── GARANTIES ── */}
     <div class="meth-garanties reveal">
       <Kicker class="meth-garanties-kicker">§ Engagements</Kicker>
       <div class="meth-garanties-grid">
         <div class="meth-garantie">
-          <p class="meth-garantie-title">Auditabilité totale</p>
-          <p class="meth-garantie-body">Chaque action d'agent est tracée, rejouable, exportable. Vous lisez ce qui s'est passé, sans nous demander.</p>
+          <p class="meth-garantie-title">Tout est journalisé</p>
+          <p class="meth-garantie-body">Chaque action d'agent est journalisée et exportable. Vous lisez ce qui s'est passé, sans nous demander.</p>
         </div>
         <div class="meth-garantie">
           <p class="meth-garantie-title">Zéro dépendance propriétaire</p>
-          <p class="meth-garantie-body">Aucun lock-in. Les workflows tournent sur vos outils existants. Vous pouvez nous virer demain : le système continue.</p>
+          <p class="meth-garantie-body">Les workflows tournent sur vos outils et dans vos comptes. Si vous arrêtez de travailler avec le studio, le système continue.</p>
         </div>
         <div class="meth-garantie">
-          <p class="meth-garantie-title">Humain d'astreinte nommé</p>
-          <p class="meth-garantie-body">Pas un chatbot de support. Un nom, un numéro, une responsabilité claire. Joignable si quelque chose tombe.</p>
+          <p class="meth-garantie-title">Un interlocuteur unique</p>
+          <p class="meth-garantie-body">Simon Beros audite, construit et transfère lui-même. Vous parlez à celui qui fait le travail, du premier appel à la remise du code. Ce rôle a un nom : <a href="/blog/forward-deployed-engineer">forward deployed engineer</a>.</p>
         </div>
       </div>
     </div>
@@ -74,10 +69,10 @@ const howToLd = buildHowTo('Notre méthode · Process Intelligence',
       <Kicker class="meth-os-kicker">§ Sous le capot</Kicker>
       <h2 class="meth-os-h2">VirtuoseOS · le <i>cadre</i> qu'on a construit pour ça.</h2>
       <p class="meth-os-body">
-        Des années à câbler des systèmes web et IA pour des PME nous ont appris que sans cadre commun, chaque mission redémarre à zéro. VirtuoseOS est notre noyau d'orchestration : il audite les actions, garde la trace, coordonne les agents.
+        Sans cadre commun, chaque mission redémarre à zéro. VirtuoseOS est le noyau d'orchestration du studio : il journalise les actions, garde la trace et coordonne les agents.
       </p>
       <p class="meth-os-body">
-        Vous n'avez pas à l'acheter. Il tourne sous chaque mission Waimia, y compris sur une <a href="/services/integration-claude">intégration de Claude</a> en production. C'est tout.
+        Vous n'avez pas à l'acheter. Il sert de base de travail au studio, par exemple sur une <a href="/services/integration-claude">intégration de Claude</a> ou une <a href="/services/automatisations">automatisation des processus</a>.
       </p>
     </div>
 
@@ -89,12 +84,10 @@ const howToLd = buildHowTo('Notre méthode · Process Intelligence',
 
 <style>
   /* ── Cadence · spec-bar (breakout du padding body pour pleine largeur) ── */
-  .meth-cadence,
-  .meth-impact {
+  .meth-cadence {
     margin-inline: calc(-1 * var(--space-6));
   }
   .meth-cadence { margin-block: var(--space-9) var(--space-10); }
-  .meth-impact { margin-block: var(--space-10); }
 
   /* ── Garanties ── */
   .meth-garanties {

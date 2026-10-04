@@ -5,7 +5,7 @@ export const prerender = true;
 // mirror de ressources/diagnostics/[...slug].astro. MDX sans `sections:` = erreur de build (anti-orphelin).
 // Profondeur 3 niveaux (ressources/comparatifs/) → imports en `../../../`.
 
-import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../../lib/live-collection';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
@@ -13,7 +13,7 @@ import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('comparatifs');
+  const entries = await getLiveCollection('comparatifs');
   return entries.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },

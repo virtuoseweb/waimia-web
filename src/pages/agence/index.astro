@@ -1,14 +1,14 @@
 ---
-// Page · /agence · L'Agence (recomposition composable)
+// Page · /agence · Le studio (URL inchangée, libellé « Le studio » depuis la refonte
+// positionnement 2026-10).
 // Rendu 100 % composable : tableau `sections` typé SectionData → SectionsRenderer
-// (registry). AUCUN markup de section inline (règle anti-orphelin CLAUDE.md) :
-// chaque bloc est un type catalogué, alimenté par des FAITS déjà présents sur le
-// site (facts /agence/about, cas réels Plateau/Northbound/Caserne, TRUST_BADGES
-// de src/data/sitemap.ts, méthode 5 phases /agence/methode).
+// (registry). AUCUN markup de section inline (règle anti-orphelin CLAUDE.md).
 //
-// Rythme éditorial swiss (directive docs/44) : alternance paper / paper-2 / INK,
-// 3 blocs ink (manifesto-statement · metric-callout-band · cta-final) jamais plus
-// de deux paper d'affilée. Le miroir EN (/en/agence) réutilise ce même tableau.
+// Ce que la page doit faire comprendre en 5 secondes : Waimia est un studio de
+// développement IA et un cabinet d'automatisation des processus, tenu par un seul
+// ingénieur (studio solo assumé). Méthode = audit, pilote, mesure, transfert.
+// Retirés à la refonte : bande de métriques « 5 jours / 4 sem. / J+1 » (ordres de grandeur
+// non sourcés), second bloc méthode (doublon), bande « partenariats » à deux cellules.
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
@@ -19,187 +19,122 @@ import type { SectionData } from '@waimia/ds-kernel';
 
 // Tableau partagé (bilingue) — exporté pour le miroir EN.
 export const agenceSections: SectionData[] = [
-  // 1 · HERO (paper) — posture boutique + faits clés chiffrés
+  // 1 · HERO (paper) — le métier + qui le fait
   {
     type: 'hero-hub-stats',
     background: 'paper',
-    meta_kicker_fr: "§ L'Agence · Waimia",
-    meta_kicker_en: '§ The Agency · Waimia',
+    meta_kicker_fr: '§ Le studio · Waimia',
+    meta_kicker_en: '§ The studio · Waimia',
     hub_num: '00',
-    h1_fr: 'Un studio <i>solo</i>.<br/>Une posture.',
-    h1_en: 'A <i>solo</i> studio.<br/>One posture.',
-    lede_fr: "Waimia câble des agents IA dans les outils des PME et ETI. On livre du code le mardi, on lit le pipeline le vendredi. Pas de chaîne offshore, pas de diaporama de comité.",
-    lede_en: 'Waimia wires AI agents into the tools of mid-market companies. We ship code on Tuesdays, we read the pipeline on Fridays. No offshore chain, no committee slideshow.',
+    h1_fr: 'Un studio de développement IA.<br/><i>Solo</i>, et assumé.',
+    h1_en: 'An AI development studio.<br/><i>Solo</i>, by choice.',
+    lede_fr: "Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Un seul ingénieur, Simon Beros, audite, construit et transfère. Personne entre vous et celui qui fait le travail.",
+    lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. One engineer, Simon Beros, audits, builds and hands over. Nobody stands between you and the person doing the work.',
     stats: [
+      { value: 'Solo', label_fr: 'un ingénieur, votre interlocuteur', label_en: 'one engineer, your contact', emphasis: true },
       { value: 'Bordeaux', label_fr: 'ancrage · missions à distance', label_en: 'based in · remote engagements', emphasis: false },
-      { value: 'Solo', label_fr: 'votre interlocuteur direct', label_en: 'your direct contact', emphasis: true },
-      { value: 'Claude', label_fr: 'écosystème Anthropic', label_en: 'Anthropic ecosystem', emphasis: false },
-      { value: 'FR', label_fr: 'français, par choix', label_en: 'French, by choice', emphasis: false },
+      { value: 'PME · ETI', label_fr: '10 à 250 collaborateurs', label_en: '10 to 250 people', emphasis: false },
+      { value: 'Transfert', label_fr: 'code et workflows à vous', label_en: 'code and workflows are yours', emphasis: false },
     ],
   },
 
-  // 2 · MANIFESTE court (INK) — conviction
+  // 2 · CONVICTION (INK)
   {
     type: 'manifesto-statement',
-    kicker_fr: '§ Notre conviction',
-    kicker_en: '§ Our conviction',
-    text_fr: 'La plupart des projets IA livrent des démos, pas des produits. Nous faisons l&rsquo;inverse : on <span class="acc">livre</span>, on signe, on reste joignables si l&rsquo;agent tombe. Le goulot n&rsquo;est jamais le modèle. Ce sont les rails, les règles, et l&rsquo;humain qui sait quand débrancher.',
-    text_en: 'Most AI projects ship demos, not products. We do the opposite: we <span class="acc">ship</span>, we sign, we stay reachable if the agent fails. The bottleneck is never the model. It is the rails, the rules, and the human who knows when to unplug.',
+    kicker_fr: '§ La conviction',
+    kicker_en: '§ The conviction',
+    text_fr: 'La plupart des projets IA livrent des démonstrations, pas des systèmes. Le studio fait l&rsquo;inverse : il met <span class="acc">en production</span>, mesure, puis remet le code. Le goulot n&rsquo;est presque jamais le modèle. Ce sont les données, les règles, et l&rsquo;humain qui sait quand débrancher.',
+    text_en: 'Most AI projects ship demos, not systems. The studio does the opposite: it ships <span class="acc">to production</span>, measures, then hands over the code. The bottleneck is almost never the model. It is the data, the rules, and the human who knows when to unplug.',
     tone: 'ink',
     show_grid: true,
     pinned: true,
   },
 
-  // 3 · MÉTHODE (paper) — 5 phases (sourcées /agence/methode)
+  // 3 · MÉTHODE (paper) — audit, pilote, mesure, transfert (détail sur /agence/methode)
   {
     type: 'method-timeline',
     background: 'paper',
-    kicker_fr: '§ Notre méthode · Process Intelligence',
-    kicker_en: '§ Our method · Process Intelligence',
-    h2_fr: 'Cinq phases. Pas de diaporama.',
-    h2_en: 'Five phases. No slideshow.',
-    lede_fr: 'On documente, on mesure, on corrige. Un protocole rejouable, pas un secret de cabinet. Le mardi on câble, le vendredi on mesure.',
-    lede_en: 'We document, we measure, we correct. A replayable protocol, not a cabinet secret. We wire on Tuesdays, we measure on Fridays.',
+    kicker_fr: '§ La méthode',
+    kicker_en: '§ The method',
+    h2_fr: 'Audit, pilote, mesure, transfert.',
+    h2_en: 'Audit, pilot, measure, handover.',
+    lede_fr: "Quatre étapes, toujours dans cet ordre. L'ingénieur travaille avec vos équipes métier, sur vos outils et vos données : c'est ce qu'on appelle ailleurs un forward deployed engineer.",
+    lede_en: 'Four steps, always in this order. The engineer works with your business teams, on your tools and your data: what is elsewhere called a forward deployed engineer.',
     steps: [
-      { num: '01', label_fr: 'Cartographie', label_en: 'Mapping', body_fr: 'On regarde votre métier, pas vos présentations. Vos vrais workflows, vos vrais bouchons.', body_en: 'We look at your business, not your presentations. Your real workflows, your real bottlenecks.' },
-      { num: '02', label_fr: 'Priorisation', label_en: 'Prioritization', body_fr: 'On classe les workflows par ROI, pas par sophistication technique. Le gain rapide passe en premier.', body_en: 'We rank workflows by ROI, not by technical sophistication. The quick win comes first.' },
-      { num: '03', label_fr: 'Câblage', label_en: 'Wiring', body_fr: 'On câble les agents dans vos outils existants : Excel, HubSpot, votre ERP. Pas de migration.', body_en: 'We wire agents into your existing tools: Excel, HubSpot, your ERP. No migration.' },
-      { num: '04', label_fr: 'Mesure', label_en: 'Measurement', body_fr: "Chaque workflow a sa métrique avant/après. Si ça ne mesure rien, ça n'existe pas.", body_en: 'Every workflow has its before/after metric. If it measures nothing, it does not exist.' },
-      { num: '05', label_fr: 'Passation', label_en: 'Handover', body_fr: 'Vous prenez la main. Documentation, mode opératoire, formation. Pas de boîte noire.', body_en: 'You take control. Documentation, runbook, training. No black box.' },
+      { num: '01', label_fr: 'Audit', label_en: 'Audit', body_fr: 'Quarante-cinq minutes, gratuites. On regarde vos processus réels et on repère trois automatisations rentables.', body_en: 'Forty-five minutes, free. We look at your real processes and spot three profitable automations.' },
+      { num: '02', label_fr: 'Pilote', label_en: 'Pilot', body_fr: 'Un premier système en production, branché à vos outils : Excel, HubSpot, votre ERP. Pas de migration imposée.', body_en: 'A first system in production, connected to your tools: Excel, HubSpot, your ERP. No forced migration.' },
+      { num: '03', label_fr: 'Mesure', label_en: 'Measure', body_fr: 'Chaque workflow a sa mesure avant et après, relevée sur vos données. Sans mesure, on ne peut pas décider d’étendre.', body_en: 'Every workflow has its before and after measurement, recorded on your data. Without it, there is no basis to extend.' },
+      { num: '04', label_fr: 'Transfert', label_en: 'Handover', body_fr: 'Le code, les workflows et la documentation sont à vous. Vos équipes sont formées pour continuer sans le studio.', body_en: 'The code, the workflows and the documentation are yours. Your teams are trained to carry on without the studio.' },
     ],
   },
 
-  // 3bis · QUATRE LIVRABLES (paper-2) — E-E-A-T migré depuis /agence/about (audit #60 A2).
-  // Bloc catalogué `deliverables-grid` (anti-orphelin) : ce que chaque mission dépose.
+  // 4 · LIVRABLES (paper-2) — ce que chaque mission dépose
   {
     type: 'deliverables-grid',
     background: 'paper-2',
-    kicker_fr: '§ Nos livrables',
-    kicker_en: '§ Our deliverables',
-    title_fr: 'Quatre livrables, <i>jamais un de plus</i>.',
-    title_en: 'Four deliverables, <i>never one more</i>.',
-    lead_fr: 'Chaque mission dépose ces quatre pièces chez vous : transférables, relisibles, à vous.',
-    lead_en: 'Every engagement leaves these four pieces with you: transferable, readable, yours.',
+    kicker_fr: '§ Les livrables',
+    kicker_en: '§ The deliverables',
+    title_fr: 'Ce que chaque mission <i>laisse chez vous</i>.',
+    title_en: 'What every engagement <i>leaves with you</i>.',
+    lead_fr: 'Quatre pièces, transférables et relisibles par un autre développeur que nous.',
+    lead_en: 'Four pieces, transferable and readable by a developer other than us.',
     items: [
-      { title_fr: "Un schéma de l'existant", title_en: 'A map of what exists', body_fr: 'Vos vrais workflows cartographiés, pas vos présentations.', body_en: 'Your real workflows mapped, not your presentations.' },
-      { title_fr: "Un mode opératoire d'exécution", title_en: 'An execution runbook', body_fr: "Ce que l'agent fait, étape par étape, reproductible.", body_en: 'What the agent does, step by step, reproducible.' },
-      { title_fr: 'Une trace d’audit rejouable', title_en: 'A replayable audit trail', body_fr: 'Chaque décision tracée, re-rejouable, jamais une boîte noire.', body_en: 'Every decision traced, replayable, never a black box.' },
-      { title_fr: 'Un humain d’astreinte nommé', title_en: 'A named on-call human', body_fr: "Ni slides, ni feuille de route à 18 mois. Un interlocuteur joignable.", body_en: 'No slides, no 18-month roadmap. A reachable point of contact.' },
+      { title_fr: "Un schéma de l'existant", title_en: 'A map of what exists', body_fr: 'Vos processus réels cartographiés : qui fait quoi, dans quel outil, avec quelle donnée.', body_en: 'Your real processes mapped: who does what, in which tool, with which data.' },
+      { title_fr: 'Le code et les workflows', title_en: 'The code and the workflows', body_fr: 'Livrés dans vos comptes, hébergés chez vous. Aucun composant ne dépend du studio pour tourner.', body_en: 'Delivered in your accounts, hosted on your side. No component depends on the studio to run.' },
+      { title_fr: 'Un journal des actions', title_en: 'An action log', body_fr: "Ce que chaque agent a fait, quand et sur quelle donnée. Les actions sensibles passent par une validation humaine.", body_en: 'What each agent did, when and on which data. Sensitive actions go through human validation.' },
+      { title_fr: 'Une documentation et une formation', title_en: 'Documentation and training', body_fr: "Le mode opératoire écrit et une équipe formée à faire évoluer le système.", body_en: 'The written runbook and a team trained to evolve the system.' },
     ],
   },
 
-  // 4 · IMPACT (INK) — métriques massives
-  {
-    type: 'metric-callout-band',
-    background: 'ink',
-    kicker_fr: '§ Preuve macro',
-    kicker_en: '§ Macro proof',
-    context_fr: 'La logique du studio : réorienter les équipes vers le travail à valeur pendant que les agents absorbent le répétitif. Les ordres de grandeur ci-dessous sont des objectifs cadrés en mission, selon périmètre, stack et maturité d’équipe.',
-    context_en: 'The studio logic: redirect teams toward high-value work while agents absorb the repetitive load. The orders of magnitude below are targets framed per engagement, depending on scope, stack and team maturity.',
-    metrics: [
-      { value: '5 jours', label_fr: 'du brief à la première mesure', label_en: 'from brief to first measurement' },
-      { value: '4 sem', label_fr: 'premier agent en production', label_en: 'first agent in production' },
-      { value: 'J+1', label_fr: 'reporting d’usage, pas en comité', label_en: 'usage reporting, not in committee' },
-    ],
-  },
-
-  // 5 · COMMENT ON TRAVAILLE (paper-3, image éditoriale réelle) : méthode, pas de
-  // cas client inventé. case-spotlight = bloc composé qui porte une vraie image au bon
-  // endroit (directive awwwards §6) : image howweworkwithai (public/images/editorial,
-  // vérifiée), citation = posture méthode, 3 métriques de cadrage, CTA conservé.
-  {
-    type: 'case-spotlight',
-    background: 'paper-3',
-    variant: 'media-right',
-    kicker_fr: 'Notre méthode · de bout en bout',
-    kicker_en: 'Our method · end to end',
-    title_fr: 'On part du <i>process cassé</i>, on câble au bon endroit, on mesure.',
-    title_en: 'We start from the <i>broken process</i>, wire at the right point, and measure.',
-    media_src: '/images/editorial/image-style-howweworkwithai.webp',
-    media_alt: "Illustration éditoriale : la façon dont le studio câble l'IA dans les outils existants.",
-    media_caption: 'Process Intelligence · du diagnostic à la mesure',
-    quote_fr: "On ne vend pas de l'IA pour faire de l'IA. On trace le workflow, on pose l'automatisation là où elle compte (HubSpot, Stripe, dbt, vos outils existants), et on mesure l'avant/après. Pas de refonte si un connecteur suffit : c'est la base d'un <a href=\"/services/systeme-acquisition\">système d'acquisition</a> qui tient.",
-    quote_en: "We don't sell AI for AI's sake. We trace the workflow, place automation where it matters (HubSpot, Stripe, dbt, your existing tools), and measure before/after. No rebuild when a connector is enough: it is the base of an <a href=\"/services/systeme-acquisition\">acquisition system</a> that holds.",
-    attribution_fr: 'Waimia · studio solo · Bordeaux',
-    attribution_en: 'Waimia · solo studio · Bordeaux',
-    metrics: [
-      { k: '5 j', label_fr: 'pour cibler le levier', label_en: 'to pinpoint the lever' },
-      { k: '4 sem.', label_fr: 'au premier workflow', label_en: 'to first workflow' },
-      { k: '1', label_fr: 'interlocuteur unique', label_en: 'single point of contact' },
-    ],
-    cta_label_fr: 'Parler de votre projet →',
-    cta_label_en: 'Discuss your project →',
-    cta_href: '/contact',
-  },
-
-  // 6 · STACK (paper-2) — écosystème Anthropic + outils
+  // 5 · STACK (paper) — outils réellement utilisés (détail sur /technologies)
   {
     type: 'tech-stack-band',
-    background: 'paper-2',
-    kicker_fr: '§ La stack',
-    kicker_en: '§ The stack',
-    lead_fr: "Anthropic d'abord, open-source quand il faut. Une stack courte, auditable, branchée sur vos outils existants. Pas de refonte si un connecteur suffit, que ce soit pour un <a href=\"/services/site-web-ia\">site web piloté par l'IA</a> ou l'<a href=\"/services/integration-claude\">intégration de Claude</a> dans votre CRM.",
-    lead_en: 'Anthropic first, open-source when needed. A short, auditable stack wired to your existing tools. No rebuild when a connector is enough, whether for an <a href="/services/site-web-ia">AI-driven website</a> or <a href="/services/integration-claude">Claude integration</a> into your CRM.',
+    background: 'paper',
+    kicker_fr: '§ Les outils',
+    kicker_en: '§ The tools',
+    lead_fr: "n8n et Make pour les workflows, Claude et OpenAI pour les agents, MCP et les API pour les brancher à vos outils. On choisit selon vos contraintes, pas selon une préférence de fournisseur. Le détail par couche est sur la page <a href=\"/technologies\">stack et technologies</a>.",
+    lead_en: 'n8n and Make for workflows, Claude and OpenAI for agents, MCP and APIs to connect them to your tools. We choose based on your constraints, not on a vendor preference. The layer-by-layer detail is on the <a href="/technologies">stack and technologies</a> page.',
     pills: [
-      { label_fr: 'Claude Opus', label_en: 'Claude Opus', kind: 'primary' },
-      { label_fr: 'Claude Sonnet', label_en: 'Claude Sonnet', kind: 'primary' },
-      { label_fr: 'Claude Haiku', label_en: 'Claude Haiku', kind: 'primary' },
-      { label_fr: 'MCP · Skills', label_en: 'MCP · Skills', kind: 'primary' },
+      { label_fr: 'n8n', label_en: 'n8n', kind: 'primary' },
+      { label_fr: 'Make', label_en: 'Make', kind: 'primary' },
+      { label_fr: 'Claude', label_en: 'Claude', kind: 'primary' },
+      { label_fr: 'OpenAI', label_en: 'OpenAI', kind: 'primary' },
+      { label_fr: 'MCP · API', label_en: 'MCP · API', kind: 'neutral' },
       { label_fr: 'HubSpot', label_en: 'HubSpot', kind: 'neutral' },
       { label_fr: 'Excel · ERP', label_en: 'Excel · ERP', kind: 'neutral' },
       { label_fr: 'PostgreSQL', label_en: 'PostgreSQL', kind: 'open' },
-      { label_fr: 'Audit trail', label_en: 'Audit trail', kind: 'open' },
     ],
   },
 
-  // 7 · RÉASSURANCE (paper) — partenariats/labels publics réels uniquement.
-  // P0.2-D : certifications/conformités non détenues retirées (Claude Certified Architect,
-  // AI Act ready, RGPD, ISO 27001 alignée = claims non prouvés, risque légal).
-  {
-    type: 'trust-badges-band',
-    background: 'paper',
-    variant: 'cells',
-    kicker_fr: '§ Réassurance',
-    kicker_en: '§ Reassurance',
-    h2_fr: 'Nos partenariats, en clair',
-    h2_en: 'Our partnerships, in plain text',
-    badges: [
-      { glyph: '◉', label_fr: 'Activateur France Num', label_en: 'France Num activator', value_fr: 'Expert IA & numérique', value_en: 'AI & digital expert' },
-      { glyph: '◇', label_fr: 'Livrables transférables', label_en: 'Transferable deliverables', value_fr: 'Code & prompts à vous', value_en: 'Code & prompts you own' },
-    ],
-  },
-
-  // 8 · FONDATEUR / ORIGINE (paper-2, image editoriale reelle) : narratif sobre +
-  // jalons (faits seulement). feature-split-media = bloc compose portant une vraie
-  // image au bon endroit (directive awwwards section 6). Image gentlemanhandcrafter
-  // (public/images/editorial, verifiee) = posture artisan solo. Paragraphes = body,
-  // jalons = points (label seul, annee repliee dans le libelle).
+  // 6 · ORIGINE (paper-2, image éditoriale réelle) : narratif sobre, faits seulement.
   {
     type: 'feature-split-media',
     background: 'paper-2',
     reversed: true,
     proportion: '2-1',
     media_sticky: true,
-    kicker_fr: '§ Origine & posture',
-    kicker_en: '§ Origin & posture',
+    kicker_fr: '§ Origine',
+    kicker_en: '§ Origin',
     h2_fr: "Née d'une <i>frustration</i> de chantier",
     h2_en: 'Born from a <i>delivery</i> frustration',
-    body_fr: "Waimia part d'une observation répétée : un POC passe en comité, brille en showroom, puis cale en juin. Le studio prend le problème par l'autre bout. Simon Beros câble et pilote chaque mission lui-même : pas d'agence relai, pas d'account manager rotatif, vous parlez à celui qui livre. Ce que le studio refuse : le théâtre IA, les ateliers de cadrage sans livrable signé, les agents non auditables qui transforment le logiciel en boîte noire.",
-    body_en: 'Waimia starts from a recurring observation: a POC clears committee, shines in the showroom, then stalls in June. The studio takes the problem from the other end. Simon Beros wires and runs every engagement himself: no relay agency, no rotating account manager, you talk to the person who ships. What the studio refuses: AI theatre, framing workshops with no signed deliverable, non-auditable agents that turn software into a black box.',
+    body_fr: "Waimia part d'une observation répétée : un prototype IA passe en comité, impressionne en démonstration, puis s'arrête avant la production. Le studio prend le problème par l'autre bout. Simon Beros vient du développement web et de l'intégration : il construit et pilote chaque mission lui-même, sans agence relais ni chargé de compte. Waimia a commencé par des sites et du marketing ; le métier est aujourd'hui l'automatisation, les agents IA et les applications métier. Le site web reste un outil parmi d'autres.",
+    body_en: 'Waimia starts from a recurring observation: an AI prototype clears committee, impresses in a demo, then stops before production. The studio takes the problem from the other end. Simon Beros comes from web development and integration: he builds and runs every engagement himself, with no relay agency or account manager. Waimia began with websites and marketing; the job today is automation, AI agents and business applications. The website remains one tool among others.',
     points: [
-      { label_fr: 'Studio · praticien solo, Simon Beros', label_en: 'Studio · solo practitioner, Simon Beros' },
+      { label_fr: 'Studio solo · Simon Beros, fondateur', label_en: 'Solo studio · Simon Beros, founder' },
       { label_fr: 'Bordeaux · missions à distance (Bordeaux, Montpellier, Lyon, Paris)', label_en: 'Bordeaux · remote engagements (Bordeaux, Montpellier, Lyon, Paris)' },
-      { label_fr: 'France Num · activateur, expert IA & numérique', label_en: 'France Num · activator, AI & digital expert' },
+      { label_fr: 'Activateur France Num', label_en: 'France Num activator' },
     ],
     media_src: '/images/editorial/gentlemanhandcraftergoworknow.webp',
     media_alt_fr: "Illustration éditoriale : l'artisan solo au travail, posture du studio.",
     media_alt_en: 'Editorial illustration: the solo craftsman at work, the studio posture.',
     media_caption_fr: 'Studio solo · un seul interlocuteur',
     media_caption_en: 'Solo studio · a single point of contact',
+    cta_label_fr: 'Voir le parcours de Simon Beros',
+    cta_label_en: 'See Simon Beros’s background',
+    cta_href: '/equipe/simon-beros',
   },
 
-  // 8bis · FAITS CLÉS (paper) — E-E-A-T migré depuis /agence/about (audit #60 A2).
-  // Bloc catalogué `spec-bar` (anti-orphelin) : la fiche d'identité du studio.
+  // 7 · FAITS CLÉS (paper) — la fiche d'identité du studio.
   {
     type: 'spec-bar',
     background: 'paper',
@@ -208,43 +143,43 @@ export const agenceSections: SectionData[] = [
     specs: [
       { label_fr: 'Forme', label_en: 'Structure', value: 'Studio solo · Waimia / VirtuoseWeb' },
       { label_fr: 'Fondateur', label_en: 'Founder', value: 'Simon Beros' },
+      { label_fr: 'Métier', label_en: 'Trade', value: 'Automatisation, agents IA, applications métier, conseil et formation' },
+      { label_fr: 'Clients', label_en: 'Clients', value: 'PME et ETI françaises · 10 à 250 collaborateurs' },
       { label_fr: 'Ancrage', label_en: 'Based in', value: 'Bordeaux (FR) · missions à distance : Bordeaux, Montpellier, Lyon, Paris' },
-      { label_fr: 'Interlocuteur', label_en: 'Contact', value: 'Direct · celui qui câble est celui qui livre' },
-      { label_fr: 'Périmètre', label_en: 'Scope', value: 'PME et ETI · acquisition, CRM, productivité' },
-      { label_fr: 'Référencement', label_en: 'Listing', value: 'Référencé Activateur France Num' },
-      { label_fr: 'Langues', label_en: 'Languages', value: 'Français et anglais (parité stricte)' },
+      { label_fr: 'Formation', label_en: 'Training', value: 'Formations dispensées via Akigora, organisme certifié Qualiopi' },
+      { label_fr: 'Référencement', label_en: 'Listing', value: 'Activateur France Num' },
     ],
   },
 
-  // 9 · CTA FINAL (INK)
+  // 8 · CTA FINAL (INK)
   {
     type: 'cta-final',
     background: 'ink',
-    chapter_num: '§ · 00',
-    chapter_title_fr: 'Travailler avec nous',
-    chapter_title_en: 'Work with us',
+    chapter_num: '§',
+    chapter_title_fr: 'Première étape',
+    chapter_title_en: 'First step',
     h2_fr: 'Quarante-cinq minutes pour voir si c&rsquo;est <i>le bon format</i>.',
     h2_en: 'Forty-five minutes to see if it is <i>the right fit</i>.',
-    body_fr: "On regarde, on audite, on chiffre. Si on n'a rien d'utile à vous proposer, on le dit. On ne relance pas.",
-    body_en: 'We look, we audit, we price. If we have nothing useful to offer, we say so. No follow-up.',
+    body_fr: "Un audit gratuit, en visio, avec l'ingénieur qui fera le travail. Si on n'a rien d'utile à vous proposer, on le dit, et on ne relance pas.",
+    body_en: 'A free audit, on a call, with the engineer who will do the work. If we have nothing useful to offer, we say so, and we do not follow up.',
     availability_fr: '● DISPONIBLE · RÉPONSE SOUS 24H',
     availability_en: '● AVAILABLE · RESPONSE IN 24H',
-    cta_primary: { label_fr: 'Démarrer un diagnostic →', label_en: 'Start a diagnostic →', href: '/contact', variant: 'primary' },
+    cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact?offer=audit-ia-pme&intent=audit', variant: 'primary' },
     cta_secondary: { label_fr: 'Voir la méthode', label_en: 'See the method', href: '/agence/methode', variant: 'ghost' },
-    reassurance_fr: 'Diagnostic gratuit · sans engagement · réponse sous 24h.',
-    reassurance_en: 'Free diagnostic · no commitment · reply within 24h.',
+    reassurance_fr: 'Audit gratuit · 45 min · sans engagement.',
+    reassurance_en: 'Free audit · 45 min · no commitment.',
   },
 ];
 
 const lang = langFromPath(Astro.url.pathname);
 ---
 <Base
-  title="L'Agence · Studio IA solo à Bordeaux · Waimia"
-  description="Studio IA solo basé à Bordeaux, missions à distance. Automatisations, agents IA et applications métier pour PME et ETI. Des systèmes qui exécutent."
+  title="Le studio · Studio de développement IA à Bordeaux · Waimia"
+  description="Waimia, studio de développement IA et cabinet d'automatisation pour PME et ETI. Un ingénieur, Simon Beros, à Bordeaux. Audit, pilote, mesure, transfert."
 >
   <MastheadBar lang={lang} items={[
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
-    { label: lang === 'fr' ? "L'Agence" : 'The Agency' },
+    { label: lang === 'fr' ? 'Le studio' : 'The studio' },
   ]} />
   <SectionsRenderer sections={agenceSections} lang={lang} />
 </Base>

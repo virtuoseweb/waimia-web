@@ -1,0 +1,56 @@
+---
+export const prerender = true;
+
+// Page SSG · /ressources/diagnostics · hub (noindex).
+// Refonte 4 octobre 2026 : il n'y a plus QU'UN diagnostic, celui de maturité IA
+// (interactif). Les anciennes pages claude-pme, referent-ia et site-web-intelligent sont
+// sorties des parcours (301 à poser, cf rapport de la PR) : ce hub ne les liste plus.
+// Tant que la redirection /ressources/diagnostics → /ressources/diagnostics/maturite-ia
+// n'est pas posée, la page oriente vers le diagnostic et les autres outils gratuits.
+
+import Base from '../../../layouts/Base.astro';
+import MastheadBar from '../../../components/sections/MastheadBar.astro';
+import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
+import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
+import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, DIAGNOSTIC_HREF } from '../../../data/conversion';
+
+const ctaFinal: SectionByType<'cta-final'> = {
+  type: 'cta-final',
+  background: 'ink',
+  h2_fr: 'Le diagnostic situe. L\'audit dit par quoi commencer.',
+  h2_en: 'The diagnostic places you. The audit says where to start.',
+  body_fr: '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, une cartographie écrite à la fin.',
+  body_en: '45 minutes by video call, free: your processes reviewed task by task, a written map at the end.',
+  cta_primary: { label_fr: 'Réserver l\'audit IA', label_en: 'Book the AI audit', href: AUDIT_BOOKING_HREF, variant: 'primary' },
+  cta_secondary: { label_fr: 'Ce que couvre l\'audit', label_en: 'What the audit covers', href: AUDIT_PAGE_HREF, variant: 'ghost' },
+};
+---
+
+<Base
+  title="Diagnostic IA gratuit · Waimia"
+  description="Un diagnostic de maturité IA en dix questions, avec un résultat immédiat et sans e-mail, et trois outils gratuits pour préparer un projet d'automatisation."
+  noindex={true}
+>
+  <MastheadBar
+    lang="fr"
+    items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Ressources', href: '/ressources' },
+      { label: 'Diagnostics' },
+    ]}
+  />
+  <ToolIntro
+    h1="Un seul diagnostic : votre maturité IA"
+    lede="Dix questions, un niveau de 1 à 5 et le point à traiter en premier. Le résultat s'affiche tout de suite, sans e-mail."
+    facts={[
+      { label: 'Durée', value: '4 minutes' },
+      { label: 'E-mail', value: 'Facultatif' },
+    ]}
+  >
+    <a slot="actions" class="btn btn-primary btn-lg" href={DIAGNOSTIC_HREF}>Commencer le diagnostic</a>
+  </ToolIntro>
+  <ResourceLinks exclude={['diagnostic']} background="paper-2" title="Les autres outils, sans inscription" />
+  <CtaFinal data={ctaFinal} lang="fr" />
+</Base>

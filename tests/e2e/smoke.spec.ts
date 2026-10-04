@@ -22,7 +22,28 @@ const ROUTES = [
   "/politique-confidentialite",
   "/sources-methodologie",
   "/plan-du-site",
-  "/equipe",
+  // Intégration (2026-10-04) : /equipe est redirigé en 301 vers la fiche du fondateur.
+  "/equipe/simon-beros",
+  // Refonte D (2026-10-04) : nouvelles pages.
+  "/services/automatisation-make",
+  "/services/base-de-connaissance-ia",
+  "/ressources/comparatifs/n8n-vs-make",
+  "/ressources/guides/claude-cowork",
+  "/blog/forward-deployed-engineer",
+  "/formations",
+  "/formations/automatisation",
+  "/formations/n8n",
+  "/formations/make",
+  "/formations/claude",
+  "/implantations/bordeaux",
+  "/implantations/lyon",
+  "/conformite-ia",
+  // Intégration (2026-10-04) : hub implantations indexable, outils et diagnostic.
+  "/implantations",
+  "/ressources/diagnostics/maturite-ia",
+  "/ressources/outils/charte-ia-entreprise",
+  "/ressources/outils/grille-taches-a-automatiser",
+  "/ressources/outils/calculateur-roi-ia",
 ];
 
 for (const path of ROUTES) {

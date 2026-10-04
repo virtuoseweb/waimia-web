@@ -6,6 +6,7 @@
 export const prerender = true;
 
 import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../lib/live-collection';
 import { DEPUBLISHED_SERVICE_IDS } from '../data/depublished';
 import Base from '../layouts/Base.astro';
 import {
@@ -105,7 +106,7 @@ const allCases = (await getCollection('cases'))
   .map((e) => ({ href: `/cas-clients/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
 // secteurs → /secteurs/<slug ?? id> · filtre visible (cf secteurs/[...slug].astro)
-const allSecteurs = (await getCollection('secteurs'))
+const allSecteurs = (await getLiveCollection('secteurs'))
   .filter((e) => e.data.visible)
   .map((e) => {
     const slug = e.data.slug ?? e.id;
@@ -114,7 +115,7 @@ const allSecteurs = (await getCollection('secteurs'))
   });
 
 // blog → /blog/<entry.id> · filtre !seo.noindex && !legacyRoutedType (cf blog/[...slug].astro)
-const allBlog = (await getCollection('blog'))
+const allBlog = (await getLiveCollection('blog'))
   .filter((e) => !e.data.seo?.noindex && !isLegacyRoutedType(e))
   .map((e) => ({ href: `/blog/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
@@ -144,7 +145,6 @@ const allAuthors = (await getCollection('authors'))
 const homePage: PlanLink = { href: '/', label: { fr: 'Accueil', en: 'Home' } };
 const secteursIndex: PlanLink = { href: '/secteurs', label: { fr: 'Tous les secteurs', en: 'All sectors' } };
 const teamPages: PlanLink[] = [
-  { href: '/equipe', label: { fr: "L'équipe", en: 'The team' } },
   { href: '/sources-methodologie', label: { fr: 'Sources & méthodologie', en: 'Sources & methodology' } },
 ];
 
@@ -161,7 +161,7 @@ const indexSection: PlanSection = {
     { heading: { fr: 'Articles & ressources', en: 'Articles & resources' }, links: uniqueAgainstNav(allBlog).sort(sortFr) },
     { heading: { fr: 'Outils', en: 'Tools' }, links: uniqueAgainstNav(allOutils).sort(sortFr) },
     { heading: { fr: 'Services & offres', en: 'Services & offers' }, links: uniqueAgainstNav([...allServices, ...allOffres]).sort(sortFr) },
-    { heading: { fr: 'Agence & équipe', en: 'Agency & team' }, links: uniqueAgainstNav([homePage, ...allAuthors, ...teamPages]).sort(sortFr) },
+    { heading: { fr: 'Le studio', en: 'The studio' }, links: uniqueAgainstNav([homePage, ...allAuthors, ...teamPages]).sort(sortFr) },
   ].filter((g) => g.links.length > 0),
 };
 
@@ -177,7 +177,7 @@ const title = lang === 'fr'
   ? 'Plan du site · Waimia'
   : 'Site map · Waimia';
 const description = lang === 'fr'
-  ? 'Toutes les pages de Waimia en un coup d’œil : solutions IA, offres, cas clients, technologies, ressources et l’agence.'
+  ? 'Toutes les pages de Waimia en un coup d’œil : solutions, cas d’usage, réalisations, formations, ressources et le studio.'
   : 'Every Waimia page at a glance: AI solutions, services, case studies, technologies, resources and the agency.';
 
 const lh = (href: string) => localizeHref(href, lang);

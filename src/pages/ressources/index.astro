@@ -8,6 +8,7 @@ export const prerender = true;
 // Cases + WritingNotes (blog) + Cookbooks + Newsletter band + CtaBand.
 
 import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -26,6 +27,7 @@ import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import { blogEntryHref } from '../../lib/blog-routing';
 // Sections statiques (vague V3) → module ; le reste (dérivé collections + 2 blocs bespoke) reste ici.
 import { mastheadData, ctaData } from '../../data/ressources-hub-sections';
+import ResourceLinks from '../../components/ui/organisms/conversion/ResourceLinks.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -36,7 +38,7 @@ const collectionLd = buildCollectionPage(
 );
 
 const [allBlog, allCases] = await Promise.all([
-  getCollection('blog'),
+  getLiveCollection('blog'),
   getCollection('cases'),
 ]);
 
@@ -72,13 +74,11 @@ const blogLongReads = sortedBlog.filter((b) => !isLegacyRoutedType(b));
 const nBlog = blogLongReads.length;
 const allOutils = (await getCollection('outils')).filter((e) => !e.data.seo?.noindex);
 const nOutils = allOutils.length;
-const [allComparatifs, allDiagnostics, allGuides] = await Promise.all([
-  getCollection('comparatifs'),
-  getCollection('diagnostics'),
+const [allComparatifs, allGuides] = await Promise.all([
+  getLiveCollection('comparatifs'),
   getCollection('guides'),
 ]);
 const nComparatifs = allComparatifs.length;
-const nDiagnostics = allDiagnostics.length;
 const nGuides = allGuides.length;
 
 // SEO état final : livres-blancs / cookbooks / field-notes / veille-ia supprimés.
@@ -97,9 +97,9 @@ const categories = [
   },
   nOutils > 0 && {
     kind_fr: 'Outils', kind_en: 'Tools',
-    title_fr: 'Calculateurs gratuits', title_en: 'Free calculators',
-    desc_fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.',
-    desc_en: 'ROI, TCO, AI Act compliance. No form, no funnel.',
+    title_fr: 'Outils gratuits', title_en: 'Free tools',
+    desc_fr: 'Calculateur de temps récupérable, grille des tâches à automatiser, modèle de charte IA. Utilisables sans e-mail.',
+    desc_en: 'Recoverable-time calculator, task prioritisation grid, AI policy template. Usable without email.',
     format: `${nOutils} ${nOutils > 1 ? 'outils' : 'outil'}`,
     href: '/ressources/outils',
     cta_label_fr: 'Utiliser l\'outil', cta_label_en: 'Use the tool',
@@ -113,15 +113,6 @@ const categories = [
     href: '/ressources/comparatifs',
     cta_label_fr: 'Comparer', cta_label_en: 'Compare',
   },
-  nDiagnostics > 0 && {
-    kind_fr: 'Diagnostics', kind_en: 'Diagnostics',
-    title_fr: 'Diagnostics gratuits', title_en: 'Free diagnostics',
-    desc_fr: 'Préparation à Claude, maturité IA, référent, site web. Un repérage honnête pour situer votre entreprise.',
-    desc_en: 'Claude readiness, AI maturity, lead, website. An honest read to place your company.',
-    format: `${nDiagnostics} diagnostics`,
-    href: '/ressources/diagnostics',
-    cta_label_fr: 'Se situer', cta_label_en: 'Place yourself',
-  },
   nGuides > 0 && {
     kind_fr: 'Guides', kind_en: 'Guides',
     title_fr: 'Guides pratiques', title_en: 'Practical guides',
@@ -134,11 +125,11 @@ const categories = [
   {
     kind_fr: 'Diagnostic', kind_en: 'Diagnostic',
     title_fr: 'Diagnostic de maturité IA', title_en: 'AI maturity diagnostic',
-    desc_fr: "La grille des 5 niveaux, les dimensions qui comptent et les questions clés pour situer votre entreprise avant d'investir.",
-    desc_en: 'The 5-level grid, the dimensions that matter and the key questions to place your company before investing.',
-    format: 'Grille 5 niveaux',
+    desc_fr: "Dix questions, un niveau de 1 à 5, une note par dimension et le point à traiter en premier. Résultat immédiat, sans e-mail.",
+    desc_en: 'Ten questions, a level from 1 to 5, a score per dimension and the first point to fix. Instant result, no email.',
+    format: '10 questions · 4 min',
     href: '/ressources/diagnostics/maturite-ia',
-    cta_label_fr: 'Lire le diagnostic', cta_label_en: 'Read the diagnostic',
+    cta_label_fr: 'Faire le diagnostic', cta_label_en: 'Take the diagnostic',
   },
 ].filter(Boolean) as Array<{
   kind_fr: string; kind_en: string; title_fr: string; title_en: string;
@@ -241,12 +232,12 @@ const splitData = {
   },
   right: {
     slot: 'right' as const,
-    kicker_fr: '§ Outils · calculateurs gratuits',
-    kicker_en: '§ Tools · free calculators',
+    kicker_fr: '§ Outils gratuits',
+    kicker_en: '§ Free tools',
     h2_fr: 'Un outil par décision.',
     h2_en: 'One tool per decision.',
-    lede_fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.',
-    lede_en: 'ROI, TCO, AI Act compliance. No form, no funnel.',
+    lede_fr: 'Temps récupérable, priorité des tâches, charte IA. Le résultat est sur la page, l\'e-mail est facultatif.',
+    lede_en: 'Recoverable time, task priority, AI policy. The result is on the page, email is optional.',
     cards: allOutils.slice(0, 3).map((o) => ({
       kicker: 'OUTIL',
       title_fr: o.data.title_fr,
@@ -274,6 +265,9 @@ const splitData = {
 
   {/* GRILLE PAR FORMAT · compteurs réels · paper */}
   <ResourceCardGrid data={resourceGridData} lang="fr" />
+
+  {/* OUTILS DU PARCOURS · diagnostic, grille, calculateur, charte, audit (source unique) */}
+  <ResourceLinks title="Les outils gratuits, sans inscription" background="paper-2" />
 
   {/* ARTICLE VEDETTE · note longue la plus récente · paper */}
   {featuredArticleData && <FeatureSplitMedia data={featuredArticleData} lang="fr" />}

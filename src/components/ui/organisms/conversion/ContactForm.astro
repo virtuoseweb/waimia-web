@@ -1,0 +1,199 @@
+---
+// Organism · ContactForm · formulaire de demande de /contact (hors catalogue).
+//
+// Poste en JSON vers /api/contact. États gérés : vide, erreur par champ (validation
+// locale avant envoi + retour serveur), envoi (bouton désactivé, libellé changé),
+// succès (redirection /bienvenue/contact renvoyée par l'API), échec serveur (message
+// explicite + adresse e-mail de secours). Sans JavaScript, le formulaire poste en
+// natif vers la même route (l'API accepte aussi le form-encoded).
+//
+// Les champs cachés `offer` / `intent` et le `subject` sont pré-remplis par le script
+// de la page (/contact) à partir de l'URL : ?offer=audit-ia-pme&intent=audit.
+import './form.css';
+import { CONTACT_SUBJECTS } from '../../../../data/conversion';
+import { SITE } from '../../../../site.config';
+
+interface Props {
+  /** Préfixe d'id (unicité si deux formulaires sur une page). */
+  idPrefix?: string;
+}
+const { idPrefix = 'cf' } = Astro.props as Props;
+const id = (k: string) => `${idPrefix}-${k}`;
+---
+<form
+  class="contact-form"
+  method="POST"
+  action="/api/contact"
+  name="contact"
+  data-contact-form
+  novalidate
+>
+  <div class="cv-hp" aria-hidden="true">
+    <label for={id('website')}>Ne pas remplir</label>
+    <input type="text" id={id('website')} name="website" tabindex="-1" autocomplete="off" />
+  </div>
+  <input type="hidden" name="lang" value="fr" />
+  <input type="hidden" name="offer" value="" data-contact-offer />
+  <input type="hidden" name="intent" value="" data-contact-intent />
+
+  <div class="cv-field cf-full">
+    <label class="cv-label" for={id('subject')}>Objet de votre demande</label>
+    <select class="cv-select" id={id('subject')} name="subject" data-contact-subject>
+      {CONTACT_SUBJECTS.map((s) => (
+        <option value={s.value}>{s.label}</option>
+      ))}
+    </select>
+  </div>
+
+  <div class="cv-field">
+    <label class="cv-label" for={id('name')}>Votre nom</label>
+    <input class="cv-input" id={id('name')} name="name" type="text" required autocomplete="name" aria-describedby={id('name-err')} />
+    <p class="cv-error" id={id('name-err')} data-error-for="name" hidden>Indiquez votre nom.</p>
+  </div>
+
+  <div class="cv-field">
+    <label class="cv-label" for={id('email')}>E-mail professionnel</label>
+    <input class="cv-input" id={id('email')} name="email" type="email" required autocomplete="email" inputmode="email" aria-describedby={id('email-err')} />
+    <p class="cv-error" id={id('email-err')} data-error-for="email" hidden>Cette adresse e-mail n'est pas valide. Exemple : prenom@entreprise.fr</p>
+  </div>
+
+  <div class="cv-field">
+    <label class="cv-label" for={id('company')}>Entreprise <span class="cv-opt">(facultatif)</span></label>
+    <input class="cv-input" id={id('company')} name="company" type="text" autocomplete="organization" />
+  </div>
+
+  <div class="cv-field">
+    <label class="cv-label" for={id('role')}>Fonction <span class="cv-opt">(facultatif)</span></label>
+    <input class="cv-input" id={id('role')} name="role" type="text" autocomplete="organization-title" />
+  </div>
+
+  <div class="cv-field cf-full">
+    <label class="cv-label" for={id('brief')}>Votre demande</label>
+    <textarea class="cv-textarea" id={id('brief')} name="brief" rows="5" required aria-describedby={`${id('brief-hint')} ${id('brief-err')}`}></textarea>
+    <p class="cv-note" id={id('brief-hint')}>Trois phrases suffisent : la tâche ou le problème, les outils concernés, ce que vous attendez.</p>
+    <p class="cv-error" id={id('brief-err')} data-error-for="brief" hidden>Décrivez votre demande en quelques mots.</p>
+  </div>
+
+  <p class="cv-status cf-full" role="alert" data-contact-status hidden></p>
+
+  <div class="cf-actions cf-full">
+    <button class="btn btn-primary btn-lg cv-btn" type="submit" data-contact-submit data-label="Envoyer la demande" data-label-busy="Envoi en cours…">Envoyer la demande</button>
+    <p class="cv-note">Réponse de Simon Beros sous 24 h ouvrées. Vos données servent à vous répondre, rien d'autre : <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+  </div>
+</form>
+
+<script is:inline define:vars={{ fallbackEmail: SITE.email }}>
+(function () {
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function bind(form) {
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    var status = form.querySelector('[data-contact-status]');
+    var btn = form.querySelector('[data-contact-submit]');
+
+    function setError(name, on) {
+      var field = form.querySelector('[name="' + name + '"]');
+      var err = form.querySelector('[data-error-for="' + name + '"]');
+      if (field) field.setAttribute('aria-invalid', on ? 'true' : 'false');
+      if (err) err.hidden = !on;
+    }
+    function showStatus(kind, html) {
+      if (!status) return;
+      status.dataset.kind = kind;
+      status.innerHTML = html;
+      status.hidden = false;
+    }
+    function busy(on) {
+      if (!btn) return;
+      btn.disabled = on;
+      btn.textContent = on ? btn.dataset.labelBusy : btn.dataset.label;
+      form.setAttribute('aria-busy', on ? 'true' : 'false');
+    }
+    function validate() {
+      var v = function (n) { return (form.elements[n].value || '').trim(); };
+      var bad = [];
+      if (!v('name')) bad.push('name');
+      if (!EMAIL_RE.test(v('email'))) bad.push('email');
+      if (!v('brief')) bad.push('brief');
+      ['name', 'email', 'brief'].forEach(function (n) { setError(n, bad.indexOf(n) !== -1); });
+      return bad;
+    }
+
+    ['name', 'email', 'brief'].forEach(function (n) {
+      var f = form.elements[n];
+      if (f) f.addEventListener('input', function () {
+        if (f.getAttribute('aria-invalid') === 'true') setError(n, false);
+      });
+    });
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (status) status.hidden = true;
+      var bad = validate();
+      if (bad.length) {
+        form.elements[bad[0]].focus();
+        return;
+      }
+      busy(true);
+      var payload = Object.fromEntries(new FormData(form).entries());
+      var mail = '<a href="mailto:' + fallbackEmail + '">' + fallbackEmail + '</a>';
+      try {
+        var res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        var data = await res.json().catch(function () { return {}; });
+        if (res.ok && data.ok) {
+          showStatus('success', 'Demande envoyée. Redirection…');
+          window.location.href = data.redirect || '/bienvenue/contact';
+          return;
+        }
+        if (data.code === 'invalid_fields' && Array.isArray(data.fields)) {
+          data.fields.forEach(function (n) { setError(n, true); });
+          var first = form.elements[data.fields[0]];
+          if (first && first.focus) first.focus();
+        }
+        var why = res.status === 429
+          ? 'Trop de tentatives en peu de temps. Réessayez dans quelques minutes, ou écrivez à ' + mail + '.'
+          : res.status === 400
+            ? 'Certains champs sont à corriger avant l\'envoi.'
+            : 'La demande n\'a pas été envoyée (erreur ' + res.status + '). Écrivez directement à ' + mail + '.';
+        showStatus('error', why);
+        busy(false);
+      } catch (_) {
+        showStatus('error', 'Connexion interrompue : la demande n\'a pas été envoyée. Réessayez, ou écrivez à ' + mail + '.');
+        busy(false);
+      }
+    });
+  }
+
+  function boot() { document.querySelectorAll('form[data-contact-form]').forEach(bind); }
+  boot();
+  // Navigation View Transitions : les nœuds sont neufs (sans `data-bound`), on relie.
+  // On ne retire jamais le drapeau : `astro:page-load` se déclenche aussi au premier
+  // chargement, un double binding enverrait la demande deux fois.
+  document.addEventListener('astro:page-load', boot);
+})();
+</script>
+
+<style>
+  .contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5) var(--space-5);
+    position: relative;
+  }
+  .cf-full { grid-column: 1 / -1; }
+  .cf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4) var(--space-5);
+  }
+  .cf-actions .cv-note { flex: 1 1 260px; max-width: 46ch; }
+  @media (max-width: 640px) {
+    .contact-form { grid-template-columns: 1fr; }
+  }
+</style>

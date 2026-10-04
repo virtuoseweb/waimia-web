@@ -181,6 +181,7 @@ import { Component as terminalMockupComponent, meta as terminalMockupMeta } from
 import { Component as terminalMetricsStripComponent, meta as terminalMetricsStripMeta } from '../sections/terminal-metrics-strip';
 import { Component as pricingCardsComponent, meta as pricingCardsMeta } from '../sections/pricing-cards';
 import { Component as pricingTabsShowcaseComponent, meta as pricingTabsShowcaseMeta } from '../sections/pricing-tabs-showcase';
+import { Component as engagementLedgerComponent, meta as engagementLedgerMeta } from '../sections/engagement-ledger';
 import { Component as pricingToggleComponent, meta as pricingToggleMeta } from '../sections/pricing-toggle';
 import { Component as pricingSingleHighlightComponent, meta as pricingSingleHighlightMeta } from '../sections/pricing-single-highlight';
 import { Component as teamBioGridComponent, meta as teamBioGridMeta } from '../sections/team-bio-grid';
@@ -931,6 +932,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'pricing-tabs-showcase': {
     component: pricingTabsShowcaseComponent,
     ...pricingTabsShowcaseMeta,
+  },
+  'engagement-ledger': {
+    component: engagementLedgerComponent,
+    ...engagementLedgerMeta,
   },
   'pricing-toggle': {
     component: pricingToggleComponent,

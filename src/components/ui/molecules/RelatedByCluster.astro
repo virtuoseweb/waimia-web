@@ -3,6 +3,7 @@
 // Logique : getCollection(blog + cookbooks + livresBlancs) filtré par cluster,
 // tri par date desc, slice(limit), puis mappage vers RelatedCards.Card.
 import { getCollection } from 'astro:content';
+import { getLiveCollection } from '../../../lib/live-collection';
 import RelatedCards from './RelatedCards.astro';
 import { blogEntryHref } from '../../../lib/blog-routing';
 
@@ -31,7 +32,7 @@ if (!cluster) return null;
 
 // SEO état final : cookbooks + livres-blancs supprimés. Cluster = blog in-silo uniquement.
 const [blog] = await Promise.all([
-  getCollection('blog'),
+  getLiveCollection('blog'),
 ]);
 
 const all: Item[] = [

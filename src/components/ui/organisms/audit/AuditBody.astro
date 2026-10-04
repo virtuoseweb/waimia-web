@@ -1,0 +1,188 @@
+---
+// Organism · AuditBody · corps de /audit-ia-pme (hors catalogue) : déroulé des 45 minutes,
+// livrable (exemple illustratif), pour qui / pas pour qui, la suite. Contenu = src/data/audit-ia-pme.ts.
+//
+// La règle des 45 minutes est une vraie séquence : la largeur de chaque segment est
+// proportionnelle à sa durée (flex-grow = minutes), ce n'est pas un décor.
+import TaskMap from './TaskMap.astro';
+import { session, fit, after } from '../../../../data/audit-ia-pme';
+import { AUDIT_BOOKING_HREF, GRILLE_HREF } from '../../../../data/conversion';
+
+const total = session[session.length - 1].to;
+// Colonnes proportionnelles aux minutes, avec un plancher de lisibilité pour le dernier segment.
+const cols = session.map((s) => `minmax(190px, ${s.to - s.from}fr)`).join(' ');
+---
+<section class="ab ab-session" id="deroule" aria-labelledby="ab-session-h2">
+  <div class="wrap-wide">
+    <div class="ab-head">
+      <h2 class="ab-h2" id="ab-session-h2">Ce qu'on fait pendant les 45 minutes</h2>
+      <p class="ab-intro">Pas de présentation commerciale ni de questionnaire à remplir avant. Un échange guidé, et des notes prises en direct qui deviennent le livrable.</p>
+    </div>
+
+    <div class="ab-ruler" aria-hidden="true" style={`grid-template-columns:${cols}`}>
+      {session.map((s) => (
+        <span class="ab-ruler-seg">
+          <span class="ab-ruler-min">{s.from}</span>
+        </span>
+      ))}
+      <span class="ab-ruler-end">{total} min</span>
+    </div>
+
+    <ol class="ab-steps" style={`grid-template-columns:${cols}`}>
+      {session.map((s) => (
+        <li class="ab-step">
+          <p class="ab-step-time">De {s.from} à {s.to} min</p>
+          <h3 class="ab-h3">{s.title}</h3>
+          <p class="ab-step-body">{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<section class="ab ab-deliv" id="livrable" aria-labelledby="ab-deliv-h2">
+  <div class="wrap-wide">
+    <div class="ab-head">
+      <h2 class="ab-h2" id="ab-deliv-h2">Ce que vous recevez : une cartographie de vos tâches</h2>
+      <p class="ab-intro">Un document court, envoyé par e-mail après l'échange. Chaque tâche passée en revue y figure avec son volume, le verdict d'automatisation et la raison du verdict. Voici à quoi il ressemble.</p>
+    </div>
+    <TaskMap variant="full" />
+    <p class="ab-diy">Vous voulez préparer cette liste avant l'échange ? <a href={GRILLE_HREF}>La grille des tâches à automatiser</a> fait le même calcul avec vos chiffres, sans inscription.</p>
+  </div>
+</section>
+
+<section class="ab ab-fit" id="pour-qui" aria-labelledby="ab-fit-h2">
+  <div class="wrap-wide">
+    <div class="ab-head">
+      <h2 class="ab-h2" id="ab-fit-h2">Pour qui c'est utile, pour qui ça ne l'est pas</h2>
+    </div>
+    <div class="ab-fit-cols">
+      <div class="ab-fit-col ab-fit-yes">
+        <h3 class="ab-h3">Utile si</h3>
+        <ul>
+          {fit.yes.map((t) => <li>{t}</li>)}
+        </ul>
+      </div>
+      <div class="ab-fit-col ab-fit-no">
+        <h3 class="ab-h3">Pas le bon format si</h3>
+        <ul>
+          {/* set:html : un item peut porter un lien interne (ex. vers /formations) */}
+          {fit.no.map((t) => <li set:html={t} />)}
+        </ul>
+        <p class="ab-fit-link"><a href="/contact?intent=message">Envoyer une demande par le formulaire</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ab ab-after" id="apres" aria-labelledby="ab-after-h2">
+  <div class="wrap-wide ab-after-in">
+    <div class="ab-head">
+      <h2 class="ab-h2" id="ab-after-h2">Ce qui se passe après</h2>
+      <p class="ab-intro">Trois issues possibles. Dans les trois cas, aucune relance commerciale si vous ne répondez pas.</p>
+      <a class="btn btn-primary btn-lg ab-after-cta" href={AUDIT_BOOKING_HREF}>Choisir un créneau</a>
+    </div>
+    <div class="ab-after-list">
+      {after.map((a) => (
+        <div class="ab-after-item">
+          <h3 class="ab-h3">{a.title}</h3>
+          <p>{a.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ab { padding: var(--space-10) 0; border-top: 1px solid var(--hairline-strong); }
+  .ab-head { max-width: 62ch; margin-bottom: var(--space-7); }
+  .ab-h2 {
+    font-family: var(--font-sans);
+    font-size: calc(var(--text-h2) * 0.76);
+    line-height: 1.08;
+    letter-spacing: -0.024em;
+    font-weight: var(--fw-semibold);
+    margin: 0 0 var(--space-4);
+    text-wrap: balance;
+  }
+  .ab-h3 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    font-weight: var(--fw-semibold);
+    margin: 0 0 var(--space-3);
+  }
+  .ab-intro { font-size: var(--text-body); line-height: 1.6; color: var(--muted); margin: 0; }
+  .ab a:not(.btn) { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ── Déroulé : règle graduée proportionnelle ── */
+  .ab-session { background: var(--paper-2); }
+  .ab-ruler { display: grid; position: relative; margin-bottom: var(--space-5); border-right: 1px solid var(--ink); }
+  .ab-ruler-seg {
+    position: relative;
+    height: 10px;
+    border-left: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .ab-ruler-seg:nth-child(2) { background: var(--ink); }
+  .ab-ruler-min,
+  .ab-ruler-end {
+    position: absolute;
+    top: 16px;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+  .ab-ruler-min { left: -1px; }
+  .ab-ruler-end { right: 0; }
+  .ab-steps {
+    list-style: none;
+    margin: var(--space-8) 0 0;
+    padding: 0;
+    display: grid;
+  }
+  .ab-step { min-width: 0; padding-right: var(--space-6); }
+  .ab-step-time { margin: 0 0 var(--space-2); font-size: var(--text-small); color: var(--accent-text); font-weight: var(--fw-medium); }
+  .ab-step-body { margin: 0; font-size: var(--text-small); line-height: 1.6; color: var(--ink-3); }
+
+  /* ── Livrable ── */
+  .ab-diy { margin: var(--space-6) 0 0; font-size: var(--text-body); line-height: 1.55; max-width: 70ch; }
+
+  /* ── Pour qui ── */
+  .ab-fit { background: var(--paper-2); }
+  .ab-fit-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-9); }
+  .ab-fit-col { border-top: 2px solid var(--ink); padding-top: var(--space-5); }
+  .ab-fit-no { border-top-color: var(--accent); }
+  .ab-fit-col ul { list-style: none; margin: 0; padding: 0; }
+  .ab-fit-col li {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline-strong);
+    max-width: 58ch;
+  }
+  .ab-fit-col li:first-child { padding-top: var(--space-2); }
+  .ab-fit-no li { color: var(--ink-3); }
+  .ab-fit-link { margin: var(--space-4) 0 0; font-size: var(--text-small); }
+
+  /* ── Après ── */
+  .ab-after-in { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: var(--space-9); align-items: start; }
+  .ab-after .ab-head { margin-bottom: 0; }
+  .ab-after-cta { margin-top: var(--space-6); }
+  .ab-after-item { padding: var(--space-5) 0; border-top: 1px solid var(--hairline-strong); }
+  .ab-after-item:first-child { border-top: 2px solid var(--ink); }
+  .ab-after-item p { margin: 0; font-size: var(--text-body); line-height: 1.6; color: var(--ink-3); max-width: 64ch; }
+
+  @media (max-width: 900px) {
+    .ab { padding: var(--space-9) 0; }
+    /* Mobile : la règle horizontale devient une liste verticale, la durée reste lisible
+       dans le libellé « De 10 à 30 min » de chaque étape. */
+    .ab-ruler { display: none; }
+    .ab-steps { display: block; margin-top: 0; }
+    .ab-step { padding: var(--space-5) 0 var(--space-5) var(--space-5); border-left: 1px solid var(--ink); position: relative; }
+    .ab-step::before { content: ''; position: absolute; left: -4px; top: calc(var(--space-5) + 6px); width: 7px; height: 7px; background: var(--ink); border-radius: var(--radius-full); }
+    .ab-fit-cols { grid-template-columns: 1fr; gap: var(--space-7); }
+    .ab-after-in { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
+</style>

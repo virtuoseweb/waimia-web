@@ -1,0 +1,112 @@
+/* Parcours de conversion · styles de champs partagés (ContactForm, LeadCapture,
+   MaturityDiagnostic, TaskPriorityGrid). Tokens DS uniquement, aucun nouveau token.
+   Préfixe `cv-` : aucune collision avec les classes du catalogue. */
+
+.cv-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.cv-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: var(--fw-medium);
+  color: var(--ink);
+  line-height: 1.3;
+}
+.cv-label .cv-opt {
+  font-weight: var(--fw-regular);
+  color: var(--muted);
+}
+.cv-input,
+.cv-select,
+.cv-textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 16px; /* 16px mini : pas de zoom automatique iOS à la prise de focus */
+  line-height: var(--leading-lede);
+  padding: var(--space-3) 14px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-xs);
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.cv-textarea {
+  resize: vertical;
+  min-height: 7.5rem;
+}
+.cv-input:hover,
+.cv-select:hover,
+.cv-textarea:hover {
+  border-color: rgba(var(--ink-rgb), 0.4);
+}
+.cv-input:focus-visible,
+.cv-select:focus-visible,
+.cv-textarea:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+  border-color: var(--ink);
+}
+.cv-input[aria-invalid='true'],
+.cv-select[aria-invalid='true'],
+.cv-textarea[aria-invalid='true'] {
+  border-color: var(--accent-text);
+  box-shadow: inset 3px 0 0 var(--accent-text);
+}
+.cv-error {
+  font-size: var(--text-small);
+  line-height: var(--leading-lede);
+  color: var(--accent-text);
+  margin: 0;
+}
+.cv-error[hidden] {
+  display: none;
+}
+.cv-status {
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--accent-text);
+  background: var(--paper-2);
+  color: var(--ink);
+}
+.cv-status[hidden] {
+  display: none;
+}
+.cv-status[data-kind='success'] {
+  border-left-color: var(--ink);
+}
+.cv-status a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cv-hp {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.cv-note {
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  margin: 0;
+}
+.cv-note a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+button.cv-btn {
+  cursor: pointer;
+}
+button.cv-btn[disabled] {
+  opacity: 0.6;
+  cursor: wait;
+}

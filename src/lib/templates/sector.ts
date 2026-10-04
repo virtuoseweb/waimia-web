@@ -17,6 +17,7 @@
 // La grille de cas (async, `sector-cases.ts`) est dérivée au niveau route et injectée au
 // contexte (contrat app, pas kernel). Le masthead + le JSON-LD restent chrome de route.
 
+import { AUDIT_BOOKING_HREF } from '../../data/conversion';
 import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType, SectionData } from '@waimia/ds-kernel';
@@ -257,7 +258,7 @@ export const sectorTemplate = defineTemplate<SectorContext>({
         cta: {
           label_fr: data.ctaPrimary_fr,
           label_en: data.ctaPrimary_en,
-          href: localizeHref('/contact', lang),
+          href: AUDIT_BOOKING_HREF,
           variant: 'primary',
         },
         cta_secondary: {
@@ -433,7 +434,7 @@ export const sectorTemplate = defineTemplate<SectorContext>({
             {
               label_fr: data.ctaPrimary_fr,
               label_en: data.ctaPrimary_en,
-              href: localizeHref('/contact', lang),
+              href: AUDIT_BOOKING_HREF,
               variant: 'accent',
             },
           ],

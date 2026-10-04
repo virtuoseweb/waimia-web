@@ -27,7 +27,7 @@ export const demo: DemoData = {
         role_en: 'Ops · Documentation',
         description_fr: 'Transforme les missions clients en SOP, checklists et livrables transmissibles.',
         description_en: 'Turns client work into SOPs, checklists, and transferable deliverables.',
-        href: '/equipe',
+        href: '/agence',
         count: 6,
       },
       {
@@ -36,7 +36,7 @@ export const demo: DemoData = {
         role_en: 'Growth · Content',
         description_fr: 'Relie acquisition, CRM et contenus pour rendre les systèmes mesurables.',
         description_en: 'Connects acquisition, CRM, and content so systems can be measured.',
-        href: '/equipe',
+        href: '/agence',
         count: 3,
       },
     ],

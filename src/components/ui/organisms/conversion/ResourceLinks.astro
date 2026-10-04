@@ -1,0 +1,84 @@
+---
+// Organism · ResourceLinks · maillage interne du parcours de conversion (hors catalogue).
+// Liste éditoriale (pas une grille de cartes) des ressources gratuites + de la page audit,
+// source unique : on édite ici, toutes les pages du parcours suivent. `exclude` retire
+// la page courante.
+import {
+  AUDIT_PAGE_HREF,
+  DIAGNOSTIC_HREF,
+  ROI_HREF,
+  CHARTE_HREF,
+  GRILLE_HREF,
+} from '../../../../data/conversion';
+
+type Key = 'audit' | 'diagnostic' | 'grille' | 'roi' | 'charte';
+interface Props {
+  exclude?: Key[];
+  title?: string;
+  background?: 'paper' | 'paper-2';
+}
+const { exclude = [], title = 'Les autres outils, sans inscription', background = 'paper' } = Astro.props as Props;
+
+const all: { key: Key; href: string; name: string; what: string; time: string }[] = [
+  { key: 'diagnostic', href: DIAGNOSTIC_HREF, name: 'Diagnostic de maturité IA', what: 'Dix questions, un niveau de 1 à 5 et le point faible à traiter en premier.', time: '4 min' },
+  { key: 'grille', href: GRILLE_HREF, name: 'Grille des tâches à automatiser', what: 'Listez vos tâches, leur fréquence et leur durée : la grille les classe par priorité.', time: '10 min' },
+  { key: 'roi', href: ROI_HREF, name: 'Calculateur de temps récupérable', what: 'Vos heures, votre coût horaire, vos hypothèses : le budget à ne pas dépasser.', time: '2 min' },
+  { key: 'charte', href: CHARTE_HREF, name: 'Modèle de charte IA pour PME', what: 'Neuf articles à adapter, lisibles en ligne, téléchargeables en PDF et en format Word.', time: 'Lecture 8 min' },
+  { key: 'audit', href: AUDIT_PAGE_HREF, name: 'Audit IA pour PME', what: 'Le déroulé des 45 minutes et un exemple de livrable.', time: '45 min, gratuit' },
+];
+const items = all.filter((i) => !exclude.includes(i.key));
+---
+<section class="rl" data-bg={background} aria-labelledby="rl-h2">
+  <div class="wrap-wide rl-in">
+    <h2 class="rl-h2" id="rl-h2">{title}</h2>
+    <ul class="rl-list">
+      {items.map((i) => (
+        <li>
+          <a href={i.href}>
+            <span class="rl-name">{i.name}</span>
+            <span class="rl-what">{i.what}</span>
+            <span class="rl-time">{i.time}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .rl { padding: var(--space-9) 0; border-top: 1px solid var(--hairline-strong); }
+  .rl[data-bg='paper-2'] { background: var(--paper-2); }
+  .rl-in { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: var(--space-8); align-items: start; }
+  .rl-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    font-weight: var(--fw-semibold);
+    margin: 0;
+    max-width: 18ch;
+  }
+  .rl-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .rl-list a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) auto;
+    gap: var(--space-5);
+    align-items: baseline;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline-strong);
+    color: var(--ink);
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .rl-list a:hover { background: rgba(var(--ink-rgb), 0.04); }
+  .rl-list a:hover .rl-name { text-decoration-color: var(--accent-text); }
+  .rl-name { font-size: var(--text-body); font-weight: var(--fw-semibold); text-decoration: underline; text-decoration-color: var(--hairline-strong); text-underline-offset: 4px; }
+  .rl-what { font-size: var(--text-small); line-height: var(--leading-body); color: var(--muted); }
+  .rl-time { font-size: var(--text-small); color: var(--muted); white-space: nowrap; }
+
+  @media (max-width: 900px) {
+    .rl-in { grid-template-columns: 1fr; gap: var(--space-5); }
+    .rl-h2 { max-width: none; }
+    .rl-list a { grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-4); }
+    .rl-what { grid-column: 1 / -1; grid-row: 2; }
+  }
+</style>

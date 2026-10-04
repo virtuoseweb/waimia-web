@@ -20,6 +20,8 @@ interface BuildServiceInput {
   provider?: JsonLdObject;
   areaServed?: Array<string | JsonLdObject>;
   serviceType?: string;
+  /** URL absolue de la page service. */
+  url?: string;
   offers?: JsonLdObject | JsonLdObject[];
   /**
    * Fourchette de prix lisible (ex. "2000-10000€"). schema.org rattache `priceRange`
@@ -79,36 +81,113 @@ function buildBreadcrumbList(items: Array<{ name: string; url?: string }>) {
   };
 }
 
-function buildOrganization() {
+// ─── Identité (source unique) ────────────────────────────────────────────────
+// Un SEUL constructeur par entité. `src/lib/seo.ts` ré-exporte ceux-ci : il n'existe plus
+// deux descriptions concurrentes de l'organisation dans le site.
+
+/** Identifiants stables des entités, pour les relier entre blocs via `{ '@id': ... }`. */
+export const SCHEMA_IDS = {
+  organization: `${SITE_URL}/#organization`,
+  website: `${SITE_URL}/#website`,
+  localBusiness: `${SITE_URL}/#localbusiness`,
+  founder: `${SITE_URL}/equipe/simon-beros#person`,
+} as const;
+
+/** Description courte de l'entreprise (positionnement du brief, pas une identité « Claude »). */
+export const ORGANIZATION_DESCRIPTION =
+  "Studio de développement IA et cabinet de transformation IA et d'automatisation des processus pour PME et ETI : conseil, intégration, développement d'applications métier et formation.";
+
+/** Zone desservie : missions à distance ou sur site dans ces villes, et partout en France. */
+export const AREA_SERVED: JsonLdObject[] = [
+  { '@type': 'City', name: 'Bordeaux' },
+  { '@type': 'City', name: 'Montpellier' },
+  { '@type': 'City', name: 'Lyon' },
+  { '@type': 'City', name: 'Paris' },
+  { '@type': 'Country', name: 'France' },
+];
+
+const LOGO_URL = `${SITE_URL}/favicon-256.png`;
+
+/** Adresse légale (siège). Ne change pas avec la zone desservie. */
+function postalAddress(): JsonLdObject {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': `${SITE_URL}/#organization`,
-    name: SITE.name,
-    url: SITE_URL,
-    logo: `${SITE_URL}/favicon-256.png`,
-    sameAs: [SITE.linkedin],
+    '@type': 'PostalAddress',
+    streetAddress: SITE.streetAddress,
+    postalCode: SITE.postalCode,
+    addressLocality: SITE.city,
+    addressRegion: SITE.region,
+    addressCountry: SITE.country,
   };
 }
 
-function buildLocalBusiness() {
+function buildOrganization(): JsonLdObject {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': SCHEMA_IDS.organization,
+    name: SITE.name,
+    legalName: SITE.legalName,
+    url: SITE_URL,
+    logo: { '@type': 'ImageObject', url: LOGO_URL, width: 256, height: 256 },
+    description: ORGANIZATION_DESCRIPTION,
+    email: SITE.email,
+    telephone: SITE.tel,
+    foundingDate: SITE.foundingDate,
+    vatID: SITE.vatID,
+    address: postalAddress(),
+    areaServed: AREA_SERVED,
+    founder: { '@type': 'Person', '@id': SCHEMA_IDS.founder, name: 'Simon Beros', url: `${SITE_URL}/equipe/simon-beros` },
+    sameAs: [...SITE.sameAs],
+    knowsAbout: [
+      'Automatisation des processus',
+      'Agents IA',
+      'Intégration IA',
+      'n8n',
+      'Make',
+      'Claude',
+      'OpenAI',
+      'Applications métier sur mesure',
+      'Bases de connaissance (RAG)',
+      'Formation IA et automatisation',
+      'RGPD',
+      'AI Act',
+    ],
+  };
+}
+
+function buildWebSite(lang: Lang = 'fr'): JsonLdObject {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': SCHEMA_IDS.website,
+    url: SITE_URL,
+    name: SITE.name,
+    description: ORGANIZATION_DESCRIPTION,
+    inLanguage: lang === 'en' ? 'en-US' : 'fr-FR',
+    publisher: { '@id': SCHEMA_IDS.organization },
+  };
+}
+
+/**
+ * ProfessionalService : l'entité « prestataire local ». Adresse = siège légal (inchangé),
+ * `areaServed` = villes réellement desservies. Émis sur l'accueil et les pages implantation.
+ */
+function buildLocalBusiness(): JsonLdObject {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': `${SITE_URL}/#localbusiness`,
+    '@id': SCHEMA_IDS.localBusiness,
     name: SITE.name,
     alternateName: SITE.legalName,
+    description: ORGANIZATION_DESCRIPTION,
     url: SITE_URL,
-    logo: `${SITE_URL}/favicon-256.png`,
+    image: LOGO_URL,
+    logo: LOGO_URL,
     telephone: SITE.telE164,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SITE.streetAddress,
-      postalCode: SITE.postalCode,
-      addressLocality: SITE.city,
-      addressCountry: SITE.country,
-    },
-    areaServed: { '@type': 'City', name: SITE.city },
+    email: SITE.email,
+    address: postalAddress(),
+    areaServed: AREA_SERVED,
+    parentOrganization: { '@id': SCHEMA_IDS.organization },
     sameAs: [...SITE.sameAs],
   };
 }
@@ -120,17 +199,14 @@ function buildPersonFromAuthor(authorEntry: any, lang: Lang): JsonLdObject | und
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': `${SITE_URL}/equipe/${authorEntry.id}#person`,
     name: a.title_fr,
     jobTitle: lang === 'fr' ? a.role_fr : a.role_en,
     description: lang === 'fr' ? a.description_fr : a.description_en,
     image: a.photo ? `${SITE_URL}${a.photo}` : undefined,
     url: `${SITE_URL}/equipe/${authorEntry.id}`,
     sameAs: [a.social?.linkedin, a.social?.x, a.social?.github, a.social?.website].filter(Boolean),
-    worksFor: {
-      '@type': 'Organization',
-      name: SITE.name,
-      url: SITE_URL,
-    },
+    worksFor: { '@id': SCHEMA_IDS.organization },
   };
 }
 
@@ -192,15 +268,149 @@ function buildService(
         }
       : undefined;
 
+  // `priceRange` n'est PAS une propriété de Service dans schema.org (elle appartient à
+  // LocalBusiness) : elle n'est plus émise. Le prix passe par `offers.priceSpecification`,
+  // et seulement si la page fournit un prix (donc l'affiche).
   return withContext({
     '@type': 'Service',
     name: input.name,
     description: input.description,
-    provider: input.provider ?? { '@id': `${SITE_URL}/#organization` },
-    areaServed: input.areaServed ?? ['FR', 'CH', 'BE', 'LU'],
-    ...(input.serviceType ? { serviceType: input.serviceType } : {}),
-    ...(input.priceRange ? { priceRange: input.priceRange } : {}),
+    provider: input.provider ?? { '@id': SCHEMA_IDS.organization },
+    areaServed: input.areaServed ?? AREA_SERVED,
+    serviceType: input.serviceType || input.name,
+    ...(input.url ? { url: input.url } : {}),
     ...(input.offers ? { offers: input.offers } : derivedOffers ? { offers: derivedOffers } : {}),
+  });
+}
+
+// ─── Formations (/formations/*) ──────────────────────────────────────────────
+
+export interface BuildCourseInput {
+  /** Intitulé de la formation (= H1 de la page). */
+  name: string;
+  description: string;
+  /** URL absolue de la page formation. */
+  url: string;
+  /** Durée totale en heures (ex. 14 pour 2 jours). */
+  durationHours?: number;
+  /** Modalité : distanciel, présentiel ou mixte. */
+  mode?: 'online' | 'onsite' | 'blended';
+  /** Niveau visé, en clair (ex. « Débutant »). */
+  level?: string;
+  /** Prérequis, en clair. */
+  prerequisites?: string[];
+  /** Ce que le stagiaire sait faire à la fin. */
+  teaches?: string[];
+  /** Public visé (ex. « Équipes opérations et commerciales de PME »). */
+  audience?: string;
+  /**
+   * Prix affiché sur la page, en euros. Ne renseigner QUE si la page l'affiche.
+   * Sans prix affiché, aucune offre n'est émise (« sur devis après audit gratuit »).
+   */
+  priceEur?: number;
+  /** Organisme qui dispense la formation, si ce n'est pas Waimia en direct. */
+  deliveredBy?: { name: string; url?: string };
+}
+
+const COURSE_MODE: Record<NonNullable<BuildCourseInput['mode']>, string> = {
+  online: 'Online',
+  onsite: 'Onsite',
+  blended: 'Blended',
+};
+
+/**
+ * JSON-LD `Course` pour une page /formations/*. Champs requis par Google : name,
+ * description, provider. `hasCourseInstance` porte la modalité et la durée.
+ *
+ *   buildCourse({ name, description, url, durationHours: 14, mode: 'online',
+ *                 deliveredBy: { name: 'Akigora', url: 'https://akigora.com' } })
+ */
+function buildCourse(input: BuildCourseInput): JsonLdObject {
+  const instance =
+    input.mode || input.durationHours
+      ? {
+          '@type': 'CourseInstance',
+          ...(input.mode ? { courseMode: COURSE_MODE[input.mode] } : {}),
+          ...(input.durationHours ? { courseWorkload: `PT${input.durationHours}H` } : {}),
+          instructor: { '@id': SCHEMA_IDS.founder },
+        }
+      : undefined;
+
+  return withContext({
+    '@type': 'Course',
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    inLanguage: 'fr-FR',
+    provider: { '@id': SCHEMA_IDS.organization },
+    ...(input.deliveredBy
+      ? {
+          sourceOrganization: {
+            '@type': 'Organization',
+            name: input.deliveredBy.name,
+            ...(input.deliveredBy.url ? { url: input.deliveredBy.url } : {}),
+          },
+        }
+      : {}),
+    ...(input.level ? { educationalLevel: input.level } : {}),
+    ...(input.prerequisites?.length ? { coursePrerequisites: input.prerequisites } : {}),
+    ...(input.teaches?.length ? { teaches: input.teaches } : {}),
+    ...(input.audience ? { audience: { '@type': 'Audience', audienceType: input.audience } } : {}),
+    ...(input.durationHours ? { timeRequired: `PT${input.durationHours}H` } : {}),
+    ...(instance ? { hasCourseInstance: instance } : {}),
+    ...(input.priceEur != null
+      ? {
+          offers: {
+            '@type': 'Offer',
+            price: input.priceEur,
+            priceCurrency: 'EUR',
+            category: 'Paid',
+            url: input.url,
+          },
+        }
+      : {}),
+  });
+}
+
+// ─── Outil interactif (calculateur, diagnostic) ──────────────────────────────
+
+export interface BuildWebApplicationInput {
+  name: string;
+  description: string;
+  url: string;
+  /** Catégorie schema.org (défaut : application métier). */
+  applicationCategory?: string;
+}
+
+/** JSON-LD `WebApplication` pour un outil gratuit utilisable dans le navigateur. */
+function buildWebApplication(input: BuildWebApplicationInput): JsonLdObject {
+  return withContext({
+    '@type': 'WebApplication',
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    applicationCategory: input.applicationCategory ?? 'BusinessApplication',
+    operatingSystem: 'Web',
+    browserRequirements: 'Requires JavaScript',
+    inLanguage: 'fr-FR',
+    isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: 0, priceCurrency: 'EUR' },
+    provider: { '@id': SCHEMA_IDS.organization },
+  });
+}
+
+/** JSON-LD `ItemList` (liste ordonnée de pages : hub, comparatif, sélection). */
+function buildItemList(name: string, items: Array<{ name: string; url: string }>): JsonLdObject {
+  return withContext({
+    '@type': 'ItemList',
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+    })),
   });
 }
 
@@ -320,10 +530,12 @@ function buildCollectionPage(name: string, description: string, items: Array<str
       ? {
           mainEntity: {
             '@type': 'ItemList',
+            // Une chaîne qui n'est pas une URL est un libellé : elle va dans `name`
+            // (`item` attend une URL ou une entité, pas un texte).
             itemListElement: items.map((item, index) => ({
               '@type': 'ListItem',
               position: index + 1,
-              item,
+              ...(typeof item === 'string' && !/^https?:\/\//.test(item) ? { name: item } : { item }),
             })),
           },
         }
@@ -416,13 +628,9 @@ function buildServiceSchema(entry: any, lang: Lang) {
     '@type': 'Service',
     name: lang === 'fr' ? d.title_fr : d.title_en,
     description: lang === 'fr' ? d.description_fr : d.description_en,
-    provider: {
-      '@type': 'Organization',
-      name: SITE.name,
-      url: SITE_URL,
-    },
-    areaServed: ['FR', 'CH'],
-    serviceType: d.category_fr ?? 'AI integration',
+    provider: { '@id': SCHEMA_IDS.organization },
+    areaServed: AREA_SERVED,
+    serviceType: d.category_fr ?? (lang === 'fr' ? d.title_fr : d.title_en),
     ...(d.priceFrom
       ? {
           offers: {
@@ -765,9 +973,13 @@ export {
   buildArticle,
   buildCollectionPage,
   buildCollectionPageSchema,
+  buildCourse,
   buildCourseSchema,
   buildHowTo,
+  buildItemList,
   buildOrganization,
+  buildWebSite,
+  buildWebApplication,
   buildLocalBusiness,
   buildOffer,
   buildPersonFromAuthor,

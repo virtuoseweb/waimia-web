@@ -1,0 +1,55 @@
+---
+export const prerender = true;
+
+// Page SSG · /formations (hub) et /formations/[slug] · rendu 100 % composable (registry).
+// Route minimale : aucun markup propre, tout passe par <SectionsRenderer>.
+// Source : src/content/formations/*.json via src/lib/formations.ts (index.json = hub).
+// JSON-LD : Service sur le hub ; Service + Course (buildCourse) sur chaque page de formation.
+// Aucun prix balisé (les formations sont sur devis) ; Akigora est déclaré comme organisme
+// qui dispense la formation, conformément à la mention affichée sur les pages.
+
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import MastheadBar from '../../components/sections/MastheadBar.astro';
+import { buildService, buildCourse } from '../../lib/seo/schema-builder';
+import { SITE } from '../../site.config';
+import { listFormations } from '../../lib/formations';
+
+export function getStaticPaths() {
+  return listFormations().map((entry) => ({
+    params: { slug: entry.id === 'index' ? undefined : entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+const isHub = entry.id === 'index';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const title = lang === 'en' ? data.title_en : data.title_fr;
+const description = lang === 'en' ? data.description_en : data.description_fr;
+
+const serviceLd = buildService({ name: title, description, serviceType: data.seo?.serviceType });
+const courseLd = isHub
+  ? null
+  : buildCourse({
+      name: title.split(' · ')[0],
+      description,
+      url: `${SITE.url}/formations/${entry.id}`,
+      deliveredBy: { name: 'Akigora' },
+    });
+const pageLd = courseLd ? [serviceLd, courseLd] : [serviceLd];
+const hubLabel = lang === 'fr' ? 'Formations' : 'Training';
+---
+
+<Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
+  <MastheadBar
+    lang={lang}
+    items={[
+      { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
+      ...(isHub ? [{ label: hubLabel }] : [{ label: hubLabel, href: '/formations' }, { label: title.split(' · ')[0] }]),
+    ]}
+  />
+  <SectionsRenderer sections={data.sections} lang={lang} />
+</Base>

@@ -99,25 +99,19 @@ const SERVICE_LINKS: Record<string, EeatLink> = {
   'systeme-commercial': { label: 'Système commercial', href: '/services/systeme-commercial', kicker: 'Service', media: ds('no-no-yes') },
   'prospection-automatisee': { label: 'Prospection automatisée', href: '/services/prospection-automatisee', kicker: 'Service', media: ds('band-showing-tv') },
   'crm-scoring-routing': { label: 'CRM, scoring et routage', href: '/services/crm-scoring-routing', kicker: 'Service', media: ds('chess') },
-  'systemes-operationnels-ia': { label: 'Systèmes opérationnels IA', href: '/services/systemes-operationnels-ia', kicker: 'Service', media: ds('style-st') },
+  'systemes-operationnels-ia': { label: 'Automatisation IA pour PME', href: '/services/systemes-operationnels-ia', kicker: 'Service', media: ds('style-st') },
   'automatisations': { label: 'Automatisations', href: '/services/automatisations', kicker: 'Service', media: ds('gentleman-craftsman-go-work') },
   'agents-ia': { label: 'Agents IA', href: '/services/agents-ia', kicker: 'Service', media: ds('its-x') },
   'consultant-ia-claude': { label: 'Consultant IA Claude', href: '/services/consultant-ia-claude', kicker: 'Service', media: ds('pretty-woman') },
   'site-web-ia': { label: 'Site web intelligent', href: '/services/site-web-ia', kicker: 'Service', media: ds('computer-health') },
 };
 
+// Intégration 2026-10 : seuls les secteurs encore publiés (les autres sont redirigés en 301
+// vers /services, cf src/data/depublished.ts). Un silo ne lie jamais une URL redirigée.
 const SECTOR_LINKS: Record<string, EeatLink> = {
   'batiment': { label: 'Bâtiment & artisans', href: '/secteurs/batiment', kicker: 'Secteur' },
   'e-commerce': { label: 'E-commerce', href: '/secteurs/e-commerce', kicker: 'Secteur' },
-  'liberal-independant': { label: 'Libéraux & indépendants', href: '/secteurs/liberal-independant', kicker: 'Secteur' },
-  'services-b2b': { label: 'Services B2B', href: '/secteurs', kicker: 'Secteur' },
   'startup-logiciel': { label: 'Startup & éditeur logiciel', href: '/secteurs/startup-logiciel', kicker: 'Secteur' },
-  'therapeutes': { label: 'Thérapeutes & bien-être', href: '/secteurs/therapeutes', kicker: 'Secteur' },
-  'conseil': { label: 'Conseil & cabinets', href: '/secteurs/conseil', kicker: 'Secteur' },
-  'comptabilite': { label: 'Cabinets comptables', href: '/secteurs/comptabilite', kicker: 'Secteur' },
-  'industrie': { label: 'Industrie & sous-traitance', href: '/secteurs/industrie', kicker: 'Secteur' },
-  'esn': { label: 'ESN & conseil IT', href: '/secteurs/esn', kicker: 'Secteur' },
-  'agence': { label: 'Agences marketing & com', href: '/secteurs/agence', kicker: 'Secteur' },
 };
 
 const ARTICLE_LINKS: Record<string, EeatLink> = {
@@ -199,20 +193,20 @@ export const EEAT_PACK: EeatPack = {
   // Pool historique (ordre préservé) : le composant n'affiche que les 3 premiers en mode
   // default (le hub « Tous les … → » compense la réduction). Les silos sélectionnent leur
   // propre sous-ensemble via EEAT_SILOS ; ce pool reste le fallback 'generic'.
-  sectors: sec('batiment', 'e-commerce', 'liberal-independant', 'services-b2b', 'startup-logiciel', 'therapeutes'),
+  sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
   articles: art('seo-geo', 'pillar-ia-pme', 'crm-10-jours', 'n8n-zapier', 'relances-b2b'),
   tools: [TOOL_LINKS['calculateur-roi-ia']],
   // Ordre = les 3 étages du système d'abord (silo : contenu → tunnels → système
   // d'acquisition), puis le reste + les 2 hubs système (commercial, opérationnels). Le composant
   // n'affiche que les 3 premiers en mode default, donc les étages priment sur agents/consultant/hubs.
   services: svc(
-    'seo-geo-contenu',
-    'landing-pages-tunnels',
-    'systeme-acquisition',
+    'systemes-operationnels-ia',
+    'automatisations',
     'agents-ia',
     'consultant-ia-claude',
     'systeme-commercial',
-    'systemes-operationnels-ia',
+    'systeme-acquisition',
+    'seo-geo-contenu',
   ),
   hubs: {
     sectors: { label: 'Tous les secteurs', href: '/secteurs' },
@@ -221,15 +215,14 @@ export const EEAT_PACK: EeatPack = {
     tools: { label: 'Tous les outils', href: '/ressources/outils' },
   },
   commitments: [
-    { label: 'Audit 5 jours', detail: 'Diagnostic du parcours, livrable chiffré avant tout engagement.' },
+    { label: 'Audit gratuit', detail: '45 minutes en visio, trois automatisations rentables repérées avant tout engagement.' },
     { label: 'Prix fixe transparent', detail: 'Périmètre et budget connus avant de signer, pas de dérive.' },
     { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
-    { label: 'Zéro captivité', detail: 'Code, balisage et docs transférés : vous gardez la stack.' },
+    { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
-  honestyNote: 'Studio solo · premiers cas clients en cours de rédaction.',
+  honestyNote: 'Studio solo · un ingénieur, cinq missions documentées.',
   credentials: [
     { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num' },
-    { src: '/logos/badge-meta-business-partner.svg', alt: 'Meta Business Partner' },
   ],
 };
 
@@ -242,33 +235,33 @@ export const EEAT_SILOS: Record<EeatSilo, EeatSiloSet> = {
   acquisition: {
     services: svc('systeme-acquisition', 'seo-geo-contenu', 'landing-pages-tunnels'),
     tool: TOOL_LINKS['calculateur-roi-ia'],
-    sectors: sec('e-commerce', 'liberal-independant', 'startup-logiciel'),
+    sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('seo-geo', 'pillar-ia-pme', 'relances-b2b'),
   },
   commercial: {
     services: svc('systeme-commercial', 'prospection-automatisee', 'crm-scoring-routing'),
     tool: TOOL_LINKS['calculateur-roi-ia'],
-    sectors: sec('conseil', 'comptabilite', 'services-b2b'),
+    sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('crm-10-jours', 'relances-b2b', 'pillar-ia-pme'),
   },
   ops: {
     services: svc('systemes-operationnels-ia', 'automatisations', 'agents-ia'),
     tool: TOOL_LINKS['diagnostic-maturite-ia'],
-    sectors: sec('industrie', 'esn', 'agence'),
+    sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('n8n-zapier', 'pillar-ia-pme', 'crm-10-jours'),
   },
   hub: {
     // 4 services : les 3 hubs système + site web intelligent. Le composant retire le lien
     // égal à la page hôte (un hub ne s'auto-lie pas) → 3 liens affichés.
-    services: svc('systeme-acquisition', 'systeme-commercial', 'systemes-operationnels-ia', 'site-web-ia'),
+    services: svc('systemes-operationnels-ia', 'systeme-commercial', 'systeme-acquisition', 'automatisations'),
     tool: TOOL_LINKS['calculateur-roi-ia'],
-    sectors: sec('batiment', 'e-commerce', 'liberal-independant'),
+    sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('pillar-ia-pme', 'seo-geo', 'crm-10-jours'),
   },
   generic: {
-    services: svc('seo-geo-contenu', 'landing-pages-tunnels', 'systeme-acquisition'),
+    services: svc('systemes-operationnels-ia', 'automatisations', 'agents-ia'),
     tool: TOOL_LINKS['calculateur-roi-ia'],
-    sectors: sec('batiment', 'e-commerce', 'liberal-independant'),
+    sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('seo-geo', 'pillar-ia-pme', 'crm-10-jours'),
   },
 };
@@ -289,7 +282,7 @@ export interface EeatImage {
 
 export const EEAT_IMAGES: EeatImage[] = [
   // — Lot curé d'origine (10) —
-  { id: 'site-health', src: '/images/editorial/image-computer-health.webp', alt: "Ordinateur portable affichant une courbe de santé, monitoring d'un site en continu" },
+  { id: 'site-health', src: '/images/editorial/image-computer-health.webp', alt: "Ordinateur portable affichant une courbe de santé, supervision continue d'un système" },
   { id: 'augmented-self', src: '/images/editorial/womancomputer17.webp', alt: "Personne travaillant avec son double augmenté par l'IA" },
   { id: 'growth', src: '/images/editorial/stylemoneymoney.webp', alt: 'Colonnes de pièces croissantes, retour sur investissement' },
   { id: 'audience', src: '/images/editorial/bandshowingtv.webp', alt: "Public attentif devant un écran, capter l'attention" },

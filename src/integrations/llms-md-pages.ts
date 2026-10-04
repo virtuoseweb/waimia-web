@@ -1,6 +1,11 @@
 /**
- * Astro integration: génère un fichier .md pour chaque page HTML du site.
- * Permet aux bots IA d'accéder à une version markdown propre de chaque page.
+ * Astro integration : sorties pour moteurs génératifs (GEO), limitées au site PUBLIC.
+ *   · un fichier .md par page publique INDEXABLE (jamais le catalogue interne, les pages
+ *     noindex, les pages de remerciement ni les redirections) ;
+ *   · /llms.txt : index structuré par silo, chaque lien pointe une URL qui répond 200 ;
+ *   · /llms-full.txt : concaténation du markdown de ces mêmes pages.
+ * La sélection lit le HTML bâti (meta robots) : une page qui passe en noindex sort
+ * automatiquement des trois sorties, sans liste à tenir à la main.
  *
  * Utilise un convertisseur HTML→Markdown léger basé sur regex
  * (compatible avec le hook astro:build:done sans dépendances ESM).
@@ -9,12 +14,17 @@ import type { AstroIntegration } from 'astro';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { SITE } from '../site.config';
+import { isInternalPath } from '../lib/seo/internal-tools.mjs';
 
 interface LlmsMdPagesConfig {
-  /** Glob patterns of pages to exclude */
+  /** Motifs de pages à exclure (en plus des pages noindex et des surfaces internes). */
   exclude?: string[];
-  /** Site URL for building absolute paths */
+  /** URL du site pour construire les liens absolus. */
   siteUrl?: string;
+  /** Résumé d'une phrase (bloc de citation en tête de llms.txt). */
+  summary?: string;
+  /** Paragraphes de contexte sous le résumé. */
+  details?: string[];
 }
 
 // ── HTML → Markdown converter (regex-based, no external deps) ──────────
@@ -207,8 +217,6 @@ function extractMainContent(fullHtml: string): string {
 
 function pagePathToMdPath(pathname: string): string {
   const clean = pathname.replace(/\/+$/, '') || '/index';
-  if (clean === '/index') return '/index.md';
-  if (clean.endsWith('/index')) return `${clean}.md`;
   return `${clean}.md`;
 }
 
@@ -216,22 +224,106 @@ function isExcluded(pathname: string, patterns: string[]): boolean {
   const clean = pathname.replace(/\/+$/, '').replace(/^\/+/, '');
   for (const pattern of patterns) {
     if (pattern.includes('*')) {
-      // Simple glob: "admin/**" matches "admin/login", "admin/leads"
+      // Glob simple : "admin/**" couvre "admin" et "admin/login".
       const prefix = pattern.replace(/\/?\*.*$/, '');
-      if (clean.startsWith(prefix)) return true;
-    } else {
-      if (clean === pattern) return true;
+      if (clean === prefix || clean.startsWith(`${prefix}/`)) return true;
+    } else if (clean === pattern) {
+      return true;
     }
   }
   return false;
+}
+
+function isNoindexHtml(fullHtml: string): boolean {
+  return (
+    /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(fullHtml) ||
+    /<meta[^>]+content=["'][^"']*noindex[^"']*["'][^>]*name=["']robots["']/i.test(fullHtml)
+  );
+}
+
+function isRedirectHtml(fullHtml: string): boolean {
+  return /<meta[^>]+http-equiv=["']?refresh/i.test(fullHtml);
+}
+
+// ── Silos de llms.txt ──────────────────────────────────────────────────
+// Ordre = ordre d'affichage. Le premier silo dont `test` accepte le chemin gagne.
+// Un nouveau dossier de pages non listé ici tombe dans « Autres pages » (jamais perdu).
+
+interface Silo {
+  title: string;
+  note?: string;
+  test: (p: string) => boolean;
+}
+
+const under = (prefix: string) => (p: string) => p === prefix || p.startsWith(`${prefix}/`);
+
+const SILOS: Silo[] = [
+  {
+    title: 'Services',
+    note: 'Conseil, intégration et développement : une page par prestation.',
+    test: under('/services'),
+  },
+  {
+    title: 'Audit IA',
+    note: "Point d'entrée d'une mission : audit, feuille de route, chiffrage.",
+    test: (p) => p.startsWith('/audit'),
+  },
+  {
+    title: 'Formations',
+    note: 'Formations IA et automatisation, dispensées via Akigora, organisme certifié Qualiopi.',
+    test: under('/formations'),
+  },
+  { title: 'Cas clients', note: 'Projets réels, client nommé.', test: under('/cas-clients') },
+  { title: "Cas d'usage", note: 'Un problème métier, la réponse apportée.', test: under('/cas-usages') },
+  { title: 'Guides', test: under('/ressources/guides') },
+  { title: 'Comparatifs', test: under('/ressources/comparatifs') },
+  {
+    title: 'Diagnostics et outils',
+    test: (p) => under('/ressources/diagnostics')(p) || under('/ressources/outils')(p),
+  },
+  { title: 'Blog', test: under('/blog') },
+  { title: 'Secteurs', test: under('/secteurs') },
+  {
+    title: 'Implantations',
+    note: 'Bordeaux, Montpellier, Lyon, Paris : missions à distance ou sur site.',
+    test: under('/implantations'),
+  },
+  {
+    title: 'Studio',
+    note: 'Qui est Waimia, comment se déroule une mission, combien ça coûte.',
+    test: (p) =>
+      p === '/' ||
+      [
+        '/agence',
+        '/equipe',
+        '/tarifs',
+        '/contact',
+        '/technologies',
+        '/manifesto',
+        '/conformite-ia',
+        '/ressources',
+        '/demonstrations',
+      ].some((prefix) => under(prefix)(p)),
+  },
+];
+
+const OPTIONAL_PREFIXES = ['/cgv', '/mentions-legales', '/politique-confidentialite', '/sources-methodologie'];
+
+interface PublicPage {
+  pathname: string;
+  title: string;
+  description: string;
+  markdown: string;
 }
 
 // ── Integration ────────────────────────────────────────────────────────
 
 export default function llmsMdPages(config: LlmsMdPagesConfig = {}): AstroIntegration {
   const {
-    exclude = ['404', 'admin/**', 'api/**', 'desinscription'],
+    exclude = ['404', 'admin/**', 'api/**', 'bienvenue/**', 'lp/**'],
     siteUrl = SITE.url,
+    summary = '',
+    details = [],
   } = config;
 
   return {
@@ -239,18 +331,18 @@ export default function llmsMdPages(config: LlmsMdPagesConfig = {}): AstroIntegr
     hooks: {
       'astro:build:done': async ({ dir, pages }) => {
         const distDir = dir.pathname;
-        let generated = 0;
+        const publicPages: PublicPage[] = [];
         let skipped = 0;
 
         for (const page of pages) {
-          const { pathname } = page;
+          const pathname = '/' + page.pathname.replace(/^\/+|\/+$/g, '');
 
-          if (isExcluded(pathname, exclude)) {
+          if (isInternalPath(pathname) || isExcluded(pathname, exclude)) {
             skipped++;
             continue;
           }
 
-          const htmlPath = path.join(distDir, pathname, 'index.html');
+          const htmlPath = path.join(distDir, page.pathname, 'index.html');
           let fullHtml: string;
           try {
             fullHtml = await fs.readFile(htmlPath, 'utf-8');
@@ -259,14 +351,18 @@ export default function llmsMdPages(config: LlmsMdPagesConfig = {}): AstroIntegr
             continue;
           }
 
+          // Seules les pages indexables ont une version markdown : une page noindex ou une
+          // redirection n'a rien à faire dans une sortie destinée à être citée.
+          if (isNoindexHtml(fullHtml) || isRedirectHtml(fullHtml)) {
+            skipped++;
+            continue;
+          }
+
           const { title, description } = extractMetaFromHtml(fullHtml);
-          const mainHtml = extractMainContent(fullHtml);
-          const markdownBody = htmlToMarkdown(mainHtml);
+          const body = htmlToMarkdown(extractMainContent(fullHtml));
+          const canonicalUrl = pathname === '/' ? `${siteUrl}/` : `${siteUrl}${pathname}`;
 
-          const mdPath = pagePathToMdPath('/' + pathname);
-          const canonicalUrl = `${siteUrl}/${pathname}`.replace(/\/+/g, '/').replace(':/', '://');
-
-          const lines = [
+          const markdown = [
             `# ${title}`,
             '',
             ...(description ? [`> ${description}`, ''] : []),
@@ -274,29 +370,63 @@ export default function llmsMdPages(config: LlmsMdPagesConfig = {}): AstroIntegr
             '',
             '---',
             '',
-            markdownBody,
+            body,
             '',
-          ];
+          ].join('\n');
 
-          const outputPath = path.join(distDir, mdPath);
+          const outputPath = path.join(distDir, pagePathToMdPath(pathname));
           await fs.mkdir(path.dirname(outputPath), { recursive: true });
-          await fs.writeFile(outputPath, lines.join('\n'), 'utf-8');
-          generated++;
+          await fs.writeFile(outputPath, markdown, 'utf-8');
+          publicPages.push({ pathname, title, description, markdown });
         }
 
-        // Append llms.txt reference to robots.txt as comment (non-standard directive removed for Google compliance)
-        const robotsPath = path.join(distDir, 'robots.txt');
-        try {
-          let robotsContent = await fs.readFile(robotsPath, 'utf-8');
-          if (!robotsContent.includes('llms.txt')) {
-            robotsContent += `\n# LLMs context (llms.txt): ${siteUrl}/llms.txt\n`;
-            await fs.writeFile(robotsPath, robotsContent, 'utf-8');
-          }
-        } catch {
-          // robots.txt may not exist yet
+        publicPages.sort((a, b) => a.pathname.localeCompare(b.pathname));
+
+        // ── llms.txt (format llmstxt.org : H1, résumé en citation, sections H2 de liens) ──
+        const mdUrl = (p: string) => `${siteUrl}${pagePathToMdPath(p)}`;
+        const linkLine = (p: PublicPage) =>
+          `- [${p.title}](${mdUrl(p.pathname)})${p.description ? ` : ${p.description}` : ''}`;
+
+        const remaining = new Set(publicPages.map((p) => p.pathname));
+        const optional = publicPages.filter((p) => OPTIONAL_PREFIXES.some((prefix) => under(prefix)(p.pathname)));
+        optional.forEach((p) => remaining.delete(p.pathname));
+
+        const out: string[] = [`# ${SITE.name}`, ''];
+        if (summary) out.push(`> ${summary}`, '');
+        for (const paragraph of details) out.push(paragraph, '');
+
+        for (const silo of SILOS) {
+          const items = publicPages.filter((p) => remaining.has(p.pathname) && silo.test(p.pathname));
+          if (items.length === 0) continue;
+          items.forEach((p) => remaining.delete(p.pathname));
+          // La page hub du silo (chemin le plus court) passe en tête.
+          items.sort(
+            (a, b) =>
+              a.pathname.split('/').length - b.pathname.split('/').length || a.pathname.localeCompare(b.pathname),
+          );
+          out.push(`## ${silo.title}`, '');
+          if (silo.note) out.push(silo.note, '');
+          out.push(...items.map(linkLine), '');
         }
 
-        console.log(`✅ llms-md-pages: ${generated} fichiers .md générés (${skipped} exclus)`);
+        const others = publicPages.filter((p) => remaining.has(p.pathname));
+        if (others.length > 0) out.push('## Autres pages', '', ...others.map(linkLine), '');
+        if (optional.length > 0) out.push('## Optional', '', ...optional.map(linkLine), '');
+
+        await fs.writeFile(path.join(distDir, 'llms.txt'), out.join('\n'), 'utf-8');
+
+        // ── llms-full.txt : le markdown de chaque page publique, à la suite ──
+        const full = [
+          `# ${SITE.name} : contenu complet`,
+          '',
+          ...(summary ? [`> ${summary}`, ''] : []),
+          ...publicPages.flatMap((p) => ['', '---', '', p.markdown]),
+        ].join('\n');
+        await fs.writeFile(path.join(distDir, 'llms-full.txt'), full, 'utf-8');
+
+        console.log(
+          `llms-md-pages : ${publicPages.length} pages publiques indexables → .md + llms.txt + llms-full.txt (${skipped} pages écartées)`,
+        );
       },
     },
   };

@@ -1,0 +1,46 @@
+---
+// PageUpdated · ligne « Page mise à jour le … par … » en fin de contenu.
+//
+// Rôle GEO/E-E-A-T : chaque page de contenu expose, en HTML statique (sans JS), QUI la
+// signe et QUAND elle a été revue pour la dernière fois. Les moteurs génératifs et Google
+// s'en servent pour dater et attribuer une citation. La date vient de la donnée de
+// contenu (cf src/lib/seo/lastmod.mjs), jamais de la date de build.
+// Rendu par Base.astro : une édition ici se propage à toutes les pages concernées.
+import { SITE } from '../../site.config';
+
+interface Props {
+  /** Date de dernière modification, format YYYY-MM-DD. */
+  date: string;
+}
+const { date } = Astro.props;
+
+// Format long français, calculé en UTC pour ne pas glisser d'un jour selon le fuseau du build.
+const label = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(
+  new Date(`${date}T00:00:00Z`),
+);
+---
+<div class="page-updated">
+  <p class="wrap-wide">
+    Page mise à jour le <time datetime={date}>{label}</time> par
+    <a href="/equipe/simon-beros" rel="author">Simon Beros</a>, fondateur de {SITE.name}.
+  </p>
+</div>
+
+<style>
+  .page-updated {
+    padding-block: var(--space-6);
+    background: var(--paper);
+  }
+  .page-updated p {
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+  .page-updated a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .page-updated a:hover {
+    color: var(--accent);
+  }
+</style>

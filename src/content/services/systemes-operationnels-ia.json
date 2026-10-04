@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence d'automatisation IA pour PME · Waimia",
   "title_en": "AI automation agency for SMEs · Waimia",
-  "description_fr": "Agence d'automatisation IA pour PME : on automatise vos tâches répétitives et on outille vos équipes avec des agents IA, sur une base gouvernée. Audit gratuit.",
-  "description_en": "AI automation agency for SMEs: we automate your repetitive tasks and equip your teams with AI agents, on a governed base. Free audit.",
+  "description_fr": "Agence d'automatisation IA pour PME : on automatise vos tâches répétitives et on y branche des agents IA, sur vos outils. Audit gratuit de 45 min.",
+  "description_en": "AI automation agency for SMEs: we automate your repetitive tasks and connect AI agents to them, on your tools. Free 45-min audit.",
   "slug": "systemes-operationnels-ia",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "automatisation-ia",
@@ -33,7 +33,7 @@
     },
     {
       "q": "Par où commencer si je ne sais pas quoi automatiser ?",
-      "a": "Par le diagnostic. On cartographie vos tâches répétitives et on les priorise par le temps et l'argent qu'elles brûlent. On démarre par le chantier qui fait le plus mal, on prouve la valeur, puis on étend."
+      "a": "Par l'audit gratuit de 45 minutes. On passe vos tâches répétitives en revue et on les classe par le temps qu'elles prennent. On démarre par le chantier le plus rentable, on mesure, puis on étend."
     },
     {
       "q": "Qu'est-ce que MCP et pourquoi ça compte ?",
@@ -57,7 +57,7 @@
     },
     {
       "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-      "a": "Le studio est à Bordeaux et accompagne des PME en local comme à distance. Diagnostic, conception et suivi se font en visio ou sur site, selon vous. La proximité aide, elle n'est pas une condition."
+      "a": "Le studio est basé à Bordeaux et travaille à distance, avec des déplacements à Bordeaux, Montpellier, Lyon et Paris. L'audit, la conception et le suivi se font en visio ou sur site, selon vous."
     }
   ],
   "faq_en": [
@@ -102,16 +102,16 @@
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Systèmes opérationnels et IA",
-      "kicker_en": "§ Operational systems and AI",
+      "kicker_fr": "§ Automatisation et agents IA",
+      "kicker_en": "§ Automation and AI agents",
       "h1_fr": "Agence d'<i class=\"acc\">automatisation IA</i> pour PME",
       "h1_en": "<i class=\"acc\">AI automation</i> agency for SMEs",
-      "lede_fr": "Vos équipes brûlent leurs heures dans le copier-coller, le reporting Excel du vendredi soir et un CRM que personne ne remplit. Ce temps ne reviendra pas. Le vrai problème n'est pas un outil de plus : c'est l'absence de système. Waimia orchestre vos automatisations, vos agents IA branchés via Claude et MCP et vos applications métier dans un même ensemble gouverné, piloté sur des chiffres. C'est le système opérationnel de votre entreprise.",
-      "lede_en": "Your teams burn their hours on copy-paste, the Friday-night Excel report and a CRM nobody fills in. That time won't come back. The real problem isn't one more tool: it's the absence of a system. Waimia orchestrates your automations, your AI agents wired via Claude and MCP and your business apps into one governed whole, steered on real numbers. This is your company's operational system.",
+      "lede_fr": "Vos équipes passent leurs heures dans le copier-coller, le reporting du vendredi soir et un CRM que personne ne remplit. Waimia est un studio de développement IA et un cabinet d'automatisation : on supprime la ressaisie avec des workflows, on confie les tâches à jugement à des agents IA branchés à vos outils, et on développe l'application métier qui manque. Chaque exécution est mesurée et journalisée.",
+      "lede_en": "Your teams spend their hours on copy-paste, Friday-evening reporting and a CRM nobody fills in. Waimia is an AI development studio and an automation practice: we remove re-keying with workflows, hand judgement tasks to AI agents connected to your tools, and build the business application that is missing. Every execution is measured and logged.",
       "badges": [
         {
-          "label_fr": "Automatisations",
-          "label_en": "Automations"
+          "label_fr": "Automatisations n8n et Make",
+          "label_en": "n8n and Make automations"
         },
         {
           "label_fr": "Agents IA",
@@ -122,16 +122,16 @@
           "label_en": "Claude integration"
         },
         {
-          "label_fr": "Outils métier",
-          "label_en": "Business tools"
+          "label_fr": "Applications métier",
+          "label_en": "Business applications"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit de 45 min, gratuit et sans engagement.",
+      "cta_sub_en": "45-min audit, free and with no commitment.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=systemes-operationnels-ia&intent=discovery",
+        "label_fr": "Réserver un audit →",
+        "label_en": "Book an audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
@@ -151,15 +151,15 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "1er agent",
-          "label_fr": "en production, périmètre cadré",
-          "label_en": "in production, scope framed",
+          "value": "Audit",
+          "label_fr": "gratuit, 45 min, trois automatisations repérées",
+          "label_en": "free, 45 min, three automations spotted",
           "emphasis": true
         },
         {
-          "value": "MCP",
-          "label_fr": "Claude branché à vos outils métier",
-          "label_en": "Claude wired to your business tools"
+          "value": "Pilote",
+          "label_fr": "un premier système en production",
+          "label_en": "a first system in production"
         },
         {
           "value": "Validation",
@@ -167,19 +167,19 @@
           "label_en": "every sensitive action stays human"
         },
         {
-          "value": "Tracé",
-          "label_fr": "périmètre posé, exécution mesurée",
-          "label_en": "scope set, execution measured"
+          "value": "Transfert",
+          "label_fr": "code et workflows remis au client",
+          "label_en": "code and workflows handed to the client"
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">système opérationnel IA</i>, c'est l'ensemble qui réunit les automatisations, les agents IA, l'intégration de Claude, les applications métier internes et les données & reporting sur une base gouvernée : il exécute les tâches répétitives, connecte vos outils via MCP, outille vos équipes et rend chaque exécution mesurable et tracée. C'est le système opérationnel que Waimia assemble pour les PME, module par module.",
-      "statement_en": "An <i class=\"acc\">operational AI system</i> is the whole that brings together automations, AI agents, Claude integration, internal business apps and data & reporting on a governed base: it runs repetitive tasks, connects your tools via MCP, equips your teams and makes every execution measurable and traced. It is the operational system Waimia assembles for SMEs, module by module.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "L'<i class=\"acc\">automatisation IA</i> d'une PME, c'est l'ensemble des workflows, des agents IA et des applications métier qui exécutent les tâches répétitives à la place des équipes : les workflows font circuler la donnée entre les outils, les agents traitent ce qui demande du jugement, sous validation humaine, et chaque exécution est mesurée et journalisée. Waimia le construit module par module, en commençant par celui qui rend le plus de temps.",
+      "statement_en": "The <i class=\"acc\">AI automation</i> of an SME is the set of workflows, AI agents and business applications that execute repetitive tasks in place of the teams: workflows move data between tools, agents handle what requires judgement, under human validation, and every execution is measured and logged. Waimia builds it module by module, starting with the one that gives back the most time.",
       "pills": [
         {
           "label_fr": "Exécute le répétitif",
@@ -234,8 +234,8 @@
       "kicker_en": "§ The modules",
       "h2_fr": "Six modules, une même <i>base</i>",
       "h2_en": "Six modules, one shared <i>base</i>",
-      "lede_fr": "Chaque module existe seul et se câble sur la même base gouvernée. Survolez un module pour le découvrir, puis ouvrez sa page.",
-      "lede_en": "Each module stands alone and wires onto the same governed base. Hover a module to preview it, then open its page.",
+      "lede_fr": "Chaque module existe seul et se branche sur la même base. Survolez un module pour le découvrir, puis ouvrez sa page.",
+      "lede_en": "Each module stands alone and connects to the same base. Hover a module to discover it, then open its page.",
       "items": [
         {
           "label_fr": "Automatisations",
@@ -288,10 +288,10 @@
           "link_href": "/services/donnees-reporting"
         },
         {
-          "label_fr": "Consultant IA Claude",
-          "label_en": "Claude AI consultant",
-          "meta_fr": "Cadrer · la feuille de route avant d'investir",
-          "meta_en": "Scope · the roadmap before investing",
+          "label_fr": "Conseil et formation",
+          "label_en": "Advisory and training",
+          "meta_fr": "Cadrer · la feuille de route avant d'investir, la formation après",
+          "meta_en": "Frame · the roadmap before investing, the training after",
           "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
           "media_alt_fr": "Un mouvement cadré : le conseil qui priorise avant de dépenser.",
           "media_alt_en": "A framed movement: the advisory that prioritises before spending.",
@@ -429,18 +429,18 @@
       "background": "ink",
       "reveal_mode": "cursor",
       "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Missions réelles · chiffres issus des études de cas",
+      "spec_en": "Real engagements · figures from the case studies",
+      "h2_fr": "Des missions réelles, documentées",
+      "h2_en": "Real engagements, documented",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Secteur · Durée",
       "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
+      "impact_label_fr": "Livré",
+      "impact_label_en": "Delivered",
       "cases": [
         {
           "client": "Amploi · groupe Vigiscope",
@@ -482,19 +482,19 @@
           "media_alt_en": "A local media outlet: tooled member and subscriber management, with no manual back office."
         }
       ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
       "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ La gamme",
-      "kicker_en": "§ The range",
+      "kicker_fr": "§ Les prix",
+      "kicker_en": "§ Pricing",
       "h2_fr": "Quatre socles pour câbler votre <i class=\"acc\">système</i>",
       "h2_en": "Four tiers to wire your <i class=\"acc\">system</i>",
-      "lede_fr": "La base du système, c'est l'outil ou l'application : quatre socles selon le périmètre, les mêmes qu'un site ou une application. On la construit, on prouve la valeur, puis le travail autour (agents, connecteurs, orchestration, supervision) se fait en régie growth, en sprints. On part toujours d'un diagnostic.",
-      "lede_en": "The base of the system is the tool or the application: four tiers by scope, the same as a site or an application. We build it, prove the value, then the work around it (agents, connectors, orchestration, supervision) runs on a growth retainer, in sprints. We always start from a diagnostic.",
+      "lede_fr": "Quatre socles selon le périmètre. On construit, on prouve la valeur, puis le travail autour (nouveaux agents, connecteurs, supervision) se fait à l'heure, en sprints. Tout commence par un audit gratuit ; le parcours complet est sur la page tarifs.",
+      "lede_en": "Four tiers depending on scope. We build, prove the value, then the work around it (new agents, connectors, supervision) is done by the hour, in sprints. It all starts with a free audit; the full path is on the pricing page.",
       "tiers": [
         {
           "name_fr": "Premier module",
@@ -540,9 +540,9 @@
             "Measurement of time returned, transferable code"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=systemes-operationnels-ia&intent=discovery",
+            "label_fr": "Réserver un audit →",
+            "label_en": "Book an audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -598,8 +598,8 @@
           }
         }
       ],
-      "footnote_fr": "Le premier module démarre à partir de 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT), les mêmes bases qu'un site web, une application, ou les deux. Le travail autour (nouveaux agents, connecteurs, orchestration, supervision) se fait ensuite en régie growth, 99 € de l'heure, en sprints : on estime le temps ensemble au diagnostic, vous validez, on exécute. Sans engagement de durée ni abonnement caché : vous gardez le code et la main.",
-      "footnote_en": "The first module starts from 2,000 € ex VAT: four tiers by scope (2,000, 4,000, 7,000, 10,000 € ex VAT), the same bases as a website, an application, or both. The work around it (new agents, connectors, orchestration, supervision) then runs on a growth retainer, 99 € an hour, in sprints: we size the time together at the diagnostic, you validate, we execute. No duration commitment, no hidden subscription: you keep the code and the control."
+      "footnote_fr": "Le premier module démarre à 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT). Le travail autour (nouveaux agents, connecteurs, supervision des workflows, suivi des coûts de modèles) se fait ensuite à 99 € HT de l'heure, en sprints : on estime le temps ensemble à l'audit, vous validez, on exécute. Sans engagement de durée : vous gardez le code et la main.",
+      "footnote_en": "The first module starts at 2,000 € ex VAT: four tiers depending on scope (2,000, 4,000, 7,000, 10,000 € ex VAT). The work around it (new agents, connectors, workflow supervision, model cost tracking) is then done at 99 € ex VAT an hour, in sprints: we estimate the time together at the audit, you validate, we execute. No minimum term: you keep the code and the controls."
     },
     {
       "type": "eeat-panel",
@@ -623,7 +623,7 @@
         {
           "q_fr": "Par où commencer si je ne sais pas quoi automatiser ?",
           "q_en": "Where to start if I don't know what to automate?",
-          "a_fr": "Par le diagnostic. On cartographie vos tâches répétitives et on les priorise par le temps et l'argent qu'elles brûlent. On démarre par le chantier qui fait le plus mal, on prouve la valeur, puis on étend.",
+          "a_fr": "Par l'audit gratuit de 45 minutes. On passe vos tâches répétitives en revue et on les classe par le temps qu'elles prennent. On démarre par le chantier le plus rentable, on mesure, puis on étend.",
           "a_en": "With the diagnostic. We map your repetitive tasks and prioritise them by the time and money they burn. We start with the work that hurts most, prove the value, then extend."
         },
         {
@@ -659,7 +659,7 @@
         {
           "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
           "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_fr": "Le studio est à Bordeaux et accompagne des PME en local comme à distance. Diagnostic, conception et suivi se font en visio ou sur site, selon vous. La proximité aide, elle n'est pas une condition.",
+          "a_fr": "Le studio est basé à Bordeaux et travaille à distance, avec des déplacements à Bordeaux, Montpellier, Lyon et Paris. L'audit, la conception et le suivi se font en visio ou sur site, selon vous.",
           "a_en": "The studio is in Bordeaux and supports SMBs locally and remotely. The diagnostic, the build and the follow-up happen by video or on site, as you prefer. Proximity helps, it is not a condition."
         }
       ]
@@ -673,15 +673,15 @@
       "rounded": true,
       "kicker_fr": "§ Prêt à automatiser ?",
       "kicker_en": "§ Ready to automate?",
-      "h2_fr": "Faites tourner vos opérations sur un système, plus sur des personnes.",
-      "h2_en": "Run your operations on a system, no longer on people.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on cartographie votre système opérationnel, on repère les modules à câbler en premier et on pose le cadre de gouvernance. En face, un interlocuteur unique, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we map your operational system, spot the modules to wire first and set the governance frame. Across the table, a single contact, the founder who designs and ships, not a pool of subcontractors.",
+      "h2_fr": "Quarante-cinq minutes pour savoir quoi automatiser.",
+      "h2_en": "Forty-five minutes to know what to automate.",
+      "subtitle_fr": "Un audit gratuit et sans engagement : on passe vos processus en revue et on repère trois automatisations rentables. En face, un interlocuteur unique, l'ingénieur qui construit et transfère.",
+      "subtitle_en": "A free audit with no commitment: we review your processes and spot three profitable automations. Facing you, a single contact, the engineer who builds and hands over.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=systemes-operationnels-ia&intent=discovery",
+          "label_fr": "Réserver un audit →",
+          "label_en": "Book an audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {

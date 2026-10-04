@@ -11,9 +11,7 @@ import MastheadBar from '../components/sections/MastheadBar.astro';
 import HeroCentered from '../components/sections/HeroCentered.astro';
 import SpecBar from '../components/sections/SpecBar.astro';
 import NumberedLayerList from '../sections/numbered-layer-list/Component.astro';
-import MetricCalloutBand from '../components/sections/MetricCalloutBand.astro';
 import BrandedCallout from '../sections/branded-callout/Component.astro';
-import EcosystemPartners from '../sections/ecosystem-partners/Component.astro';
 import CtaFinal from '../components/sections/CtaFinal.astro';
 import { langFromPath } from '../lib/i18n';
 import { SITE } from '../site.config';
@@ -22,20 +20,20 @@ import { technologiesSections } from '../data/technologies-sections';
 const lang = langFromPath(Astro.url.pathname);
 
 // Données de sections (vague V3) → `src/data/technologies-sections.ts`. Shell inchangé.
-const { heroData, crumbs, layersData, specData, principlesData, anchorData, ecosystemData, ctaData } = technologiesSections(lang);
+const { heroData, crumbs, layersData, specData, anchorData, ctaData } = technologiesSections(lang);
 
 const techLd = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
-  name: 'Stack & technologies · Waimia',
-  description: "La stack Waimia par couches : Claude pour l'IA, Astro pour le front, CMS headless pour le contenu, intégrations métier dans vos outils existants, analytics et SEO.",
+  name: 'Stack et technologies · Waimia',
+  description: "La stack du studio Waimia par couches : n8n et Make pour l'automatisation, Claude et OpenAI pour les agents, vos outils métier branchés par API et MCP.",
   url: `${SITE.url}${Astro.url.pathname}`,
   author: { '@type': 'Organization', '@id': `${SITE.url}/#organization` },
 };
 ---
 <Base
-  title="Stack & technologies · Waimia"
-  description="La stack Waimia, couche par couche. Claude pour l'IA, Astro pour le front, CMS headless pour le contenu, intégrations dans vos outils. Zéro captivité."
+  title="Stack et technologies : n8n, Make, Claude, OpenAI · Waimia"
+  description="Les outils du studio Waimia, couche par couche : n8n et Make pour automatiser, Claude et OpenAI pour les agents. Code et workflows remis au client."
   jsonLd={techLd}
 >
   <MastheadBar lang={lang} items={crumbs} />
@@ -46,11 +44,7 @@ const techLd = {
 
   <NumberedLayerList data={layersData} lang={lang} />
 
-  <MetricCalloutBand data={principlesData} lang={lang} />
-
   <BrandedCallout data={anchorData} lang={lang} />
-
-  <EcosystemPartners data={ecosystemData} lang={lang} />
 
   <CtaFinal data={ctaData} lang={lang} />
 </Base>

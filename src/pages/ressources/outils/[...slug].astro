@@ -4,6 +4,8 @@ export const prerender = true;
 import { getCollection, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
 import ToolWidget from '../../../components/ui/organisms/ToolWidget.astro';
+import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
+import { LEAD_MAGNETS, type LeadMagnetSlug } from '../../../data/conversion';
 import { outilHeroIllustration } from '../../../lib/hero-illustrations';
 import { SITE } from '../../../site.config';
 
@@ -11,6 +13,9 @@ export async function getStaticPaths() {
   const entries = await getCollection('outils');
   return entries
     .filter((entry) => !entry.data.seo?.noindex)
+    // Entrées à route explicite (charte-ia-entreprise.astro, grille-taches-a-automatiser.astro) :
+    // elles n'ont ni inputs ni outputs, leur JSON ne sert qu'au listing du hub.
+    .filter((entry) => entry.data.inputs.length > 0 && entry.data.outputs.length > 0)
     .map((entry) => ({
       params: { slug: entry.id },
       props: { entry },
@@ -28,6 +33,8 @@ const bodyHtml = d.body_sections?.[0]?.html_fr ?? '';
 const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const categoryKicker = d.category_fr ? ` · ${d.category_fr}` : '';
 const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
+// Capture d'e-mail facultative : seulement si l'outil la demande ET que son slug est servi par /api/lead-magnet.
+const captureSlug = d.captureEmail && entry.id in LEAD_MAGNETS ? (entry.id as LeadMagnetSlug) : null;
 
 // JSON-LD WebApplication · décrit l'outil interactif (calculateur/score) comme une vraie
 // web-app gratuite, en complément de l'Article émis par EssayTemplate. Émis au niveau page.
@@ -54,7 +61,11 @@ const webAppLd = {
   date={dateStr}
   datePublished={d.publishedAt.toISOString().slice(0, 10)}
   author={SITE.name}
-  relatedCards={[]}
+  relatedCards={[
+    { kicker: 'Outil', title_fr: "Grille des tâches à automatiser", title_en: "Grille des tâches à automatiser", lead_fr: "Listez vos tâches, leur fréquence et leur durée : la grille les classe par priorité.", lead_en: "Listez vos tâches, leur fréquence et leur durée : la grille les classe par priorité.", href: '/ressources/outils/grille-taches-a-automatiser' },
+    { kicker: 'Diagnostic', title_fr: "Diagnostic de maturité IA", title_en: "Diagnostic de maturité IA", lead_fr: "Dix questions, un niveau de 1 à 5 et le point à traiter en premier.", lead_en: "Dix questions, un niveau de 1 à 5 et le point à traiter en premier.", href: '/ressources/diagnostics/maturite-ia' },
+    { kicker: 'Audit gratuit', title_fr: "Audit IA pour PME", title_en: "Audit IA pour PME", lead_fr: "Le déroulé des 45 minutes et un exemple de livrable.", lead_en: "Le déroulé des 45 minutes et un exemple de livrable.", href: '/audit-ia-pme' },
+  ]}
   lang="fr"
   breadcrumbItems={[
     { label: 'Accueil', href: '/' },
@@ -68,6 +79,14 @@ const webAppLd = {
   <Fragment slot="body">
     {d.inputs.length > 0 && d.outputs.length > 0 && (
       <ToolWidget inputs={d.inputs} outputs={d.outputs} lang="fr" />
+    )}
+    {captureSlug && (
+      <LeadCapture
+        slug={captureSlug}
+        title="Recevoir ce calcul par e-mail"
+        description="Vos hypothèses et les résultats affichés, dans un e-mail à garder ou à transférer."
+        buttonLabel="Recevoir le calcul"
+      />
     )}
     <Fragment set:html={bodyHtml} />
   </Fragment>
@@ -163,6 +182,27 @@ const webAppLd = {
       compute();
     });
   }
+
+  // Copie par e-mail (organism LeadCapture) : on fournit hypothèses + résultats affichés.
+  document.addEventListener('cv:collect', (ev) => {
+    const detail = (ev as CustomEvent).detail as { summary: { label: string; value: string }[]; headline: string };
+    const widget = document.querySelector<HTMLElement>('[data-tool-widget]');
+    if (!widget) return;
+    widget.querySelectorAll<HTMLElement>('.tw-field').forEach((f) => {
+      const label = f.querySelector('label')?.textContent?.trim() ?? '';
+      const field = f.querySelector<HTMLInputElement | HTMLSelectElement>('[data-key]');
+      if (!field) return;
+      const unit = f.querySelector('.tw-input__unit')?.textContent?.trim() ?? '';
+      const value = field instanceof HTMLSelectElement ? field.selectedOptions[0]?.textContent?.trim() ?? field.value : `${field.value} ${unit}`.trim();
+      detail.summary.push({ label: `Hypothèse : ${label}`.slice(0, 120), value });
+    });
+    widget.querySelectorAll<HTMLElement>('[data-output]').forEach((o) => {
+      const label = o.querySelector('.tw-result__label')?.textContent?.trim() ?? '';
+      const value = o.querySelector('[data-result-value]')?.textContent?.trim() ?? '';
+      detail.summary.push({ label: label.slice(0, 120), value });
+      if (!detail.headline) detail.headline = `${label} : ${value}`.slice(0, 160);
+    });
+  });
 
   // Exécution immédiate (le module se charge en defer, l'événement astro:page-load
   // a pu déjà passer) + ré-init sur navigation View Transitions (ClientRouter).

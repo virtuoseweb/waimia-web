@@ -33,7 +33,7 @@ const manifestoCases = (await getCollection('cases', ({ data }) => !data.ndaProt
 
 const articleLd = buildArticle({
   headline: lang === 'fr' ? 'Manifeste Waimia' : 'Waimia Manifesto',
-  description: 'Build revenue, not demos. AI systems shipped, measured, documented.',
+  description: "L'IA en production, pas en démonstration : des automatisations et des agents IA mis en production, mesurés, puis remis au client avec le code.",
   datePublished: '2026-01-01',
   author: { '@type': 'Organization', name: SITE.name },
 });
@@ -57,9 +57,9 @@ const acteIVData = {
 } satisfies EditorialCaseGridData;
 ---
 <Base
-  title={lang === 'fr' ? "Waimia · Manifeste · Construire du revenu, pas des démos" : 'Waimia · Manifesto · Build revenue, not demos'}
+  title={lang === 'fr' ? "Manifeste Waimia · L'IA en production, pas en démonstration" : 'Waimia · Manifesto · Build revenue, not demos'}
   description={lang === 'fr'
-    ? "Le manifeste Waimia : des systèmes IA livrés, mesurés, documentés. Pas de théâtre IA, pas de démos qui meurent en comité."
+    ? "Le manifeste du studio Waimia : des automatisations et des agents IA mis en production, mesurés, puis remis au client avec le code."
     : 'Waimia Manifesto: Build revenue, not demos. AI systems shipped, measured, documented.'}
   jsonLd={articleLd}
 >

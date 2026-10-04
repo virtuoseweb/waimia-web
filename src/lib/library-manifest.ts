@@ -108,7 +108,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // Mission DS primitives v7 — sections GEO/E-E-A-T (catalogue-only).
   { id: 'direct-answer',                consumers: [] },
   { id: 'author-byline',                consumers: [] },
-  { id: 'diagnostic-stages',            consumers: [] },
+  { id: 'diagnostic-stages',            consumers: ['src/pages/index.astro'] },
   { id: 'case-spotlight',               consumers: [] },
   { id: 'testimonial-metrics',          consumers: [] },
   // <<< [sections-gap] end
@@ -148,10 +148,10 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-card-cover',       consumers: [] },
   { id: 'hero-stack-rhythm',     consumers: [] },
   { id: 'hero-magazine-cover',   consumers: [] },
-  { id: 'proof-bar',             consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
+  { id: 'proof-bar',             consumers: ['src/pages/en/index.astro'] },
   { id: 'method-timeline',       consumers: ['src/pages/cas-clients/[...slug].astro'] }, // CaseStudyTemplate.astro supprimé 2026-07-19 (mort, migré JSON template) → consommateur réel = route composable
-  { id: 'feature-grid',          consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'social-proof',          consumers: ['src/pages/index.astro'] },
+  { id: 'feature-grid',          consumers: ['src/pages/en/index.astro'] },
+  { id: 'social-proof',          consumers: [] },
   { id: 'ecosystem-partners',    consumers: [] },
   { id: 'faq-accordion',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
   { id: 'cta-final',             consumers: ['src/components/templates/ConversionFunnelTemplate.astro', 'src/components/templates/UtilityTemplate.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // home = organism BookSession (twin merge) → cta-final après migration · R6 : ServiceDetail/Hub purgés (R0), UtilityTemplate ajouté (consommateur réel) · CaseStudyTemplate.astro supprimé 2026-07-19 (mort, n'utilisait pas cta-final via la nouvelle route JSON)
@@ -200,15 +200,15 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'cta-inline',            consumers: [] },
   { id: 'testimonial-block',     consumers: [] },
   { id: 'guarantee-block',       consumers: [] },
-  { id: 'architecture-diagram',  consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'services-grid',         consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'maturity-pyramid',      consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
-  { id: 'use-case-index',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro'] },
+  { id: 'architecture-diagram',  consumers: ['src/pages/en/index.astro'] },
+  { id: 'services-grid',         consumers: ['src/pages/en/index.astro'] },
+  { id: 'maturity-pyramid',      consumers: ['src/pages/en/index.astro'] },
+  { id: 'use-case-index',        consumers: ['src/pages/en/index.astro'] },
   { id: 'case-card-grid',        consumers: ['src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro', 'src/pages/solutions/index.astro', 'src/pages/en/solutions/index.astro'] },
   { id: 'case-featured-grid',    consumers: [] }, // U3 : extraction du layout featured-grid orphelin du hub /cas-clients → catalogue-only (câblage page = phase 2)
   { id: 'commitments-grid',      consumers: [] },
   { id: 'branded-callout',       consumers: [] },
-  { id: 'editorial-preview',     consumers: ['src/pages/index.astro', 'src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // MERGE← FieldNotes (organism supprimé, pages data-driven verbatim)
+  { id: 'editorial-preview',     consumers: ['src/pages/en/index.astro', 'src/pages/atlas.astro', 'src/pages/en/atlas.astro'] }, // MERGE← FieldNotes (organism supprimé, pages data-driven verbatim)
   { id: 'newsletter-band',       consumers: [] },
   { id: 'spec-bar',              consumers: [] },
   { id: 'deliverables-grid',     consumers: [] },
@@ -277,7 +277,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // (gap pré-existant, antérieur à T5). Ajoutés ici pour aligner le 5e touchpoint (manifest).
   // Tous catalogue-only (0 consommateur live connu) ; corriger consumers si usage live avéré.
   { id: 'definition-extract',        consumers: [] },
-  { id: 'eeat-panel',                consumers: [] },
+  { id: 'eeat-panel',                consumers: ['src/pages/index.astro'] },
   { id: 'horizontal-showcase',       consumers: [] },
   { id: 'hover-reveal-list',         consumers: [] },
   { id: 'media-bento',               consumers: [] },
@@ -292,7 +292,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // #39 : section de corps riche (Markdown -> prose). Catalogue-only a sa creation.
   { id: 'rich-text',                 consumers: [] },
   // #80 : 2 familles narratives awwwards (catalogue-only a leur creation).
-  { id: 'sticky-scroll-storytelling', consumers: [] },
+  { id: 'sticky-scroll-storytelling', consumers: ['src/pages/index.astro'] },
   { id: 'hover-reveal-words',         consumers: [] },
   // #37 / maillage : mur d'avis brandé + section de liens internes groupés (catalogue-only a leur creation).
   { id: 'testimonial-wall',           consumers: [] },
@@ -311,6 +311,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'numbered-layer-list',   consumers: ['src/pages/technologies.astro'] },
   { id: 'offer-rail',            consumers: ['src/pages/index.astro'] },
   { id: 'pricing-tabs-showcase', consumers: [] },
+  // Refonte positionnement 2026-10 : registre tarifaire de /tarifs (remplace pricing-tabs-showcase sur la page).
+  { id: 'engagement-ledger',     consumers: ['src/pages/tarifs.astro'] },
   { id: 'prose-aside',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'provenance-chip',       consumers: [] },
   { id: 'publications-panel',    consumers: ['src/components/templates/AuthorPageTemplate.astro'] },

@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Devis automatisé et relances clients · Waimia",
   "title_en": "Automated quotes and customer follow-ups · Waimia",
-  "description_fr": "Devis automatisés et relances clients pour PME : relances email et multicanal déclenchées par le comportement, aucun devis ni prospect oublié.",
-  "description_en": "Automated quotes and customer follow-ups for SMEs: email and multichannel follow-ups triggered by behaviour, no quote or prospect forgotten.",
+  "description_fr": "Devis automatisé et relances clients pour PME : devis pré-rempli depuis le CRM, relances déclenchées à date, plus aucun devis sans suite. Dès 999 € HT.",
+  "description_en": "Automated quotes and client follow-ups for SMBs: quote pre-filled from the CRM, follow-ups triggered on schedule, no quote left unanswered. From €999 excl. VAT.",
   "slug": "sequences-de-suivi",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "sequences-de-suivi",
@@ -23,120 +23,96 @@
   },
   "faq_fr": [
     {
-      "q": "Une séquence de suivi, qu'est-ce que ça couvre exactement ?",
-      "a": "Une suite de relances automatisées, email et multicanal, déclenchées par le comportement du lead. Un contact qui télécharge un guide, demande un devis puis se tait n'est pas perdu : la séquence l'entretient, lui envoie le bon message au bon moment et le ramène quand il est prêt. Le nurturing garde le lead chaud, la relance réveille le dormant. Sans qu'un commercial ait à y penser."
+      "q": "Combien coûte l'automatisation des devis et des relances ?",
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées 99 € HT de l'heure."
     },
     {
-      "q": "En quoi c'est différent d'une newsletter ou d'un mailing de masse ?",
-      "a": "Une newsletter envoie la même chose à tout le monde, au même moment. Une séquence de suivi est déclenchée par le comportement de chaque lead et personnalisée selon son intérêt : la relance part parce qu'il a rouvert un email, visité une page de prix ou laissé un devis en attente. Pas un envoi de masse, une réponse au bon signal. C'est ce qui fait la différence entre agacer et convertir."
+      "q": "Comment relancer un devis sans réponse ?",
+      "a": "Trois messages suffisent : un rappel court après quelques jours, un second qui apporte une information utile (un délai, une référence, une réponse à une objection fréquente), un dernier avant la fin de validité. Au-delà, appelez ou classez le devis."
     },
     {
-      "q": "Combien de temps un lead reste-t-il chaud sans relance ?",
-      "a": "Peu. Un lead qui a montré de l'intérêt refroidit vite s'il n'est pas relancé, souvent en quelques jours. La plupart des ventes se jouent au-delà du premier contact, dans les relances. Sans séquence, le commercial relance quand il y pense, c'est-à-dire trop tard ou jamais. Une séquence automatisée relance à la bonne cadence, systématiquement, sans oubli."
+      "q": "Un devis automatisé part-il sans relecture ?",
+      "a": "Non. Le système prépare le devis et la relance ; le commercial valide chaque envoi. Sur des devis très standards, vous pouvez choisir d'automatiser entièrement les relances, jamais le devis lui-même."
     },
     {
-      "q": "Ça réveille vraiment les leads dormants dans ma base ?",
-      "a": "Oui, c'est même souvent le premier gisement. Votre base contient des contacts qui vous connaissent déjà mais qu'on a laissés dormir : anciens devis, téléchargements, essais abandonnés. Une séquence de réactivation les segmente, leur renvoie un message adapté et fait remonter ceux qui répondent vers le commercial. On travaille d'abord ce que vous avez déjà payé pour acquérir."
+      "q": "Combien de temps pour mettre en place des relances automatiques ?",
+      "a": "Habituellement 2 à 4 semaines pour une première séquence. La génération automatique du devis prend plus de temps si votre grille tarifaire comporte beaucoup de cas particuliers."
     },
     {
-      "q": "Sur quels canaux les relances partent-elles ?",
-      "a": "Email en cœur de séquence, LinkedIn et SMS en relance ciblée quand le canal le justifie. On active ce qui correspond à votre cible et à la maturité du lead, pas tous les canaux par défaut. Un lead chaud mérite une relance directe ; un lead tiède, un contenu qui l'éduque. La séquence adapte le canal au moment."
+      "q": "Relances automatiques et RGPD : est-ce autorisé ?",
+      "a": "Relancer un client à propos d'un devis qu'il a demandé relève de la relation commerciale en cours. Il faut conserver un historique, permettre au client de demander l'arrêt des messages et ne pas réutiliser ses coordonnées pour un autre objet sans base légale."
     },
     {
-      "q": "Ça se branche à mon CRM et à mes outils existants ?",
-      "a": "Oui : HubSpot et Pipedrive en priorité, en intégration native. La séquence lit les signaux remontés par votre site, vos formulaires et votre CRM, déclenche la bonne relance et réécrit le statut sur la fiche. Votre équipe ne change pas d'interface : elle voit juste les leads se réchauffer et remonter. Pour un autre outil, on évalue au cadrage."
-    },
-    {
-      "q": "Le commercial garde-t-il la main sur les relances ?",
-      "a": "Oui. La séquence automatise le suivi, mais elle sort le lead du flux automatique dès qu'il répond ou se réchauffe assez : à ce moment, le commercial reprend la main pour un contact humain. L'automatisation entretient et trie, l'humain conclut. On ne remplace pas la relation commerciale, on lui évite de laisser filer les leads faute de temps."
-    },
-    {
-      "q": "Combien de temps avant de voir des effets ?",
-      "a": "Les premières relances de réactivation partent en quelques semaines, une fois la base segmentée et les messages écrits. Les effets se voient d'abord sur les leads dormants réveillés, puis sur les nouveaux leads mieux entretenus. On cadre des attentes réalistes avant de signer : une séquence se rode sur les réponses réelles, elle ne convertit pas au premier envoi."
-    },
-    {
-      "q": "Combien coûtent des séquences de suivi ?",
-      "a": "Deux façons d'engager. On démarre par un sprint découverte de 10 heures à 999 € HT : segmentation de la base et première séquence de réveil, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans engagement de durée : à la fin, les séquences, les segments et la base sont à vous."
+      "q": "Peut-on aussi relancer les factures impayées ?",
+      "a": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier."
     }
   ],
   "faq_en": [
     {
-      "q": "What does a follow-up sequence cover exactly?",
-      "a": "A series of automated re-engagements, email and multichannel, triggered by the lead's behaviour. A contact who downloads a guide, requests a quote then goes quiet isn't lost: the sequence keeps them engaged, sends the right message at the right time and brings them back when ready. Nurturing keeps the lead warm, re-engagement wakes the dormant one. Without a rep having to think about it."
+      "q": "How much does it cost to automate quotes and follow-ups?",
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €99 per hour excl. VAT."
     },
     {
-      "q": "How is it different from a newsletter or a mass mailing?",
-      "a": "A newsletter sends the same thing to everyone, at the same time. A follow-up sequence is triggered by each lead's behaviour and personalised to their interest: the follow-up fires because they reopened an email, visited a pricing page or left a quote pending. Not a mass send, a response to the right signal. That's the difference between annoying and converting."
+      "q": "How do you follow up on an unanswered quote?",
+      "a": "Three messages are enough: a short reminder after a few days, a second bringing useful information (a lead time, a reference, an answer to a common objection), a last one before the validity date. Beyond that, call or close the quote."
     },
     {
-      "q": "How long does a lead stay warm without follow-up?",
-      "a": "Not long. A lead who showed interest cools fast without follow-up, often within days. Most sales happen beyond the first contact, in the follow-ups. Without a sequence, the rep follows up when they remember, which means too late or never. An automated sequence follows up at the right cadence, systematically, with no oversight."
+      "q": "Does an automated quote go out unreviewed?",
+      "a": "No. The system prepares the quote and the follow-up; the salesperson approves every send. On very standard quotes, you may choose to fully automate follow-ups, never the quote itself."
     },
     {
-      "q": "Does it really wake dormant leads in my base?",
-      "a": "Yes, and it's often the first goldmine. Your base holds contacts who already know you but were left to sleep: old quotes, downloads, abandoned trials. A re-engagement sequence segments them, sends a fitting message and surfaces the responders back to sales. We first work what you already paid to acquire."
+      "q": "How long does it take to set up automatic follow-ups?",
+      "a": "Usually 2 to 4 weeks for a first sequence. Automatic quote generation takes longer if your price grid has many special cases."
     },
     {
-      "q": "Which channels do the follow-ups run on?",
-      "a": "Email at the core of the sequence, LinkedIn and SMS for targeted follow-up when the channel justifies it. We activate what fits your target and the lead's maturity, not every channel by default. A hot lead deserves a direct follow-up; a lukewarm one, content that educates. The sequence adapts the channel to the moment."
+      "q": "Automatic follow-ups and GDPR: is it allowed?",
+      "a": "Following up with a client about a quote they requested is part of the ongoing business relationship. Keep a history, let the client ask for messages to stop, and do not reuse their details for another purpose without a legal basis."
     },
     {
-      "q": "Does it connect to my existing CRM and tools?",
-      "a": "Yes: HubSpot and Pipedrive first, native integration. The sequence reads the signals from your site, forms and CRM, triggers the right follow-up and rewrites the status on the record. Your team doesn't change interface: they just see leads warm up and surface. For another tool, we assess at scoping."
-    },
-    {
-      "q": "Does the rep keep control of the follow-ups?",
-      "a": "Yes. The sequence automates the follow-up, but it pulls the lead out of the automated flow the moment they reply or warm up enough: at that point, the rep takes over for a human contact. Automation nurtures and sorts, the human closes. We don't replace the sales relationship, we stop it from losing leads for lack of time."
-    },
-    {
-      "q": "How long before you see effects?",
-      "a": "The first re-engagement follow-ups go out within a few weeks, once the base is segmented and the messages written. Effects show first on dormant leads woken up, then on new leads better nurtured. We set realistic expectations before signing: a sequence is tuned on real replies, it doesn't convert on the first send."
-    },
-    {
-      "q": "How much do follow-up sequences cost?",
-      "a": "Two ways to engage. We start with a 10-hour discovery sprint at 999 € ex VAT: base segmentation and a first wake-up sequence, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No duration commitment: at the end, the sequences, the segments and the base are yours."
+      "q": "Can unpaid invoices be chased too?",
+      "a": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Séquences de suivi",
-      "kicker_en": "§ Follow-up sequences",
+      "kicker_fr": "§ Devis automatisé et relances",
+      "kicker_en": "§ Automated quotes and follow-ups",
       "h1_fr": "<i class=\"acc\">Devis automatisés</i> et relances sans oubli",
       "h1_en": "<i class=\"acc\">Automated quotes</i> and follow-ups, nothing forgotten",
-      "lede_fr": "Un lead intéressé se tait pendant 48 heures, et vous le comptez déjà perdu. Il ne l'est pas, il a juste refroidi faute de relance. Les séquences de suivi entretiennent chaque lead, réveillent les dormants de votre base et les ramènent au bon moment, par email et multicanal. Branché à votre CRM. Le volet nurturing de votre système d'acquisition.",
-      "lede_en": "An interested lead goes quiet for 48 hours, and you already count them lost. They aren't, they just cooled for lack of follow-up. Follow-up sequences nurture every lead, wake the dormant ones in your base and bring them back at the right time, by email and multichannel. Wired to your CRM. The nurturing arm of your acquisition system.",
+      "lede_fr": "Un devis automatisé est un devis généré à partir des informations déjà saisies dans votre CRM ou votre formulaire, puis suivi par des relances déclenchées à date fixe tant que le client n'a pas répondu. Waimia met en place cette chaîne pour les PME qui envoient des devis chaque semaine et n'ont pas le temps de tous les relancer. Le commercial valide chaque envoi.",
+      "lede_en": "An automated quote is a quote generated from information already entered in your CRM or form, then followed by reminders triggered on a schedule as long as the client has not replied. Waimia sets up this chain for SMBs that send quotes every week and lack the time to chase them all. The salesperson approves every send.",
       "badges": [
         {
-          "label_fr": "Déclenché par le comportement",
-          "label_en": "Behaviour-triggered"
+          "label_fr": "Devis pré-rempli",
+          "label_en": "Pre-filled quote"
         },
         {
-          "label_fr": "Email + multicanal",
-          "label_en": "Email + multichannel"
+          "label_fr": "Relances à date",
+          "label_en": "Scheduled follow-ups"
         },
         {
-          "label_fr": "Réveil des dormants",
-          "label_en": "Dormant reactivation"
+          "label_fr": "Validation avant envoi",
+          "label_en": "Approval before sending"
         },
         {
           "label_fr": "Branché au CRM",
-          "label_en": "CRM-connected"
+          "label_en": "Wired to the CRM"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=sequences-de-suivi&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir le dispositif",
-        "label_en": "See the system",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -147,643 +123,210 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "2–4 sem.",
-          "label_fr": "première séquence de relance en route",
-          "label_en": "first re-engagement sequence live"
+          "value": "2 à 4 semaines",
+          "label_fr": "délai habituel pour une première séquence de relance en service",
+          "label_en": "usual lead time for a first follow-up sequence to go live",
+          "emphasis": false
         },
         {
-          "value": "Comportement",
-          "label_fr": "relances déclenchées sur signaux",
-          "label_en": "follow-ups triggered on signals"
+          "value": "Email, SMS",
+          "label_fr": "canaux choisis selon votre clientèle",
+          "label_en": "channels chosen for your customers",
+          "emphasis": false
         },
         {
-          "value": "100 %",
-          "label_fr": "séquences transférées, zéro captivité",
-          "label_en": "sequences handed over, no lock-in"
+          "value": "À vous",
+          "label_fr": "modèles, séquences et règles de déclenchement",
+          "label_en": "templates, sequences and trigger rules",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Une <i class=\"acc\">séquence de suivi</i> est une suite de relances automatisées, email et multicanal, déclenchées par le comportement d'un lead déjà connu. Elle entretient l'intérêt, réactive les leads dormants et les ramène vers la conversion, puis rend la main au commercial dès que le lead se réchauffe. Chez Waimia, elle relance à la bonne cadence, sans oubli.",
-      "statement_en": "A <i class=\"acc\">follow-up sequence</i> is a series of automated re-engagements, email and multichannel, triggered by the behaviour of a lead you already know. It sustains interest, reactivates dormant leads and brings them back toward conversion, then hands control to the rep as soon as the lead warms up. At Waimia, it follows up at the right cadence, with no oversight.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Une <i class=\"acc\">séquence de relance</i> est une suite de messages programmés, déclenchés par un évènement (devis envoyé, devis ouvert, absence de réponse à J+5) et interrompus dès que le client répond. Elle s'applique aux devis en attente, aux factures impayées et aux contacts restés sans suite.",
+      "statement_en": "A <i class=\"acc\">follow-up sequence</i> is a series of scheduled messages, triggered by an event (quote sent, quote opened, no reply at day 5) and stopped as soon as the client replies. It applies to pending quotes, unpaid invoices and contacts left without follow-up.",
       "pills": [
         {
-          "label_fr": "Déclenché par le comportement",
-          "label_en": "Behaviour-triggered"
+          "label_fr": "Déclenchée par un évènement",
+          "label_en": "Event-triggered"
         },
         {
-          "label_fr": "Nurturing des leads chauds",
-          "label_en": "Warm-lead nurturing"
+          "label_fr": "Arrêt à la réponse",
+          "label_en": "Stops on reply"
         },
         {
-          "label_fr": "Réactivation des dormants",
-          "label_en": "Dormant reactivation"
+          "label_fr": "Ton de la maison",
+          "label_en": "House tone"
         },
         {
-          "label_fr": "Cadence sans oubli",
-          "label_en": "Cadence with no oversight"
-        },
-        {
-          "label_fr": "Branché au CRM",
-          "label_en": "CRM-connected"
+          "label_fr": "Historique dans le CRM",
+          "label_en": "History in the CRM"
         }
       ],
       "specs": [
         {
-          "label_fr": "Segmentation de la base",
-          "label_en": "Base segmentation"
+          "label_fr": "Modèles de devis",
+          "label_en": "Quote templates"
         },
         {
-          "label_fr": "Déclencheurs comportementaux",
-          "label_en": "Behavioural triggers"
+          "label_fr": "Signature électronique",
+          "label_en": "E-signature"
         },
         {
-          "label_fr": "Email, LinkedIn, SMS",
-          "label_en": "Email, LinkedIn, SMS"
+          "label_fr": "n8n ou Make",
+          "label_en": "n8n or Make"
         },
         {
-          "label_fr": "Sortie vers le commercial",
-          "label_en": "Handoff to the rep"
-        },
-        {
-          "label_fr": "CRM (HubSpot, Pipedrive)",
-          "label_en": "CRM (HubSpot, Pipedrive)"
+          "label_fr": "Tableau des devis en cours",
+          "label_en": "Open quotes dashboard"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où le lead refroidit",
-      "kicker_en": "Where the lead cools",
-      "h2_fr": "Pourquoi vos leads chauds refroidissent faute de nurturing",
-      "h2_en": "Why your warm leads cool without nurturing",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Le lead qui refroidit en 48 heures",
-          "title_en": "The lead that cools in 48 hours",
-          "desc_fr": "Il a montré de l'intérêt, puis plus rien. Sans relance rapide, il oublie, ou signe chez le concurrent qui l'a rappelé.",
-          "desc_en": "It showed interest, then nothing. Without quick follow-up, it forgets, or signs with the competitor who called back.",
-          "fix_fr": "Relance automatisée dès le bon signal.",
-          "fix_en": "Automated follow-up on the right signal."
-        },
-        {
-          "severity": "high",
-          "title_fr": "La relance manuelle oubliée",
-          "title_en": "The forgotten manual follow-up",
-          "desc_fr": "Le commercial relance quand il y pense. Débordé, il oublie la moitié des leads, et aucune trace ne dit lesquels.",
-          "desc_en": "The rep follows up when they remember. Overloaded, they forget half the leads, and no trace says which.",
-          "fix_fr": "Cadence systématique, sans oubli.",
-          "fix_en": "Systematic cadence, no oversight."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "La base dormante jamais réveillée",
-          "title_en": "The dormant base never woken",
-          "desc_fr": "Des centaines de contacts qui vous connaissent dorment dans le CRM. Vous avez payé pour les acquérir, puis vous les laissez.",
-          "desc_en": "Hundreds of contacts who know you sleep in the CRM. You paid to acquire them, then you leave them.",
-          "fix_fr": "Séquence de réactivation segmentée.",
-          "fix_en": "Segmented reactivation sequence."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Deux moitiés : produire le devis, puis le suivre</h2>\n<p>Première moitié, la production. Les informations existent déjà : le client les a données dans un formulaire ou le commercial les a saisies dans le CRM. Le système les reprend, remplit le modèle de devis, calcule les lignes selon votre grille, et soumet le document au commercial. Il relit, ajuste et envoie. Pour les devis complexes (métré, visite technique), l'automatisation prépare le dossier ; le chiffrage reste humain.</p>\n<p>Seconde moitié, le suivi. Une fois le devis envoyé, une séquence démarre : un rappel après quelques jours, un second avec une information utile, un dernier avant l'échéance de validité. Chaque message est rédigé dans votre ton et s'arrête dès que le client répond ou signe.</p>\n<h2>Avec quels outils</h2>\n<p>Votre CRM pour l'état de chaque devis, votre outil de devis ou de facturation s'il a une API, n8n ou Make pour l'enchaînement, et un modèle d'IA pour adapter le texte des relances au contexte. La base est un <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> : sans statut fiable sur chaque devis, aucune relance ne peut se déclencher au bon moment. L'ensemble forme le <a href=\"/services/systeme-commercial\">système commercial</a>, alimenté en amont par la <a href=\"/services/prospection-automatisee\">prospection automatisée</a>.</p>\n<h2>Combien de temps</h2>\n<p>Une première séquence de relance est habituellement en service en 2 à 4 semaines. La génération du devis demande plus de travail quand votre grille tarifaire comporte beaucoup d'exceptions : on commence par les devis les plus standards.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La relance envoyée à un client qui a déjà répondu par téléphone : le commercial doit pouvoir arrêter la séquence d'un clic, et le CRM doit être tenu à jour. Le ton trop insistant : trois messages espacés, pas dix. Le devis faux parti sans relecture : aucun devis n'est envoyé sans validation humaine.</p>\n<p>La démarche est détaillée dans <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automatiser les relances B2B</a>. Pour regarder votre cas, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Two halves: produce the quote, then follow it</h2>\n<p>First half, production. The information already exists: the client gave it in a form or the salesperson entered it in the CRM. The system takes it, fills in the quote template, computes the lines from your price grid, and submits the document to the salesperson. They review, adjust and send. For complex quotes (measurements, site visit), automation prepares the file; pricing stays human.</p>\n<p>Second half, follow-up. Once the quote is sent, a sequence starts: a reminder after a few days, a second with useful information, a last one before the validity date. Each message is written in your tone and stops as soon as the client replies or signs.</p>\n<h2>With which tools</h2>\n<p>Your CRM for each quote's status, your quoting or invoicing tool if it has an API, n8n or Make for the chain, and an AI model to adapt follow-up text to context. The foundation is an <a href=\"/services/crm-scoring-routing\">automated CRM</a>: without a reliable status on each quote, no follow-up can fire at the right time. Together they form the <a href=\"/services/systeme-commercial\">sales system</a>, fed upstream by <a href=\"/services/prospection-automatisee\">automated prospecting</a>.</p>\n<h2>How long</h2>\n<p>A first follow-up sequence is usually live within 2 to 4 weeks. Quote generation takes more work when your price grid has many exceptions: we start with the most standard quotes.</p>\n<h2>What can go wrong</h2>\n<p>A reminder sent to a client who already replied by phone: the salesperson must be able to stop the sequence in one click, and the CRM must be kept up to date. Too pushy a tone: three spaced messages, not ten. A wrong quote sent unreviewed: no quote goes out without human approval.</p>\n<p>The approach is detailed in <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automating B2B follow-ups</a>. To look at your case, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ L'équation",
-      "kicker_en": "§ The equation",
-      "h2_fr": "Une newsletter de plus, ou un nurturing <i class=\"acc\">déclenché</i> par le comportement",
-      "h2_en": "One more newsletter, or nurturing <i class=\"acc\">triggered</i> by behaviour",
-      "without_label_fr": "Relance à la main",
-      "without_label_en": "Manual follow-up",
-      "without_title_fr": "Ce qu'elle laisse filer",
-      "without_title_en": "What it lets slip",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : les devis d'une entreprise du bâtiment",
+      "h2_en": "Typical example: quotes at a construction company",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Des devis envoyés, puis oubliés",
+      "without_title_en": "Quotes sent, then forgotten",
       "without_items": [
         {
-          "text_fr": "Le lead refroidit avant qu'on pense à le relancer.",
-          "text_en": "The lead cools before anyone thinks to follow up."
+          "text_fr": "Le conducteur de travaux rédige le devis le soir, à partir d'un ancien fichier.",
+          "text_en": "The site manager writes the quote in the evening, from an old file."
         },
         {
-          "text_fr": "La relance dépend de la mémoire d'un commercial débordé.",
-          "text_en": "Follow-up depends on an overworked rep's memory."
+          "text_fr": "Le devis part par email, sans trace dans un outil commun.",
+          "text_en": "The quote goes out by email, with no trace in a shared tool."
         },
         {
-          "text_fr": "La base dormante n'est jamais retravaillée.",
-          "text_en": "The dormant base is never worked again."
+          "text_fr": "Personne ne sait quels devis sont en attente.",
+          "text_en": "Nobody knows which quotes are pending."
         },
         {
-          "text_fr": "Aucune trace : impossible de savoir qui a été relancé.",
-          "text_en": "No trace: impossible to know who was followed up."
+          "text_fr": "La relance se fait quand on y pense, souvent trop tard.",
+          "text_en": "Follow-up happens when someone thinks of it, often too late."
         }
       ],
-      "with_label_fr": "Relance instrumentée",
-      "with_label_en": "Instrumented follow-up",
-      "with_title_fr": "Ce qu'elle met au travail",
-      "with_title_en": "What it puts to work",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Chaque devis a un statut et une suite",
+      "with_title_en": "Every quote has a status and a next step",
       "with_items": [
         {
-          "text_fr": "La relance part sur le bon signal, avant que le lead oublie.",
-          "text_en": "The follow-up fires on the right signal, before the lead forgets."
+          "text_fr": "La demande du formulaire pré-remplit le devis avec les prestations standard.",
+          "text_en": "The form request pre-fills the quote with standard services."
         },
         {
-          "text_fr": "La cadence est systématique, rien ne dépend de la mémoire.",
-          "text_en": "The cadence is systematic, nothing depends on memory."
+          "text_fr": "Le conducteur de travaux ajuste les quantités et valide l'envoi.",
+          "text_en": "The site manager adjusts quantities and approves sending."
         },
         {
-          "text_fr": "Les dormants sont segmentés et réveillés en continu.",
-          "text_en": "Dormant leads are segmented and woken continuously."
+          "text_fr": "À J+5 sans réponse, une relance est proposée et envoyée après validation.",
+          "text_en": "At day 5 with no reply, a follow-up is proposed and sent after approval."
         },
         {
-          "text_fr": "Chaque relance est tracée, le lead chaud rendu au commercial.",
-          "text_en": "Every follow-up is traced, the warm lead handed back to the rep."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un suivi",
-      "h2_en": "The 6 levels of follow-up",
-      "lede_fr": "De l'absence de relance au suivi qui s'affine seul, six paliers. La plupart des PME stagnent au deuxième, la relance à la main quand on y pense. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From no follow-up to nurturing that sharpens itself, six tiers. Most SMEs stall at the second, following up by hand when they remember. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Pas de relance",
-          "title_en": "No follow-up",
-          "sub_fr": "Le lead part sans retour",
-          "sub_en": "The lead leaves without a reply"
+          "text_fr": "La signature en ligne arrête la séquence et prévient l'équipe.",
+          "text_en": "Online signature stops the sequence and notifies the team."
         },
         {
-          "title_fr": "Relance à la main",
-          "title_en": "Manual follow-up",
-          "sub_fr": "Quand on y pense",
-          "sub_en": "When we remember"
-        },
-        {
-          "title_fr": "Newsletter de masse",
-          "title_en": "Mass newsletter",
-          "sub_fr": "Même message pour tous",
-          "sub_en": "Same message for all"
-        },
-        {
-          "title_fr": "Séquence déclenchée",
-          "title_en": "Triggered sequence",
-          "sub_fr": "Relance sur le comportement",
-          "sub_en": "Follow-up on behaviour"
-        },
-        {
-          "title_fr": "Nurturing branché CRM",
-          "title_en": "CRM-wired nurturing",
-          "sub_fr": "Dormants réveillés, retours routés",
-          "sub_en": "Dormant woken, returns routed"
-        },
-        {
-          "title_fr": "Suivi auto-affiné",
-          "title_en": "Self-sharpening follow-up",
-          "sub_fr": "La séquence apprend des réponses",
-          "sub_en": "The sequence learns from replies"
+          "text_fr": "Un tableau liste les devis en cours, par ancienneté et par montant.",
+          "text_en": "A dashboard lists open quotes, by age and amount."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez les séquences et les règles quand on part. Pas de captivité.",
-      "lead_en": "You keep the sequences and the rules when we leave. No lock-in.",
-      "items": [
-        {
-          "title_fr": "Base segmentée",
-          "title_en": "Segmented base",
-          "body_fr": "Vos contacts triés par maturité, intérêt et statut : leads chauds, tièdes, dormants. Chaque segment reçoit le bon message.",
-          "body_en": "Your contacts sorted by maturity, interest and status: warm, lukewarm, dormant. Each segment gets the right message.",
-          "format_fr": "SEGMENTS",
-          "format_en": "SEGMENTS",
-          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
-          "illustration_alt_fr": "Une base de contacts segmentée par maturité et intérêt",
-          "illustration_alt_en": "A contact base segmented by maturity and interest"
-        },
-        {
-          "title_fr": "Séquences de nurturing",
-          "title_en": "Nurturing sequences",
-          "body_fr": "Des suites de relances écrites par segment, déclenchées par le comportement, qui gardent le lead chaud jusqu'à sa décision.",
-          "body_en": "Series of follow-ups written per segment, behaviour-triggered, keeping the lead warm until its decision.",
-          "format_fr": "SÉQUENCES",
-          "format_en": "SEQUENCES",
-          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
-          "illustration_alt_fr": "Des séquences de nurturing déclenchées par le comportement du lead",
-          "illustration_alt_en": "Nurturing sequences triggered by the lead's behaviour"
-        },
-        {
-          "title_fr": "Séquence de réactivation",
-          "title_en": "Reactivation sequence",
-          "body_fr": "Une campagne qui réveille les leads dormants de votre base, segmentés et adressés selon ce qui les avait intéressés.",
-          "body_en": "A campaign that wakes the dormant leads in your base, segmented and addressed by what once interested them.",
-          "format_fr": "RÉVEIL",
-          "format_en": "WAKE-UP",
-          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
-          "illustration_alt_fr": "Une séquence de réactivation qui réveille les leads dormants",
-          "illustration_alt_en": "A reactivation sequence that wakes dormant leads"
-        },
-        {
-          "title_fr": "Déclencheurs et cadence",
-          "title_en": "Triggers and cadence",
-          "body_fr": "Les règles qui décident quand relancer, sur quel canal et sur quel signal, avec une cadence calée pour entretenir sans agacer.",
-          "body_en": "The rules deciding when to follow up, on which channel and which signal, with a cadence set to nurture without annoying.",
-          "format_fr": "RÈGLES",
-          "format_en": "RULES",
-          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
-          "illustration_alt_fr": "Des déclencheurs et une cadence qui entretiennent le lead sans le saturer",
-          "illustration_alt_en": "Triggers and a cadence that nurture the lead without overloading it"
-        },
-        {
-          "title_fr": "Tableau de bord du suivi",
-          "title_en": "Follow-up dashboard",
-          "body_fr": "Leads réchauffés, dormants réveillés, retours routés au commercial et taux de réponse par séquence, lus en temps réel.",
-          "body_en": "Warmed leads, dormant woken, returns routed to sales and reply rate per sequence, read in real time.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
-          "illustration_alt_fr": "Un tableau de bord du suivi avec taux de réponse par séquence",
-          "illustration_alt_en": "A follow-up dashboard with reply rate per sequence"
-        },
-        {
-          "title_fr": "Documentation et autonomie",
-          "title_en": "Documentation and autonomy",
-          "body_fr": "Mode opératoire, séquences et déclencheurs documentés, formation : votre équipe pilote le suivi à la livraison.",
-          "body_en": "Operating manual, documented sequences and triggers, training: your team runs the follow-up at delivery.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
-          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur le suivi",
-          "illustration_alt_en": "A documented operating manual to make the team autonomous on follow-up"
-        }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un suivi qui relance et réveille",
-      "h2_en": "The building blocks of follow-up that re-engages and wakes",
-      "lede_fr": "Sept briques, une seule base. On active celles qui servent, quand elles servent. Pas d'envoi de masse qui agace toute votre liste pour rien.",
-      "lede_en": "Seven building blocks, a single base. We activate the ones that serve, when they serve. No mass send that annoys your whole list for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "qualif",
-          "title_fr": "Segmentation",
-          "title_en": "Segmentation",
-          "body_fr": "Contacts triés par maturité, intérêt et statut. Un lead chaud, un tiède et un dormant ne reçoivent pas le même message.",
-          "body_en": "Contacts sorted by maturity, interest and status. A warm, a lukewarm and a dormant lead don't get the same message."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Déclencheurs",
-          "title_en": "Triggers",
-          "body_fr": "La relance part sur un signal, pas sur un calendrier : email rouvert, page de prix visitée, devis laissé en attente.",
-          "body_en": "The follow-up fires on a signal, not a calendar: email reopened, pricing page visited, quote left pending."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "Nurturing",
-          "title_en": "Nurturing",
-          "body_fr": "Des suites de messages qui éduquent et gardent le lead chaud jusqu'à sa décision, sans le harceler.",
-          "body_en": "Series of messages that educate and keep the lead warm until its decision, without hounding it."
-        },
-        {
-          "icon": "design",
-          "title_fr": "Réactivation",
-          "title_en": "Reactivation",
-          "body_fr": "Une campagne qui réveille les dormants de votre base et fait remonter ceux qui répondent vers le commercial.",
-          "body_en": "A campaign that wakes the dormant leads in your base and surfaces the responders back to sales."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Multicanal",
-          "title_en": "Multichannel",
-          "body_fr": "Email en cœur de séquence, LinkedIn et SMS en relance ciblée. On adapte le canal au moment et à la maturité du lead.",
-          "body_en": "Email at the core, LinkedIn and SMS for targeted follow-up. We adapt the channel to the moment and the lead's maturity."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "CRM et handoff",
-          "title_en": "CRM and handoff",
-          "body_fr": "Dès qu'un lead se réchauffe, il sort du flux automatique et le commercial reprend la main. Le statut se réécrit sur la fiche.",
-          "body_en": "As soon as a lead warms up, it leaves the automated flow and the rep takes over. The status rewrites onto the record."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Pilotage",
-          "title_en": "Steering",
-          "body_fr": "Taux de réponse par séquence, dormants réveillés, retours routés : vous mesurez ce que la relance rapporte, pas au ressenti.",
-          "body_en": "Reply rate per sequence, dormant woken, returns routed: you measure what follow-up returns, not on gut feel."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "declinaisons",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système commercial",
-      "kicker_en": "§ The commercial system",
-      "h2_fr": "Le suivi s'assemble au reste du <i>système commercial</i>",
-      "h2_en": "Follow-up assembles into the rest of the <i>commercial system</i>",
-      "lede_fr": "Le suivi ne travaille jamais seul : il reprend les comptes ouverts par la prospection, entretient les leads notés par le CRM et s'inscrit dans le système commercial. Survolez une brique pour voir comment elle se branche.",
-      "lede_en": "Follow-up never works alone: it picks up the accounts prospecting opens, nurtures the leads the CRM scores and sits inside the commercial system. Hover a block to see how it wires in.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Les modèles et les séquences sont dans vos outils, modifiables par votre équipe.",
+      "lead_en": "Templates and sequences sit in your tools, editable by your team.",
       "items": [
         {
-          "label_fr": "Prospection automatisée",
-          "label_en": "Automated prospecting",
-          "meta_fr": "L'outbound qui ouvre les comptes ciblés",
-          "meta_en": "The outbound that opens targeted accounts",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : la prospection qui va chercher les comptes.",
-          "media_alt_en": "A chessboard: the prospecting that goes after accounts.",
-          "link_href": "/services/prospection-automatisee"
+          "title_fr": "Les modèles de devis",
+          "title_en": "Quote templates",
+          "body_fr": "Vos devis standards mis en modèles, avec les règles de calcul écrites.",
+          "body_en": "Your standard quotes as templates, with written calculation rules.",
+          "format_fr": "MODÈLES",
+          "format_en": "MODÈLES"
         },
         {
-          "label_fr": "CRM, scoring et routing",
-          "label_en": "CRM, scoring and routing",
-          "meta_fr": "Le CRM qui note, route et n'oublie aucun lead",
-          "meta_en": "The CRM that scores, routes and drops no lead",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Un tri clair : le CRM qui note et route chaque lead.",
-          "media_alt_en": "A clear sort: the CRM that scores and routes each lead.",
-          "link_href": "/services/crm-scoring-routing"
+          "title_fr": "Les séquences de relance",
+          "title_en": "Follow-up sequences",
+          "body_fr": "Les messages, leur calendrier et leurs conditions d'arrêt.",
+          "body_en": "The messages, their schedule and stop conditions.",
+          "format_fr": "SÉQUENCES",
+          "format_en": "SÉQUENCES"
         },
         {
-          "label_fr": "Système commercial",
-          "label_en": "Commercial system",
-          "meta_fr": "Prospection, CRM et relances orchestrés d'un bloc",
-          "meta_en": "Prospecting, CRM and follow-ups orchestrated as one",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : le système commercial en marche.",
-          "media_alt_en": "A car on the road: the commercial system running.",
-          "link_href": "/services/systeme-commercial"
+          "title_fr": "Le tableau des devis",
+          "title_en": "The quotes dashboard",
+          "body_fr": "Tous les devis en cours, leur statut et la prochaine action.",
+          "body_en": "All open quotes, their status and next action.",
+          "format_fr": "SUIVI",
+          "format_en": "SUIVI"
         },
         {
-          "label_fr": "En amont : le système d'acquisition",
-          "label_en": "Upstream: the acquisition system",
-          "meta_fr": "Le site et le contenu qui remplissent la base",
-          "meta_en": "The site and content that fill the base",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : l'acquisition qui remplit la base en amont.",
-          "media_alt_en": "A craftsman at work: acquisition filling the base upstream.",
-          "link_href": "/services/systeme-acquisition"
+          "title_fr": "La documentation",
+          "title_en": "The documentation",
+          "body_fr": "Comment modifier un message, un délai ou un modèle.",
+          "body_en": "How to change a message, a delay or a template.",
+          "format_fr": "DOC",
+          "format_en": "DOC"
         }
       ]
     },
     {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "Le suivi, de bout en bout",
-      "fig_title_en": "Follow-up, end to end",
-      "meta_fr": "NurtureLoop · v1",
-      "meta_en": "NurtureLoop · v1",
-      "h2_fr": "Comment tout fonctionne ensemble",
-      "h2_en": "How it all works together",
-      "lede_fr": "Les briques ne sont pas des options à la carte. Elles forment un circuit. Chaque maillon transforme un lead qui refroidit en lead réchauffé et rendu au commercial, puis renvoie la réponse à la séquence pour l'affiner.",
-      "lede_en": "The blocks are not options on a menu. They form a circuit. Each link turns a cooling lead into a warmed lead handed back to the rep, then feeds the reply back to the sequence to sharpen it.",
-      "steps": [
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "N'automatisez pas vos devis si",
+      "heading_en": "Do not automate your quotes if",
+      "items": [
         {
-          "title_fr": "Signal",
-          "title_en": "Signal",
-          "desc_fr": "Un lead se refroidit ou rouvre un email, une page de prix, un devis.",
-          "desc_en": "A lead cools or reopens an email, a pricing page, a quote."
+          "label_fr": "Vous envoyez moins de cinq devis par mois : un rappel dans l'agenda suffit.",
+          "label_en": "You send fewer than five quotes a month: a calendar reminder is enough."
         },
         {
-          "title_fr": "Segment",
-          "title_en": "Segment",
-          "desc_fr": "Il est classé par maturité et intérêt, chaud, tiède ou dormant.",
-          "desc_en": "It is sorted by maturity and interest, warm, lukewarm or dormant."
+          "label_fr": "Chaque devis est une étude unique de plusieurs jours.",
+          "label_en": "Every quote is a unique multi-day study."
         },
         {
-          "title_fr": "Séquence",
-          "title_en": "Sequence",
-          "desc_fr": "La bonne relance part, sur le bon canal, à la bonne cadence.",
-          "desc_en": "The right follow-up fires, on the right channel, at the right cadence."
+          "label_fr": "Vos tarifs ne sont écrits nulle part.",
+          "label_en": "Your prices are written nowhere."
         },
         {
-          "title_fr": "Réchauffe",
-          "title_en": "Warm-up",
-          "desc_fr": "Le lead rouvre, clique, répond. Son intérêt remonte, mesuré.",
-          "desc_en": "The lead reopens, clicks, replies. Its interest rises, measured."
-        },
-        {
-          "title_fr": "Handoff · CRM",
-          "title_en": "Handoff · CRM",
-          "desc_fr": "Devenu chaud, il sort du flux et le commercial reprend la main.",
-          "desc_en": "Now warm, it leaves the flow and the rep takes over."
-        },
-        {
-          "title_fr": "Affinage",
-          "title_en": "Refinement",
-          "desc_fr": "La réponse revient à la séquence, qui s'ajuste. La boucle se referme.",
-          "desc_en": "The reply returns to the sequence, which adjusts. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'affinage continu des relances",
-      "loop_label_en": "continuous follow-up refinement loop"
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "apres-lancement",
-      "background": "paper-2",
-      "kicker_fr": "§ Après le lancement",
-      "kicker_en": "§ After launch",
-      "h2_fr": "Les séquences continuent de s'affiner après le lancement",
-      "h2_en": "The sequences keep sharpening after launch",
-      "lede_fr": "Une séquence lancée n'est pas une séquence finie. La plupart des relances automatiques tournent une fois et s'éteignent. Ici, le suivi devient un actif : des messages qui apprennent des réponses, une délivrabilité surveillée, un pilotage temps réel et une autonomie complète sur vos séquences.",
-      "lede_en": "A launched sequence is not a finished sequence. Most automated follow-ups run once and fade. Here, follow-up becomes an asset: messages that learn from replies, monitored deliverability, real-time steering and full autonomy on your sequences.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "Messages qui apprennent",
-          "h3_en": "Messages that learn",
-          "body_fr": "Les réponses réelles disent quel message réchauffe et lequel tombe à plat. On garde ce qui convertit, on réécrit ce qui n'accroche pas, on ajuste les déclencheurs. La séquence suivante entretient mieux que la précédente, mesuré sur vos taux de réponse.",
-          "body_en": "Real replies tell you which message warms and which falls flat. We keep what converts, rewrite what doesn't land, adjust the triggers. The next sequence nurtures better than the last, measured on your reply rates.",
-          "points": [
-            {
-              "label_fr": "Messages gardés sur ce qui convertit",
-              "label_en": "Messages kept on what converts"
-            },
-            {
-              "label_fr": "Déclencheurs ajustés sur les réponses",
-              "label_en": "Triggers adjusted on replies"
-            },
-            {
-              "label_fr": "Cadence affinée à chaque cycle",
-              "label_en": "Cadence sharpened each cycle"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Les messages de relance qui apprennent des réponses réelles, illustration éditoriale",
-          "media_alt_en": "Follow-up messages learning from real replies, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Délivrabilité surveillée",
-          "h3_en": "Deliverability monitored",
-          "body_fr": "Une relance qui finit en spam n'entretient personne. On suit le taux de placement, les désabonnements, la réputation. Une cadence trop lourde fatigue la liste et abîme la marque : on entretient sans harceler, et on ajuste avant que ça dérape.",
-          "body_en": "A follow-up that lands in spam nurtures no one. We track placement rate, unsubscribes, reputation. A cadence too heavy tires the list and hurts the brand: we nurture without hounding, and adjust before it slips.",
-          "points": [
-            {
-              "label_fr": "Placement et désabonnements suivis",
-              "label_en": "Placement and unsubscribes tracked"
-            },
-            {
-              "label_fr": "Cadence qui entretient sans harceler",
-              "label_en": "Cadence that nurtures without hounding"
-            },
-            {
-              "label_fr": "Réputation de la marque protégée",
-              "label_en": "Brand reputation protected"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-11-paper.webp",
-          "media_alt_fr": "La délivrabilité et la fatigue de la liste surveillées en continu, illustration éditoriale",
-          "media_alt_en": "Deliverability and list fatigue monitored continuously, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Pilotage temps réel",
-          "h3_en": "Real-time steering",
-          "body_fr": "Le taux de réponse par séquence, les dormants réveillés, les leads rendus au commercial et les segments qui traînent, lus en temps réel. Vous voyez ce que le suivi rapporte, et vous ajustez les séquences sur des chiffres, pas au ressenti.",
-          "body_en": "The reply rate per sequence, dormant woken, leads handed back to sales and segments lagging, read in real time. You see what follow-up returns, and adjust the sequences on figures, not on gut feel.",
-          "points": [
-            {
-              "label_fr": "Taux de réponse par séquence",
-              "label_en": "Reply rate per sequence"
-            },
-            {
-              "label_fr": "Dormants réveillés et retours routés",
-              "label_en": "Dormant woken and returns routed"
-            },
-            {
-              "label_fr": "Séquences ajustées sur des chiffres",
-              "label_en": "Sequences adjusted on figures"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Un pilotage temps réel du suivi avec taux de réponse par séquence, illustration éditoriale",
-          "media_alt_en": "Real-time follow-up steering with reply rate per sequence, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Autonomie et passation",
-          "h3_en": "Autonomy and handover",
-          "body_fr": "On documente les séquences, les déclencheurs et les segments, et on forme votre équipe : écriture d'une relance, lecture du tableau, gestion des exceptions. Vous gardez les séquences et la main. Pas de captivité : vous les faites évoluer sans dépendre de nous.",
-          "body_en": "We document the sequences, triggers and segments, and train your team: writing a follow-up, reading the dashboard, handling exceptions. You keep the sequences and the control. No lock-in: you evolve them without depending on us.",
-          "points": [
-            {
-              "label_fr": "Séquences et déclencheurs documentés",
-              "label_en": "Documented sequences and triggers"
-            },
-            {
-              "label_fr": "Formation à l'écriture des relances",
-              "label_en": "Training on writing follow-ups"
-            },
-            {
-              "label_fr": "Vous gardez les séquences, zéro captivité",
-              "label_en": "You keep the sequences, zero lock-in"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-10-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour piloter le suivi en autonomie, illustration éditoriale",
-          "media_alt_en": "Handover and team training to run follow-up autonomously, editorial illustration"
+          "label_fr": "Vos clients attendent un appel, pas un email.",
+          "label_en": "Your clients expect a call, not an email."
         }
       ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres et 35 abonnés payants en 3 mois. Une base d'abonnés entretenue par un suivi éditorial régulier, pas une liste laissée dormir.",
-          "impact_en": "Built from scratch: 40 articles, 150 members and 35 paying subscribers in 3 months. A subscriber base nurtured by regular editorial follow-up, not a list left to sleep.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui entretient et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet nurturing and rallying a community of subscribers."
-        },
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "CRM HubSpot · Attribution · GEO",
-          "impact_fr": "Formulaires branchés HubSpot avec attribution des leads : chaque contact entrant qualifié et rattaché à sa source, prêt à entrer dans une séquence de suivi et à être relancé au bon moment.",
-          "impact_en": "HubSpot-connected forms with lead attribution: every inbound contact qualified and tied to its source, ready to enter a follow-up sequence and be re-engaged at the right time.",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et entretient ses leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and nurtures its leads."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %. Une base client saine pour entretenir et relancer les acheteurs.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%. A healthy customer base to nurture and re-engage buyers.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable à la base client saine.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store with a healthy customer base."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
@@ -792,10 +335,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Deux façons de remettre votre suivi au travail",
-      "h2_en": "Two ways to put your follow-up back to work",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : segmentation de la base et première séquence de réveil en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez les séquences, les segments et la base.",
-      "lede_en": "We start with a fixed-price discovery sprint: base segmentation and a first wake-up sequence in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the sequences, the segments and the base.",
+      "h2_fr": "Prix d'un dispositif de devis et de relances",
+      "h2_en": "Price of a quote and follow-up setup",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : segmentation de la base et première séquence de réveil en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez les séquences, les segments et la base.",
+      "lede_en": "We start with a fixed-price discovery sprint: base segmentation and a first wake-up sequence in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the sequences, the segments and the base.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -816,9 +359,9 @@
             "A first deliverable in hand, not a dormant audit"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=sequences-de-suivi&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -831,13 +374,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Nurturing multicanal piloté et itéré",
             "Vous gardez les séquences, les segments et la base"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "Multichannel nurturing steered and iterated",
             "You keep the sequences, the segments and the base"
           ],
@@ -849,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : segmentation de la base et première séquence de réveil, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demande le nurturing multicanal dans la durée, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, les séquences, les segments et la base sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: base segmentation and a first wake-up sequence, with a deliverable in hand by the end. What follows is quoted: we estimate together the time multichannel nurturing requires over time, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No duration commitment, no subscription: at the end, the sequences, the segments and the base are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : segmentation de la base et première séquence de réveil, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demande le nurturing multicanal dans la durée, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, les séquences, les segments et la base sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: base segmentation and a first wake-up sequence, with a deliverable in hand by the end. What follows is quoted: we estimate together the time multichannel nurturing requires over time, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No duration commitment, no subscription: at the end, the sequences, the segments and the base are yours."
     },
     {
       "type": "eeat-panel",
@@ -861,63 +404,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Devis automatisé et relances : vos questions",
+      "h2_en": "Automated quotes and follow-ups: your questions",
       "items": [
         {
-          "q_fr": "Une séquence de suivi, qu'est-ce que ça couvre exactement ?",
-          "q_en": "What does a follow-up sequence cover exactly?",
-          "a_fr": "Une suite de relances automatisées, email et multicanal, déclenchées par le comportement du lead. Un contact qui télécharge un guide, demande un devis puis se tait n'est pas perdu : la séquence l'entretient, lui envoie le bon message au bon moment et le ramène quand il est prêt. Le nurturing garde le lead chaud, la relance réveille le dormant. Sans qu'un commercial ait à y penser.",
-          "a_en": "A series of automated re-engagements, email and multichannel, triggered by the lead's behaviour. A contact who downloads a guide, requests a quote then goes quiet isn't lost: the sequence keeps them engaged, sends the right message at the right time and brings them back when ready. Nurturing keeps the lead warm, re-engagement wakes the dormant one. Without a rep having to think about it."
+          "q_fr": "Combien coûte l'automatisation des devis et des relances ?",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées 99 € HT de l'heure.",
+          "q_en": "How much does it cost to automate quotes and follow-ups?",
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €99 per hour excl. VAT."
         },
         {
-          "q_fr": "En quoi c'est différent d'une newsletter ou d'un mailing de masse ?",
-          "q_en": "How is it different from a newsletter or a mass mailing?",
-          "a_fr": "Une newsletter envoie la même chose à tout le monde, au même moment. Une séquence de suivi est déclenchée par le comportement de chaque lead et personnalisée selon son intérêt : la relance part parce qu'il a rouvert un email, visité une page de prix ou laissé un devis en attente. Pas un envoi de masse, une réponse au bon signal. C'est ce qui fait la différence entre agacer et convertir.",
-          "a_en": "A newsletter sends the same thing to everyone, at the same time. A follow-up sequence is triggered by each lead's behaviour and personalised to their interest: the follow-up fires because they reopened an email, visited a pricing page or left a quote pending. Not a mass send, a response to the right signal. That's the difference between annoying and converting."
+          "q_fr": "Comment relancer un devis sans réponse ?",
+          "a_fr": "Trois messages suffisent : un rappel court après quelques jours, un second qui apporte une information utile (un délai, une référence, une réponse à une objection fréquente), un dernier avant la fin de validité. Au-delà, appelez ou classez le devis.",
+          "q_en": "How do you follow up on an unanswered quote?",
+          "a_en": "Three messages are enough: a short reminder after a few days, a second bringing useful information (a lead time, a reference, an answer to a common objection), a last one before the validity date. Beyond that, call or close the quote."
         },
         {
-          "q_fr": "Combien de temps un lead reste-t-il chaud sans relance ?",
-          "q_en": "How long does a lead stay warm without follow-up?",
-          "a_fr": "Peu. Un lead qui a montré de l'intérêt refroidit vite s'il n'est pas relancé, souvent en quelques jours. La plupart des ventes se jouent au-delà du premier contact, dans les relances. Sans séquence, le commercial relance quand il y pense, c'est-à-dire trop tard ou jamais. Une séquence automatisée relance à la bonne cadence, systématiquement, sans oubli.",
-          "a_en": "Not long. A lead who showed interest cools fast without follow-up, often within days. Most sales happen beyond the first contact, in the follow-ups. Without a sequence, the rep follows up when they remember, which means too late or never. An automated sequence follows up at the right cadence, systematically, with no oversight."
+          "q_fr": "Un devis automatisé part-il sans relecture ?",
+          "a_fr": "Non. Le système prépare le devis et la relance ; le commercial valide chaque envoi. Sur des devis très standards, vous pouvez choisir d'automatiser entièrement les relances, jamais le devis lui-même.",
+          "q_en": "Does an automated quote go out unreviewed?",
+          "a_en": "No. The system prepares the quote and the follow-up; the salesperson approves every send. On very standard quotes, you may choose to fully automate follow-ups, never the quote itself."
         },
         {
-          "q_fr": "Ça réveille vraiment les leads dormants dans ma base ?",
-          "q_en": "Does it really wake dormant leads in my base?",
-          "a_fr": "Oui, c'est même souvent le premier gisement. Votre base contient des contacts qui vous connaissent déjà mais qu'on a laissés dormir : anciens devis, téléchargements, essais abandonnés. Une séquence de réactivation les segmente, leur renvoie un message adapté et fait remonter ceux qui répondent vers le commercial. On travaille d'abord ce que vous avez déjà payé pour acquérir.",
-          "a_en": "Yes, and it's often the first goldmine. Your base holds contacts who already know you but were left to sleep: old quotes, downloads, abandoned trials. A re-engagement sequence segments them, sends a fitting message and surfaces the responders back to sales. We first work what you already paid to acquire."
+          "q_fr": "Combien de temps pour mettre en place des relances automatiques ?",
+          "a_fr": "Habituellement 2 à 4 semaines pour une première séquence. La génération automatique du devis prend plus de temps si votre grille tarifaire comporte beaucoup de cas particuliers.",
+          "q_en": "How long does it take to set up automatic follow-ups?",
+          "a_en": "Usually 2 to 4 weeks for a first sequence. Automatic quote generation takes longer if your price grid has many special cases."
         },
         {
-          "q_fr": "Sur quels canaux les relances partent-elles ?",
-          "q_en": "Which channels do the follow-ups run on?",
-          "a_fr": "Email en cœur de séquence, LinkedIn et SMS en relance ciblée quand le canal le justifie. On active ce qui correspond à votre cible et à la maturité du lead, pas tous les canaux par défaut. Un lead chaud mérite une relance directe ; un lead tiède, un contenu qui l'éduque. La séquence adapte le canal au moment.",
-          "a_en": "Email at the core of the sequence, LinkedIn and SMS for targeted follow-up when the channel justifies it. We activate what fits your target and the lead's maturity, not every channel by default. A hot lead deserves a direct follow-up; a lukewarm one, content that educates. The sequence adapts the channel to the moment."
+          "q_fr": "Relances automatiques et RGPD : est-ce autorisé ?",
+          "a_fr": "Relancer un client à propos d'un devis qu'il a demandé relève de la relation commerciale en cours. Il faut conserver un historique, permettre au client de demander l'arrêt des messages et ne pas réutiliser ses coordonnées pour un autre objet sans base légale.",
+          "q_en": "Automatic follow-ups and GDPR: is it allowed?",
+          "a_en": "Following up with a client about a quote they requested is part of the ongoing business relationship. Keep a history, let the client ask for messages to stop, and do not reuse their details for another purpose without a legal basis."
         },
         {
-          "q_fr": "Ça se branche à mon CRM et à mes outils existants ?",
-          "q_en": "Does it connect to my existing CRM and tools?",
-          "a_fr": "Oui : HubSpot et Pipedrive en priorité, en intégration native. La séquence lit les signaux remontés par votre site, vos formulaires et votre CRM, déclenche la bonne relance et réécrit le statut sur la fiche. Votre équipe ne change pas d'interface : elle voit juste les leads se réchauffer et remonter. Pour un autre outil, on évalue au cadrage.",
-          "a_en": "Yes: HubSpot and Pipedrive first, native integration. The sequence reads the signals from your site, forms and CRM, triggers the right follow-up and rewrites the status on the record. Your team doesn't change interface: they just see leads warm up and surface. For another tool, we assess at scoping."
-        },
-        {
-          "q_fr": "Le commercial garde-t-il la main sur les relances ?",
-          "q_en": "Does the rep keep control of the follow-ups?",
-          "a_fr": "Oui. La séquence automatise le suivi, mais elle sort le lead du flux automatique dès qu'il répond ou se réchauffe assez : à ce moment, le commercial reprend la main pour un contact humain. L'automatisation entretient et trie, l'humain conclut. On ne remplace pas la relation commerciale, on lui évite de laisser filer les leads faute de temps.",
-          "a_en": "Yes. The sequence automates the follow-up, but it pulls the lead out of the automated flow the moment they reply or warm up enough: at that point, the rep takes over for a human contact. Automation nurtures and sorts, the human closes. We don't replace the sales relationship, we stop it from losing leads for lack of time."
-        },
-        {
-          "q_fr": "Combien de temps avant de voir des effets ?",
-          "q_en": "How long before you see effects?",
-          "a_fr": "Les premières relances de réactivation partent en quelques semaines, une fois la base segmentée et les messages écrits. Les effets se voient d'abord sur les leads dormants réveillés, puis sur les nouveaux leads mieux entretenus. On cadre des attentes réalistes avant de signer : une séquence se rode sur les réponses réelles, elle ne convertit pas au premier envoi.",
-          "a_en": "The first re-engagement follow-ups go out within a few weeks, once the base is segmented and the messages written. Effects show first on dormant leads woken up, then on new leads better nurtured. We set realistic expectations before signing: a sequence is tuned on real replies, it doesn't convert on the first send."
-        },
-        {
-          "q_fr": "Combien coûtent des séquences de suivi ?",
-          "q_en": "How much do follow-up sequences cost?",
-          "a_fr": "Deux façons d'engager. On démarre par un sprint découverte de 10 heures à 999 € HT : segmentation de la base et première séquence de réveil, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans engagement de durée : à la fin, les séquences, les segments et la base sont à vous.",
-          "a_en": "Two ways to engage. We start with a 10-hour discovery sprint at 999 € ex VAT: base segmentation and a first wake-up sequence, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No duration commitment: at the end, the sequences, the segments and the base are yours."
+          "q_fr": "Peut-on aussi relancer les factures impayées ?",
+          "a_fr": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier.",
+          "q_en": "Can unpaid invoices be chased too?",
+          "a_en": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step."
         }
       ]
     },
@@ -928,22 +453,22 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à relancer ?",
-      "kicker_en": "§ Ready to follow up?",
-      "h2_fr": "Transformez votre suivi en machine à réchauffer.",
-      "h2_en": "Turn your follow-up into a warming machine.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec un plan de suivi clair, qu'on travaille ensemble ou non. En face, un interlocuteur unique, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with a clear follow-up plan, whether we work together or not. Across the table, a single contact, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de devis attendent une relance chez vous ?",
+      "h2_en": "How many quotes are waiting for a follow-up in your company?",
+      "subtitle_fr": "En 45 minutes, on regarde comment vos devis sont produits et suivis, et on vous dit ce qui s'automatise sans dégrader la relation client.",
+      "subtitle_en": "In 45 minutes, we look at how your quotes are produced and followed, and tell you what can be automated without harming the customer relationship.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=sequences-de-suivi&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir le CRM, scoring et routing",
-          "label_en": "See CRM, scoring and routing",
+          "label_fr": "Automatisation CRM",
+          "label_en": "CRM automation",
           "href": "/services/crm-scoring-routing",
           "variant": "ghost"
         }
