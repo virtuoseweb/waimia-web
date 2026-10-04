@@ -75,62 +75,48 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "statement-orbit",
-        "label": "Un chatbot vitrine parle. Un agent exécute, dans vos outils, et rend compte."
-      },
-      {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi le répétitif vous coûte cher",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un agent change l'équation",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "feature-grid",
-        "label": "Ce qu'un agent exécute chez vous",
+        "type": "comparison-duo",
+        "label": "Exemple type : la boîte contact@ d'une PME de services",
         "background": "paper"
       },
       {
-        "type": "hover-reveal-list",
-        "label": "Autour de l'agent, le reste du système",
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "sticky-scroll-storytelling",
-        "label": "Du cadrage à l'agent en production",
+        "type": "decision-list",
+        "label": "Un agent IA n'est pas la bonne réponse si",
         "background": "paper"
       },
       {
-        "type": "case-card-grid",
-        "label": "Des agents tenus sur le terrain",
-        "background": "ink"
-      },
-      {
         "type": "pricing-cards",
-        "label": "Une offre, deux manières d'avancer",
+        "label": "Combien coûte un agent IA",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Agents IA : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Confiez vos tâches répétitives à un agent qui exécute.",
+        "label": "Quelle tâche confieriez-vous à un agent ?",
         "background": "ink"
       }
     ]
@@ -154,87 +140,48 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "statement-orbit",
-        "label": "Un chatbot vitrine parle. Un agent de support répond, agit dans vos outils, et vous passe la main quand il faut."
-      },
-      {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Le support qu'un agent soulage.",
-        "background": "ink"
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
       },
       {
         "type": "comparison-duo",
-        "label": "Pourquoi un agent change le support",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un support assisté",
-        "background": "paper-3"
+        "label": "Exemple type : le SAV d'un distributeur B2B",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qu'on met en production",
-        "background": "paper"
-      },
-      {
-        "type": "logo-marquee",
-        "label": "Les outils qu'on branche à votre agent de support",
-        "background": "ink"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Ce qu'un agent de support exécute chez vous",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "L'agent de support ouvre sur le système",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "system-flow",
-        "label": "Comment un agent de support répond vraiment",
-        "background": "ink"
-      },
-      {
-        "type": "sticky-scroll-storytelling",
-        "label": "Du cadrage à l'agent de support en production",
+        "type": "decision-list",
+        "label": "Un chatbot de support n'est pas utile si",
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "L'agent de support continue de rendre du temps après son déploiement",
-        "background": "paper-2"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Des agents tenus sur le terrain",
-        "background": "ink"
-      },
-      {
         "type": "pricing-cards",
-        "label": "Une offre, deux manières d'avancer",
+        "label": "Prix d'un chatbot de service client",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#16",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Chatbot et agent de service client : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Confiez le support récurrent à un agent qui répond.",
+        "label": "Combien de demandes identiques recevez-vous chaque semaine ?",
         "background": "ink"
       }
     ]
@@ -259,43 +206,28 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vos outils maison vous freinent",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un outil sur mesure change l'équation",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un outil métier interne",
-        "background": "paper-3"
+        "type": "comparison-duo",
+        "label": "Exemple type : le suivi d'interventions d'une entreprise de maintenance",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un outil interne solide",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "L'outil interne est une brique du système",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
+        "type": "decision-list",
+        "label": "Ne faites pas développer d'application si",
+        "background": "paper"
       },
       {
         "type": "pricing-cards",
@@ -304,17 +236,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Application métier sur mesure : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Donnez à votre métier l'outil qu'il mérite.",
+        "label": "Quel tableur fait office de logiciel chez vous ?",
         "background": "ink"
       }
     ]
@@ -338,62 +270,53 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "statement-orbit",
-        "label": "Un process manuel tient sur une personne. Une automatisation tient toute seule, tourne la nuit et ne se trompe pas de copier-coller."
-      },
-      {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vos équipes perdent leurs journées",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un process automatisé change l'équation",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "feature-grid",
-        "label": "Les briques d'une automatisation qui tient",
+        "type": "comparison-duo",
+        "label": "Exemple type : la demande de devis reçue par formulaire",
         "background": "paper"
       },
       {
-        "type": "hover-reveal-list",
-        "label": "L'automatisation est une brique du système",
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "sticky-scroll-storytelling",
-        "label": "Comment on travaille ensemble",
+        "type": "decision-list",
+        "label": "N'automatisez pas si",
         "background": "paper"
       },
       {
         "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
+        "label": "Deux projets où la saisie manuelle a disparu",
         "background": "ink"
       },
       {
         "type": "pricing-cards",
-        "label": "Une offre, deux manières d'avancer",
+        "label": "Combien coûte l'automatisation d'un processus",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#9",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Automatisation des processus : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Rendez à vos équipes les heures que la saisie leur prend.",
+        "label": "Quel process vous coûte le plus d'heures chaque semaine ?",
         "background": "ink"
       }
     ]
@@ -417,87 +340,48 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "statement-orbit",
-        "label": "Avec Zapier on construit vite. Avec n8n on construit large, et le workflow devient un actif métier, pas une recette jetable."
-      },
-      {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Le moment où on passe à n8n.",
-        "background": "ink"
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
       },
       {
         "type": "comparison-duo",
-        "label": "Deux façons d'automatiser, deux coûts d'ownership",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'automatisation avec n8n",
-        "background": "paper-3"
+        "label": "Exemple type : les factures fournisseurs reçues par email",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "logo-marquee",
-        "label": "Les outils qu'on orchestre dans n8n",
-        "background": "ink"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un workflow n8n qui tient",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "n8n est une brique du système",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "system-flow",
-        "label": "Comment un workflow n8n s'exécute",
-        "background": "ink"
-      },
-      {
-        "type": "sticky-scroll-storytelling",
-        "label": "Comment on travaille votre n8n",
+        "type": "decision-list",
+        "label": "n8n n'est pas le bon choix si",
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "n8n par défaut, Zapier quand il suffit",
-        "background": "paper-2"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
         "type": "pricing-cards",
-        "label": "Une offre, deux manières d'avancer",
+        "label": "Prix d'une prestation n8n",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#16",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Agence n8n : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Faites de n8n votre socle d'automatisation.",
+        "label": "Un premier workflow n8n en production, sur votre serveur.",
         "background": "ink"
       }
     ]
@@ -522,43 +406,28 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Là où une décision IA se grippe.",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un cadrage tranché change la décision",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'une décision IA",
-        "background": "paper-3"
+        "type": "comparison-duo",
+        "label": "Exemple type : une PME de négoce de 60 personnes",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qu'on dépose chez vous",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Quatre décisions avant la moindre ligne de code",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Une fois tranché, le chantier bascule à l'exécution",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "case-card-grid",
-        "label": "Décisions tenues sur le terrain",
-        "background": "ink"
+        "type": "decision-list",
+        "label": "Vous n'avez pas besoin d'un consultant IA si",
+        "background": "paper"
       },
       {
         "type": "pricing-cards",
@@ -567,17 +436,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper"
+        "label": "Consultant IA : vos questions",
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Sortez de l'hésitation, tracez votre trajectoire IA.",
+        "label": "Par quoi commencer, et que laisser de côté ?",
         "background": "ink"
       }
     ]
@@ -602,72 +471,52 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre CRM sans scoring laisse filer des ventes",
-        "background": "ink"
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
       },
       {
         "type": "comparison-duo",
-        "label": "Racheter un CRM de plus, ou activer celui que vous avez",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un CRM",
-        "background": "paper-3"
+        "label": "Exemple type : les demandes entrantes d'une PME industrielle",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un CRM qui note et route",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Le CRM s'assemble au reste du système commercial",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "system-flow",
-        "label": "Comment tout fonctionne ensemble",
-        "background": "ink"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "Le CRM continue de s'affiner après le branchement",
-        "background": "paper-2"
+        "type": "decision-list",
+        "label": "N'automatisez pas votre CRM si",
+        "background": "paper"
       },
       {
         "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
+        "label": "Deux projets où la saisie manuelle a disparu",
         "background": "ink"
       },
       {
         "type": "pricing-cards",
-        "label": "Deux façons de remettre votre CRM au travail",
+        "label": "Prix d'une automatisation CRM",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#13",
+        "label": "#9",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Automatisation CRM : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Transformez votre CRM en machine à prioriser.",
+        "label": "Combien de demandes se perdent avant d'atteindre un commercial ?",
         "background": "ink"
       }
     ]
@@ -691,62 +540,48 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "statement-orbit",
-        "label": "Un tableur de reporting fige la photo d'hier. Un socle de données rassemble tout, fixe une définition et se met à jour tout seul."
-      },
-      {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vous décidez sans y voir clair",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi une donnée centralisée change l'équation",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "feature-grid",
-        "label": "Les briques d'un reporting automatisé qui tient",
+        "type": "comparison-duo",
+        "label": "Exemple type : le reporting mensuel d'une PME de services",
         "background": "paper"
       },
       {
-        "type": "hover-reveal-list",
-        "label": "Le reporting est une brique du système",
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "sticky-scroll-storytelling",
-        "label": "Comment on travaille ensemble",
+        "type": "decision-list",
+        "label": "Ne lancez pas ce chantier si",
         "background": "paper"
       },
       {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
         "type": "pricing-cards",
-        "label": "Une offre, deux manières d'avancer",
+        "label": "Prix d'un tableau de bord automatisé",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Tableau de bord et reporting automatisé : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Décidez sur des chiffres à jour, pas au doigt mouillé.",
+        "label": "Combien de jours par mois passez-vous à compiler des chiffres ?",
         "background": "ink"
       }
     ]
@@ -771,48 +606,28 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre IA ne produit rien",
-        "background": "ink"
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
       },
       {
         "type": "comparison-duo",
-        "label": "Du POC qui dort à l'agent en production",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux de maturité IA",
-        "background": "paper-3"
+        "label": "Exemple type : un bureau d'études de 40 personnes",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qu'on dépose chez vous",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Déployer Claude dans votre entreprise",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Claude ou ChatGPT pour votre entreprise",
-        "background": "paper-2"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Cinq portes vers le même système",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
+        "type": "decision-list",
+        "label": "Ne déployez pas Claude si",
+        "background": "paper"
       },
       {
         "type": "pricing-cards",
@@ -821,17 +636,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#12",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Claude en entreprise : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Mettez votre premier agent en production ce trimestre",
+        "label": "Claude est déjà utilisé chez vous. Reste à l'encadrer.",
         "background": "ink"
       }
     ]
@@ -856,62 +671,47 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre trafic ne devient pas du business",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un tunnel instrumenté change l'équation",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un tunnel de conversion",
-        "background": "paper-3"
+        "type": "comparison-duo",
+        "label": "Exemple type : la page d'offre d'un organisme de formation",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qu'on branche chez vous",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Une landing page ne changera rien si",
         "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un tunnel qui convertit",
-        "background": "paper"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment tout fonctionne ensemble",
-        "background": "ink"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Leads mieux captés sur le terrain",
-        "background": "ink"
       },
       {
         "type": "pricing-cards",
-        "label": "Deux façons de faire convertir votre trafic",
+        "label": "Prix d'une landing page et d'un tunnel",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Landing pages et tunnels : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Transformez le trafic en leads qualifiés et priorisés.",
+        "label": "Le problème vient-il de la page, ou de ce qui suit ?",
         "background": "ink"
       }
     ]
@@ -936,58 +736,28 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "feature-grid",
-        "label": "Prospection B2B et RGPD : ce que la loi autorise vraiment",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre prospection outbound ne remplit pas le pipeline",
-        "background": "ink"
       },
       {
         "type": "comparison-duo",
-        "label": "Pourquoi une prospection instrumentée change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'une prospection",
-        "background": "paper-3"
+        "label": "Exemple type : un éditeur de logiciel B2B sans équipe de prospection",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques de la prospection automatisée",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "La prospection s'assemble au reste du système commercial",
+        "label": "Ce qui vous reste si vous arrêtez",
         "background": "paper-3"
       },
       {
-        "type": "system-flow",
-        "label": "Comment tout fonctionne ensemble",
-        "background": "ink"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "La séquence continue de s'affiner après le lancement",
-        "background": "paper-2"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
+        "type": "decision-list",
+        "label": "La prospection automatisée ne convient pas si",
+        "background": "paper"
       },
       {
         "type": "pricing-cards",
@@ -996,17 +766,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#14",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Prospection automatisée : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Transformez votre prospection en machine à rendez-vous.",
+        "label": "Votre prospection s'arrête-t-elle quand vous êtes occupés ?",
         "background": "ink"
       }
     ]
@@ -1031,62 +801,52 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre contenu ne rapporte rien",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un contenu structuré change l'équation",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux de visibilité SEO et GEO",
-        "background": "paper-3"
+        "type": "comparison-duo",
+        "label": "Exemple type : la page service d'une PME de maintenance",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
       },
       {
-        "type": "feature-grid",
-        "label": "Les briques d'une machine éditoriale",
+        "type": "decision-list",
+        "label": "Ce n'est pas le bon investissement si",
         "background": "paper"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment tout fonctionne ensemble",
-        "background": "ink"
       },
       {
         "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
+        "label": "Trois projets de ce volet",
         "background": "ink"
       },
       {
         "type": "pricing-cards",
-        "label": "Deux façons de lancer votre machine éditoriale",
+        "label": "Prix d'une prestation SEO et GEO",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#9",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "SEO et GEO : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Visible sur Google, durablement.",
+        "label": "Vos pages répondent-elles aux questions de vos clients ?",
         "background": "ink"
       }
     ]
@@ -1111,72 +871,47 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vos leads chauds refroidissent faute de nurturing",
-        "background": "ink"
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
       },
       {
         "type": "comparison-duo",
-        "label": "Une newsletter de plus, ou un nurturing déclenché par le comportement",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un suivi",
-        "background": "paper-3"
+        "label": "Exemple type : les devis d'une entreprise du bâtiment",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un suivi qui relance et réveille",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Le suivi s'assemble au reste du système commercial",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
-        "type": "system-flow",
-        "label": "Comment tout fonctionne ensemble",
-        "background": "ink"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "Les séquences continuent de s'affiner après le lancement",
-        "background": "paper-2"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
+        "type": "decision-list",
+        "label": "N'automatisez pas vos devis si",
+        "background": "paper"
       },
       {
         "type": "pricing-cards",
-        "label": "Deux façons de remettre votre suivi au travail",
+        "label": "Prix d'un dispositif de devis et de relances",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#13",
+        "label": "#8",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Devis automatisé et relances : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Transformez votre suivi en machine à réchauffer.",
+        "label": "Combien de devis attendent une relance chez vous ?",
         "background": "ink"
       }
     ]
@@ -1201,42 +936,32 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Votre site est joli, et il ne vend rien ?",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Ce qu'un builder IA ne fait pas",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un site web intelligent",
-        "background": "paper-3"
+        "type": "comparison-duo",
+        "label": "Exemple type : le site d'un cabinet de conseil",
+        "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un site web intelligent",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Quatre déclinaisons, une même base",
+        "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
       },
       {
+        "type": "decision-list",
+        "label": "Ne nous confiez pas votre site si",
+        "background": "paper"
+      },
+      {
         "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
+        "label": "Trois projets de ce volet",
         "background": "ink"
       },
       {
@@ -1246,17 +971,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#9",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Création de site internet : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Transformez votre site en machine à qualifier.",
+        "label": "Que devient une demande après le formulaire ?",
         "background": "ink"
       }
     ]
@@ -1840,7 +1565,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/batiment",
-    "title": "Site web et visibilité locale pour le bâtiment : transformer les appels en devis signés",
+    "title": "IA et automatisation pour le bâtiment : demandes triées, devis le jour même",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/batiment.json",
@@ -1867,7 +1592,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/e-commerce",
-    "title": "Site e-commerce et IA taillé pour la conversion : convertir au lieu de subir les paniers abandonnés",
+    "title": "IA et automatisation pour l'e-commerce : commandes, support et catalogue",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/e-commerce.json",
@@ -1903,7 +1628,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/liberal-independant",
-    "title": "Site web et référencement pour libéraux et indépendants : être trouvé et choisi avant le premier contact",
+    "title": "IA et automatisation pour professions libérales : moins d'administratif",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/liberal-independant.json",
@@ -1921,7 +1646,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/startup-logiciel",
-    "title": "Site web et IA pour startup et éditeur logiciel : capter les visiteurs qui partent sans formulaire",
+    "title": "IA et automatisation pour éditeurs de logiciel : demandes routées, support outillé",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/startup-logiciel.json",
@@ -1930,7 +1655,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/therapeutes",
-    "title": "Site web pour thérapeutes et praticiens bien-être : être trouvé sans dépendre des plateformes",
+    "title": "Site et prise de rendez-vous pour thérapeutes et praticiens",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/therapeutes.json",
@@ -1947,7 +1672,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/amploi",
-    "title": "Amploi : site marketing IA-ready et orienté conversion",
+    "title": "Amploi : site marketing, CRM HubSpot et couche GEO",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/amploi.json",
@@ -2000,7 +1725,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/centraliser-donnees",
-    "title": "Centraliser ses données · des outils qui se parlent enfin",
+    "title": "Centraliser ses données et automatiser le reporting · Waimia",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/centraliser-donnees.json",
@@ -2008,28 +1733,18 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Centraliser ses données.",
+        "label": "Centraliser ses données et automatiser le reporting",
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Là où la donnée se perd",
+        "type": "editorial-prose",
+        "label": "#1",
         "background": "paper-2"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "Connecter, pas tout remplacer",
-        "background": "paper"
-      },
-      {
-        "type": "bento-grid",
-        "label": "Les briques qui relient vos outils",
-        "background": "ink"
       },
       {
         "type": "comparison-duo",
-        "label": "Du vide entre les outils à la donnée fluide",
-        "background": "paper-2"
+        "label": "Exemple type : le comité de direction mensuel d'une PME",
+        "background": "paper"
       },
       {
         "type": "author-byline",
@@ -2038,24 +1753,24 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "related-cards-band",
-        "label": "Un cas réel",
+        "label": "Pour aller plus loin",
         "background": "paper-2"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Centraliser ses données : vos questions",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Faites circuler vos données au lieu de les recopier.",
+        "label": "Combien de versions du même chiffre circulent chez vous ?",
         "background": "ink"
       }
     ]
   },
   {
     "route": "/cas-usages/generer-plus-de-leads",
-    "title": "Générer plus de leads · transformer son site en machine à qualifier",
+    "title": "Automatiser le suivi commercial d'une PME · Waimia",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/generer-plus-de-leads.json",
@@ -2063,28 +1778,18 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Générer plus de leads.",
+        "label": "Automatiser le suivi commercial",
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Là où les leads fuient",
+        "type": "editorial-prose",
+        "label": "#1",
         "background": "paper-2"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "Une chaîne de conversion sans fuite",
-        "background": "paper"
-      },
-      {
-        "type": "bento-grid",
-        "label": "Les briques qui captent vos leads",
-        "background": "ink"
       },
       {
         "type": "comparison-duo",
-        "label": "Du trafic perdu au lead qualifié",
-        "background": "paper-2"
+        "label": "Exemple type : une PME de services aux entreprises",
+        "background": "paper"
       },
       {
         "type": "author-byline",
@@ -2093,17 +1798,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "related-cards-band",
-        "label": "Un cas réel",
+        "label": "Pour aller plus loin",
         "background": "paper-2"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Automatiser le suivi commercial : vos questions",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Arrêtez de perdre le trafic que vous payez déjà.",
+        "label": "Où vos demandes attendent-elles ?",
         "background": "ink"
       }
     ]
@@ -2220,7 +1925,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/standardiser-processus",
-    "title": "Standardiser ses processus · une qualité constante, sans dépendre des personnes",
+    "title": "Automatiser les tâches administratives d'une PME · Waimia",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/standardiser-processus.json",
@@ -2228,28 +1933,18 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Standardiser ses processus.",
+        "label": "Automatiser les tâches administratives",
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Là où le savoir-faire se fragilise",
+        "type": "editorial-prose",
+        "label": "#1",
         "background": "paper-2"
-      },
-      {
-        "type": "steps-horizontal",
-        "label": "Comprendre, simplifier, formaliser, outiller",
-        "background": "paper"
-      },
-      {
-        "type": "bento-grid",
-        "label": "Les briques qui ancrent vos standards",
-        "background": "ink"
       },
       {
         "type": "comparison-duo",
-        "label": "De la dépendance à un système qui tient",
-        "background": "paper-2"
+        "label": "Exemple type : l'ouverture d'un dossier client dans un cabinet",
+        "background": "paper"
       },
       {
         "type": "author-byline",
@@ -2258,17 +1953,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "related-cards-band",
-        "label": "Un cas réel",
+        "label": "Pour aller plus loin",
         "background": "paper-2"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Automatiser l'administratif : vos questions",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Transformez un savoir-faire fragile en système qui tient.",
+        "label": "Quelle procédure ne tient que sur une personne ?",
         "background": "ink"
       }
     ]
@@ -2517,17 +2212,17 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-table",
-        "label": "Claude vs ChatGPT, point par point",
+        "label": "Claude vs ChatGPT : ce qui est vérifiable",
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Ce que chacun fait vraiment bien",
+        "type": "editorial-prose",
+        "label": "#3",
         "background": "paper-2"
       },
       {
         "type": "decision-list",
-        "label": "Choisir selon votre besoin",
+        "label": "Choisir selon votre situation",
         "background": "paper"
       },
       {
@@ -2537,12 +2232,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Claude vs ChatGPT : vos questions",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Le bon outil dépend de votre cas, pas d'un classement.",
+        "label": "L'outil compte moins que le cadre.",
         "background": "ink"
       }
     ]
@@ -2949,7 +2644,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "feature-zigzag",
-        "label": "Là où Claude paie le plus vite",
+        "label": "Les cinq usages par lesquels commencer",
         "background": "paper-2"
       },
       {
@@ -3035,7 +2730,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
-    "title": "Automatiser les relances B2B sans SDR",
+    "title": "Automatiser les relances B2B sans commercial dédié",
     "group": "blog",
     "collection": "blog",
     "file": "blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil.json",

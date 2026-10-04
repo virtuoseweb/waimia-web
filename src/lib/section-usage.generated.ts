@@ -34,13 +34,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "bento-grid": {
-    "count": 5,
+    "count": 2,
     "pages": [
-      "/cas-usages/centraliser-donnees",
-      "/cas-usages/generer-plus-de-leads",
       "/cas-usages/reduire-reporting",
-      "/cas-usages/reduire-temps-cms",
-      "/cas-usages/standardiser-processus"
+      "/cas-usages/reduire-temps-cms"
     ]
   },
   "bordered-pullquote": {
@@ -57,26 +54,16 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 40,
+    "count": 30,
     "pages": [
       "/lp/hub",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
-      "/services/agent-support-client",
-      "/services/agents-ia",
-      "/services/applications-internes",
-      "/services/automatisation-n8n",
       "/services/automatisations",
-      "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
-      "/services/donnees-reporting",
-      "/services/integration-claude",
-      "/services/landing-pages-tunnels",
-      "/services/prospection-automatisee",
       "/services/seo-geo-contenu",
-      "/services/sequences-de-suivi",
       "/services/site-web-ia",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
@@ -217,7 +204,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 14,
+    "count": 28,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -232,6 +219,20 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides/claude-pme",
+      "/services/agent-support-client",
+      "/services/agents-ia",
+      "/services/applications-internes",
+      "/services/automatisation-n8n",
+      "/services/automatisations",
+      "/services/consultant-ia-claude",
+      "/services/crm-scoring-routing",
+      "/services/donnees-reporting",
+      "/services/integration-claude",
+      "/services/landing-pages-tunnels",
+      "/services/prospection-automatisee",
+      "/services/seo-geo-contenu",
+      "/services/sequences-de-suivi",
+      "/services/site-web-ia",
       "src/content/demonstrations/integration-claude.json"
     ]
   },
@@ -270,7 +271,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 32,
+    "count": 35,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -279,10 +280,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
       "/services/agent-support-client",
+      "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisation-n8n",
+      "/services/automatisations",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
+      "/services/donnees-reporting",
       "/services/integration-claude",
       "/services/landing-pages-tunnels",
       "/services/prospection-automatisee",
@@ -371,8 +375,26 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 1,
+    "count": 19,
     "pages": [
+      "/cas-usages/centraliser-donnees",
+      "/cas-usages/generer-plus-de-leads",
+      "/cas-usages/standardiser-processus",
+      "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/services/agent-support-client",
+      "/services/agents-ia",
+      "/services/applications-internes",
+      "/services/automatisation-n8n",
+      "/services/automatisations",
+      "/services/consultant-ia-claude",
+      "/services/crm-scoring-routing",
+      "/services/donnees-reporting",
+      "/services/integration-claude",
+      "/services/landing-pages-tunnels",
+      "/services/prospection-automatisee",
+      "/services/seo-geo-contenu",
+      "/services/sequences-de-suivi",
+      "/services/site-web-ia",
       "secteurs/[...slug]"
     ]
   },
@@ -480,25 +502,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 36,
+    "count": 20,
     "pages": [
       "/lp/hub",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
-      "/services/agent-support-client",
-      "/services/agents-ia",
-      "/services/applications-internes",
-      "/services/automatisation-n8n",
-      "/services/automatisations",
-      "/services/consultant-ia-claude",
-      "/services/crm-scoring-routing",
-      "/services/donnees-reporting",
-      "/services/integration-claude",
-      "/services/landing-pages-tunnels",
-      "/services/prospection-automatisee",
-      "/services/seo-geo-contenu",
-      "/services/sequences-de-suivi",
-      "/services/site-web-ia",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "src/content/services/applications-internes/mvp-saas.json",
@@ -527,31 +535,22 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-zigzag": {
-    "count": 33,
+    "count": 22,
     "pages": [
       "/audit-site-web-intelligent",
-      "/cas-usages/centraliser-donnees",
-      "/cas-usages/generer-plus-de-leads",
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
-      "/cas-usages/standardiser-processus",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
       "/implantations/montpellier",
       "/ressources/comparatifs/claude-code-vs-cursor",
-      "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/guides/claude-pme",
-      "/services/agent-support-client",
-      "/services/automatisation-n8n",
-      "/services/crm-scoring-routing",
-      "/services/prospection-automatisee",
-      "/services/sequences-de-suivi",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
@@ -776,20 +775,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hover-reveal-list": {
-    "count": 22,
+    "count": 10,
     "pages": [
-      "/services/agent-support-client",
-      "/services/agents-ia",
-      "/services/applications-internes",
-      "/services/automatisation-n8n",
-      "/services/automatisations",
-      "/services/consultant-ia-claude",
-      "/services/crm-scoring-routing",
-      "/services/donnees-reporting",
-      "/services/integration-claude",
-      "/services/prospection-automatisee",
-      "/services/sequences-de-suivi",
-      "/services/site-web-ia",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
       "src/content/services/applications-internes/mvp-saas.json",
@@ -814,13 +801,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/components/templates/AuthorPageTemplate.astro"
     ]
   },
-  "logo-marquee": {
-    "count": 2,
-    "pages": [
-      "/services/agent-support-client",
-      "/services/automatisation-n8n"
-    ]
-  },
   "manifesto-statement": {
     "count": 1,
     "pages": [
@@ -841,23 +821,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "method-stepline": {
-    "count": 29,
+    "count": 18,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
-      "/services/agent-support-client",
-      "/services/applications-internes",
-      "/services/automatisation-n8n",
-      "/services/consultant-ia-claude",
-      "/services/crm-scoring-routing",
-      "/services/integration-claude",
-      "/services/landing-pages-tunnels",
-      "/services/prospection-automatisee",
-      "/services/seo-geo-contenu",
-      "/services/sequences-de-suivi",
-      "/services/site-web-ia",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "src/content/services/applications-internes/mvp-saas.json",
@@ -911,25 +880,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 31,
+    "count": 17,
     "pages": [
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
-      "/services/agent-support-client",
-      "/services/agents-ia",
-      "/services/applications-internes",
-      "/services/automatisation-n8n",
-      "/services/automatisations",
-      "/services/consultant-ia-claude",
-      "/services/crm-scoring-routing",
-      "/services/donnees-reporting",
-      "/services/integration-claude",
-      "/services/landing-pages-tunnels",
-      "/services/prospection-automatisee",
-      "/services/seo-geo-contenu",
-      "/services/sequences-de-suivi",
-      "/services/site-web-ia",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "src/content/services/applications-internes/mvp-saas.json",
@@ -1148,16 +1103,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/pages/index.astro"
     ]
   },
-  "statement-orbit": {
-    "count": 5,
-    "pages": [
-      "/services/agent-support-client",
-      "/services/agents-ia",
-      "/services/automatisation-n8n",
-      "/services/automatisations",
-      "/services/donnees-reporting"
-    ]
-  },
   "stats-bento": {
     "count": 1,
     "pages": [
@@ -1165,37 +1110,19 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "steps-horizontal": {
-    "count": 3,
+    "count": 2,
     "pages": [
       "/cas-usages/reduire-reporting",
-      "/cas-usages/reduire-temps-cms",
-      "/cas-usages/standardiser-processus"
-    ]
-  },
-  "sticky-scroll-storytelling": {
-    "count": 5,
-    "pages": [
-      "/services/agent-support-client",
-      "/services/agents-ia",
-      "/services/automatisation-n8n",
-      "/services/automatisations",
-      "/services/donnees-reporting"
+      "/cas-usages/reduire-temps-cms"
     ]
   },
   "system-flow": {
-    "count": 20,
+    "count": 13,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
-      "/services/agent-support-client",
-      "/services/automatisation-n8n",
-      "/services/crm-scoring-routing",
-      "/services/landing-pages-tunnels",
-      "/services/prospection-automatisee",
-      "/services/seo-geo-contenu",
-      "/services/sequences-de-suivi",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "src/content/services/crm-scoring-routing/integration-crm.json",
