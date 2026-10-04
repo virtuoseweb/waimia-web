@@ -102,7 +102,8 @@ else {
     const url = m[1] || m[2];
     if (!url.startsWith(SITE_ORIGIN)) continue;
     llmsLinks++;
-    const pathname = url.slice(SITE_ORIGIN.length) || '/';
+    // Paramètres et ancre retirés : /contact?offer=… désigne la page /contact.
+    const pathname = url.slice(SITE_ORIGIN.length).split(/[?#]/)[0] || '/';
     if (isInternalPath(pathname)) err('llms', `llms.txt liste une URL interne : ${pathname}`);
     else if (!existsSync(join(DIST, pathname.replace(/^\/+/, '')))) err('llms', `llms.txt liste une URL morte : ${pathname}`);
   }
