@@ -1045,7 +1045,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "proof-bar": {
-    "count": 36,
+    "count": 38,
     "pages": [
       "/lp/hub",
       "/lp/site-web-intelligent",
@@ -1055,8 +1055,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agents-ia",
       "/services/applications-internes",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisations",
+      "/services/base-de-connaissance-ia",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",

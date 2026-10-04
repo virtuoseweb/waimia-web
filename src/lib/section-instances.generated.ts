@@ -1387,7 +1387,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 4,
+      "index": 5,
       "label": "Ce qui est livré",
       "background": "paper"
     },
@@ -1414,7 +1414,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 4,
+      "index": 5,
       "label": "L'architecture en mots simples",
       "background": "paper-2"
     },
@@ -1832,8 +1832,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 1,
-      "label": "#1",
+      "index": 2,
+      "label": "#2",
       "background": "paper-2"
     },
     {
@@ -1841,8 +1841,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 1,
-      "label": "#1",
+      "index": 2,
+      "label": "#2",
       "background": "paper-2"
     },
     {
@@ -2093,8 +2093,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 3,
-      "label": "#3",
+      "index": 4,
+      "label": "#4",
       "background": "paper-2"
     },
     {
@@ -2102,8 +2102,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 6,
-      "label": "#6",
+      "index": 7,
+      "label": "#7",
       "background": "paper"
     },
     {
@@ -2129,8 +2129,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 3,
-      "label": "#3",
+      "index": 4,
+      "label": "#4",
       "background": "paper"
     },
     {
@@ -2138,8 +2138,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 5,
-      "label": "#5",
+      "index": 6,
+      "label": "#6",
       "background": "paper"
     },
     {
@@ -2346,7 +2346,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 5,
+      "index": 6,
       "label": "Comment se passe une mission Make",
       "background": "paper-3"
     },
@@ -2355,7 +2355,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 6,
+      "index": 7,
       "label": "De la première question au déploiement",
       "background": "paper-3"
     },
@@ -2944,7 +2944,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 8,
+      "index": 9,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -2971,7 +2971,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 8,
+      "index": 9,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -3897,7 +3897,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 9,
+      "index": 10,
       "label": "Commencez par la tâche qui vous coûte le plus d'heures.",
       "background": "ink"
     },
@@ -3924,7 +3924,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 9,
+      "index": 10,
       "label": "Vérifions d'abord si vous en avez besoin.",
       "background": "ink"
     },
@@ -5734,6 +5734,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/automatisation-make.json",
+      "slug": "automatisation-make",
+      "route": "/services/automatisation-make",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
@@ -5746,6 +5755,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/base-de-connaissance-ia.json",
+      "slug": "base-de-connaissance-ia",
+      "route": "/services/base-de-connaissance-ia",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -6202,7 +6220,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 7,
+      "index": 8,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6211,7 +6229,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 7,
+      "index": 8,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6437,7 +6455,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
-      "index": 2,
+      "index": 3,
       "label": "Quand Make est le bon choix, et quand il ne l'est pas",
       "background": "paper"
     },
@@ -6446,7 +6464,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 2,
+      "index": 3,
       "label": "Quand ça vaut le coût, et quand non",
       "background": "paper"
     }
