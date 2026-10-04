@@ -1,0 +1,339 @@
+---
+// Organism · TaskPriorityGrid · grille « quelles tâches automatiser en premier » (hors catalogue).
+//
+// Tableau éditable : tâche, fréquence, durée, clarté des règles, état des données.
+// Calcul affiché en clair (aucune pondération cachée) :
+//   heures par mois = occurrences par mois × durée ÷ 60
+//                     (par jour × 21 jours ouvrés, par semaine × 4,33, par mois × 1)
+//   faisabilité     = coefficient « règles » × coefficient « données »
+//   priorité        = heures par mois × faisabilité  (heures par mois raisonnablement automatisables)
+// Le classement trie par priorité décroissante. Tout se calcule dans le navigateur ;
+// la grille est gardée en localStorage et exportable en CSV. Aucune promesse de gain :
+// ce sont les chiffres de la personne, pas une mesure.
+import './form.css';
+
+const RULES = [
+  { v: '1', label: 'Toujours les mêmes' },
+  { v: '0.6', label: 'Des exceptions régulières' },
+  { v: '0.2', label: 'Au cas par cas' },
+];
+const DATA = [
+  { v: '1', label: 'Déjà dans un outil' },
+  { v: '0.7', label: 'En partie (e-mails, PDF)' },
+  { v: '0.3', label: 'Papier, téléphone, mémoire' },
+];
+// Lignes d'exemple (fictives) pour montrer le fonctionnement : à remplacer.
+const EXAMPLES = [
+  { task: "Ressaisie des commandes reçues par e-mail", n: 30, per: 'day', min: 4, rules: '1', data: '0.7' },
+  { task: 'Relance des devis sans réponse', n: 40, per: 'week', min: 6, rules: '0.6', data: '1' },
+  { task: 'Reporting hebdomadaire des ventes', n: 1, per: 'week', min: 90, rules: '1', data: '1' },
+];
+---
+<section class="tg" id="grille" aria-labelledby="tg-h2" data-task-grid data-examples={JSON.stringify(EXAMPLES)}>
+  <div class="wrap-wide">
+    <div class="tg-head">
+      <h2 class="tg-h2" id="tg-h2">Votre grille</h2>
+      <p class="tg-intro">Trois lignes d'exemple sont déjà remplies pour montrer le calcul. Remplacez-les par vos tâches : le classement se met à jour à chaque saisie.</p>
+    </div>
+
+    <noscript><p class="cv-status">La grille a besoin de JavaScript pour calculer. Activez-le, ou appliquez la formule décrite plus bas dans un tableur.</p></noscript>
+
+    <div class="tg-table" role="table" aria-label="Grille des tâches">
+      <div class="tg-row tg-row--head" role="row">
+        <span role="columnheader">Tâche</span>
+        <span role="columnheader">Fréquence</span>
+        <span role="columnheader">Durée</span>
+        <span role="columnheader">Les règles sont</span>
+        <span role="columnheader">Les données sont</span>
+        <span role="columnheader" class="tg-num">Heures par mois</span>
+        <span role="columnheader" class="tg-num">Priorité</span>
+        <span role="columnheader"><span class="tg-sr">Supprimer</span></span>
+      </div>
+      <div class="tg-body" role="rowgroup" data-tg-body></div>
+    </div>
+
+    <template data-tg-template>
+      <div class="tg-row" role="row" data-tg-row>
+        <div role="cell" class="tg-c tg-c--task">
+          <label><span class="tg-l">Tâche</span><input class="cv-input" type="text" data-f="task" placeholder="Ex. saisie des factures fournisseurs" maxlength="120" /></label>
+        </div>
+        <div role="cell" class="tg-c tg-c--freq">
+          <label><span class="tg-l">Nombre de fois</span><input class="cv-input" type="number" data-f="n" min="0" step="1" inputmode="numeric" /></label>
+          <label><span class="tg-l">Période</span>
+            <select class="cv-select" data-f="per">
+              <option value="day">par jour</option>
+              <option value="week">par semaine</option>
+              <option value="month">par mois</option>
+            </select>
+          </label>
+        </div>
+        <div role="cell" class="tg-c tg-c--min">
+          <label><span class="tg-l">Durée (min)</span><input class="cv-input" type="number" data-f="min" min="0" step="1" inputmode="numeric" /></label>
+          <span class="tg-unit" aria-hidden="true">min</span>
+        </div>
+        <div role="cell" class="tg-c">
+          <label><span class="tg-l">Les règles sont</span>
+            <select class="cv-select" data-f="rules">
+              {RULES.map((r) => <option value={r.v}>{r.label}</option>)}
+            </select>
+          </label>
+        </div>
+        <div role="cell" class="tg-c">
+          <label><span class="tg-l">Les données sont</span>
+            <select class="cv-select" data-f="data">
+              {DATA.map((r) => <option value={r.v}>{r.label}</option>)}
+            </select>
+          </label>
+        </div>
+        <div role="cell" class="tg-c tg-num tg-out"><span class="tg-l">Heures par mois</span><output data-o="hours">0 h</output></div>
+        <div role="cell" class="tg-c tg-num tg-out"><span class="tg-l">Priorité</span><output data-o="score">0</output></div>
+        <div role="cell" class="tg-c tg-c--del"><button type="button" class="tg-del" data-tg-del aria-label="Supprimer cette ligne">Supprimer</button></div>
+      </div>
+    </template>
+
+    <div class="tg-tools">
+      <button type="button" class="btn btn-primary cv-btn" data-tg-add>Ajouter une tâche</button>
+      <button type="button" class="btn btn-ghost cv-btn" data-tg-csv>Exporter en CSV</button>
+      <button type="button" class="btn btn-ghost cv-btn" data-tg-clear>Vider la grille</button>
+      <p class="cv-note" role="status" data-tg-feedback></p>
+    </div>
+
+    <div class="tg-result">
+      <div class="tg-rank">
+        <h3 class="tg-h3">Classement</h3>
+        <ol class="tg-rank-list" data-tg-rank></ol>
+        <p class="cv-note" data-tg-empty hidden>Ajoutez une tâche avec une fréquence et une durée pour voir le classement.</p>
+      </div>
+      <div class="tg-how">
+        <h3 class="tg-h3">Comment c'est calculé</h3>
+        <dl class="tg-formula">
+          <div><dt>Heures par mois</dt><dd>nombre de fois × durée ÷ 60, ramené au mois : 21 jours ouvrés, 4,33 semaines.</dd></div>
+          <div><dt>Faisabilité</dt><dd>règles (1 · 0,6 · 0,2) × données (1 · 0,7 · 0,3).</dd></div>
+          <div><dt>Priorité</dt><dd>heures par mois × faisabilité. Une tâche lourde mais floue passe derrière une tâche moyenne aux règles stables.</dd></div>
+        </dl>
+        <p class="tg-total">Total recensé : <strong data-tg-total>0 h</strong> par mois.</p>
+        <p class="cv-note">Ces chiffres sont vos estimations. La priorité classe des tâches entre elles, elle ne dit pas combien de temps sera réellement récupéré : cela dépend de vos outils, de vos exceptions et de la part qui restera validée par un humain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+(function () {
+  var KEY = 'waimia:grille-taches:v1';
+  var PER = { day: 21, week: 4.33, month: 1 };
+  var PER_LABEL = { day: 'par jour', week: 'par semaine', month: 'par mois' };
+
+  function fmtH(h) {
+    if (!isFinite(h) || h <= 0) return '0 h';
+    var r = Math.round(h * 2) / 2; // à la demi-heure
+    if (r === 0) r = 0.5;
+    return (r % 1 === 0 ? String(r) : String(Math.floor(r)) + ',5') + ' h';
+  }
+  function fmtS(s) { return (Math.round(s * 10) / 10).toString().replace('.', ','); }
+
+  function init(root) {
+    if (root.dataset.bound) return;
+    root.dataset.bound = '1';
+    var body = root.querySelector('[data-tg-body]');
+    var tpl = root.querySelector('[data-tg-template]');
+    var rank = root.querySelector('[data-tg-rank]');
+    var empty = root.querySelector('[data-tg-empty]');
+    var total = root.querySelector('[data-tg-total]');
+    var feedback = root.querySelector('[data-tg-feedback]');
+    var examples = JSON.parse(root.dataset.examples || '[]');
+
+    function read(row) {
+      var g = function (f) { return row.querySelector('[data-f="' + f + '"]').value; };
+      var n = Math.max(0, Number(g('n')) || 0);
+      var min = Math.max(0, Number(g('min')) || 0);
+      var hours = (n * PER[g('per')] * min) / 60;
+      var feas = Number(g('rules')) * Number(g('data'));
+      return { task: g('task').trim(), n: n, per: g('per'), min: min, rules: g('rules'), data: g('data'), hours: hours, feas: feas, score: hours * feas };
+    }
+    function rows() { return Array.prototype.map.call(body.querySelectorAll('[data-tg-row]'), function (r) { return { el: r, d: read(r) }; }); }
+
+    function recompute() {
+      var all = rows();
+      var sum = 0;
+      all.forEach(function (x) {
+        x.el.querySelector('[data-o="hours"]').textContent = fmtH(x.d.hours);
+        x.el.querySelector('[data-o="score"]').textContent = fmtS(x.d.score);
+        sum += x.d.hours;
+      });
+      total.textContent = fmtH(sum);
+      var ranked = all.filter(function (x) { return x.d.score > 0; }).sort(function (a, b) { return b.d.score - a.d.score; });
+      var max = ranked.length ? ranked[0].d.score : 0;
+      rank.innerHTML = '';
+      ranked.forEach(function (x) {
+        var li = document.createElement('li');
+        var name = document.createElement('span'); name.className = 'tg-rank-name'; name.textContent = x.d.task || 'Tâche sans nom';
+        var bar = document.createElement('span'); bar.className = 'tg-rank-bar'; bar.setAttribute('aria-hidden', 'true');
+        var fill = document.createElement('span'); fill.style.width = Math.max(2, Math.round((x.d.score / max) * 100)) + '%';
+        bar.appendChild(fill);
+        var meta = document.createElement('span'); meta.className = 'tg-rank-meta';
+        meta.textContent = fmtH(x.d.hours) + ' par mois · faisabilité ' + fmtS(x.d.feas) + ' · priorité ' + fmtS(x.d.score);
+        li.appendChild(name); li.appendChild(bar); li.appendChild(meta);
+        rank.appendChild(li);
+      });
+      empty.hidden = ranked.length > 0;
+      try { localStorage.setItem(KEY, JSON.stringify(all.map(function (x) { var d = x.d; return { task: d.task, n: d.n, per: d.per, min: d.min, rules: d.rules, data: d.data }; }))); } catch (_) {}
+      return ranked;
+    }
+
+    function addRow(d, focus) {
+      var node = tpl.content.firstElementChild.cloneNode(true);
+      if (d) {
+        ['task', 'n', 'per', 'min', 'rules', 'data'].forEach(function (f) {
+          var el = node.querySelector('[data-f="' + f + '"]');
+          if (d[f] !== undefined && d[f] !== null) el.value = d[f];
+        });
+      }
+      body.appendChild(node);
+      if (focus) node.querySelector('[data-f="task"]').focus();
+    }
+
+    body.addEventListener('input', recompute);
+    body.addEventListener('change', recompute);
+    body.addEventListener('click', function (e) {
+      var del = e.target.closest('[data-tg-del]');
+      if (!del) return;
+      var row = del.closest('[data-tg-row]');
+      var next = row.nextElementSibling || row.previousElementSibling;
+      row.remove();
+      recompute();
+      var target = next ? next.querySelector('[data-f="task"]') : root.querySelector('[data-tg-add]');
+      if (target) target.focus();
+    });
+    root.querySelector('[data-tg-add]').addEventListener('click', function () { addRow({ n: '', min: '' }, true); recompute(); });
+    root.querySelector('[data-tg-clear]').addEventListener('click', function () {
+      body.innerHTML = '';
+      addRow({ n: '', min: '' }, true);
+      recompute();
+      feedback.textContent = 'Grille vidée.';
+    });
+    root.querySelector('[data-tg-csv]').addEventListener('click', function () {
+      var q = function (s) { return '"' + String(s).replace(/"/g, '""') + '"'; };
+      var lines = [['Rang', 'Tâche', 'Nombre de fois', 'Période', 'Durée (min)', 'Heures par mois', 'Faisabilité', 'Priorité'].map(q).join(';')];
+      recompute().forEach(function (x, i) {
+        var d = x.d;
+        lines.push([i + 1, d.task, d.n, PER_LABEL[d.per], d.min, fmtS(Math.round(d.hours * 2) / 2), fmtS(d.feas), fmtS(d.score)].map(q).join(';'));
+      });
+      var blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'grille-taches-a-automatiser.csv';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+      feedback.textContent = 'Fichier CSV téléchargé (' + (lines.length - 1) + ' tâche' + (lines.length - 1 > 1 ? 's' : '') + ').';
+    });
+
+    // Copie par e-mail (LeadCapture)
+    document.addEventListener('cv:collect', function (ev) {
+      if (ev.detail.slug !== 'grille-taches-a-automatiser') return;
+      var ranked = recompute();
+      ev.detail.headline = ranked.length + ' tâche' + (ranked.length > 1 ? 's' : '') + ' · ' + total.textContent + ' par mois';
+      ev.detail.summary.push({ label: 'Total recensé', value: total.textContent + ' par mois' });
+      ranked.slice(0, 20).forEach(function (x, i) {
+        var d = x.d;
+        ev.detail.summary.push({
+          label: (i + 1) + '. ' + (d.task || 'Tâche sans nom').slice(0, 100),
+          value: d.n + ' fois ' + PER_LABEL[d.per] + ', ' + d.min + ' min · ' + fmtH(d.hours) + ' par mois · priorité ' + fmtS(d.score),
+        });
+      });
+    });
+
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (_) {}
+    (Array.isArray(saved) && saved.length ? saved : examples).forEach(function (d) { addRow(d, false); });
+    recompute();
+  }
+  function boot() { document.querySelectorAll('[data-task-grid]').forEach(init); }
+  boot();
+  document.addEventListener('astro:page-load', boot);
+})();
+</script>
+
+<style>
+  .tg { padding: var(--space-8) 0 var(--space-10); background: var(--paper-2); border-top: 1px solid var(--hairline-strong); scroll-margin-top: var(--header-height); }
+  .tg-head { max-width: 66ch; margin-bottom: var(--space-6); }
+  .tg-h2 { font-family: var(--font-sans); font-size: calc(var(--text-h2) * 0.76); line-height: 1.08; letter-spacing: -0.024em; font-weight: var(--fw-semibold); margin: 0 0 var(--space-3); }
+  .tg-h3 { font-family: var(--font-sans); font-size: var(--text-h3); font-weight: var(--fw-semibold); letter-spacing: -0.012em; margin: 0 0 var(--space-4); }
+  .tg-intro { margin: 0; font-size: var(--text-body); line-height: 1.6; color: var(--muted); }
+  .tg-sr, .tg-l { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  .tg-table { background: var(--paper); border: 1px solid var(--hairline-strong); border-radius: var(--radius-sm); }
+  .tg-row,
+  .tg-table :global(.tg-row) {
+    display: grid;
+    grid-template-columns: minmax(180px, 2.2fr) minmax(190px, 1.5fr) minmax(90px, 0.6fr) minmax(150px, 1.2fr) minmax(150px, 1.2fr) 6.5rem 5rem 5.5rem;
+    gap: var(--space-3);
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  .tg-row--head { font-size: var(--text-small); color: var(--muted); background: var(--paper-2); border-bottom-color: var(--ink); border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+  .tg-table :global(.tg-row:last-child) { border-bottom: 0; }
+  .tg-table :global(.tg-c) { min-width: 0; position: relative; }
+  .tg-table :global(.tg-c label) { display: block; position: relative; }
+  .tg-table :global(.tg-c--freq) { display: grid; grid-template-columns: 4.5rem 1fr; gap: var(--space-2); }
+  .tg-table :global(.cv-input), .tg-table :global(.cv-select) { padding: var(--space-2) 10px; font-size: var(--text-body); }
+  .tg-table :global(.tg-c--min .cv-input) { padding-right: 2.4rem; }
+  .tg-table :global(.tg-unit) { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: var(--text-small); color: var(--muted); pointer-events: none; }
+  .tg-num, .tg-table :global(.tg-num) { text-align: right; }
+  .tg-table :global(.tg-out output) { font-size: var(--text-body); font-variant-numeric: tabular-nums; }
+  .tg-table :global(.tg-out:last-of-type output) { font-weight: var(--fw-semibold); }
+  .tg-table :global(.tg-del) { background: none; border: 0; padding: var(--space-2) 0; font: inherit; font-size: var(--text-small); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .tg-table :global(.tg-del:hover) { color: var(--accent-text); }
+  .tg-table :global(.tg-c--del) { text-align: right; }
+
+  .tg-tools { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-4); }
+  .tg-tools .cv-note:empty { display: none; }
+
+  .tg-result { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--space-9); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--ink); }
+  .tg-rank-list { list-style: none; counter-reset: rk; margin: 0; padding: 0; }
+  .tg-rank-list :global(li) { counter-increment: rk; display: grid; grid-template-columns: 2rem minmax(0, 1fr) minmax(80px, 0.8fr); gap: var(--space-1) var(--space-4); align-items: center; padding: var(--space-3) 0; border-bottom: 1px solid var(--hairline-strong); }
+  .tg-rank-list :global(li)::before { content: counter(rk); font-family: var(--font-sans); font-size: var(--text-h3); font-weight: var(--fw-semibold); grid-row: 1 / span 2; align-self: start; }
+  .tg-rank-list :global(.tg-rank-name) { font-size: var(--text-body); font-weight: var(--fw-semibold); }
+  .tg-rank-list :global(.tg-rank-bar) { display: block; height: 8px; background: var(--paper-3); }
+  .tg-rank-list :global(.tg-rank-bar span) { display: block; height: 100%; background: var(--ink); }
+  .tg-rank-list :global(li:first-child .tg-rank-bar span) { background: var(--accent); }
+  .tg-rank-list :global(.tg-rank-meta) { grid-column: 2 / -1; font-size: var(--text-small); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .tg-formula { margin: 0 0 var(--space-5); }
+  .tg-formula div { padding: var(--space-3) 0; border-bottom: 1px solid var(--hairline-strong); }
+  .tg-formula dt { font-size: var(--text-small); font-weight: var(--fw-semibold); margin-bottom: 2px; }
+  .tg-formula dd { margin: 0; font-size: var(--text-small); line-height: 1.55; color: var(--ink-3); }
+  .tg-total { margin: 0 0 var(--space-3); font-size: var(--text-body); }
+
+  @media (max-width: 1180px) {
+    /* Tablette et mobile : chaque tâche devient une fiche, libellés visibles. */
+    .tg-table :global(.tg-row.tg-row--head), .tg-row.tg-row--head { display: none; }
+    .tg-table { background: none; border: 0; }
+    .tg-table :global(.tg-row) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3) var(--space-4);
+      align-items: end;
+      background: var(--paper);
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    .tg-table :global(.tg-row:last-child) { border-bottom: 1px solid var(--hairline-strong); }
+    .tg-table :global(.tg-l) { position: static; width: auto; height: auto; clip-path: none; overflow: visible; display: block; font-size: var(--text-small); color: var(--muted); margin-bottom: var(--space-1); white-space: normal; }
+    .tg-table :global(.tg-c--task) { grid-column: 1 / -1; }
+    .tg-table :global(.tg-c--freq) { grid-template-columns: 6.5rem 1fr; align-items: end; }
+    .tg-table :global(.tg-l) { white-space: nowrap; }
+    .tg-table :global(.tg-unit) { top: auto; bottom: 10px; transform: none; }
+    .tg-table :global(.tg-num) { text-align: left; }
+    .tg-table :global(.tg-c--del) { grid-column: 1 / -1; text-align: left; border-top: 1px solid var(--hairline-strong); padding-top: var(--space-2); }
+    .tg-result { grid-template-columns: 1fr; gap: var(--space-7); }
+  }
+  @media (max-width: 560px) {
+    .tg-table :global(.tg-row) { grid-template-columns: 1fr 1fr; }
+    .tg-table :global(.tg-c--freq) { grid-column: 1 / -1; }
+    .tg-tools .btn { flex: 1 1 100%; justify-content: center; }
+    .tg-rank-list :global(li) { grid-template-columns: 2rem minmax(0, 1fr); }
+    .tg-rank-list :global(.tg-rank-bar) { grid-column: 2; }
+  }
+</style>

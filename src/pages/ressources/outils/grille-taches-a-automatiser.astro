@@ -1,0 +1,71 @@
+---
+export const prerender = true;
+
+// Page SSG · /ressources/outils/grille-taches-a-automatiser · lead magnet « Grille :
+// quelles tâches automatiser en premier ». Outil utilisable sans e-mail (organism
+// TaskPriorityGrid), capture facultative pour recevoir le classement (LeadCapture).
+// Route explicite : l'entrée `outils/grille-taches-a-automatiser` (JSON) ne sert qu'au
+// listing du hub ; [...slug].astro l'exclut.
+
+import Base from '../../../layouts/Base.astro';
+import MastheadBar from '../../../components/sections/MastheadBar.astro';
+import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
+import TaskPriorityGrid from '../../../components/ui/organisms/conversion/TaskPriorityGrid.astro';
+import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
+import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
+import { SITE } from '../../../site.config';
+import { GRILLE_HREF, auditCtaFinal } from '../../../data/conversion';
+
+const title = 'Quelles tâches automatiser en premier ? Grille de priorisation gratuite';
+const description = "Listez vos tâches répétitives, leur fréquence et leur durée : la grille calcule les heures par mois et les classe par priorité. Sans inscription.";
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Grille des tâches à automatiser',
+  url: `${SITE.url}${GRILLE_HREF}`,
+  description,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  browserRequirements: 'Requires JavaScript',
+  inLanguage: 'fr',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+};
+const cta = auditCtaFinal(
+  'Votre grille remplie est le meilleur point de départ de l\'audit.',
+  'Apportez-la au rendez-vous : en 45 minutes on vérifie les durées, on tranche les cas limites et on retient un ou deux chantiers. Gratuit, en visio.',
+);
+---
+<Base title={title} description={description} jsonLd={ld}>
+  <MastheadBar
+    lang="fr"
+    items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Ressources', href: '/ressources' },
+      { label: 'Outils', href: '/ressources/outils' },
+      { label: 'Grille des tâches à automatiser' },
+    ]}
+  />
+  <ToolIntro
+    h1="Quelles tâches automatiser en premier ? La grille de priorisation"
+    lede="Une tâche mérite d'être automatisée quand elle revient souvent, qu'elle prend du temps et que ses règles sont stables. La grille met ces trois critères en chiffres et classe vos tâches."
+    facts={[
+      { label: 'Durée', value: '10 minutes pour 5 tâches' },
+      { label: 'Résultat', value: 'Classement immédiat, export CSV' },
+      { label: 'E-mail', value: 'Non requis' },
+      { label: 'Vos données', value: 'Restent dans votre navigateur' },
+    ]}
+  />
+  <TaskPriorityGrid />
+  <LeadCapture
+    band
+        slug="grille-taches-a-automatiser"
+        title="Recevoir le classement par e-mail"
+        description="Vos tâches classées, avec les heures par mois et la priorité de chacune, pour les partager en interne."
+        buttonLabel="Recevoir le classement"
+  />
+  <ResourceLinks exclude={['grille']} />
+  <CtaFinal data={cta} lang="fr" />
+</Base>

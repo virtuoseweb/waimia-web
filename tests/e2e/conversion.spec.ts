@@ -1,0 +1,117 @@
+// Parcours de conversion (refonte B, 4 octobre 2026) · tests de CONTRAT côté client.
+// Tournent contre le build servi (pas d'API) : on vérifie ce que la page fait des
+// paramètres d'URL, le calcul des outils et la présence des CTA, pas le texte ni le CSS.
+import { test, expect } from "@playwright/test";
+
+const AUDIT_BOOKING = "/contact?offer=audit-ia-pme&intent=audit";
+
+test.describe("contact · paramètres d'URL", () => {
+  test("?offer=audit-ia-pme&intent=audit : prise de RDV en premier, offre pré-sélectionnée", async ({ page }) => {
+    await page.goto(AUDIT_BOOKING);
+    const root = page.locator("[data-contact-root]");
+    await expect(root).toHaveAttribute("data-first", "rdv");
+    await expect(root.locator("[data-contact-subject]")).toHaveValue("audit");
+    await expect(root.locator("[data-contact-offer]")).toHaveValue("audit-ia-pme");
+    await expect(root.locator("[data-contact-intent]")).toHaveValue("audit");
+    // Le bloc calendrier démarre au-dessus de la ligne de flottaison.
+    const calTop = await page.locator("[data-cal-embed]").evaluate((el) => el.getBoundingClientRect().top);
+    expect(calTop).toBeLessThan(page.viewportSize()!.height);
+    // Le formulaire reste présent dessous pour les autres demandes.
+    await expect(page.locator('form[name="contact"]')).toHaveCount(1);
+    const rdvTop = await page.locator("#rdv").evaluate((el) => el.getBoundingClientRect().top);
+    const msgTop = await page.locator("#message").evaluate((el) => el.getBoundingClientRect().top);
+    expect(rdvTop).toBeLessThan(msgTop);
+  });
+
+  test("?intent=message : formulaire en premier", async ({ page }) => {
+    await page.goto("/contact?intent=message");
+    await expect(page.locator("[data-contact-root]")).toHaveAttribute("data-first", "message");
+    const rdvTop = await page.locator("#rdv").evaluate((el) => el.getBoundingClientRect().top);
+    const msgTop = await page.locator("#message").evaluate((el) => el.getBoundingClientRect().top);
+    expect(msgTop).toBeLessThan(rdvTop);
+  });
+
+  test("paramètre non conforme ignoré (pas d'injection dans les champs cachés)", async ({ page }) => {
+    await page.goto("/contact?offer=%3Cscript%3Ealert(1)%3C/script%3E&intent=audit");
+    await expect(page.locator("[data-contact-offer]")).toHaveValue("");
+  });
+
+  test("soumission vide : erreurs par champ, aucun appel réseau", async ({ page }) => {
+    let apiCalls = 0;
+    page.on("request", (r) => { if (r.url().includes("/api/contact")) apiCalls++; });
+    await page.goto(AUDIT_BOOKING);
+    await page.locator("[data-contact-submit]").click();
+    await expect(page.locator('form[name="contact"] [aria-invalid="true"]')).toHaveCount(3);
+    expect(apiCalls).toBe(0);
+  });
+});
+
+test("audit-ia-pme : h1, exemple étiqueté, CTA vers la prise de RDV", async ({ page }) => {
+  const resp = await page.goto("/audit-ia-pme");
+  expect(resp?.status()).toBe(200);
+  await expect(page.locator("h1")).toHaveCount(1);
+  await expect(page.locator(`a[href="${AUDIT_BOOKING}"]`).first()).toBeVisible();
+  await expect(page.getByText("Exemple illustratif").first()).toBeVisible();
+  // Aucun CTA de la page ne mène à l'ancien positionnement.
+  await expect(page.locator('main a[href*="audit-site-web-intelligent"]')).toHaveCount(0);
+});
+
+test("diagnostic maturité IA : questions → score → restitution → CTA audit", async ({ page }) => {
+  await page.goto("/ressources/diagnostics/maturite-ia");
+  const result = page.locator("[data-md-result]");
+  await expect(result).toBeHidden();
+  // Soumission incomplète : pas de résultat.
+  await page.locator("[data-md-form] button[type=submit]").click();
+  await expect(page.locator("[data-md-missing]")).toBeVisible();
+  await expect(result).toBeHidden();
+  // 10 réponses : total 7 → niveau 2 ; gouvernance (q7 + q8 = 0) = point faible.
+  const answers = [1, 2, 0, 1, 1, 1, 0, 0, 1, 0];
+  for (let i = 0; i < answers.length; i++) {
+    await page.locator(`input[name="q${i + 1}"][value="${answers[i]}"]`).check();
+  }
+  await page.locator("[data-md-form] button[type=submit]").click();
+  await expect(result).toBeVisible();
+  await expect(page.locator("[data-md-level]")).toHaveText("2");
+  await expect(page.locator("[data-md-score]")).toHaveText("7");
+  await expect(page.locator("[data-md-weak-name]")).toHaveText("Gouvernance");
+  await expect(result.locator(`a[href="${AUDIT_BOOKING}"]`)).toBeVisible();
+  // L'e-mail est facultatif : le résultat est affiché sans l'avoir saisi.
+  await expect(result.locator('input[name="email"]')).toHaveValue("");
+});
+
+test("grille des tâches : calcul et classement", async ({ page }) => {
+  await page.goto("/ressources/outils/grille-taches-a-automatiser");
+  await expect(page.locator("[data-tg-row]")).toHaveCount(3);
+  await page.locator("[data-tg-add]").click();
+  const row = page.locator("[data-tg-row]").last();
+  await row.locator('[data-f="task"]').fill("Saisie des factures");
+  await row.locator('[data-f="n"]').fill("200");
+  await row.locator('[data-f="per"]').selectOption("month");
+  await row.locator('[data-f="min"]').fill("9");
+  // 200 × 9 min ÷ 60 = 30 h par mois, faisabilité 1 → priorité 30, premier du classement.
+  await expect(row.locator('[data-o="hours"]')).toHaveText("30 h");
+  await expect(row.locator('[data-o="score"]')).toHaveText("30");
+  await expect(page.locator("[data-tg-rank] li").first()).toContainText("Saisie des factures");
+});
+
+test("calculateur ROI : hypothèses éditables, CTA audit", async ({ page }) => {
+  await page.goto("/ressources/outils/calculateur-roi-ia");
+  const values = page.locator("[data-result-value]");
+  await expect(values.nth(0)).toContainText("460"); // 20 h × 46 sem × 50 %
+  await page.locator("#tw-heuresTaches").fill("10");
+  await page.locator("#tw-partAuto").fill("30");
+  await expect(values.nth(0)).toContainText("138"); // 10 × 46 × 30 %
+  await expect(page.locator(".tw-cta")).toHaveAttribute("href", AUDIT_BOOKING);
+});
+
+test("charte IA : texte lisible, champs personnalisables, PDF servi", async ({ page, request }) => {
+  await page.goto("/ressources/outils/charte-ia-entreprise");
+  await expect(page.locator("[data-charter-article]")).toHaveCount(9);
+  await page.locator("#ch-entreprise").fill("Menuiserie Durand");
+  await expect(page.locator(".ch-preamble")).toContainText("Menuiserie Durand");
+  const href = await page.locator(".ch-actions a[download]").getAttribute("href");
+  const pdf = await request.get(href!);
+  expect(pdf.status()).toBe(200);
+  // Signature du fichier plutôt que l'en-tête : le serveur de test ne type pas les .pdf.
+  expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+});

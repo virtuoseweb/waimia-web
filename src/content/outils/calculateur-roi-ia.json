@@ -1,72 +1,95 @@
 {
-  "title_fr": "Calculateur ROI IA gratuit pour PME B2B",
-  "title_en": "Free AI ROI calculator for B2B SMBs",
-  "description_fr": "Estimez le retour sur investissement d'un déploiement IA dans votre PME B2B en renseignant vos données opérationnelles clés.",
-  "description_en": "Estimate the return on investment of an AI deployment in your B2B SMB by entering your key operational data.",
+  "title_fr": "Calculateur ROI IA : le temps récupérable et le budget à ne pas dépasser",
+  "title_en": "AI ROI calculator: recoverable time and the budget ceiling",
+  "description_fr": "Calculateur ROI IA gratuit : vos heures, votre coût horaire et vos hypothèses donnent le temps récupérable par an et le budget à ne pas dépasser.",
+  "description_en": "Free AI ROI calculator for SMBs: your hours, hourly cost and assumptions give the recoverable time per year and the budget ceiling. No email.",
   "slug": "calculateur-roi-ia",
   "publishedAt": "2026-05-14",
   "type": "calculator",
   "inputs": [
     {
       "key": "heuresTaches",
-      "label_fr": "Heures par semaine sur tâches répétitives",
-      "label_en": "Hours per week on repetitive tasks",
+      "label_fr": "Heures par semaine passées sur les tâches visées (toute l'équipe)",
+      "label_en": "Hours per week spent on the targeted tasks (whole team)",
       "type": "number",
       "unit": "h/sem",
       "defaultValue": 20,
+      "min": 0,
+      "max": 2000
+    },
+    {
+      "key": "semaines",
+      "label_fr": "Semaines travaillées par an",
+      "label_en": "Weeks worked per year",
+      "type": "number",
+      "unit": "sem",
+      "defaultValue": 46,
       "min": 1,
-      "max": 200
+      "max": 52
     },
     {
       "key": "tauxHoraire",
-      "label_fr": "Coût horaire moyen (chargé)",
-      "label_en": "Average hourly cost (fully loaded)",
+      "label_fr": "Coût horaire chargé moyen des personnes concernées",
+      "label_en": "Average fully loaded hourly cost",
       "type": "currency",
       "unit": "€/h",
       "defaultValue": 50,
-      "min": 20,
-      "max": 300
+      "min": 0,
+      "max": 500
     },
     {
-      "key": "gainAutomation",
-      "label_fr": "Gain d'automatisation estimé",
-      "label_en": "Estimated automation gain",
-      "type": "select",
-      "defaultValue": "0.5",
-      "options": [
-        {
-          "value": "0.3",
-          "label_fr": "30 %. Tâches partiellement structurées",
-          "label_en": "30%. Partially structured tasks"
-        },
-        {
-          "value": "0.5",
-          "label_fr": "50 %. Tâches majoritairement structurées",
-          "label_en": "50%. Mostly structured tasks"
-        },
-        {
-          "value": "0.7",
-          "label_fr": "70 %. Tâches très structurées",
-          "label_en": "70%. Highly structured tasks"
-        }
-      ]
+      "key": "partAuto",
+      "label_fr": "Part de ce temps que vous pensez automatisable",
+      "label_en": "Share of that time you think can be automated",
+      "type": "number",
+      "unit": "%",
+      "defaultValue": 50,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "key": "coutMensuel",
+      "label_fr": "Coût mensuel de fonctionnement prévu (abonnements, API, maintenance)",
+      "label_en": "Expected monthly running cost (subscriptions, API, maintenance)",
+      "type": "currency",
+      "unit": "€/mois",
+      "defaultValue": 0,
+      "min": 0,
+      "max": 100000
     }
   ],
   "outputs": [
     {
-      "key": "economieAnnuelle",
-      "formula": "heuresTaches * tauxHoraire * gainAutomation * 52",
-      "label_fr": "Économie annuelle estimée",
-      "label_en": "Estimated annual savings",
+      "key": "heuresAn",
+      "formula": "heuresTaches * semaines * partAuto / 100",
+      "label_fr": "Heures récupérables par an, selon vos hypothèses",
+      "label_en": "Recoverable hours per year, under your assumptions",
+      "unit": "h",
+      "format": "integer"
+    },
+    {
+      "key": "valeurAn",
+      "formula": "heuresTaches * semaines * partAuto / 100 * tauxHoraire",
+      "label_fr": "Valeur de ce temps par an",
+      "label_en": "Value of that time per year",
+      "unit": "€",
+      "format": "currency-eur"
+    },
+    {
+      "key": "plafond",
+      "formula": "heuresTaches * semaines * partAuto / 100 * tauxHoraire - coutMensuel * 12",
+      "label_fr": "Budget de mise en place à ne pas dépasser pour un retour en 12 mois",
+      "label_en": "Setup budget ceiling for a 12-month payback",
       "unit": "€",
       "format": "currency-eur"
     }
   ],
-  "captureEmail": false,
+  "captureEmail": true,
   "apiSlug": "calculateur-roi-ia",
   "relatedPages": [
-    "/services/automatisations",
-    "/services/systemes-operationnels-ia"
+    "/audit-ia-pme",
+    "/ressources/outils/grille-taches-a-automatiser",
+    "/ressources/diagnostics/maturite-ia"
   ],
   "category_fr": "Productivité",
   "category_en": "Productivity",
@@ -75,7 +98,8 @@
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<h2 id=\"comment-utiliser-ce-calculateur\">Comment utiliser ce calculateur</h2>\n<p>Renseignez le nombre d’heures hebdomadaires consacrées à des tâches répétitives (saisie de données, qualification de leads, résumés d’emails), votre coût horaire moyen et le niveau d’automatisation atteignable.</p>\n<p>Le calculateur estime l’économie annuelle potentielle d’un déploiement IA ciblé sur ces tâches.</p>\n<h2 id=\"limites\">Limites</h2>\n<p>Cette estimation est indicative. Le ROI réel dépend du périmètre de déploiement, des coûts de mise en œuvre et du temps d’adoption par les équipes.</p>\n<h2 id=\"passer-du-chiffre-à-laction\">Passer du chiffre à l’action</h2>\n<p>Une fois le gain estimé, la vraie question est : quel process automatiser en premier. Nos <a href=\"/services/automatisations\">automatisations sur mesure</a> et nos <a href=\"/services/systemes-operationnels-ia\">systèmes opérationnels IA</a> transforment ces heures répétitives en workflows fiables et mesurés.</p>"
+      "html_fr": "<h2 id=\"comment-lire-le-resultat\">Comment lire le résultat</h2>\n<p>Le calculateur ne prédit pas un gain : il transforme vos propres hypothèses en trois chiffres. Les heures récupérables par an, leur valeur au coût horaire que vous indiquez, et le budget de mise en place au-delà duquel le projet ne se rembourse pas en douze mois.</p>\n<p>Ce dernier chiffre est le plus utile. Il ne dit pas ce que coûte un projet, il dit ce qu'il ne doit pas coûter. Si un devis dépasse ce plafond, soit le périmètre est trop large, soit la tâche n'a pas assez de volume pour être automatisée maintenant.</p>\n<h2 id=\"les-hypotheses\">Les cinq hypothèses, et comment les fixer</h2>\n<ul>\n<li><strong>Heures par semaine.</strong> Additionnez le temps de toutes les personnes qui font la tâche. La <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a> fait ce calcul tâche par tâche.</li>\n<li><strong>Semaines travaillées.</strong> 46 par défaut, soit 52 moins les congés et jours fériés. Modifiez selon votre activité.</li>\n<li><strong>Coût horaire chargé.</strong> Salaire brut plus cotisations patronales, divisé par les heures travaillées. La valeur par défaut est un exemple : remplacez-la par la vôtre.</li>\n<li><strong>Part automatisable.</strong> L'hypothèse qui pèse le plus, et la plus incertaine. Elle dépend de la stabilité des règles, de l'état des données et de ce qui restera validé par un humain. Testez le résultat avec une valeur basse avant de décider.</li>\n<li><strong>Coût de fonctionnement.</strong> Abonnements, consommation d'API, maintenance. Laissé à zéro, le plafond est surestimé.</li>\n</ul>\n<h2 id=\"ce-que-le-calcul-ne-dit-pas\">Ce que le calcul ne dit pas</h2>\n<p>Une heure récupérée n'est une économie que si elle est réaffectée : le calcul valorise du temps, pas une baisse de charges. Il ignore le temps d'adoption par les équipes, les erreurs évitées et la qualité de service, qui peuvent compter davantage que les heures. Il ne remplace pas une mesure : seul un pilote en production, mesuré avant et après, donne un chiffre réel.</p>\n<h2 id=\"passer-du-chiffre-au-chantier\">Passer du chiffre au chantier</h2>\n<p>Le calcul donne un ordre de grandeur. L'<a href=\"/audit-ia-pme\">audit IA de 45 minutes</a> vérifie l'hypothèse la plus fragile, la part automatisable, en passant vos tâches en revue une par une. Il est gratuit et se réserve sur la <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">page contact</a>.</p>"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-04"
 }

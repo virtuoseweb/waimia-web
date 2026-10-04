@@ -456,15 +456,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "comparison-duo": [
     {
       "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 4,
-      "label": "Ce que l'audit gratuit fait et ne fait pas",
-      "background": "ink"
-    },
-    {
-      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -815,17 +806,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     }
   ],
-  "comparison-pricing-callout": [
-    {
-      "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 5,
-      "label": "Un regard d'ingénieur, pas un argumentaire commercial",
-      "background": "paper"
-    }
-  ],
   "comparison-table": [
     {
       "collection": "comparatifs",
@@ -872,15 +852,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 3,
       "label": "Les cinq niveaux de préparation, ligne par ligne",
-      "background": "paper-3"
-    },
-    {
-      "collection": "diagnostics",
-      "file": "diagnostics/maturite-ia.json",
-      "slug": "maturite-ia",
-      "route": "/ressources/diagnostics/maturite-ia",
-      "index": 3,
-      "label": "Les cinq niveaux de maturité IA, en clair",
       "background": "paper-3"
     },
     {
@@ -982,15 +953,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 6,
       "label": "Six questions pour jauger votre préparation",
-      "background": "paper"
-    },
-    {
-      "collection": "diagnostics",
-      "file": "diagnostics/maturite-ia.json",
-      "slug": "maturite-ia",
-      "route": "/ressources/diagnostics/maturite-ia",
-      "index": 6,
-      "label": "Six questions pour situer votre maturité",
       "background": "paper"
     },
     {
@@ -1296,15 +1258,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "deliverables-grid": [
     {
       "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 1,
-      "label": "Trois livrables activables, pas un diaporama",
-      "background": "paper-2"
-    },
-    {
-      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -1589,8 +1542,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 2,
-      "label": "Où en est votre entreprise ?",
+      "index": 1,
+      "label": "Les cinq niveaux de la grille",
       "background": "paper"
     },
     {
@@ -1708,8 +1661,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 1,
-      "label": "#1",
+      "index": 0,
+      "label": "#0",
       "background": "paper-2"
     },
     {
@@ -2018,9 +1971,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 8,
-      "label": "Ce que vous nous demandez",
-      "background": "paper"
+      "index": 0,
+      "label": "Questions avant de réserver",
+      "background": "paper-2"
     },
     {
       "collection": "audits",
@@ -2198,8 +2151,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 9,
-      "label": "Ce que vous nous demandez",
+      "index": 3,
+      "label": "Sur le diagnostic et son barème",
       "background": "paper-2"
     },
     {
@@ -2810,15 +2763,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "feature-split-media": [
     {
-      "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 6,
-      "label": "Besoin d'y voir plus loin ? La grille des 47 critères",
-      "background": "paper-2"
-    },
-    {
       "collection": "lp",
       "file": "lp/site-web-intelligent.json",
       "slug": "site-web-intelligent",
@@ -3005,8 +2949,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 5,
-      "label": "Ce qui détermine votre niveau réel",
+      "index": 2,
+      "label": "Ce que mesurent les dix questions",
       "background": "paper-2"
     },
     {
@@ -3133,8 +3077,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 9,
-      "label": "Quarante-cinq minutes pour savoir où l'IA change la donne chez vous.",
+      "index": 1,
+      "label": "Quarante-cinq minutes, et une liste de tâches classées par priorité.",
       "background": "ink"
     },
     {
@@ -3322,8 +3266,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 10,
-      "label": "Vous savez à quel niveau vous êtes. Posons la marche suivante.",
+      "index": 4,
+      "label": "Vous connaissez votre niveau. L'audit dit par quelle tâche commencer.",
       "background": "ink"
     },
     {
@@ -3986,15 +3930,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "hero-split-media": [
     {
       "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 0,
-      "label": "Audit IA gratuit pour PME.",
-      "background": "paper"
-    },
-    {
-      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -4126,15 +4061,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 0,
       "label": "Votre PME est-elle prête à déployer Claude ?",
-      "background": "paper"
-    },
-    {
-      "collection": "diagnostics",
-      "file": "diagnostics/maturite-ia.json",
-      "slug": "maturite-ia",
-      "route": "/ressources/diagnostics/maturite-ia",
-      "index": 0,
-      "label": "Diagnostic de maturité IA.",
       "background": "paper"
     },
     {
@@ -4404,16 +4330,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 8,
       "label": "Les outils qu'on orchestre dans n8n",
       "background": "ink"
-    }
-  ],
-  "manifesto-statement": [
-    {
-      "collection": "diagnostics",
-      "file": "diagnostics/maturite-ia.json",
-      "slug": "maturite-ia",
-      "route": "/ressources/diagnostics/maturite-ia",
-      "index": 4,
-      "label": "Le vrai critère"
     }
   ],
   "method-stepline": [
@@ -5268,15 +5184,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "process-steps": [
     {
       "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 3,
-      "label": "Le déroulé des 45 minutes",
-      "background": "paper-2"
-    },
-    {
-      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -5327,15 +5234,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 7,
       "label": "Ce qu'on pose selon votre préparation",
-      "background": "paper-2"
-    },
-    {
-      "collection": "diagnostics",
-      "file": "diagnostics/maturite-ia.json",
-      "slug": "maturite-ia",
-      "route": "/ressources/diagnostics/maturite-ia",
-      "index": 7,
-      "label": "Ce qu'on fait selon votre niveau",
       "background": "paper-2"
     },
     {
@@ -5717,15 +5615,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "related-cards-band": [
     {
       "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 7,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -5855,15 +5744,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/diagnostics/claude-pme",
-      "index": 8,
-      "label": "Pour aller plus loin",
-      "background": "paper"
-    },
-    {
-      "collection": "diagnostics",
-      "file": "diagnostics/maturite-ia.json",
-      "slug": "maturite-ia",
-      "route": "/ressources/diagnostics/maturite-ia",
       "index": 8,
       "label": "Pour aller plus loin",
       "background": "paper"
@@ -6219,15 +6099,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     }
   ],
   "versus-competitors": [
-    {
-      "collection": "audits",
-      "file": "audits/audit-ia-pme.json",
-      "slug": "audit-ia-pme",
-      "route": "/audit-ia-pme",
-      "index": 2,
-      "label": "L'audit est utile pour vous si",
-      "background": "paper"
-    },
     {
       "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",

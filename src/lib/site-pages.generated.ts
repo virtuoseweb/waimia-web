@@ -2382,14 +2382,6 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/ressources/_academy",
-    "title": "_academy",
-    "group": "ressources",
-    "collection": "bespoke",
-    "editable": false,
-    "sections": []
-  },
-  {
     "route": "/ressources/comparatifs",
     "title": "Comparatifs",
     "group": "ressources",
@@ -2677,64 +2669,35 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/diagnostics/maturite-ia",
-    "title": "Diagnostic de maturité IA · comprendre les 5 niveaux",
+    "title": "Diagnostic IA gratuit · votre maturité IA en 10 questions",
     "group": "ressources",
     "collection": "diagnostics",
     "file": "diagnostics/maturite-ia.json",
     "editable": true,
     "sections": [
       {
-        "type": "hero-split-media",
-        "label": "Diagnostic de maturité IA.",
-        "background": "paper"
-      },
-      {
         "type": "direct-answer",
-        "label": "#1",
+        "label": "#0",
         "background": "paper-2"
       },
       {
         "type": "diagnostic-stages",
-        "label": "Où en est votre entreprise ?",
+        "label": "Les cinq niveaux de la grille",
         "background": "paper"
-      },
-      {
-        "type": "data-table",
-        "label": "Les cinq niveaux de maturité IA, en clair",
-        "background": "paper-3"
-      },
-      {
-        "type": "manifesto-statement",
-        "label": "Le vrai critère"
       },
       {
         "type": "feature-zigzag",
-        "label": "Ce qui détermine votre niveau réel",
+        "label": "Ce que mesurent les dix questions",
         "background": "paper-2"
-      },
-      {
-        "type": "decision-list",
-        "label": "Six questions pour situer votre maturité",
-        "background": "paper"
-      },
-      {
-        "type": "process-steps",
-        "label": "Ce qu'on fait selon votre niveau",
-        "background": "paper-2"
-      },
-      {
-        "type": "related-cards-band",
-        "label": "Pour aller plus loin",
-        "background": "paper"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Sur le diagnostic et son barème",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Vous savez à quel niveau vous êtes. Posons la marche suivante.",
+        "label": "Vous connaissez votre niveau. L'audit dit par quelle tâche commencer.",
         "background": "ink"
       }
     ]
@@ -2950,10 +2913,28 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/outils/calculateur-roi-ia",
-    "title": "Calculateur ROI IA gratuit pour PME B2B",
+    "title": "Calculateur ROI IA : le temps récupérable et le budget à ne pas dépasser",
     "group": "ressources",
     "collection": "outils",
     "file": "outils/calculateur-roi-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/ressources/outils/charte-ia-entreprise",
+    "title": "Charte IA entreprise : modèle gratuit pour PME",
+    "group": "ressources",
+    "collection": "outils",
+    "file": "outils/charte-ia-entreprise.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/ressources/outils/grille-taches-a-automatiser",
+    "title": "Grille : quelles tâches automatiser en premier",
+    "group": "ressources",
+    "collection": "outils",
+    "file": "outils/grille-taches-a-automatiser.json",
     "editable": false,
     "sections": []
   },
@@ -3124,60 +3105,20 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/audit-ia-pme",
-    "title": "Audit IA gratuit pour PME · 45 min, un plan d'action concret",
+    "title": "Audit IA gratuit pour PME · 45 min, une cartographie de vos tâches",
     "group": "conversion",
     "collection": "audits",
     "file": "audits/audit-ia-pme.json",
     "editable": true,
     "sections": [
       {
-        "type": "hero-split-media",
-        "label": "Audit IA gratuit pour PME.",
-        "background": "paper"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Trois livrables activables, pas un diaporama",
-        "background": "paper-2"
-      },
-      {
-        "type": "versus-competitors",
-        "label": "L'audit est utile pour vous si",
-        "background": "paper"
-      },
-      {
-        "type": "process-steps",
-        "label": "Le déroulé des 45 minutes",
-        "background": "paper-2"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Ce que l'audit gratuit fait et ne fait pas",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-pricing-callout",
-        "label": "Un regard d'ingénieur, pas un argumentaire commercial",
-        "background": "paper"
-      },
-      {
-        "type": "feature-split-media",
-        "label": "Besoin d'y voir plus loin ? La grille des 47 critères",
-        "background": "paper-2"
-      },
-      {
-        "type": "related-cards-band",
-        "label": "Pour aller plus loin",
-        "background": "paper-2"
-      },
-      {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper"
+        "label": "Questions avant de réserver",
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "Quarante-cinq minutes pour savoir où l'IA change la donne chez vous.",
+        "label": "Quarante-cinq minutes, et une liste de tâches classées par priorité.",
         "background": "ink"
       }
     ]
@@ -3537,7 +3478,6 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/demonstrations/integration-claude",
       "/demonstrations/site-web-intelligent",
       "/ressources",
-      "/ressources/_academy",
       "/ressources/comparatifs",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -3551,7 +3491,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides",
       "/ressources/guides/claude-pme",
       "/ressources/outils",
-      "/ressources/outils/calculateur-roi-ia"
+      "/ressources/outils/calculateur-roi-ia",
+      "/ressources/outils/charte-ia-entreprise",
+      "/ressources/outils/grille-taches-a-automatiser"
     ]
   },
   {

@@ -35,9 +35,9 @@ export const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
   h2_en: 'Ready to ship an <em>agent</em>,<br />not a slide deck?',
-  body_fr: 'Audit IA en 5 jours. Premier agent en production en 4 semaines. ROI mesuré, jamais estimé.',
-  body_en: 'AI audit in 5 days. First agent in production in 4 weeks. Measured ROI, never estimated.',
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/audit-ia-pme', variant: 'primary' as const },
-  cta_secondary: { label_fr: 'Voir les offres →', label_en: 'See services →', href: '/services', variant: 'ghost' as const },
+  body_fr: 'Audit IA gratuit de 45 minutes : vos process passés en revue tâche par tâche, une cartographie écrite à la fin.',
+  body_en: 'Free 45-minute AI audit: your processes reviewed task by task, a written map at the end.',
+  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact?offer=audit-ia-pme&intent=audit', variant: 'primary' as const },
+  cta_secondary: { label_fr: "Ce que couvre l'audit →", label_en: 'What the audit covers →', href: '/audit-ia-pme', variant: 'ghost' as const },
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;

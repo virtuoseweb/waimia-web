@@ -27,13 +27,13 @@ export default function ContactConfirmation({
 
   const content =
     `<h1 style="${h1Style}">Reçu, ${fn}.</h1>` +
-    `<p style="${pStyle}">Votre brief est arrivé chez nous. Un humain (pas un agent IA) vous répond dans les 24 heures ouvrées, souvent plus vite si la question est simple.</p>` +
+    `<p style="${pStyle}">Votre message est bien arrivé. Simon Beros vous répond personnellement sous 24 heures ouvrées.</p>` +
     `<div style="${cardSoftStyle}">` +
-    `<p style="${eyebrowStyle}">Votre brief</p>` +
+    `<p style="${eyebrowStyle}">Votre message</p>` +
     `<p style="${pStyle}margin:0;font-style:italic;">« ${briefSafe} »</p>` +
     `</div>` +
-    `<p style="${pStyle}">En attendant, deux ressources qui peuvent répondre directement :</p>` +
-    `<p style="${mutedStyle}">· <a href="${SITE.url}/cas-clients" style="${accentLinkStyle}">Études de cas · refonte RevOps</a><br />· <a href="${SITE.url}/services" style="${accentLinkStyle}">Nos solutions · IA pour PME</a></p>` +
+    `<p style="${pStyle}">Pour gagner du temps, vous pouvez choisir directement un créneau pour l'audit IA gratuit de 45 minutes :</p>` +
+    `<p style="${mutedStyle}">· <a href="${SITE.url}/contact?offer=audit-ia-pme&intent=audit" style="${accentLinkStyle}">Choisir un créneau</a><br />· <a href="${SITE.url}/audit-ia-pme" style="${accentLinkStyle}">Ce que couvre l'audit</a></p>` +
     `<p style="${mutedStyle}">Si urgent : <a href="mailto:${SITE.email}" style="${accentLinkStyle}">${SITE.email}</a></p>`;
 
   return wrapEmail(

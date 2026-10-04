@@ -19,7 +19,7 @@
 // générique (data-driven), le composant reste réutilisable. Styles scopés : OK
 // (bundlés via l'import du composant, indépendamment du slot).
 
-import { SITE } from '../../../site.config';
+import { AUDIT_BOOKING_HREF } from '../../../data/conversion';
 
 interface InputOption {
   value: string;
@@ -58,7 +58,7 @@ const {
   inputs = [],
   outputs = [],
   lang = 'fr',
-  ctaHref = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`,
+  ctaHref = AUDIT_BOOKING_HREF,
   ctaLabel_fr,
   ctaLabel_en,
 } = Astro.props as Props;
@@ -67,9 +67,9 @@ const isEn = lang === 'en';
 const pick = (fr: string, en: string) => (isEn ? en : fr);
 const active = inputs.length > 0 && outputs.length > 0;
 
-const eyebrow = pick('Estimation instantanée', 'Instant estimate');
-const hint = pick('Le résultat se met à jour à chaque saisie, sans email.', 'The result updates as you type, no email.');
-const ctaText = pick(ctaLabel_fr ?? 'Réserver un audit gratuit →', ctaLabel_en ?? 'Book a free audit →');
+const eyebrow = pick('Vos hypothèses, modifiables', 'Your assumptions, editable');
+const hint = pick('Le résultat se recalcule à chaque saisie. Il découle de vos hypothèses : ce n\'est pas une promesse de gain.', 'The result recalculates as you type. It follows from your assumptions: it is not a promised gain.');
+const ctaText = pick(ctaLabel_fr ?? "Vérifier ces hypothèses en audit (45 min, gratuit)", ctaLabel_en ?? 'Check these assumptions in an audit (45 min, free)');
 ---
 {active && (
   <section class="tool-widget" data-tool-widget aria-label={eyebrow}>
@@ -117,7 +117,7 @@ const ctaText = pick(ctaLabel_fr ?? 'Réserver un audit gratuit →', ctaLabel_e
           data-lang={lang}
         >
           <span class="tw-result__label">{pick(o.label_fr, o.label_en)}</span>
-          <span class="tw-result__value" data-result-value>…</span>
+          <span class="tw-result__value" data-result-value aria-live="polite">…</span>
         </div>
       ))}
     </div>
@@ -206,8 +206,9 @@ const ctaText = pick(ctaLabel_fr ?? 'Réserver un audit gratuit →', ctaLabel_e
   }
   .tw-input:focus-visible,
   .tw-select:focus-visible {
-    outline: none;
-    border-color: var(--accent-text);
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
+    border-color: var(--ink);
   }
 
   .tw-results {

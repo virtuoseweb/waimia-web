@@ -1,0 +1,280 @@
+---
+// Organism · CharterDocument · modèle de charte IA lisible en ligne (hors catalogue).
+//
+// Colonne gauche : champs de personnalisation (remplacent en direct les jetons du texte)
+// et actions (PDF, export Word, copie, impression). Colonne droite : la charte, rendue
+// comme un document. Texte source unique : src/data/charte-ia-pme.ts.
+//
+// Sorties :
+//   - PDF        : fichier statique public/telechargements/… (modèle vierge, avec les notes
+//                  d'adaptation), régénéré par scripts/gen-charte-pdf.mjs.
+//   - Word       : fichier .doc généré dans le navigateur (HTML lu par Word, LibreOffice,
+//                  Google Docs), avec les champs remplis, sans les notes d'adaptation.
+//   - Copie      : texte brut dans le presse-papiers, mêmes règles que l'export Word.
+//   - Impression : feuille d'impression qui n'imprime que la charte.
+// Rien n'est envoyé à un serveur : les valeurs saisies restent dans le navigateur.
+import './form.css';
+import {
+  charterVars,
+  charterTitle,
+  charterPreamble,
+  charterArticles,
+  charterClosing,
+  charterSources,
+} from '../../../../data/charte-ia-pme';
+import { LEAD_MAGNETS } from '../../../../data/conversion';
+
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const placeholders = Object.fromEntries(charterVars.map((v) => [v.key, v.placeholder]));
+/** Remplace {{cle}} par un <span> que le script met à jour en direct. */
+const tok = (s: string) =>
+  esc(s).replace(/\{\{([a-z]+)\}\}/g, (_m, k) => `<span class="ch-var" data-var="${k}">[${esc(placeholders[k] ?? k)}]</span>`);
+
+const pdfHref = LEAD_MAGNETS['charte-ia-entreprise'].file;
+---
+<section class="ch" aria-label="Modèle de charte IA" data-charter>
+  <div class="wrap-wide ch-in">
+    <aside class="ch-side" aria-labelledby="ch-side-h2">
+      <h2 class="ch-side-h2" id="ch-side-h2">Personnaliser le modèle</h2>
+      <p class="cv-note">Ce que vous saisissez remplace les champs entre crochets dans le texte. Rien n'est envoyé : tout reste dans votre navigateur.</p>
+      <form class="ch-fields" data-charter-form onsubmit="return false">
+        {charterVars.map((v) => (
+          <div class="cv-field">
+            <label class="cv-label" for={`ch-${v.key}`}>{v.label}</label>
+            <input class="cv-input" id={`ch-${v.key}`} type="text" data-charter-var={v.key} autocomplete="off" />
+          </div>
+        ))}
+      </form>
+      <div class="ch-actions">
+        <a class="btn btn-primary" href={pdfHref} download>Télécharger le PDF</a>
+        <button class="btn btn-ghost cv-btn" type="button" data-charter-doc>Télécharger en Word (.doc)</button>
+        <button class="btn btn-ghost cv-btn" type="button" data-charter-copy>Copier le texte</button>
+        <button class="btn btn-ghost cv-btn" type="button" data-charter-print>Imprimer</button>
+      </div>
+      <p class="cv-note ch-feedback" role="status" data-charter-feedback></p>
+      <p class="cv-note">Le PDF est le modèle vierge avec ses notes d'adaptation. L'export Word et la copie reprennent vos champs et retirent les notes.</p>
+    </aside>
+
+    <article class="ch-sheet" data-charter-sheet>
+      <h2 class="ch-title">{charterTitle}</h2>
+      <p class="ch-preamble" set:html={tok(charterPreamble)} />
+
+      {charterArticles.map((a, i) => (
+        <section class="ch-art" data-charter-article>
+          <h3 class="ch-art-h"><span class="ch-art-n">Article {i + 1}</span> <span data-charter-art-title>{a.title}</span></h3>
+          {a.intro && <p class="ch-art-intro" data-charter-intro set:html={tok(a.intro)} />}
+          <ul class="ch-rules">
+            {a.rules.map((r) => <li data-charter-rule set:html={tok(r)} />)}
+          </ul>
+          <p class="ch-adapt"><strong>À adapter avant diffusion.</strong> {a.adapt}</p>
+        </section>
+      ))}
+
+      <p class="ch-closing" data-charter-closing set:html={tok(charterClosing)} />
+      <div class="ch-legal">
+        <p>Ce modèle fixe des règles internes d'usage. Il ne constitue pas un avis juridique : faites-le relire par votre conseil, et consultez le CSE si votre entreprise en a un, avant de l'annexer au règlement intérieur.</p>
+        <p>
+          Source réglementaire citée :
+          {charterSources.map((s) => (
+            <span><a href={s.href} rel="noopener" target="_blank">{s.label}</a>, {s.checked}.</span>
+          ))}
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script is:inline>
+(function () {
+  var KEY = 'waimia:charte-ia:v1';
+
+  function init(root) {
+    if (root.dataset.bound) return;
+    root.dataset.bound = '1';
+    var sheet = root.querySelector('[data-charter-sheet]');
+    var inputs = root.querySelectorAll('[data-charter-var]');
+    var feedback = root.querySelector('[data-charter-feedback]');
+
+    function values() {
+      var v = {};
+      inputs.forEach(function (i) { v[i.dataset.charterVar] = i.value.trim(); });
+      return v;
+    }
+    function apply() {
+      var v = values();
+      sheet.querySelectorAll('.ch-var').forEach(function (s) {
+        if (!s.dataset.ph) s.dataset.ph = s.textContent;
+        var val = v[s.dataset.var];
+        s.textContent = val || s.dataset.ph;
+        s.classList.toggle('is-set', Boolean(val));
+      });
+      try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (_) {}
+    }
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+      inputs.forEach(function (i) { if (saved[i.dataset.charterVar]) i.value = saved[i.dataset.charterVar]; });
+    } catch (_) {}
+    inputs.forEach(function (i) { i.addEventListener('input', apply); });
+    apply();
+
+    function say(msg) { feedback.textContent = msg; }
+    function txt(el) { return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; }
+
+    // Structure du document, lue dans le DOM (donc avec les champs déjà remplacés).
+    function model() {
+      return {
+        title: txt(sheet.querySelector('.ch-title')),
+        preamble: txt(sheet.querySelector('.ch-preamble')),
+        articles: Array.prototype.map.call(sheet.querySelectorAll('[data-charter-article]'), function (a, i) {
+          return {
+            heading: 'Article ' + (i + 1) + '. ' + txt(a.querySelector('[data-charter-art-title]')),
+            intro: txt(a.querySelector('[data-charter-intro]')),
+            rules: Array.prototype.map.call(a.querySelectorAll('[data-charter-rule]'), txt),
+          };
+        }),
+        closing: txt(sheet.querySelector('[data-charter-closing]')),
+      };
+    }
+    function toText(m) {
+      var out = [m.title.toUpperCase(), '', m.preamble, ''];
+      m.articles.forEach(function (a) {
+        out.push(a.heading);
+        if (a.intro) out.push(a.intro);
+        a.rules.forEach(function (r) { out.push('- ' + r); });
+        out.push('');
+      });
+      out.push(m.closing);
+      return out.join('\n');
+    }
+    function e(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    function toWordHtml(m) {
+      var T1 = 'h' + 1;
+      var h = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'
+        + '<head><meta charset="utf-8"><title>' + e(m.title) + '</title>'
+        + '<style>body{font-family:Calibri,Arial,sans-serif;font-size:11pt;line-height:1.45}' + T1 + '{font-size:20pt}h2{font-size:13pt;margin-top:18pt}li{margin-bottom:4pt}</style>'
+        // Balise de titre construite : une chaîne littérale « h1 » dans le HTML de la page
+        // serait comptée comme un second titre par le gate heading-order.
+        + '</head><body><' + T1 + '>' + e(m.title) + '</' + T1 + '><p>' + e(m.preamble) + '</p>';
+      m.articles.forEach(function (a) {
+        h += '<h2>' + e(a.heading) + '</h2>';
+        if (a.intro) h += '<p>' + e(a.intro) + '</p>';
+        h += '<ul>' + a.rules.map(function (r) { return '<li>' + e(r) + '</li>'; }).join('') + '</ul>';
+      });
+      return h + '<p><i>' + e(m.closing) + '</i></p></body></html>';
+    }
+
+    root.querySelector('[data-charter-copy]').addEventListener('click', async function () {
+      var text = toText(model());
+      try {
+        await navigator.clipboard.writeText(text);
+        say('Texte copié dans le presse-papiers.');
+      } catch (_) {
+        say('La copie automatique est bloquée par le navigateur. Sélectionnez le texte de la charte et copiez-le, ou utilisez l\'export Word.');
+      }
+    });
+    root.querySelector('[data-charter-doc]').addEventListener('click', function () {
+      var blob = new Blob(['﻿', toWordHtml(model())], { type: 'application/msword' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      var co = (values().entreprise || 'modele').toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'modele';
+      a.href = url;
+      a.download = 'charte-ia-' + co + '.doc';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+      say('Fichier Word téléchargé : ' + a.download);
+    });
+    root.querySelector('[data-charter-print]').addEventListener('click', function () { window.print(); });
+
+    // Copie par e-mail (LeadCapture) : on joint les champs personnalisés s'il y en a.
+    document.addEventListener('cv:collect', function (ev) {
+      if (ev.detail.slug !== 'charte-ia-entreprise') return;
+      var v = values();
+      if (v.entreprise) ev.detail.summary.push({ label: 'Entreprise', value: v.entreprise });
+      if (v.outils) ev.detail.summary.push({ label: 'Outils autorisés', value: v.outils });
+      if (v.referent) ev.detail.summary.push({ label: 'Référent IA', value: v.referent });
+    });
+  }
+  function boot() { document.querySelectorAll('[data-charter]').forEach(init); }
+  boot();
+  document.addEventListener('astro:page-load', boot);
+})();
+</script>
+
+<style>
+  .ch { padding: var(--space-8) 0 var(--space-10); background: var(--paper-2); border-top: 1px solid var(--hairline-strong); }
+  .ch-in { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+  .ch-side { position: sticky; top: calc(var(--header-height) + var(--space-5)); display: flex; flex-direction: column; gap: var(--space-4); }
+  .ch-side-h2 { font-family: var(--font-sans); font-size: var(--text-h3); font-weight: var(--fw-semibold); letter-spacing: -0.012em; margin: 0; }
+  .ch-fields { display: flex; flex-direction: column; gap: var(--space-3); }
+  .ch-actions { display: flex; flex-direction: column; gap: var(--space-2); padding-top: var(--space-3); border-top: 1px solid var(--hairline-strong); }
+  .ch-actions .btn { justify-content: center; }
+  .ch-feedback:empty { display: none; }
+  .ch-feedback { color: var(--ink); font-weight: var(--fw-medium); }
+
+  .ch-sheet {
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lift);
+    padding: clamp(var(--space-5), 5vw, var(--space-10));
+    max-width: 860px;
+  }
+  .ch-title {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    font-size: var(--text-h2);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--ink);
+    text-wrap: balance;
+  }
+  .ch-preamble { font-size: var(--text-h3); line-height: var(--leading-body); margin: 0 0 var(--space-7); }
+  .ch-art { padding: var(--space-6) 0; border-top: 1px solid var(--hairline-strong); }
+  .ch-art-h { font-family: var(--font-sans); font-size: var(--text-h3); line-height: 1.25; font-weight: var(--fw-semibold); letter-spacing: -0.012em; margin: 0 0 var(--space-4); }
+  .ch-art-n { display: block; font-size: var(--text-small); font-weight: var(--fw-medium); color: var(--accent-text); letter-spacing: 0; margin-bottom: var(--space-1); }
+  .ch-art-intro { margin: 0 0 var(--space-3); font-size: var(--text-body); line-height: 1.6; }
+  .ch-rules { margin: 0; padding: 0 0 0 1.1em; }
+  .ch-rules li { font-size: var(--text-body); line-height: 1.6; margin-bottom: var(--space-3); padding-left: var(--space-1); max-width: 68ch; }
+  .ch-rules li::marker { color: var(--muted); }
+  .ch-adapt { margin: var(--space-4) 0 0; padding: var(--space-3) var(--space-4); background: var(--paper-2); border-left: 3px solid var(--accent); font-size: var(--text-small); line-height: 1.55; color: var(--ink-3); max-width: 72ch; }
+  .ch-sheet :global(.ch-var) { background: rgba(var(--accent-rgb), 0.12); color: var(--accent-text); padding: 0 3px; border-radius: var(--radius-xs); }
+  .ch-sheet :global(.ch-var.is-set) { background: none; color: inherit; padding: 0; font-weight: var(--fw-semibold); }
+  .ch-closing { margin: var(--space-5) 0 0; padding-top: var(--space-5); border-top: 1px solid var(--ink); font-size: var(--text-small); line-height: 1.55; color: var(--muted); }
+  .ch-legal { margin-top: var(--space-5); font-size: var(--text-small); line-height: 1.55; color: var(--muted); }
+  .ch-legal p { margin: 0 0 var(--space-2); max-width: 78ch; }
+  .ch-legal a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 900px) {
+    .ch { padding-top: var(--space-6); }
+    .ch-in { grid-template-columns: 1fr; gap: var(--space-6); }
+    .ch-side { position: static; }
+    .ch-preamble { font-size: var(--text-body); }
+  }
+</style>
+
+<style is:global>
+  /* Impression et PDF : seule la charte sort, sans l'habillage du site ni la colonne
+     de personnalisation. `display: none` (et non `visibility`) pour ne pas imprimer
+     de pages blanches à la place du reste de la page. */
+  @media print {
+    body:has([data-charter]) > *:not(main),
+    body:has([data-charter]) main > *:not([data-charter]),
+    body:has([data-charter]) .ch-side { display: none !important; }
+    body:has([data-charter]),
+    body:has([data-charter]) .ch { background: transparent !important; padding: 0 !important; border: 0 !important; }
+    body:has([data-charter]) .ch-in { display: block; padding: 0; max-width: none; }
+    body:has([data-charter]) [data-charter-sheet] { max-width: none; border: 0; box-shadow: none; padding: 0; background: transparent; }
+    body:has([data-charter]) .ch-art { padding: 14pt 0; }
+    body:has([data-charter]) .ch-art-h { break-after: avoid; }
+    body:has([data-charter]) .ch-rules { padding-left: 1.3em; list-style: disc outside; }
+    body:has([data-charter]) .ch-rules li,
+    body:has([data-charter]) .ch-adapt { break-inside: avoid; }
+    body:has([data-charter]) .ch-preamble { font-size: 12pt; }
+    body:has([data-charter]) .ch-adapt { background: transparent; border: 1px solid; border-left-width: 3px; }
+    body:has([data-charter]) .ch-var { background: none !important; }
+  }
+</style>

@@ -1,0 +1,406 @@
+---
+// Organism · MaturityDiagnostic · diagnostic de maturité IA interactif (hors catalogue).
+//
+// Parcours complet sur la page, sans e-mail :
+//   10 questions (5 dimensions × 2) → score sur 30 → niveau 1 à 5 → restitution à l'écran
+//   (niveau, lecture, barres par dimension, point faible, prochaine étape) → CTA audit.
+// L'e-mail est facultatif (organism LeadCapture, révélé après le calcul) et ne sert qu'à
+// recevoir le détail. Les réponses sont gardées dans le navigateur (localStorage), jamais
+// envoyées tant que la personne ne demande pas la copie par e-mail.
+//
+// Accessibilité : chaque question est un <fieldset> avec <legend> ; les réponses sont des
+// radios natifs (clavier : flèches) ; les questions sans réponse sont signalées en texte ;
+// le résultat reçoit le focus et son titre est annoncé.
+import './form.css';
+import LeadCapture from './LeadCapture.astro';
+import { dimensions, levels, MAX_SCORE, QUESTION_COUNT } from '../../../../data/diagnostic-maturite-ia';
+import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF } from '../../../../data/conversion';
+
+const clientData = {
+  max: MAX_SCORE,
+  levels,
+  dimensions: dimensions.map((d) => ({
+    key: d.key,
+    name: d.name,
+    advice: d.advice,
+    link: d.link ?? null,
+    questions: d.questions.map((q) => ({ id: q.id, text: q.text, options: q.options.map((x) => x.label) })),
+  })),
+};
+let n = 0;
+---
+<section class="md" id="questionnaire" aria-labelledby="md-h2" data-maturity-diagnostic>
+  <div class="wrap-wide">
+    <div class="md-head">
+      <h2 class="md-h2" id="md-h2">Dix questions, quatre minutes</h2>
+      <p class="md-intro">Répondez pour l'entreprise telle qu'elle est aujourd'hui, pas telle que vous la voulez. Le résultat s'affiche sur cette page, sans e-mail.</p>
+    </div>
+
+    <form class="md-form" novalidate data-md-form>
+      {dimensions.map((d) => (
+        <div class="md-dim">
+          <div class="md-dim-head">
+            <h3 class="md-dim-name">{d.name}</h3>
+            <p class="md-dim-why">{d.why}</p>
+          </div>
+          <div class="md-dim-qs">
+            {d.questions.map((q) => {
+              n += 1;
+              return (
+                <fieldset class="md-q" data-q={q.id}>
+                  <legend><span class="md-q-n">{n}.</span> {q.text}</legend>
+                  <div class="md-opts">
+                    {q.options.map((opt) => (
+                      <label class="md-opt">
+                        <input type="radio" name={q.id} value={opt.value} />
+                        <span>{opt.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                  <p class="cv-error" data-q-error hidden>Choisissez la réponse la plus proche de votre situation.</p>
+                </fieldset>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+
+      <div class="md-submit">
+        <p class="md-progress" data-md-progress aria-live="polite">0 réponse sur {QUESTION_COUNT}</p>
+        <button class="btn btn-primary btn-lg cv-btn" type="submit">Voir mon niveau</button>
+        <p class="cv-error" role="alert" data-md-missing hidden></p>
+      </div>
+    </form>
+
+    <div class="md-result" id="resultat" data-md-result tabindex="-1" hidden>
+      <div class="md-res-top">
+        <div class="md-res-level">
+          <p class="md-res-k">Votre niveau de maturité IA</p>
+          <p class="md-res-n"><span data-md-level>1</span><span class="md-res-of">sur 5</span></p>
+          <h3 class="md-res-name" data-md-name></h3>
+          <p class="md-res-score">Score : <strong data-md-score>0</strong> sur {MAX_SCORE}</p>
+        </div>
+        <div class="md-res-read">
+          <p class="md-res-reading" data-md-reading></p>
+          <ol class="md-scale" aria-label="Échelle des cinq niveaux" data-md-scale>
+            {levels.map((l) => (
+              <li data-level={l.level}>
+                <span class="md-scale-n">{l.level}</span>
+                <span class="md-scale-name">{l.name}</span>
+                <span class="md-scale-range">{l.min} à {l.max}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <div class="md-res-grid">
+        <div class="md-res-dims">
+          <h3 class="md-res-h3">Par dimension</h3>
+          <ul class="md-bars" data-md-bars></ul>
+          <p class="cv-note">Chaque dimension est notée sur 6 (deux questions de 0 à 3). Le niveau vient du total : 0 à 6 niveau 1, 7 à 13 niveau 2, 14 à 20 niveau 3, 21 à 26 niveau 4, 27 à 30 niveau 5. C'est un repère déclaratif, pas une mesure.</p>
+        </div>
+        <div class="md-res-next">
+          <h3 class="md-res-h3">Le point à traiter en premier : <span data-md-weak-name></span></h3>
+          <p data-md-weak-advice></p>
+          <p class="md-res-link" data-md-weak-link hidden></p>
+          <h3 class="md-res-h3 md-res-h3--b">La prochaine étape à votre niveau</h3>
+          <p data-md-next></p>
+        </div>
+      </div>
+
+      <div class="md-res-cta">
+        <div>
+          <p class="md-res-cta-t">Passer du niveau au premier chantier</p>
+          <p class="md-res-cta-b">L'audit IA reprend ces réponses et descend au niveau des tâches : 45 minutes en visio, gratuit, avec une cartographie écrite à la fin.</p>
+        </div>
+        <div class="md-res-cta-btns">
+          <a class="btn btn-primary btn-lg" href={AUDIT_BOOKING_HREF}>Réserver l'audit IA</a>
+          <a class="btn btn-ghost btn-lg" href={AUDIT_PAGE_HREF}>Ce que couvre l'audit</a>
+        </div>
+      </div>
+
+      <LeadCapture
+        slug="diagnostic-maturite-ia"
+        title="Recevoir le détail par e-mail"
+        description="Votre niveau, votre score par dimension, vos dix réponses et les deux recommandations, dans un e-mail à garder ou à transférer."
+        buttonLabel="Recevoir le détail"
+      />
+
+      <p class="md-redo"><button type="button" class="md-redo-btn" data-md-redo>Modifier mes réponses</button></p>
+    </div>
+  </div>
+
+  <script type="application/json" data-md-data set:html={JSON.stringify(clientData)} />
+</section>
+
+<script is:inline>
+(function () {
+  var KEY = 'waimia:diagnostic-maturite-ia:v1';
+
+  function init(root) {
+    if (root.dataset.bound) return;
+    root.dataset.bound = '1';
+    var data = JSON.parse(root.querySelector('[data-md-data]').textContent);
+    var form = root.querySelector('[data-md-form]');
+    var result = root.querySelector('[data-md-result]');
+    var progress = root.querySelector('[data-md-progress]');
+    var missing = root.querySelector('[data-md-missing]');
+    var ids = [];
+    data.dimensions.forEach(function (d) { d.questions.forEach(function (q) { ids.push(q.id); }); });
+    var last = null;
+
+    function answers() {
+      var a = {};
+      ids.forEach(function (id) {
+        var c = form.querySelector('input[name="' + id + '"]:checked');
+        if (c) a[id] = Number(c.value);
+      });
+      return a;
+    }
+    function count(a) { return Object.keys(a).length; }
+    function updateProgress() {
+      var c = count(answers());
+      progress.textContent = c + (c > 1 ? ' réponses sur ' : ' réponse sur ') + ids.length;
+    }
+    function save(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (_) {} }
+    function restore() {
+      try {
+        var a = JSON.parse(localStorage.getItem(KEY) || '{}');
+        ids.forEach(function (id) {
+          if (a[id] === undefined) return;
+          var el = form.querySelector('input[name="' + id + '"][value="' + a[id] + '"]');
+          if (el) el.checked = true;
+        });
+      } catch (_) {}
+    }
+
+    function compute(a) {
+      var total = 0;
+      var dims = data.dimensions.map(function (d) {
+        var s = d.questions.reduce(function (acc, q) { return acc + a[q.id]; }, 0);
+        total += s;
+        return { key: d.key, name: d.name, score: s, advice: d.advice, link: d.link, questions: d.questions };
+      });
+      var level = data.levels.filter(function (l) { return total >= l.min && total <= l.max; })[0];
+      // Point faible : la dimension la plus basse (première en cas d'égalité, dans l'ordre
+      // Données → Process → Compétences → Gouvernance → Direction, du socle vers le pilotage).
+      var weak = dims.slice().sort(function (x, y) { return x.score - y.score; })[0];
+      return { total: total, dims: dims, level: level, weak: weak };
+    }
+
+    function render(r) {
+      root.querySelector('[data-md-level]').textContent = r.level.level;
+      root.querySelector('[data-md-name]').textContent = r.level.name;
+      root.querySelector('[data-md-score]').textContent = r.total;
+      root.querySelector('[data-md-reading]').textContent = r.level.reading;
+      root.querySelector('[data-md-next]').textContent = r.level.next;
+      root.querySelectorAll('[data-md-scale] li').forEach(function (li) {
+        if (Number(li.dataset.level) === r.level.level) li.setAttribute('aria-current', 'true');
+        else li.removeAttribute('aria-current');
+      });
+      var bars = root.querySelector('[data-md-bars]');
+      bars.innerHTML = '';
+      r.dims.forEach(function (d) {
+        var li = document.createElement('li');
+        if (d.key === r.weak.key) li.className = 'is-weak';
+        var name = document.createElement('span'); name.className = 'md-bar-name'; name.textContent = d.name;
+        var track = document.createElement('span'); track.className = 'md-bar-track'; track.setAttribute('aria-hidden', 'true');
+        var fill = document.createElement('span'); fill.className = 'md-bar-fill'; fill.style.width = Math.round((d.score / 6) * 100) + '%';
+        track.appendChild(fill);
+        var val = document.createElement('span'); val.className = 'md-bar-val'; val.textContent = d.score + ' sur 6';
+        li.appendChild(name); li.appendChild(track); li.appendChild(val);
+        bars.appendChild(li);
+      });
+      root.querySelector('[data-md-weak-name]').textContent = r.weak.name;
+      root.querySelector('[data-md-weak-advice]').textContent = r.weak.advice;
+      var link = root.querySelector('[data-md-weak-link]');
+      link.innerHTML = '';
+      if (r.weak.link) {
+        var a = document.createElement('a'); a.href = r.weak.link.href; a.textContent = r.weak.link.label;
+        link.appendChild(a); link.hidden = false;
+      } else link.hidden = true;
+    }
+
+    form.addEventListener('change', function (e) {
+      updateProgress();
+      var fs = e.target.closest('fieldset');
+      if (fs) { fs.removeAttribute('data-invalid'); var er = fs.querySelector('[data-q-error]'); if (er) er.hidden = true; }
+      save(answers());
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var a = answers();
+      var miss = ids.filter(function (id) { return a[id] === undefined; });
+      form.querySelectorAll('fieldset').forEach(function (fs) {
+        var bad = miss.indexOf(fs.dataset.q) !== -1;
+        if (bad) fs.setAttribute('data-invalid', 'true'); else fs.removeAttribute('data-invalid');
+        fs.querySelector('[data-q-error]').hidden = !bad;
+      });
+      if (miss.length) {
+        missing.textContent = miss.length === 1
+          ? 'Il manque 1 réponse (question ' + (ids.indexOf(miss[0]) + 1) + ').'
+          : 'Il manque ' + miss.length + ' réponses (questions ' + miss.map(function (id) { return ids.indexOf(id) + 1; }).join(', ') + ').';
+        missing.hidden = false;
+        var first = form.querySelector('fieldset[data-q="' + miss[0] + '"] input');
+        if (first) first.focus();
+        return;
+      }
+      missing.hidden = true;
+      last = { a: a, r: compute(a) };
+      render(last.r);
+      result.hidden = false;
+      result.focus({ preventScroll: true });
+      result.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+
+    root.querySelector('[data-md-redo]').addEventListener('click', function () {
+      var first = form.querySelector('input');
+      form.scrollIntoView({ block: 'start' });
+      if (first) first.focus({ preventScroll: true });
+    });
+
+    // Copie par e-mail : on fournit le détail au composant LeadCapture.
+    root.addEventListener('cv:collect', function (e) {
+      if (!last || e.detail.slug !== 'diagnostic-maturite-ia') return;
+      var r = last.r;
+      e.detail.headline = 'Niveau ' + r.level.level + ' (' + r.level.name + ') · ' + r.total + '/' + data.max;
+      var s = e.detail.summary;
+      s.push({ label: 'Niveau', value: r.level.level + ' sur 5 · ' + r.level.name });
+      s.push({ label: 'Score total', value: r.total + ' sur ' + data.max });
+      r.dims.forEach(function (d) { s.push({ label: d.name, value: d.score + ' sur 6' }); });
+      s.push({ label: 'À traiter en premier : ' + r.weak.name, value: r.weak.advice });
+      s.push({ label: 'Prochaine étape', value: r.level.next });
+      r.dims.forEach(function (d) {
+        d.questions.forEach(function (q) { s.push({ label: q.text, value: q.options[last.a[q.id]] }); });
+      });
+    });
+
+    restore();
+    updateProgress();
+  }
+
+  function boot() { document.querySelectorAll('[data-maturity-diagnostic]').forEach(init); }
+  boot();
+  document.addEventListener('astro:page-load', boot);
+})();
+</script>
+
+<style>
+  .md { padding: var(--space-7) 0 var(--space-10); background: var(--paper-2); border-top: 1px solid var(--hairline-strong); scroll-margin-top: var(--header-height); }
+  .md-head { max-width: 62ch; margin-bottom: var(--space-7); }
+  .md-h2 {
+    font-family: var(--font-sans);
+    font-size: calc(var(--text-h2) * 0.76);
+    line-height: 1.08;
+    letter-spacing: -0.024em;
+    font-weight: var(--fw-semibold);
+    margin: 0 0 var(--space-3);
+  }
+  .md-intro { margin: 0; font-size: var(--text-body); line-height: 1.6; color: var(--muted); }
+
+  .md-dim {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 2fr);
+    gap: var(--space-8);
+    padding: var(--space-6) 0;
+    border-top: 1px solid var(--ink);
+  }
+  .md-dim-head { position: sticky; top: calc(var(--header-height) + var(--space-5)); align-self: start; }
+  .md-dim-name { font-family: var(--font-sans); font-size: var(--text-h3); font-weight: var(--fw-semibold); letter-spacing: -0.012em; margin: 0 0 var(--space-2); }
+  .md-dim-why { margin: 0; font-size: var(--text-small); line-height: 1.55; color: var(--muted); max-width: 34ch; }
+  .md-dim-qs { display: flex; flex-direction: column; gap: var(--space-6); }
+
+  .md-q { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .md-q legend { padding: 0; margin-bottom: var(--space-3); font-size: var(--text-body); font-weight: var(--fw-semibold); line-height: var(--leading-lede); color: var(--ink); }
+  .md-q-n { color: var(--muted); font-weight: var(--fw-regular); font-variant-numeric: tabular-nums; }
+  .md-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+  .md-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-xs);
+    font-size: var(--text-small);
+    line-height: 1.45;
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .md-opt:hover { border-color: rgba(var(--ink-rgb), 0.45); }
+  .md-opt input { margin: 2px 0 0; accent-color: var(--ink); flex-shrink: 0; width: 16px; height: 16px; }
+  .md-opt:has(input:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+  .md-opt:has(input:focus-visible) { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  .md-q[data-invalid='true'] legend { color: var(--accent-text); }
+  .md-q .cv-error { margin-top: var(--space-2); }
+
+  .md-submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4) var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--ink);
+  }
+  .md-progress { margin: 0; font-size: var(--text-small); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .md-submit .cv-error { flex-basis: 100%; }
+
+  /* ── Résultat ── */
+  .md-result { margin-top: var(--space-9); background: var(--paper); border: 1px solid var(--ink); border-radius: var(--radius-sm); scroll-margin-top: calc(var(--header-height) + var(--space-4)); }
+  .md-result[hidden] { display: none; }
+  .md-result:focus { outline: none; }
+  .md-res-top { display: grid; grid-template-columns: minmax(220px, 0.7fr) minmax(0, 2fr); gap: var(--space-8); padding: var(--space-7); border-bottom: 1px solid var(--hairline-strong); }
+  .md-res-k { margin: 0 0 var(--space-2); font-size: var(--text-small); color: var(--muted); }
+  .md-res-n { margin: 0; display: flex; align-items: baseline; gap: var(--space-3); font-family: var(--font-sans); font-weight: var(--fw-semibold); font-size: var(--text-numeral); line-height: 0.9; letter-spacing: -0.04em; }
+  .md-res-of { font-size: var(--text-h3); font-weight: var(--fw-regular); color: var(--muted); letter-spacing: 0; }
+  .md-res-name { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); font-size: var(--text-title-lg); line-height: var(--leading-h3); color: var(--accent-text); margin: var(--space-3) 0 var(--space-2); }
+  .md-res-score { margin: 0; font-size: var(--text-small); color: var(--muted); }
+  .md-res-score strong { color: var(--ink); }
+  .md-res-reading { margin: 0 0 var(--space-6); font-size: var(--text-h3); line-height: var(--leading-lede); max-width: 56ch; }
+  .md-scale { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+  .md-scale li { padding: var(--space-3) var(--space-2) 0 0; display: flex; flex-direction: column; gap: 2px; color: var(--muted); font-size: var(--text-small); position: relative; }
+  .md-scale-n { font-weight: var(--fw-semibold); }
+  .md-scale-range { font-family: var(--font-mono); font-size: var(--text-fine); }
+  .md-scale li[aria-current='true'] { color: var(--ink); }
+  .md-scale li[aria-current='true']::before { content: ''; position: absolute; top: -3px; left: 0; right: var(--space-2); height: 5px; background: var(--accent); }
+
+  .md-res-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); padding: var(--space-7); border-bottom: 1px solid var(--hairline-strong); }
+  .md-res-h3 { font-family: var(--font-sans); font-size: var(--text-body); font-weight: var(--fw-semibold); margin: 0 0 var(--space-4); line-height: 1.35; }
+  .md-res-h3--b { margin-top: var(--space-6); }
+  .md-res-next p { margin: 0; font-size: var(--text-body); line-height: 1.6; max-width: 58ch; }
+  .md-res-link { margin-top: var(--space-3) !important; font-size: var(--text-small) !important; }
+  .md-res-link :global(a) { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+  .md-bars { list-style: none; margin: 0 0 var(--space-5); padding: 0; }
+  .md-bars :global(li) { display: grid; grid-template-columns: 8.5rem 1fr 4rem; gap: var(--space-4); align-items: center; padding: var(--space-3) 0; border-bottom: 1px solid var(--hairline-strong); font-size: var(--text-small); }
+  .md-bars :global(.md-bar-track) { height: 8px; background: var(--paper-3); display: block; }
+  .md-bars :global(.md-bar-fill) { display: block; height: 100%; background: var(--ink); }
+  .md-bars :global(.is-weak .md-bar-fill) { background: var(--accent); }
+  .md-bars :global(.is-weak .md-bar-name) { font-weight: var(--fw-semibold); }
+  .md-bars :global(.md-bar-val) { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+
+  .md-res-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5) var(--space-7); padding: var(--space-6) var(--space-7); background: var(--paper-2); }
+  .md-res-cta-t { margin: 0 0 var(--space-1); font-size: var(--text-h3); font-weight: var(--fw-semibold); letter-spacing: -0.012em; }
+  .md-res-cta-b { margin: 0; font-size: var(--text-small); line-height: 1.55; color: var(--ink-3); max-width: 60ch; }
+  .md-res-cta-btns { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .md-result :global(.lc) { margin: var(--space-6) var(--space-7) 0; }
+  .md-redo { margin: 0; padding: var(--space-5) var(--space-7) var(--space-6); }
+  .md-redo-btn { background: none; border: 0; padding: 0; font: inherit; font-size: var(--text-small); color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+  @media (max-width: 900px) {
+    .md-dim { grid-template-columns: 1fr; gap: var(--space-4); padding: var(--space-5) 0; }
+    .md-dim-head { position: static; }
+    .md-dim-why { max-width: none; }
+    .md-opts { grid-template-columns: 1fr; }
+    .md-res-top, .md-res-grid { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-5); }
+    .md-res-n { font-size: var(--text-numeral-md); }
+    .md-res-reading { font-size: var(--text-body); }
+    .md-scale-name { display: none; }
+    .md-res-cta { padding: var(--space-5); }
+    .md-res-cta-btns .btn { flex: 1 1 100%; justify-content: center; }
+    .md-result :global(.lc) { margin: var(--space-5) var(--space-5) 0; }
+    .md-redo { padding: var(--space-4) var(--space-5) var(--space-5); }
+    .md-bars :global(li) { grid-template-columns: 6.5rem 1fr 3.6rem; gap: var(--space-3); }
+  }
+</style>

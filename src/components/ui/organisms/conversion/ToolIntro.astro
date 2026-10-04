@@ -1,0 +1,55 @@
+---
+// Organism · ToolIntro · tête compacte des pages outil / lead magnet (hors catalogue).
+// Volontairement basse : l'outil lui-même doit apparaître au-dessus de la ligne de
+// flottaison. Titre, une phrase, et les faits utiles avant de commencer (durée, e-mail
+// requis ou non, format). Slot `actions` facultatif (boutons de téléchargement, ancre).
+interface Fact { label: string; value: string }
+interface Props {
+  h1: string;
+  lede: string;
+  facts?: Fact[];
+}
+const { h1, lede, facts = [] } = Astro.props as Props;
+---
+<header class="ti">
+  <div class="wrap-wide ti-in">
+    <div class="ti-text">
+      <h1 class="ti-h1">{h1}</h1>
+      <p class="ti-lede">{lede}</p>
+      {Astro.slots.has('actions') && <div class="ti-actions"><slot name="actions" /></div>}
+    </div>
+    {facts.length > 0 && (
+      <dl class="ti-facts">
+        {facts.map((f) => (
+          <div><dt>{f.label}</dt><dd>{f.value}</dd></div>
+        ))}
+      </dl>
+    )}
+  </div>
+</header>
+
+<style>
+  .ti { padding: var(--space-7) 0 var(--space-7); }
+  .ti-in { display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 0.8fr); gap: var(--space-8); align-items: end; }
+  .ti-h1 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h2);
+    line-height: 1.04;
+    letter-spacing: -0.027em;
+    font-weight: var(--fw-semibold);
+    margin: 0 0 var(--space-4);
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+  .ti-lede { font-size: var(--text-h3); line-height: 1.42; color: var(--ink-3); margin: 0; max-width: 62ch; }
+  .ti-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+  .ti-facts { margin: 0; border-top: 1px solid var(--ink); }
+  .ti-facts div { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-3); padding: var(--space-2) 0; border-bottom: 1px solid var(--hairline-strong); font-size: var(--text-small); line-height: var(--leading-body); }
+  .ti-facts dt { color: var(--muted); }
+  .ti-facts dd { margin: 0; color: var(--ink); font-weight: var(--fw-medium); }
+  @media (max-width: 900px) {
+    .ti { padding: var(--space-5) 0 var(--space-6); }
+    .ti-in { grid-template-columns: 1fr; gap: var(--space-5); }
+    .ti-lede { font-size: var(--text-body); line-height: var(--leading-body); }
+  }
+</style>

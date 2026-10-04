@@ -126,7 +126,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "comparison-duo": {
     "count": 40,
     "pages": [
-      "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
@@ -168,12 +167,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/services/site-web-ia/wordpress.json"
     ]
   },
-  "comparison-pricing-callout": {
-    "count": 1,
-    "pages": [
-      "/audit-ia-pme"
-    ]
-  },
   "comparison-table": {
     "count": 4,
     "pages": [
@@ -207,16 +200,15 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "data-table": {
-    "count": 4,
+    "count": 3,
     "pages": [
       "/ressources/diagnostics/claude-pme",
-      "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent"
     ]
   },
   "decision-list": {
-    "count": 14,
+    "count": 13,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -227,7 +219,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
-      "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides/claude-pme",
@@ -271,7 +262,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "deliverables-grid": {
     "count": 31,
     "pages": [
-      "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -521,9 +511,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-split-media": {
-    "count": 4,
+    "count": 3,
     "pages": [
-      "/audit-ia-pme",
       "/lp/site-web-intelligent",
       "/lp/visibilite-google-ia",
       "/services/template-service-ref"
@@ -739,9 +728,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 21,
+    "count": 19,
     "pages": [
-      "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
@@ -757,7 +745,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
-      "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides/claude-pme",
@@ -820,12 +807,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "pages": [
       "/services/agent-support-client",
       "/services/automatisation-n8n"
-    ]
-  },
-  "manifesto-statement": {
-    "count": 1,
-    "pages": [
-      "/ressources/diagnostics/maturite-ia"
     ]
   },
   "maturity-pyramid": {
@@ -1001,16 +982,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 12,
+    "count": 10,
     "pages": [
-      "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
       "/implantations/montpellier",
       "/ressources/diagnostics/claude-pme",
-      "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides/claude-pme",
@@ -1079,9 +1058,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 21,
+    "count": 19,
     "pages": [
-      "/audit-ia-pme",
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
@@ -1097,7 +1075,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/claude-pme",
-      "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides/claude-pme",
@@ -1247,9 +1224,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "versus-competitors": {
-    "count": 2,
+    "count": 1,
     "pages": [
-      "/audit-ia-pme",
       "/audit-site-web-intelligent"
     ]
   },
