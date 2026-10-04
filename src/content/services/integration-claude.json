@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Claude en entreprise : intégration et déploiement · Waimia",
   "title_en": "Claude in the enterprise: integration and deployment · Waimia",
-  "description_fr": "Claude en entreprise : intégration et déploiement de Claude, Claude Code et MCP, agents branchés à vos outils, référent IA formé, gouvernance. En production.",
-  "description_en": "Claude in the enterprise: integration and deployment of Claude, Claude Code and MCP, agents wired to your tools, a trained AI lead, governance. In production.",
+  "description_fr": "Claude en entreprise : choix de l'offre, connexion à vos outils, règles d'usage et formation d'un référent. Intégration par un studio IA, dès 999 € HT.",
+  "description_en": "Claude in business: plan choice, connection to your tools, usage rules and training of an internal lead. Integration by an AI studio, from €999 excl. VAT.",
   "slug": "integration-claude",
   "publishedAt": "2026-06-18T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "integration-claude",
@@ -23,144 +23,96 @@
   },
   "faq_fr": [
     {
-      "q": "Quelle différence avec le consultant IA Claude ?",
-      "a": "Le consultant intervient en amont, sur la décision : quels cas d'usage, dans quel ordre, quelle gouvernance et quel budget. L'intégration Claude, c'est l'exécution : concevoir, brancher et déployer les agents dans vos outils via MCP. Beaucoup d'entreprises cadrent d'abord avec le <a href=\"/services/consultant-ia-claude\">consultant IA Claude</a>, puis passent à l'intégration."
+      "q": "Combien coûte Claude en entreprise ?",
+      "a": "Deux postes. Les licences : l'offre Team est facturée à partir de 20 dollars par siège et par mois en facturation annuelle (page tarifs de Claude, vérifiée le 4 octobre 2026). L'intégration par Waimia : sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure."
     },
     {
-      "q": "L'intégration Claude en entreprise, ça consiste en quoi ?",
-      "a": "À transformer Claude, un modèle générique, en un système qui exécute du travail réel dans votre entreprise. Concrètement : on cartographie le process à automatiser, on conçoit l'agent, on le branche à vos outils via le protocole MCP, on le déploie en production et on le supervise dans la durée. Pas une démo, un dispositif mesuré."
+      "q": "Les données de l'entreprise servent-elles à entraîner Claude ?",
+      "a": "Anthropic indique ne pas utiliser par défaut les entrées et sorties de ses offres commerciales pour entraîner ses modèles (centre de confidentialité d'Anthropic, vérifié le 4 octobre 2026). Les comptes personnels gratuits ou Pro relèvent d'autres règles : c'est une raison de passer sur une offre professionnelle."
     },
     {
-      "q": "Quelle différence avec les agents IA ?",
-      "a": "La page Agents IA vise une requête précise : un agent autonome pour une tâche répétitive (relance, tri, veille, reporting), quel que soit le modèle. L'intégration Claude est le cran au-dessus : Waimia déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Un agent isolé se cadre côté Agents IA ; un dispositif d'entreprise complet se cadre ici."
+      "q": "Claude vs ChatGPT en entreprise : lequel choisir ?",
+      "a": "Le choix dépend de vos usages, de vos outils déjà en place et des conditions contractuelles de chaque éditeur. Notre comparatif Claude vs ChatGPT pour une PME liste les critères à regarder. On déploie Claude par choix, et on travaille aussi avec les modèles OpenAI quand ils conviennent mieux."
     },
     {
-      "q": "Vous couvrez Claude Code et l'usage interne, ou seulement les agents métier ?",
-      "a": "Les deux, parce qu'une PME a rarement besoin d'un seul morceau. On déploie Claude pour les équipes et leurs usages quotidiens, on installe Claude Code dans les dépôts d'une équipe technique avec hooks et guardrails, on branche les agents à vos outils via MCP, et on forme un référent IA interne. C'est un seul interlocuteur pour tout le dispositif, du cadrage à la gouvernance."
+      "q": "Combien de temps pour déployer Claude dans une PME ?",
+      "a": "Habituellement 2 à 8 semaines pour une équipe pilote : ouverture des comptes, connexion des outils, consignes partagées, charte et formation. L'extension aux autres équipes se fait ensuite par étapes."
     },
     {
-      "q": "Vous travaillez avec quels modèles et quels outils ?",
-      "a": "L'écosystème Anthropic en priorité : l'API Claude, Claude Code et le protocole MCP, le standard ouvert pour connecter un modèle à vos outils. On branche les agents sur ce que vous utilisez déjà : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. Pour un cas hors écosystème, on évalue la faisabilité au cadrage."
+      "q": "Qu'est-ce qu'un connecteur MCP ?",
+      "a": "MCP, le Model Context Protocol, est un standard ouvert publié par Anthropic pour relier un modèle à des sources de données et à des outils (annonce d'Anthropic, vérifiée le 4 octobre 2026). Un connecteur MCP donne à Claude un accès contrôlé à un logiciel précis : votre drive, votre CRM, une base de données."
     },
     {
-      "q": "Claude ou ChatGPT pour votre entreprise, lequel choisir ?",
-      "a": "Les deux modèles sont solides. Claude se distingue sur le raisonnement long, le code et le protocole MCP, qui branche le modèle à vos outils. ChatGPT garde une avance sur certains usages grand public. Le bon choix dépend de vos cas d'usage et de vos contraintes de données, qu'on tranche au diagnostic, pas d'un parti pris."
-    },
-    {
-      "q": "Claude et vos données : où vont-elles, servent-elles à l'entraînement ?",
-      "a": "Sur les offres entreprise et l'API d'Anthropic, vos échanges ne servent pas par défaut à entraîner les modèles, et un accord de traitement des données (DPA) est disponible. Selon l'offre et le cloud retenu (Anthropic, AWS, Google Cloud), on cadre au diagnostic la région de traitement et la conformité RGPD."
-    },
-    {
-      "q": "Qu'est-ce que le MCP et pourquoi c'est important ?",
-      "a": "Le Model Context Protocol est le standard ouvert d'Anthropic pour connecter un modèle de langage à des outils et des données. C'est lui qui fait passer un assistant de la conversation à l'action : lire un dossier, interroger une base, déclencher une tâche. Une intégration sérieuse câble des serveurs MCP propres, sécurisés et documentés, pas des scripts jetables."
-    },
-    {
-      "q": "On paie déjà des licences IA que personne n'utilise. En quoi c'est différent ?",
-      "a": "Une licence ouverte sans cadre reste sur l'étagère : l'outil dort, la facture court, aucune heure gagnée. L'intégration ne se limite pas à acheter des accès : on cadre les usages, on branche les agents à vos données via MCP, on forme un référent et on mesure l'adoption. La valeur n'est pas dans le siège payé, elle est dans le workflow réel automatisé."
-    },
-    {
-      "q": "Combien de temps avant un premier agent en production ?",
-      "a": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines, pas en trimestres. On commence par le workflow qui coûte le plus de temps ou d'argent, on prouve la valeur, puis on étend. La gouvernance et la supervision sont posées dès le premier déploiement, pas plaquées après."
-    },
-    {
-      "q": "Comment vous garantissez la sécurité et la traçabilité des agents ?",
-      "a": "Chaque agent a un périmètre d'action défini, des permissions explicites et une supervision humaine sur les actions sensibles. Les décisions sont tracées, les serveurs MCP cloisonnés, et vous gardez la main : reprise possible, journaux consultables, rien ne tourne en boîte noire. La politique d'usage et la conformité RGPD sont posées dans le même cadre."
-    },
-    {
-      "q": "Et si nos équipes veulent monter en compétence elles-mêmes ?",
-      "a": "La passation fait partie du livrable et on peut aller plus loin : on forme un référent IA interne, point de contact qui diffuse les bonnes pratiques et rend les équipes autonomes. On documente l'architecture des agents, les skills et les serveurs MCP. L'objectif est l'autonomie : vous n'êtes pas captif d'un prestataire pour ajouter une brique."
+      "q": "Formez-vous les équipes à Claude ?",
+      "a": "Oui. La mission inclut la formation du référent et de l'équipe pilote. Pour un programme plus large, les formations sont dispensées via Akigora, organisme certifié Qualiopi, avec une prise en charge possible selon votre situation."
     }
   ],
   "faq_en": [
     {
-      "q": "What's the difference with the Claude AI consultant?",
-      "a": "The consultant works upstream, on the decision: which use cases, in what order, what governance and budget. Claude integration is the execution: designing, wiring and deploying agents into your tools via MCP. Many companies frame first with the <a href=\"/services/consultant-ia-claude\">Claude AI consultant</a>, then move to integration."
+      "q": "How much does Claude cost for a business?",
+      "a": "Two items. Licences: the Team plan is billed from $20 per seat per month on annual billing (Claude pricing page, checked on 4 October 2026). Integration by Waimia: discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT."
     },
     {
-      "q": "What does Claude integration in the enterprise consist of?",
-      "a": "Turning Claude, a generic model, into a system that runs real work inside your business. Concretely: we map the process to automate, design the agent, wire it to your tools through the MCP protocol, deploy it to production and supervise it over time. Not a demo, a measured dispositif."
+      "q": "Is company data used to train Claude?",
+      "a": "Anthropic states that by default it does not use inputs and outputs from its commercial products to train its models (Anthropic privacy center, checked on 4 October 2026). Free or Pro personal accounts follow other rules: one reason to move to a business plan."
     },
     {
-      "q": "How is this different from AI agents?",
-      "a": "The AI agents page targets a precise query: an autonomous agent for one repetitive task (follow-up, sorting, watch, reporting), whatever the model. Claude integration is the tier above: Waimia deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. A standalone agent is scoped on AI agents; a full enterprise setup is scoped here."
+      "q": "Claude vs ChatGPT in business: which one to choose?",
+      "a": "It depends on your uses, your existing tools and each vendor's contract terms. Our Claude vs ChatGPT comparison for SMBs lists the criteria. We deploy Claude by choice, and also work with OpenAI models when they fit better."
     },
     {
-      "q": "Do you cover Claude Code and internal use, or only business agents?",
-      "a": "Both, because an SMB rarely needs just one piece. We deploy Claude for the teams and their daily uses, set up Claude Code in a technical team's repositories with hooks and guardrails, wire agents to your tools via MCP, and train an internal AI lead. It's a single contact for the whole dispositif, from scoping to governance."
+      "q": "How long does it take to roll out Claude in an SMB?",
+      "a": "Usually 2 to 8 weeks for a pilot team: accounts, tool connections, shared instructions, policy and training. Extension to other teams then happens in stages."
     },
     {
-      "q": "Which models and tools do you work with?",
-      "a": "The Anthropic ecosystem first: the Claude API, Claude Code and the MCP protocol, the open standard for connecting a model to your tools. We wire agents to what you already use: CRM, email, calendar, database, Git repo, CI/CD. For a case outside the ecosystem, we assess feasibility at scoping."
+      "q": "What is an MCP connector?",
+      "a": "MCP, the Model Context Protocol, is an open standard published by Anthropic to connect a model to data sources and tools (Anthropic announcement, checked on 4 October 2026). An MCP connector gives Claude controlled access to a specific piece of software: your drive, your CRM, a database."
     },
     {
-      "q": "Claude or ChatGPT for your company, which to choose?",
-      "a": "Both models are solid. Claude stands out on long reasoning, code and the MCP protocol, which wires the model to your tools. ChatGPT keeps an edge on some consumer uses. The right choice depends on your use cases and data constraints, which we settle at the diagnostic, not on a bias."
-    },
-    {
-      "q": "Claude and your data: where does it go, is it used for training?",
-      "a": "On Anthropic's enterprise offers and API, your exchanges are not used by default to train the models, and a data processing agreement (DPA) is available. Depending on the offer and cloud chosen (Anthropic, AWS, Google Cloud), we frame the processing region and GDPR compliance at the diagnostic."
-    },
-    {
-      "q": "What is MCP and why does it matter?",
-      "a": "The Model Context Protocol is Anthropic's open standard for connecting a language model to tools and data. It's what moves an assistant from conversation to action: reading a file, querying a database, triggering a task. A serious integration wires clean, secured and documented MCP servers, not throwaway scripts."
-    },
-    {
-      "q": "We already pay for AI licences no one uses. How is this different?",
-      "a": "An open licence with no frame stays on the shelf: the tool sleeps, the bill runs, no hours saved. Integration isn't just buying access: we frame the uses, wire agents to your data via MCP, train a lead and measure adoption. Value isn't in the paid seat, it's in the real workflow automated."
-    },
-    {
-      "q": "How long before a first agent in production?",
-      "a": "Scoping takes a few days, the first useful agent ships in a few weeks, not quarters. We start with the workflow that costs the most time or money, prove the value, then expand. Governance and supervision are laid in at the first deployment, not bolted on after."
-    },
-    {
-      "q": "How do you guarantee the security and traceability of the agents?",
-      "a": "Every agent has a defined scope of action, explicit permissions and human supervision on sensitive actions. Decisions are traced, MCP servers compartmentalised, and you keep control: handover is possible, logs are readable, nothing runs as a black box. The usage policy and GDPR compliance are laid in the same frame."
-    },
-    {
-      "q": "What if our teams want to skill up themselves?",
-      "a": "Handover is part of the deliverable, and we can go further: we train an internal AI lead, a point of contact who spreads good practices and makes teams autonomous. We document the agent architecture, the skills and the MCP servers. The goal is autonomy: you are not captive to a provider to add a building block."
+      "q": "Do you train teams on Claude?",
+      "a": "Yes. The engagement includes training the lead and the pilot team. For a wider programme, training is delivered via Akigora, a Qualiopi-certified body; funding may be available depending on your situation."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Intégration Claude",
-      "kicker_en": "§ Claude integration",
+      "kicker_fr": "§ Claude en entreprise",
+      "kicker_en": "§ Claude in business",
       "h1_fr": "Intégrer <i class=\"acc\">Claude</i> dans votre entreprise",
       "h1_en": "Integrating <i class=\"acc\">Claude</i> into your business",
-      "lede_fr": "Le système opérationnel de votre entreprise. Waimia déploie Claude et ses agents et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort ni licences payées que personne n'ouvre.",
-      "lede_en": "Your company's operational system. Waimia deploys Claude and its agents and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry, no POC left asleep and no paid licences nobody opens.",
+      "lede_fr": "Intégrer Claude en entreprise consiste à passer de comptes individuels utilisés au hasard à un outil de travail commun : une offre adaptée, des connexions à vos logiciels, des consignes partagées et des règles d'usage écrites. Waimia fait ce déploiement pour les PME et ETI et forme un référent interne qui le fait vivre ensuite.",
+      "lede_en": "Integrating Claude in a business means moving from individual accounts used at random to a shared work tool: a suitable plan, connections to your software, shared instructions and written usage rules. Waimia does this rollout for SMBs and trains an internal lead who keeps it alive afterwards.",
       "badges": [
         {
-          "label_fr": "Écosystème Anthropic · Claude, Claude Code, MCP",
-          "label_en": "Anthropic ecosystem · Claude, Claude Code, MCP"
+          "label_fr": "Claude, Claude Code, MCP",
+          "label_en": "Claude, Claude Code, MCP"
         },
         {
-          "label_fr": "Agents branchés à vos outils · CRM, e-mail, Git, données",
-          "label_en": "Agents wired to your tools · CRM, email, Git, data"
+          "label_fr": "Connecté à vos outils",
+          "label_en": "Connected to your tools"
         },
         {
-          "label_fr": "Formation référent IA et gouvernance",
-          "label_en": "AI lead training and governance"
+          "label_fr": "Charte d'usage",
+          "label_en": "Usage policy"
         },
         {
-          "label_fr": "En production, pas en POC",
-          "label_en": "In production, not in POC"
+          "label_fr": "Référent formé",
+          "label_en": "Trained lead"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=integrateur-claude&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir les capacités",
-        "label_en": "See the capabilities",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -171,532 +123,210 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "2–8 sem.",
-          "label_fr": "premier agent en production",
-          "label_en": "first agent in production"
+          "value": "2 à 8 semaines",
+          "label_fr": "délai habituel pour un premier usage en production",
+          "label_en": "usual lead time for a first use in production",
+          "emphasis": false
         },
         {
-          "value": "MCP",
-          "label_fr": "agents branchés à vos outils réels",
-          "label_en": "agents wired to your real tools"
+          "value": "Claude · MCP",
+          "label_fr": "offres professionnelles et connecteurs à vos outils",
+          "label_en": "business plans and connectors to your tools",
+          "emphasis": false
         },
         {
-          "value": "Démo → prod",
-          "label_fr": "la valeur est en production, pas dans le POC",
-          "label_en": "value is in production, not the POC"
+          "value": "À vous",
+          "label_fr": "consignes, connecteurs, charte et supports de formation",
+          "label_en": "instructions, connectors, policy and training material",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "L'<i class=\"acc\">intégration Claude</i> déploie Claude et ses agents dans votre entreprise et les branche à vos outils via MCP, du déploiement à la gouvernance, pour automatiser vos workflows réels, sans saisie manuelle ni POC qui dort. Waimia en est l'opérateur, un interlocuteur unique du cadrage au référent formé.",
-      "statement_en": "<i class=\"acc\">Claude integration</i> deploys Claude and its agents in your company and wires them to your tools via MCP, from deployment to governance, to automate your real workflows, with no manual entry and no POC left asleep. Waimia is its operator, a single point of contact from scoping to the trained lead.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "L'<i class=\"acc\">intégration de Claude en entreprise</i> est le déploiement encadré de l'assistant d'Anthropic auprès d'une équipe : choix de l'offre, connexion aux outils internes par connecteurs MCP, consignes partagées par métier, règles sur les données autorisées et formation des utilisateurs.",
+      "statement_en": "<i class=\"acc\">Integrating Claude in a business</i> is the supervised rollout of Anthropic's assistant to a team: plan choice, connection to internal tools through MCP connectors, shared instructions per function, rules on permitted data and user training.",
       "pills": [
         {
-          "label_fr": "Écosystème Anthropic",
-          "label_en": "Anthropic ecosystem"
+          "label_fr": "Offre adaptée",
+          "label_en": "Suitable plan"
         },
         {
-          "label_fr": "Branché via MCP",
-          "label_en": "Wired via MCP"
+          "label_fr": "Connecteurs MCP",
+          "label_en": "MCP connectors"
         },
         {
-          "label_fr": "Du POC à la prod",
-          "label_en": "From POC to production"
+          "label_fr": "Consignes partagées",
+          "label_en": "Shared instructions"
         },
         {
-          "label_fr": "Gouvernance",
-          "label_en": "Governance"
-        },
-        {
-          "label_fr": "Formation référent",
-          "label_en": "Lead training"
+          "label_fr": "Règles sur les données",
+          "label_en": "Data rules"
         }
       ],
       "specs": [
         {
-          "label_fr": "Claude et Claude Code",
-          "label_en": "Claude and Claude Code"
+          "label_fr": "Claude",
+          "label_en": "Claude"
         },
         {
-          "label_fr": "MCP",
-          "label_en": "MCP"
+          "label_fr": "Claude Code",
+          "label_en": "Claude Code"
         },
         {
-          "label_fr": "CRM, e-mail, Git",
-          "label_en": "CRM, email, Git"
+          "label_fr": "Connecteurs MCP",
+          "label_en": "MCP connectors"
         },
         {
-          "label_fr": "Gouvernance",
-          "label_en": "Governance"
-        },
-        {
-          "label_fr": "Référent IA formé",
-          "label_en": "Trained AI lead"
+          "label_fr": "Charte d'usage de l'IA",
+          "label_en": "AI usage policy"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où l'IA déraille en interne",
-      "kicker_en": "Where AI derails internally",
-      "h2_fr": "Pourquoi votre IA ne produit rien",
-      "h2_en": "Why your AI produces nothing",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Une démo qui n'atteint jamais la production",
-          "title_en": "A demo that never reaches production",
-          "desc_fr": "Un POC qui impressionne en réunion, puis dort dans un Notion six mois plus tard : aucun process automatisé, aucune heure gagnée.",
-          "desc_en": "A POC that wows the meeting, then sleeps in a Notion six months later: no process automated, no hours saved.",
-          "fix_fr": "Mise en production, du POC au workflow réel.",
-          "fix_en": "Production: from POC to real workflow."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Des licences IA payées, personne qui adopte",
-          "title_en": "AI licences paid, no one adopting",
-          "desc_fr": "Vous payez des sièges IA que personne n'ouvre. L'outil dort, la facture court, et chacun bricole à côté avec son compte perso, hors de tout cadre.",
-          "desc_en": "You pay for AI seats no one opens. The tool sleeps, the bill runs, and everyone tinkers on the side with a personal account, outside any frame.",
-          "fix_fr": "Usages cadrés, adoption mesurée, gouvernance.",
-          "fix_en": "Framed uses, measured adoption, governance."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Vos données éparpillées, que l'IA ne voit pas",
-          "title_en": "Your data scattered, unseen by the AI",
-          "desc_fr": "Vos données dans dix outils qui ne se parlent pas : l'assistant reste une fenêtre de chat à côté du travail, et les équipes copient et font le pont à la main toute la journée.",
-          "desc_en": "Your data in ten tools that don't talk: the assistant stays a chat window next to the work, and teams copy and bridge by hand all day.",
-          "fix_fr": "Agents branchés via MCP au CRM et aux données.",
-          "fix_en": "Agents wired via MCP to the CRM and data."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce que le déploiement change</h2>\n<p>Dans la plupart des PME, Claude ou ChatGPT est déjà utilisé : par quelques personnes, sur des comptes personnels, avec des données dont personne n'a décidé si elles pouvaient y aller. Le déploiement remplace cet usage diffus par un cadre. Qui a un compte, sur quelle offre, avec quels outils connectés, quelles données sont autorisées, et quels usages sont attendus par métier.</p>\n<h2>Ce qu'on fait exactement</h2>\n<p>Quatre chantiers. Le choix de l'offre et l'ouverture des comptes. La connexion à vos outils (messagerie, drive, CRM, base documentaire) par des connecteurs MCP, avec des droits limités. La rédaction de consignes partagées par métier, pour que chacun parte d'un cadre testé plutôt que d'une page blanche. La charte d'usage et la formation, avec un référent qui prend le relais. Quand un usage doit tourner seul, on le transforme en <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<h2>Ce qu'on a vérifié sur Claude</h2>\n<p>Selon la <a href=\"https://claude.com/pricing\" rel=\"nofollow noopener\" target=\"_blank\">page tarifs de Claude</a>, l'offre Team est facturée à partir de 20 dollars par siège et par mois en facturation annuelle, avec administration centralisée et authentification unique (SSO). Selon le <a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"nofollow noopener\" target=\"_blank\">centre de confidentialité d'Anthropic</a>, Anthropic n'utilise pas par défaut les données de ses offres commerciales pour entraîner ses modèles. Informations vérifiées le 4 octobre 2026 : relisez-les à la source avant de décider, elles évoluent.</p>\n<p>Si vous hésitez encore sur l'outil, lisez le comparatif <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT pour une PME</a>, puis le <a href=\"/ressources/guides/claude-pme\">guide de déploiement de Claude en PME</a>.</p>\n<h2>Combien de temps</h2>\n<p>Habituellement 2 à 8 semaines entre le cadrage et un premier usage installé dans une équipe. Les connexions aux outils et la validation des règles sur les données par votre direction prennent l'essentiel du délai.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Des licences payées que personne n'ouvre : on démarre par une équipe pilote et deux ou trois usages précis, pas par un déploiement général. Des données sensibles collées dans l'outil : la charte dit ce qui est permis, et les connecteurs n'ouvrent que le nécessaire. Un référent seul et débordé : on prévoit son temps dès le cadrage. Si la question est d'abord « par où commencer », la mission de <a href=\"/services/consultant-ia-claude\">conseil IA</a> est plus adaptée, ou l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What the rollout changes</h2>\n<p>In most SMBs, Claude or ChatGPT is already in use: by a few people, on personal accounts, with data nobody decided could go there. The rollout replaces this scattered use with a framework. Who has an account, on which plan, with which tools connected, which data is permitted, and which uses are expected per function.</p>\n<h2>What we do exactly</h2>\n<p>Four workstreams. Plan choice and account opening. Connection to your tools (mail, drive, CRM, document base) through MCP connectors, with limited rights. Writing shared instructions per function, so everyone starts from a tested frame rather than a blank page. The usage policy and training, with a lead who takes over. When a use must run on its own, we turn it into an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<h2>What we checked about Claude</h2>\n<p>According to the <a href=\"https://claude.com/pricing\" rel=\"nofollow noopener\" target=\"_blank\">Claude pricing page</a>, the Team plan is billed from $20 per seat per month on annual billing, with central administration and single sign-on (SSO). According to the <a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"nofollow noopener\" target=\"_blank\">Anthropic privacy center</a>, Anthropic does not by default use data from its commercial products to train its models. Checked on 4 October 2026: re-read the source before deciding, it changes.</p>\n<p>If you are still hesitating on the tool, read the comparison <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT for an SMB</a>, then the <a href=\"/ressources/guides/claude-pme\">guide to deploying Claude in an SMB</a>.</p>\n<h2>How long</h2>\n<p>Usually 2 to 8 weeks between scoping and a first use settled in a team. Tool connections and management sign-off on data rules take most of the time.</p>\n<h2>What can go wrong</h2>\n<p>Paid licences nobody opens: we start with a pilot team and two or three precise uses, not a general rollout. Sensitive data pasted into the tool: the policy says what is allowed, and connectors open only what is needed. A lone, overloaded lead: we plan their time from scoping. If the question is first \"where do we start\", the <a href=\"/services/consultant-ia-claude\">AI consulting</a> engagement fits better, or the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Avant / après",
-      "kicker_en": "§ Before / after",
-      "h2_fr": "Du POC qui dort à l'<i class=\"acc\">agent</i> en production",
-      "h2_en": "From a POC asleep to the <i class=\"acc\">agent</i> in production",
-      "without_label_fr": "POC qui dort, licences payées",
-      "without_label_en": "POC asleep, licences paid",
-      "without_title_fr": "Ce qui reste sur l'étagère",
-      "without_title_en": "What stays on the shelf",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : un bureau d'études de 40 personnes",
+      "h2_en": "Typical example: a 40-person engineering office",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Des usages individuels, aucun cadre",
+      "without_title_en": "Individual uses, no framework",
       "without_items": [
         {
-          "text_fr": "La démo impressionne en réunion, puis dort dans un Notion six mois plus tard.",
-          "text_en": "The demo wows the meeting, then sleeps in a Notion six months later."
+          "text_fr": "Une dizaine de salariés utilisent un compte personnel, chacun à sa façon.",
+          "text_en": "About ten employees use a personal account, each in their own way."
         },
         {
-          "text_fr": "Des sièges IA payés que personne n'ouvre : la facture court, l'usage reste nul.",
-          "text_en": "Paid AI seats no one opens: the bill runs, usage stays zero."
+          "text_fr": "Des extraits de dossiers clients sont collés dans l'outil sans règle.",
+          "text_en": "Client file extracts are pasted into the tool with no rule."
         },
         {
-          "text_fr": "L'humain reste la couche d'intégration : il copie, relance et fait le pont à la main.",
-          "text_en": "People stay the integration layer: copying, chasing and bridging by hand."
+          "text_fr": "Chacun réécrit les mêmes consignes à chaque demande.",
+          "text_en": "Everyone rewrites the same instructions for every request."
         },
         {
-          "text_fr": "Aucune gouvernance : personne ne sait quel agent fait quoi, ni sur quelles données.",
-          "text_en": "No governance: no one knows which agent does what, or on which data."
-        },
-        {
-          "text_fr": "Chaque évolution dépend du prestataire, vous restez captif d'une boîte noire.",
-          "text_en": "Every change depends on the provider, you stay captive to a black box."
+          "text_fr": "La direction ne sait pas ce qui est fait, ni par qui.",
+          "text_en": "Management does not know what is done, or by whom."
         }
       ],
-      "with_label_fr": "Agent en production",
-      "with_label_en": "Agent in production",
-      "with_title_fr": "Ce qui exécute vraiment",
-      "with_title_en": "What actually executes",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un outil commun, des règles écrites",
+      "with_title_en": "A shared tool, written rules",
       "with_items": [
         {
-          "text_fr": "L'agent passe en production sur un workflow réel, mesuré avant et après.",
-          "text_en": "The agent ships to production on a real workflow, measured before and after."
+          "text_fr": "Les comptes sont ouverts sur une offre professionnelle, gérés par un administrateur.",
+          "text_en": "Accounts are opened on a business plan, managed by an administrator."
         },
         {
-          "text_fr": "Branché à vos outils via MCP : CRM, e-mail, base de données, dépôt Git.",
-          "text_en": "Wired to your tools via MCP: CRM, email, database, Git repo."
+          "text_fr": "La base documentaire et le drive sont connectés, en lecture seule.",
+          "text_en": "The document base and drive are connected, read-only."
         },
         {
-          "text_fr": "Les actions sont exécutées et tracées, plus jamais recopiées à la main.",
-          "text_en": "Actions are executed and traced, never copied by hand again."
+          "text_fr": "Trois consignes partagées couvrent les usages du métier : compte rendu, réponse à appel d'offres, relecture.",
+          "text_en": "Three shared instructions cover the trade's uses: reports, tender responses, review."
         },
         {
-          "text_fr": "Un référent IA formé fait évoluer le système : vous restez autonome et maître de la stack.",
-          "text_en": "A trained AI lead evolves the system: you stay autonomous and own the stack."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux de maturité IA",
-      "h2_en": "The 6 levels of AI maturity",
-      "lede_fr": "De l'IA bricolée en perso au dispositif gouverné, six paliers. La plupart des PME paient des licences sans que personne adopte. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From AI tinkered with personally to a governed dispositif, six tiers. Most SMEs pay licences with no one adopting. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Aucune IA",
-          "title_en": "No AI",
-          "sub_fr": "Le sujet reste théorique",
-          "sub_en": "The topic stays theoretical"
+          "text_fr": "Une charte d'une page dit quelles données sont interdites.",
+          "text_en": "A one-page policy says which data is forbidden."
         },
         {
-          "title_fr": "IA perso, éparpillée",
-          "title_en": "Personal AI, scattered",
-          "sub_fr": "Chacun bricole dans son coin",
-          "sub_en": "Everyone tinkers on their own"
-        },
-        {
-          "title_fr": "Licences déployées",
-          "title_en": "Licences deployed",
-          "sub_fr": "Payées, mais peu adoptées",
-          "sub_en": "Paid, but barely adopted"
-        },
-        {
-          "title_fr": "Premier agent branché",
-          "title_en": "First agent wired",
-          "sub_fr": "Une mission via MCP, en prod",
-          "sub_en": "One mission via MCP, in production"
-        },
-        {
-          "title_fr": "Dispositif gouverné",
-          "title_en": "Governed dispositif",
-          "sub_fr": "Plusieurs agents, permissions, traçabilité",
-          "sub_en": "Several agents, permissions, traceability"
-        },
-        {
-          "title_fr": "Autonomie interne",
-          "title_en": "Internal autonomy",
-          "sub_fr": "Référent formé, équipes maîtres",
-          "sub_en": "Trained lead, teams in control"
+          "text_fr": "Un référent anime l'usage et remonte les besoins.",
+          "text_en": "A lead drives usage and reports needs."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce qu'on dépose chez vous",
-      "title_en": "What we deliver to you",
-      "lead_fr": "Vous gardez l'architecture et la stack quand on part. Pas de captivité.",
-      "lead_en": "You keep the architecture and the stack when we leave. No lock-in.",
-      "items": [
-        {
-          "title_fr": "Agents en production",
-          "title_en": "Agents in production",
-          "body_fr": "Un ou plusieurs agents Claude déployés sur des workflows réels, avec un périmètre cadré et une mesure avant/après.",
-          "body_en": "One or more Claude agents deployed on real workflows, with a framed scope and before/after measurement.",
-          "format_fr": "LIVE",
-          "format_en": "LIVE",
-          "illustration_src": "/images/line-art/livrable-agents-production.svg",
-          "illustration_alt_fr": "Un agent actif en production avec un statut en marche",
-          "illustration_alt_en": "An active agent in production with a live status"
-        },
-        {
-          "title_fr": "Serveurs MCP et connecteurs",
-          "title_en": "MCP servers and connectors",
-          "body_fr": "La couche d'intégration propre vers vos outils : CRM, e-mail, base de données, dépôt Git, CI/CD. Sécurisée et documentée.",
-          "body_en": "The clean integration layer to your tools: CRM, email, database, Git repo, CI/CD. Secured and documented.",
-          "format_fr": "MCP",
-          "format_en": "MCP",
-          "illustration_src": "/images/line-art/livrable-connecteurs-mcp.svg",
-          "illustration_alt_fr": "Un hub central de serveurs MCP relié à vos outils",
-          "illustration_alt_en": "A central MCP server hub wired to your tools"
-        },
-        {
-          "title_fr": "Skills et orchestration",
-          "title_en": "Skills and orchestration",
-          "body_fr": "Les compétences métier configurées : skills, sous-agents et routines qui suivent vos process, pas des prompts jetables.",
-          "body_en": "The configured business capabilities: skills, sub-agents and routines that follow your processes, not throwaway prompts.",
-          "format_fr": "CODE",
-          "format_en": "CODE",
-          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
-          "illustration_alt_fr": "Des skills modulaires assemblés autour d'un module pivot",
-          "illustration_alt_en": "Modular skills assembled around a pivot module"
-        },
-        {
-          "title_fr": "Cadre de gouvernance",
-          "title_en": "Governance framework",
-          "body_fr": "Politique d'usage, permissions par agent, points de validation humaine, journaux de décisions et conformité RGPD. L'IA reste pilotable.",
-          "body_en": "Usage policy, per-agent permissions, human validation points, decision logs and GDPR compliance. AI stays controllable.",
-          "format_fr": "RUNBOOK",
-          "format_en": "RUNBOOK",
-          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
-          "illustration_alt_fr": "Un bouclier de gouvernance avec un point de validation",
-          "illustration_alt_en": "A governance shield with a validation checkpoint"
-        },
-        {
-          "title_fr": "Mesure et tableau de suivi",
-          "title_en": "Measurement and tracking",
-          "body_fr": "Le temps gagné, le volume traité et la qualité suivis dans la durée. On pilote sur des chiffres, pas sur une impression de démo.",
-          "body_en": "Time saved, volume processed and quality tracked over time. We manage on figures, not on a demo impression.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Un tableau de bord de KPI avec une courbe de tendance",
-          "illustration_alt_en": "A KPI dashboard with a trend curve"
-        },
-        {
-          "title_fr": "Référent IA et formation",
-          "title_en": "AI lead and training",
-          "body_fr": "Un référent IA interne formé, architecture documentée, skills et serveurs MCP expliqués, équipes outillées pour faire évoluer le système seules.",
-          "body_en": "A trained internal AI lead, documented architecture, explained skills and MCP servers, teams equipped to evolve the system on their own.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/livrable-passation-formation.svg",
-          "illustration_alt_fr": "Une transmission de savoir entre deux personnes lors de la passation",
-          "illustration_alt_en": "Knowledge transfer between two people during handover"
-        }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Déployer Claude dans votre entreprise",
-      "h2_en": "Deploying Claude in your company",
-      "lede_fr": "Sept briques, une seule base composable. On active celles qui servent votre maturité, quand elles servent. Pas de gadget qu'on vous facture pour rien.",
-      "lede_en": "Seven building blocks, a single composable base. We activate the ones that fit your maturity, when they serve. No gadget billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "claude",
-          "title_fr": "Claude en entreprise",
-          "title_en": "Claude in the business",
-          "body_fr": "Déployé pour vos équipes sur des cas d'usage métier cadrés : rédaction, analyse, synthèse, préparation de dossiers. API et interface configurées pour votre contexte.",
-          "body_en": "Deployed for your teams on framed business use cases: writing, analysis, summarising, preparing files. API and interface configured for your context."
-        },
-        {
-          "icon": "code",
-          "title_fr": "Claude Code",
-          "title_en": "Claude Code",
-          "body_fr": "Installé dans vos dépôts et votre CI, avec hooks et guardrails qui imposent vos conventions. Revue de code assistée, productivité dev en production sans dette.",
-          "body_en": "Set up in your repos and CI, with hooks and guardrails that enforce your conventions. Assisted code review, dev productivity in production without debt."
-        },
-        {
-          "icon": "cowork",
-          "title_fr": "Claude cowork",
-          "title_en": "Claude cowork",
-          "body_fr": "La collaboration assistée branchée dans les outils que vos équipes utilisent déjà : des agents qui préparent et synthétisent là où le travail se fait, pas dans un chat à côté.",
-          "body_en": "Assisted collaboration wired into the tools your teams already use: agents that prepare and summarise where the work happens, not in a chat on the side."
-        },
-        {
-          "icon": "mcp",
-          "title_fr": "Connexion MCP",
-          "title_en": "MCP connection",
-          "body_fr": "Des serveurs MCP propres vers vos outils et vos données métier : CRM, e-mail, agenda, base, dépôt Git, CI/CD. La couche qui fait passer de la conversation à l'action.",
-          "body_en": "Clean MCP servers to your tools and business data: CRM, email, calendar, database, Git repo, CI/CD. The layer that moves from conversation to action."
-        },
-        {
-          "icon": "securite",
-          "title_fr": "Sécurité et cloisonnement",
-          "title_en": "Security and compartmentalisation",
-          "body_fr": "Serveurs MCP cloisonnés, permissions explicites, données qui restent chez vous. Vos informations ne partent jamais vers un outil opaque.",
-          "body_en": "Compartmentalised MCP servers, explicit permissions, data that stays with you. Your information never leaves toward an opaque tool."
-        },
-        {
-          "icon": "perimetre",
-          "title_fr": "Périmètre et validation",
-          "title_en": "Scope and validation",
-          "body_fr": "Chaque agent est borné : un périmètre d'action défini, des points de validation humaine sur les actions sensibles, jamais en boîte noire.",
-          "body_en": "Every agent is bounded: a defined scope of action, human validation points on sensitive actions, never a black box."
-        },
-        {
-          "icon": "modele",
-          "title_fr": "Le bon modèle au bon endroit",
-          "title_en": "The right model in the right place",
-          "body_fr": "On déploie le modèle adapté à chaque tâche et à vos contraintes : Claude, GPT ou Mistral. Le système que nous construisons reste le vôtre.",
-          "body_en": "We deploy the model fit for each task and your constraints: Claude, GPT or Mistral. The system we build stays yours."
-        }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "background": "paper-2",
-      "kicker_fr": "§ Choix du modèle et données",
-      "kicker_en": "§ Model choice and data",
-      "h2_fr": "Claude ou ChatGPT pour votre entreprise",
-      "h2_en": "Claude or ChatGPT for your company",
-      "lede_fr": "Les deux modèles sont solides. Le choix se joue sur vos cas d'usage, vos contraintes de données et ce que le modèle doit toucher dans vos outils. Voici comment on tranche, sans parti pris.",
-      "lede_en": "Both models are solid. The choice comes down to your use cases, your data constraints and what the model must reach in your tools. Here is how we decide, without bias.",
-      "columns": "4",
-      "features": [
-        {
-          "icon": "claude",
-          "title_fr": "Là où Claude prend l'avantage",
-          "title_en": "Where Claude has the edge",
-          "body_fr": "Raisonnement long, code et agents branchés via MCP, le standard ouvert d'Anthropic. Pour mettre un modèle au travail sur vos outils réels, l'écosystème Claude est le plus direct.",
-          "body_en": "Long reasoning, code and agents wired via MCP, Anthropic's open standard. To put a model to work on your real tools, the Claude ecosystem is the most direct."
-        },
-        {
-          "icon": "modele",
-          "title_fr": "Là où ChatGPT reste pertinent",
-          "title_en": "Where ChatGPT stays relevant",
-          "body_fr": "Certains usages grand public et un large écosystème de plugins. On ne vous vend pas Claude par principe : si ChatGPT sert mieux un cas précis, on le dit et on l'intègre.",
-          "body_en": "Some consumer uses and a broad plugin ecosystem. We don't sell you Claude on principle: if ChatGPT serves a given case better, we say so and integrate it."
-        },
-        {
-          "icon": "securite",
-          "title_fr": "Vos données et le RGPD",
-          "title_en": "Your data and GDPR",
-          "body_fr": "Sur les offres entreprise et l'API, Anthropic n'utilise pas par défaut vos échanges pour entraîner ses modèles, et un accord de traitement (DPA) est disponible. On cadre la résidence des données selon le cloud retenu.",
-          "body_en": "On enterprise offers and the API, Anthropic does not use your exchanges to train its models by default, and a data processing agreement (DPA) is available. We frame data residency according to the chosen cloud."
-        },
-        {
-          "icon": "mcp",
-          "title_fr": "Le vrai critère : ce que le modèle touche",
-          "title_en": "The real criterion: what the model reaches",
-          "body_fr": "Un modèle isolé reste un chat. Branché via MCP à votre CRM, vos e-mails et vos données, il exécute. La valeur se joue là, dans le système autour, pas dans le nom du modèle.",
-          "body_en": "An isolated model stays a chat. Wired via MCP to your CRM, your emails and your data, it executes. Value plays out there, in the system around it, not in the model's name."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "systeme",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système ops et IA",
-      "kicker_en": "§ The ops and AI system",
-      "h2_fr": "Cinq portes vers le même <i>système</i>",
-      "h2_en": "Five doors into the same <i>system</i>",
-      "lede_fr": "Brancher Claude ne vaut que par ce que les agents touchent. Ils s'appuient sur vos workflows, vos outils internes et vos données. Survolez une porte pour la voir.",
-      "lede_en": "Wiring Claude in is only worth what the agents touch. They lean on your workflows, your internal tools and your data. Hover a door to preview it.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Le déploiement doit continuer sans nous : tout est écrit et transmis au référent.",
+      "lead_en": "The rollout must continue without us: everything is written and passed on to the lead.",
       "items": [
         {
-          "label_fr": "Agents IA",
-          "label_en": "AI agents",
-          "meta_fr": "Des agents autonomes pour vos tâches répétitives",
-          "meta_en": "Autonomous agents for your repetitive tasks",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : un agent qui exécute une mission cadrée.",
-          "media_alt_en": "A chessboard: an agent running a framed mission.",
-          "link_href": "/services/agents-ia"
+          "title_fr": "Les comptes et les connecteurs",
+          "title_en": "Accounts and connectors",
+          "body_fr": "Ouverts à votre nom, avec les droits documentés outil par outil.",
+          "body_en": "Opened in your name, with rights documented tool by tool.",
+          "format_fr": "ACCÈS",
+          "format_en": "ACCÈS"
         },
         {
-          "label_fr": "Automatisations",
-          "label_en": "Automations",
-          "meta_fr": "Workflows · orchestrer vos process",
-          "meta_en": "Workflows · orchestrate your processes",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : les workflows qui font avancer le process.",
-          "media_alt_en": "A car on the road: the workflows that move the process forward.",
-          "link_href": "/services/automatisations"
+          "title_fr": "Les consignes partagées",
+          "title_en": "Shared instructions",
+          "body_fr": "Une bibliothèque de consignes testées, classées par métier.",
+          "body_en": "A library of tested instructions, sorted by function.",
+          "format_fr": "CONSIGNES",
+          "format_en": "CONSIGNES"
         },
         {
-          "label_fr": "Applications internes",
-          "label_en": "Internal applications",
-          "meta_fr": "Outils métier sur mesure",
-          "meta_en": "Bespoke business tools",
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Un ordinateur ausculté : l'outil interne que l'agent pilote.",
-          "media_alt_en": "A computer being checked: the internal tool the agent drives.",
-          "link_href": "/services/applications-internes"
+          "title_fr": "La charte d'usage",
+          "title_en": "The usage policy",
+          "body_fr": "Données autorisées et interdites, usages attendus, validation humaine.",
+          "body_en": "Permitted and forbidden data, expected uses, human review.",
+          "format_fr": "CHARTE",
+          "format_en": "CHARTE"
         },
         {
-          "label_fr": "Données et reporting",
-          "label_en": "Data and reporting",
-          "meta_fr": "Tableaux de bord que l'IA lit",
-          "meta_en": "Dashboards the AI reads",
-          "media_src": "/images/illustrations/ds/band-showing-tv-paper.webp",
-          "media_alt_fr": "Un écran qui diffuse : la donnée synthétisée en tableau de bord.",
-          "media_alt_en": "A broadcasting screen: data synthesised into a dashboard.",
-          "link_href": "/services/donnees-reporting"
-        },
-        {
-          "label_fr": "Le système complet",
-          "label_en": "The complete system",
-          "meta_fr": "Le hub systèmes opérationnels et IA",
-          "meta_en": "The operational and AI systems hub",
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Une équipe réunie : le système opérationnel de bout en bout.",
-          "media_alt_en": "A team gathered: the end-to-end operational system.",
-          "link_href": "/services/systemes-operationnels-ia"
+          "title_fr": "Le référent formé",
+          "title_en": "The trained lead",
+          "body_fr": "Une personne capable d'ajouter un connecteur, d'écrire une consigne et de former un nouvel arrivant.",
+          "body_en": "Someone able to add a connector, write an instruction and train a newcomer.",
+          "format_fr": "FORMATION",
+          "format_en": "FORMATION"
         }
       ]
     },
     {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · systèmes en production",
-      "spec_en": "Client cases · systems in production",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ne déployez pas Claude si",
+      "heading_en": "Do not roll out Claude if",
+      "items": [
         {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Site · CRM HubSpot · GEO",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot pour l'attribution des leads et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Site built with HubSpot-connected forms for lead attribution and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH branchée à son CRM.",
-          "media_alt_en": "A dynamic figure: HR outsourcing wired to its CRM."
+          "label_fr": "Vous n'avez pas identifié au moins deux usages concrets par équipe.",
+          "label_en": "You have not identified at least two concrete uses per team."
         },
         {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Plateforme créée de zéro avec pipeline éditorial assisté par IA : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Platform built from scratch with an AI-assisted editorial pipeline: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
+          "label_fr": "Personne ne peut tenir le rôle de référent quelques heures par semaine.",
+          "label_en": "Nobody can act as lead a few hours a week."
         },
         {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Migration e-commerce vers WordPress et WooCommerce : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "E-commerce migration to WordPress and WooCommerce: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu et allégé.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt and made leaner."
+          "label_fr": "Votre besoin est une tâche répétitive unique : un agent ou une automatisation suffira.",
+          "label_en": "Your need is a single repetitive task: an agent or an automation will do."
+        },
+        {
+          "label_fr": "Votre direction n'a pas tranché sur les données autorisées.",
+          "label_en": "Your management has not decided on permitted data."
         }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
+      ]
     },
     {
       "type": "pricing-cards",
@@ -707,8 +337,8 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Combien coûte Claude en entreprise",
       "h2_en": "How much does Claude cost in the enterprise",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : cartographie des cas d'usage et un premier agent Claude en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
-      "lede_en": "We start with a fixed-price discovery sprint: a map of the use cases and a first Claude agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. Your agents run, their architecture is documented and your teams are trained to evolve them.",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cartographie des cas d'usage et un premier agent Claude en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
+      "lede_en": "We start with a fixed-price discovery sprint: a map of the use cases and a first Claude agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. Your agents run, their architecture is documented and your teams are trained to evolve them.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -729,9 +359,9 @@
             "A first deliverable that runs, not a study that sleeps"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=integrateur-claude&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -744,13 +374,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Nouveaux agents et connecteurs MCP supervisés",
             "Architecture documentée, équipes formées"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "New agents and MCP connectors supervised",
             "Architecture documented, teams trained"
           ],
@@ -762,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cartographie des cas d'usage, un premier agent conçu, branché via MCP et déployé, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents et connecteurs suivants, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a map of the use cases, a first agent designed, wired via MCP and deployed, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents and connectors require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: your agents run, their architecture is documented and your teams are trained to evolve them."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cartographie des cas d'usage, un premier agent conçu, branché via MCP et déployé, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents et connecteurs suivants, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a map of the use cases, a first agent designed, wired via MCP and deployed, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents and connectors require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: your agents run, their architecture is documented and your teams are trained to evolve them."
     },
     {
       "type": "eeat-panel",
@@ -774,78 +404,47 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Claude en entreprise : vos questions",
+      "h2_en": "Claude in business: your questions",
       "items": [
         {
-          "q_fr": "L'intégration Claude en entreprise, ça consiste en quoi ?",
-          "q_en": "What does Claude integration in the enterprise consist of?",
-          "a_fr": "À transformer Claude, un modèle générique, en un système qui exécute du travail réel dans votre entreprise. Concrètement : on cartographie le process à automatiser, on conçoit l'agent, on le branche à vos outils via le protocole MCP, on le déploie en production et on le supervise dans la durée. Pas une démo, un dispositif mesuré.",
-          "a_en": "Turning Claude, a generic model, into a system that runs real work inside your business. Concretely: we map the process to automate, design the agent, wire it to your tools through the MCP protocol, deploy it to production and supervise it over time. Not a demo, a measured dispositif."
+          "q_fr": "Combien coûte Claude en entreprise ?",
+          "a_fr": "Deux postes. Les licences : l'offre Team est facturée à partir de 20 dollars par siège et par mois en facturation annuelle (page tarifs de Claude, vérifiée le 4 octobre 2026). L'intégration par Waimia : sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure.",
+          "q_en": "How much does Claude cost for a business?",
+          "a_en": "Two items. Licences: the Team plan is billed from $20 per seat per month on annual billing (Claude pricing page, checked on 4 October 2026). Integration by Waimia: discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT."
         },
         {
-          "q_fr": "Quelle différence avec les agents IA ?",
-          "q_en": "How is this different from AI agents?",
-          "a_fr": "La page Agents IA vise une requête précise : un agent autonome pour une tâche répétitive (relance, tri, veille, reporting), quel que soit le modèle. L'intégration Claude est le cran au-dessus : Waimia déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Un agent isolé se cadre côté Agents IA ; un dispositif d'entreprise complet se cadre ici.",
-          "a_en": "The AI agents page targets a precise query: an autonomous agent for one repetitive task (follow-up, sorting, watch, reporting), whatever the model. Claude integration is the tier above: Waimia deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. A standalone agent is scoped on AI agents; a full enterprise setup is scoped here."
+          "q_fr": "Les données de l'entreprise servent-elles à entraîner Claude ?",
+          "a_fr": "Anthropic indique ne pas utiliser par défaut les entrées et sorties de ses offres commerciales pour entraîner ses modèles (centre de confidentialité d'Anthropic, vérifié le 4 octobre 2026). Les comptes personnels gratuits ou Pro relèvent d'autres règles : c'est une raison de passer sur une offre professionnelle.",
+          "q_en": "Is company data used to train Claude?",
+          "a_en": "Anthropic states that by default it does not use inputs and outputs from its commercial products to train its models (Anthropic privacy center, checked on 4 October 2026). Free or Pro personal accounts follow other rules: one reason to move to a business plan."
         },
         {
-          "q_fr": "Vous couvrez Claude Code et l'usage interne, ou seulement les agents métier ?",
-          "q_en": "Do you cover Claude Code and internal use, or only business agents?",
-          "a_fr": "Les deux, parce qu'une PME a rarement besoin d'un seul morceau. On déploie Claude pour les équipes et leurs usages quotidiens, on installe Claude Code dans les dépôts d'une équipe technique avec hooks et guardrails, on branche les agents à vos outils via MCP, et on forme un référent IA interne. C'est un seul interlocuteur pour tout le dispositif, du cadrage à la gouvernance.",
-          "a_en": "Both, because an SMB rarely needs just one piece. We deploy Claude for the teams and their daily uses, set up Claude Code in a technical team's repositories with hooks and guardrails, wire agents to your tools via MCP, and train an internal AI lead. It's a single contact for the whole dispositif, from scoping to governance."
+          "q_fr": "Claude vs ChatGPT en entreprise : lequel choisir ?",
+          "a_fr": "Le choix dépend de vos usages, de vos outils déjà en place et des conditions contractuelles de chaque éditeur. Notre comparatif Claude vs ChatGPT pour une PME liste les critères à regarder. On déploie Claude par choix, et on travaille aussi avec les modèles OpenAI quand ils conviennent mieux.",
+          "q_en": "Claude vs ChatGPT in business: which one to choose?",
+          "a_en": "It depends on your uses, your existing tools and each vendor's contract terms. Our Claude vs ChatGPT comparison for SMBs lists the criteria. We deploy Claude by choice, and also work with OpenAI models when they fit better."
         },
         {
-          "q_fr": "Vous travaillez avec quels modèles et quels outils ?",
-          "q_en": "Which models and tools do you work with?",
-          "a_fr": "L'écosystème Anthropic en priorité : l'API Claude, Claude Code et le protocole MCP, le standard ouvert pour connecter un modèle à vos outils. On branche les agents sur ce que vous utilisez déjà : CRM, e-mail, agenda, base de données, dépôt Git, CI/CD. Pour un cas hors écosystème, on évalue la faisabilité au cadrage.",
-          "a_en": "The Anthropic ecosystem first: the Claude API, Claude Code and the MCP protocol, the open standard for connecting a model to your tools. We wire agents to what you already use: CRM, email, calendar, database, Git repo, CI/CD. For a case outside the ecosystem, we assess feasibility at scoping."
+          "q_fr": "Combien de temps pour déployer Claude dans une PME ?",
+          "a_fr": "Habituellement 2 à 8 semaines pour une équipe pilote : ouverture des comptes, connexion des outils, consignes partagées, charte et formation. L'extension aux autres équipes se fait ensuite par étapes.",
+          "q_en": "How long does it take to roll out Claude in an SMB?",
+          "a_en": "Usually 2 to 8 weeks for a pilot team: accounts, tool connections, shared instructions, policy and training. Extension to other teams then happens in stages."
         },
         {
-          "q_fr": "Claude ou ChatGPT pour votre entreprise, lequel choisir ?",
-          "q_en": "Claude or ChatGPT for your company, which to choose?",
-          "a_fr": "Les deux modèles sont solides. Claude se distingue sur le raisonnement long, le code et le protocole MCP, qui branche le modèle à vos outils. ChatGPT garde une avance sur certains usages grand public. Le bon choix dépend de vos cas d'usage et de vos contraintes de données, qu'on tranche au diagnostic, pas d'un parti pris.",
-          "a_en": "Both models are solid. Claude stands out on long reasoning, code and the MCP protocol, which wires the model to your tools. ChatGPT keeps an edge on some consumer uses. The right choice depends on your use cases and data constraints, which we settle at the diagnostic, not on a bias."
+          "q_fr": "Qu'est-ce qu'un connecteur MCP ?",
+          "a_fr": "MCP, le Model Context Protocol, est un standard ouvert publié par Anthropic pour relier un modèle à des sources de données et à des outils (annonce d'Anthropic, vérifiée le 4 octobre 2026). Un connecteur MCP donne à Claude un accès contrôlé à un logiciel précis : votre drive, votre CRM, une base de données.",
+          "q_en": "What is an MCP connector?",
+          "a_en": "MCP, the Model Context Protocol, is an open standard published by Anthropic to connect a model to data sources and tools (Anthropic announcement, checked on 4 October 2026). An MCP connector gives Claude controlled access to a specific piece of software: your drive, your CRM, a database."
         },
         {
-          "q_fr": "Claude et vos données : où vont-elles, servent-elles à l'entraînement ?",
-          "q_en": "Claude and your data: where does it go, is it used for training?",
-          "a_fr": "Sur les offres entreprise et l'API d'Anthropic, vos échanges ne servent pas par défaut à entraîner les modèles, et un accord de traitement des données (DPA) est disponible. Selon l'offre et le cloud retenu (Anthropic, AWS, Google Cloud), on cadre au diagnostic la région de traitement et la conformité RGPD.",
-          "a_en": "On Anthropic's enterprise offers and API, your exchanges are not used by default to train the models, and a data processing agreement (DPA) is available. Depending on the offer and cloud chosen (Anthropic, AWS, Google Cloud), we frame the processing region and GDPR compliance at the diagnostic."
-        },
-        {
-          "q_fr": "Qu'est-ce que le MCP et pourquoi c'est important ?",
-          "q_en": "What is MCP and why does it matter?",
-          "a_fr": "Le Model Context Protocol est le standard ouvert d'Anthropic pour connecter un modèle de langage à des outils et des données. C'est lui qui fait passer un assistant de la conversation à l'action : lire un dossier, interroger une base, déclencher une tâche. Une intégration sérieuse câble des serveurs MCP propres, sécurisés et documentés, pas des scripts jetables.",
-          "a_en": "The Model Context Protocol is Anthropic's open standard for connecting a language model to tools and data. It's what moves an assistant from conversation to action: reading a file, querying a database, triggering a task. A serious integration wires clean, secured and documented MCP servers, not throwaway scripts."
-        },
-        {
-          "q_fr": "On paie déjà des licences IA que personne n'utilise. En quoi c'est différent ?",
-          "q_en": "We already pay for AI licences no one uses. How is this different?",
-          "a_fr": "Une licence ouverte sans cadre reste sur l'étagère : l'outil dort, la facture court, aucune heure gagnée. L'intégration ne se limite pas à acheter des accès : on cadre les usages, on branche les agents à vos données via MCP, on forme un référent et on mesure l'adoption. La valeur n'est pas dans le siège payé, elle est dans le workflow réel automatisé.",
-          "a_en": "An open licence with no frame stays on the shelf: the tool sleeps, the bill runs, no hours saved. Integration isn't just buying access: we frame the uses, wire agents to your data via MCP, train a lead and measure adoption. Value isn't in the paid seat, it's in the real workflow automated."
-        },
-        {
-          "q_fr": "Combien de temps avant un premier agent en production ?",
-          "q_en": "How long before a first agent in production?",
-          "a_fr": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines, pas en trimestres. On commence par le workflow qui coûte le plus de temps ou d'argent, on prouve la valeur, puis on étend. La gouvernance et la supervision sont posées dès le premier déploiement, pas plaquées après.",
-          "a_en": "Scoping takes a few days, the first useful agent ships in a few weeks, not quarters. We start with the workflow that costs the most time or money, prove the value, then expand. Governance and supervision are laid in at the first deployment, not bolted on after."
-        },
-        {
-          "q_fr": "Comment vous garantissez la sécurité et la traçabilité des agents ?",
-          "q_en": "How do you guarantee the security and traceability of the agents?",
-          "a_fr": "Chaque agent a un périmètre d'action défini, des permissions explicites et une supervision humaine sur les actions sensibles. Les décisions sont tracées, les serveurs MCP cloisonnés, et vous gardez la main : reprise possible, journaux consultables, rien ne tourne en boîte noire. La politique d'usage et la conformité RGPD sont posées dans le même cadre.",
-          "a_en": "Every agent has a defined scope of action, explicit permissions and human supervision on sensitive actions. Decisions are traced, MCP servers compartmentalised, and you keep control: handover is possible, logs are readable, nothing runs as a black box. The usage policy and GDPR compliance are laid in the same frame."
-        },
-        {
-          "q_fr": "Et si nos équipes veulent monter en compétence elles-mêmes ?",
-          "q_en": "What if our teams want to skill up themselves?",
-          "a_fr": "La passation fait partie du livrable et on peut aller plus loin : on forme un référent IA interne, point de contact qui diffuse les bonnes pratiques et rend les équipes autonomes. On documente l'architecture des agents, les skills et les serveurs MCP. L'objectif est l'autonomie : vous n'êtes pas captif d'un prestataire pour ajouter une brique.",
-          "a_en": "Handover is part of the deliverable, and we can go further: we train an internal AI lead, a point of contact who spreads good practices and makes teams autonomous. We document the agent architecture, the skills and the MCP servers. The goal is autonomy: you are not captive to a provider to add a building block."
+          "q_fr": "Formez-vous les équipes à Claude ?",
+          "a_fr": "Oui. La mission inclut la formation du référent et de l'équipe pilote. Pour un programme plus large, les formations sont dispensées via Akigora, organisme certifié Qualiopi, avec une prise en charge possible selon votre situation.",
+          "q_en": "Do you train teams on Claude?",
+          "a_en": "Yes. The engagement includes training the lead and the pilot team. For a wider programme, training is delivered via Akigora, a Qualiopi-certified body; funding may be available depending on your situation."
         }
-      ],
-      "open_first": true
+      ]
     },
     {
       "type": "footer-cta-band",
@@ -854,23 +453,23 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à brancher Claude ?",
-      "kicker_en": "§ Ready to wire Claude in?",
-      "h2_fr": "Mettez votre premier agent en production ce trimestre",
-      "h2_en": "Ship your first agent to production this quarter",
-      "subtitle_fr": "Un diagnostic de 45 min suffit pour cadrer le premier cas d'usage. Pilote livré et mesuré en quelques semaines, sans captivité ni dette technique. En face, le fondateur qui conçoit et supervise lui-même.",
-      "subtitle_en": "A 45-minute diagnostic is enough to frame the first use case. A pilot delivered and measured in a few weeks, no lock-in, no technical debt. Across the table, the founder who designs and supervises himself.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Claude est déjà utilisé chez vous. Reste à l'encadrer.",
+      "h2_en": "Claude is already used in your company. It now needs a framework.",
+      "subtitle_fr": "En 45 minutes, on fait le point sur les usages existants, les données en jeu et l'équipe pilote la plus pertinente.",
+      "subtitle_en": "In 45 minutes, we review existing uses, the data at stake and the most relevant pilot team.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=integrateur-claude&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir les agents IA",
-          "label_en": "See the AI agents",
-          "href": "/services/agents-ia",
+          "label_fr": "Guide : déployer Claude en PME",
+          "label_en": "Guide: deploying Claude in an SMB",
+          "href": "/ressources/guides/claude-pme",
           "variant": "ghost"
         }
       ]
