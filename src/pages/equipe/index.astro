@@ -70,7 +70,8 @@ const breadcrumbLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE.url}/` },
-    { '@type': 'ListItem', position: 2, name: "L'équipe" },
+    { '@type': 'ListItem', position: 2, name: 'Le studio', item: `${SITE.url}/agence` },
+    { '@type': 'ListItem', position: 3, name: "L'équipe" },
   ],
 };
 
@@ -78,7 +79,7 @@ const collectionPageLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: "L'équipe Waimia",
-  description: "Studio solo Waimia : Simon Beros signe chaque article, cas et guide publiés. Bio, parcours, publications.",
+  description: "Waimia est un studio solo : Simon Beros audite, construit et signe chaque mission et chaque publication. Parcours et publications.",
   about: {
     '@type': 'Person',
     name: 'Simon Beros',
@@ -117,23 +118,23 @@ const mastheadData = {
   variant: 'hub' as const,
   decoration: false,
   align: 'left' as const,
-  kicker_fr: `§ Hub · Équipe · ${activeAuthors.length} ${activeAuthors.length > 1 ? 'auteurs' : 'auteur'}`,
-  kicker_en: `§ Hub · Team · ${activeAuthors.length} ${activeAuthors.length > 1 ? 'authors': 'author'}`,
-  h1_fr: 'Qui écrit. Qui câble.',
-  h1_en: 'Who writes. Who ships.',
-  lede_fr: "Pas de ghostwriting. Pas d'agence anonyme. Chaque article, chaque cas, chaque livre blanc est signé. Voici qui écrit pour Waimia.",
-  lede_en: "No ghostwriting. No anonymous agency. Every article, case, white paper is signed. Here's who writes for Waimia.",
+  kicker_fr: '§ Le studio · Équipe',
+  kicker_en: '§ The studio · Team',
+  h1_fr: 'Un studio, un ingénieur.',
+  h1_en: 'One studio, one engineer.',
+  lede_fr: "Waimia est un studio de développement IA tenu par une seule personne. Celui qui audite vos processus est celui qui construit, mesure et vous remet le code. Il signe aussi ce qui est publié ici.",
+  lede_en: 'Waimia is an AI development studio run by one person. The one who audits your processes is the one who builds, measures and hands you the code. He also signs what is published here.',
   transition_id: transitionIdFromHref(Astro.url.pathname),
 } satisfies SectionByType<'hero-hub-masthead'>;
 
 const ctaData = {
   type: 'cta-final' as const,
-  h2_fr: 'Prêt à livrer un <em>agent</em>,<br />pas un slide deck ?',
-  h2_en: 'Ready to ship an <em>agent</em>,<br />not a slide deck?',
-  body_fr: 'Audit IA en 5 jours. Premier agent en production en 4 semaines. ROI mesuré, jamais estimé.',
-  body_en: 'AI audit in 5 days. First agent in production in 4 weeks. Measured ROI, never estimated.',
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/audit-ia-pme', variant: 'primary' as const },
-  cta_secondary: { label_fr: 'Voir les offres →', label_en: 'See services →', href: '/services', variant: 'ghost' as const },
+  h2_fr: 'Quarante-cinq minutes<br />avec celui qui fait le <em>travail</em>.',
+  h2_en: 'Forty-five minutes<br />with the one who does the <em>work</em>.',
+  body_fr: 'Un audit gratuit, en visio. On passe vos processus en revue et on repère trois automatisations rentables. Sans engagement.',
+  body_en: 'A free audit, on a call. We review your processes and spot three profitable automations. No commitment.',
+  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact?offer=audit-ia-pme&intent=audit', variant: 'primary' as const },
+  cta_secondary: { label_fr: 'Voir la méthode →', label_en: 'See the method →', href: '/agence/methode', variant: 'ghost' as const },
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;
 
@@ -141,33 +142,33 @@ const teamBodyData = {
   type: 'rich-text' as const,
   kicker_fr: '§ Studio',
   kicker_en: '§ Studio',
-  title_fr: 'Un studio solo, pas une agence anonyme',
-  title_en: 'A solo studio, not an anonymous agency',
-  body_md_fr: `Waimia est le studio solo de **Simon Beros**, basé à Bordeaux. Une seule
-signature derrière chaque article, chaque cas et chaque guide publiés : pas de
-ghostwriting, pas d'account manager qui tourne, pas d'agence relai.
+  title_fr: 'Un studio solo, assumé',
+  title_en: 'A solo studio, by choice',
+  body_md_fr: `Waimia est le studio de **Simon Beros**, basé à Bordeaux : un studio de
+développement IA et un cabinet d'automatisation des processus pour PME et ETI.
+Pas de chargé de compte, pas d'agence relais, pas de sous-traitance.
 
-Simon câble lui-même chaque mission, du premier audit à la passation documentée :
-audit du process, agents branchés sur les outils déjà en place, mesure
-avant/après, transfert de compétences. L'objectif n'est pas la démo, c'est un
-système business qui tourne une fois l'intervention finie.
+Simon mène lui-même chaque mission, dans le même ordre : audit des processus,
+pilote en production branché sur les outils déjà en place, mesure avant et
+après, transfert du code et des workflows. L'objectif n'est pas la
+démonstration, c'est un système qui tourne une fois l'intervention finie.
 
 ### Le parcours
 
-Avant Waimia, Simon a fondé **VirtuoseWeb**, où il concevait et câblait des
-systèmes web et IA pour des PME B2B. Waimia (2024) prolonge ce travail sur l'IA
-générative appliquée : transformer un modèle en machine d'acquisition, de CRM et
-de productivité opérationnelle, pour PME et low-ETI.
+Avant Waimia, Simon a fondé **VirtuoseWeb**, où il concevait des sites et des
+systèmes web pour des PME. Waimia (2024) concentre ce savoir-faire de
+développeur sur un autre métier : l'automatisation des processus, les agents IA
+et les applications métier. Le site web y est devenu un outil parmi d'autres.
 
 ### Ce qu'il maîtrise
 
-- systèmes IA pour PME B2B ;
-- RevOps et acquisition automatisée ;
-- pilotage data en temps réel ;
-- stack Anthropic / Claude ;
-- process intelligence.
+- automatisation des processus avec n8n et Make ;
+- agents IA sur Claude et OpenAI, branchés par API et MCP ;
+- développement d'applications métier ;
+- audit, feuille de route et formation des équipes ;
+- cadrage RGPD et AI Act dès la conception.
 
-Il écrit en français, lit la documentation, livre du code et mesure le pipeline.
+Il écrit en français, lit la documentation, livre du code et mesure le résultat.
 Le détail de son profil, ses publications et son CV complet vivent sur sa
 [fiche auteur](/equipe/simon-beros).`,
   body_md_en: `Waimia is the solo studio of **Simon Beros**, based in Bordeaux. One signature
@@ -203,8 +204,8 @@ const sections: SectionData[] = [mastheadData, gridData, teamBodyData, ctaData];
 ---
 
 <Base
-  title="L'équipe Waimia · auteurs et contributeurs"
-  description="Les auteurs et contributeurs Waimia. Bios, CV, expertise, publications. Studio solo basé à Bordeaux."
+  title="L'équipe Waimia · un studio, un ingénieur"
+  description="Waimia est un studio solo basé à Bordeaux : Simon Beros audite, construit et transfère chaque mission lui-même. Parcours et publications."
   jsonLd={[breadcrumbLd, collectionPageLd]}
 >
   <SectionsRenderer sections={sections} lang="fr" />

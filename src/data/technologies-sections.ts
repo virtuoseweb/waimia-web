@@ -1,101 +1,99 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Stack & technologies · /technologies · sections en donnée (JSONification, vague V3)
+// Stack et technologies · /technologies · sections en donnée
 // ─────────────────────────────────────────────────────────────────────────────
-// Extraction des littéraux de section qui vivaient inline dans le frontmatter de
-// `src/pages/technologies.astro` (fiche 0027 D6 · vague V3 hubs/utilitaires). Même
-// mécanisme que la vague V1 home / V2 manifeste : module `src/data/*.ts`, le plus SÛR
-// pour la parité stricte (déplacement d'objets typés, 0 schéma à valider).
+// Refonte positionnement 2026-10 : la stack est celle d'un studio de développement IA et
+// d'un cabinet d'automatisation. Ordre des couches = ordre de l'offre : automatisation,
+// IA et agents, données et outils métier, applications, puis le web en dernier.
+// Retirés : la bande de « métriques » (1 / 0 / 100 %), la grille de logos (un mur de logos
+// sous un hero qui disait « pas de catalogue de logos »), et les affirmations sur des
+// produits tiers qui ne sont pas sourcées.
 //
-// La factory `technologiesSections(lang)` reçoit la langue pour reproduire À L'IDENTIQUE
-// les appels `localizeHref(..., lang)` et le breadcrumb qui vivaient dans la page.
+// La factory `technologiesSections(lang)` reçoit la langue pour les liens et le breadcrumb.
 // Le JSON-LD `techLd` (dépend de SITE.url + Astro.url) reste dans la page (SEO/runtime).
-//
-// 0 valeur réécrite : chaque littéral est transcrit CARACTÈRE POUR CARACTÈRE depuis
-// l'ancien frontmatter (apostrophes, points médians ·, flèches →, balises <i>/<a> incluses).
 import type { SectionByType } from '@waimia/ds-kernel';
 import type { NumberedLayerListData } from '@waimia/ds-kernel/sections/numbered-layer-list/schema';
 import { localizeHref, type Lang } from '../lib/i18n';
+import { AUDIT_BOOKING_HREF } from './sitemap';
 
-// ── Couches de la stack · idiome « livrables numerotes » (cf /agence/about) ──
-// Contenu FR (page FR-only). Mappe vers le schema bilingue de `numbered-layer-list` : les champs
-// _en refletent le FR (aucune page /en/technologies ne rend ce contenu -> 0 fabrication de trad).
+// ── Couches de la stack. Contenu FR (page FR-only) : les champs _en reflètent le FR. ──
 const layers = [
   {
     n: '01',
-    label: 'IA & agents',
-    intro: 'Claude, par Anthropic, comme moteur de raisonnement. Un modèle par tâche, pas un seul fourre-tout.',
+    label: 'Automatisation',
+    intro: 'Les workflows qui font circuler la donnée entre vos outils. On choisit la plateforme selon vos contraintes d’hébergement, de budget et de maintenance.',
     items: [
-      "Claude Opus pour la conception et l'arbitrage.",
-      'Claude Sonnet pour le travail cadré et borné.',
-      'Claude Haiku pour le mécanique rapide et les vérifications.',
-      'Orchestration multi-agents : on décompose, on délègue, on recompose.',
+      'n8n pour les workflows que vous voulez maîtriser de bout en bout.',
+      'Make quand l’équipe doit pouvoir lire et modifier les scénarios elle-même.',
+      'Du code quand la logique dépasse ce qu’une plateforme sait faire proprement.',
+      'Chaque workflow est documenté et remis avec ses accès.',
     ],
   },
   {
     n: '02',
-    label: 'Sites & front',
-    intro: 'Un front découplé, statique et rapide. Pas de serveur applicatif à chaque visite.',
+    label: 'IA et agents',
+    intro: 'Un modèle choisi par tâche, pas un seul modèle pour tout. Les agents agissent dans un périmètre écrit, avec une validation humaine sur les actions sensibles.',
     items: [
-      'Astro en génération statique (SSG), PageSpeed visé 100/100.',
-      "React en îlots, seulement là où l'interactivité le justifie.",
-      'Tailwind pour un design system cohérent, sans CSS dupliqué.',
-      'Déploiement Vercel : previews par branche, mise en ligne continue.',
+      'Claude et OpenAI comme moteurs de raisonnement ; Mistral quand vos contraintes le demandent.',
+      'MCP et API pour brancher les agents à vos outils.',
+      'Bases de connaissance pour répondre à partir de vos documents.',
+      'Journal des actions et suivi des coûts de modèles.',
     ],
   },
   {
     n: '03',
-    label: 'CMS & contenu',
-    intro: 'Le bon CMS dépend de votre cas, pas d\'une mode. On tranche au cadrage.',
+    label: 'Données et outils métier',
+    intro: 'On branche l’existant. Pas de migration imposée : on relie ce qui marche déjà.',
     items: [
-      'Git-based par défaut pour une PME : TinaCMS, Keystatic, Decap. Édition versionnée, zéro base de données, réversible.',
-      'Headless classique pour les gros volumes : Contentful, Sanity, Strapi, Prismic.',
-      'Standards ouverts : code, contenu et docs transférés à la livraison.',
+      'Bureautique et gestion : Excel, Outlook, votre ERP.',
+      'CRM : HubSpot, Salesforce, Pipedrive et vos bases existantes.',
+      'Base de données : PostgreSQL pour centraliser ce qui est dispersé.',
+      'Tableaux de bord alimentés automatiquement, à la place du reporting manuel.',
     ],
   },
   {
     n: '04',
-    label: 'Data, CRM & outils métier',
-    intro: "On câble les agents dans vos outils existants. Pas de migration : on connecte ce qui marche déjà.",
+    label: 'Applications métier',
+    intro: 'Quand aucun outil du marché ne fait le travail, on développe. Des technologies courantes, pour qu’un autre développeur puisse reprendre le code.',
     items: [
-      'Productivité : Excel, Outlook, et votre ERP, sans tout remplacer.',
-      'CRM : HubSpot et vos bases existantes, instrumentés proprement.',
-      'Prospection sortante : Lemlist, Instantly, Apollo, Pharow.',
-      'Email : MailerLite pour l\'audience, Resend pour le transactionnel.',
+      'Interfaces web en React, conçues avec ceux qui s’en servent.',
+      'Données et authentification sur PostgreSQL.',
+      'Code versionné dans votre dépôt, hébergé sur vos comptes.',
+      'Documentation et mode opératoire livrés avec l’application.',
     ],
   },
   {
     n: '05',
-    label: 'Analytics & SEO',
-    intro: "On mesure avant et après. Si ça ne mesure rien, ça n'existe pas.",
+    label: 'Web et mesure',
+    intro: 'En appui du système : un site rapide, relié au CRM, et une mesure avant et après.',
     items: [
-      'Search Console pour l\'indexation et la performance organique.',
-      'Google Business Profile : présence locale, avis et fiche établissement optimisés.',
-      'Suivi de conversion : chaque action clé est tracée et attribuée.',
-      'Google Analytics 4 branché quand la mesure le justifie, pas installé par défaut.',
+      'Astro en génération statique pour les sites.',
+      'Search Console pour l’indexation et la visibilité.',
+      'Suivi de conversion : chaque action utile est tracée et attribuée.',
     ],
   },
 ];
 
 export function technologiesSections(lang: Lang) {
-  // ── HERO · masthead editorial (composant catalogue `hero-utility-masthead`) ──
+  // ── HERO · masthead éditorial (composant catalogué `hero-utility-masthead`) ──
   const heroData = {
     type: 'hero-utility-masthead',
-    kicker_fr: '§ Stack & technologies',
-    kicker_en: '§ Stack & technologies',
-    h1_fr: 'La <i>stack</i>, couche par couche.',
-    h1_en: 'The <i>stack</i>, layer by layer.',
-    lede_fr: "Pas de catalogue de logos. Des choix tenus : un modèle par tâche, un front qui tient la charge, vos outils gardés. Et zéro captivité au bout.",
-    lede_en: "No logo wall. Choices we stand by: one model per task, a front that holds up, your tools kept. And zero lock-in at the end.",
+    kicker_fr: '§ Stack et technologies',
+    kicker_en: '§ Stack and technologies',
+    h1_fr: 'Les outils du studio, <i>couche par couche</i>.',
+    h1_en: 'The studio’s tools, <i>layer by layer</i>.',
+    lede_fr: 'n8n et Make pour automatiser, Claude et OpenAI pour les agents, vos outils gardés tels quels. Voici ce qu’on utilise, pour quoi, et ce que vous récupérez à la fin.',
+    lede_en: 'n8n and Make to automate, Claude and OpenAI for agents, your tools kept as they are. Here is what we use, for what, and what you get at the end.',
     align: 'left',
   } satisfies SectionByType<'hero-utility-masthead'>;
 
-  // ── Breadcrumb (masthead-bar) · reproduit l'auto-deduction UtilityTemplate pour /technologies ──
+  // ── Breadcrumb (masthead-bar) ──
   const crumbs = [
     { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
-    { label: 'Stack & technologies' },
+    { label: lang === 'fr' ? 'Le studio' : 'The studio', href: localizeHref('/agence', lang) },
+    { label: lang === 'fr' ? 'Stack et technologies' : 'Stack and technologies' },
   ];
 
-  // ── COUCHES · numbered-layer-list (ex-.tech-layers, cape a 920px) ──
+  // ── COUCHES · numbered-layer-list ──
   const layersData = {
     type: 'numbered-layer-list',
     srHeading_fr: 'Les cinq couches de la stack',
@@ -110,104 +108,56 @@ export function technologiesSections(lang: Lang) {
     })),
   } satisfies NumberedLayerListData;
 
-  // ── Stack en bref · SpecBar (respiration, fond paper-2) ──
+  // ── Stack en bref · SpecBar (fond paper-2) ──
   const specData = {
     type: 'spec-bar',
     background: 'paper-2',
-    kicker_fr: '§ Stack en bref',
-    kicker_en: '§ Stack at a glance',
+    kicker_fr: '§ En bref',
+    kicker_en: '§ At a glance',
     specs: [
-      { label_fr: 'Moteur IA', label_en: 'AI engine', value: 'Claude' },
-      { label_fr: 'Front', label_en: 'Front', value: 'Astro SSG' },
-      { label_fr: 'PageSpeed visé', label_en: 'Target PageSpeed', value: '100/100' },
-      { label_fr: 'Captivité', label_en: 'Lock-in', value: '0' },
+      { label_fr: 'Automatisation', label_en: 'Automation', value: 'n8n · Make' },
+      { label_fr: 'Agents IA', label_en: 'AI agents', value: 'Claude · OpenAI' },
+      { label_fr: 'Branchement', label_en: 'Connection', value: 'API · MCP' },
+      { label_fr: 'À la fin', label_en: 'At the end', value: 'Code et workflows à vous' },
     ],
   } satisfies SectionByType<'spec-bar'>;
 
-  // ── Principes de choix · bande INK (contraste, climax avant CTA) ──
-  const principlesData = {
-    type: 'metric-callout-band',
-    background: 'ink',
-    kicker_fr: '§ Comment on choisit',
-    kicker_en: '§ How we choose',
-    context_fr: "Aucun outil n'est imposé par dogme. On part de votre métier, de vos outils, de votre budget. Le sur-mesure se justifie quand le clé-en-main atteint ses limites, jamais par défaut.",
-    context_en: 'No tool is imposed by dogma. We start from your business, your tools, your budget. Bespoke is justified when turnkey hits its limits, never by default.',
-    metrics: [
-      { value: '1', label_fr: 'modèle choisi par tâche, pas un fourre-tout', label_en: 'model chosen per task, not a catch-all' },
-      { value: '0', label_fr: 'captivité : standards ouverts, stack transférée', label_en: 'lock-in: open standards, stack handed over' },
-      { value: '100%', label_fr: 'câblé dans vos outils, sans migration forcée', label_en: 'wired into your tools, no forced migration' },
-    ],
-  } satisfies SectionByType<'metric-callout-band'>;
-
-  // ── ANCRAGE ANTHROPIC · branded-callout variante rail (ex-.tech-anchor).
-  // bodyHtml preserve les 2 liens internes ; variant rail = filet accent gauche. ──
+  // ── COMMENT ON CHOISIT · branded-callout variante rail (filet accent gauche) ──
   const anchorData = {
     type: 'branded-callout',
     variant: 'rail',
     bodyHtml: true,
-    kicker_fr: '§ Anthropic-first',
-    kicker_en: '§ Anthropic-first',
-    h2_fr: 'Un parti pris assumé sur le moteur.',
-    h2_en: 'Un parti pris assumé sur le moteur.',
-    body1_fr: 'On a construit la méthode autour de <a href="/services/integration-claude">Claude</a> parce que c\'est, pour notre usage, le meilleur compromis raisonnement, fiabilité et sécurité. Le reste de la stack reste ouvert : <a href="/services/site-web-ia">front Astro</a>, CMS et intégrations se choisissent au cas par cas, selon votre métier.',
-    body1_en: 'On a construit la méthode autour de <a href="/services/integration-claude">Claude</a> parce que c\'est, pour notre usage, le meilleur compromis raisonnement, fiabilité et sécurité. Le reste de la stack reste ouvert : <a href="/services/site-web-ia">front Astro</a>, CMS et intégrations se choisissent au cas par cas, selon votre métier.',
-    body2_fr: 'Le principe ne change pas : on ne vous enferme nulle part. Vous gardez le code, le contenu et la documentation. Vous pouvez reprendre la stack en interne, ou la confier à un autre prestataire.',
-    body2_en: 'Le principe ne change pas : on ne vous enferme nulle part. Vous gardez le code, le contenu et la documentation. Vous pouvez reprendre la stack en interne, ou la confier à un autre prestataire.',
+    kicker_fr: '§ Comment on choisit',
+    kicker_en: '§ How we choose',
+    h2_fr: 'Le plus simple qui fait le travail.',
+    h2_en: 'Le plus simple qui fait le travail.',
+    body1_fr: 'Aucun outil n\'est imposé par principe. On part de votre métier, de vos outils et de votre budget. Une <a href="/services/automatisations">automatisation</a> à règles fixes passe avant un <a href="/services/agents-ia">agent IA</a> quand elle suffit ; un outil du marché passe avant une <a href="/services/applications-internes">application sur mesure</a> quand il fait le travail.',
+    body1_en: 'Aucun outil n\'est imposé par principe. On part de votre métier, de vos outils et de votre budget. Une <a href="/services/automatisations">automatisation</a> à règles fixes passe avant un <a href="/services/agents-ia">agent IA</a> quand elle suffit ; un outil du marché passe avant une <a href="/services/applications-internes">application sur mesure</a> quand il fait le travail.',
+    body2_fr: 'Le principe qui ne change pas : vous gardez le code, les workflows et la documentation. Vous pouvez reprendre le système en interne ou le confier à un autre prestataire.',
+    body2_en: 'Le principe qui ne change pas : vous gardez le code, les workflows et la documentation. Vous pouvez reprendre le système en interne ou le confier à un autre prestataire.',
   } satisfies SectionByType<'branded-callout'>;
 
-  // ── ÉCOSYSTÈME · ecosystem-partners (grille par catégorie, fond paper-2).
-  // Le hero dit « pas de catalogue de logos » : la copy assume donc l'inverse d'un
-  // mur de badges → les briques réellement câblées, couche par couche. Claude pointe
-  // vers la route interne /services/integration-claude ; le reste en liens externes. Chaque asset
-  // vérifié présent dans public/logos/partners/. Page FR-only → _en reflète le FR. ──
-  const ecosystemData = {
-    type: 'ecosystem-partners',
-    background: 'paper-2',
-    layout: 'grid',
-    kicker_fr: '§ Écosystème',
-    kicker_en: '§ Écosystème',
-    h2_fr: "Les outils qu'on <i>câble</i> vraiment.",
-    h2_en: "Les outils qu'on <i>câble</i> vraiment.",
-    lede_fr: "Pas des badges accrochés au mur. Les briques qu'on connecte pour de vrai, couche par couche. La plupart, vous les avez déjà.",
-    lede_en: "Pas des badges accrochés au mur. Les briques qu'on connecte pour de vrai, couche par couche. La plupart, vous les avez déjà.",
-    partners: [
-      { name: 'Claude (Anthropic)', asset: '/logos/partners/partner-claude.png', href: '/services/integration-claude', category: 'IA & agents' },
-      { name: 'OpenAI', asset: '/logos/partners/partner-openai.png', href: 'https://openai.com', external: true, category: 'IA & agents' },
-      { name: 'GitHub Copilot', asset: '/logos/partners/partner-copilot.svg', href: 'https://github.com/features/copilot', external: true, category: 'IA & agents' },
-      { name: 'Amazon Web Services', asset: '/logos/partners/partner-aws.png', href: 'https://aws.amazon.com', external: true, category: 'Cloud & infrastructure' },
-      { name: 'Google', asset: '/logos/partners/partner-google.png', href: 'https://cloud.google.com', external: true, category: 'Cloud & infrastructure' },
-      { name: 'Microsoft', asset: '/logos/partners/partner-microsoft.png', href: 'https://www.microsoft.com', external: true, category: 'Cloud & infrastructure' },
-      { name: 'HubSpot', asset: '/logos/partners/partner-hubspot.png', href: 'https://www.hubspot.com', external: true, category: 'CRM & acquisition' },
-      { name: 'Salesforce', asset: '/logos/partners/partner-salesforce.png', href: 'https://www.salesforce.com', external: true, category: 'CRM & acquisition' },
-      { name: 'Meta Business', asset: '/logos/partners/partner-meta-business.png', href: 'https://business.meta.com', external: true, category: 'CRM & acquisition' },
-      { name: 'Slack', asset: '/logos/partners/partner-slack.svg', href: 'https://slack.com', external: true, category: 'Collaboration & outils' },
-      { name: 'GitHub', asset: '/logos/partners/partner-github.svg', href: 'https://github.com', external: true, category: 'Collaboration & outils' },
-      { name: 'Microsoft Power Apps', asset: '/logos/partners/partner-power-apps.svg', href: 'https://powerapps.microsoft.com', external: true, category: 'Collaboration & outils' },
-    ],
-  } satisfies SectionByType<'ecosystem-partners'>;
-
-  // ── CTA final · reproduit la branche non-contact de UtilityTemplate (showCta) ──
-  const utilityLabel = 'Stack & technologies';
+  // ── CTA final ──
   const ctaData = {
     type: 'cta-final',
-    h2_fr: 'Prêt à passer du <i>texte</i> au terrain ?',
-    h2_en: 'Ready to move from <i>text</i> to the field?',
-    body_fr: `${utilityLabel} clarifié. Reste à cadrer le chantier, le bon niveau d'engagement et le premier livrable utile.`,
-    body_en: `${utilityLabel} clarified. Now it is about framing the engagement, the right level of involvement, and the first useful deliverable.`,
+    h2_fr: 'Quels outils pour <i>votre</i> cas ?',
+    h2_en: 'Which tools for <i>your</i> case?',
+    body_fr: "L'audit gratuit de 45 minutes part de vos processus et de vos outils actuels. Vous repartez avec trois automatisations rentables identifiées et les outils qui conviennent.",
+    body_en: 'The free 45-minute audit starts from your processes and your current tools. You leave with three profitable automations identified and the tools that fit.',
     cta_primary: {
       label_fr: 'Réserver un audit →',
       label_en: 'Book an audit →',
-      href: localizeHref('/audit-ia-pme', lang),
+      href: AUDIT_BOOKING_HREF,
       variant: 'primary',
     },
     cta_secondary: {
-      label_fr: 'Voir les offres →',
-      label_en: 'See services →',
-      href: localizeHref('/services', lang),
+      label_fr: 'Voir la méthode →',
+      label_en: 'See the method →',
+      href: localizeHref('/agence/methode', lang),
       variant: 'ghost',
     },
     background: 'paper',
   } satisfies SectionByType<'cta-final'>;
 
-  return { heroData, crumbs, layersData, specData, principlesData, anchorData, ecosystemData, ctaData };
+  return { heroData, crumbs, layersData, specData, anchorData, ctaData };
 }
