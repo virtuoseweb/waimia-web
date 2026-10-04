@@ -61,6 +61,10 @@ export function normalizeNode(node, ctx, site) {
   if (types.includes('Service')) {
     // Le nom d'une prestation ne porte pas le suffixe de marque du <title>.
     if (typeof out.name === 'string') out.name = out.name.replace(brandSuffix, '').trim();
+    // Idem pour le nom de son offre (reprend le nom de la prestation).
+    if (out.offers && !Array.isArray(out.offers) && typeof out.offers.name === 'string') {
+      out.offers = { ...out.offers, name: out.offers.name.replace(brandSuffix, '').trim() };
+    }
     if (!out.provider || isOrganizationStub(out.provider, site)) out.provider = orgRef;
     // Anciens codes pays ('FR', 'CH'…) → zone réellement desservie.
     if (!out.areaServed || (Array.isArray(out.areaServed) && out.areaServed.every((x) => typeof x === 'string'))) {
