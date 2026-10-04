@@ -1,0 +1,377 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude Cowork : guide pour les PME (2026) · Waimia",
+  "title_en": "Claude Cowork: a guide for SMEs (2026) · Waimia",
+  "description_fr": "Claude Cowork expliqué aux PME : ce que c'est, ce qui change depuis la fusion avec Claude, prix, limites et règles d'usage. Sources officielles vérifiées.",
+  "description_en": "Claude Cowork explained for SMEs: what it is, what changes since the merge with Claude, pricing, limits and usage rules. Official sources checked.",
+  "slug": "claude-cowork",
+  "publishedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "claude-cowork",
+    "claude",
+    "anthropic",
+    "agents-ia",
+    "guide-pme"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Quel est le prix de Claude Cowork ?",
+      "a": "Cowork n'est pas vendu séparément : il est inclus dans les offres payantes de Claude (Pro, Max, Team, Enterprise). La page tarifs d'Anthropic affiche l'offre Pro à 17 dollars par mois avec l'engagement annuel (200 dollars payés d'avance) ou 20 dollars en mensuel, et l'offre Max à partir de 100 dollars par mois, hors taxes. Les tâches en plusieurs étapes consomment plus de votre quota d'usage qu'une simple question."
+    },
+    {
+      "q": "Je ne vois plus le bouton Cowork dans Claude. Est-ce normal ?",
+      "a": "Oui. Depuis le 16 septembre 2026, Anthropic fusionne Cowork et la conversation en un seul Claude, d'abord sur les offres Pro et Max. Si votre zone de saisie n'affiche plus les options « Chat » et « Cowork », vous avez la nouvelle version : vous décrivez la tâche dans n'importe quelle conversation et Claude s'en charge."
+    },
+    {
+      "q": "Quelle différence entre Claude Cowork et Claude Code ?",
+      "a": "Anthropic présente Cowork comme la même architecture agentique que Claude Code, sans terminal. Claude Code s'adresse aux développeurs et travaille dans un dépôt de code. Cowork s'adresse au travail de bureau : documents, tableurs, présentations, recherches."
+    },
+    {
+      "q": "Cowork fonctionne-t-il sur Windows et sur mobile ?",
+      "a": "Selon le centre d'aide d'Anthropic, Cowork est disponible sur les applications de bureau macOS et Windows pour toutes les offres payantes, et sur le web et les applications mobiles pour les offres Pro, Max et Team (sur Enterprise, quand un administrateur l'a activé). L'accès aux fichiers locaux et au navigateur passe par l'application de bureau, qui doit être ouverte."
+    },
+    {
+      "q": "Où tournent les tâches et où sont mes fichiers ?",
+      "a": "D'après le centre d'aide, les tâches s'exécutent dans le cloud (en bêta), dans un environnement isolé sur les serveurs d'Anthropic, et les sessions sont enregistrées dans votre compte Claude. Pour les offres Pro et Max, Anthropic annonce qu'à partir du 6 octobre 2026 les nouvelles tâches tournent dans le cloud et que l'option « uniquement sur votre ordinateur » est retirée. Avant d'y mettre des données sensibles, lisez ces pages et décidez d'une règle interne."
+    },
+    {
+      "q": "Peut-on laisser Cowork agir sans validation ?",
+      "a": "Techniquement oui : il existe un mode manuel (Claude demande avant d'agir), un mode automatique (Claude vérifie lui-même chaque action et bloque ce qu'il juge risqué) et un mode sans aucune approbation. Anthropic écrit qu'aucune défense n'est parfaite et recommande de rester proche pour ce qui touche à l'argent, aux messages envoyés en votre nom et aux fichiers importants. Notre recommandation en PME : mode manuel par défaut."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does Claude Cowork cost?",
+      "a": "Cowork is not sold separately: it is included in Claude's paid plans (Pro, Max, Team, Enterprise). Anthropic's pricing page lists Pro at $17 per month with the annual commitment ($200 billed up front) or $20 monthly, and Max from $100 per month, before tax. Multi-step tasks use more of your usage allowance than a quick question."
+    },
+    {
+      "q": "I no longer see the Cowork button in Claude. Is that normal?",
+      "a": "Yes. Since 16 September 2026, Anthropic has been merging Cowork and chat into one Claude, first on Pro and Max plans. If your message box no longer shows the \"Chat\" and \"Cowork\" options, you have the new experience: you describe the task in any conversation and Claude takes it from there."
+    },
+    {
+      "q": "What is the difference between Claude Cowork and Claude Code?",
+      "a": "Anthropic presents Cowork as the same agentic architecture as Claude Code, with no terminal required. Claude Code is aimed at developers and works in a code repository. Cowork is aimed at knowledge work: documents, spreadsheets, presentations, research."
+    },
+    {
+      "q": "Does Cowork work on Windows and on mobile?",
+      "a": "According to Anthropic's help center, Cowork is available in the macOS and Windows desktop apps on all paid plans, and on web and mobile apps on Pro, Max and Team plans (on Enterprise, where an admin has enabled it). Local file and browser access goes through the desktop app, which must be open."
+    },
+    {
+      "q": "Where do tasks run and where are my files?",
+      "a": "According to the help center, tasks run in the cloud (in beta), in an isolated environment on Anthropic's servers, and sessions are saved to your Claude account. For Pro and Max plans, Anthropic states that from 6 October 2026 new tasks run in the cloud and the \"Only on your computer\" option is removed. Before putting sensitive data in, read those pages and set an internal rule."
+    },
+    {
+      "q": "Can you let Cowork act without approval?",
+      "a": "Technically yes: there is a manual mode (Claude asks before acting), an auto mode (Claude reviews each action itself and blocks what it deems unsafe) and a mode that skips all approvals. Anthropic writes that no defence is perfect and recommends staying close for anything involving money, messages sent as you and important files. Our recommendation for SMEs: manual mode by default."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Claude Cowork : ce que c'est, ce qui change, comment l'utiliser en PME",
+      "h1_en": "Claude Cowork: what it is, what changes, how to use it in an SME",
+      "lede_fr": "Cowork est la partie de Claude qui exécute des tâches au lieu de seulement répondre. Depuis septembre 2026, Anthropic le fusionne avec la conversation. Ce guide sépare deux choses : ce que les sources officielles confirment, liens à l'appui, et ce que Waimia recommande pour un usage en PME.",
+      "lede_en": "Cowork is the part of Claude that carries out tasks instead of only answering. Since September 2026, Anthropic has been merging it with chat. This guide separates two things: what official sources confirm, with links, and what Waimia recommends for SME use.",
+      "badges": [
+        {
+          "label_fr": "Sources officielles",
+          "label_en": "Official sources"
+        },
+        {
+          "label_fr": "Vérifié le 4 octobre 2026",
+          "label_en": "Checked on 4 October 2026"
+        },
+        {
+          "label_fr": "Recommandations PME",
+          "label_en": "SME recommendations"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-agents-production.svg",
+      "media_alt_fr": "Schéma : un agent qui exécute une tâche en plusieurs étapes sur des fichiers et des outils",
+      "media_alt_en": "Diagram: an agent carrying out a multi-step task on files and tools"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Claude Cowork, c'est quoi ?",
+      "question_en": "What is Claude Cowork?",
+      "term_fr": "Définition",
+      "term_en": "Definition",
+      "answer_fr": "Claude Cowork est le mode de Claude qui prend en charge une tâche complète : vous décrivez le résultat attendu, Claude planifie, travaille dans vos fichiers et vos outils connectés, puis vous rend un livrable à relire. Anthropic le décrit comme l'architecture agentique de Claude Code, sans terminal. Il est inclus dans les offres payantes de Claude, et depuis le 16 septembre 2026 il fusionne progressivement avec la conversation classique.",
+      "answer_en": "Claude Cowork is the mode of Claude that takes on a whole task: you describe the expected outcome, Claude plans, works in your files and connected tools, then hands back a deliverable for review. Anthropic describes it as Claude Code's agentic architecture, with no terminal. It is included in Claude's paid plans, and since 16 September 2026 it has been gradually merging with regular chat."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Ce qui change : Cowork devient Claude</h2>\n<p>Le 16 septembre 2026, Anthropic a annoncé que Claude Cowork et la conversation fusionnent en un seul Claude. Vous posez une question rapide ou vous confiez un rapport à rendre, et Claude décide s'il s'agit d'une réponse ou d'une tâche. Le déploiement commence par les offres Pro et Max sur le web, l'application de bureau et le mobile. Anthropic indique que les offres Team et gratuite suivront, et que les administrateurs Enterprise seront prévenus au moins 30 jours avant tout changement.</p>\n<p>Dans la même annonce : Claude Docs et Claude Slides, pour rédiger un document ou des diapositives avec Claude, en bêta sur les offres payantes.</p>\n<p>Ce que cela veut dire pour une PME : vous n'avez pas à former vos équipes à un produit de plus. La question n'est plus « faut-il utiliser Cowork ? » mais « quelles tâches confie-t-on à Claude, avec quels fichiers et quelles validations ? ».</p>\n<h2>Ce que Cowork sait faire, d'après Anthropic</h2>\n<ul>\n<li><strong>Travailler sur vos fichiers.</strong> Sur l'application de bureau, Claude lit et écrit dans les dossiers que vous lui ouvrez, sans téléversement manuel.</li>\n<li><strong>Produire des livrables.</strong> Tableurs Excel avec formules, présentations PowerPoint, documents mis en forme.</li>\n<li><strong>Découper une tâche longue.</strong> Claude répartit le travail entre des sous-agents qui avancent en parallèle.</li>\n<li><strong>Continuer sans vous.</strong> Les sessions dans le cloud se poursuivent ordinateur fermé, et vous reprenez depuis le téléphone.</li>\n<li><strong>Répéter.</strong> Une tâche planifiée s'exécute dans le cloud à la cadence choisie.</li>\n<li><strong>Agir sur le web.</strong> Un navigateur intégré ouvre des sites, lit des pages, remplit des formulaires.</li>\n<li><strong>Se spécialiser.</strong> Les plugins regroupent compétences, connecteurs et sous-agents pour un métier donné.</li>\n</ul>\n<h2>Les limites écrites par Anthropic</h2>\n<ul>\n<li>Cowork agit réellement sur vos fichiers et vos outils connectés. La suppression définitive d'un fichier demande votre accord explicite.</li>\n<li>Le risque d'injection de consignes par un contenu malveillant « n'est pas nul », malgré les protections.</li>\n<li>Les sessions ne se partagent pas entre personnes ; seuls les documents produits se partagent.</li>\n<li>Sur les offres Team et Enterprise, l'export des événements vers vos outils de supervision (OpenTelemetry) existe, mais Anthropic précise qu'il ne remplace pas un journal d'audit de conformité.</li>\n</ul>",
+      "html_en": "<h2>What changes: Cowork becomes Claude</h2>\n<p>On 16 September 2026, Anthropic announced that Claude Cowork and chat are merging into one Claude. You bring a quick question or hand over a report that is due, and Claude decides whether that is an answer or a task. The rollout starts with Pro and Max plans on web, desktop and mobile. Anthropic states that Team and Free plans will follow, and that Enterprise admins will hear at least 30 days before anything changes.</p>\n<p>In the same announcement: Claude Docs and Claude Slides, to write a document or slides with Claude, in beta on paid plans.</p>\n<p>What this means for an SME: you do not have to train your teams on yet another product. The question is no longer \"should we use Cowork?\" but \"which tasks do we hand to Claude, with which files and which approvals?\".</p>\n<h2>What Cowork can do, according to Anthropic</h2>\n<ul>\n<li><strong>Work on your files.</strong> On desktop, Claude reads and writes in the folders you open to it, with no manual uploads.</li>\n<li><strong>Produce deliverables.</strong> Excel spreadsheets with formulas, PowerPoint presentations, formatted documents.</li>\n<li><strong>Break down a long task.</strong> Claude splits the work between sub-agents that progress in parallel.</li>\n<li><strong>Keep going without you.</strong> Cloud sessions continue with the laptop closed, and you pick up from your phone.</li>\n<li><strong>Repeat.</strong> A scheduled task runs in the cloud at the cadence you choose.</li>\n<li><strong>Act on the web.</strong> A built-in browser opens sites, reads pages, fills forms.</li>\n<li><strong>Specialise.</strong> Plugins bundle skills, connectors and sub-agents for a given role.</li>\n</ul>\n<h2>The limits Anthropic itself states</h2>\n<ul>\n<li>Cowork takes real actions on your files and connected tools. Permanently deleting a file requires your explicit permission.</li>\n<li>The risk of prompt injection from malicious content \"is non-zero\", despite the safeguards.</li>\n<li>Sessions cannot be shared between people; only the artifacts produced can be shared.</li>\n<li>On Team and Enterprise plans, streaming events to your monitoring tools (OpenTelemetry) exists, but Anthropic notes it does not replace audit logging for compliance purposes.</li>\n</ul>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Disponibilité",
+      "kicker_en": "§ Availability",
+      "heading_fr": "Où Cowork est disponible, selon Anthropic",
+      "heading_en": "Where Cowork is available, according to Anthropic",
+      "caption_fr": "Source : centre d'aide Claude, lu le 4 octobre 2026. Le déploiement est progressif : votre compte peut différer.",
+      "caption_en": "Source: Claude Help Center, read on 4 October 2026. The rollout is gradual: your account may differ.",
+      "columns_fr": [
+        "Surface",
+        "Offres concernées"
+      ],
+      "columns_en": [
+        "Surface",
+        "Plans covered"
+      ],
+      "rows_fr": [
+        [
+          "Application de bureau macOS",
+          "Toutes les offres payantes"
+        ],
+        [
+          "Application de bureau Windows",
+          "Toutes les offres payantes, dernière version requise"
+        ],
+        [
+          "Web (claude.ai)",
+          "Pro, Max, Team ; Enterprise si un administrateur l'a activé"
+        ],
+        [
+          "Applications mobiles",
+          "Pro, Max, Team ; Enterprise si un administrateur l'a activé"
+        ],
+        [
+          "Panneau latéral Chrome",
+          "Max et Team, en cours de déploiement sur Pro"
+        ]
+      ],
+      "rows_en": [
+        [
+          "macOS desktop app",
+          "All paid plans"
+        ],
+        [
+          "Windows desktop app",
+          "All paid plans, latest version required"
+        ],
+        [
+          "Web (claude.ai)",
+          "Pro, Max, Team; Enterprise where an admin has enabled it"
+        ],
+        [
+          "Mobile apps",
+          "Pro, Max, Team; Enterprise where an admin has enabled it"
+        ],
+        [
+          "Chrome side panel",
+          "Max and Team, rolling out to Pro"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Recommandations Waimia",
+      "kicker_en": "§ Waimia recommendations",
+      "title_fr": "Quand l'utiliser en PME, et quand s'abstenir",
+      "title_en": "When to use it in an SME, and when to hold back",
+      "aside_fr": "Ces recommandations sont celles de Waimia, pas celles d'Anthropic.",
+      "aside_en": "These recommendations are Waimia's, not Anthropic's.",
+      "use_title_fr": "À confier à Cowork",
+      "use_title_en": "Hand over to Cowork",
+      "use_items_fr": [
+        "Le rapport hebdomadaire assemblé à la main à partir de plusieurs exports",
+        "La première lecture d'un lot de documents : contrats, réponses à un appel d'offres, factures fournisseurs",
+        "La synthèse de comptes rendus de réunion en actions à suivre",
+        "Le rangement et le renommage d'un dossier partagé devenu illisible"
+      ],
+      "use_items_en": [
+        "The weekly report assembled by hand from several exports",
+        "The first pass over a batch of documents: contracts, tender responses, supplier invoices",
+        "Turning meeting notes into action items",
+        "Tidying and renaming a shared folder that has become unreadable"
+      ],
+      "avoid_title_fr": "À ne pas lui confier sans cadre",
+      "avoid_title_en": "Do not hand over without a frame",
+      "avoid_items_fr": [
+        "Tout ce qui paie, envoie un message en votre nom ou supprime : validation humaine obligatoire",
+        "Les données de santé, de paie ou disciplinaires, tant qu'une règle interne n'a pas été écrite",
+        "Une tâche qui doit tourner à l'identique des milliers de fois : c'est le rôle d'un workflow n8n ou Make",
+        "Une décision qui engage l'entreprise : Claude prépare, une personne décide"
+      ],
+      "avoid_items_en": [
+        "Anything that pays, sends a message as you or deletes: human approval required",
+        "Health, payroll or disciplinary data, until an internal rule has been written",
+        "A task that must run identically thousands of times: that is the job of an n8n or Make workflow",
+        "A decision that binds the company: Claude prepares, a person decides"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode Waimia",
+      "kicker_en": "§ Waimia method",
+      "h2_fr": "Démarrer en PME en quatre étapes",
+      "h2_en": "Getting started in an SME in four steps",
+      "intro_fr": "Recommandations de Waimia, tirées de nos missions d'intégration de Claude.",
+      "intro_en": "Waimia's recommendations, drawn from our Claude integration engagements.",
+      "steps": [
+        {
+          "title_fr": "Choisir une tâche",
+          "title_en": "Pick one task",
+          "body_fr": "Une tâche de bureau répétée chaque semaine, dont le résultat se relit en quelques minutes. Pas un projet de transformation.",
+          "body_en": "A desk task repeated every week, whose result can be reviewed in a few minutes. Not a transformation project."
+        },
+        {
+          "title_fr": "Ouvrir un seul dossier",
+          "title_en": "Open a single folder",
+          "body_fr": "Créez un dossier de travail dédié et n'ouvrez que celui-là. Claude ne peut lire et écrire que dans les dossiers que vous connectez.",
+          "body_en": "Create a dedicated working folder and open only that one. Claude can only read and write in folders you connect."
+        },
+        {
+          "title_fr": "Garder le mode manuel",
+          "title_en": "Keep manual mode",
+          "body_fr": "Laissez Claude demander avant d'agir tant que l'équipe n'a pas vu une dizaine de tâches se dérouler correctement.",
+          "body_en": "Let Claude ask before acting until the team has seen ten or so tasks go right."
+        },
+        {
+          "title_fr": "Écrire la règle d'usage",
+          "title_en": "Write the usage rule",
+          "body_fr": "Une page : quelles données sont interdites, qui valide quoi, où sont rangés les livrables. C'est le début de votre charte IA.",
+          "body_en": "One page: which data is off limits, who approves what, where deliverables are stored. That is the start of your AI policy."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Sources, vérifiées le 4 octobre 2026</h2><ul><li><a href=\"https://claude.com/product/cowork\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, page produit Claude Cowork</a></li><li><a href=\"https://claude.com/blog/cowork-is-now-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, annonce « Cowork is now Claude », 16 septembre 2026</a></li><li><a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\" rel=\"noopener noreferrer\" target=\"_blank\">Centre d'aide Claude, « Get started with Claude Cowork »</a></li><li><a href=\"https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans\" rel=\"noopener noreferrer\" target=\"_blank\">Centre d'aide Claude, Cowork sur les offres Team et Enterprise</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, page tarifs de Claude</a></li></ul>",
+      "html_en": "<h2>Sources, checked on 4 October 2026</h2><ul><li><a href=\"https://claude.com/product/cowork\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Cowork product page</a></li><li><a href=\"https://claude.com/blog/cowork-is-now-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Cowork is now Claude\" announcement, 16 September 2026</a></li><li><a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, \"Get started with Claude Cowork\"</a></li><li><a href=\"https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, Cowork on Team and Enterprise plans</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude pricing page</a></li></ul>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Déployer Claude dans une PME",
+          "title_en": "Deploying Claude in an SME",
+          "lead_fr": "Prérequis, cas d'usage, gouvernance et 90 premiers jours.",
+          "lead_en": "Prerequisites, use cases, governance and the first 90 days.",
+          "href": "/ressources/guides/claude-pme"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Claude en entreprise",
+          "title_en": "Claude in the enterprise",
+          "lead_fr": "Intégration, connecteurs à vos outils, règles d'usage.",
+          "lead_en": "Integration, connectors to your tools, usage rules.",
+          "href": "/services/integration-claude"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation Claude et agents IA",
+          "title_en": "Claude and AI agents training",
+          "lead_fr": "Vos équipes apprennent sur leurs propres tâches.",
+          "lead_en": "Your teams learn on their own tasks.",
+          "href": "/formations/claude"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Quel est le prix de Claude Cowork ?",
+          "q_en": "How much does Claude Cowork cost?",
+          "a_fr": "Cowork n'est pas vendu séparément : il est inclus dans les offres payantes de Claude (Pro, Max, Team, Enterprise). La page tarifs d'Anthropic affiche l'offre Pro à 17 dollars par mois avec l'engagement annuel (200 dollars payés d'avance) ou 20 dollars en mensuel, et l'offre Max à partir de 100 dollars par mois, hors taxes. Les tâches en plusieurs étapes consomment plus de votre quota d'usage qu'une simple question.",
+          "a_en": "Cowork is not sold separately: it is included in Claude's paid plans (Pro, Max, Team, Enterprise). Anthropic's pricing page lists Pro at $17 per month with the annual commitment ($200 billed up front) or $20 monthly, and Max from $100 per month, before tax. Multi-step tasks use more of your usage allowance than a quick question."
+        },
+        {
+          "q_fr": "Je ne vois plus le bouton Cowork dans Claude. Est-ce normal ?",
+          "q_en": "I no longer see the Cowork button in Claude. Is that normal?",
+          "a_fr": "Oui. Depuis le 16 septembre 2026, Anthropic fusionne Cowork et la conversation en un seul Claude, d'abord sur les offres Pro et Max. Si votre zone de saisie n'affiche plus les options « Chat » et « Cowork », vous avez la nouvelle version : vous décrivez la tâche dans n'importe quelle conversation et Claude s'en charge.",
+          "a_en": "Yes. Since 16 September 2026, Anthropic has been merging Cowork and chat into one Claude, first on Pro and Max plans. If your message box no longer shows the \"Chat\" and \"Cowork\" options, you have the new experience: you describe the task in any conversation and Claude takes it from there."
+        },
+        {
+          "q_fr": "Quelle différence entre Claude Cowork et Claude Code ?",
+          "q_en": "What is the difference between Claude Cowork and Claude Code?",
+          "a_fr": "Anthropic présente Cowork comme la même architecture agentique que Claude Code, sans terminal. Claude Code s'adresse aux développeurs et travaille dans un dépôt de code. Cowork s'adresse au travail de bureau : documents, tableurs, présentations, recherches.",
+          "a_en": "Anthropic presents Cowork as the same agentic architecture as Claude Code, with no terminal required. Claude Code is aimed at developers and works in a code repository. Cowork is aimed at knowledge work: documents, spreadsheets, presentations, research."
+        },
+        {
+          "q_fr": "Cowork fonctionne-t-il sur Windows et sur mobile ?",
+          "q_en": "Does Cowork work on Windows and on mobile?",
+          "a_fr": "Selon le centre d'aide d'Anthropic, Cowork est disponible sur les applications de bureau macOS et Windows pour toutes les offres payantes, et sur le web et les applications mobiles pour les offres Pro, Max et Team (sur Enterprise, quand un administrateur l'a activé). L'accès aux fichiers locaux et au navigateur passe par l'application de bureau, qui doit être ouverte.",
+          "a_en": "According to Anthropic's help center, Cowork is available in the macOS and Windows desktop apps on all paid plans, and on web and mobile apps on Pro, Max and Team plans (on Enterprise, where an admin has enabled it). Local file and browser access goes through the desktop app, which must be open."
+        },
+        {
+          "q_fr": "Où tournent les tâches et où sont mes fichiers ?",
+          "q_en": "Where do tasks run and where are my files?",
+          "a_fr": "D'après le centre d'aide, les tâches s'exécutent dans le cloud (en bêta), dans un environnement isolé sur les serveurs d'Anthropic, et les sessions sont enregistrées dans votre compte Claude. Pour les offres Pro et Max, Anthropic annonce qu'à partir du 6 octobre 2026 les nouvelles tâches tournent dans le cloud et que l'option « uniquement sur votre ordinateur » est retirée. Avant d'y mettre des données sensibles, lisez ces pages et décidez d'une règle interne.",
+          "a_en": "According to the help center, tasks run in the cloud (in beta), in an isolated environment on Anthropic's servers, and sessions are saved to your Claude account. For Pro and Max plans, Anthropic states that from 6 October 2026 new tasks run in the cloud and the \"Only on your computer\" option is removed. Before putting sensitive data in, read those pages and set an internal rule."
+        },
+        {
+          "q_fr": "Peut-on laisser Cowork agir sans validation ?",
+          "q_en": "Can you let Cowork act without approval?",
+          "a_fr": "Techniquement oui : il existe un mode manuel (Claude demande avant d'agir), un mode automatique (Claude vérifie lui-même chaque action et bloque ce qu'il juge risqué) et un mode sans aucune approbation. Anthropic écrit qu'aucune défense n'est parfaite et recommande de rester proche pour ce qui touche à l'argent, aux messages envoyés en votre nom et aux fichiers importants. Notre recommandation en PME : mode manuel par défaut.",
+          "a_en": "Technically yes: there is a manual mode (Claude asks before acting), an auto mode (Claude reviews each action itself and blocks what it deems unsafe) and a mode that skips all approvals. Anthropic writes that no defence is perfect and recommends staying close for anything involving money, messages sent as you and important files. Our recommendation for SMEs: manual mode by default."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Claude en PME",
+      "kicker_en": "§ Claude for SMEs",
+      "h2_fr": "Savoir quelles tâches confier à Claude, et avec quelles règles.",
+      "h2_en": "Know which tasks to hand to Claude, and under which rules.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On repère deux tâches à confier à Claude dans votre entreprise et les garde-fous à poser avant de commencer.",
+      "subtitle_en": "The 45-minute audit is free. We identify two tasks to hand to Claude in your company and the guardrails to set before starting.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

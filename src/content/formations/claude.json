@@ -1,0 +1,415 @@
+{
+  "title_fr": "Formation Claude et agents IA en entreprise · Waimia",
+  "title_en": "Claude and AI agents training for companies · Waimia",
+  "description_fr": "Formation Claude et agents IA en intra-entreprise : usage quotidien, connexion à vos outils, Claude Code, conception d'un agent. Sur vos cas réels.",
+  "description_en": "In-company Claude and AI agents training: daily use, connecting your tools, Claude Code, designing an agent. On your real cases.",
+  "slug": "claude",
+  "publishedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "tags": [
+    "formation-claude",
+    "formation-claude-code",
+    "formation-agent-ia",
+    "formation-intra-entreprise"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Formation Claude et agents IA en entreprise"
+  },
+  "faq_fr": [
+    {
+      "q": "Pourquoi une formation Claude et pas une formation IA générale ?",
+      "a": "Parce qu'on forme sur l'outil que l'équipe va réellement utiliser, avec ses fonctions propres. Les principes (consigne, relecture, données) se transposent à d'autres assistants. Si votre entreprise utilise un autre outil, dites-le au cadrage."
+    },
+    {
+      "q": "La formation Claude Code s'adresse-t-elle à des non-développeurs ?",
+      "a": "Non. Elle demande de savoir utiliser Git et un terminal. Pour les équipes métier, le parcours quotidien et les tâches complètes couvrent l'équivalent sans terminal."
+    },
+    {
+      "q": "Repart-on avec un agent IA en production ?",
+      "a": "Non, et c'est volontaire. On repart avec un cadrage écrit et, selon le niveau, un prototype. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation."
+    },
+    {
+      "q": "Quelles données peut-on utiliser pendant la formation ?",
+      "a": "On le décide au cadrage. Par défaut : pas de données de santé, de paie ni de données clients nominatives dans les exercices. On travaille sur des documents réels non sensibles ou anonymisés."
+    },
+    {
+      "q": "Combien de temps dure la formation et combien coûte-t-elle ?",
+      "a": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise."
+    },
+    {
+      "q": "La formation peut-elle être financée ?",
+      "a": "Les formations sont dispensées via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation. On vérifie ce point avec vous et avec Akigora au cadrage, avant tout engagement."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Why Claude training rather than general AI training?",
+      "a": "Because we train on the tool the team will actually use, with its own features. The principles (instruction, review, data) carry over to other assistants. If your company uses another tool, tell us during scoping."
+    },
+    {
+      "q": "Is the Claude Code training for non-developers?",
+      "a": "No. It requires knowing Git and a terminal. For business teams, the daily track and whole-task modules cover the equivalent without a terminal."
+    },
+    {
+      "q": "Do we leave with an AI agent in production?",
+      "a": "No, deliberately. You leave with a written scope and, depending on level, a prototype. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+    },
+    {
+      "q": "Which data can be used during the training?",
+      "a": "Decided during scoping. By default: no health, payroll or named customer data in exercises. We work on real, non-sensitive or anonymised documents."
+    },
+    {
+      "q": "How long does the training last and how much does it cost?",
+      "a": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+    },
+    {
+      "q": "Can the training be funded?",
+      "a": "Training is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. We check this with you and Akigora during scoping, before any commitment."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h1_fr": "Formation Claude et agents IA",
+      "h1_en": "Claude and AI agents training",
+      "lede_fr": "Vos équipes apprennent à confier de vraies tâches à Claude, à le brancher à leurs outils et à savoir où s'arrêter. Avec un parcours distinct pour les profils techniques sur Claude Code et la conception d'agents.",
+      "lede_en": "Your teams learn to hand real tasks to Claude, connect it to their tools and know where to stop. With a separate track for technical profiles on Claude Code and agent design.",
+      "badges": [
+        {
+          "label_fr": "Intra-entreprise",
+          "label_en": "In-company"
+        },
+        {
+          "label_fr": "À distance ou sur site",
+          "label_en": "Remote or on site"
+        },
+        {
+          "label_fr": "Sur vos cas réels",
+          "label_en": "On your real cases"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-passation-formation.svg",
+      "media_alt_fr": "Schéma : une passation de compétences entre un formateur et une équipe",
+      "media_alt_en": "Diagram: a skills handover between a trainer and a team"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "À qui s'adresse cette formation ?",
+      "question_en": "Who is this training for?",
+      "term_fr": "Public",
+      "term_en": "Audience",
+      "answer_fr": "Deux publics, deux parcours. Les équipes métier (direction, commerce, administratif, support) qui utilisent ou vont utiliser Claude au quotidien. Les profils techniques (développeurs, responsables des systèmes d'information) qui veulent travailler avec Claude Code ou construire des agents. Le cadrage décide du parcours, ou du mélange des deux.",
+      "answer_en": "Two audiences, two tracks. Business teams (management, sales, back office, support) who use or will use Claude daily. Technical profiles (developers, IT managers) who want to work with Claude Code or build agents. Scoping decides the track, or the mix of both."
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Objectifs",
+      "kicker_en": "§ Goals",
+      "heading_fr": "À l'issue, vos équipes savent",
+      "heading_en": "By the end, your teams can",
+      "items": [
+        {
+          "label_fr": "Rédiger une consigne qui produit un résultat utilisable du premier coup.",
+          "label_en": "Write an instruction that yields a usable result first time."
+        },
+        {
+          "label_fr": "Organiser leur travail dans des projets, avec les bons documents de référence.",
+          "label_en": "Organise their work in projects, with the right reference documents."
+        },
+        {
+          "label_fr": "Brancher Claude aux outils de l'entreprise par des connecteurs.",
+          "label_en": "Connect Claude to the company's tools through connectors."
+        },
+        {
+          "label_fr": "Confier une tâche complète à Claude et relire le résultat avec méthode.",
+          "label_en": "Hand a whole task to Claude and review the result methodically."
+        },
+        {
+          "label_fr": "Reconnaître une réponse inventée et savoir quelles données ne pas partager.",
+          "label_en": "Recognise a made-up answer and know which data not to share."
+        },
+        {
+          "label_fr": "Pour le parcours technique : utiliser Claude Code sur un dépôt réel et cadrer un agent.",
+          "label_en": "For the technical track: use Claude Code on a real repository and scope an agent."
+        }
+      ]
+    },
+    {
+      "type": "editorial-timeline",
+      "background": "paper-3",
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Programme",
+      "eyebrow_en": "§ Programme",
+      "title_fr": "Le programme, module par module",
+      "title_en": "The programme, module by module",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Ce qu'un modèle fait bien, et mal",
+          "title_en": "What a model does well, and badly",
+          "body_fr": "Forces, limites, réponses inventées, données : les bases pour ne pas se faire piéger.",
+          "body_en": "Strengths, limits, made-up answers, data: the basics to avoid being caught out."
+        },
+        {
+          "num": "02",
+          "title_fr": "Travailler avec Claude au quotidien",
+          "title_en": "Working with Claude day to day",
+          "body_fr": "Consignes, documents de référence, projets, relecture.",
+          "body_en": "Instructions, reference documents, projects, review."
+        },
+        {
+          "num": "03",
+          "title_fr": "Brancher Claude à vos outils",
+          "title_en": "Connecting Claude to your tools",
+          "body_fr": "Connecteurs, compétences (skills) et plugins : ce qu'ils permettent, ce qu'ils exposent.",
+          "body_en": "Connectors, skills and plugins: what they enable, what they expose."
+        },
+        {
+          "num": "04",
+          "title_fr": "Confier une tâche complète",
+          "title_en": "Handing over a whole task",
+          "body_fr": "Les tâches en plusieurs étapes (Cowork) : dossiers ouverts, validations, tâches planifiées.",
+          "body_en": "Multi-step tasks (Cowork): opened folders, approvals, scheduled tasks."
+        },
+        {
+          "num": "05",
+          "title_fr": "Claude Code",
+          "title_en": "Claude Code",
+          "meta_fr": "Parcours technique",
+          "meta_en": "Technical track",
+          "body_fr": "Travailler dans un dépôt, donner du contexte au projet, relire ce que Claude modifie.",
+          "body_en": "Working in a repository, giving the project context, reviewing what Claude changes."
+        },
+        {
+          "num": "06",
+          "title_fr": "Concevoir un agent",
+          "title_en": "Designing an agent",
+          "meta_fr": "Parcours technique",
+          "meta_en": "Technical track",
+          "body_fr": "Périmètre, outils accessibles, validation humaine, mesure de la qualité avant mise en service.",
+          "body_en": "Scope, accessible tools, human approval, quality measurement before going live."
+        },
+        {
+          "num": "07",
+          "title_fr": "Règles d'usage",
+          "title_en": "Usage rules",
+          "body_fr": "Données interdites, qui valide quoi, RGPD et AI Act : la base de votre charte IA.",
+          "body_en": "Off-limits data, who approves what, GDPR and AI Act: the basis of your AI policy."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Formation Claude Code : pour les équipes techniques</h2>\n<p>Claude Code est l'outil d'Anthropic pour travailler avec Claude dans un dépôt de code. Le parcours technique se fait sur votre propre code : donner le contexte du projet, découper une demande, relire les modifications, décider de ce qui passe en revue humaine. L'objectif n'est pas d'aller plus vite sur une démonstration, mais de garder un code que l'équipe comprend encore.</p>\n<h2>Formation agent IA : savoir cadrer avant de construire</h2>\n<p>Un agent IA est un modèle à qui l'on donne des outils et une tâche, et qui décide lui-même des étapes. La partie difficile n'est pas technique. C'est de décider ce qu'il a le droit de faire seul, ce qui demande une validation, et comment on mesure qu'il fait bien son travail. Ce module apprend à écrire ce cadrage. Pour la construction et la mise en production, voir notre service <a href=\"/services/agents-ia\">agents IA</a>.</p>",
+      "html_en": "<h2>Claude Code training: for technical teams</h2>\n<p>Claude Code is Anthropic's tool for working with Claude in a code repository. The technical track runs on your own code: giving the project context, breaking down a request, reviewing changes, deciding what goes to human review. The goal is not to go faster on a demo, but to keep code the team still understands.</p>\n<h2>AI agent training: scope before you build</h2>\n<p>An AI agent is a model given tools and a task, which decides the steps itself. The hard part is not technical. It is deciding what it may do alone, what needs approval, and how you measure that it does its job well. This module teaches how to write that scope. For building and shipping, see our <a href=\"/services/agents-ia\">AI agents</a> service.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Fiche pratique",
+      "kicker_en": "§ Practical details",
+      "heading_fr": "Prérequis, format, durée et tarif",
+      "heading_en": "Prerequisites, format, duration and price",
+      "columns_fr": [
+        "Rubrique",
+        "Détail"
+      ],
+      "columns_en": [
+        "Item",
+        "Detail"
+      ],
+      "rows_fr": [
+        [
+          "Prérequis",
+          "Un accès à Claude pour chaque participant. Pour le parcours technique : savoir utiliser Git et un terminal"
+        ],
+        [
+          "Format",
+          "Intra-entreprise, à distance ou sur site, sur les cas réels de votre entreprise"
+        ],
+        [
+          "Durée",
+          "Définie au cadrage, selon le niveau de départ et les objectifs"
+        ],
+        [
+          "Tarif",
+          "Défini au cadrage, sur devis"
+        ],
+        [
+          "Formateur",
+          "Simon Beros, fondateur de Waimia. Il conçoit et met en production des automatisations et des agents IA pour des PME, et forme sur ce qu'il pratique."
+        ],
+        [
+          "Organisme",
+          "Akigora, organisme certifié Qualiopi"
+        ],
+        [
+          "Financement",
+          "Prise en charge possible selon votre situation"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Prerequisites",
+          "Claude access for each participant. For the technical track: knowing Git and a terminal"
+        ],
+        [
+          "Format",
+          "In-company, remote or on site, on your company's real cases"
+        ],
+        [
+          "Duration",
+          "Set during scoping, depending on starting level and goals"
+        ],
+        [
+          "Price",
+          "Set during scoping, on quote"
+        ],
+        [
+          "Trainer",
+          "Simon Beros, founder of Waimia. He designs and ships automations and AI agents for SMEs, and trains on what he practises."
+        ],
+        [
+          "Training organisation",
+          "Akigora, a Qualiopi-certified training organisation"
+        ],
+        [
+          "Funding",
+          "Funding may be possible depending on your situation"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "note",
+      "body_fr": "Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation : on regarde ce point avec vous et avec Akigora au cadrage.",
+      "body_en": "Training delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation: we look at this with you and Akigora during scoping."
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Cowork",
+          "title_en": "Claude Cowork",
+          "lead_fr": "Ce que c'est, ce qui change, comment l'utiliser en PME.",
+          "lead_en": "What it is, what changes, how to use it in an SME.",
+          "href": "/ressources/guides/claude-cowork"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Claude en entreprise",
+          "title_en": "Claude in the enterprise",
+          "lead_fr": "Intégration, connecteurs et règles d'usage.",
+          "lead_en": "Integration, connectors and usage rules.",
+          "href": "/services/integration-claude"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Toutes les formations",
+          "title_en": "All training courses",
+          "lead_fr": "Automatisation, n8n et Make.",
+          "lead_en": "Automation, n8n and Make.",
+          "href": "/formations"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Pourquoi une formation Claude et pas une formation IA générale ?",
+          "q_en": "Why Claude training rather than general AI training?",
+          "a_fr": "Parce qu'on forme sur l'outil que l'équipe va réellement utiliser, avec ses fonctions propres. Les principes (consigne, relecture, données) se transposent à d'autres assistants. Si votre entreprise utilise un autre outil, dites-le au cadrage.",
+          "a_en": "Because we train on the tool the team will actually use, with its own features. The principles (instruction, review, data) carry over to other assistants. If your company uses another tool, tell us during scoping."
+        },
+        {
+          "q_fr": "La formation Claude Code s'adresse-t-elle à des non-développeurs ?",
+          "q_en": "Is the Claude Code training for non-developers?",
+          "a_fr": "Non. Elle demande de savoir utiliser Git et un terminal. Pour les équipes métier, le parcours quotidien et les tâches complètes couvrent l'équivalent sans terminal.",
+          "a_en": "No. It requires knowing Git and a terminal. For business teams, the daily track and whole-task modules cover the equivalent without a terminal."
+        },
+        {
+          "q_fr": "Repart-on avec un agent IA en production ?",
+          "q_en": "Do we leave with an AI agent in production?",
+          "a_fr": "Non, et c'est volontaire. On repart avec un cadrage écrit et, selon le niveau, un prototype. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation.",
+          "a_en": "No, deliberately. You leave with a written scope and, depending on level, a prototype. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+        },
+        {
+          "q_fr": "Quelles données peut-on utiliser pendant la formation ?",
+          "q_en": "Which data can be used during the training?",
+          "a_fr": "On le décide au cadrage. Par défaut : pas de données de santé, de paie ni de données clients nominatives dans les exercices. On travaille sur des documents réels non sensibles ou anonymisés.",
+          "a_en": "Decided during scoping. By default: no health, payroll or named customer data in exercises. We work on real, non-sensitive or anonymised documents."
+        },
+        {
+          "q_fr": "Combien de temps dure la formation et combien coûte-t-elle ?",
+          "q_en": "How long does the training last and how much does it cost?",
+          "a_fr": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise.",
+          "a_en": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+        },
+        {
+          "q_fr": "La formation peut-elle être financée ?",
+          "q_en": "Can the training be funded?",
+          "a_fr": "Les formations sont dispensées via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation. On vérifie ce point avec vous et avec Akigora au cadrage, avant tout engagement.",
+          "a_en": "Training is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. We check this with you and Akigora during scoping, before any commitment."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h2_fr": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "h2_en": "We build the programme on your tasks, not on a catalogue.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On repère les tâches sur lesquelles former votre équipe, le niveau de départ, et on vous dit si une formation est la bonne réponse.",
+      "subtitle_en": "The 45-minute audit is free. We identify the tasks to train your team on, the starting level, and tell you whether training is the right answer.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
