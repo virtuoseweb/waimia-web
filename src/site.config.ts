@@ -31,11 +31,16 @@ export const SITE = {
   vatID: 'FR07890426307',
   /** Date de fondation ISO (JSON-LD `foundingDate`). */
   foundingDate: '2020-10-15',
-  /** Adresse postale (JSON-LD PostalAddress). */
-  streetAddress: '537 Rue du Pré aux Clercs',
-  postalCode: '34090',
-  city: 'Montpellier',
-  region: 'Occitanie',
+  /**
+   * Adresse d'ACTIVITÉ (JSON-LD PostalAddress, page /implantations/bordeaux, contact).
+   * Pas de numéro de rue communiqué : ne pas en inventer. Le siège légal affiché dans les
+   * mentions légales (src/content/legal/mentions-legales.json) est géré à part et ne change
+   * qu'à la confirmation du transfert administratif.
+   */
+  streetAddress: 'Avenue de la République',
+  postalCode: '33200',
+  city: 'Bordeaux',
+  region: 'Nouvelle-Aquitaine',
   country: 'FR',
   /** Couleur thème navigateur (`<meta name="theme-color">`, défaut Base.astro). */
   themeColor: '#F6F1E8',

@@ -6,7 +6,7 @@
   "description_en": "B2B cold email for SMEs: enriched targeting, Lemlist and Instantly sequences, warm-up and monitored deliverability, GDPR-compliant, no burned domain.",
   "slug": "cold-email-b2b",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-07-16T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "cold-email-b2b",
@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Campagnes de cold email B2B outillées pour PME",
-    "priceRange": "980-1650€/mois",
+    "priceRange": "{{prix.commercial}}-1650€/mois",
     "priceMin": 980,
     "priceMax": 1650
   },
@@ -45,7 +45,7 @@
     },
     {
       "q": "Combien coûte une campagne de cold email B2B ?",
-      "a": "Trois formules sans engagement. Découverte à 0 € : un premier échange en visio et 30 prospects offerts. Standard à 980 € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis. Vous stoppez ou mettez en pause dès que vous le souhaitez."
+      "a": "Trois formules sans engagement. Découverte à 0 € : un premier échange en visio et 30 prospects offerts. Standard à {{prix.commercial}} € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis. Vous stoppez ou mettez en pause dès que vous le souhaitez."
     }
   ],
   "faq_en": [
@@ -71,7 +71,7 @@
     },
     {
       "q": "How much does a B2B cold email campaign cost?",
-      "a": "Three plans, no commitment. Discovery at 0 €: a first video call and 30 prospects offered. Standard at 980 € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request. You stop or pause the moment you wish."
+      "a": "Three plans, no commitment. Discovery at 0 €: a first video call and 30 prospects offered. Standard at {{prix.commercial}} € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request. You stop or pause the moment you wish."
     }
   ],
   "sections": [
@@ -139,7 +139,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "980–1 650 €",
+          "value": "{{prix.commercial}}–1 650 €",
           "label_fr": "abonnement mensuel HT, sans engagement",
           "label_en": "monthly subscription ex VAT, no commitment",
           "emphasis": true
@@ -851,7 +851,7 @@
         {
           "name_fr": "Standard",
           "name_en": "Standard",
-          "price": "980 €",
+          "price": "{{prix.commercial}} €",
           "period_fr": "HT / mois",
           "period_en": "ex VAT / month",
           "features_fr": [
@@ -993,8 +993,8 @@
         {
           "q_fr": "Combien coûte une campagne de cold email B2B ?",
           "q_en": "How much does a B2B cold email campaign cost?",
-          "a_fr": "Trois formules sans engagement. Découverte à 0 € : un premier échange en visio et 30 prospects offerts. Standard à 980 € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis. Vous stoppez ou mettez en pause dès que vous le souhaitez.",
-          "a_en": "Three plans, no commitment. Discovery at 0 €: a first video call and 30 prospects offered. Standard at 980 € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request. You stop or pause the moment you wish."
+          "a_fr": "Trois formules sans engagement. Découverte à 0 € : un premier échange en visio et 30 prospects offerts. Standard à {{prix.commercial}} € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis. Vous stoppez ou mettez en pause dès que vous le souhaitez.",
+          "a_en": "Three plans, no commitment. Discovery at 0 €: a first video call and 30 prospects offered. Standard at {{prix.commercial}} € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request. You stop or pause the moment you wish."
         }
       ]
     },

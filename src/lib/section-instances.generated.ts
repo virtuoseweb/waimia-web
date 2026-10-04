@@ -5406,7 +5406,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 8,
-      "label": "Trois formules pour alimenter votre pipeline",
+      "label": "Un essai gratuit, puis deux formules pour alimenter votre pipeline",
       "background": "paper"
     },
     {

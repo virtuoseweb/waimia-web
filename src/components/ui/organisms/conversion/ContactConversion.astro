@@ -68,7 +68,7 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
             <li><span>E-mail</span><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
             <li><span>Téléphone</span><a href={`tel:${SITE.telE164}`}>{SITE.tel}</a></li>
             <li><span>LinkedIn</span><a href={SITE.linkedin} rel="noopener" target="_blank">linkedin.com/company/waimia</a></li>
-            <li><span>Lieu</span><span class="cc-direct-v">Bordeaux. Missions à distance, déplacements à Bordeaux, Montpellier, Lyon et Paris.</span></li>
+            <li><span>Lieu</span><span class="cc-direct-v">{SITE.streetAddress}, {SITE.postalCode} {SITE.city}. Rendez-vous chez vous ou en visio. Missions à distance, déplacements à Bordeaux, Montpellier, Lyon et Paris.</span></li>
           </ul>
         </div>
         <div class="cc-msg-form">
