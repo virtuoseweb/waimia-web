@@ -38,7 +38,7 @@ export function summarizeKeywordsWithoutGsc(keywords) {
   return keywords.map((k) => ({ query: k.query, cluster: k.cluster, priority: k.priority, volume: k.volume, difficulty: k.difficulty, target: k.target, visible: null, position: null, rankedPage: null }));
 }
 
-export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, indexnow, feeds, competitors, keywords = [], sitemapPaths = null }) {
+export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, indexnow, indexingApi, feeds, competitors, keywords = [], sitemapPaths = null }) {
   const gsc = summarizePerformance(perf, keywords);
   const targets = [...new Set(keywords.map((k) => k.target).filter(Boolean))];
   return {
@@ -69,6 +69,23 @@ export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, i
     },
     sitemap: !sitemap ? null : { submitted: sitemap.submitted, submitError: sitemap.submitError, ...sitemap.status },
     indexnow: !indexnow ? null : { status: indexnow.status, sent: indexnow.sent, added: indexnow.added.length, modified: indexnow.modified.length, lastSubmission: indexnow.lastSubmission, note: indexnow.note ?? null },
+    indexingApi: !indexingApi ? null : {
+      status: indexingApi.status,
+      mode: indexingApi.mode,
+      submitted: indexingApi.submitted.length,
+      wouldSubmit: indexingApi.wouldSubmit?.length ?? null,
+      added: indexingApi.added.length,
+      modified: indexingApi.modified.length,
+      unchanged: indexingApi.unchanged,
+      prioritizedNotIndexed: indexingApi.prioritized.length,
+      deferred: indexingApi.deferred.length,
+      errors: indexingApi.errors.length,
+      firstError: indexingApi.errors[0]?.error ?? null,
+      quota: indexingApi.quota,
+      lastSubmission: indexingApi.lastSubmission,
+      submittedPaths: indexingApi.submitted.map(pathOf),
+      note: indexingApi.note ?? null,
+    },
     feeds: !feeds ? null : {
       entryCount: feeds.entryCount,
       byTheme: feeds.byTheme,

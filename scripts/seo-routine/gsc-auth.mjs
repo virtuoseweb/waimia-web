@@ -1,6 +1,8 @@
 /**
- * Authentification Search Console par compte de service, sans dépendance :
+ * Authentification Google par compte de service, sans dépendance :
  * JWT RS256 signé avec node:crypto, échangé contre un jeton OAuth2 (flux « JWT bearer »).
+ * Sert à Search Console (portée par défaut) et à l'Indexing API (portée passée en option) :
+ * un seul secret, un jeton par jeu de portées.
  *
  * Le JSON du compte de service est lu dans la variable d'environnement GSC_SERVICE_ACCOUNT_JSON
  * (JSON brut, ou le même JSON encodé en base64). Voir docs/seo/SETUP.md.
@@ -43,12 +45,15 @@ export function readServiceAccount(env = process.env) {
 
 const b64url = (input) => Buffer.from(input).toString('base64url');
 
-/** Construit l'assertion JWT signée (exportée pour les tests). */
+/** Liste de portées OAuth (tableau ou chaîne) vers la chaîne attendue par Google (séparateur : espace). */
+export const scopeString = (scopes) => (Array.isArray(scopes) ? [...new Set(scopes)].join(' ') : String(scopes));
+
+/** Construit l'assertion JWT signée (exportée pour les tests). `scope` : chaîne ou liste de portées. */
 export function buildAssertion(sa, { scope = GSC_SCOPE, now = Math.floor(Date.now() / 1000) } = {}) {
   const header = { alg: 'RS256', typ: 'JWT', ...(sa.private_key_id ? { kid: sa.private_key_id } : {}) };
   const claims = {
     iss: sa.client_email,
-    scope,
+    scope: scopeString(scope),
     aud: sa.token_uri || 'https://oauth2.googleapis.com/token',
     iat: now,
     exp: now + 3600,
@@ -58,10 +63,12 @@ export function buildAssertion(sa, { scope = GSC_SCOPE, now = Math.floor(Date.no
   return `${unsigned}.${b64url(signature)}`;
 }
 
-let cached = null;
+const cache = new Map();
 
-/** Jeton d'accès OAuth2 (mis en cache pour la durée du processus). */
-export async function getAccessToken(env = process.env) {
+/** Jeton d'accès OAuth2 pour une liste de portées (mis en cache par portées pour la durée du processus). */
+export async function getAccessToken(env = process.env, scopes = [GSC_SCOPE]) {
+  const scope = scopeString(scopes);
+  const cached = cache.get(scope);
   if (cached && cached.expiresAt > Date.now() + 60_000) return cached.token;
   const sa = readServiceAccount(env);
   const res = await fetch(sa.token_uri || 'https://oauth2.googleapis.com/token', {
@@ -69,7 +76,7 @@ export async function getAccessToken(env = process.env) {
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: buildAssertion(sa),
+      assertion: buildAssertion(sa, { scope }),
     }),
     signal: AbortSignal.timeout(20000),
   });
@@ -77,16 +84,20 @@ export async function getAccessToken(env = process.env) {
   if (!res.ok || !body.access_token) {
     throw new Error(`échec OAuth2 (${res.status}) : ${body.error_description || body.error || 'réponse sans jeton'}`);
   }
-  cached = { token: body.access_token, expiresAt: Date.now() + (body.expires_in ?? 3600) * 1000 };
-  return cached.token;
+  cache.set(scope, { token: body.access_token, expiresAt: Date.now() + (body.expires_in ?? 3600) * 1000 });
+  return body.access_token;
 }
+
+const GSC_PERMISSION_HINT = `le compte de service doit être ajouté à ${GSC_SITE_URL} dans Search Console, voir docs/seo/SETUP.md`;
 
 /**
  * Appel authentifié à une API Google. Réessaie sur 429 et 5xx (attente croissante).
  * Renvoie le JSON de la réponse (objet vide si la réponse n'a pas de corps).
+ * `scopes` : portées OAuth du jeton (Search Console par défaut). `permissionHint` : conseil ajouté
+ * aux erreurs 403 de permission (null pour laisser l'appelant écrire le sien).
  */
-export async function gscFetch(url, { method = 'GET', body, retries = 3 } = {}) {
-  const token = await getAccessToken();
+export async function gscFetch(url, { method = 'GET', body, retries = 3, scopes = [GSC_SCOPE], permissionHint = GSC_PERMISSION_HINT } = {}) {
+  const token = await getAccessToken(process.env, scopes);
   let lastError;
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     const res = await fetch(url, {
@@ -106,8 +117,9 @@ export async function gscFetch(url, { method = 'GET', body, retries = 3 } = {}) 
     const message = json?.error?.message || json.raw || res.statusText;
     lastError = new Error(`API Google ${res.status} : ${message}`);
     lastError.status = res.status;
-    if (res.status === 403 && /permission|not have access|n'avez pas/i.test(message)) {
-      lastError.message += ` (le compte de service doit être ajouté comme utilisateur de ${GSC_SITE_URL} dans Search Console, voir docs/seo/SETUP.md)`;
+    lastError.googleMessage = message;
+    if (permissionHint && res.status === 403 && /permission|not have access|n'avez pas/i.test(message)) {
+      lastError.message += ` (${permissionHint})`;
     }
     if (res.status !== 429 && res.status < 500) break;
     await sleep(2000 * 2 ** attempt);

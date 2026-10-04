@@ -16,15 +16,30 @@ Le workflow GitHub Actions `.github/workflows/seo-routine.yml` tourne chaque lun
 | `docs/seo/data/AAAA-Www/gsc-index.json` | Résultat de l'inspection de chaque URL du sitemap. |
 | `docs/seo/data/AAAA-Www/gsc-sitemap.json` | État du sitemap dans Search Console après resoumission. |
 | `docs/seo/data/AAAA-Www/indexnow.json` | URL envoyées à IndexNow. |
+| `docs/seo/data/AAAA-Www/indexing-api.json` | URL notifiées à Google par l'Indexing API, reports et erreurs. |
 | `docs/seo/data/AAAA-Www/feeds.json` | Entrées des flux des 8 derniers jours, résumés complets. |
 | `docs/seo/data/AAAA-Www/competitors.json` | URL nouvelles et retirées chez les concurrents. |
 | `docs/seo/data/state/*.json` | État technique d'une semaine sur l'autre. Ne pas modifier. |
 
 Ce que l'automatisation fait déjà pour l'indexation, et ses limites :
 
-> Google ne propose pas d'API pour « demander l'indexation » d'une page ordinaire (l'Indexing API est réservée aux offres d'emploi et aux diffusions en direct). Ce que l'API permet : resoumettre le sitemap, inspecter l'état d'indexation de chaque URL.
+À chaque collecte, le workflow :
 
-N'utilise donc pas l'Indexing API. Le workflow resoumet le sitemap à Google et prévient Bing et les moteurs partenaires par IndexNow pour chaque URL nouvelle ou modifiée. Le bouton « Demander l'indexation » de Search Console reste un geste manuel de Simon : si une page précise le mérite, dis-le dans le compte rendu.
+1. resoumet le sitemap à Google et inspecte l'état d'indexation de chaque URL (API Search Console). C'est le socle, avec le maillage interne ;
+2. prévient Bing et les moteurs partenaires par IndexNow pour chaque URL nouvelle ou modifiée ;
+3. notifie Google par l'Indexing API (`urlNotifications.publish`, type `URL_UPDATED`) pour chaque URL du sitemap nouvelle ou dont le `lastmod` a changé depuis sa dernière soumission, les pages non indexées en premier, 200 par jour au plus. Une URL inchangée n'est jamais resoumise.
+
+Ce qu'il faut savoir sur le point 3, sans l'enjoliver :
+
+> La documentation de Google réserve l'Indexing API aux pages d'offres d'emploi et de diffusion en direct : « The Indexing API can only be used to crawl pages with either `JobPosting` or `BroadcastEvent` embedded in a `VideoObject`. » (<https://developers.google.com/search/apis/indexing-api/v3/quickstart>, lu le 4 octobre 2026). Simon l'utilise déjà sur virtuoseweb.fr et a choisi de la réutiliser ici. Google peut ignorer ces notifications pour des pages ordinaires et ne garantit rien : une réponse 200 veut seulement dire que Google « may try to recrawl this URL soon ».
+
+Conséquences pour toi :
+
+- **Tu n'as rien à soumettre toi-même.** Après la fusion d'une PR de contenu, les pages créées ou modifiées partent à la collecte suivante, par IndexNow et par l'Indexing API. Ne lance ni `indexing-api.mjs` ni `indexnow.mjs`, ne relance pas le workflow.
+- Une page modifiée n'est repérée que si son `lastmod` change dans le sitemap, donc si `updatedAt` a été mis à jour dans son fichier de contenu (section 5). C'est une raison de plus de le faire à chaque révision de fond, et seulement dans ce cas.
+- Une notification acceptée ne prouve pas l'indexation. La seule mesure reste `indexation` dans `latest.json` (inspection d'URL). N'écris jamais « indexée » parce qu'une URL figure dans `indexingApi.submittedPaths`.
+- Une page non indexée se traite toujours par la section 4.1, règle 3 (liens internes, contenu, correction technique), pas par une nouvelle soumission.
+- Le bouton « Demander l'indexation » de Search Console reste un geste manuel de Simon : si une page précise le mérite, dis-le dans le compte rendu.
 
 ## 1. Préparer la session
 
@@ -63,6 +78,7 @@ Repères de lecture de `latest.json` :
 | `indexation.notIndexed` | Pages non indexées, avec `coverageState` (motif donné par Google), `notIndexedSince` et `weeksNotIndexed`. |
 | `indexation.changes` | `newlyIndexed`, `newlyNotIndexed`, `firstSeen` par rapport à la collecte précédente. |
 | `indexation.canonicalMismatches` | Pages dont Google a retenu une autre canonique que celle déclarée. |
+| `indexingApi` | Notifications envoyées à Google : `status` (`soumis`, `soumis en partie`, `rien à soumettre`, `quota atteint`, `interrompu`, `simulation`), `submitted` (nombre), `submittedPaths`, `added`, `modified`, `prioritizedNotIndexed`, `deferred` (reportées à la collecte suivante), `errors` et `firstError`, `quota`. `null` si l'étape est `non configuré` ou en `erreur`. |
 | `feeds.entries` | Titre, lien, date, source, thème, résumé court. `feeds.feedsInError` liste les flux tombés. |
 | `competitors.rows[].newUrls` | URL nouvelles chez chaque concurrent, avec `title`, `h1` et `description` relevés. |
 
@@ -202,6 +218,7 @@ Preuve visuelle (GF-1) pour toute page créée ou dont la structure a changé : 
 
 ## 8. Livrer
 
+0. Tu ne soumets aucune URL aux moteurs. Une fois la PR fusionnée par Simon et la production déployée, la collecte suivante envoie les pages créées ou modifiées à IndexNow et à l'Indexing API (section 0).
 1. Restaure le board régénéré par le hook de commit : `git checkout docs/state/00-BOARD.md` avant chaque commit. Ne le commite jamais.
 2. Ajoute les fichiers un par un (`git add <chemin>`), jamais `git add -A`.
 3. Mets à jour `docs/seo/journal.md` (section 9) dans la même branche.
@@ -240,15 +257,17 @@ Travaille alors avec ces flux et les données de la dernière semaine disponible
 
 **Une étape en `erreur`.** Recopie le message de `steps.<étape>.error` dans le compte rendu. Les autres sections restent utilisables. Un flux en erreur trois semaines de suite (`feeds.feedsInError`) se retire de `docs/seo/feeds.json` dans la PR, avec la raison, et se remplace si un équivalent existe (vérifie-le avec `node scripts/seo-routine/feeds.mjs --check`).
 
+**Indexing API en `erreur`, `interrompu` ou `quota atteint`.** Rien à faire côté contenu, et rien à resoumettre : les URL non acceptées repartent à la collecte suivante. Recopie `steps.indexing-api.error` ou `indexingApi.firstError` dans le compte rendu. Un 403 « n'est pas propriétaire » ou « n'est pas activée » demande une action de Simon (`docs/seo/SETUP.md`, étapes 1 et 2). Un `quota atteint` vient du plafond de 200 par jour, partagé avec virtuoseweb.fr. Si l'étape est `non configuré`, la mise en route n'est pas faite. Dans tous les cas, le sitemap et l'inspection d'URL continuent de fonctionner.
+
 **IndexNow en « clé non déployée ».** Le fichier `public/<clé>.txt` n'est pas en ligne. Rien à faire côté contenu : signale-le.
 
 ## 11. Compte rendu final à Simon
 
 Court, en français, sans jargon inutile. Quatre blocs, dans cet ordre :
 
-1. **KPI** : clics, impressions, CTR, position sur 7 et 28 jours avec la variation ; nombre de pages indexées sur le total. Si une mesure manque, dis-le au lieu de l'omettre.
+1. **KPI** : clics, impressions, CTR, position sur 7 et 28 jours avec la variation ; nombre de pages indexées sur le total ; nombre d'URL notifiées à Google par l'Indexing API (`indexingApi.submitted`), présenté comme des notifications envoyées, pas comme des pages indexées. Si une mesure manque, dis-le au lieu de l'omettre.
 2. **Ce qui a bougé** : les deux ou trois faits marquants (une requête qui entre dans les dix premiers, une page désindexée, un concurrent qui publie sur une requête suivie, une annonce qui touche une page), et le verdict des actions précédentes.
 3. **Ce que propose la PR** : le lien, les actions (une ligne chacune avec la donnée qui la motive), l'état de la CI.
-4. **Ce qui demande ta décision** : fusion ou redirection proposée, page à « demander l'indexation » à la main dans Search Console, section du catalogue manquante, flux à remplacer, panne de collecte.
+4. **Ce qui demande ta décision** : fusion ou redirection proposée, page à « demander l'indexation » à la main dans Search Console, section du catalogue manquante, flux à remplacer, panne de collecte, erreur de l'Indexing API (compte de service non propriétaire, API non activée).
 
 N'écris jamais « validé » ou « terminé » sans la sortie de commande correspondante.

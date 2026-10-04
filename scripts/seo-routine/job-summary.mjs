@@ -22,6 +22,11 @@ if (!s) {
   }
   if (s.indexation) lines.push(`Indexation : ${s.indexation.indexed} indexées sur ${s.indexation.inspected} inspectées, ${s.indexation.notIndexedCount} non indexées.`);
   if (s.indexnow) lines.push(`IndexNow : ${s.indexnow.status} (${s.indexnow.sent} URL envoyées).`);
+  if (s.indexingApi) {
+    const i = s.indexingApi;
+    const count = i.status === 'simulation' ? `${i.wouldSubmit} URL partiraient` : `${i.submitted} URL soumises`;
+    lines.push(`Indexing API : ${i.status} (${count} ; ${i.added} nouvelles, ${i.modified} modifiées, ${i.prioritizedNotIndexed} non indexées en tête, ${i.deferred} reportées ; quota ${i.quota.used}/${i.quota.cap}).${i.note ? ` ${i.note}` : ''}`);
+  }
   if (s.feeds) lines.push(`Flux : ${s.feeds.entryCount} entrées, ${s.feeds.feedsInError.length} flux en erreur.`);
   if (s.competitors) lines.push(`Concurrents : ${s.competitors.totalNew} URL nouvelles.`);
 }
