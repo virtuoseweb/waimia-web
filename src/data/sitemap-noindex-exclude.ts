@@ -92,4 +92,15 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // passé noindex (prop noindex sur UtilityTemplate → Base) car thin (122 mots, listing 2
   // outils). Les 2 pages filles (calculateur-roi-ia, score-maturite-ia) RESTENT indexées.
   "/ressources/outils",
+  // Pivot IA 2026-10 · secteurs hors cible repassés noindex (seo.noindex:true frontmatter)
+  // → hors sitemap pour cohérence noindex↔crawl. Pages conservées (noindex,follow).
+  "/secteurs/batiment",
+  "/secteurs/e-commerce",
+  "/secteurs/liberal-independant",
+  "/secteurs/therapeutes",
+  // Pivot IA 2026-10 · articles hors positionnement passés noindex (seo.noindex:true,
+  // page toujours générée avec meta robots noindex, cf blog/[...slug].astro).
+  "/blog/webflow-vs-wordpress-vs-site-code-ia-2026",
+  "/blog/google-ads-vs-meta-ads-pme-2026",
+  "/blog/landing-page-qui-convertit-methode-2026",
 ]);

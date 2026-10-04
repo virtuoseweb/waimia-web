@@ -12,6 +12,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
+import { DEPUBLISHED_DEMONSTRATION_IDS } from '../../data/depublished';
 
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const isFr = lang === 'fr';
@@ -19,6 +20,7 @@ const isFr = lang === 'fr';
 type Card = SectionByType<'related-cards-band'>['cards'][number];
 
 const cards: Card[] = (await getCollection('demonstrations'))
+  .filter((e) => !DEPUBLISHED_DEMONSTRATION_IDS.has(e.id))
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
   .map((e) => {
     const d = e.data;

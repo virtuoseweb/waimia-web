@@ -57,7 +57,7 @@ export function manifestoSections(lang: Lang) {
     cta_primary_href: flh('/contact', lang),
     cta_secondary_label_fr: 'Notre expertise Claude',
     cta_secondary_label_en: 'Our Claude expertise',
-    cta_secondary_href: flh('/expertise-claude', lang),
+    cta_secondary_href: flh('/services/integration-claude', lang),
     foot: [
       { text_fr: 'SCROLL TO BEGIN ↓', text_en: 'SCROLL TO BEGIN ↓' },
       { text_fr: 'FIVE ACTS · ONE DOCUMENT', text_en: 'FIVE ACTS · ONE DOCUMENT' },
@@ -151,7 +151,7 @@ export function manifestoSections(lang: Lang) {
       {
         label_fr: '▸ Voir notre expertise Claude',
         label_en: '▸ See our Claude expertise',
-        href: flh('/expertise-claude', lang),
+        href: flh('/services/integration-claude', lang),
         variant: 'accent',
       },
     ],

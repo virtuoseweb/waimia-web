@@ -273,10 +273,6 @@ const RESSOURCES: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Score maturité IA', en: 'AI maturity score' },
-          href: '/ressources/outils/score-maturite-ia',
-        },
-        {
           label: { fr: 'Guide déploiement Claude', en: 'Claude deployment guide' },
           href: '/ressources/guides/claude-pme',
         },
@@ -417,12 +413,6 @@ const SOLUTIONS: MegaMenuSection = {
                   description: { fr: 'Développer les outils métier sur mesure dont vos équipes ont besoin.', en: 'Build the custom internal tools your teams need.' },
                   detail: [
                     {
-                      label: { fr: 'Déclinaisons', en: 'Editions' },
-                      links: [
-                        { label: { fr: 'MVP SaaS', en: 'SaaS MVP' }, href: '/services/mvp-saas' },
-                      ],
-                    },
-                    {
                       label: { fr: 'Cas d\'usage', en: 'Use cases' },
                       links: [
                         { label: { fr: 'Centraliser les données', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
@@ -493,12 +483,6 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, wired to your CRM.' },
               detail: [
                 {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Cold email B2B', en: 'B2B cold email' }, href: '/services/cold-email-b2b' },
-                  ],
-                },
-                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
@@ -514,12 +498,6 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'CRM branché, scoring des leads et routing vers le bon commercial.', en: 'Wired CRM, lead scoring and routing to the right rep.' },
               detail: [
                 {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Intégration CRM', en: 'CRM integration' }, href: '/services/integration-crm' },
-                  ],
-                },
-                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Amploi', en: 'The Amploi case' }, href: '/cas-clients/amploi' },
@@ -534,12 +512,6 @@ const SOLUTIONS: MegaMenuSection = {
               href: '/services/sequences-de-suivi',
               description: { fr: 'Séquences de relance automatisées qui réchauffent et convertissent.', en: 'Automated follow-up sequences that nurture and convert.' },
               detail: [
-                {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Relance de devis', en: 'Quote follow-up' }, href: '/services/relance-devis' },
-                  ],
-                },
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
@@ -571,22 +543,15 @@ const SOLUTIONS: MegaMenuSection = {
           key: 'acquisition',
           href: '/services/systeme-acquisition',
           description: { fr: 'Concevoir l\'infrastructure qui attire et capte la demande : site, visibilité, landing pages.', en: 'Design the infrastructure that attracts and captures demand: website, visibility, landing pages.' },
-          // Modules à plat (aucun sous-groupe titré) : site, visibilité, landing pages.
+          // Modules à plat (aucun sous-groupe titré) : site, visibilité, landing pages
+          // (publicité en ligne fusionnée dans landing pages et tunnels, pivot IA 2026-10).
           links: [
             {
               label: { fr: 'Site web intelligent', en: 'Intelligent website' },
               href: '/services/site-web-ia',
               description: { fr: 'Application web pilotée par l\'IA : SEO, analytics et CRM branchés.', en: 'AI-driven web app: SEO, analytics and CRM wired in.' },
-              // Sous-modules réels du site intelligent + compléments (cas, diagnostic, audit).
+              // Compléments (cas, comparatif, diagnostic). Déclinaisons fusionnées dans la page (pivot IA 2026-10).
               detail: [
-                {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Sur mesure Astro / React', en: 'Custom Astro / React' }, href: '/services/sur-mesure-headless' },
-                    { label: { fr: 'WordPress', en: 'WordPress' }, href: '/services/wordpress' },
-                    { label: { fr: 'Webflow', en: 'Webflow' }, href: '/services/webflow' },
-                  ],
-                },
                 {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
@@ -603,13 +568,6 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Contenu balisé pour le SEO et les citations IA (GEO/AIO), en maillage.', en: 'Content marked up for SEO and AI citations (GEO/AIO), interlinked.' },
               detail: [
                 {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
-                    { label: { fr: 'Référencement IA', en: 'AI search visibility' }, href: '/services/referencement-ia' },
-                  ],
-                },
-                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Desangles Peinture', en: 'The Desangles Peinture case' }, href: '/cas-clients/desangles-peinture' },
@@ -625,31 +583,10 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Landing pages qui convertissent et tunnels qui priorisent vos leads.', en: 'Landing pages that convert and funnels that prioritise your leads.' },
               detail: [
                 {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
-                  links: [
-                    { label: { fr: 'Landing page Google Ads', en: 'Google Ads landing page' }, href: '/services/landing-page-google-ads' },
-                  ],
-                },
-                {
                   label: { fr: 'Aller plus loin', en: 'Go further' },
                   links: [
                     { label: { fr: 'Le cas Isabelle Diaz', en: 'The Isabelle Diaz case' }, href: '/cas-clients/isabelle-diaz-naturopathe' },
                     { label: { fr: 'Landing page qui convertit : la méthode', en: 'Landing pages that convert: the method' }, href: '/blog/landing-page-qui-convertit-methode-2026' },
-                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
-                  ],
-                },
-              ],
-            },
-            {
-              label: { fr: 'Publicité en ligne', en: 'Online advertising' },
-              href: '/services/publicite-en-ligne',
-              description: { fr: 'Google Ads, Meta et formats IA, branchés à vos landing pages et votre CRM.', en: 'Google Ads, Meta and AI formats, wired to your landing pages and your CRM.' },
-              detail: [
-                {
-                  label: { fr: 'Aller plus loin', en: 'Go further' },
-                  links: [
-                    { label: { fr: 'Le cas Balzeo', en: 'The Balzeo case' }, href: '/cas-clients/balzeo' },
-                    { label: { fr: 'Google Ads ou Meta Ads en 2026', en: 'Google Ads or Meta Ads in 2026' }, href: '/blog/google-ads-vs-meta-ads-pme-2026' },
                     { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
                   ],
                 },

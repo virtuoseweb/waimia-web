@@ -320,86 +320,6 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/services/applications-internes/mvp-saas",
-    "title": "Développement de MVP SaaS pour PME · vendable en semaines",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/applications-internes/mvp-saas.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Développement de MVP SaaS.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Le lancement qu'un MVP corrige.",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un MVP change le lancement",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un produit SaaS",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un MVP SaaS qui se vend",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Le MVP SaaS est une brique du système",
-        "background": "paper-3"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Combien coûte un MVP SaaS",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Sortez un MVP vendable, pas une démo.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
     "route": "/services/automatisations",
     "title": "Automatisation des processus métier par l'IA · Waimia",
     "group": "offres",
@@ -753,96 +673,6 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/services/crm-scoring-routing/integration-crm",
-    "title": "Intégration et migration CRM · HubSpot ou Pipedrive",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/crm-scoring-routing/integration-crm.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Intégration CRM pour PME.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre CRM non branché reste un cimetière",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un CRM branché change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'une intégration CRM",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un CRM branché et propre, sur HubSpot ou Pipedrive",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "L'intégration s'assemble au reste du système commercial",
-        "background": "paper-3"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment un contact remonte propre dans le CRM",
-        "background": "ink"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "Le CRM reste propre après le branchement",
-        "background": "paper-2"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Deux façons de brancher votre CRM",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#13",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Faites remonter votre donnée toute seule.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
     "route": "/services/donnees-reporting",
     "title": "Tableau de bord automatisé pour PME · reporting temps réel",
     "group": "offres",
@@ -1087,166 +917,6 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/services/landing-pages-tunnels/landing-page-google-ads",
-    "title": "Landing page Google Ads pour PME · convertir le trafic payant",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/landing-pages-tunnels/landing-page-google-ads.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Une landing page Google Ads qui transforme le clic payé en lead.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre trafic payant ne convertit pas",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi une landing dédiée change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'une landing Google Ads",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce qu'on branche chez vous",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'une landing qui convertit le clic payé",
-        "background": "paper"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment un clic payé devient un lead",
-        "background": "ink"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Trafic mieux converti sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Deux façons de faire convertir vos clics Ads",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Convertissez le trafic que vous payez.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/services/maintenance-growth",
-    "title": "Maintenance de site web pour PME · forfait dès 99 €/mois",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/maintenance-growth.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "La maintenance qui fait vivre votre site web.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Là où un site meurt après la livraison.",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un site entretenu et poussé change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un site entretenu",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce qu'on dépose chaque mois",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un forfait qui fait vivre le site",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "La maintenance est une brique du dispositif",
-        "background": "paper-3"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Tenus sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Combien coûte la maintenance de votre site",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Donnez à votre site une seconde vie, chaque mois.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
     "route": "/services/prospection-automatisee",
     "title": "Prospection automatisée par l'IA pour PME B2B · Waimia",
     "group": "offres",
@@ -1342,181 +1012,6 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/services/prospection-automatisee/cold-email-b2b",
-    "title": "Cold email B2B pour PME · délivrabilité et RGPD",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/prospection-automatisee/cold-email-b2b.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Cold email B2B pour PME.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Cold email B2B et RGPD : est-ce légal en France ?",
-        "background": "paper-2"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vos mails finissent en spam",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un cold email outillé change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un cold email",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un cold email qui arrive en boîte",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Le cold email s'assemble au reste du système commercial",
-        "background": "paper-3"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment un cold email arrive en boîte et répond",
-        "background": "ink"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "Les campagnes continuent de s'affiner après le lancement",
-        "background": "paper-2"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Trois formules, un abonnement mensuel sans engagement",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#14",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Faites arriver vos cold emails en boîte.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/services/publicite-en-ligne",
-    "title": "Agence Google Ads et Meta Ads pour PME · pilotée au ROI",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/publicite-en-ligne.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Votre budget publicitaire, dépensé sur les intentions qui rapportent.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi votre budget pub ne devient pas du business",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi une régie instrumentée change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'une publicité en ligne",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce qu'on branche chez vous",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les leviers d'une publicité qui rapporte",
-        "background": "paper"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment tout fonctionne ensemble",
-        "background": "ink"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Du trafic mieux transformé sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Deux façons de mettre votre budget pub au travail",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Transformez votre budget pub en leads mesurés.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
     "route": "/services/seo-geo-contenu",
     "title": "Agence SEO et GEO pour PME · classé sur Google, cité par les IA",
     "group": "offres",
@@ -1592,171 +1087,6 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Visible sur Google, durablement.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/services/seo-geo-contenu/referencement-ia",
-    "title": "Référencement IA et agence GEO · cité par ChatGPT, Perplexity",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/seo-geo-contenu/referencement-ia.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Référencement IA et agence GEO pour PME.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi les IA ne vous citent pas",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un contenu citable change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux de citabilité IA",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un référencement IA qui cite",
-        "background": "paper"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment une marque se met à être citée",
-        "background": "ink"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Deux façons de rendre votre marque citable",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Cité par ChatGPT, Claude et Perplexity.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/services/seo-geo-contenu/seo-local",
-    "title": "Référencement local PME et artisans · trouvé près de chez vous",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/seo-geo-contenu/seo-local.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Référencement local pour PME et artisans.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vos clients de proximité ne vous trouvent pas",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un maillage local change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux de visibilité locale",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'un référencement local qui capte",
-        "background": "paper"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment tout fonctionne ensemble",
-        "background": "ink"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "testimonial-wall",
-        "label": "Ce que disent les équipes enfin visibles localement",
-        "background": "paper-2"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Deux façons de gagner en visibilité locale",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#12",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Trouvé par vos clients de proximité.",
         "background": "ink"
       }
     ]
@@ -1852,96 +1182,6 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/services/sequences-de-suivi/relance-devis",
-    "title": "Relance de devis automatique · email et SMS, zéro devis oublié",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/sequences-de-suivi/relance-devis.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Relance de devis automatique.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vos devis restent sans réponse",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi une relance instrumentée change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'une relance de devis",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques d'une relance de devis qui signe",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "La relance de devis s'assemble au reste du système commercial",
-        "background": "paper-3"
-      },
-      {
-        "type": "system-flow",
-        "label": "Comment un devis en attente revient signé",
-        "background": "ink"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "La relance continue de s'affiner après le lancement",
-        "background": "paper-2"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Deux façons de relancer vos devis",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#13",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Faites signer les devis que vous oubliez.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
     "route": "/services/site-web-ia",
     "title": "Création de site internet pour PME · un site qui vend",
     "group": "offres",
@@ -2017,246 +1257,6 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Transformez votre site en machine à qualifier.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/services/site-web-ia/sur-mesure",
-    "title": "Site sur mesure & CMS headless · architecture composable",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/site-web-ia/sur-mesure.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Site sur mesure & CMS headless.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Quand le clé-en-main ne suffit plus.",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Quand passer du clé-en-main au sur-mesure",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un site qui reste le vôtre",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les briques du sur-mesure",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Sur mesure, ou une autre base",
-        "background": "paper-3"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Quatre façons de construire sur mesure",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Un site qui se modifie brique par brique.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/services/site-web-ia/webflow",
-    "title": "Site Webflow pour PME · instrumentation et migration IA",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/site-web-ia/webflow.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Votre site Webflow, rendu intelligent.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Là où Webflow seul plafonne.",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "De Webflow seul au Webflow qui qualifie",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un Webflow",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Ce qu'on branche sur Webflow",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "Webflow, ou une autre base",
-        "background": "paper-3"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Quatre façons de rendre votre Webflow intelligent",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Webflow, ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Donnez de l'intelligence à votre Webflow.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/services/site-web-ia/wordpress",
-    "title": "Création et refonte de site WordPress · headless et instrumenté",
-    "group": "offres",
-    "collection": "services",
-    "file": "services/site-web-ia/wordpress.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-masthead-card",
-        "label": "Création et refonte de site WordPress.",
-        "background": "paper"
-      },
-      {
-        "type": "proof-bar",
-        "label": "En bref",
-        "background": "paper"
-      },
-      {
-        "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Le WordPress qu'on refond.",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Le même WordPress, deux trajectoires",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 états d'un WordPress",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Ce qu'on branche sur WordPress",
-        "background": "paper"
-      },
-      {
-        "type": "hover-reveal-list",
-        "label": "WordPress, ou une autre base",
-        "background": "paper-3"
-      },
-      {
-        "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
-        "background": "ink"
-      },
-      {
-        "type": "pricing-cards",
-        "label": "Quatre façons de poser votre WordPress",
-        "background": "paper"
-      },
-      {
-        "type": "eeat-panel",
-        "label": "#11",
-        "variant": "media"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
-        "background": "paper-2"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Mettez votre WordPress au travail.",
         "background": "ink"
       }
     ]
@@ -3432,8 +2432,8 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/ressources/academy",
-    "title": "Academy",
+    "route": "/ressources/_academy",
+    "title": "_academy",
     "group": "ressources",
     "collection": "bespoke",
     "editable": false,
@@ -4008,15 +3008,6 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/ressources/outils/score-maturite-ia",
-    "title": "Score de maturité IA : votre PME en 3 questions",
-    "group": "ressources",
-    "collection": "outils",
-    "file": "outils/score-maturite-ia.json",
-    "editable": false,
-    "sections": []
-  },
-  {
     "route": "/blog",
     "title": "Blog",
     "group": "blog",
@@ -4170,14 +3161,6 @@ export const SITE_PAGES: SitePage[] = [
     "group": "confiance",
     "collection": "authors",
     "file": "authors/simon-beros.json",
-    "editable": false,
-    "sections": []
-  },
-  {
-    "route": "/expertise-claude",
-    "title": "Expertise claude",
-    "group": "confiance",
-    "collection": "bespoke",
     "editable": false,
     "sections": []
   },
@@ -4348,6 +3331,14 @@ export const SITE_PAGES: SitePage[] = [
     "route": "/tarifs",
     "title": "Tarifs",
     "group": "conversion",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/_expertise-claude",
+    "title": "_expertise claude",
+    "group": "autres",
     "collection": "bespoke",
     "editable": false,
     "sections": []
@@ -4526,29 +3517,17 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/services/agents-ia",
       "/services/agents-ia/agent-support-client",
       "/services/applications-internes",
-      "/services/applications-internes/mvp-saas",
       "/services/automatisations",
       "/services/automatisations/automatisation-n8n",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
-      "/services/crm-scoring-routing/integration-crm",
       "/services/donnees-reporting",
       "/services/integration-claude",
       "/services/landing-pages-tunnels",
-      "/services/landing-pages-tunnels/landing-page-google-ads",
-      "/services/maintenance-growth",
       "/services/prospection-automatisee",
-      "/services/prospection-automatisee/cold-email-b2b",
-      "/services/publicite-en-ligne",
       "/services/seo-geo-contenu",
-      "/services/seo-geo-contenu/referencement-ia",
-      "/services/seo-geo-contenu/seo-local",
       "/services/sequences-de-suivi",
-      "/services/sequences-de-suivi/relance-devis",
       "/services/site-web-ia",
-      "/services/site-web-ia/sur-mesure",
-      "/services/site-web-ia/webflow",
-      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
@@ -4616,7 +3595,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/demonstrations/integration-claude",
       "/demonstrations/site-web-intelligent",
       "/ressources",
-      "/ressources/academy",
+      "/ressources/_academy",
       "/ressources/comparatifs",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -4630,8 +3609,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides",
       "/ressources/guides/claude-pme",
       "/ressources/outils",
-      "/ressources/outils/calculateur-roi-ia",
-      "/ressources/outils/score-maturite-ia"
+      "/ressources/outils/calculateur-roi-ia"
     ]
   },
   {
@@ -4662,7 +3640,6 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/agence/methode",
       "/equipe",
       "/equipe/simon-beros",
-      "/expertise-claude",
       "/manifesto",
       "/technologies"
     ]
@@ -4684,6 +3661,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "id": "autres",
     "label_fr": "Autres",
     "routes": [
+      "/_expertise-claude",
       "/cgv",
       "/demonstrations",
       "/implantations",

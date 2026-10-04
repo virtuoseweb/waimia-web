@@ -10,6 +10,7 @@
 export const prerender = true;
 
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { DEPUBLISHED_SERVICE_IDS } from '../../data/depublished';
 import Base from '../../layouts/Base.astro';
 import { NOINDEX_SITEMAP_PATHS } from '../../data/sitemap-noindex-exclude';
 import { listSections, listCategories } from '../../lib/section-registry';
@@ -61,9 +62,11 @@ function inSitemapExclude(url: string): boolean {
 // authors → /equipe/<id> · AuthorPageTemplate (equipe/[...slug].astro:13)
 const cases = await getCollection('cases');
 const secteurs = await getCollection('secteurs');
-const services = await getCollection('services');
+// Services fusionnés (301, src/data/depublished.ts) : plus de page réelle → hors cartographie.
+const services = (await getCollection('services')).filter((e) => !DEPUBLISHED_SERVICE_IDS.has(e.id));
 const blog = await getCollection('blog');
-const outils = await getCollection('outils');
+// Outils dépubliés (seo.noindex → route non générée, cf outils/[...slug].astro) : hors cartographie.
+const outils = (await getCollection('outils')).filter((e) => !e.data.seo?.noindex);
 const authors = await getCollection('authors');
 
 const fmNoindex = (e: { data: { seo?: { noindex?: boolean } } }) => e.data.seo?.noindex === true;
@@ -99,12 +102,10 @@ const staticPublic: Row[] = [
   { url: '/', collection: { fr: 'page statique', en: 'static page' }, template: 'index.astro (organisms bespoke)' },
   { url: '/audit-ia-pme', collection: { fr: 'page statique', en: 'static page' }, template: 'audit-ia-pme.astro' },
   { url: '/cas-clients', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'cas-clients/index.astro' },
-  { url: '/expertise-claude', collection: { fr: 'page statique', en: 'static page' }, template: 'expertise-claude.astro' },
   { url: '/ressources', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/index.astro' },
   { url: '/blog', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'blog/index.astro' },
   { url: '/blog/brain-circuit', collection: { fr: 'page statique', en: 'static page' }, template: 'blog/brain-circuit.astro' },
   { url: '/ressources/outils', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'ressources/outils/index.astro' },
-  { url: '/ressources/academy', collection: { fr: 'page statique', en: 'static page' }, template: 'ressources/academy.astro' },
   { url: '/secteurs', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'secteurs/index.astro' },
   { url: '/agence', collection: { fr: 'page statique (hub)', en: 'static page (hub)' }, template: 'agence/index.astro' },
   { url: '/agence/methode', collection: { fr: 'page statique', en: 'static page' }, template: 'agence/methode.astro' },

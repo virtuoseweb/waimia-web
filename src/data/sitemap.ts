@@ -159,7 +159,7 @@ export const MM_CASES_NEW: MegaMenu = {
 export const MM_TECH: MegaMenu = {
   key: 'expertise-claude',
   label: { en: 'Claude expertise', fr: 'Expertise Claude' },
-  href: '/expertise-claude',
+  href: '/services/integration-claude',
   lead: {
     en: 'Anthropic-first for demanding enterprise use. One Claude model per task profile.',
     fr: "Anthropic d'abord pour les usages enterprise exigeants. Un modèle Claude par profil de tâche.",
@@ -170,7 +170,7 @@ export const MM_TECH: MegaMenu = {
       label: { en: 'Anthropic · primary', fr: 'Anthropic · modèle principal' },
       tint: '#C94F2E',
       items: [
-        { href: '/expertise-claude', label: { en: 'Claude expertise · Opus · Sonnet · Haiku', fr: 'Expertise Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.' }, featured: true },
+        { href: '/services/integration-claude', label: { en: 'Claude expertise · Opus · Sonnet · Haiku', fr: 'Expertise Claude · Opus · Sonnet · Haiku' }, lead: { en: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.', fr: 'Opus 4.8 · Sonnet 4.6 · Haiku 4.5 · Code.' }, featured: true },
       ],
     },
   ],
@@ -207,7 +207,7 @@ export const MM_RESOURCES: MegaMenu = {
       tint: '#C94F2E',
       items: [
         { href: '/ressources/outils', label: { en: 'Tools catalog', fr: 'Catalogue outils' }, lead: { en: 'ROI, TCO, AI Act compliance. No form, no funnel.', fr: 'ROI, TCO, conformité AI Act. Sans formulaire, sans funnel.' }, featured: true },
-        { href: '/expertise-claude', label: { en: 'Claude expertise · the stack', fr: 'Expertise Claude · la stack' }, lead: { en: 'Claude ecosystem positioning.', fr: "Positionnement écosystème Claude." } },
+        { href: '/services/integration-claude', label: { en: 'Claude expertise · the stack', fr: 'Expertise Claude · la stack' }, lead: { en: 'Claude ecosystem positioning.', fr: "Positionnement écosystème Claude." } },
       ],
     },
   ],
@@ -382,16 +382,8 @@ export const FOOTER_COLS: FooterCol[] = [
         label: { en: 'Free tools', fr: 'Outils gratuits' },
       },
       {
-        href: '/ressources/academy',
-        label: { en: 'Academy', fr: 'Academy' },
-      },
-      {
         href: '/demonstrations',
         label: { en: 'Demos', fr: 'Démonstrations' },
-      },
-      {
-        href: '/expertise-claude',
-        label: { en: 'Claude expertise', fr: 'Expertise Claude' },
       },
       {
         href: '/ressources/#newsletter',

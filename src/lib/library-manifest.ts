@@ -120,7 +120,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-utility-masthead', consumers: ['src/components/templates/UtilityTemplate.astro'] },
   { id: 'hero-academy-hub',      consumers: [] }, // P0.2-F : page hub /ecole supprimée (cours stub non vendables) → catalogue-only
   { id: 'hero-conversion-funnel',consumers: ['src/components/templates/ConversionFunnelTemplate.astro'] },
-  { id: 'hero-hub-stats',        consumers: ['src/pages/expertise-claude.astro', 'src/pages/agence/index.astro'] }, // v7 : conseil.mdx supprimé ; agence-web-montpellier dépubliée 2026-07-14 (301 → /implantations/montpellier) ; rendu réel = 2 pages .astro composables
+  { id: 'hero-hub-stats',        consumers: ['src/pages/_expertise-claude.astro', 'src/pages/agence/index.astro'] }, // v7 : conseil.mdx supprimé ; agence-web-montpellier dépubliée 2026-07-14 (301 → /implantations/montpellier) ; rendu réel = 2 pages .astro composables
   { id: 'hero-detail-menu',      consumers: [] }, // ex-DetailMenu template supprimé 2026-06-29 (mort, 0 page) → catalogue-only
   { id: 'hero-author',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'hero-lead-magnet',      consumers: ['src/components/templates/LeadMagnetTemplate.astro'] },
@@ -235,11 +235,11 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'fit-columns',               consumers: [] }, // R6 : /offres/conseil.mdx supprimé ; catalogue-only
   { id: 'editorial-table-block',     consumers: [] }, // R6 : /offres/conseil.mdx supprimé ; catalogue-only
   { id: 'decision-list',             consumers: [] },
-  { id: 'tech-positioning-split',    consumers: ['src/pages/expertise-claude.astro'] },
-  { id: 'tech-capabilities-specs',   consumers: ['src/pages/expertise-claude.astro'] },
-  { id: 'tech-models-table',         consumers: ['src/pages/expertise-claude.astro'] },
+  { id: 'tech-positioning-split',    consumers: ['src/pages/_expertise-claude.astro'] },
+  { id: 'tech-capabilities-specs',   consumers: ['src/pages/_expertise-claude.astro'] },
+  { id: 'tech-models-table',         consumers: ['src/pages/_expertise-claude.astro'] },
   { id: 'tech-when-dual',            consumers: [] },
-  { id: 'tech-integration-flow',     consumers: ['src/pages/expertise-claude.astro'] },
+  { id: 'tech-integration-flow',     consumers: ['src/pages/_expertise-claude.astro'] },
   // Wave 1.4 — 6 types signatures Solutions, consommés par les 8 pages de la collection solutions
   { id: 'pain-points',               consumers: SOLUTIONS_CONSUMERS },
   { id: 'workflow-table',            consumers: SOLUTIONS_CONSUMERS },

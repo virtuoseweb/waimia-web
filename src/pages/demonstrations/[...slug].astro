@@ -11,10 +11,12 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import { SITE } from '../../site.config';
+import { DEPUBLISHED_DEMONSTRATION_IDS } from '../../data/depublished';
 
 export async function getStaticPaths() {
   const entries = await getCollection('demonstrations');
-  return entries.map((entry) => ({
+  // Pivot IA 2026-10 · démonstrations dépubliées (301 dans astro.config.mjs), contenu conservé.
+  return entries.filter((entry) => !DEPUBLISHED_DEMONSTRATION_IDS.has(entry.id)).map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
   }));
