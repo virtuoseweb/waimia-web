@@ -37,7 +37,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/centraliser-donnees.json",
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
-      "index": 5,
+      "index": 3,
       "label": "Simon Beros",
       "background": "paper"
     },
@@ -46,7 +46,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
-      "index": 5,
+      "index": 3,
       "label": "Simon Beros",
       "background": "paper"
     },
@@ -73,30 +73,12 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
-      "index": 5,
+      "index": 3,
       "label": "Simon Beros",
       "background": "paper"
     }
   ],
   "bento-grid": [
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/centraliser-donnees.json",
-      "slug": "centraliser-donnees",
-      "route": "/cas-usages/centraliser-donnees",
-      "index": 3,
-      "label": "Les briques qui relient vos outils",
-      "background": "ink"
-    },
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/generer-plus-de-leads.json",
-      "slug": "generer-plus-de-leads",
-      "route": "/cas-usages/generer-plus-de-leads",
-      "index": 3,
-      "label": "Les briques qui captent vos leads",
-      "background": "ink"
-    },
     {
       "collection": "cas-usages",
       "file": "cas-usages/reduire-reporting.json",
@@ -113,15 +95,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/cas-usages/reduire-temps-cms",
       "index": 3,
       "label": "Les briques qui vous rendent le temps",
-      "background": "ink"
-    },
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/standardiser-processus.json",
-      "slug": "standardiser-processus",
-      "route": "/cas-usages/standardiser-processus",
-      "index": 3,
-      "label": "Les briques qui ancrent vos standards",
       "background": "ink"
     }
   ],
@@ -193,56 +166,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 14,
-      "label": "Des agents tenus sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/agents-ia.json",
-      "slug": "agents-ia",
-      "route": "/services/agents-ia",
-      "index": 9,
-      "label": "Des agents tenus sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes.json",
-      "slug": "applications-internes",
-      "route": "/services/applications-internes",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 14,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/consultant-ia-claude.json",
-      "slug": "consultant-ia-claude",
-      "route": "/services/consultant-ia-claude",
-      "index": 9,
-      "label": "Décisions tenues sur le terrain",
+      "index": 7,
+      "label": "Deux projets où la saisie manuelle a disparu",
       "background": "ink"
     },
     {
@@ -250,44 +178,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 11,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/donnees-reporting.json",
-      "slug": "donnees-reporting",
-      "route": "/services/donnees-reporting",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/integration-claude.json",
-      "slug": "integration-claude",
-      "route": "/services/integration-claude",
-      "index": 10,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels.json",
-      "slug": "landing-pages-tunnels",
-      "route": "/services/landing-pages-tunnels",
-      "index": 9,
-      "label": "Leads mieux captés sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 12,
-      "label": "Résultats sur le terrain",
+      "index": 7,
+      "label": "Deux projets où la saisie manuelle a disparu",
       "background": "ink"
     },
     {
@@ -295,17 +187,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 11,
-      "label": "Résultats sur le terrain",
+      "index": 7,
+      "label": "Trois projets de ce volet",
       "background": "ink"
     },
     {
@@ -313,8 +196,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 9,
-      "label": "Résultats sur le terrain",
+      "index": 7,
+      "label": "Trois projets de ce volet",
       "background": "ink"
     },
     {
@@ -322,8 +205,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 4,
-      "label": "Des missions réelles, documentées",
+      "index": 10,
+      "label": "Résultats sur le terrain",
       "background": "ink"
     },
     {
@@ -331,8 +214,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 7,
-      "label": "Des missions réelles, documentées",
+      "index": 11,
+      "label": "Résultats sur le terrain",
       "background": "ink"
     },
     {
@@ -341,7 +224,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 5,
-      "label": "Des missions réelles, documentées",
+      "label": "Résultats sur le terrain",
       "background": "ink"
     },
     {
@@ -456,6 +339,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "comparison-duo": [
     {
       "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 4,
+      "label": "Ce que l'audit gratuit fait et ne fait pas",
+      "background": "ink"
+    },
+    {
+      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -468,18 +360,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/centraliser-donnees.json",
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
-      "index": 4,
-      "label": "Du vide entre les outils à la donnée fluide",
-      "background": "paper-2"
+      "index": 2,
+      "label": "Exemple type : le comité de direction mensuel d'une PME",
+      "background": "paper"
     },
     {
       "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
-      "index": 4,
-      "label": "Du trafic perdu au lead qualifié",
-      "background": "paper-2"
+      "index": 2,
+      "label": "Exemple type : une PME de services aux entreprises",
+      "background": "paper"
     },
     {
       "collection": "cas-usages",
@@ -504,9 +396,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
-      "index": 4,
-      "label": "De la dépendance à un système qui tient",
-      "background": "paper-2"
+      "index": 2,
+      "label": "Exemple type : l'ouverture d'un dossier client dans un cabinet",
+      "background": "paper"
     },
     {
       "collection": "lp",
@@ -558,18 +450,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 5,
-      "label": "Pourquoi un agent change le support",
-      "background": "paper-2"
+      "index": 4,
+      "label": "Exemple type : le SAV d'un distributeur B2B",
+      "background": "paper"
     },
     {
       "collection": "services",
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 5,
-      "label": "Pourquoi un agent change l'équation",
-      "background": "paper-2"
+      "index": 4,
+      "label": "Exemple type : la boîte contact@ d'une PME de services",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -577,26 +469,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "applications-internes",
       "route": "/services/applications-internes",
       "index": 4,
-      "label": "Pourquoi un outil sur mesure change l'équation",
-      "background": "paper-2"
+      "label": "Exemple type : le suivi d'interventions d'une entreprise de maintenance",
+      "background": "paper"
     },
     {
       "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 5,
-      "label": "Deux façons d'automatiser, deux coûts d'ownership",
-      "background": "paper-2"
+      "index": 4,
+      "label": "Exemple type : les factures fournisseurs reçues par email",
+      "background": "paper"
     },
     {
       "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 5,
-      "label": "Pourquoi un process automatisé change l'équation",
-      "background": "paper-2"
+      "index": 4,
+      "label": "Exemple type : la demande de devis reçue par formulaire",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -604,8 +496,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
       "index": 4,
-      "label": "Pourquoi un cadrage tranché change la décision",
-      "background": "paper-2"
+      "label": "Exemple type : une PME de négoce de 60 personnes",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -613,17 +505,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
       "index": 4,
-      "label": "Racheter un CRM de plus, ou activer celui que vous avez",
-      "background": "paper-2"
+      "label": "Exemple type : les demandes entrantes d'une PME industrielle",
+      "background": "paper"
     },
     {
       "collection": "services",
       "file": "services/donnees-reporting.json",
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
-      "index": 5,
-      "label": "Pourquoi une donnée centralisée change l'équation",
-      "background": "paper-2"
+      "index": 4,
+      "label": "Exemple type : le reporting mensuel d'une PME de services",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -631,8 +523,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 4,
-      "label": "Du POC qui dort à l'agent en production",
-      "background": "paper-2"
+      "label": "Exemple type : un bureau d'études de 40 personnes",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -640,17 +532,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
       "index": 4,
-      "label": "Pourquoi un tunnel instrumenté change l'équation",
-      "background": "paper-2"
+      "label": "Exemple type : la page d'offre d'un organisme de formation",
+      "background": "paper"
     },
     {
       "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 5,
-      "label": "Pourquoi une prospection instrumentée change l'équation",
-      "background": "paper-2"
+      "index": 4,
+      "label": "Exemple type : un éditeur de logiciel B2B sans équipe de prospection",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -658,8 +550,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 4,
-      "label": "Pourquoi un contenu structuré change l'équation",
-      "background": "paper-2"
+      "label": "Exemple type : la page service d'une PME de maintenance",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -667,8 +559,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 4,
-      "label": "Une newsletter de plus, ou un nurturing déclenché par le comportement",
-      "background": "paper-2"
+      "label": "Exemple type : les devis d'une entreprise du bâtiment",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -676,7 +568,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 4,
-      "label": "Ce qu'un builder IA ne fait pas",
+      "label": "Exemple type : le site d'un cabinet de conseil",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/systeme-acquisition.json",
+      "slug": "systeme-acquisition",
+      "route": "/services/systeme-acquisition",
+      "index": 4,
+      "label": "Pourquoi un système instrumenté change l'équation",
       "background": "paper-2"
     },
     {
@@ -684,7 +585,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 3,
+      "index": 4,
       "label": "Externaliser à une agence de SDR, ou installer un système",
       "background": "paper-2"
     },
@@ -806,6 +707,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     }
   ],
+  "comparison-pricing-callout": [
+    {
+      "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 5,
+      "label": "Un regard d'ingénieur, pas un argumentaire commercial",
+      "background": "paper"
+    }
+  ],
   "comparison-table": [
     {
       "collection": "comparatifs",
@@ -822,7 +734,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 2,
-      "label": "Claude vs ChatGPT, point par point",
+      "label": "Claude vs ChatGPT : ce qui est vérifiable",
       "background": "paper"
     },
     {
@@ -852,6 +764,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 3,
       "label": "Les cinq niveaux de préparation, ligne par ligne",
+      "background": "paper-3"
+    },
+    {
+      "collection": "diagnostics",
+      "file": "diagnostics/maturite-ia.json",
+      "slug": "maturite-ia",
+      "route": "/ressources/diagnostics/maturite-ia",
+      "index": 3,
+      "label": "Les cinq niveaux de maturité IA, en clair",
       "background": "paper-3"
     },
     {
@@ -894,12 +815,21 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/bordeaux.json",
+      "slug": "bordeaux",
+      "route": "/implantations/bordeaux",
+      "index": 4,
+      "label": "Waimia est pour vous si vous vous reconnaissez",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
-      "index": 3,
-      "label": "Trois situations, trois premiers pas",
-      "background": "paper-2"
+      "index": 4,
+      "label": "Six signes qu'un studio IA local vous aiderait",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -916,7 +846,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 4,
-      "label": "Choisir selon votre besoin",
+      "label": "Choisir selon votre situation",
       "background": "paper"
     },
     {
@@ -926,15 +856,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 4,
       "label": "Six repères pour doser GEO et SEO",
-      "background": "paper"
-    },
-    {
-      "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 4,
-      "label": "Notre verdict, situation par situation",
       "background": "paper"
     },
     {
@@ -953,6 +874,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 6,
       "label": "Six questions pour jauger votre préparation",
+      "background": "paper"
+    },
+    {
+      "collection": "diagnostics",
+      "file": "diagnostics/maturite-ia.json",
+      "slug": "maturite-ia",
+      "route": "/ressources/diagnostics/maturite-ia",
+      "index": 6,
+      "label": "Six questions pour situer votre maturité",
       "background": "paper"
     },
     {
@@ -983,48 +913,138 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "services",
+      "file": "services/agents-ia/agent-support-client.json",
+      "slug": "agent-support-client",
+      "route": "/services/agent-support-client",
+      "index": 6,
+      "label": "Un chatbot de support n'est pas utile si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 6,
+      "label": "Un agent IA n'est pas la bonne réponse si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes.json",
+      "slug": "applications-internes",
+      "route": "/services/applications-internes",
+      "index": 6,
+      "label": "Ne faites pas développer d'application si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/automatisations/automatisation-n8n.json",
+      "slug": "automatisation-n8n",
+      "route": "/services/automatisation-n8n",
+      "index": 6,
+      "label": "n8n n'est pas le bon choix si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/automatisations.json",
+      "slug": "automatisations",
+      "route": "/services/automatisations",
+      "index": 6,
+      "label": "N'automatisez pas si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 6,
+      "label": "Vous n'avez pas besoin d'un consultant IA si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/crm-scoring-routing.json",
+      "slug": "crm-scoring-routing",
+      "route": "/services/crm-scoring-routing",
+      "index": 6,
+      "label": "N'automatisez pas votre CRM si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting.json",
+      "slug": "donnees-reporting",
+      "route": "/services/donnees-reporting",
+      "index": 6,
+      "label": "Ne lancez pas ce chantier si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 6,
+      "label": "Ne déployez pas Claude si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/landing-pages-tunnels.json",
+      "slug": "landing-pages-tunnels",
+      "route": "/services/landing-pages-tunnels",
+      "index": 6,
+      "label": "Une landing page ne changera rien si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee.json",
+      "slug": "prospection-automatisee",
+      "route": "/services/prospection-automatisee",
+      "index": 6,
+      "label": "La prospection automatisée ne convient pas si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu.json",
+      "slug": "seo-geo-contenu",
+      "route": "/services/seo-geo-contenu",
+      "index": 6,
+      "label": "Ce n'est pas le bon investissement si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/sequences-de-suivi.json",
+      "slug": "sequences-de-suivi",
+      "route": "/services/sequences-de-suivi",
+      "index": 6,
+      "label": "N'automatisez pas vos devis si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia.json",
+      "slug": "site-web-ia",
+      "route": "/services/site-web-ia",
+      "index": 6,
+      "label": "Ne nous confiez pas votre site si",
+      "background": "paper"
+    },
+    {
       "collection": "demonstrations",
       "file": "demonstrations/integration-claude.json",
       "slug": "integration-claude",
       "route": "src/content/demonstrations/integration-claude.json",
       "index": 4,
       "label": "Six questions pour repérer le bon candidat",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 2,
-      "label": "À l'issue, vos équipes savent",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 2,
-      "label": "À l'issue, vos équipes savent",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 2,
-      "label": "À l'issue, vos équipes savent",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 2,
-      "label": "À l'issue, vos équipes savent",
       "background": "paper"
     }
   ],
@@ -1034,8 +1054,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 3,
-      "label": "Définition · format extractible",
+      "index": 2,
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1043,8 +1063,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 3,
-      "label": "Définition · format extractible",
+      "index": 2,
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1053,7 +1073,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "applications-internes",
       "route": "/services/applications-internes",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1061,8 +1081,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 3,
-      "label": "Définition · format extractible",
+      "index": 2,
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1070,8 +1090,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 3,
-      "label": "Définition · format extractible",
+      "index": 2,
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1080,7 +1100,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1089,7 +1109,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1097,8 +1117,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/donnees-reporting.json",
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
-      "index": 3,
-      "label": "Définition · format extractible",
+      "index": 2,
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1107,7 +1127,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1116,7 +1136,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1125,7 +1145,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1134,7 +1154,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1143,7 +1163,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1152,7 +1172,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1161,7 +1181,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 2,
-      "label": "Définition",
+      "label": "Définition · format extractible",
       "background": "paper"
     },
     {
@@ -1170,7 +1190,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 2,
-      "label": "Définition",
+      "label": "Définition · format extractible",
       "background": "paper"
     },
     {
@@ -1179,7 +1199,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 2,
-      "label": "Définition",
+      "label": "Définition · format extractible",
       "background": "paper"
     },
     {
@@ -1294,21 +1314,21 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "deliverables-grid": [
     {
       "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 1,
+      "label": "Trois livrables activables, pas un diaporama",
+      "background": "paper-2"
+    },
+    {
+      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
       "index": 1,
       "label": "Un plan priorisé, pas un rapport qui dort",
       "background": "paper-2"
-    },
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 4,
-      "label": "Ce que Waimia fait concrètement",
-      "background": "paper-3"
     },
     {
       "collection": "lp",
@@ -1351,114 +1371,132 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 7,
-      "label": "Ce qu'on met en production",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 4,
-      "label": "Ce qui est livré",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 7,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 4,
-      "label": "L'architecture en mots simples",
-      "background": "paper-2"
+      "file": "services/automatisations.json",
+      "slug": "automatisations",
+      "route": "/services/automatisations",
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 6,
-      "label": "Ce qu'on dépose chez vous",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting.json",
+      "slug": "donnees-reporting",
+      "route": "/services/donnees-reporting",
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 6,
-      "label": "Ce qu'on dépose chez vous",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 6,
-      "label": "Ce qu'on branche chez vous",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 7,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste si vous arrêtez",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/systeme-acquisition.json",
+      "slug": "systeme-acquisition",
+      "route": "/services/systeme-acquisition",
       "index": 6,
       "label": "Ce que vous récupérez concrètement",
       "background": "paper"
@@ -1468,7 +1506,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 4,
+      "index": 6,
       "label": "Ce que vous récupérez concrètement",
       "background": "paper"
     },
@@ -1605,8 +1643,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 1,
-      "label": "Les cinq niveaux de la grille",
+      "index": 2,
+      "label": "Où en est votre entreprise ?",
       "background": "paper"
     },
     {
@@ -1639,15 +1677,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "direct-answer": [
     {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
       "collection": "demonstrations",
       "file": "demonstrations/avant-apres.json",
       "slug": "avant-apres",
@@ -1670,15 +1699,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/bordeaux.json",
       "slug": "bordeaux",
       "route": "/implantations/bordeaux",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "implantations",
-      "file": "implantations/lyon.json",
-      "slug": "lyon",
-      "route": "/implantations/lyon",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -1721,15 +1741,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -1751,8 +1762,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 0,
-      "label": "#0",
+      "index": 1,
+      "label": "#1",
       "background": "paper-2"
     },
     {
@@ -1775,36 +1786,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -1817,385 +1801,170 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 1,
       "label": "#1",
       "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 1,
-      "label": "#1",
-      "background": "paper-2"
-    }
-  ],
-  "editorial-callout": [
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 5,
-      "label": "#5",
-      "variant": "warn",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 6,
-      "label": "#6",
-      "variant": "note",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 6,
-      "label": "#6",
-      "variant": "note",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 6,
-      "label": "#6",
-      "variant": "note",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 6,
-      "label": "#6",
-      "variant": "note",
-      "background": "paper"
     }
   ],
   "editorial-prose": [
     {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 3,
-      "label": "#3",
-      "background": "paper"
-    },
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 6,
-      "label": "#6",
-      "background": "paper"
-    },
-    {
-      "collection": "implantations",
-      "file": "implantations/bordeaux.json",
-      "slug": "bordeaux",
-      "route": "/implantations/bordeaux",
-      "index": 2,
-      "label": "#2",
-      "background": "paper"
-    },
-    {
-      "collection": "implantations",
-      "file": "implantations/lyon.json",
-      "slug": "lyon",
-      "route": "/implantations/lyon",
-      "index": 3,
-      "label": "#3",
+      "collection": "cas-usages",
+      "file": "cas-usages/centraliser-donnees.json",
+      "slug": "centraliser-donnees",
+      "route": "/cas-usages/centraliser-donnees",
+      "index": 1,
+      "label": "#1",
       "background": "paper-2"
     },
     {
-      "collection": "implantations",
-      "file": "implantations/montpellier.json",
-      "slug": "montpellier",
-      "route": "/implantations/montpellier",
-      "index": 2,
-      "label": "#2",
-      "background": "paper"
+      "collection": "cas-usages",
+      "file": "cas-usages/generer-plus-de-leads.json",
+      "slug": "generer-plus-de-leads",
+      "route": "/cas-usages/generer-plus-de-leads",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
     },
     {
-      "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 3,
-      "label": "#3",
+      "collection": "cas-usages",
+      "file": "cas-usages/standardiser-processus.json",
+      "slug": "standardiser-processus",
+      "route": "/cas-usages/standardiser-processus",
+      "index": 1,
+      "label": "#1",
       "background": "paper-2"
     },
     {
       "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 5,
-      "label": "#5",
-      "background": "paper"
-    },
-    {
-      "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 2,
-      "label": "#2",
-      "background": "paper"
-    },
-    {
-      "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 6,
-      "label": "#6",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
     },
     {
       "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 6,
-      "label": "#6",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
+      "file": "services/agents-ia/agent-support-client.json",
+      "slug": "agent-support-client",
+      "route": "/services/agent-support-client",
       "index": 3,
       "label": "#3",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 5,
-      "label": "#5",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 4,
-      "label": "#4",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 4,
-      "label": "#4",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/index.json",
-      "slug": "formations",
-      "route": "src/content/formations/index.json",
-      "index": 2,
-      "label": "#2",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 4,
-      "label": "#4",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 4,
-      "label": "#4",
-      "background": "paper"
-    }
-  ],
-  "editorial-table-block": [
-    {
-      "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 2,
-      "label": "n8n vs Make, critère par critère",
-      "variant": "editorial",
-      "background": "paper"
-    },
-    {
-      "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 3,
-      "label": "Où Cowork est disponible, selon Anthropic",
-      "variant": "editorial",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 5,
-      "label": "Prérequis, format, durée et tarif",
-      "variant": "editorial",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 5,
-      "label": "Prérequis, format, durée et tarif",
-      "variant": "editorial",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 5,
-      "label": "Prérequis, format, durée et tarif",
-      "variant": "editorial",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 5,
-      "label": "Prérequis, format, durée et tarif",
-      "variant": "editorial",
-      "background": "paper-2"
-    }
-  ],
-  "editorial-timeline": [
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 2,
-      "label": "Le calendrier de l'AI Act",
       "background": "paper-2"
     },
     {
       "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 5,
-      "label": "Comment se passe une mission Make",
-      "background": "paper-3"
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
     },
     {
       "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 6,
-      "label": "De la première question au déploiement",
-      "background": "paper-3"
+      "file": "services/applications-internes.json",
+      "slug": "applications-internes",
+      "route": "/services/applications-internes",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
     },
     {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
+      "collection": "services",
+      "file": "services/automatisations/automatisation-n8n.json",
+      "slug": "automatisation-n8n",
+      "route": "/services/automatisation-n8n",
       "index": 3,
-      "label": "Le programme, module par module",
-      "background": "paper-3"
+      "label": "#3",
+      "background": "paper-2"
     },
     {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
+      "collection": "services",
+      "file": "services/automatisations.json",
+      "slug": "automatisations",
+      "route": "/services/automatisations",
       "index": 3,
-      "label": "Le programme, module par module",
-      "background": "paper-3"
+      "label": "#3",
+      "background": "paper-2"
     },
     {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
       "index": 3,
-      "label": "Le programme, module par module",
-      "background": "paper-3"
+      "label": "#3",
+      "background": "paper-2"
     },
     {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
+      "collection": "services",
+      "file": "services/crm-scoring-routing.json",
+      "slug": "crm-scoring-routing",
+      "route": "/services/crm-scoring-routing",
       "index": 3,
-      "label": "Le programme, module par module",
-      "background": "paper-3"
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting.json",
+      "slug": "donnees-reporting",
+      "route": "/services/donnees-reporting",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/landing-pages-tunnels.json",
+      "slug": "landing-pages-tunnels",
+      "route": "/services/landing-pages-tunnels",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee.json",
+      "slug": "prospection-automatisee",
+      "route": "/services/prospection-automatisee",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu.json",
+      "slug": "seo-geo-contenu",
+      "route": "/services/seo-geo-contenu",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/sequences-de-suivi.json",
+      "slug": "sequences-de-suivi",
+      "route": "/services/sequences-de-suivi",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia.json",
+      "slug": "site-web-ia",
+      "route": "/services/site-web-ia",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
     }
   ],
   "eeat-panel": [
@@ -2204,8 +1973,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 16,
-      "label": "#16",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2213,8 +1982,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 11,
-      "label": "#11",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2222,8 +1991,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 11,
-      "label": "#11",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2231,8 +2000,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 16,
-      "label": "#16",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2240,8 +2009,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 11,
-      "label": "#11",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2249,8 +2018,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 11,
-      "label": "#11",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2258,8 +2027,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 13,
-      "label": "#13",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2267,8 +2036,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/donnees-reporting.json",
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
-      "index": 11,
-      "label": "#11",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2276,8 +2045,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 12,
-      "label": "#12",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2285,8 +2054,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 11,
-      "label": "#11",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2294,8 +2063,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 14,
-      "label": "#14",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2303,8 +2072,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 11,
-      "label": "#11",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2312,8 +2081,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 13,
-      "label": "#13",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -2321,8 +2090,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 11,
-      "label": "#11",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2330,8 +2099,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 6,
-      "label": "#6",
+      "index": 12,
+      "label": "#12",
       "variant": "media"
     },
     {
@@ -2339,8 +2108,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 9,
-      "label": "#9",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -2467,9 +2236,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 0,
-      "label": "Questions avant de réserver",
-      "background": "paper-2"
+      "index": 8,
+      "label": "Ce que vous nous demandez",
+      "background": "paper"
     },
     {
       "collection": "audits",
@@ -2485,8 +2254,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/centraliser-donnees.json",
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
-      "index": 7,
-      "label": "Ce que vous nous demandez",
+      "index": 5,
+      "label": "Centraliser ses données : vos questions",
       "background": "paper"
     },
     {
@@ -2494,8 +2263,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
-      "index": 7,
-      "label": "Ce que vous nous demandez",
+      "index": 5,
+      "label": "Automatiser le suivi commercial : vos questions",
       "background": "paper"
     },
     {
@@ -2521,17 +2290,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
-      "index": 7,
-      "label": "Ce que vous nous demandez",
-      "background": "paper"
-    },
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 8,
-      "label": "Questions fréquentes",
+      "index": 5,
+      "label": "Automatiser l'administratif : vos questions",
       "background": "paper"
     },
     {
@@ -2557,17 +2317,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/bordeaux.json",
       "slug": "bordeaux",
       "route": "/implantations/bordeaux",
-      "index": 5,
-      "label": "Questions fréquentes",
-      "background": "paper"
-    },
-    {
-      "collection": "implantations",
-      "file": "implantations/lyon.json",
-      "slug": "lyon",
-      "route": "/implantations/lyon",
-      "index": 5,
-      "label": "Questions fréquentes",
+      "index": 6,
+      "label": "Ce que les PME bordelaises nous demandent",
       "background": "paper"
     },
     {
@@ -2575,8 +2326,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
-      "index": 5,
-      "label": "Questions fréquentes",
+      "index": 6,
+      "label": "Ce que les entreprises de Montpellier nous demandent",
       "background": "paper"
     },
     {
@@ -2630,7 +2381,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 6,
-      "label": "Ce que vous nous demandez",
+      "label": "Claude vs ChatGPT : vos questions",
       "background": "paper"
     },
     {
@@ -2640,15 +2391,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 6,
       "label": "Ce que vous nous demandez",
-      "background": "paper"
-    },
-    {
-      "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 7,
-      "label": "Questions fréquentes",
       "background": "paper"
     },
     {
@@ -2674,8 +2416,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 3,
-      "label": "Sur le diagnostic et son barème",
+      "index": 9,
+      "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
     {
@@ -2698,15 +2440,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 8,
-      "label": "Questions fréquentes",
-      "background": "paper"
-    },
-    {
-      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
@@ -2719,8 +2452,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 17,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Chatbot et agent de service client : vos questions",
       "background": "paper-2"
     },
     {
@@ -2728,8 +2461,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Agents IA : vos questions",
       "background": "paper-2"
     },
     {
@@ -2737,26 +2470,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Application métier sur mesure : vos questions",
       "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 8,
-      "label": "Questions fréquentes",
-      "background": "paper"
     },
     {
       "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 17,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Agence n8n : vos questions",
       "background": "paper-2"
     },
     {
@@ -2764,35 +2488,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 10,
+      "label": "Automatisation des processus : vos questions",
       "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 8,
-      "label": "Questions fréquentes",
-      "background": "paper"
     },
     {
       "collection": "services",
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
-      "background": "paper"
+      "index": 9,
+      "label": "Consultant IA : vos questions",
+      "background": "paper-2"
     },
     {
       "collection": "services",
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 14,
-      "label": "Ce que vous nous demandez",
+      "index": 10,
+      "label": "Automatisation CRM : vos questions",
       "background": "paper-2"
     },
     {
@@ -2800,8 +2515,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/donnees-reporting.json",
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Tableau de bord et reporting automatisé : vos questions",
       "background": "paper-2"
     },
     {
@@ -2809,8 +2524,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 13,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Claude en entreprise : vos questions",
       "background": "paper-2"
     },
     {
@@ -2818,8 +2533,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Landing pages et tunnels : vos questions",
       "background": "paper-2"
     },
     {
@@ -2827,8 +2542,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 15,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Prospection automatisée : vos questions",
       "background": "paper-2"
     },
     {
@@ -2836,8 +2551,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 10,
+      "label": "SEO et GEO : vos questions",
       "background": "paper-2"
     },
     {
@@ -2845,8 +2560,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 14,
-      "label": "Ce que vous nous demandez",
+      "index": 9,
+      "label": "Devis automatisé et relances : vos questions",
       "background": "paper-2"
     },
     {
@@ -2854,8 +2569,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 10,
+      "label": "Création de site internet : vos questions",
       "background": "paper-2"
     },
     {
@@ -2863,7 +2578,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 7,
+      "index": 13,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2872,7 +2587,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 10,
+      "index": 14,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -2901,51 +2616,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/demonstrations/integration-claude.json",
       "index": 6,
       "label": "Ce que vous nous demandez",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 8,
-      "label": "Questions fréquentes",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 8,
-      "label": "Questions fréquentes",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/index.json",
-      "slug": "formations",
-      "route": "src/content/formations/index.json",
-      "index": 4,
-      "label": "Questions fréquentes",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 8,
-      "label": "Questions fréquentes",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 8,
-      "label": "Questions fréquentes",
       "background": "paper"
     },
     {
@@ -3087,155 +2757,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 9,
-      "label": "Ce qu'un agent de support exécute chez vous",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/agents-ia.json",
-      "slug": "agents-ia",
-      "route": "/services/agents-ia",
-      "index": 6,
-      "label": "Ce qu'un agent exécute chez vous",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes.json",
-      "slug": "applications-internes",
-      "route": "/services/applications-internes",
-      "index": 7,
-      "label": "Les briques d'un outil interne solide",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 9,
-      "label": "Les briques d'un workflow n8n qui tient",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations.json",
-      "slug": "automatisations",
-      "route": "/services/automatisations",
-      "index": 6,
-      "label": "Les briques d'une automatisation qui tient",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/consultant-ia-claude.json",
-      "slug": "consultant-ia-claude",
-      "route": "/services/consultant-ia-claude",
-      "index": 7,
-      "label": "Quatre décisions avant la moindre ligne de code",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing.json",
-      "slug": "crm-scoring-routing",
-      "route": "/services/crm-scoring-routing",
-      "index": 7,
-      "label": "Les briques d'un CRM qui note et route",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/donnees-reporting.json",
-      "slug": "donnees-reporting",
-      "route": "/services/donnees-reporting",
-      "index": 6,
-      "label": "Les briques d'un reporting automatisé qui tient",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/integration-claude.json",
-      "slug": "integration-claude",
-      "route": "/services/integration-claude",
-      "index": 7,
-      "label": "Déployer Claude dans votre entreprise",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/integration-claude.json",
-      "slug": "integration-claude",
-      "route": "/services/integration-claude",
-      "index": 8,
-      "label": "Claude ou ChatGPT pour votre entreprise",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels.json",
-      "slug": "landing-pages-tunnels",
-      "route": "/services/landing-pages-tunnels",
-      "index": 7,
-      "label": "Les briques d'un tunnel qui convertit",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 3,
-      "label": "Prospection B2B et RGPD : ce que la loi autorise vraiment",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 8,
-      "label": "Les briques de la prospection automatisée",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu.json",
-      "slug": "seo-geo-contenu",
-      "route": "/services/seo-geo-contenu",
-      "index": 7,
-      "label": "Les briques d'une machine éditoriale",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 7,
-      "label": "Les briques d'un suivi qui relance et réveille",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia.json",
-      "slug": "site-web-ia",
-      "route": "/services/site-web-ia",
-      "index": 7,
-      "label": "Les briques d'un site web intelligent",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 3,
-      "label": "Trois outils, branchés au reste",
+      "index": 7,
+      "label": "Les briques, de l'acquisition au commercial",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/systeme-commercial.json",
+      "slug": "systeme-commercial",
+      "route": "/services/systeme-commercial",
+      "index": 7,
+      "label": "Les modules qui alimentent votre pipeline commercial",
       "background": "paper"
     },
     {
@@ -3358,6 +2893,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "feature-split-media": [
     {
+      "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 6,
+      "label": "Besoin d'y voir plus loin ? La grille des 47 critères",
+      "background": "paper-2"
+    },
+    {
       "collection": "lp",
       "file": "lp/site-web-intelligent.json",
       "slug": "site-web-intelligent",
@@ -3397,42 +2941,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
-      "file": "cas-usages/centraliser-donnees.json",
-      "slug": "centraliser-donnees",
-      "route": "/cas-usages/centraliser-donnees",
-      "index": 1,
-      "label": "Là où la donnée se perd",
-      "background": "paper-2"
-    },
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/centraliser-donnees.json",
-      "slug": "centraliser-donnees",
-      "route": "/cas-usages/centraliser-donnees",
-      "index": 2,
-      "label": "Connecter, pas tout remplacer",
-      "background": "paper"
-    },
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/generer-plus-de-leads.json",
-      "slug": "generer-plus-de-leads",
-      "route": "/cas-usages/generer-plus-de-leads",
-      "index": 1,
-      "label": "Là où les leads fuient",
-      "background": "paper-2"
-    },
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/generer-plus-de-leads.json",
-      "slug": "generer-plus-de-leads",
-      "route": "/cas-usages/generer-plus-de-leads",
-      "index": 2,
-      "label": "Une chaîne de conversion sans fuite",
-      "background": "paper"
-    },
-    {
-      "collection": "cas-usages",
       "file": "cas-usages/reduire-reporting.json",
       "slug": "reduire-reporting",
       "route": "/cas-usages/reduire-reporting",
@@ -3447,15 +2955,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/cas-usages/reduire-temps-cms",
       "index": 1,
       "label": "Là où le temps part",
-      "background": "paper-2"
-    },
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/standardiser-processus.json",
-      "slug": "standardiser-processus",
-      "route": "/cas-usages/standardiser-processus",
-      "index": 1,
-      "label": "Là où le savoir-faire se fragilise",
       "background": "paper-2"
     },
     {
@@ -3477,21 +2976,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/bordeaux.json",
+      "slug": "bordeaux",
+      "route": "/implantations/bordeaux",
+      "index": 2,
+      "label": "Deux leviers, un seul partenaire",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/montpellier.json",
+      "slug": "montpellier",
+      "route": "/implantations/montpellier",
+      "index": 2,
+      "label": "Ce que change un partenaire à Montpellier",
+      "background": "paper"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 3,
       "label": "Quatre lignes de fracture",
-      "background": "paper-2"
-    },
-    {
-      "collection": "comparatifs",
-      "file": "comparatifs/claude-vs-chatgpt-pme.json",
-      "slug": "claude-vs-chatgpt-pme",
-      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 3,
-      "label": "Ce que chacun fait vraiment bien",
       "background": "paper-2"
     },
     {
@@ -3526,8 +3034,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 2,
-      "label": "Ce que mesurent les dix questions",
+      "index": 5,
+      "label": "Ce qui détermine votre niveau réel",
       "background": "paper-2"
     },
     {
@@ -3545,7 +3053,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 3,
-      "label": "Là où Claude paie le plus vite",
+      "label": "Les cinq usages par lesquels commencer",
       "background": "paper-2"
     },
     {
@@ -3559,47 +3067,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 13,
-      "label": "L'agent de support continue de rendre du temps après son déploiement",
+      "file": "services/systeme-acquisition.json",
+      "slug": "systeme-acquisition",
+      "route": "/services/systeme-acquisition",
+      "index": 9,
+      "label": "Comment l'acquisition alimente le système commercial",
       "background": "paper-2"
     },
     {
       "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 13,
-      "label": "n8n par défaut, Zapier quand il suffit",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing.json",
-      "slug": "crm-scoring-routing",
-      "route": "/services/crm-scoring-routing",
+      "file": "services/systeme-commercial.json",
+      "slug": "systeme-commercial",
+      "route": "/services/systeme-commercial",
       "index": 10,
-      "label": "Le CRM continue de s'affiner après le branchement",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 11,
-      "label": "La séquence continue de s'affiner après le lancement",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 10,
-      "label": "Les séquences continuent de s'affiner après le lancement",
+      "label": "Le système commercial continue d'apprendre après le lancement",
       "background": "paper-2"
     },
     {
@@ -3654,8 +3135,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 1,
-      "label": "Quarante-cinq minutes, et une liste de tâches classées par priorité.",
+      "index": 9,
+      "label": "Quarante-cinq minutes pour savoir où l'IA change la donne chez vous.",
       "background": "ink"
     },
     {
@@ -3672,8 +3153,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/centraliser-donnees.json",
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
-      "index": 8,
-      "label": "Faites circuler vos données au lieu de les recopier.",
+      "index": 6,
+      "label": "Combien de versions du même chiffre circulent chez vous ?",
       "background": "ink"
     },
     {
@@ -3681,8 +3162,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
-      "index": 8,
-      "label": "Arrêtez de perdre le trafic que vous payez déjà.",
+      "index": 6,
+      "label": "Où vos demandes attendent-elles ?",
       "background": "ink"
     },
     {
@@ -3708,17 +3189,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
-      "index": 8,
-      "label": "Transformez un savoir-faire fragile en système qui tient.",
-      "background": "ink"
-    },
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 9,
-      "label": "Faire l'inventaire de vos usages d'IA avant qu'on vous le demande.",
+      "index": 6,
+      "label": "Quelle procédure ne tient que sur une personne ?",
       "background": "ink"
     },
     {
@@ -3744,17 +3216,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/bordeaux.json",
       "slug": "bordeaux",
       "route": "/implantations/bordeaux",
-      "index": 6,
-      "label": "Parlons de vos processus, à Bordeaux ou en visio.",
-      "background": "ink"
-    },
-    {
-      "collection": "implantations",
-      "file": "implantations/lyon.json",
-      "slug": "lyon",
-      "route": "/implantations/lyon",
-      "index": 6,
-      "label": "Commençons par 45 minutes en visio.",
+      "index": 7,
+      "label": "Bordeaux, Gironde. Commençons par un audit gratuit.",
       "background": "ink"
     },
     {
@@ -3762,8 +3225,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
-      "index": 6,
-      "label": "Deux processus à automatiser, identifiés en 45 minutes.",
+      "index": 7,
+      "label": "Un studio IA près de chez vous, dans l'Hérault.",
       "background": "ink"
     },
     {
@@ -3826,7 +3289,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 7,
-      "label": "Le bon outil dépend de votre cas, pas d'un classement.",
+      "label": "L'outil compte moins que le cadre.",
       "background": "ink"
     },
     {
@@ -3836,15 +3299,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 7,
       "label": "Vu sur Google, repris par les IA. Faisons les deux.",
-      "background": "ink"
-    },
-    {
-      "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 8,
-      "label": "Le bon outil se choisit sur vos tâches, pas sur un tableau.",
       "background": "ink"
     },
     {
@@ -3870,8 +3324,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/maturite-ia.json",
       "slug": "maturite-ia",
       "route": "/ressources/diagnostics/maturite-ia",
-      "index": 4,
-      "label": "Vous connaissez votre niveau. L'audit dit par quelle tâche commencer.",
+      "index": 10,
+      "label": "Vous savez à quel niveau vous êtes. Posons la marche suivante.",
       "background": "ink"
     },
     {
@@ -3894,15 +3348,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 9,
-      "label": "Savoir quelles tâches confier à Claude, et avec quelles règles.",
-      "background": "ink"
-    },
-    {
-      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
@@ -3915,8 +3360,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 18,
-      "label": "Confiez le support récurrent à un agent qui répond.",
+      "index": 10,
+      "label": "Combien de demandes identiques recevez-vous chaque semaine ?",
       "background": "ink"
     },
     {
@@ -3924,8 +3369,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 13,
-      "label": "Confiez vos tâches répétitives à un agent qui exécute.",
+      "index": 10,
+      "label": "Quelle tâche confieriez-vous à un agent ?",
       "background": "ink"
     },
     {
@@ -3933,17 +3378,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 13,
-      "label": "Donnez à votre métier l'outil qu'il mérite.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 9,
-      "label": "Commencez par la tâche qui vous coûte le plus d'heures.",
+      "index": 10,
+      "label": "Quel tableur fait office de logiciel chez vous ?",
       "background": "ink"
     },
     {
@@ -3951,8 +3387,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 18,
-      "label": "Faites de n8n votre socle d'automatisation.",
+      "index": 10,
+      "label": "Un premier workflow n8n en production, sur votre serveur.",
       "background": "ink"
     },
     {
@@ -3960,17 +3396,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 13,
-      "label": "Rendez à vos équipes les heures que la saisie leur prend.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 9,
-      "label": "Vérifions d'abord si vous en avez besoin.",
+      "index": 11,
+      "label": "Quel process vous coûte le plus d'heures chaque semaine ?",
       "background": "ink"
     },
     {
@@ -3978,8 +3405,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 13,
-      "label": "Sortez de l'hésitation, tracez votre trajectoire IA.",
+      "index": 10,
+      "label": "Par quoi commencer, et que laisser de côté ?",
       "background": "ink"
     },
     {
@@ -3987,8 +3414,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 15,
-      "label": "Transformez votre CRM en machine à prioriser.",
+      "index": 11,
+      "label": "Combien de demandes se perdent avant d'atteindre un commercial ?",
       "background": "ink"
     },
     {
@@ -3996,8 +3423,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/donnees-reporting.json",
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
-      "index": 13,
-      "label": "Décidez sur des chiffres à jour, pas au doigt mouillé.",
+      "index": 10,
+      "label": "Combien de jours par mois passez-vous à compiler des chiffres ?",
       "background": "ink"
     },
     {
@@ -4005,8 +3432,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 14,
-      "label": "Mettez votre premier agent en production ce trimestre",
+      "index": 10,
+      "label": "Claude est déjà utilisé chez vous. Reste à l'encadrer.",
       "background": "ink"
     },
     {
@@ -4014,8 +3441,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 13,
-      "label": "Transformez le trafic en leads qualifiés et priorisés.",
+      "index": 10,
+      "label": "Le problème vient-il de la page, ou de ce qui suit ?",
       "background": "ink"
     },
     {
@@ -4023,8 +3450,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 16,
-      "label": "Transformez votre prospection en machine à rendez-vous.",
+      "index": 10,
+      "label": "Votre prospection s'arrête-t-elle quand vous êtes occupés ?",
       "background": "ink"
     },
     {
@@ -4032,8 +3459,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 13,
-      "label": "Visible sur Google, durablement.",
+      "index": 11,
+      "label": "Vos pages répondent-elles aux questions de vos clients ?",
       "background": "ink"
     },
     {
@@ -4041,8 +3468,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 15,
-      "label": "Transformez votre suivi en machine à réchauffer.",
+      "index": 10,
+      "label": "Combien de devis attendent une relance chez vous ?",
       "background": "ink"
     },
     {
@@ -4050,8 +3477,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 13,
-      "label": "Transformez votre site en machine à qualifier.",
+      "index": 11,
+      "label": "Que devient une demande après le formulaire ?",
       "background": "ink"
     },
     {
@@ -4059,8 +3486,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 8,
-      "label": "La visibilité n'a de valeur que si la demande est traitée.",
+      "index": 14,
+      "label": "Une infrastructure qui attire, capte et qualifie, puis passe le relais au commercial.",
       "background": "ink"
     },
     {
@@ -4068,7 +3495,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 11,
+      "index": 15,
       "label": "Un système qui alimente, qualifie et relance votre pipeline.",
       "background": "ink"
     },
@@ -4078,7 +3505,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 9,
-      "label": "Quarante-cinq minutes pour savoir quoi automatiser.",
+      "label": "Faites tourner vos opérations sur un système, plus sur des personnes.",
       "background": "ink"
     },
     {
@@ -4097,51 +3524,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/demonstrations/integration-claude.json",
       "index": 7,
       "label": "Vous avez vu le résultat. Trouvons votre premier chantier.",
-      "background": "ink"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 9,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
-      "background": "ink"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 9,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
-      "background": "ink"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/index.json",
-      "slug": "formations",
-      "route": "src/content/formations/index.json",
-      "index": 5,
-      "label": "Former sur vos tâches, pas sur des démonstrations.",
-      "background": "ink"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 9,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
-      "background": "ink"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 9,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
       "background": "ink"
     },
     {
@@ -4473,7 +3855,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 0,
-      "label": "Des outils de visibilité au service de votre système.",
+      "label": "Générer des leads B2B qualifiés, sans racheter un flux chaque mois.",
       "background": "paper"
     },
     {
@@ -4606,6 +3988,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "hero-split-media": [
     {
       "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 0,
+      "label": "Audit IA gratuit pour PME.",
+      "background": "paper"
+    },
+    {
+      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -4619,7 +4010,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
       "index": 0,
-      "label": "Centraliser ses données.",
+      "label": "Centraliser ses données et automatiser le reporting",
       "background": "paper"
     },
     {
@@ -4628,7 +4019,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
       "index": 0,
-      "label": "Générer plus de leads.",
+      "label": "Automatiser le suivi commercial",
       "background": "paper"
     },
     {
@@ -4655,16 +4046,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 0,
-      "label": "Standardiser ses processus.",
-      "background": "paper"
-    },
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 0,
-      "label": "Déployer l'IA en conformité : AI Act et RGPD pour les PME",
+      "label": "Automatiser les tâches administratives",
       "background": "paper"
     },
     {
@@ -4691,16 +4073,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "bordeaux",
       "route": "/implantations/bordeaux",
       "index": 0,
-      "label": "Agence IA et automatisation à Bordeaux",
-      "background": "paper"
-    },
-    {
-      "collection": "implantations",
-      "file": "implantations/lyon.json",
-      "slug": "lyon",
-      "route": "/implantations/lyon",
-      "index": 0,
-      "label": "Agence IA et automatisation à Lyon",
+      "label": "Agence IA à Bordeaux.",
       "background": "paper"
     },
     {
@@ -4709,7 +4082,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "montpellier",
       "route": "/implantations/montpellier",
       "index": 0,
-      "label": "Agence IA et automatisation à Montpellier",
+      "label": "Votre studio IA à Montpellier.",
       "background": "paper"
     },
     {
@@ -4741,15 +4114,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 0,
-      "label": "n8n vs Make : lequel choisir pour votre PME",
-      "background": "paper"
-    },
-    {
-      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -4764,6 +4128,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 0,
       "label": "Votre PME est-elle prête à déployer Claude ?",
+      "background": "paper"
+    },
+    {
+      "collection": "diagnostics",
+      "file": "diagnostics/maturite-ia.json",
+      "slug": "maturite-ia",
+      "route": "/ressources/diagnostics/maturite-ia",
+      "index": 0,
+      "label": "Diagnostic de maturité IA.",
       "background": "paper"
     },
     {
@@ -4786,38 +4159,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 0,
-      "label": "Claude Cowork : ce que c'est, ce qui change, comment l'utiliser en PME",
-      "background": "paper"
-    },
-    {
-      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 0,
       "label": "Déployer Claude dans votre PME.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 0,
-      "label": "Agence Make pour PME",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 0,
-      "label": "Base de connaissance IA : le second cerveau de votre entreprise",
       "background": "paper"
     },
     {
@@ -4828,168 +4174,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 0,
       "label": "Une intégration Claude, avant/après.",
       "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 0,
-      "label": "Formation automatisation et IA",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 0,
-      "label": "Formation Claude et agents IA",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/index.json",
-      "slug": "formations",
-      "route": "src/content/formations/index.json",
-      "index": 0,
-      "label": "Formations IA et automatisation pour vos équipes",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 0,
-      "label": "Formation Make",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 0,
-      "label": "Formation n8n",
-      "background": "paper"
     }
   ],
   "hover-reveal-list": [
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 10,
-      "label": "L'agent de support ouvre sur le système",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/agents-ia.json",
-      "slug": "agents-ia",
-      "route": "/services/agents-ia",
-      "index": 7,
-      "label": "Autour de l'agent, le reste du système",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes.json",
-      "slug": "applications-internes",
-      "route": "/services/applications-internes",
-      "index": 8,
-      "label": "L'outil interne est une brique du système",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 10,
-      "label": "n8n est une brique du système",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations.json",
-      "slug": "automatisations",
-      "route": "/services/automatisations",
-      "index": 7,
-      "label": "L'automatisation est une brique du système",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/consultant-ia-claude.json",
-      "slug": "consultant-ia-claude",
-      "route": "/services/consultant-ia-claude",
-      "index": 8,
-      "label": "Une fois tranché, le chantier bascule à l'exécution",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing.json",
-      "slug": "crm-scoring-routing",
-      "route": "/services/crm-scoring-routing",
-      "index": 8,
-      "label": "Le CRM s'assemble au reste du système commercial",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/donnees-reporting.json",
-      "slug": "donnees-reporting",
-      "route": "/services/donnees-reporting",
-      "index": 7,
-      "label": "Le reporting est une brique du système",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/integration-claude.json",
-      "slug": "integration-claude",
-      "route": "/services/integration-claude",
-      "index": 9,
-      "label": "Cinq portes vers le même système",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 9,
-      "label": "La prospection s'assemble au reste du système commercial",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 8,
-      "label": "Le suivi s'assemble au reste du système commercial",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia.json",
-      "slug": "site-web-ia",
-      "route": "/services/site-web-ia",
-      "index": 8,
-      "label": "Quatre déclinaisons, une même base",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 5,
+      "index": 8,
       "label": "Trois leviers, une même base",
       "background": "paper-3"
     },
@@ -5087,24 +4280,14 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     }
   ],
-  "logo-marquee": [
+  "manifesto-statement": [
     {
-      "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 8,
-      "label": "Les outils qu'on branche à votre agent de support",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 8,
-      "label": "Les outils qu'on orchestre dans n8n",
-      "background": "ink"
+      "collection": "diagnostics",
+      "file": "diagnostics/maturite-ia.json",
+      "slug": "maturite-ia",
+      "route": "/ressources/diagnostics/maturite-ia",
+      "index": 4,
+      "label": "Le vrai critère"
     }
   ],
   "method-stepline": [
@@ -5146,101 +4329,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 6,
-      "label": "Les 6 niveaux d'un support assisté",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes.json",
-      "slug": "applications-internes",
-      "route": "/services/applications-internes",
+      "file": "services/systeme-acquisition.json",
+      "slug": "systeme-acquisition",
+      "route": "/services/systeme-acquisition",
       "index": 5,
-      "label": "Les 6 niveaux d'un outil métier interne",
+      "label": "Les 6 niveaux d'acquisition",
       "background": "paper-3"
     },
     {
       "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 6,
-      "label": "Les 6 niveaux d'automatisation avec n8n",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/consultant-ia-claude.json",
-      "slug": "consultant-ia-claude",
-      "route": "/services/consultant-ia-claude",
+      "file": "services/systeme-commercial.json",
+      "slug": "systeme-commercial",
+      "route": "/services/systeme-commercial",
       "index": 5,
-      "label": "Les 6 niveaux d'une décision IA",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing.json",
-      "slug": "crm-scoring-routing",
-      "route": "/services/crm-scoring-routing",
-      "index": 5,
-      "label": "Les 6 niveaux d'un CRM",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/integration-claude.json",
-      "slug": "integration-claude",
-      "route": "/services/integration-claude",
-      "index": 5,
-      "label": "Les 6 niveaux de maturité IA",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels.json",
-      "slug": "landing-pages-tunnels",
-      "route": "/services/landing-pages-tunnels",
-      "index": 5,
-      "label": "Les 6 niveaux d'un tunnel de conversion",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 6,
-      "label": "Les 6 niveaux d'une prospection",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu.json",
-      "slug": "seo-geo-contenu",
-      "route": "/services/seo-geo-contenu",
-      "index": 5,
-      "label": "Les 6 niveaux de visibilité SEO et GEO",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 5,
-      "label": "Les 6 niveaux d'un suivi",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia.json",
-      "slug": "site-web-ia",
-      "route": "/services/site-web-ia",
-      "index": 5,
-      "label": "Les 6 niveaux d'un site web intelligent",
+      "label": "Les 6 niveaux d'un développement commercial",
       "background": "paper-3"
     },
     {
@@ -5393,128 +4495,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 4,
-      "label": "Le support qu'un agent soulage.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/agents-ia.json",
-      "slug": "agents-ia",
-      "route": "/services/agents-ia",
-      "index": 4,
-      "label": "Pourquoi le répétitif vous coûte cher",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes.json",
-      "slug": "applications-internes",
-      "route": "/services/applications-internes",
+      "file": "services/systeme-acquisition.json",
+      "slug": "systeme-acquisition",
+      "route": "/services/systeme-acquisition",
       "index": 3,
-      "label": "Pourquoi vos outils maison vous freinent",
+      "label": "Pourquoi vos prospects vous échappent",
       "background": "ink"
     },
     {
       "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 4,
-      "label": "Le moment où on passe à n8n.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations.json",
-      "slug": "automatisations",
-      "route": "/services/automatisations",
-      "index": 4,
-      "label": "Pourquoi vos équipes perdent leurs journées",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/consultant-ia-claude.json",
-      "slug": "consultant-ia-claude",
-      "route": "/services/consultant-ia-claude",
+      "file": "services/systeme-commercial.json",
+      "slug": "systeme-commercial",
+      "route": "/services/systeme-commercial",
       "index": 3,
-      "label": "Là où une décision IA se grippe.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing.json",
-      "slug": "crm-scoring-routing",
-      "route": "/services/crm-scoring-routing",
-      "index": 3,
-      "label": "Pourquoi votre CRM sans scoring laisse filer des ventes",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/donnees-reporting.json",
-      "slug": "donnees-reporting",
-      "route": "/services/donnees-reporting",
-      "index": 4,
-      "label": "Pourquoi vous décidez sans y voir clair",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/integration-claude.json",
-      "slug": "integration-claude",
-      "route": "/services/integration-claude",
-      "index": 3,
-      "label": "Pourquoi votre IA ne produit rien",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels.json",
-      "slug": "landing-pages-tunnels",
-      "route": "/services/landing-pages-tunnels",
-      "index": 3,
-      "label": "Pourquoi votre trafic ne devient pas du business",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 4,
-      "label": "Pourquoi votre prospection outbound ne remplit pas le pipeline",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu.json",
-      "slug": "seo-geo-contenu",
-      "route": "/services/seo-geo-contenu",
-      "index": 3,
-      "label": "Pourquoi votre contenu ne rapporte rien",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 3,
-      "label": "Pourquoi vos leads chauds refroidissent faute de nurturing",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia.json",
-      "slug": "site-web-ia",
-      "route": "/services/site-web-ia",
-      "index": 3,
-      "label": "Votre site est joli, et il ne vend rien ?",
+      "label": "Vos mois creux en rendez-vous ont une cause",
       "background": "ink"
     },
     {
@@ -5668,8 +4662,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 15,
-      "label": "Une offre, deux manières d'avancer",
+      "index": 7,
+      "label": "Prix d'un chatbot de service client",
       "background": "paper"
     },
     {
@@ -5677,8 +4671,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 10,
-      "label": "Une offre, deux manières d'avancer",
+      "index": 7,
+      "label": "Combien coûte un agent IA",
       "background": "paper"
     },
     {
@@ -5686,7 +4680,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 10,
+      "index": 7,
       "label": "Combien coûte une application sur mesure",
       "background": "paper"
     },
@@ -5695,8 +4689,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 15,
-      "label": "Une offre, deux manières d'avancer",
+      "index": 7,
+      "label": "Prix d'une prestation n8n",
       "background": "paper"
     },
     {
@@ -5704,8 +4698,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 10,
-      "label": "Une offre, deux manières d'avancer",
+      "index": 8,
+      "label": "Combien coûte l'automatisation d'un processus",
       "background": "paper"
     },
     {
@@ -5713,7 +4707,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 10,
+      "index": 7,
       "label": "Combien coûte un accompagnement IA",
       "background": "paper"
     },
@@ -5722,8 +4716,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
-      "index": 12,
-      "label": "Deux façons de remettre votre CRM au travail",
+      "index": 8,
+      "label": "Prix d'une automatisation CRM",
       "background": "paper"
     },
     {
@@ -5731,8 +4725,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/donnees-reporting.json",
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
-      "index": 10,
-      "label": "Une offre, deux manières d'avancer",
+      "index": 7,
+      "label": "Prix d'un tableau de bord automatisé",
       "background": "paper"
     },
     {
@@ -5740,7 +4734,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 11,
+      "index": 7,
       "label": "Combien coûte Claude en entreprise",
       "background": "paper"
     },
@@ -5749,8 +4743,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
-      "index": 10,
-      "label": "Deux façons de faire convertir votre trafic",
+      "index": 7,
+      "label": "Prix d'une landing page et d'un tunnel",
       "background": "paper"
     },
     {
@@ -5758,7 +4752,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
-      "index": 13,
+      "index": 7,
       "label": "Trois formules, un abonnement mensuel sans engagement",
       "background": "paper"
     },
@@ -5767,8 +4761,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 10,
-      "label": "Deux façons de lancer votre machine éditoriale",
+      "index": 8,
+      "label": "Prix d'une prestation SEO et GEO",
       "background": "paper"
     },
     {
@@ -5776,8 +4770,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 12,
-      "label": "Deux façons de remettre votre suivi au travail",
+      "index": 7,
+      "label": "Prix d'un dispositif de devis et de relances",
       "background": "paper"
     },
     {
@@ -5785,7 +4779,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 10,
+      "index": 8,
       "label": "Combien coûte un site internet qui vend",
       "background": "paper"
     },
@@ -5794,8 +4788,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
-      "index": 5,
-      "label": "Quatre socles pour un site",
+      "index": 11,
+      "label": "Quatre socles pour lancer votre acquisition",
       "background": "paper"
     },
     {
@@ -5803,7 +4797,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 8,
+      "index": 12,
       "label": "Trois formules pour alimenter votre pipeline",
       "background": "paper"
     },
@@ -5959,6 +4953,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "process-steps": [
     {
       "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 3,
+      "label": "Le déroulé des 45 minutes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -5990,7 +4993,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "bordeaux",
       "route": "/implantations/bordeaux",
       "index": 3,
-      "label": "Comment on démarre",
+      "label": "De l'audit au résultat mesuré",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/montpellier.json",
+      "slug": "montpellier",
+      "route": "/implantations/montpellier",
+      "index": 3,
+      "label": "De l'audit local au site en production",
       "background": "paper-2"
     },
     {
@@ -6000,6 +5012,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/claude-pme",
       "index": 7,
       "label": "Ce qu'on pose selon votre préparation",
+      "background": "paper-2"
+    },
+    {
+      "collection": "diagnostics",
+      "file": "diagnostics/maturite-ia.json",
+      "slug": "maturite-ia",
+      "route": "/ressources/diagnostics/maturite-ia",
+      "index": 7,
+      "label": "Ce qu'on fait selon votre niveau",
       "background": "paper-2"
     },
     {
@@ -6022,15 +5043,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 5,
-      "label": "Démarrer en PME en quatre étapes",
-      "background": "paper-3"
-    },
-    {
-      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
@@ -6046,15 +5058,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 3,
       "label": "Ce que fait l'agent, dans l'ordre",
       "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/index.json",
-      "slug": "formations",
-      "route": "src/content/formations/index.json",
-      "index": 3,
-      "label": "Comment se passe une formation",
-      "background": "paper"
     }
   ],
   "proof-bar": [
@@ -6399,6 +5402,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "related-cards-band": [
     {
       "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 7,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
       "slug": "audit-site-web-intelligent",
       "route": "/audit-site-web-intelligent",
@@ -6411,8 +5423,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/centraliser-donnees.json",
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
-      "index": 6,
-      "label": "Un cas réel",
+      "index": 4,
+      "label": "Pour aller plus loin",
       "background": "paper-2"
     },
     {
@@ -6420,8 +5432,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
-      "index": 6,
-      "label": "Un cas réel",
+      "index": 4,
+      "label": "Pour aller plus loin",
       "background": "paper-2"
     },
     {
@@ -6447,16 +5459,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
-      "index": 6,
-      "label": "Un cas réel",
-      "background": "paper-2"
-    },
-    {
-      "collection": "audits",
-      "file": "audits/conformite-ia.json",
-      "slug": "conformite-ia",
-      "route": "/conformite-ia",
-      "index": 7,
+      "index": 4,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6483,16 +5486,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/bordeaux.json",
       "slug": "bordeaux",
       "route": "/implantations/bordeaux",
-      "index": 4,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "implantations",
-      "file": "implantations/lyon.json",
-      "slug": "lyon",
-      "route": "/implantations/lyon",
-      "index": 4,
+      "index": 5,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6501,7 +5495,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
-      "index": 4,
+      "index": 5,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6534,15 +5528,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
-      "file": "comparatifs/n8n-vs-make.json",
-      "slug": "n8n-vs-make",
-      "route": "/ressources/comparatifs/n8n-vs-make",
-      "index": 6,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -6555,6 +5540,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "diagnostics/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/diagnostics/claude-pme",
+      "index": 8,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "diagnostics",
+      "file": "diagnostics/maturite-ia.json",
+      "slug": "maturite-ia",
+      "route": "/ressources/diagnostics/maturite-ia",
       "index": 8,
       "label": "Pour aller plus loin",
       "background": "paper"
@@ -6579,37 +5573,10 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 7,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 8,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 7,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 7,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6621,95 +5588,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Pour aller plus loin",
       "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/automatisation.json",
-      "slug": "automatisation",
-      "route": "src/content/formations/automatisation.json",
-      "index": 7,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 7,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/make.json",
-      "slug": "make",
-      "route": "src/content/formations/make.json",
-      "index": 7,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/n8n.json",
-      "slug": "n8n",
-      "route": "src/content/formations/n8n.json",
-      "index": 7,
-      "label": "Pour aller plus loin",
-      "background": "paper-2"
-    }
-  ],
-  "service-catalog-list": [
-    {
-      "collection": "formations",
-      "file": "formations/index.json",
-      "slug": "formations",
-      "route": "src/content/formations/index.json",
-      "index": 1,
-      "label": "Quatre formations, construites sur vos tâches",
-      "background": "paper"
-    }
-  ],
-  "statement-orbit": [
-    {
-      "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 2,
-      "label": "Un chatbot vitrine parle. Un agent de support répond, agit dans vos outils, et vous passe la main quand il faut."
-    },
-    {
-      "collection": "services",
-      "file": "services/agents-ia.json",
-      "slug": "agents-ia",
-      "route": "/services/agents-ia",
-      "index": 2,
-      "label": "Un chatbot vitrine parle. Un agent exécute, dans vos outils, et rend compte."
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 2,
-      "label": "Avec Zapier on construit vite. Avec n8n on construit large, et le workflow devient un actif métier, pas une recette jetable."
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations.json",
-      "slug": "automatisations",
-      "route": "/services/automatisations",
-      "index": 2,
-      "label": "Un process manuel tient sur une personne. Une automatisation tient toute seule, tourne la nuit et ne se trompe pas de copier-coller."
-    },
-    {
-      "collection": "services",
-      "file": "services/donnees-reporting.json",
-      "slug": "donnees-reporting",
-      "route": "/services/donnees-reporting",
-      "index": 2,
-      "label": "Un tableur de reporting fige la photo d'hier. Un socle de données rassemble tout, fixe une définition et se met à jour tout seul."
     }
   ],
   "stats-bento": [
@@ -6740,62 +5618,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/cas-usages/reduire-temps-cms",
       "index": 2,
       "label": "Du chantier permanent à l'édition en minutes",
-      "background": "paper"
-    },
-    {
-      "collection": "cas-usages",
-      "file": "cas-usages/standardiser-processus.json",
-      "slug": "standardiser-processus",
-      "route": "/cas-usages/standardiser-processus",
-      "index": 2,
-      "label": "Comprendre, simplifier, formaliser, outiller",
-      "background": "paper"
-    }
-  ],
-  "sticky-scroll-storytelling": [
-    {
-      "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 12,
-      "label": "Du cadrage à l'agent de support en production",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/agents-ia.json",
-      "slug": "agents-ia",
-      "route": "/services/agents-ia",
-      "index": 8,
-      "label": "Du cadrage à l'agent en production",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 12,
-      "label": "Comment on travaille votre n8n",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations.json",
-      "slug": "automatisations",
-      "route": "/services/automatisations",
-      "index": 8,
-      "label": "Comment on travaille ensemble",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/donnees-reporting.json",
-      "slug": "donnees-reporting",
-      "route": "/services/donnees-reporting",
-      "index": 8,
-      "label": "Comment on travaille ensemble",
       "background": "paper"
     }
   ],
@@ -6838,65 +5660,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/agents-ia/agent-support-client.json",
-      "slug": "agent-support-client",
-      "route": "/services/agent-support-client",
-      "index": 11,
-      "label": "Comment un agent de support répond vraiment",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisations/automatisation-n8n.json",
-      "slug": "automatisation-n8n",
-      "route": "/services/automatisation-n8n",
-      "index": 11,
-      "label": "Comment un workflow n8n s'exécute",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/crm-scoring-routing.json",
-      "slug": "crm-scoring-routing",
-      "route": "/services/crm-scoring-routing",
-      "index": 9,
-      "label": "Comment tout fonctionne ensemble",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels.json",
-      "slug": "landing-pages-tunnels",
-      "route": "/services/landing-pages-tunnels",
+      "file": "services/systeme-acquisition.json",
+      "slug": "systeme-acquisition",
+      "route": "/services/systeme-acquisition",
       "index": 8,
-      "label": "Comment tout fonctionne ensemble",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 10,
-      "label": "Comment tout fonctionne ensemble",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu.json",
-      "slug": "seo-geo-contenu",
-      "route": "/services/seo-geo-contenu",
-      "index": 8,
-      "label": "Comment tout fonctionne ensemble",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 9,
-      "label": "Comment tout fonctionne ensemble",
+      "label": "Comment tout s'articule",
       "background": "ink"
     },
     {
@@ -6904,7 +5672,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
-      "index": 6,
+      "index": 9,
       "label": "Comment un lead devient client",
       "background": "ink"
     },
@@ -6972,44 +5740,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "ink"
     }
   ],
-  "tech-when-dual": [
-    {
-      "collection": "implantations",
-      "file": "implantations/lyon.json",
-      "slug": "lyon",
-      "route": "/implantations/lyon",
-      "index": 2,
-      "label": "Ce qui se fait à distance, ce qui se fait à Lyon",
-      "background": "paper"
-    },
-    {
-      "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 4,
-      "label": "Quand l'utiliser en PME, et quand s'abstenir",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/automatisation-make.json",
-      "slug": "automatisation-make",
-      "route": "/services/automatisation-make",
-      "index": 2,
-      "label": "Quand Make est le bon choix, et quand il ne l'est pas",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/base-de-connaissance-ia.json",
-      "slug": "base-de-connaissance-ia",
-      "route": "/services/base-de-connaissance-ia",
-      "index": 2,
-      "label": "Quand ça vaut le coût, et quand non",
-      "background": "paper"
-    }
-  ],
   "testimonial-wall": [
     {
       "collection": "services",
@@ -7022,6 +5752,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     }
   ],
   "versus-competitors": [
+    {
+      "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 2,
+      "label": "L'audit est utile pour vous si",
+      "background": "paper"
+    },
     {
       "collection": "audits",
       "file": "audits/audit-site-web-intelligent.json",
@@ -7117,9 +5856,6 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   "editorial-split-grid": [
     "src/pages/en/ressources/index.astro",
     "src/pages/ressources/index.astro"
-  ],
-  "engagement-ledger": [
-    "src/pages/tarifs.astro"
   ],
   "faq-accordion": [
     "src/pages/en/index.astro",

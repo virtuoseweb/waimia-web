@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Agents IA pour entreprise : conception et mise en production · Waimia",
   "title_en": "AI agents for business: design and production deployment · Waimia",
-  "description_fr": "Agents IA pour entreprise : conception et mise en production d'agents qui exécutent relances, tri, veille et reporting, branchés à vos outils, sous supervision.",
-  "description_en": "AI agents for business: design and production deployment of agents handling follow-ups, sorting, watch and reporting, wired to your tools, supervised.",
+  "description_fr": "Agents IA pour entreprise : un agent par mission (tri, relance, veille, reporting), branché à vos outils, avec validation humaine. Dès 999 € HT.",
+  "description_en": "AI agents for business: one agent per mission (triage, follow-up, monitoring, reporting), wired to your tools, with human approval. From €999 excl. VAT.",
   "slug": "agents-ia",
   "publishedAt": "2026-06-22T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "agents-ia",
@@ -23,86 +23,54 @@
   },
   "faq_fr": [
     {
-      "q": "Un agent IA, ça fait quoi exactement ?",
-      "a": "Un agent IA est un programme autonome à qui on confie une mission précise et répétitive : relancer les devis sans réponse, trier les e-mails entrants, surveiller un sujet, qualifier les nouveaux contacts, produire un rapport hebdomadaire. Il est branché à vos outils via le protocole MCP, il agit seul sur sa tâche et il garde l'humain au point de validation sur les actions sensibles. Un agent égale une mission, pas un assistant qui fait tout vaguement."
+      "q": "Agent IA : c'est quoi, en une phrase ?",
+      "a": "Un programme qui utilise un modèle de langage pour choisir et exécuter des actions dans vos logiciels, à l'intérieur d'un périmètre défini. Il lit des contenus non structurés (emails, documents) et adapte son action au cas, là où une automatisation applique des règles fixes."
     },
     {
-      "q": "Quelles capacités vous déployez : chatbot, workflows, agents métier ?",
-      "a": "Les sept, sur une même base. Un chatbot IA branché à vos données pour répondre et router, l'intégration MCP pour connecter l'agent à vos outils, des workflows pour orchestrer des tâches multi-étapes, des agents métier spécialisés par fonction, la connexion à vos outils internes, l'automatisation du répétitif et la supervision humaine. On active celles qui servent votre besoin, on ne vous vend pas le catalogue entier."
+      "q": "Combien coûte un agent IA pour une entreprise ?",
+      "a": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement."
     },
     {
-      "q": "Quelle différence avec l'intégration Claude ?",
-      "a": "Un agent IA cible une tâche répétitive précise (relance, tri, veille, reporting) confiée à un programme autonome, quel que soit le modèle. L'intégration Claude est le cran au-dessus : elle déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Cette page pour un agent borné et stack-agnostique ; l'intégration Claude pour le dispositif d'entreprise complet."
+      "q": "Agent IA ou chatbot : quelle différence ?",
+      "a": "Un chatbot répond dans une fenêtre de conversation. Un agent agit : il crée un ticket, met à jour une fiche, prépare un document. Un chatbot branché à vos données et autorisé à agir est un agent avec une interface de conversation."
     },
     {
-      "q": "Qu'est-ce que le MCP et pourquoi c'est important ici ?",
-      "a": "Le Model Context Protocol est le standard ouvert d'Anthropic pour connecter un agent à vos outils et vos données. C'est ce qui fait passer un agent de la conversation à l'action : lire votre CRM, envoyer un e-mail, interroger une base, déclencher une tâche. Sans MCP propre et cloisonné, un agent ne fait que parler. Avec, il exécute pour de vrai, dans votre environnement, sous permissions explicites."
+      "q": "Quels exemples d'agents IA en PME ?",
+      "a": "Tri et pré-réponse d'une boîte email partagée, relance des devis sans suite, qualification des demandes entrantes, veille sur des appels d'offres, synthèse hebdomadaire à partir de plusieurs outils, réponse aux questions récurrentes du support."
     },
     {
-      "q": "Un agent IA, est-ce que ça remplace mes équipes ?",
-      "a": "Non. Un agent prend en charge la part répétitive et chronophage d'une tâche, pour rendre du temps à vos équipes sur ce qui demande du jugement. Il agit sous supervision : sur les actions sensibles, un humain valide. L'objectif n'est pas de retirer des personnes, c'est de retirer des heures de saisie et de relance manuelle, et de fiabiliser ce qui était fait à la main."
+      "q": "Agent IA et RGPD : quelles précautions ?",
+      "a": "Limiter les données envoyées au modèle au strict nécessaire, utiliser une offre professionnelle du modèle, tracer les actions et inscrire le traitement à votre registre. Pour Claude, Anthropic indique ne pas utiliser par défaut les données de ses offres commerciales pour entraîner ses modèles (centre de confidentialité Anthropic, vérifié le 4 octobre 2026)."
     },
     {
-      "q": "Combien de temps avant un premier agent en production ?",
-      "a": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines selon le périmètre, pas en trimestres. On commence par la tâche qui coûte le plus de temps chaque semaine, on la met en production, on la mesure, puis on étend à d'autres tâches. La supervision et le périmètre d'action sont posés dès le premier déploiement."
-    },
-    {
-      "q": "Agent IA ou automatisation : laquelle choisir ?",
-      "a": "Une automatisation suit un chemin fixe : si ceci, alors cela. Un agent IA raisonne, s'adapte et enchaîne les étapes. Pour un process réglé, un workflow suffit. Pour une tâche qui demande du jugement (trier, qualifier, rédiger), c'est un agent. On choisit le plus simple qui fait le travail."
-    },
-    {
-      "q": "Combien coûte un agent IA ?",
-      "a": "On démarre par un sprint découverte à 999 € HT (10 h) : cadrage et un premier agent en production. La suite se cale sur devis, en sprints à 99 € de l'heure, estimés avec vous. Pas d'abonnement caché : vous gardez vos agents et vos accès."
-    },
-    {
-      "q": "Comment je garde le contrôle sur ce que fait l'agent ?",
-      "a": "Chaque agent a un périmètre d'action défini, des permissions explicites et des points de validation humaine sur les actions à risque. Les décisions sont tracées, les serveurs MCP cloisonnés, et vous gardez la main : journaux consultables, arrêt possible à tout moment, rien ne tourne en boîte noire. Un agent sérieux est supervisable, pas magique."
-    },
-    {
-      "q": "Et si nos équipes veulent reprendre la main sur les agents ?",
-      "a": "La passation fait partie du livrable. On documente la mission de chaque agent, ses permissions et ses connexions MCP, et on forme vos équipes à les ajuster. L'objectif est l'autonomie : vous n'êtes pas captif d'un prestataire pour modifier une relance ou élargir le périmètre d'un agent."
+      "q": "Combien de temps pour mettre un agent IA en production ?",
+      "a": "Quelques jours de cadrage, puis quelques semaines selon le nombre d'outils à connecter et la qualité des sources. Le premier agent est volontairement étroit : une mission, mesurée, avant d'élargir."
     }
   ],
   "faq_en": [
     {
-      "q": "What does an AI agent actually do?",
-      "a": "An AI agent is an autonomous program given one precise, repetitive mission: follow up on unanswered quotes, sort incoming email, watch a topic, qualify new contacts, produce a weekly report. It is wired to your tools through the MCP protocol, it acts on its own task and it keeps a human at the validation point on sensitive actions. One agent equals one mission, not an assistant that vaguely does everything."
+      "q": "AI agent: what is it, in one sentence?",
+      "a": "A program that uses a language model to choose and carry out actions in your software, within a defined scope. It reads unstructured content (emails, documents) and adapts its action to the case, where an automation applies fixed rules."
     },
     {
-      "q": "Which capabilities do you deploy: chatbot, workflows, business agents?",
-      "a": "All seven, on a single base. A chatbot wired to your data to answer and route, MCP integration to connect the agent to your tools, workflows to orchestrate multi-step tasks, business agents specialised by function, the connection to your internal tools, automation of the repetitive and human supervision. We activate the ones that serve your need, we don't sell you the whole catalogue."
+      "q": "How much does an AI agent cost for a business?",
+      "a": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
     },
     {
-      "q": "How is this different from Claude integration?",
-      "a": "An AI agent targets one precise repetitive task (follow-up, sorting, watch, reporting) handed to an autonomous program, whatever the model. Claude integration is the tier above: it deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. This page for a bounded, stack-agnostic agent; Claude integration for the full enterprise setup."
+      "q": "AI agent or chatbot: what is the difference?",
+      "a": "A chatbot answers in a conversation window. An agent acts: it creates a ticket, updates a record, prepares a document. A chatbot wired to your data and allowed to act is an agent with a chat interface."
     },
     {
-      "q": "What is MCP and why does it matter here?",
-      "a": "The Model Context Protocol is Anthropic's open standard for connecting an agent to your tools and data. It's what moves an agent from conversation to action: reading your CRM, sending an email, querying a database, triggering a task. Without a clean, compartmentalised MCP, an agent only talks. With it, it really executes, in your environment, under explicit permissions."
+      "q": "What are examples of AI agents in SMBs?",
+      "a": "Triage and draft replies for a shared mailbox, follow-up on unanswered quotes, qualification of incoming requests, monitoring of tenders, weekly summary from several tools, answers to recurring support questions."
     },
     {
-      "q": "Does an AI agent replace my teams?",
-      "a": "No. An agent takes over the repetitive, time-consuming part of a task, to give your teams back time for what requires judgement. It acts under supervision: on sensitive actions, a human validates. The goal isn't to remove people, it's to remove hours of manual entry and follow-up, and to make reliable what used to be done by hand."
+      "q": "AI agents and GDPR: what precautions?",
+      "a": "Limit the data sent to the model to what is strictly needed, use a business plan of the model, log actions and record the processing in your register. For Claude, Anthropic states that by default it does not use data from its commercial products to train its models (Anthropic privacy center, checked on 4 October 2026)."
     },
     {
-      "q": "How long before a first agent in production?",
-      "a": "Scoping takes a few days, the first useful agent ships in a few weeks depending on scope, not quarters. We start with the task that costs the most time each week, put it into production, measure it, then extend to other tasks. Supervision and the scope of action are laid in at the first deployment."
-    },
-    {
-      "q": "AI agent or automation: which one to choose?",
-      "a": "An automation follows a fixed path: if this, then that. An AI agent reasons, adapts and chains the steps. For a settled process, a workflow is enough. For a task that needs judgement (sorting, qualifying, drafting), it's an agent. We pick the simpler one that does the job."
-    },
-    {
-      "q": "How much does an AI agent cost?",
-      "a": "We start with a discovery sprint at 999 € ex VAT (10 h): scoping and a first agent in production. What follows is quoted, in sprints at 99 € an hour, estimated with you. No hidden subscription: you keep your agents and your access."
-    },
-    {
-      "q": "How do I keep control over what the agent does?",
-      "a": "Every agent has a defined scope of action, explicit permissions and human validation points on risky actions. Decisions are traced, MCP servers compartmentalised, and you keep control: readable logs, a stop possible at any time, nothing runs as a black box. A serious agent is supervisable, not magic."
-    },
-    {
-      "q": "What if our teams want to take back control of the agents?",
-      "a": "Handover is part of the deliverable. We document each agent's mission, its permissions and its MCP connections, and we train your teams to adjust them. The goal is autonomy: you are not captive to a provider to change a follow-up or widen an agent's scope."
+      "q": "How long does it take to put an AI agent into production?",
+      "a": "A few days of scoping, then a few weeks depending on the number of tools to connect and the quality of the sources. The first agent is deliberately narrow: one mission, measured, before widening."
     }
   ],
   "sections": [
@@ -113,38 +81,38 @@
       "kicker_en": "§ AI agents",
       "h1_fr": "<i class=\"acc\">Agents IA</i> pour votre entreprise",
       "h1_en": "<i class=\"acc\">AI agents</i> for your business",
-      "lede_fr": "Un chatbot qui récite une FAQ ne fait rien. Un POC qui impressionne en réunion dort ensuite dans un Notion. Un agent IA fait l'inverse : il exécute. Waimia conçoit et déploie des agents autonomes branchés à vos outils via MCP, qui relancent, trient, veillent et rapportent sous supervision, sans saisie manuelle. Une brique du système opérationnel de votre entreprise.",
-      "lede_en": "A chatbot reciting a FAQ does nothing. A POC that wows the meeting then sleeps in a Notion. An AI agent does the opposite: it executes. Waimia designs and deploys autonomous agents wired to your tools via MCP, that follow up, sort, watch and report under supervision, with no manual entry. A building block of your company's operational system.",
+      "lede_fr": "Un agent IA est un programme qui s'appuie sur un modèle de langage (Claude ou OpenAI) pour accomplir une mission précise dans vos logiciels : lire, décider entre plusieurs actions, agir, rendre compte. Waimia conçoit ces agents pour les PME et ETI, un agent par mission, avec un périmètre écrit, une validation humaine sur les actions sensibles et un journal de tout ce qu'il fait.",
+      "lede_en": "An AI agent is a program that relies on a language model (Claude or OpenAI) to carry out a specific mission inside your software: read, decide between several actions, act, report. Waimia designs these agents for SMBs, one agent per mission, with a written scope, human approval on sensitive actions and a log of everything it does.",
       "badges": [
         {
-          "label_fr": "Un agent, une mission cadrée",
-          "label_en": "One agent, one framed mission"
+          "label_fr": "Un agent, une mission",
+          "label_en": "One agent, one mission"
         },
         {
-          "label_fr": "Branché via MCP",
-          "label_en": "Wired via MCP"
+          "label_fr": "Claude ou OpenAI",
+          "label_en": "Claude or OpenAI"
         },
         {
-          "label_fr": "Autonome, supervisé",
-          "label_en": "Autonomous, supervised"
+          "label_fr": "Validation humaine",
+          "label_en": "Human approval"
         },
         {
-          "label_fr": "Mesurable",
-          "label_en": "Measurable"
+          "label_fr": "Journal des actions",
+          "label_en": "Action log"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=agents-ia&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir les capacités",
-        "label_en": "See the capabilities",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -155,465 +123,210 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "Un agent",
-          "label_fr": "une mission cadrée, pas un assistant vague",
-          "label_en": "one framed mission, not a vague assistant"
+          "value": "Quelques semaines",
+          "label_fr": "premier agent en production, selon le périmètre",
+          "label_en": "first agent in production, depending on scope",
+          "emphasis": false
         },
         {
-          "value": "Relance, tri, veille",
-          "label_fr": "le répétitif exécuté, pas récité",
-          "label_en": "the repetitive executed, not recited"
+          "value": "Claude · OpenAI",
+          "label_fr": "modèle choisi selon la tâche et vos contraintes",
+          "label_en": "model chosen for the task and your constraints",
+          "emphasis": false
         },
         {
-          "value": "En prod",
-          "label_fr": "un agent qui exécute, pas un POC",
-          "label_en": "an agent that executes, not a POC"
+          "value": "À vous",
+          "label_fr": "consignes, connecteurs et documentation de l'agent",
+          "label_en": "the agent's instructions, connectors and documentation",
+          "emphasis": false
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Chaîne d'exécution",
-      "kicker_en": "FIG 1.5 · Execution chain",
-      "h2_fr": "Un chatbot vitrine parle. Un <i class=\"acc\">agent</i> exécute, dans vos outils, et rend compte.",
-      "h2_en": "A brochure chatbot talks. An <i class=\"acc\">agent</i> executes, inside your tools, and reports back.",
-      "lede_fr": "De gestes manuels éparpillés à un flux supervisé, vos outils se parlent via MCP et le travail se fait, sans saisie. Chaque tâche répétitive rejoint un agent qui l'exécute et rend compte. Le cas le plus courant : un <a href=\"/services/agent-support-client\">agent de support client</a> qui traite le SAV répétitif et garde l'humain sur ce qui compte.",
-      "lede_en": "From scattered manual steps to a supervised flow, your tools talk via MCP and the work gets done, with no data entry. Every repetitive task joins an agent that runs it and reports back. The most common case: a <a href=\"/services/agent-support-client\">customer support agent</a> that handles repetitive support and keeps humans on what matters.",
-      "cta": {
-        "label_fr": "Voir les capacités →",
-        "label_en": "See the capabilities →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : des tâches dispersées rejoignent une chaîne supervisée.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: scattered tasks join one supervised chain."
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">agent IA</i> est un programme autonome branché à vos outils via MCP, qui exécute relances, tri, veille et reporting sous supervision humaine, sans saisie manuelle. Waimia conçoit ces agents, les met en production et les mesure, quel que soit le modèle.",
-      "statement_en": "An <i class=\"acc\">AI agent</i> is an autonomous program wired to your tools via MCP, running follow-ups, sorting, watch and reporting under human supervision, with no manual entry. Waimia designs these agents, ships them to production and measures them, whatever the model.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">agent IA</i> est un programme qui confie à un modèle de langage le choix de la prochaine action à mener dans vos outils, à l'intérieur d'un périmètre fixé à l'avance. À la différence d'une automatisation, il traite des entrées non structurées (un email, un PDF, une conversation) et adapte sa réponse au cas.",
+      "statement_en": "An <i class=\"acc\">AI agent</i> is a program that lets a language model choose the next action to take in your tools, within a scope set in advance. Unlike an automation, it handles unstructured input (an email, a PDF, a conversation) and adapts its response to the case.",
       "pills": [
         {
-          "label_fr": "Une mission cadrée",
-          "label_en": "One framed mission"
+          "label_fr": "Mission écrite",
+          "label_en": "Written mission"
         },
         {
-          "label_fr": "Branché via MCP",
-          "label_en": "Wired via MCP"
+          "label_fr": "Périmètre borné",
+          "label_en": "Bounded scope"
         },
         {
-          "label_fr": "Autonome sous supervision",
-          "label_en": "Autonomous, supervised"
+          "label_fr": "Actions journalisées",
+          "label_en": "Logged actions"
         },
         {
-          "label_fr": "Mesurable",
-          "label_en": "Measurable"
+          "label_fr": "Arrêt possible à tout moment",
+          "label_en": "Can be stopped at any time"
         }
       ],
       "specs": [
         {
-          "label_fr": "Relances",
-          "label_en": "Follow-ups"
+          "label_fr": "Claude, OpenAI",
+          "label_en": "Claude, OpenAI"
         },
         {
-          "label_fr": "Tri et qualification",
-          "label_en": "Sorting and qualifying"
+          "label_fr": "Connecteurs MCP et API",
+          "label_en": "MCP connectors and APIs"
         },
         {
-          "label_fr": "Veille continue",
-          "label_en": "Continuous watch"
+          "label_fr": "Base de connaissance",
+          "label_en": "Knowledge base"
         },
         {
-          "label_fr": "Reporting",
-          "label_en": "Reporting"
-        },
-        {
-          "label_fr": "CRM et e-mail",
-          "label_en": "CRM and email"
-        },
-        {
-          "label_fr": "Supervision humaine",
-          "label_en": "Human supervision"
+          "label_fr": "n8n pour l'orchestration",
+          "label_en": "n8n for orchestration"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où le travail répétitif déborde",
-      "kicker_en": "Where repetitive work overflows",
-      "h2_fr": "Pourquoi le répétitif vous coûte cher",
-      "h2_en": "Why the repetitive costs you dearly",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Les relances tombent, l'argent avec",
-          "title_en": "Follow-ups slip, money with them",
-          "desc_fr": "Devis sans réponse, facture en retard, lead qui refroidit : chaque relance manquée est un revenu qui s'évapore, sans que personne sache ce qui a été suivi.",
-          "desc_en": "Unanswered quote, late invoice, cooling lead: every missed follow-up is revenue evaporating, with no one knowing what was tracked.",
-          "fix_fr": "Agent de relance branché au CRM.",
-          "fix_en": "Follow-up agent wired to the CRM."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Des heures perdues à trier et recopier",
-          "title_en": "Hours lost sorting and re-typing",
-          "desc_fr": "Trier la boîte mail, qualifier les formulaires, recopier d'un outil à l'autre : un travail invisible qui mange des heures et où l'erreur se glisse.",
-          "desc_en": "Sorting the mailbox, qualifying forms, re-typing across tools: invisible work that eats hours and where errors creep in.",
-          "fix_fr": "Tri et saisie automatisés, supervisés.",
-          "fix_en": "Sorting and entry automated, supervised."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Un POC qui n'a jamais rien exécuté",
-          "title_en": "A POC that never executed anything",
-          "desc_fr": "Une démo qui a impressionné, puis dort dans un Notion : aucun outil branché, aucune tâche prise en charge, aucune heure gagnée.",
-          "desc_en": "A demo that impressed, then sleeps in a Notion: no tool wired, no task taken on, no hour saved.",
-          "fix_fr": "Un agent en production, pas une démo.",
-          "fix_en": "An agent in production, not a demo."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Agents IA, c'est quoi en pratique</h2>\n<p>Trois missions reviennent en PME. Trier : l'agent lit les emails ou les demandes entrantes, les classe et prépare la réponse. Relancer : il repère les devis sans suite, rédige la relance dans le ton de la maison et la soumet à validation. Rendre compte : il rassemble chaque semaine les chiffres de plusieurs outils et rédige la synthèse. Le cas le plus demandé est le support : il a sa page, <a href=\"/services/agent-support-client\">chatbot et agent de service client</a>.</p>\n<p>Un agent n'est pas toujours nécessaire. Si la règle s'écrit en « si ceci, alors cela », une <a href=\"/services/automatisations\">automatisation</a> fait le travail pour moins cher. L'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation</a> détaille la frontière.</p>\n<h2>Avec quels outils</h2>\n<p>Le modèle : Claude ou OpenAI, choisi selon la tâche. Les connexions : l'agent accède à vos logiciels par leurs API ou par des connecteurs MCP, le Model Context Protocol, un <a href=\"https://www.anthropic.com/news/model-context-protocol\" rel=\"nofollow noopener\" target=\"_blank\">standard ouvert publié par Anthropic</a> pour relier un modèle à des sources de données et des outils (vérifié le 4 octobre 2026). L'orchestration : n8n quand l'agent s'insère dans un workflow. Le déploiement de Claude à l'échelle de l'entreprise est traité sur la page <a href=\"/services/integration-claude\">intégration Claude</a>.</p>\n<h2>Combien de temps</h2>\n<p>Le cadrage prend quelques jours, un premier agent utile sort en quelques semaines. Le temps se passe surtout à écrire le périmètre (ce que l'agent fait seul, ce qu'il soumet, ce qu'il ne touche jamais) et à le tester sur vos vrais cas, y compris ceux qui doivent échouer proprement.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un agent peut se tromper avec assurance. On traite ce risque de trois façons : il ne répond que depuis les sources qu'on lui donne, les actions qui engagent l'entreprise (envoyer, payer, supprimer) passent par une validation humaine, et chaque action est journalisée pour être relue. Deuxième risque : les données. On documente quelles données personnelles passent par le modèle, pour votre registre RGPD et vos obligations au titre de l'AI Act. Troisième risque : le coût d'usage du modèle, estimé avant le lancement puis suivi.</p>\n<p>Pour savoir si l'une de vos tâches relève d'un agent, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>AI agents in practice</h2>\n<p>Three missions come back in SMBs. Triage: the agent reads incoming emails or requests, classifies them and drafts the reply. Follow-up: it spots quotes left unanswered, writes the follow-up in the house tone and submits it for approval. Reporting: every week it gathers figures from several tools and writes the summary. The most requested case is support, which has its own page: <a href=\"/services/agent-support-client\">customer service chatbot and agent</a>.</p>\n<p>An agent is not always needed. If the rule can be written as \"if this, then that\", an <a href=\"/services/automatisations\">automation</a> does the job for less. The article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or automation</a> details the boundary.</p>\n<h2>With which tools</h2>\n<p>The model: Claude or OpenAI, chosen for the task. The connections: the agent reaches your software through APIs or MCP connectors, the Model Context Protocol, an <a href=\"https://www.anthropic.com/news/model-context-protocol\" rel=\"nofollow noopener\" target=\"_blank\">open standard published by Anthropic</a> for connecting a model to data sources and tools (checked on 4 October 2026). Orchestration: n8n when the agent sits inside a workflow. Company-wide Claude deployment is covered on the <a href=\"/services/integration-claude\">Claude integration</a> page.</p>\n<h2>How long</h2>\n<p>Scoping takes a few days, a first useful agent ships in a few weeks. Most of the time goes into writing the scope (what the agent does alone, what it submits, what it never touches) and testing it on your real cases, including those that must fail cleanly.</p>\n<h2>What can go wrong</h2>\n<p>An agent can be confidently wrong. We handle this in three ways: it only answers from the sources we give it, actions that commit the company (send, pay, delete) go through human approval, and every action is logged for review. Second risk: data. We document which personal data goes through the model, for your GDPR register and your AI Act obligations. Third risk: model usage cost, estimated before launch and then tracked.</p>\n<p>To find out whether one of your tasks calls for an agent, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ L'équation",
-      "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi un <i class=\"acc\">agent</i> change l'équation",
-      "h2_en": "Why an <i class=\"acc\">agent</i> changes the equation",
-      "without_label_fr": "Chatbot vitrine, POC qui dort",
-      "without_label_en": "Brochure chatbot, POC asleep",
-      "without_title_fr": "Ce qui reste sur le slide",
-      "without_title_en": "What stays on the slide",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : la boîte contact@ d'une PME de services",
+      "h2_en": "Typical example: the contact@ mailbox of a services SMB",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Une boîte partagée, quatre lecteurs",
+      "without_title_en": "One shared mailbox, four readers",
       "without_items": [
         {
-          "text_fr": "Un chatbot qui récite une FAQ et ne touche à rien : joli en démo, inutile en vrai.",
-          "text_en": "A chatbot reciting a FAQ that touches nothing: nice in a demo, useless for real."
+          "text_fr": "Quatre personnes ouvrent la même boîte, sans savoir qui a répondu.",
+          "text_en": "Four people open the same mailbox without knowing who replied."
         },
         {
-          "text_fr": "Un POC qui impressionne en réunion, puis dort dans un Notion six mois plus tard.",
-          "text_en": "A POC that wows the meeting, then sleeps in a Notion six months later."
+          "text_fr": "Les demandes de devis se mélangent aux factures et aux candidatures.",
+          "text_en": "Quote requests are mixed with invoices and job applications."
         },
         {
-          "text_fr": "Des scripts figés qui cassent à la moindre mise à jour d'un outil.",
-          "text_en": "Rigid scripts that break at the slightest tool update."
+          "text_fr": "Une demande urgente attend parce qu'elle ressemble aux autres.",
+          "text_en": "An urgent request waits because it looks like the others."
         },
         {
-          "text_fr": "Personne ne sait quel bout d'IA tourne, sur quelles données, ni ce qu'il a fait.",
-          "text_en": "No one knows which bit of AI runs, on which data, or what it did."
+          "text_fr": "Personne ne sait combien de demandes arrivent par semaine.",
+          "text_en": "Nobody knows how many requests come in each week."
         }
       ],
-      "with_label_fr": "Agent en production",
-      "with_label_en": "Agent in production",
-      "with_title_fr": "Ce qui exécute vraiment",
-      "with_title_en": "What actually executes",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un agent de tri, sous contrôle",
+      "with_title_en": "A triage agent, under control",
       "with_items": [
         {
-          "text_fr": "Un agent branché à vos outils via MCP, qui agit sur le travail réel.",
-          "text_en": "An agent wired to your tools via MCP, acting on the real work."
+          "text_fr": "L'agent lit chaque email et le classe : devis, support, facture, autre.",
+          "text_en": "The agent reads each email and classifies it: quote, support, invoice, other."
         },
         {
-          "text_fr": "Une mission cadrée et mesurable, pas un assistant qui fait tout à moitié.",
-          "text_en": "A framed, measurable mission, not an assistant doing everything halfway."
+          "text_fr": "Il crée la tâche chez la bonne personne, avec un résumé de trois lignes.",
+          "text_en": "It creates the task for the right person, with a three-line summary."
         },
         {
-          "text_fr": "Chaque action tracée, supervisée sur les points sensibles, jamais en boîte noire.",
-          "text_en": "Every action traced, supervised on sensitive points, never a black box."
+          "text_fr": "Pour les demandes de devis, il prépare un brouillon de réponse, jamais envoyé sans validation.",
+          "text_en": "For quote requests, it drafts a reply, never sent without approval."
         },
         {
-          "text_fr": "Le gain prouvé sur une tâche, puis étendu : le système grandit par preuve.",
-          "text_en": "The gain proven on one task, then extended: the system grows by proof."
+          "text_fr": "Ce qu'il ne sait pas classer part dans une file « à trier », sans supposition.",
+          "text_en": "What it cannot classify goes to a \"to sort\" queue, with no guessing."
+        },
+        {
+          "text_fr": "Un tableau montre le volume par catégorie et le taux de corrections humaines.",
+          "text_en": "A dashboard shows volume per category and the rate of human corrections."
         }
       ]
     },
     {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Ce qu'un agent exécute chez vous",
-      "h2_en": "What an agent executes for you",
-      "lede_fr": "Sept briques, une seule base composable. On active celles qui servent votre besoin, quand elles servent. Pas de gadget qu'on vous facture pour rien.",
-      "lede_en": "Seven building blocks, a single composable base. We activate the ones that serve your need, when they serve. No gadget billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "chatbot",
-          "title_fr": "Chatbot IA",
-          "title_en": "AI chatbot",
-          "body_fr": "Branché à vos données réelles, pas un bot scripté qui récite une FAQ : il répond, qualifie une demande et la route vers le bon agent ou la bonne personne.",
-          "body_en": "Wired to your real data, not a scripted bot reciting a FAQ: it answers, qualifies a request and routes it to the right agent or person."
-        },
-        {
-          "icon": "mcp",
-          "title_fr": "Intégration MCP",
-          "title_en": "MCP integration",
-          "body_fr": "Le protocole qui connecte l'agent à vos outils et vos données : CRM, e-mail, agenda, base. C'est ce qui le fait passer de la conversation à l'action.",
-          "body_en": "The protocol connecting the agent to your tools and data: CRM, email, calendar, database. That is what moves it from conversation to action."
-        },
-        {
-          "icon": "workflow",
-          "title_fr": "Workflows",
-          "title_en": "Workflows",
-          "body_fr": "Une chaîne de tâches orchestrée : lire un formulaire, qualifier, créer la fiche CRM, répondre, planifier la relance. Un process automatisé bout en bout.",
-          "body_en": "An orchestrated chain of tasks: read a form, qualify, create the CRM record, reply, schedule the follow-up. An end-to-end automated process."
-        },
-        {
-          "icon": "agents",
-          "title_fr": "Agents métier",
-          "title_en": "Business agents",
-          "body_fr": "Des agents spécialisés par fonction : support qui trie et répond, sales qui relance et qualifie, ops qui suit et alerte. Un agent, une mission cadrée.",
-          "body_en": "Agents specialised by function: support that sorts and answers, sales that follows up and qualifies, ops that tracks and alerts. One agent, one framed mission."
-        },
-        {
-          "icon": "connexion",
-          "title_fr": "Connexion aux outils",
-          "title_en": "Tools connection",
-          "body_fr": "Branché à ce que vous utilisez déjà : CRM, base de données, APIs internes. L'agent lit, interroge et agit sur vos données réelles, qui restent chez vous.",
-          "body_en": "Wired to what you already use: CRM, database, internal APIs. The agent reads, queries and acts on your real data, which stays with you."
-        },
-        {
-          "icon": "auto",
-          "title_fr": "Automatisation",
-          "title_en": "Automation",
-          "body_fr": "Le répétitif délégué à l'agent : relancer, trier, recopier, synthétiser, alerter. Fiable et tenu dans la durée, sans fatigue ni oubli le vendredi soir.",
-          "body_en": "The repetitive handed to the agent: follow up, sort, copy, summarise, alert. Reliable and sustained over time, with no fatigue or lapse on a Friday evening."
-        },
-        {
-          "icon": "supervision",
-          "title_fr": "Supervision humaine",
-          "title_en": "Human supervision",
-          "body_fr": "Sur les actions sensibles, un humain valide. Décisions tracées, journaux consultables, arrêt possible à tout moment : l'agent rend du temps, pas le contrôle.",
-          "body_en": "On sensitive actions, a human validates. Traced decisions, readable logs, a stop possible at any time: the agent gives back time, not control."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "systeme",
+      "type": "deliverables-grid",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système ops et IA",
-      "kicker_en": "§ The ops and AI system",
-      "h2_fr": "Autour de l'agent, le reste du <i>système</i>",
-      "h2_en": "Around the agent, the rest of the <i>system</i>",
-      "lede_fr": "Les agents ne travaillent jamais seuls. Ils s'appuient sur vos workflows, vos outils internes et vos données. Survolez une porte pour la voir.",
-      "lede_en": "Agents never work alone. They lean on your workflows, your internal tools and your data. Hover a door to preview it.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Un agent est fait de textes et de connexions. Tout vous est remis.",
+      "lead_en": "An agent is made of text and connections. Everything is handed over.",
       "items": [
         {
-          "label_fr": "Automatisations",
-          "label_en": "Automations",
-          "meta_fr": "Workflows · orchestrer vos process",
-          "meta_en": "Workflows · orchestrate your processes",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : les étapes d'un workflow qui s'enchaînent.",
-          "media_alt_en": "A validated handshake: the steps of a workflow chaining together.",
-          "link_href": "/services/automatisations"
+          "title_fr": "Les consignes de l'agent",
+          "title_en": "The agent's instructions",
+          "body_fr": "Sa mission, son périmètre et ses règles d'escalade, rédigés et versionnés.",
+          "body_en": "Its mission, scope and escalation rules, written and versioned.",
+          "format_fr": "CONSIGNES",
+          "format_en": "CONSIGNES"
         },
         {
-          "label_fr": "Applications internes",
-          "label_en": "Internal applications",
-          "meta_fr": "Outils métier sur mesure",
-          "meta_en": "Bespoke business tools",
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Un ordinateur ausculté : l'outil interne que l'agent pilote.",
-          "media_alt_en": "A computer being checked: the internal tool the agent drives.",
-          "link_href": "/services/applications-internes"
+          "title_fr": "Les connecteurs",
+          "title_en": "The connectors",
+          "body_fr": "Les accès à vos outils, créés sur vos comptes, avec des droits limités à la mission.",
+          "body_en": "Access to your tools, created on your accounts, with rights limited to the mission.",
+          "format_fr": "CONNECTEURS",
+          "format_en": "CONNECTEURS"
         },
         {
-          "label_fr": "Données et reporting",
-          "label_en": "Data and reporting",
-          "meta_fr": "Tableaux de bord que l'IA lit",
-          "meta_en": "Dashboards the AI reads",
-          "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
-          "media_alt_fr": "Un paysage en mouvement : la donnée qui circule vers un tableau de bord.",
-          "media_alt_en": "A landscape in motion: data flowing into a dashboard.",
-          "link_href": "/services/donnees-reporting"
+          "title_fr": "Le journal et les mesures",
+          "title_en": "The log and metrics",
+          "body_fr": "L'historique des actions, le volume traité et le taux de corrections humaines.",
+          "body_en": "The action history, the volume handled and the rate of human corrections.",
+          "format_fr": "SUIVI",
+          "format_en": "SUIVI"
         },
         {
-          "label_fr": "Intégration Claude",
-          "label_en": "Claude integration",
-          "meta_fr": "MCP · déployer Claude dans l'entreprise",
-          "meta_en": "MCP · deploy Claude in the enterprise",
-          "media_src": "/images/illustrations/ds/super-girl-paper.webp",
-          "media_alt_fr": "Une figure dynamique : Claude branché à toute l'entreprise.",
-          "media_alt_en": "A dynamic figure: Claude wired into the whole enterprise.",
-          "link_href": "/services/integration-claude"
-        },
-        {
-          "label_fr": "Le système complet",
-          "label_en": "The complete system",
-          "meta_fr": "Le hub systèmes opérationnels et IA",
-          "meta_en": "The operational and AI systems hub",
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Une équipe réunie : le système opérationnel de bout en bout.",
-          "media_alt_en": "A team gathered: the end-to-end operational system.",
-          "link_href": "/services/systemes-operationnels-ia"
+          "title_fr": "La documentation",
+          "title_en": "The documentation",
+          "body_fr": "Comment modifier une consigne, élargir le périmètre, arrêter l'agent.",
+          "body_en": "How to change an instruction, widen the scope, stop the agent.",
+          "format_fr": "DOC",
+          "format_en": "DOC"
         }
       ]
     },
     {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
+      "type": "decision-list",
       "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · l'agent prend forme",
-      "kicker_en": "§ Method · the agent takes shape",
-      "h2_fr": "Du cadrage à l'agent en production",
-      "h2_en": "From scoping to a live agent",
-      "lede_fr": "On commence par la tâche qui coûte le plus de temps, on la confie à un agent, on la mesure, puis on étend. Vous savez avant de signer quel agent on déploie en premier et ce qu'il vous fait gagner.",
-      "lede_en": "We start with the task that costs the most time, hand it to an agent, measure it, then extend. You know before signing which agent we deploy first and what it saves you.",
-      "steps": [
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Un agent IA n'est pas la bonne réponse si",
+      "heading_en": "An AI agent is not the right answer if",
+      "items": [
         {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Cadrage",
-          "eyebrow_en": "Scoping",
-          "title_fr": "Repérer la tâche à automatiser",
-          "title_en": "Spot the task to automate",
-          "body_fr": "Quelques jours d'écoute : on identifie les tâches répétitives à fort volume qui coûtent du temps chaque semaine, on les qualifie par gain réel et faisabilité. Livrable : la tâche prioritaire, claire et mesurable.",
-          "body_en": "A few days of listening: we identify the high-volume repetitive tasks that cost time every week, qualify them by real gain and feasibility. Deliverable: the priority task, clear and measurable.",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Cadrage de la tâche prioritaire à automatiser",
-          "media_alt_en": "Scoping the priority task to automate"
+          "label_fr": "La règle est fixe et s'écrit en quelques conditions : prenez une automatisation.",
+          "label_en": "The rule is fixed and fits in a few conditions: use an automation."
         },
         {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Conception",
-          "eyebrow_en": "Design",
-          "title_fr": "Concevoir l'agent et son périmètre",
-          "title_en": "Design the agent and its scope",
-          "body_fr": "On définit la mission de l'agent, son périmètre d'action, ses permissions et ses points de validation humaine. Livrable : la spécification de l'agent, ce qu'il fait seul et ce qu'il fait valider.",
-          "body_en": "We define the agent's mission, its scope of action, its permissions and its human validation points. Deliverable: the agent spec, what it does on its own and what it sends for validation.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Conception de l'agent et de son périmètre d'action",
-          "media_alt_en": "Designing the agent and its scope of action"
+          "label_fr": "L'erreur n'est pas rattrapable et personne ne validera les actions sensibles.",
+          "label_en": "A mistake cannot be undone and nobody will approve sensitive actions."
         },
         {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Déploiement",
-          "eyebrow_en": "Deployment",
-          "title_fr": "Brancher via MCP et déployer",
-          "title_en": "Wire via MCP and deploy",
-          "body_fr": "On câble l'agent à vos outils via des serveurs MCP propres et cloisonnés, on le met en production sur sa tâche réelle. Livrable : un agent qui exécute vraiment, pas une démo, sous permissions explicites.",
-          "body_en": "We wire the agent to your tools through clean, compartmentalised MCP servers and put it into production on its real task. Deliverable: an agent that truly executes, not a demo, under explicit permissions.",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Branchement de l'agent via MCP et mise en production",
-          "media_alt_en": "Wiring the agent via MCP and going live"
+          "label_fr": "Les informations dont il a besoin ne sont écrites nulle part : il faut d'abord une base de connaissance.",
+          "label_en": "The information it needs is written nowhere: you need a knowledge base first."
         },
         {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Mesure et supervision",
-          "eyebrow_en": "Measure and supervision",
-          "title_fr": "Mesurer et superviser",
-          "title_en": "Measure and supervise",
-          "body_fr": "On suit ce que l'agent traite : volume, temps gagné, actions déclenchées, et on ajuste. Livrable : un tableau de mesure et une supervision posée, pour décider d'étendre sur des chiffres.",
-          "body_en": "We track what the agent handles: volume, time saved, actions triggered, and we adjust. Deliverable: a measurement board and supervision in place, to decide on extending by the numbers.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Mesure de l'exécution et supervision de l'agent",
-          "media_alt_en": "Measuring execution and supervising the agent"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Extension et passation",
-          "eyebrow_en": "Extension and handover",
-          "title_fr": "Étendre et passer la main",
-          "title_en": "Extend and hand over",
-          "body_fr": "Une fois la valeur prouvée, on ajoute un agent sur la tâche suivante et on forme vos équipes à les ajuster. Livrable : un système d'agents qui grandit par preuve et que vous pilotez vous-même.",
-          "body_en": "Once the value is proven, we add an agent on the next task and train your teams to adjust them. Deliverable: an agent system that grows by proof and that you steer yourself.",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Extension du système d'agents et passation à l'équipe",
-          "media_alt_en": "Extending the agent system and handing over to the team",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
+          "label_fr": "Le volume est de quelques cas par mois : le temps de conception ne sera pas amorti.",
+          "label_en": "The volume is a few cases a month: the design time will not pay off."
         }
       ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · agents et automatisations en production",
-      "spec_en": "Client cases · agents and automations in production",
-      "h2_fr": "Des agents tenus sur le terrain",
-      "h2_en": "Agents held in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Agents · Claude · MCP",
-          "impact_fr": "Tâches répétitives cadrées puis confiées à des agents branchés via MCP : qualification des entrants et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Repetitive tasks framed then handed to agents wired via MCP: qualification of incoming leads and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Automatisation · Refonte · Perf",
-          "impact_fr": "Priorité posée sur la fiabilisation du répétitif et la performance, puis exécutée : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Priority set on making the repetitive reliable and on performance, then executed: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable fiabilisé et allégé.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store made reliable and leaner."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Pipeline IA · Création · SEO",
-          "impact_fr": "Production éditoriale répétitive assistée par un pipeline IA : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Repetitive editorial production assisted by an AI pipeline: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
@@ -622,10 +335,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier agent en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez vos agents, vos accès et la documentation.",
-      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep your agents, your access and the documentation.",
+      "h2_fr": "Combien coûte un agent IA",
+      "h2_en": "How much an AI agent costs",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier agent en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos agents, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your agents, your access and the documentation.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -646,9 +359,9 @@
             "A first deliverable that runs, not a mockup"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=agents-ia&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -661,13 +374,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Nouveaux agents déployés et supervisés",
             "Vous gardez agents, accès et documentation"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "New agents deployed and supervised",
             "You keep the agents, access and documentation"
           ],
@@ -679,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier agent conçu, branché via MCP et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents suivants, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos agents, vos accès et la documentation sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first agent designed, wired via MCP and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your agents, your access and the documentation are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier agent conçu, branché via MCP et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents suivants, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos agents, vos accès et la documentation sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first agent designed, wired via MCP and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your agents, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
@@ -691,69 +404,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Agents IA : vos questions",
+      "h2_en": "AI agents: your questions",
       "items": [
         {
-          "q_fr": "Un agent IA, ça fait quoi exactement ?",
-          "q_en": "What does an AI agent actually do?",
-          "a_fr": "Un agent IA est un programme autonome à qui on confie une mission précise et répétitive : relancer les devis sans réponse, trier les e-mails entrants, surveiller un sujet, qualifier les nouveaux contacts, produire un rapport hebdomadaire. Il est branché à vos outils via le protocole MCP, il agit seul sur sa tâche et il garde l'humain au point de validation sur les actions sensibles. Un agent égale une mission, pas un assistant qui fait tout vaguement.",
-          "a_en": "An AI agent is an autonomous program given one precise, repetitive mission: follow up on unanswered quotes, sort incoming email, watch a topic, qualify new contacts, produce a weekly report. It is wired to your tools through the MCP protocol, it acts on its own task and it keeps a human at the validation point on sensitive actions. One agent equals one mission, not an assistant that vaguely does everything."
+          "q_fr": "Agent IA : c'est quoi, en une phrase ?",
+          "a_fr": "Un programme qui utilise un modèle de langage pour choisir et exécuter des actions dans vos logiciels, à l'intérieur d'un périmètre défini. Il lit des contenus non structurés (emails, documents) et adapte son action au cas, là où une automatisation applique des règles fixes.",
+          "q_en": "AI agent: what is it, in one sentence?",
+          "a_en": "A program that uses a language model to choose and carry out actions in your software, within a defined scope. It reads unstructured content (emails, documents) and adapts its action to the case, where an automation applies fixed rules."
         },
         {
-          "q_fr": "Quelles capacités vous déployez : chatbot, workflows, agents métier ?",
-          "q_en": "Which capabilities do you deploy: chatbot, workflows, business agents?",
-          "a_fr": "Les sept, sur une même base. Un chatbot IA branché à vos données pour répondre et router, l'intégration MCP pour connecter l'agent à vos outils, des workflows pour orchestrer des tâches multi-étapes, des agents métier spécialisés par fonction, la connexion à vos outils internes, l'automatisation du répétitif et la supervision humaine. On active celles qui servent votre besoin, on ne vous vend pas le catalogue entier.",
-          "a_en": "All seven, on a single base. A chatbot wired to your data to answer and route, MCP integration to connect the agent to your tools, workflows to orchestrate multi-step tasks, business agents specialised by function, the connection to your internal tools, automation of the repetitive and human supervision. We activate the ones that serve your need, we don't sell you the whole catalogue."
+          "q_fr": "Combien coûte un agent IA pour une entreprise ?",
+          "a_fr": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement.",
+          "q_en": "How much does an AI agent cost for a business?",
+          "a_en": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
         },
         {
-          "q_fr": "Quelle différence avec l'intégration Claude ?",
-          "q_en": "How is this different from Claude integration?",
-          "a_fr": "Un agent IA cible une tâche répétitive précise (relance, tri, veille, reporting) confiée à un programme autonome, quel que soit le modèle. L'intégration Claude est le cran au-dessus : elle déploie tout l'écosystème Anthropic (Claude, Claude Code, MCP), forme un référent interne et pose la gouvernance. Cette page pour un agent borné et stack-agnostique ; l'intégration Claude pour le dispositif d'entreprise complet.",
-          "a_en": "An AI agent targets one precise repetitive task (follow-up, sorting, watch, reporting) handed to an autonomous program, whatever the model. Claude integration is the tier above: it deploys the full Anthropic ecosystem (Claude, Claude Code, MCP), trains an internal lead and lays in governance. This page for a bounded, stack-agnostic agent; Claude integration for the full enterprise setup."
+          "q_fr": "Agent IA ou chatbot : quelle différence ?",
+          "a_fr": "Un chatbot répond dans une fenêtre de conversation. Un agent agit : il crée un ticket, met à jour une fiche, prépare un document. Un chatbot branché à vos données et autorisé à agir est un agent avec une interface de conversation.",
+          "q_en": "AI agent or chatbot: what is the difference?",
+          "a_en": "A chatbot answers in a conversation window. An agent acts: it creates a ticket, updates a record, prepares a document. A chatbot wired to your data and allowed to act is an agent with a chat interface."
         },
         {
-          "q_fr": "Qu'est-ce que le MCP et pourquoi c'est important ici ?",
-          "q_en": "What is MCP and why does it matter here?",
-          "a_fr": "Le Model Context Protocol est le standard ouvert d'Anthropic pour connecter un agent à vos outils et vos données. C'est ce qui fait passer un agent de la conversation à l'action : lire votre CRM, envoyer un e-mail, interroger une base, déclencher une tâche. Sans MCP propre et cloisonné, un agent ne fait que parler. Avec, il exécute pour de vrai, dans votre environnement, sous permissions explicites.",
-          "a_en": "The Model Context Protocol is Anthropic's open standard for connecting an agent to your tools and data. It's what moves an agent from conversation to action: reading your CRM, sending an email, querying a database, triggering a task. Without a clean, compartmentalised MCP, an agent only talks. With it, it really executes, in your environment, under explicit permissions."
+          "q_fr": "Quels exemples d'agents IA en PME ?",
+          "a_fr": "Tri et pré-réponse d'une boîte email partagée, relance des devis sans suite, qualification des demandes entrantes, veille sur des appels d'offres, synthèse hebdomadaire à partir de plusieurs outils, réponse aux questions récurrentes du support.",
+          "q_en": "What are examples of AI agents in SMBs?",
+          "a_en": "Triage and draft replies for a shared mailbox, follow-up on unanswered quotes, qualification of incoming requests, monitoring of tenders, weekly summary from several tools, answers to recurring support questions."
         },
         {
-          "q_fr": "Un agent IA, est-ce que ça remplace mes équipes ?",
-          "q_en": "Does an AI agent replace my teams?",
-          "a_fr": "Non. Un agent prend en charge la part répétitive et chronophage d'une tâche, pour rendre du temps à vos équipes sur ce qui demande du jugement. Il agit sous supervision : sur les actions sensibles, un humain valide. L'objectif n'est pas de retirer des personnes, c'est de retirer des heures de saisie et de relance manuelle, et de fiabiliser ce qui était fait à la main.",
-          "a_en": "No. An agent takes over the repetitive, time-consuming part of a task, to give your teams back time for what requires judgement. It acts under supervision: on sensitive actions, a human validates. The goal isn't to remove people, it's to remove hours of manual entry and follow-up, and to make reliable what used to be done by hand."
+          "q_fr": "Agent IA et RGPD : quelles précautions ?",
+          "a_fr": "Limiter les données envoyées au modèle au strict nécessaire, utiliser une offre professionnelle du modèle, tracer les actions et inscrire le traitement à votre registre. Pour Claude, Anthropic indique ne pas utiliser par défaut les données de ses offres commerciales pour entraîner ses modèles (centre de confidentialité Anthropic, vérifié le 4 octobre 2026).",
+          "q_en": "AI agents and GDPR: what precautions?",
+          "a_en": "Limit the data sent to the model to what is strictly needed, use a business plan of the model, log actions and record the processing in your register. For Claude, Anthropic states that by default it does not use data from its commercial products to train its models (Anthropic privacy center, checked on 4 October 2026)."
         },
         {
-          "q_fr": "Combien de temps avant un premier agent en production ?",
-          "q_en": "How long before a first agent in production?",
-          "a_fr": "Le cadrage prend quelques jours, le premier agent utile sort en quelques semaines selon le périmètre, pas en trimestres. On commence par la tâche qui coûte le plus de temps chaque semaine, on la met en production, on la mesure, puis on étend à d'autres tâches. La supervision et le périmètre d'action sont posés dès le premier déploiement.",
-          "a_en": "Scoping takes a few days, the first useful agent ships in a few weeks depending on scope, not quarters. We start with the task that costs the most time each week, put it into production, measure it, then extend to other tasks. Supervision and the scope of action are laid in at the first deployment."
-        },
-        {
-          "q_fr": "Agent IA ou automatisation : laquelle choisir ?",
-          "q_en": "AI agent or automation: which one to choose?",
-          "a_fr": "Une automatisation suit un chemin fixe : si ceci, alors cela. Un agent IA raisonne, s'adapte et enchaîne les étapes. Pour un process réglé, un workflow suffit. Pour une tâche qui demande du jugement (trier, qualifier, rédiger), c'est un agent. On choisit le plus simple qui fait le travail.",
-          "a_en": "An automation follows a fixed path: if this, then that. An AI agent reasons, adapts and chains the steps. For a settled process, a workflow is enough. For a task that needs judgement (sorting, qualifying, drafting), it's an agent. We pick the simpler one that does the job."
-        },
-        {
-          "q_fr": "Combien coûte un agent IA ?",
-          "q_en": "How much does an AI agent cost?",
-          "a_fr": "On démarre par un sprint découverte à 999 € HT (10 h) : cadrage et un premier agent en production. La suite se cale sur devis, en sprints à 99 € de l'heure, estimés avec vous. Pas d'abonnement caché : vous gardez vos agents et vos accès.",
-          "a_en": "We start with a discovery sprint at 999 € ex VAT (10 h): scoping and a first agent in production. What follows is quoted, in sprints at 99 € an hour, estimated with you. No hidden subscription: you keep your agents and your access."
-        },
-        {
-          "q_fr": "Comment je garde le contrôle sur ce que fait l'agent ?",
-          "q_en": "How do I keep control over what the agent does?",
-          "a_fr": "Chaque agent a un périmètre d'action défini, des permissions explicites et des points de validation humaine sur les actions à risque. Les décisions sont tracées, les serveurs MCP cloisonnés, et vous gardez la main : journaux consultables, arrêt possible à tout moment, rien ne tourne en boîte noire. Un agent sérieux est supervisable, pas magique.",
-          "a_en": "Every agent has a defined scope of action, explicit permissions and human validation points on risky actions. Decisions are traced, MCP servers compartmentalised, and you keep control: readable logs, a stop possible at any time, nothing runs as a black box. A serious agent is supervisable, not magic."
-        },
-        {
-          "q_fr": "Et si nos équipes veulent reprendre la main sur les agents ?",
-          "q_en": "What if our teams want to take back control of the agents?",
-          "a_fr": "La passation fait partie du livrable. On documente la mission de chaque agent, ses permissions et ses connexions MCP, et on forme vos équipes à les ajuster. L'objectif est l'autonomie : vous n'êtes pas captif d'un prestataire pour modifier une relance ou élargir le périmètre d'un agent.",
-          "a_en": "Handover is part of the deliverable. We document each agent's mission, its permissions and its MCP connections, and we train your teams to adjust them. The goal is autonomy: you are not captive to a provider to change a follow-up or widen an agent's scope."
+          "q_fr": "Combien de temps pour mettre un agent IA en production ?",
+          "a_fr": "Quelques jours de cadrage, puis quelques semaines selon le nombre d'outils à connecter et la qualité des sources. Le premier agent est volontairement étroit : une mission, mesurée, avant d'élargir.",
+          "q_en": "How long does it take to put an AI agent into production?",
+          "a_en": "A few days of scoping, then a few weeks depending on the number of tools to connect and the quality of the sources. The first agent is deliberately narrow: one mission, measured, before widening."
         }
       ]
     },
@@ -764,23 +453,23 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à déléguer le répétitif ?",
-      "kicker_en": "§ Ready to offload the repetitive?",
-      "h2_fr": "Confiez vos tâches répétitives à un agent qui exécute.",
-      "h2_en": "Hand your repetitive tasks to an agent that executes.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec la tâche prioritaire à automatiser et une première estimation du temps qu'un agent vous ferait gagner, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et supervise lui-même, pas une démo vendue comme une production.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with the priority task to automate and a first estimate of the time an agent would save you, whether we work together or not. Across the table, the founder who designs and supervises himself, not a demo sold as production.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quelle tâche confieriez-vous à un agent ?",
+      "h2_en": "Which task would you hand to an agent?",
+      "subtitle_fr": "En 45 minutes, on passe vos tâches en revue et on vous dit lesquelles relèvent d'un agent, lesquelles d'une simple automatisation, et lesquelles ne valent pas le coup.",
+      "subtitle_en": "In 45 minutes, we review your tasks and tell you which call for an agent, which for a simple automation, and which are not worth it.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=agents-ia&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir l'intégration Claude",
-          "label_en": "See Claude integration",
-          "href": "/services/integration-claude",
+          "label_fr": "Voir l'offre automatisation IA",
+          "label_en": "See the AI automation offer",
+          "href": "/services/systemes-operationnels-ia",
           "variant": "ghost"
         }
       ]

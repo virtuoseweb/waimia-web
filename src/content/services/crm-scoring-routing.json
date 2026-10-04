@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Automatisation CRM et CRM sur mesure pour PME · Waimia",
   "title_en": "CRM automation and custom CRM for SMEs · Waimia",
-  "description_fr": "Automatisation CRM et CRM sur mesure pour PME : chaque lead noté, affecté au bon commercial et rappelé à temps. HubSpot, Salesforce, Pipedrive.",
-  "description_en": "CRM automation and custom CRM for SMEs: every lead scored, assigned to the right rep and called in time. HubSpot, Salesforce, Pipedrive.",
+  "description_fr": "Automatisation CRM pour PME : fiches créées sans ressaisie, leads notés et affectés au bon commercial, relances déclenchées. HubSpot, Pipedrive, Salesforce.",
+  "description_en": "CRM automation for SMBs: records created with no retyping, leads scored and assigned to the right rep, follow-ups triggered. HubSpot, Pipedrive, Salesforce.",
   "slug": "crm-scoring-routing",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "crm-scoring-routing",
@@ -23,120 +23,96 @@
   },
   "faq_fr": [
     {
-      "q": "CRM, scoring et routing, qu'est-ce que ça couvre exactement ?",
-      "a": "Trois moments d'une même chaîne. Le CRM structuré tient la donnée propre : fiches dédoublonnées, enrichies, à jour. Le scoring note chaque lead selon son comportement pour dire qui rappeler en premier. Le routing affecte automatiquement le bon lead au bon commercial, avec une alerte au bon moment. La donnée propre nourrit le scoring, le scoring nourrit le routing. Sans les trois, un maillon casse."
+      "q": "Combien coûte l'automatisation d'un CRM ?",
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée 99 € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur."
     },
     {
-      "q": "En quoi c'est différent d'un CRM classique déjà en place ?",
-      "a": "Un CRM classique stocke. Un CRM structuré et instrumenté travaille : les doublons sont supprimés, les fiches enrichies automatiquement, chaque lead noté et routé sans intervention. La plupart des CRM finissent en cimetière de fiches mortes que personne ne met à jour. On répare l'hygiène de la donnée, puis on branche le scoring et le routing par-dessus."
+      "q": "Qu'est-ce que le lead scoring, en pratique ?",
+      "a": "Une note attribuée à chaque lead selon des critères écrits : correspondance avec votre cible, besoin exprimé, comportement (pages vues, réponse à un email). Elle sert à décider qui rappeler en premier. Elle doit rester explicable, sinon les commerciaux ne s'en servent pas."
     },
     {
-      "q": "Le lead scoring, ça marche comment concrètement ?",
-      "a": "Chaque lead reçoit une note prédictive de probabilité d'achat, calculée sur ses signaux : pages vues, contenu téléchargé, secteur, taille, fréquence de visite, formulaire rempli. Au lieu de traiter les contacts dans l'ordre d'arrivée, le commercial voit en haut de sa liste les leads les plus chauds. Le score ne remplace pas le commercial, il lui dit qui rappeler en premier."
+      "q": "CRM sur mesure ou CRM du marché : que choisir ?",
+      "a": "Un CRM du marché dans la grande majorité des cas : il est maintenu par son éditeur et se connecte à tout. Le sur-mesure se justifie quand votre cycle de vente est trop spécifique pour être configuré, et se traite comme une application métier."
     },
     {
-      "q": "Le routing, ça affecte les leads à qui, selon quelles règles ?",
-      "a": "Selon vos règles : territoire, secteur, taille de compte, langue, tour de rôle équitable, ou score. Un lead qui arrive est affecté automatiquement au bon commercial, avec une alerte et un délai de rappel cadré. Fini le lead chaud qui tombe dans une boîte partagée que personne ne surveille, ou le commercial qui rappelle en dernier parce qu'il n'a pas vu passer la fiche."
+      "q": "Sur quels CRM travaillez-vous ?",
+      "a": "HubSpot, Pipedrive et Salesforce. On part de l'outil que vous avez. Si vous n'en avez pas, on vous aide à choisir selon la taille de l'équipe et la complexité du cycle de vente."
     },
     {
-      "q": "Le score se met-il à jour tout seul ?",
-      "a": "Oui. Un lead n'a pas une note figée : elle évolue avec son comportement. Une nouvelle visite, un contenu consulté, une demande de devis font monter le score ; un long silence le fait baisser. La file de priorité reste vivante, et le commercial voit en temps réel qui s'est réchauffé. C'est l'intérêt d'un scoring branché aux signaux plutôt qu'une note saisie une fois à la main."
+      "q": "Combien de temps pour automatiser un CRM ?",
+      "a": "Habituellement 2 à 4 semaines pour la notation et l'affectation. Le nettoyage préalable des données peut allonger le délai si la base est ancienne."
     },
     {
-      "q": "Sur quels CRM vous travaillez ?",
-      "a": "HubSpot, Salesforce et Pipedrive en priorité, en intégration native. Le scoring et le routing s'écrivent directement sur la fiche du lead, dans l'interface où votre équipe travaille déjà. Elle ne change pas d'outil : elle voit juste apparaître une note, un classement et une affectation. Pour un autre CRM, on évalue la faisabilité au cadrage."
-    },
-    {
-      "q": "Faut-il refaire tout notre CRM existant ?",
-      "a": "Non. On part de ce que vous avez. On nettoie la donnée, on dédoublonne, on enrichit, puis on ajoute le scoring et le routing là où la valeur fuit. Si la base est exploitable, on démarre dessus ; sinon on repose des règles métier explicites et on bascule vers un modèle prédictif quand le volume le permet. On ne casse pas ce qui marche."
-    },
-    {
-      "q": "Le commercial garde-t-il la main, ou l'IA décide à sa place ?",
-      "a": "Le scoring priorise, le routing affecte, mais le commercial reste seul juge du contact et de l'approche. Chaque score est explicable : on voit pourquoi un lead est noté haut ou bas, pas une boîte noire. L'objectif est de faire gagner du temps à l'équipe et de ne perdre aucun lead chaud, pas de la déposséder de son métier."
-    },
-    {
-      "q": "Combien coûte un CRM avec scoring et routing ?",
-      "a": "Deux façons d'engager. On démarre par un sprint découverte de 10 heures à 999 € HT : audit du CRM, nettoyage et premières règles de scoring et de routing posées, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans engagement de durée : à la fin, le CRM, les règles et la donnée sont à vous."
+      "q": "L'IA décide-t-elle à la place du commercial ?",
+      "a": "Non. Elle classe et prépare : résumé de la demande, score, suggestion de prochaine action. Le commercial garde la décision et le contact avec le client."
     }
   ],
   "faq_en": [
     {
-      "q": "CRM, scoring and routing, what does it cover exactly?",
-      "a": "Three moments of one chain. The structured CRM keeps the data clean: deduplicated, enriched, up-to-date records. Scoring rates every lead on behaviour to say who to call first. Routing automatically assigns the right lead to the right rep, with an alert at the right time. Clean data feeds the scoring, scoring feeds the routing. Without all three, a link breaks."
+      "q": "How much does CRM automation cost?",
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: CRM audit, cleaning, first scoring and assignment rules. The rest is estimated in hours then billed €99 per hour excl. VAT. The CRM licence remains at your expense, with its vendor."
     },
     {
-      "q": "How is it different from a CRM already in place?",
-      "a": "A classic CRM stores. A structured, instrumented CRM works: duplicates removed, records enriched automatically, every lead scored and routed with no intervention. Most CRMs end up as a graveyard of dead records nobody updates. We fix the data hygiene, then wire scoring and routing on top."
+      "q": "What is lead scoring, in practice?",
+      "a": "A score given to each lead on written criteria: fit with your target, stated need, behaviour (pages viewed, email reply). It decides who to call first. It must stay explainable, otherwise salespeople do not use it."
     },
     {
-      "q": "How does lead scoring actually work?",
-      "a": "Every lead gets a predictive purchase-probability score, computed on its signals: pages viewed, content downloaded, sector, size, visit frequency, form filled. Instead of handling contacts in arrival order, the rep sees the hottest leads at the top of the list. The score doesn't replace the rep, it tells them who to call first."
+      "q": "Custom CRM or off-the-shelf CRM: which to choose?",
+      "a": "An off-the-shelf CRM in the vast majority of cases: it is maintained by its vendor and connects to everything. Custom is justified when your sales cycle is too specific to configure, and is handled as a business application."
     },
     {
-      "q": "Who does routing assign leads to, on which rules?",
-      "a": "On your rules: territory, sector, account size, language, fair round-robin, or score. An incoming lead is automatically assigned to the right rep, with an alert and a framed call-back window. No more hot lead falling into a shared inbox nobody watches, or the rep calling last because they never saw the record."
+      "q": "Which CRMs do you work on?",
+      "a": "HubSpot, Pipedrive and Salesforce. We start from the tool you have. If you have none, we help you choose based on team size and sales cycle complexity."
     },
     {
-      "q": "Does the score update on its own?",
-      "a": "Yes. A lead doesn't have a fixed score: it evolves with behaviour. A new visit, a viewed piece of content, a quote request push the score up; a long silence pulls it down. The priority queue stays alive, and the rep sees in real time who warmed up. That's the point of scoring wired to signals rather than a note typed once by hand."
+      "q": "How long does it take to automate a CRM?",
+      "a": "Usually 2 to 4 weeks for scoring and assignment. Prior data cleaning can lengthen it if the base is old."
     },
     {
-      "q": "Which CRMs do you work with?",
-      "a": "HubSpot, Salesforce and Pipedrive first, native integration. Scoring and routing write directly onto the lead record, in the interface your team already works in. They don't change tools: they just see a score, a ranking and an assignment appear. For another CRM, we assess feasibility at scoping."
-    },
-    {
-      "q": "Do we have to rebuild our existing CRM?",
-      "a": "No. We start from what you have. We clean the data, deduplicate, enrich, then add scoring and routing where value leaks. If the base is usable, we start on it; otherwise we lay explicit business rules and switch to a predictive model when volume allows. We don't break what works."
-    },
-    {
-      "q": "Does the rep keep control, or does the AI decide for them?",
-      "a": "Scoring prioritises, routing assigns, but the rep stays the sole judge of the contact and the approach. Every score is explainable: you see why a lead scores high or low, not a black box. The goal is to save the team time and lose no hot lead, not to strip them of their craft."
-    },
-    {
-      "q": "How much does a CRM with scoring and routing cost?",
-      "a": "Two ways to engage. We start with a 10-hour discovery sprint at 999 € ex VAT: CRM audit, cleaning and the first scoring and routing rules in place, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No duration commitment: at the end, the CRM, the rules and the data are yours."
+      "q": "Does the AI decide in place of the salesperson?",
+      "a": "No. It ranks and prepares: request summary, score, suggested next action. The salesperson keeps the decision and the customer contact."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ CRM, scoring et routing",
-      "kicker_en": "§ CRM, scoring and routing",
+      "kicker_fr": "§ Automatisation CRM",
+      "kicker_en": "§ CRM automation",
       "h1_fr": "Automatisation de votre <i class=\"acc\">CRM</i>",
       "h1_en": "Automating your <i class=\"acc\">CRM</i>",
-      "lede_fr": "Vos leads arrivent, puis se perdent. Le chaud tombe dans une boîte partagée que personne ne surveille, le commercial rappelle en dernier, et le CRM devient un cimetière de fiches mortes. Un CRM structuré fait l'inverse : il note chaque lead, l'affecte au bon commercial et le fait rappeler à temps. Branché à vos outils. Le cœur de votre système d'acquisition.",
-      "lede_en": "Your leads arrive, then get lost. The hot ones fall into a shared inbox nobody watches, the rep calls last, and the CRM turns into a graveyard of dead records. A structured CRM does the opposite: it scores every lead, assigns it to the right rep and gets it called in time. Wired to your tools. The heart of your acquisition system.",
+      "lede_fr": "L'automatisation CRM consiste à faire faire par le CRM ce que vos commerciaux font à la main : créer la fiche, la compléter, noter le lead, l'affecter à la bonne personne et rappeler qu'il faut relancer. Waimia configure et automatise le CRM que vous avez déjà (HubSpot, Pipedrive, Salesforce) pour les PME dont les demandes entrantes se perdent entre le site, les boîtes mail et un outil à moitié rempli.",
+      "lede_en": "CRM automation means having the CRM do what your salespeople do by hand: create the record, complete it, score the lead, assign it to the right person and remind them to follow up. Waimia configures and automates the CRM you already have (HubSpot, Pipedrive, Salesforce) for SMBs whose incoming requests get lost between the site, mailboxes and a half-filled tool.",
       "badges": [
         {
-          "label_fr": "Données propres",
-          "label_en": "Clean data"
+          "label_fr": "Fiches sans ressaisie",
+          "label_en": "Records with no retyping"
         },
         {
-          "label_fr": "Lead scoring",
+          "label_fr": "Notation des leads",
           "label_en": "Lead scoring"
         },
         {
-          "label_fr": "Routing automatique",
-          "label_en": "Automatic routing"
+          "label_fr": "Affectation automatique",
+          "label_en": "Automatic assignment"
         },
         {
-          "label_fr": "Branché au CRM",
-          "label_en": "CRM-connected"
+          "label_fr": "Votre CRM actuel",
+          "label_en": "Your current CRM"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=crm-scoring-routing&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir le dispositif",
-        "label_en": "See the system",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -147,579 +123,208 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "2–4 sem.",
-          "label_fr": "scoring et routing en route",
-          "label_en": "scoring and routing live"
+          "value": "2 à 4 semaines",
+          "label_fr": "délai habituel pour la notation et l'affectation en service",
+          "label_en": "usual lead time for scoring and assignment to go live",
+          "emphasis": false
         },
         {
-          "value": "Temps réel",
-          "label_fr": "score mis à jour, alerte au bon moment",
-          "label_en": "score updated, alert at the right time"
+          "value": "HubSpot · Pipedrive · Salesforce",
+          "label_fr": "on travaille sur l'outil en place",
+          "label_en": "we work on the tool in place",
+          "emphasis": false
         },
         {
-          "value": "100 %",
-          "label_fr": "CRM transféré, zéro captivité",
-          "label_en": "CRM handed over, no lock-in"
+          "value": "À vous",
+          "label_fr": "CRM, règles et données",
+          "label_en": "CRM, rules and data",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Le <i class=\"acc\">lead scoring</i> est une note prédictive de probabilité d'achat attribuée à chaque lead selon son comportement. Couplé au routing, il affecte automatiquement le bon lead au bon commercial, au bon moment, dans un CRM structuré et propre. Chez Waimia, il priorise et distribue, il ne remplace pas le commercial.",
-      "statement_en": "<i class=\"acc\">Lead scoring</i> is a predictive purchase-probability score assigned to each lead based on its behaviour. Coupled with routing, it automatically assigns the right lead to the right rep, at the right time, inside a structured, clean CRM. At Waimia, it prioritises and distributes, it doesn't replace the rep.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "L'<i class=\"acc\">automatisation CRM</i> regroupe trois mécanismes : la saisie automatique (chaque demande crée ou met à jour une fiche), la notation (un score classe les leads selon des critères écrits) et l'affectation (une règle attribue chaque lead à un commercial et lui crée une tâche). Le commercial décide toujours quoi faire du lead.",
+      "statement_en": "<i class=\"acc\">CRM automation</i> covers three mechanisms: automatic entry (each request creates or updates a record), scoring (a score ranks leads on written criteria) and assignment (a rule gives each lead to a rep and creates a task). The rep always decides what to do with the lead.",
       "pills": [
+        {
+          "label_fr": "Saisie automatique",
+          "label_en": "Automatic entry"
+        },
+        {
+          "label_fr": "Score écrit et explicable",
+          "label_en": "Written, explainable score"
+        },
+        {
+          "label_fr": "Règles d'affectation",
+          "label_en": "Assignment rules"
+        },
         {
           "label_fr": "Données dédoublonnées",
           "label_en": "Deduplicated data"
-        },
-        {
-          "label_fr": "Score prédictif",
-          "label_en": "Predictive score"
-        },
-        {
-          "label_fr": "Routing par règles",
-          "label_en": "Rule-based routing"
-        },
-        {
-          "label_fr": "Alerte au bon moment",
-          "label_en": "Alert at the right time"
-        },
-        {
-          "label_fr": "Branché au CRM",
-          "label_en": "CRM-connected"
         }
       ],
       "specs": [
         {
-          "label_fr": "Dédoublonnage et enrichissement",
-          "label_en": "Deduplication and enrichment"
+          "label_fr": "HubSpot, Pipedrive, Salesforce",
+          "label_en": "HubSpot, Pipedrive, Salesforce"
         },
         {
-          "label_fr": "Signaux comportementaux",
-          "label_en": "Behavioural signals"
+          "label_fr": "Formulaires et emails branchés",
+          "label_en": "Forms and emails connected"
         },
         {
-          "label_fr": "Règles de routing (territoire, score)",
-          "label_en": "Routing rules (territory, score)"
+          "label_fr": "n8n ou Make",
+          "label_en": "n8n or Make"
         },
         {
-          "label_fr": "SLA de rappel cadré",
-          "label_en": "Framed call-back SLA"
-        },
-        {
-          "label_fr": "CRM (HubSpot, Salesforce, Pipedrive)",
-          "label_en": "CRM (HubSpot, Salesforce, Pipedrive)"
+          "label_fr": "Tableau du pipeline",
+          "label_en": "Pipeline dashboard"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où le lead se perd",
-      "kicker_en": "Where the lead gets lost",
-      "h2_fr": "Pourquoi votre CRM sans scoring laisse filer des ventes",
-      "h2_en": "Why your CRM without scoring lets sales slip",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Le lead chaud routé nulle part",
-          "title_en": "The hot lead routed nowhere",
-          "desc_fr": "Il arrive dans une boîte partagée que personne ne surveille. Le temps qu'on le voie, il a signé ailleurs.",
-          "desc_en": "It lands in a shared inbox nobody watches. By the time it's seen, it has signed elsewhere.",
-          "fix_fr": "Routing automatique et alerte immédiate.",
-          "fix_en": "Automatic routing and immediate alert."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Le commercial qui rappelle en dernier",
-          "title_en": "The rep who calls last",
-          "desc_fr": "Sans priorité, il traite les fiches dans l'ordre d'arrivée. Le lead brûlant attend derrière dix contacts froids.",
-          "desc_en": "With no priority, they handle records in arrival order. The scorching lead waits behind ten cold contacts.",
-          "fix_fr": "Scoring qui remonte les leads chauds.",
-          "fix_en": "Scoring that surfaces hot leads."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Un pipeline-cimetière plein de doublons",
-          "title_en": "A graveyard pipeline full of duplicates",
-          "desc_fr": "Fiches mortes, doublons, champs vides : personne ne se fie au CRM, tout le monde repart de son fichier Excel.",
-          "desc_en": "Dead records, duplicates, empty fields: nobody trusts the CRM, everyone falls back on their own spreadsheet.",
-          "fix_fr": "Dédoublonnage et enrichissement continus.",
-          "fix_en": "Continuous deduplication and enrichment."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Le problème n'est presque jamais l'outil</h2>\n<p>La plupart des PME qui nous consultent ont déjà un CRM. Il est rempli par une partie de l'équipe, avec des champs utilisés différemment par chacun et des doublons. Changer d'outil ne règle rien : on retrouve les mêmes fiches incomplètes ailleurs. Le travail consiste à nettoyer les données, à réduire les champs à ceux qui servent, puis à automatiser tout ce qui peut l'être pour que la saisie ne repose plus sur la bonne volonté.</p>\n<h2>Ce qu'on automatise dans un CRM</h2>\n<p>La création des fiches depuis le formulaire du site, la boîte contact et les prises de rendez-vous. L'enrichissement à partir de données publiques sur l'entreprise. La notation : un score fondé sur des critères que vous validez (taille, secteur, besoin exprimé, urgence), pas sur une formule opaque. L'affectation au bon commercial avec une tâche datée. Les rappels quand une affaire ne bouge plus. C'est le mécanisme attesté dans le projet <a href=\"/cas-clients/amploi\">Amploi</a> : les demandes du site sont captées et routées dans HubSpot sans ressaisie.</p>\n<p>Le CRM est le centre du <a href=\"/services/systeme-commercial\">système commercial</a> : la <a href=\"/services/prospection-automatisee\">prospection</a> l'alimente, les <a href=\"/services/sequences-de-suivi\">relances de devis</a> en partent. La méthode jour par jour est décrite dans <a href=\"/blog/cabler-son-crm-en-10-jours\">câbler son CRM en 10 jours</a>.</p>\n<h2>CRM sur mesure : rarement nécessaire</h2>\n<p>Un CRM sur mesure ne se justifie que si votre cycle de vente ne rentre dans aucun outil standard : affaires à plusieurs intervenants, tarification complexe, lien fort avec la production. Dans ce cas on développe une <a href=\"/services/applications-internes\">application métier</a>. Dans les autres cas, un CRM du marché bien configuré coûte moins cher et sera maintenu par son éditeur.</p>\n<h2>Combien de temps</h2>\n<p>La notation et l'affectation sont habituellement en service en 2 à 4 semaines. Le nettoyage des données prend le plus de temps, et il est proportionnel à l'âge de la base.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un score que les commerciaux ne comprennent pas et qu'ils ignorent : il doit pouvoir s'expliquer en une phrase par lead. Des règles d'affectation contestées : elles sont validées par le responsable commercial avant d'être activées. Et des automatisations empilées sans documentation : chacune a sa fiche.</p>\n<p>Pour faire le point sur votre CRM, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>The problem is almost never the tool</h2>\n<p>Most SMBs that come to us already have a CRM. Part of the team fills it in, with fields used differently by each person and duplicates. Switching tools fixes nothing: the same incomplete records show up elsewhere. The work is to clean the data, cut fields down to the useful ones, then automate everything possible so data entry no longer relies on goodwill.</p>\n<h2>What we automate in a CRM</h2>\n<p>Record creation from the site form, the contact mailbox and meeting bookings. Enrichment from public company data. Scoring: a score based on criteria you approve (size, sector, stated need, urgency), not an opaque formula. Assignment to the right rep with a dated task. Reminders when a deal stops moving. This is the mechanism attested in the <a href=\"/cas-clients/amploi\">Amploi</a> project: site requests are captured and routed into HubSpot with no retyping.</p>\n<p>The CRM is the centre of the <a href=\"/services/systeme-commercial\">sales system</a>: <a href=\"/services/prospection-automatisee\">prospecting</a> feeds it, <a href=\"/services/sequences-de-suivi\">quote follow-ups</a> start from it. The day-by-day method is described in <a href=\"/blog/cabler-son-crm-en-10-jours\">wiring your CRM in 10 days</a>.</p>\n<h2>Custom CRM: rarely needed</h2>\n<p>A custom CRM is only justified if your sales cycle fits no standard tool: deals with several parties, complex pricing, a strong link to production. In that case we build a <a href=\"/services/applications-internes\">business application</a>. Otherwise, a well-configured off-the-shelf CRM costs less and is maintained by its vendor.</p>\n<h2>How long</h2>\n<p>Scoring and assignment are usually live within 2 to 4 weeks. Data cleaning takes the longest, and it is proportional to the age of the base.</p>\n<h2>What can go wrong</h2>\n<p>A score salespeople do not understand and ignore: it must be explainable in one sentence per lead. Disputed assignment rules: they are approved by the sales manager before activation. And automations stacked without documentation: each has its sheet.</p>\n<p>To take stock of your CRM, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ L'équation",
-      "kicker_en": "§ The equation",
-      "h2_fr": "Racheter un CRM de plus, ou <i class=\"acc\">activer</i> celui que vous avez",
-      "h2_en": "Buying yet another CRM, or <i class=\"acc\">activating</i> the one you have",
-      "without_label_fr": "CRM passif",
-      "without_label_en": "Passive CRM",
-      "without_title_fr": "Ce qu'il laisse filer",
-      "without_title_en": "What it lets slip",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : les demandes entrantes d'une PME industrielle",
+      "h2_en": "Typical example: incoming requests at an industrial SMB",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Trois canaux, un tableur, des oublis",
+      "without_title_en": "Three channels, a spreadsheet, things forgotten",
       "without_items": [
         {
-          "text_fr": "Doublons et fiches mortes : personne ne se fie à la donnée.",
-          "text_en": "Duplicates and dead records: nobody trusts the data."
+          "text_fr": "Les demandes arrivent par le formulaire du site, par email et par téléphone.",
+          "text_en": "Requests come in through the site form, email and phone."
         },
         {
-          "text_fr": "Aucune priorité : les leads sont traités dans l'ordre d'arrivée.",
-          "text_en": "No priority: leads are handled in arrival order."
+          "text_fr": "L'assistante commerciale les recopie dans le CRM quand elle a le temps.",
+          "text_en": "The sales assistant retypes them into the CRM when she has time."
         },
         {
-          "text_fr": "Aucune affectation : le lead chaud attend qu'on le remarque.",
-          "text_en": "No assignment: the hot lead waits to be noticed."
+          "text_fr": "Le responsable répartit les demandes à la réunion du lundi.",
+          "text_en": "The manager distributes requests at the Monday meeting."
         },
         {
-          "text_fr": "Aucune alerte : le rappel arrive trop tard, ou jamais.",
-          "text_en": "No alert: the call-back comes too late, or never."
+          "text_fr": "Une demande arrivée le mardi attend six jours.",
+          "text_en": "A request that arrives on Tuesday waits six days."
         }
       ],
-      "with_label_fr": "CRM instrumenté",
-      "with_label_en": "Instrumented CRM",
-      "with_title_fr": "Ce qu'il met au travail",
-      "with_title_en": "What it puts to work",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Une fiche, un score, un responsable, le jour même",
+      "with_title_en": "A record, a score, an owner, the same day",
       "with_items": [
         {
-          "text_fr": "Données propres : fiches dédoublonnées, enrichies, à jour.",
-          "text_en": "Clean data: records deduplicated, enriched, up to date."
+          "text_fr": "Le formulaire et la boîte contact créent la fiche dans le CRM.",
+          "text_en": "The form and contact mailbox create the record in the CRM."
         },
         {
-          "text_fr": "Priorité : chaque lead noté, les plus chauds en haut de la file.",
-          "text_en": "Priority: every lead scored, the hottest at the top of the queue."
+          "text_fr": "La fiche est complétée avec les données publiques de l'entreprise.",
+          "text_en": "The record is completed with the company's public data."
         },
         {
-          "text_fr": "Affectation : le bon lead au bon commercial, automatiquement.",
-          "text_en": "Assignment: the right lead to the right rep, automatically."
+          "text_fr": "Un score classe la demande selon quatre critères validés par le responsable.",
+          "text_en": "A score ranks the request on four criteria approved by the manager."
         },
         {
-          "text_fr": "Alerte : le commercial est prévenu au bon moment, rien ne dort.",
-          "text_en": "Alert: the rep is notified at the right time, nothing sleeps."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un CRM",
-      "h2_en": "The 6 levels of a CRM",
-      "lede_fr": "Du carnet de contacts au CRM qui s'affine seul, six paliers. La plupart des PME stagnent au deuxième, un CRM qui stocke sans trier. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From a contact book to a CRM that sharpens itself, six tiers. Most SMEs stall at the second, a CRM that stores without sorting. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Pas de CRM",
-          "title_en": "No CRM",
-          "sub_fr": "Contacts dans des fichiers",
-          "sub_en": "Contacts in spreadsheets"
+          "text_fr": "La demande est affectée selon le secteur géographique, avec une tâche à 24 heures.",
+          "text_en": "The request is assigned by territory, with a 24-hour task."
         },
         {
-          "title_fr": "CRM qui stocke",
-          "title_en": "CRM that stores",
-          "sub_fr": "Fiches, mais pas de tri",
-          "sub_en": "Records, but no sorting"
-        },
-        {
-          "title_fr": "CRM propre",
-          "title_en": "Clean CRM",
-          "sub_fr": "Dédoublonné, enrichi",
-          "sub_en": "Deduplicated, enriched"
-        },
-        {
-          "title_fr": "CRM qui score",
-          "title_en": "CRM that scores",
-          "sub_fr": "Leads notés et priorisés",
-          "sub_en": "Leads scored and prioritised"
-        },
-        {
-          "title_fr": "CRM qui route",
-          "title_en": "CRM that routes",
-          "sub_fr": "Affectation et alertes",
-          "sub_en": "Assignment and alerts"
-        },
-        {
-          "title_fr": "CRM auto-affiné",
-          "title_en": "Self-sharpening CRM",
-          "sub_fr": "Le score apprend du comportement",
-          "sub_en": "The score learns from behaviour"
+          "text_fr": "Sans action à l'échéance, le responsable est prévenu.",
+          "text_en": "With no action at the deadline, the manager is notified."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez le CRM et les règles quand on part. Pas de captivité.",
-      "lead_en": "You keep the CRM and the rules when we leave. No lock-in.",
-      "items": [
-        {
-          "title_fr": "CRM structuré et nettoyé",
-          "title_en": "Structured, cleaned CRM",
-          "body_fr": "Dédoublonnage, enrichissement des fiches, champs normalisés : une base propre où la donnée redevient fiable.",
-          "body_en": "Deduplication, record enrichment, normalised fields: a clean base where the data becomes trustworthy again.",
-          "format_fr": "DATA",
-          "format_en": "DATA",
-          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
-          "illustration_alt_fr": "Un CRM structuré, dédoublonné et enrichi",
-          "illustration_alt_en": "A structured, deduplicated, enriched CRM"
-        },
-        {
-          "title_fr": "Modèle de scoring",
-          "title_en": "Scoring model",
-          "body_fr": "Une note prédictive par lead, calculée sur ses signaux comportementaux, mise à jour en temps réel et explicable.",
-          "body_en": "A predictive score per lead, computed on behavioural signals, updated in real time and explainable.",
-          "format_fr": "SCORING",
-          "format_en": "SCORING",
-          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
-          "illustration_alt_fr": "Un modèle de scoring qui note chaque lead sur son comportement",
-          "illustration_alt_en": "A scoring model that rates each lead on behaviour"
-        },
-        {
-          "title_fr": "Règles de routing",
-          "title_en": "Routing rules",
-          "body_fr": "Affectation automatique par territoire, secteur, taille, score ou tour de rôle, avec alerte et délai de rappel cadré.",
-          "body_en": "Automatic assignment by territory, sector, size, score or round-robin, with alert and framed call-back window.",
-          "format_fr": "ROUTING",
-          "format_en": "ROUTING",
-          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
-          "illustration_alt_fr": "Des règles de routing qui affectent chaque lead au bon commercial",
-          "illustration_alt_en": "Routing rules that assign each lead to the right rep"
-        },
-        {
-          "title_fr": "Enrichissement automatique",
-          "title_en": "Automatic enrichment",
-          "body_fr": "Chaque fiche complétée en continu : poste, secteur, taille, signaux, sans ressaisie manuelle par l'équipe.",
-          "body_en": "Every record completed continuously: role, sector, size, signals, with no manual retyping by the team.",
-          "format_fr": "ENRICH",
-          "format_en": "ENRICH",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Des fiches enrichies en continu sans ressaisie manuelle",
-          "illustration_alt_en": "Records enriched continuously with no manual retyping"
-        },
-        {
-          "title_fr": "Tableau de bord pipeline",
-          "title_en": "Pipeline dashboard",
-          "body_fr": "File de priorité par commercial, leads chauds, comptes en attente et délais de rappel, lus en temps réel.",
-          "body_en": "Priority queue per rep, hot leads, waiting accounts and call-back delays, read in real time.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
-          "illustration_alt_fr": "Un tableau de bord du pipeline avec file de priorité par commercial",
-          "illustration_alt_en": "A pipeline dashboard with a priority queue per rep"
-        },
-        {
-          "title_fr": "Documentation et autonomie",
-          "title_en": "Documentation and autonomy",
-          "body_fr": "Mode opératoire, règles de scoring et de routing documentées, formation : votre équipe pilote le CRM à la livraison.",
-          "body_en": "Operating manual, documented scoring and routing rules, training: your team runs the CRM at delivery.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
-          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur le CRM",
-          "illustration_alt_en": "A documented operating manual to make the team autonomous on the CRM"
-        }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un CRM qui note et route",
-      "h2_en": "The building blocks of a CRM that scores and routes",
-      "lede_fr": "Sept briques, une seule base. On active celles qui servent, quand elles servent. Pas de champ obligatoire de plus que personne ne remplira.",
-      "lede_en": "Seven building blocks, a single base. We activate the ones that serve, when they serve. No extra mandatory field nobody will ever fill.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "crm",
-          "title_fr": "Hygiène des données",
-          "title_en": "Data hygiene",
-          "body_fr": "Dédoublonnage, normalisation des champs, fusion des fiches en double : une base propre où la donnée redevient fiable.",
-          "body_en": "Deduplication, field normalisation, merging of duplicate records: a clean base where the data becomes trustworthy again."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "Enrichissement",
-          "title_en": "Enrichment",
-          "body_fr": "Chaque fiche complétée en continu, poste, secteur, taille, signaux, sans ressaisie manuelle par l'équipe.",
-          "body_en": "Every record completed continuously, role, sector, size, signals, with no manual retyping by the team."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Lead scoring",
-          "title_en": "Lead scoring",
-          "body_fr": "Une note prédictive par lead, calculée sur le comportement, mise à jour en temps réel, explicable et jamais figée.",
-          "body_en": "A predictive score per lead, computed on behaviour, updated in real time, explainable and never frozen."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Routing",
-          "title_en": "Routing",
-          "body_fr": "Affectation automatique par territoire, secteur, taille, score ou tour de rôle. Le bon lead au bon commercial.",
-          "body_en": "Automatic assignment by territory, sector, size, score or round-robin. The right lead to the right rep."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Alertes et SLA",
-          "title_en": "Alerts and SLA",
-          "body_fr": "Le commercial est prévenu au bon moment, avec un délai de rappel cadré. Aucun lead chaud ne dort dans une boîte.",
-          "body_en": "The rep is notified at the right time, with a framed call-back window. No hot lead sleeps in an inbox."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Pilotage",
-          "title_en": "Steering",
-          "body_fr": "File de priorité par commercial, leads chauds, comptes en attente et délais de rappel, lus en temps réel.",
-          "body_en": "Priority queue per rep, hot leads, waiting accounts and call-back delays, read in real time."
-        },
-        {
-          "icon": "design",
-          "title_fr": "Explicabilité",
-          "title_en": "Explainability",
-          "body_fr": "On voit pourquoi un lead est noté haut ou bas. Le commercial garde la main, l'IA priorise sans décider à sa place.",
-          "body_en": "You see why a lead scores high or low. The rep keeps control, the AI prioritises without deciding for them."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "declinaisons",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système commercial",
-      "kicker_en": "§ The commercial system",
-      "h2_fr": "Le CRM s'assemble au reste du <i>système commercial</i>",
-      "h2_en": "The CRM assembles into the rest of the <i>commercial system</i>",
-      "lede_fr": "Le CRM ne travaille jamais seul : il reçoit les comptes que la prospection ouvre, nourrit les relances et s'inscrit dans le système commercial. Survolez une brique pour voir comment elle se branche.",
-      "lede_en": "The CRM never works alone: it takes in the accounts prospecting opens, feeds the follow-ups and sits inside the commercial system. Hover a block to see how it wires in.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Le CRM est le vôtre. On y laisse des règles lisibles, pas une boîte noire.",
+      "lead_en": "The CRM is yours. We leave readable rules in it, not a black box.",
       "items": [
         {
-          "label_fr": "Prospection automatisée",
-          "label_en": "Automated prospecting",
-          "meta_fr": "L'outbound qui ouvre les comptes ciblés",
-          "meta_en": "The outbound that opens targeted accounts",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : la prospection qui va chercher les comptes.",
-          "media_alt_en": "A chessboard: the prospecting that goes after accounts.",
-          "link_href": "/services/prospection-automatisee"
+          "title_fr": "Une base nettoyée",
+          "title_en": "A cleaned base",
+          "body_fr": "Doublons fusionnés, champs réduits à ceux qui servent, valeurs normalisées.",
+          "body_en": "Duplicates merged, fields cut to the useful ones, values normalised.",
+          "format_fr": "DONNÉES",
+          "format_en": "DONNÉES"
         },
         {
-          "label_fr": "Séquences de suivi",
-          "label_en": "Follow-up sequences",
-          "meta_fr": "Les relances qui rattrapent les leads dormants",
-          "meta_en": "The follow-ups that recover dormant leads",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction : les séquences qui relancent au bon moment.",
-          "media_alt_en": "A handshake: the sequences that follow up at the right time.",
-          "link_href": "/services/sequences-de-suivi"
+          "title_fr": "La grille de notation",
+          "title_en": "The scoring grid",
+          "body_fr": "Les critères, leur poids et la raison de chaque choix, écrits.",
+          "body_en": "The criteria, their weight and the reason for each choice, written down.",
+          "format_fr": "SCORE",
+          "format_en": "SCORE"
         },
         {
-          "label_fr": "Système commercial",
-          "label_en": "Commercial system",
-          "meta_fr": "Prospection, CRM et relances orchestrés d'un bloc",
-          "meta_en": "Prospecting, CRM and follow-ups orchestrated as one",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : le système commercial en marche.",
-          "media_alt_en": "A car on the road: the commercial system running.",
-          "link_href": "/services/systeme-commercial"
+          "title_fr": "Les règles d'affectation",
+          "title_en": "The assignment rules",
+          "body_fr": "Qui reçoit quoi, dans quel délai, et que se passe-t-il sans réponse.",
+          "body_en": "Who gets what, within what time, and what happens with no response.",
+          "format_fr": "RÈGLES",
+          "format_en": "RÈGLES"
         },
         {
-          "label_fr": "En amont : le système d'acquisition",
-          "label_en": "Upstream: the acquisition system",
-          "meta_fr": "Le site et le contenu qui remplissent la base",
-          "meta_en": "The site and content that fill the base",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : l'acquisition qui remplit la base en amont.",
-          "media_alt_en": "A craftsman at work: acquisition filling the base upstream.",
-          "link_href": "/services/systeme-acquisition"
+          "title_fr": "La documentation",
+          "title_en": "The documentation",
+          "body_fr": "Une fiche par automatisation et un guide d'usage pour les commerciaux.",
+          "body_en": "One sheet per automation and a user guide for salespeople.",
+          "format_fr": "DOC",
+          "format_en": "DOC"
         }
       ]
     },
     {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "Le système, de bout en bout",
-      "fig_title_en": "The system, end to end",
-      "meta_fr": "RoutingLoop · v1",
-      "meta_en": "RoutingLoop · v1",
-      "h2_fr": "Comment tout fonctionne ensemble",
-      "h2_en": "How it all works together",
-      "lede_fr": "Les briques ne sont pas des options à la carte. Elles forment un circuit. Chaque maillon transforme un lead brut en lead priorisé et affecté, puis renvoie le comportement au score pour l'affiner.",
-      "lede_en": "The blocks are not options on a menu. They form a circuit. Each link turns a raw lead into a prioritised, assigned lead, then feeds the behaviour back to the score to sharpen it.",
-      "steps": [
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "N'automatisez pas votre CRM si",
+      "heading_en": "Do not automate your CRM if",
+      "items": [
         {
-          "title_fr": "Lead",
-          "title_en": "Lead",
-          "desc_fr": "Un contact entre dans le CRM depuis le site, une landing ou l'outbound.",
-          "desc_en": "A contact enters the CRM from the site, a landing or outbound."
+          "label_fr": "Vous recevez quelques demandes par mois : un tableur tenu à jour suffit.",
+          "label_en": "You get a few requests a month: an up-to-date spreadsheet is enough."
         },
         {
-          "title_fr": "Nettoyage",
-          "title_en": "Cleaning",
-          "desc_fr": "Fiche dédoublonnée, normalisée, fusionnée si un doublon existe.",
-          "desc_en": "Record deduplicated, normalised, merged if a duplicate exists."
+          "label_fr": "Vous êtes seul à vendre : l'affectation n'a pas d'objet.",
+          "label_en": "You are the only one selling: assignment is pointless."
         },
         {
-          "title_fr": "Enrichissement",
-          "title_en": "Enrichment",
-          "desc_fr": "Poste, secteur, taille et signaux complétés automatiquement.",
-          "desc_en": "Role, sector, size and signals completed automatically."
+          "label_fr": "Les commerciaux refusent d'utiliser le CRM : c'est un sujet de management avant d'être technique.",
+          "label_en": "Salespeople refuse to use the CRM: that is a management matter before a technical one."
         },
         {
-          "title_fr": "Scoring",
-          "title_en": "Scoring",
-          "desc_fr": "Note prédictive calculée, les leads chauds remontent en tête.",
-          "desc_en": "Predictive score computed, hot leads rise to the top."
-        },
-        {
-          "title_fr": "Routing",
-          "title_en": "Routing",
-          "desc_fr": "Lead affecté au bon commercial, alerte et délai de rappel déclenchés.",
-          "desc_en": "Lead assigned to the right rep, alert and call-back window triggered."
-        },
-        {
-          "title_fr": "Affinage",
-          "title_en": "Refinement",
-          "desc_fr": "Le comportement revient au score, qui s'ajuste. La boucle se referme.",
-          "desc_en": "Behaviour returns to the score, which adjusts. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'affinage continu du scoring",
-      "loop_label_en": "continuous scoring refinement loop"
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "apres-lancement",
-      "background": "paper-2",
-      "kicker_fr": "§ Après le branchement",
-      "kicker_en": "§ After wiring",
-      "h2_fr": "Le CRM continue de s'affiner après le branchement",
-      "h2_en": "The CRM keeps sharpening after wiring",
-      "lede_fr": "Un CRM branché n'est pas un CRM figé. La plupart des projets s'arrêtent au paramétrage et la base repart en cimetière. Ici, le CRM devient un actif : un score qui apprend, une hygiène maintenue, un pilotage temps réel et une autonomie complète sur vos règles.",
-      "lede_en": "A wired CRM is not a frozen CRM. Most projects stop at setup and the base drifts back into a graveyard. Here, the CRM becomes an asset: a score that learns, maintained hygiene, real-time steering and full autonomy on your rules.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "Score qui apprend",
-          "h3_en": "Score that learns",
-          "body_fr": "Le comportement des leads gagnés et perdus affine le modèle. On ajuste les seuils, on renforce les signaux qui prédisent vraiment l'achat, on écarte le bruit. Le scoring suivant classe mieux que le précédent, mesuré sur vos vrais deals.",
-          "body_en": "The behaviour of won and lost leads refines the model. We adjust thresholds, reinforce the signals that truly predict a purchase, drop the noise. The next scoring ranks better than the last, measured on your real deals.",
-          "points": [
-            {
-              "label_fr": "Seuils ajustés sur les vrais deals",
-              "label_en": "Thresholds adjusted on real deals"
-            },
-            {
-              "label_fr": "Signaux prédictifs renforcés",
-              "label_en": "Predictive signals reinforced"
-            },
-            {
-              "label_fr": "Classement affiné à chaque cycle",
-              "label_en": "Ranking sharpened each cycle"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Le score qui apprend des deals gagnés et perdus, illustration éditoriale",
-          "media_alt_en": "The score learning from won and lost deals, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Hygiène maintenue",
-          "h3_en": "Maintained hygiene",
-          "body_fr": "Une base propre ne le reste pas toute seule. Le dédoublonnage et l'enrichissement tournent en continu, les fiches restent à jour, les doublons sont fusionnés à mesure. Le CRM ne retombe pas en cimetière trois mois après le projet.",
-          "body_en": "A clean base doesn't stay clean by itself. Deduplication and enrichment run continuously, records stay up to date, duplicates merged as they appear. The CRM doesn't drift back into a graveyard three months after the project.",
-          "points": [
-            {
-              "label_fr": "Dédoublonnage en continu",
-              "label_en": "Continuous deduplication"
-            },
-            {
-              "label_fr": "Fiches enrichies automatiquement",
-              "label_en": "Records enriched automatically"
-            },
-            {
-              "label_fr": "La base reste fiable dans le temps",
-              "label_en": "The base stays trustworthy over time"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-11-paper.webp",
-          "media_alt_fr": "L'hygiène de la donnée maintenue en continu après le projet, illustration éditoriale",
-          "media_alt_en": "Data hygiene maintained continuously after the project, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Pilotage temps réel",
-          "h3_en": "Real-time steering",
-          "body_fr": "La file de priorité par commercial, les leads chauds, les comptes en attente et les délais de rappel, lus en temps réel. Vous voyez où le pipeline avance et où il cale, et vous ajustez les règles sur des chiffres, pas au ressenti.",
-          "body_en": "The priority queue per rep, hot leads, waiting accounts and call-back delays, read in real time. You see where the pipeline moves and where it stalls, and you adjust the rules on figures, not on gut feel.",
-          "points": [
-            {
-              "label_fr": "File de priorité par commercial",
-              "label_en": "Priority queue per rep"
-            },
-            {
-              "label_fr": "Comptes en attente et délais visibles",
-              "label_en": "Waiting accounts and delays visible"
-            },
-            {
-              "label_fr": "Règles ajustées sur des chiffres",
-              "label_en": "Rules adjusted on figures"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Un pilotage temps réel du pipeline avec file de priorité par commercial, illustration éditoriale",
-          "media_alt_en": "Real-time pipeline steering with a priority queue per rep, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Autonomie et passation",
-          "h3_en": "Autonomy and handover",
-          "body_fr": "On documente les règles de scoring et de routing, et on forme votre équipe : lecture du tableau, ajustement des seuils, gestion des exceptions. Vous gardez le CRM et la main. Pas de captivité : vous faites évoluer les règles sans dépendre de nous.",
-          "body_en": "We document the scoring and routing rules, and train your team: reading the dashboard, adjusting thresholds, handling exceptions. You keep the CRM and the control. No lock-in: you evolve the rules without depending on us.",
-          "points": [
-            {
-              "label_fr": "Règles de scoring et routing documentées",
-              "label_en": "Documented scoring and routing rules"
-            },
-            {
-              "label_fr": "Formation à l'ajustement des seuils",
-              "label_en": "Training on threshold adjustment"
-            },
-            {
-              "label_fr": "Vous gardez le CRM, zéro captivité",
-              "label_en": "You keep the CRM, zero lock-in"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-10-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour piloter le CRM en autonomie, illustration éditoriale",
-          "media_alt_en": "Handover and team training to run the CRM autonomously, editorial illustration"
+          "label_fr": "Vous n'avez pas défini ce qu'est un bon lead.",
+          "label_en": "You have not defined what a good lead is."
         }
       ]
     },
@@ -730,55 +335,42 @@
       "fig_num": "Fig. 05",
       "fig_title_fr": "Cas clients",
       "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
+      "spec_fr": "Cas clients · chiffres repris des fiches publiées",
+      "spec_en": "Client cases · figures taken from the published case pages",
+      "h2_fr": "Deux projets où la saisie manuelle a disparu",
+      "h2_en": "Two projects where manual entry disappeared",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Secteur · Durée",
       "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
+      "impact_label_fr": "Ce qui a été livré",
+      "impact_label_en": "What was delivered",
       "cases": [
         {
           "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
+          "sector_fr": "RH et santé au travail",
+          "sector_en": "HR and occupational health",
           "duration": "6 sem.",
-          "stack": "CRM HubSpot · Attribution · GEO",
-          "impact_fr": "Formulaires branchés HubSpot avec attribution des leads : chaque contact entrant qualifié, rattaché à sa source et routé, prêt pour le suivi commercial. Balisage schema.org pensé pour les citations IA.",
-          "impact_en": "HubSpot-connected forms with lead attribution: every inbound contact qualified, tied to its source and routed, ready for sales follow-up. Schema.org markup built for AI citations.",
+          "stack": "Astro · HubSpot Forms API · schema.org",
+          "impact_fr": "Volet site : site marketing éditable sans développeur. Volet données et IA : demandes captées par formulaire et routées dans HubSpot sans ressaisie, graphe schema.org et fichier llm.md pour la lecture par les moteurs IA. Aucun chiffre d'impact publié à ce jour.",
+          "impact_en": "Site side: a marketing site editable without a developer. Data and AI side: form requests captured and routed into HubSpot with no retyping, a schema.org graph and an llm.md file for AI engines. No impact figure published to date.",
           "href": "/cas-clients/amploi",
           "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte, qualifie et route ses leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures, qualifies and routes its leads."
+          "media_alt_fr": "Illustration : des demandes captées et routées vers le CRM.",
+          "media_alt_en": "Illustration: requests captured and routed to the CRM."
         },
         {
           "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
+          "sector_fr": "Patrimoine et média local",
+          "sector_en": "Heritage and local media",
           "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres et 35 abonnés payants en 3 mois. Une base de contacts propre et structurée, prête à être scorée et routée.",
-          "impact_en": "Built from scratch: 40 articles, 150 members and 35 paying subscribers in 3 months. A clean, structured contact base, ready to be scored and routed.",
+          "stack": "WordPress · Abonnements · Paiement récurrent",
+          "impact_fr": "Abonnements à trois niveaux, paiement récurrent et gestion des membres automatisée. Trois mois après le lancement : plus de 40 articles, 150 membres et 35 abonnés payants.",
+          "impact_en": "Three subscription tiers, recurring payment and automated member management. Three months after launch: 40+ articles, 150+ members and 35+ paying subscribers.",
           "href": "/cas-clients/les-carnets-de-montpellier",
           "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui fédère une base de membres propre et structurée.",
-          "media_alt_en": "A local media outlet building a clean, structured member base."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %. Une donnée client saine pour instrumenter le scoring.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%. Healthy customer data to instrument scoring.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable à la donnée client saine.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store with healthy customer data."
+          "media_alt_fr": "Illustration : un média local et sa communauté.",
+          "media_alt_en": "Illustration: a local media outlet and its community."
         }
       ],
       "all_label_fr": "Voir tous les cas →",
@@ -792,10 +384,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Deux façons de remettre votre CRM au travail",
-      "h2_en": "Two ways to put your CRM back to work",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : audit du CRM, nettoyage et premières règles de scoring et de routing en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez le CRM, les règles et la donnée.",
-      "lede_en": "We start with a fixed-price discovery sprint: CRM audit, cleaning and the first scoring and routing rules in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the CRM, the rules and the data.",
+      "h2_fr": "Prix d'une automatisation CRM",
+      "h2_en": "Price of CRM automation",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : audit du CRM, nettoyage et premières règles de scoring et de routing en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez le CRM, les règles et la donnée.",
+      "lede_en": "We start with a fixed-price discovery sprint: CRM audit, cleaning and the first scoring and routing rules in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the CRM, the rules and the data.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -816,9 +408,9 @@
             "A first deliverable in hand, not a dormant audit"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=crm-scoring-routing&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -831,13 +423,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Scoring, routing et enrichissement pilotés",
             "Vous gardez le CRM, les règles et la donnée"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "Scoring, routing and enrichment steered",
             "You keep the CRM, the rules and the data"
           ],
@@ -849,8 +441,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : audit du CRM, nettoyage, dédoublonnage et premières règles de scoring et de routing, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le scoring, le routing et l'enrichissement dans la durée, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, le CRM, les règles et la donnée sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: CRM audit, cleaning, deduplication and the first scoring and routing rules, with a deliverable in hand by the end. What follows is quoted: we estimate together the time scoring, routing and enrichment require over time, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No duration commitment, no subscription: at the end, the CRM, the rules and the data are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : audit du CRM, nettoyage, dédoublonnage et premières règles de scoring et de routing, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le scoring, le routing et l'enrichissement dans la durée, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, le CRM, les règles et la donnée sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: CRM audit, cleaning, deduplication and the first scoring and routing rules, with a deliverable in hand by the end. What follows is quoted: we estimate together the time scoring, routing and enrichment require over time, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No duration commitment, no subscription: at the end, the CRM, the rules and the data are yours."
     },
     {
       "type": "eeat-panel",
@@ -861,63 +453,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Automatisation CRM : vos questions",
+      "h2_en": "CRM automation: your questions",
       "items": [
         {
-          "q_fr": "CRM, scoring et routing, qu'est-ce que ça couvre exactement ?",
-          "q_en": "CRM, scoring and routing, what does it cover exactly?",
-          "a_fr": "Trois moments d'une même chaîne. Le CRM structuré tient la donnée propre : fiches dédoublonnées, enrichies, à jour. Le scoring note chaque lead selon son comportement pour dire qui rappeler en premier. Le routing affecte automatiquement le bon lead au bon commercial, avec une alerte au bon moment. La donnée propre nourrit le scoring, le scoring nourrit le routing. Sans les trois, un maillon casse.",
-          "a_en": "Three moments of one chain. The structured CRM keeps the data clean: deduplicated, enriched, up-to-date records. Scoring rates every lead on behaviour to say who to call first. Routing automatically assigns the right lead to the right rep, with an alert at the right time. Clean data feeds the scoring, scoring feeds the routing. Without all three, a link breaks."
+          "q_fr": "Combien coûte l'automatisation d'un CRM ?",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée 99 € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur.",
+          "q_en": "How much does CRM automation cost?",
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: CRM audit, cleaning, first scoring and assignment rules. The rest is estimated in hours then billed €99 per hour excl. VAT. The CRM licence remains at your expense, with its vendor."
         },
         {
-          "q_fr": "En quoi c'est différent d'un CRM classique déjà en place ?",
-          "q_en": "How is it different from a CRM already in place?",
-          "a_fr": "Un CRM classique stocke. Un CRM structuré et instrumenté travaille : les doublons sont supprimés, les fiches enrichies automatiquement, chaque lead noté et routé sans intervention. La plupart des CRM finissent en cimetière de fiches mortes que personne ne met à jour. On répare l'hygiène de la donnée, puis on branche le scoring et le routing par-dessus.",
-          "a_en": "A classic CRM stores. A structured, instrumented CRM works: duplicates removed, records enriched automatically, every lead scored and routed with no intervention. Most CRMs end up as a graveyard of dead records nobody updates. We fix the data hygiene, then wire scoring and routing on top."
+          "q_fr": "Qu'est-ce que le lead scoring, en pratique ?",
+          "a_fr": "Une note attribuée à chaque lead selon des critères écrits : correspondance avec votre cible, besoin exprimé, comportement (pages vues, réponse à un email). Elle sert à décider qui rappeler en premier. Elle doit rester explicable, sinon les commerciaux ne s'en servent pas.",
+          "q_en": "What is lead scoring, in practice?",
+          "a_en": "A score given to each lead on written criteria: fit with your target, stated need, behaviour (pages viewed, email reply). It decides who to call first. It must stay explainable, otherwise salespeople do not use it."
         },
         {
-          "q_fr": "Le lead scoring, ça marche comment concrètement ?",
-          "q_en": "How does lead scoring actually work?",
-          "a_fr": "Chaque lead reçoit une note prédictive de probabilité d'achat, calculée sur ses signaux : pages vues, contenu téléchargé, secteur, taille, fréquence de visite, formulaire rempli. Au lieu de traiter les contacts dans l'ordre d'arrivée, le commercial voit en haut de sa liste les leads les plus chauds. Le score ne remplace pas le commercial, il lui dit qui rappeler en premier.",
-          "a_en": "Every lead gets a predictive purchase-probability score, computed on its signals: pages viewed, content downloaded, sector, size, visit frequency, form filled. Instead of handling contacts in arrival order, the rep sees the hottest leads at the top of the list. The score doesn't replace the rep, it tells them who to call first."
+          "q_fr": "CRM sur mesure ou CRM du marché : que choisir ?",
+          "a_fr": "Un CRM du marché dans la grande majorité des cas : il est maintenu par son éditeur et se connecte à tout. Le sur-mesure se justifie quand votre cycle de vente est trop spécifique pour être configuré, et se traite comme une application métier.",
+          "q_en": "Custom CRM or off-the-shelf CRM: which to choose?",
+          "a_en": "An off-the-shelf CRM in the vast majority of cases: it is maintained by its vendor and connects to everything. Custom is justified when your sales cycle is too specific to configure, and is handled as a business application."
         },
         {
-          "q_fr": "Le routing, ça affecte les leads à qui, selon quelles règles ?",
-          "q_en": "Who does routing assign leads to, on which rules?",
-          "a_fr": "Selon vos règles : territoire, secteur, taille de compte, langue, tour de rôle équitable, ou score. Un lead qui arrive est affecté automatiquement au bon commercial, avec une alerte et un délai de rappel cadré. Fini le lead chaud qui tombe dans une boîte partagée que personne ne surveille, ou le commercial qui rappelle en dernier parce qu'il n'a pas vu passer la fiche.",
-          "a_en": "On your rules: territory, sector, account size, language, fair round-robin, or score. An incoming lead is automatically assigned to the right rep, with an alert and a framed call-back window. No more hot lead falling into a shared inbox nobody watches, or the rep calling last because they never saw the record."
+          "q_fr": "Sur quels CRM travaillez-vous ?",
+          "a_fr": "HubSpot, Pipedrive et Salesforce. On part de l'outil que vous avez. Si vous n'en avez pas, on vous aide à choisir selon la taille de l'équipe et la complexité du cycle de vente.",
+          "q_en": "Which CRMs do you work on?",
+          "a_en": "HubSpot, Pipedrive and Salesforce. We start from the tool you have. If you have none, we help you choose based on team size and sales cycle complexity."
         },
         {
-          "q_fr": "Le score se met-il à jour tout seul ?",
-          "q_en": "Does the score update on its own?",
-          "a_fr": "Oui. Un lead n'a pas une note figée : elle évolue avec son comportement. Une nouvelle visite, un contenu consulté, une demande de devis font monter le score ; un long silence le fait baisser. La file de priorité reste vivante, et le commercial voit en temps réel qui s'est réchauffé. C'est l'intérêt d'un scoring branché aux signaux plutôt qu'une note saisie une fois à la main.",
-          "a_en": "Yes. A lead doesn't have a fixed score: it evolves with behaviour. A new visit, a viewed piece of content, a quote request push the score up; a long silence pulls it down. The priority queue stays alive, and the rep sees in real time who warmed up. That's the point of scoring wired to signals rather than a note typed once by hand."
+          "q_fr": "Combien de temps pour automatiser un CRM ?",
+          "a_fr": "Habituellement 2 à 4 semaines pour la notation et l'affectation. Le nettoyage préalable des données peut allonger le délai si la base est ancienne.",
+          "q_en": "How long does it take to automate a CRM?",
+          "a_en": "Usually 2 to 4 weeks for scoring and assignment. Prior data cleaning can lengthen it if the base is old."
         },
         {
-          "q_fr": "Sur quels CRM vous travaillez ?",
-          "q_en": "Which CRMs do you work with?",
-          "a_fr": "HubSpot, Salesforce et Pipedrive en priorité, en intégration native. Le scoring et le routing s'écrivent directement sur la fiche du lead, dans l'interface où votre équipe travaille déjà. Elle ne change pas d'outil : elle voit juste apparaître une note, un classement et une affectation. Pour un autre CRM, on évalue la faisabilité au cadrage.",
-          "a_en": "HubSpot, Salesforce and Pipedrive first, native integration. Scoring and routing write directly onto the lead record, in the interface your team already works in. They don't change tools: they just see a score, a ranking and an assignment appear. For another CRM, we assess feasibility at scoping."
-        },
-        {
-          "q_fr": "Faut-il refaire tout notre CRM existant ?",
-          "q_en": "Do we have to rebuild our existing CRM?",
-          "a_fr": "Non. On part de ce que vous avez. On nettoie la donnée, on dédoublonne, on enrichit, puis on ajoute le scoring et le routing là où la valeur fuit. Si la base est exploitable, on démarre dessus ; sinon on repose des règles métier explicites et on bascule vers un modèle prédictif quand le volume le permet. On ne casse pas ce qui marche.",
-          "a_en": "No. We start from what you have. We clean the data, deduplicate, enrich, then add scoring and routing where value leaks. If the base is usable, we start on it; otherwise we lay explicit business rules and switch to a predictive model when volume allows. We don't break what works."
-        },
-        {
-          "q_fr": "Le commercial garde-t-il la main, ou l'IA décide à sa place ?",
-          "q_en": "Does the rep keep control, or does the AI decide for them?",
-          "a_fr": "Le scoring priorise, le routing affecte, mais le commercial reste seul juge du contact et de l'approche. Chaque score est explicable : on voit pourquoi un lead est noté haut ou bas, pas une boîte noire. L'objectif est de faire gagner du temps à l'équipe et de ne perdre aucun lead chaud, pas de la déposséder de son métier.",
-          "a_en": "Scoring prioritises, routing assigns, but the rep stays the sole judge of the contact and the approach. Every score is explainable: you see why a lead scores high or low, not a black box. The goal is to save the team time and lose no hot lead, not to strip them of their craft."
-        },
-        {
-          "q_fr": "Combien coûte un CRM avec scoring et routing ?",
-          "q_en": "How much does a CRM with scoring and routing cost?",
-          "a_fr": "Deux façons d'engager. On démarre par un sprint découverte de 10 heures à 999 € HT : audit du CRM, nettoyage et premières règles de scoring et de routing posées, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans engagement de durée : à la fin, le CRM, les règles et la donnée sont à vous.",
-          "a_en": "Two ways to engage. We start with a 10-hour discovery sprint at 999 € ex VAT: CRM audit, cleaning and the first scoring and routing rules in place, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No duration commitment: at the end, the CRM, the rules and the data are yours."
+          "q_fr": "L'IA décide-t-elle à la place du commercial ?",
+          "a_fr": "Non. Elle classe et prépare : résumé de la demande, score, suggestion de prochaine action. Le commercial garde la décision et le contact avec le client.",
+          "q_en": "Does the AI decide in place of the salesperson?",
+          "a_en": "No. It ranks and prepares: request summary, score, suggested next action. The salesperson keeps the decision and the customer contact."
         }
       ]
     },
@@ -928,23 +502,23 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à trier vos leads ?",
-      "kicker_en": "§ Ready to sort your leads?",
-      "h2_fr": "Transformez votre CRM en machine à prioriser.",
-      "h2_en": "Turn your CRM into a prioritising machine.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec un plan clair pour votre CRM, qu'on travaille ensemble ou non. En face, un interlocuteur unique, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with a clear plan for your CRM, whether we work together or not. Across the table, a single contact, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de demandes se perdent avant d'atteindre un commercial ?",
+      "h2_en": "How many requests get lost before reaching a salesperson?",
+      "subtitle_fr": "En 45 minutes, on suit le trajet d'une demande entrante chez vous et on repère où elle attend, où elle se perd, et ce qui s'automatise.",
+      "subtitle_en": "In 45 minutes, we follow the path of an incoming request in your company and spot where it waits, where it gets lost, and what can be automated.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=crm-scoring-routing&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir les séquences de suivi",
-          "label_en": "See follow-up sequences",
-          "href": "/services/sequences-de-suivi",
+          "label_fr": "Le système commercial",
+          "label_en": "The sales system",
+          "href": "/services/systeme-commercial",
           "variant": "ghost"
         }
       ]

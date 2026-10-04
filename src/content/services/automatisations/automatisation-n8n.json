@@ -2,11 +2,11 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence n8n : automatisation de vos processus · Waimia",
   "title_en": "n8n agency: automating your processes · Waimia",
-  "description_fr": "Agence n8n pour PME : on conçoit vos workflows n8n, self-hosted possible, branchés à vos outils et supervisés. Zapier en secondaire. Diagnostic gratuit.",
-  "description_en": "n8n agency for SMEs: we build your n8n workflows, self-hosting possible, wired to your tools and supervised. Zapier as backup. Free diagnostic.",
+  "description_fr": "Agence n8n pour PME : conception, hébergement et supervision de vos workflows n8n, sur votre serveur ou en cloud UE. Premier workflow dès 999 € HT.",
+  "description_en": "n8n agency for SMBs: design, hosting and supervision of your n8n workflows, on your server or EU cloud. First workflow from €999 excl. VAT.",
   "slug": "automatisation-n8n",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-07-16T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "automatisation-n8n",
@@ -23,96 +23,96 @@
   },
   "faq_fr": [
     {
-      "q": "Pourquoi n8n plutôt que Zapier pour une PME ?",
-      "a": "Parce que dès qu'un workflow devient un actif métier et se ramifie, n8n tient mieux. Il facture les exécutions et pas la tâche, on peut l'héberger chez soi, et il va beaucoup plus loin sur la logique et l'IA. Avec Zapier on construit vite, avec n8n on construit large. Zapier reste excellent pour du branchement simple entre deux SaaS."
+      "q": "Combien coûte n8n pour une PME ?",
+      "a": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : 999 € HT pour un sprint découverte de 10 heures, puis 99 € HT de l'heure."
     },
     {
-      "q": "Vous pouvez héberger n8n chez nous, en self-hosted ?",
-      "a": "Oui. n8n a une version self-hosted qui laisse le choix total de l'hébergement, et ses plans hébergés stockent les données dans l'UE, à Francfort. Pour un client européen sensible au RGPD, c'est un vrai argument. On pose l'hébergement qui vous convient au cadrage, chez vous ou en cloud UE."
+      "q": "n8n vs Make : lequel choisir ?",
+      "a": "n8n quand la logique se ramifie, que les volumes montent ou que les données doivent rester sur votre serveur. Make quand il s'agit de relier quelques applications SaaS avec un éditeur visuel et sans hébergement à gérer. Make facture en crédits, n8n en exécutions de workflow (pages tarifs des deux éditeurs, vérifiées le 4 octobre 2026)."
     },
     {
-      "q": "n8n revient-il moins cher que Zapier ?",
-      "a": "Souvent, oui, quand les scénarios sont riches. Zapier facture à la tâche, ce qui gonfle vite dès qu'un workflow se ramifie. n8n facture les exécutions quel que soit le nombre d'étapes. Plus votre logique est fournie, plus l'écart se creuse. On chiffre le coût réel d'ownership avec vous, pas seulement la licence."
+      "q": "n8n est-il conforme au RGPD ?",
+      "a": "n8n est un outil : la conformité dépend de l'usage. Auto-hébergé, les données restent sur votre infrastructure. Hébergé par n8n, elles sont stockées dans l'Union européenne, à Francfort (page tarifs de n8n, vérifiée le 4 octobre 2026). Restent à documenter les données envoyées à une étape IA et les accès au journal."
     },
     {
-      "q": "n8n se branche à nos outils existants ?",
-      "a": "Oui. CRM, boîtes mail, tableurs, facturation, e-commerce, APIs internes : on connecte l'existant via les connecteurs n8n, des appels API ou du MCP. On complète votre stack, on ne la remplace pas. Vous gardez les workflows, lisibles et modifiables."
+      "q": "Peut-on héberger n8n sur notre propre serveur ?",
+      "a": "Oui. On installe n8n sur un serveur à votre nom, avec nom de domaine, certificat, sauvegardes et procédure de mise à jour. Il faut ensuite quelqu'un pour appliquer ces mises à jour : votre équipe ou nous, en régie."
     },
     {
-      "q": "Et si personne chez nous ne peut tenir les workflows ?",
-      "a": "C'est le vrai contre-argument à n8n, et il est organisationnel, pas technique. Si personne en interne n'assume la logique, les logs et les erreurs, la puissance devient une charge. Dans ce cas on vous le dit, et un Zapier plus limité mais bien tenu peut être plus sain. On forme aussi un référent chez vous pour éviter le n8n abandonné à moitié configuré."
+      "q": "Avez-vous un exemple de workflow n8n pour une PME ?",
+      "a": "L'exemple type de cette page : les factures fournisseurs reçues par email, lues par une étape IA, classées et pré-saisies pour validation. Autres workflows fréquents : création de devis depuis un formulaire, synchronisation CRM et facturation, relances automatiques, rapport hebdomadaire."
     },
     {
-      "q": "Combien de temps avant qu'un premier workflow n8n tourne ?",
-      "a": "Un premier workflow n8n ciblé tourne souvent en quelques semaines, une fois la tâche cadrée. On part de celle qui coûte le plus d'heures, on la met en production, on la supervise, puis on étend. On mesure les heures gagnées dès la mise en ligne, pas dans six mois."
+      "q": "Formez-vous nos équipes à n8n ?",
+      "a": "Oui. Chaque mission inclut la prise en main par un référent. Pour former une équipe entière à n8n, les formations sont dispensées via Akigora, organisme certifié Qualiopi, avec une prise en charge possible selon votre situation."
     }
   ],
   "faq_en": [
     {
-      "q": "Why n8n rather than Zapier for an SME?",
-      "a": "Because once a workflow becomes a business asset and branches out, n8n holds up better. It bills on executions, not tasks, you can self-host it, and it goes much further on logic and AI. With Zapier you build fast, with n8n you build wide. Zapier stays excellent for simple wiring between two SaaS apps."
+      "q": "How much does n8n cost for an SMB?",
+      "a": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €999 excl. VAT for a 10-hour discovery sprint, then €99 per hour excl. VAT."
     },
     {
-      "q": "Can you host n8n on our side, self-hosted?",
-      "a": "Yes. n8n has a self-hosted version that leaves full choice of hosting, and its hosted plans store data in the EU, in Frankfurt. For a European client sensitive to GDPR, that's a real argument. We set the hosting that suits you at scoping, on your side or in an EU cloud."
+      "q": "n8n vs Make: which one to choose?",
+      "a": "n8n when the logic branches out, volumes grow or data must stay on your server. Make when you need to connect a few SaaS apps with a visual editor and no hosting to manage. Make bills in credits, n8n in workflow executions (both vendors' pricing pages, checked on 4 October 2026)."
     },
     {
-      "q": "Does n8n cost less than Zapier?",
-      "a": "Often, yes, when scenarios are rich. Zapier bills per task, which swells fast as soon as a workflow branches. n8n bills executions regardless of step count. The richer your logic, the wider the gap. We size the real cost of ownership with you, not just the licence."
+      "q": "Is n8n GDPR compliant?",
+      "a": "n8n is a tool: compliance depends on use. Self-hosted, the data stays on your infrastructure. Hosted by n8n, it is stored in the EU, in Frankfurt (n8n pricing page, checked on 4 October 2026). What remains to document: data sent to an AI step and access to the log."
     },
     {
-      "q": "Does n8n wire to our existing tools?",
-      "a": "Yes. CRM, inboxes, spreadsheets, billing, e-commerce, internal APIs: we connect what exists via n8n connectors, API calls or MCP. We complete your stack, we don't replace it. You keep the workflows, readable and editable."
+      "q": "Can we host n8n on our own server?",
+      "a": "Yes. We install n8n on a server in your name, with domain name, certificate, backups and an update procedure. Someone then has to apply those updates: your team or us, on a time-and-materials basis."
     },
     {
-      "q": "What if no one on our side can maintain the workflows?",
-      "a": "That's the real counter-argument to n8n, and it's organisational, not technical. If no one in-house owns the logic, logs and errors, the power becomes a burden. In that case we tell you so, and a more limited but well-kept Zapier can be healthier. We also train an in-house referent to avoid the half-configured, abandoned n8n."
+      "q": "Do you have an example of an n8n workflow for an SMB?",
+      "a": "The typical example on this page: supplier invoices received by email, read by an AI step, filed and pre-entered for approval. Other common workflows: quote creation from a form, CRM and invoicing sync, automatic follow-ups, weekly report."
     },
     {
-      "q": "How long before a first n8n workflow runs?",
-      "a": "A first targeted n8n workflow often runs within a few weeks, once the task is scoped. We start with the one that costs the most hours, put it into production, supervise it, then extend. We track the hours saved from go-live, not six months later."
+      "q": "Do you train our teams on n8n?",
+      "a": "Yes. Every engagement includes a handover to an owner. To train a whole team on n8n, training is delivered via Akigora, a Qualiopi-certified body; funding may be available depending on your situation."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Automatisation n8n · brique du système opérationnel",
-      "kicker_en": "§ n8n automation · block of the operational system",
+      "kicker_fr": "§ Agence n8n",
+      "kicker_en": "§ n8n agency",
       "h1_fr": "Agence <i class=\"acc\">n8n</i> pour PME",
       "h1_en": "<i class=\"acc\">n8n</i> agency for SMEs",
-      "lede_fr": "n8n est devenu notre socle par défaut dès qu'une automatisation devient un actif métier plutôt qu'un bricolage entre deux apps. On conçoit vos workflows n8n, branchés à vos outils, supervisés, hébergeables chez vous. Il facture les exécutions et pas la tâche, va loin sur la logique et l'IA. Zapier reste en secondaire pour du branchement simple, quand il suffit.",
-      "lede_en": "n8n has become our default base as soon as an automation turns into a business asset rather than glue between two apps. We build your n8n workflows, wired to your tools, supervised, hostable on your side. It bills executions, not tasks, and goes far on logic and AI. Zapier stays as a backup for simple wiring, when it's enough.",
+      "lede_fr": "Waimia est un studio qui conçoit, héberge et supervise des workflows n8n pour les PME et ETI. n8n est un outil d'automatisation dont la version auto-hébergée s'installe sur votre propre serveur : vos données n'en sortent pas. On livre un workflow en production, branché à vos logiciels, avec son journal d'exécutions, ses alertes et un référent formé chez vous.",
+      "lede_en": "Waimia is a studio that designs, hosts and supervises n8n workflows for SMBs. n8n is an automation tool whose self-hosted version runs on your own server: your data stays there. We ship a workflow to production, wired to your software, with its run log, its alerts and a trained owner on your side.",
       "badges": [
         {
           "label_fr": "Workflows n8n",
           "label_en": "n8n workflows"
         },
         {
-          "label_fr": "Self-hosted possible",
-          "label_en": "Self-hosting possible"
+          "label_fr": "Auto-hébergé ou cloud UE",
+          "label_en": "Self-hosted or EU cloud"
         },
         {
-          "label_fr": "Zapier en secondaire",
-          "label_en": "Zapier as backup"
+          "label_fr": "Journal et alertes",
+          "label_en": "Log and alerts"
         },
         {
-          "label_fr": "Supervisé",
-          "label_en": "Supervised"
+          "label_fr": "Référent formé",
+          "label_en": "Trained owner"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement : on part de la tâche qui vous coûte le plus d'heures.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment: we start from the task that costs you the most hours.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=automatisation-n8n&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir ce qu'on automatise",
-        "label_en": "See what we automate",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -123,751 +123,210 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "2–6 sem.",
-          "label_fr": "premier workflow n8n en production",
-          "label_en": "first n8n workflow in production"
+          "value": "2 à 6 semaines",
+          "label_fr": "délai habituel pour un premier workflow n8n en production",
+          "label_en": "usual lead time for a first n8n workflow in production",
+          "emphasis": false
         },
         {
-          "value": "Self-hosted",
-          "label_fr": "hébergeable chez vous ou en cloud UE",
-          "label_en": "hostable on your side or in an EU cloud"
+          "value": "Votre serveur",
+          "label_fr": "ou n8n Cloud, données stockées dans l'UE",
+          "label_en": "or n8n Cloud, data stored in the EU",
+          "emphasis": false
         },
         {
-          "value": "0 ressaisie",
-          "label_fr": "les données circulent seules",
-          "label_en": "data flows on its own"
+          "value": "À vous",
+          "label_fr": "instance, workflows et documentation",
+          "label_en": "instance, workflows and documentation",
+          "emphasis": false
         }
       ]
-    },
-    {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Le principe",
-      "kicker_en": "FIG 1.5 · The principle",
-      "h2_fr": "Avec Zapier on construit vite. Avec <i class=\"acc\">n8n</i> on construit large, et le workflow devient un actif métier, pas une recette jetable.",
-      "h2_en": "With Zapier you build fast. With <i class=\"acc\">n8n</i> you build wide, and the workflow becomes a business asset, not a throwaway recipe.",
-      "lede_fr": "Tant qu'une tâche vit dans des Zaps figés et des onglets ouverts, elle casse dès que le besoin devient atypique. On la sort de là : le déclencheur, les règles, les branchements et le contrôle deviennent un workflow n8n lisible. Il s'exécute pareil chaque fois, il se mesure, il s'étend, et il reste chez vous. Auto-hébergé chez vous ou en cloud UE, n8n facture les exécutions et pas la tâche : le coût reste tenu quand la logique se ramifie, sans dépendre du nombre d'étapes. Le site et l'automatisation forment ensemble le <a href=\"/services/systemes-operationnels-ia\">système opérationnel et IA</a>.",
-      "lede_en": "As long as a task lives in rigid Zaps and open tabs, it breaks the moment the need gets unusual. We take it out of there: the trigger, the rules, the connections and the control become a readable n8n workflow. It runs the same each time, it measures, it extends, and it stays on your side. Self-hosted at your side or in an EU cloud, n8n bills executions rather than the task: the cost stays contained as the logic branches, whatever the number of steps. The site and the automation together form the <a href=\"/services/systemes-operationnels-ia\">operational and AI system</a>.",
-      "cta": {
-        "label_fr": "Voir les briques →",
-        "label_en": "See the building blocks →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : vos outils, vos données et vos règles orchestrés en un seul workflow n8n.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: your tools, your data and your rules orchestrated into a single n8n workflow."
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Une <i class=\"acc\">automatisation n8n</i> est un workflow que Waimia déploie pour les PME sur n8n, l'outil low-code qui facture les exécutions et pas la tâche : déclenché par un évènement, branché à vos outils via connecteurs, API ou MCP, il applique vos règles, journalise chaque étape et alerte en cas d'échec. Hébergeable chez vous en self-hosted, il va loin sur la logique et l'IA. Zapier reste en secondaire pour du branchement simple.",
-      "statement_en": "An <i class=\"acc\">n8n automation</i> is a workflow Waimia deploys for SMEs on n8n, the low-code tool that bills executions and not tasks: triggered by an event, wired to your tools via connectors, API or MCP, it applies your rules, logs every step and alerts on failure. Self-hostable on your side, it goes far on logic and AI. Zapier stays as a backup for simple wiring.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Une <i class=\"acc\">automatisation n8n</i> est un workflow construit dans n8n : un déclencheur, des étapes branchées à vos logiciels par API, des conditions, et si besoin une étape IA. n8n compte une exécution par lancement du workflow, quel que soit le nombre d'étapes, et peut être installé sur votre propre serveur.",
+      "statement_en": "An <i class=\"acc\">n8n automation</i> is a workflow built in n8n: a trigger, steps wired to your software through APIs, conditions, and an AI step where needed. n8n counts one execution per workflow run, whatever the number of steps, and can be installed on your own server.",
       "pills": [
         {
-          "label_fr": "Workflows n8n",
-          "label_en": "n8n workflows"
+          "label_fr": "Une exécution par lancement",
+          "label_en": "One execution per run"
         },
         {
-          "label_fr": "Facturé aux exécutions",
-          "label_en": "Billed on executions"
+          "label_fr": "Auto-hébergeable",
+          "label_en": "Self-hostable"
         },
         {
-          "label_fr": "Self-hosted",
-          "label_en": "Self-hosted"
+          "label_fr": "Étapes IA",
+          "label_en": "AI steps"
         },
         {
-          "label_fr": "Journalisé",
-          "label_en": "Logged"
-        },
-        {
-          "label_fr": "Zapier en secondaire",
-          "label_en": "Zapier as backup"
+          "label_fr": "Journal d'exécutions",
+          "label_en": "Execution log"
         }
       ],
       "specs": [
         {
-          "label_fr": "n8n en priorité, Zapier si simple",
-          "label_en": "n8n first, Zapier if simple"
+          "label_fr": "n8n auto-hébergé ou Cloud",
+          "label_en": "Self-hosted n8n or Cloud"
         },
         {
-          "label_fr": "Hébergement UE ou chez vous",
-          "label_en": "EU or on-premise hosting"
+          "label_fr": "API et webhooks",
+          "label_en": "APIs and webhooks"
         },
         {
-          "label_fr": "Connecteurs, API et MCP",
-          "label_en": "Connectors, API and MCP"
+          "label_fr": "Claude ou OpenAI en étape IA",
+          "label_en": "Claude or OpenAI as an AI step"
         },
         {
-          "label_fr": "Étapes IA et branches",
-          "label_en": "AI steps and branches"
-        },
-        {
-          "label_fr": "Alertes sur échec",
-          "label_en": "Alerts on failure"
-        },
-        {
-          "label_fr": "Validation humaine optionnelle",
-          "label_en": "Optional human validation"
+          "label_fr": "Sauvegarde des workflows",
+          "label_en": "Workflow backups"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Quand le no-code figé montre ses limites · par sévérité",
-      "kicker_en": "When rigid no-code shows its limits · by severity",
-      "h2_fr": "Le moment où on passe à <i class=\"acc\">n8n</i>.",
-      "h2_en": "The point where we move to <i class=\"acc\">n8n</i>.",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "La facture à la tâche qui explose",
-          "title_en": "The per-task bill that blows up",
-          "desc_fr": "Chaque branche d'un scénario riche compte comme une tâche, et Zapier devient vite coûteux quand un workflow se ramifie. Plus votre logique est fournie, plus la tarification à la tâche vous pénalise.",
-          "desc_en": "Every branch of a rich scenario counts as a task, and Zapier gets expensive fast when a workflow branches. The richer your logic, the more per-task pricing hurts you.",
-          "fix_fr": "n8n aux exécutions, quel que soit le nombre d'étapes.",
-          "fix_en": "n8n on executions, regardless of step count."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Le besoin atypique qui coince",
-          "title_en": "The unusual need that jams",
-          "desc_fr": "Dès que le scénario sort des recettes prévues, l'assembleur de SaaS bloque : pas de logique fine, pas de branche, pas d'étape IA sérieuse. La frustration monte à chaque cas particulier.",
-          "desc_en": "As soon as the scenario leaves the packaged recipes, the SaaS glue stalls: no fine logic, no branch, no serious AI step. Frustration rises with every edge case.",
-          "fix_fr": "n8n va plus loin sans sortir de l'outil.",
-          "fix_en": "n8n goes further without leaving the tool."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Des données qu'on ne maîtrise pas",
-          "title_en": "Data you don't control",
-          "desc_fr": "Un workflow figé dans un SaaS opaque, sans choix d'hébergement, complique chaque discussion RGPD. Vous ne savez pas toujours où passent vos données, ni comment reprendre la main.",
-          "desc_en": "A workflow locked in an opaque SaaS, with no hosting choice, complicates every GDPR discussion. You don't always know where your data goes, or how to take back control.",
-          "fix_fr": "n8n self-hosted ou hébergé dans l'UE.",
-          "fix_en": "n8n self-hosted or hosted in the EU."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Pourquoi n8n, et ce qu'on a vérifié</h2>\n<p>Deux caractéristiques comptent pour une PME. La facturation : selon la <a href=\"https://n8n.io/pricing/\" rel=\"nofollow noopener\" target=\"_blank\">page tarifs de n8n</a>, une exécution correspond à un lancement complet du workflow, quel que soit le nombre d'étapes ou le volume de données traité. Un workflow à vingt étapes ne coûte pas plus qu'un workflow à trois. L'hébergement : une version auto-hébergée est disponible sur GitHub, et pour les offres hébergées par n8n les données sont stockées dans l'Union européenne, sur des serveurs situés à Francfort. Offres hébergées à partir de 20 € par mois en facturation annuelle. Informations vérifiées le 4 octobre 2026.</p>\n<h2>Ce qu'on fait exactement</h2>\n<p>On installe n8n sur votre serveur ou on configure votre compte n8n Cloud, on construit le workflow, on le branche à vos logiciels et on teste les cas d'erreur avant la mise en production. Quand une étape demande de lire un texte libre (classer un email, extraire les lignes d'une facture), on y branche un modèle Claude ou OpenAI. Pour une décision plus ouverte, on passe à un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<p>n8n n'est pas toujours le bon choix. La page <a href=\"/services/automatisations\">automatisation des processus</a> explique comment on tranche entre n8n et Make, et notre article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> détaille les critères.</p>\n<h2>Combien de temps</h2>\n<p>Un premier workflow n8n est habituellement en production en 2 à 6 semaines. L'installation auto-hébergée ajoute quelques jours : serveur, nom de domaine, sauvegardes, mises à jour. Le reste du délai dépend de vos accès et du temps que la personne qui connaît le process peut y consacrer.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Le risque principal avec n8n est organisationnel. Auto-hébergé, il faut quelqu'un pour appliquer les mises à jour et surveiller les sauvegardes : soit votre équipe, soit nous en régie. Sans propriétaire, un n8n devient une collection de workflows que personne n'ose toucher. On forme donc un référent, et on peut former toute une équipe (formations dispensées via Akigora, organisme certifié Qualiopi).</p>\n<p>Pour voir ce que n8n change sur un process précis, partez du cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a> ou réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Why n8n, and what we checked</h2>\n<p>Two traits matter for an SMB. Billing: according to the <a href=\"https://n8n.io/pricing/\" rel=\"nofollow noopener\" target=\"_blank\">n8n pricing page</a>, an execution is a single run of the entire workflow, whatever the number of steps or the volume of data processed. A twenty-step workflow costs no more than a three-step one. Hosting: a self-hosted version is available on GitHub, and for plans hosted by n8n the data is stored in the EU, on servers located in Frankfurt. Hosted plans start at €20 per month billed annually. Checked on 4 October 2026.</p>\n<h2>What we do exactly</h2>\n<p>We install n8n on your server or set up your n8n Cloud account, build the workflow, wire it to your software and test the error cases before going live. When a step requires reading free text (classifying an email, extracting invoice lines), we plug in a Claude or OpenAI model. For a more open decision, we move to an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<p>n8n is not always the right choice. The <a href=\"/services/automatisations\">process automation</a> page explains how we decide between n8n and Make, and our article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> details the criteria.</p>\n<h2>How long</h2>\n<p>A first n8n workflow is usually in production within 2 to 6 weeks. Self-hosting adds a few days: server, domain name, backups, updates. The rest depends on your access and on the time the person who knows the process can give.</p>\n<h2>What can go wrong</h2>\n<p>The main risk with n8n is organisational. Self-hosted, someone must apply updates and watch the backups: your team, or us on a time-and-materials basis. Without an owner, n8n becomes a pile of workflows nobody dares touch. So we train an owner, and can train a whole team (training delivered via Akigora, a Qualiopi-certified body).</p>\n<p>To see what n8n changes on a given process, start from the use case <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a> or book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Zapier au forfait vs n8n encadré",
-      "kicker_en": "§ Zapier per-task vs n8n framed",
-      "h2_fr": "Deux façons d'<i>automatiser</i>, deux coûts d'ownership",
-      "h2_en": "Two ways to <i>automate</i>, two costs of ownership",
-      "without_label_fr": "No-code figé",
-      "without_label_en": "Rigid no-code",
-      "without_title_fr": "L'assembleur à la tâche",
-      "without_title_en": "The per-task glue",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : les factures fournisseurs reçues par email",
+      "h2_en": "Typical example: supplier invoices received by email",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Une comptable, quarante PDF",
+      "without_title_en": "One accountant, forty PDFs",
       "without_items": [
         {
-          "text_fr": "Une facture qui gonfle à chaque branche ajoutée au scénario.",
-          "text_en": "A bill that swells with every branch added to the scenario."
+          "text_fr": "Les factures arrivent en pièce jointe sur une boîte partagée.",
+          "text_en": "Invoices arrive as attachments in a shared mailbox."
         },
         {
-          "text_fr": "Un plafond de logique atteint dès que le besoin devient atypique.",
-          "text_en": "A logic ceiling hit as soon as the need gets unusual."
+          "text_fr": "Chaque PDF est ouvert, lu, puis ressaisi dans le logiciel comptable.",
+          "text_en": "Each PDF is opened, read, then retyped into the accounting software."
         },
         {
-          "text_fr": "Aucun choix d'hébergement, des données dans une boîte noire.",
-          "text_en": "No hosting choice, data in a black box."
+          "text_fr": "Le fichier est renommé et rangé à la main.",
+          "text_en": "The file is renamed and filed by hand."
         },
         {
-          "text_fr": "Une recette qui casse à la première mise à jour, en silence.",
-          "text_en": "A recipe that breaks on the first update, silently."
+          "text_fr": "Les factures à valider sont transférées par email au responsable.",
+          "text_en": "Invoices to approve are forwarded by email to the manager."
         }
       ],
-      "with_label_fr": "Socle n8n",
-      "with_label_en": "n8n base",
-      "with_title_fr": "L'atelier aux exécutions",
-      "with_title_en": "The execution-based workshop",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un workflow n8n sur votre serveur",
+      "with_title_en": "One n8n workflow on your server",
       "with_items": [
         {
-          "text_fr": "Un coût aux exécutions, stable même quand le workflow se ramifie.",
-          "text_en": "A cost on executions, stable even when the workflow branches."
+          "text_fr": "n8n relève la boîte et récupère chaque pièce jointe.",
+          "text_en": "n8n polls the mailbox and fetches each attachment."
         },
         {
-          "text_fr": "De la logique fine, des branches et de vraies étapes IA dans le flux.",
-          "text_en": "Fine logic, branches and real AI steps within the flow."
+          "text_fr": "Une étape IA extrait fournisseur, montant, date et numéro.",
+          "text_en": "An AI step extracts supplier, amount, date and number."
         },
         {
-          "text_fr": "Le choix de l'hébergement : self-hosted ou cloud UE à Francfort.",
-          "text_en": "Choice of hosting: self-hosted or an EU cloud in Frankfurt."
+          "text_fr": "Le PDF est renommé et classé dans le bon dossier.",
+          "text_en": "The PDF is renamed and filed in the right folder."
         },
         {
-          "text_fr": "Un workflow supervisé et lisible, qui reste chez vous, jamais captif.",
-          "text_en": "A supervised, readable workflow that stays on your side, never captive."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'automatisation avec n8n",
-      "h2_en": "The 6 levels of automation with n8n",
-      "lede_fr": "Du tout-manuel au parc de workflows n8n supervisé, six paliers. La plupart des PME empilent des Zaps au deuxième. On situe votre stack sur cette échelle, puis on la fait monter d'un cran vers n8n.",
-      "lede_en": "From all-manual to a supervised fleet of n8n workflows, six tiers. Most SMEs pile up Zaps at the second. We place your stack on this scale, then move it up a notch toward n8n.",
-      "steps": [
-        {
-          "title_fr": "Tout manuel",
-          "title_en": "All manual",
-          "sub_fr": "Copier-coller et onglets",
-          "sub_en": "Copy-paste and tabs"
+          "text_fr": "Une ligne pré-remplie est créée, en attente de validation par la comptable.",
+          "text_en": "A pre-filled entry is created, awaiting the accountant's approval."
         },
         {
-          "title_fr": "Zaps épars",
-          "title_en": "Scattered Zaps",
-          "sub_fr": "Recettes à la tâche, fragiles",
-          "sub_en": "Per-task recipes, fragile"
-        },
-        {
-          "title_fr": "Premier workflow n8n",
-          "title_en": "First n8n workflow",
-          "sub_fr": "Une tâche automatisée",
-          "sub_en": "One task automated"
-        },
-        {
-          "title_fr": "Chaîne branchée",
-          "title_en": "Wired chain",
-          "sub_fr": "Outils connectés via API et MCP",
-          "sub_en": "Tools connected via API and MCP"
-        },
-        {
-          "title_fr": "Parc supervisé",
-          "title_en": "Supervised fleet",
-          "sub_fr": "Self-hosted, alertes et journal",
-          "sub_en": "Self-hosted, alerts and log"
-        },
-        {
-          "title_fr": "Orchestration IA",
-          "title_en": "AI orchestration",
-          "sub_fr": "n8n et agents combinés",
-          "sub_en": "n8n and agents combined"
+          "text_fr": "Une facture illisible est mise de côté et signalée, jamais devinée.",
+          "text_en": "An unreadable invoice is set aside and flagged, never guessed."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez les workflows n8n et l'hébergement quand on part. Pas de captivité.",
-      "lead_en": "You keep the n8n workflows and the hosting when we leave. No lock-in.",
-      "items": [
-        {
-          "title_fr": "Cartographie des tâches",
-          "title_en": "Task map",
-          "body_fr": "L'inventaire de vos tâches répétitives, chiffré en heures, priorisé par ce qui rapporte le plus vite et se prête le mieux à n8n.",
-          "body_en": "An inventory of your repetitive tasks, costed in hours, prioritised by what pays off fastest and fits n8n best.",
-          "format_fr": "AUDIT",
-          "format_en": "AUDIT",
-          "illustration_src": "/images/line-art/probleme-outils-cloisonnes.svg",
-          "illustration_alt_fr": "Une cartographie des tâches répétitives à automatiser sur n8n, priorisée",
-          "illustration_alt_en": "A map of repetitive tasks to automate on n8n, prioritised"
-        },
-        {
-          "title_fr": "Workflows n8n en production",
-          "title_en": "n8n workflows in production",
-          "body_fr": "Vos automatisations construites, testées et mises en ligne sur n8n, branchées à vos outils. Zapier ou Make en secondaire quand le branchement est simple.",
-          "body_en": "Your automations built, tested and deployed on n8n, wired to your tools. Zapier or Make as backup when the wiring is simple.",
-          "format_fr": "LIVE",
-          "format_en": "LIVE",
-          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
-          "illustration_alt_fr": "Des workflows n8n en production qui exécutent vos tâches répétitives",
-          "illustration_alt_en": "n8n workflows in production running your repetitive tasks"
-        },
-        {
-          "title_fr": "Hébergement au choix",
-          "title_en": "Hosting of your choice",
-          "body_fr": "n8n installé en self-hosted chez vous ou sur un cloud UE à Francfort, selon vos contraintes RGPD. Vous gardez le contrôle total de l'hébergement.",
-          "body_en": "n8n installed self-hosted on your side or on an EU cloud in Frankfurt, according to your GDPR constraints. You keep full control of the hosting.",
-          "format_fr": "INFRA",
-          "format_en": "INFRA",
-          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
-          "illustration_alt_fr": "Un hébergement n8n self-hosted ou cloud UE au choix du client",
-          "illustration_alt_en": "n8n hosting, self-hosted or EU cloud, chosen by the client"
-        },
-        {
-          "title_fr": "Connecteurs à vos outils",
-          "title_en": "Connectors to your tools",
-          "body_fr": "Les branchements via connecteurs n8n, API et MCP vers votre CRM, vos boîtes mail, vos tableurs et vos outils métier, propres et documentés.",
-          "body_en": "The connections via n8n connectors, API and MCP to your CRM, inboxes, spreadsheets and business tools, clean and documented.",
-          "format_fr": "API + MCP",
-          "format_en": "API + MCP",
-          "illustration_src": "/images/line-art/livrable-connecteurs-mcp.svg",
-          "illustration_alt_fr": "Des connecteurs n8n, API et MCP vers vos outils existants",
-          "illustration_alt_en": "n8n, API and MCP connectors to your existing tools"
-        },
-        {
-          "title_fr": "Tableau des heures gagnées",
-          "title_en": "Hours-saved dashboard",
-          "body_fr": "La mesure de l'avant et de l'après : combien d'heures chaque workflow n8n vous rend, en clair, sur vos propres chiffres.",
-          "body_en": "The before-and-after measurement: how many hours each n8n workflow gives you back, in plain figures, on your own numbers.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Un tableau de mesure des heures gagnées par workflow n8n",
-          "illustration_alt_en": "A dashboard measuring the hours saved per n8n workflow"
-        },
-        {
-          "title_fr": "Documentation et autonomie",
-          "title_en": "Documentation and autonomy",
-          "body_fr": "Chaque workflow documenté et un référent formé chez vous : votre équipe lit les logs, ajuste et étend n8n sans dépendre de nous.",
-          "body_en": "Each workflow documented and an in-house referent trained: your team reads the logs, adjusts and extends n8n without depending on us.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/livrable-passation-formation.svg",
-          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur n8n",
-          "illustration_alt_en": "A documented operating manual to make the team autonomous on n8n"
-        }
-      ]
-    },
-    {
-      "type": "logo-marquee",
-      "background": "ink",
-      "kicker_fr": "§ Les outils qu'on orchestre dans n8n",
-      "kicker_en": "§ The tools we orchestrate inside n8n",
-      "grayscale": true,
-      "logos": [
-        { "ref": "logos/hubspot" },
-        { "ref": "logos/salesforce" },
-        { "ref": "logos/google" },
-        { "ref": "logos/microsoft" },
-        { "ref": "logos/notion" },
-        { "ref": "logos/slack" },
-        { "ref": "logos/github" },
-        { "ref": "logos/claude" },
-        { "ref": "logos/openai" },
-        { "ref": "logos/aws" },
-        { "ref": "logos/sap" },
-        { "ref": "logos/meta" }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un workflow n8n qui tient",
-      "h2_en": "The building blocks of an n8n workflow that holds",
-      "lede_fr": "Sept briques, une seule chaîne fiable sur n8n. On active celles qui servent la tâche, pas un nœud qu'on empile pour rien.",
-      "lede_en": "Seven building blocks, one reliable chain on n8n. We activate the ones the task needs, not a node stacked for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "tracking",
-          "title_fr": "Déclencheurs",
-          "title_en": "Triggers",
-          "body_fr": "Un mail entrant, un formulaire, un horaire, un webhook, un changement dans le CRM : le workflow n8n démarre seul, au bon moment.",
-          "body_en": "An inbound email, a form, a schedule, a webhook, a change in the CRM: the n8n workflow starts on its own, at the right moment."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "Connecteurs",
-          "title_en": "Connectors",
-          "body_fr": "Vos outils branchés via les connecteurs n8n, des appels API ou du MCP : CRM, boîtes mail, tableurs, facturation, e-commerce.",
-          "body_en": "Your tools wired via n8n connectors, API calls or MCP: CRM, inboxes, spreadsheets, billing, e-commerce."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Logique et branches",
-          "title_en": "Logic and branches",
-          "body_fr": "Là où l'assembleur de SaaS plafonne, n8n va plus loin : conditions fines, branches, boucles, code custom quand il le faut.",
-          "body_en": "Where the SaaS glue tops out, n8n goes further: fine conditions, branches, loops, custom code when needed."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Étapes IA",
-          "title_en": "AI steps",
-          "body_fr": "n8n orchestre les modèles dans le flux : un LLM classe, résume ou rédige, mixé aux API, à la mémoire et aux branches, encadré par vos consignes.",
-          "body_en": "n8n orchestrates models within the flow: an LLM classifies, summarises or drafts, mixed with APIs, memory and branches, framed by your instructions."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Hébergement",
-          "title_en": "Hosting",
-          "body_fr": "Self-hosted chez vous ou cloud UE à Francfort : vous choisissez où passent vos données, et vous gardez la main sur l'infrastructure.",
-          "body_en": "Self-hosted on your side or an EU cloud in Frankfurt: you choose where your data goes, and you keep control of the infrastructure."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "Contrôle humain",
-          "title_en": "Human control",
-          "body_fr": "Dans n8n, les actions sensibles attendent votre feu vert. Le workflow propose, vous tranchez, rien ne file en douce.",
-          "body_en": "In n8n, sensitive actions wait for your green light. The workflow proposes, you decide, nothing slips out quietly."
-        },
-        {
-          "icon": "design",
-          "title_fr": "Supervision",
-          "title_en": "Supervision",
-          "body_fr": "Journal de chaque exécution, alertes sur échec et mesure des heures gagnées : un workflow n8n qui coince vous prévient, il ne casse pas en silence.",
-          "body_en": "Log of every run, failure alerts and hours-saved measurement: an n8n workflow that jams warns you, it doesn't break silently."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "declinaisons",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système ops & IA",
-      "kicker_en": "§ The ops & AI system",
-      "h2_fr": "n8n est une <i>brique</i> du système",
-      "h2_en": "n8n is one <i>block</i> of the system",
-      "lede_fr": "Un workflow n8n travaille rarement seul. Il se combine à l'automatisation au sens large, à des agents qui décident, à un socle de données qui le mesure. Survolez une brique voisine pour la voir.",
-      "lede_en": "An n8n workflow rarely works alone. It combines with automation at large, with agents that decide, with a data foundation that measures it. Hover a neighbouring block to preview it.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "L'instance et les workflows sont à votre nom. Un autre prestataire peut les reprendre.",
+      "lead_en": "The instance and the workflows are in your name. Another provider can take them over.",
       "items": [
         {
-          "label_fr": "Automatisations",
-          "label_en": "Automations",
-          "meta_fr": "L'offre mère · tous outils, n8n compris",
-          "meta_en": "The parent offer · all tools, n8n included",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : l'automatisation métier au sens large.",
-          "media_alt_en": "A car on the road: business automation at large.",
-          "link_href": "/services/automatisations"
+          "title_fr": "L'instance n8n",
+          "title_en": "The n8n instance",
+          "body_fr": "Installée sur votre serveur ou votre compte n8n Cloud, avec les sauvegardes configurées.",
+          "body_en": "Installed on your server or n8n Cloud account, with backups configured.",
+          "format_fr": "INFRA",
+          "format_en": "INFRA"
         },
         {
-          "label_fr": "Agents IA",
-          "label_en": "AI agents",
-          "meta_fr": "Décider · quand la tâche demande du jugement",
-          "meta_en": "Decide · when the task needs judgement",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : l'agent qui tranche là où un workflow n8n figé s'arrête.",
-          "media_alt_en": "A chessboard: the agent that rules where a fixed n8n workflow stops.",
-          "link_href": "/services/agents-ia"
+          "title_fr": "Les workflows",
+          "title_en": "The workflows",
+          "body_fr": "En production, exportables en JSON, avec leurs cas d'erreur traités.",
+          "body_en": "In production, exportable as JSON, with their error cases handled.",
+          "format_fr": "WORKFLOWS",
+          "format_en": "WORKFLOWS"
         },
         {
-          "label_fr": "Applications internes",
-          "label_en": "Internal applications",
-          "meta_fr": "Porter · l'outil qui pilote le flux",
-          "meta_en": "Carry · the tool that drives the flow",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : l'outil interne sur mesure qui pilote le workflow n8n.",
-          "media_alt_en": "A craftsman at work: the bespoke internal tool that drives the n8n workflow.",
-          "link_href": "/services/applications-internes"
+          "title_fr": "Les accès",
+          "title_en": "The access",
+          "body_fr": "Identifiants et clés d'API créés sur vos comptes, pas sur les nôtres.",
+          "body_en": "Credentials and API keys created on your accounts, not ours.",
+          "format_fr": "ACCÈS",
+          "format_en": "ACCÈS"
         },
         {
-          "label_fr": "Intégration Claude",
-          "label_en": "Claude integration",
-          "meta_fr": "Brancher · l'IA à vos outils via MCP",
-          "meta_en": "Wire · AI to your tools via MCP",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : Claude branché à n8n et à vos outils métier.",
-          "media_alt_en": "A validated handshake: Claude wired to n8n and your business tools.",
-          "link_href": "/services/integration-claude"
-        },
-        {
-          "label_fr": "Le système ops & IA",
-          "label_en": "The ops & AI system",
-          "meta_fr": "Assembler · l'ensemble, de bout en bout",
-          "meta_en": "Assemble · the whole, end to end",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Une équipe alignée : n8n assemblé au reste du système opérationnel et IA.",
-          "media_alt_en": "An aligned team: n8n assembled into the rest of the operational and AI system.",
-          "link_href": "/services/systemes-operationnels-ia"
+          "title_fr": "La documentation et la passation",
+          "title_en": "Documentation and handover",
+          "body_fr": "Une fiche par workflow et une session de prise en main pour votre référent.",
+          "body_en": "One sheet per workflow and a handover session for your owner.",
+          "format_fr": "DOC",
+          "format_en": "DOC"
         }
       ]
     },
     {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "Le circuit n8n, de bout en bout",
-      "fig_title_en": "The n8n circuit, end to end",
-      "meta_fr": "AutoLoop · v1",
-      "meta_en": "AutoLoop · v1",
-      "h2_fr": "Comment un workflow n8n s'exécute",
-      "h2_en": "How an n8n workflow runs",
-      "lede_fr": "Un workflow n8n n'est pas un Zap isolé. C'est un circuit : un évènement l'allume, la donnée traverse vos outils, les règles et les branches tranchent, l'action part, et la mesure revient pour l'améliorer. Chaque nœud transforme un geste manuel en étape traçable.",
-      "lede_en": "An n8n workflow is not an isolated Zap. It's a circuit: an event lights it up, data crosses your tools, the rules and branches decide, the action fires, and the measurement comes back to improve it. Each node turns a manual gesture into a traceable step.",
-      "steps": [
-        {
-          "title_fr": "Déclencheur",
-          "title_en": "Trigger",
-          "desc_fr": "Un mail, un formulaire, un horaire, un webhook, un changement d'outil.",
-          "desc_en": "An email, a form, a schedule, a webhook, a tool change."
-        },
-        {
-          "title_fr": "Collecte",
-          "title_en": "Collection",
-          "desc_fr": "Les données lues dans vos outils via connecteurs, API ou MCP, sans recopie.",
-          "desc_en": "Data read from your tools via connectors, API or MCP, no retyping."
-        },
-        {
-          "title_fr": "Logique",
-          "title_en": "Logic",
-          "desc_fr": "Vos conditions et branches appliquées, avec une étape IA si le cas l'exige.",
-          "desc_en": "Your conditions and branches applied, with an AI step if the case requires it."
-        },
-        {
-          "title_fr": "Action",
-          "title_en": "Action",
-          "desc_fr": "Le nœud n8n agit : document créé, outil mis à jour, message parti.",
-          "desc_en": "The n8n node acts: document created, tool updated, message sent."
-        },
-        {
-          "title_fr": "Contrôle",
-          "title_en": "Control",
-          "desc_fr": "Exécution tracée dans n8n, validation humaine si l'action est sensible.",
-          "desc_en": "Run traced in n8n, human validation when the action is sensitive."
-        },
-        {
-          "title_fr": "Mesure",
-          "title_en": "Measurement",
-          "desc_fr": "Les heures gagnées comptées, le workflow ajusté. La boucle se referme.",
-          "desc_en": "The hours saved counted, the workflow tuned. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'amélioration continue",
-      "loop_label_en": "continuous improvement loop"
-    },
-    {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
+      "type": "decision-list",
       "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille votre n8n",
-      "kicker_en": "§ Method · how we work your n8n",
-      "h2_fr": "Comment on travaille votre n8n",
-      "h2_en": "How we work your n8n",
-      "lede_fr": "Du repérage de la tâche qui coûte le plus au workflow n8n en production, puis au parc qui s'étend. Avant de signer, vous connaissez le premier cas n8n mis en production et les heures qu'il rend. Pas de zone d'ombre.",
-      "lede_en": "From spotting the task that costs the most to an n8n workflow in production, then to a fleet that expands. Before signing, you know the first n8n case put into production and the hours it returns. No grey zone.",
-      "steps": [
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "n8n n'est pas le bon choix si",
+      "heading_en": "n8n is not the right choice if",
+      "items": [
         {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Repérage & cadrage",
-          "eyebrow_en": "Spotting & scoping",
-          "title_fr": "Trouver la tâche qui coûte le plus",
-          "title_en": "Find the task that costs the most",
-          "body_fr": "Quelques jours pour observer et lister vos tâches répétitives, les chiffrer en heures et sortir celles qui font le plus mal. Livrable : une cartographie priorisée et un premier périmètre de workflow n8n, chiffré.",
-          "body_en": "A few days to observe and list your repetitive tasks, cost them in hours and surface the ones that hurt most. Deliverable: a prioritised map and a first n8n workflow scope, costed.",
-          "media_src": "/images/illustrations/ds/pretty-woman-paper.webp",
-          "media_alt_fr": "Repérage des tâches répétitives qui coûtent le plus, pour cadrer le premier workflow n8n",
-          "media_alt_en": "Spotting the repetitive tasks that cost most, to scope the first n8n workflow"
+          "label_fr": "Vous avez deux applications SaaS à relier et aucune contrainte d'hébergement : un scénario Make suffira.",
+          "label_en": "You have two SaaS apps to connect and no hosting constraint: a Make scenario will do."
         },
         {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Choix de l'outil",
-          "eyebrow_en": "Tool choice",
-          "title_fr": "Trancher n8n, ou Zapier si ça suffit",
-          "title_en": "Decide n8n, or Zapier if it's enough",
-          "body_fr": "On choisit l'outil au cadrage, jamais l'inverse. n8n par défaut dès que la logique est riche, qu'il faut l'héberger chez vous ou brancher de l'IA. Zapier ou Make quand le branchement entre deux SaaS suffit et qu'on veut aller vite.",
-          "body_en": "We choose the tool during scoping, not the reverse. n8n by default as soon as the logic is rich, when you need to self-host or wire in AI. Zapier or Make when wiring between two SaaS apps is enough and speed matters.",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Choix de l'outil d'automatisation selon le besoin réel, n8n ou Zapier",
-          "media_alt_en": "Choosing the automation tool according to the real need, n8n or Zapier"
+          "label_fr": "Personne, chez vous ou chez un prestataire, ne suivra les mises à jour d'une instance auto-hébergée.",
+          "label_en": "Nobody, in-house or at a provider, will follow the updates of a self-hosted instance."
         },
         {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Construction",
-          "eyebrow_en": "Build",
-          "title_fr": "Construire et brancher sur n8n",
-          "title_en": "Build and wire on n8n",
-          "body_fr": "On monte le workflow sur n8n, self-hosted chez vous ou en cloud UE, on le branche à vos outils via connecteurs, API ou MCP, et on teste chaque cas, erreurs comprises. Le workflow n8n repose sur une base propre, conçue pour s'étendre sans casser.",
-          "body_en": "We build the workflow on n8n, self-hosted on your side or in an EU cloud, wire it to your tools via connectors, API or MCP, and test every case, errors included. The n8n workflow sits on a clean base, designed to extend without breaking.",
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Construction et branchement du workflow n8n à vos outils, comme une jonction validée",
-          "media_alt_en": "Building and wiring the n8n workflow to your tools, like a validated handshake"
+          "label_fr": "Le process demande une interface de saisie pour vos équipes : il faut une application métier, pas un workflow.",
+          "label_en": "The process needs a data-entry interface for your teams: you need a business application, not a workflow."
         },
         {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Supervision & mesure",
-          "eyebrow_en": "Supervision & measurement",
-          "title_fr": "Superviser et compter les heures",
-          "title_en": "Supervise and count the hours",
-          "body_fr": "On câble le journal d'exécutions n8n, les alertes sur échec et le tableau des heures gagnées. Avant et après chiffrés sur votre propre activité, pas de boîte noire. Un workflow n8n qui coince vous prévient, il ne coince pas en silence.",
-          "body_en": "We wire the n8n execution log, the failure alerts and the hours-saved dashboard. Before and after in figures on your own activity, no black box. An n8n workflow that jams warns you, it doesn't jam in silence.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Mesure des heures gagnées avant et après l'automatisation du process sur n8n",
-          "media_alt_en": "Measuring the hours saved before and after the process is automated on n8n"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Extension & passation",
-          "eyebrow_en": "Extension & handover",
-          "title_fr": "Étendre et rendre l'équipe autonome",
-          "title_en": "Extend and make the team autonomous",
-          "body_fr": "On ajoute les workflows n8n suivants au rythme des résultats, et on forme un référent chez vous. La passation fait partie du livrable : mode opératoire, lecture des logs, vous gardez la stack et vous ajustez sans nous.",
-          "body_en": "We add the next n8n workflows at the pace of results, and train an in-house referent. Handover is part of the deliverable: operating manual, log reading, you keep the stack and adjust without us.",
-          "media_src": "/images/illustrations/ds/band-showing-tv-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour rester autonomes sur n8n",
-          "media_alt_en": "Handover and team training to stay autonomous on n8n",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
+          "label_fr": "La tâche n'est pas stabilisée : un workflow fige des règles qui doivent exister.",
+          "label_en": "The task is not stable: a workflow freezes rules that must already exist."
         }
       ]
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "outils",
-      "background": "paper-2",
-      "kicker_fr": "§ n8n, Make ou Zapier : quand on choisit quoi",
-      "kicker_en": "§ n8n, Make or Zapier: when we choose what",
-      "h2_fr": "n8n par défaut, Zapier quand il suffit",
-      "h2_en": "n8n by default, Zapier when it's enough",
-      "lede_fr": "On n'a pas d'outil fétiche, on a un verdict de terrain. Après dix-huit mois à basculer une part croissante de nos automatisations sur n8n, il est devenu notre choix par défaut pour la majorité des PME qui veulent industrialiser des workflows sérieux. Mais la puissance a un prix organisationnel, et on le dit franchement.",
-      "lede_en": "We have no pet tool, we have a field verdict. After eighteen months moving a growing share of our automation stack to n8n, it became our default choice for most SMEs that want to industrialise serious workflows. But the power has an organisational cost, and we say so plainly.",
-      "rows": [
-        {
-          "kicker_fr": "Choix 01",
-          "kicker_en": "Choice 01",
-          "h3_fr": "n8n, notre socle par défaut",
-          "h3_en": "n8n, our default base",
-          "body_fr": "Dès qu'une automatisation devient un actif métier qui se ramifie, n8n prend l'avantage : facturation aux exécutions, self-hosting, logique fine et vraie intégration IA. On construit large, sur une base qui reste chez vous, lisible et transmissible.",
-          "body_en": "As soon as an automation becomes a branching business asset, n8n takes the lead: execution-based billing, self-hosting, fine logic and real AI integration. We build wide, on a base that stays with you, readable and transferable.",
-          "points": [
-            {
-              "label_fr": "Facturation aux exécutions",
-              "label_en": "Execution-based billing"
-            },
-            {
-              "label_fr": "Self-hosted ou cloud UE",
-              "label_en": "Self-hosted or EU cloud"
-            },
-            {
-              "label_fr": "Logique fine et étapes IA",
-              "label_en": "Fine logic and AI steps"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Choix 02",
-          "kicker_en": "Choice 02",
-          "h3_fr": "Zapier ou Make, quand c'est simple",
-          "h3_en": "Zapier or Make, when it's simple",
-          "body_fr": "Zapier reste excellent pour du branchement rapide entre deux SaaS, sans logique compliquée. Quand le besoin tient en quelques étapes et qu'on veut aller vite, on ne sort pas l'artillerie n8n : on pose un Zap ou un scénario Make propre, et on avance.",
-          "body_en": "Zapier stays excellent for fast wiring between two SaaS apps, with no complex logic. When the need fits in a few steps and speed matters, we don't bring out the n8n artillery: we set a clean Zap or Make scenario, and move on.",
-          "points": [
-            {
-              "label_fr": "Branchement rapide entre SaaS",
-              "label_en": "Fast wiring between SaaS"
-            },
-            {
-              "label_fr": "Peu d'étapes, pas de logique lourde",
-              "label_en": "Few steps, no heavy logic"
-            },
-            {
-              "label_fr": "Mise en ligne immédiate",
-              "label_en": "Immediate go-live"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Choix 03",
-          "kicker_en": "Choice 03",
-          "h3_fr": "La ligne rouge, assumée",
-          "h3_en": "The red line, owned",
-          "body_fr": "Le vrai contre-argument à n8n n'est pas technique, il est organisationnel. Si personne en interne n'assume la logique, les logs et l'évolution des workflows, la puissance devient une charge. On forme un référent, et si ce n'est pas tenable, on préfère un Zapier plus limité mais bien tenu à un n8n abandonné à moitié configuré.",
-          "body_en": "The real counter-argument to n8n isn't technical, it's organisational. If no one in-house owns the logic, logs and evolution of the workflows, the power becomes a burden. We train a referent, and if that's not tenable, we prefer a more limited but well-kept Zapier to a half-configured, abandoned n8n.",
-          "points": [
-            {
-              "label_fr": "Un référent formé chez vous",
-              "label_en": "A referent trained on your side"
-            },
-            {
-              "label_fr": "Pas de n8n abandonné à moitié",
-              "label_en": "No half-abandoned n8n"
-            },
-            {
-              "label_fr": "L'honnêteté avant l'outil",
-              "label_en": "Honesty before the tool"
-            }
-          ],
-          "link_href": "/blog/avis-n8n-vs-zapier-2026",
-          "link_label_fr": "Lire notre avis n8n vs Zapier →",
-          "link_label_en": "Read our n8n vs Zapier verdict →"
-        }
-      ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "CRM HubSpot · Capture · Routage",
-          "impact_fr": "Formulaires reliés à HubSpot par des workflows n8n : capture et routage des demandes, des leads qualifiés dans le CRM sans la moindre ressaisie.",
-          "impact_en": "Forms wired to HubSpot through n8n workflows: request capture and routing, qualified leads in the CRM with zero retyping.",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : les demandes captées et routées par un workflow n8n.",
-          "media_alt_en": "A dynamic figure: requests captured and routed by an n8n workflow."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · Back-office · Maintenance",
-          "impact_fr": "Back-office refondu et allégé, tâches récurrentes portées sur des workflows : maintenance -84 % et chargement divisé par deux.",
-          "impact_en": "Back office rebuilt and streamlined, recurring tasks carried by workflows: maintenance down 84% and load time halved.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : un back-office e-commerce dont les tâches tournent en workflows.",
-          "media_alt_en": "Fresh fruit: an e-commerce back office whose tasks run as workflows."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Abonnement · Paiement récurrent · Communauté",
-          "impact_fr": "Abonnement et paiements récurrents orchestrés par workflows : 40 articles, 150 membres et 35 abonnés payants gérés sans saisie manuelle en trois mois.",
-          "impact_en": "Subscription and recurring payments orchestrated by workflows: 40 articles, 150 members and 35 paying subscribers handled with no manual entry in three months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local : abonnements et paiements récurrents portés par des workflows n8n.",
-          "media_alt_en": "A local media outlet: subscriptions and recurring payments carried by n8n workflows."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
@@ -876,10 +335,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier workflow n8n en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez vos workflows n8n, vos accès et la documentation.",
-      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first n8n workflow in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep your n8n workflows, your access and the documentation.",
+      "h2_fr": "Prix d'une prestation n8n",
+      "h2_en": "Price of an n8n engagement",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier workflow n8n en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos workflows n8n, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first n8n workflow in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your n8n workflows, your access and the documentation.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -900,9 +359,9 @@
             "A first deliverable that runs, not a mockup"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=automatisation-n8n&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -915,13 +374,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Nouveaux workflows n8n ajoutés et supervisés",
             "Vous gardez workflows, accès et documentation"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "New n8n workflows added and supervised",
             "You keep the workflows, access and documentation"
           ],
@@ -933,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow n8n conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows n8n suivants, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows n8n, vos accès et la documentation sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first n8n workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next n8n workflows require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your n8n workflows, your access and the documentation are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow n8n conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows n8n suivants, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows n8n, vos accès et la documentation sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first n8n workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next n8n workflows require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your n8n workflows, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
@@ -945,45 +404,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Agence n8n : vos questions",
+      "h2_en": "n8n agency: your questions",
       "items": [
         {
-          "q_fr": "Pourquoi n8n plutôt que Zapier pour une PME ?",
-          "q_en": "Why n8n rather than Zapier for an SME?",
-          "a_fr": "Parce que dès qu'un workflow devient un actif métier et se ramifie, n8n tient mieux. Il facture les exécutions et pas la tâche, on peut l'héberger chez soi, et il va beaucoup plus loin sur la logique et l'IA. Avec Zapier on construit vite, avec n8n on construit large. Zapier reste excellent pour du branchement simple entre deux SaaS.",
-          "a_en": "Because once a workflow becomes a business asset and branches out, n8n holds up better. It bills on executions, not tasks, you can self-host it, and it goes much further on logic and AI. With Zapier you build fast, with n8n you build wide. Zapier stays excellent for simple wiring between two SaaS apps."
+          "q_fr": "Combien coûte n8n pour une PME ?",
+          "a_fr": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : 999 € HT pour un sprint découverte de 10 heures, puis 99 € HT de l'heure.",
+          "q_en": "How much does n8n cost for an SMB?",
+          "a_en": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €999 excl. VAT for a 10-hour discovery sprint, then €99 per hour excl. VAT."
         },
         {
-          "q_fr": "Vous pouvez héberger n8n chez nous, en self-hosted ?",
-          "q_en": "Can you host n8n on our side, self-hosted?",
-          "a_fr": "Oui. n8n a une version self-hosted qui laisse le choix total de l'hébergement, et ses plans hébergés stockent les données dans l'UE, à Francfort. Pour un client européen sensible au RGPD, c'est un vrai argument. On pose l'hébergement qui vous convient au cadrage, chez vous ou en cloud UE.",
-          "a_en": "Yes. n8n has a self-hosted version that leaves full choice of hosting, and its hosted plans store data in the EU, in Frankfurt. For a European client sensitive to GDPR, that's a real argument. We set the hosting that suits you at scoping, on your side or in an EU cloud."
+          "q_fr": "n8n vs Make : lequel choisir ?",
+          "a_fr": "n8n quand la logique se ramifie, que les volumes montent ou que les données doivent rester sur votre serveur. Make quand il s'agit de relier quelques applications SaaS avec un éditeur visuel et sans hébergement à gérer. Make facture en crédits, n8n en exécutions de workflow (pages tarifs des deux éditeurs, vérifiées le 4 octobre 2026).",
+          "q_en": "n8n vs Make: which one to choose?",
+          "a_en": "n8n when the logic branches out, volumes grow or data must stay on your server. Make when you need to connect a few SaaS apps with a visual editor and no hosting to manage. Make bills in credits, n8n in workflow executions (both vendors' pricing pages, checked on 4 October 2026)."
         },
         {
-          "q_fr": "n8n revient-il moins cher que Zapier ?",
-          "q_en": "Does n8n cost less than Zapier?",
-          "a_fr": "Souvent, oui, quand les scénarios sont riches. Zapier facture à la tâche, ce qui gonfle vite dès qu'un workflow se ramifie. n8n facture les exécutions quel que soit le nombre d'étapes. Plus votre logique est fournie, plus l'écart se creuse. On chiffre le coût réel d'ownership avec vous, pas seulement la licence.",
-          "a_en": "Often, yes, when scenarios are rich. Zapier bills per task, which swells fast as soon as a workflow branches. n8n bills executions regardless of step count. The richer your logic, the wider the gap. We size the real cost of ownership with you, not just the licence."
+          "q_fr": "n8n est-il conforme au RGPD ?",
+          "a_fr": "n8n est un outil : la conformité dépend de l'usage. Auto-hébergé, les données restent sur votre infrastructure. Hébergé par n8n, elles sont stockées dans l'Union européenne, à Francfort (page tarifs de n8n, vérifiée le 4 octobre 2026). Restent à documenter les données envoyées à une étape IA et les accès au journal.",
+          "q_en": "Is n8n GDPR compliant?",
+          "a_en": "n8n is a tool: compliance depends on use. Self-hosted, the data stays on your infrastructure. Hosted by n8n, it is stored in the EU, in Frankfurt (n8n pricing page, checked on 4 October 2026). What remains to document: data sent to an AI step and access to the log."
         },
         {
-          "q_fr": "n8n se branche à nos outils existants ?",
-          "q_en": "Does n8n wire to our existing tools?",
-          "a_fr": "Oui. CRM, boîtes mail, tableurs, facturation, e-commerce, APIs internes : on connecte l'existant via les connecteurs n8n, des appels API ou du MCP. On complète votre stack, on ne la remplace pas. Vous gardez les workflows, lisibles et modifiables.",
-          "a_en": "Yes. CRM, inboxes, spreadsheets, billing, e-commerce, internal APIs: we connect what exists via n8n connectors, API calls or MCP. We complete your stack, we don't replace it. You keep the workflows, readable and editable."
+          "q_fr": "Peut-on héberger n8n sur notre propre serveur ?",
+          "a_fr": "Oui. On installe n8n sur un serveur à votre nom, avec nom de domaine, certificat, sauvegardes et procédure de mise à jour. Il faut ensuite quelqu'un pour appliquer ces mises à jour : votre équipe ou nous, en régie.",
+          "q_en": "Can we host n8n on our own server?",
+          "a_en": "Yes. We install n8n on a server in your name, with domain name, certificate, backups and an update procedure. Someone then has to apply those updates: your team or us, on a time-and-materials basis."
         },
         {
-          "q_fr": "Et si personne chez nous ne peut tenir les workflows ?",
-          "q_en": "What if no one on our side can maintain the workflows?",
-          "a_fr": "C'est le vrai contre-argument à n8n, et il est organisationnel, pas technique. Si personne en interne n'assume la logique, les logs et les erreurs, la puissance devient une charge. Dans ce cas on vous le dit, et un Zapier plus limité mais bien tenu peut être plus sain. On forme aussi un référent chez vous pour éviter le n8n abandonné à moitié configuré.",
-          "a_en": "That's the real counter-argument to n8n, and it's organisational, not technical. If no one in-house owns the logic, logs and errors, the power becomes a burden. In that case we tell you so, and a more limited but well-kept Zapier can be healthier. We also train an in-house referent to avoid the half-configured, abandoned n8n."
+          "q_fr": "Avez-vous un exemple de workflow n8n pour une PME ?",
+          "a_fr": "L'exemple type de cette page : les factures fournisseurs reçues par email, lues par une étape IA, classées et pré-saisies pour validation. Autres workflows fréquents : création de devis depuis un formulaire, synchronisation CRM et facturation, relances automatiques, rapport hebdomadaire.",
+          "q_en": "Do you have an example of an n8n workflow for an SMB?",
+          "a_en": "The typical example on this page: supplier invoices received by email, read by an AI step, filed and pre-entered for approval. Other common workflows: quote creation from a form, CRM and invoicing sync, automatic follow-ups, weekly report."
         },
         {
-          "q_fr": "Combien de temps avant qu'un premier workflow n8n tourne ?",
-          "q_en": "How long before a first n8n workflow runs?",
-          "a_fr": "Un premier workflow n8n ciblé tourne souvent en quelques semaines, une fois la tâche cadrée. On part de celle qui coûte le plus d'heures, on la met en production, on la supervise, puis on étend. On mesure les heures gagnées dès la mise en ligne, pas dans six mois.",
-          "a_en": "A first targeted n8n workflow often runs within a few weeks, once the task is scoped. We start with the one that costs the most hours, put it into production, supervise it, then extend. We track the hours saved from go-live, not six months later."
+          "q_fr": "Formez-vous nos équipes à n8n ?",
+          "a_fr": "Oui. Chaque mission inclut la prise en main par un référent. Pour former une équipe entière à n8n, les formations sont dispensées via Akigora, organisme certifié Qualiopi, avec une prise en charge possible selon votre situation.",
+          "q_en": "Do you train our teams on n8n?",
+          "a_en": "Yes. Every engagement includes a handover to an owner. To train a whole team on n8n, training is delivered via Akigora, a Qualiopi-certified body; funding may be available depending on your situation."
         }
       ]
     },
@@ -994,22 +453,22 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ n8n, mais bien tenu",
-      "kicker_en": "§ n8n, but well kept",
-      "h2_fr": "Faites de n8n votre socle d'<i>automatisation</i>.",
-      "h2_en": "Make n8n your <i>automation</i> base.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec la liste de vos tâches automatisables, chiffrée en heures, et l'outil recommandé, n8n ou Zapier, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with the list of your automatable tasks, costed in hours, and the recommended tool, n8n or Zapier, whether we work together or not. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Un premier workflow n8n en production, sur votre serveur.",
+      "h2_en": "A first n8n workflow in production, on your server.",
+      "subtitle_fr": "Pendant l'audit gratuit de 45 minutes, on regarde vos process, on vérifie que vos logiciels ont une API et on vous dit si n8n est le bon outil, ou non.",
+      "subtitle_en": "During the free 45-minute audit, we look at your processes, check that your software has an API and tell you whether n8n is the right tool, or not.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=automatisation-n8n&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir toutes les automatisations",
-          "label_en": "See all automations",
+          "label_fr": "Automatisation des processus",
+          "label_en": "Process automation",
           "href": "/services/automatisations",
           "variant": "ghost"
         }

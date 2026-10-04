@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/cas-usages.page.schema.json",
-  "title_fr": "Centraliser ses données · des outils qui se parlent enfin",
-  "title_en": "Centralise your data · tools that finally talk to each other",
-  "description_fr": "Vos outils ne se parlent pas et vos équipes ressaisissent tout ? On connecte CRM, e-mail et logiciels métier en une source unique fiable.",
-  "description_en": "Your tools don't talk and your teams retype everything by hand? We connect CRM, email and business software into one reliable source.",
+  "title_fr": "Centraliser ses données et automatiser le reporting · Waimia",
+  "title_en": "Centralising data and automating reporting · Waimia",
+  "description_fr": "Centraliser les données d'une PME et automatiser le reporting : une base, une définition par indicateur, un tableau de bord à jour sans recopie.",
+  "description_en": "Centralising an SMB's data and automating reporting: one base, one definition per indicator, an up-to-date dashboard with no retyping.",
   "slug": "centraliser-donnees",
   "publishedAt": "2026-06-26T00:00:00.000Z",
-  "updatedAt": "2026-06-26T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "centraliser-donnees",
@@ -20,62 +20,46 @@
   },
   "faq_fr": [
     {
-      "q": "Pourquoi mes outils ne se parlent-ils pas ?",
-      "a": "Parce qu'ils ont été achetés séparément, chacun pour son service : un CRM pour le commercial, une suite comptable pour les finances, un logiciel métier pour la production. Chacun fonctionne dans son périmètre, mais entre eux il y a un vide que les équipes comblent à la main. Ce vide n'est pas un problème d'outils, c'est un problème d'intégration, et il se comble souvent sans changer d'outils."
+      "q": "Comment centraliser les données d'une PME ?",
+      "a": "En trois temps : définir les indicateurs utiles, brancher chaque logiciel à une base unique par des connexions automatiques, puis construire les tableaux de bord sur cette base. On commence par deux ou trois sources, pas par toutes."
     },
     {
-      "q": "C'est quoi une source unique de vérité ?",
-      "a": "C'est l'endroit de référence où une donnée vit une seule fois et d'où tous les autres outils la lisent. Au lieu d'un client saisi dans le CRM, recopié dans la facturation puis dans un tableur, l'information existe une fois et se propage. Chacun travaille sur le même chiffre, à jour, au lieu de versions divergentes selon l'outil consulté."
+      "q": "Comment réduire le temps passé sur le reporting ?",
+      "a": "En supprimant l'export et la recopie : les données arrivent seules dans une base et le tableau se met à jour. Le temps restant sert à vérifier et à analyser."
     },
     {
-      "q": "Faut-il changer tous mes logiciels pour centraliser ?",
-      "a": "Le plus souvent, non. Dans la plupart des cas, il ne faut pas remplacer les outils, il faut les connecter. On câble vos logiciels existants entre eux pour que l'information circule automatiquement. On ne change un outil que s'il bloque vraiment, et cette décision se prend au diagnostic, pas par défaut."
+      "q": "Faut-il un entrepôt de données pour une PME ?",
+      "a": "Rarement au sens des grands groupes. Une base de données simple, alimentée chaque nuit, suffit dans la plupart des PME. On dimensionne selon le volume et le nombre de sources."
     },
     {
-      "q": "C'est quoi le protocole MCP dont vous parlez ?",
-      "a": "Le Model Context Protocol est un standard ouvert pour connecter un assistant IA et vos outils. Côté intégration, il permet de câbler des connecteurs propres et documentés vers votre CRM, votre e-mail, votre base de données ou votre dépôt, plutôt que des scripts jetables qui cassent à la première mise à jour. La couche d'intégration devient durable et maintenable."
+      "q": "Peut-on interroger ses données en langage naturel ?",
+      "a": "Oui, une fois les données rassemblées et propres. Un modèle d'IA traduit la question en requête et renvoie la réponse avec les lignes qui la justifient. Sur des données incohérentes, les réponses le seront aussi."
     },
     {
-      "q": "Mes données restent-elles chez moi ?",
-      "a": "Oui. La gouvernance est posée dès le départ : on cartographie ce qui circule, on définit les accès par rôle, on trace les échanges. Vos données restent dans vos outils et sous votre contrôle. On connecte sans déposséder, et la conformité RGPD fait partie du cadre."
-    },
-    {
-      "q": "Par où commence-t-on ?",
-      "a": "Par la connexion qui élimine le plus de saisies manuelles ou qui produit le reporting le plus coûteux. Souvent c'est le lien entre le CRM et la facturation, ou la consolidation du reporting mensuel. Le diagnostic identifie précisément quelle intégration prioriser dans votre contexte, avec une estimation du gain associé."
-    },
-    {
-      "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-      "a": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition."
+      "q": "Combien coûte un projet de centralisation des données ?",
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée 99 € HT de l'heure."
     }
   ],
   "faq_en": [
     {
-      "q": "Why don't my tools talk to each other?",
-      "a": "Because they were bought separately, each for one department: a CRM for sales, an accounting suite for finance, a business app for production. Each works in its scope, but between them there's a gap teams fill by hand. That gap isn't a tool problem, it's an integration problem, and it's often filled without changing tools."
+      "q": "How do you centralise an SMB's data?",
+      "a": "In three steps: define the useful indicators, connect each tool to a single base through automatic connections, then build dashboards on that base. Start with two or three sources, not all of them."
     },
     {
-      "q": "What is a single source of truth?",
-      "a": "It's the reference place where a piece of data lives once and from which all other tools read it. Instead of a client entered in the CRM, retyped in billing then in a spreadsheet, the information exists once and propagates. Everyone works on the same up-to-date figure, instead of versions that diverge depending on the tool consulted."
+      "q": "How do you cut time spent on reporting?",
+      "a": "By removing export and retyping: data reaches a base on its own and the dashboard updates. The remaining time goes to checking and analysing."
     },
     {
-      "q": "Do we need to change all our software to centralise?",
-      "a": "Most often, no. In most cases you don't need to replace tools, you need to connect them. We wire your existing software together so information flows automatically. We only change a tool if it genuinely blocks, and that decision is made at the diagnostic, not by default."
+      "q": "Does an SMB need a data warehouse?",
+      "a": "Rarely in the large-enterprise sense. A simple database, fed every night, is enough for most SMBs. We size it by volume and number of sources."
     },
     {
-      "q": "What is the MCP protocol you mention?",
-      "a": "The Model Context Protocol is an open standard for connecting an AI assistant and your tools. On the integration side, it lets us wire clean, documented connectors to your CRM, email, database or repo, rather than throwaway scripts that break at the first update. The integration layer becomes durable and maintainable."
+      "q": "Can data be queried in natural language?",
+      "a": "Yes, once the data is gathered and clean. An AI model turns the question into a query and returns the answer with the supporting rows. On inconsistent data, answers will be inconsistent too."
     },
     {
-      "q": "Does my data stay with me?",
-      "a": "Yes. Governance is laid in from the start: we map what flows, define access by role, trace the exchanges. Your data stays in your tools and under your control. We connect without dispossessing, and GDPR compliance is part of the frame."
-    },
-    {
-      "q": "Where do we start?",
-      "a": "With the connection that eliminates the most manual entry or produces the costliest reporting. Often it's the link between CRM and billing, or consolidating the monthly reporting. The diagnostic identifies exactly which integration to prioritise in your context, with an estimate of the associated gain."
-    },
-    {
-      "q": "Where are you based, and do we need to be in Bordeaux?",
-      "a": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+      "q": "How much does a data centralisation project cost?",
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: priority indicators, first sources, first dashboard. The rest is estimated in hours then billed €99 per hour excl. VAT."
     }
   ],
   "sections": [
@@ -85,292 +69,97 @@
       "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
       "media_alt_fr": "Illustration : une personne pilote une source de données unifiée, sans ressaisie d'un outil à l'autre",
       "media_alt_en": "Illustration: a person steering one unified data source, no retyping from tool to tool",
-      "kicker_fr": "§ Résoudre un problème",
-      "kicker_en": "§ Solve a problem",
-      "h1_fr": "Centraliser ses <i class=\"acc\">données</i>.",
-      "h1_en": "Centralise your <i class=\"acc\">data</i>.",
-      "definition_kicker_fr": "Le problème",
-      "definition_kicker_en": "The problem",
-      "lede_fr": "Le CRM ignore la facturation, la compta ne voit pas le commercial, et vos équipes font le pont à la main toute la journée. Le sujet n'est pas d'acheter un outil de plus, c'est de connecter ce que vous avez en une source unique fiable, où la donnée vit une fois et circule partout.",
-      "lede_en": "The CRM ignores billing, accounting can't see sales, and your teams bridge the gaps by hand all day. The issue isn't buying one more tool, it's connecting what you have into one reliable source, where data lives once and flows everywhere.",
+      "kicker_fr": "§ Cas d'usage · pilotage et reporting",
+      "kicker_en": "§ Use case · steering and reporting",
+      "h1_fr": "Centraliser ses données et <i class=\"acc\">automatiser le reporting</i>",
+      "h1_en": "Centralising data and <i class=\"acc\">automating reporting</i>",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Centraliser ses données, c'est faire en sorte que le CRM, la facturation et les tableurs alimentent une base unique, où chaque indicateur a une seule définition. Le reporting en découle : il se met à jour sans export ni recopie. Ce cas d'usage concerne les PME où le rapport mensuel occupe quelqu'un plusieurs jours.",
+      "lede_en": "Centralising data means making the CRM, invoicing and spreadsheets feed a single base where each indicator has one definition. Reporting follows: it updates with no export or retyping. This use case concerns SMBs where the monthly report takes someone several days.",
       "badges": [
         {
-          "label_fr": "Connecteurs propres via MCP",
-          "label_en": "Clean connectors via MCP"
+          "label_fr": "Une base unique",
+          "label_en": "One single base"
         },
         {
-          "label_fr": "Une source unique de vérité",
-          "label_en": "A single source of truth"
+          "label_fr": "Indicateurs définis",
+          "label_en": "Defined indicators"
         },
         {
-          "label_fr": "Vos données restent chez vous",
-          "label_en": "Your data stays with you"
+          "label_fr": "Reporting sans recopie",
+          "label_en": "Reporting with no retyping"
         }
       ],
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?intent=donnees",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Comment on le résout",
-        "label_en": "How we solve it",
-        "href": "#methode",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       }
     },
     {
-      "type": "feature-zigzag",
+      "type": "editorial-prose",
       "background": "paper-2",
-      "layout": "alternate",
-      "mediaSide": "left",
-      "kicker_fr": "§ Le problème",
-      "kicker_en": "§ The problem",
-      "h2_fr": "Là où la donnée se perd",
-      "h2_en": "Where data gets lost",
-      "rows": [
-        {
-          "kicker_fr": "01 · Ressaisie manuelle",
-          "kicker_en": "01 · Manual retyping",
-          "h3_fr": "La même donnée, saisie plusieurs fois",
-          "h3_en": "The same data, entered several times",
-          "body_fr": "Un client est créé dans le CRM, recopié dans la facturation, repris dans un tableur. Chaque ressaisie coûte du temps et introduit des erreurs. Vos équipes passent leurs journées à faire circuler à la main une information qui devrait passer seule.",
-          "body_en": "A client is created in the CRM, retyped in billing, re-entered in a spreadsheet. Each retyping costs time and introduces errors. Your teams spend their days moving by hand information that should flow on its own.",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Une même donnée recopiée d'un outil à l'autre",
-          "media_alt_en": "The same data copied from one tool to another"
-        },
-        {
-          "kicker_fr": "02 · Chiffres divergents",
-          "kicker_en": "02 · Diverging figures",
-          "h3_fr": "Chaque service a sa vérité",
-          "h3_en": "Each department has its truth",
-          "body_fr": "Le commercial cite un montant, la compta un autre, le tableur de direction un troisième. Personne ne sait lequel est juste. Les décisions se prennent sur des chiffres qui ne correspondent pas, parce qu'il n'existe aucune source de référence partagée.",
-          "body_en": "Sales quote one amount, accounting another, the management spreadsheet a third. No one knows which is right. Decisions are made on figures that don't match, because there's no shared reference source.",
-          "media_src": "/images/illustrations/ds/its-x-paper.webp",
-          "media_alt_fr": "Trois outils affichant des chiffres différents",
-          "media_alt_en": "Three tools showing different figures"
-        },
-        {
-          "kicker_fr": "03 · Vue éclatée",
-          "kicker_en": "03 · Fragmented view",
-          "h3_fr": "Aucune vue d'ensemble du client",
-          "h3_en": "No overall view of the client",
-          "body_fr": "Le support voit les tickets, le marketing les campagnes, la logistique les commandes. Personne n'a une vue simple du client dans son ensemble. L'information existe, mais elle est dispersée, et reconstituer un dossier complet demande de jongler entre cinq écrans.",
-          "body_en": "Support sees the tickets, marketing the campaigns, logistics the orders. No one has a simple overall view of the client. The information exists, but it's scattered, and rebuilding a complete file means juggling five screens.",
-          "media_src": "/images/illustrations/ds/computer-crash-landscape-paper.webp",
-          "media_alt_fr": "Un client vu en morceaux à travers des outils séparés",
-          "media_alt_en": "A client seen in pieces across separate tools"
-        }
-      ]
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "methode",
-      "background": "paper",
-      "layout": "alternate",
-      "mediaSide": "right",
-      "kicker_fr": "§ Comment on le résout",
-      "kicker_en": "§ How we solve it",
-      "h2_fr": "Connecter, pas <i>tout remplacer</i>",
-      "h2_en": "Connect, not <i>replace everything</i>",
-      "lede_fr": "On cartographie ce qui circule, on désigne la source de référence, on câble des connecteurs propres et on pose la gouvernance. Le but n'est pas d'empiler un outil de plus, c'est de faire enfin parler ceux que vous avez.",
-      "lede_en": "We map what flows, designate the reference source, wire clean connectors and lay in governance. The aim isn't to stack one more tool, it's to finally make the ones you have talk.",
-      "rows": [
-        {
-          "kicker_fr": "Cartographier",
-          "kicker_en": "Map",
-          "h3_fr": "Voir ce qui circule",
-          "h3_en": "See what flows",
-          "body_fr": "On part de vos flux réels : qui saisit quoi, où, et combien de fois la même donnée est recopiée. On identifie les ressaisies les plus coûteuses et le reporting le plus lourd à produire, pour attaquer là où le gain est le plus net.",
-          "body_en": "We start from your real flows: who enters what, where, and how many times the same data is retyped. We identify the costliest retyping and the heaviest reporting to produce, to tackle where the gain is clearest.",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Cartographier les flux avant de connecter, comme poser une stratégie",
-          "media_alt_en": "Mapping the flows before connecting, like setting a strategy",
-          "points": [
-            {
-              "label_fr": "Inventaire des sources et des flux",
-              "label_en": "Inventory of sources and flows"
-            },
-            {
-              "label_fr": "Ressaisies les plus coûteuses repérées",
-              "label_en": "Costliest retyping identified"
-            },
-            {
-              "label_fr": "Priorisation par gain",
-              "label_en": "Prioritisation by gain"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Unifier",
-          "kicker_en": "Unify",
-          "h3_fr": "Une source unique de vérité",
-          "h3_en": "A single source of truth",
-          "body_fr": "On désigne l'endroit où chaque donnée vit une fois, souvent le CRM pour les contacts, et d'où les autres outils la lisent. On dédoublonne, on standardise les formats. Tout le monde travaille enfin sur le même chiffre, à jour.",
-          "body_en": "We designate where each piece of data lives once, often the CRM for contacts, and from which the other tools read it. We deduplicate, standardise formats. Everyone finally works on the same up-to-date figure.",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Réunir les outils autour d'une seule source de référence partagée",
-          "media_alt_en": "Bringing tools together around a single shared reference source",
-          "points": [
-            {
-              "label_fr": "Donnée de référence définie",
-              "label_en": "Reference data defined"
-            },
-            {
-              "label_fr": "Dédoublonnage et formats unifiés",
-              "label_en": "Deduplication and unified formats"
-            },
-            {
-              "label_fr": "Un seul chiffre partagé",
-              "label_en": "One shared figure"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Câbler",
-          "kicker_en": "Wire",
-          "h3_fr": "Connecteurs propres via MCP",
-          "h3_en": "Clean connectors via MCP",
-          "body_fr": "On câble vos outils via le protocole MCP : des connecteurs sécurisés et documentés vers le CRM, l'e-mail, la base de données, plutôt que des scripts jetables. La donnée circule automatiquement, et la couche d'intégration tient dans le temps.",
-          "body_en": "We wire your tools through the MCP protocol: secured, documented connectors to the CRM, email, database, rather than throwaway scripts. Data flows automatically, and the integration layer holds over time.",
-          "media_src": "/images/illustrations/ds/style-13-paper.webp",
-          "media_alt_fr": "Des connecteurs propres qui font circuler la donnée entre vos outils",
-          "media_alt_en": "Clean connectors carrying data between your tools",
-          "points": [
-            {
-              "label_fr": "Connecteurs sécurisés et documentés",
-              "label_en": "Secured, documented connectors"
-            },
-            {
-              "label_fr": "Circulation automatique, sans recopie",
-              "label_en": "Automatic flow, no retyping"
-            },
-            {
-              "label_fr": "Une couche qui tient dans le temps",
-              "label_en": "A layer that holds over time"
-            }
-          ]
-        },
-        {
-          "kicker_fr": "Gouverner",
-          "kicker_en": "Govern",
-          "h3_fr": "Vos données sous contrôle",
-          "h3_en": "Your data under control",
-          "body_fr": "On pose les accès par rôle, on trace les échanges, on documente les flux. Vos données restent dans vos outils et sous votre main, conformité RGPD comprise. On connecte sans déposséder, et rien ne circule en boîte noire.",
-          "body_en": "We set access by role, trace the exchanges, document the flows. Your data stays in your tools and under your control, GDPR compliance included. We connect without dispossessing, and nothing flows as a black box.",
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "La gouvernance qui garde vos données sous votre contrôle",
-          "media_alt_en": "Governance keeping your data under your control",
-          "points": [
-            {
-              "label_fr": "Accès par rôle et traçabilité",
-              "label_en": "Access by role and traceability"
-            },
-            {
-              "label_fr": "Conformité RGPD posée dans le cadre",
-              "label_en": "GDPR compliance laid in the frame"
-            },
-            {
-              "label_fr": "Vos données restent chez vous",
-              "label_en": "Your data stays with you"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "bento-grid",
-      "background": "ink",
-      "kicker_fr": "§ Ce que Waimia met en place",
-      "kicker_en": "§ What Waimia sets up",
-      "h2_fr": "Les briques qui relient vos outils",
-      "h2_en": "The blocks that link your tools",
-      "cells": [
-        {
-          "glyph": "◆",
-          "title_fr": "Intégrateur Claude",
-          "title_en": "Claude integrator",
-          "body_fr": "Le cœur de la centralisation : serveurs MCP et connecteurs propres vers vos outils et données métier, déployés et supervisés. Détaillé sur sa page service.",
-          "body_en": "The heart of centralisation: clean MCP servers and connectors to your tools and business data, deployed and supervised. Detailed on its service page.",
-          "span": "lg"
-        },
-        {
-          "glyph": "⇄",
-          "title_fr": "Site web intelligent",
-          "title_en": "Intelligent website",
-          "body_fr": "Quand la centralisation passe par le site : un CRM enrichi, dédoublonné et synchronisé via MCP, des formulaires qui créent les fiches sans recopie. La donnée circule du visiteur au CRM.",
-          "body_en": "When centralisation runs through the site: a CRM enriched, deduplicated and synced via MCP, forms that create records with no retyping. Data flows from visitor to CRM.",
-          "span": "wide"
-        },
-        {
-          "glyph": "▣",
-          "title_fr": "Audit IA pour PME",
-          "title_en": "AI audit for SMBs",
-          "body_fr": "Le point d'entrée pour cartographier vos flux et chiffrer le coût des ressaisies. On identifie la connexion à prioriser et le gain associé, sans engagement de chantier.",
-          "body_en": "The entry point to map your flows and size the cost of retyping. We identify the connection to prioritise and the associated gain, with no project commitment.",
-          "span": "sm"
-        },
-        {
-          "glyph": "↺",
-          "title_fr": "Agents IA",
-          "title_en": "AI agents",
-          "body_fr": "Pour aller plus loin : une fois les données reliées, des agents lisent, croisent et agissent sur vos outils, au lieu de laisser l'humain faire le pont à la main.",
-          "body_en": "To go further: once data is linked, agents read, cross-reference and act on your tools, instead of leaving people to bridge the gaps by hand.",
-          "span": "sm"
-        }
-      ]
+      "maxWidth": "prose",
+      "html_fr": "<h2>Deux problèmes qui n'en font qu'un</h2>\n<p>« Nos outils ne se parlent pas » et « le reporting nous prend des jours » décrivent la même situation. Les données sont dans cinq logiciels. Pour produire un chiffre, quelqu'un exporte, colle, corrige et recalcule. Le rapport est exact le jour où il est fait, et faux dès le lendemain. Et deux personnes qui refont le calcul n'obtiennent pas le même résultat, parce que chacune a sa définition.</p>\n<h2>Ce qu'on met en place</h2>\n<p>D'abord un dictionnaire : la définition écrite de chaque indicateur, validée par la direction. Ensuite des connexions qui relèvent les données de chaque outil à intervalle régulier et les déposent dans une base unique, avec l'historique. Enfin des tableaux de bord qui lisent cette base. Le détail est sur la page <a href=\"/services/donnees-reporting\">tableau de bord et reporting automatisé</a> ; les connexions reposent en général sur <a href=\"/services/automatisation-n8n\">n8n</a>.</p>\n<p>Quand la source est un tableur devenu trop fragile, on le remplace par une <a href=\"/services/applications-internes\">application métier</a> : la saisie y est contrôlée, ce qui évite de corriger les données après coup.</p>\n<h2>Ce que l'IA change ici</h2>\n<p>Peu de chose sur la collecte, qui relève de l'automatisation classique. Davantage sur l'usage : poser une question en langage courant à sa base (« quels clients n'ont pas commandé depuis six mois ? ») et obtenir la liste, ou recevoir chaque semaine une synthèse des écarts. Ces usages n'ont de sens qu'une fois les données propres.</p>\n<h2>Les limites</h2>\n<p>Un tableau de bord ne corrige pas des données mal saisies : il les montre. Sans arbitre pour trancher les définitions, le projet s'enlise. Et si tout tient dans un seul logiciel doté d'un bon module de rapports, il n'y a rien à centraliser. L'article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> aide à limiter le nombre d'indicateurs.</p>\n<p>Pour lister vos sources et vos indicateurs, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Two problems that are one</h2>\n<p>\"Our tools do not talk to each other\" and \"reporting takes us days\" describe the same situation. The data sits in five tools. To produce a figure, someone exports, pastes, fixes and recalculates. The report is right the day it is made and wrong the next. And two people redoing the calculation get different results, because each has their own definition.</p>\n<h2>What we set up</h2>\n<p>First a dictionary: the written definition of each indicator, approved by management. Then connections that fetch data from each tool at regular intervals and store it in a single base, with history. Finally dashboards that read that base. Details are on the <a href=\"/services/donnees-reporting\">dashboard and automated reporting</a> page; connections usually rely on <a href=\"/services/automatisation-n8n\">n8n</a>.</p>\n<p>When the source is a spreadsheet grown too fragile, we replace it with a <a href=\"/services/applications-internes\">business application</a>: data entry is controlled there, which avoids fixing data afterwards.</p>\n<h2>What AI changes here</h2>\n<p>Little on collection, which is classic automation. More on use: asking your base a plain-language question (\"which customers have not ordered in six months?\") and getting the list, or receiving a weekly summary of deviations. These uses only make sense once the data is clean.</p>\n<h2>The limits</h2>\n<p>A dashboard does not fix badly entered data: it shows it. With no arbiter to settle definitions, the project stalls. And if everything sits in one tool with a good reporting module, there is nothing to centralise. The article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">SMB dashboard: the data that matters</a> helps limit the number of indicators.</p>\n<p>To list your sources and indicators, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Avant / après",
-      "kicker_en": "§ Before / after",
-      "h2_fr": "Du vide entre les outils à la donnée <i>fluide</i>",
-      "h2_en": "From a gap between tools to <i>fluid</i> data",
-      "without_label_fr": "Sans",
-      "without_label_en": "Without",
-      "without_title_fr": "Outils cloisonnés",
-      "without_title_en": "Siloed tools",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : le comité de direction mensuel d'une PME",
+      "h2_en": "Typical example: an SMB's monthly management meeting",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Trois exports, un tableur, des désaccords",
+      "without_title_en": "Three exports, a spreadsheet, disagreements",
       "without_items": [
         {
-          "text_fr": "La même donnée est saisie dans le CRM, la facturation et un tableur.",
-          "text_en": "The same data is entered in the CRM, billing and a spreadsheet."
+          "text_fr": "Le CRM, la facturation et le suivi des temps sont exportés à la main.",
+          "text_en": "The CRM, invoicing and time tracking are exported by hand."
         },
         {
-          "text_fr": "Chaque service avance avec ses propres chiffres, qui ne concordent pas.",
-          "text_en": "Each department runs on its own figures, which don't match."
+          "text_fr": "Les chiffres du commerce et de la finance ne concordent pas.",
+          "text_en": "Sales and finance figures do not match."
         },
         {
-          "text_fr": "Reconstituer un dossier client complet demande de jongler entre cinq écrans.",
-          "text_en": "Rebuilding a complete client file means juggling five screens."
+          "text_fr": "La réunion commence par une discussion sur le bon chiffre.",
+          "text_en": "The meeting starts with a debate over the right figure."
         },
         {
-          "text_fr": "L'humain reste la couche d'intégration, à plein temps.",
-          "text_en": "People stay the integration layer, full time."
+          "text_fr": "Le rapport a dix jours de retard sur la réalité.",
+          "text_en": "The report is ten days behind reality."
         }
       ],
-      "with_label_fr": "Avec",
-      "with_label_en": "With",
-      "with_title_fr": "Outils connectés",
-      "with_title_en": "Connected tools",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Une base, des définitions écrites",
+      "with_title_en": "One base, written definitions",
       "with_items": [
         {
-          "text_fr": "La donnée vit une fois dans la source de référence et se propage seule.",
-          "text_en": "Data lives once in the reference source and propagates on its own."
+          "text_fr": "Les trois sources alimentent la base chaque nuit.",
+          "text_en": "The three sources feed the base every night."
         },
         {
-          "text_fr": "Tout le monde travaille sur le même chiffre, à jour.",
-          "text_en": "Everyone works on the same up-to-date figure."
+          "text_fr": "Chaque indicateur a une définition validée, consultable.",
+          "text_en": "Each indicator has an approved definition, available to all."
         },
         {
-          "text_fr": "La vue d'ensemble du client se lit d'un coup d'œil, au même endroit.",
-          "text_en": "The overall client view reads at a glance, in one place."
+          "text_fr": "Le tableau est ouvert en réunion, à jour du matin.",
+          "text_en": "The dashboard is opened in the meeting, current as of that morning."
         },
         {
-          "text_fr": "L'information circule automatiquement, vos équipes se concentrent sur leur métier.",
-          "text_en": "Information flows automatically, your teams focus on their work."
+          "text_fr": "La discussion porte sur les décisions, plus sur les chiffres.",
+          "text_en": "The discussion is about decisions, no longer about figures."
         }
       ]
     },
@@ -379,35 +168,44 @@
       "background": "paper",
       "authorId": "simon-beros",
       "name": "Simon Beros",
-      "role_fr": "Fondateur · architecte systèmes IA et intégration pour PME",
-      "role_en": "Founder · SMB AI systems and integration architect",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "26 juin 2026",
-      "updatedDate": "26 juin 2026"
+      "updatedDate": "4 octobre 2026"
     },
     {
       "type": "related-cards-band",
       "background": "paper-2",
-      "kicker_fr": "§ Un cas réel",
-      "kicker_en": "§ A real case",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
       "cards": [
         {
-          "kicker_fr": "Cas client · RH et santé au travail",
-          "kicker_en": "Client case · HR and occupational health",
-          "title_fr": "Amploi",
-          "title_en": "Amploi",
-          "lead_fr": "Capture des leads via la Forms API HubSpot et routage automatique dans le CRM, sans ressaisie : chaque demande entrante arrive proprement au bon endroit, sans saisie manuelle.",
-          "lead_en": "Lead capture via the HubSpot Forms API and automatic routing into the CRM, no re-entry: every inbound request lands cleanly in the right place, with no manual entry.",
-          "href": "/cas-clients/amploi"
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Tableau de bord et reporting automatisé",
+          "title_en": "Dashboard and automated reporting",
+          "lead_fr": "Ce qui est livré, délais, prix et contre-indications.",
+          "lead_en": "What is delivered, lead times, price and when not to do it.",
+          "href": "/services/donnees-reporting"
         },
         {
-          "kicker_fr": "Tous les cas",
-          "kicker_en": "All cases",
-          "title_fr": "Cas clients",
-          "title_en": "Client cases",
-          "lead_fr": "Les projets réels que nous avons livrés, résultats à l'appui.",
-          "lead_en": "The real projects we have delivered, results to back them.",
-          "href": "/cas-clients"
+          "kicker_fr": "Blog",
+          "kicker_en": "Blog",
+          "title_fr": "Les données qui comptent",
+          "title_en": "The data that matters",
+          "lead_fr": "Quels indicateurs suivre dans une PME, et lesquels ignorer.",
+          "lead_en": "Which indicators an SMB should track, and which to ignore.",
+          "href": "/blog/tableau-de-bord-pme-quelles-donnees-suivre"
+        },
+        {
+          "kicker_fr": "Autre fonction",
+          "kicker_en": "Another function",
+          "title_fr": "Tâches administratives",
+          "title_en": "Administrative tasks",
+          "lead_fr": "Écrire le process, puis automatiser les étapes mécaniques.",
+          "lead_en": "Write the process, then automate the mechanical steps.",
+          "href": "/cas-usages/standardiser-processus"
         }
       ]
     },
@@ -415,51 +213,39 @@
       "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Centraliser ses données : vos questions",
+      "h2_en": "Centralising data: your questions",
       "items": [
         {
-          "q_fr": "Pourquoi mes outils ne se parlent-ils pas ?",
-          "q_en": "Why don't my tools talk to each other?",
-          "a_fr": "Parce qu'ils ont été achetés séparément, chacun pour son service : un CRM pour le commercial, une suite comptable pour les finances, un logiciel métier pour la production. Chacun fonctionne dans son périmètre, mais entre eux il y a un vide que les équipes comblent à la main. Ce vide n'est pas un problème d'outils, c'est un problème d'intégration, et il se comble souvent sans changer d'outils.",
-          "a_en": "Because they were bought separately, each for one department: a CRM for sales, an accounting suite for finance, a business app for production. Each works in its scope, but between them there's a gap teams fill by hand. That gap isn't a tool problem, it's an integration problem, and it's often filled without changing tools."
+          "q_fr": "Comment centraliser les données d'une PME ?",
+          "a_fr": "En trois temps : définir les indicateurs utiles, brancher chaque logiciel à une base unique par des connexions automatiques, puis construire les tableaux de bord sur cette base. On commence par deux ou trois sources, pas par toutes.",
+          "q_en": "How do you centralise an SMB's data?",
+          "a_en": "In three steps: define the useful indicators, connect each tool to a single base through automatic connections, then build dashboards on that base. Start with two or three sources, not all of them."
         },
         {
-          "q_fr": "C'est quoi une source unique de vérité ?",
-          "q_en": "What is a single source of truth?",
-          "a_fr": "C'est l'endroit de référence où une donnée vit une seule fois et d'où tous les autres outils la lisent. Au lieu d'un client saisi dans le CRM, recopié dans la facturation puis dans un tableur, l'information existe une fois et se propage. Chacun travaille sur le même chiffre, à jour, au lieu de versions divergentes selon l'outil consulté.",
-          "a_en": "It's the reference place where a piece of data lives once and from which all other tools read it. Instead of a client entered in the CRM, retyped in billing then in a spreadsheet, the information exists once and propagates. Everyone works on the same up-to-date figure, instead of versions that diverge depending on the tool consulted."
+          "q_fr": "Comment réduire le temps passé sur le reporting ?",
+          "a_fr": "En supprimant l'export et la recopie : les données arrivent seules dans une base et le tableau se met à jour. Le temps restant sert à vérifier et à analyser.",
+          "q_en": "How do you cut time spent on reporting?",
+          "a_en": "By removing export and retyping: data reaches a base on its own and the dashboard updates. The remaining time goes to checking and analysing."
         },
         {
-          "q_fr": "Faut-il changer tous mes logiciels pour centraliser ?",
-          "q_en": "Do we need to change all our software to centralise?",
-          "a_fr": "Le plus souvent, non. Dans la plupart des cas, il ne faut pas remplacer les outils, il faut les connecter. On câble vos logiciels existants entre eux pour que l'information circule automatiquement. On ne change un outil que s'il bloque vraiment, et cette décision se prend au diagnostic, pas par défaut.",
-          "a_en": "Most often, no. In most cases you don't need to replace tools, you need to connect them. We wire your existing software together so information flows automatically. We only change a tool if it genuinely blocks, and that decision is made at the diagnostic, not by default."
+          "q_fr": "Faut-il un entrepôt de données pour une PME ?",
+          "a_fr": "Rarement au sens des grands groupes. Une base de données simple, alimentée chaque nuit, suffit dans la plupart des PME. On dimensionne selon le volume et le nombre de sources.",
+          "q_en": "Does an SMB need a data warehouse?",
+          "a_en": "Rarely in the large-enterprise sense. A simple database, fed every night, is enough for most SMBs. We size it by volume and number of sources."
         },
         {
-          "q_fr": "C'est quoi le protocole MCP dont vous parlez ?",
-          "q_en": "What is the MCP protocol you mention?",
-          "a_fr": "Le Model Context Protocol est un standard ouvert pour connecter un assistant IA et vos outils. Côté intégration, il permet de câbler des connecteurs propres et documentés vers votre CRM, votre e-mail, votre base de données ou votre dépôt, plutôt que des scripts jetables qui cassent à la première mise à jour. La couche d'intégration devient durable et maintenable.",
-          "a_en": "The Model Context Protocol is an open standard for connecting an AI assistant and your tools. On the integration side, it lets us wire clean, documented connectors to your CRM, email, database or repo, rather than throwaway scripts that break at the first update. The integration layer becomes durable and maintainable."
+          "q_fr": "Peut-on interroger ses données en langage naturel ?",
+          "a_fr": "Oui, une fois les données rassemblées et propres. Un modèle d'IA traduit la question en requête et renvoie la réponse avec les lignes qui la justifient. Sur des données incohérentes, les réponses le seront aussi.",
+          "q_en": "Can data be queried in natural language?",
+          "a_en": "Yes, once the data is gathered and clean. An AI model turns the question into a query and returns the answer with the supporting rows. On inconsistent data, answers will be inconsistent too."
         },
         {
-          "q_fr": "Mes données restent-elles chez moi ?",
-          "q_en": "Does my data stay with me?",
-          "a_fr": "Oui. La gouvernance est posée dès le départ : on cartographie ce qui circule, on définit les accès par rôle, on trace les échanges. Vos données restent dans vos outils et sous votre contrôle. On connecte sans déposséder, et la conformité RGPD fait partie du cadre.",
-          "a_en": "Yes. Governance is laid in from the start: we map what flows, define access by role, trace the exchanges. Your data stays in your tools and under your control. We connect without dispossessing, and GDPR compliance is part of the frame."
-        },
-        {
-          "q_fr": "Par où commence-t-on ?",
-          "q_en": "Where do we start?",
-          "a_fr": "Par la connexion qui élimine le plus de saisies manuelles ou qui produit le reporting le plus coûteux. Souvent c'est le lien entre le CRM et la facturation, ou la consolidation du reporting mensuel. Le diagnostic identifie précisément quelle intégration prioriser dans votre contexte, avec une estimation du gain associé.",
-          "a_en": "With the connection that eliminates the most manual entry or produces the costliest reporting. Often it's the link between CRM and billing, or consolidating the monthly reporting. The diagnostic identifies exactly which integration to prioritise in your context, with an estimate of the associated gain."
-        },
-        {
-          "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-          "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_fr": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition.",
-          "a_en": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+          "q_fr": "Combien coûte un projet de centralisation des données ?",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée 99 € HT de l'heure.",
+          "q_en": "How much does a data centralisation project cost?",
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: priority indicators, first sources, first dashboard. The rest is estimated in hours then billed €99 per hour excl. VAT."
         }
       ]
     },
@@ -467,23 +253,23 @@
       "type": "footer-cta-band",
       "background": "ink",
       "rounded": true,
-      "kicker_fr": "§ Prêt à relier vos outils ?",
-      "kicker_en": "§ Ready to link your tools?",
-      "h2_fr": "Faites <i>circuler</i> vos données au lieu de les recopier.",
-      "h2_en": "Make your data <i>flow</i> instead of retyping it.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on cartographie vos flux et on chiffre le coût des ressaisies, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit, câble et supervise lui-même, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we map your flows and size the cost of retyping, whether we work together or not. Across the table, the founder who designs, wires and supervises himself, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de versions du même chiffre circulent chez vous ?",
+      "h2_en": "How many versions of the same figure circulate in your company?",
+      "subtitle_fr": "En 45 minutes, on liste vos sources, vos indicateurs et les écarts entre outils, et on vous dit par où commencer.",
+      "subtitle_en": "In 45 minutes, we list your sources, indicators and gaps between tools, and tell you where to start.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?intent=donnees",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir l'intégrateur Claude",
-          "label_en": "See the Claude integrator",
-          "href": "/services/integration-claude",
+          "label_fr": "Tableau de bord automatisé",
+          "label_en": "Automated dashboard",
+          "href": "/services/donnees-reporting",
           "variant": "ghost"
         }
       ]

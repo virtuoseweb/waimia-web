@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Automatisation des processus métier par l'IA · Waimia",
   "title_en": "AI business process automation · Waimia",
-  "description_fr": "Automatisation des processus métier par l'IA : des workflows branchés à vos outils, supervisés et mesurés. Fini la ressaisie entre six outils. Audit gratuit.",
-  "description_en": "AI business process automation: workflows wired to your tools, supervised and measured. No more retyping between six apps. Free audit.",
+  "description_fr": "Automatisation des processus métier pour PME : un workflow branché à vos outils, journalisé et supervisé. Premier process en production dès 999 € HT.",
+  "description_en": "Business process automation for SMBs: a workflow wired to your tools, logged and supervised. First process in production from €999 excl. VAT.",
   "slug": "automatisations",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-07-13T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "automatisation-processus",
@@ -23,128 +23,96 @@
   },
   "faq_fr": [
     {
-      "q": "Les automatisations, c'est déjà tout le système opérationnel IA ?",
-      "a": "Non. Les automatisations sont un module du système opérationnel : les workflows qui exécutent le répétitif. Le système opérationnel IA regroupe aussi les agents IA, l'intégration Claude et les applications internes sur une même base. La vue d'ensemble est sur les <a href=\"/services/systemes-operationnels-ia\">systèmes opérationnels IA</a>."
+      "q": "Combien coûte l'automatisation d'un processus en PME ?",
+      "a": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés 99 € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge."
     },
     {
-      "q": "Concrètement, qu'est-ce qu'on peut automatiser en premier ?",
-      "a": "La tâche répétitive qui vous coûte le plus d'heures : ressaisie d'un outil à l'autre, relances, création de documents, mise à jour du CRM, traitement d'emails entrants. On part de celle qui fait le plus mal, pas d'un catalogue."
+      "q": "Combien de temps faut-il pour automatiser un processus ?",
+      "a": "Habituellement 2 à 6 semaines pour un premier workflow en production. Le délai dépend surtout de l'obtention des accès à vos outils et de la disponibilité de la personne qui connaît la tâche, pas de la construction elle-même."
     },
     {
-      "q": "Vous utilisez quels outils, n8n, Make ou Zapier ?",
-      "a": "Selon le besoin. n8n quand il faut de la logique fine et l'hébergement chez vous, Make ou Zapier pour du branchement rapide entre SaaS. On choisit l'outil au cadrage, jamais l'inverse. Vous gardez les workflows."
+      "q": "Quelle différence entre automatisation et agent IA ?",
+      "a": "Une automatisation suit des étapes fixes : même entrée, même sortie. Un agent IA lit, interprète et choisit l'action. Si la règle s'écrit en « si, alors », un workflow suffit et coûte moins cher à maintenir. Si la tâche demande de comprendre un texte libre, il faut un agent ou une étape IA."
     },
     {
-      "q": "Une automatisation, c'est la même chose qu'un agent IA ?",
-      "a": "Non. Une automatisation suit un chemin déterministe : même entrée, même sortie, traçable. Un agent IA décide et s'adapte. Beaucoup de processus n'ont pas besoin d'un agent, juste d'un workflow fiable. Pour les tâches qui demandent du jugement, on regarde les agents IA."
+      "q": "Quels processus automatiser en premier dans une PME ?",
+      "a": "Celui qui revient chaque semaine, dont les règles sont stables et dont l'erreur coûte : ressaisie entre deux logiciels, relances de devis ou de factures, création de documents, tri des emails entrants. L'audit gratuit sert à classer vos process par heures consommées et par faisabilité."
     },
     {
-      "q": "Et si le workflow casse quand un outil change ?",
-      "a": "C'est le vrai risque des scripts bricolés. On pose des points de contrôle, des alertes en cas d'échec et une supervision. Un workflow qui casse en silence, vous ne le voyez pas. Le nôtre vous prévient."
+      "q": "Automatisation et RGPD : que faut-il vérifier ?",
+      "a": "Trois points : où transitent les données (un n8n hébergé chez vous évite un sous-traitant supplémentaire), quelles données personnelles passent par une étape IA, et qui a accès au journal. On documente ces points dans la fiche de chaque workflow pour votre registre de traitements."
     },
     {
-      "q": "On perd le contrôle sur ce que fait l'automatisation ?",
-      "a": "Non. Chaque étape est visible et journalisée. Les actions sensibles passent par une validation humaine si vous le voulez. Vous savez ce qui tourne, quand, et ce que ça produit."
-    },
-    {
-      "q": "Combien de temps avant qu'un premier workflow tourne ?",
-      "a": "Un premier workflow ciblé tourne souvent en quelques semaines, une fois la tâche cadrée. On mesure les heures gagnées dès la mise en production, pas dans six mois."
-    },
-    {
-      "q": "Combien coûte l'automatisation d'un processus ?",
-      "a": "On démarre par un sprint découverte à 999 € HT (10 h) : cadrage et un premier workflow en production. La suite se cale sur devis, en sprints à 99 € de l'heure, estimés avec vous. Pas d'abonnement caché : vous gardez vos workflows."
-    },
-    {
-      "q": "Vous vous branchez sur nos outils existants ?",
-      "a": "Oui. CRM, boîtes mail, tableurs, facturation, e-commerce, outils métier : on connecte l'existant via API ou MCP plutôt que de tout remplacer. On ne casse pas ce qui marche."
-    },
-    {
-      "q": "Une fois livré, on dépend de vous pour tout changement ?",
-      "a": "Non. On documente chaque workflow et on forme un référent chez vous. Vous ajustez et étendez sans nous. Zéro captivité, vous gardez la stack."
+      "q": "Que se passe-t-il si un outil change et que le workflow casse ?",
+      "a": "Le workflow s'arrête sur l'étape en erreur et envoie une alerte à votre référent. La documentation indique quoi vérifier. La correction se fait en régie, à l'heure, ou par votre équipe si elle a été formée."
     }
   ],
   "faq_en": [
     {
-      "q": "Are automations already the whole operational AI system?",
-      "a": "No. Automations are one module of the operational system: the workflows that run the repetitive. The operational AI system also covers AI agents, Claude integration and internal apps on one base. The overview is on <a href=\"/services/systemes-operationnels-ia\">operational AI systems</a>."
+      "q": "How much does it cost to automate a process in an SMB?",
+      "a": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €99 per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
     },
     {
-      "q": "Concretely, what can we automate first?",
-      "a": "The repetitive task that costs you the most hours: retyping from one tool to another, follow-ups, document creation, CRM updates, inbound email processing. We start with the one that hurts most, not from a catalogue."
+      "q": "How long does it take to automate a process?",
+      "a": "Usually 2 to 6 weeks for a first workflow in production. The delay depends mostly on getting access to your tools and on the availability of the person who knows the task, not on the build itself."
     },
     {
-      "q": "Which tools do you use, n8n, Make or Zapier?",
-      "a": "Depending on the need. n8n when you need fine logic and self-hosting, Make or Zapier for fast wiring between SaaS. We pick the tool at scoping, never the other way round. You keep the workflows."
+      "q": "What is the difference between automation and an AI agent?",
+      "a": "An automation follows fixed steps: same input, same output. An AI agent reads, interprets and chooses the action. If the rule can be written as \"if, then\", a workflow is enough and cheaper to maintain. If the task requires understanding free text, you need an agent or an AI step."
     },
     {
-      "q": "Is an automation the same thing as an AI agent?",
-      "a": "No. An automation follows a deterministic path: same input, same output, traceable. An AI agent decides and adapts. Many processes don't need an agent, just a reliable workflow. For tasks that require judgement, we look at AI agents."
+      "q": "Which processes should an SMB automate first?",
+      "a": "The one that comes back every week, with stable rules, where an error costs something: retyping between two tools, chasing quotes or invoices, creating documents, sorting incoming emails. The free audit ranks your processes by hours consumed and feasibility."
     },
     {
-      "q": "What if the workflow breaks when a tool changes?",
-      "a": "That is the real risk with patched-together scripts. We put in checkpoints, failure alerts and supervision. A workflow that breaks silently is one you never see. Ours warns you."
+      "q": "Automation and GDPR: what should be checked?",
+      "a": "Three points: where the data travels (self-hosted n8n avoids an extra processor), which personal data goes through an AI step, and who can read the log. We document these in each workflow sheet for your processing register."
     },
     {
-      "q": "Do we lose control over what the automation does?",
-      "a": "No. Every step is visible and logged. Sensitive actions go through a human validation if you want. You know what runs, when, and what it produces."
-    },
-    {
-      "q": "How long before a first workflow runs?",
-      "a": "A first targeted workflow often runs within a few weeks, once the task is scoped. We measure the hours saved from go-live, not in six months."
-    },
-    {
-      "q": "How much does it cost to automate a process?",
-      "a": "We start with a discovery sprint at 999 € ex VAT (10 h): scoping and a first workflow in production. What follows is quoted, in sprints at 99 € an hour, estimated with you. No hidden subscription: you keep your workflows."
-    },
-    {
-      "q": "Do you wire onto our existing tools?",
-      "a": "Yes. CRM, inboxes, spreadsheets, billing, e-commerce, business tools: we connect what exists via API or MCP rather than replacing everything. We don't break what works."
-    },
-    {
-      "q": "Once delivered, do we depend on you for every change?",
-      "a": "No. We document each workflow and train an in-house referent. You adjust and extend without us. Zero lock-in, you keep the stack."
+      "q": "What happens if a tool changes and the workflow breaks?",
+      "a": "The workflow stops at the failing step and alerts your owner. The documentation says what to check. The fix is done on a time-and-materials basis, or by your team if it has been trained."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Automatisations",
-      "kicker_en": "§ Automations",
+      "kicker_fr": "§ Automatisation des processus",
+      "kicker_en": "§ Process automation",
       "h1_fr": "Automatisation de vos <i class=\"acc\">processus métier</i>",
       "h1_en": "Automating your <i class=\"acc\">business processes</i>",
-      "lede_fr": "Vos équipes copient-collent entre six outils. Elles ressaisissent les mêmes données, relancent à la main, refont chaque semaine les mêmes gestes. Ces heures ne reviennent pas. Un workflow fait le travail à leur place : il se branche à vos outils, exécute la tâche de bout en bout de façon déterministe, et vous prévient si quelque chose coince. Quand la tâche demande du jugement, on bascule sur un agent IA, brique du système opérationnel.",
-      "lede_en": "Your teams copy-paste between six tools. They retype the same data, follow up by hand, redo the same gestures every week. Those hours don't come back. A workflow does the work in their place: it wires to your tools, runs the task end to end deterministically, and warns you if something jams. When the task needs judgement, we switch to an AI agent, a block of the operational system.",
+      "lede_fr": "L'automatisation des processus consiste à confier à un workflow une tâche répétitive que vos équipes font aujourd'hui à la main : ressaisie entre deux logiciels, relances, création de documents, tri d'emails. Waimia la conçoit pour les PME et ETI de 10 à 250 personnes, la branche à vos outils existants et la livre en production avec son journal, ses alertes et sa documentation.",
+      "lede_en": "Process automation means handing a workflow a repetitive task your teams do by hand today: retyping between two tools, follow-ups, document creation, email triage. Waimia designs it for companies of 10 to 250 people, wires it to your existing tools and ships it to production with its log, alerts and documentation.",
       "badges": [
+        {
+          "label_fr": "n8n ou Make",
+          "label_en": "n8n or Make"
+        },
         {
           "label_fr": "Branché à vos outils",
           "label_en": "Wired to your tools"
         },
         {
-          "label_fr": "Supervisé",
-          "label_en": "Supervised"
+          "label_fr": "Journal et alertes",
+          "label_en": "Log and alerts"
         },
         {
-          "label_fr": "0 ressaisie",
-          "label_en": "Zero retyping"
-        },
-        {
-          "label_fr": "Mesurable",
-          "label_en": "Measurable"
+          "label_fr": "Workflows à vous",
+          "label_en": "You own the workflows"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?offer=automatisations&intent=discovery",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir ce qu'on automatise",
-        "label_en": "See what we automate",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -155,401 +123,212 @@
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "2–6 sem.",
-          "label_fr": "premier workflow en production",
-          "label_en": "first workflow in production"
+          "value": "2 à 6 semaines",
+          "label_fr": "délai habituel pour un premier workflow en production",
+          "label_en": "usual lead time for a first workflow in production",
+          "emphasis": false
         },
         {
-          "value": "Supervisé",
-          "label_fr": "journalisé, alertes sur échec",
-          "label_en": "logged, alerts on failure"
+          "value": "n8n · Make",
+          "label_fr": "l'outil est choisi au cadrage, selon le process",
+          "label_en": "the tool is chosen at scoping, based on the process",
+          "emphasis": false
         },
         {
-          "value": "0 ressaisie",
-          "label_fr": "les données circulent seules",
-          "label_en": "data flows on its own"
+          "value": "À vous",
+          "label_fr": "workflows, accès et documentation remis à la fin",
+          "label_en": "workflows, access and documentation handed over at the end",
+          "emphasis": false
         }
       ]
     },
     {
-      "type": "statement-orbit",
-      "kicker_fr": "FIG 1.5 · Le principe",
-      "kicker_en": "FIG 1.5 · The principle",
-      "h2_fr": "Un process manuel tient sur une personne. Une <i class=\"acc\">automatisation</i> tient toute seule, tourne la nuit et ne se trompe pas de copier-coller.",
-      "h2_en": "A manual process rests on one person. An <i class=\"acc\">automation</i> holds on its own, runs at night and never mis-pastes.",
-      "lede_fr": "Tant qu'une tâche vit dans la tête d'un collaborateur et dans ses onglets ouverts, elle s'arrête quand il s'absente. On la sort de là : le déclencheur, les règles, les branchements et le contrôle deviennent un workflow. Il s'exécute pareil chaque fois, il se mesure, et il s'étend quand vous en ajoutez. Pour les workflows sur mesure, on construit souvent sur <a href=\"/services/automatisation-n8n\">n8n auto-hébergé</a>, sans coût par exécution.",
-      "lede_en": "As long as a task lives in one person's head and their open tabs, it stops when they're away. We take it out of there: the trigger, the rules, the connections and the control become a workflow. It runs the same each time, it measures, and it extends when you add more. For custom workflows, we often build on <a href=\"/services/automatisation-n8n\">self-hosted n8n</a>, with no per-run cost.",
-      "cta": {
-        "label_fr": "Voir les briques →",
-        "label_en": "See the building blocks →",
-        "href": "#capacites",
-        "variant": "ghost"
-      },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Globe filaire avec des nœuds reliés par des arcs : vos outils, vos données et vos règles orchestrés en un seul workflow automatisé.",
-      "media_alt_en": "Wireframe globe with nodes linked by arcs: your tools, your data and your rules orchestrated into a single automated workflow."
-    },
-    {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Une <i class=\"acc\">automatisation métier</i> est un workflow que Waimia déploie pour les PME afin d'exécuter une tâche répétitive de bout en bout : déclenché par un évènement, branché à vos outils via API ou MCP, il applique vos règles, journalise chaque étape et alerte en cas d'échec. Déterministe et supervisé, il remplace la saisie manuelle sans remplacer votre jugement.",
-      "statement_en": "A <i class=\"acc\">business automation</i> is a workflow Waimia deploys for SMEs to run a repetitive task end to end: triggered by an event, wired to your tools via API or MCP, it applies your rules, logs every step and alerts on failure. Deterministic and supervised, it replaces manual entry without replacing your judgement.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Une <i class=\"acc\">automatisation de processus</i> est un workflow déclenché par un évènement (un email reçu, un formulaire, une date) qui exécute une suite d'étapes fixes dans vos logiciels, sans intervention manuelle. Même entrée, même résultat : chaque exécution est journalisée, et un échec déclenche une alerte.",
+      "statement_en": "A <i class=\"acc\">process automation</i> is a workflow triggered by an event (an incoming email, a form, a date) that runs a fixed series of steps in your software with no manual work. Same input, same result: every run is logged, and a failure raises an alert.",
       "pills": [
         {
           "label_fr": "Déclenché par un évènement",
           "label_en": "Event-triggered"
         },
         {
-          "label_fr": "Branché à vos outils",
-          "label_en": "Wired to your tools"
-        },
-        {
-          "label_fr": "Déterministe",
-          "label_en": "Deterministic"
+          "label_fr": "Étapes fixes",
+          "label_en": "Fixed steps"
         },
         {
           "label_fr": "Journalisé",
           "label_en": "Logged"
         },
         {
-          "label_fr": "Supervisé",
-          "label_en": "Supervised"
+          "label_fr": "Alerte sur échec",
+          "label_en": "Alert on failure"
         }
       ],
       "specs": [
         {
-          "label_fr": "n8n, Make ou Zapier",
-          "label_en": "n8n, Make or Zapier"
+          "label_fr": "n8n, Make",
+          "label_en": "n8n, Make"
         },
         {
-          "label_fr": "API et connecteurs MCP",
-          "label_en": "API and MCP connectors"
+          "label_fr": "API et connecteurs",
+          "label_en": "APIs and connectors"
         },
         {
-          "label_fr": "Règles métier explicites",
-          "label_en": "Explicit business rules"
+          "label_fr": "Étape IA si utile",
+          "label_en": "AI step where useful"
         },
         {
-          "label_fr": "Alertes sur échec",
-          "label_en": "Alerts on failure"
-        },
-        {
-          "label_fr": "Validation humaine optionnelle",
-          "label_en": "Optional human validation"
+          "label_fr": "Validation humaine sur le sensible",
+          "label_en": "Human approval on sensitive actions"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où les heures partent",
-      "kicker_en": "Where the hours go",
-      "h2_fr": "Pourquoi vos équipes perdent leurs journées",
-      "h2_en": "Why your teams lose their days",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "La ressaisie entre outils",
-          "title_en": "Retyping between tools",
-          "desc_fr": "La même donnée recopiée du mail au CRM, du CRM au tableur, du tableur à la facturation. Chaque copier-coller est une erreur en puissance et une heure perdue.",
-          "desc_en": "The same data recopied from email to CRM, CRM to spreadsheet, spreadsheet to billing. Every copy-paste is an error waiting to happen and an hour lost.",
-          "fix_fr": "Un workflow qui fait circuler la donnée.",
-          "fix_en": "A workflow that flows the data through."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Le process qui tient sur une personne",
-          "title_en": "The process that rests on one person",
-          "desc_fr": "Une seule personne sait comment faire, et le jour où elle s'absente, tout s'arrête. Le savoir n'est pas dans le système, il est dans sa tête.",
-          "desc_en": "One person knows how it's done, and the day they're away, everything stops. The knowledge isn't in the system, it's in their head.",
-          "fix_fr": "La tâche codée en workflow partagé.",
-          "fix_en": "The task coded into a shared workflow."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Les scripts bricolés qui cassent",
-          "title_en": "Patched-together scripts that break",
-          "desc_fr": "Une macro ici, un Zap là, un script maison que personne n'ose toucher. Ça casse à la première mise à jour, en silence, et vous l'apprenez trop tard.",
-          "desc_en": "A macro here, a Zap there, a home-made script no one dares touch. It breaks at the first update, silently, and you find out too late.",
-          "fix_fr": "Des workflows supervisés, alertés.",
-          "fix_en": "Supervised workflows, with alerts."
-        }
-      ]
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce qu'on automatise, concrètement</h2>\n<p>Les demandes qui reviennent le plus souvent en PME : la ressaisie d'une commande ou d'un contact d'un outil à l'autre, la création d'un devis ou d'un compte rendu à partir d'un modèle, les relances de factures et de devis, le tri des emails entrants, la mise à jour du CRM après un rendez-vous, l'envoi d'un récapitulatif hebdomadaire. Le bon candidat a trois caractéristiques : il revient chaque semaine, ses règles s'expliquent en quelques phrases, et l'erreur de recopie coûte quelque chose.</p>\n<p>Quand la tâche demande de lire un texte libre ou de trancher entre plusieurs cas flous, on ajoute une étape IA dans le workflow, ou on passe à un <a href=\"/services/agents-ia\">agent IA</a>. La différence est détaillée dans l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation</a>.</p>\n<h2>Avec quels outils</h2>\n<p>On travaille avec n8n et Make, branchés à vos logiciels par leurs API : CRM, messagerie, tableur, facturation, e-commerce, outil métier. n8n est notre choix par défaut quand la logique se ramifie ou que les données doivent rester sur votre infrastructure : voir la page <a href=\"/services/automatisation-n8n\">agence n8n</a>. Make convient à des scénarios visuels entre applications SaaS. On ne remplace pas vos logiciels, on les relie.</p>\n<h2>Combien de temps, et qui fait quoi</h2>\n<p>Un premier workflow est habituellement en production en 2 à 6 semaines. L'essentiel du délai n'est pas technique : il tient à l'obtention des accès et à la disponibilité de la personne qui connaît le process. Comptez de votre côté deux à trois heures pour décrire la tâche, puis une heure de recette. Un seul interlocuteur conçoit et livre : Simon Beros, fondateur. La démarche complète est décrite dans <a href=\"/agence/methode\">la méthode</a>.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Trois causes d'échec reviennent. Un logiciel sans API, ou dont l'API est payante : on le vérifie avant de chiffrer. Un process que personne ne sait décrire de la même façon : on le formalise d'abord, comme dans le cas d'usage <a href=\"/cas-usages/standardiser-processus\">standardiser ses processus</a>. Un workflow sans propriétaire, qui casse à la première mise à jour d'un outil et que personne ne regarde : d'où le journal, les alertes et un référent nommé chez vous.</p>\n<p>Si vous ne savez pas par quel process commencer, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> sert à cela.</p>",
+      "html_en": "<h2>What we automate, concretely</h2>\n<p>The most frequent requests in SMBs: retyping an order or a contact from one tool to another, creating a quote or a report from a template, chasing invoices and quotes, sorting incoming emails, updating the CRM after a meeting, sending a weekly summary. A good candidate has three traits: it comes back every week, its rules fit in a few sentences, and a copy error costs something.</p>\n<p>When the task requires reading free text or deciding between fuzzy cases, we add an AI step to the workflow, or move to an <a href=\"/services/agents-ia\">AI agent</a>. The difference is covered in <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or automation</a>.</p>\n<h2>With which tools</h2>\n<p>We work with n8n and Make, wired to your software through their APIs: CRM, mail, spreadsheet, invoicing, e-commerce, business tool. n8n is our default when the logic branches out or the data must stay on your infrastructure: see the <a href=\"/services/automatisation-n8n\">n8n agency</a> page. Make suits visual scenarios between SaaS apps. We do not replace your software, we connect it.</p>\n<h2>How long, and who does what</h2>\n<p>A first workflow is usually in production within 2 to 6 weeks. Most of the delay is not technical: it comes from getting access and from the availability of the person who knows the process. Plan two to three hours on your side to describe the task, then one hour of acceptance testing. One person designs and delivers: Simon Beros, founder. The full approach is described in <a href=\"/agence/methode\">the method</a>.</p>\n<h2>What can go wrong</h2>\n<p>Three causes of failure come back. Software with no API, or a paid one: we check before quoting. A process nobody describes the same way: we formalise it first, as in the use case <a href=\"/cas-usages/standardiser-processus\">standardising processes</a>. A workflow with no owner, which breaks at the first tool update with nobody watching: hence the log, the alerts and a named owner on your side.</p>\n<p>If you do not know which process to start with, the <a href=\"/audit-ia-pme\">free AI audit</a> is made for that.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ L'équation",
-      "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi un process <i class=\"acc\">automatisé</i> change l'équation",
-      "h2_en": "Why an <i class=\"acc\">automated</i> process changes the equation",
-      "without_label_fr": "Process manuel",
-      "without_label_en": "Manual process",
-      "without_title_fr": "Ce qu'il vous coûte",
-      "without_title_en": "What it costs you",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : la demande de devis reçue par formulaire",
+      "h2_en": "Typical example: a quote request received by form",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Six gestes manuels",
+      "without_title_en": "Six manual steps",
       "without_items": [
         {
-          "text_fr": "Des heures de saisie répétées chaque semaine, jamais récupérées.",
-          "text_en": "Hours of repeated entry every week, never recovered."
+          "text_fr": "L'assistante lit l'email de notification et recopie le contact dans le CRM.",
+          "text_en": "The assistant reads the notification email and retypes the contact into the CRM."
         },
         {
-          "text_fr": "Des erreurs de recopie qui se propagent d'un outil à l'autre.",
-          "text_en": "Copy errors that spread from one tool to the next."
+          "text_fr": "Elle crée le dossier client dans le drive, à la main.",
+          "text_en": "She creates the client folder in the drive by hand."
         },
         {
-          "text_fr": "Un savoir enfermé dans une personne, qui part avec elle.",
-          "text_en": "Knowledge locked in one person, that leaves with them."
+          "text_fr": "Elle prévient le commercial par message.",
+          "text_en": "She notifies the salesperson by message."
         },
         {
-          "text_fr": "Aucune trace : vous ne savez pas ce qui a été fait, ni quand.",
-          "text_en": "No trace: you don't know what was done, nor when."
+          "text_fr": "Le commercial ouvre le modèle de devis et le remplit.",
+          "text_en": "The salesperson opens the quote template and fills it in."
+        },
+        {
+          "text_fr": "La relance dépend de sa mémoire.",
+          "text_en": "The follow-up depends on his memory."
         }
       ],
-      "with_label_fr": "Process automatisé",
-      "with_label_en": "Automated process",
-      "with_title_fr": "Ce qu'il vous rend",
-      "with_title_en": "What it gives back",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un workflow, deux validations",
+      "with_title_en": "One workflow, two approvals",
       "with_items": [
         {
-          "text_fr": "Les heures rendues à vos équipes pour ce qui demande un cerveau.",
-          "text_en": "The hours given back to your teams for what needs a brain."
+          "text_fr": "Le formulaire crée le contact et l'affaire dans le CRM.",
+          "text_en": "The form creates the contact and the deal in the CRM."
         },
         {
-          "text_fr": "La même exécution à chaque fois, sans faute de recopie.",
-          "text_en": "The same execution every time, with no copy mistakes."
+          "text_fr": "Le dossier client est créé avec la bonne arborescence.",
+          "text_en": "The client folder is created with the right structure."
         },
         {
-          "text_fr": "Le savoir posé dans le système, partageable et durable.",
-          "text_en": "The knowledge laid into the system, shareable and durable."
+          "text_fr": "Le commercial reçoit une tâche avec le devis pré-rempli à valider.",
+          "text_en": "The salesperson gets a task with the pre-filled quote to approve."
         },
         {
-          "text_fr": "Chaque exécution journalisée : vous savez qui, quoi, quand.",
-          "text_en": "Every run logged: you know who, what, when."
+          "text_fr": "Sans réponse à J+5, une relance est proposée, envoyée après validation.",
+          "text_en": "With no reply at day 5, a follow-up is proposed and sent after approval."
+        },
+        {
+          "text_fr": "Chaque étape est tracée dans le journal ; un échec envoie une alerte.",
+          "text_en": "Every step is logged; a failure sends an alert."
         }
       ]
     },
     {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'une automatisation qui tient",
-      "h2_en": "The building blocks of an automation that holds",
-      "lede_fr": "Sept briques, une seule chaîne fiable. On active celles qui servent la tâche, pas un gadget qu'on vous facture pour rien.",
-      "lede_en": "Seven building blocks, one reliable chain. We activate the ones the task needs, not a gadget billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "tracking",
-          "title_fr": "Déclencheurs",
-          "title_en": "Triggers",
-          "body_fr": "Un mail entrant, un formulaire, un horaire, un changement dans le CRM : le workflow démarre seul, au bon moment, sans qu'on y pense.",
-          "body_en": "An inbound email, a form, a schedule, a change in the CRM: the workflow starts on its own, at the right moment, without anyone thinking about it."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "Connecteurs",
-          "title_en": "Connectors",
-          "body_fr": "Vos outils branchés via API ou MCP : CRM, boîtes mail, tableurs, facturation, e-commerce. On connecte l'existant, on ne remplace pas.",
-          "body_en": "Your tools wired via API or MCP: CRM, inboxes, spreadsheets, billing, e-commerce. We connect what exists, we don't replace it."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Règles métier",
-          "title_en": "Business rules",
-          "body_fr": "Vos conditions posées noir sur blanc : si ceci, alors cela. La logique de votre process devient explicite et auditable.",
-          "body_en": "Your conditions set in black and white: if this, then that. The logic of your process becomes explicit and auditable."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Étapes IA",
-          "title_en": "AI steps",
-          "body_fr": "Là où une règle fixe ne suffit pas, un LLM classe, résume ou rédige dans le flux, encadré par vos consignes et relu si besoin.",
-          "body_en": "Where a fixed rule isn't enough, an LLM classifies, summarises or drafts within the flow, framed by your instructions and reviewed if needed."
-        },
-        {
-          "icon": "design",
-          "title_fr": "Documents et sorties",
-          "title_en": "Documents and outputs",
-          "body_fr": "Devis, comptes rendus, relances, exports : générés au bon format et déposés au bon endroit, prêts à envoyer.",
-          "body_en": "Quotes, reports, follow-ups, exports: generated in the right format and dropped in the right place, ready to send."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "Contrôle humain",
-          "title_en": "Human control",
-          "body_fr": "Les actions sensibles passent par une validation avant de partir. L'automatisation propose, vous tranchez, rien ne file en douce.",
-          "body_en": "Sensitive actions go through a validation before they leave. The automation proposes, you decide, nothing slips out quietly."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Supervision",
-          "title_en": "Supervision",
-          "body_fr": "Journal, alertes sur échec et mesure des heures gagnées : vous voyez ce qui tourne et vous êtes prévenu quand ça coince.",
-          "body_en": "Log, failure alerts and hours-saved measurement: you see what runs and get warned when it jams."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "declinaisons",
+      "type": "deliverables-grid",
       "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système ops & IA",
-      "kicker_en": "§ The ops & AI system",
-      "h2_fr": "L'automatisation est une <i>brique</i> du système",
-      "h2_en": "Automation is one <i>block</i> of the system",
-      "lede_fr": "Automatiser un process est rarement isolé. Ça se combine à des agents qui décident, à des outils internes qui portent le flux, à un socle de données qui le mesure. Survolez une brique voisine pour la voir.",
-      "lede_en": "Automating a process is rarely isolated. It combines with agents that decide, internal tools that carry the flow, a data foundation that measures it. Hover a neighbouring block to preview it.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Tout est installé sur vos comptes. Si on arrête de travailler ensemble, rien ne s'arrête.",
+      "lead_en": "Everything runs on your accounts. If we stop working together, nothing stops.",
       "items": [
         {
-          "label_fr": "Agents IA",
-          "label_en": "AI agents",
-          "meta_fr": "Décider · quand la tâche demande du jugement",
-          "meta_en": "Decide · when the task needs judgement",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : l'agent qui décide là où un workflow fixe ne suffit pas.",
-          "media_alt_en": "A chessboard: the agent that decides where a fixed workflow falls short.",
-          "link_href": "/services/agents-ia"
+          "title_fr": "Les workflows",
+          "title_en": "The workflows",
+          "body_fr": "Hébergés sur votre compte n8n ou Make, exportables, modifiables par un tiers.",
+          "body_en": "Hosted on your n8n or Make account, exportable, editable by a third party.",
+          "format_fr": "WORKFLOWS",
+          "format_en": "WORKFLOWS"
         },
         {
-          "label_fr": "Applications internes",
-          "label_en": "Internal applications",
-          "meta_fr": "Porter · l'outil qui pilote le flux",
-          "meta_en": "Carry · the tool that drives the flow",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : l'outil interne sur mesure qui porte le process.",
-          "media_alt_en": "A craftsman at work: the bespoke internal tool that carries the process.",
-          "link_href": "/services/applications-internes"
+          "title_fr": "Le journal et les alertes",
+          "title_en": "The log and alerts",
+          "body_fr": "L'historique des exécutions et une alerte par email ou messagerie quand une étape échoue.",
+          "body_en": "The run history and an alert by email or chat when a step fails.",
+          "format_fr": "SUPERVISION",
+          "format_en": "SUPERVISION"
         },
         {
-          "label_fr": "Données et reporting",
-          "label_en": "Data and reporting",
-          "meta_fr": "Mesurer · les heures gagnées, en clair",
-          "meta_en": "Measure · the hours saved, in plain figures",
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "Une analyse à l'écran : la mesure des heures rendues par chaque automatisation.",
-          "media_alt_en": "An analysis on screen: the measurement of hours returned by each automation.",
-          "link_href": "/services/donnees-reporting"
+          "title_fr": "La documentation",
+          "title_en": "The documentation",
+          "body_fr": "Pour chaque workflow : ce qu'il fait, ses règles, ses accès, que faire quand il s'arrête.",
+          "body_en": "For each workflow: what it does, its rules, its access, what to do when it stops.",
+          "format_fr": "DOC",
+          "format_en": "DOC"
         },
         {
-          "label_fr": "Intégration Claude",
-          "label_en": "Claude integration",
-          "meta_fr": "Brancher · l'IA à vos outils via MCP",
-          "meta_en": "Wire · AI to your tools via MCP",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : l'IA branchée proprement à vos outils métier.",
-          "media_alt_en": "A validated handshake: AI wired cleanly to your business tools.",
-          "link_href": "/services/integration-claude"
-        },
-        {
-          "label_fr": "Le système ops & IA",
-          "label_en": "The ops & AI system",
-          "meta_fr": "Assembler · l'ensemble, de bout en bout",
-          "meta_en": "Assemble · the whole, end to end",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Une équipe alignée : le système opérationnel et IA assemblé de bout en bout.",
-          "media_alt_en": "An aligned team: the operational and AI system assembled end to end.",
-          "link_href": "/services/systemes-operationnels-ia"
+          "title_fr": "Un référent formé",
+          "title_en": "A trained owner",
+          "body_fr": "Une personne de votre équipe sait lire le journal et ajuster une règle simple.",
+          "body_en": "Someone on your team can read the log and adjust a simple rule.",
+          "format_fr": "PASSATION",
+          "format_en": "PASSATION"
         }
       ]
     },
     {
-      "type": "sticky-scroll-storytelling",
-      "anchor": "methode",
+      "type": "decision-list",
       "background": "paper",
-      "textSide": "left",
-      "proportion": "media-led",
-      "mediaRatio": "4-3",
-      "density": "base",
-      "numbering": "serif",
-      "kicker_fr": "§ Méthode · comment on travaille ensemble",
-      "kicker_en": "§ Method · how we work together",
-      "h2_fr": "Comment on travaille ensemble",
-      "h2_en": "How we work together",
-      "lede_fr": "Du repérage de la tâche qui coûte le plus au workflow en production, puis au parc qui s'étend. Vous savez avant de signer ce qu'on automatise en premier et combien d'heures ça rend. Pas de zone d'ombre.",
-      "lede_en": "From spotting the task that costs the most to a workflow in production, then to a fleet that expands. You know before signing what we automate first and how many hours it returns. No grey zone.",
-      "steps": [
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "N'automatisez pas si",
+      "heading_en": "Do not automate if",
+      "items": [
         {
-          "index_fr": "01",
-          "index_en": "01",
-          "eyebrow_fr": "Repérage & cadrage",
-          "eyebrow_en": "Spotting & scoping",
-          "title_fr": "Trouver la tâche qui coûte le plus",
-          "title_en": "Find the task that costs the most",
-          "body_fr": "Quelques jours d'observation : on liste vos tâches répétitives, on les chiffre en heures et on repère celles qui font le plus mal. Livrable : une cartographie priorisée et un premier périmètre de workflow, chiffré.",
-          "body_en": "A few days of observation: we list your repetitive tasks, cost them in hours and spot the ones that hurt most. Deliverable: a prioritised map and a first workflow scope, costed.",
-          "media_src": "/images/illustrations/ds/pretty-woman-paper.webp",
-          "media_alt_fr": "Repérage des tâches répétitives qui coûtent le plus, pour cadrer le premier workflow",
-          "media_alt_en": "Spotting the repetitive tasks that cost most, to scope the first workflow"
+          "label_fr": "La tâche prend moins d'une heure par mois : le workflow coûtera plus cher que le temps rendu.",
+          "label_en": "The task takes less than an hour a month: the workflow will cost more than the time it gives back."
         },
         {
-          "index_fr": "02",
-          "index_en": "02",
-          "eyebrow_fr": "Conception",
-          "eyebrow_en": "Design",
-          "title_fr": "Dessiner le workflow et ses règles",
-          "title_en": "Draw the workflow and its rules",
-          "body_fr": "On formalise le déclencheur, les branchements, les règles métier et les points de contrôle. Ce qui vivait dans la tête d'une personne devient un schéma clair, validé avec vous avant la moindre ligne construite.",
-          "body_en": "We formalise the trigger, the connections, the business rules and the checkpoints. What lived in one person's head becomes a clear diagram, validated with you before a single line is built.",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Définition des règles du workflow : ce qu'on automatise, ce qu'on garde en validation humaine",
-          "media_alt_en": "Defining the workflow rules: what we automate, what we keep under human validation"
+          "label_fr": "Le process change toutes les semaines : stabilisez-le d'abord.",
+          "label_en": "The process changes every week: stabilise it first."
         },
         {
-          "index_fr": "03",
-          "index_en": "03",
-          "eyebrow_fr": "Construction",
-          "eyebrow_en": "Build",
-          "title_fr": "Construire et brancher",
-          "title_en": "Build and wire",
-          "body_fr": "On monte le workflow sur n8n, Make ou Zapier selon le besoin, on le branche à vos outils via API ou MCP, et on teste chaque cas, y compris les erreurs. Le workflow tourne sur une base propre, pensée pour s'étendre sans casser.",
-          "body_en": "We build the workflow on n8n, Make or Zapier as needed, wire it to your tools via API or MCP, and test every case, errors included. The workflow runs on a clean base, built to extend without breaking.",
-          "media_src": "/images/illustrations/ds/oh-men-boy-paper.webp",
-          "media_alt_fr": "Construction et branchement du workflow à vos outils, comme une jonction validée",
-          "media_alt_en": "Building and wiring the workflow to your tools, like a validated handshake"
+          "label_fr": "Le logiciel concerné n'a ni API ni export : il faudra d'abord en changer ou passer par une application métier.",
+          "label_en": "The software has no API and no export: you will need to replace it or go through a business application first."
         },
         {
-          "index_fr": "04",
-          "index_en": "04",
-          "eyebrow_fr": "Supervision & mesure",
-          "eyebrow_en": "Supervision & measurement",
-          "title_fr": "Superviser et compter les heures",
-          "title_en": "Supervise and count the hours",
-          "body_fr": "On pose la journalisation, les alertes sur échec et le tableau des heures gagnées. On mesure l'avant et l'après : pas de boîte noire, des chiffres sur votre propre activité. Un workflow qui coince vous prévient, il ne coince pas en silence.",
-          "body_en": "We put in the logging, the failure alerts and the hours-saved dashboard. We measure before and after: no black box, figures on your own activity. A workflow that jams warns you, it doesn't jam in silence.",
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Mesure des heures gagnées avant et après l'automatisation du process",
-          "media_alt_en": "Measuring the hours saved before and after the process is automated"
-        },
-        {
-          "index_fr": "05",
-          "index_en": "05",
-          "eyebrow_fr": "Extension & passation",
-          "eyebrow_en": "Extension & handover",
-          "title_fr": "Étendre et rendre l'équipe autonome",
-          "title_en": "Extend and make the team autonomous",
-          "body_fr": "On ajoute les workflows suivants au rythme des résultats, et on forme un référent chez vous. La passation fait partie du livrable : mode opératoire, documentation, vous gardez la stack et vous ajustez sans nous.",
-          "body_en": "We add the next workflows at the pace of results, and train an in-house referent. Handover is part of the deliverable: operating manual, documentation, you keep the stack and adjust without us.",
-          "media_src": "/images/illustrations/ds/band-showing-tv-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour rester autonomes sur les workflows",
-          "media_alt_en": "Handover and team training to stay autonomous on the workflows",
-          "link_label_fr": "Voir un cas concret",
-          "link_label_en": "See a real case",
-          "link_href": "/cas-clients"
+          "label_fr": "Personne chez vous ne sera responsable du workflow après la livraison.",
+          "label_en": "Nobody on your side will own the workflow after delivery."
         }
       ]
     },
@@ -560,55 +339,42 @@
       "fig_num": "Fig. 05",
       "fig_title_fr": "Cas clients",
       "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
+      "spec_fr": "Cas clients · chiffres repris des fiches publiées",
+      "spec_en": "Client cases · figures taken from the published case pages",
+      "h2_fr": "Deux projets où la saisie manuelle a disparu",
+      "h2_en": "Two projects where manual entry disappeared",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Secteur · Durée",
       "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
+      "impact_label_fr": "Ce qui a été livré",
+      "impact_label_en": "What was delivered",
       "cases": [
         {
           "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
+          "sector_fr": "RH et santé au travail",
+          "sector_en": "HR and occupational health",
           "duration": "6 sem.",
-          "stack": "CRM HubSpot · Capture · Routage",
-          "impact_fr": "Formulaires branchés HubSpot avec capture et routage des demandes : les leads arrivent qualifiés dans le CRM, sans ressaisie manuelle.",
-          "impact_en": "HubSpot-connected forms with request capture and routing: leads land qualified in the CRM, with no manual retyping.",
+          "stack": "Astro · HubSpot Forms API · schema.org",
+          "impact_fr": "Volet site : site marketing éditable sans développeur. Volet données et IA : demandes captées par formulaire et routées dans HubSpot sans ressaisie, graphe schema.org et fichier llm.md pour la lecture par les moteurs IA. Aucun chiffre d'impact publié à ce jour.",
+          "impact_en": "Site side: a marketing site editable without a developer. Data and AI side: form requests captured and routed into HubSpot with no retyping, a schema.org graph and an llm.md file for AI engines. No impact figure published to date.",
           "href": "/cas-clients/amploi",
           "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : les demandes captées et routées sans saisie manuelle.",
-          "media_alt_en": "A dynamic figure: requests captured and routed with no manual entry."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · Back-office · Maintenance",
-          "impact_fr": "Refonte et simplification du back-office : coût de maintenance réduit de 84 % et temps de chargement divisé par deux.",
-          "impact_en": "Rebuild and back-office simplification: maintenance cost cut by 84% and load time halved.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le back-office e-commerce allégé et moins coûteux à maintenir.",
-          "media_alt_en": "Fresh fruit: the e-commerce back office made leaner and cheaper to maintain."
+          "media_alt_fr": "Illustration : des demandes captées et routées vers le CRM.",
+          "media_alt_en": "Illustration: requests captured and routed to the CRM."
         },
         {
           "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
+          "sector_fr": "Patrimoine et média local",
+          "sector_en": "Heritage and local media",
           "duration": "6 sem.",
-          "stack": "Abonnement · Paiement récurrent · Communauté",
-          "impact_fr": "Système d'abonnement et de paiement récurrent en production : 40 articles, 150 membres et 35 abonnés payants gérés sans saisie manuelle en 3 mois.",
-          "impact_en": "Subscription and recurring-payment system in production: 40 articles, 150 members and 35 paying subscribers handled with no manual entry in 3 months.",
+          "stack": "WordPress · Abonnements · Paiement récurrent",
+          "impact_fr": "Abonnements à trois niveaux, paiement récurrent et gestion des membres automatisée. Trois mois après le lancement : plus de 40 articles, 150 membres et 35 abonnés payants.",
+          "impact_en": "Three subscription tiers, recurring payment and automated member management. Three months after launch: 40+ articles, 150+ members and 35+ paying subscribers.",
           "href": "/cas-clients/les-carnets-de-montpellier",
           "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local : abonnements et paiements récurrents gérés automatiquement.",
-          "media_alt_en": "A local media outlet: subscriptions and recurring payments handled automatically."
+          "media_alt_fr": "Illustration : un média local et sa communauté.",
+          "media_alt_en": "Illustration: a local media outlet and its community."
         }
       ],
       "all_label_fr": "Voir tous les cas →",
@@ -622,10 +388,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer",
-      "h2_en": "One offer, two ways forward",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier workflow en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez vos workflows, vos accès et la documentation.",
-      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first workflow in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep your workflows, your access and the documentation.",
+      "h2_fr": "Combien coûte l'automatisation d'un processus",
+      "h2_en": "How much process automation costs",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier workflow en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos workflows, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first workflow in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your workflows, your access and the documentation.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -646,9 +412,9 @@
             "A first deliverable that runs, not a mockup"
           ],
           "cta": {
-            "label_fr": "Réserver un diagnostic (45 min) →",
-            "label_en": "Book a diagnostic (45 min) →",
-            "href": "/contact?offer=automatisations&intent=discovery",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -661,13 +427,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, facturés en régie",
             "Nouveaux workflows ajoutés et supervisés",
             "Vous gardez workflows, accès et documentation"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
+            "Run in sprints, time and materials frame",
             "New workflows added and supervised",
             "You keep the workflows, access and documentation"
           ],
@@ -679,8 +445,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows suivants, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows, vos accès et la documentation sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next workflows require, validate it, then run it in sprints within the growth retainer frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your workflows, your access and the documentation are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows suivants, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows, vos accès et la documentation sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next workflows require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your workflows, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
@@ -691,63 +457,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Automatisation des processus : vos questions",
+      "h2_en": "Process automation: your questions",
       "items": [
         {
-          "q_fr": "Concrètement, qu'est-ce qu'on peut automatiser en premier ?",
-          "q_en": "Concretely, what can we automate first?",
-          "a_fr": "La tâche répétitive qui vous coûte le plus d'heures : ressaisie d'un outil à l'autre, relances, création de documents, mise à jour du CRM, traitement d'emails entrants. On part de celle qui fait le plus mal, pas d'un catalogue.",
-          "a_en": "The repetitive task that costs you the most hours: retyping from one tool to another, follow-ups, document creation, CRM updates, inbound email processing. We start with the one that hurts most, not from a catalogue."
+          "q_fr": "Combien coûte l'automatisation d'un processus en PME ?",
+          "a_fr": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés 99 € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge.",
+          "q_en": "How much does it cost to automate a process in an SMB?",
+          "a_en": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €99 per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
         },
         {
-          "q_fr": "Vous utilisez quels outils, n8n, Make ou Zapier ?",
-          "q_en": "Which tools do you use, n8n, Make or Zapier?",
-          "a_fr": "Selon le besoin. n8n quand il faut de la logique fine et l'hébergement chez vous, Make ou Zapier pour du branchement rapide entre SaaS. On choisit l'outil au cadrage, jamais l'inverse. Vous gardez les workflows.",
-          "a_en": "Depending on the need. n8n when you need fine logic and self-hosting, Make or Zapier for fast wiring between SaaS. We pick the tool at scoping, never the other way round. You keep the workflows."
+          "q_fr": "Combien de temps faut-il pour automatiser un processus ?",
+          "a_fr": "Habituellement 2 à 6 semaines pour un premier workflow en production. Le délai dépend surtout de l'obtention des accès à vos outils et de la disponibilité de la personne qui connaît la tâche, pas de la construction elle-même.",
+          "q_en": "How long does it take to automate a process?",
+          "a_en": "Usually 2 to 6 weeks for a first workflow in production. The delay depends mostly on getting access to your tools and on the availability of the person who knows the task, not on the build itself."
         },
         {
-          "q_fr": "Une automatisation, c'est la même chose qu'un agent IA ?",
-          "q_en": "Is an automation the same thing as an AI agent?",
-          "a_fr": "Non. Une automatisation suit un chemin déterministe : même entrée, même sortie, traçable. Un agent IA décide et s'adapte. Beaucoup de processus n'ont pas besoin d'un agent, juste d'un workflow fiable. Pour les tâches qui demandent du jugement, on regarde les agents IA.",
-          "a_en": "No. An automation follows a deterministic path: same input, same output, traceable. An AI agent decides and adapts. Many processes don't need an agent, just a reliable workflow. For tasks that require judgement, we look at AI agents."
+          "q_fr": "Quelle différence entre automatisation et agent IA ?",
+          "a_fr": "Une automatisation suit des étapes fixes : même entrée, même sortie. Un agent IA lit, interprète et choisit l'action. Si la règle s'écrit en « si, alors », un workflow suffit et coûte moins cher à maintenir. Si la tâche demande de comprendre un texte libre, il faut un agent ou une étape IA.",
+          "q_en": "What is the difference between automation and an AI agent?",
+          "a_en": "An automation follows fixed steps: same input, same output. An AI agent reads, interprets and chooses the action. If the rule can be written as \"if, then\", a workflow is enough and cheaper to maintain. If the task requires understanding free text, you need an agent or an AI step."
         },
         {
-          "q_fr": "Et si le workflow casse quand un outil change ?",
-          "q_en": "What if the workflow breaks when a tool changes?",
-          "a_fr": "C'est le vrai risque des scripts bricolés. On pose des points de contrôle, des alertes en cas d'échec et une supervision. Un workflow qui casse en silence, vous ne le voyez pas. Le nôtre vous prévient.",
-          "a_en": "That is the real risk with patched-together scripts. We put in checkpoints, failure alerts and supervision. A workflow that breaks silently is one you never see. Ours warns you."
+          "q_fr": "Quels processus automatiser en premier dans une PME ?",
+          "a_fr": "Celui qui revient chaque semaine, dont les règles sont stables et dont l'erreur coûte : ressaisie entre deux logiciels, relances de devis ou de factures, création de documents, tri des emails entrants. L'audit gratuit sert à classer vos process par heures consommées et par faisabilité.",
+          "q_en": "Which processes should an SMB automate first?",
+          "a_en": "The one that comes back every week, with stable rules, where an error costs something: retyping between two tools, chasing quotes or invoices, creating documents, sorting incoming emails. The free audit ranks your processes by hours consumed and feasibility."
         },
         {
-          "q_fr": "On perd le contrôle sur ce que fait l'automatisation ?",
-          "q_en": "Do we lose control over what the automation does?",
-          "a_fr": "Non. Chaque étape est visible et journalisée. Les actions sensibles passent par une validation humaine si vous le voulez. Vous savez ce qui tourne, quand, et ce que ça produit.",
-          "a_en": "No. Every step is visible and logged. Sensitive actions go through a human validation if you want. You know what runs, when, and what it produces."
+          "q_fr": "Automatisation et RGPD : que faut-il vérifier ?",
+          "a_fr": "Trois points : où transitent les données (un n8n hébergé chez vous évite un sous-traitant supplémentaire), quelles données personnelles passent par une étape IA, et qui a accès au journal. On documente ces points dans la fiche de chaque workflow pour votre registre de traitements.",
+          "q_en": "Automation and GDPR: what should be checked?",
+          "a_en": "Three points: where the data travels (self-hosted n8n avoids an extra processor), which personal data goes through an AI step, and who can read the log. We document these in each workflow sheet for your processing register."
         },
         {
-          "q_fr": "Combien de temps avant qu'un premier workflow tourne ?",
-          "q_en": "How long before a first workflow runs?",
-          "a_fr": "Un premier workflow ciblé tourne souvent en quelques semaines, une fois la tâche cadrée. On mesure les heures gagnées dès la mise en production, pas dans six mois.",
-          "a_en": "A first targeted workflow often runs within a few weeks, once the task is scoped. We measure the hours saved from go-live, not in six months."
-        },
-        {
-          "q_fr": "Combien coûte l'automatisation d'un processus ?",
-          "q_en": "How much does it cost to automate a process?",
-          "a_fr": "On démarre par un sprint découverte à 999 € HT (10 h) : cadrage et un premier workflow en production. La suite se cale sur devis, en sprints à 99 € de l'heure, estimés avec vous. Pas d'abonnement caché : vous gardez vos workflows.",
-          "a_en": "We start with a discovery sprint at 999 € ex VAT (10 h): scoping and a first workflow in production. What follows is quoted, in sprints at 99 € an hour, estimated with you. No hidden subscription: you keep your workflows."
-        },
-        {
-          "q_fr": "Vous vous branchez sur nos outils existants ?",
-          "q_en": "Do you wire onto our existing tools?",
-          "a_fr": "Oui. CRM, boîtes mail, tableurs, facturation, e-commerce, outils métier : on connecte l'existant via API ou MCP plutôt que de tout remplacer. On ne casse pas ce qui marche.",
-          "a_en": "Yes. CRM, inboxes, spreadsheets, billing, e-commerce, business tools: we connect what exists via API or MCP rather than replacing everything. We don't break what works."
-        },
-        {
-          "q_fr": "Une fois livré, on dépend de vous pour tout changement ?",
-          "q_en": "Once delivered, do we depend on you for every change?",
-          "a_fr": "Non. On documente chaque workflow et on forme un référent chez vous. Vous ajustez et étendez sans nous. Zéro captivité, vous gardez la stack.",
-          "a_en": "No. We document each workflow and train an in-house referent. You adjust and extend without us. Zero lock-in, you keep the stack."
+          "q_fr": "Que se passe-t-il si un outil change et que le workflow casse ?",
+          "a_fr": "Le workflow s'arrête sur l'étape en erreur et envoie une alerte à votre référent. La documentation indique quoi vérifier. La correction se fait en régie, à l'heure, ou par votre équipe si elle a été formée.",
+          "q_en": "What happens if a tool changes and the workflow breaks?",
+          "a_en": "The workflow stops at the failing step and alerts your owner. The documentation says what to check. The fix is done on a time-and-materials basis, or by your team if it has been trained."
         }
       ]
     },
@@ -758,22 +506,22 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à récupérer vos heures ?",
-      "kicker_en": "§ Ready to get your hours back?",
-      "h2_fr": "Rendez à vos équipes les heures que la saisie leur prend.",
-      "h2_en": "Give your teams back the hours that data entry takes.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec la liste de vos tâches automatisables, chiffrée en heures, qu'on travaille ensemble ou non. En face, un interlocuteur unique, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with the list of your automatable tasks, costed in hours, whether we work together or not. Across the table, a single contact, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quel process vous coûte le plus d'heures chaque semaine ?",
+      "h2_en": "Which process costs you the most hours every week?",
+      "subtitle_fr": "L'audit gratuit dure 45 minutes. Vous repartez avec la carte de vos process chronophages et au moins deux candidats à l'automatisation, chiffrés, que l'on travaille ensemble ou non.",
+      "subtitle_en": "The free audit lasts 45 minutes. You leave with a map of your time-consuming processes and at least two automation candidates, costed, whether or not we work together.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?offer=automatisations&intent=discovery",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir le système opérationnel et IA",
-          "label_en": "See the operational and AI system",
+          "label_fr": "Voir l'offre automatisation IA",
+          "label_en": "See the AI automation offer",
           "href": "/services/systemes-operationnels-ia",
           "variant": "ghost"
         }

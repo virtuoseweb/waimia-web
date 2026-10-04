@@ -2,11 +2,11 @@
   "$schema": "../../schemas/generated/guides.page.schema.json",
   "title_fr": "Déployer Claude dans une PME : le guide pratique, des prérequis aux 90 premiers jours",
   "title_en": "Deploying Claude in an SMB: the practical guide, from prerequisites to the first 90 days",
-  "description_fr": "Guide pratique pour déployer Claude en PME : les 6 prérequis, les 5 cas d'usage à fort ROI, structurer ses données, gouvernance et 90 premiers jours.",
+  "description_fr": "Guide pratique pour déployer Claude en PME : les prérequis, cinq cas d'usage pour commencer, les données, les règles et les 90 premiers jours.",
   "description_en": "Practical guide to deploy Claude in an SMB: the 6 prerequisites to lay, the 5 high-ROI use cases, structuring your data, governance and the first 90 days.",
   "slug": "claude-pme",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "claude-pme",
@@ -27,8 +27,8 @@
       "a": "On ne commence pas par l'outil mais par un process. Choisissez une tâche récurrente, chronophage et à faible risque : tri d'emails, rédaction de comptes-rendus, réponses de premier niveau. Cadrez le résultat attendu, donnez à Claude le contexte dont il a besoin, puis mesurez le temps gagné. Un premier cas d'usage réussi vaut mieux que dix pilotes abandonnés."
     },
     {
-      "q": "Quels sont les cas d'usage Claude à plus fort ROI en PME ?",
-      "a": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que l'IA paie le plus vite."
+      "q": "Par quels cas d'usage commencer avec Claude en PME ?",
+      "a": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que le gain se mesure le plus facilement."
     },
     {
       "q": "Faut-il structurer ses données avant de déployer Claude ?",
@@ -153,11 +153,11 @@
       "h1_en": "Deploying <i class=\"acc\">Claude</i> in your SMB.",
       "definition_kicker_fr": "De quoi parle <i class=\"acc\">ce guide</i> ?",
       "definition_kicker_en": "What is <i class=\"acc\">this guide</i> about?",
-      "lede_fr": "Pas une démo de chatbot, un <i>plan de déploiement</i> : par où commencer, les cinq cas d'usage qui paient le plus vite, comment structurer vos données, cadrer la gouvernance et tenir les premiers 90 jours sans dérapage. Tout ce qu'on aurait aimé qu'on nous dise avant de se lancer.",
+      "lede_fr": "Pas une démo de chatbot, un <i>plan de déploiement</i> : par où commencer, les cinq cas d'usage par lesquels commencer, comment structurer vos données, cadrer la gouvernance et tenir les premiers 90 jours sans dérapage. Tout ce qu'on aurait aimé qu'on nous dise avant de se lancer.",
       "lede_en": "Not a chatbot demo, a <i>deployment plan</i>: where to start, the five use cases that pay off fastest, how to structure your data, frame governance and hold the first 90 days without drift. Everything we'd have liked to be told before starting.",
       "badges": [
         {
-          "label_fr": "5 cas d'usage à fort ROI",
+          "label_fr": "5 cas d'usage par où commencer",
           "label_en": "5 high-ROI use cases"
         },
         {
@@ -170,9 +170,9 @@
         }
       ],
       "cta_primary": {
-        "label_fr": "Réserver l'audit IA (45 min) →",
+        "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book the AI audit (45 min) →",
-        "href": "/contact?offer=claude-pme&intent=guide",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
@@ -209,7 +209,7 @@
         },
         {
           "value": "5",
-          "label_fr": "Cas d'usage à fort ROI",
+          "label_fr": "Cas d'usage par où commencer",
           "label_en": "High-ROI use cases"
         },
         {
@@ -229,9 +229,9 @@
       "background": "paper-2",
       "kicker_fr": "§ Les 5 cas d'usage",
       "kicker_en": "§ The 5 use cases",
-      "h2_fr": "Là où Claude paie le plus vite",
+      "h2_fr": "Les cinq usages par lesquels commencer",
       "h2_en": "Where Claude pays off fastest",
-      "lede_fr": "Tous les usages ne se valent pas au démarrage. Visez le volume élevé, des règles claires et un coût horaire réel. Ces cinq familles cochent les trois cases et donnent un retour mesurable en quelques semaines.",
+      "lede_fr": "Tous les usages ne se valent pas au démarrage. Visez le volume élevé, des règles claires et un coût horaire réel. Ces cinq familles cochent les trois cases et se mesurent facilement.",
       "lede_en": "Not all uses are equal at the start. Aim for high volume, clear rules and a real hourly cost. These five families tick all three boxes and deliver a measurable return within a few weeks.",
       "rows": [
         {
@@ -239,7 +239,7 @@
           "kicker_en": "Use case 01",
           "h3_fr": "Rédaction et reformulation",
           "h3_en": "Writing and rewriting",
-          "body_fr": "Emails, propositions, descriptions produit, posts : tout ce qui se rédige à la chaîne. Claude part de vos notes brutes et produit un premier jet propre, dans votre ton. Le collaborateur relit et valide au lieu d'écrire de zéro, et le temps de rédaction fond.",
+          "body_fr": "Emails, propositions, descriptions produit, posts : tout ce qui se rédige à la chaîne. Claude part de vos notes brutes et produit un premier jet propre, dans votre ton. Le collaborateur relit et valide au lieu d'écrire de zéro.",
           "body_en": "Emails, proposals, product descriptions, posts: everything written in volume. Claude starts from your raw notes and produces a clean first draft, in your tone. The employee reviews and approves instead of writing from scratch, and drafting time melts away.",
           "points": [
             {
@@ -261,7 +261,7 @@
           "kicker_en": "Use case 02",
           "h3_fr": "Synthèse de documents et réunions",
           "h3_en": "Document and meeting synthesis",
-          "body_fr": "Contrats, rapports, transcriptions, fils d'emails interminables : Claude lit et restitue l'essentiel en points actionnables. Plus besoin de parcourir quarante pages pour trouver les trois décisions qui comptent. Le compte-rendu est prêt avant la fin de la pause café.",
+          "body_fr": "Contrats, rapports, transcriptions, fils d'emails interminables : Claude lit et restitue l'essentiel en points actionnables. Plus besoin de parcourir quarante pages pour trouver les trois décisions qui comptent.",
           "body_en": "Contracts, reports, transcripts, endless email threads: Claude reads and returns the essentials as actionable points. No more skimming forty pages to find the three decisions that matter. The summary is ready before the coffee break ends.",
           "points": [
             {
@@ -368,7 +368,7 @@
         {
           "title_fr": "Jours 1 à 30 : cadrer et lancer",
           "title_en": "Days 1 to 30: frame and launch",
-          "body_fr": "On choisit un seul cas d'usage à fort ROI, on rassemble les données et le contexte dont l'agent a besoin, on pose la politique d'usage et on lance un premier agent sur un périmètre limité. Objectif : un résultat mesurable, pas un projet parfait.",
+          "body_fr": "On choisit un seul cas d'usage à fort volume, on rassemble les données et le contexte dont l'agent a besoin, on pose la politique d'usage et on lance un premier agent sur un périmètre limité. Objectif : un résultat mesurable, pas un projet parfait.",
           "body_en": "You pick a single high-ROI use case, gather the data and context the agent needs, set the usage policy and launch a first agent on a limited scope. Goal: a measurable result, not a perfect project.",
           "meta_fr": "Cadrage",
           "meta_en": "Framing"
@@ -619,9 +619,9 @@
           "a_en": "You don't start with the tool but with a process. Pick a recurring, time-consuming, low-risk task: email triage, meeting notes, first-level replies. Frame the expected result, give Claude the context it needs, then measure the time saved. One successful first use case beats ten abandoned pilots."
         },
         {
-          "q_fr": "Quels sont les cas d'usage Claude à plus fort ROI en PME ?",
+          "q_fr": "Par quels cas d'usage commencer avec Claude en PME ?",
           "q_en": "Which Claude use cases have the highest ROI in an SMB?",
-          "a_fr": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que l'IA paie le plus vite.",
+          "a_fr": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que le gain se mesure le plus facilement.",
           "a_en": "Five come up constantly: writing and rewriting content, summarising documents and meetings, first-level customer support, extracting data from documents, and automating repetitive tasks via the MCP protocol. The common thread: high volume, clear rules and a significant hourly cost. That's where AI pays off fastest."
         },
         {
@@ -710,9 +710,9 @@
       "subtitle_en": "The free 45-min AI audit turns this guide into a concrete plan: we start from your reality to identify the first process to automate and size the gain. No commitment.",
       "buttons": [
         {
-          "label_fr": "Réserver l'audit IA (45 min) →",
+          "label_fr": "Réserver un audit IA gratuit →",
           "label_en": "Book the AI audit (45 min) →",
-          "href": "/contact?offer=claude-pme&intent=guide",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {

@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/cas-usages.page.schema.json",
-  "title_fr": "Standardiser ses processus · une qualité constante, sans dépendre des personnes",
-  "title_en": "Standardise your processes · constant quality, without depending on people",
-  "description_fr": "Vos procédures vivent dans la tête d'une ou deux personnes ? On les formalise et on automatise le répétitif, pour une qualité constante.",
-  "description_en": "Your procedures live in one or two heads? We formalise them and automate repetitive tasks, for constant quality.",
+  "title_fr": "Automatiser les tâches administratives d'une PME · Waimia",
+  "title_en": "Automating an SMB's administrative tasks · Waimia",
+  "description_fr": "Automatiser l'administratif en PME : dossiers clients, factures, onboarding, RH. D'abord écrire le process, ensuite l'automatiser. Exemple type et limites.",
+  "description_en": "Automating admin in an SMB: client files, invoices, onboarding, HR. First write the process, then automate it. Typical example and limits.",
   "slug": "standardiser-processus",
   "publishedAt": "2026-06-26T00:00:00.000Z",
-  "updatedAt": "2026-06-26T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "standardiser-processus",
@@ -20,62 +20,46 @@
   },
   "faq_fr": [
     {
-      "q": "Pourquoi mes processus dépendent-ils d'une seule personne ?",
-      "a": "Parce que dans une petite structure, le savoir-faire reste souvent dans les têtes : les procédures se transmettent à l'oral, les décisions reposent sur l'expérience d'une personne clé. Tant qu'elle est là, tout va bien. Quand elle s'absente ou quitte l'entreprise, la continuité vacille et les erreurs grimpent. Formaliser ce savoir, c'est transformer une fragilité en actif."
+      "q": "Quelles tâches administratives peut-on automatiser en PME ?",
+      "a": "L'ouverture de dossiers, le classement et la pré-saisie des factures, la génération de documents types, l'accueil d'un nouveau salarié, les relances de pièces manquantes. Le critère : une tâche fréquente, aux règles stables, où l'erreur coûte."
     },
     {
-      "q": "Standardiser, est-ce que ça veut dire bureaucratie ?",
-      "a": "Non, si on s'y prend bien. L'erreur serait de vouloir tout documenter en détail. La bonne approche cible les quelques processus à fort impact, formalise l'essentiel et laisse de la souplesse ailleurs. L'ordre est toujours le même : comprendre, simplifier, formaliser, puis seulement outiller. L'objectif est de supprimer les tâches répétitives, pas de figer chaque geste."
+      "q": "Peut-on automatiser la comptabilité avec l'IA ?",
+      "a": "On automatise la collecte, la lecture et le classement des pièces, et la pré-saisie. La validation, les écritures complexes et la relation avec l'expert-comptable restent humaines. Tout dépend aussi de l'ouverture de votre logiciel comptable."
     },
     {
-      "q": "L'IA va-t-elle documenter mes procédures à ma place ?",
-      "a": "Elle ne le fait pas à votre place, mais elle rend la documentation beaucoup plus rapide : elle peut structurer une procédure à partir d'une description orale, transformer un échange en fiche de suivi, ou rendre une base de documents interrogeable en langage naturel. Vous restez celui qui valide l'exactitude. L'IA accélère, l'humain tranche."
+      "q": "Que peut-on automatiser en ressources humaines ?",
+      "a": "L'accueil d'un salarié (comptes, matériel, documents), les rappels d'échéances (période d'essai, visites, formations obligatoires), la collecte des éléments variables. Les décisions concernant une personne ne sont pas automatisées."
     },
     {
-      "q": "Où l'humain garde-t-il la main ?",
-      "a": "Sur les décisions sensibles : validation financière, exception client, arbitrage. On définit explicitement où l'IA propose, où elle exécute, et où un humain valide. Les actions importantes passent par un point de contrôle, avec un seuil de confiance et une escalade en cas de doute. Rien ne tourne en boîte noire."
+      "q": "Faut-il documenter ses processus avant de les automatiser ?",
+      "a": "Oui. Un workflow fige des règles : si elles ne sont pas écrites et partagées, on automatise la version d'une seule personne. L'écriture du process fait partie de la mission et prend en général quelques heures par process."
     },
     {
-      "q": "Par quel processus faut-il commencer ?",
-      "a": "Par une tâche fréquente, répétable et à risque maîtrisé : un onboarding client, un tri de demandes, une préparation de dossier. On cartographie ce que les équipes font vraiment, pas ce qui est censé se passer, on simplifie, puis on automatise ce qui peut l'être. On mesure le gain avant d'étendre."
-    },
-    {
-      "q": "Et si le processus change après l'automatisation ?",
-      "a": "On documente le déclencheur, les étapes, les cas d'erreur et le responsable, et on met à jour à chaque modification. Un processus non documenté est fragile : si la personne qui le comprend part, vous êtes bloqué. La documentation n'est pas un luxe, c'est la condition pour faire évoluer le système sans tout casser."
-    },
-    {
-      "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-      "a": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition."
+      "q": "Combien coûte l'automatisation d'une tâche administrative ?",
+      "a": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures. Les suivants sont estimés en heures puis facturés 99 € HT de l'heure."
     }
   ],
   "faq_en": [
     {
-      "q": "Why do my processes depend on a single person?",
-      "a": "Because in a small structure, know-how often stays in people's heads: procedures pass on by word of mouth, decisions rest on a key person's experience. As long as they're there, all is well. When they're away or leave, continuity wavers and errors climb. Formalising that knowledge turns a fragility into an asset."
+      "q": "Which administrative tasks can an SMB automate?",
+      "a": "File opening, invoice filing and pre-entry, template document generation, new-hire onboarding, chasing missing documents. The criterion: a frequent task with stable rules where an error costs something."
     },
     {
-      "q": "Does standardising mean bureaucracy?",
-      "a": "No, if done well. The mistake would be wanting to document everything in detail. The right approach targets the few high-impact processes, formalises the essentials and leaves flexibility elsewhere. The order is always the same: understand, simplify, formalise, then only equip. The goal is to remove repetitive tasks, not to freeze every gesture."
+      "q": "Can accounting be automated with AI?",
+      "a": "We automate document collection, reading and filing, and pre-entry. Approval, complex entries and the relationship with the accountant stay human. It also depends on how open your accounting software is."
     },
     {
-      "q": "Will AI document my procedures for me?",
-      "a": "It doesn't do it for you, but it makes documentation much faster: it can structure a procedure from an oral description, turn an exchange into a follow-up sheet, or make a document base searchable in natural language. You stay the one who validates accuracy. AI speeds up, the human decides."
+      "q": "What can be automated in HR?",
+      "a": "Onboarding (accounts, equipment, documents), deadline reminders (probation, medical visits, mandatory training), collecting variable pay items. Decisions about a person are not automated."
     },
     {
-      "q": "Where does the human keep control?",
-      "a": "On sensitive decisions: financial validation, client exception, arbitration. We explicitly define where AI proposes, where it executes, and where a human validates. Important actions go through a control point, with a confidence threshold and escalation in case of doubt. Nothing runs as a black box."
+      "q": "Should processes be documented before automating them?",
+      "a": "Yes. A workflow freezes rules: if they are not written and shared, you automate one person's version. Writing the process is part of the engagement and usually takes a few hours per process."
     },
     {
-      "q": "Which process should we start with?",
-      "a": "With a frequent, repeatable task at a controlled risk: a client onboarding, a request triage, a file preparation. We map what teams actually do, not what's supposed to happen, we simplify, then we automate what can be. We measure the gain before expanding."
-    },
-    {
-      "q": "What if the process changes after automation?",
-      "a": "We document the trigger, the steps, the error cases and the owner, and update at every change. An undocumented process is fragile: if the person who understands it leaves, you're stuck. Documentation isn't a luxury, it's the condition to evolve the system without breaking everything."
-    },
-    {
-      "q": "Where are you based, and do we need to be in Bordeaux?",
-      "a": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+      "q": "How much does it cost to automate an administrative task?",
+      "a": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours. The next ones are estimated in hours then billed €99 per hour excl. VAT."
     }
   ],
   "sections": [
@@ -85,212 +69,101 @@
       "media_src": "/images/illustrations/ds/chess-paper.webp",
       "media_alt_fr": "Illustration : un savoir-faire formalisé en méthode, une qualité constante qui ne dépend plus des personnes",
       "media_alt_en": "Illustration: know-how formalised into method, constant quality no longer depending on people",
-      "kicker_fr": "§ Résoudre un problème",
-      "kicker_en": "§ Solve a problem",
-      "h1_fr": "Standardiser ses <i class=\"acc\">processus</i>.",
-      "h1_en": "Standardise your <i class=\"acc\">processes</i>.",
-      "definition_kicker_fr": "Le problème",
-      "definition_kicker_en": "The problem",
-      "lede_fr": "Vos procédures vivent dans la tête d'une ou deux personnes. Quand elles s'absentent, la qualité vacille et les erreurs grimpent. Le sujet n'est pas d'écrire un classeur de règles que personne ne lit, c'est de <i>formaliser l'essentiel</i> et d'automatiser le répétitif, sans perdre la main.",
-      "lede_en": "Your procedures live in one or two heads. When they're away, quality wavers and errors climb. The issue isn't writing a binder of rules no one reads, it's <i>formalising the essentials</i> and automating the repetitive, without losing control.",
+      "kicker_fr": "§ Cas d'usage · fonction administrative",
+      "kicker_en": "§ Use case · administrative function",
+      "h1_fr": "Automatiser les tâches <i class=\"acc\">administratives</i>",
+      "h1_en": "Automating <i class=\"acc\">administrative</i> tasks",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Automatiser l'administratif, c'est écrire une fois pour toutes la façon dont un dossier est ouvert, une facture traitée ou un nouveau salarié accueilli, puis confier les étapes mécaniques à un workflow. Ce cas d'usage concerne les PME où ces procédures existent surtout dans la tête d'une ou deux personnes.",
+      "lede_en": "Automating admin means writing down once and for all how a file is opened, an invoice processed or a new hire onboarded, then handing the mechanical steps to a workflow. This use case concerns SMBs where these procedures mostly live in one or two people's heads.",
       "badges": [
         {
-          "label_fr": "Comprendre, simplifier, formaliser, outiller",
-          "label_en": "Understand, simplify, formalise, equip"
+          "label_fr": "Dossiers clients",
+          "label_en": "Client files"
         },
         {
-          "label_fr": "Validation humaine sur le sensible",
-          "label_en": "Human validation on the sensitive"
+          "label_fr": "Factures et pièces",
+          "label_en": "Invoices and documents"
         },
         {
-          "label_fr": "Une qualité constante, moins de dépendance",
-          "label_en": "Constant quality, less dependence"
+          "label_fr": "Onboarding et RH",
+          "label_en": "Onboarding and HR"
         }
       ],
       "cta_primary": {
-        "label_fr": "Réserver un diagnostic (45 min) →",
-        "label_en": "Book a diagnostic (45 min) →",
-        "href": "/contact?intent=processus",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Comment on le résout",
-        "label_en": "How we solve it",
-        "href": "#methode",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       }
     },
     {
-      "type": "feature-zigzag",
+      "type": "editorial-prose",
       "background": "paper-2",
-      "layout": "alternate",
-      "mediaSide": "left",
-      "kicker_fr": "§ Le problème",
-      "kicker_en": "§ The problem",
-      "h2_fr": "Là où le savoir-faire se fragilise",
-      "h2_en": "Where know-how turns fragile",
-      "rows": [
-        {
-          "kicker_fr": "01 · Savoir dans les têtes",
-          "kicker_en": "01 · Knowledge in heads",
-          "h3_fr": "Une absence, et le flux s'arrête",
-          "h3_en": "One absence, and the flow stops",
-          "body_fr": "Les procédures ne sont écrites nulle part, elles se transmettent à l'oral. Quand la personne qui sait est en congé ou quitte l'entreprise, le travail ralentit, les erreurs apparaissent, et personne ne sait reprendre le dossier proprement.",
-          "body_en": "Procedures are written nowhere, they pass on by word of mouth. When the person who knows is on leave or leaves the company, work slows, errors appear, and no one can pick up the file cleanly.",
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Un savoir-faire concentré sur une seule personne",
-          "media_alt_en": "Know-how concentrated in a single person"
-        },
-        {
-          "kicker_fr": "02 · Qualité variable",
-          "kicker_en": "02 · Variable quality",
-          "h3_fr": "Chacun fait à sa manière",
-          "h3_en": "Everyone does it their own way",
-          "body_fr": "Sans référence commune, la même tâche est faite différemment selon qui s'en charge. Le résultat varie, les oublis se multiplient, et le client perçoit l'irrégularité. La qualité dépend de la personne du jour, pas d'un standard partagé.",
-          "body_en": "Without a common reference, the same task is done differently depending on who handles it. The result varies, omissions multiply, and the client perceives the inconsistency. Quality depends on the person of the day, not a shared standard.",
-          "media_src": "/images/illustrations/ds/style-15-paper.webp",
-          "media_alt_fr": "Une même tâche réalisée de façons différentes",
-          "media_alt_en": "The same task done in different ways"
-        },
-        {
-          "kicker_fr": "03 · Répétitif chronophage",
-          "kicker_en": "03 · Time-eating repetition",
-          "h3_fr": "Les mêmes gestes, tous les jours",
-          "h3_en": "The same actions, every day",
-          "body_fr": "Créer un dossier, envoyer des accès, planifier un kick-off, relancer : les mêmes étapes manuelles se répètent à l'identique, réparties sur plusieurs personnes. Du temps qui part dans la mécanique au lieu d'aller sur ce qui demande vraiment du jugement.",
-          "body_en": "Creating a file, sending access, scheduling a kick-off, following up: the same manual steps repeat identically, spread across several people. Time goes into the mechanics instead of into what really needs judgement.",
-          "media_src": "/images/illustrations/ds/style-11-paper.webp",
-          "media_alt_fr": "Des étapes manuelles répétées chaque jour",
-          "media_alt_en": "Manual steps repeated every day"
-        }
-      ]
-    },
-    {
-      "type": "steps-horizontal",
-      "anchor": "methode",
-      "background": "paper",
-      "kicker_fr": "§ Comment on le résout",
-      "kicker_en": "§ How we solve it",
-      "h2_fr": "Comprendre, simplifier, formaliser, outiller",
-      "h2_en": "Understand, simplify, formalise, equip",
-      "steps": [
-        {
-          "title_fr": "On comprend le réel",
-          "title_en": "We understand the real",
-          "body_fr": "On cartographie ce que les équipes font vraiment, pas ce qui est censé se passer : les contournements, les exceptions, les étapes qui dépendent d'une seule personne. On associe les opérationnels tôt, parce que ce sont eux qui connaissent les vraies étapes.",
-          "body_en": "We map what teams actually do, not what's supposed to happen: the workarounds, the exceptions, the steps that depend on a single person. We involve the operational people early, because they're the ones who know the real steps."
-        },
-        {
-          "title_fr": "On simplifie puis on formalise",
-          "title_en": "We simplify then formalise",
-          "body_fr": "On cible les quelques processus à fort impact, on simplifie avant d'écrire, puis on formalise l'essentiel en procédures claires et testées. L'IA accélère la documentation : structurer une procédure à partir d'une description, rendre une base interrogeable. Vous validez l'exactitude.",
-          "body_en": "We target the few high-impact processes, simplify before writing, then formalise the essentials into clear, tested procedures. AI speeds up documentation: structuring a procedure from a description, making a base searchable. You validate accuracy."
-        },
-        {
-          "title_fr": "On automatise le répétitif",
-          "title_en": "We automate the repetitive",
-          "body_fr": "Une fois le processus clarifié, on automatise les tâches mécaniques : un déclencheur lance la séquence, crée le dossier, envoie les accès, planifie le suivi. On définit explicitement où l'IA exécute et où un humain valide les décisions sensibles.",
-          "body_en": "Once the process is clarified, we automate the mechanical tasks: a trigger launches the sequence, creates the file, sends access, schedules the follow-up. We explicitly define where AI executes and where a human validates the sensitive decisions."
-        },
-        {
-          "title_fr": "On garde le contrôle dans la durée",
-          "title_en": "We keep control over time",
-          "body_fr": "On documente le déclencheur, les étapes, les cas d'erreur et le responsable, et on met à jour à chaque modification. Points de contrôle, seuils de confiance, escalade en cas de doute : le système reste pilotable et évolue sans dépendre d'une seule tête.",
-          "body_en": "We document the trigger, the steps, the error cases and the owner, and update at every change. Control points, confidence thresholds, escalation in case of doubt: the system stays steerable and evolves without depending on a single head."
-        }
-      ]
-    },
-    {
-      "type": "bento-grid",
-      "background": "ink",
-      "kicker_fr": "§ Ce que Waimia met en place",
-      "kicker_en": "§ What Waimia sets up",
-      "h2_fr": "Les briques qui ancrent vos standards",
-      "h2_en": "The blocks that anchor your standards",
-      "cells": [
-        {
-          "glyph": "◆",
-          "title_fr": "Intégrateur Claude",
-          "title_en": "Claude integrator",
-          "body_fr": "Le cœur de la standardisation : des agents et des skills qui suivent vos process, branchés à vos outils, avec une gouvernance et des points de validation. Détaillé sur sa page service.",
-          "body_en": "The heart of standardisation: agents and skills that follow your processes, wired to your tools, with governance and validation points. Detailed on its service page.",
-          "span": "lg"
-        },
-        {
-          "glyph": "⇄",
-          "title_fr": "Agents IA",
-          "title_en": "AI agents",
-          "body_fr": "Quand le répétitif devient un agent : lire une demande, la router, créer un dossier, préparer une réponse. L'automatisation passe de la règle fixe au traitement des cas variables.",
-          "body_en": "When the repetitive becomes an agent: reading a request, routing it, creating a file, preparing a reply. Automation moves from fixed rule to handling variable cases.",
-          "span": "wide"
-        },
-        {
-          "glyph": "▣",
-          "title_fr": "Conseil IA Claude",
-          "title_en": "Claude AI advisory",
-          "body_fr": "Le cadrage en amont : prioriser les processus, poser la gouvernance, former le référent et les équipes. La méthode avant l'outil, pour que la standardisation tienne.",
-          "body_en": "The upstream framing: prioritising processes, laying in governance, training the lead and teams. Method before tool, so standardisation holds.",
-          "span": "sm"
-        },
-        {
-          "glyph": "↺",
-          "title_fr": "Audit IA pour PME",
-          "title_en": "AI audit for SMBs",
-          "body_fr": "Le point d'entrée pour repérer les processus fragiles et chiffrer le gain d'une standardisation. On priorise par fréquence et par risque, sans engagement de chantier.",
-          "body_en": "The entry point to spot fragile processes and size the gain of standardisation. We prioritise by frequency and risk, with no project commitment.",
-          "span": "sm"
-        }
-      ]
+      "maxWidth": "prose",
+      "html_fr": "<h2>Le problème, vu de l'intérieur</h2>\n<p>Dans une PME, l'administratif repose sur des habitudes. L'ouverture d'un dossier client suit douze étapes que seule l'assistante de direction connaît dans l'ordre. Les factures fournisseurs sont saisies par la personne qui a toujours fait ainsi. Quand elle est absente, les tâches attendent ou sont faites autrement. Le coût n'apparaît nulle part : il se loge dans les oublis, les retards et le temps passé à redemander une information.</p>\n<h2>Ce qui s'automatise bien</h2>\n<p>Quatre familles de tâches. L'ouverture d'un dossier : création des dossiers, des accès, des documents types et des tâches à partir d'un seul formulaire. Les pièces entrantes : factures, bons de commande et justificatifs lus par une étape IA, classés et pré-saisis pour validation. L'accueil d'un salarié : comptes, matériel, documents à signer, rappels aux échéances. Les relances internes : notes de frais, feuilles de temps, pièces manquantes.</p>\n<p>Chacune se traite avec une <a href=\"/services/automatisations\">automatisation de processus</a>, le plus souvent sur <a href=\"/services/automatisation-n8n\">n8n</a>. Quand la tâche demande de lire et d'interpréter un document, on ajoute un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<h2>L'ordre compte : écrire avant d'automatiser</h2>\n<p>On ne peut pas automatiser un process que personne ne décrit de la même façon. La première étape est donc de l'écrire avec la personne qui le fait : les étapes réelles, les exceptions, les contournements. On en profite pour supprimer ce qui ne sert plus. La procédure écrite a de la valeur seule : elle permet à quelqu'un d'autre de prendre le relais.</p>\n<h2>Les limites</h2>\n<p>Ce qui relève d'un arbitrage reste humain : valider un paiement, accorder une exception, traiter un litige. Les logiciels comptables ou de paie fermés, sans API, limitent ce qu'on peut brancher : on le vérifie avant de chiffrer. Et un process qui change tous les mois n'est pas un bon candidat.</p>\n<p>Pour classer vos tâches administratives par temps consommé, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> est le point de départ. Le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne un ordre de grandeur à partir de vos propres chiffres.</p>",
+      "html_en": "<h2>The problem, from the inside</h2>\n<p>In an SMB, admin runs on habit. Opening a client file follows twelve steps only the executive assistant knows in order. Supplier invoices are entered by the person who has always done it that way. When she is away, tasks wait or are done differently. The cost shows nowhere: it sits in omissions, delays and time spent asking for information again.</p>\n<h2>What automates well</h2>\n<p>Four families of tasks. Opening a file: folders, access, template documents and tasks created from a single form. Incoming documents: invoices, purchase orders and receipts read by an AI step, filed and pre-entered for approval. Onboarding an employee: accounts, equipment, documents to sign, reminders at deadlines. Internal reminders: expense reports, timesheets, missing documents.</p>\n<p>Each is handled with <a href=\"/services/automatisations\">process automation</a>, most often on <a href=\"/services/automatisation-n8n\">n8n</a>. When the task requires reading and interpreting a document, we add an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<h2>Order matters: write before automating</h2>\n<p>You cannot automate a process nobody describes the same way. The first step is to write it with the person who does it: real steps, exceptions, workarounds. We take the chance to remove what no longer serves. The written procedure has value on its own: it lets someone else take over.</p>\n<h2>The limits</h2>\n<p>What requires a judgement call stays human: approving a payment, granting an exception, handling a dispute. Closed accounting or payroll software, with no API, limits what can be connected: we check before quoting. And a process that changes every month is not a good candidate.</p>\n<p>To rank your admin tasks by time consumed, the <a href=\"/audit-ia-pme\">free AI audit</a> is the starting point. The <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a> gives an order of magnitude from your own figures.</p>"
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Avant / après",
-      "kicker_en": "§ Before / after",
-      "h2_fr": "De la dépendance à un système qui <i>tient</i>",
-      "h2_en": "From dependence to a system that <i>holds</i>",
-      "without_label_fr": "Sans",
-      "without_label_en": "Without",
-      "without_title_fr": "Processus dans les têtes",
-      "without_title_en": "Processes in heads",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : l'ouverture d'un dossier client dans un cabinet",
+      "h2_en": "Typical example: opening a client file at a firm",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Douze étapes, une seule personne les connaît",
+      "without_title_en": "Twelve steps, one person knows them",
       "without_items": [
         {
-          "text_fr": "Une absence clé suffit à ralentir le travail et à multiplier les erreurs.",
-          "text_en": "One key absence is enough to slow work and multiply errors."
+          "text_fr": "Le dossier est créé à la main dans le drive, avec une arborescence variable.",
+          "text_en": "The folder is created by hand in the drive, with a varying structure."
         },
         {
-          "text_fr": "La même tâche est faite différemment selon qui s'en charge.",
-          "text_en": "The same task is done differently depending on who handles it."
+          "text_fr": "La lettre de mission est rédigée à partir d'un ancien document.",
+          "text_en": "The engagement letter is written from an old document."
         },
         {
-          "text_fr": "Les mêmes étapes manuelles se répètent chaque jour, sur plusieurs personnes.",
-          "text_en": "The same manual steps repeat every day, across several people."
+          "text_fr": "Les pièces sont réclamées au client par des emails successifs.",
+          "text_en": "Documents are requested from the client in successive emails."
         },
         {
-          "text_fr": "Un nouveau collaborateur met des semaines à monter en compétence.",
-          "text_en": "A new hire takes weeks to get up to speed."
+          "text_fr": "Personne ne sait quels dossiers sont incomplets.",
+          "text_en": "Nobody knows which files are incomplete."
         }
       ],
-      "with_label_fr": "Avec",
-      "with_label_en": "With",
-      "with_title_fr": "Processus formalisés",
-      "with_title_en": "Formalised processes",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un formulaire, une procédure écrite",
+      "with_title_en": "One form, a written procedure",
       "with_items": [
         {
-          "text_fr": "Les procédures sont accessibles, l'activité continue même en cas d'absence.",
-          "text_en": "Procedures are accessible, activity continues even during an absence."
+          "text_fr": "Un formulaire d'ouverture crée le dossier, la fiche CRM et les tâches.",
+          "text_en": "An opening form creates the folder, the CRM record and the tasks."
         },
         {
-          "text_fr": "La qualité est constante, alignée sur un standard partagé.",
-          "text_en": "Quality is constant, aligned on a shared standard."
+          "text_fr": "La lettre de mission est générée depuis le modèle, à relire et signer.",
+          "text_en": "The engagement letter is generated from the template, to review and sign."
         },
         {
-          "text_fr": "Le répétitif est automatisé, l'humain garde la main sur le sensible.",
-          "text_en": "The repetitive is automated, the human keeps control of the sensitive."
+          "text_fr": "Le client reçoit la liste des pièces et un lien de dépôt.",
+          "text_en": "The client receives the document list and an upload link."
         },
         {
-          "text_fr": "Un nouveau collaborateur monte en compétence plus vite, le savoir se transmet.",
-          "text_en": "A new hire gets up to speed faster, knowledge passes on."
+          "text_fr": "Les pièces manquantes sont relancées à J+7.",
+          "text_en": "Missing documents are chased at day 7."
+        },
+        {
+          "text_fr": "Un tableau montre l'état de chaque dossier.",
+          "text_en": "A dashboard shows each file's status."
         }
       ]
     },
@@ -299,35 +172,44 @@
       "background": "paper",
       "authorId": "simon-beros",
       "name": "Simon Beros",
-      "role_fr": "Fondateur · architecte systèmes IA et processus pour PME",
-      "role_en": "Founder · SMB AI systems and process architect",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "26 juin 2026",
-      "updatedDate": "26 juin 2026"
+      "updatedDate": "4 octobre 2026"
     },
     {
       "type": "related-cards-band",
       "background": "paper-2",
-      "kicker_fr": "§ Un cas réel",
-      "kicker_en": "§ A real case",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
       "cards": [
         {
-          "kicker_fr": "Cas client · RH et santé au travail",
-          "kicker_en": "Client case · HR and occupational health",
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Automatisation des processus",
+          "title_en": "Process automation",
+          "lead_fr": "Ce qui est livré, en combien de temps et à quel prix.",
+          "lead_en": "What is delivered, how long it takes and at what price.",
+          "href": "/services/automatisations"
+        },
+        {
+          "kicker_fr": "Cas client",
+          "kicker_en": "Client case",
           "title_fr": "Amploi",
           "title_en": "Amploi",
-          "lead_fr": "Les demandes entrantes captées proprement et routées automatiquement dans HubSpot via la Forms API, sans saisie manuelle ni perte d'information : un geste répétitif retiré du quotidien des équipes.",
-          "lead_en": "Inbound requests captured cleanly and routed automatically into HubSpot via the Forms API, no manual entry and no information lost: a repetitive step removed from the teams' daily work.",
+          "lead_fr": "Les demandes du site captées et routées dans HubSpot sans ressaisie.",
+          "lead_en": "Site requests captured and routed into HubSpot with no retyping.",
           "href": "/cas-clients/amploi"
         },
         {
-          "kicker_fr": "Tous les cas",
-          "kicker_en": "All cases",
-          "title_fr": "Cas clients",
-          "title_en": "Client cases",
-          "lead_fr": "Les projets réels que nous avons livrés, résultats à l'appui.",
-          "lead_en": "The real projects we have delivered, results to back them.",
-          "href": "/cas-clients"
+          "kicker_fr": "Autre fonction",
+          "kicker_en": "Another function",
+          "title_fr": "Pilotage et reporting",
+          "title_en": "Steering and reporting",
+          "lead_fr": "Rassembler les données et automatiser les tableaux de bord.",
+          "lead_en": "Gathering data and automating dashboards.",
+          "href": "/cas-usages/centraliser-donnees"
         }
       ]
     },
@@ -335,51 +217,39 @@
       "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Automatiser l'administratif : vos questions",
+      "h2_en": "Automating admin: your questions",
       "items": [
         {
-          "q_fr": "Pourquoi mes processus dépendent-ils d'une seule personne ?",
-          "q_en": "Why do my processes depend on a single person?",
-          "a_fr": "Parce que dans une petite structure, le savoir-faire reste souvent dans les têtes : les procédures se transmettent à l'oral, les décisions reposent sur l'expérience d'une personne clé. Tant qu'elle est là, tout va bien. Quand elle s'absente ou quitte l'entreprise, la continuité vacille et les erreurs grimpent. Formaliser ce savoir, c'est transformer une fragilité en actif.",
-          "a_en": "Because in a small structure, know-how often stays in people's heads: procedures pass on by word of mouth, decisions rest on a key person's experience. As long as they're there, all is well. When they're away or leave, continuity wavers and errors climb. Formalising that knowledge turns a fragility into an asset."
+          "q_fr": "Quelles tâches administratives peut-on automatiser en PME ?",
+          "a_fr": "L'ouverture de dossiers, le classement et la pré-saisie des factures, la génération de documents types, l'accueil d'un nouveau salarié, les relances de pièces manquantes. Le critère : une tâche fréquente, aux règles stables, où l'erreur coûte.",
+          "q_en": "Which administrative tasks can an SMB automate?",
+          "a_en": "File opening, invoice filing and pre-entry, template document generation, new-hire onboarding, chasing missing documents. The criterion: a frequent task with stable rules where an error costs something."
         },
         {
-          "q_fr": "Standardiser, est-ce que ça veut dire bureaucratie ?",
-          "q_en": "Does standardising mean bureaucracy?",
-          "a_fr": "Non, si on s'y prend bien. L'erreur serait de vouloir tout documenter en détail. La bonne approche cible les quelques processus à fort impact, formalise l'essentiel et laisse de la souplesse ailleurs. L'ordre est toujours le même : comprendre, simplifier, formaliser, puis seulement outiller. L'objectif est de supprimer les tâches répétitives, pas de figer chaque geste.",
-          "a_en": "No, if done well. The mistake would be wanting to document everything in detail. The right approach targets the few high-impact processes, formalises the essentials and leaves flexibility elsewhere. The order is always the same: understand, simplify, formalise, then only equip. The goal is to remove repetitive tasks, not to freeze every gesture."
+          "q_fr": "Peut-on automatiser la comptabilité avec l'IA ?",
+          "a_fr": "On automatise la collecte, la lecture et le classement des pièces, et la pré-saisie. La validation, les écritures complexes et la relation avec l'expert-comptable restent humaines. Tout dépend aussi de l'ouverture de votre logiciel comptable.",
+          "q_en": "Can accounting be automated with AI?",
+          "a_en": "We automate document collection, reading and filing, and pre-entry. Approval, complex entries and the relationship with the accountant stay human. It also depends on how open your accounting software is."
         },
         {
-          "q_fr": "L'IA va-t-elle documenter mes procédures à ma place ?",
-          "q_en": "Will AI document my procedures for me?",
-          "a_fr": "Elle ne le fait pas à votre place, mais elle rend la documentation beaucoup plus rapide : elle peut structurer une procédure à partir d'une description orale, transformer un échange en fiche de suivi, ou rendre une base de documents interrogeable en langage naturel. Vous restez celui qui valide l'exactitude. L'IA accélère, l'humain tranche.",
-          "a_en": "It doesn't do it for you, but it makes documentation much faster: it can structure a procedure from an oral description, turn an exchange into a follow-up sheet, or make a document base searchable in natural language. You stay the one who validates accuracy. AI speeds up, the human decides."
+          "q_fr": "Que peut-on automatiser en ressources humaines ?",
+          "a_fr": "L'accueil d'un salarié (comptes, matériel, documents), les rappels d'échéances (période d'essai, visites, formations obligatoires), la collecte des éléments variables. Les décisions concernant une personne ne sont pas automatisées.",
+          "q_en": "What can be automated in HR?",
+          "a_en": "Onboarding (accounts, equipment, documents), deadline reminders (probation, medical visits, mandatory training), collecting variable pay items. Decisions about a person are not automated."
         },
         {
-          "q_fr": "Où l'humain garde-t-il la main ?",
-          "q_en": "Where does the human keep control?",
-          "a_fr": "Sur les décisions sensibles : validation financière, exception client, arbitrage. On définit explicitement où l'IA propose, où elle exécute, et où un humain valide. Les actions importantes passent par un point de contrôle, avec un seuil de confiance et une escalade en cas de doute. Rien ne tourne en boîte noire.",
-          "a_en": "On sensitive decisions: financial validation, client exception, arbitration. We explicitly define where AI proposes, where it executes, and where a human validates. Important actions go through a control point, with a confidence threshold and escalation in case of doubt. Nothing runs as a black box."
+          "q_fr": "Faut-il documenter ses processus avant de les automatiser ?",
+          "a_fr": "Oui. Un workflow fige des règles : si elles ne sont pas écrites et partagées, on automatise la version d'une seule personne. L'écriture du process fait partie de la mission et prend en général quelques heures par process.",
+          "q_en": "Should processes be documented before automating them?",
+          "a_en": "Yes. A workflow freezes rules: if they are not written and shared, you automate one person's version. Writing the process is part of the engagement and usually takes a few hours per process."
         },
         {
-          "q_fr": "Par quel processus faut-il commencer ?",
-          "q_en": "Which process should we start with?",
-          "a_fr": "Par une tâche fréquente, répétable et à risque maîtrisé : un onboarding client, un tri de demandes, une préparation de dossier. On cartographie ce que les équipes font vraiment, pas ce qui est censé se passer, on simplifie, puis on automatise ce qui peut l'être. On mesure le gain avant d'étendre.",
-          "a_en": "With a frequent, repeatable task at a controlled risk: a client onboarding, a request triage, a file preparation. We map what teams actually do, not what's supposed to happen, we simplify, then we automate what can be. We measure the gain before expanding."
-        },
-        {
-          "q_fr": "Et si le processus change après l'automatisation ?",
-          "q_en": "What if the process changes after automation?",
-          "a_fr": "On documente le déclencheur, les étapes, les cas d'erreur et le responsable, et on met à jour à chaque modification. Un processus non documenté est fragile : si la personne qui le comprend part, vous êtes bloqué. La documentation n'est pas un luxe, c'est la condition pour faire évoluer le système sans tout casser.",
-          "a_en": "We document the trigger, the steps, the error cases and the owner, and update at every change. An undocumented process is fragile: if the person who understands it leaves, you're stuck. Documentation isn't a luxury, it's the condition to evolve the system without breaking everything."
-        },
-        {
-          "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-          "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_fr": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition.",
-          "a_en": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+          "q_fr": "Combien coûte l'automatisation d'une tâche administrative ?",
+          "a_fr": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures. Les suivants sont estimés en heures puis facturés 99 € HT de l'heure.",
+          "q_en": "How much does it cost to automate an administrative task?",
+          "a_en": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours. The next ones are estimated in hours then billed €99 per hour excl. VAT."
         }
       ]
     },
@@ -387,23 +257,23 @@
       "type": "footer-cta-band",
       "background": "ink",
       "rounded": true,
-      "kicker_fr": "§ Prêt à fiabiliser vos process ?",
-      "kicker_en": "§ Ready to make your processes reliable?",
-      "h2_fr": "Transformez un savoir-faire <i>fragile</i> en système qui tient.",
-      "h2_en": "Turn <i>fragile</i> know-how into a system that holds.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on repère vos processus fragiles et on chiffre le gain d'une standardisation, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit, câble et supervise lui-même, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we spot your fragile processes and size the gain of standardisation, whether we work together or not. Across the table, the founder who designs, wires and supervises himself, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quelle procédure ne tient que sur une personne ?",
+      "h2_en": "Which procedure depends on a single person?",
+      "subtitle_fr": "En 45 minutes, on liste vos tâches administratives récurrentes et on repère celles qui méritent d'être écrites, puis automatisées.",
+      "subtitle_en": "In 45 minutes, we list your recurring admin tasks and spot those worth writing down, then automating.",
       "buttons": [
         {
-          "label_fr": "Réserver un diagnostic (45 min) →",
-          "label_en": "Book a diagnostic (45 min) →",
-          "href": "/contact?intent=processus",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir les agents IA",
-          "label_en": "See the AI agents",
-          "href": "/services/agents-ia",
+          "label_fr": "Automatisation des processus",
+          "label_en": "Process automation",
+          "href": "/services/automatisations",
           "variant": "ghost"
         }
       ]
