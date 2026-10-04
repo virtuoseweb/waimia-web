@@ -21,7 +21,36 @@ import Kicker from '../atoms/Kicker.astro';
 import Button from '../atoms/Button.astro';
 
 const lang = langFromPath(Astro.url.pathname);
-const ctaHref = localizeHref('/audit-ia-pme', lang);
+// Prise de rendez-vous : URL unique (la page contact porte le calendrier). /audit-ia-pme présente l'audit.
+const ctaHref = '/contact?offer=audit-ia-pme&intent=audit';
+const auditHref = localizeHref('/audit-ia-pme', lang);
+const fr = lang === 'fr';
+// L'offre dans son ordre : (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation.
+const offers = [
+  {
+    name: fr ? 'Automatisation et agents IA' : 'Automation and AI agents',
+    desc: fr ? 'Workflows n8n et Make, agents sur Claude et OpenAI, branchés à vos outils.' : 'n8n and Make workflows, agents on Claude and OpenAI, connected to your tools.',
+    href: localizeHref('/services/systemes-operationnels-ia', lang),
+  },
+  {
+    name: fr ? 'Applications métier' : 'Business applications',
+    desc: fr ? "L'outil sur mesure que le tableur ne remplace plus. Vous gardez le code." : 'The custom tool the spreadsheet no longer replaces. You keep the code.',
+    href: localizeHref('/services/applications-internes', lang),
+  },
+  {
+    name: fr ? 'Conseil et formation' : 'Advisory and training',
+    desc: fr ? 'Audit, feuille de route, formation des équipes à l\'IA et à l\'automatisation.' : 'Audit, roadmap, team training in AI and automation.',
+    href: localizeHref('/services/consultant-ia-claude', lang),
+  },
+];
+const facts = [
+  { label: fr ? 'Pour qui' : 'For whom', items: fr ? 'PME et ETI · 10 à 250 pers.' : 'SMEs · 10 to 250 people' },
+  { label: fr ? 'Méthode' : 'Method', items: fr ? 'Audit · pilote · mesure · transfert' : 'Audit · pilot · measure · handover' },
+  { label: fr ? 'Propriété' : 'Ownership', items: fr ? 'Code et workflows transférés' : 'Code and workflows handed over' },
+  { label: fr ? 'Contrôle' : 'Control', items: fr ? 'Validation humaine des actions sensibles' : 'Human validation of sensitive actions' },
+  { label: fr ? 'Conformité' : 'Compliance', items: fr ? 'RGPD et AI Act dès la conception' : 'GDPR and AI Act by design' },
+  { label: fr ? 'Studio solo' : 'Solo studio', items: fr ? 'Simon Beros · Bordeaux, à distance' : 'Simon Beros · Bordeaux, remote' },
+];
 const offerHref = localizeHref('/ressources/outils/calculateur-roi-ia', lang);
 const pageTransitionId = Astro.url.pathname
   .replace(/^\/(?:en\/)?/, '')
@@ -34,74 +63,48 @@ const pageTransitionId = Astro.url.pathname
 <section class="hero-a home-hero" aria-labelledby="hero-heading">
   <div class="signature-grid" transition:name={`hero-img-${pageTransitionId}`}></div>
 
-  {/* SVG signature géométrique · overlay v9 · wrapper div pour scope CSS Astro propre */}
-  <div class="hero-sig-mark" aria-hidden="true">
-    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="0.5"/>
-      <text x="60" y="67" text-anchor="middle" font-family="var(--font-mono)" font-size="13" fill="currentColor" letter-spacing="0.14em">V · 9</text>
-    </svg>
-  </div>
-
   <div class="wrap-wide">
     {/* Masthead newspaper · atome MastheadRow · margin compactée V6 (24px vs 48px) */}
     <div class="par hero-masthead" data-par="-0.04">
       <MastheadRow breadcrumb={[{ label: lang === 'fr' ? 'Accueil' : 'Home' }]} />
     </div>
 
-    {/* Headline · mask-up reveal · Instrument Serif · 2 lignes orienté résultat */}
+    {/* Headline · dit le métier en une phrase (refonte positionnement 2026-10) · signature
+        typographique conservée : serif display, italiques, un accent terracotta. */}
     <h1 id="hero-heading" class="hero-headline reveal-mask-up" transition:name={`hero-h1-${pageTransitionId}`}>
       {lang === 'fr' ? (
         <>
-          Le studio qui fait tourner<br />
-          votre <i class="acc">PME</i> à l'<i>IA</i>.
+          Studio de développement <i>IA</i><br />
+          et cabinet d'<i class="acc">automatisation</i> pour PME.
         </>
       ) : (
         <>
-          The studio that runs your<br />
-          <i class="acc">SMB</i> on <i>AI</i>.
+          AI development studio<br />
+          and <i class="acc">automation</i> practice for SMEs.
         </>
       )}
     </h1>
 
-    {/* Sub-block · 2 colonnes · promesse + contexte */}
+    {/* Sub-block · 2 colonnes · promesse + l'offre dans son ordre */}
     <div class="hero-sub">
       <div>
-        <Kicker class="hero-fig">§ 01 · {lang === 'fr' ? 'Promesse' : 'Promise'}</Kicker>
+        <Kicker class="hero-fig">§ 01 · {lang === 'fr' ? 'Le métier' : 'What we do'}</Kicker>
         <p class="hero-lede reveal reveal-fade">
           {lang === 'fr' ? (
-            <>On conseille, on conçoit et on met <i>en production</i> vos automatisations, agents IA et applications métier, branchés sur vos outils, sans changer vos process.</>
+            <>Waimia audite vos processus, puis construit et met <i>en production</i> les automatisations, agents IA et applications métier qui les font tourner. Un ingénieur travaille avec vos équipes, sur vos outils.</>
           ) : (
-            <>We advise, design and ship <i>to production</i> your automations, AI agents and business applications, connected to your tools, without changing your process.</>
+            <>Waimia audits your processes, then builds and ships <i>to production</i> the automations, AI agents and business applications that run them. One engineer works with your teams, on your tools.</>
           )}
         </p>
 
-        {/* V7 §12 · Mini-map scope · 6 territoires de l'offre (pivot IA 2026-10) en cartographie 3×2
-            (vs strip linéaire) · chaque territoire = label + items éditoriaux */}
-        <ul class="hero-minimap reveal reveal-fade" aria-label={lang === 'fr' ? 'Périmètre opérationnel · 6 territoires' : 'Operational scope · 6 territories'}>
-          <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Automatisation' : 'Automation'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'n8n · Make · workflows' : 'n8n · Make · workflows'}</span>
-          </li>
-          <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Agents IA' : 'AI agents'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'Support · Prospection · Back-office' : 'Support · Prospecting · Back office'}</span>
-          </li>
-          <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Apps métier' : 'Business apps'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'Outils internes · Sur mesure' : 'Internal tools · Custom built'}</span>
-          </li>
-          <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Commercial' : 'Sales'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'CRM · Relances · Devis' : 'CRM · Follow-ups · Quotes'}</span>
-          </li>
-          <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Données' : 'Data'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'Reporting · Tableaux de bord' : 'Reporting · Dashboards'}</span>
-          </li>
-          <li class="hero-mm-item">
-            <span class="hero-mm-label">{lang === 'fr' ? 'Conformité' : 'Compliance'}</span>
-            <span class="hero-mm-items">{lang === 'fr' ? 'RGPD · AI Act' : 'GDPR · AI Act'}</span>
-          </li>
+        {/* Mini-map · 6 faits d'engagement (cartographie 3×2). Chaque cellule est vérifiable. */}
+        <ul class="hero-minimap reveal reveal-fade" aria-label={lang === 'fr' ? 'Cadre de travail' : 'How we work'}>
+          {facts.map((f) => (
+            <li class="hero-mm-item">
+              <span class="hero-mm-label">{f.label}</span>
+              <span class="hero-mm-items">{f.items}</span>
+            </li>
+          ))}
         </ul>
 
         <div class="hero-ctas reveal reveal-snap">
@@ -114,37 +117,33 @@ const pageTransitionId = Astro.url.pathname
         </div>
         <p class="hero-cta-sub">
           {lang === 'fr'
-            ? <>Audit IA opérationnel · 45 min · on identifie <i>3 automatisations rentables</i>.</>
-            : <>AI operational audit · 45 min · we identify <i>3 high-ROI automations</i>.</>}
+            ? <>Audit IA gratuit · 45 min en visio · on repère <i>3 automatisations rentables</i>. <a href={auditHref}>En savoir plus sur l'audit</a></>
+            : <>Free AI audit · 45 min on a call · we spot <i>3 profitable automations</i>. <a href={auditHref}>More about the audit</a></>}
         </p>
       </div>
 
       <div>
-        <Kicker class="hero-fig">§ 02 · {lang === 'fr' ? 'Nos engagements' : 'Our commitments'}</Kicker>
+        <Kicker class="hero-fig">§ 02 · {lang === 'fr' ? "Ce qu'on construit" : 'What we build'}</Kicker>
 
-        {/* 3 engagements factuels (pas de chiffres de résultat non sourcés) · hairline 1px entre */}
-        <ul class="hero-proofs reveal reveal-fade" aria-label={lang === 'fr' ? 'Nos engagements' : 'Our commitments'}>
-          <li class="hero-proof">
-            <span class="hero-proof-num">01</span>
-            <span class="hero-proof-label">
-              {lang === 'fr' ? <>Audit gratuit de 45 min</> : <>Free 45-min audit</>}
-            </span>
-          </li>
-          <li class="hero-proof">
-            <span class="hero-proof-num">02</span>
-            <span class="hero-proof-label">
-              {lang === 'fr' ? <>Code et workflows transférés</> : <>Code and workflows handed over</>}
-            </span>
-          </li>
-          <li class="hero-proof">
-            <span class="hero-proof-num">03</span>
-            <span class="hero-proof-label">
-              {lang === 'fr'
-                ? <>Validation humaine sur les actions sensibles</>
-                : <>Human validation on sensitive actions</>}
-            </span>
-          </li>
+        {/* L'offre dans son ordre (pas une séquence : aucun numéro). Trois lignes cœur, puis
+            les outils en appui sur une ligne discrète. */}
+        <ul class="hero-offers reveal reveal-fade">
+          {offers.map((o) => (
+            <li class="hero-offer">
+              <a href={o.href} class="hero-offer-link">
+                <span class="hero-offer-name">{o.name}</span>
+                <span class="hero-offer-desc">{o.desc}</span>
+                <span class="hero-offer-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
         </ul>
+        <p class="hero-support">
+          {lang === 'fr' ? 'En appui, quand le système en a besoin : ' : 'In support, when the system needs it: '}
+          <a href={localizeHref('/services/systeme-commercial', lang)}>{lang === 'fr' ? 'outils commerciaux' : 'sales tooling'}</a>
+          {lang === 'fr' ? ' et ' : ' and '}
+          <a href={localizeHref('/services/systeme-acquisition', lang)}>{lang === 'fr' ? 'visibilité web' : 'web visibility'}</a>.
+        </p>
       </div>
     </div>
   </div>
@@ -198,7 +197,7 @@ const pageTransitionId = Astro.url.pathname
     line-height: var(--leading-h1, .96);
     letter-spacing: var(--tracking-display, -0.025em);
     font-weight: var(--fw-regular);
-    max-width: 980px;
+    max-width: 1240px;
     margin: 0 0 var(--space-5);
   }
   .hero-headline i { font-style: italic; }
@@ -312,44 +311,74 @@ const pageTransitionId = Astro.url.pathname
   }
   .hero-cta-sub i { font-style: italic; color: var(--accent-text); }
 
-  /* Right rail · preuves verticales · V7 Swiss grid · justify-content space-between
-     pour étirer les 3 proofs sur toute la hauteur de col (égalise col gauche/droite) */
-  .hero-proofs {
+  /* Colonne droite · l'offre en trois lignes (titre serif + descriptif), hairline entre.
+     Pas de numéro : ce n'est pas une séquence. Toute la ligne est le lien. */
+  .hero-offers {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: var(--space-5);
     flex: 1;
     transition-delay: var(--dur-hover);
   }
-  .hero-proof {
+  .hero-offer { border-bottom: 1px solid var(--hairline); flex: 1; display: flex; }
+  .hero-offer:first-child { border-top: 1px solid var(--hairline); }
+  .hero-offer-link {
     display: grid;
-    grid-template-columns: minmax(110px, 0.4fr) 1fr;
-    gap: var(--space-5);
-    align-items: baseline;
-    padding-bottom: var(--space-5);
-    border-bottom: 1px solid var(--hairline);
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--space-5);
+    row-gap: var(--space-1);
+    align-content: center;
+    width: 100%;
+    padding: var(--space-4) 0;
+    color: inherit;
+    text-decoration: none;
   }
-  .hero-proof:last-child { border-bottom: 0; padding-bottom: 0; }
-  .hero-proof-num {
+  .hero-offer-name {
+    font-family: var(--font-display);
+    font-size: var(--text-title-lg);
+    line-height: var(--leading-h3);
+    letter-spacing: var(--tracking-display);
+    color: var(--ink);
+    transition: color var(--dur-trim) var(--ease);
+  }
+  .hero-offer-desc {
+    grid-column: 1;
     font-family: var(--font-sans);
-    font-size: var(--text-numeral-md);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--accent-text);
-    font-weight: var(--fw-semibold);
+    font-size: var(--text-body);
+    line-height: var(--leading-lede);
+    color: var(--ink-2);
+    text-wrap: pretty;
   }
-  .hero-proof-label {
+  .hero-offer-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: var(--text-glyph);
+    color: var(--muted);
+    transition: color var(--dur-trim) var(--ease), transform var(--dur-trim) var(--ease);
+  }
+  .hero-offer-link:hover .hero-offer-name,
+  .hero-offer-link:focus-visible .hero-offer-name { color: var(--accent-text); }
+  .hero-offer-link:hover .hero-offer-arrow,
+  .hero-offer-link:focus-visible .hero-offer-arrow { color: var(--accent-text); transform: translateX(4px); }
+  .hero-support {
+    margin: var(--space-4) 0 0;
     font-family: var(--font-sans);
     font-size: var(--text-small);
-    line-height: var(--leading-lede);
-    color: var(--ink);
-    text-wrap: balance;
+    line-height: var(--leading-body);
+    color: var(--muted);
   }
-  .hero-proof-label i { font-style: italic; color: var(--ink-2); }
+  .hero-support a,
+  .hero-cta-sub a {
+    color: var(--ink-2);
+    text-decoration: underline;
+    text-decoration-color: var(--hairline-strong);
+    text-underline-offset: 0.25em;
+  }
+  .hero-support a:hover,
+  .hero-cta-sub a:hover { color: var(--accent-text); }
 
   /* Trust bar retirée du Hero v6-densify · les 4 piliers vivront dans
      une zone "principles" dédiée plus tard (cf BookSession ou nouveau organism) */
@@ -360,14 +389,13 @@ const pageTransitionId = Astro.url.pathname
   @media (max-width: 900px) {
     .hero-sub { grid-template-columns: 1fr; gap: var(--space-9); }
     .hero-sig-mark { display: none; }
-    .hero-proof { grid-template-columns: 90px 1fr; gap: var(--space-4); }
     /* P1-5 (docs/39) · mobile only : CTA + microcopy remontent juste après la promesse,
        la mini-map des 6 territoires descend dessous → CTA principal dans le fold 390×844.
        0 changement desktop (>900px : order par défaut). */
     .hero-minimap { order: 1; }
   }
   @media (max-width: 560px) {
-    .hero-proof { grid-template-columns: 1fr; gap: var(--space-1); padding: var(--space-3) 0; justify-items: center; text-align: center; }
+    .hero-offer-name { font-size: var(--text-numeral-sm); }
   }
   /* Viewport-fit desktop · 1280×720 → 1440×920 avec cookie banner visible
      → on resserre les rythmes verticaux pour faire tenir le hero above-the-fold

@@ -11,41 +11,43 @@ import Button from '../atoms/Button.astro';
 import { langFromPath, localizeHref } from '../../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
-const ctaHref = localizeHref('/audit-ia-pme', lang);
+// Prise de rendez-vous : URL unique (la page contact porte le calendrier). /audit-ia-pme présente l'audit.
+const ctaHref = '/contact?offer=audit-ia-pme&intent=audit';
+const auditHref = localizeHref('/audit-ia-pme', lang);
 ---
 <section id="act-5" class="book-session scale-in on-dark" aria-labelledby="book-h2">
   <div class="wrap-wide book-inner">
     <div class="book-chapter">
       <ChapterLabel
-        num="FIG V · 5.0"
-        title={lang === 'fr' ? "Acte V : Passer à l'action" : 'Act V: Act'}
+        num="§"
+        title={lang === 'fr' ? 'Première étape' : 'First step'}
       />
     </div>
 
     <h2 id="book-h2" class="book-h2 reveal-mask-up u-serif-accent">
       {lang === 'fr' ? (
-        <>Stop le <i>théâtre</i>. <br />Orchestrer.</>
+        <>Quarante-cinq minutes pour savoir <br />quoi <i>automatiser</i>.</>
       ) : (
-        <>Stop the <i>theatre</i>. <br />Orchestrate it.</>
+        <>Forty-five minutes to know <br />what to <i>automate</i>.</>
       )}
     </h2>
 
     <p class="book-lede u-serif">
       {lang === 'fr'
-        ? "Un diagnostic gratuit et sans engagement. On regarde, on audite, on chiffre. Si on n'a rien à vous proposer, on le dit, et on ne relance pas."
-        : "A free, no-commitment diagnostic. We look, we audit, we price. If we have nothing to offer, we say so, and we don't follow up."}
+        ? "Un audit gratuit, en visio, avec l'ingénieur qui fera le travail. On passe vos processus en revue et on repère trois automatisations rentables. Si rien ne vaut le coup, on vous le dit, et on ne relance pas."
+        : "A free audit, on a call, with the engineer who will do the work. We review your processes and spot three profitable automations. If nothing is worth it, we tell you, and we don't follow up."}
     </p>
 
     <div class="book-ctas reveal-snap">
       <Button href={ctaHref} variant="primary" size="lg" mag={0.22}>
-        {lang === 'fr' ? 'Réserver un audit gratuit →' : 'Book a free audit →'}
+        {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
       </Button>
     </div>
 
     <p class="book-sub">
       {lang === 'fr'
-        ? <>Diagnostic <i>gratuit</i> · réversibilité <i>documentée</i> · pas de relance.</>
-        : <>Free <i>diagnostic</i> · documented <i>reversibility</i> · no follow-up.</>}
+        ? <>Audit <i>gratuit</i> · 45 min · sans engagement. <a href={auditHref}>En savoir plus sur l'audit</a></>
+        : <>Free <i>audit</i> · 45 min · no commitment. <a href={auditHref}>More about the audit</a></>}
     </p>
   </div>
 </section>
@@ -68,6 +70,8 @@ const ctaHref = localizeHref('/audit-ia-pme', lang);
   .book-lede{font-size:var(--text-h3);color:var(--muted);max-width:620px;margin:0 auto var(--space-7);font-family:var(--font-sans);line-height:1.45}
   .book-ctas{display:inline-flex;gap:var(--space-3);flex-wrap:wrap;justify-content:center}
 
+  .book-sub a{color:var(--paper);text-decoration:underline;text-decoration-color:var(--hairline);text-underline-offset:.25em}
+  .book-sub a:hover{color:var(--accent-text)}
   /* Sub-CTA · réassurance · serif italique terracotta sur les mots clés */
   .book-sub{margin:var(--space-5) auto 0;font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-body);color:var(--muted);max-width:560px}
   .book-sub i{font-style:italic;color:var(--accent-text)}
