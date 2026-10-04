@@ -37,7 +37,7 @@
     },
     {
       "q": "Combien coûte l'automatisation d'une tâche administrative ?",
-      "a": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures. Les suivants sont estimés en heures puis facturés 99 € HT de l'heure."
+      "a": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures. Les suivants sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure."
     }
   ],
   "faq_en": [
@@ -59,7 +59,7 @@
     },
     {
       "q": "How much does it cost to automate an administrative task?",
-      "a": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours. The next ones are estimated in hours then billed €99 per hour excl. VAT."
+      "a": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours. The next ones are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
     }
   ],
   "sections": [
@@ -247,9 +247,9 @@
         },
         {
           "q_fr": "Combien coûte l'automatisation d'une tâche administrative ?",
-          "a_fr": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures. Les suivants sont estimés en heures puis facturés 99 € HT de l'heure.",
+          "a_fr": "Le premier process se traite en sprint découverte à 999 € HT pour 10 heures. Les suivants sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does it cost to automate an administrative task?",
-          "a_en": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours. The next ones are estimated in hours then billed €99 per hour excl. VAT."
+          "a_en": "The first process is handled in a discovery sprint at €999 excl. VAT for 10 hours. The next ones are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
         }
       ]
     },

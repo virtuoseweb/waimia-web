@@ -82,7 +82,8 @@ const renderSections = override ?? templateSections;
     lang={lang}
     items={[
       { label: 'Accueil', href: '/' },
-      { label: 'Secteurs', href: localizeHref('/secteurs', lang) },
+      // Le hub /secteurs est redirigé en 301 vers /services : le fil d'Ariane remonte là.
+      { label: 'Services', href: localizeHref('/services', lang) },
       { label: d.title_fr },
     ]}
   />

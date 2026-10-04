@@ -3,9 +3,28 @@
 // V2 (2026-05-15) : extension pour CMS headless complet · cf docs/13-CONTENT-ARCHITECTURE.md + 14-MASTER-PLAN
 
 import { defineCollection, reference, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob as rawGlob } from 'astro/loaders';
+import { applyPricingTokens, PRICING_TOKENS_SIGNATURE } from './data/pricing';
 import { sectionsArraySchema } from '@waimia/ds-kernel';
 import { schema as editorialProseSchema } from '@waimia/ds-kernel/sections/editorial-prose/schema';
+
+// ─── Jetons de prix `{{prix.*}}` : résolus au chargement, pour TOUTES les collections ───
+// Source unique = src/data/pricing.ts. Le loader glob est enveloppé : chaque entrée passe par
+// `applyPricingTokens` avant validation, et le digest est salé par l'empreinte des prix (sinon
+// le cache de contenu garderait l'ancien montant tant que le fichier n'est pas retouché).
+const glob: typeof rawGlob = (options) => {
+  const loader = rawGlob(options);
+  return {
+    ...loader,
+    load: (ctx) =>
+      loader.load({
+        ...ctx,
+        generateDigest: (data) =>
+          ctx.generateDigest(typeof data === 'string' ? data + PRICING_TOKENS_SIGNATURE : data),
+        parseData: (props) => ctx.parseData({ ...props, data: applyPricingTokens(props.data) }),
+      }),
+  };
+};
 
 // ─── Mixin commun (SEO/GEO/AIO) ───
 const seoBlock = z

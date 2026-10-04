@@ -6512,7 +6512,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/components/templates/AuthorPageTemplate.astro"
   ],
   "coming-soon-pills": [
-    "src/pages/secteurs/index.astro"
+    "src/pages/secteurs/_index.astro"
   ],
   "cta-band": [
     "src/components/templates/EssayTemplate.astro",
@@ -6659,7 +6659,7 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
     "src/content/solutions/tunnel-de-vente.mdx"
   ],
   "sector-card-grid": [
-    "src/pages/secteurs/index.astro"
+    "src/pages/secteurs/_index.astro"
   ],
   "services-grid": [
     "src/pages/en/index.astro"

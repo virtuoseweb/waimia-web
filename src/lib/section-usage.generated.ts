@@ -106,7 +106,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "coming-soon-pills": {
     "count": 1,
     "pages": [
-      "src/pages/secteurs/index.astro"
+      "src/pages/secteurs/_index.astro"
     ]
   },
   "comparison-duo": {
@@ -1151,7 +1151,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
   "sector-card-grid": {
     "count": 1,
     "pages": [
-      "src/pages/secteurs/index.astro"
+      "src/pages/secteurs/_index.astro"
     ]
   },
   "service-catalog-list": {

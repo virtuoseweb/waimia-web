@@ -24,7 +24,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte Claude en entreprise ?",
-      "a": "Deux postes. Les licences : l'offre Team est facturée à partir de 20 dollars par siège et par mois en facturation annuelle (page tarifs de Claude, vérifiée le 4 octobre 2026). L'intégration par Waimia : sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure."
+      "a": "Deux postes. Les licences : l'offre Team est facturée à partir de 20 dollars par siège et par mois en facturation annuelle (page tarifs de Claude, vérifiée le 4 octobre 2026). L'intégration par Waimia : sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Les données de l'entreprise servent-elles à entraîner Claude ?",
@@ -50,7 +50,7 @@
   "faq_en": [
     {
       "q": "How much does Claude cost for a business?",
-      "a": "Two items. Licences: the Team plan is billed from $20 per seat per month on annual billing (Claude pricing page, checked on 4 October 2026). Integration by Waimia: discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT."
+      "a": "Two items. Licences: the Team plan is billed from $20 per seat per month on annual billing (Claude pricing page, checked on 4 October 2026). Integration by Waimia: discovery sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "Is company data used to train Claude?",
@@ -127,8 +127,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
+          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -392,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cartographie des cas d'usage, un premier agent conçu, branché via MCP et déployé, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents et connecteurs suivants, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a map of the use cases, a first agent designed, wired via MCP and deployed, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents and connectors require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: your agents run, their architecture is documented and your teams are trained to evolve them."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cartographie des cas d'usage, un premier agent conçu, branché via MCP et déployé, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents et connecteurs suivants, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : vos agents tournent, leur architecture est documentée et vos équipes sont formées pour les faire évoluer.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: a map of the use cases, a first agent designed, wired via MCP and deployed, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents and connectors require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: your agents run, their architecture is documented and your teams are trained to evolve them."
     },
     {
       "type": "eeat-panel",
@@ -410,9 +410,9 @@
       "items": [
         {
           "q_fr": "Combien coûte Claude en entreprise ?",
-          "a_fr": "Deux postes. Les licences : l'offre Team est facturée à partir de 20 dollars par siège et par mois en facturation annuelle (page tarifs de Claude, vérifiée le 4 octobre 2026). L'intégration par Waimia : sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure.",
+          "a_fr": "Deux postes. Les licences : l'offre Team est facturée à partir de 20 dollars par siège et par mois en facturation annuelle (page tarifs de Claude, vérifiée le 4 octobre 2026). L'intégration par Waimia : sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does Claude cost for a business?",
-          "a_en": "Two items. Licences: the Team plan is billed from $20 per seat per month on annual billing (Claude pricing page, checked on 4 October 2026). Integration by Waimia: discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT."
+          "a_en": "Two items. Licences: the Team plan is billed from $20 per seat per month on annual billing (Claude pricing page, checked on 4 October 2026). Integration by Waimia: discovery sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Les données de l'entreprise servent-elles à entraîner Claude ?",

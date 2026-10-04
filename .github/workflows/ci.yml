@@ -144,6 +144,11 @@ jobs:
       - name: Gate qualité statique sur le build de production (liens internes, titres, alt)
         run: node scripts/check-static-quality.mjs
 
+      # Taux horaire et paliers de maintenance : source unique src/data/pricing.ts, aucun
+      # montant horaire en dur dans le contenu, aucun jeton {{prix.*}} non résolu dans le build.
+      - name: Gate prix (source unique du taux horaire)
+        run: node scripts/check-pricing.mjs
+
       # Rapport de maillage : liens entrants contextuels par page, orphelines, profondeur.
       # Mode avertissement : n'échoue jamais, le rapport est dans le log du job.
       - name: Rapport maillage interne (avertissement)

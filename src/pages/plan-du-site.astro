@@ -143,7 +143,6 @@ const allAuthors = (await getCollection('authors'))
 
 // Hubs/index publics indexables omis par les méga-menus, classés par univers.
 const homePage: PlanLink = { href: '/', label: { fr: 'Accueil', en: 'Home' } };
-const secteursIndex: PlanLink = { href: '/secteurs', label: { fr: 'Tous les secteurs', en: 'All sectors' } };
 const teamPages: PlanLink[] = [
   { href: '/sources-methodologie', label: { fr: 'Sources & méthodologie', en: 'Sources & methodology' } },
 ];
@@ -157,7 +156,7 @@ const indexSection: PlanSection = {
   },
   groups: [
     { heading: { fr: 'Cas clients', en: 'Case studies' }, links: uniqueAgainstNav(allCases).sort(sortFr) },
-    { heading: { fr: 'Secteurs', en: 'Sectors' }, links: uniqueAgainstNav([secteursIndex, ...allSecteurs]).sort(sortFr) },
+    { heading: { fr: 'Secteurs', en: 'Sectors' }, links: uniqueAgainstNav(allSecteurs).sort(sortFr) },
     { heading: { fr: 'Articles & ressources', en: 'Articles & resources' }, links: uniqueAgainstNav(allBlog).sort(sortFr) },
     { heading: { fr: 'Outils', en: 'Tools' }, links: uniqueAgainstNav(allOutils).sort(sortFr) },
     { heading: { fr: 'Services & offres', en: 'Services & offers' }, links: uniqueAgainstNav([...allServices, ...allOffres]).sort(sortFr) },

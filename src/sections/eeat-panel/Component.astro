@@ -138,9 +138,9 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
                 {P.expertise.map((e) => (<li class="eep-exp__item">{e}</li>))}
               </ul>
               <div class="eep-hubs">
-                <a class="eep-hub" href={hubs.sectors.href}>
+                {hubs.sectors && (<a class="eep-hub" href={hubs.sectors.href}>
                   {hubs.sectors.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
-                </a>
+                </a>)}
               </div>
             </div>
           </article>
@@ -258,9 +258,9 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
             ))}
           </ul>
           <div class="eep-hubs">
-            <a class="eep-hub" href={hubs.sectors.href}>
+            {hubs.sectors && (<a class="eep-hub" href={hubs.sectors.href}>
               {hubs.sectors.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
-            </a>
+            </a>)}
           </div>
         </article>
 
@@ -380,9 +380,9 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
             ))}
           </ul>
           <div class="eep-hubs">
-            <a class="eep-hub" href={hubs.sectors.href}>
+            {hubs.sectors && (<a class="eep-hub" href={hubs.sectors.href}>
               {hubs.sectors.label} <span class="eep-hub__glyph" aria-hidden="true">→</span>
-            </a>
+            </a>)}
           </div>
         </article>
 
@@ -452,7 +452,10 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
         <ul class="eep-creds__list">
           {credentials.map((c) => (
             <li class="eep-creds__item">
-              <img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" />
+              {c.src
+                ? <img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" />
+                : <span class="eep-creds__text">{c.alt}</span>}
+              {c.scope && <span class="eep-creds__scope">{c.scope}</span>}
             </li>
           ))}
         </ul>
@@ -985,6 +988,29 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
     display: block;
     height: 2.75rem;
     width: auto;
+  }
+  /* Label sans badge officiel : libellé texte, même hauteur de ligne que les badges. */
+  .eep-creds__text {
+    display: block;
+    line-height: 2.75rem;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-semibold);
+    white-space: nowrap;
+  }
+  /* Activité concernée par le label (ex. « Publicité et visibilité »). */
+  .eep-creds__scope {
+    margin-left: var(--space-3);
+    padding-left: var(--space-3);
+    /* L'item a toujours un fond paper, même sur panneau ink : couleurs dérivées de --ink-rgb
+       (--muted et --hairline sont inversés sous [data-bg='ink'] et deviendraient illisibles). */
+    border-left: 1px solid rgba(var(--ink-rgb), 0.16);
+    color: rgba(var(--ink-rgb), 0.64);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    line-height: 1.3;
   }
   @media (max-width: 760px) {
     .eep-creds__list { flex-direction: column; align-items: flex-start; }

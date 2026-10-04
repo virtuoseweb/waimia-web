@@ -98,3 +98,51 @@ export function tierPriceLabel(id: PricingTierId, lang: 'fr' | 'en' = 'fr'): str
   if (t.price === null) return lang === 'fr' ? 'Sur devis' : 'On quote';
   return lang === 'fr' ? formatEur(t.price) : formatEurEn(t.price);
 }
+
+// ─── Taux horaire et maintenance (décision Simon 2026-10) · SOURCE UNIQUE ────────────────
+// Le taux horaire et les paliers de maintenance ne s'écrivent NULLE PART en dur : le contenu
+// (JSON des collections, src/data/pages/tarifs.json) porte des jetons `{{prix.*}}`, résolus au
+// chargement (loader des collections dans src/content.config.ts, et src/pages/tarifs.astro).
+// Changer un prix = changer une valeur ici. Gate : `node scripts/check-pricing.mjs`.
+
+/** Taux horaire unique, en euros HT (interventions hors forfait, travail à l'heure). */
+export const HOURLY_RATE_EUR = 99 as const;
+
+/** Paliers mensuels de maintenance, en euros HT par mois (ordre croissant). */
+export const MAINTENANCE_TIERS_EUR = [99, 249, 449] as const;
+
+/** Jetons de prix reconnus dans le contenu → valeur affichée (nombre seul, sans devise). */
+export const PRICING_TOKENS: Readonly<Record<string, string>> = {
+  'prix.horaire': String(HOURLY_RATE_EUR),
+  'prix.maintenance.p1': String(MAINTENANCE_TIERS_EUR[0]),
+  'prix.maintenance.p2': String(MAINTENANCE_TIERS_EUR[1]),
+  'prix.maintenance.p3': String(MAINTENANCE_TIERS_EUR[2]),
+};
+
+/** Empreinte des valeurs : sale le digest du cache de contenu (un prix change → tout est relu). */
+export const PRICING_TOKENS_SIGNATURE = JSON.stringify(PRICING_TOKENS);
+
+const PRICING_TOKEN_RE = /\{\{\s*(prix\.[a-z0-9.]+)\s*\}\}/g;
+
+/**
+ * Résout les jetons `{{prix.*}}` dans toutes les chaînes d'une valeur (parcours profond,
+ * sans muter l'entrée). Un jeton inconnu fait échouer le build : jamais de jeton brut en prod.
+ */
+export function applyPricingTokens<T>(value: T): T {
+  if (typeof value === 'string') {
+    if (!value.includes('{{')) return value;
+    return value.replace(PRICING_TOKEN_RE, (_m, key: string) => {
+      const resolved = PRICING_TOKENS[key];
+      if (resolved === undefined) throw new Error(`jeton de prix inconnu : {{${key}}}`);
+      return resolved;
+    }) as T;
+  }
+  if (Array.isArray(value)) return value.map((v) => applyPricingTokens(v)) as T;
+  // Objets simples uniquement : une Date (frontmatter YAML) ou toute autre instance passe telle quelle.
+  if (value && typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype) {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) out[k] = applyPricingTokens(v);
+    return out as T;
+  }
+  return value;
+}

@@ -163,7 +163,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'hero-atlas',            consumers: ['src/pages/atlas.astro', 'src/pages/en/atlas.astro'] },
   { id: 'persona-attributes-grid', consumers: ['src/pages/ressources/personas/[slug].astro'] },
   { id: 'editorial-split-grid',  consumers: ['src/pages/ressources/index.astro', 'src/pages/en/ressources/index.astro'] },
-  { id: 'coming-soon-pills',     consumers: ['src/pages/secteurs/index.astro'] },
+  { id: 'coming-soon-pills',     consumers: ['src/pages/secteurs/_index.astro'] },
 
   // ── Catalogue-only (40) ─────────────────────────────────────────────────────
   // NB: architecture-diagram/services-grid/maturity-pyramid/use-case-index/case-card-grid/editorial-preview sont LIVE (home) bien que listés ici.
@@ -316,7 +316,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'prose-aside',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'provenance-chip',       consumers: [] },
   { id: 'publications-panel',    consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
-  { id: 'sector-card-grid',      consumers: ['src/pages/secteurs/index.astro'] },
+  { id: 'sector-card-grid',      consumers: ['src/pages/secteurs/_index.astro'] },
   { id: 'signed-writing-list',   consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'site-showcase',         consumers: ['src/pages/cas-clients/[...slug].astro'] },
   { id: 'used-service-callout',  consumers: [] },

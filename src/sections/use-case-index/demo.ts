@@ -23,5 +23,5 @@ export const demo: DemoData = {
     ],
     footer_label_fr: 'Adapté à votre secteur →',
     footer_label_en: 'Adapted to your sector →',
-    footer_href: '/secteurs',
+    footer_href: '/services',
   };

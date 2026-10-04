@@ -52,7 +52,8 @@ const pageLd = [articleLd];
     lang={lang}
     items={[
       { label: lang === 'fr' ? 'Accueil' : 'Home', href: lang === 'fr' ? '/' : '/en' },
-      { label: lang === 'fr' ? 'Démonstrations' : 'Demonstrations', href: lang === 'fr' ? '/demonstrations' : '/en/demonstrations' },
+      // Le hub /demonstrations est redirigé en 301 vers /services : le fil d'Ariane remonte là.
+      { label: 'Services', href: lang === 'fr' ? '/services' : '/en/services' },
       { label: title.split(' · ')[0] },
     ]}
   />

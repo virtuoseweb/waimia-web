@@ -24,7 +24,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation des devis et des relances ?",
-      "a": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées 99 € HT de l'heure."
+      "a": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Comment relancer un devis sans réponse ?",
@@ -50,7 +50,7 @@
   "faq_en": [
     {
       "q": "How much does it cost to automate quotes and follow-ups?",
-      "a": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €99 per hour excl. VAT."
+      "a": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "How do you follow up on an unanswered quote?",
@@ -127,8 +127,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
+          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -392,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : segmentation de la base et première séquence de réveil, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demande le nurturing multicanal dans la durée, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, les séquences, les segments et la base sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: base segmentation and a first wake-up sequence, with a deliverable in hand by the end. What follows is quoted: we estimate together the time multichannel nurturing requires over time, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No duration commitment, no subscription: at the end, the sequences, the segments and the base are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : segmentation de la base et première séquence de réveil, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demande le nurturing multicanal dans la durée, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, les séquences, les segments et la base sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: base segmentation and a first wake-up sequence, with a deliverable in hand by the end. What follows is quoted: we estimate together the time multichannel nurturing requires over time, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment, no subscription: at the end, the sequences, the segments and the base are yours."
     },
     {
       "type": "eeat-panel",
@@ -410,9 +410,9 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation des devis et des relances ?",
-          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées 99 € HT de l'heure.",
+          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does it cost to automate quotes and follow-ups?",
-          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €99 per hour excl. VAT."
+          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Comment relancer un devis sans réponse ?",

@@ -118,8 +118,8 @@ export const demo: DemoData = {
       {
         "label_fr": "Maintenance d'un site en production",
         "label_en": "Maintenance of a live website",
-        "price_fr": "99 € HT/mois",
-        "price_en": "99 € ex VAT/month"
+        "price_fr": "dès 99 € HT/mois",
+        "price_en": "from 99 € ex VAT/month"
       },
       {
         "label_fr": "SEO, GEO et contenu",

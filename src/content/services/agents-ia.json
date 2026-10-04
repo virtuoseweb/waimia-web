@@ -28,7 +28,7 @@
     },
     {
       "q": "Combien coûte un agent IA pour une entreprise ?",
-      "a": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement."
+      "a": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement."
     },
     {
       "q": "Agent IA ou chatbot : quelle différence ?",
@@ -54,7 +54,7 @@
     },
     {
       "q": "How much does an AI agent cost for a business?",
-      "a": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
+      "a": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
     },
     {
       "q": "AI agent or chatbot: what is the difference?",
@@ -127,8 +127,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis 99 € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €99 per hour excl. VAT",
+          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -392,8 +392,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier agent conçu, branché via MCP et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents suivants, on le valide, puis on l'exécute en sprints en régie, à 99 € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos agents, vos accès et la documentation sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first agent designed, wired via MCP and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents require, validate it, then run it in sprints within the time and materials frame, at 99 € an hour, non-degressive. No subscription, no lock-in: at the end, your agents, your access and the documentation are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier agent conçu, branché via MCP et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents suivants, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos agents, vos accès et la documentation sont à vous.",
+      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first agent designed, wired via MCP and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your agents, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
@@ -416,9 +416,9 @@
         },
         {
           "q_fr": "Combien coûte un agent IA pour une entreprise ?",
-          "a_fr": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis 99 € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement.",
+          "a_fr": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement.",
           "q_en": "How much does an AI agent cost for a business?",
-          "a_en": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €99 per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
+          "a_en": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
         },
         {
           "q_fr": "Agent IA ou chatbot : quelle différence ?",

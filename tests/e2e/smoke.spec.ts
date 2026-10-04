@@ -6,7 +6,8 @@ import { test, expect } from "@playwright/test";
 const ROUTES = [
   "/",
   "/services",
-  "/secteurs",
+  // Hubs /secteurs et /demonstrations : redirigés en 301 vers /services (2026-10).
+  "/secteurs/batiment",
   "/cas-clients",
   "/services/integration-claude",
   "/agence",
