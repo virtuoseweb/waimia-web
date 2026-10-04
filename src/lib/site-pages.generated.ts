@@ -1263,7 +1263,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/systeme-acquisition",
-    "title": "Générer des leads B2B qualifiés · le système d'acquisition",
+    "title": "Générer des leads B2B qualifiés · outils de visibilité web",
     "group": "offres",
     "collection": "services",
     "file": "services/systeme-acquisition.json",
@@ -1271,7 +1271,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Générer des leads B2B qualifiés, sans racheter un flux chaque mois.",
+        "label": "Des outils de visibilité au service de votre système.",
         "background": "paper"
       },
       {
@@ -1281,57 +1281,27 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
-        "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Pourquoi vos prospects vous échappent",
-        "background": "ink"
-      },
-      {
-        "type": "comparison-duo",
-        "label": "Pourquoi un système instrumenté change l'équation",
-        "background": "paper-2"
-      },
-      {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'acquisition",
-        "background": "paper-3"
-      },
-      {
-        "type": "deliverables-grid",
-        "label": "Ce que vous récupérez concrètement",
+        "label": "Définition",
         "background": "paper"
       },
       {
         "type": "feature-grid",
-        "label": "Les briques, de l'acquisition au commercial",
+        "label": "Trois outils, branchés au reste",
         "background": "paper"
       },
       {
-        "type": "system-flow",
-        "label": "Comment tout s'articule",
-        "background": "ink"
-      },
-      {
-        "type": "feature-zigzag",
-        "label": "Comment l'acquisition alimente le système commercial",
-        "background": "paper-2"
-      },
-      {
         "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
+        "label": "Des missions réelles, documentées",
         "background": "ink"
       },
       {
         "type": "pricing-cards",
-        "label": "Quatre socles pour lancer votre acquisition",
+        "label": "Quatre socles pour un site",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#12",
+        "label": "#6",
         "variant": "media"
       },
       {
@@ -1341,7 +1311,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Une infrastructure qui attire, capte et qualifie, puis passe le relais au commercial.",
+        "label": "La visibilité n'a de valeur que si la demande est traitée.",
         "background": "ink"
       }
     ]
@@ -1366,13 +1336,8 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
-      },
-      {
-        "type": "pain-severity-list",
-        "label": "Vos mois creux en rendez-vous ont une cause",
-        "background": "ink"
       },
       {
         "type": "comparison-duo",
@@ -1380,18 +1345,8 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "method-stepline",
-        "label": "Les 6 niveaux d'un développement commercial",
-        "background": "paper-3"
-      },
-      {
         "type": "deliverables-grid",
         "label": "Ce que vous récupérez concrètement",
-        "background": "paper"
-      },
-      {
-        "type": "feature-grid",
-        "label": "Les modules qui alimentent votre pipeline commercial",
         "background": "paper"
       },
       {
@@ -1405,13 +1360,8 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Le système commercial continue d'apprendre après le lancement",
-        "background": "paper-2"
-      },
-      {
         "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
+        "label": "Des missions réelles, documentées",
         "background": "ink"
       },
       {
@@ -1421,7 +1371,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#13",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -1456,7 +1406,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "definition-extract",
-        "label": "Définition · format extractible",
+        "label": "Définition",
         "background": "paper"
       },
       {
@@ -1471,7 +1421,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Résultats sur le terrain",
+        "label": "Des missions réelles, documentées",
         "background": "ink"
       },
       {
@@ -1491,7 +1441,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Faites tourner vos opérations sur un système, plus sur des personnes.",
+        "label": "Quarante-cinq minutes pour savoir quoi automatiser.",
         "background": "ink"
       }
     ]
