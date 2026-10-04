@@ -1,7 +1,8 @@
 /**
  * Search Console · API Sitemaps : resoumission du sitemap (sitemaps.submit) puis lecture de
- * son état (sitemaps.get). C'est, avec l'inspection, tout ce que l'API Google permet pour
- * l'indexation de pages ordinaires : il n'existe pas d'API « demander l'indexation ».
+ * son état (sitemaps.get). C'est, avec l'inspection, le socle de l'indexation : la voie que
+ * Google documente pour des pages ordinaires. Les notifications de indexing-api.mjs s'y ajoutent,
+ * sans garantie (voir docs/seo/SETUP.md).
  *
  * Usage direct : `node scripts/seo-routine/gsc-sitemap.mjs [--dry-run]`.
  */

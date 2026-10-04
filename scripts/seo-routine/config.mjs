@@ -28,6 +28,17 @@ export const GSC_SCOPE = 'https://www.googleapis.com/auth/webmasters';
 export const INDEXNOW_KEY = '34c4e7bcd4aa2c942247305687c341d9';
 export const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
 
+/**
+ * Indexing API de Google (urlNotifications). Même compte de service que Search Console, autre
+ * portée OAuth. Quota par défaut : 200 requêtes « publish » par jour et par projet Google Cloud
+ * (le projet est partagé avec virtuoseweb.fr, d'où INDEXING_DAILY_CAP pour baisser le plafond).
+ */
+export const INDEXING_SCOPE = 'https://www.googleapis.com/auth/indexing';
+export const INDEXING_ENDPOINT = 'https://indexing.googleapis.com/v3';
+export const INDEXING_DAILY_LIMIT = 200;
+export const INDEXING_DAILY_CAP = Math.min(INDEXING_DAILY_LIMIT, Math.max(0, Number(process.env.INDEXING_DAILY_CAP ?? INDEXING_DAILY_LIMIT) || 0));
+export const INDEXING_DELAY_MS = 500;
+
 export const USER_AGENT = 'Mozilla/5.0 (compatible; WaimiaSeoRoutine/1.0; +https://waimia.com)';
 
 /** Quotas URL Inspection API (par propriété) : 2 000 par jour, 600 par minute. On reste en dessous. */

@@ -1,20 +1,21 @@
 name: Routine SEO · collecte hebdomadaire
 
-# Collecte les données de la routine SEO/GEO (Search Console, indexation, IndexNow, flux,
-# concurrents) et les commite sous docs/seo/data/. La session Claude hebdomadaire lit ensuite
+# Collecte les données de la routine SEO/GEO (Search Console, indexation, IndexNow, Indexing
+# API, flux, concurrents) et les commite sous docs/seo/data/. La session Claude hebdomadaire lit ensuite
 # docs/seo/data/latest.json et suit docs/seo/ROUTINE.md. Mise en route : docs/seo/SETUP.md.
 #
 # Où vont les données : un commit direct sur main, qui ne contient QUE des fichiers sous
 # docs/seo/data/ (vérifié avant le push). Pourquoi pas une PR par semaine :
 #   - un push fait avec le GITHUB_TOKEN ne déclenche aucun autre workflow, donc pas de CI ;
 #   - vercel.json > ignoreCommand saute le déploiement quand seuls ces fichiers ont changé ;
-#   - l'état d'une semaine sur l'autre (indexation, IndexNow, concurrents) reste sur main sans
+#   - l'état d'une semaine sur l'autre (indexation, IndexNow, Indexing API, concurrents) reste sur main sans
 #     que personne ait à fusionner quoi que ce soit.
 # Si le push sur main est refusé (protection de branche activée plus tard), le job se rabat
 # sur une branche seo-data/AAAA-Www et ouvre une PR (Vercel ne déploie pas ces branches).
 #
-# Secret : GSC_SERVICE_ACCOUNT_JSON (facultatif : sans lui, les étapes Search Console sont
-# marquées « non configuré » et le reste tourne).
+# Secret : GSC_SERVICE_ACCOUNT_JSON (facultatif : sans lui, les étapes Search Console et
+# Indexing API sont marquées « non configuré » et le reste tourne). Le même compte de service
+# sert aux deux API ; pour l'Indexing API il doit être propriétaire de la propriété.
 
 on:
   schedule:
@@ -22,7 +23,11 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: "Simulation : ni envoi IndexNow, ni resoumission du sitemap, ni commit"
+        description: "Simulation : ni envoi IndexNow, ni Indexing API, ni resoumission du sitemap, ni commit"
+        type: boolean
+        default: false
+      indexing_all:
+        description: "Indexing API : première passe complète (tout le sitemap, 200 URL par jour au plus)"
         type: boolean
         default: false
   pull_request:
@@ -53,7 +58,7 @@ jobs:
           node-version-file: .nvmrc
 
       # Les scripts n'utilisent que les modules intégrés de Node : aucune installation.
-      - name: Tests unitaires (flux, variations, position 8 à 20, état d'indexation)
+      - name: Tests unitaires (flux, variations, position 8 à 20, état d'indexation, Indexing API)
         run: node --test "scripts/seo-routine/tests/*.test.mjs"
 
       - name: Configuration (mots-clés et pages cibles, flux, concurrents, clé IndexNow)
@@ -84,7 +89,8 @@ jobs:
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
-        run: node scripts/seo-routine/run.mjs $DRY_RUN
+          INDEXING_ALL: ${{ inputs.indexing_all && '--indexing-all' || '' }}
+        run: node scripts/seo-routine/run.mjs $DRY_RUN $INDEXING_ALL
 
       - name: Résumé du run
         if: always()
