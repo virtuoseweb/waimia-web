@@ -187,7 +187,7 @@ const defaultStackPills = [
 
 // ── DÉFAUT PARTAGÉ · badges de réassurance finale (génériques, pas de claim non détenu). ──
 const defaultTrustBadges = [
-  { glyph: '◉', label_fr: 'Partenaire Anthropic', label_en: 'Anthropic partner' },
+  { glyph: '◉', label_fr: 'Activateur France Num', label_en: 'France Num activator' },
   { glyph: '✓', label_fr: 'Claude certified', label_en: 'Claude certified' },
   { glyph: '⚖', label_fr: 'AI Act ready', label_en: 'AI Act ready' },
   { glyph: '⚿', label_fr: 'RGPD', label_en: 'GDPR' },

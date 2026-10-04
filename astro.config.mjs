@@ -301,7 +301,7 @@ export default defineConfig({
     }),
     robotsTxt({
       policy: [
-        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/cartographie', '/agence/ds-studio', '/agence/hero-lab', '/dashboard-seo', '/library/', '/preview/', '/preview-v/', '/preview-swi/', '/components/', '/categories/', '/lp/'] },
+        { userAgent: '*', allow: '/', disallow: ['/admin/', '/api/', '/agence/cartographie', '/agence/ds-studio', '/agence/hero-lab', '/dashboard-seo', '/library/', '/preview/', '/preview-v/', '/preview-swi/', '/components/', '/categories/'] },
         { userAgent: 'GPTBot', allow: '/' },
         { userAgent: 'ClaudeBot', allow: '/' },
         { userAgent: 'anthropic-ai', allow: '/' },
@@ -318,12 +318,12 @@ export default defineConfig({
     llmsTxt({
       title: SITE.name,
       description:
-        "Waimia est un studio IA qui aide les PME B2B (20 à 500 personnes) à adopter l'IA de façon concrète : automatisation des workflows, acquisition, productivité opérationnelle et gouvernance.",
+        "Waimia est un studio de conseil, d'intégration et de développement IA pour PME et ETI : automatisation métier, agents IA, applications métier.",
       details: [
-        "Waimia accompagne les dirigeants (DG, DAF, COO) de PME B2B dans l'intégration de l'intelligence artificielle au cœur de leurs opérations.",
+        "Waimia accompagne les dirigeants (DG, DAF, COO) de PME et ETI de 10 à 250 collaborateurs dans l'intégration de l'intelligence artificielle au cœur de leurs opérations.",
         "Approche IA-first : chaque solution combine stratégie, mise en œuvre et montée en compétence des équipes.",
         "Domaines : automatisation (CRM, relances, process), acquisition (SEO/GEO, contenu), productivité opérationnelle, pilotage et gouvernance IA.",
-        "Ressources : guides, cookbooks actionnables, études de cas, glossaire IA, comparatifs et école (formations).",
+        "Ressources : guides, études de cas, comparatifs, diagnostics et outils.",
         '',
         "Chaque page est aussi disponible en version markdown : ajoutez .md à l'URL.",
       ].join('\n\n'),
@@ -338,7 +338,6 @@ export default defineConfig({
           promote: [
             'services/**',
             'secteurs/**',
-            'offres/**',
             'agence/**',
             'contact/**',
           ],
@@ -352,7 +351,6 @@ export default defineConfig({
           promote: [
             'services/**',
             'secteurs/**',
-            'offres/**',
             'agence/**',
           ],
         },

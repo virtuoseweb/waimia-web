@@ -1238,24 +1238,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "testimonial-wall": {
-    "count": 16,
+    "count": 1,
     "pages": [
-      "/services/agent-support-client",
-      "/services/automatisation-n8n",
-      "/services/cold-email-b2b",
-      "/services/crm-scoring-routing",
-      "/services/integration-crm",
-      "/services/landing-page-google-ads",
-      "/services/landing-pages-tunnels",
-      "/services/prospection-automatisee",
-      "/services/publicite-en-ligne",
-      "/services/referencement-ia",
-      "/services/relance-devis",
-      "/services/seo-geo-contenu",
-      "/services/seo-local",
-      "/services/sequences-de-suivi",
-      "/services/systeme-acquisition",
-      "/services/systeme-commercial"
+      "/services/seo-local"
     ]
   },
   "use-case-index": {
