@@ -1,0 +1,135 @@
+name: Routine SEO · collecte hebdomadaire
+
+# Collecte les données de la routine SEO/GEO (Search Console, indexation, IndexNow, flux,
+# concurrents) et les commite sous docs/seo/data/. La session Claude hebdomadaire lit ensuite
+# docs/seo/data/latest.json et suit docs/seo/ROUTINE.md. Mise en route : docs/seo/SETUP.md.
+#
+# Où vont les données : un commit direct sur main, qui ne contient QUE des fichiers sous
+# docs/seo/data/ (vérifié avant le push). Pourquoi pas une PR par semaine :
+#   - un push fait avec le GITHUB_TOKEN ne déclenche aucun autre workflow, donc pas de CI ;
+#   - vercel.json > ignoreCommand saute le déploiement quand seuls ces fichiers ont changé ;
+#   - l'état d'une semaine sur l'autre (indexation, IndexNow, concurrents) reste sur main sans
+#     que personne ait à fusionner quoi que ce soit.
+# Si le push sur main est refusé (protection de branche activée plus tard), le job se rabat
+# sur une branche seo-data/AAAA-Www et ouvre une PR (Vercel ne déploie pas ces branches).
+#
+# Secret : GSC_SERVICE_ACCOUNT_JSON (facultatif : sans lui, les étapes Search Console sont
+# marquées « non configuré » et le reste tourne).
+
+on:
+  schedule:
+    - cron: '30 4 * * 1' # lundi 04:30 UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Simulation : ni envoi IndexNow, ni resoumission du sitemap, ni commit"
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - 'scripts/seo-routine/**'
+      - 'docs/seo/*.json'
+      - '.github/workflows/seo-routine.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-routine-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    name: Tests de la routine SEO
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # Les scripts n'utilisent que les modules intégrés de Node : aucune installation.
+      - name: Tests unitaires (flux, variations, position 8 à 20, état d'indexation)
+        run: node --test "scripts/seo-routine/tests/*.test.mjs"
+
+      - name: Configuration (mots-clés et pages cibles, flux, concurrents, clé IndexNow)
+        run: node scripts/seo-routine/check-config.mjs
+
+  collect:
+    name: Collecte et commit des données
+    # Jamais sur une PR ; uniquement depuis main (planifié ou lancé à la main).
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write # commit des données
+      pull-requests: write # repli : PR si main refuse le push
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Collecte
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: node scripts/seo-routine/run.mjs $DRY_RUN
+
+      - name: Résumé du run
+        if: always()
+        run: node scripts/seo-routine/job-summary.mjs
+
+      - name: Commit des données
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          WEEK=$(node -p "require('./docs/seo/data/latest.json').week")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Garde-fou : la collecte ne doit avoir touché que docs/seo/data/.
+          OUTSIDE=$(git status --porcelain --untracked-files=all | awk '{print $NF}' | grep -v '^docs/seo/data/' || true)
+          if [ -n "$OUTSIDE" ]; then
+            echo "::error::Fichiers modifiés hors de docs/seo/data/ : $OUTSIDE"
+            exit 1
+          fi
+
+          git add docs/seo/data
+          if git diff --cached --quiet; then
+            echo "Aucun changement de données : rien à commiter."
+            exit 0
+          fi
+          git commit -m "chore(seo-data): collecte $WEEK"
+
+          # Option 1 : commit direct sur main (seuls des fichiers docs/seo/data/ changent).
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Données poussées sur main." >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "Push sur main refusé (tentative $attempt), rebase puis nouvel essai."
+            git pull --rebase origin main || break
+          done
+
+          # Option 2 (repli) : main est protégée, on passe par une branche et une PR.
+          BRANCH="seo-data/$WEEK"
+          git push --force origin "HEAD:refs/heads/$BRANCH"
+          if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --base main --head "$BRANCH" \
+              --title "Données SEO $WEEK" \
+              --body "Collecte hebdomadaire de la routine SEO (docs/seo/data/ uniquement). Le push direct sur main a été refusé : fusionner cette PR pour que la session Claude hebdomadaire lise ces données et que l'état (indexation, IndexNow, concurrents) soit conservé pour la semaine suivante."
+          fi
+          echo "Push sur main refusé : données poussées sur $BRANCH (PR ouverte)." >> "$GITHUB_STEP_SUMMARY"
