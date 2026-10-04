@@ -6,13 +6,14 @@
  * diagnostic de 45 minutes, plan d'action concret, sans engagement.
  */
 
+import { AUDIT_BOOKING_HREF } from '../../../data/conversion';
 import ChapterLabel from '../atoms/ChapterLabel.astro';
 import Button from '../atoms/Button.astro';
 import { langFromPath, localizeHref } from '../../../lib/i18n';
 
 const lang = langFromPath(Astro.url.pathname);
 // Prise de rendez-vous : URL unique (la page contact porte le calendrier). /audit-ia-pme présente l'audit.
-const ctaHref = '/contact?offer=audit-ia-pme&intent=audit';
+const ctaHref = AUDIT_BOOKING_HREF;
 const auditHref = localizeHref('/audit-ia-pme', lang);
 ---
 <section id="act-5" class="book-session scale-in on-dark" aria-labelledby="book-h2">

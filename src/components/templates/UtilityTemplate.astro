@@ -12,6 +12,7 @@
 //
 // Composé de · HeroCentered (section cataloguée) · CtaFinal / CtaBandSection
 
+import { AUDIT_BOOKING_HREF } from '../../data/conversion';
 import Base from '../../layouts/Base.astro';
 import MastheadBar from '../sections/MastheadBar.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
@@ -85,7 +86,7 @@ const listCtaData = {
   cta: {
     label_fr: 'Réserver un audit →',
     label_en: 'Book an audit →',
-    href: '/contact?offer=audit-ia-pme&intent=audit',
+    href: AUDIT_BOOKING_HREF,
     variant: 'primary',
   },
   background: 'paper-2',
@@ -139,7 +140,7 @@ const ctaData: SectionByType<'cta-final'> = isContactPage
       cta_primary: {
         label_fr: 'Réserver un audit →',
         label_en: 'Book an audit →',
-        href: '/contact?offer=audit-ia-pme&intent=audit',
+        href: AUDIT_BOOKING_HREF,
         variant: 'primary',
       },
       cta_secondary: {

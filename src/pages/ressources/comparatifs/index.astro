@@ -7,7 +7,8 @@ export const prerender = true;
 // Collection vide → 0 carte → 0 band (pas de crash).
 // Profondeur 3 niveaux (ressources/comparatifs/) → imports en `../../../`.
 
-import { getCollection } from 'astro:content';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL } from '../../../data/conversion';
+import { getLiveCollection } from '../../../lib/live-collection';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
@@ -39,7 +40,7 @@ const curation: Record<string, { fr: string; en: string }> = {
   },
 };
 
-const cards: Card[] = (await getCollection('comparatifs'))
+const cards: Card[] = (await getLiveCollection('comparatifs'))
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
   .map((e) => {
     const d = e.data;
@@ -96,18 +97,18 @@ const ctaFinal: SectionByType<'cta-final'> = {
   background: 'ink',
   h2_fr: 'Envie d\'en parler ?',
   h2_en: 'Want to talk about it?',
-  body_fr: 'Un diagnostic de 45 minutes, gratuit et sans engagement : on lit votre contexte ensemble et on vous dit vite où sont les leviers.',
-  body_en: 'A 45-minute diagnostic, free and with no commitment: we read your context together and tell you quickly where the levers are.',
+  body_fr: 'Un audit de 45 minutes, gratuit et sans engagement : on part de vos processus réels et on repère trois automatisations rentables.',
+  body_en: 'A free 45-minute audit, with no commitment: we start from your real processes and spot three profitable automations.',
   cta_primary: {
-    label_fr: 'Réserver un diagnostic (45 min) →',
-    label_en: 'Book a diagnostic (45 min) →',
-    href: '/contact',
+    label_fr: AUDIT_BOOKING_LABEL.fr,
+    label_en: AUDIT_BOOKING_LABEL.en,
+    href: AUDIT_BOOKING_HREF,
     variant: 'primary',
   },
   cta_secondary: {
-    label_fr: "Voir l'audit IA pour PME →",
-    label_en: 'See the AI audit for SMBs →',
-    href: '/audit-ia-pme',
+    label_fr: AUDIT_PAGE_LABEL.fr,
+    label_en: AUDIT_PAGE_LABEL.en,
+    href: AUDIT_PAGE_HREF,
     variant: 'ghost',
   },
 };

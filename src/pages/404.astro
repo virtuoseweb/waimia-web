@@ -8,6 +8,7 @@ export const prerender = true;
 // pattern à 1 instance par site, UX dédiée (titre fort, suggestions, lien retour).
 // Extension d'UtilityTemplate ne se justifierait pas — surcoût > bénéfice.
 
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../data/conversion';
 import Base from '../layouts/Base.astro';
 import Kicker from '../components/ui/atoms/Kicker.astro';
 import Button from '../components/ui/atoms/Button.astro';
@@ -43,7 +44,7 @@ const lang = langFromPath(Astro.url.pathname);
         </li>
         <li>
           <Kicker tone="accent" class="err-path-k">→ {lang === 'fr' ? 'Pour parler à quelqu\'un' : 'To talk to someone'}</Kicker>
-          <a href={lang === 'fr' ? '/contact' : '/en/contact'} class="err-path-link">{lang === 'fr' ? 'Réserver 45 min' : 'Book 45 min'}</a>
+          <a href={AUDIT_BOOKING_HREF} class="err-path-link">{lang === 'fr' ? AUDIT_BOOKING_LABEL.fr : AUDIT_BOOKING_LABEL.en}</a>
         </li>
       </ul>
 

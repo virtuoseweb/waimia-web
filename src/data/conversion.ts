@@ -7,6 +7,10 @@
 
 export const AUDIT_BOOKING_HREF = '/contact?offer=audit-ia-pme&intent=audit';
 export const AUDIT_PAGE_HREF = '/audit-ia-pme';
+/** Libellé unique du bouton de prise de rendez-vous. */
+export const AUDIT_BOOKING_LABEL = { fr: 'Réserver un audit IA gratuit', en: 'Book a free AI audit' } as const;
+/** Libellé du lien secondaire vers la page qui présente l'audit. */
+export const AUDIT_PAGE_LABEL = { fr: "Comment se passe l'audit", en: 'How the audit works' } as const;
 export const DIAGNOSTIC_HREF = '/ressources/diagnostics/maturite-ia';
 export const ROI_HREF = '/ressources/outils/calculateur-roi-ia';
 export const CHARTE_HREF = '/ressources/outils/charte-ia-entreprise';
@@ -57,7 +61,7 @@ export function auditCtaFinal(h2: string, body: string) {
     h2_en: h2,
     body_fr: body,
     body_en: body,
-    cta_primary: { label_fr: "Réserver l'audit IA", label_en: 'Book the AI audit', href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
-    cta_secondary: { label_fr: "Ce que couvre l'audit", label_en: 'What the audit covers', href: AUDIT_PAGE_HREF, variant: 'ghost' as const },
+    cta_primary: { label_fr: AUDIT_BOOKING_LABEL.fr, label_en: AUDIT_BOOKING_LABEL.en, href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
+    cta_secondary: { label_fr: AUDIT_PAGE_LABEL.fr, label_en: AUDIT_PAGE_LABEL.en, href: AUDIT_PAGE_HREF, variant: 'ghost' as const },
   };
 }

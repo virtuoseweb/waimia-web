@@ -11,6 +11,7 @@
 // Décision : pas de spec bar (différencie d'un Case). Le squelette est plus simple
 // et laisse 100 % du body en slot pour le HTML rich text (h2, h3, p, blockquote, code).
 
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 import Base from '../../layouts/Base.astro';
 import Bi from '../ui/atoms/Bi.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
@@ -166,9 +167,9 @@ const ctaData = {
   text_fr: `Si ${articleSection} touche votre équipe, on le traduit en plan d'action opérable plutôt qu'en débat abstrait.`,
   text_en: `If ${articleSection} matters to your team, we turn it into an operational plan instead of an abstract debate.`,
   cta: {
-    label_fr: 'Réserver un audit →',
-    label_en: 'Book an audit →',
-    href: localizeHref('/audit-ia-pme', lang),
+    label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+    label_en: `${AUDIT_BOOKING_LABEL.en} →`,
+    href: AUDIT_BOOKING_HREF,
     variant: 'primary',
   },
   background: 'paper-2',
@@ -264,7 +265,7 @@ const articleLd = buildArticle({
       <div class="wrap-wide essay-footer-grid">
         <div class="essay-footer-related">
           <Kicker class="essay-related-k"><Bi fr="À lire ensuite" en="Related notes" /></Kicker>
-          {(relatedCasesData?.length || relatedOffresData?.length) && (
+          {Boolean(relatedCasesData?.length || relatedOffresData?.length) && (
             <section class="essay-related-cross">
               <h2 class="essay-related-cross__title">
                 {lang === 'en' ? 'Related to this article' : 'En lien avec cet article'}
@@ -294,9 +295,9 @@ const articleLd = buildArticle({
           </div>
         )}
         <div class="essay-footer-cta">
-          <Kicker>§ Contact</Kicker>
-          <p class="essay-cta-text">Une question sur ce sujet&nbsp;?</p>
-          <a href="/contact" class="essay-cta-link">Discutons-en →</a>
+          <Kicker>§ Audit IA</Kicker>
+          <p class="essay-cta-text">Ce sujet vous concerne&nbsp;? 45 minutes pour en parler sur vos processus.</p>
+          <a href={AUDIT_BOOKING_HREF} class="essay-cta-link">{AUDIT_BOOKING_LABEL.fr} →</a>
         </div>
       </div>
     </footer>

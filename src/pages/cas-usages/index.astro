@@ -7,7 +7,8 @@ export const prerender = true;
 // Compile même collection vide (les .mdx arrivent en parallèle) : si <2 cartes, on
 // n'émet aucun band (page reste valide : hero + CTA).
 
-import { getCollection } from 'astro:content';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
+import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
@@ -20,7 +21,7 @@ const isFr = lang === 'fr';
 
 type Card = SectionByType<'related-cards-band'>['cards'][number];
 
-const cards: Card[] = (await getCollection('cas-usages'))
+const cards: Card[] = (await getLiveCollection('cas-usages'))
   .filter((e) => e.data.seo?.noindex !== true)
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
   .map((e) => {
@@ -69,8 +70,8 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   kicker_en: '§ Use cases · what AI unblocks concretely',
   h1_fr: '<span>Cas d\'usage <i>IA</i> :</span><br/><span>le gain réel, pas une démo.</span>',
   h1_en: '<span><i>AI</i> use cases:</span><br/><span>real gain, not a demo.</span>',
-  lede_fr: "Des cas d'usage concrets : générer des leads, réduire le reporting, centraliser vos données. On part du gain réel pour votre PME, jamais d'une promesse en l'air.",
-  lede_en: 'Concrete use cases: generate leads, cut reporting, centralize your data. We start from the real gain for your SMB, never from an empty promise.',
+  lede_fr: "Trois problèmes concrets : automatiser l'administratif, centraliser les données et le reporting, automatiser le suivi commercial. Chaque page dit ce qu'on automatise, avec quels outils et où sont les limites.",
+  lede_en: 'Three concrete problems: automate admin work, centralise data and reporting, automate sales follow-up. Each page says what we automate, with which tools and where the limits are.',
 };
 
 const ctaFinal: SectionByType<'cta-final'> = {
@@ -78,12 +79,12 @@ const ctaFinal: SectionByType<'cta-final'> = {
   background: 'ink',
   h2_fr: 'Un cas qui ressemble au <i>vôtre</i> ?',
   h2_en: 'A case that looks like <i>yours</i>?',
-  body_fr: "On cadre votre besoin en 45 minutes et on vous dit vite quel cas d'usage attaquer en premier, qu'on travaille ensemble ou non.",
+  body_fr: "L'audit gratuit de 45 minutes part de vos processus et dit quel cas d'usage attaquer en premier, qu'on travaille ensemble ou non.",
   body_en: 'We frame your need in 45 minutes and tell you quickly which use case to tackle first, whether we work together or not.',
   cta_primary: {
-    label_fr: 'Réserver un diagnostic (45 min) →',
-    label_en: 'Book a diagnostic (45 min) →',
-    href: '/contact?intent=diagnostic',
+    label_fr: AUDIT_BOOKING_LABEL.fr,
+    label_en: AUDIT_BOOKING_LABEL.en,
+    href: AUDIT_BOOKING_HREF,
     variant: 'primary',
   },
   cta_secondary: {

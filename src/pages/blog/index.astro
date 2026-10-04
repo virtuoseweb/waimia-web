@@ -2,7 +2,8 @@
 // Page · /blog · Index notes & essais
 export const prerender = true;
 
-import { getCollection } from 'astro:content';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
+import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import type { SectionByType, SectionData } from '@waimia/ds-kernel';
@@ -15,7 +16,7 @@ import { SITE } from '../../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
 
-const allBlog = await getCollection('blog');
+const allBlog = await getLiveCollection('blog');
 const sortedBlog = [...allBlog].sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
 );
@@ -138,12 +139,12 @@ const mastheadSection = {
 // ── CTA de fin composable (ex-CtaBandSection du template) ─────────────────────
 const ctaSection = {
   type: 'cta-band',
-  text_fr: 'Après Blog IA et automatisation PME, passons à votre cas réel et à votre premier livrable utile.',
-  text_en: 'After Blog IA et automatisation PME, let us move to your real use case and your first useful deliverable.',
+  text_fr: "Un sujet du blog ressemble à votre situation ? L'audit gratuit de 45 minutes part de vos processus réels.",
+  text_en: 'Does a topic from the blog look like your situation? The free 45-minute audit starts from your real processes.',
   cta: {
-    label_fr: 'Réserver un audit →',
-    label_en: 'Book an audit →',
-    href: '/audit-ia-pme',
+    label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+    label_en: `${AUDIT_BOOKING_LABEL.en} →`,
+    href: AUDIT_BOOKING_HREF,
     variant: 'primary',
   },
   background: 'paper-2',

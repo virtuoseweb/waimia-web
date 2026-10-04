@@ -13,6 +13,7 @@
 // (data+lang pass-through) n'acheminent pas → la route les rend en direct via ces
 // props (`hero-case-study` : topPad/h1Gap/VT ids ; `tech-stack-band` : reveal + style).
 
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL } from '../../data/conversion';
 import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -237,18 +238,28 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
       } satisfies SectionByType<'stat-block'>),
     },
 
-    // ── PROOF → pull-quote-block (toujours). Migration du husk legacy `.case-proof` :
-    //    si pas de pullQuote (amploi, isabelle), on dérive le témoignage de impact + le
-    //    client (texte identique, traitement visuel = pull-quote-block ; cf rapport). ──
+    // ── PROOF · une vraie citation du client (`pullQuote_fr`) → pull-quote-block attribué.
+    //    Sans citation réelle (amploi, isabelle), le résultat (`impact_fr`) est rendu comme un
+    //    CONSTAT du studio (problem-statement, kicker « Le résultat »), jamais entre guillemets
+    //    ni attribué au client : on ne fabrique pas un témoignage. ──
     {
       id: 'proof',
       build: ({ data }) => {
+        if (!data.pullQuote_fr) {
+          return {
+            type: 'problem-statement',
+            kicker_fr: '§ Le résultat',
+            kicker_en: '§ The result',
+            statement_fr: data.impact_fr,
+            statement_en: data.impact_en ?? data.impact_fr,
+          } satisfies SectionByType<'problem-statement'>;
+        }
         const cite_fr = data.pullQuoteCite_fr ?? (data.ndaProtected ? 'Confidentiel' : data.client);
         const cite_en = data.pullQuoteCite_en ?? (data.ndaProtected ? 'Confidential' : data.client);
         return {
           type: 'pull-quote-block',
-          quote_fr: data.pullQuote_fr ?? data.impact_fr,
-          quote_en: data.pullQuote_en ?? data.impact_en,
+          quote_fr: data.pullQuote_fr,
+          quote_en: data.pullQuote_en ?? data.pullQuote_fr,
           cite_fr,
           cite_en,
           variant: 'centered' as const,
@@ -330,16 +341,22 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
           h2_en: data.ctaHeading_en ?? 'Your next project should produce <i>results</i>.',
           subtitle_fr:
             data.ctaSubtitle_fr ??
-            `Si ${caseLabel} ressemble à votre contexte, on cadre le vôtre en 45 minutes et on vous dit vite si le terrain est opérable.`,
+            `Si ${caseLabel} ressemble à votre contexte, l'audit gratuit de 45 minutes part de vos processus et dit ce qui vaut la peine d'être automatisé.`,
           subtitle_en:
             data.ctaSubtitle_en ??
             `If ${caseLabel} looks like your context, we frame yours in 45 minutes and tell you quickly whether the field is operationally viable.`,
           buttons: [
             {
-              label_fr: 'Démarrer un projet',
-              label_en: 'Start a project',
-              href: localizeHref('/contact', lang),
+              label_fr: AUDIT_BOOKING_LABEL.fr,
+              label_en: AUDIT_BOOKING_LABEL.en,
+              href: AUDIT_BOOKING_HREF,
               variant: 'primary',
+            },
+            {
+              label_fr: AUDIT_PAGE_LABEL.fr,
+              label_en: AUDIT_PAGE_LABEL.en,
+              href: localizeHref(AUDIT_PAGE_HREF, lang),
+              variant: 'ghost',
             },
           ],
         } satisfies SectionByType<'footer-cta-band'>;
