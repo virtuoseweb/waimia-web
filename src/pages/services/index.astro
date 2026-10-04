@@ -1,5 +1,8 @@
 ---
-// Page · /services · Hub Solutions (architecture v8 : 3 systèmes business)
+// Page · /services · Hub Solutions (refonte positionnement 2026-10).
+// L'offre dans son ordre : (1) automatisation et agents IA, (2) applications métier,
+// (3) conseil et formation, puis en retrait (4) outils commerciaux, (5) visibilité web.
+// Les bandes média qui répétaient chaque bloc d'offre ont été retirées (doublon).
 export const prerender = true;
 
 import Base from '../../layouts/Base.astro';
@@ -7,16 +10,19 @@ import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { SITE } from '../../site.config';
+import { AUDIT_BOOKING_HREF } from '../../data/sitemap';
 
 const solutionsJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Solutions Waimia : trois systèmes pour les PME',
-  description: 'Trois systèmes pour les PME : acquisition de leads, développement commercial et opérations automatisées par l\'IA, sur une seule base.',
+  name: 'Solutions Waimia : automatisation, agents IA et applications métier pour PME',
+  description: "Les prestations du studio Waimia pour les PME et ETI : automatisation des processus, agents IA, applications métier, conseil et formation.",
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Système d\'acquisition', url: `${SITE.url}/services/systeme-acquisition` },
-    { '@type': 'ListItem', position: 2, name: 'Système commercial', url: `${SITE.url}/services/systeme-commercial` },
-    { '@type': 'ListItem', position: 3, name: 'Systèmes opérationnels et IA', url: `${SITE.url}/services/systemes-operationnels-ia` },
+    { '@type': 'ListItem', position: 1, name: 'Automatisation et agents IA', url: `${SITE.url}/services/systemes-operationnels-ia` },
+    { '@type': 'ListItem', position: 2, name: 'Applications métier', url: `${SITE.url}/services/applications-internes` },
+    { '@type': 'ListItem', position: 3, name: 'Conseil IA', url: `${SITE.url}/services/consultant-ia-claude` },
+    { '@type': 'ListItem', position: 4, name: 'Outils commerciaux', url: `${SITE.url}/services/systeme-commercial` },
+    { '@type': 'ListItem', position: 5, name: 'Visibilité web', url: `${SITE.url}/services/systeme-acquisition` },
   ],
 };
 
@@ -25,168 +31,70 @@ const heroData = {
   variant: 'hub' as const,
   kicker_fr: '§ Solutions · Waimia',
   kicker_en: '§ Solutions · Waimia',
-  h1_fr: 'Trois systèmes.<br/>Une seule <i>base</i>.',
-  h1_en: 'Three systems.<br/>One <i>base</i>.',
-  lede_fr: 'Acquisition, commercial et opérations : trois systèmes qui se branchent sur une même base, les services qui les composent, et l\'audit pour savoir par où commencer.',
-  lede_en: 'Acquisition, sales and operations: three systems that wire onto one base, the services that compose them, and the audit to know where to start.',
+  h1_fr: 'Automatiser, développer,<br/><i>conseiller</i>.',
+  h1_en: 'Automate, build,<br/><i>advise</i>.',
+  lede_fr: "Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Trois métiers, dans cet ordre. Le site web et la prospection viennent en appui, quand le système en a besoin.",
+  lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. Three trades, in this order. The website and prospecting come in support, when the system needs them.',
   decoration: false as const,
   align: 'left' as const,
 } satisfies SectionByType<'hero-hub-masthead'>;
 
-// Bande média éditoriale qui ouvre l'offre I (habillage awwwards : texte étroit + visuel large,
-// fond paper pour contraster avec l'OfferTierGrid ink qui suit). Image réelle du catalogue thèmes.
-const offerWebMediaData = {
-  type: 'feature-split-media' as const,
-  background: 'paper' as const,
-  proportion: '2-3' as const,
-  mediaSide: 'right' as const,
-  kicker_fr: 'I · SYSTÈME D\'ACQUISITION',
-  kicker_en: 'I · ACQUISITION SYSTEM',
-  h2_fr: 'Attirer, capter et qualifier la demande.',
-  h2_en: 'Attract, capture and qualify demand.',
-  body_fr: 'Site web IA, SEO, GEO et landing pages assemblés en une seule infrastructure. Chaque visite est captée, scorée et qualifiée, puis passée au système commercial.',
-  body_en: 'AI website, SEO, GEO and landing pages assembled into one infrastructure. Every visit is captured, scored and qualified, then handed to the commercial system.',
-  points: [
-    { label_fr: 'Site web IA, SEO et GEO sur une seule base', label_en: 'AI website, SEO and GEO on one base' },
-    { label_fr: 'Landing pages qui captent et qualifient', label_en: 'Landing pages that capture and qualify' },
-    { label_fr: 'Passation des leads au système commercial', label_en: 'Leads handed to the commercial system' },
-  ],
-  media_src: '/images/themes/theme-acquisition.webp',
-  media_alt_fr: 'Illustration éditoriale : le système d\'acquisition qui attire, capte et qualifie la demande.',
-  media_alt_en: 'Editorial illustration: the acquisition system that attracts, captures and qualifies demand.',
-  media_caption_fr: 'Acquisition · attirer, capter et qualifier sur une seule base',
-  media_caption_en: 'Acquisition · attract, capture and qualify on one base',
-  cta_label_fr: 'Voir le système →',
-  cta_label_en: 'See the system →',
-  cta_href: '/services/systeme-acquisition',
-  reversed: false,
-} satisfies SectionByType<'feature-split-media'>;
-
-const offerWebData = {
+// 1 · Automatisation et agents IA (ink, bloc principal)
+const automationData = {
   type: 'offer-tier-grid' as const,
   variant: 'featured' as const,
   background: 'ink' as const,
   wrap: false,
-  // Rythme resserré (ex-.offer-rhythm-base page-level) : section-base au lieu de loose.
   pad_block: 'var(--section-base)',
-  eyebrow_fr: 'I · SYSTÈME D\'ACQUISITION',
-  eyebrow_en: 'I · ACQUISITION SYSTEM',
-  h2_fr: 'Générer des leads B2B qualifiés.',
-  h2_en: 'Generate qualified B2B leads.',
-  lede_fr: 'Site web IA, contenu SEO et GEO, landing pages : une infrastructure qui attire, capte et qualifie la demande, puis alimente le commercial.',
-  lede_en: 'AI website, SEO and GEO content, landing pages: an infrastructure that attracts, captures and qualifies demand, then feeds sales.',
+  eyebrow_fr: 'AUTOMATISATION ET AGENTS IA',
+  eyebrow_en: 'AUTOMATION AND AI AGENTS',
+  h2_fr: 'Automatiser les processus, y brancher des agents IA.',
+  h2_en: 'Automate processes, connect AI agents to them.',
+  lede_fr: 'Le cœur du studio. Des workflows qui suppriment la ressaisie, des agents qui exécutent sous supervision, le tout branché à vos outils et mesuré sur vos données.',
+  lede_en: 'The core of the studio. Workflows that remove re-keying, agents that execute under supervision, all connected to your tools and measured on your data.',
   featured_card: {
-    eyebrow_fr: 'LE SYSTÈME',
-    eyebrow_en: 'THE SYSTEM',
-    title_fr: 'Système d\'acquisition',
-    title_en: 'Acquisition system',
-    sub_fr: 'Attirer, capter et qualifier la demande.',
-    sub_en: 'Attract, capture and qualify demand.',
-    lead_fr: 'Site web IA, SEO, GEO et landing pages sur une seule base. Chaque visite est captée, scorée et qualifiée, puis passée au système commercial.',
-    lead_en: 'AI website, SEO, GEO and landing pages on one base. Every visit is captured, scored and qualified, then handed to the commercial system.',
-    cta_fr: 'Voir le système →',
-    cta_en: 'See the system →',
-    href: '/services/systeme-acquisition',
-  },
-  offers: [
-    {
-      price_fr: 'ATTIRER',
-      price_en: 'ATTRACT',
-      title_fr: 'SEO, GEO et contenu',
-      title_en: 'SEO, GEO and content',
-      lead_fr: 'Le moteur éditorial qui rend la marque visible sur Google et citable par les IA génératives.',
-      lead_en: 'The editorial engine that makes the brand visible on Google and citable by generative AIs.',
-      cta_fr: 'Voir le service →',
-      cta_en: 'See the service →',
-      href: '/services/seo-geo-contenu',
-    },
-    {
-      price_fr: 'CAPTER',
-      price_en: 'CAPTURE',
-      title_fr: 'Landing pages et tunnels',
-      title_en: 'Landing pages and funnels',
-      lead_fr: 'Pages par persona et tunnels de qualification : chaque visite est captée, notée et orientée vers ce qui convertit.',
-      lead_en: 'Per-persona pages and qualification funnels: every visit is captured, scored and steered toward what converts.',
-      cta_fr: 'Voir le service →',
-      cta_en: 'See the service →',
-      href: '/services/landing-pages-tunnels',
-    },
-  ],
-} satisfies SectionByType<'offer-tier-grid'>;
-
-// Bande média éditoriale qui ouvre l'offre II (média à gauche pour alterner le rythme avec
-// la bande de l'offre I, anti-monotonie). Image réelle du catalogue thèmes (productivité).
-const offerClaudeMediaData = {
-  type: 'feature-split-media' as const,
-  background: 'paper' as const,
-  proportion: '3-2' as const,
-  mediaSide: 'left' as const,
-  reversed: true,
-  kicker_fr: 'II · SYSTÈMES OPÉRATIONNELS ET IA',
-  kicker_en: 'II · OPERATIONAL AND AI SYSTEMS',
-  h2_fr: 'L\'IA en <i>production</i>, pas en démo.',
-  h2_en: 'AI in <i>production</i>, not in a demo.',
-  body_fr: 'Automatisations, agents IA et Claude branché à vos outils via MCP. On exécute le répétitif, on outille vos équipes, on mesure et on trace.',
-  body_en: 'Automations, AI agents and Claude wired to your tools via MCP. We run the repetitive, equip your teams, measure and trace.',
-  points: [
-    { label_fr: 'Workflows qui suppriment la ressaisie', label_en: 'Workflows that remove re-entry' },
-    { label_fr: 'Agents branchés à vos outils via MCP', label_en: 'Agents wired to your tools via MCP' },
-    { label_fr: 'Périmètre borné, validation humaine, tout tracé', label_en: 'Bounded scope, human validation, everything traced' },
-  ],
-  media_src: '/images/themes/theme-productivite.webp',
-  media_alt_fr: 'Illustration éditoriale : le système opérationnel et l\'IA branchés aux outils de l\'entreprise.',
-  media_alt_en: 'Editorial illustration: the operational system and AI wired to the company tools.',
-  media_caption_fr: 'Opérations · automatiser le répétitif, outiller les équipes',
-  media_caption_en: 'Operations · automate the repetitive, equip the teams',
-  cta_label_fr: 'Voir le système →',
-  cta_label_en: 'See the system →',
-  cta_href: '/services/systemes-operationnels-ia',
-} satisfies SectionByType<'feature-split-media'>;
-
-const offerClaudeData = {
-  type: 'offer-tier-grid' as const,
-  variant: 'standard' as const,
-  wrap: true,
-  // Rythme resserré (ex-.offer-rhythm-base page-level) : section-base au lieu de loose.
-  pad_block: 'var(--section-base)',
-  eyebrow_fr: 'II · SYSTÈMES OPÉRATIONNELS ET IA',
-  eyebrow_en: 'II · OPERATIONAL AND AI SYSTEMS',
-  h2_fr: 'Automatiser et outiller vos opérations.',
-  h2_en: 'Automate and equip your operations.',
-  lede_fr: 'Automatisations, agents IA et intégration Claude en production : on exécute le répétitif et on outille vos équipes, sur une base gouvernée.',
-  lede_en: 'Automations, AI agents and Claude integration in production: we run the repetitive and equip your teams, on a governed base.',
-  featured_card: {
-    eyebrow_fr: 'LE SYSTÈME',
-    eyebrow_en: 'THE SYSTEM',
-    title_fr: 'Systèmes opérationnels et IA',
-    title_en: 'Operational and AI systems',
-    sub_fr: 'L\'IA en production, pas en démo.',
-    sub_en: 'AI in production, not in a demo.',
-    lead_fr: 'Automatisations, agents IA, intégration Claude et applications internes sur une base gouvernée. On exécute le répétitif, on outille, on mesure.',
-    lead_en: 'Automations, AI agents, Claude integration and internal apps on a governed base. We run the repetitive, equip, measure.',
-    cta_fr: 'Voir le système →',
-    cta_en: 'See the system →',
+    eyebrow_fr: 'VUE D’ENSEMBLE',
+    eyebrow_en: 'OVERVIEW',
+    title_fr: 'Automatisation IA pour PME',
+    title_en: 'AI automation for SMEs',
+    sub_fr: 'Les modules, leur articulation, les prix.',
+    sub_en: 'The modules, how they fit, the prices.',
+    lead_fr: 'Automatisations, agents IA, intégration de Claude, applications internes et reporting : ce que fait chaque module, comment ils se combinent et par lequel commencer.',
+    lead_en: 'Automations, AI agents, Claude integration, internal applications and reporting: what each module does, how they combine and which to start with.',
+    cta_fr: 'Voir l’offre automatisation →',
+    cta_en: 'See the automation offer →',
     href: '/services/systemes-operationnels-ia',
   },
   offers: [
     {
-      price_fr: 'EXÉCUTER',
-      price_en: 'EXECUTE',
-      title_fr: 'Automatisations',
-      title_en: 'Automations',
-      lead_fr: 'Des workflows qui suppriment la ressaisie entre vos outils : le geste répétitif tourne seul, sans erreur.',
-      lead_en: 'Workflows that remove re-entry between your tools: the repetitive gesture runs on its own, without error.',
+      price_fr: 'WORKFLOWS',
+      price_en: 'WORKFLOWS',
+      title_fr: 'Automatisation des processus',
+      title_en: 'Process automation',
+      lead_fr: 'Les workflows qui suppriment la ressaisie entre vos outils : une donnée saisie une fois circule partout où elle est utile.',
+      lead_en: 'Workflows that remove re-keying between your tools: data entered once flows everywhere it is needed.',
       cta_fr: 'Voir le service →',
       cta_en: 'See the service →',
       href: '/services/automatisations',
     },
     {
-      price_fr: 'RAISONNER',
-      price_en: 'REASON',
+      price_fr: 'N8N',
+      price_en: 'N8N',
+      title_fr: 'Automatisation n8n',
+      title_en: 'n8n automation',
+      lead_fr: 'Conception, mise en production et transfert de workflows n8n branchés à vos outils.',
+      lead_en: 'Design, production rollout and handover of n8n workflows connected to your tools.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/automatisation-n8n',
+    },
+    {
+      price_fr: 'AGENTS',
+      price_en: 'AGENTS',
       title_fr: 'Agents IA',
       title_en: 'AI agents',
-      lead_fr: 'Des agents autonomes branchés à vos outils via MCP, sous supervision, mesurés sur le terrain.',
-      lead_en: 'Autonomous agents wired to your tools via MCP, under supervision, measured in the field.',
+      lead_fr: 'Des agents sur Claude ou OpenAI qui agissent dans un périmètre défini, avec une validation humaine sur les actions sensibles.',
+      lead_en: 'Agents on Claude or OpenAI acting within a defined scope, with human validation on sensitive actions.',
       cta_fr: 'Voir le service →',
       cta_en: 'See the service →',
       href: '/services/agents-ia',
@@ -194,40 +102,154 @@ const offerClaudeData = {
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
-const relatedProblemsData = {
-  type: 'related-cards-band' as const,
-  background: 'paper-2' as const,
-  // Rythme resserré (ex-.related-rhythm-base page-level) : section-base au lieu de loose.
+// 2 · Applications métier (paper)
+const applicationsData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'standard' as const,
+  wrap: true,
   pad_block: 'var(--section-base)',
-  kicker_fr: '§ Ce que couvre chaque système',
-  kicker_en: '§ What each system covers',
-  cards: [
+  eyebrow_fr: 'APPLICATIONS MÉTIER',
+  eyebrow_en: 'BUSINESS APPLICATIONS',
+  h2_fr: 'Développer l’outil qui manque.',
+  h2_en: 'Build the tool that is missing.',
+  lede_fr: 'Quand le tableur ou le logiciel du marché ne suffit plus. Avant de coder, on vérifie qu’un outil existant ne fait pas déjà le travail.',
+  lede_en: 'When the spreadsheet or off-the-shelf software is no longer enough. Before coding, we check that an existing tool does not already do the job.',
+  featured_card: {
+    eyebrow_fr: 'DÉVELOPPEMENT SUR MESURE',
+    eyebrow_en: 'CUSTOM DEVELOPMENT',
+    title_fr: 'Applications internes',
+    title_en: 'Internal applications',
+    sub_fr: 'Vous gardez le code.',
+    sub_en: 'You keep the code.',
+    lead_fr: 'Une interface simple, conçue avec ceux qui s’en servent, branchée à vos données et à vos automatisations. Le code est livré et hébergé chez vous.',
+    lead_en: 'A simple interface, designed with its users, connected to your data and automations. The code is delivered and hosted on your side.',
+    cta_fr: 'Voir les applications internes →',
+    cta_en: 'See internal applications →',
+    href: '/services/applications-internes',
+  },
+  offers: [
     {
-      kicker_fr: 'SYSTÈME · ACQUISITION',
-      kicker_en: 'SYSTEM · ACQUISITION',
-      title_fr: 'Générer des leads B2B qualifiés',
-      title_en: 'Generate qualified B2B leads',
-      lead_fr: 'Le système d\'acquisition couvre le site web IA, le SEO, le GEO et les landing pages. Il attire, capte et qualifie la demande, puis passe les leads au système commercial.',
-      lead_en: 'The acquisition system covers the AI website, SEO, GEO and landing pages. It attracts, captures and qualifies demand, then hands leads to the commercial system.',
-      href: '/services/systeme-acquisition',
+      price_fr: 'PILOTAGE',
+      price_en: 'STEERING',
+      title_fr: 'Données et reporting',
+      title_en: 'Data and reporting',
+      lead_fr: 'Les données dispersées rassemblées dans une seule base, et un reporting qui se produit tout seul.',
+      lead_en: 'Scattered data gathered in one base, and reporting that produces itself.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/donnees-reporting',
     },
     {
-      kicker_fr: 'SYSTÈME · COMMERCIAL',
-      kicker_en: 'SYSTEM · SALES',
-      title_fr: 'Transformer vos prospects en clients',
-      title_en: 'Turn prospects into customers',
-      lead_fr: 'Le système commercial couvre la prospection, le CRM avec scoring et les séquences de suivi. Il alimente le pipeline, qualifie chaque lead et relance au bon moment.',
-      lead_en: 'The commercial system covers prospecting, the CRM with scoring and follow-up sequences. It feeds the pipeline, qualifies each lead and follows up at the right time.',
+      price_fr: 'SUPPORT',
+      price_en: 'SUPPORT',
+      title_fr: 'Agent support client',
+      title_en: 'Customer support agent',
+      lead_fr: 'Un agent qui répond à partir de vos documents, trie les demandes et passe la main à un humain quand il le faut.',
+      lead_en: 'An agent that answers from your documents, triages requests and hands over to a human when needed.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/agent-support-client',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+// 3 · Conseil et formation (paper-2)
+const conseilData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'standard' as const,
+  background: 'paper-2' as const,
+  wrap: true,
+  pad_block: 'var(--section-base)',
+  eyebrow_fr: 'CONSEIL ET FORMATION',
+  eyebrow_en: 'ADVISORY AND TRAINING',
+  h2_fr: 'Savoir où investir, puis rendre l’équipe autonome.',
+  h2_en: 'Know where to invest, then make the team autonomous.',
+  lede_fr: 'Avant le projet : un audit et une feuille de route. Après : des équipes formées. Formations dispensées via Akigora, organisme certifié Qualiopi ; prise en charge possible selon votre situation.',
+  lede_en: 'Before the project: an audit and a roadmap. After: trained teams. Training delivered through Akigora, a Qualiopi-certified body; funding possible depending on your situation.',
+  featured_card: {
+    eyebrow_fr: 'PREMIÈRE ÉTAPE',
+    eyebrow_en: 'FIRST STEP',
+    title_fr: 'Audit IA PME',
+    title_en: 'SME AI audit',
+    sub_fr: 'Gratuit, 45 minutes, en visio.',
+    sub_en: 'Free, 45 minutes, on a call.',
+    lead_fr: 'On passe vos processus en revue et on repère trois automatisations rentables. Si rien ne vaut le coup aujourd’hui, on vous le dit.',
+    lead_en: 'We review your processes and spot three profitable automations. If nothing is worth it today, we tell you.',
+    cta_fr: 'En savoir plus sur l’audit →',
+    cta_en: 'More about the audit →',
+    href: '/audit-ia-pme',
+  },
+  offers: [
+    {
+      price_fr: 'FEUILLE DE ROUTE',
+      price_en: 'ROADMAP',
+      title_fr: 'Consultant IA',
+      title_en: 'AI consultant',
+      lead_fr: 'Cadrer où l’IA crée de la valeur, poser la gouvernance et accompagner le référent IA en interne.',
+      lead_en: 'Frame where AI creates value, set governance and support the in-house AI lead.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/consultant-ia-claude',
+    },
+    {
+      price_fr: 'INTÉGRATION',
+      price_en: 'INTEGRATION',
+      title_fr: 'Intégration Claude',
+      title_en: 'Claude integration',
+      lead_fr: 'Claude déployé dans l’entreprise et branché à vos outils, avec la gouvernance et un référent IA formé.',
+      lead_en: 'Claude deployed in the company and connected to your tools, with governance and a trained AI lead.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/integration-claude',
+    },
+    {
+      price_fr: 'PRIX',
+      price_en: 'PRICING',
+      title_fr: 'Tarifs',
+      title_en: 'Pricing',
+      lead_fr: 'Audit gratuit, sprint de cadrage à 999 € HT, pilote dès 2 000 € HT, accompagnement à 99 € HT de l’heure.',
+      lead_en: 'Free audit, scoping sprint at 999 € ex VAT, pilot from 2,000 € ex VAT, ongoing support at 99 € ex VAT an hour.',
+      cta_fr: 'Voir les tarifs →',
+      cta_en: 'See pricing →',
+      href: '/tarifs',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+// 4 · En appui : outils commerciaux et visibilité web (clairement secondaires)
+const supportData = {
+  type: 'related-cards-band' as const,
+  background: 'paper' as const,
+  pad_block: 'var(--section-base)',
+  kicker_fr: '§ En appui · des outils au service du système',
+  kicker_en: '§ In support · tools serving the system',
+  cards: [
+    {
+      kicker_fr: 'OUTILS COMMERCIAUX',
+      kicker_en: 'SALES TOOLING',
+      title_fr: 'Prospection, CRM et relances automatisés',
+      title_en: 'Automated prospecting, CRM and follow-ups',
+      lead_fr: 'Les mêmes briques d’automatisation, appliquées au pipeline commercial : prospection, scoring et affectation dans le CRM, séquences de suivi.',
+      lead_en: 'The same automation building blocks, applied to the sales pipeline: prospecting, scoring and assignment in the CRM, follow-up sequences.',
       href: '/services/systeme-commercial',
     },
     {
-      kicker_fr: 'SYSTÈME · OPÉRATIONS ET IA',
-      kicker_en: 'SYSTEM · OPERATIONS AND AI',
-      title_fr: 'Automatiser vos opérations avec l\'IA',
-      title_en: 'Automate your operations with AI',
-      lead_fr: 'Le système opérationnel et IA couvre les automatisations, les agents IA, l\'intégration Claude et les applications internes. Il exécute le répétitif et outille les équipes sur une base gouvernée.',
-      lead_en: 'The operational and AI system covers automations, AI agents, Claude integration and internal apps. It runs the repetitive and equips teams on a governed base.',
-      href: '/services/systemes-operationnels-ia',
+      kicker_fr: 'VISIBILITÉ WEB',
+      kicker_en: 'WEB VISIBILITY',
+      title_fr: 'Site, référencement Google et moteurs IA',
+      title_en: 'Website, Google and AI-engine visibility',
+      lead_fr: 'Waimia n’est pas une agence web. Un site rapide et lisible par les moteurs IA reste un outil utile quand il amène la demande que le système traite.',
+      lead_en: 'Waimia is not a web agency. A fast site readable by AI engines remains a useful tool when it brings the demand the system processes.',
+      href: '/services/systeme-acquisition',
+    },
+    {
+      kicker_fr: 'CAS D’USAGE',
+      kicker_en: 'USE CASES',
+      title_fr: 'Partir du problème',
+      title_en: 'Start from the problem',
+      lead_fr: 'Standardiser un processus, centraliser des données, réduire le temps de reporting : les cas d’usage détaillent ce qu’on automatise et comment on mesure le gain.',
+      lead_en: 'Standardise a process, centralise data, cut reporting time: the use cases detail what we automate and how the gain is measured.',
+      href: '/cas-usages',
     },
   ],
 } satisfies SectionByType<'related-cards-band'>;
@@ -236,29 +258,26 @@ const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Par où <em>commencer</em> ?<br />Un audit gratuit le dit.',
   h2_en: 'Where to <em>start</em>?<br />A free audit tells you.',
-  body_fr: '45 min, gratuit. Vous repartez avec la réponse sur votre site et votre système d\'acquisition, un plan d\'action pour votre objectif, et au moins 2 process à automatiser.',
-  body_en: '45 min, free. You leave with the answer on your site and acquisition system, an action plan for your goal, and at least 2 processes to automate.',
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/audit-ia-pme', variant: 'primary' as const },
-  cta_secondary: { label_fr: 'Voir les cas clients →', label_en: 'See case studies →', href: '/cas-clients', variant: 'ghost' as const },
+  body_fr: 'Quarante-cinq minutes en visio, sans engagement. On passe vos processus en revue et vous repartez avec trois automatisations rentables identifiées.',
+  body_en: 'Forty-five minutes on a call, no commitment. We review your processes and you leave with three profitable automations identified.',
+  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
+  cta_secondary: { label_fr: 'Voir les réalisations →', label_en: 'See our work →', href: '/cas-clients', variant: 'ghost' as const },
   background: 'ink' as const,
 } satisfies SectionByType<'cta-final'>;
 
 // Page composable : séquence de sections rendue par <SectionsRenderer> (registry).
-// Le rythme vertical ex-page-level (.offer-rhythm-base / .related-rhythm-base) est
-// désormais porté par la prop `pad_block` des sections concernées (0 style page-level).
 const sections = [
   heroData,
-  offerWebMediaData,
-  offerWebData,
-  offerClaudeMediaData,
-  offerClaudeData,
-  relatedProblemsData,
+  automationData,
+  applicationsData,
+  conseilData,
+  supportData,
   ctaData,
 ] satisfies SectionData[];
 ---
 <Base
-  title="Solutions IA pour PME : acquisition, commercial et opérations · Waimia"
-  description="Trois systèmes IA pour les PME : acquisition de leads, développement commercial et opérations automatisées. L'audit gratuit dit par où commencer."
+  title="Solutions : automatisation, agents IA, applications métier · Waimia"
+  description="Les prestations du studio Waimia pour PME et ETI : automatisation des processus, agents IA, applications métier, conseil et formation. Audit gratuit."
   jsonLd={solutionsJsonLd}
 >
 
