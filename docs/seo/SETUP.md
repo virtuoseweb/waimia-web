@@ -9,7 +9,7 @@
 >
 > La procédure reste ici pour référence : changement de clé, nouveau compte de service, dépannage, autre site. La file Brave Search, ajoutée ensuite, ne demande aucune configuration (ni secret ni compte) : voir `docs/seo/ROUTINE.md`, section 12.
 
-Ce que Simon fait lui-même, une seule fois. Compter quinze minutes. Tant que ce n'est pas fait, la collecte tourne quand même chaque lundi, sans les données Search Console ni les notifications de l'Indexing API (flux, concurrents, IndexNow et file Brave seulement).
+Ce que Simon fait lui-même, une seule fois. Compter quinze minutes. Tant que ce n'est pas fait, la collecte tourne quand même chaque semaine, sans les données Search Console ni les notifications de l'Indexing API (flux, concurrents, IndexNow et file Brave seulement).
 
 Étapes vérifiées dans la documentation Google le 4 octobre 2026 (liens en bas de page). Les libellés des consoles peuvent changer.
 
@@ -104,10 +104,14 @@ La clé IndexNow n'est pas un secret : c'est le fichier `public/34c4e7bcd4aa2c94
 
 ## 6. Planifier la session Claude et la tâche Brave
 
-La collecte tourne le lundi à 04:30 UTC. Deux tâches planifiées la suivent, le lundi :
+La collecte tourne le dimanche à 19:17 UTC (21 h 17 à Paris en été, 20 h 17 en hiver). Un second créneau, le lundi à 03:17 UTC, sert de rattrapage : il ne refait rien si une collecte complète de moins de 36 heures existe déjà (`scripts/seo-routine/freshness.mjs`), donc aucun double envoi à l'Indexing API ni à IndexNow. Jusqu'au 5 octobre 2026, la collecte n'avait qu'un créneau, le lundi à 04:30 UTC, à une heure environ de la session : un retard ou un créneau manqué laissait la session sans données du jour.
 
-- la session Claude hebdomadaire de contenu (en début de matinée, heure de Paris), avec pour consigne : « Exécute `docs/seo/ROUTINE.md` dans le repo `virtuoseweb/waimia-web`. » Elle ne se sert que des données du repo, jamais du navigateur ;
-- la tâche « Soumission Brave hebdomadaire Waimia », qui soumet la file `latest.json > brave.toSubmit` au formulaire de Brave Search par le navigateur de Simon. Elle exige son ordinateur allumé. Procédure : `docs/seo/ROUTINE.md`, section 12.
+Deux tâches planifiées suivent, le lundi matin. Le texte exact de chacune est versionné : c'est lui qu'on recopie dans la tâche, et qu'on met à jour ici quand la tâche change.
+
+- la session Claude hebdomadaire de contenu (7 h 42 à Paris) : `docs/seo/prompts/routine-hebdo.md`. Elle lit les mesures dans le repo, fait sa recherche en ligne avec les outils web de la session, et n'utilise jamais le navigateur de Simon ;
+- la tâche « Soumission Brave hebdomadaire Waimia » (8 h 21 à Paris) : `docs/seo/prompts/brave.md`. Elle calcule sa file elle-même depuis le sitemap de production (`node scripts/seo-routine/brave-queue.mjs --from-sitemap --days=8`, ou à la main), y ajoute `latest.json > brave.toSubmit` s'il existe, et la soumet au formulaire de Brave Search par le navigateur de Simon. Elle exige son ordinateur allumé. Procédure : `docs/seo/ROUTINE.md`, section 12.
+
+Si un créneau planifié ne part pas (c'est arrivé le 5 octobre 2026 : aucun run `schedule`), rien n'est bloqué : la session produit son contenu sans la collecte, la tâche Brave ne lit que le sitemap, et le workflow se lance à la main depuis l'onglet « Actions ».
 
 ## Ce que la routine fait pour l'indexation, et ce que Google garantit
 
@@ -135,11 +139,11 @@ Quotas par défaut de l'Indexing API, par projet Google Cloud : 200 requêtes `p
 
 **IndexNow, pour les autres moteurs.** Bing, Yandex, Seznam et Naver. Google n'y participe pas.
 
-**Brave Search, hors API.** Brave n'a ni API d'indexation, ni outil pour webmasters, ni IndexNow (vérifié le 4 octobre 2026, <https://search.brave.com/help/brave-search-crawler>). Seul existe un formulaire, une URL à la fois : <https://search.brave.com/submit-url>. La collecte calcule donc seulement la file des URL nouvelles ou modifiées (`scripts/seo-routine/brave-queue.mjs`, clé `brave` de `latest.json`) ; la soumission se fait par le navigateur de Simon, dans la tâche planifiée dédiée. Les 73 URL du sitemap ont été soumises une première fois à la main le 4 octobre 2026. Détail : `docs/seo/ROUTINE.md`, section 12.
+**Brave Search, hors API.** Brave n'a ni API d'indexation, ni outil pour webmasters, ni IndexNow (vérifié le 4 octobre 2026, <https://search.brave.com/help/brave-search-crawler>). Seul existe un formulaire, une URL à la fois : <https://search.brave.com/submit-url>. La soumission se fait par le navigateur de Simon, dans la tâche planifiée dédiée, qui calcule sa file elle-même : URL du sitemap de production au `lastmod` de moins de 8 jours, plus la file de la collecte (clé `brave` de `latest.json`) quand elle existe, 40 URL au plus par exécution. Les 73 URL du sitemap ont été soumises une première fois à la main le 4 octobre 2026. Détail : `docs/seo/ROUTINE.md`, section 12.
 
 Le bouton « Demander l'indexation » de Search Console reste manuel : le compte rendu hebdomadaire dit quand une page le mérite.
 
-Après la fusion d'une PR de contenu, il n'y a rien à lancer : les pages créées ou modifiées (celles dont `updatedAt`, donc le `lastmod` du sitemap, a changé) partent à la collecte suivante, par IndexNow et par l'Indexing API, et entrent dans la file Brave. Pour ne pas attendre le lundi, lancer le workflow à la main (sans cocher la première passe).
+Après la fusion d'une PR de contenu, il n'y a rien à lancer : les pages créées ou modifiées (celles dont `updatedAt`, donc le `lastmod` du sitemap, a changé) partent à la collecte suivante, par IndexNow et par l'Indexing API, et la tâche Brave du lundi suivant les prend dans le sitemap. Pour ne pas attendre le dimanche, lancer le workflow à la main (sans cocher la première passe).
 
 ## Où vont les données, et pourquoi
 
@@ -159,13 +163,16 @@ Le repo est privé sur un plan GitHub gratuit : la protection de branche n'y est
 | --- | --- |
 | `node scripts/seo-routine/run.mjs` | Collecte complète, écrit `docs/seo/data/`. `--dry-run` : aucune écriture externe. `--indexing-all` : première passe complète de l'Indexing API. `--brave-all` : tout le sitemap dans la file Brave. `--only=feeds,competitors` : étapes choisies. `SEO_DATA_DIR=<dossier>` : écrit ailleurs (essai local). |
 | `node scripts/seo-routine/indexing-api.mjs` | Indexing API seule : URL nouvelles ou modifiées. `--all` : tout le sitemap. `--dry-run` : liste ce qui partirait. `--url <url>` : soumet une URL précise. `--status <url>` : dernière notification connue de Google pour cette URL (`urlNotifications.getMetadata`). Demande `GSC_SERVICE_ACCOUNT_JSON` dans l'environnement. |
-| `node scripts/seo-routine/brave-queue.mjs` | File Brave seule : URL nouvelles ou modifiées depuis la dernière file. Ne soumet rien. `--all` : tout le sitemap. `--dry-run` : affiche la file sans écrire l'état. |
+| `node scripts/seo-routine/brave-queue.mjs` | File Brave de la collecte : URL nouvelles ou modifiées depuis la dernière file. Ne soumet rien. `--all` : tout le sitemap. `--dry-run` : affiche la file sans écrire l'état. |
+| `node scripts/seo-routine/brave-queue.mjs --from-sitemap --days=8` | File Brave autonome, pour la tâche Brave : URL du sitemap de production au `lastmod` de moins de 8 jours, plus `brave.toSubmit` de `latest.json` s'il existe. Ni secret, ni état, rien n'est écrit. `--cap=40` : plafond par exécution. `--offset=40` : lot suivant. `--sitemap=<URL ou fichier>` : autre sitemap. `--json` : sortie structurée. |
+| `node scripts/seo-routine/freshness.mjs` | Fraîcheur de la dernière collecte : `FRAÎCHE` si `generatedAt` a moins de 48 heures et qu'aucune étape n'est en erreur. `--max-hours=36` : seuil du rattrapage. `--strict` : code 1 si pas fraîche. |
 | `node scripts/seo-routine/feeds.mjs --check` | État de chaque flux de `feeds.json`. |
 | `node scripts/seo-routine/check-config.mjs` | Vérifie `keywords.json` (chaque page cible existe), `feeds.json`, `competitors.json`, la clé IndexNow. |
+| `node scripts/seo-routine/check-calendar.mjs` | Vérifie `calendrier-editorial.json` : schéma, types et statuts, semaines, `urlCible` unique parmi les entrées actives, pages des révisions. Avertit sous 6 semaines d'avance. |
 | `node --test "scripts/seo-routine/tests/*.test.mjs"` | Tests unitaires. |
 | `node scripts/seo-routine/gsc-auth.mjs` | Vérifie le compte de service. |
 
-Fichiers à tenir à jour à la main : `docs/seo/keywords.json` (mots-clés suivis et pages cibles), `docs/seo/feeds.json` (flux, et éditeurs sans flux dans `noFeed`), `docs/seo/competitors.json`.
+Fichiers à tenir à jour à la main : `docs/seo/keywords.json` (mots-clés suivis et pages cibles), `docs/seo/feeds.json` (flux, et éditeurs sans flux dans `noFeed`), `docs/seo/competitors.json`. Le calendrier éditorial `docs/seo/calendrier-editorial.json` est tenu par la session hebdomadaire ; Simon peut y ajouter une idée ou en abandonner une à tout moment.
 
 Quotas de l'API d'inspection d'URL : 2 000 requêtes par jour et 600 par minute pour une propriété. Le script plafonne à 1 800 par exécution et à 300 par minute ; le sitemap compte moins de 100 URL.
 
