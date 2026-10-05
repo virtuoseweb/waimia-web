@@ -175,7 +175,16 @@ node scripts/illustrations/add-illustration.mjs <slug> --palette duotone --cast 
 ```bash
 npx -y pnpm@9.15.0 exec astro check   # 0 errors
 npx -y pnpm@9.15.0 build              # Complete!
+# Si un contenu (title, description, alt, liens) a changé : rejouer les gates du job CI
+# « SEO (build de production) » sur un build WAIMIA_INTERNAL_TOOLS=0 :
+WAIMIA_INTERNAL_TOOLS=0 npx -y pnpm@9.15.0 build
+for g in check-head check-jsonld check-sitemap check-seo check-static-quality; do node scripts/$g.mjs || break; done
 ```
+Leçons PR #73 (build et `astro check` passaient, le CI non) :
+- `description_fr` à 176 caractères → `check-head` rouge (max 160) ;
+- lien `link_href` vers `/services/agents-ia/agent-support-client` : listé dans
+  `site-pages.generated.ts` mais non généré → `check-static-quality` rouge. Une cible de lien
+  se vérifie dans `dist/client/<chemin>/index.html`, pas dans une liste de pages.
 Puis capture Playwright de la page concernée (illustration visible, pas de déformation),
 commit sur la branche de travail : les WebP + `src/data/illustrations.json` + le contenu
 modifié. Ne jamais commiter `.illustrations-tmp/`.
