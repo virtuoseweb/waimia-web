@@ -6,34 +6,15 @@
  *   - la clé IndexNow de config.mjs correspond au fichier public/<clé>.txt.
  * Sort en erreur (code 1) à la première incohérence. Usage : node scripts/seo-routine/check-config.mjs
  */
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROOT, SEO_DIR, INDEXNOW_KEY } from './config.mjs';
 import { normalizeText } from './lib/util.mjs';
+import { targetExists } from './lib/targets.mjs';
 
 const errors = [];
 const err = (m) => errors.push(m);
 const read = (name) => JSON.parse(readFileSync(join(SEO_DIR, name), 'utf8'));
-
-function contentBasenames(dir, out = new Set()) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    if (e.isDirectory()) contentBasenames(join(dir, e.name), out);
-    else if (e.name.endsWith('.json')) out.add(e.name.replace(/\.json$/, ''));
-  }
-  return out;
-}
-const CONTENT = contentBasenames(join(ROOT, 'src', 'content'));
-
-/** Une cible existe si une route statique src/pages lui correspond, ou un contenu JSON du même nom que son dernier segment (index.json pour un hub de collection). */
-export function targetExists(target) {
-  const rel = target.replace(/^\//, '');
-  const pages = join(ROOT, 'src', 'pages');
-  if (existsSync(join(pages, `${rel}.astro`)) || existsSync(join(pages, rel, 'index.astro'))) return true;
-  const segments = rel.split('/');
-  const last = segments[segments.length - 1];
-  if (segments.length > 1 && CONTENT.has(last)) return true;
-  return segments.length === 1 && existsSync(join(ROOT, 'src', 'content', rel, 'index.json'));
-}
 
 const kw = read('keywords.json').keywords ?? [];
 if (!kw.length) err('keywords.json : aucun mot-clé');
