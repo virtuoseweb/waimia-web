@@ -40,7 +40,7 @@ export interface RelatedCardInput {
  * un contrat app, pas kernel.
  */
 export type CaseStudyContext = TemplateContext<CaseData> & {
-  /** Numéro éditorial « Case 0N » (position triée par card.order). */
+  /** Numéro éditorial « Cas 0N » / « Projet 0N » (position triée par card.order, par nature). */
   caseNum: string;
   /** Id de continuité View Transition (dérivé du pathname). */
   transitionId: string;
@@ -64,7 +64,9 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
         type: 'masthead-bar',
         breadcrumb: [
           { label_fr: 'Accueil', label_en: 'Home', href: '/' },
-          { label_fr: 'Cas clients', label_en: 'Case studies', href: '/cas-clients' },
+          data.kind === 'interne'
+            ? { label_fr: 'Projets internes', label_en: 'Internal projects', href: '/cas-clients#projets-internes' }
+            : { label_fr: 'Cas clients', label_en: 'Case studies', href: '/cas-clients' },
           { label_fr: data.title_fr, label_en: data.title_en },
         ],
       } satisfies SectionByType<'masthead-bar'>),
@@ -77,18 +79,25 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
         section: {
           type: 'hero-case-study',
           case_num: caseNum,
-          eyebrow_fr: '§ Cas client',
           // Legacy hardcodait '§ Cas client' même en EN (parité 0-régression).
-          eyebrow_en: '§ Cas client',
-          h1_fr: data.title_fr,
+          eyebrow_fr: data.kind === 'interne' ? '§ Projet interne' : '§ Cas client',
+          eyebrow_en: data.kind === 'interne' ? '§ Internal project' : '§ Cas client',
+          ...(data.kind === 'interne' ? { num_label_fr: 'Projet', num_label_en: 'Project' } : {}),
+          // Espace insécable avant « : » (typographie française) : évite un deux-points orphelin
+          // en début de ligne quand le titre passe sur plusieurs lignes en corps display.
+          h1_fr: data.title_fr.replace(/ ([:;?!])/g, '\u00a0$1'),
           h1_en: data.title_en,
           ...(data.illustration
             ? { illustration: { ...data.illustration, side: data.illustration.side ?? 'right' } }
             : {}),
           specs: [
-            { label_fr: 'Client', label_en: 'Client', value: data.ndaProtected ? 'Confidentiel' : data.client },
+            data.kind === 'interne'
+              ? { label_fr: 'Projet', label_en: 'Project', value: data.client }
+              : { label_fr: 'Client', label_en: 'Client', value: data.ndaProtected ? 'Confidentiel' : data.client },
             { label_fr: 'Secteur', label_en: 'Sector', value: data.sector_fr },
-            { label_fr: 'Durée', label_en: 'Duration', value: data.duration },
+            data.kind === 'interne'
+              ? { label_fr: 'État', label_en: 'Status', value: data.duration }
+              : { label_fr: 'Durée', label_en: 'Duration', value: data.duration },
             { label_fr: 'Stack', label_en: 'Stack', value: data.stack.slice(0, 3).join(' · ') },
           ],
         } satisfies SectionByType<'hero-case-study'>,
@@ -106,11 +115,12 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
       id: 'provenance',
       build: ({ data, lang }) => {
         const isFirstParty = data.provenance !== 'second-party';
+        const isInternal = data.kind === 'interne';
         return {
           type: 'provenance-chip',
           variant: isFirstParty ? 'solid' : 'outline',
-          label_fr: isFirstParty ? 'Projet réalisé · Waimia' : 'Étude · sources tierces',
-          label_en: isFirstParty ? 'Completed project · Waimia' : 'Study · third-party sources',
+          label_fr: isInternal ? 'Projet interne · Waimia' : isFirstParty ? 'Projet réalisé · Waimia' : 'Étude · sources tierces',
+          label_en: isInternal ? 'Internal project · Waimia' : isFirstParty ? 'Completed project · Waimia' : 'Study · third-party sources',
           href: localizeHref('/sources-methodologie', lang),
         } satisfies SectionByType<'provenance-chip'>;
       },
@@ -128,8 +138,8 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
 
     // ── CONTEXTE : problem-statement (frontmatter migré) SINON corps de page (prose) →
     //    editorial-prose. Reproduit EXACTEMENT le gate legacy `problemStatement ? … :
-    //    <Content/>`. Les 5 cas ont tous contextStatement → problem-statement (la prose
-    //    body_sections reste donnée dormante, cf rapport §editorial-prose). ────────────
+    //    <Content/>`. Avec contextStatement → problem-statement ; la prose `body_sections`
+    //    est alors rendue plus bas (étape `body-prose`, après les livrables). ───────────
     {
       id: 'context',
       build: ({ data }) => {
@@ -192,12 +202,34 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
       when: ({ data }) => Boolean(data.deliverableCards && data.deliverableCards.length >= 2),
       build: ({ data }) => ({
         type: 'deliverables-grid',
-        kicker_fr: '§ Livré',
-        kicker_en: '§ Shipped',
+        kicker_fr: data.deliverablesKicker_fr ?? '§ Livré',
+        kicker_en: data.deliverablesKicker_en ?? '§ Shipped',
         title_fr: data.deliverablesHeading_fr ?? "Ce qu'on a livré.",
         title_en: data.deliverablesHeading_en ?? 'What we shipped.',
         items: data.deliverableCards!,
       } satisfies SectionByType<'deliverables-grid'>),
+    },
+
+    // ── CORPS ÉDITORIAL → editorial-prose (html_fr porté par la donnée). C'est ici que la
+    //    fiche sépare ses volets (site et marketing / IA), dit le rôle de l'IA et celui de
+    //    l'humain, les garde-fous, et ce qui est mesuré ou non. Rendu seulement quand le
+    //    contexte est déjà porté par `contextStatement` (sinon l'étape `context` l'émet). ──
+    {
+      id: 'body-prose',
+      when: ({ data }) =>
+        Boolean(data.contextStatement_fr || data.contextStatement_en) &&
+        Boolean(data.body_sections && data.body_sections.length > 0),
+      build: ({ data }) =>
+        data.body_sections!.map(
+          (p) =>
+            ({
+              type: 'editorial-prose',
+              background: p.background ?? 'paper-2',
+              ...(p.maxWidth ? { maxWidth: p.maxWidth } : {}),
+              html_fr: p.html_fr,
+              ...(p.html_en ? { html_en: p.html_en } : {}),
+            }) satisfies SectionByType<'editorial-prose'>,
+        ),
     },
 
     // ── SITE LIVRÉ → site-showcase (migré uniquement, screens > 0) ───────────────────
@@ -248,8 +280,8 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
         if (!data.pullQuote_fr) {
           return {
             type: 'problem-statement',
-            kicker_fr: '§ Le résultat',
-            kicker_en: '§ The result',
+            kicker_fr: data.impactKicker_fr ?? '§ Le résultat',
+            kicker_en: data.impactKicker_en ?? '§ The result',
             statement_fr: data.impact_fr,
             statement_en: data.impact_en ?? data.impact_fr,
           } satisfies SectionByType<'problem-statement'>;
@@ -313,8 +345,8 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
       when: ({ relatedCards }) => relatedCards.length >= 2,
       build: ({ relatedCards }) => ({
         type: 'related-cards-band',
-        kicker_fr: '§ Autres cas',
-        kicker_en: '§ Other cases',
+        kicker_fr: '§ Autres réalisations',
+        kicker_en: '§ Other work',
         cards: relatedCards.slice(0, 3).map((c) => ({
           kicker_fr: c.kicker,
           kicker_en: c.kicker,

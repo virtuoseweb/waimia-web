@@ -1,0 +1,472 @@
+{
+  "$schema": "../../schemas/generated/cas-usages.page.schema.json",
+  "title_fr": "Automatisation du service client : par où commencer · Waimia",
+  "title_en": "Customer service automation: where to start · Waimia",
+  "description_fr": "Automatisation du service client et du SAV en PME : les tâches à traiter d'abord, le pilote, les garde-fous, et des études de cas du marché sourcées.",
+  "description_en": "Customer service and after-sales automation for SMBs: which tasks first, the pilot, the safeguards, and sourced market case studies.",
+  "slug": "support-sav",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "support-sav",
+    "service-client",
+    "agents-ia",
+    "automatisation"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Faut-il un chatbot ou un agent IA pour le service client ?",
+      "a": "Un chatbot scripté suit un arbre de questions prévu à l'avance : il suffit quand dix questions font l'essentiel du volume et que la réponse ne dépend pas du dossier du client. Un agent IA lit une demande formulée librement, va chercher la commande ou le contrat dans vos outils et prépare une réponse. Il se justifie quand la réponse dépend du dossier. Dans les deux cas, on commence par compter les demandes par type."
+    },
+    {
+      "q": "À partir de quel volume l'automatisation du service client est-elle rentable ?",
+      "a": "Il n'y a pas de seuil universel. Le calcul tient en trois chiffres : le nombre de demandes d'un même type par mois, le temps passé sur chacune, et la part que l'on peut traiter sans jugement. En dessous d'une dizaine de demandes par semaine, une FAQ à jour et des réponses types font le travail. Le calculateur de ROI vous donne l'ordre de grandeur avec vos chiffres."
+    },
+    {
+      "q": "L'agent peut-il envoyer des réponses sans relecture ?",
+      "a": "Techniquement oui, et certaines entreprises le font sur des demandes simples. Notre recommandation pour un premier pilote : l'agent prépare, une personne valide et envoie. On mesure pendant quelques semaines le taux de réponses envoyées sans modification, type de demande par type de demande. On n'ouvre l'envoi automatique que là où ce taux est élevé et où une erreur ne coûte rien de grave."
+    },
+    {
+      "q": "Faut-il dire au client qu'il parle à une IA ?",
+      "a": "Oui. La Commission européenne indique que, face à un système tel qu'un chatbot, les personnes doivent être informées qu'elles interagissent avec une machine, et que les règles de transparence de l'AI Act entrent en application en août 2026 (page consultée le 5 octobre 2026). Au-delà de l'obligation, c'est une question de confiance : un client qui découvre seul qu'il parlait à un automate ne vous le pardonne pas."
+    },
+    {
+      "q": "Quelles données client l'agent voit-il ?",
+      "a": "Celles dont il a besoin pour répondre, et pas davantage : le message, la commande concernée, le suivi du transporteur. On liste ces données avant de construire, on écarte ce qui n'est pas utile (moyens de paiement, historique complet), on fixe une durée de conservation des échanges et on inscrit le traitement à votre registre RGPD."
+    },
+    {
+      "q": "Combien de temps avant un premier agent en production ?",
+      "a": "Quelques semaines pour un premier type de demande, si vos réponses existent déjà par écrit. Si les procédures sont dans la tête de deux personnes, l'essentiel du travail consiste à les écrire, et le calendrier en dépend. Le prix se fixe sur devis après l'audit gratuit ; la page du service donne le prix d'entrée."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Do you need a chatbot or an AI agent for customer service?",
+      "a": "A scripted chatbot follows a question tree planned in advance: it is enough when ten questions make up most of the volume and the answer does not depend on the customer's file. An AI agent reads a freely worded request, looks up the order or contract in your tools and prepares a reply. It is justified when the answer depends on the file. Either way, you start by counting requests by type."
+    },
+    {
+      "q": "From what volume is customer service automation worth it?",
+      "a": "There is no universal threshold. The calculation takes three numbers: how many requests of one type per month, the time spent on each, and the share that can be handled without judgement. Below about ten requests a week, an up-to-date FAQ and canned replies do the job. The ROI calculator gives you the order of magnitude with your own figures."
+    },
+    {
+      "q": "Can the agent send replies without review?",
+      "a": "Technically yes, and some companies do it on simple requests. Our recommendation for a first pilot: the agent prepares, a person approves and sends. For a few weeks you measure the share of replies sent unchanged, request type by request type. Automatic sending is only opened where that share is high and an error costs nothing serious."
+    },
+    {
+      "q": "Must you tell the customer they are talking to an AI?",
+      "a": "Yes. The European Commission states that, with systems such as chatbots, people should be made aware that they are interacting with a machine, and that the AI Act transparency rules come into effect in August 2026 (page read on 5 October 2026). Beyond the obligation, it is a matter of trust: a customer who finds out alone that they were talking to a bot does not forgive it."
+    },
+    {
+      "q": "Which customer data does the agent see?",
+      "a": "What it needs to answer, and no more: the message, the order concerned, the carrier tracking. These data are listed before building, what is not useful is excluded (payment methods, full history), a retention period for exchanges is set and the processing is entered in your GDPR register."
+    },
+    {
+      "q": "How long before a first agent is in production?",
+      "a": "A few weeks for a first request type, if your answers already exist in writing. If the procedures live in two people's heads, most of the work is writing them down, and the schedule depends on it. The price is quoted after the free audit; the service page gives the entry price."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Cas d'usage · support et SAV",
+      "kicker_en": "§ Use case · support and after-sales",
+      "h1_fr": "Automatisation du service client et du SAV",
+      "h1_en": "Customer service and after-sales automation",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Automatiser le service client, c'est faire préparer par un agent IA les réponses aux demandes qui reviennent (où est ma commande, comment retourner un article, où trouver ma facture), à partir de vos données, et laisser une personne valider ce qui engage l'entreprise. Cette page s'adresse aux PME et ETI qui reçoivent chaque semaine les mêmes demandes par e-mail, formulaire ou chat.",
+      "lede_en": "Automating customer service means having an AI agent prepare replies to recurring requests (where is my order, how do I return an item, where is my invoice) from your data, and letting a person approve whatever commits the company. This page is for SMBs and mid-caps that receive the same requests every week by email, form or chat.",
+      "badges": [
+        {
+          "label_fr": "Demandes récurrentes",
+          "label_en": "Recurring requests"
+        },
+        {
+          "label_fr": "Validation humaine avant envoi",
+          "label_en": "Human approval before sending"
+        },
+        {
+          "label_fr": "Un canal à la fois",
+          "label_en": "One channel at a time"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-agents-production.svg",
+      "media_alt_fr": "Schéma : des demandes entrantes traitées par un agent, avec un point de validation humaine",
+      "media_alt_en": "Diagram: incoming requests handled by an agent, with a human approval point"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Que peut-on automatiser dans un service client, et par où commencer ?",
+      "question_en": "What can be automated in customer service, and where to start?",
+      "term_fr": "La réponse courte",
+      "term_en": "The short answer",
+      "answer_fr": "On automatise d'abord le tri des demandes et les réponses qui se trouvent déjà dans vos outils : suivi de commande, délais, documents, questions sur une procédure. On commence par compter les demandes d'un mois, classées par type, puis on choisit le type le plus fréquent dont la réponse ne demande aucun jugement. L'agent prépare la réponse, une personne l'envoie. Les remboursements, les litiges et les gestes commerciaux restent décidés par un humain.",
+      "answer_en": "Start with request triage and the answers already sitting in your tools: order tracking, lead times, documents, procedural questions. First count one month of requests by type, then pick the most frequent type whose answer needs no judgement. The agent prepares the reply, a person sends it. Refunds, disputes and goodwill gestures remain a human decision."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "variant": "editorial",
+      "kicker_fr": "§ Tâches candidates",
+      "kicker_en": "§ Candidate tasks",
+      "heading_fr": "Les tâches du support, classées par rentabilité probable et par risque",
+      "heading_en": "Support tasks, ranked by likely return and by risk",
+      "caption_fr": "Classement indicatif, à refaire avec vos volumes. La rentabilité dépend du nombre de demandes ; le risque, de ce que coûte une réponse fausse.",
+      "caption_en": "Indicative ranking, to redo with your volumes. Return depends on the number of requests; risk on what a wrong answer costs.",
+      "columns_fr": [
+        "Tâche",
+        "Rentabilité probable",
+        "Risque",
+        "Ce que nous conseillons"
+      ],
+      "columns_en": [
+        "Task",
+        "Likely return",
+        "Risk",
+        "What we advise"
+      ],
+      "rows_fr": [
+        [
+          "Trier et étiqueter les demandes entrantes",
+          "Forte dès que le volume existe",
+          "Faible : une erreur de tri se corrige",
+          "Premier chantier. Aucun message ne part vers le client."
+        ],
+        [
+          "Répondre au suivi de commande",
+          "Forte : souvent le premier motif de contact",
+          "Faible si la donnée vient du transporteur",
+          "Deuxième chantier, avec validation humaine au départ."
+        ],
+        [
+          "Répondre aux questions de procédure (retour, garantie, facture)",
+          "Moyenne à forte",
+          "Moyen : la procédure doit être écrite et à jour",
+          "L'agent cite sa source. Sans source, il transmet."
+        ],
+        [
+          "Préparer le dossier d’une réclamation",
+          "Moyenne : gain de temps pour la personne qui traite",
+          "Faible : la décision reste humaine",
+          "Résumé, pièces et historique rassemblés ; la réponse est écrite par une personne."
+        ],
+        [
+          "Modifier une commande ou une adresse",
+          "Moyenne",
+          "Élevé : action irréversible une fois expédié",
+          "Plus tard, après des semaines de mesure, et avec confirmation du client."
+        ],
+        [
+          "Décider d’un remboursement ou d’un geste commercial",
+          "Faible",
+          "Élevé : argent et relation client",
+          "À ne pas automatiser. L’agent prépare, une personne décide."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Sort and tag incoming requests",
+          "High once there is volume",
+          "Low: a sorting error is corrected",
+          "First project. No message goes out to the customer."
+        ],
+        [
+          "Answer order tracking",
+          "High: often the top contact reason",
+          "Low if the data comes from the carrier",
+          "Second project, with human approval at first."
+        ],
+        [
+          "Answer procedural questions (returns, warranty, invoice)",
+          "Medium to high",
+          "Medium: the procedure must be written and current",
+          "The agent cites its source. Without a source, it hands over."
+        ],
+        [
+          "Prepare a complaint file",
+          "Medium: time saved for the person handling it",
+          "Low: the decision stays human",
+          "Summary, documents and history gathered; the reply is written by a person."
+        ],
+        [
+          "Edit an order or address",
+          "Medium",
+          "High: irreversible once shipped",
+          "Later, after weeks of measurement, and with customer confirmation."
+        ],
+        [
+          "Decide on a refund or goodwill gesture",
+          "Low",
+          "High: money and customer relationship",
+          "Do not automate. The agent prepares, a person decides."
+        ]
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le pilote",
+      "kicker_en": "§ The pilot",
+      "h2_fr": "Comment se déroule un pilote de support",
+      "h2_en": "How a support pilot runs",
+      "intro_fr": "Un pilote porte sur un canal et un type de demande. Il tourne en production, sur de vraies demandes, avec une personne qui valide.",
+      "intro_en": "A pilot covers one channel and one request type. It runs in production, on real requests, with a person approving.",
+      "steps": [
+        {
+          "title_fr": "Compter",
+          "title_en": "Count",
+          "body_fr": "On exporte un mois de demandes et on les classe par type. On en tire trois chiffres par type : volume, temps passé, part traitable sans jugement.",
+          "body_en": "One month of requests is exported and sorted by type. Three numbers per type come out: volume, time spent, share that needs no judgement.",
+          "meta_fr": "Avant de construire",
+          "meta_en": "Before building"
+        },
+        {
+          "title_fr": "Écrire",
+          "title_en": "Write",
+          "body_fr": "Pour le type retenu, on écrit la procédure : quelles données consulter, quelle réponse donner, dans quels cas transmettre. Si elle n'existe pas par écrit, c'est le vrai travail.",
+          "body_en": "For the chosen type, the procedure is written: which data to check, which reply to give, when to hand over. If it does not exist in writing, that is the real work.",
+          "meta_fr": "Avec la personne qui répond aujourd’hui",
+          "meta_en": "With the person who answers today"
+        },
+        {
+          "title_fr": "Brancher",
+          "title_en": "Connect",
+          "body_fr": "L'agent reçoit un accès en lecture à la boîte du support, à la boutique et au suivi des transporteurs. Il rédige un brouillon dans l'outil que l'équipe utilise déjà.",
+          "body_en": "The agent gets read access to the support inbox, the shop and carrier tracking. It writes a draft in the tool the team already uses.",
+          "meta_fr": "Accès limités au nécessaire",
+          "meta_en": "Access limited to what is needed"
+        },
+        {
+          "title_fr": "Valider",
+          "title_en": "Approve",
+          "body_fr": "Chaque brouillon est relu, corrigé si besoin, puis envoyé par une personne. Chaque correction est notée : c'est elle qui améliore les consignes.",
+          "body_en": "Each draft is reviewed, corrected if needed, then sent by a person. Each correction is logged: that is what improves the instructions.",
+          "meta_fr": "Aucun envoi automatique",
+          "meta_en": "No automatic sending"
+        },
+        {
+          "title_fr": "Mesurer et décider",
+          "title_en": "Measure and decide",
+          "body_fr": "Après quelques semaines : part des brouillons envoyés sans modification, temps par demande, erreurs relevées. On étend, on corrige ou on arrête, chiffres à l'appui.",
+          "body_en": "After a few weeks: share of drafts sent unchanged, time per request, errors found. Extend, fix or stop, with numbers.",
+          "meta_fr": "Décision écrite",
+          "meta_en": "Written decision"
+        }
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Périmètre",
+      "kicker_en": "§ Scope",
+      "title_fr": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+      "title_en": "What to automate, and what not to",
+      "aside_fr": "La limite n'est pas technique. Elle tient à ce que coûte une erreur et à ce que le client attend d'une personne.",
+      "aside_en": "The limit is not technical. It depends on what an error costs and on what the customer expects from a person.",
+      "use_title_fr": "À automatiser, avec relecture au départ",
+      "use_title_en": "Automate, with review at first",
+      "use_items_fr": [
+        "Le tri, l'étiquetage et la priorité des demandes",
+        "Le suivi de commande et les délais",
+        "L'envoi d'une facture ou d'un document",
+        "Les questions dont la réponse figure dans une procédure écrite",
+        "Le résumé d'un dossier avant qu'une personne le reprenne"
+      ],
+      "use_items_en": [
+        "Sorting, tagging and prioritising requests",
+        "Order tracking and lead times",
+        "Sending an invoice or a document",
+        "Questions answered by a written procedure",
+        "Summarising a file before a person takes over"
+      ],
+      "avoid_title_fr": "À ne pas automatiser",
+      "avoid_title_en": "Do not automate",
+      "avoid_items_fr": [
+        "La décision de rembourser, de refuser ou de faire un geste commercial",
+        "La réponse à un client en colère ou à une mise en demeure",
+        "Les questions de santé, de sécurité ou de conformité d’un produit",
+        "Les demandes sans numéro de commande ni client identifiable",
+        "Tout ce pour quoi aucune procédure n'est écrite"
+      ],
+      "avoid_items_en": [
+        "The decision to refund, refuse or make a goodwill gesture",
+        "The reply to an angry customer or a formal notice",
+        "Product health, safety or compliance questions",
+        "Requests with no order number or identifiable customer",
+        "Anything with no written procedure"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Les garde-fous que nous posons</h2>\n<h3>Validation humaine</h3>\n<p>L'agent ne décide pas à votre place. Dans un premier pilote, il rédige et une personne envoie. Les actions qui engagent de l'argent ou qui ne peuvent pas être annulées (remboursement, annulation, modification après expédition) restent validées à la main, même quand le reste est ouvert à l'envoi automatique.</p>\n<h3>Sources et traçabilité</h3>\n<p>L'agent répond à partir de vos données : la commande, le suivi, la procédure écrite. Quand il ne trouve pas la source, il transmet au lieu d'inventer. Chaque réponse est journalisée avec les données consultées, pour pouvoir comprendre une erreur après coup.</p>\n<h3>Données personnelles et RGPD</h3>\n<p>On liste les données envoyées au modèle et on retire ce qui n'est pas nécessaire. On fixe la durée de conservation des échanges, on inscrit le traitement à votre registre et on vérifie les conditions de l'éditeur du modèle. Le détail de notre démarche est sur la page <a href=\"/conformite-ia\">conformité IA</a>.</p>\n<h3>Transparence envers le client</h3>\n<p>Le client est informé quand il échange avec un système automatisé. La <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">Commission européenne</a> le rappelle pour les chatbots dans sa présentation de l'AI Act (page consultée le 5 octobre 2026). Et il doit toujours pouvoir joindre une personne : c'est la leçon du cas Klarna, détaillé plus bas.</p>",
+      "html_en": "<h2>The safeguards we set</h2>\n<h3>Human approval</h3>\n<p>The agent does not decide for you. In a first pilot, it drafts and a person sends. Actions that commit money or cannot be undone (refund, cancellation, change after shipping) stay manually approved, even when the rest is opened to automatic sending.</p>\n<h3>Sources and traceability</h3>\n<p>The agent answers from your data: the order, the tracking, the written procedure. When it finds no source, it hands over instead of inventing. Each reply is logged with the data consulted, so an error can be understood afterwards.</p>\n<h3>Personal data and GDPR</h3>\n<p>The data sent to the model are listed and what is not needed is removed. A retention period for exchanges is set, the processing is entered in your register and the model vendor's terms are checked. Our approach is detailed on the <a href=\"/conformite-ia\">AI compliance</a> page.</p>\n<h3>Transparency towards the customer</h3>\n<p>The customer is told when they are dealing with an automated system. The <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">European Commission</a> recalls this for chatbots in its AI Act overview (page read on 5 October 2026). And they must always be able to reach a person: that is the lesson of the Klarna case, detailed below.</p>"
+    },
+    {
+      "type": "branded-callout",
+      "background": "paper",
+      "bodyHtml": true,
+      "kicker_fr": "§ Réalisations Waimia",
+      "kicker_en": "§ Waimia work",
+      "h2_fr": "Un projet en cours, pas encore de résultat publié",
+      "h2_en": "One project in progress, no published result yet",
+      "body1_fr": "Waimia construit actuellement un agent de SAV pour un site e-commerce sur Shopify. L'agent tourne sur Claude Managed Agents. Il lit la boîte Gmail du support, la commande dans Shopify, le portail logistique et le suivi des transporteurs, puis prépare la réponse. Une personne valide avant chaque envoi.",
+      "body1_en": "Waimia is currently building an after-sales agent for a Shopify e-commerce site. The agent runs on Claude Managed Agents. It reads the support Gmail inbox, the order in Shopify, the logistics portal and carrier tracking, then prepares the reply. A person approves before each send.",
+      "body2_fr": "Le périmètre de la première version est volontairement étroit : seules les demandes rattachées à un numéro de commande sont traitées. Le projet est en cours : la fiche <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> décrit le périmètre et les garde-fous, et nous ne publions aucun chiffre tant que rien n'est mesuré en production. Le service correspondant est décrit sur la page <a href=\"/services/agent-support-client\">agent de service client</a>.",
+      "body2_en": "The scope of the first version is deliberately narrow: only requests tied to an order number are handled. The project is in progress: the <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> page describes the scope and the guardrails, and we publish no figure until something has been measured in production. The matching service is described on the <a href=\"/services/agent-support-client\">customer service agent</a> page."
+    },
+    {
+      "type": "market-cases",
+      "anchor": "etudes-de-cas-du-marche",
+      "background": "paper-3",
+      "variant": "full",
+      "kicker_fr": "§ Études de cas du marché",
+      "kicker_en": "§ Market case studies",
+      "h2_fr": "Études de cas du marché : service client",
+      "h2_en": "Market case studies: customer service",
+      "intro_fr": "Quatre déploiements réels, menés par d'autres que nous. Trois sont des études de cas commerciales d'éditeurs : elles montrent ce qui marche et taisent le reste, d'où la ligne « limites ». Le quatrième, Klarna, vaut surtout pour son retour en arrière.",
+      "intro_en": "Four real rollouts, run by others. Three are vendors' commercial case studies: they show what works and leave out the rest, hence the 'limits' line. The fourth, Klarna, matters mostly for its reversal.",
+      "groups": [
+        {
+          "function": "support-sav"
+        }
+      ]
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour chiffrer avant de décider",
+      "kicker_en": "§ To size it before deciding",
+      "cards": [
+        {
+          "kicker_fr": "Outil gratuit",
+          "kicker_en": "Free tool",
+          "title_fr": "Grille des tâches à automatiser",
+          "title_en": "Task automation grid",
+          "lead_fr": "Notez chaque tâche sur la fréquence, la stabilité des règles et le coût de l’erreur.",
+          "lead_en": "Score each task on frequency, rule stability and cost of error.",
+          "href": "/ressources/outils/grille-taches-a-automatiser"
+        },
+        {
+          "kicker_fr": "Outil gratuit",
+          "kicker_en": "Free tool",
+          "title_fr": "Calculateur de ROI IA",
+          "title_en": "AI ROI calculator",
+          "lead_fr": "Entrez vos volumes et vos temps : le calcul est affiché, hypothèses comprises.",
+          "lead_en": "Enter your volumes and times: the calculation is shown, assumptions included.",
+          "href": "/ressources/outils/calculateur-roi-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agent de service client",
+          "title_en": "Customer service agent",
+          "lead_fr": "Ce qui est livré, les règles d’escalade et le prix d’entrée.",
+          "lead_en": "What is delivered, the escalation rules and the entry price.",
+          "href": "/services/agent-support-client"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Automatisation du service client : vos questions",
+      "h2_en": "Customer service automation: your questions",
+      "items": [
+        {
+          "q_fr": "Faut-il un chatbot ou un agent IA pour le service client ?",
+          "a_fr": "Un chatbot scripté suit un arbre de questions prévu à l'avance : il suffit quand dix questions font l'essentiel du volume et que la réponse ne dépend pas du dossier du client. Un agent IA lit une demande formulée librement, va chercher la commande ou le contrat dans vos outils et prépare une réponse. Il se justifie quand la réponse dépend du dossier. Dans les deux cas, on commence par compter les demandes par type.",
+          "q_en": "Do you need a chatbot or an AI agent for customer service?",
+          "a_en": "A scripted chatbot follows a question tree planned in advance: it is enough when ten questions make up most of the volume and the answer does not depend on the customer's file. An AI agent reads a freely worded request, looks up the order or contract in your tools and prepares a reply. It is justified when the answer depends on the file. Either way, you start by counting requests by type."
+        },
+        {
+          "q_fr": "À partir de quel volume l'automatisation du service client est-elle rentable ?",
+          "a_fr": "Il n'y a pas de seuil universel. Le calcul tient en trois chiffres : le nombre de demandes d'un même type par mois, le temps passé sur chacune, et la part que l'on peut traiter sans jugement. En dessous d'une dizaine de demandes par semaine, une FAQ à jour et des réponses types font le travail. Le calculateur de ROI vous donne l'ordre de grandeur avec vos chiffres.",
+          "q_en": "From what volume is customer service automation worth it?",
+          "a_en": "There is no universal threshold. The calculation takes three numbers: how many requests of one type per month, the time spent on each, and the share that can be handled without judgement. Below about ten requests a week, an up-to-date FAQ and canned replies do the job. The ROI calculator gives you the order of magnitude with your own figures."
+        },
+        {
+          "q_fr": "L'agent peut-il envoyer des réponses sans relecture ?",
+          "a_fr": "Techniquement oui, et certaines entreprises le font sur des demandes simples. Notre recommandation pour un premier pilote : l'agent prépare, une personne valide et envoie. On mesure pendant quelques semaines le taux de réponses envoyées sans modification, type de demande par type de demande. On n'ouvre l'envoi automatique que là où ce taux est élevé et où une erreur ne coûte rien de grave.",
+          "q_en": "Can the agent send replies without review?",
+          "a_en": "Technically yes, and some companies do it on simple requests. Our recommendation for a first pilot: the agent prepares, a person approves and sends. For a few weeks you measure the share of replies sent unchanged, request type by request type. Automatic sending is only opened where that share is high and an error costs nothing serious."
+        },
+        {
+          "q_fr": "Faut-il dire au client qu'il parle à une IA ?",
+          "a_fr": "Oui. La Commission européenne indique que, face à un système tel qu'un chatbot, les personnes doivent être informées qu'elles interagissent avec une machine, et que les règles de transparence de l'AI Act entrent en application en août 2026 (page consultée le 5 octobre 2026). Au-delà de l'obligation, c'est une question de confiance : un client qui découvre seul qu'il parlait à un automate ne vous le pardonne pas.",
+          "q_en": "Must you tell the customer they are talking to an AI?",
+          "a_en": "Yes. The European Commission states that, with systems such as chatbots, people should be made aware that they are interacting with a machine, and that the AI Act transparency rules come into effect in August 2026 (page read on 5 October 2026). Beyond the obligation, it is a matter of trust: a customer who finds out alone that they were talking to a bot does not forgive it."
+        },
+        {
+          "q_fr": "Quelles données client l'agent voit-il ?",
+          "a_fr": "Celles dont il a besoin pour répondre, et pas davantage : le message, la commande concernée, le suivi du transporteur. On liste ces données avant de construire, on écarte ce qui n'est pas utile (moyens de paiement, historique complet), on fixe une durée de conservation des échanges et on inscrit le traitement à votre registre RGPD.",
+          "q_en": "Which customer data does the agent see?",
+          "a_en": "What it needs to answer, and no more: the message, the order concerned, the carrier tracking. These data are listed before building, what is not useful is excluded (payment methods, full history), a retention period for exchanges is set and the processing is entered in your GDPR register."
+        },
+        {
+          "q_fr": "Combien de temps avant un premier agent en production ?",
+          "a_fr": "Quelques semaines pour un premier type de demande, si vos réponses existent déjà par écrit. Si les procédures sont dans la tête de deux personnes, l'essentiel du travail consiste à les écrire, et le calendrier en dépend. Le prix se fixe sur devis après l'audit gratuit ; la page du service donne le prix d'entrée.",
+          "q_en": "How long before a first agent is in production?",
+          "a_en": "A few weeks for a first request type, if your answers already exist in writing. If the procedures live in two people's heads, most of the work is writing them down, and the schedule depends on it. The price is quoted after the free audit; the service page gives the entry price."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quelles demandes reviennent chaque semaine ?",
+      "h2_en": "Which requests come back every week?",
+      "subtitle_fr": "En 45 minutes, on regarde vos demandes entrantes et on vous dit si un agent se justifie à votre volume, et sur quel type de demande commencer.",
+      "subtitle_en": "In 45 minutes, we look at your incoming requests and tell you whether an agent is justified at your volume, and which request type to start with.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agent de service client",
+          "label_en": "Customer service agent",
+          "href": "/services/agent-support-client",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

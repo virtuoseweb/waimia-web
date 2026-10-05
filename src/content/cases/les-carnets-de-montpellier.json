@@ -1,10 +1,11 @@
 {
-  "title_fr": "Les Carnets de Montpellier : une communauté payante",
-  "title_en": "Les Carnets de Montpellier: a paying community",
-  "description_fr": "Site éditorial WordPress sur mesure pour un historien de Montpellier : abonnements multi-niveaux, paiement récurrent, communauté et SEO local.",
-  "description_en": "Custom WordPress editorial site for a Montpellier historian: tiered subscriptions, recurring payments, community and local SEO.",
+  "title_fr": "Les Carnets de Montpellier : média payant et agent IA",
+  "title_en": "Les Carnets de Montpellier: paid media and an AI agent",
+  "description_fr": "Média local à abonnement : site WordPress, paiement récurrent et communauté, puis agent IA sur Notion, base RAG sur le Drive et contenu automatisé.",
+  "description_en": "Subscription local media: WordPress site, recurring payment and community, then an AI agent on Notion, a RAG base on the Drive and automated content.",
   "slug": "les-carnets-de-montpellier",
   "publishedAt": "2026-06-15",
+  "updatedAt": "2026-10-05",
   "provenance": "first-party",
   "client": "Les Carnets de Montpellier",
   "sector_fr": "Patrimoine et média local",
@@ -15,10 +16,12 @@
     "Abonnements multi-niveaux",
     "Paiement récurrent",
     "FluentCommunity",
-    "SEO local"
+    "SEO local",
+    "Agent IA sur Notion",
+    "Base RAG sur le Drive"
   ],
-  "impact_fr": "40+ articles publiés, 150+ membres et 35+ abonnés payants en 3 mois, et un Top 10 sur « histoire montpellier ».",
-  "impact_en": "40+ articles published, 150+ members and 35+ paying subscribers in 3 months, plus a Top 10 ranking on \"histoire montpellier\".",
+  "impact_fr": "Volet site : 40+ articles publiés, 150+ membres et 35+ abonnés payants en 3 mois, et un Top 10 sur « histoire montpellier ». Volet IA : agent sur Notion, base RAG sur le Drive et création de contenu automatisée, sans mesure publiée.",
+  "impact_en": "Site strand: 40+ articles published, 150+ members and 35+ paying subscribers in 3 months, and a Top 10 on “histoire montpellier”. AI strand: an agent on Notion, a RAG base on the Drive and automated content creation, with no published measurement.",
   "illustration": {
     "src": "/images/illustrations/ds/band-showing-tv-paper.webp",
     "alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
@@ -139,6 +142,15 @@
       "body_en": "Set-up of the FluentCommunity space and local SEO optimization to capture searches around Montpellier's history.",
       "meta_fr": "2 semaines",
       "meta_en": "2 weeks"
+    },
+    {
+      "num": "04",
+      "label_fr": "Agent IA et base documentaire",
+      "label_en": "AI agent and document base",
+      "body_fr": "Agent IA sur Notion et configuration de l'espace avec le Drive de l'historien, qui sert de base RAG. Analyse de son ton sur des milliers de lignes de contenu. Système de création de contenu automatisé pour le site.",
+      "body_en": "An AI agent on Notion and the workspace configured with the historian’s Drive, which serves as the RAG base. Analysis of his tone across thousands of lines of content. An automated content creation system for the site.",
+      "meta_fr": "Volet IA",
+      "meta_en": "AI strand"
     }
   ],
   "deliverableCards": [
@@ -165,6 +177,22 @@
       "body_en": "A FluentCommunity forum to bring enthusiasts together, backed by a solid local SEO foundation.",
       "format_fr": "VOLET SITE",
       "format_en": "VOLET SITE"
+    },
+    {
+      "title_fr": "Agent IA sur Notion, base RAG sur le Drive",
+      "title_en": "AI agent on Notion, RAG base on the Drive",
+      "body_fr": "L'espace Notion est configuré avec le Drive : l'agent va chercher dans ces documents avant de répondre.",
+      "body_en": "The Notion workspace is configured with the Drive: the agent looks in those documents before answering.",
+      "format_fr": "VOLET IA",
+      "format_en": "AI STRAND"
+    },
+    {
+      "title_fr": "Ton analysé, contenu automatisé",
+      "title_en": "Tone analysed, content automated",
+      "body_fr": "Le ton de l'auteur a été analysé sur des milliers de lignes de contenu. Un système de création de contenu automatisé alimente le site.",
+      "body_en": "The author’s tone was analysed across thousands of lines of content. An automated content creation system feeds the site.",
+      "format_fr": "VOLET IA",
+      "format_en": "AI STRAND"
     }
   ],
   "shifts": [
@@ -235,12 +263,12 @@
   "bottlenecksHeading_en": "Knowledge, three blockers.",
   "approachHeading_fr": "Du carnet à la plateforme.",
   "approachHeading_en": "From notebook to platform.",
-  "deliverablesHeading_fr": "Un média qui se monétise.",
-  "deliverablesHeading_en": "A media outlet that monetizes.",
+  "deliverablesHeading_fr": "Un média qui se monétise, un agent qui connaît le fonds.",
+  "deliverablesHeading_en": "A media outlet that earns, an agent that knows the archive.",
   "resultsHeading_fr": "Trois mois après le lancement.",
   "resultsHeading_en": "Three months after launch.",
-  "stackLead_fr": "Un thème WordPress sur mesure, des abonnements multi-niveaux, un paiement récurrent et FluentCommunity : chaque brique sert un média qui vit de ses lecteurs.",
-  "stackLead_en": "A custom WordPress theme, tiered subscriptions, recurring payment and FluentCommunity: each block serves a media outlet that lives off its readers.",
+  "stackLead_fr": "Volet site : un thème WordPress sur mesure, des abonnements multi-niveaux, un paiement récurrent et FluentCommunity. Volet IA : un agent sur Notion et le Drive comme base RAG.",
+  "stackLead_en": "Site strand: a custom WordPress theme, tiered subscriptions, recurring payment and FluentCommunity. AI strand: an agent on Notion and the Drive as the RAG base.",
   "ctaHeading_fr": "Votre savoir peut <i>faire vivre</i> une communauté.",
   "ctaHeading_en": "Your knowledge can <i>sustain</i> a community.",
   "ctaSubtitle_fr": "L'audit gratuit de 45 minutes sert à regarder votre projet, vos outils et ce qui peut tourner sans saisie manuelle.",
@@ -264,6 +292,10 @@
     {
       "q": "Comment la communauté est-elle gérée ?",
       "a": "L'espace communautaire repose sur FluentCommunity, intégré au site, pour que les échanges restent sur le domaine de l'historien et nourrissent à la fois le SEO et la fidélisation."
+    },
+    {
+      "q": "À quoi sert le Drive dans le volet IA ?",
+      "a": "Il sert de base RAG : l'agent IA, configuré dans Notion, s'appuie sur les documents du Drive. Le ton de l'auteur a été analysé sur des milliers de lignes de contenu. Ce volet n'a pas de mesure publiée."
     }
   ],
   "faq_en": [
@@ -274,15 +306,19 @@
     {
       "q": "How is the community managed?",
       "a": "The community space runs on FluentCommunity, integrated into the site, so conversations stay on the historian's own domain and feed both SEO and retention."
+    },
+    {
+      "q": "What is the Drive for in the AI strand?",
+      "a": "It serves as the RAG base: the AI agent, configured in Notion, relies on the documents in the Drive. The author’s tone was analysed across thousands of lines of content. This strand has no published measurement."
     }
   ],
   "body_sections": [
     {
       "type": "editorial-prose",
-      "background": "paper",
+      "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<p>Fabrice Bertrand, historien, connaît Montpellier comme peu de gens. Ce savoir vivait dans des carnets et quelques conférences : aucune présence en ligne, aucun moyen d'en vivre.</p>\n<h2>Volet site et marketing</h2>\n<p>En six semaines : une architecture éditoriale par thèmes, un thème WordPress sur mesure pensé pour la lecture longue, un espace communautaire FluentCommunity et une base de référencement local.</p>\n<h2>Ce qui tourne sans saisie manuelle</h2>\n<p>Le site gère trois niveaux d'abonnement avec paiement récurrent : l'inscription, le prélèvement, l'ouverture et la fermeture des accès aux contenus réservés se font sans intervention. C'est une <a href=\"/services/automatisations\">automatisation de processus</a> au sens strict : des règles fixes, exécutées à chaque évènement.</p>\n<h2>Ce qui a été mesuré</h2>\n<p>Trois mois après le lancement : plus de 40 articles publiés, plus de 150 membres, plus de 35 abonnés payants et une présence dans les dix premiers résultats sur « histoire montpellier ».</p>",
-      "html_en": "<p>Fabrice Bertrand, a historian, knows Montpellier like few people do. That knowledge lived in notebooks and a few talks: no online presence, no way to make a living from it.</p>\n<h2>Site and marketing strand</h2>\n<p>In six weeks: an editorial architecture by themes, a custom WordPress theme designed for long reading, a FluentCommunity community space and a local SEO base.</p>\n<h2>What runs without manual entry</h2>\n<p>The site handles three subscription tiers with recurring payment: sign-up, billing, and opening and closing access to reserved content happen with no intervention. This is <a href=\"/services/automatisations\">process automation</a> in the strict sense: fixed rules, run on every event.</p>\n<h2>What was measured</h2>\n<p>Three months after launch: over 40 articles published, over 150 members, over 35 paying subscribers and a place in the top ten results for \"histoire montpellier\".</p>"
+      "html_fr": "<h2>Volet site et marketing (VirtuoseWeb)</h2>\n<p>En six semaines : une architecture éditoriale par thèmes, un thème WordPress sur mesure pensé pour la lecture longue, un espace communautaire FluentCommunity et une base de référencement local.</p>\n<h3>Ce qui tourne sans saisie manuelle</h3>\n<p>Le site gère trois niveaux d'abonnement avec paiement récurrent : l'inscription, le prélèvement, l'ouverture et la fermeture des accès aux contenus réservés se font sans intervention. C'est une <a href=\"/services/automatisations\">automatisation de processus</a> au sens strict : des règles fixes, exécutées à chaque évènement.</p>\n<h2>Volet IA (Waimia)</h2>\n<p>Quatre éléments. Un agent IA sur Notion. La configuration de l'espace Notion avec le Drive de l'historien, qui sert de base RAG : l'agent s'appuie sur ces documents. L'analyse de son ton sur des milliers de lignes de contenu. Un système de création de contenu automatisé pour le site. Le principe est décrit sur la page <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a>.</p>\n<h3>Ce que fait l'IA, ce que fait l'humain</h3>\n<ul>\n<li><strong>L'IA</strong> : l'agent s'appuie sur les documents du Drive, et le système de création de contenu produit des textes pour le site.</li>\n<li><strong>L'historien</strong> reste la source : ce sont ses documents et son écriture qui alimentent l'agent.</li>\n</ul>\n<p>Le circuit de relecture avant publication n'est pas décrit dans cette fiche.</p>\n<h2>Ce qui a été mesuré</h2>\n<p>Volet site, trois mois après le lancement : plus de 40 articles publiés, plus de 150 membres, plus de 35 abonnés payants et une présence dans les dix premiers résultats sur « histoire montpellier ». Volet IA : aucun chiffre d'impact publié à ce jour.</p>",
+      "html_en": "<h2>Site and marketing strand (VirtuoseWeb)</h2>\n<p>In six weeks: an editorial architecture by theme, a custom WordPress theme designed for long reading, a FluentCommunity community space and a local SEO base.</p>\n<h3>What runs with no manual entry</h3>\n<p>The site handles three subscription tiers with recurring payment: sign-up, billing, and opening and closing access to members-only content happen with no intervention. This is <a href=\"/services/automatisations\">process automation</a> in the strict sense: fixed rules, run on every event.</p>\n<h2>AI strand (Waimia)</h2>\n<p>Four elements. An AI agent on Notion. The Notion workspace configured with the historian’s Drive, which serves as the RAG base: the agent relies on those documents. The analysis of his tone across thousands of lines of content. An automated content creation system for the site. The principle is described on the <a href=\"/services/base-de-connaissance-ia\">AI knowledge base</a> page.</p>\n<h3>What the AI does, what people do</h3>\n<ul>\n<li><strong>The AI</strong>: the agent relies on the documents in the Drive, and the content creation system produces text for the site.</li>\n<li><strong>The historian</strong> remains the source: his documents and his writing feed the agent.</li>\n</ul>\n<p>The review path before publication is not described on this page.</p>\n<h2>What was measured</h2>\n<p>Site strand, three months after launch: more than 40 articles published, more than 150 members, more than 35 paying subscribers and a place in the top ten results for “histoire montpellier”. AI strand: no impact figure published to date.</p>"
     }
   ]
 }

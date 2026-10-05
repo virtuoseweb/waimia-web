@@ -45,15 +45,15 @@ export interface FinalizeContext {
 }
 
 /**
- * Pages où l'entité « prestataire local » du SIÈGE (avec adresse postale) est pertinente :
- * accueil, contact et la page de la ville du siège. Les autres pages de ville n'ont pas de
+ * Pages où l'entité « prestataire local » (avec l'adresse d'activité) est pertinente :
+ * accueil, contact et la page de la ville de cette adresse. Les autres pages de ville n'ont pas de
  * bureau : elles émettent `buildCityService` (zone desservie = la ville, sans adresse).
  */
 function wantsLocalBusiness(pathname: string): boolean {
   return pathname === '/' || pathname === '/contact' || pathname === `/implantations/${HQ_CITY_SLUG}`;
 }
 
-/** Slug de la page implantation du siège légal (ville de SITE.city). */
+/** Slug de la page implantation de l'adresse d'activité (ville de SITE.city). */
 export const HQ_CITY_SLUG = SITE.city
   .toLowerCase()
   .normalize('NFD')

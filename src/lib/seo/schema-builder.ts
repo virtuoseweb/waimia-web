@@ -159,7 +159,7 @@ export function founderPerson(): JsonLdObject {
 /** Référence à l'Organization du site : un seul nœud complet par page, relié par `@id`. */
 export const ORGANIZATION_REF = { '@id': SCHEMA_IDS.organization } as const;
 
-/** Adresse légale (siège). Ne change pas avec la zone desservie. */
+/** Adresse d'activité (src/site.config.ts). Ne change pas avec la zone desservie. */
 function postalAddress(): JsonLdObject {
   return {
     '@type': 'PostalAddress',
@@ -228,7 +228,7 @@ function buildWebSite(lang: Lang = 'fr'): JsonLdObject {
 }
 
 /**
- * ProfessionalService : l'entité « prestataire local ». Adresse = siège légal (inchangé),
+ * ProfessionalService : l'entité « prestataire local ». Adresse = adresse d'activité,
  * `areaServed` = villes réellement desservies. Émis sur l'accueil et les pages implantation.
  */
 function buildLocalBusiness(): JsonLdObject {
@@ -462,6 +462,7 @@ function buildPricingCatalog(name: string, url: string): JsonLdObject {
     itemListElement: ENGAGEMENT_OFFERS.map((offer) => ({
       '@type': 'Offer',
       name: offer.name,
+      ...(offer.description ? { description: offer.description } : {}),
       url,
       ...priceFields(offer.pricing),
       seller: ORGANIZATION_REF,
@@ -567,6 +568,12 @@ export interface BuildCourseInput {
    * Sans prix affiché, aucune offre n'est émise (« sur devis après audit gratuit »).
    */
   priceEur?: number;
+  /**
+   * Formats proposés et affichés sur la page (durée en heures, prix en euros HT), depuis
+   * src/data/pricing.ts → TRAINING_FORMATS. Un format = une `CourseInstance` (courseWorkload)
+   * et une `Offer`. Remplace `durationHours` / `priceEur` quand il y a plusieurs formats.
+   */
+  formats?: ReadonlyArray<{ hours: number; price: number }>;
   /** Organisme qui dispense la formation, si ce n'est pas Waimia en direct. */
   deliveredBy?: { name: string; description?: string; url?: string };
 }
@@ -579,7 +586,8 @@ const COURSE_MODE: Record<'online' | 'onsite' | 'blended', string> = {
 
 /**
  * JSON-LD `Course` pour une page /formations/*. Champs requis par Google : name,
- * description, provider. `hasCourseInstance` porte la modalité et la durée.
+ * description, provider. `hasCourseInstance` porte la modalité et la durée (une instance
+ * par format), `offers` le prix de chaque format.
  *
  *   buildCourse({ name, description, url, modes: ['online', 'onsite'],
  *                 deliveredBy: { name: 'Akigora', description: 'Organisme certifié Qualiopi' } })
@@ -587,15 +595,34 @@ const COURSE_MODE: Record<'online' | 'onsite' | 'blended', string> = {
 function buildCourse(input: BuildCourseInput): JsonLdObject {
   // `hasCourseInstance` seulement s'il existe une modalité ou une durée RÉELLE.
   const modes = (input.modes ?? []).map((m) => COURSE_MODE[m]);
+  const courseInstance = (hours?: number): JsonLdObject => ({
+    '@type': 'CourseInstance',
+    ...(modes.length > 0 ? { courseMode: modes.length === 1 ? modes[0] : modes } : {}),
+    ...(hours ? { courseWorkload: `PT${hours}H` } : {}),
+    instructor: { '@id': SCHEMA_IDS.founder },
+  });
+  const formats = input.formats ?? [];
   const instance =
-    modes.length > 0 || input.durationHours
-      ? {
-          '@type': 'CourseInstance',
-          ...(modes.length > 0 ? { courseMode: modes.length === 1 ? modes[0] : modes } : {}),
-          ...(input.durationHours ? { courseWorkload: `PT${input.durationHours}H` } : {}),
-          instructor: { '@id': SCHEMA_IDS.founder },
-        }
-      : undefined;
+    formats.length > 0
+      ? formats.map((f) => ({ ...courseInstance(f.hours), name: `${input.name}, format ${f.hours} heures` }))
+      : modes.length > 0 || input.durationHours
+        ? courseInstance(input.durationHours)
+        : undefined;
+  const courseOffer = (price: number, name?: string): JsonLdObject => ({
+    '@type': 'Offer',
+    ...(name ? { name } : {}),
+    price,
+    priceCurrency: 'EUR',
+    priceSpecification: { '@type': 'PriceSpecification', price, priceCurrency: 'EUR', valueAddedTaxIncluded: false },
+    category: 'Paid',
+    url: input.url,
+  });
+  const offers =
+    formats.length > 0
+      ? formats.map((f) => courseOffer(f.price, `Format ${f.hours} heures`))
+      : input.priceEur != null
+        ? courseOffer(input.priceEur)
+        : undefined;
 
   return withContext({
     '@type': 'Course',
@@ -622,17 +649,7 @@ function buildCourse(input: BuildCourseInput): JsonLdObject {
     ...(input.audience ? { audience: { '@type': 'Audience', audienceType: input.audience } } : {}),
     ...(input.durationHours ? { timeRequired: `PT${input.durationHours}H` } : {}),
     ...(instance ? { hasCourseInstance: instance } : {}),
-    ...(input.priceEur != null
-      ? {
-          offers: {
-            '@type': 'Offer',
-            price: input.priceEur,
-            priceCurrency: 'EUR',
-            category: 'Paid',
-            url: input.url,
-          },
-        }
-      : {}),
+    ...(offers ? { offers } : {}),
   });
 }
 

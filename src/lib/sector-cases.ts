@@ -21,7 +21,7 @@ export async function sectorCaseGridData(
   lang: 'fr' | 'en',
 ): Promise<CaseGridData> {
   const all = (await getCollection('cases'))
-    .filter((e) => e.data.card)
+    .filter((e) => e.data.card && e.data.kind === 'client')
     .sort((a, b) => a.data.card!.order - b.data.card!.order);
 
   // Le secteur d'un cas derive de son libelle libre `sector_fr` via la SOURCE UNIQUE

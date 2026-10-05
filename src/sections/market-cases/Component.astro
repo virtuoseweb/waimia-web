@@ -1,0 +1,350 @@
+---
+// Waimia · module `market-cases` · Component.
+// Rubrique « Études de cas du marché » : cas réels documentés, réalisés par des TIERS.
+// Le composant garantit, pour chaque cas et sans dépendre de l'auteur de la page :
+//   · le libellé MARKET_CASE_LABEL (« Cas documenté, non réalisé par Waimia ») ;
+//   · la citation exacte du résultat, attribuée (éditeur, client, presse) ;
+//   · le lien vers la source primaire et la date de lecture.
+// Registre visuel volontairement distinct des preuves Waimia : filet complémentaire (froid)
+// à gauche, séparateurs en pointillés, typo mono pour les métadonnées, AUCUN accent
+// terracotta (réservé à Waimia). Tokens DS uniquement, 0 nouvelle variable.
+import type { SectionByType } from '@waimia/ds-kernel';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import {
+  MARKET_CASE_LABEL,
+  marketCasesFor,
+  type MarketCase,
+} from '../../data/market-cases';
+
+interface Props {
+  data: SectionByType<'market-cases'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+const variant = data.variant ?? 'full';
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+const h2 = isFr ? data.h2_fr : data.h2_en;
+const intro = isFr ? data.intro_fr : data.intro_en;
+const label = isFr ? MARKET_CASE_LABEL.fr : MARKET_CASE_LABEL.en;
+const uid = `mkt-${data.groups.map((g) => g.function).join('-')}`;
+
+const groups = data.groups.map((g) => {
+  const cases = marketCasesFor(g.function);
+  if (cases.length === 0) {
+    throw new Error(`market-cases : aucune étude de cas pour la fonction « ${g.function} » dans src/data/market-cases.ts`);
+  }
+  return { ...g, title: isFr ? g.title_fr : g.title_en, cases };
+});
+const titled = groups.some((g) => g.title);
+// Niveau du nom d'entreprise : h4 sous un titre de groupe (h3), h3 sinon. Pas de saut de niveau.
+const CaseHeading = titled ? 'h4' : 'h3';
+
+const fmtDate = (iso: string) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString(isFr ? 'fr-FR' : 'en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const t = isFr
+  ? {
+      notice: 'Aucun des projets ci-dessous n’a été réalisé par Waimia. Les chiffres sont ceux des sources citées ; nous ne les avons pas vérifiés.',
+      automated: 'Ce qui a été automatisé',
+      tool: 'Outil',
+      result: 'Résultat annoncé',
+      original: 'Formulation de la source',
+      limits: 'Limites',
+      source: 'Source',
+      published: 'publié le',
+      read: 'lu le',
+      more: 'Lire l’analyse complète',
+      newTab: '(nouvel onglet)',
+    }
+  : {
+      notice: 'None of the projects below was delivered by Waimia. Figures are those of the cited sources; we have not verified them.',
+      automated: 'What was automated',
+      tool: 'Tool',
+      result: 'Stated result',
+      original: 'Source wording',
+      limits: 'Limits',
+      source: 'Source',
+      published: 'published',
+      read: 'read on',
+      more: 'Read the full analysis',
+      newTab: '(new tab)',
+    };
+
+const pick = (c: MarketCase) => ({
+  profile: isFr ? c.profile_fr : c.profile_en,
+  automated: isFr ? c.automated_fr : c.automated_en,
+  result: isFr ? c.result_fr : c.result_en,
+  attribution: isFr ? c.attribution_fr : c.attribution_en,
+  limits: isFr ? c.limits_fr : c.limits_en,
+});
+---
+
+<section class="mkt sec-base" data-bg={data.background ?? 'paper-3'} data-variant={variant} aria-labelledby={`${uid}-title`}>
+  <div class="wrap-wide">
+    <header class="mkt__head">
+      {kicker && <Kicker tone="muted">{kicker}</Kicker>}
+      <h2 id={`${uid}-title`} class="mkt__title sec-base-h2" set:html={h2} />
+      {intro && <p class="mkt__intro">{intro}</p>}
+      <p class="mkt__notice">{t.notice}</p>
+    </header>
+
+    {groups.map((g) => (
+      <div class="mkt__group">
+        {g.title && (
+          <h3 class="mkt__group-title">
+            {g.href ? <a href={g.href}>{g.title}</a> : g.title}
+          </h3>
+        )}
+        <ul class="mkt__list">
+          {g.cases.map((c) => {
+            const v = pick(c);
+            return (
+              <li class="mkt__case">
+                <div class="mkt__id">
+                  <p class="mkt__label">{label}</p>
+                  <CaseHeading class="mkt__company">{c.company}</CaseHeading>
+                  <p class="mkt__profile">{v.profile}</p>
+                </div>
+                <dl class="mkt__facts">
+                  {variant === 'full' && (
+                    <div class="mkt__fact">
+                      <dt>{t.automated}</dt>
+                      <dd>{v.automated}</dd>
+                    </div>
+                  )}
+                  <div class="mkt__fact">
+                    <dt>{t.tool}</dt>
+                    <dd>{c.tool}</dd>
+                  </div>
+                  <div class="mkt__fact">
+                    <dt>{t.result}</dt>
+                    <dd>
+                      <p class="mkt__attribution">{v.attribution} :</p>
+                      <p>{v.result}</p>
+                      {variant === 'full' && (
+                        <blockquote class="mkt__quote" cite={c.sources[0].url} lang={c.quoteLang}>
+                          <span class="mkt__quote-label" lang={lang}>{t.original}</span>
+                          <p>« {c.quote} »</p>
+                        </blockquote>
+                      )}
+                    </dd>
+                  </div>
+                  <div class="mkt__fact">
+                    <dt>{t.limits}</dt>
+                    <dd>{v.limits}</dd>
+                  </div>
+                  <div class="mkt__fact mkt__fact--source">
+                    <dt>{t.source}</dt>
+                    <dd>
+                      <ul class="mkt__sources">
+                        {c.sources.map((s) => (
+                          <li>
+                            <a href={s.url} target="_blank" rel="noopener noreferrer nofollow">{s.publisher}, {isFr ? s.kind_fr : s.kind_en}<span class="mkt__sr"> {t.newTab}</span></a>{s.publishedOn && <span>, {t.published} {fmtDate(s.publishedOn)}</span>}
+                          </li>
+                        ))}
+                      </ul>
+                      <p class="mkt__read">
+                        {isFr ? 'Source lue le ' : 'Source read on '}
+                        <time datetime={c.readOn}>{fmtDate(c.readOn)}</time>.
+                      </p>
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            );
+          })}
+        </ul>
+        {variant === 'digest' && g.href && (
+          <p class="mkt__more">
+            <a href={g.href}>{t.more} : {g.title}</a>
+          </p>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .mkt__head {
+    display: grid;
+    gap: var(--space-4);
+    max-width: var(--wrap-read);
+    margin-bottom: var(--space-8);
+  }
+  .mkt__title { text-wrap: balance; }
+  .mkt__intro {
+    margin: 0;
+    max-width: 68ch;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: var(--leading-lede);
+    text-wrap: pretty;
+  }
+  /* Avertissement permanent de la rubrique : encadré froid, jamais terracotta. */
+  .mkt__notice {
+    margin: var(--space-2) 0 0;
+    max-width: 68ch;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--complementary);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-lede);
+  }
+
+  .mkt__group + .mkt__group { margin-top: var(--space-9); }
+  .mkt__group-title {
+    margin: 0 0 var(--space-4);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-medium);
+    line-height: var(--leading-h3);
+  }
+  .mkt__group-title a { color: inherit; text-decoration: underline; text-decoration-color: var(--hairline-strong); text-underline-offset: 0.25em; }
+  .mkt__group-title a:hover { text-decoration-color: currentColor; }
+
+  /* La liste : filet complémentaire continu à gauche = « ceci vient d'ailleurs ». */
+  .mkt__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 var(--space-6);
+    border-left: 3px solid var(--complementary);
+  }
+  .mkt__case {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+    column-gap: var(--space-8);
+    row-gap: var(--space-5);
+    padding-block: var(--space-7);
+    border-bottom: 1px dashed var(--hairline-strong);
+  }
+  .mkt__case:first-child { padding-top: var(--space-2); }
+  .mkt__case:last-child { border-bottom: 0; padding-bottom: var(--space-2); }
+
+  .mkt__id { display: grid; gap: var(--space-3); align-content: start; }
+  .mkt__label {
+    justify-self: start;
+    margin: 0;
+    padding: var(--space-1) var(--space-3);
+    border: 1px dashed var(--ink);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    line-height: var(--leading-lede);
+  }
+  .mkt__company {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: var(--fw-regular);
+    line-height: var(--leading-h2);
+    letter-spacing: var(--tracking-display);
+    text-transform: none; /* neutralise le h4 global (mono capitales) quand la fiche est sous un titre de groupe */
+  }
+  .mkt__profile {
+    margin: 0;
+    max-width: 38ch;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+  }
+
+  .mkt__facts { margin: 0; display: grid; gap: var(--space-5); }
+  .mkt__fact {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    column-gap: var(--space-5);
+    align-items: baseline;
+  }
+  .mkt__fact dt {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    line-height: var(--leading-lede);
+  }
+  .mkt__fact dd {
+    margin: 0;
+    max-width: 68ch;
+    color: var(--ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+    text-wrap: pretty;
+  }
+  .mkt__fact dd p { margin: 0; }
+  .mkt__attribution { color: var(--ink); font-weight: var(--fw-medium); }
+  .mkt__quote {
+    margin: var(--space-3) 0 0;
+    padding: var(--space-3) var(--space-4);
+    background: rgba(var(--ink-rgb), 0.04);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+  }
+  .mkt__quote-label {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--muted);
+    letter-spacing: var(--tracking-mono-tight);
+  }
+  .mkt__sources { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); }
+  .mkt__sources a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--complementary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.25em;
+    overflow-wrap: anywhere;
+  }
+  .mkt__sources a:hover { text-decoration-color: currentColor; }
+  .mkt__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .mkt__read {
+    margin-top: var(--space-1);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+  .mkt__more { margin: var(--space-5) 0 0; padding-left: var(--space-6); font-family: var(--font-sans); font-size: var(--text-body); }
+  .mkt__more a { color: var(--ink); font-weight: var(--fw-medium); text-decoration: underline; text-underline-offset: 0.25em; }
+
+  /* Variante digest (hub) : fiches resserrées. */
+  .mkt[data-variant='digest'] .mkt__case { padding-block: var(--space-6); }
+  .mkt[data-variant='digest'] .mkt__company { font-size: var(--text-title-lg); }
+  .mkt[data-variant='digest'] .mkt__facts { gap: var(--space-3); }
+
+  /* Fond ink : l'idiome global remappe --muted / --hairline. */
+  .mkt[data-bg='ink'] { background: var(--ink); color: var(--paper); }
+  .mkt[data-bg='ink'] :is(.mkt__title, .mkt__company, .mkt__notice, .mkt__label, .mkt__attribution, .mkt__quote, .mkt__group-title, .mkt__sources a, .mkt__more a) { color: var(--paper); }
+  .mkt[data-bg='ink'] :is(.mkt__intro, .mkt__fact dd) { color: rgba(var(--paper-rgb), 0.78); }
+  .mkt[data-bg='ink'] .mkt__label { border-color: var(--paper); }
+  .mkt[data-bg='ink'] .mkt__quote { background: rgba(var(--paper-rgb), 0.08); }
+  .mkt[data-bg='paper'] { background: var(--paper); }
+  .mkt[data-bg='paper-2'] { background: var(--paper-2); }
+  .mkt[data-bg='paper-3'] { background: var(--paper-3); }
+
+  @media (max-width: 1000px) {
+    .mkt__case { grid-template-columns: minmax(0, 1fr); }
+    .mkt__profile { max-width: 68ch; }
+  }
+  @media (max-width: 640px) {
+    .mkt__list { padding-left: var(--space-4); }
+    .mkt__more { padding-left: var(--space-4); }
+    .mkt__fact { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-1); }
+    .mkt__head { margin-bottom: var(--space-7); }
+  }
+</style>

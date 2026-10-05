@@ -1,0 +1,635 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "ROI automatisation et IA : la méthode de calcul · Waimia",
+  "title_en": "Automation and AI ROI: the calculation method · Waimia",
+  "description_fr": "ROI d'une automatisation ou d'un projet IA : mesure de départ, coût complet, seuil de rentabilité, exemple illustratif et tableau de calcul à refaire.",
+  "description_en": "ROI of an automation or AI project: baseline measurement, full cost, break-even, an illustrative example and a calculation table to rebuild.",
+  "slug": "roi-automatisation",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "pilotage",
+  "tags": [
+    "roi-ia",
+    "roi-automatisation",
+    "mesure",
+    "automatisation",
+    "guide-pme"
+  ],
+  "sources": [],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Comment calculer le ROI d'un projet d'automatisation ou d'IA ?",
+      "a": "Mesurez la tâche avant (volume, durée, erreurs), additionnez tous les coûts (construction, licences, consommation du modèle, maintenance, temps de validation humaine, temps de vos équipes), puis divisez le coût de mise en place par le gain net mensuel. Vous obtenez un seuil de rentabilité en mois. Le tableau de calcul de cette page se refait dans un tableur en vingt minutes une fois les mesures prises."
+    },
+    {
+      "q": "En combien de temps une automatisation est-elle rentable ?",
+      "a": "Il n'y a pas de durée type : tout dépend du volume de la tâche et de la part qui restera traitée à la main. Dans l'exemple illustratif de cette page, le seuil passe de 8,3 mois à 13,2 mois quand la part traitée sans intervention descend de 80 % à 60 %. C'est pour cela qu'on calcule toujours le seuil avec une hypothèse basse."
+    },
+    {
+      "q": "Faut-il compter le temps gagné comme une économie ?",
+      "a": "Non, pas tel quel. Une heure récupérée devient une économie seulement si elle évite une embauche, des heures supplémentaires ou de la sous-traitance, ou si elle est réaffectée à un travail dont vous pouvez nommer la valeur. Écrivez dans le calcul à quoi ce temps servira. Sinon vous valorisez du temps, pas un résultat."
+    },
+    {
+      "q": "Quels coûts oublie-t-on le plus souvent ?",
+      "a": "Trois postes. Le temps de validation humaine, qui reste dû à chaque occurrence tant qu'une personne relit. La maintenance, parce qu'une automatisation casse quand un outil connecté change. Le temps de vos équipes pendant la construction : entretiens, jeux de test, recette, prise en main."
+    },
+    {
+      "q": "Que faire si on ne peut pas mesurer le temps actuel ?",
+      "a": "Mesurez sur un échantillon. Vingt occurrences chronométrées donnent une durée médiane, et le volume se lit dans l'outil (nombre de factures, de tickets, de devis sur le mois). Si même le volume est inconnu, la première étape n'est pas l'automatisation mais le comptage : deux semaines de relevé suffisent."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How do you calculate the ROI of an automation or AI project?",
+      "a": "Measure the task beforehand (volume, duration, errors), add up every cost (build, licences, model usage, maintenance, human review time, your team's time), then divide the set-up cost by the net monthly gain. You get a break-even point in months. The calculation table on this page can be rebuilt in a spreadsheet in twenty minutes once the measurements are taken."
+    },
+    {
+      "q": "How long does it take for an automation to pay for itself?",
+      "a": "There is no typical duration: it depends on the volume of the task and on the share that will still be handled by hand. In the illustrative example on this page, break-even moves from 8.3 months to 13.2 months when the share handled without intervention drops from 80% to 60%. That is why break-even is always calculated with a low assumption."
+    },
+    {
+      "q": "Should time saved be counted as a saving?",
+      "a": "No, not as it stands. A recovered hour becomes a saving only if it avoids a hire, overtime or subcontracting, or if it is reassigned to work whose value you can name. Write in the calculation what that time will be used for. Otherwise you are valuing time, not a result."
+    },
+    {
+      "q": "Which costs are most often forgotten?",
+      "a": "Three items. Human review time, which is still due on every occurrence as long as someone checks the output. Maintenance, because an automation breaks when a connected tool changes. Your team's time during the build: interviews, test sets, acceptance, onboarding."
+    },
+    {
+      "q": "What if you cannot measure the current time?",
+      "a": "Measure on a sample. Twenty timed occurrences give a median duration, and the volume can be read in the tool (number of invoices, tickets or quotes over the month). If even the volume is unknown, the first step is not automation but counting: two weeks of logging are enough."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Mesurer le ROI d'une automatisation ou d'un projet IA : la méthode complète",
+      "h1_en": "Measuring the ROI of an automation or AI project: the full method",
+      "lede_fr": "Un calcul de ROI vaut ce que valent ses mesures. Ce guide donne la procédure : mesurer la tâche avant, compter le coût complet, calculer le seuil de rentabilité, et dire clairement ce que le calcul ne voit pas. Avec un exemple chiffré et un tableau à refaire.",
+      "lede_en": "An ROI calculation is only as good as its measurements. This guide gives the procedure: measure the task beforehand, count the full cost, work out break-even, and say plainly what the calculation cannot see. With a worked example and a table to rebuild.",
+      "badges": [
+        {
+          "label_fr": "Procédure refaisable",
+          "label_en": "Repeatable procedure"
+        },
+        {
+          "label_fr": "Exemple illustratif",
+          "label_en": "Illustrative example"
+        },
+        {
+          "label_fr": "Mis à jour le 5 octobre 2026",
+          "label_en": "Updated on 5 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-tableau-mesure.svg",
+      "media_alt_fr": "Schéma : un tableau de mesure avant et après une automatisation",
+      "media_alt_en": "Diagram: a measurement table before and after an automation"
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment mesurer le ROI d'une automatisation ?",
+      "question_en": "How do you measure the ROI of an automation?",
+      "term_fr": "La réponse courte",
+      "term_en": "The short answer",
+      "answer_fr": "Mesurez la tâche avant d'y toucher : volume, durée par occurrence, erreurs. Additionnez le coût complet : construction, licences, consommation du modèle, maintenance, temps de validation humaine, temps de vos équipes. Le seuil de rentabilité en mois est le coût de mise en place divisé par le gain mensuel net, c'est-à-dire le gain mensuel moins le coût mensuel de fonctionnement. Calculez-le deux fois, avec votre hypothèse et avec une hypothèse basse.",
+      "answer_en": "Measure the task before touching it: volume, duration per occurrence, errors. Add up the full cost: build, licences, model usage, maintenance, human review time, your team's time. Break-even in months is the set-up cost divided by the net monthly gain, meaning the monthly gain minus the monthly running cost. Calculate it twice, with your assumption and with a low one."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>En bref</h2><ul><li><strong>Mesurez avant.</strong> Dix jours ouvrés de relevé ou vingt occurrences chronométrées. Sans mesure de départ, vous ne pourrez rien prouver après.</li><li><strong>Comptez tout le coût.</strong> La validation humaine et la maintenance pèsent souvent plus que les licences et la consommation du modèle.</li><li><strong>Donnez un seuil en mois, avec une hypothèse basse.</strong> Et listez à part ce que vous ne chiffrez pas.</li></ul><h2>Étape 1 : mesurer la situation de départ</h2><p>« Ça nous prend un temps fou » n'est pas une mesure. Il faut quatre chiffres, relevés sur la tâche telle qu'elle se fait aujourd'hui.</p><ul><li><strong>Le volume.</strong> Combien d'occurrences par mois. Il se lit presque toujours dans un outil : nombre de factures saisies, de tickets clos, de devis émis, de lignes ajoutées dans un tableur. Prenez trois mois pour lisser.</li><li><strong>La durée par occurrence.</strong> Chronométrez vingt occurrences réelles, faites par les personnes qui font la tâche d'habitude. Retenez la médiane, pas la moyenne : deux dossiers compliqués faussent une moyenne.</li><li><strong>Les erreurs.</strong> Combien d'occurrences reviennent pour correction, et combien de temps prend une reprise. Si personne ne le suit, comptez les reprises pendant le relevé.</li><li><strong>Le délai.</strong> Le temps entre la demande et le résultat livré. Ce n'est pas la durée de travail : un devis qui demande vingt minutes peut attendre trois jours dans une boîte de réception.</li></ul><p>Pour une tâche irrégulière, faites tenir un relevé pendant dix jours ouvrés : une ligne par occurrence, avec l'heure de début, l'heure de fin, et une case « exception » quand le cas sort de la règle. La part d'exceptions est le chiffre qui servira le plus : c'est elle qui fixe ce que l'automatisation ne traitera pas seule.</p><p>Si vous n'avez pas encore choisi la tâche, la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a> classe vos candidates, et le guide <a href=\"/ressources/guides/taches-a-automatiser-pme\">quelles tâches automatiser en premier</a> explique les critères.</p>",
+      "html_en": "<h2>In short</h2><ul><li><strong>Measure first.</strong> Ten working days of logging or twenty timed occurrences. Without a baseline, you will not be able to prove anything afterwards.</li><li><strong>Count the whole cost.</strong> Human review and maintenance often weigh more than licences and model usage.</li><li><strong>Give break-even in months, with a low assumption.</strong> And list separately what you do not put a number on.</li></ul><h2>Step 1: measure the starting point</h2><p>\"It takes us forever\" is not a measurement. You need four figures, taken on the task as it is done today.</p><ul><li><strong>Volume.</strong> How many occurrences per month. It can almost always be read in a tool: invoices entered, tickets closed, quotes issued, rows added to a spreadsheet. Take three months to smooth it out.</li><li><strong>Duration per occurrence.</strong> Time twenty real occurrences, done by the people who usually do the task. Keep the median, not the mean: two complicated files distort a mean.</li><li><strong>Errors.</strong> How many occurrences come back for correction, and how long a rework takes. If nobody tracks it, count reworks during the logging period.</li><li><strong>Lead time.</strong> The time between the request and the delivered result. It is not working time: a quote that takes twenty minutes can wait three days in an inbox.</li></ul><p>For an irregular task, keep a log for ten working days: one line per occurrence, with start time, end time, and an \"exception\" box when the case falls outside the rule. The share of exceptions is the figure you will use most: it sets what the automation will not handle on its own.</p><p>If you have not chosen the task yet, the <a href=\"/ressources/outils/grille-taches-a-automatiser\">task prioritisation grid</a> ranks your candidates, and the guide on <a href=\"/ressources/guides/taches-a-automatiser-pme\">which tasks to automate first</a> explains the criteria.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Étape 2",
+      "kicker_en": "§ Step 2",
+      "heading_fr": "Le coût complet : six postes, dont trois qu'on oublie",
+      "heading_en": "The full cost: six items, three of which get forgotten",
+      "caption_fr": "Postes de coût à renseigner pour tout projet d'automatisation ou d'agent IA. Les montants dépendent du projet : demandez-les poste par poste dans le devis.",
+      "caption_en": "Cost items to fill in for any automation or AI agent project. Amounts depend on the project: ask for them item by item in the quote.",
+      "columns_fr": [
+        "Poste",
+        "Ce qu'il contient",
+        "Comment l'estimer"
+      ],
+      "columns_en": [
+        "Item",
+        "What it contains",
+        "How to estimate it"
+      ],
+      "rows_fr": [
+        [
+          "Construction",
+          "Construction : cadrage, développement, tests, mise en production, documentation",
+          "Estimation : le devis, une seule fois"
+        ],
+        [
+          "Temps de vos équipes",
+          "Temps interne : entretiens, jeux de test, recette, prise en main",
+          "Estimation : heures prévues multipliées par le coût chargé, une seule fois"
+        ],
+        [
+          "Licences",
+          "Licences : abonnements aux outils d'automatisation, hébergement, connecteurs payants",
+          "Estimation : pages tarifs des éditeurs, par mois"
+        ],
+        [
+          "Consommation du modèle",
+          "Modèle : tokens envoyés et reçus à chaque exécution quand un modèle d'IA intervient",
+          "Estimation : volume mensuel multiplié par la taille d'une exécution et par le prix public du modèle"
+        ],
+        [
+          "Maintenance",
+          "Maintenance : corrections quand un outil connecté change, supervision des échecs, évolutions",
+          "Estimation : forfait ou heures par mois, à faire écrire dans le devis"
+        ],
+        [
+          "Validation humaine",
+          "Validation : relecture ou approbation de chaque résultat, traitement manuel des exceptions",
+          "Estimation : minutes par occurrence, mesurées pendant le pilote"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Build",
+          "Build: scoping, development, tests, go-live, documentation",
+          "Estimate: the quote, one-off"
+        ],
+        [
+          "Your team's time",
+          "Internal time: interviews, test sets, acceptance, onboarding",
+          "Estimate: planned hours multiplied by loaded cost, one-off"
+        ],
+        [
+          "Licences",
+          "Licences: automation tool subscriptions, hosting, paid connectors",
+          "Estimate: vendor pricing pages, per month"
+        ],
+        [
+          "Model usage",
+          "Model: tokens sent and received on each run when an AI model is involved",
+          "Estimate: monthly volume multiplied by the size of one run and by the model's public price"
+        ],
+        [
+          "Maintenance",
+          "Maintenance: fixes when a connected tool changes, failure monitoring, changes",
+          "Estimate: flat fee or hours per month, to be written into the quote"
+        ],
+        [
+          "Human review",
+          "Review: checking or approving each result, manual handling of exceptions",
+          "Estimate: minutes per occurrence, measured during the pilot"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Étape 3 : chiffrer le gain, sans le gonfler</h2><p>Trois gains se mesurent. Ils ne se traitent pas de la même façon.</p><p><strong>Le temps.</strong> Temps mensuel avant, moins temps mensuel après. Le temps après n'est jamais zéro : il reste la validation de chaque résultat et le traitement à la main des exceptions. Ce temps se valorise au coût chargé de l'heure des personnes concernées (salaire brut plus cotisations patronales, divisé par les heures travaillées). Il ne devient une économie que s'il est réaffecté : écrivez à quoi.</p><p><strong>Les erreurs évitées.</strong> Nombre d'erreurs avant, moins nombre d'erreurs après, multiplié par le coût d'une reprise. Comptez seulement ce que vous savez mesurer : le temps de correction. Un client perdu à cause d'une erreur est réel mais invérifiable, laissez-le hors du calcul.</p><p><strong>Le délai.</strong> Il se convertit rarement en euros de façon honnête. Suivez-le comme un indicateur à part : délai moyen avant, délai moyen après. Si un lien financier direct existe (une facture émise plus tôt, encaissée plus tôt), décrivez-le, sans l'additionner au reste.</p><h2>Étape 4 : le seuil de rentabilité</h2><p>La formule tient en une ligne : <strong>seuil en mois = coût de mise en place ÷ (gain mensuel − coût mensuel de fonctionnement)</strong>.</p><p>Le coût de mise en place additionne la construction et le temps de vos équipes. Le coût mensuel de fonctionnement additionne les licences, la consommation du modèle et la maintenance. La validation humaine n'apparaît pas ici : elle est déjà déduite du gain de temps.</p><p>Si le gain mensuel ne dépasse pas le coût de fonctionnement, il n'y a pas de seuil : le projet ne se rembourse jamais, quel que soit son prix de départ.</p><p>Notre règle de décision, qui est un avis de praticien : on regarde le seuil obtenu avec l'hypothèse basse. S'il dépasse douze à dix-huit mois, on réduit le périmètre à la partie la plus répétitive, ou on attend que le volume augmente. Les outils et les modèles changent trop vite pour parier sur un retour à trois ans.</p>",
+      "html_en": "<h2>Step 3: put a number on the gain, without inflating it</h2><p>Three gains can be measured. They are not handled the same way.</p><p><strong>Time.</strong> Monthly time before, minus monthly time after. Time after is never zero: reviewing each result and handling exceptions by hand remain. That time is valued at the loaded hourly cost of the people involved (gross salary plus employer contributions, divided by hours worked). It only becomes a saving if it is reassigned: write down to what.</p><p><strong>Errors avoided.</strong> Number of errors before, minus number of errors after, multiplied by the cost of a rework. Count only what you can measure: correction time. A customer lost because of an error is real but unverifiable, so leave it out of the calculation.</p><p><strong>Lead time.</strong> It can rarely be converted into euros honestly. Track it as a separate indicator: average lead time before, average lead time after. If there is a direct financial link (an invoice issued earlier, paid earlier), describe it without adding it to the rest.</p><h2>Step 4: break-even</h2><p>The formula fits on one line: <strong>break-even in months = set-up cost ÷ (monthly gain − monthly running cost)</strong>.</p><p>Set-up cost adds the build and your team's time. Monthly running cost adds licences, model usage and maintenance. Human review does not appear here: it has already been deducted from the time gain.</p><p>If the monthly gain does not exceed the running cost, there is no break-even: the project never pays for itself, whatever its starting price.</p><p>Our decision rule, which is a practitioner's opinion: we look at break-even under the low assumption. If it exceeds twelve to eighteen months, we cut the scope down to the most repetitive part, or wait for volume to grow. Tools and models change too fast to bet on a three-year return.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Exemple illustratif",
+      "kicker_en": "§ Illustrative example",
+      "heading_fr": "Exemple illustratif : la saisie de factures fournisseurs",
+      "heading_en": "Illustrative example: entering supplier invoices",
+      "caption_fr": "Exemple illustratif. Tous les chiffres sont fictifs et servent à montrer le calcul. Ce ne sont ni des résultats obtenus chez un client, ni des tarifs Waimia, ni une promesse de gain.",
+      "caption_en": "Illustrative example. All figures are fictional and serve to show the calculation. They are neither results obtained for a client, nor Waimia prices, nor a promise of gain.",
+      "columns_fr": [
+        "Ligne",
+        "Mesure ou hypothèse",
+        "Résultat"
+      ],
+      "columns_en": [
+        "Line",
+        "Measurement or assumption",
+        "Result"
+      ],
+      "rows_fr": [
+        [
+          "Volume mensuel",
+          "Mesure : 400 factures",
+          "400"
+        ],
+        [
+          "Durée médiane par facture",
+          "Mesure : 6 minutes",
+          "40 heures par mois"
+        ],
+        [
+          "Coût chargé d'une heure de travail",
+          "Hypothèse : 35 €",
+          "1 400 € par mois avant"
+        ],
+        [
+          "Part traitée sans intervention",
+          "Hypothèse : 80 %",
+          "80 factures restent à traiter à la main, soit 8 heures"
+        ],
+        [
+          "Validation humaine",
+          "Hypothèse : 1 minute par facture, sur toutes",
+          "6,7 heures par mois"
+        ],
+        [
+          "Temps récupéré",
+          "Calcul : 40 − 8 − 6,7",
+          "25,3 heures, soit 887 € par mois"
+        ],
+        [
+          "Erreurs évitées",
+          "Hypothèse : de 12 à 3 reprises par mois, 20 minutes chacune",
+          "3 heures, soit 105 € par mois"
+        ],
+        [
+          "Gain mensuel",
+          "Calcul : 887 + 105",
+          "992 €"
+        ],
+        [
+          "Coût mensuel de fonctionnement",
+          "Hypothèse : licences 50 €, modèle 30 €, maintenance 150 €",
+          "230 €"
+        ],
+        [
+          "Gain mensuel net",
+          "Calcul : 992 − 230",
+          "762 €"
+        ],
+        [
+          "Coût de mise en place",
+          "Hypothèse : construction 6 000 €, plus 10 heures de vos équipes",
+          "6 350 €"
+        ],
+        [
+          "Seuil de rentabilité",
+          "Calcul : 6 350 ÷ 762",
+          "8,3 mois"
+        ],
+        [
+          "Même calcul avec 60 % au lieu de 80 %",
+          "Hypothèse basse : gain net de 482 € par mois",
+          "13,2 mois"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Monthly volume",
+          "Measurement: 400 invoices",
+          "400"
+        ],
+        [
+          "Median duration per invoice",
+          "Measurement: 6 minutes",
+          "40 hours per month"
+        ],
+        [
+          "Loaded cost of one hour of work",
+          "Assumption: €35",
+          "€1,400 per month before"
+        ],
+        [
+          "Share handled without intervention",
+          "Assumption: 80%",
+          "80 invoices still handled by hand, i.e. 8 hours"
+        ],
+        [
+          "Human review",
+          "Assumption: 1 minute per invoice, on all of them",
+          "6.7 hours per month"
+        ],
+        [
+          "Time recovered",
+          "Calculation: 40 − 8 − 6.7",
+          "25.3 hours, i.e. €887 per month"
+        ],
+        [
+          "Errors avoided",
+          "Assumption: from 12 to 3 reworks per month, 20 minutes each",
+          "3 hours, i.e. €105 per month"
+        ],
+        [
+          "Monthly gain",
+          "Calculation: 887 + 105",
+          "€992"
+        ],
+        [
+          "Monthly running cost",
+          "Assumption: licences €50, model €30, maintenance €150",
+          "€230"
+        ],
+        [
+          "Net monthly gain",
+          "Calculation: 992 − 230",
+          "€762"
+        ],
+        [
+          "Set-up cost",
+          "Assumption: build €6,000, plus 10 hours of your team's time",
+          "€6,350"
+        ],
+        [
+          "Break-even",
+          "Calculation: 6,350 ÷ 762",
+          "8.3 months"
+        ],
+        [
+          "Same calculation with 60% instead of 80%",
+          "Low assumption: net gain of €482 per month",
+          "13.2 months"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Ce que l'exemple montre</h2><p>Une seule hypothèse déplace le seuil de cinq mois : la part traitée sans intervention. À 80 %, le projet se rembourse en 8,3 mois. À 60 %, il en faut 13,2. Or c'est le chiffre qu'on connaît le moins avant de commencer. D'où deux conséquences pratiques.</p><ul><li>Le relevé des exceptions de l'étape 1 n'est pas un détail : il donne la borne haute de ce chiffre.</li><li>Un pilote sur deux à quatre semaines de vrais dossiers remplace l'hypothèse par une mesure, avant d'engager tout le budget.</li></ul><p>La consommation du modèle, elle, pèse peu dans cet exemple : 30 € sur 230 € de fonctionnement. Ce montant est fictif lui aussi : refaites le calcul avec vos volumes et les prix publics, détaillés dans le comparatif <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">Claude Platform ou OpenAI Platform</a>.</p>",
+      "html_en": "<h2>What the example shows</h2><p>A single assumption moves break-even by five months: the share handled without intervention. At 80%, the project pays for itself in 8.3 months. At 60%, it takes 13.2. And that is the figure you know least before starting. Two practical consequences follow.</p><ul><li>Logging exceptions in step 1 is not a detail: it gives the upper bound for that figure.</li><li>A pilot over two to four weeks of real files replaces the assumption with a measurement, before committing the whole budget.</li></ul><p>Model usage, on the other hand, weighs little in this example: €30 out of €230 in running costs. That amount is fictional too: redo the calculation with your volumes and the public prices, detailed in the comparison <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">Claude Platform or OpenAI Platform</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ À refaire chez vous",
+      "kicker_en": "§ Rebuild it yourself",
+      "heading_fr": "Le tableau de calcul, ligne par ligne",
+      "heading_en": "The calculation table, line by line",
+      "caption_fr": "Recopiez ces douze lignes dans un tableur. Les lignes A, B et D se mesurent, E et F sont des hypothèses, le reste se calcule.",
+      "caption_en": "Copy these twelve lines into a spreadsheet. Lines A, B and D are measured, E and F are assumptions, the rest is calculated.",
+      "columns_fr": [
+        "Ligne",
+        "Donnée",
+        "Origine ou formule"
+      ],
+      "columns_en": [
+        "Line",
+        "Data",
+        "Source or formula"
+      ],
+      "rows_fr": [
+        [
+          "A",
+          "Volume mensuel (occurrences)",
+          "Mesuré dans l'outil, sur trois mois"
+        ],
+        [
+          "B",
+          "Durée médiane par occurrence (minutes)",
+          "Mesurée sur 20 occurrences"
+        ],
+        [
+          "C",
+          "Temps mensuel avant (heures)",
+          "A × B ÷ 60"
+        ],
+        [
+          "D",
+          "Coût chargé d'une heure de travail",
+          "Donnée paie"
+        ],
+        [
+          "E",
+          "Part traitée sans intervention (%)",
+          "Hypothèse, à refaire avec 20 points de moins"
+        ],
+        [
+          "F",
+          "Validation par occurrence (minutes)",
+          "Hypothèse, puis mesure pendant le pilote"
+        ],
+        [
+          "G",
+          "Temps mensuel après (heures)",
+          "[A × F + A × (1 − E) × B] ÷ 60"
+        ],
+        [
+          "H",
+          "Gain de temps mensuel",
+          "(C − G) × D"
+        ],
+        [
+          "I",
+          "Gain mensuel sur les erreurs",
+          "(reprises avant − reprises après) × durée d'une reprise × D"
+        ],
+        [
+          "J",
+          "Coût mensuel de fonctionnement",
+          "Licences + modèle + maintenance"
+        ],
+        [
+          "K",
+          "Coût de mise en place",
+          "Construction + heures internes × D"
+        ],
+        [
+          "L",
+          "Seuil de rentabilité (mois)",
+          "K ÷ (H + I − J)"
+        ]
+      ],
+      "rows_en": [
+        [
+          "A",
+          "Monthly volume (occurrences)",
+          "Measured in the tool, over three months"
+        ],
+        [
+          "B",
+          "Median duration per occurrence (minutes)",
+          "Measured on 20 occurrences"
+        ],
+        [
+          "C",
+          "Monthly time before (hours)",
+          "A × B ÷ 60"
+        ],
+        [
+          "D",
+          "Loaded cost of one hour of work",
+          "Payroll data"
+        ],
+        [
+          "E",
+          "Share handled without intervention (%)",
+          "Assumption, to redo with 20 points less"
+        ],
+        [
+          "F",
+          "Review per occurrence (minutes)",
+          "Assumption, then measured during the pilot"
+        ],
+        [
+          "G",
+          "Monthly time after (hours)",
+          "[A × F + A × (1 − E) × B] ÷ 60"
+        ],
+        [
+          "H",
+          "Monthly time gain",
+          "(C − G) × D"
+        ],
+        [
+          "I",
+          "Monthly gain on errors",
+          "(reworks before − reworks after) × duration of a rework × D"
+        ],
+        [
+          "J",
+          "Monthly running cost",
+          "Licences + model + maintenance"
+        ],
+        [
+          "K",
+          "Set-up cost",
+          "Build + internal hours × D"
+        ],
+        [
+          "L",
+          "Break-even (months)",
+          "K ÷ (H + I − J)"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Ce qu'on ne peut pas mesurer, et comment le dire</h2><p>Certains effets sont réels et ne se chiffrent pas sans inventer. Les additionner au calcul le rend invérifiable. Les taire le rend incomplet. La bonne pratique : une section « effets non chiffrés », avec pour chacun un indicateur qu'on peut observer.</p><ul><li><strong>La qualité de service.</strong> Indicateur : délai moyen de réponse, nombre de relances reçues.</li><li><strong>La charge des équipes.</strong> Indicateur : heures supplémentaires, tâches en retard en fin de mois.</li><li><strong>La dépendance.</strong> Une automatisation crée un point de défaillance. Indicateur : nombre d'échecs par mois, temps de reprise en main quand elle s'arrête.</li><li><strong>L'adoption.</strong> Un outil que l'équipe contourne ne rapporte rien. Indicateur : part des occurrences qui passent réellement par l'automatisation.</li></ul><p>Formulation honnête dans un dossier de décision : « le calcul porte sur le temps et les reprises ; le délai et la charge sont suivis à part et n'entrent pas dans le seuil ».</p><h2>Étape 5 : refaire la mesure après</h2><p>Quatre semaines après la mise en production, refaites le relevé de l'étape 1 avec la même méthode : même tâche, mêmes personnes, même période du mois. Remplacez les hypothèses E et F par les valeurs constatées et recalculez le seuil. C'est ce chiffre, pas celui du devis, qui dit si le projet tient.</p><p>Pour un ordre de grandeur en deux minutes, le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur ROI IA</a> fait la version courte : cinq hypothèses, et le budget de mise en place à ne pas dépasser pour un retour en douze mois. Ce guide en est la version complète, avec la validation humaine et les erreurs. L'<a href=\"/audit-ia-pme\">audit IA de 45 minutes</a> sert à vérifier l'hypothèse la plus fragile sur vos tâches réelles ; les prix d'une mission se fixent ensuite sur devis.</p>",
+      "html_en": "<h2>What cannot be measured, and how to say so</h2><p>Some effects are real and cannot be quantified without making things up. Adding them to the calculation makes it unverifiable. Leaving them out makes it incomplete. Good practice: an \"unquantified effects\" section, with an observable indicator for each.</p><ul><li><strong>Service quality.</strong> Indicator: average response time, number of chasers received.</li><li><strong>Team workload.</strong> Indicator: overtime, tasks overdue at month end.</li><li><strong>Dependency.</strong> An automation creates a point of failure. Indicator: failures per month, time to take over when it stops.</li><li><strong>Adoption.</strong> A tool the team works around earns nothing. Indicator: share of occurrences that actually go through the automation.</li></ul><p>An honest wording in a decision paper: \"the calculation covers time and reworks; lead time and workload are tracked separately and do not enter break-even\".</p><h2>Step 5: measure again afterwards</h2><p>Four weeks after go-live, redo the step 1 logging with the same method: same task, same people, same time of the month. Replace assumptions E and F with the observed values and recalculate break-even. That figure, not the one in the quote, tells you whether the project holds up.</p><p>For a rough figure in two minutes, the <a href=\"/ressources/outils/calculateur-roi-ia\">AI ROI calculator</a> does the short version: five assumptions, and the set-up budget not to exceed for a twelve-month return. This guide is the full version, with human review and errors. The <a href=\"/audit-ia-pme\">45-minute AI audit</a> is there to check the weakest assumption against your real tasks; the price of an engagement is then set by quote.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Outil",
+          "kicker_en": "Tool",
+          "title_fr": "Calculateur ROI IA",
+          "title_en": "AI ROI calculator",
+          "lead_fr": "Cinq hypothèses, un plafond de budget.",
+          "lead_en": "Five assumptions, one budget ceiling.",
+          "href": "/ressources/outils/calculateur-roi-ia"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Quelles tâches automatiser en premier",
+          "title_en": "Which tasks to automate first",
+          "lead_fr": "Cinq critères et une grille de décision.",
+          "lead_en": "Five criteria and a decision grid.",
+          "href": "/ressources/guides/taches-a-automatiser-pme"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Automatisation des processus",
+          "title_en": "Process automation",
+          "lead_fr": "Un pilote en production, mesuré avant et après.",
+          "lead_en": "A pilot in production, measured before and after.",
+          "href": "/services/automatisations"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Comment calculer le ROI d'un projet d'automatisation ou d'IA ?",
+          "a_fr": "Mesurez la tâche avant (volume, durée, erreurs), additionnez tous les coûts (construction, licences, consommation du modèle, maintenance, temps de validation humaine, temps de vos équipes), puis divisez le coût de mise en place par le gain net mensuel. Vous obtenez un seuil de rentabilité en mois. Le tableau de calcul de cette page se refait dans un tableur en vingt minutes une fois les mesures prises.",
+          "q_en": "How do you calculate the ROI of an automation or AI project?",
+          "a_en": "Measure the task beforehand (volume, duration, errors), add up every cost (build, licences, model usage, maintenance, human review time, your team's time), then divide the set-up cost by the net monthly gain. You get a break-even point in months. The calculation table on this page can be rebuilt in a spreadsheet in twenty minutes once the measurements are taken."
+        },
+        {
+          "q_fr": "En combien de temps une automatisation est-elle rentable ?",
+          "a_fr": "Il n'y a pas de durée type : tout dépend du volume de la tâche et de la part qui restera traitée à la main. Dans l'exemple illustratif de cette page, le seuil passe de 8,3 mois à 13,2 mois quand la part traitée sans intervention descend de 80 % à 60 %. C'est pour cela qu'on calcule toujours le seuil avec une hypothèse basse.",
+          "q_en": "How long does it take for an automation to pay for itself?",
+          "a_en": "There is no typical duration: it depends on the volume of the task and on the share that will still be handled by hand. In the illustrative example on this page, break-even moves from 8.3 months to 13.2 months when the share handled without intervention drops from 80% to 60%. That is why break-even is always calculated with a low assumption."
+        },
+        {
+          "q_fr": "Faut-il compter le temps gagné comme une économie ?",
+          "a_fr": "Non, pas tel quel. Une heure récupérée devient une économie seulement si elle évite une embauche, des heures supplémentaires ou de la sous-traitance, ou si elle est réaffectée à un travail dont vous pouvez nommer la valeur. Écrivez dans le calcul à quoi ce temps servira. Sinon vous valorisez du temps, pas un résultat.",
+          "q_en": "Should time saved be counted as a saving?",
+          "a_en": "No, not as it stands. A recovered hour becomes a saving only if it avoids a hire, overtime or subcontracting, or if it is reassigned to work whose value you can name. Write in the calculation what that time will be used for. Otherwise you are valuing time, not a result."
+        },
+        {
+          "q_fr": "Quels coûts oublie-t-on le plus souvent ?",
+          "a_fr": "Trois postes. Le temps de validation humaine, qui reste dû à chaque occurrence tant qu'une personne relit. La maintenance, parce qu'une automatisation casse quand un outil connecté change. Le temps de vos équipes pendant la construction : entretiens, jeux de test, recette, prise en main.",
+          "q_en": "Which costs are most often forgotten?",
+          "a_en": "Three items. Human review time, which is still due on every occurrence as long as someone checks the output. Maintenance, because an automation breaks when a connected tool changes. Your team's time during the build: interviews, test sets, acceptance, onboarding."
+        },
+        {
+          "q_fr": "Que faire si on ne peut pas mesurer le temps actuel ?",
+          "a_fr": "Mesurez sur un échantillon. Vingt occurrences chronométrées donnent une durée médiane, et le volume se lit dans l'outil (nombre de factures, de tickets, de devis sur le mois). Si même le volume est inconnu, la première étape n'est pas l'automatisation mais le comptage : deux semaines de relevé suffisent.",
+          "q_en": "What if you cannot measure the current time?",
+          "a_en": "Measure on a sample. Twenty timed occurrences give a median duration, and the volume can be read in the tool (number of invoices, tickets or quotes over the month). If even the volume is unknown, the first step is not automation but counting: two weeks of logging are enough."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ ROI",
+      "kicker_en": "§ ROI",
+      "h2_fr": "Un seuil de rentabilité calculé sur vos chiffres, pas sur une moyenne de marché.",
+      "h2_en": "A break-even point calculated on your figures, not on a market average.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. Apportez une tâche et ses volumes : on pose le calcul avec vous et on vous dit si le projet mérite un pilote.",
+      "subtitle_en": "The 45-minute audit is free. Bring one task and its volumes: we set up the calculation with you and tell you whether the project deserves a pilot.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

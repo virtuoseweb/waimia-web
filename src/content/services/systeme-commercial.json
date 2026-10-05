@@ -18,8 +18,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Système commercial B2B pour PME : prospection, CRM scoring et relance, piloté par l'IA",
-    "priceRange": "0-1650€/mois",
-    "priceMin": 0,
+    "priceRange": "{{prix.commercial}}-1650€/mois",
+    "priceMin": 980,
     "priceMax": 1650
   },
   "faq_fr": [
@@ -33,7 +33,7 @@
     },
     {
       "q": "Par où commencer si mon budget est limité ?",
-      "a": "Par la prospection en découverte gratuite : une visio, 30 prospects offerts, des conseils concrets. On branche le CRM et le scoring quand la base tient, puis les séquences de suivi. Vous montez d'un cran quand c'est rentable, pas avant."
+      "a": "Par la prospection, avec un essai gratuit : {{prix.commercial.essai}} leads, 0 €, une visio et des conseils concrets. L'abonnement démarre ensuite dès {{prix.commercial}} € HT par mois. On branche le CRM et le scoring quand la base tient, puis les séquences de suivi. Vous montez d'un cran quand c'est rentable, pas avant."
     },
     {
       "q": "Vous branchez quels CRM et quels outils ?",
@@ -67,7 +67,7 @@
     },
     {
       "q": "Where to start if my budget is limited?",
-      "a": "With prospecting in free discovery: a video call, 30 prospects on us, concrete advice. We wire the CRM and scoring once the base holds, then the follow-up sequences. You move up a notch when it pays off, not before."
+      "a": "With prospecting, through a free trial: {{prix.commercial.essai}} leads, 0 €, a video call and concrete advice. The subscription then starts from {{prix.commercial}} € ex VAT a month. We wire the CRM and scoring once the base holds, then the follow-up sequences. You move up a notch when it pays off, not before."
     },
     {
       "q": "Which CRMs and tools do you wire in?",
@@ -143,9 +143,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès 0 €",
-          "label_fr": "découverte offerte, 30 prospects inclus",
-          "label_en": "free discovery, 30 prospects included",
+          "value": "Dès {{prix.commercial}} €",
+          "label_fr": "HT par mois, prix d'entrée ; essai gratuit : {{prix.commercial.essai}} leads, 0 €",
+          "label_en": "ex VAT a month, entry price; free trial: {{prix.commercial.essai}} leads, 0 €",
           "emphasis": true
         },
         {
@@ -521,27 +521,27 @@
       "background": "paper",
       "kicker_fr": "§ Les prix",
       "kicker_en": "§ Pricing",
-      "h2_fr": "Trois formules pour alimenter votre <i class=\"acc\">pipeline</i>",
-      "h2_en": "Three plans to feed your <i class=\"acc\">pipeline</i>",
-      "lede_fr": "On entre par la prospection : découverte gratuite, puis un abonnement mensuel Standard ou Pro selon le volume ciblé. Le CRM, le scoring et les séquences de suivi se câblent à la régie growth. Pas de projet à cinq chiffres, pas de facturation au volume de messages. Arrêtez ou mettez en pause quand vous voulez.",
-      "lede_en": "You enter through prospecting: free discovery, then a monthly Standard or Pro subscription depending on targeted volume. The CRM, scoring and follow-up sequences wire in on a growth retainer. No five-figure project, no billing by message volume. Stop or pause whenever you want.",
+      "h2_fr": "Un essai gratuit, puis deux formules pour alimenter votre <i class=\"acc\">pipeline</i>",
+      "h2_en": "A free trial, then two plans to feed your <i class=\"acc\">pipeline</i>",
+      "lede_fr": "On entre par la prospection : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €, puis un abonnement mensuel dès {{prix.commercial}} € HT par mois, Standard ou Pro selon le volume ciblé. Le CRM, le scoring et les séquences de suivi se câblent à la régie growth. Pas de projet à cinq chiffres, pas de facturation au volume de messages. Arrêtez ou mettez en pause quand vous voulez.",
+      "lede_en": "You enter through prospecting: a free trial of {{prix.commercial.essai}} leads, at 0 €, then a monthly subscription from {{prix.commercial}} € ex VAT a month, Standard or Pro depending on targeted volume. The CRM, scoring and follow-up sequences wire in on a growth retainer. No five-figure project, no billing by message volume. Stop or pause whenever you want.",
       "tiers": [
         {
-          "name_fr": "Découverte",
-          "name_en": "Discovery",
-          "price": "0 €",
-          "period_fr": "gratuit · point d'entrée",
-          "period_en": "free · entry point",
+          "name_fr": "Essai gratuit",
+          "name_en": "Free trial",
+          "price": "{{prix.commercial.essai}} leads",
+          "period_fr": "offerts · 0 € · un essai, pas une formule",
+          "period_en": "on us · 0 € · a trial, not a plan",
           "features_fr": [
-            "Le palier d'entrée à 0 €, sans carte ni engagement",
+            "Essai à 0 €, sans carte ni engagement",
             "Une visio pour cadrer votre situation et vos priorités",
-            "Une liste de 30 prospects offerts, pour tester le ciblage",
+            "Une liste de {{prix.commercial.essai}} leads offerts, pour tester le ciblage",
             "Des conseils concrets sur votre stratégie commerciale"
           ],
           "features_en": [
-            "The 0 € entry tier, no card and no commitment",
+            "Trial at 0 €, no card and no commitment",
             "A video call to frame your situation and priorities",
-            "A list of 30 prospects on us, to test the targeting",
+            "A list of {{prix.commercial.essai}} leads on us, to test the targeting",
             "Concrete advice on your sales strategy"
           ],
           "cta": {
@@ -554,9 +554,9 @@
         {
           "name_fr": "Standard",
           "name_en": "Standard",
-          "price": "980 €",
-          "period_fr": "HT / mois",
-          "period_en": "ex VAT / month",
+          "price": "{{prix.commercial}} €",
+          "period_fr": "HT / mois · prix d'entrée",
+          "period_en": "ex VAT / month · entry price",
           "features_fr": [
             "1 000 contacts / mois (≈ 4 000 emails envoyés)",
             "800 prospects / mois",
@@ -647,8 +647,8 @@
           "featured": true
         }
       ],
-      "footnote_fr": "La découverte est gratuite, sans engagement : une visio et 30 prospects offerts. Standard et Pro sont des abonnements mensuels HT de prospection, sans engagement de durée : arrêtez ou mettez en pause à tout moment. Le CRM, le scoring et les séquences de suivi se font en régie growth, {{prix.horaire}} € de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Un site web ou une application (CRM sur mesure, portail) se chiffre sur les 4 socles, de 2 000 à 10 000 € HT. Sans abonnement caché ni captivité : à la fin, le système est à vous, transférable.",
-      "footnote_en": "Discovery is free, no commitment: a video call and 30 prospects on us. Standard and Pro are monthly ex-VAT prospecting subscriptions, with no duration commitment: stop or pause at any time. The CRM, scoring and follow-up sequences run on a growth retainer, {{prix.horaire}} € an hour, in sprints: we size the time together, you validate, we execute. A website or an application (bespoke CRM, portal) is priced on the 4 tiers, from 2,000 to 10,000 € ex VAT. No hidden subscription, no lock-in: at the end, the system is yours, transferable."
+      "footnote_fr": "L'essai est gratuit, sans engagement : une visio et {{prix.commercial.essai}} leads offerts. Standard et Pro sont des abonnements mensuels HT de prospection, sans engagement de durée : arrêtez ou mettez en pause à tout moment. Le CRM, le scoring et les séquences de suivi se font en régie growth, {{prix.horaire}} € de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Un site web ou une application (CRM sur mesure, portail) se chiffre sur les 4 socles, de 2 000 à 10 000 € HT. Sans abonnement caché ni captivité : à la fin, le système est à vous, transférable.",
+      "footnote_en": "The trial is free, no commitment: a video call and {{prix.commercial.essai}} leads on us. Standard and Pro are monthly ex-VAT prospecting subscriptions, with no duration commitment: stop or pause at any time. The CRM, scoring and follow-up sequences run on a growth retainer, {{prix.horaire}} € an hour, in sprints: we size the time together, you validate, we execute. A website or an application (bespoke CRM, portal) is priced on the 4 tiers, from 2,000 to 10,000 € ex VAT. No hidden subscription, no lock-in: at the end, the system is yours, transferable."
     },
     {
       "type": "eeat-panel",
@@ -678,8 +678,8 @@
         {
           "q_fr": "Par où commencer si mon budget est limité ?",
           "q_en": "Where to start if my budget is limited?",
-          "a_fr": "Par la prospection en découverte gratuite : une visio, 30 prospects offerts, des conseils concrets. On branche le CRM et le scoring quand la base tient, puis les séquences de suivi. Vous montez d'un cran quand c'est rentable, pas avant.",
-          "a_en": "With prospecting in free discovery: a video call, 30 prospects on us, concrete advice. We wire the CRM and scoring once the base holds, then the follow-up sequences. You move up a notch when it pays off, not before."
+          "a_fr": "Par la prospection, avec un essai gratuit : {{prix.commercial.essai}} leads, 0 €, une visio et des conseils concrets. L'abonnement démarre ensuite dès {{prix.commercial}} € HT par mois. On branche le CRM et le scoring quand la base tient, puis les séquences de suivi. Vous montez d'un cran quand c'est rentable, pas avant.",
+          "a_en": "With prospecting, through a free trial: {{prix.commercial.essai}} leads, 0 €, a video call and concrete advice. The subscription then starts from {{prix.commercial}} € ex VAT a month. We wire the CRM and scoring once the base holds, then the follow-up sequences. You move up a notch when it pays off, not before."
         },
         {
           "q_fr": "Vous branchez quels CRM et quels outils ?",

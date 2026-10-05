@@ -11,10 +11,13 @@ import {
   AUDIT_DURATION_MIN,
   DEPLOYMENT_FLOOR_EUR,
   HOURLY_RATE_EUR,
-  MAINTENANCE_TIERS_EUR,
+  MAINTENANCE_PLANS,
   PILOT_FLOOR_EUR,
+  SALES_SYSTEM_FLOOR_EUR,
+  SALES_SYSTEM_TRIAL_LEADS,
   SCOPING_SPRINT_EUR,
   SCOPING_SPRINT_HOURS,
+  TRAINING_FORMATS,
   formatEur,
 } from '../../data/pricing';
 import { serviceDomains } from './service-catalog';
@@ -31,20 +34,24 @@ export function llmsDetails(): string[] {
     .map((d, i) => `${i + 1}. ${d.name} : ${d.services.map((s) => s.name).join(', ')}.`)
     .join('\n');
 
-  const maintenance = MAINTENANCE_TIERS_EUR.map((p) => String(p)).join(', ').replace(/, (\d+)$/, ' ou $1');
+  const maintenance = MAINTENANCE_PLANS.map(
+    (plan) => `  - ${plan.name.fr} (${eur(plan.price)} HT par mois). ${plan.summary.fr}`,
+  ).join('\n');
+  const training = TRAINING_FORMATS.map((f) => `${f.hours} heures pour ${eur(f.price)} HT`).join(' ou ');
   const path = [
     `- Audit IA : gratuit (${eur(0)}), ${AUDIT_DURATION_MIN} minutes en visio, sans engagement.`,
     `- Sprint de cadrage : ${eur(SCOPING_SPRINT_EUR)} HT, ${SCOPING_SPRINT_HOURS} heures, prix fixe.`,
     `- Pilote (un premier système en production) : dès ${eur(PILOT_FLOOR_EUR)} HT.`,
     `- Déploiement sur mesure : dès ${eur(DEPLOYMENT_FLOOR_EUR)} HT, devis ferme après audit.`,
-    `- Maintenance : trois paliers à ${maintenance} € HT par mois.`,
+    `- Maintenance (accompagnement continu), trois paliers mensuels :\n${maintenance}`,
     `- Interventions hors forfait : ${eur(HOURLY_RATE_EUR)} HT de l'heure.`,
+    `- Système commercial (prospection automatisée) : dès ${eur(SALES_SYSTEM_FLOOR_EUR)} HT par mois. Essai gratuit : ${SALES_SYSTEM_TRIAL_LEADS} leads, ${eur(0)}.`,
   ].join('\n');
 
   return [
     `L'offre, en cinq domaines :\n${domains}`,
     `Le parcours et les prix d'entrée (hors taxes, détail sur ${SITE.url}/tarifs) :\n${path}`,
-    'Formations : formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.',
+    `Formations : deux formats, ${training}. Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.`,
     'Garde-fous : RGPD et AI Act pris en compte dès la conception, validation humaine sur les actions sensibles, journal des actions, code et workflows transférés au client en fin de mission.',
     `Qui : Simon Beros, fondateur, travaille seul avec les équipes métier du client (${SITE.url}/equipe/simon-beros).`,
     `Contact : ${SITE.email}. Prise de rendez-vous pour l'audit gratuit : ${SITE.url}${AUDIT_BOOKING_HREF}`,

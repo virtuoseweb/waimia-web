@@ -39,7 +39,8 @@ const collectionLd = buildCollectionPage(
 
 const [allBlog, allCases] = await Promise.all([
   getLiveCollection('blog'),
-  getCollection('cases'),
+  // Cas clients seulement : les projets internes ne sont pas des « cas clients signés ».
+  getCollection('cases', ({ data }) => data.kind === 'client'),
 ]);
 
 const byDate = (
@@ -213,7 +214,7 @@ const proofBandData = {
   metrics: [
     { value: String(nBlog), label_fr: 'notes publiées', label_en: 'published notes' },
     { value: String(nOutils), label_fr: 'outils gratuits', label_en: 'free tools' },
-    { value: String(sortedCases.length), label_fr: 'cas clients signés', label_en: 'signed client cases' },
+    { value: String(sortedCases.length), label_fr: 'cas clients publiés', label_en: 'published client cases' },
   ],
 } satisfies SectionByType<'metric-callout-band'>;
 
@@ -278,13 +279,13 @@ const splitData = {
   {/* BANDE INK · preuve éditoriale chiffrée */}
   <MetricCalloutBand data={proofBandData} lang="fr" />
 
-  {/* CAS CLIENTS · 4 dossiers signés · paper */}
+  {/* CAS CLIENTS · fiches publiées (kind = client) · paper */}
   <section class="hub-cases-detail">
     <div class="wrap-wide">
-      <Kicker tone="accent" class="hub-cd-k">§ Cas clients · {sortedCases.length} dossiers signés</Kicker>
-      <h2 class="hub-cd-h2">{caseCards.length === 4 ? 'Quatre' : String(caseCards.length)} missions. Toutes mesurées.</h2>
+      <Kicker tone="accent" class="hub-cd-k">§ Cas clients · {sortedCases.length} fiches publiées</Kicker>
+      <h2 class="hub-cd-h2">{String(caseCards.length)} missions. Des chiffres quand ils existent.</h2>
       <p class="hub-cd-lead">
-        Pas de témoignages publicitaires : chaque cas est lu, validé et signé par le client. Des clients externes, des dossiers chiffrés.
+        Pas de témoignage publicitaire : chaque fiche dit ce qui a été construit, ce qui est encore en cours, et ce qui est mesuré ou non.
       </p>
       <ol class="hub-cd-list reveal-stagger">
         {caseCards.map((c) => (

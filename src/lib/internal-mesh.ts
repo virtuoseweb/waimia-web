@@ -46,6 +46,7 @@ type Topic =
   | 'acquisition'
   | 'donnees'
   | 'conseil'
+  | 'conformite'
   | 'formation'
   | 'studio';
 
@@ -75,6 +76,8 @@ interface PageDef {
 // ───────────────────────────── Registre des pages ─────────────────────────────
 // L'ORDRE compte : il définit les anneaux (une page lie celles qui la suivent dans son
 // thème). Garder les pages d'un même sujet proches les unes des autres.
+// Thème `claude` = assistants et plateformes de modèles (Claude, ChatGPT, MCP, comparatifs).
+// Thème `conformite` = RGPD, AI Act, charte d'usage, fonctions à risque (RH).
 
 const PAGES: Record<string, PageDef> = {
   // ── Automatisation ──
@@ -85,22 +88,34 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/comparatifs/n8n-vs-make': { label_fr: 'n8n ou Make : le comparatif', label_en: 'n8n vs Make', kind: 'comparatif', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
   '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
+  '/cas-usages/finance-comptabilite': { label_fr: 'IA et automatisation de la comptabilité', label_en: 'AI and accounting automation', kind: 'cas-usage', topics: ['automatisation', 'donnees'] },
+  '/cas-usages/rh': { label_fr: 'IA et automatisation des ressources humaines', label_en: 'AI and HR automation', kind: 'cas-usage', topics: ['automatisation', 'conformite'] },
+  '/ressources/guides/taches-a-automatiser-pme': { label_fr: "Guide : quelles tâches automatiser d'abord", label_en: 'Guide: which tasks to automate first', kind: 'guide', topics: ['automatisation', 'conseil'] },
   '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation classique', label_en: 'AI agent or classic automation', kind: 'article', topics: ['agents', 'automatisation'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
   '/services/agent-support-client': { label_fr: 'Chatbot et agent de service client', label_en: 'Customer service agent', kind: 'service', topics: ['agents'] },
+  '/cas-usages/support-sav': { label_fr: 'Automatiser le service client et le SAV', label_en: 'Automating customer service', kind: 'cas-usage', topics: ['agents', 'automatisation'] },
+  '/cas-clients/brow-x-professionnel': { label_fr: 'Cas client : Brow.X Professionnel', label_en: 'Case: Brow.X Professionnel', kind: 'cas-client', topics: ['agents', 'automatisation'] },
   '/services/base-de-connaissance-ia': { label_fr: 'Base de connaissance IA', label_en: 'AI knowledge base', kind: 'service', topics: ['agents', 'claude'] },
   '/services/integration-claude': { label_fr: 'Claude en entreprise', label_en: 'Claude for business', kind: 'service', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-pme': { label_fr: 'Guide : déployer Claude dans une PME', label_en: 'Guide: deploying Claude in an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-cowork': { label_fr: 'Guide Claude Cowork', label_en: 'Claude Cowork guide', kind: 'guide', topics: ['claude'] },
+  '/ressources/guides/mcp-claude': { label_fr: 'Guide MCP : brancher Claude à vos outils', label_en: 'MCP guide: connecting Claude to your tools', kind: 'guide', topics: ['claude', 'agents'] },
+  '/cas-clients/inbound-value': { label_fr: 'Cas client : Inbound Value', label_en: 'Case: Inbound Value', kind: 'cas-client', topics: ['agents', 'claude'] },
   '/ressources/comparatifs/claude-vs-chatgpt-pme': { label_fr: 'Claude ou ChatGPT pour une PME', label_en: 'Claude or ChatGPT for an SMB', kind: 'comparatif', topics: ['claude', 'agents'] },
+  '/ressources/comparatifs/claude-platform-vs-openai-platform': { label_fr: 'Claude Platform ou OpenAI Platform', label_en: 'Claude Platform or OpenAI Platform', kind: 'comparatif', topics: ['claude', 'agents'] },
+  '/cas-clients/isabelle-diaz-naturopathe': { label_fr: 'Cas client : Isabelle Diaz', label_en: 'Case: Isabelle Diaz', kind: 'cas-client', topics: ['agents', 'acquisition'] },
   '/ressources/comparatifs/claude-code-vs-cursor': { label_fr: 'Claude Code ou Cursor', label_en: 'Claude Code or Cursor', kind: 'comparatif', topics: ['claude', 'applications'] },
 
   // ── Applications métier et données ──
   '/services/applications-internes': { label_fr: 'Application métier sur mesure', label_en: 'Custom business application', kind: 'service', topics: ['applications', 'donnees'] },
   '/blog/applications-internes-build-vs-buy-pme': { label_fr: 'Développer ou acheter son outil interne', label_en: 'Build or buy your internal tool', kind: 'article', topics: ['applications'] },
-  '/cas-clients/les-carnets-de-montpellier': { label_fr: 'Cas client : Les Carnets de Montpellier', label_en: 'Case: Les Carnets de Montpellier', kind: 'cas-client', topics: ['applications', 'acquisition'] },
+  '/cas-clients/les-carnets-de-montpellier': { label_fr: 'Cas client : Les Carnets de Montpellier', label_en: 'Case: Les Carnets de Montpellier', kind: 'cas-client', topics: ['applications', 'agents'] },
+  '/cas-clients/waimia-os': { label_fr: 'Projet interne : Waimia OS', label_en: 'Internal project: Waimia OS', kind: 'cas-client', topics: ['agents', 'applications'] },
+  '/cas-clients/virtuoseos': { label_fr: 'Projet interne : VirtuoseOS', label_en: 'Internal project: VirtuoseOS', kind: 'cas-client', topics: ['applications', 'agents'] },
+  '/cas-clients/prototypes-internes': { label_fr: 'Projets internes : trois prototypes', label_en: 'Internal projects: three prototypes', kind: 'cas-client', topics: ['applications', 'agents'] },
   '/services/donnees-reporting': { label_fr: 'Tableau de bord automatisé', label_en: 'Automated dashboard', kind: 'service', topics: ['donnees', 'applications'] },
   '/blog/tableau-de-bord-pme-quelles-donnees-suivre': { label_fr: 'Tableau de bord : quelles données suivre', label_en: 'Dashboard: which data to track', kind: 'article', topics: ['donnees'] },
   '/cas-usages/centraliser-donnees': { label_fr: 'Centraliser données et reporting', label_en: 'Centralise your data', kind: 'cas-usage', topics: ['donnees'] },
@@ -117,11 +132,13 @@ const PAGES: Record<string, PageDef> = {
   // ── Conseil, audit, conformité ──
   '/audit-ia-pme': { label_fr: "L'audit IA pour PME", label_en: 'AI audit for SMBs', kind: 'audit', topics: ['conseil'], emit: false },
   '/services/consultant-ia-claude': { label_fr: 'Consultant IA', label_en: 'AI consultant', kind: 'service', topics: ['conseil', 'claude'] },
-  '/conformite-ia': { label_fr: 'Conformité IA : RGPD et AI Act', label_en: 'AI compliance: GDPR and AI Act', kind: 'service', topics: ['conseil', 'claude'] },
+  '/conformite-ia': { label_fr: 'Conformité IA : RGPD et AI Act', label_en: 'AI compliance: GDPR and AI Act', kind: 'service', topics: ['conformite', 'conseil'] },
+  '/ressources/guides/ai-act-pme-calendrier': { label_fr: 'AI Act pour PME : le calendrier à jour', label_en: 'AI Act for SMBs: the current timeline', kind: 'guide', topics: ['conformite', 'conseil'] },
   '/ressources/diagnostics/maturite-ia': { label_fr: 'Diagnostic de maturité IA', label_en: 'AI maturity diagnostic', kind: 'diagnostic', topics: ['conseil'] },
   '/ressources/outils/calculateur-roi-ia': { label_fr: 'Calculateur de ROI IA', label_en: 'AI ROI calculator', kind: 'diagnostic', topics: ['conseil', 'automatisation'] },
+  '/ressources/guides/roi-automatisation': { label_fr: "Guide : mesurer le ROI d'une automatisation", label_en: 'Guide: measuring automation ROI', kind: 'guide', topics: ['conseil', 'automatisation'] },
   '/ressources/outils/grille-taches-a-automatiser': { label_fr: 'Grille des tâches à automatiser', label_en: 'Task automation grid', kind: 'diagnostic', topics: ['automatisation', 'conseil'] },
-  '/ressources/outils/charte-ia-entreprise': { label_fr: 'Modèle de charte IA pour PME', label_en: 'AI charter template for SMBs', kind: 'guide', topics: ['conseil', 'claude'] },
+  '/ressources/outils/charte-ia-entreprise': { label_fr: 'Modèle de charte IA pour PME', label_en: 'AI charter template for SMBs', kind: 'guide', topics: ['conformite', 'conseil'] },
   '/blog/essai-pillar-ia-pme-2026': { label_fr: "L'IA appliquée aux PME en 2026", label_en: 'Applied AI for SMBs in 2026', kind: 'article', topics: ['conseil'] },
   '/blog/forward-deployed-engineer': { label_fr: "Forward deployed engineer : le rôle", label_en: 'Forward deployed engineer: the role', kind: 'article', topics: ['conseil', 'studio'] },
   '/tarifs': { label_fr: 'Tarifs', label_en: 'Pricing', kind: 'studio', topics: ['conseil', 'studio'], emit: false },
@@ -132,6 +149,7 @@ const PAGES: Record<string, PageDef> = {
   '/formations/n8n': { label_fr: 'Formation n8n', label_en: 'n8n training', kind: 'formation', topics: ['formation', 'automatisation'] },
   '/formations/make': { label_fr: 'Formation Make', label_en: 'Make training', kind: 'formation', topics: ['formation', 'automatisation'] },
   '/formations/claude': { label_fr: 'Formation Claude', label_en: 'Claude training', kind: 'formation', topics: ['formation', 'claude'] },
+  '/formations/chatgpt': { label_fr: 'Formation ChatGPT', label_en: 'ChatGPT training', kind: 'formation', topics: ['formation', 'claude'] },
 
   // ── Acquisition : site, SEO et GEO ──
   '/services/systeme-acquisition': { label_fr: "Système d'acquisition", label_en: 'Acquisition system', kind: 'service', topics: ['acquisition'] },
@@ -143,7 +161,6 @@ const PAGES: Record<string, PageDef> = {
   '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
-  '/cas-clients/isabelle-diaz-naturopathe': { label_fr: 'Cas client : Isabelle Diaz', label_en: 'Case: Isabelle Diaz', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Studio : qui, comment, où ──
   '/agence': { label_fr: 'Le studio', label_en: 'The studio', kind: 'studio', topics: ['studio'], emit: false },
@@ -155,6 +172,7 @@ const PAGES: Record<string, PageDef> = {
   '/implantations/bordeaux': { label_fr: 'Waimia à Bordeaux', label_en: 'Waimia in Bordeaux', kind: 'implantation', topics: ['studio'] },
   '/implantations/montpellier': { label_fr: 'Waimia à Montpellier', label_en: 'Waimia in Montpellier', kind: 'implantation', topics: ['studio'] },
   '/implantations/lyon': { label_fr: 'Waimia à Lyon', label_en: 'Waimia in Lyon', kind: 'implantation', topics: ['studio'] },
+  '/implantations/paris': { label_fr: 'Waimia à Paris', label_en: 'Waimia in Paris', kind: 'implantation', topics: ['studio'] },
 };
 
 /** Intitulé du groupe d'affichage par nature de page (ordre = ordre d'affichage). */
@@ -509,7 +527,12 @@ export function meshForBlogHub(_lang: Lang = 'fr'): RelatedLinksData {
       '/services/applications-internes',
       '/services/integration-claude',
       '/ressources/guides/claude-pme',
+      '/ressources/guides/mcp-claude',
+      '/ressources/guides/ai-act-pme-calendrier',
+      '/ressources/guides/taches-a-automatiser-pme',
+      '/ressources/guides/roi-automatisation',
       '/ressources/comparatifs/claude-vs-chatgpt-pme',
+      '/ressources/comparatifs/claude-platform-vs-openai-platform',
       '/ressources/outils/calculateur-roi-ia',
       '/cas-clients/amploi',
     ]),
@@ -522,9 +545,13 @@ export function meshForCasClientsHub(_lang: Lang = 'fr'): RelatedLinksData {
   const groups = groupByKind(
     liveLinks([
       '/services/systemes-operationnels-ia',
+      '/services/agents-ia',
+      '/services/agent-support-client',
+      '/services/integration-claude',
       '/services/applications-internes',
       '/services/site-web-ia',
       '/services/seo-geo-contenu',
+      '/cas-usages/support-sav',
       '/cas-usages/generer-plus-de-leads',
       '/cas-usages/standardiser-processus',
       '/audit-ia-pme',

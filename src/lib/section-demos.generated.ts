@@ -227,6 +227,7 @@ import { demo as curriculumTimelineDemo } from '../sections/curriculum-timeline/
 import { demo as publicationsPanelDemo } from '../sections/publications-panel/demo';
 import { demo as closingCtaBandDemo } from '../sections/closing-cta-band/demo';
 import { demo as offerRailDemo } from '../sections/offer-rail/demo';
+import { demo as marketCasesDemo } from '../sections/market-cases/demo';
 
 export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'hero-form-inline': heroFormInlineDemo,
@@ -451,4 +452,5 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'publications-panel': publicationsPanelDemo,
   'closing-cta-band': closingCtaBandDemo,
   'offer-rail': offerRailDemo,
+  'market-cases': marketCasesDemo,
 };

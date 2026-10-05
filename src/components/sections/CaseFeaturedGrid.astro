@@ -35,14 +35,28 @@ const items = data.cases.map((c, i) => ({
 }));
 
 const [featured, ...rest] = items;
+
+// En-tête de rubrique optionnel. Présent → les titres de cartes passent en h3.
+const heading = isFr ? data.h2_fr : data.h2_en;
+const headKicker = isFr ? data.kicker_fr : data.kicker_en;
+const headLede = isFr ? data.lede_fr : data.lede_en;
+const CardTitle = heading ? 'h3' : 'h2';
+const itemLabel = isFr ? data.item_label_fr ?? 'Cas' : data.item_label_en ?? 'Case';
 ---
 {featured && (
-  <section class="cas-grid-outer wrap-wide" data-bg={data.background}>
+  <section class="cas-grid-outer wrap-wide" id={data.anchor_id} data-bg={data.background} data-headed={heading ? 'true' : undefined}>
+    {heading && (
+      <header class="cas-grid-head reveal">
+        {headKicker && <Kicker tone="accent" class="cas-grid-head__kicker">{headKicker}</Kicker>}
+        <h2 class="cas-grid-head__title u-serif-accent" set:html={heading} />
+        {headLede && <p class="cas-grid-head__lede">{headLede}</p>}
+      </header>
+    )}
     <div class="cas-grid reveal-stagger">
       <a href={featured.href} class="cas-card cas-card--featured">
-        <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">§ {isFr ? 'Cas' : 'Case'} {featured.caseNum} · {featured.sector}{featured.duration ? ` · ${featured.duration}` : ''}</Kicker>
+        <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">{`§ ${itemLabel} ${featured.caseNum} · ${featured.sector}${featured.duration ? ` · ${featured.duration}` : ''}`}</Kicker>
         <span class="cas-card-provenance">{provenanceLabel(featured.firstParty)}</span>
-        <h2 class="cas-card-title">{featured.title}</h2>
+        <CardTitle class="cas-card-title">{featured.title}</CardTitle>
         <p class="cas-card-headline">{featured.headline}</p>
         {featured.cover && (
           <img
@@ -64,7 +78,7 @@ const [featured, ...rest] = items;
             <div class="cas-card-body">
               <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">§ {c.sector}{c.duration ? ` · ${c.duration}` : ''}</Kicker>
               <span class="cas-card-provenance">{provenanceLabel(c.firstParty)}</span>
-              <h2 class="cas-card-title">{c.title}</h2>
+              <CardTitle class="cas-card-title">{c.title}</CardTitle>
               <p class="cas-card-headline">{c.headline}</p>
               <span class="cas-card-cta">{readLabel}</span>
             </div>
@@ -77,6 +91,30 @@ const [featured, ...rest] = items;
 
 <style>
   .cas-grid-outer { margin: 0 auto; padding: 0 var(--space-6); }
+  /* En-tête de rubrique (optionnel) : kicker mono, titre display, chapô mesuré. */
+  .cas-grid-head {
+    display: grid;
+    gap: var(--space-3);
+    max-width: var(--wrap-prose);
+    margin-top: var(--space-10);
+  }
+  .cas-grid-head__title {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    font-size: var(--text-h2);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .cas-grid-head__lede {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--muted);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .cas-grid-outer[data-headed='true'] .cas-grid { margin-top: var(--space-6); }
   .cas-grid {
     display: grid;
     grid-template-columns: 7fr 5fr;
@@ -129,6 +167,15 @@ const [featured, ...rest] = items;
     max-width: 480px;
     margin-top: var(--space-2);
   }
+  /* Carte mise en avant plus haute que son contenu (colonne de droite longue) : c'est la
+     cover qui absorbe la hauteur restante, pas un vide entre le chapô et l'image. */
+  .cas-card--featured .cas-card-headline { flex: 0 0 auto; }
+  .cas-card--featured .cas-card-img {
+    flex: 1 1 auto;
+    min-height: 0;
+    object-fit: cover;
+  }
+  .cas-card--featured .cas-card-cta { margin-top: auto; padding-top: var(--space-4); }
   .cas-card--row {
     flex-direction: row;
     align-items: flex-start;

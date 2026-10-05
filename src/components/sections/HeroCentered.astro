@@ -314,7 +314,7 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
       )}
       <div class="wrap-wide">
         <span class="hero-case-study__eyebrow">{isFr ? data.eyebrow_fr : data.eyebrow_en}</span>
-        <Kicker class="hero-case-study__num">{`§ ${isFr ? 'Cas' : 'Case'} ${data.case_num}`}</Kicker>
+        <Kicker class="hero-case-study__num">{`§ ${isFr ? data.num_label_fr ?? 'Cas' : data.num_label_en ?? 'Case'} ${data.case_num}`}</Kicker>
         <h1 class="hero-case-study__h1 reveal-mask-up u-serif-accent" style={h1Gap ? `--hcs-h1-gap: ${h1Gap}` : undefined} transition:name={transitionId ? `hero-h1-${transitionId}` : undefined} set:html={isFr ? data.h1_fr : data.h1_en} />
       </div>
     </div>
@@ -994,7 +994,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     letter-spacing: -0.015em;
     text-wrap: balance;
     overflow-wrap: break-word;
-    hyphens: auto;
+    /* Pas de césure automatique : combinée à `text-wrap: balance`, elle coupait des mots
+       courants en plein titre (« agen-tique » à 1440 px comme à 390 px) alors que le mot
+       tenait sur la ligne. Un mot plus large que la ligne reste couvert par
+       `overflow-wrap: break-word`, et un mot composé se coupe à son trait d'union. */
+    hyphens: manual;
     font-weight: var(--fw-semibold);
     color: var(--ink);
     margin: 0 0 var(--hcs-h1-gap, 0);

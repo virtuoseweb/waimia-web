@@ -116,6 +116,13 @@ const isFr = lang === 'fr';
     border-left: 3px solid var(--accent);
     margin-inline-start: var(--space-6);
   }
+  /* Mobile : le retrait éditorial s'ajoutait au gutter et décentrait l'encadré (48 px à
+     gauche, 16 px à droite à 390 px), pour une colonne de texte de 216 px. On supprime le
+     retrait : l'encadré reprend le gutter des deux côtés, comme la variante par défaut, et le
+     filet accent reste le marqueur de la variante. */
+  @media (max-width: 640px) {
+    .branded-callout[data-variant='rail'] .branded-callout__box { margin-inline-start: 0; }
+  }
   /* Liens internes dans le corps (rendu bodyHtml uniquement) : accent + soulignement.
      Les instances sans bodyHtml n'ont aucun <a> dans le corps -> 0 impact. */
   .branded-callout__body1 :global(a),

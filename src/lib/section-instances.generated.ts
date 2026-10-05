@@ -43,6 +43,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 8,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -70,10 +79,73 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 9,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 3,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 8,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 1,
       "label": "Simon Beros",
       "background": "paper"
     }
@@ -99,6 +171,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     }
   ],
   "branded-callout": [
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 6,
+      "label": "Pas encore de réalisation Waimia sur cette fonction",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 7,
+      "label": "Pas encore de réalisation Waimia sur cette fonction",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 6,
+      "label": "Un projet en cours, pas encore de résultat publié",
+      "background": "paper"
+    },
     {
       "collection": "diagnostics",
       "file": "diagnostics/claude-pme.json",
@@ -166,11 +265,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-support-client.json",
+      "slug": "agent-support-client",
+      "route": "/services/agent-support-client",
+      "index": 7,
+      "label": "Un cas en cours, et le projet interne qui pose les garde-fous",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 7,
+      "label": "Trois réalisations avec des agents",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 7,
       "label": "Deux projets où la saisie manuelle a disparu",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/base-de-connaissance-ia.json",
+      "slug": "base-de-connaissance-ia",
+      "route": "/services/base-de-connaissance-ia",
+      "index": 8,
+      "label": "Deux réalisations avec une base de connaissance",
       "background": "ink"
     },
     {
@@ -184,11 +310,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 7,
+      "label": "Trois réalisations autour de Claude et de MCP",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 7,
-      "label": "Trois projets de ce volet",
+      "label": "Cinq projets de ce volet",
       "background": "ink"
     },
     {
@@ -795,6 +930,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 6,
+      "label": "Dans quels cas chacune convient",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -858,11 +1002,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 6,
+      "label": "Si vous déployez un système à haut risque : ce que l'article 26 demandera au 2 décembre 2027",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 7,
       "label": "Six questions pour partir du bon pied",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 6,
+      "label": "Huit questions à poser avant de brancher un serveur MCP",
       "background": "paper"
     },
     {
@@ -1011,12 +1173,57 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 3,
+      "label": "Niveau 1 : à l'issue, vous savez utiliser ChatGPT",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 5,
+      "label": "Niveau 2 : à l'issue, vous savez étendre ChatGPT",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 7,
+      "label": "Niveau 3 : à l'issue, vous savez construire un système IA avec OpenAI",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 2,
-      "label": "À l'issue, vos équipes savent",
-      "background": "paper"
+      "index": 3,
+      "label": "Niveau 1 : à l'issue, vous savez utiliser Claude",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 5,
+      "label": "Niveau 2 : à l'issue, vous savez étendre Claude",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 7,
+      "label": "Niveau 3 : à l'issue, vous savez construire un système IA avec Claude",
+      "background": "paper-2"
     },
     {
       "collection": "formations",
@@ -1675,6 +1882,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "direct-answer": [
     {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
       "collection": "audits",
       "file": "audits/conformite-ia.json",
       "slug": "conformite-ia",
@@ -1729,12 +1963,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 1,
       "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 2,
+      "label": "#2",
       "background": "paper-2"
     },
     {
@@ -1811,6 +2063,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -1825,6 +2086,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 1,
       "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 2,
+      "label": "#2",
       "background": "paper-2"
     },
     {
@@ -1859,6 +2147,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/automatisation.json",
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -1914,11 +2211,21 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 11,
+      "label": "#11",
+      "variant": "note",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 6,
-      "label": "#6",
+      "index": 11,
+      "label": "#11",
       "variant": "note",
       "background": "paper"
     },
@@ -1955,6 +2262,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -1964,11 +2280,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 1,
       "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 5,
+      "label": "#5",
       "background": "paper-2"
     },
     {
@@ -2017,6 +2360,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
@@ -2045,6 +2424,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -2059,6 +2474,96 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-cowork",
       "index": 6,
       "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 10,
+      "label": "#10",
       "background": "paper"
     },
     {
@@ -2234,20 +2739,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 4,
-      "label": "#4",
-      "background": "paper"
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
     },
     {
       "collection": "formations",
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 2,
-      "label": "#2",
+      "index": 3,
+      "label": "#3",
       "background": "paper-2"
     },
     {
@@ -2271,6 +2785,46 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "editorial-table-block": [
     {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 2,
+      "label": "Les tâches comptables, classées par rentabilité probable et par risque",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 3,
+      "label": "Les tâches RH, classées par rentabilité probable et par risque",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 2,
+      "label": "Les tâches du support, classées par rentabilité probable et par risque",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 4,
+      "label": "Claude Platform et OpenAI Platform, critère par critère",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
@@ -2282,11 +2836,101 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 4,
+      "label": "Le calendrier de l'AI Act au 5 octobre 2026",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
       "index": 3,
       "label": "Où Cowork est disponible, selon Anthropic",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 4,
+      "label": "Intégration classique ou serveur MCP",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 8,
+      "label": "MCP dans les plateformes de Claude et d'OpenAI",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 4,
+      "label": "Le coût complet : six postes, dont trois qu'on oublie",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 6,
+      "label": "Exemple illustratif : la saisie de factures fournisseurs",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 8,
+      "label": "Le tableau de calcul, ligne par ligne",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 4,
+      "label": "Les cinq critères, et comment les mesurer",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 6,
+      "label": "Selon le profil de la tâche, quoi faire",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 7,
+      "label": "Par fonction : le bon premier candidat",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -2302,10 +2946,40 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 2,
+      "label": "Les trois niveaux de la formation ChatGPT",
+      "variant": "default",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 10,
+      "label": "Prérequis, format, durée et tarif",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 5,
+      "index": 2,
+      "label": "Les trois niveaux de la formation Claude",
+      "variant": "default",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 10,
       "label": "Prérequis, format, durée et tarif",
       "variant": "editorial",
       "background": "paper-2"
@@ -2370,12 +3044,57 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 4,
+      "label": "Programme du niveau 1 : utiliser l'application ChatGPT",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 6,
+      "label": "Programme du niveau 2 : devenir expert de l'application",
+      "background": "paper-3"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 8,
+      "label": "Programme du niveau 3 : deux parcours, un tronc commun",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 3,
-      "label": "Le programme, module par module",
+      "index": 4,
+      "label": "Programme du niveau 1 : utiliser l'application Claude",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 6,
+      "label": "Programme du niveau 2 : devenir expert de l'application",
       "background": "paper-3"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 8,
+      "label": "Programme du niveau 3 : deux parcours, un tronc commun",
+      "background": "paper"
     },
     {
       "collection": "formations",
@@ -2402,8 +3121,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 8,
-      "label": "#8",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2411,8 +3130,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 8,
-      "label": "#8",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2474,8 +3193,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 8,
-      "label": "#8",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2689,6 +3408,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 10,
+      "label": "IA et comptabilité : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -2716,11 +3444,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 11,
+      "label": "IA et ressources humaines : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 5,
       "label": "Automatiser l'administratif : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 10,
+      "label": "Automatisation du service client : vos questions",
       "background": "paper"
     },
     {
@@ -2778,6 +3524,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper-2"
+    },
+    {
       "collection": "lp",
       "file": "lp/site-web-intelligent.json",
       "slug": "site-web-intelligent",
@@ -2821,6 +3576,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 6,
       "label": "Ce que vous nous demandez",
       "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 9,
+      "label": "Questions fréquentes",
+      "background": "paper-2"
     },
     {
       "collection": "comparatifs",
@@ -2896,6 +3660,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 12,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -2913,11 +3686,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 11,
+      "label": "Questions fréquentes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 11,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 12,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
       "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 9,
+      "index": 10,
       "label": "Chatbot et agent de service client : vos questions",
       "background": "paper-2"
     },
@@ -2926,7 +3726,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 9,
+      "index": 10,
       "label": "Agents IA : vos questions",
       "background": "paper-2"
     },
@@ -2971,7 +3771,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 9,
+      "index": 10,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -3007,7 +3807,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 9,
+      "index": 10,
       "label": "Claude en entreprise : vos questions",
       "background": "paper-2"
     },
@@ -3112,10 +3912,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 13,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 8,
+      "index": 13,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -3124,7 +3933,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 4,
+      "index": 5,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -3633,6 +4442,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 11,
+      "label": "Qui ressaisit encore, et combien de pièces par mois ?",
+      "background": "ink"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -3660,11 +4478,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 12,
+      "label": "Que se passe-t-il entre la signature et le premier jour ?",
+      "background": "ink"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 6,
       "label": "Quelle procédure ne tient que sur une personne ?",
+      "background": "ink"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 11,
+      "label": "Quelles demandes reviennent chaque semaine ?",
       "background": "ink"
     },
     {
@@ -3722,6 +4558,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "ink"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 6,
+      "label": "Un premier échange en visio, depuis Paris.",
+      "background": "ink"
+    },
+    {
       "collection": "lp",
       "file": "lp/hub.json",
       "slug": "hub",
@@ -3773,6 +4618,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 7,
       "label": "Le bon outil dépend de votre travail. Cadrons-le ensemble.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 10,
+      "label": "La bonne plateforme se choisit sur vos données et vos contraintes.",
       "background": "ink"
     },
     {
@@ -3849,6 +4703,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 13,
+      "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -3866,11 +4729,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "ink"
     },
     {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 12,
+      "label": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 12,
+      "label": "Un seuil de rentabilité calculé sur vos chiffres, pas sur une moyenne de marché.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 13,
+      "label": "Votre liste de tâches, classée et tranchée en 45 minutes.",
+      "background": "ink"
+    },
+    {
       "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 10,
+      "index": 11,
       "label": "Combien de demandes identiques recevez-vous chaque semaine ?",
       "background": "ink"
     },
@@ -3879,7 +4769,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 10,
+      "index": 11,
       "label": "Quelle tâche confieriez-vous à un agent ?",
       "background": "ink"
     },
@@ -3924,7 +4814,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 10,
+      "index": 11,
       "label": "Vérifions d'abord si vous en avez besoin.",
       "background": "ink"
     },
@@ -3960,7 +4850,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 10,
+      "index": 11,
       "label": "Claude est déjà utilisé chez vous. Reste à l'encadrer.",
       "background": "ink"
     },
@@ -4065,10 +4955,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 14,
+      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "background": "ink"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 9,
+      "index": 14,
       "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
       "background": "ink"
     },
@@ -4077,7 +4976,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 5,
+      "index": 6,
       "label": "Former sur vos tâches, pas sur des démonstrations.",
       "background": "ink"
     },
@@ -4579,6 +5478,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 0,
+      "label": "IA et automatisation de la comptabilité",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -4606,11 +5514,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 0,
+      "label": "IA et automatisation des ressources humaines",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 0,
       "label": "Automatiser les tâches administratives",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 0,
+      "label": "Automatisation du service client et du SAV",
       "background": "paper"
     },
     {
@@ -4668,12 +5594,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 0,
+      "label": "Agence IA à Paris, sans bureau à Paris",
+      "background": "paper"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 0,
       "label": "Claude Code vs Cursor.",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 0,
+      "label": "Claude Platform ou OpenAI Platform : lequel choisir pour une PME",
       "background": "paper"
     },
     {
@@ -4741,6 +5685,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 0,
+      "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne vraiment",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -4755,6 +5708,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 0,
       "label": "Déployer Claude dans votre PME.",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 0,
+      "label": "MCP (Model Context Protocol) expliqué à un dirigeant de PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 0,
+      "label": "Mesurer le ROI d'une automatisation ou d'un projet IA : la méthode complète",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 0,
+      "label": "Automatisation en PME : quelles tâches automatiser en premier",
       "background": "paper"
     },
     {
@@ -4791,6 +5771,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/formations/automatisation.json",
       "index": 0,
       "label": "Formation automatisation et IA",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 0,
+      "label": "Formation ChatGPT en entreprise",
       "background": "paper"
     },
     {
@@ -4932,6 +5921,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Un plan, pas une promesse",
       "variant": "accent",
       "background": "paper"
+    }
+  ],
+  "market-cases": [
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 7,
+      "label": "Études de cas du marché : comptabilité et finance",
+      "variant": "full",
+      "background": "paper-3"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 8,
+      "label": "Études de cas du marché : ressources humaines",
+      "variant": "full",
+      "background": "paper-3"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 7,
+      "label": "Études de cas du marché : service client",
+      "variant": "full",
+      "background": "paper-3"
     }
   ],
   "method-stepline": [
@@ -5270,7 +6291,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 7,
+      "index": 8,
       "label": "Prix d'un chatbot de service client",
       "background": "paper"
     },
@@ -5279,7 +6300,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 7,
+      "index": 8,
       "label": "Combien coûte un agent IA",
       "background": "paper"
     },
@@ -5342,7 +6363,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 7,
+      "index": 8,
       "label": "Combien coûte Claude en entreprise",
       "background": "paper"
     },
@@ -5361,7 +6382,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 7,
-      "label": "Trois formules, un abonnement mensuel sans engagement",
+      "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
       "background": "paper"
     },
     {
@@ -5406,7 +6427,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 8,
-      "label": "Trois formules pour alimenter votre pipeline",
+      "label": "Un essai gratuit, puis deux formules pour alimenter votre pipeline",
       "background": "paper"
     },
     {
@@ -5469,7 +6490,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cold-email-b2b",
       "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
       "index": 13,
-      "label": "Trois formules, un abonnement mensuel sans engagement",
+      "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
       "background": "paper"
     },
     {
@@ -5569,6 +6590,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 3,
+      "label": "Comment se déroule un pilote en comptabilité",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 4,
+      "label": "Comment se déroule un pilote RH",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 3,
+      "label": "Comment se déroule un pilote de support",
+      "background": "paper-2"
+    },
+    {
       "collection": "demonstrations",
       "file": "demonstrations/avant-apres.json",
       "slug": "avant-apres",
@@ -5624,6 +6672,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 9,
+      "label": "Quoi faire, échéance par échéance",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -5641,6 +6698,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 5,
+      "label": "La cartographie en cinq étapes, sur deux semaines",
+      "background": "paper-3"
+    },
+    {
       "collection": "demonstrations",
       "file": "demonstrations/integration-claude.json",
       "slug": "integration-claude",
@@ -5654,7 +6720,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 3,
+      "index": 4,
       "label": "Comment se passe une formation",
       "background": "paper"
     }
@@ -6037,6 +7103,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 9,
+      "label": "Pour chiffrer avant de décider",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -6064,11 +7139,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 10,
+      "label": "Pour chiffrer avant de décider",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 4,
       "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 9,
+      "label": "Pour chiffrer avant de décider",
       "background": "paper-2"
     },
     {
@@ -6126,6 +7219,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
@@ -6133,6 +7235,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 8,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -6199,6 +7310,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -6216,6 +7336,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 10,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 10,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
       "collection": "services",
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
@@ -6229,7 +7376,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 8,
+      "index": 9,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6253,10 +7400,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 7,
+      "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6279,14 +7435,25 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     }
   ],
-  "service-catalog-list": [
+  "related-links": [
     {
       "collection": "formations",
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
       "index": 1,
-      "label": "Quatre formations, construites sur vos tâches",
+      "label": "Un outil, un niveau : votre formation",
+      "background": "paper-2"
+    }
+  ],
+  "service-catalog-list": [
+    {
+      "collection": "formations",
+      "file": "formations/index.json",
+      "slug": "formations",
+      "route": "src/content/formations/index.json",
+      "index": 2,
+      "label": "Cinq formations, construites sur vos tâches",
       "background": "paper"
     }
   ],
@@ -6433,6 +7600,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "tech-when-dual": [
     {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 4,
+      "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 5,
+      "label": "Ce que Waimia automatise en RH, et ce que nous ne faisons pas sans cadre renforcé",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 4,
+      "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+      "background": "paper"
+    },
+    {
       "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
@@ -6442,12 +7636,48 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 2,
+      "label": "Ce qui se décide au devis pour une mission à Paris",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 7,
+      "label": "Ce qui vous concerne, ce qui ne vous concerne pas",
+      "background": "paper"
+    },
+    {
       "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
       "index": 4,
       "label": "Quand l'utiliser en PME, et quand s'abstenir",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 7,
+      "label": "Quand faire développer un serveur MCP, et quand s'en passer",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 8,
+      "label": "Ce qu'on automatise d'abord, ce qu'on n'automatise pas",
       "background": "paper"
     },
     {
@@ -6631,6 +7861,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   ],
   "keyword-strip": [
     "src/components/templates/AuthorPageTemplate.astro"
+  ],
+  "market-cases": [
+    "src/pages/cas-usages/index.astro"
   ],
   "maturity-pyramid": [
     "src/pages/en/index.astro"

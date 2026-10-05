@@ -100,13 +100,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "case-card-grid",
+        "label": "Trois réalisations avec des agents",
+        "background": "ink"
+      },
+      {
         "type": "pricing-cards",
         "label": "Combien coûte un agent IA",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -165,13 +170,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "case-card-grid",
+        "label": "Un cas en cours, et le projet interne qui pose les garde-fous",
+        "background": "ink"
+      },
+      {
         "type": "pricing-cards",
         "label": "Prix d'un chatbot de service client",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -500,6 +510,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-3"
       },
       {
+        "type": "case-card-grid",
+        "label": "Deux réalisations avec une base de connaissance",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -760,13 +775,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "case-card-grid",
+        "label": "Trois réalisations autour de Claude et de MCP",
+        "background": "ink"
+      },
+      {
         "type": "pricing-cards",
         "label": "Combien coûte Claude en entreprise",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -891,7 +911,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Trois formules, un abonnement mensuel sans engagement",
+        "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
         "background": "paper"
       },
       {
@@ -956,7 +976,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Trois projets de ce volet",
+        "label": "Cinq projets de ce volet",
         "background": "ink"
       },
       {
@@ -1221,7 +1241,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Trois formules pour alimenter votre pipeline",
+        "label": "Un essai gratuit, puis deux formules pour alimenter votre pipeline",
         "background": "paper"
       },
       {
@@ -1769,6 +1789,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/cas-clients/brow-x-professionnel",
+    "title": "Brow.X Professionnel : agent IA pour le SAV (en cours)",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/brow-x-professionnel.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/cas-clients/desangles-peinture",
     "title": "Desangles Peinture : référencement local, page 6 à 1",
     "group": "cas-clients",
@@ -1778,8 +1807,17 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/cas-clients/inbound-value",
+    "title": "Inbound Value : serveur MCP de hub de preuve sociale",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/inbound-value.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/cas-clients/isabelle-diaz-naturopathe",
-    "title": "Isabelle Diaz, naturopathe : présence en ligne et RDV",
+    "title": "Isabelle Diaz, naturopathe : site IA et contenu automatisé",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/isabelle-diaz-naturopathe.json",
@@ -1788,10 +1826,37 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/les-carnets-de-montpellier",
-    "title": "Les Carnets de Montpellier : une communauté payante",
+    "title": "Les Carnets de Montpellier : média payant et agent IA",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/les-carnets-de-montpellier.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/cas-clients/prototypes-internes",
+    "title": "Prototypes internes : LegiCheck, agent d'entretien, quiz",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/prototypes-internes.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/cas-clients/virtuoseos",
+    "title": "VirtuoseOS : le premier OS agentique du studio",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/virtuoseos.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/cas-clients/waimia-os",
+    "title": "Waimia OS : un OS agentique multi-entreprises",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/waimia-os.json",
     "editable": false,
     "sections": []
   },
@@ -1844,6 +1909,78 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Combien de versions du même chiffre circulent chez vous ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/cas-usages/finance-comptabilite",
+    "title": "IA en comptabilité : automatiser sans perdre le contrôle · Waimia",
+    "group": "cas-usages",
+    "collection": "cas-usages",
+    "file": "cas-usages/finance-comptabilite.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "IA et automatisation de la comptabilité",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les tâches comptables, classées par rentabilité probable et par risque",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se déroule un pilote en comptabilité",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "branded-callout",
+        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "background": "paper"
+      },
+      {
+        "type": "market-cases",
+        "label": "Études de cas du marché : comptabilité et finance",
+        "variant": "full",
+        "background": "paper-3"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour chiffrer avant de décider",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "IA et comptabilité : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Qui ressaisit encore, et combien de pièces par mois ?",
         "background": "ink"
       }
     ]
@@ -2004,6 +2141,83 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/cas-usages/rh",
+    "title": "IA en ressources humaines : ce qu’on automatise · Waimia",
+    "group": "cas-usages",
+    "collection": "cas-usages",
+    "file": "cas-usages/rh.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "IA et automatisation des ressources humaines",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les tâches RH, classées par rentabilité probable et par risque",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se déroule un pilote RH",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce que Waimia automatise en RH, et ce que nous ne faisons pas sans cadre renforcé",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "branded-callout",
+        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "background": "paper"
+      },
+      {
+        "type": "market-cases",
+        "label": "Études de cas du marché : ressources humaines",
+        "variant": "full",
+        "background": "paper-3"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour chiffrer avant de décider",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "IA et ressources humaines : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Que se passe-t-il entre la signature et le premier jour ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/cas-usages/standardiser-processus",
     "title": "Automatiser les tâches administratives d'une PME · Waimia",
     "group": "cas-usages",
@@ -2044,6 +2258,78 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Quelle procédure ne tient que sur une personne ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/cas-usages/support-sav",
+    "title": "Automatisation du service client : par où commencer · Waimia",
+    "group": "cas-usages",
+    "collection": "cas-usages",
+    "file": "cas-usages/support-sav.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Automatisation du service client et du SAV",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les tâches du support, classées par rentabilité probable et par risque",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se déroule un pilote de support",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "branded-callout",
+        "label": "Un projet en cours, pas encore de résultat publié",
+        "background": "paper"
+      },
+      {
+        "type": "market-cases",
+        "label": "Études de cas du marché : service client",
+        "variant": "full",
+        "background": "paper-3"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour chiffrer avant de décider",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Automatisation du service client : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quelles demandes reviennent chaque semaine ?",
         "background": "ink"
       }
     ]
@@ -2260,6 +2546,72 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Le bon outil dépend de votre travail. Cadrons-le ensemble.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+    "title": "Claude Platform ou OpenAI Platform pour une PME · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/claude-platform-vs-openai-platform.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Platform ou OpenAI Platform : lequel choisir pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Claude Platform et OpenAI Platform, critère par critère",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Dans quels cas chacune convient",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "La bonne plateforme se choisit sur vos données et vos contraintes.",
         "background": "ink"
       }
     ]
@@ -2718,6 +3070,87 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/guides/ai-act-pme-calendrier",
+    "title": "AI Act pour PME : le calendrier à jour (octobre 2026) · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/ai-act-pme-calendrier.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne vraiment",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le calendrier de l'AI Act au 5 octobre 2026",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Si vous déployez un système à haut risque : ce que l'article 26 demandera au 2 décembre 2027",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui vous concerne, ce qui ne vous concerne pas",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Quoi faire, échéance par échéance",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-cowork",
     "title": "Claude Cowork : guide pour les PME (2026) · Waimia",
     "group": "ressources",
@@ -2846,6 +3279,244 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/mcp-claude",
+    "title": "MCP Claude : le protocole expliqué aux dirigeants · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/mcp-claude.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "MCP (Model Context Protocol) expliqué à un dirigeant de PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Intégration classique ou serveur MCP",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Huit questions à poser avant de brancher un serveur MCP",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand faire développer un serveur MCP, et quand s'en passer",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "MCP dans les plateformes de Claude et d'OpenAI",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/roi-automatisation",
+    "title": "ROI automatisation et IA : la méthode de calcul · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/roi-automatisation.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Mesurer le ROI d'une automatisation ou d'un projet IA : la méthode complète",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le coût complet : six postes, dont trois qu'on oublie",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Exemple illustratif : la saisie de factures fournisseurs",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le tableau de calcul, ligne par ligne",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un seuil de rentabilité calculé sur vos chiffres, pas sur une moyenne de marché.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/taches-a-automatiser-pme",
+    "title": "Automatisation PME : quelles tâches automatiser d'abord · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/taches-a-automatiser-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Automatisation en PME : quelles tâches automatiser en premier",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les cinq critères, et comment les mesurer",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "La cartographie en cinq étapes, sur deux semaines",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Selon le profil de la tâche, quoi faire",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Par fonction : le bon premier candidat",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qu'on automatise d'abord, ce qu'on n'automatise pas",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre liste de tâches, classée et tranchée en 45 minutes.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/outils",
     "title": "Outils",
     "group": "ressources",
@@ -2873,7 +3544,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/outils/grille-taches-a-automatiser",
-    "title": "Grille : quelles tâches automatiser en premier",
+    "title": "Grille des tâches à automatiser : modèle à remplir",
     "group": "ressources",
     "collection": "outils",
     "file": "outils/grille-taches-a-automatiser.json",
@@ -3406,6 +4077,51 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/implantations/paris",
+    "title": "Agence IA à Paris : automatisation et formation · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/paris.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA à Paris, sans bureau à Paris",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se décide au devis pour une mission à Paris",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un premier échange en visio, depuis Paris.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/mentions-legales",
     "title": "Mentions legales",
     "group": "autres",
@@ -3510,9 +4226,14 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/cas-clients",
       "/cas-clients/amploi",
       "/cas-clients/balzeo",
+      "/cas-clients/brow-x-professionnel",
       "/cas-clients/desangles-peinture",
+      "/cas-clients/inbound-value",
       "/cas-clients/isabelle-diaz-naturopathe",
-      "/cas-clients/les-carnets-de-montpellier"
+      "/cas-clients/les-carnets-de-montpellier",
+      "/cas-clients/prototypes-internes",
+      "/cas-clients/virtuoseos",
+      "/cas-clients/waimia-os"
     ]
   },
   {
@@ -3521,10 +4242,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "routes": [
       "/cas-usages",
       "/cas-usages/centraliser-donnees",
+      "/cas-usages/finance-comptabilite",
       "/cas-usages/generer-plus-de-leads",
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
-      "/cas-usages/standardiser-processus"
+      "/cas-usages/rh",
+      "/cas-usages/standardiser-processus",
+      "/cas-usages/support-sav"
     ]
   },
   {
@@ -3537,6 +4261,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources",
       "/ressources/comparatifs",
       "/ressources/comparatifs/claude-code-vs-cursor",
+      "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
@@ -3547,8 +4272,12 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides",
+      "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
+      "/ressources/guides/mcp-claude",
+      "/ressources/guides/roi-automatisation",
+      "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/outils",
       "/ressources/outils/calculateur-roi-ia",
       "/ressources/outils/charte-ia-entreprise",
@@ -3613,6 +4342,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/implantations/bordeaux",
       "/implantations/lyon",
       "/implantations/montpellier",
+      "/implantations/paris",
       "/mentions-legales",
       "/plan-du-site",
       "/politique-confidentialite",

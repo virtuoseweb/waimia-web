@@ -7,6 +7,19 @@ import { z } from 'zod';
 export const schema = z.object({
   type: z.literal('case-featured-grid'),
   background: z.enum(['paper', 'paper-2', 'paper-3', 'ink']).optional(),
+  // En-tête de rubrique optionnel (hub à plusieurs grilles : « Réalisations clients »,
+  // « Projets internes »). Avec `h2_*`, les titres de cartes descendent en h3 (ordre des titres).
+  // `anchor_id` pose une ancre sur la section ; `item_label_*` remplace « Cas » dans le kicker
+  // de la carte mise en avant (« Projet 01 »).
+  anchor_id: z.string().regex(/^[a-z0-9-]+$/).optional(),
+  kicker_fr: z.string().optional(),
+  kicker_en: z.string().optional(),
+  h2_fr: z.string().optional(),
+  h2_en: z.string().optional(),
+  lede_fr: z.string().optional(),
+  lede_en: z.string().optional(),
+  item_label_fr: z.string().optional(),
+  item_label_en: z.string().optional(),
   // Libellés surchargeables (défauts honnêtes côté composant).
   read_label_fr: z.string().optional(),
   read_label_en: z.string().optional(),

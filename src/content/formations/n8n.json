@@ -30,7 +30,7 @@
     },
     {
       "q": "Combien de temps dure la formation et combien coûte-t-elle ?",
-      "a": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise."
+      "a": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise."
     },
     {
       "q": "La formation peut-elle être financée ?",
@@ -52,7 +52,7 @@
     },
     {
       "q": "How long does the training last and how much does it cost?",
-      "a": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+      "a": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. There is no fixed-date catalogue session: each training is built for one company."
     },
     {
       "q": "Can the training be funded?",
@@ -243,11 +243,11 @@
         ],
         [
           "Durée",
-          "Définie au cadrage, selon le niveau de départ et les objectifs"
+          "Deux formats : {{prix.formation.f1.heures}} heures ou {{prix.formation.f2.heures}} heures"
         ],
         [
           "Tarif",
-          "Défini au cadrage, sur devis"
+          "{{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ; {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT"
         ],
         [
           "Formateur",
@@ -273,11 +273,11 @@
         ],
         [
           "Duration",
-          "Set during scoping, depending on starting level and goals"
+          "Two formats: {{prix.formation.f1.heures}} hours or {{prix.formation.f2.heures}} hours"
         ],
         [
           "Price",
-          "Set during scoping, on quote"
+          "{{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT; {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT"
         ],
         [
           "Trainer",
@@ -330,8 +330,8 @@
           "kicker_en": "Training",
           "title_fr": "Toutes les formations",
           "title_en": "All training courses",
-          "lead_fr": "Automatisation, Make, Claude et agents IA.",
-          "lead_en": "Automation, Make, Claude and AI agents.",
+          "lead_fr": "Automatisation, Make, Claude et ChatGPT.",
+          "lead_en": "Automation, Make, Claude and ChatGPT.",
           "href": "/formations"
         }
       ]
@@ -363,8 +363,8 @@
         {
           "q_fr": "Combien de temps dure la formation et combien coûte-t-elle ?",
           "q_en": "How long does the training last and how much does it cost?",
-          "a_fr": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise.",
-          "a_en": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+          "a_fr": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise.",
+          "a_en": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. There is no fixed-date catalogue session: each training is built for one company."
         },
         {
           "q_fr": "La formation peut-elle être financée ?",

@@ -1,8 +1,9 @@
 ---
-// Page · /cas-clients · Hub cas clients Waimia
+// Page · /cas-clients · Hub « Réalisations » Waimia
 export const prerender = true;
 
-// Route principale de la nav : liste des cas business.
+// Route principale de la nav. Deux rubriques nettes, issues de la même collection `cases` :
+// « Réalisations clients » (kind = client) et « Projets internes » (kind = interne).
 
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
@@ -15,6 +16,7 @@ import CtaFinal from '../../components/sections/CtaFinal.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import { buildCollectionPage, buildBreadcrumbList } from '../../lib/seo/schema-builder';
 import { meshForCasClientsHub } from '../../lib/internal-mesh';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 import { SITE } from '../../site.config';
 
 const lang = langFromPath(Astro.url.pathname);
@@ -60,13 +62,15 @@ const caseCovers: Record<string, { src: string; alt_fr: string; alt_en: string }
   },
 };
 
-const featuredCases = caseEntries.map((e) => {
+type CaseEntry = (typeof caseEntries)[number];
+const toCard = (e: CaseEntry, i: number) => {
   const slug = e.data.slug ?? e.id;
   const cover = caseCovers[slug];
   return {
     slug,
     href: `/cas-clients/${slug}`,
-    case_num: String(e.data.card!.order).padStart(2, '0'),
+    // Numéro = rang dans la rubrique (cas clients et projets internes se numérotent à part).
+    case_num: String(i + 1).padStart(2, '0'),
     sector_fr: e.data.card!.sector_fr,
     sector_en: e.data.card!.sector_en,
     title_fr: e.data.card!.title_fr,
@@ -82,12 +86,16 @@ const featuredCases = caseEntries.map((e) => {
       | 'first-party'
       | 'second-party',
   };
-});
+};
+
+const clientCases = caseEntries.filter((e) => e.data.kind === 'client').map(toCard);
+const internalProjects = caseEntries.filter((e) => e.data.kind === 'interne').map(toCard);
+const featuredCases = [...clientCases, ...internalProjects];
 
 const caseItems = caseEntries.map((e) => `${SITE.url}/cas-clients/${e.data.slug ?? e.id}`);
 const collectionLd = buildCollectionPage(
-  'Cas clients',
-  "Pas de marketing. Des chiffres, des problèmes, ce qu'on a câblé. Ce qui a tenu.",
+  'Réalisations',
+  "Réalisations clients et projets internes de Waimia : ce qui a été construit, ce qui est en cours, ce qui est mesuré ou non.",
   caseItems,
 );
 const breadcrumbLd = buildBreadcrumbList([
@@ -104,9 +112,9 @@ const ctaData = {
   h2_fr: 'Le mardi on câble. Le vendredi on mesure.',
   h2_en: 'Tuesday we wire. Friday we measure.',
   cta_primary: {
-    label_fr: 'Parler de votre projet →',
-    label_en: 'Talk about your project →',
-    href: localizeHref('/contact', lang),
+    label_fr: AUDIT_BOOKING_LABEL.fr,
+    label_en: AUDIT_BOOKING_LABEL.en,
+    href: AUDIT_BOOKING_HREF,
     variant: 'primary' as const,
   },
   background: 'ink' as const,
@@ -114,9 +122,41 @@ const ctaData = {
 
 // Section cataloguée case-featured-grid : remplace le markup orphelin .cas-card
 // précédemment inliné ici (le composant en a été extrait VERBATIM, source de vérité).
-const featuredGridData = {
+const count = (n: number, fr: [string, string], en: [string, string]) =>
+  lang === 'fr' ? `${n} ${n > 1 ? fr[1] : fr[0]}` : `${n} ${n > 1 ? en[1] : en[0]}`;
+
+const clientGridData = {
   type: 'case-featured-grid' as const,
-  cases: featuredCases,
+  anchor_id: 'realisations-clients',
+  kicker_fr: `§ 01 · ${count(clientCases.length, ['mission', 'missions'], ['engagement', 'engagements'])}`,
+  kicker_en: `§ 01 · ${count(clientCases.length, ['mission', 'missions'], ['engagement', 'engagements'])}`,
+  h2_fr: 'Réalisations <i>clients</i>',
+  h2_en: 'Client <i>work</i>',
+  lede_fr:
+    "Des missions pour des clients nommés. Chaque fiche sépare le volet site et marketing du volet IA, dit ce que fait l'IA et ce que valide l'humain, et précise ce qui est mesuré.",
+  lede_en:
+    'Engagements for named clients. Each page separates the site and marketing strand from the AI strand, says what the AI does and what a person validates, and states what is measured.',
+  cases: clientCases,
+} satisfies SectionByType<'case-featured-grid'>;
+
+const internalGridData = {
+  type: 'case-featured-grid' as const,
+  anchor_id: 'projets-internes',
+  kicker_fr: `§ 02 · ${count(internalProjects.length, ['projet', 'projets'], ['project', 'projects'])}`,
+  kicker_en: `§ 02 · ${count(internalProjects.length, ['projet', 'projets'], ['project', 'projects'])}`,
+  h2_fr: 'Projets <i>internes</i>',
+  h2_en: 'Internal <i>projects</i>',
+  lede_fr:
+    "Ce que le studio construit pour lui-même, sans client : deux systèmes d'exploitation agentiques et des prototypes. Aucun n'est présenté comme un résultat client. L'état d'avancement est écrit tel qu'il est.",
+  lede_en:
+    'What the studio builds for itself, with no client: two agentic operating systems and prototypes. None is presented as a client result. Progress is stated as it stands.',
+  item_label_fr: 'Projet',
+  item_label_en: 'Project',
+  first_party_label_fr: 'Projet interne · Waimia',
+  first_party_label_en: 'Internal project · Waimia',
+  read_label_fr: 'Lire la fiche →',
+  read_label_en: 'Read the page →',
+  cases: internalProjects,
 } satisfies SectionByType<'case-featured-grid'>;
 
 // Bande éditoriale « un cas concret » (case-spotlight, fond ink) : climax visuel + preuve
@@ -156,26 +196,27 @@ const mastheadData = {
   variant: 'hub' as const,
   decoration: false,
   align: 'left' as const,
-  kicker_fr: '§ Cas clients · cinq cas réels, résultats mesurés quand ils le sont',
-  kicker_en: '§ Case studies · five real cases, results measured when they are',
-  h1_fr: '<span>Cas <i>clients</i> :</span><br/><span>des résultats, pas du marketing.</span>',
-  h1_en: '<span>Case <i>studies</i>:</span><br/><span>results, not marketing.</span>',
-  lede_fr: "Cinq cas réels. Quand un résultat est chiffré, il l'est sur les données du client. Certains cas sont récents ou encore en cours : on les publie pour le travail livré, sans inventer de chiffre. Toujours avec l'accord du client, jamais de témoignage mis en scène.",
-  lede_en: 'Five real cases. When a result is quantified, it is measured on the client’s own data. Some are recent or still in progress: we publish them for the work delivered, without inventing a number. Always with the client’s agreement, never a staged testimonial.',
+  kicker_fr: '§ Réalisations · cas clients et projets internes',
+  kicker_en: '§ Work · client cases and internal projects',
+  h1_fr: '<span><i>Réalisations</i> :</span><br/><span>ce qui est construit, ce qui est en cours.</span>',
+  h1_en: '<span><i>Work</i>:</span><br/><span>what is built, what is in progress.</span>',
+  lede_fr: "Deux rubriques. Les réalisations clients : des missions réelles, avec leur volet site et leur volet IA. Les projets internes : ce que le studio construit pour lui-même. Quand un résultat est chiffré, il l'est sur les données du client. Quand rien n'est mesuré, la fiche l'écrit. Aucun témoignage mis en scène.",
+  lede_en: 'Two sections. Client work: real engagements, with their site strand and their AI strand. Internal projects: what the studio builds for itself. When a result is quantified, it is measured on the client’s own data. When nothing is measured, the page says so. No staged testimonial.',
   transition_id: transitionIdFromHref(Astro.url.pathname),
 } satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
-  title={lang === 'fr' ? "Cas clients · pipelines reconnectés, opérations fluidifiées · Waimia" : "Case studies · pipelines reconnected, operations streamlined · Waimia"}
-  description={lang === 'fr' ? "Cinq cas clients réels : le problème de départ, ce qu'on a câblé, et les chiffres quand ils existent. Pas de marketing, pas de témoignage mis en scène." : "Five real client cases: the starting problem, what we wired, and the numbers when they exist. No marketing, no staged testimonials."}
+  title={lang === 'fr' ? "Réalisations IA : cas clients et projets internes · Waimia" : "AI work: client cases and internal projects · Waimia"}
+  description={lang === 'fr' ? "Cas clients et projets internes de Waimia : agents IA, automatisation, GEO. Ce qui est construit, ce qui est en cours, les chiffres quand ils existent." : "Waimia client cases and internal projects: AI agents, automation, GEO. What is built, what is in progress, and the numbers when they exist."}
   jsonLd={casClientsLd}
 >
   <HeroCentered data={mastheadData} lang={lang} />
 
   {featuredCases.length > 0 ? (
     <>
-      <CaseFeaturedGrid data={featuredGridData} lang={lang} />
+      {clientCases.length > 0 && <CaseFeaturedGrid data={clientGridData} lang={lang} />}
       <CaseSpotlight data={spotlightData} lang={lang} />
+      {internalProjects.length > 0 && <CaseFeaturedGrid data={internalGridData} lang={lang} />}
     </>
   ) : (
     <section class="cas-grid-outer wrap-wide">

@@ -36,6 +36,7 @@ const ROUTES = [
   "/formations/n8n",
   "/formations/make",
   "/formations/claude",
+  "/formations/chatgpt",
   "/implantations/bordeaux",
   "/implantations/lyon",
   "/conformite-ia",
@@ -45,6 +46,25 @@ const ROUTES = [
   "/ressources/outils/charte-ia-entreprise",
   "/ressources/outils/grille-taches-a-automatiser",
   "/ressources/outils/calculateur-roi-ia",
+  // Cas d'usage par fonction + études de cas du marché + page ville Paris (2026-10-05).
+  "/cas-usages",
+  "/cas-usages/support-sav",
+  "/cas-usages/finance-comptabilite",
+  "/cas-usages/rh",
+  "/implantations/paris",
+  // Réalisations IA (2026-10-05) : nouveaux cas clients et projets internes.
+  "/cas-clients/brow-x-professionnel",
+  "/cas-clients/inbound-value",
+  "/cas-clients/waimia-os",
+  "/cas-clients/virtuoseos",
+  "/cas-clients/prototypes-internes",
+  "/cas-clients/isabelle-diaz-naturopathe",
+  // Articles de fond (2026-10-05) : quatre guides et un comparatif.
+  "/ressources/guides/roi-automatisation",
+  "/ressources/guides/taches-a-automatiser-pme",
+  "/ressources/guides/mcp-claude",
+  "/ressources/guides/ai-act-pme-calendrier",
+  "/ressources/comparatifs/claude-platform-vs-openai-platform",
 ];
 
 for (const path of ROUTES) {

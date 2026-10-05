@@ -2,8 +2,8 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Prospection automatisée par l'IA pour PME B2B · Waimia",
   "title_en": "AI-automated prospecting for B2B SMEs · Waimia",
-  "description_fr": "Prospection automatisée B2B pour PME : ciblage, séquences email et LinkedIn, réponses remontées dans votre CRM. Abonnement dès 980 € HT par mois.",
-  "description_en": "Automated B2B prospecting for SMBs: targeting, email and LinkedIn sequences, replies pushed to your CRM. Subscription from €980 excl. VAT per month.",
+  "description_fr": "Prospection automatisée B2B pour PME : ciblage, séquences email et LinkedIn, réponses remontées dans votre CRM. Abonnement dès {{prix.commercial}} € HT par mois.",
+  "description_en": "Automated B2B prospecting for SMBs: targeting, email and LinkedIn sequences, replies pushed to your CRM. Subscription from €{{prix.commercial}} excl. VAT per month.",
   "slug": "prospection-automatisee",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-10-04T00:00:00.000Z",
@@ -18,14 +18,14 @@
   "seo": {
     "noindex": false,
     "serviceType": "Prospection outbound automatisée pour PME B2B",
-    "priceRange": "980-1650€/mois",
+    "priceRange": "{{prix.commercial}}-1650€/mois",
     "priceMin": 980,
     "priceMax": 1650
   },
   "faq_fr": [
     {
       "q": "Combien coûte la prospection automatisée ?",
-      "a": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à 980 € HT par mois et Pro à 1 650 € HT par mois. Un premier échange gratuit inclut une liste de 30 prospects. Le détail de chaque formule figure dans la grille de cette page."
+      "a": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à {{prix.commercial}} € HT par mois et Pro à 1 650 € HT par mois. L'essai gratuit comprend une visio et {{prix.commercial.essai}} leads, pour 0 €. Le détail de chaque formule figure dans la grille de cette page."
     },
     {
       "q": "La prospection automatisée est-elle légale au regard du RGPD ?",
@@ -51,7 +51,7 @@
   "faq_en": [
     {
       "q": "How much does automated prospecting cost?",
-      "a": "Two monthly subscription plans, with no minimum term: Standard at €980 excl. VAT per month and Pro at €1,650 excl. VAT per month. A free first call includes a list of 30 prospects. Each plan is detailed in the grid on this page."
+      "a": "Two monthly subscription plans, with no minimum term: Standard at €{{prix.commercial}} excl. VAT per month and Pro at €1,650 excl. VAT per month. The free trial includes a video call and {{prix.commercial.essai}} leads, for 0 €. Each plan is detailed in the grid on this page."
     },
     {
       "q": "Is automated prospecting legal under GDPR?",
@@ -127,7 +127,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "980 € HT / mois",
+          "value": "{{prix.commercial}} € HT / mois",
           "label_fr": "formule Standard ; formule Pro à 1 650 € HT par mois",
           "label_en": "Standard plan; Pro plan at €1,650 excl. VAT per month",
           "emphasis": true
@@ -334,25 +334,25 @@
       "background": "paper",
       "kicker_fr": "§ La gamme",
       "kicker_en": "§ The range",
-      "h2_fr": "Trois formules, un abonnement mensuel sans engagement",
-      "h2_en": "Three plans, a monthly subscription with no commitment",
-      "lede_fr": "Commencez gratuitement : une visio, 30 prospects offerts, des conseils concrets. Ensuite, un abonnement mensuel, Standard ou Pro selon le volume ciblé. Pas de projet à cinq chiffres, pas de facturation au volume de messages. Arrêtez ou mettez en pause quand vous voulez.",
-      "lede_en": "Start free: a video call, 30 prospects on us, concrete advice. Then a monthly subscription, Standard or Pro depending on targeted volume. No five-figure project, no billing by message volume. Stop or pause whenever you want.",
+      "h2_fr": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
+      "h2_en": "A free trial, then two monthly subscription plans with no commitment",
+      "lede_fr": "Commencez par l'essai gratuit : {{prix.commercial.essai}} leads, 0 €, une visio et des conseils concrets. Ensuite, un abonnement mensuel, Standard ou Pro selon le volume ciblé. Pas de projet à cinq chiffres, pas de facturation au volume de messages. Arrêtez ou mettez en pause quand vous voulez.",
+      "lede_en": "Start with the free trial: {{prix.commercial.essai}} leads, 0 €, a video call and concrete advice. Then a monthly subscription, Standard or Pro depending on targeted volume. No five-figure project, no billing by message volume. Stop or pause whenever you want.",
       "tiers": [
         {
-          "name_fr": "Découverte",
-          "name_en": "Discovery",
-          "price": "0 €",
-          "period_fr": "gratuit",
-          "period_en": "free",
+          "name_fr": "Essai gratuit",
+          "name_en": "Free trial",
+          "price": "{{prix.commercial.essai}} leads",
+          "period_fr": "offerts · 0 € · un essai, pas une formule",
+          "period_en": "on us · 0 € · a trial, not a plan",
           "features_fr": [
             "Échangez en visio avec nous et découvrez comment nous allons vous aider.",
-            "Liste de 30 prospects offerts",
+            "Une liste de {{prix.commercial.essai}} leads offerts, pour tester le ciblage",
             "Conseils pratiques sur votre stratégie"
           ],
           "features_en": [
             "Meet us over video and discover how we're going to help you.",
-            "A list of 30 prospects, on us",
+            "A list of {{prix.commercial.essai}} leads on us, to test the targeting",
             "Practical advice on your strategy"
           ],
           "cta": {
@@ -365,7 +365,7 @@
         {
           "name_fr": "Standard",
           "name_en": "Standard",
-          "price": "980 €",
+          "price": "{{prix.commercial}} €",
           "period_fr": "HT / mois",
           "period_en": "ex VAT / month",
           "features_fr": [
@@ -458,8 +458,8 @@
           "featured": true
         }
       ],
-      "footnote_fr": "Découverte gratuite, sans engagement : une visio et 30 prospects offerts pour voir si on avance ensemble. Standard et Pro sont des abonnements mensuels HT, sans engagement de durée : arrêtez ou mettez en pause à tout moment. On ne facture pas au volume de messages, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis.",
-      "footnote_en": "Free discovery, no commitment: a video call and 30 prospects on us to see if we move forward together. Standard and Pro are monthly ex-VAT subscriptions, with no duration commitment: stop or pause at any time. We don't bill by message volume, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request."
+      "footnote_fr": "Essai gratuit, sans engagement : une visio et {{prix.commercial.essai}} leads offerts, à 0 €, pour voir si on avance ensemble. Standard et Pro sont des abonnements mensuels HT, sans engagement de durée : arrêtez ou mettez en pause à tout moment. On ne facture pas au volume de messages, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis.",
+      "footnote_en": "Free trial, no commitment: a video call and {{prix.commercial.essai}} leads on us, at 0 €, to see if we move forward together. Standard and Pro are monthly ex-VAT subscriptions, with no duration commitment: stop or pause at any time. We don't bill by message volume, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request."
     },
     {
       "type": "eeat-panel",
@@ -476,9 +476,9 @@
       "items": [
         {
           "q_fr": "Combien coûte la prospection automatisée ?",
-          "a_fr": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à 980 € HT par mois et Pro à 1 650 € HT par mois. Un premier échange gratuit inclut une liste de 30 prospects. Le détail de chaque formule figure dans la grille de cette page.",
+          "a_fr": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à {{prix.commercial}} € HT par mois et Pro à 1 650 € HT par mois. L'essai gratuit comprend une visio et {{prix.commercial.essai}} leads, pour 0 €. Le détail de chaque formule figure dans la grille de cette page.",
           "q_en": "How much does automated prospecting cost?",
-          "a_en": "Two monthly subscription plans, with no minimum term: Standard at €980 excl. VAT per month and Pro at €1,650 excl. VAT per month. A free first call includes a list of 30 prospects. Each plan is detailed in the grid on this page."
+          "a_en": "Two monthly subscription plans, with no minimum term: Standard at €{{prix.commercial}} excl. VAT per month and Pro at €1,650 excl. VAT per month. The free trial includes a video call and {{prix.commercial.essai}} leads, for 0 €. Each plan is detailed in the grid on this page."
         },
         {
           "q_fr": "La prospection automatisée est-elle légale au regard du RGPD ?",

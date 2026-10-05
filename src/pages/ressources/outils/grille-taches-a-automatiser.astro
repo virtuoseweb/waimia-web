@@ -18,8 +18,12 @@ import { SITE } from '../../../site.config';
 import { buildWebApplication } from '../../../lib/seo/schema-builder';
 import { GRILLE_HREF, auditCtaFinal } from '../../../data/conversion';
 
-const title = 'Quelles tâches automatiser en premier ? Grille gratuite';
-const description = "Listez vos tâches répétitives, leur fréquence et leur durée : la grille calcule les heures par mois et les classe par priorité. Sans inscription.";
+// Title et H1 centrés sur l'OUTIL (grille, modèle à remplir) : la requête d'information
+// « quelles tâches automatiser en premier » est portée par le guide
+// /ressources/guides/taches-a-automatiser-pme (anti-cannibalisation, 2026-10-05). La question
+// reste dans le chapô et renvoie au guide.
+const title = 'Grille des tâches à automatiser : modèle gratuit à remplir';
+const description = "Grille à remplir en ligne : listez vos tâches répétitives, leur fréquence et leur durée. Elle calcule les heures par mois et les classe. Sans inscription.";
 const ld = buildWebApplication({ name: 'Grille des tâches à automatiser', description, url: `${SITE.url}${GRILLE_HREF}` });
 const cta = auditCtaFinal(
   'Votre grille remplie est le meilleur point de départ de l\'audit.',
@@ -37,8 +41,8 @@ const cta = auditCtaFinal(
     ]}
   />
   <ToolIntro
-    h1="Quelles tâches automatiser en premier ? La grille de priorisation"
-    lede="Une tâche mérite d'être automatisée quand elle revient souvent, qu'elle prend du temps et que ses règles sont stables. La grille met ces trois critères en chiffres et classe vos tâches."
+    h1="Grille des tâches à automatiser : le modèle à remplir"
+    lede="Quelles tâches automatiser en premier ? Celles qui reviennent souvent, qui prennent du temps et dont les règles sont stables. Remplissez la grille : elle met ces trois critères en chiffres et classe vos tâches."
     facts={[
       { label: 'Durée', value: '10 minutes pour 5 tâches' },
       { label: 'Résultat', value: 'Classement immédiat, export CSV' },
@@ -54,6 +58,6 @@ const cta = auditCtaFinal(
         description="Vos tâches classées, avec les heures par mois et la priorité de chacune, pour les partager en interne."
         buttonLabel="Recevoir le classement"
   />
-  <ResourceLinks exclude={['grille']} />
+  <ResourceLinks exclude={['grille']} extra={['guide-taches', 'guide-roi']} title="La méthode, et les autres outils sans inscription" />
   <CtaFinal data={cta} lang="fr" />
 </Base>
