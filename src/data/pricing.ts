@@ -219,6 +219,15 @@ export const TRAINING_FORMATS: readonly TrainingFormat[] = [
   { id: 'f2', hours: 20, price: 4000 },
 ];
 
+// Base du prix (précision Simon 2026-10) : le prix d'un format s'entend par session, pour le
+// groupe formé, pas par participant. Libellé court à accoler au prix, et phrase complète (sans
+// point final : le contenu le pose). Jetons `{{prix.formation.base}}` et `{{prix.formation.note}}`.
+export const TRAINING_PRICE_BASIS = { fr: 'par session', en: 'per session' } as const;
+export const TRAINING_PRICE_NOTE = {
+  fr: 'Prix par session, pas par participant',
+  en: 'Price per session, not per participant',
+} as const;
+
 // ─── Système commercial / prospection (précisions Simon 2026-10) · SOURCE UNIQUE ─────────
 /** Prix d'entrée de l'abonnement, en euros HT par mois (« dès 980 € HT/mois »). */
 export const SALES_SYSTEM_FLOOR_EUR = 980 as const;
@@ -257,6 +266,10 @@ export const PRICING_TOKENS: Readonly<Record<string, string>> = {
       [`prix.formation.${f.id}.en`, amount(f.price, 'en')],
     ]),
   ),
+  'prix.formation.base': TRAINING_PRICE_BASIS.fr,
+  'prix.formation.base.en': TRAINING_PRICE_BASIS.en,
+  'prix.formation.note': TRAINING_PRICE_NOTE.fr,
+  'prix.formation.note.en': TRAINING_PRICE_NOTE.en,
   // Système commercial : prix d'entrée mensuel et volume de l'essai gratuit.
   'prix.commercial': String(SALES_SYSTEM_FLOOR_EUR),
   'prix.commercial.essai': String(SALES_SYSTEM_TRIAL_LEADS),
@@ -367,6 +380,7 @@ export const ENGAGEMENT_OFFERS: readonly EngagementOffer[] = [
     (format): EngagementOffer => ({
       id: `formation-${format.id}`,
       name: `Formation, format ${format.hours} heures`,
+      description: `${TRAINING_PRICE_NOTE.fr}.`,
       pricing: { kind: 'fixed', price: format.price },
     }),
   ),
