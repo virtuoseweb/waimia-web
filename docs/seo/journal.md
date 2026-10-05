@@ -108,7 +108,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Pour Simon**
 - Fusionner après contrôle de la preview Vercel (GF-1), en particulier les en-têtes `Cache-Control`.
-- Confirmer l'indexation des deux hubs ressources, et trancher le sort des liens vers `/secteurs/*`.
+- ~~Confirmer l'indexation des deux hubs ressources, et trancher le sort des liens vers `/secteurs/*`.~~ Clos le 5 octobre (voir « Clôture du 5 octobre 2026 »).
 - Autorité : 1 seul lien externe relevé dans Search Console. Demander un lien aux clients cités et à Akigora, créer les profils d'annuaires (La Fabrique du Net, Sortlist, impli.fr, Malt) : ce sont des actions extérieures, non faites ici.
 - Compléter les emplacements « [exemple vécu à ajouter] » des brouillons LinkedIn.
 
@@ -210,4 +210,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Visuels : illustrations propres à chaque workflow (skill `waimia-illustration`) à la place du pool générique partagé par les trois pages ; une du hub `/ressources` affichait un cadre vide (`media_src` jamais passé), elle reprend l'illustration du hero de l'article.
 
 **À mesurer.** Couverture Search Console des deux pages à partir de la collecte W42, puis impressions sur « automatisation devis bâtiment / artisan » et « automatisation e-commerce ».
+
+### Clôture du 5 octobre 2026 · décisions laissées ouvertes par la PR #72
+
+**Hubs `/ressources/guides` et `/ressources/comparatifs` : indexation confirmée (Simon).** Mesure en production : `robots: index, follow` sur les deux, présents dans `sitemap-0.xml`.
+
+**Liens vers `/secteurs/*` : soldé par la décision secteurs ci-dessus (PR #74).** Mesure en production sur les 97 URL du sitemap : 52 couples page-cible vers `/secteurs/batiment` (24) et `/secteurs/e-commerce` (28), tous deux index, aucun vers `/secteurs/startup-logiciel` (noindex) ; `/secteurs` répond en 301. Le constat de l'audit (« l'accueil et 17 pages services renvoient vers des secteurs noindex ») ne se vérifie plus.
+
+Les deux points correspondants de « Pour Simon » de l'entrée W41 sont clos.
 
