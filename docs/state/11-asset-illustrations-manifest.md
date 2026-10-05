@@ -4,6 +4,12 @@
 > Source import : `~/Downloads/waimiaservices/image waimia/` (42 fichiers) → `public/images/illustrations/` (sanitizés web-safe).
 > Daté 2026-06-18. Verdict DA global en §1, table import en §2, assets projet existants en §3, recommandation en §4.
 
+> **Mise à jour 2026-10-05** : la bibliothèque est désormais pilotée par `src/data/illustrations.json`
+> (source unique : chemins paper/ink, dimensions, alt FR/EN, tags, palette). Nouvelles illustrations :
+> skill `.claude/skills/waimia-illustration/` (génération GPT directe en duotone/tritone `#75B0D7`,
+> contrôle de palette ΔE, enregistrement). `FeatureZigzag` sans `media_src` pioche dans ce registre
+> par tags (`src/lib/illustration-pick.ts`) au lieu d'afficher un placeholder SVG.
+
 ---
 
 ## §1 : Notes de direction artistique (DA)

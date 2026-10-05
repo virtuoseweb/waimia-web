@@ -15,6 +15,7 @@ export const DIAGNOSTIC_HREF = '/ressources/diagnostics/maturite-ia';
 export const ROI_HREF = '/ressources/outils/calculateur-roi-ia';
 export const CHARTE_HREF = '/ressources/outils/charte-ia-entreprise';
 export const GRILLE_HREF = '/ressources/outils/grille-taches-a-automatiser';
+export const CHECKLIST_HREF = '/ressources/outils/checklist-90-jours-claude';
 
 /** Objets de demande proposés dans le formulaire de contact (`subject`). */
 export const CONTACT_SUBJECTS = [
@@ -44,6 +45,11 @@ export const LEAD_MAGNETS = {
   'grille-taches-a-automatiser': {
     title: 'Votre grille des tâches à automatiser',
     path: GRILLE_HREF,
+  },
+  'checklist-90-jours-claude': {
+    title: 'Checklist 90 jours pour déployer Claude en PME',
+    path: CHECKLIST_HREF,
+    file: '/telechargements/checklist-90-jours-claude-pme-waimia.pdf',
   },
 } as const satisfies Record<string, { title: string; path: string; file?: string }>;
 

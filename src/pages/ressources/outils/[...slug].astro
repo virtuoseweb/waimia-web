@@ -14,7 +14,8 @@ export async function getStaticPaths() {
   const entries = await getCollection('outils');
   return entries
     .filter((entry) => !entry.data.seo?.noindex)
-    // Entrées à route explicite (charte-ia-entreprise.astro, grille-taches-a-automatiser.astro) :
+    // Entrées à route explicite (charte-ia-entreprise.astro, grille-taches-a-automatiser.astro,
+    // checklist-90-jours-claude.astro) :
     // elles n'ont ni inputs ni outputs, leur JSON ne sert qu'au listing du hub.
     .filter((entry) => entry.data.inputs.length > 0 && entry.data.outputs.length > 0)
     .map((entry) => ({

@@ -1,0 +1,417 @@
+---
+// Organism · ChecklistDocument · checklist « 90 jours pour déployer Claude en PME »
+// lisible et cochable en ligne (hors catalogue). Même gabarit que CharterDocument.
+//
+// Colonne gauche : avancement (cases cochées), actions (PDF, impression, remise à zéro).
+// Colonne droite : la checklist rendue comme un document. Texte source unique :
+// src/data/checklist-90-jours-claude.ts.
+//
+// Sorties :
+//   - En ligne    : cases à cocher, champs d'en-tête et tableau d'indicateurs saisissables,
+//                   conservés dans le navigateur (localStorage, try/catch : la page marche
+//                   sans stockage).
+//   - PDF         : fichier statique public/telechargements/… (checklist vierge),
+//                   régénéré par scripts/gen-checklist-pdf.mjs à partir de la feuille
+//                   d'impression ci-dessous.
+//   - Impression  : A4, champs en lignes à remplir, colonnes « Responsable / Date »,
+//                   points de passage encadrés, tableau d'indicateurs vide. Ce qui a été
+//                   saisi à l'écran s'imprime sur les lignes.
+// Rien n'est envoyé à un serveur.
+import './form.css';
+import {
+  checklistTitle,
+  checklistIntro,
+  checklistFields,
+  prerequisites,
+  phases,
+  metrics,
+  metricColumns,
+  warnings,
+} from '../../../../data/checklist-90-jours-claude';
+import { LEAD_MAGNETS } from '../../../../data/conversion';
+
+const pdfHref = LEAD_MAGNETS['checklist-90-jours-claude'].file;
+const total =
+  prerequisites.length + phases.reduce((n, p) => n + p.weeks.reduce((m, w) => m + w.items.length + 1, 0), 0);
+---
+<section class="ck" aria-label="Checklist 90 jours pour déployer Claude" data-checklist>
+  <div class="wrap-wide ck-in">
+    <aside class="ck-side" aria-labelledby="ck-side-h2">
+      <h2 class="ck-side-h2" id="ck-side-h2">Votre avancement</h2>
+      <p class="ck-count" aria-live="polite"><strong data-ck-done>0</strong> case<span data-ck-plural>s</span> cochée<span data-ck-plural>s</span> sur {total}</p>
+      <div class="ck-bar" aria-hidden="true"><span data-ck-bar></span></div>
+      <ol class="ck-toc">
+        <li><a href="#ck-prerequis">Les {prerequisites.length} prérequis</a></li>
+        {phases.map((p, i) => <li><a href={`#ck-${p.id}`}>Phase {i + 1} · {p.title}</a></li>)}
+        <li><a href="#ck-indicateurs">Indicateurs à suivre</a></li>
+        <li><a href="#ck-alertes">Signaux d'alerte</a></li>
+      </ol>
+      <p class="cv-note">Vos cases, vos champs et vos chiffres restent dans ce navigateur. Rien n'est envoyé.</p>
+      <div class="ck-actions">
+        <a class="btn btn-primary" href={pdfHref} download>Télécharger le PDF</a>
+        <button class="btn btn-ghost cv-btn" type="button" data-ck-print>Imprimer</button>
+        <button class="btn btn-ghost cv-btn" type="button" data-ck-reset>Tout effacer</button>
+      </div>
+      <p class="cv-note ck-feedback" role="status" data-ck-feedback></p>
+      <p class="cv-note">Le PDF est la version vierge, à imprimer pour une réunion de lancement. L'impression depuis cette page reprend vos cases et vos champs.</p>
+    </aside>
+
+    <article class="ck-sheet" data-ck-sheet>
+      <h2 class="ck-title">{checklistTitle}</h2>
+      <p class="ck-intro">{checklistIntro}</p>
+
+      <div class="ck-fields">
+        {checklistFields.map((f, i) => (
+          <div class="ck-field">
+            <label class="ck-field-l" for={`ck-f${i}`}>{f}</label>
+            <input class="cv-input ck-field-i" id={`ck-f${i}`} type="text" autocomplete="off" data-ck-field={`f${i}`} />
+          </div>
+        ))}
+      </div>
+
+      <section class="ck-sec" id="ck-prerequis" aria-labelledby="ck-prerequis-h">
+        <h2 class="ck-h2" id="ck-prerequis-h"><span class="ck-n">Avant J1</span> Les {prerequisites.length} prérequis</h2>
+        <ul class="ck-items">
+          {prerequisites.map((it, i) => (
+            <li class="ck-item">
+              <input class="ck-box" type="checkbox" id={`ck-p${i + 1}`} data-ck-check />
+              <label class="ck-label" for={`ck-p${i + 1}`}>
+                {it.label}
+                {it.hint && <span class="ck-hint">{it.hint}</span>}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="ck-sec ck-plan" aria-labelledby="ck-plan-h">
+        <h2 class="ck-h2" id="ck-plan-h"><span class="ck-n">J1 à J90</span> Le plan en {phases.length} phases</h2>
+        {phases.map((p, pi) => (
+          <section class="ck-phase" id={`ck-${p.id}`} aria-labelledby={`ck-${p.id}-h`}>
+            <h3 class="ck-h3" id={`ck-${p.id}-h`}><span class="ck-n">Phase {pi + 1} · {p.range}</span> {p.title}</h3>
+            <p class="ck-goal"><strong>Objectif.</strong> {p.goal}</p>
+            {p.weeks.map((w, wi) => {
+              const wid = `${p.id}-w${wi + 1}`;
+              return (
+                <section class="ck-week" aria-labelledby={`ck-${wid}-h`}>
+                  <h4 class="ck-h4" id={`ck-${wid}-h`}><span class="ck-wl">{w.label} ·</span> {w.title}</h4>
+                  <div class="ck-cols" aria-hidden="true"><span>Action</span><span>Responsable</span><span>Date</span></div>
+                  <ul class="ck-items">
+                    {w.items.map((it, ii) => (
+                      <li class="ck-item">
+                        <input class="ck-box" type="checkbox" id={`ck-${wid}-i${ii + 1}`} data-ck-check />
+                        <label class="ck-label" for={`ck-${wid}-i${ii + 1}`}>
+                          {it.label}
+                          {it.hint && <span class="ck-hint">{it.hint}</span>}
+                        </label>
+                        <span class="ck-blank" aria-hidden="true"></span>
+                        <span class="ck-blank" aria-hidden="true"></span>
+                      </li>
+                    ))}
+                    <li class="ck-item ck-deliv">
+                      <input class="ck-box" type="checkbox" id={`ck-${wid}-d`} data-ck-check />
+                      <label class="ck-label" for={`ck-${wid}-d`}><strong>Livrable :</strong> {w.deliverable}</label>
+                      <span class="ck-blank" aria-hidden="true"></span>
+                      <span class="ck-blank" aria-hidden="true"></span>
+                    </li>
+                  </ul>
+                </section>
+              );
+            })}
+            <div class="ck-gate">
+              <p class="ck-gate-k">Point de passage J{(pi + 1) * 30}</p>
+              <p class="ck-gate-t">{p.gate}</p>
+              <p class="ck-gate-sign" aria-hidden="true"><span>Décision prise le</span><span>Par</span></p>
+            </div>
+          </section>
+        ))}
+      </section>
+
+      <section class="ck-sec ck-metrics" id="ck-indicateurs" aria-labelledby="ck-indicateurs-h">
+        <h2 class="ck-h2" id="ck-indicateurs-h"><span class="ck-n">À chaque bilan</span> Indicateurs à suivre</h2>
+        <p class="ck-goal">Notez la baseline avant J1, puis la même mesure à chaque point de passage.</p>
+        <div class="ck-table-wrap">
+          <table class="ck-table">
+            <thead>
+              <tr>
+                <th scope="col">Indicateur</th>
+                {metricColumns.map((c) => <th scope="col">{c}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {metrics.map((m, mi) => (
+                <tr>
+                  <th scope="row">{m}</th>
+                  {metricColumns.map((c, ci) => (
+                    <td><input class="ck-cell" type="text" inputmode="decimal" autocomplete="off" aria-label={`${m}, ${c}`} data-ck-field={`m${mi}-${ci}`} /></td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="ck-sec ck-warn" id="ck-alertes" aria-labelledby="ck-alertes-h">
+        <h2 class="ck-h2" id="ck-alertes-h"><span class="ck-n">Stop</span> Signaux d'alerte</h2>
+        <p class="ck-goal">Si l'un de ces signaux apparaît, on s'arrête et on corrige avant d'avancer.</p>
+        <ul class="ck-warn-list">
+          {warnings.map((w) => <li>{w}</li>)}
+        </ul>
+      </section>
+
+      <p class="ck-closing">
+        La méthode détaillée derrière chaque phase est dans le guide
+        <a href="/ressources/guides/claude-pme">Déployer Claude dans votre PME</a>. Checklist de travail, pas un avis juridique.
+      </p>
+    </article>
+  </div>
+</section>
+
+<script is:inline>
+(function () {
+  var KEY = 'waimia:checklist-90j-claude:v1';
+
+  function init(root) {
+    if (root.dataset.bound) return;
+    root.dataset.bound = '1';
+    var checks = root.querySelectorAll('[data-ck-check]');
+    var fields = root.querySelectorAll('[data-ck-field]');
+    var doneEl = root.querySelector('[data-ck-done]');
+    var bar = root.querySelector('[data-ck-bar]');
+    var plurals = root.querySelectorAll('[data-ck-plural]');
+    var feedback = root.querySelector('[data-ck-feedback]');
+
+    function state() {
+      var s = { checks: {}, fields: {} };
+      checks.forEach(function (c) { if (c.checked) s.checks[c.id] = 1; });
+      fields.forEach(function (f) { var v = f.value.trim(); if (v) s.fields[f.dataset.ckField] = v; });
+      return s;
+    }
+    function count() {
+      var n = 0;
+      checks.forEach(function (c) { if (c.checked) n++; });
+      return n;
+    }
+    function render() {
+      var n = count();
+      doneEl.textContent = String(n);
+      plurals.forEach(function (p) { p.hidden = n > 1 ? false : true; });
+      bar.style.width = (checks.length ? Math.round((n / checks.length) * 100) : 0) + '%';
+    }
+    function save() {
+      try { localStorage.setItem(KEY, JSON.stringify(state())); } catch (_) {}
+    }
+
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+      var sc = saved.checks || {};
+      var sf = saved.fields || {};
+      checks.forEach(function (c) { if (sc[c.id]) c.checked = true; });
+      fields.forEach(function (f) { if (sf[f.dataset.ckField]) f.value = sf[f.dataset.ckField]; });
+    } catch (_) {}
+    render();
+
+    checks.forEach(function (c) { c.addEventListener('change', function () { render(); save(); }); });
+    fields.forEach(function (f) { f.addEventListener('input', save); });
+
+    root.querySelector('[data-ck-print]').addEventListener('click', function () { window.print(); });
+    root.querySelector('[data-ck-reset]').addEventListener('click', function () {
+      if (!window.confirm('Effacer toutes les cases cochées et les champs saisis ?')) return;
+      checks.forEach(function (c) { c.checked = false; });
+      fields.forEach(function (f) { f.value = ''; });
+      try { localStorage.removeItem(KEY); } catch (_) {}
+      render();
+      feedback.textContent = 'Checklist remise à zéro.';
+    });
+
+    // Copie par e-mail (LeadCapture) : on joint l'avancement s'il y en a un.
+    document.addEventListener('cv:collect', function (ev) {
+      if (ev.detail.slug !== 'checklist-90-jours-claude') return;
+      var n = count();
+      if (n) ev.detail.summary.push({ label: 'Cases cochées', value: n + ' sur ' + checks.length });
+      var co = root.querySelector('[data-ck-field="f0"]');
+      if (co && co.value.trim()) ev.detail.summary.push({ label: 'Entreprise', value: co.value.trim() });
+    });
+  }
+  function boot() { document.querySelectorAll('[data-checklist]').forEach(init); }
+  boot();
+  document.addEventListener('astro:page-load', boot);
+})();
+</script>
+
+<style>
+  .ck { padding: var(--space-8) 0 var(--space-10); background: var(--paper-2); border-top: 1px solid var(--hairline-strong); }
+  .ck-in { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+  .ck-side { position: sticky; top: calc(var(--header-height) + var(--space-5)); display: flex; flex-direction: column; gap: var(--space-4); }
+  .ck-side-h2 { font-family: var(--font-sans); font-size: var(--text-h3); font-weight: var(--fw-semibold); letter-spacing: -0.012em; margin: 0; }
+  .ck-count { margin: 0; font-size: var(--text-body); }
+  .ck-count strong { font-weight: var(--fw-semibold); }
+  .ck-bar { height: var(--space-1); background: var(--hairline-strong); border-radius: var(--radius-full); overflow: hidden; }
+  .ck-bar span { display: block; height: 100%; width: 0; background: var(--accent); transition: width var(--dur-fast) var(--ease); }
+  .ck-toc { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--hairline-strong); }
+  .ck-toc li { border-bottom: 1px solid var(--hairline-strong); }
+  .ck-toc a { display: block; padding: var(--space-2) 0; font-size: var(--text-small); color: var(--ink); }
+  .ck-toc a:hover { color: var(--accent-text); }
+  .ck-actions { display: flex; flex-direction: column; gap: var(--space-2); padding-top: var(--space-3); border-top: 1px solid var(--hairline-strong); }
+  .ck-actions .btn { justify-content: center; }
+  .ck-feedback:empty { display: none; }
+  .ck-feedback { color: var(--ink); font-weight: var(--fw-medium); }
+
+  .ck-sheet {
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lift);
+    padding: clamp(var(--space-5), 5vw, var(--space-10));
+    max-width: 860px;
+    min-width: 0;
+  }
+  .ck-title {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    font-size: var(--text-h2);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-5);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--ink);
+    text-wrap: balance;
+  }
+  .ck-intro { font-size: var(--text-h3); line-height: var(--leading-body); margin: 0 0 var(--space-6); max-width: 64ch; }
+
+  .ck-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-5); margin: 0 0 var(--space-7); }
+  .ck-field { display: flex; flex-direction: column; gap: var(--space-1); }
+  .ck-field-l { font-size: var(--text-small); font-weight: var(--fw-medium); color: var(--ink-3); }
+
+  .ck-sec { padding: var(--space-6) 0; border-top: 1px solid var(--ink); }
+  .ck-h2, .ck-h3 { font-family: var(--font-sans); font-size: var(--text-h3); line-height: 1.25; font-weight: var(--fw-semibold); letter-spacing: -0.012em; margin: 0 0 var(--space-4); }
+  .ck-n { display: block; font-size: var(--text-small); font-weight: var(--fw-medium); color: var(--accent-text); letter-spacing: 0; margin-bottom: var(--space-1); }
+  .ck-sec, .ck-phase { scroll-margin-top: calc(var(--header-height) + var(--space-4)); }
+  .ck-phase { padding: var(--space-5) 0 0; }
+  .ck-phase + .ck-phase { margin-top: var(--space-5); border-top: 1px solid var(--hairline-strong); }
+  .ck-goal { margin: 0 0 var(--space-4); font-size: var(--text-body); line-height: 1.6; max-width: 68ch; }
+
+  .ck-week { padding: var(--space-4) 0; border-top: 1px dashed var(--hairline-strong); }
+  .ck-h4 { font-family: var(--font-sans); font-size: var(--text-body); font-weight: var(--fw-semibold); letter-spacing: var(--tracking-body); text-transform: none; color: var(--ink); margin: 0 0 var(--space-3); }
+  .ck-wl { color: var(--muted); font-weight: var(--fw-medium); margin-right: var(--space-1); }
+  .ck-cols, .ck-blank, .ck-gate-sign { display: none; }
+
+  .ck-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .ck-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-3); align-items: start; }
+  .ck-box { margin: 3px 0 0; width: 18px; height: 18px; accent-color: var(--ink); flex-shrink: 0; cursor: pointer; }
+  .ck-label { font-size: var(--text-body); line-height: 1.55; cursor: pointer; max-width: 68ch; }
+  .ck-box:checked + .ck-label { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--hairline-strong); }
+  .ck-hint { display: block; font-size: var(--text-small); color: var(--muted); margin-top: var(--space-1); }
+  .ck-deliv .ck-label { color: var(--ink-3); }
+  .ck-deliv { margin-top: var(--space-1); padding-top: var(--space-2); border-top: 1px solid var(--hairline); }
+
+  .ck-gate { margin: var(--space-4) 0 0; padding: var(--space-3) var(--space-4); background: var(--paper-2); border: 1px solid var(--hairline-strong); border-left: 3px solid var(--accent); }
+  .ck-gate-k { margin: 0 0 var(--space-1); font-size: var(--text-small); font-weight: var(--fw-semibold); color: var(--accent-text); }
+  .ck-gate-t { margin: 0; font-size: var(--text-body); line-height: 1.55; max-width: 68ch; }
+
+  .ck-table-wrap { overflow-x: auto; }
+  .ck-table { width: 100%; border-collapse: collapse; font-size: var(--text-small); }
+  .ck-table th, .ck-table td { border: 1px solid var(--hairline-strong); padding: var(--space-2); text-align: left; vertical-align: middle; }
+  .ck-table thead th { background: var(--paper-2); font-weight: var(--fw-semibold); }
+  .ck-table tbody th { font-weight: var(--fw-regular); min-width: 14em; }
+  .ck-table td { width: 13%; padding: 0; }
+  .ck-cell { width: 100%; min-width: 4.5em; border: 0; background: transparent; padding: var(--space-2); font: inherit; color: var(--ink); }
+  .ck-cell:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  .ck-warn-list { margin: 0; padding: 0 0 0 1.1em; }
+  .ck-warn-list li { font-size: var(--text-body); line-height: 1.6; margin-bottom: var(--space-2); padding-left: var(--space-1); max-width: 68ch; }
+  .ck-warn-list li::marker { color: var(--accent-text); content: '! '; font-weight: var(--fw-semibold); }
+
+  .ck-closing { margin: var(--space-5) 0 0; padding-top: var(--space-5); border-top: 1px solid var(--ink); font-size: var(--text-small); line-height: 1.55; color: var(--muted); }
+  .ck-closing a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 900px) {
+    .ck { padding-top: var(--space-6); }
+    .ck-in { grid-template-columns: 1fr; gap: var(--space-6); }
+    .ck-side { position: static; }
+    .ck-toc { display: none; }
+    .ck-intro { font-size: var(--text-body); }
+  }
+  @media (max-width: 560px) {
+    .ck-fields { grid-template-columns: 1fr; }
+  }
+
+  /* Feuille imprimée (A4) : champs en lignes, colonnes « Responsable / Date », semaines
+     jamais coupées, une phase par page, tableau d'indicateurs vide. */
+  @media print {
+    [data-ck-sheet] { max-width: none; border: 0; box-shadow: none; padding: 0; background: transparent; font-size: 9.5pt; }
+    .ck-title { font-size: 20pt; margin-bottom: 8pt; padding-bottom: 8pt; }
+    .ck-intro { font-size: 10pt; margin-bottom: 10pt; max-width: none; }
+
+    /* Champs d'en-tête : lignes à remplir. */
+    .ck-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6pt 18pt; margin-bottom: 12pt; }
+    .ck-field { flex-direction: row; align-items: flex-end; gap: 6pt; }
+    .ck-field-l { font-size: 9pt; white-space: nowrap; color: inherit; }
+    .ck-field-i { flex: 1; min-width: 0; height: auto; padding: 0 0 1pt; border: 0; border-bottom: 0.75pt solid; border-radius: 0; background: transparent; font-size: 9.5pt; box-shadow: none; }
+
+    .ck-sec { padding: 10pt 0 4pt; }
+    .ck-h2,
+    .ck-h3 { font-size: 13pt; margin-bottom: 6pt; break-after: avoid; }
+    .ck-n { font-size: 8.5pt; margin-bottom: 1pt; }
+    .ck-goal { font-size: 9.5pt; margin-bottom: 6pt; max-width: none; }
+    .ck-plan > .ck-h2 { display: none; }
+    .ck-plan { border-top: 0; padding-top: 0; }
+    .ck-phase { break-before: page; padding-top: 0; }
+    .ck-phase + .ck-phase { margin-top: 0; border-top: 0; }
+    .ck-phase > .ck-h3 { padding-bottom: 4pt; border-bottom: 1pt solid; }
+
+    /* Semaines : jamais coupées. Colonnes « Responsable / Date » en lignes vides. */
+    .ck-week { break-inside: avoid; padding: 6pt 0 4pt; border-top: 0; }
+    .ck-h4 { font-size: 10pt; margin-bottom: 3pt; break-after: avoid; }
+    .ck-cols,
+    .ck-week .ck-item { display: grid; grid-template-columns: 12pt minmax(0, 1fr) 30mm 20mm; gap: 0 8pt; align-items: end; }
+    .ck-cols { font-size: 7.5pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding-bottom: 2pt; border-bottom: 0.75pt solid; }
+    .ck-cols span:first-child { grid-column: 1 / 3; }
+    .ck-blank { display: block; border-bottom: 0.5pt solid var(--muted); height: 1em; }
+    .ck-items { gap: 0; }
+    .ck-item { gap: 0 8pt; padding: 3pt 0; border-bottom: 0.5pt solid var(--hairline-strong); align-items: start; }
+    .ck-week .ck-item { align-items: end; }
+    .ck-box { width: 10pt; height: 10pt; margin: 1pt 0 0; align-self: start; }
+    .ck-label { font-size: 9.5pt; line-height: 1.35; max-width: none; text-decoration: none; color: inherit; }
+    .ck-hint { font-size: 8pt; margin-top: 1pt; }
+    .ck-deliv { margin-top: 0; padding-top: 3pt; border-top: 0; }
+    .ck-deliv .ck-label { color: inherit; }
+
+    /* Point de passage : encadré, avec la décision à signer. */
+    .ck-gate { break-inside: avoid; background: transparent; border: 1pt solid; border-left-width: 3pt; padding: 6pt 8pt; margin-top: 8pt; }
+    .ck-gate-k { font-size: 9pt; }
+    .ck-gate-t { font-size: 9.5pt; max-width: none; }
+    .ck-gate-sign { display: grid; grid-template-columns: 1fr 1fr; gap: 18pt; margin: 10pt 0 0; font-size: 8.5pt; }
+    .ck-gate-sign span { border-bottom: 0.5pt solid; padding-bottom: 8pt; }
+
+    /* Indicateurs : tableau vide à remplir. */
+    .ck-metrics { break-before: page; border-top: 1pt solid; }
+    .ck-table-wrap { overflow: visible; }
+    .ck-table { font-size: 9pt; break-inside: avoid; }
+    .ck-table th,
+    .ck-table td { border: 0.75pt solid; padding: 7pt 6pt; }
+    .ck-table td { padding: 0; }
+    .ck-table thead th { background: transparent; }
+    .ck-cell { padding: 7pt 6pt; font-size: 9pt; }
+
+    .ck-warn { break-inside: avoid; }
+    .ck-warn-list li { font-size: 9.5pt; margin-bottom: 3pt; max-width: none; }
+    .ck-closing { font-size: 8pt; margin-top: 10pt; padding-top: 6pt; }
+  }
+</style>
+
+<style is:global>
+  /* Impression et PDF (A4) : seule la checklist sort, sans l'habillage du site ni la
+     colonne d'avancement. `display: none` pour ne pas imprimer de pages blanches.
+     La mise en page imprimée de la feuille elle-même est dans le <style> scopé
+     ci-dessus (même spécificité que les règles écran, donc elle les remplace). */
+  @media print {
+    body:has([data-checklist]) > *:not(main),
+    body:has([data-checklist]) main > *:not([data-checklist]),
+    body:has([data-checklist]) .ck-side { display: none !important; }
+    body:has([data-checklist]),
+    body:has([data-checklist]) .ck { background: transparent !important; padding: 0 !important; border: 0 !important; }
+    body:has([data-checklist]) .ck-in { display: block; padding: 0; max-width: none; }
+  }
+</style>
