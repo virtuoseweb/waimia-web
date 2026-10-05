@@ -2636,7 +2636,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-table",
-        "label": "Claude vs ChatGPT : ce qui est vérifiable",
+        "label": "Claude vs ChatGPT : prix, données, outils",
         "background": "paper"
       },
       {
