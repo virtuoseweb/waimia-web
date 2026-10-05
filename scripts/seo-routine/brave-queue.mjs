@@ -17,14 +17,33 @@
  * Usage direct : `node scripts/seo-routine/brave-queue.mjs [--all] [--dry-run]`
  *   --all : met tout le sitemap dans la file (nouvelle passe complète, après une refonte).
  *   --dry-run : affiche la file sans écrire l'état.
+ *
+ * Mode autonome, pour la tâche Brave (ni secret, ni état, rien n'est écrit) :
+ *   `node scripts/seo-routine/brave-queue.mjs --from-sitemap [--days=8] [--cap=40] [--offset=0] [--sitemap=<URL ou fichier>] [--json]`
+ * La file est alors : les URL du sitemap de production dont le `lastmod` date de moins de
+ * `--days` jours, réunies avec `brave.toSubmit` de docs/seo/data/latest.json s'il existe. Elle ne
+ * dépend donc plus de la collecte. Resoumettre une URL déjà soumise est sans conséquence, d'où
+ * l'absence d'état. Ordre : la file de la collecte, puis les URL que la dernière inspection
+ * d'indexation ne connaissait pas (pages nouvelles), puis les autres, les plus récentes d'abord.
+ * `--cap` plafonne une exécution (40 : une vérification anti-robot est apparue vers 47
+ * soumissions d'affilée le 4 octobre 2026) ; le reste sort en « à reprendre » et se relance avec
+ * `--offset`. Limite : `lastmod` est la date du contenu (`updatedAt`) ou du dernier commit qui a
+ * touché le fichier de la page (src/lib/seo/lastmod.mjs), au jour près. Une page modifiée sans
+ * que cette date change ne sort pas ; un commit qui touche beaucoup de fichiers les fait toutes
+ * sortir ; une PR fusionnée mais pas encore déployée n'est pas dans le sitemap.
  */
+import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { SITEMAP_URL, STATE_DIR } from './config.mjs';
+import { DATA_DIR, SITE_ORIGIN, SITEMAP_URL, STATE_DIR } from './config.mjs';
 import { fetchSitemapUrls } from './lib/sitemap.mjs';
-import { isoWeek, readJson, writeJson, isMain } from './lib/util.mjs';
+import { parseSitemap } from './lib/xml.mjs';
+import { isoWeek, readJson, writeJson, isMain, normalizeUrl } from './lib/util.mjs';
 
 export const BRAVE_STATE_FILE = join(STATE_DIR, 'brave.json');
 export const BRAVE_SUBMIT_URL = 'https://search.brave.com/submit-url';
+/** Mode autonome : fenêtre de récence (jours) et plafond de soumissions par exécution. */
+export const BRAVE_RECENT_DAYS = 8;
+export const BRAVE_BATCH_CAP = 40;
 
 /**
  * Calcule la file et l'état suivant. Fonction pure.
@@ -84,8 +103,105 @@ export async function runBraveQueue({ all = false, persist = true, today = new D
   };
 }
 
+const onSite = (loc) => loc === SITE_ORIGIN || String(loc).startsWith(`${SITE_ORIGIN}/`);
+
+/**
+ * File autonome, sans état. Fonction pure.
+ * @param {Array<{loc:string, lastmod:string|null}>} urls URL du sitemap de production
+ * @param {{now?:Date, days?:number, cap?:number, offset?:number, extra?:string[], knownUrls?:string[]|null}} options
+ *   extra : `brave.toSubmit` de latest.json ; knownUrls : URL déjà vues par la dernière inspection
+ *   d'indexation (`null` = inconnu, aucune priorité aux pages nouvelles).
+ */
+export function selectFromSitemap(urls, { now = new Date(), days = BRAVE_RECENT_DAYS, cap = BRAVE_BATCH_CAP, offset = 0, extra = [], knownUrls = null } = {}) {
+  const limitMs = days * 86400000;
+  const site = urls.filter((u) => onSite(u.loc));
+  const undated = site.filter((u) => !u.lastmod || Number.isNaN(new Date(u.lastmod).getTime())).map((u) => u.loc);
+  const recent = site
+    .filter((u) => u.lastmod && !Number.isNaN(new Date(u.lastmod).getTime()))
+    .filter((u) => {
+      const age = now.getTime() - new Date(u.lastmod).getTime();
+      return age < limitMs;
+    })
+    .sort((a, b) => new Date(b.lastmod) - new Date(a.lastmod) || a.loc.localeCompare(b.loc));
+  const known = knownUrls ? new Set(knownUrls.map(normalizeUrl)) : null;
+  const fromCollect = [...new Set(extra.filter(onSite))];
+  const fresh = known ? recent.filter((u) => !known.has(normalizeUrl(u.loc))).map((u) => u.loc) : [];
+  const candidates = [...new Set([...fromCollect, ...fresh, ...recent.map((u) => u.loc)])];
+  const start = Math.max(0, offset);
+  const toSubmit = candidates.slice(start, start + cap);
+  return {
+    days,
+    since: new Date(now.getTime() - limitMs).toISOString(),
+    cap,
+    offset: start,
+    sitemapUrlCount: site.length,
+    recentCount: recent.length,
+    fromCollectCount: fromCollect.length,
+    newSinceLastInspection: known ? fresh : null,
+    undated,
+    total: candidates.length,
+    toSubmit,
+    count: toSubmit.length,
+    remaining: candidates.slice(start + cap),
+    nextOffset: start + cap < candidates.length ? start + cap : null,
+  };
+}
+
+/** Lit un sitemap depuis une URL (index suivi) ou un fichier local enregistré. */
+async function readSitemap(source) {
+  if (/^https?:\/\//i.test(source)) return (await fetchSitemapUrls(source)).urls;
+  return parseSitemap(await readFile(source, 'utf8')).urls;
+}
+
+export async function runFromSitemap({ sitemap = SITEMAP_URL, days = BRAVE_RECENT_DAYS, cap = BRAVE_BATCH_CAP, offset = 0, now = new Date(), dataDir = DATA_DIR } = {}) {
+  const urls = await readSitemap(sitemap);
+  const latest = await readJson(join(dataDir, 'latest.json'), null);
+  const indexState = await readJson(join(dataDir, 'state', 'gsc-index.json'), null);
+  const sel = selectFromSitemap(urls, {
+    now,
+    days,
+    cap,
+    offset,
+    extra: latest?.brave?.toSubmit ?? [],
+    knownUrls: indexState?.urls ? Object.keys(indexState.urls) : null,
+  });
+  return { generatedAt: now.toISOString(), submitUrl: BRAVE_SUBMIT_URL, sitemap, latestGeneratedAt: latest?.generatedAt ?? null, ...sel };
+}
+
+export function formatFromSitemap(out) {
+  const lines = [
+    `File Brave autonome · calculée le ${out.generatedAt}`,
+    `Sitemap : ${out.sitemap} · ${out.sitemapUrlCount} URL, dont ${out.recentCount} au lastmod de moins de ${out.days} jours (depuis ${out.since.slice(0, 10)}).`,
+    `File de la collecte (latest.json > brave.toSubmit) : ${out.fromCollectCount} URL${out.latestGeneratedAt ? `, collecte du ${out.latestGeneratedAt}` : ' (pas de latest.json, ou pas de clé brave)'}.`,
+  ];
+  if (out.newSinceLastInspection) lines.push(`Pages inconnues de la dernière inspection d'indexation, placées en tête : ${out.newSinceLastInspection.length}.`);
+  if (out.undated.length) lines.push(`URL sans lastmod, non datables, laissées de côté : ${out.undated.length}.`);
+  lines.push(`Total : ${out.total} URL. Plafond par exécution : ${out.cap}. Départ : ${out.offset}.`, '');
+  if (out.count === 0) lines.push('RIEN À SOUMETTRE.');
+  else lines.push(`À SOUMETTRE MAINTENANT (${out.count}), une par une sur ${out.submitUrl} :`, ...out.toSubmit);
+  if (out.remaining.length) lines.push('', `À REPRENDRE (${out.remaining.length}), dans une autre exécution, avec --offset=${out.nextOffset} :`, ...out.remaining);
+  return lines.join('\n');
+}
+
+const numArg = (name, fallback) => {
+  const raw = process.argv.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3);
+  if (raw === undefined) return fallback;
+  const n = Number(raw);
+  if (!Number.isInteger(n) || n < 0) throw new Error(`--${name} attend un entier positif ou nul (reçu : ${raw})`);
+  return n;
+};
+
 if (isMain(import.meta.url)) {
   try {
+    if (process.argv.includes('--from-sitemap')) {
+      const sitemap = process.argv.find((a) => a.startsWith('--sitemap='))?.slice('--sitemap='.length) || SITEMAP_URL;
+      const days = numArg('days', BRAVE_RECENT_DAYS);
+      const cap = numArg('cap', BRAVE_BATCH_CAP);
+      if (days < 1 || cap < 1) throw new Error('--days et --cap attendent au moins 1');
+      const out = await runFromSitemap({ sitemap, days, cap, offset: numArg('offset', 0) });
+      console.log(process.argv.includes('--json') ? JSON.stringify(out, null, 2) : formatFromSitemap(out));
+      process.exit(0);
+    }
     const dryRun = process.argv.includes('--dry-run');
     console.log(JSON.stringify(await runBraveQueue({ all: process.argv.includes('--all'), persist: !dryRun }), null, 2));
   } catch (err) {

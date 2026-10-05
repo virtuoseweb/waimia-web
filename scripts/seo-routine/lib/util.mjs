@@ -29,6 +29,26 @@ export function isoWeek(date = new Date()) {
   return `${d.getUTCFullYear()}-W${String(week).padStart(2, '0')}`;
 }
 
+/** Format d'une semaine ISO : AAAA-Www, semaines 01 à 53. */
+export const ISO_WEEK_RE = /^(\d{4})-W(0[1-9]|[1-4]\d|5[0-3])$/;
+
+/** Lundi (00:00 UTC) d'une semaine ISO AAAA-Www. `null` si le format est invalide ou si la semaine n'existe pas. */
+export function isoWeekMonday(week) {
+  const m = ISO_WEEK_RE.exec(String(week ?? ''));
+  if (!m) return null;
+  // Le 4 janvier est toujours dans la semaine 1.
+  const jan4 = new Date(Date.UTC(Number(m[1]), 0, 4));
+  const monday = addDays(jan4, 1 - (jan4.getUTCDay() || 7) + (Number(m[2]) - 1) * 7);
+  // « 2025-W53 » n'existe pas : la date retombe dans une autre semaine.
+  return isoWeek(monday) === week ? monday : null;
+}
+
+/** Semaine ISO décalée de `n` semaines (n négatif : vers le passé). `null` si la semaine est invalide. */
+export function addWeeks(week, n) {
+  const monday = isoWeekMonday(week);
+  return monday ? isoWeek(addDays(monday, n * 7)) : null;
+}
+
 export async function readJson(path, fallback = null) {
   try {
     return JSON.parse(await readFile(path, 'utf8'));

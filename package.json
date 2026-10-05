@@ -66,6 +66,9 @@
     "seo:routine": "node scripts/seo-routine/run.mjs",
     "seo:feeds": "node scripts/seo-routine/feeds.mjs --check",
     "check:seo-routine": "node scripts/seo-routine/check-config.mjs",
+    "check:seo-calendar": "node scripts/seo-routine/check-calendar.mjs",
+    "seo:brave-queue": "node scripts/seo-routine/brave-queue.mjs --from-sitemap --days=8",
+    "seo:freshness": "node scripts/seo-routine/freshness.mjs",
     "test:seo-routine": "node --test \"scripts/seo-routine/tests/*.test.mjs\"",
     "board:regen": "node scripts/sync-board.mjs --regen",
     "ds:apply": "node scripts/apply-ds-export.mjs"

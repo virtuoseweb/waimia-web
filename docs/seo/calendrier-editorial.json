@@ -1,0 +1,566 @@
+{
+  "$comment": "Calendrier éditorial de la routine SEO/GEO (docs/seo/ROUTINE.md, section 4). Tenu par la session hebdomadaire : elle livre les entrées de la semaine, passe les livrées à « publié » avec la PR, juge les publiées depuis deux collectes (« mesuré », avec le résultat), ajoute les idées et replanifie pour garder au moins 6 semaines d'avance. Champs : id · type (article, guide, comparatif, page service, cas d'usage, page locale, révision, fusion) · titreProvisoire · requeteCible · intention · urlCible (chemin, existant ou à créer) · angle (ce que la page apportera que les premiers résultats n'ont pas) · sourcesALire · semainePrevue (AAAA-Www, null permis pour une idée) · statut (idée, planifié, en cours, publié, mesuré, abandonné) · pr · mesureAttendue · resultat · origine (la donnée du repo qui justifie l'entrée). Amorce du 5 octobre 2026 : toutes les entrées viennent de docs/seo/keywords.json, de docs/seo/journal.md (entrée 2026-W41), de docs/seo/data/latest.json (collecte du 4 octobre 2026), de docs/seo/feeds.json et de docs/seo/competitors.json. Aucune recherche en ligne n'a été faite pour l'amorce : chaque angle est une hypothèse, à confirmer ou à remplacer par la recherche de la session avant d'écrire. Les états d'indexation et les positions cités datent de la collecte du 4 octobre 2026 : la session les relit dans la collecte de sa semaine. Aucun volume de recherche n'est recopié ici (ils sont dans keywords.json). Vérification : node scripts/seo-routine/check-calendar.mjs",
+  "amorce": "2026-10-05",
+  "entries": [
+    {
+      "id": "w41-revision-claude-vs-chatgpt-pme",
+      "type": "révision",
+      "titreProvisoire": "Claude ou ChatGPT pour une PME : comparatif complété (prix, données, MCP)",
+      "requeteCible": "claude vs chatgpt",
+      "intention": "Comparer deux outils avant de choisir un abonnement d'équipe.",
+      "urlCible": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "angle": "Colonne ChatGPT complétée depuis les sources d'OpenAI, exemple de coût illustratif, limites des engagements sur les données, section « Ce qui peut rater ».",
+      "sourcesALire": ["docs/seo/journal.md, entrée 2026-W41 (sources lues le 5 octobre 2026)"],
+      "semainePrevue": "2026-W41",
+      "statut": "publié",
+      "pr": 69,
+      "mesureAttendue": "Page : 21 impressions et position 13,4 sur 28 jours à la collecte du 4 octobre 2026. Attendu : position sous 10 et plus de 30 impressions sur 28 jours. À juger à partir de 2026-W44.",
+      "resultat": null,
+      "origine": "docs/seo/journal.md, entrée 2026-W41, action 1 (mot-clé de priorité 1 dans keywords.json)."
+    },
+    {
+      "id": "w42-n8n-prix",
+      "type": "guide",
+      "titreProvisoire": "Prix de n8n : ce que coûte vraiment n8n pour une PME",
+      "requeteCible": "n8n prix",
+      "intention": "Connaître le coût de n8n (offres hébergées, auto-hébergement) avant de s'engager.",
+      "urlCible": "/ressources/guides/n8n-prix",
+      "angle": "Hypothèse à vérifier en ligne : les premiers résultats recopient la grille de l'éditeur ; apporter le coût complet pour une PME (hébergement, maintenance, temps de mise en place), un tableau par cas et un exemple illustratif, plus « quand n8n n'est pas le bon choix ».",
+      "sourcesALire": [
+        "Page de prix officielle de n8n (URL à relever et à citer pendant la session)",
+        "https://community.n8n.io/c/announcements/5.rss (flux « n8n-annonces » de feeds.json : licence et tarifs)",
+        "Premiers résultats de la requête et de deux ou trois variantes",
+        "Pages de sparkyflow.com et kayro.ai sur n8n (competitors.json)",
+        "src/content/services/automatisations/automatisation-n8n.json et src/content/comparatifs/n8n-vs-make.json (ne pas contredire)"
+      ],
+      "semainePrevue": "2026-W42",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée (inspection d'URL) et premières impressions sur « n8n prix ». Départ : aucune page, aucune impression. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : requête suivie sans page cible (target null, priorité 2, grappe n8n). Écartée en W41 (journal, « Non retenu cette semaine »)."
+    },
+    {
+      "id": "w42-revision-automatisation-n8n",
+      "type": "révision",
+      "titreProvisoire": "Agence n8n : révision de la page service",
+      "requeteCible": "agence n8n",
+      "intention": "Trouver un prestataire pour mettre en place n8n.",
+      "urlCible": "/services/automatisation-n8n",
+      "angle": "Hypothèse à vérifier en ligne : relever ce que les pages « agence n8n » classées couvrent (prix, délais, exemples de flux) et que la page n'a pas ; aligner title et H1 sur la requête ; lier le futur guide « n8n prix ».",
+      "sourcesALire": [
+        "Premiers résultats de « agence n8n » et « automatisation n8n »",
+        "Pages « agence + outil » de sparkyflow.com et pages service de kayro.ai (competitors.json)",
+        "docs/seo/data/<semaine>/gsc-performance.json (requêtes réelles de la page)"
+      ],
+      "semainePrevue": "2026-W42",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page : 15 impressions et position 12,7 sur 28 jours à la collecte du 4 octobre 2026. Attendu : position sous 10. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), performance.topPages ; « agence n8n » est de priorité 1 dans keywords.json."
+    },
+    {
+      "id": "w42-revision-calculateur-roi-ia",
+      "type": "révision",
+      "titreProvisoire": "ROI de l'IA : révision de la page du calculateur",
+      "requeteCible": "roi ia",
+      "intention": "Estimer ce que rapporte un projet d'IA avant de le lancer.",
+      "urlCible": "/ressources/outils/calculateur-roi-ia",
+      "angle": "Hypothèse à vérifier en ligne : réponse directe sur la façon de calculer le ROI (formule, postes de coût, limites), au-dessus de l'outil ; FAQ tirée des questions réelles ; lien vers le guide ROI de l'automatisation.",
+      "sourcesALire": [
+        "Premiers résultats de « roi ia » et de deux variantes",
+        "src/content/guides/roi-automatisation.json (ne pas dupliquer)",
+        "docs/seo/data/<semaine>/gsc-performance.json (requêtes réelles de la page)"
+      ],
+      "semainePrevue": "2026-W42",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Requête « roi ia » : 8 impressions et position 5,8 ; page : 11 impressions et position 12,2 sur 28 jours à la collecte du 4 octobre 2026. Attendu : plus de 30 impressions sur la page. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), performance.topQueries et topPages."
+    },
+    {
+      "id": "w43-devis-automatise",
+      "type": "guide",
+      "titreProvisoire": "Devis automatisé : ce qu'on peut automatiser, et ce qu'il vaut mieux garder à la main",
+      "requeteCible": "devis automatisé",
+      "intention": "Comprendre comment produire et relancer des devis sans ressaisie.",
+      "urlCible": "/ressources/guides/devis-automatise",
+      "angle": "Hypothèse à vérifier en ligne : les résultats sont des pages d'éditeurs de logiciels de devis ; apporter une procédure pas à pas indépendante de l'outil (données d'entrée, calcul, validation humaine, relance) et les cas où l'automatisation ne vaut pas le coup. Si la recherche montre qu'une révision de la page service suffit, transformer l'entrée en révision.",
+      "sourcesALire": [
+        "Premiers résultats de « devis automatisé » et de deux ou trois variantes",
+        "src/content/services/sequences-de-suivi.json (cible actuelle de la requête)",
+        "Cas clients réels de src/content/cases/ qui touchent au devis",
+        "Pages des concurrents de competitors.json sur le devis"
+      ],
+      "semainePrevue": "2026-W43",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « devis automatisé ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : requête suivie dont la cible actuelle, /services/sequences-de-suivi, est une page service générique, « explorée, actuellement non indexée » à la collecte du 4 octobre 2026."
+    },
+    {
+      "id": "w43-revision-guide-claude-pme",
+      "type": "révision",
+      "titreProvisoire": "Guide Claude pour PME : reprendre la requête à la page service",
+      "requeteCible": "guide claude pme",
+      "intention": "Apprendre à déployer Claude dans une PME.",
+      "urlCible": "/ressources/guides/claude-pme",
+      "angle": "Hypothèse à vérifier en ligne : « guide claude pme » et « claude pme » sont classées sur /services/consultant-ia-claude et non sur le guide ; clarifier title, H1 et lien interne de la page service vers le guide ; réponse directe en tête.",
+      "sourcesALire": [
+        "Premiers résultats de « guide claude pme », « claude pme », « cours claude pme »",
+        "https://www.anthropic.com/news et les pages listées dans feeds.json > noFeed (faits sur Claude)",
+        "Contenus de claudin.tech sur Claude en entreprise (competitors.json)",
+        "docs/seo/data/<semaine>/gsc-performance.json, byPageQuery"
+      ],
+      "semainePrevue": "2026-W43",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page : 10 impressions et position 25,3 sur 28 jours ; « guide claude pme » classée sur /services/consultant-ia-claude (3 impressions, position 8,3) à la collecte du 4 octobre 2026. Attendu : le guide devient la page classée sur la requête. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/2026-W40/gsc-performance.json, byPageQuery (mauvaise page classée : runbook, 4.1, règle 5)."
+    },
+    {
+      "id": "w43-revision-guide-claude-cowork",
+      "type": "révision",
+      "titreProvisoire": "Claude Cowork : ajouter la réponse sur le prix",
+      "requeteCible": "claude cowork prix",
+      "intention": "Savoir ce que coûte Claude Cowork et dans quelle offre il est inclus.",
+      "urlCible": "/ressources/guides/claude-cowork",
+      "angle": "Hypothèse à vérifier en ligne : un tableau de prix sourcé chez l'éditeur et daté, en tête de page, que les articles de presse n'ont pas à jour.",
+      "sourcesALire": [
+        "Sources primaires d'Anthropic (feeds.json > noFeed : page d'actualités, notes de version)",
+        "Premiers résultats de « claude cowork prix » et « claude cowork »",
+        "https://www.journaldunet.com/intelligence-artificielle/rss/ (flux « jdn-ia » de feeds.json : requêtes qui montent)"
+      ],
+      "semainePrevue": "2026-W43",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page inconnue de Google à la collecte du 4 octobre 2026 (« Google ne reconnaît pas cette URL »), aucune impression. Attendu : page indexée et impressions sur « claude cowork prix ». À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « claude cowork prix » (priorité 2) et « claude cowork » (priorité 1) visent cette page ; docs/seo/data/latest.json, indexation.notIndexed."
+    },
+    {
+      "id": "w44-agents-ia-definition",
+      "type": "guide",
+      "titreProvisoire": "Agents IA, c'est quoi ? Définition, exemples et limites pour une PME",
+      "requeteCible": "agents ia c'est quoi",
+      "intention": "Comprendre ce qu'est un agent IA, sans jargon.",
+      "urlCible": "/ressources/guides/agent-ia-definition",
+      "angle": "Hypothèse à vérifier en ligne : définition nette en deux phrases, tableau « agent, automatisation, assistant », exemples tirés des cas réels du repo, et ce qu'un agent ne sait pas faire. La cible actuelle est un article de comparaison, pas une définition.",
+      "sourcesALire": [
+        "Premiers résultats de « agents ia c'est quoi », « agent ia définition », « agent ia »",
+        "src/content/blog/agent-ia-vs-automatisation-classique-2026.json (ne pas dupliquer, lier)",
+        "https://blog.langchain.com/rss.xml et https://simonwillison.net/atom/everything/ (flux de feeds.json : définitions et limites)",
+        "Pages de limova.ai et subti.ai sur les agents (competitors.json)"
+      ],
+      "semainePrevue": "2026-W44",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « agents ia c'est quoi ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : requête suivie dont la cible actuelle, /blog/agent-ia-vs-automatisation-classique-2026, est « explorée, actuellement non indexée » à la collecte du 4 octobre 2026."
+    },
+    {
+      "id": "w44-revision-sequences-de-suivi",
+      "type": "révision",
+      "titreProvisoire": "Séquences de suivi : enrichir une page que Google a lue sans la retenir",
+      "requeteCible": "relance automatisée",
+      "intention": "Mettre en place des relances commerciales sans y passer ses soirées.",
+      "urlCible": "/services/sequences-de-suivi",
+      "angle": "Hypothèse à vérifier en ligne : la page doit apporter ce que les autres n'ont pas (ordre des étapes, ce qui casse, exemple illustratif). Requête cible à confirmer par la recherche : aucune requête suivie n'est propre à cette page une fois « devis automatisé » porté par son guide.",
+      "sourcesALire": [
+        "docs/seo/data/latest.json, indexation.notIndexed (état de la page dans la collecte de la semaine)",
+        "Premiers résultats de la requête retenue",
+        "src/content/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil.json (ne pas dupliquer)"
+      ],
+      "semainePrevue": "2026-W44",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "« Explorée, actuellement non indexée » à la collecte du 4 octobre 2026. Attendu : page indexée. À juger deux collectes après la mise en production. Si la page est indexée avant W44, replanifier ou abandonner.",
+      "resultat": null,
+      "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » (4 pages « explorée, non indexée », attendre la réexploration) ; règle des trois collectes du runbook, applicable à partir de W44."
+    },
+    {
+      "id": "w44-revision-consultant-ia-claude",
+      "type": "révision",
+      "titreProvisoire": "Consultant IA : recentrer la page sur la requête de conseil",
+      "requeteCible": "consultant ia",
+      "intention": "Trouver un consultant ou un cabinet de conseil en IA pour une PME.",
+      "urlCible": "/services/consultant-ia-claude",
+      "angle": "Hypothèse à vérifier en ligne : la page se classe sur des requêtes « claude pme » qui reviennent au guide ; la recentrer sur le conseil (ce que fait un consultant IA, livrables, prix depuis src/data/pricing.ts, ce qui peut rater).",
+      "sourcesALire": [
+        "Premiers résultats de « consultant ia », « cabinet conseil ia », « freelance ia »",
+        "Pages service de kayro.ai (competitors.json)",
+        "docs/seo/data/<semaine>/gsc-performance.json, byPageQuery",
+        "src/data/pricing.ts"
+      ],
+      "semainePrevue": "2026-W44",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page : 16 impressions et position 22,4 sur 28 jours ; « cabinet conseil ia pme » : 1 impression, position 10, à la collecte du 4 octobre 2026. Attendu : position de la page sous 15 et impressions sur une requête suivie de la grappe conseil. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), performance.topPages et topQueries ; quatre requêtes suivies de la grappe conseil visent cette page (keywords.json)."
+    },
+    {
+      "id": "w45-crm-sur-mesure",
+      "type": "comparatif",
+      "titreProvisoire": "CRM sur mesure ou CRM du marché : comment choisir pour une PME",
+      "requeteCible": "crm sur mesure",
+      "intention": "Décider entre faire développer un CRM et paramétrer un CRM existant.",
+      "urlCible": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "angle": "Hypothèse à vérifier en ligne : critères explicites et verdict par cas d'usage, y compris « ne le faites pas si », là où les résultats sont des pages de vente d'agences.",
+      "sourcesALire": [
+        "Premiers résultats de « crm sur mesure » et de deux ou trois variantes",
+        "src/content/services/crm-scoring-routing.json et src/content/blog/cabler-son-crm-en-10-jours.json (cible actuelle, ne pas contredire)",
+        "src/content/blog/applications-internes-build-vs-buy-pme.json (même raisonnement, à lier)",
+        "Pages des concurrents de competitors.json sur le CRM"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « crm sur mesure ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « crm sur mesure » et « automatisation crm » visent la même page, /services/crm-scoring-routing, pour deux intentions différentes."
+    },
+    {
+      "id": "w45-revision-agent-ia-vs-automatisation",
+      "type": "révision",
+      "titreProvisoire": "Agent IA ou automatisation classique : mettre l'article à jour",
+      "requeteCible": "agent ia vs automatisation",
+      "intention": "Savoir quand un agent IA apporte quelque chose de plus qu'une automatisation.",
+      "urlCible": "/blog/agent-ia-vs-automatisation-classique-2026",
+      "angle": "Hypothèse à vérifier en ligne : l'article cite un modèle daté (Claude Sonnet 4.6) ; le mettre à jour depuis les sources primaires, ajouter un tableau de décision et renvoyer la définition au guide « agents ia c'est quoi ».",
+      "sourcesALire": [
+        "https://www.anthropic.com/news (feeds.json > noFeed) et https://openai.com/news/rss.xml (modèles cités)",
+        "docs/seo/data/latest.json, indexation.notIndexed (état de la page dans la collecte de la semaine)",
+        "Premiers résultats de la requête"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "« Explorée, actuellement non indexée » ; 5 impressions, position 3, sur 28 jours à la collecte du 4 octobre 2026. Attendu : page indexée. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » : « à reprendre si elle reste non indexée »."
+    },
+    {
+      "id": "w45-revision-tarifs",
+      "type": "révision",
+      "titreProvisoire": "Tarifs : une page que Google a lue sans la retenir",
+      "requeteCible": "tarif agence ia",
+      "intention": "Connaître les prix d'un prestataire IA avant de prendre contact.",
+      "urlCible": "/tarifs",
+      "angle": "Hypothèse à vérifier en ligne : réponse directe (prix d'entrée, ce qui est inclus) en tête, sans changer aucun prix : ils viennent de src/data/pricing.ts. Requête cible à confirmer par la recherche : aucune requête suivie ne vise cette page.",
+      "sourcesALire": [
+        "src/data/pricing.ts (source unique des prix, à ne pas modifier)",
+        "docs/seo/data/latest.json, indexation.notIndexed (état de la page dans la collecte de la semaine)",
+        "Premiers résultats de la requête retenue et pages de prix des concurrents de competitors.json"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "« Explorée, actuellement non indexée » à la collecte du 4 octobre 2026 (exploration de juillet, avant la refonte). Attendu : page indexée. À juger deux collectes après la mise en production. Si la page est indexée avant W45, abandonner.",
+      "resultat": null,
+      "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » (4 pages « explorée, non indexée »)."
+    },
+    {
+      "id": "w46-workflow-ia",
+      "type": "guide",
+      "titreProvisoire": "Workflow IA : définition, exemples et premier workflow à mettre en place",
+      "requeteCible": "workflow ia",
+      "intention": "Comprendre ce qu'est un workflow IA et par lequel commencer.",
+      "urlCible": "/ressources/guides/workflow-ia",
+      "angle": "Hypothèse à vérifier en ligne : une procédure pas à pas pour un premier workflow, avec l'ordre des étapes et ce qui casse, là où les résultats restent sur la définition.",
+      "sourcesALire": [
+        "Premiers résultats de « workflow ia » et de deux ou trois variantes",
+        "https://blog.n8n.io/rss/ et https://community.make.com/c/news/48.rss (flux de feeds.json)",
+        "src/content/guides/taches-a-automatiser-pme.json et src/content/outils/grille-taches-a-automatiser.json (à lier, ne pas dupliquer)"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « workflow ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : requête suivie dont la cible actuelle, /services/automatisations, porte trois requêtes et était « détectée, actuellement non indexée » à la collecte du 4 octobre 2026."
+    },
+    {
+      "id": "w46-revision-seo-geo-etre-cite",
+      "type": "révision",
+      "titreProvisoire": "Être cité par les IA génératives : mettre l'article à jour",
+      "requeteCible": "être cité par les ia",
+      "intention": "Savoir comment faire apparaître son entreprise dans les réponses des moteurs IA.",
+      "urlCible": "/blog/seo-geo-etre-cite-par-les-ia-generatives",
+      "angle": "Hypothèse à vérifier en ligne : ce qui a changé dans l'affichage des résultats (sources primaires de Google), et ce qu'une PME peut vérifier elle-même. Requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "https://developers.google.com/search/blog/feed.xml et https://blog.google/products/search/rss/ (flux de feeds.json)",
+        "https://www.abondance.com/feed (formulations du marché francophone)",
+        "src/content/comparatifs/geo-vs-seo.json (ne pas dupliquer)"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "« Explorée, actuellement non indexée » à la collecte du 4 octobre 2026. Attendu : page indexée. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), indexation.notIndexed ; journal 2026-W41, « Non retenu cette semaine »."
+    },
+    {
+      "id": "w46-revision-geo-vs-seo",
+      "type": "révision",
+      "titreProvisoire": "GEO ou SEO : mailler et distinguer le comparatif de l'article",
+      "requeteCible": "geo vs seo",
+      "intention": "Comprendre la différence entre le référencement classique et la visibilité dans les moteurs IA.",
+      "urlCible": "/ressources/comparatifs/geo-vs-seo",
+      "angle": "Hypothèse à vérifier en ligne : tableau de critères et verdict par cas ; liens internes renforcés (src/lib/internal-mesh.ts) ; vérifier que la page ne double pas l'article de blog sur le même sujet, sinon proposer une fusion.",
+      "sourcesALire": [
+        "Premiers résultats de « geo vs seo »",
+        "src/content/blog/seo-geo-etre-cite-par-les-ia-generatives.json",
+        "src/lib/internal-mesh.ts"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "« Détectée, actuellement non indexée » à la collecte du 4 octobre 2026. Attendu : page explorée puis indexée. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), indexation.notIndexed ; règle des trois collectes du runbook, applicable à partir de W44."
+    },
+    {
+      "id": "w47-freelance-cabinet-agence-ia",
+      "type": "comparatif",
+      "titreProvisoire": "Freelance IA, cabinet de conseil ou agence : qui choisir pour un projet d'IA en PME",
+      "requeteCible": "freelance ia",
+      "intention": "Choisir le bon type de prestataire pour un projet d'IA.",
+      "urlCible": "/ressources/comparatifs/freelance-ia-vs-cabinet-conseil-ia",
+      "angle": "Hypothèse à vérifier en ligne : critères explicites (prix, continuité, responsabilité, transfert du code) et verdict par cas, écrit par quelqu'un qui est lui-même indépendant, sans le cacher.",
+      "sourcesALire": [
+        "Premiers résultats de « freelance ia », « cabinet conseil ia », « consultant ia »",
+        "src/content/services/consultant-ia-claude.json et src/content/authors/ (ce que le site dit déjà de Simon)",
+        "Pages des concurrents de competitors.json"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « freelance ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « freelance ia », « consultant ia », « conseil intelligence artificielle » et « cabinet conseil ia » visent toutes /services/consultant-ia-claude."
+    },
+    {
+      "id": "w47-revision-cas-usage-finance-comptabilite",
+      "type": "révision",
+      "titreProvisoire": "IA et comptabilité : faire porter « ia expert comptable » par le cas d'usage",
+      "requeteCible": "ia expert comptable",
+      "intention": "Savoir ce que l'IA change concrètement dans un cabinet comptable ou un service financier.",
+      "urlCible": "/cas-usages/finance-comptabilite",
+      "angle": "Hypothèse à vérifier en ligne : réponse directe pour un expert-comptable, tâches automatisables avec leurs limites (validation humaine, données sensibles), FAQ tirée des questions réelles.",
+      "sourcesALire": [
+        "Premiers résultats de « ia expert comptable » et « automatisation comptabilité »",
+        "https://www.economie.gouv.fr/rss/toutesactualites (flux de feeds.json : facturation électronique)",
+        "docs/seo/data/<semaine>/gsc-performance.json (premières requêtes de la page, publiée début octobre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page publiée début octobre 2026, absente de la collecte du 4 octobre 2026. Attendu : page indexée et impressions sur « ia expert comptable ». À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » : la page existe désormais et peut porter la requête ; keywords.json la vise."
+    },
+    {
+      "id": "w47-revision-cas-usage-rh",
+      "type": "révision",
+      "titreProvisoire": "Automatisation RH : faire porter la requête par le cas d'usage",
+      "requeteCible": "automatisation rh",
+      "intention": "Savoir quelles tâches RH peuvent être automatisées dans une PME.",
+      "urlCible": "/cas-usages/rh",
+      "angle": "Hypothèse à vérifier en ligne : liste des tâches par ordre de rentabilité, garde-fous (données personnelles, décision humaine), source réglementaire lue chez la CNIL.",
+      "sourcesALire": [
+        "Premiers résultats de « automatisation rh » et de deux variantes",
+        "https://www.cnil.fr/fr/rss.xml (flux de feeds.json : source primaire RGPD)",
+        "docs/seo/data/<semaine>/gsc-performance.json (premières requêtes de la page)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page publiée début octobre 2026, absente de la collecte du 4 octobre 2026. Attendu : page indexée et impressions sur « automatisation rh ». À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » : la page existe désormais et peut porter la requête ; keywords.json la vise."
+    },
+    {
+      "id": "w48-architecte-ia",
+      "type": "article",
+      "titreProvisoire": "Architecte IA : le métier, ce qu'il livre, quand une PME en a besoin",
+      "requeteCible": "architecte ia",
+      "intention": "Comprendre le rôle d'un architecte IA.",
+      "urlCible": "/blog/architecte-ia",
+      "angle": "Hypothèse à vérifier en ligne : décrire le métier par ses livrables (schéma des flux, choix des modèles, garde-fous), depuis la pratique, là où les résultats sont des fiches métier. Aucune certification à citer.",
+      "sourcesALire": [
+        "Premiers résultats de « architecte ia » et de deux variantes",
+        "src/content/authors/ et src/content/blog/forward-deployed-engineer.json (ne pas dupliquer, lier)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « architecte ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : requête suivie (priorité 3) dont la cible actuelle est la page auteur /equipe/simon-beros, qui n'est pas nommée comme la requête."
+    },
+    {
+      "id": "w48-revision-ai-act-pme-calendrier",
+      "type": "révision",
+      "titreProvisoire": "AI Act : vérifier les dates du calendrier pour les PME",
+      "requeteCible": "ai act pme",
+      "intention": "Savoir quelles obligations de l'AI Act s'appliquent à une PME, et quand.",
+      "urlCible": "/ressources/guides/ai-act-pme-calendrier",
+      "angle": "Hypothèse à vérifier en ligne : chaque date relue dans le texte ou chez la Commission, avec la mention « vérifié le » ; ce qui a bougé depuis la publication, et quoi faire lundi. Requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "https://digital-strategy.ec.europa.eu/en/rss.xml (flux de feeds.json : calendrier et textes d'application)",
+        "https://www.cnil.fr/fr/rss.xml et https://www.edpb.europa.eu/feed/news_en (flux de feeds.json)",
+        "src/content/outils/charte-ia-entreprise.json et la page /conformite-ia (cohérence des dates)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page publiée début octobre 2026, absente de la collecte du 4 octobre 2026. Attendu : page indexée, dates toutes sourcées. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/feeds.json : le flux de la Commission européenne est suivi pour le calendrier de l'AI Act (reports, lignes directrices), ce qui date la page."
+    },
+    {
+      "id": "w48-revision-n8n-vs-zapier",
+      "type": "révision",
+      "titreProvisoire": "n8n ou Zapier : mettre l'article à jour",
+      "requeteCible": "n8n vs zapier",
+      "intention": "Choisir entre n8n et Zapier.",
+      "urlCible": "/blog/avis-n8n-vs-zapier-2026",
+      "angle": "Hypothèse à vérifier en ligne : prix et fonctions relus chez les deux éditeurs, tableau de critères, verdict par cas d'usage. Vérifier le recouvrement avec le comparatif n8n vs Make et le guide « n8n prix ».",
+      "sourcesALire": [
+        "https://zapier.com/blog/feeds/latest/ et https://blog.n8n.io/rss/ (flux de feeds.json)",
+        "Pages de prix officielles des deux éditeurs (URL à relever pendant la session)",
+        "Premiers résultats de « n8n vs zapier »"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Requête « n8n vs zapier » : aucune impression à la collecte du 4 octobre 2026. Attendu : premières impressions sur la requête. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/feeds.json : le flux Zapier est suivi pour « tenir à jour l'article n8n vs Zapier » ; keywords.json vise cette page (priorité 2)."
+    },
+    {
+      "id": "w49-chatbot-service-client",
+      "type": "guide",
+      "titreProvisoire": "Chatbot de service client : ce qu'il sait faire, ce qu'il coûte, quand ne pas en mettre",
+      "requeteCible": "chatbot service client",
+      "intention": "Évaluer l'intérêt d'un chatbot pour son service client avant de chercher un prestataire.",
+      "urlCible": "/ressources/guides/chatbot-service-client",
+      "angle": "Hypothèse à vérifier en ligne : une grille de décision et un exemple illustratif étiqueté, avec « ne le faites pas si », là où les résultats sont des pages d'éditeurs.",
+      "sourcesALire": [
+        "Premiers résultats de « chatbot service client » et de deux ou trois variantes",
+        "src/content/services/agents-ia/agent-support-client.json et src/content/cas-usages/support-sav.json (à lier, ne pas dupliquer)",
+        "Pages de limova.ai et subti.ai (competitors.json)",
+        "src/data/pricing.ts (aucun prix hors de cette source)"
+      ],
+      "semainePrevue": "2026-W49",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « chatbot service client ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « chatbot service client » (information) et « agence chatbot » (recherche de prestataire) visent la même page service."
+    },
+    {
+      "id": "w49-revision-n8n-vs-make",
+      "type": "révision",
+      "titreProvisoire": "n8n ou Make : réviser le comparatif",
+      "requeteCible": "n8n vs make",
+      "intention": "Choisir entre n8n et Make.",
+      "urlCible": "/ressources/comparatifs/n8n-vs-make",
+      "angle": "Hypothèse à vérifier en ligne : prix et fonctions relus chez les deux éditeurs, verdict par cas d'usage, lien vers le guide « n8n prix ».",
+      "sourcesALire": [
+        "https://community.n8n.io/c/announcements/5.rss et https://community.make.com/c/news/48.rss (flux de feeds.json)",
+        "Premiers résultats de « n8n vs make »",
+        "Pages « agence + outil » de sparkyflow.com (competitors.json)"
+      ],
+      "semainePrevue": "2026-W49",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page inconnue de Google à la collecte du 4 octobre 2026 (« Google ne reconnaît pas cette URL »), aucune impression sur « n8n vs make ». Attendu : page indexée et premières impressions. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : mot-clé de priorité 1 ; docs/seo/data/latest.json, indexation.notIndexed."
+    },
+    {
+      "id": "w49-revision-automatisations",
+      "type": "révision",
+      "titreProvisoire": "Automatisation des processus : mailler une page que Google n'a pas explorée",
+      "requeteCible": "automatisation des processus",
+      "intention": "Trouver comment automatiser les processus d'une PME, et avec qui.",
+      "urlCible": "/services/automatisations",
+      "angle": "Hypothèse à vérifier en ligne : renforcer les liens internes (src/lib/internal-mesh.ts), vérifier la frontière avec /services/systemes-operationnels-ia, réponse directe en tête.",
+      "sourcesALire": [
+        "docs/seo/data/latest.json, indexation.notIndexed (état de la page dans la collecte de la semaine)",
+        "Premiers résultats de « automatisation des processus » et « automatisation ia »",
+        "src/lib/internal-mesh.ts"
+      ],
+      "semainePrevue": "2026-W49",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "« Détectée, actuellement non indexée » à la collecte du 4 octobre 2026. Attendu : page explorée puis indexée. À juger deux collectes après la mise en production. Si la page est indexée avant W49, replanifier en révision de contenu ou abandonner.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), indexation.notIndexed ; trois requêtes suivies visent cette page (keywords.json)."
+    },
+    {
+      "id": "idee-agence-ia-toulouse",
+      "type": "page locale",
+      "titreProvisoire": "Agence IA à Toulouse",
+      "requeteCible": "agence ia toulouse",
+      "intention": "Trouver un prestataire IA à Toulouse.",
+      "urlCible": "/implantations/toulouse",
+      "angle": "À décider par Simon avant toute rédaction : une page locale n'a de sens que si Waimia intervient réellement à Toulouse ; aucune adresse ni présence à inventer.",
+      "sourcesALire": [
+        "src/content/implantations/ (pages villes existantes)",
+        "Pages villes de kayro.ai (competitors.json)"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "À définir si l'idée est retenue.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : requête suivie sans page cible (target null, priorité 3). Écartée en W41 (journal, « Non retenu cette semaine »)."
+    },
+    {
+      "id": "idee-formation-claude-code",
+      "type": "page service",
+      "titreProvisoire": "Formation Claude Code",
+      "requeteCible": "formation claude code",
+      "intention": "Trouver une formation à Claude Code pour une équipe.",
+      "urlCible": "/formations/claude-code",
+      "angle": "À décider par Simon : une page dédiée suppose que cette formation existe dans l'offre, avec son programme et son prix (src/data/pricing.ts). Sinon, la requête reste portée par /formations/claude.",
+      "sourcesALire": [
+        "src/content/formations/claude.json",
+        "src/data/pricing.ts"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "À définir si l'idée est retenue.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « formation claude », « formation claude code » et « formation agent ia » visent toutes /formations/claude."
+    },
+    {
+      "id": "idee-logiciel-seo-ia-pme",
+      "type": "article",
+      "titreProvisoire": "Logiciel SEO IA pour PME : faut-il en acheter un ?",
+      "requeteCible": "logiciel seo ia pour pme",
+      "intention": "Chercher un outil de référencement assisté par IA.",
+      "urlCible": "/blog/logiciel-seo-ia-pme",
+      "angle": "À trancher par la session ou par Simon : la requête est-elle dans le positionnement (studio de développement IA et cabinet d'automatisation) ? Si non, abandonner avec la raison.",
+      "sourcesALire": [
+        "docs/seo/data/<semaine>/gsc-performance.json, byPageQuery",
+        "Premiers résultats de la requête"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Requête : 18 impressions, position 39,1, classée sur /ressources, à la collecte du 4 octobre 2026. À définir si l'idée est retenue.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), performance.topQueries : requête réelle la plus vue, sans page dédiée."
+    }
+  ]
+}
