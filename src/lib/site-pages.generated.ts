@@ -1849,6 +1849,78 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/cas-usages/finance-comptabilite",
+    "title": "IA en comptabilité : automatiser sans perdre le contrôle · Waimia",
+    "group": "cas-usages",
+    "collection": "cas-usages",
+    "file": "cas-usages/finance-comptabilite.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "IA et automatisation de la comptabilité",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les tâches comptables, classées par rentabilité probable et par risque",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se déroule un pilote en comptabilité",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "branded-callout",
+        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "background": "paper"
+      },
+      {
+        "type": "market-cases",
+        "label": "Études de cas du marché : comptabilité et finance",
+        "variant": "full",
+        "background": "paper-3"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour chiffrer avant de décider",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "IA et comptabilité : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Qui ressaisit encore, et combien de pièces par mois ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/cas-usages/generer-plus-de-leads",
     "title": "Automatiser le suivi commercial d'une PME · Waimia",
     "group": "cas-usages",
@@ -2004,6 +2076,83 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/cas-usages/rh",
+    "title": "IA en ressources humaines : ce qu’on automatise · Waimia",
+    "group": "cas-usages",
+    "collection": "cas-usages",
+    "file": "cas-usages/rh.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "IA et automatisation des ressources humaines",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les tâches RH, classées par rentabilité probable et par risque",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se déroule un pilote RH",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce que Waimia automatise en RH, et ce que nous ne faisons pas sans cadre renforcé",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "branded-callout",
+        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "background": "paper"
+      },
+      {
+        "type": "market-cases",
+        "label": "Études de cas du marché : ressources humaines",
+        "variant": "full",
+        "background": "paper-3"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour chiffrer avant de décider",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "IA et ressources humaines : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Que se passe-t-il entre la signature et le premier jour ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/cas-usages/standardiser-processus",
     "title": "Automatiser les tâches administratives d'une PME · Waimia",
     "group": "cas-usages",
@@ -2044,6 +2193,78 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Quelle procédure ne tient que sur une personne ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/cas-usages/support-sav",
+    "title": "Automatisation du service client : par où commencer · Waimia",
+    "group": "cas-usages",
+    "collection": "cas-usages",
+    "file": "cas-usages/support-sav.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Automatisation du service client et du SAV",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les tâches du support, classées par rentabilité probable et par risque",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se déroule un pilote de support",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "branded-callout",
+        "label": "Un projet en cours, pas encore de résultat publié",
+        "background": "paper"
+      },
+      {
+        "type": "market-cases",
+        "label": "Études de cas du marché : service client",
+        "variant": "full",
+        "background": "paper-3"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour chiffrer avant de décider",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Automatisation du service client : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quelles demandes reviennent chaque semaine ?",
         "background": "ink"
       }
     ]
@@ -3406,6 +3627,51 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/implantations/paris",
+    "title": "Agence IA à Paris : automatisation et formation · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/paris.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA à Paris, sans bureau à Paris",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se décide au devis pour une mission à Paris",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un premier échange en visio, depuis Paris.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/mentions-legales",
     "title": "Mentions legales",
     "group": "autres",
@@ -3521,10 +3787,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "routes": [
       "/cas-usages",
       "/cas-usages/centraliser-donnees",
+      "/cas-usages/finance-comptabilite",
       "/cas-usages/generer-plus-de-leads",
       "/cas-usages/reduire-reporting",
       "/cas-usages/reduire-temps-cms",
-      "/cas-usages/standardiser-processus"
+      "/cas-usages/rh",
+      "/cas-usages/standardiser-processus",
+      "/cas-usages/support-sav"
     ]
   },
   {
@@ -3613,6 +3882,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/implantations/bordeaux",
       "/implantations/lyon",
       "/implantations/montpellier",
+      "/implantations/paris",
       "/mentions-legales",
       "/plan-du-site",
       "/politique-confidentialite",

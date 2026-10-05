@@ -313,6 +313,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'pricing-tabs-showcase', consumers: [] },
   // Refonte positionnement 2026-10 : registre tarifaire de /tarifs (remplace pricing-tabs-showcase sur la page).
   { id: 'engagement-ledger',     consumers: ['src/pages/tarifs.astro'] },
+  // Études de cas du marché (2026-10) : cas tiers sourcés, contenu global src/data/market-cases.ts.
+  { id: 'market-cases',          consumers: ['src/pages/cas-usages/index.astro'] },
   { id: 'prose-aside',           consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'provenance-chip',       consumers: [] },
   { id: 'publications-panel',    consumers: ['src/components/templates/AuthorPageTemplate.astro'] },

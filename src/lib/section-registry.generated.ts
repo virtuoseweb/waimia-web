@@ -227,6 +227,7 @@ import { Component as curriculumTimelineComponent, meta as curriculumTimelineMet
 import { Component as publicationsPanelComponent, meta as publicationsPanelMeta } from '../sections/publications-panel';
 import { Component as closingCtaBandComponent, meta as closingCtaBandMeta } from '../sections/closing-cta-band';
 import { Component as offerRailComponent, meta as offerRailMeta } from '../sections/offer-rail';
+import { Component as marketCasesComponent, meta as marketCasesMeta } from '../sections/market-cases';
 
 export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'hero-form-inline': {
@@ -1116,5 +1117,9 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'offer-rail': {
     component: offerRailComponent,
     ...offerRailMeta,
+  },
+  'market-cases': {
+    component: marketCasesComponent,
+    ...marketCasesMeta,
   },
 };

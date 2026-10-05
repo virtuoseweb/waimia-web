@@ -43,6 +43,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 8,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -70,10 +79,28 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 9,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 3,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 8,
       "label": "Simon Beros",
       "background": "paper"
     }
@@ -99,6 +126,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     }
   ],
   "branded-callout": [
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 6,
+      "label": "Pas encore de réalisation Waimia sur cette fonction",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 7,
+      "label": "Pas encore de réalisation Waimia sur cette fonction",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 6,
+      "label": "Un projet en cours, pas encore de résultat publié",
+      "background": "paper"
+    },
     {
       "collection": "diagnostics",
       "file": "diagnostics/claude-pme.json",
@@ -1720,6 +1774,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "direct-answer": [
     {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
       "collection": "audits",
       "file": "audits/conformite-ia.json",
       "slug": "conformite-ia",
@@ -1769,6 +1850,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -2019,6 +2109,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -2028,11 +2127,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 1,
       "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 5,
+      "label": "#5",
       "background": "paper-2"
     },
     {
@@ -2079,6 +2205,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 2,
       "label": "#2",
       "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
     },
     {
       "collection": "comparatifs",
@@ -2343,6 +2478,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     }
   ],
   "editorial-table-block": [
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 2,
+      "label": "Les tâches comptables, classées par rentabilité probable et par risque",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 3,
+      "label": "Les tâches RH, classées par rentabilité probable et par risque",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 2,
+      "label": "Les tâches du support, classées par rentabilité probable et par risque",
+      "variant": "editorial",
+      "background": "paper"
+    },
     {
       "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
@@ -2837,6 +3002,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 10,
+      "label": "IA et comptabilité : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -2864,11 +3038,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 11,
+      "label": "IA et ressources humaines : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 5,
       "label": "Automatiser l'administratif : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 10,
+      "label": "Automatisation du service client : vos questions",
       "background": "paper"
     },
     {
@@ -2924,6 +3116,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Questions fréquentes",
       "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper-2"
     },
     {
       "collection": "lp",
@@ -3790,6 +3991,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 11,
+      "label": "Qui ressaisit encore, et combien de pièces par mois ?",
+      "background": "ink"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -3817,11 +4027,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 12,
+      "label": "Que se passe-t-il entre la signature et le premier jour ?",
+      "background": "ink"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 6,
       "label": "Quelle procédure ne tient que sur une personne ?",
+      "background": "ink"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 11,
+      "label": "Quelles demandes reviennent chaque semaine ?",
       "background": "ink"
     },
     {
@@ -3876,6 +4104,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/montpellier",
       "index": 6,
       "label": "Deux processus à automatiser, identifiés en 45 minutes.",
+      "background": "ink"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 6,
+      "label": "Un premier échange en visio, depuis Paris.",
       "background": "ink"
     },
     {
@@ -4745,6 +4982,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 0,
+      "label": "IA et automatisation de la comptabilité",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -4772,11 +5018,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 0,
+      "label": "IA et automatisation des ressources humaines",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 0,
       "label": "Automatiser les tâches administratives",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 0,
+      "label": "Automatisation du service client et du SAV",
       "background": "paper"
     },
     {
@@ -4831,6 +5095,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/montpellier",
       "index": 0,
       "label": "Agence IA et automatisation à Montpellier",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 0,
+      "label": "Agence IA à Paris, sans bureau à Paris",
       "background": "paper"
     },
     {
@@ -5107,6 +5380,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Un plan, pas une promesse",
       "variant": "accent",
       "background": "paper"
+    }
+  ],
+  "market-cases": [
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 7,
+      "label": "Études de cas du marché : comptabilité et finance",
+      "variant": "full",
+      "background": "paper-3"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 8,
+      "label": "Études de cas du marché : ressources humaines",
+      "variant": "full",
+      "background": "paper-3"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 7,
+      "label": "Études de cas du marché : service client",
+      "variant": "full",
+      "background": "paper-3"
     }
   ],
   "method-stepline": [
@@ -5744,6 +6049,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 3,
+      "label": "Comment se déroule un pilote en comptabilité",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 4,
+      "label": "Comment se déroule un pilote RH",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 3,
+      "label": "Comment se déroule un pilote de support",
+      "background": "paper-2"
+    },
+    {
       "collection": "demonstrations",
       "file": "demonstrations/avant-apres.json",
       "slug": "avant-apres",
@@ -6212,6 +6544,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 9,
+      "label": "Pour chiffrer avant de décider",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/generer-plus-de-leads.json",
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
@@ -6239,11 +6580,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 10,
+      "label": "Pour chiffrer avant de décider",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
       "file": "cas-usages/standardiser-processus.json",
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 4,
       "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 9,
+      "label": "Pour chiffrer avant de décider",
       "background": "paper-2"
     },
     {
@@ -6299,6 +6658,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 4,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -6628,12 +6996,48 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "tech-when-dual": [
     {
+      "collection": "cas-usages",
+      "file": "cas-usages/finance-comptabilite.json",
+      "slug": "finance-comptabilite",
+      "route": "/cas-usages/finance-comptabilite",
+      "index": 4,
+      "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/rh.json",
+      "slug": "rh",
+      "route": "/cas-usages/rh",
+      "index": 5,
+      "label": "Ce que Waimia automatise en RH, et ce que nous ne faisons pas sans cadre renforcé",
+      "background": "paper"
+    },
+    {
+      "collection": "cas-usages",
+      "file": "cas-usages/support-sav.json",
+      "slug": "support-sav",
+      "route": "/cas-usages/support-sav",
+      "index": 4,
+      "label": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+      "background": "paper"
+    },
+    {
       "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
       "index": 2,
       "label": "Ce qui se fait à distance, ce qui se fait à Lyon",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/paris.json",
+      "slug": "paris",
+      "route": "/implantations/paris",
+      "index": 2,
+      "label": "Ce qui se décide au devis pour une mission à Paris",
       "background": "paper"
     },
     {
@@ -6826,6 +7230,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   ],
   "keyword-strip": [
     "src/components/templates/AuthorPageTemplate.astro"
+  ],
+  "market-cases": [
+    "src/pages/cas-usages/index.astro"
   ],
   "maturity-pyramid": [
     "src/pages/en/index.astro"

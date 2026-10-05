@@ -85,11 +85,14 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/comparatifs/n8n-vs-make': { label_fr: 'n8n ou Make : le comparatif', label_en: 'n8n vs Make', kind: 'comparatif', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
   '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
+  '/cas-usages/finance-comptabilite': { label_fr: 'IA et automatisation de la comptabilité', label_en: 'AI and accounting automation', kind: 'cas-usage', topics: ['automatisation', 'donnees'] },
+  '/cas-usages/rh': { label_fr: 'IA et automatisation des ressources humaines', label_en: 'AI and HR automation', kind: 'cas-usage', topics: ['automatisation', 'conseil'] },
   '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation classique', label_en: 'AI agent or classic automation', kind: 'article', topics: ['agents', 'automatisation'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
   '/services/agent-support-client': { label_fr: 'Chatbot et agent de service client', label_en: 'Customer service agent', kind: 'service', topics: ['agents'] },
+  '/cas-usages/support-sav': { label_fr: 'Automatiser le service client et le SAV', label_en: 'Automating customer service', kind: 'cas-usage', topics: ['agents', 'automatisation'] },
   '/services/base-de-connaissance-ia': { label_fr: 'Base de connaissance IA', label_en: 'AI knowledge base', kind: 'service', topics: ['agents', 'claude'] },
   '/services/integration-claude': { label_fr: 'Claude en entreprise', label_en: 'Claude for business', kind: 'service', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-pme': { label_fr: 'Guide : déployer Claude dans une PME', label_en: 'Guide: deploying Claude in an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
@@ -155,6 +158,7 @@ const PAGES: Record<string, PageDef> = {
   '/implantations/bordeaux': { label_fr: 'Waimia à Bordeaux', label_en: 'Waimia in Bordeaux', kind: 'implantation', topics: ['studio'] },
   '/implantations/montpellier': { label_fr: 'Waimia à Montpellier', label_en: 'Waimia in Montpellier', kind: 'implantation', topics: ['studio'] },
   '/implantations/lyon': { label_fr: 'Waimia à Lyon', label_en: 'Waimia in Lyon', kind: 'implantation', topics: ['studio'] },
+  '/implantations/paris': { label_fr: 'Waimia à Paris', label_en: 'Waimia in Paris', kind: 'implantation', topics: ['studio'] },
 };
 
 /** Intitulé du groupe d'affichage par nature de page (ordre = ordre d'affichage). */
