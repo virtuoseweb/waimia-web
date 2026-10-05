@@ -12,12 +12,15 @@ import {
 } from '../../../../data/conversion';
 
 type Key = 'audit' | 'diagnostic' | 'grille' | 'roi' | 'charte';
+/** Guides de méthode liés aux outils : affichés seulement si la page les demande (`extra`). */
+type ExtraKey = 'guide-taches' | 'guide-roi';
 interface Props {
   exclude?: Key[];
+  extra?: ExtraKey[];
   title?: string;
   background?: 'paper' | 'paper-2';
 }
-const { exclude = [], title = 'Les autres outils, sans inscription', background = 'paper' } = Astro.props as Props;
+const { exclude = [], extra = [], title = 'Les autres outils, sans inscription', background = 'paper' } = Astro.props as Props;
 
 const all: { key: Key; href: string; name: string; what: string; time: string }[] = [
   { key: 'diagnostic', href: DIAGNOSTIC_HREF, name: 'Diagnostic de maturité IA', what: 'Dix questions, un niveau de 1 à 5 et le point faible à traiter en premier.', time: '4 min' },
@@ -26,7 +29,11 @@ const all: { key: Key; href: string; name: string; what: string; time: string }[
   { key: 'charte', href: CHARTE_HREF, name: 'Modèle de charte IA pour PME', what: 'Neuf articles à adapter, lisibles en ligne, téléchargeables en PDF et en format Word.', time: 'Lecture 8 min' },
   { key: 'audit', href: AUDIT_PAGE_HREF, name: 'Audit IA pour PME', what: 'Le déroulé des 45 minutes et un exemple de livrable.', time: '45 min, gratuit' },
 ];
-const items = all.filter((i) => !exclude.includes(i.key));
+const guides: { key: ExtraKey; href: string; name: string; what: string; time: string }[] = [
+  { key: 'guide-taches', href: '/ressources/guides/taches-a-automatiser-pme', name: "Guide : quelles tâches automatiser d'abord", what: 'La méthode derrière la grille : cinq critères, des exemples par fonction et les tâches à ne pas automatiser.', time: 'Guide' },
+  { key: 'guide-roi', href: '/ressources/guides/roi-automatisation', name: "Guide : mesurer le ROI d'une automatisation", what: 'Mesure de départ, coût complet et seuil de rentabilité, avec un tableau de calcul à refaire.', time: 'Guide' },
+];
+const items = [...guides.filter((g) => extra.includes(g.key)), ...all.filter((i) => !exclude.includes(i.key))];
 ---
 <section class="rl" data-bg={background} aria-labelledby="rl-h2">
   <div class="wrap-wide rl-in">
