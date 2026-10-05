@@ -273,7 +273,7 @@ const SILOS: Silo[] = [
     note: 'Formations IA et automatisation, dispensées via Akigora, organisme certifié Qualiopi.',
     test: under('/formations'),
   },
-  { title: 'Cas clients', note: 'Projets réels, client nommé.', test: under('/cas-clients') },
+  { title: 'Réalisations', note: 'Cas clients (client nommé) et projets internes du studio.', test: under('/cas-clients') },
   { title: "Cas d'usage", note: 'Un problème métier, la réponse apportée.', test: under('/cas-usages') },
   { title: 'Guides', test: under('/ressources/guides') },
   { title: 'Comparatifs', test: under('/ressources/comparatifs') },

@@ -10,6 +10,10 @@ export const schema = z.object({
   case_num: z.string(),
   eyebrow_fr: z.string().default('§ Cas client'),
   eyebrow_en: z.string().default('§ Case study'),
+  // Libellé du numéro éditorial (« Cas 01 » par défaut). Surchargé pour une réalisation qui
+  // n'est pas un cas client (« Projet 01 » pour un projet interne).
+  num_label_fr: z.string().optional(),
+  num_label_en: z.string().optional(),
   h1_fr: z.string(),
   h1_en: z.string(),
   // Habillage editorial (magazine) : illustration duotone occupant ~la moitie

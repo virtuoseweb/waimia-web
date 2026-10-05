@@ -134,6 +134,11 @@ const cases = defineCollection({
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
+    // Nature de la réalisation. `client` (défaut) : mission pour un client nommé. `interne` :
+    // projet du studio, sans client (Waimia OS, VirtuoseOS, prototypes). Le hub sépare les deux
+    // rubriques ; les grilles « cas clients » (secteurs, manifeste, ressources) ne listent que
+    // `client`. Le gabarit adapte ses libellés (« Projet interne », pas « Cas client »).
+    kind: z.enum(['client', 'interne']).default('client'),
     client: z.string(),
     sector_fr: z.string(),
     sector_en: z.string(),
@@ -261,6 +266,14 @@ const cases = defineCollection({
     approachHeading_en: z.string().optional(),
     deliverablesHeading_fr: z.string().optional(),
     deliverablesHeading_en: z.string().optional(),
+    // Kicker de la grille de livrables (« § Livré » par défaut). À surcharger quand le projet
+    // est en cours : on n'écrit pas « livré » pour ce qui se construit encore.
+    deliverablesKicker_fr: z.string().optional(),
+    deliverablesKicker_en: z.string().optional(),
+    // Kicker du constat final rendu à partir de `impact_*` quand il n'y a pas de citation
+    // (« § Le résultat » par défaut). À surcharger quand rien n'est mesuré (« § Où en est le projet »).
+    impactKicker_fr: z.string().optional(),
+    impactKicker_en: z.string().optional(),
     resultsHeading_fr: z.string().optional(),
     resultsHeading_en: z.string().optional(),
     stackLead_fr: z.string().optional(),
