@@ -1,0 +1,492 @@
+{
+  "$schema": "../../schemas/generated/cas-usages.page.schema.json",
+  "title_fr": "IA en ressources humaines : ce qu’on automatise · Waimia",
+  "title_en": "AI in human resources: what to automate · Waimia",
+  "description_fr": "IA et automatisation RH en PME : l'administratif et l'onboarding d'abord, le recrutement classé à haut risque par l'AI Act, et des cas du marché sourcés.",
+  "description_en": "AI and HR automation for SMBs: admin and onboarding first, recruitment classed high-risk by the AI Act, and sourced market cases.",
+  "slug": "rh",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "rh",
+    "ressources-humaines",
+    "onboarding",
+    "ai-act",
+    "automatisation"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Peut-on utiliser l'IA pour trier des CV ?",
+      "a": "Ce n'est pas interdit, mais c'est un usage que la Commission européenne classe à haut risque : elle cite en exemple les logiciels de tri de CV pour le recrutement. Les obligations propres à ces systèmes s'appliquent à partir du 2 décembre 2027 (page de la Commission mise à jour le 3 août 2026, consultée le 5 octobre 2026). Waimia ne met pas en place de tri automatisé de candidats sans un cadre renforcé, décrit sur cette page."
+    },
+    {
+      "q": "Que peut-on automatiser en RH sans risque particulier ?",
+      "a": "L'administratif qui ne décide rien sur une personne : préparer l'arrivée d'un salarié (comptes, matériel, documents à signer), rappeler les échéances (fin de période d'essai, visites médicales, formations obligatoires), collecter les éléments variables de paie, répondre aux questions sur les règles internes à partir des documents de l'entreprise. Ce sont des tâches fréquentes, aux règles stables."
+    },
+    {
+      "q": "Un assistant IA peut-il répondre aux questions des salariés ?",
+      "a": "Oui, sur les règles générales : congés, mutuelle, notes de frais, télétravail, à partir de vos documents à jour et en citant sa source. Il ne doit pas répondre sur une situation individuelle (un arrêt, un litige, une rémunération) : il transmet alors à la personne des RH. Et les salariés savent qu'ils interrogent un système automatisé."
+    },
+    {
+      "q": "Faut-il consulter le CSE avant de déployer un outil d'IA en RH ?",
+      "a": "L'introduction d'un outil qui modifie les conditions de travail ou permet un contrôle de l'activité des salariés relève en France du dialogue avec les représentants du personnel. Nous ne sommes pas juristes : la question se pose à votre conseil en droit social avant le pilote, pas après. Nous fournissons la description technique dont il a besoin pour trancher."
+    },
+    {
+      "q": "L'IA peut-elle évaluer la performance d'un salarié ?",
+      "a": "Nous ne le faisons pas. La gestion des travailleurs figure dans les usages à haut risque listés par la Commission européenne, et la reconnaissance des émotions sur le lieu de travail fait partie des pratiques interdites, en vigueur depuis février 2025 selon la même page. On peut en revanche automatiser la logistique des entretiens : convocations, trames, relances, compte rendu rédigé par le manager."
+    },
+    {
+      "q": "SIRH ou automatisation sur mesure ?",
+      "a": "Si vous gérez encore les congés et les dossiers dans des tableurs, un SIRH du marché est la première étape, et les cas publiés ci-dessus le montrent. L'automatisation sur mesure vient ensuite, pour relier le SIRH à la paie, à l'informatique et aux outils métier, ou pour un assistant qui répond à partir de vos documents."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Can AI be used to screen CVs?",
+      "a": "It is not banned, but the European Commission classes it as high-risk: it gives CV-sorting software for recruitment as an example. The obligations specific to these systems apply from 2 December 2027 (Commission page updated on 3 August 2026, read on 5 October 2026). Waimia does not set up automated candidate screening without a reinforced framework, described on this page."
+    },
+    {
+      "q": "What can be automated in HR without particular risk?",
+      "a": "Admin work that decides nothing about a person: preparing a new hire's arrival (accounts, equipment, documents to sign), reminding deadlines (end of probation, medical visits, mandatory training), collecting variable pay items, answering questions about internal rules from company documents. These are frequent tasks with stable rules."
+    },
+    {
+      "q": "Can an AI assistant answer employees’ questions?",
+      "a": "Yes, on general rules: leave, health cover, expenses, remote work, from your up-to-date documents and citing its source. It must not answer on an individual situation (sick leave, a dispute, pay): it then hands over to the HR person. And employees know they are querying an automated system."
+    },
+    {
+      "q": "Must the works council be consulted before deploying an HR AI tool?",
+      "a": "Introducing a tool that changes working conditions or enables monitoring of employee activity falls, in France, under dialogue with staff representatives. We are not lawyers: put the question to your employment law adviser before the pilot, not after. We provide the technical description they need to decide."
+    },
+    {
+      "q": "Can AI assess an employee’s performance?",
+      "a": "We do not do it. Management of workers is among the high-risk uses listed by the European Commission, and emotion recognition in the workplace is among the prohibited practices, effective since February 2025 according to the same page. What can be automated is the logistics of reviews: invitations, templates, reminders, with the write-up done by the manager."
+    },
+    {
+      "q": "HRIS or custom automation?",
+      "a": "If you still manage leave and files in spreadsheets, a market HRIS is the first step, and the published cases above show it. Custom automation comes next, to link the HRIS to payroll, IT and business tools, or for an assistant that answers from your documents."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Cas d'usage · ressources humaines",
+      "kicker_en": "§ Use case · human resources",
+      "h1_fr": "IA et automatisation des ressources humaines",
+      "h1_en": "AI and human resources automation",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Automatiser les ressources humaines, c'est retirer aux équipes l'administratif répétitif : préparer une arrivée, rappeler une échéance, collecter les éléments de paie, répondre dix fois à la même question sur les congés. Ce n'est pas faire trier des candidats ou noter des salariés par une machine, deux usages que l'AI Act classe à haut risque. Cette page s'adresse aux PME et ETI dont la fonction RH tient sur une à quelques personnes.",
+      "lede_en": "Automating human resources means taking repetitive admin off teams: preparing an arrival, reminding a deadline, collecting payroll items, answering the same leave question ten times. It does not mean having a machine screen candidates or grade employees, two uses the AI Act classes as high-risk. This page is for SMBs and mid-caps whose HR function rests on one to a few people.",
+      "badges": [
+        {
+          "label_fr": "Administratif RH",
+          "label_en": "HR admin"
+        },
+        {
+          "label_fr": "Onboarding",
+          "label_en": "Onboarding"
+        },
+        {
+          "label_fr": "Pas de tri de candidats",
+          "label_en": "No candidate screening"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-passation-formation.svg",
+      "media_alt_fr": "Schéma : le parcours d'arrivée d'un salarié, étapes administratives enchaînées",
+      "media_alt_en": "Diagram: a new hire's arrival path, administrative steps chained"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Que peut-on automatiser en ressources humaines, et par où commencer ?",
+      "question_en": "What can be automated in human resources, and where to start?",
+      "term_fr": "La réponse courte",
+      "term_en": "The short answer",
+      "answer_fr": "On automatise l'administratif qui ne décide rien sur une personne : l'accueil d'un salarié, les rappels d'échéances, la collecte des éléments variables de paie, les réponses aux questions sur les règles internes. On commence par l'arrivée d'un salarié, parce que le processus est le même à chaque fois et qu'un oubli se voit dès le premier jour. On n'automatise pas le tri des candidats ni l'évaluation des salariés sans un cadre renforcé : le recrutement et la gestion du personnel figurent parmi les usages que la Commission européenne classe à haut risque au titre de l'AI Act.",
+      "answer_en": "You automate admin work that decides nothing about a person: onboarding, deadline reminders, collecting variable pay items, answering questions about internal rules. Start with a new hire's arrival, because the process is the same every time and an omission shows on day one. Candidate screening and employee assessment are not automated without a reinforced framework: recruitment and workforce management are among the uses the European Commission classes as high-risk under the AI Act."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>AI Act : le recrutement et la gestion du personnel sont classés à haut risque</h2>\n<p>C'est le point à connaître avant tout projet d'IA en ressources humaines. Dans sa présentation de l'AI Act, la <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">Commission européenne</a> range parmi les usages à haut risque les outils d'IA pour l'emploi, la gestion des travailleurs et l'accès au travail indépendant, et donne pour exemple les logiciels de tri de CV pour le recrutement. Formulation d'origine : « AI tools for employment, management of workers and access to self-employment (e.g. CV-sorting software for recruitment) ».</p>\n<p><strong>Calendrier en vigueur.</strong> Selon la même page, les règles applicables aux systèmes à haut risque de ces domaines, dont l'emploi, s'appliquent à partir du 2 décembre 2027. Cette date résulte du règlement de simplification dit « AI Omnibus », entré en vigueur le 27 juillet 2026. Les obligations prévues : évaluation et réduction des risques, qualité des données pour limiter les résultats discriminatoires, journalisation, documentation, information de l'utilisateur, supervision humaine, robustesse.</p>\n<p><strong>Déjà applicable.</strong> La reconnaissance des émotions sur le lieu de travail figure parmi les pratiques interdites, en vigueur depuis février 2025. Les obligations de formation des personnes qui utilisent l'IA s'appliquent depuis le 2 février 2025.</p>\n<p>Source : Commission européenne, page « AI Act », mise à jour le 3 août 2026, consultée le 5 octobre 2026. Ce résumé n'est pas un avis juridique : la qualification d'un système se fait au cas par cas, avec votre conseil. Notre démarche d'ensemble est sur la page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>AI Act: recruitment and workforce management are classed as high-risk</h2>\n<p>This is the point to know before any HR AI project. In its AI Act overview, the <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">European Commission</a> lists among high-risk uses 'AI tools for employment, management of workers and access to self-employment (e.g. CV-sorting software for recruitment)'.</p>\n<p><strong>Current timeline.</strong> According to the same page, the rules for high-risk systems in these areas, including employment, apply from 2 December 2027. This date results from the simplification regulation known as the 'AI Omnibus', which entered into force on 27 July 2026. The obligations: risk assessment and mitigation, dataset quality to minimise discriminatory outcomes, logging, documentation, information to the deployer, human oversight, robustness.</p>\n<p><strong>Already applicable.</strong> Emotion recognition in workplaces is among the prohibited practices, effective since February 2025. AI literacy obligations have applied since 2 February 2025.</p>\n<p>Source: European Commission, 'AI Act' page, last updated 3 August 2026, read on 5 October 2026. This summary is not legal advice: a system is qualified case by case, with your adviser. Our overall approach is on the <a href=\"/conformite-ia\">AI compliance</a> page.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "variant": "editorial",
+      "kicker_fr": "§ Tâches candidates",
+      "kicker_en": "§ Candidate tasks",
+      "heading_fr": "Les tâches RH, classées par rentabilité probable et par risque",
+      "heading_en": "HR tasks, ranked by likely return and by risk",
+      "caption_fr": "Classement indicatif. Le risque intègre ici le risque pour la personne concernée et le risque réglementaire, pas seulement le coût d'une erreur.",
+      "caption_en": "Indicative ranking. Risk here includes the risk to the person concerned and regulatory risk, not just the cost of an error.",
+      "columns_fr": [
+        "Tâche",
+        "Rentabilité probable",
+        "Risque",
+        "Ce que nous conseillons"
+      ],
+      "columns_en": [
+        "Task",
+        "Likely return",
+        "Risk",
+        "What we advise"
+      ],
+      "rows_fr": [
+        [
+          "Préparer l’arrivée d’un salarié (comptes, matériel, documents)",
+          "Forte dès quelques recrutements par an",
+          "Faible",
+          "Premier chantier : un formulaire déclenche toutes les tâches."
+        ],
+        [
+          "Rappeler les échéances (période d’essai, visites, formations)",
+          "Moyenne, mais un oubli coûte cher",
+          "Faible",
+          "Simple à mettre en place, à faire tôt."
+        ],
+        [
+          "Collecter les éléments variables de paie",
+          "Forte chaque mois",
+          "Moyen : une erreur touche le salaire",
+          "Collecte et contrôle automatisés ; la paie reste validée par une personne."
+        ],
+        [
+          "Répondre aux questions sur les règles internes",
+          "Moyenne à forte selon l’effectif",
+          "Moyen : les documents doivent être à jour",
+          "Assistant qui cite sa source et transmet les cas individuels."
+        ],
+        [
+          "Organiser les entretiens (convocations, trames, relances)",
+          "Moyenne",
+          "Faible tant que le contenu reste humain",
+          "On automatise la logistique, pas l’appréciation."
+        ],
+        [
+          "Trier ou classer des candidatures",
+          "Variable",
+          "Élevé : usage à haut risque selon l’AI Act",
+          "Pas sans cadre renforcé. Voir ci-dessous."
+        ],
+        [
+          "Évaluer ou noter un salarié",
+          "Faible",
+          "Élevé : usage à haut risque selon l’AI Act",
+          "Nous ne le faisons pas."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Prepare a new hire’s arrival (accounts, equipment, documents)",
+          "High from a few hires a year",
+          "Low",
+          "First project: one form triggers all the tasks."
+        ],
+        [
+          "Remind deadlines (probation, medical visits, training)",
+          "Medium, but an omission is costly",
+          "Low",
+          "Simple to set up, do it early."
+        ],
+        [
+          "Collect variable pay items",
+          "High every month",
+          "Medium: an error affects pay",
+          "Automated collection and checks; payroll stays approved by a person."
+        ],
+        [
+          "Answer questions about internal rules",
+          "Medium to high depending on headcount",
+          "Medium: documents must be current",
+          "Assistant that cites its source and hands over individual cases."
+        ],
+        [
+          "Organise reviews (invitations, templates, reminders)",
+          "Medium",
+          "Low as long as the content stays human",
+          "Automate the logistics, not the assessment."
+        ],
+        [
+          "Screen or rank applications",
+          "Variable",
+          "High: high-risk use under the AI Act",
+          "Not without a reinforced framework. See below."
+        ],
+        [
+          "Assess or grade an employee",
+          "Low",
+          "High: high-risk use under the AI Act",
+          "We do not do it."
+        ]
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le pilote",
+      "kicker_en": "§ The pilot",
+      "h2_fr": "Comment se déroule un pilote RH",
+      "h2_en": "How an HR pilot runs",
+      "intro_fr": "Le pilote type porte sur l'arrivée d'un salarié : un processus court, répété, que tout le monde connaît mal.",
+      "intro_en": "The typical pilot covers a new hire's arrival: a short, repeated process that everyone knows poorly.",
+      "steps": [
+        {
+          "title_fr": "Écrire le processus",
+          "title_en": "Write the process",
+          "body_fr": "On liste tout ce qui doit être fait entre la signature et la fin de la période d'essai, et qui le fait : RH, manager, informatique, paie.",
+          "body_en": "Everything to be done between signature and end of probation is listed, and who does it: HR, manager, IT, payroll.",
+          "meta_fr": "Une demi-journée, à plusieurs",
+          "meta_en": "Half a day, together"
+        },
+        {
+          "title_fr": "Classer les données",
+          "title_en": "Classify the data",
+          "body_fr": "Pour chaque étape : quelles données personnelles, qui y accède, combien de temps on les garde. Les données sensibles (santé, situation familiale) restent hors des automatisations.",
+          "body_en": "For each step: which personal data, who accesses them, how long they are kept. Sensitive data (health, family situation) stay out of the automations.",
+          "meta_fr": "Avec votre référent RGPD",
+          "meta_en": "With your GDPR contact"
+        },
+        {
+          "title_fr": "Informer",
+          "title_en": "Inform",
+          "body_fr": "Les représentants du personnel et les salariés sont informés de ce qui est automatisé et de ce qui ne l'est pas. Votre conseil en droit social dit si une consultation est requise.",
+          "body_en": "Staff representatives and employees are told what is automated and what is not. Your employment law adviser says whether a consultation is required.",
+          "meta_fr": "Avant la mise en service",
+          "meta_en": "Before go-live"
+        },
+        {
+          "title_fr": "Construire et tester",
+          "title_en": "Build and test",
+          "body_fr": "Un formulaire d'arrivée déclenche les tâches, les demandes de comptes, les documents à signer et les rappels. On teste sur une arrivée réelle, en gardant l'ancienne liste de contrôle à côté.",
+          "body_en": "An arrival form triggers the tasks, account requests, documents to sign and reminders. It is tested on a real arrival, with the old checklist kept alongside.",
+          "meta_fr": "Sur un cas réel",
+          "meta_en": "On a real case"
+        },
+        {
+          "title_fr": "Mesurer et décider",
+          "title_en": "Measure and decide",
+          "body_fr": "Temps passé par arrivée, oublis constatés, retours du nouveau salarié et du manager. On étend aux départs et aux changements de poste, ou on corrige.",
+          "body_en": "Time spent per arrival, omissions found, feedback from the new hire and manager. Extend to departures and role changes, or fix.",
+          "meta_fr": "Après quelques arrivées",
+          "meta_en": "After a few arrivals"
+        }
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Périmètre",
+      "kicker_en": "§ Scope",
+      "title_fr": "Ce que Waimia automatise en RH, et ce que nous ne faisons pas sans cadre renforcé",
+      "title_en": "What Waimia automates in HR, and what we do not do without a reinforced framework",
+      "aside_fr": "Le cadre renforcé : analyse du système au regard de l'AI Act avec votre conseil, analyse d'impact sur la protection des données, information des représentants du personnel, décision finale prise par une personne, journalisation et revue régulière des résultats.",
+      "aside_en": "The reinforced framework: analysis of the system against the AI Act with your adviser, data protection impact assessment, information of staff representatives, final decision made by a person, logging and regular review of results.",
+      "use_title_fr": "Ce que nous automatisons",
+      "use_title_en": "What we automate",
+      "use_items_fr": [
+        "L'administratif RH : dossiers, documents, attestations, rappels d'échéances",
+        "L'onboarding et le départ : comptes, matériel, documents à signer",
+        "Les réponses aux questions internes sur les règles générales",
+        "La collecte et le contrôle des éléments variables de paie",
+        "La logistique des entretiens et des formations"
+      ],
+      "use_items_en": [
+        "HR admin: files, documents, certificates, deadline reminders",
+        "Onboarding and offboarding: accounts, equipment, documents to sign",
+        "Answers to internal questions on general rules",
+        "Collecting and checking variable pay items",
+        "Logistics of reviews and training"
+      ],
+      "avoid_title_fr": "Ce que nous ne faisons pas sans cadre renforcé",
+      "avoid_title_en": "What we do not do without a reinforced framework",
+      "avoid_items_fr": [
+        "Le tri, le classement ou la présélection automatisés de candidats",
+        "L'évaluation ou la notation de salariés",
+        "La surveillance de l’activité individuelle",
+        "Toute décision sur une promotion, une sanction ou une fin de contrat",
+        "La reconnaissance des émotions au travail : pratique interdite, nous ne la faisons dans aucun cadre"
+      ],
+      "avoid_items_en": [
+        "Automated screening, ranking or shortlisting of candidates",
+        "Assessing or grading employees",
+        "Monitoring individual activity",
+        "Any decision on a promotion, a sanction or the end of a contract",
+        "Emotion recognition at work: a prohibited practice, we do not do it under any framework"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Les garde-fous que nous posons</h2>\n<h3>Validation humaine</h3>\n<p>Aucune décision concernant une personne n'est prise par un automate. Les automatisations préparent, rappellent et transmettent. La paie, un contrat ou un courrier individuel sont relus et validés par une personne des RH avant de partir.</p>\n<h3>Données personnelles et RGPD</h3>\n<p>Un dossier de salarié contient des données sensibles. On limite ce qui circule dans les automatisations au strict nécessaire, on garde les données de santé et la situation familiale en dehors, on fixe les durées de conservation et on inscrit les traitements au registre. Quand un modèle d'IA est utilisé, on vérifie les conditions de l'éditeur avant d'y envoyer la moindre donnée de salarié.</p>\n<h3>Transparence envers les salariés</h3>\n<p>Les salariés savent ce qui est automatisé, sur quelles données, et qui contacter pour une question individuelle. Un assistant interne s'annonce comme tel et renvoie vers une personne dès que la question porte sur une situation particulière.</p>\n<h3>Accès</h3>\n<p>Les automatisations tournent avec des comptes de service aux droits limités. Un manager ne voit pas, par le biais d'un outil automatisé, ce qu'il ne verrait pas dans le SIRH.</p>",
+      "html_en": "<h2>The safeguards we set</h2>\n<h3>Human approval</h3>\n<p>No decision about a person is made by a bot. Automations prepare, remind and hand over. Payroll, a contract or an individual letter are reviewed and approved by an HR person before going out.</p>\n<h3>Personal data and GDPR</h3>\n<p>An employee file holds sensitive data. What flows through automations is limited to the strict minimum, health data and family situation stay outside, retention periods are set and processing is entered in the register. When an AI model is used, the vendor's terms are checked before any employee data is sent.</p>\n<h3>Transparency towards employees</h3>\n<p>Employees know what is automated, on which data, and whom to contact for an individual question. An internal assistant announces itself as such and refers to a person as soon as the question concerns a particular situation.</p>\n<h3>Access</h3>\n<p>Automations run with service accounts with limited rights. A manager does not see, through an automated tool, what they would not see in the HRIS.</p>"
+    },
+    {
+      "type": "branded-callout",
+      "background": "paper",
+      "bodyHtml": true,
+      "kicker_fr": "§ Réalisations Waimia",
+      "kicker_en": "§ Waimia work",
+      "h2_fr": "Pas encore de réalisation Waimia sur cette fonction",
+      "h2_en": "No Waimia project on this function yet",
+      "body1_fr": "Nous n'avons pas livré de projet RH à ce jour, et nous préférons l'écrire. Les briques nécessaires sont celles que nous utilisons ailleurs : un formulaire qui déclenche des tâches, des documents générés depuis un modèle, des rappels, une base de connaissance interrogeable.",
+      "body1_en": "We have not delivered an HR project to date, and we prefer to say so. The building blocks needed are those we use elsewhere: a form that triggers tasks, documents generated from a template, reminders, a searchable knowledge base.",
+      "body2_fr": "Ce que nous ferions, dans cet ordre : <strong>1.</strong> écrire le processus d'arrivée avec vous ; <strong>2.</strong> vérifier si votre SIRH le couvre déjà, et vous le dire ; <strong>3.</strong> automatiser l'arrivée et les rappels d'échéances avec <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> ; <strong>4.</strong> une <a href=\"/services/base-de-connaissance-ia\">base de connaissance</a> pour les questions sur les règles internes ; <strong>5.</strong> la collecte des éléments de paie. Le recrutement n'est pas dans cette liste. Les exemples chiffrés ci-dessous ne sont pas les nôtres.",
+      "body2_en": "What we would do, in this order: <strong>1.</strong> write the arrival process with you; <strong>2.</strong> check whether your HRIS already covers it, and tell you; <strong>3.</strong> automate arrivals and deadline reminders with <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a>; <strong>4.</strong> a <a href=\"/services/base-de-connaissance-ia\">knowledge base</a> for questions on internal rules; <strong>5.</strong> collecting payroll items. Recruitment is not on this list. The figures below are not ours."
+    },
+    {
+      "type": "market-cases",
+      "anchor": "etudes-de-cas-du-marche",
+      "background": "paper-3",
+      "variant": "full",
+      "kicker_fr": "§ Études de cas du marché",
+      "kicker_en": "§ Market case studies",
+      "h2_fr": "Études de cas du marché : ressources humaines",
+      "h2_en": "Market case studies: human resources",
+      "intro_fr": "Quatre cas, dont trois entreprises françaises de 650 à 780 collaborateurs. Tous portent sur l'administratif, l'accueil des salariés ou les réponses aux questions internes ; aucun sur le tri de candidats. Les gains publiés sont modestes et honnêtes à ce titre : quelques jours par an ou par mois.",
+      "intro_en": "Four cases, including three French companies with 650 to 780 staff. All concern admin, onboarding or answering internal questions; none concerns candidate screening. The published gains are modest and honest for it: a few days a year or a month.",
+      "groups": [
+        {
+          "function": "rh"
+        }
+      ]
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour chiffrer avant de décider",
+      "kicker_en": "§ To size it before deciding",
+      "cards": [
+        {
+          "kicker_fr": "Outil gratuit",
+          "kicker_en": "Free tool",
+          "title_fr": "Grille des tâches à automatiser",
+          "title_en": "Task automation grid",
+          "lead_fr": "Notez chaque tâche sur la fréquence, la stabilité des règles et le coût de l’erreur.",
+          "lead_en": "Score each task on frequency, rule stability and cost of error.",
+          "href": "/ressources/outils/grille-taches-a-automatiser"
+        },
+        {
+          "kicker_fr": "Outil gratuit",
+          "kicker_en": "Free tool",
+          "title_fr": "Calculateur de ROI IA",
+          "title_en": "AI ROI calculator",
+          "lead_fr": "Entrez vos volumes et vos temps : le calcul est affiché, hypothèses comprises.",
+          "lead_en": "Enter your volumes and times: the calculation is shown, assumptions included.",
+          "href": "/ressources/outils/calculateur-roi-ia"
+        },
+        {
+          "kicker_fr": "Conformité",
+          "kicker_en": "Compliance",
+          "title_fr": "Conformité IA : RGPD et AI Act",
+          "title_en": "AI compliance: GDPR and AI Act",
+          "lead_fr": "Ce qui vous concerne en pratique, usage par usage.",
+          "lead_en": "What concerns you in practice, use by use.",
+          "href": "/conformite-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "IA et ressources humaines : vos questions",
+      "h2_en": "AI and human resources: your questions",
+      "items": [
+        {
+          "q_fr": "Peut-on utiliser l'IA pour trier des CV ?",
+          "a_fr": "Ce n'est pas interdit, mais c'est un usage que la Commission européenne classe à haut risque : elle cite en exemple les logiciels de tri de CV pour le recrutement. Les obligations propres à ces systèmes s'appliquent à partir du 2 décembre 2027 (page de la Commission mise à jour le 3 août 2026, consultée le 5 octobre 2026). Waimia ne met pas en place de tri automatisé de candidats sans un cadre renforcé, décrit sur cette page.",
+          "q_en": "Can AI be used to screen CVs?",
+          "a_en": "It is not banned, but the European Commission classes it as high-risk: it gives CV-sorting software for recruitment as an example. The obligations specific to these systems apply from 2 December 2027 (Commission page updated on 3 August 2026, read on 5 October 2026). Waimia does not set up automated candidate screening without a reinforced framework, described on this page."
+        },
+        {
+          "q_fr": "Que peut-on automatiser en RH sans risque particulier ?",
+          "a_fr": "L'administratif qui ne décide rien sur une personne : préparer l'arrivée d'un salarié (comptes, matériel, documents à signer), rappeler les échéances (fin de période d'essai, visites médicales, formations obligatoires), collecter les éléments variables de paie, répondre aux questions sur les règles internes à partir des documents de l'entreprise. Ce sont des tâches fréquentes, aux règles stables.",
+          "q_en": "What can be automated in HR without particular risk?",
+          "a_en": "Admin work that decides nothing about a person: preparing a new hire's arrival (accounts, equipment, documents to sign), reminding deadlines (end of probation, medical visits, mandatory training), collecting variable pay items, answering questions about internal rules from company documents. These are frequent tasks with stable rules."
+        },
+        {
+          "q_fr": "Un assistant IA peut-il répondre aux questions des salariés ?",
+          "a_fr": "Oui, sur les règles générales : congés, mutuelle, notes de frais, télétravail, à partir de vos documents à jour et en citant sa source. Il ne doit pas répondre sur une situation individuelle (un arrêt, un litige, une rémunération) : il transmet alors à la personne des RH. Et les salariés savent qu'ils interrogent un système automatisé.",
+          "q_en": "Can an AI assistant answer employees’ questions?",
+          "a_en": "Yes, on general rules: leave, health cover, expenses, remote work, from your up-to-date documents and citing its source. It must not answer on an individual situation (sick leave, a dispute, pay): it then hands over to the HR person. And employees know they are querying an automated system."
+        },
+        {
+          "q_fr": "Faut-il consulter le CSE avant de déployer un outil d'IA en RH ?",
+          "a_fr": "L'introduction d'un outil qui modifie les conditions de travail ou permet un contrôle de l'activité des salariés relève en France du dialogue avec les représentants du personnel. Nous ne sommes pas juristes : la question se pose à votre conseil en droit social avant le pilote, pas après. Nous fournissons la description technique dont il a besoin pour trancher.",
+          "q_en": "Must the works council be consulted before deploying an HR AI tool?",
+          "a_en": "Introducing a tool that changes working conditions or enables monitoring of employee activity falls, in France, under dialogue with staff representatives. We are not lawyers: put the question to your employment law adviser before the pilot, not after. We provide the technical description they need to decide."
+        },
+        {
+          "q_fr": "L'IA peut-elle évaluer la performance d'un salarié ?",
+          "a_fr": "Nous ne le faisons pas. La gestion des travailleurs figure dans les usages à haut risque listés par la Commission européenne, et la reconnaissance des émotions sur le lieu de travail fait partie des pratiques interdites, en vigueur depuis février 2025 selon la même page. On peut en revanche automatiser la logistique des entretiens : convocations, trames, relances, compte rendu rédigé par le manager.",
+          "q_en": "Can AI assess an employee’s performance?",
+          "a_en": "We do not do it. Management of workers is among the high-risk uses listed by the European Commission, and emotion recognition in the workplace is among the prohibited practices, effective since February 2025 according to the same page. What can be automated is the logistics of reviews: invitations, templates, reminders, with the write-up done by the manager."
+        },
+        {
+          "q_fr": "SIRH ou automatisation sur mesure ?",
+          "a_fr": "Si vous gérez encore les congés et les dossiers dans des tableurs, un SIRH du marché est la première étape, et les cas publiés ci-dessus le montrent. L'automatisation sur mesure vient ensuite, pour relier le SIRH à la paie, à l'informatique et aux outils métier, ou pour un assistant qui répond à partir de vos documents.",
+          "q_en": "HRIS or custom automation?",
+          "a_en": "If you still manage leave and files in spreadsheets, a market HRIS is the first step, and the published cases above show it. Custom automation comes next, to link the HRIS to payroll, IT and business tools, or for an assistant that answers from your documents."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Que se passe-t-il entre la signature et le premier jour ?",
+      "h2_en": "What happens between signature and day one?",
+      "subtitle_fr": "En 45 minutes, on déroule l'arrivée d'un salarié chez vous et on repère ce qui peut être automatisé sans toucher à une décision sur une personne.",
+      "subtitle_en": "In 45 minutes, we walk through a new hire's arrival at your company and spot what can be automated without touching any decision about a person.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Conformité IA",
+          "label_en": "AI compliance",
+          "href": "/conformite-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

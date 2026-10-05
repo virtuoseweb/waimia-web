@@ -45,6 +45,12 @@ const ROUTES = [
   "/ressources/outils/charte-ia-entreprise",
   "/ressources/outils/grille-taches-a-automatiser",
   "/ressources/outils/calculateur-roi-ia",
+  // Cas d'usage par fonction + études de cas du marché + page ville Paris (2026-10-05).
+  "/cas-usages",
+  "/cas-usages/support-sav",
+  "/cas-usages/finance-comptabilite",
+  "/cas-usages/rh",
+  "/implantations/paris",
 ];
 
 for (const path of ROUTES) {

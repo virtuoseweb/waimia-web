@@ -139,6 +139,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'manifesto-act': 'duo',
   'manifesto-block': 'quote',
   'manifesto-statement': 'quote',
+  'market-cases': 'list',
   'marquee-band': 'marquee',
   'masthead-bar': 'breadcrumb',
   'maturity-pyramid': 'pyramid',

@@ -1,0 +1,472 @@
+{
+  "$schema": "../../schemas/generated/cas-usages.page.schema.json",
+  "title_fr": "IA en comptabilité : automatiser sans perdre le contrôle · Waimia",
+  "title_en": "AI in accounting: automating without losing control · Waimia",
+  "description_fr": "IA et automatisation de la comptabilité en PME et en cabinet : tâches à traiter d'abord, pilote, garde-fous, et études de cas du marché sourcées.",
+  "description_en": "AI and accounting automation for SMBs and firms: which tasks first, the pilot, the safeguards, and sourced market case studies.",
+  "slug": "finance-comptabilite",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "finance-comptabilite",
+    "comptabilite",
+    "expert-comptable",
+    "automatisation"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "L'IA peut-elle remplacer un comptable ou un expert-comptable ?",
+      "a": "Non. Elle prend la collecte des pièces, la lecture des factures, la pré-saisie et les relances. La validation des écritures, les traitements inhabituels, les déclarations et le conseil restent le travail d'une personne qui en porte la responsabilité. Les cas publiés par les éditeurs décrivent d'ailleurs du temps de saisie libéré pour le conseil, pas des postes supprimés."
+    },
+    {
+      "q": "Faut-il un agent IA ou un logiciel de précomptabilité ?",
+      "a": "Dans la plupart des cas, d'abord un logiciel spécialisé : la lecture des factures et le rapprochement bancaire sont des problèmes déjà résolus par des éditeurs. Un développement sur mesure se justifie pour ce que ces outils ne couvrent pas : relier la comptabilité à votre logiciel métier, automatiser les relances selon vos règles, produire une situation commentée. Nous vous le disons à l'audit, même quand la réponse est « prenez un outil existant »."
+    },
+    {
+      "q": "Que peut automatiser un cabinet d'expertise comptable ?",
+      "a": "La collecte des pièces auprès des clients et les relances de pièces manquantes, la pré-saisie, la préparation des dossiers de révision, la génération des lettres de mission, et les réponses aux questions récurrentes des clients à partir de leur dossier. Ce qui touche à l'avis du professionnel et à la signature ne s'automatise pas."
+    },
+    {
+      "q": "La facture électronique change-t-elle la donne ?",
+      "a": "Elle déplace le travail plus qu'elle ne le supprime : quand les factures arrivent dans un format structuré, la lecture automatique compte moins et le contrôle compte davantage (cohérence avec la commande, imputation, validation). Le calendrier et les obligations sont publiés par l'administration fiscale ; vérifiez-les à la source avant de choisir un outil, nous ne les résumons pas ici."
+    },
+    {
+      "q": "Les données comptables peuvent-elles être envoyées à un modèle d'IA ?",
+      "a": "Cela se décide donnée par donnée. Une facture fournisseur contient peu de données personnelles ; un bulletin de paie ou un relevé bancaire de dirigeant en contient beaucoup. On liste ce qui est envoyé, on vérifie les conditions de l'éditeur du modèle (conservation, réutilisation, lieu de traitement) et on écarte du périmètre ce qui n'a pas besoin d'y être. Pour un cabinet, le secret professionnel s'ajoute au RGPD."
+    },
+    {
+      "q": "Par quelle tâche commencer ?",
+      "a": "Par la collecte et la relance des pièces manquantes. C'est fréquent, les règles sont simples, une erreur se corrige sans conséquence comptable, et c'est ce qui débloque tout le reste : aucune automatisation de la saisie ne fonctionne sans les pièces."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Can AI replace a bookkeeper or a chartered accountant?",
+      "a": "No. It takes over document collection, invoice reading, pre-entry and reminders. Approving entries, unusual treatments, filings and advice remain the work of a person who carries the responsibility. The cases published by vendors describe entry time freed for advisory work, not jobs removed."
+    },
+    {
+      "q": "Do you need an AI agent or a pre-accounting tool?",
+      "a": "In most cases, a specialised tool first: invoice reading and bank reconciliation are problems vendors have already solved. Custom work is justified for what these tools do not cover: linking accounting to your business software, automating reminders by your rules, producing a commented statement. We tell you at the audit, even when the answer is 'take an existing tool'."
+    },
+    {
+      "q": "What can an accounting firm automate?",
+      "a": "Collecting documents from clients and chasing missing ones, pre-entry, preparing review files, generating engagement letters, and answering clients' recurring questions from their file. Anything involving professional opinion and signature is not automated."
+    },
+    {
+      "q": "Does e-invoicing change things?",
+      "a": "It shifts the work more than it removes it: when invoices arrive in a structured format, automatic reading matters less and control matters more (consistency with the order, allocation, approval). The schedule and obligations are published by the tax administration; check them at the source before choosing a tool, we do not summarise them here."
+    },
+    {
+      "q": "Can accounting data be sent to an AI model?",
+      "a": "It is decided data item by data item. A supplier invoice holds little personal data; a payslip or an owner's bank statement holds a lot. What is sent is listed, the model vendor's terms are checked (retention, reuse, processing location) and whatever does not need to be in scope is left out. For a firm, professional secrecy comes on top of GDPR."
+    },
+    {
+      "q": "Which task to start with?",
+      "a": "With collecting and chasing missing documents. It is frequent, the rules are simple, an error is corrected with no accounting consequence, and it unlocks everything else: no entry automation works without the documents."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Cas d'usage · finance et comptabilité",
+      "kicker_en": "§ Use case · finance and accounting",
+      "h1_fr": "IA et automatisation de la comptabilité",
+      "h1_en": "AI and accounting automation",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Automatiser la comptabilité, c'est confier à des outils la collecte des pièces, la lecture des factures, la pré-saisie, le rapprochement et les relances, et garder pour les personnes la validation et le jugement. Cette page s'adresse aux PME dont l'équipe administrative et financière ressaisit encore, et aux cabinets d'expertise comptable qui passent leur temps à courir après les pièces.",
+      "lede_en": "Automating accounting means handing tools the document collection, invoice reading, pre-entry, reconciliation and reminders, and keeping approval and judgement for people. This page is for SMBs whose finance and admin team still retypes, and for accounting firms that spend their time chasing documents.",
+      "badges": [
+        {
+          "label_fr": "Pièces et factures",
+          "label_en": "Documents and invoices"
+        },
+        {
+          "label_fr": "Relances",
+          "label_en": "Reminders"
+        },
+        {
+          "label_fr": "La validation reste humaine",
+          "label_en": "Approval stays human"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-tableau-mesure.svg",
+      "media_alt_fr": "Schéma : des pièces comptables collectées, lues et contrôlées avant validation",
+      "media_alt_en": "Diagram: accounting documents collected, read and checked before approval"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Que peut-on automatiser en comptabilité, et par où commencer ?",
+      "question_en": "What can be automated in accounting, and where to start?",
+      "term_fr": "La réponse courte",
+      "term_en": "The short answer",
+      "answer_fr": "On automatise ce qui précède et ce qui suit l'écriture comptable : collecter les pièces, les lire, proposer une imputation, rapprocher avec la banque, relancer les factures impayées, préparer la clôture. On commence par la collecte et la relance des pièces manquantes, parce que rien d'autre ne fonctionne sans elles. La validation des écritures, les déclarations et le conseil ne s'automatisent pas. Et avant tout développement sur mesure, on regarde si un logiciel spécialisé ne fait pas déjà le travail.",
+      "answer_en": "You automate what comes before and after the accounting entry: collecting documents, reading them, proposing an allocation, reconciling with the bank, chasing unpaid invoices, preparing the close. Start with collecting and chasing missing documents, because nothing else works without them. Approving entries, filings and advice are not automated. And before any custom work, check whether a specialised tool already does the job."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "variant": "editorial",
+      "kicker_fr": "§ Tâches candidates",
+      "kicker_en": "§ Candidate tasks",
+      "heading_fr": "Les tâches comptables, classées par rentabilité probable et par risque",
+      "heading_en": "Accounting tasks, ranked by likely return and by risk",
+      "caption_fr": "Classement indicatif. Le risque se lit ici comme la gravité d'une erreur non détectée : une pièce mal classée se retrouve, une écriture fausse validée se paie plus tard.",
+      "caption_en": "Indicative ranking. Risk here means the severity of an undetected error: a misfiled document is found again, a wrong approved entry is paid for later.",
+      "columns_fr": [
+        "Tâche",
+        "Rentabilité probable",
+        "Risque",
+        "Ce que nous conseillons"
+      ],
+      "columns_en": [
+        "Task",
+        "Likely return",
+        "Risk",
+        "What we advise"
+      ],
+      "rows_fr": [
+        [
+          "Collecter les pièces et relancer les manquantes",
+          "Forte : tâche quotidienne, règles simples",
+          "Faible",
+          "Premier chantier. Souvent un logiciel existant suffit."
+        ],
+        [
+          "Lire les factures et proposer une imputation",
+          "Forte au-delà de quelques dizaines de factures par mois",
+          "Moyen : la proposition doit être validée",
+          "Logiciel spécialisé d’abord. Validation par une personne."
+        ],
+        [
+          "Relancer les factures clients impayées",
+          "Forte : effet direct sur la trésorerie",
+          "Moyen : le ton et le moment comptent",
+          "Relances graduées, arrêt automatique dès le paiement, clients sensibles exclus."
+        ],
+        [
+          "Rapprocher banque et écritures",
+          "Moyenne",
+          "Moyen",
+          "Automatique pour les cas certains, liste des écarts pour une personne."
+        ],
+        [
+          "Préparer la clôture et le reporting",
+          "Moyenne : quelques jours par mois",
+          "Faible si les chiffres sont relus",
+          "Après les étapes précédentes : il faut des données propres."
+        ],
+        [
+          "Valider les écritures, déclarer, payer",
+          "Faible",
+          "Élevé : responsabilité, argent, délais légaux",
+          "À ne pas automatiser. Une personne valide et signe."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Collect documents and chase missing ones",
+          "High: daily task, simple rules",
+          "Low",
+          "First project. An existing tool is often enough."
+        ],
+        [
+          "Read invoices and propose an allocation",
+          "High beyond a few dozen invoices a month",
+          "Medium: the proposal must be approved",
+          "Specialised tool first. Approval by a person."
+        ],
+        [
+          "Chase unpaid customer invoices",
+          "High: direct effect on cash",
+          "Medium: tone and timing matter",
+          "Graduated reminders, automatic stop on payment, sensitive customers excluded."
+        ],
+        [
+          "Reconcile bank and entries",
+          "Medium",
+          "Medium",
+          "Automatic for certain cases, list of gaps for a person."
+        ],
+        [
+          "Prepare the close and reporting",
+          "Medium: a few days a month",
+          "Low if the figures are reviewed",
+          "After the previous steps: clean data is needed."
+        ],
+        [
+          "Approve entries, file, pay",
+          "Low",
+          "High: liability, money, legal deadlines",
+          "Do not automate. A person approves and signs."
+        ]
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le pilote",
+      "kicker_en": "§ The pilot",
+      "h2_fr": "Comment se déroule un pilote en comptabilité",
+      "h2_en": "How an accounting pilot runs",
+      "intro_fr": "Un pilote porte sur un flux : les factures d'achat d'une entité, ou les pièces d'un portefeuille de dossiers. Il se fait en double avec le processus actuel avant de le remplacer.",
+      "intro_en": "A pilot covers one flow: the purchase invoices of one entity, or the documents of one portfolio of files. It runs alongside the current process before replacing it.",
+      "steps": [
+        {
+          "title_fr": "Cartographier le flux",
+          "title_en": "Map the flow",
+          "body_fr": "D'où viennent les pièces, qui les saisit, dans quel logiciel, qui valide. On compte les pièces par mois et le temps passé.",
+          "body_en": "Where documents come from, who enters them, in which software, who approves. Documents per month and time spent are counted.",
+          "meta_fr": "Avec la personne qui saisit",
+          "meta_en": "With the person who does the entry"
+        },
+        {
+          "title_fr": "Vérifier ce que le logiciel permet",
+          "title_en": "Check what the software allows",
+          "body_fr": "Tout dépend de l'ouverture de votre logiciel comptable : import, export, API. C'est la première cause d'abandon d'un projet, on la vérifie avant de promettre quoi que ce soit.",
+          "body_en": "Everything depends on how open your accounting software is: import, export, API. It is the first reason projects are dropped, so it is checked before promising anything.",
+          "meta_fr": "Avant le devis",
+          "meta_en": "Before the quote"
+        },
+        {
+          "title_fr": "Outil existant ou sur mesure",
+          "title_en": "Existing tool or custom",
+          "body_fr": "Si un logiciel du marché couvre le besoin, on le recommande et on se limite à le relier à vos autres outils. Sinon, on construit le maillon manquant.",
+          "body_en": "If a market tool covers the need, we recommend it and limit ourselves to linking it to your other tools. Otherwise, we build the missing link.",
+          "meta_fr": "Décision écrite",
+          "meta_en": "Written decision"
+        },
+        {
+          "title_fr": "Tourner en double",
+          "title_en": "Run in parallel",
+          "body_fr": "Pendant un mois, le flux automatisé tourne à côté du flux manuel. On compare pièce par pièce : imputations proposées, écarts, pièces non lues.",
+          "body_en": "For a month, the automated flow runs next to the manual one. Compared document by document: proposed allocations, gaps, unread documents.",
+          "meta_fr": "Un mois",
+          "meta_en": "One month"
+        },
+        {
+          "title_fr": "Mesurer et décider",
+          "title_en": "Measure and decide",
+          "body_fr": "Part des pièces traitées sans correction, temps gagné réellement constaté, erreurs par type. On bascule, on corrige ou on arrête.",
+          "body_en": "Share of documents processed without correction, time actually saved, errors by type. Switch over, fix or stop.",
+          "meta_fr": "Chiffres à l’appui",
+          "meta_en": "With numbers"
+        }
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Périmètre",
+      "kicker_en": "§ Scope",
+      "title_fr": "Ce qu'on automatise, et ce qu'il ne faut pas automatiser",
+      "title_en": "What to automate, and what not to",
+      "aside_fr": "En comptabilité, la frontière est claire : l'outil propose, une personne valide ce qui engage.",
+      "aside_en": "In accounting the line is clear: the tool proposes, a person approves what commits.",
+      "use_title_fr": "À automatiser",
+      "use_title_en": "Automate",
+      "use_items_fr": [
+        "La collecte des pièces et les relances de pièces manquantes",
+        "La lecture des factures et la proposition d’imputation",
+        "Les relances de factures impayées, selon des règles écrites",
+        "Le rapprochement bancaire des cas sans ambiguïté",
+        "La préparation du reporting et des dossiers de révision"
+      ],
+      "use_items_en": [
+        "Document collection and chasing missing documents",
+        "Invoice reading and proposed allocation",
+        "Unpaid invoice reminders, by written rules",
+        "Bank reconciliation for unambiguous cases",
+        "Preparing reporting and review files"
+      ],
+      "avoid_title_fr": "À ne pas automatiser",
+      "avoid_title_en": "Do not automate",
+      "avoid_items_fr": [
+        "La validation des écritures et la signature des comptes",
+        "Les déclarations fiscales et sociales",
+        "L’émission d’un paiement sans validation",
+        "Les traitements inhabituels : provisions, litiges, opérations exceptionnelles",
+        "Le conseil au dirigeant"
+      ],
+      "avoid_items_en": [
+        "Approving entries and signing the accounts",
+        "Tax and social filings",
+        "Issuing a payment without approval",
+        "Unusual treatments: provisions, disputes, exceptional items",
+        "Advice to the owner"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Les garde-fous que nous posons</h2>\n<h3>Validation humaine</h3>\n<p>Aucune écriture n'est validée, aucune déclaration n'est déposée et aucun paiement n'est émis par un automate. L'outil prépare et signale ses doutes ; une personne identifiée valide. Pour les paiements, on garde la double validation qui existe déjà chez vous.</p>\n<h3>Piste d'audit</h3>\n<p>Chaque pièce garde sa trace : d'où elle vient, ce qui en a été lu, quelle imputation a été proposée, qui a validé. C'est ce qui permet à votre expert-comptable ou à votre commissaire aux comptes de s'y fier.</p>\n<h3>Données et RGPD</h3>\n<p>Les données comptables contiennent des données personnelles : salariés, dirigeants, clients particuliers. On liste ce qui est envoyé à un modèle, on vérifie les conditions de l'éditeur et on écarte ce qui n'a pas besoin d'y passer. Notre démarche est décrite sur la page <a href=\"/conformite-ia\">conformité IA</a>. Pour un cabinet, on y ajoute le secret professionnel : c'est à l'expert-comptable d'arbitrer ce qui peut sortir du cabinet.</p>\n<h3>Séparation des tâches</h3>\n<p>L'automatisation ne doit pas réunir dans un même flux la création d'un fournisseur, la saisie de sa facture et son paiement. On conserve les contrôles internes existants, on ne les contourne pas pour gagner du temps.</p>",
+      "html_en": "<h2>The safeguards we set</h2>\n<h3>Human approval</h3>\n<p>No entry is approved, no filing is submitted and no payment is issued by a bot. The tool prepares and flags its doubts; an identified person approves. For payments, the double approval you already have is kept.</p>\n<h3>Audit trail</h3>\n<p>Each document keeps its trace: where it came from, what was read, which allocation was proposed, who approved. That is what lets your accountant or auditor rely on it.</p>\n<h3>Data and GDPR</h3>\n<p>Accounting data contain personal data: employees, owners, individual customers. What is sent to a model is listed, the vendor's terms are checked and whatever does not need to go through it is left out. Our approach is described on the <a href=\"/conformite-ia\">AI compliance</a> page. For a firm, professional secrecy is added: it is for the chartered accountant to decide what may leave the firm.</p>\n<h3>Segregation of duties</h3>\n<p>Automation must not put supplier creation, invoice entry and payment into a single flow. Existing internal controls are kept, not bypassed to save time.</p>"
+    },
+    {
+      "type": "branded-callout",
+      "background": "paper",
+      "bodyHtml": true,
+      "kicker_fr": "§ Réalisations Waimia",
+      "kicker_en": "§ Waimia work",
+      "h2_fr": "Pas encore de réalisation Waimia sur cette fonction",
+      "h2_en": "No Waimia project on this function yet",
+      "body1_fr": "Nous n'avons pas livré de projet de comptabilité à ce jour, et nous préférons l'écrire. Ce que nous savons faire tient à des briques que nous maîtrisons sur d'autres fonctions : relier des outils, lire des documents, router une validation, tenir un tableau de bord.",
+      "body1_en": "We have not delivered an accounting project to date, and we prefer to say so. What we can do rests on building blocks we master on other functions: linking tools, reading documents, routing an approval, maintaining a dashboard.",
+      "body2_fr": "Ce que nous ferions, dans cet ordre : <strong>1.</strong> cartographier le flux et vérifier l'ouverture de votre logiciel comptable ; <strong>2.</strong> vous dire si un logiciel spécialisé suffit, et lequel évaluer ; <strong>3.</strong> automatiser la collecte et les relances de pièces avec <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> ; <strong>4.</strong> relier la comptabilité à vos outils métier ; <strong>5.</strong> seulement ensuite, un <a href=\"/services/agents-ia\">agent IA</a> pour préparer les situations ou répondre aux questions sur un dossier. Les exemples chiffrés ci-dessous ne sont pas les nôtres.",
+      "body2_en": "What we would do, in this order: <strong>1.</strong> map the flow and check how open your accounting software is; <strong>2.</strong> tell you whether a specialised tool is enough, and which to evaluate; <strong>3.</strong> automate document collection and reminders with <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a>; <strong>4.</strong> link accounting to your business tools; <strong>5.</strong> only then, an <a href=\"/services/agents-ia\">AI agent</a> to prepare statements or answer questions on a file. The figures below are not ours."
+    },
+    {
+      "type": "market-cases",
+      "anchor": "etudes-de-cas-du-marche",
+      "background": "paper-3",
+      "variant": "full",
+      "kicker_fr": "§ Études de cas du marché",
+      "kicker_en": "§ Market case studies",
+      "h2_fr": "Études de cas du marché : comptabilité et finance",
+      "h2_en": "Market case studies: accounting and finance",
+      "intro_fr": "Quatre cas français, deux cabinets et deux entreprises. Tous reposent sur des logiciels spécialisés, pas sur des agents sur mesure : c'est la première leçon. Tous sont publiés par l'éditeur de l'outil, ce qui explique la ligne « limites ».",
+      "intro_en": "Four French cases, two firms and two companies. All rely on specialised software, not custom agents: that is the first lesson. All are published by the tool's vendor, which explains the 'limits' line.",
+      "groups": [
+        {
+          "function": "finance-comptabilite"
+        }
+      ]
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour chiffrer avant de décider",
+      "kicker_en": "§ To size it before deciding",
+      "cards": [
+        {
+          "kicker_fr": "Outil gratuit",
+          "kicker_en": "Free tool",
+          "title_fr": "Grille des tâches à automatiser",
+          "title_en": "Task automation grid",
+          "lead_fr": "Notez chaque tâche sur la fréquence, la stabilité des règles et le coût de l’erreur.",
+          "lead_en": "Score each task on frequency, rule stability and cost of error.",
+          "href": "/ressources/outils/grille-taches-a-automatiser"
+        },
+        {
+          "kicker_fr": "Outil gratuit",
+          "kicker_en": "Free tool",
+          "title_fr": "Calculateur de ROI IA",
+          "title_en": "AI ROI calculator",
+          "lead_fr": "Entrez vos volumes et vos temps : le calcul est affiché, hypothèses comprises.",
+          "lead_en": "Enter your volumes and times: the calculation is shown, assumptions included.",
+          "href": "/ressources/outils/calculateur-roi-ia"
+        },
+        {
+          "kicker_fr": "Cas d’usage",
+          "kicker_en": "Use case",
+          "title_fr": "Automatiser l'administratif",
+          "title_en": "Automating admin work",
+          "lead_fr": "Dossiers clients, factures, onboarding : écrire le process avant de l’automatiser.",
+          "lead_en": "Client files, invoices, onboarding: write the process before automating it.",
+          "href": "/cas-usages/standardiser-processus"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "IA et comptabilité : vos questions",
+      "h2_en": "AI and accounting: your questions",
+      "items": [
+        {
+          "q_fr": "L'IA peut-elle remplacer un comptable ou un expert-comptable ?",
+          "a_fr": "Non. Elle prend la collecte des pièces, la lecture des factures, la pré-saisie et les relances. La validation des écritures, les traitements inhabituels, les déclarations et le conseil restent le travail d'une personne qui en porte la responsabilité. Les cas publiés par les éditeurs décrivent d'ailleurs du temps de saisie libéré pour le conseil, pas des postes supprimés.",
+          "q_en": "Can AI replace a bookkeeper or a chartered accountant?",
+          "a_en": "No. It takes over document collection, invoice reading, pre-entry and reminders. Approving entries, unusual treatments, filings and advice remain the work of a person who carries the responsibility. The cases published by vendors describe entry time freed for advisory work, not jobs removed."
+        },
+        {
+          "q_fr": "Faut-il un agent IA ou un logiciel de précomptabilité ?",
+          "a_fr": "Dans la plupart des cas, d'abord un logiciel spécialisé : la lecture des factures et le rapprochement bancaire sont des problèmes déjà résolus par des éditeurs. Un développement sur mesure se justifie pour ce que ces outils ne couvrent pas : relier la comptabilité à votre logiciel métier, automatiser les relances selon vos règles, produire une situation commentée. Nous vous le disons à l'audit, même quand la réponse est « prenez un outil existant ».",
+          "q_en": "Do you need an AI agent or a pre-accounting tool?",
+          "a_en": "In most cases, a specialised tool first: invoice reading and bank reconciliation are problems vendors have already solved. Custom work is justified for what these tools do not cover: linking accounting to your business software, automating reminders by your rules, producing a commented statement. We tell you at the audit, even when the answer is 'take an existing tool'."
+        },
+        {
+          "q_fr": "Que peut automatiser un cabinet d'expertise comptable ?",
+          "a_fr": "La collecte des pièces auprès des clients et les relances de pièces manquantes, la pré-saisie, la préparation des dossiers de révision, la génération des lettres de mission, et les réponses aux questions récurrentes des clients à partir de leur dossier. Ce qui touche à l'avis du professionnel et à la signature ne s'automatise pas.",
+          "q_en": "What can an accounting firm automate?",
+          "a_en": "Collecting documents from clients and chasing missing ones, pre-entry, preparing review files, generating engagement letters, and answering clients' recurring questions from their file. Anything involving professional opinion and signature is not automated."
+        },
+        {
+          "q_fr": "La facture électronique change-t-elle la donne ?",
+          "a_fr": "Elle déplace le travail plus qu'elle ne le supprime : quand les factures arrivent dans un format structuré, la lecture automatique compte moins et le contrôle compte davantage (cohérence avec la commande, imputation, validation). Le calendrier et les obligations sont publiés par l'administration fiscale ; vérifiez-les à la source avant de choisir un outil, nous ne les résumons pas ici.",
+          "q_en": "Does e-invoicing change things?",
+          "a_en": "It shifts the work more than it removes it: when invoices arrive in a structured format, automatic reading matters less and control matters more (consistency with the order, allocation, approval). The schedule and obligations are published by the tax administration; check them at the source before choosing a tool, we do not summarise them here."
+        },
+        {
+          "q_fr": "Les données comptables peuvent-elles être envoyées à un modèle d'IA ?",
+          "a_fr": "Cela se décide donnée par donnée. Une facture fournisseur contient peu de données personnelles ; un bulletin de paie ou un relevé bancaire de dirigeant en contient beaucoup. On liste ce qui est envoyé, on vérifie les conditions de l'éditeur du modèle (conservation, réutilisation, lieu de traitement) et on écarte du périmètre ce qui n'a pas besoin d'y être. Pour un cabinet, le secret professionnel s'ajoute au RGPD.",
+          "q_en": "Can accounting data be sent to an AI model?",
+          "a_en": "It is decided data item by data item. A supplier invoice holds little personal data; a payslip or an owner's bank statement holds a lot. What is sent is listed, the model vendor's terms are checked (retention, reuse, processing location) and whatever does not need to be in scope is left out. For a firm, professional secrecy comes on top of GDPR."
+        },
+        {
+          "q_fr": "Par quelle tâche commencer ?",
+          "a_fr": "Par la collecte et la relance des pièces manquantes. C'est fréquent, les règles sont simples, une erreur se corrige sans conséquence comptable, et c'est ce qui débloque tout le reste : aucune automatisation de la saisie ne fonctionne sans les pièces.",
+          "q_en": "Which task to start with?",
+          "a_en": "With collecting and chasing missing documents. It is frequent, the rules are simple, an error is corrected with no accounting consequence, and it unlocks everything else: no entry automation works without the documents."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Qui ressaisit encore, et combien de pièces par mois ?",
+      "h2_en": "Who still retypes, and how many documents a month?",
+      "subtitle_fr": "En 45 minutes, on suit une facture de son arrivée à son paiement et on repère ce qui peut être automatisé sans toucher à la validation.",
+      "subtitle_en": "In 45 minutes, we follow one invoice from arrival to payment and spot what can be automated without touching approval.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Automatisation des processus",
+          "label_en": "Process automation",
+          "href": "/services/automatisations",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

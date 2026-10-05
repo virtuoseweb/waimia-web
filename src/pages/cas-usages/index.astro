@@ -6,6 +6,9 @@ export const prerender = true;
 // catalogue `related-cards-band` (chunkée 2-3, cap schéma .max(3)). 0 CSS bespoke.
 // Compile même collection vide (les .mdx arrivent en parallèle) : si <2 cartes, on
 // n'émet aucun band (page reste valide : hero + CTA).
+// Rubrique « Études de cas du marché » (section catalogue `market-cases`, variante digest) :
+// cas réels réalisés par des TIERS, lus dans src/data/market-cases.ts, rendus dans un bloc
+// séparé des cartes Waimia. Aucun de leurs chiffres ne remonte dans le hero ni les cartes.
 
 import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 import { getLiveCollection } from '../../lib/live-collection';
@@ -15,11 +18,15 @@ import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
 import { SITE } from '../../site.config';
+import { MARKET_CASE_FUNCTION_LABEL } from '../../data/market-cases';
 
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const isFr = lang === 'fr';
 
 type Card = SectionByType<'related-cards-band'>['cards'][number];
+
+// Pages « par fonction » : celles qui portent une rubrique d'études de cas du marché.
+const FUNCTION_HREFS = new Set(Object.values(MARKET_CASE_FUNCTION_LABEL).map((l) => l.href));
 
 const cards: Card[] = (await getLiveCollection('cas-usages'))
   .filter((e) => e.data.seo?.noindex !== true)
@@ -70,8 +77,8 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   kicker_en: '§ Use cases · what AI unblocks concretely',
   h1_fr: '<span>Cas d\'usage <i>IA</i> :</span><br/><span>le gain réel, pas une démo.</span>',
   h1_en: '<span><i>AI</i> use cases:</span><br/><span>real gain, not a demo.</span>',
-  lede_fr: "Trois problèmes concrets : automatiser l'administratif, centraliser les données et le reporting, automatiser le suivi commercial. Chaque page dit ce qu'on automatise, avec quels outils et où sont les limites.",
-  lede_en: 'Three concrete problems: automate admin work, centralise data and reporting, automate sales follow-up. Each page says what we automate, with which tools and where the limits are.',
+  lede_fr: "Par problème (administratif, données, suivi commercial) et par fonction (support, comptabilité, RH). Chaque page dit ce qu'on automatise, dans quel ordre et où sont les limites. Les cas réalisés par d'autres que Waimia sont sourcés et présentés à part.",
+  lede_en: 'By problem (admin, data, sales follow-up) and by function (support, accounting, HR). Each page says what to automate, in what order and where the limits are. Cases delivered by others than Waimia are sourced and shown separately.',
 };
 
 const ctaFinal: SectionByType<'cta-final'> = {
@@ -95,22 +102,42 @@ const ctaFinal: SectionByType<'cta-final'> = {
   },
 };
 
-const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
-  type: 'related-cards-band',
-  background: i % 2 === 0 ? 'paper' : 'paper-2',
-  ...(i === 0
-    ? { kicker_fr: '§ Les cas que nous traitons', kicker_en: '§ The cases we handle' }
-    : {}),
-  cards: chunk,
-}) satisfies SectionByType<'related-cards-band'>);
+// Deux groupes de cartes : par problème (pages historiques) puis par fonction.
+const bandsFor = (items: Card[], kicker: { fr: string; en: string }, background: 'paper' | 'paper-2'): SectionData[] =>
+  chunkCards(items).map((chunk, i) => ({
+    type: 'related-cards-band',
+    background,
+    ...(i === 0 ? { kicker_fr: kicker.fr, kicker_en: kicker.en } : {}),
+    cards: chunk,
+  }) satisfies SectionByType<'related-cards-band'>);
 
-const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
+const cardBands: SectionData[] = [
+  ...bandsFor(cards.filter((c) => !FUNCTION_HREFS.has(c.href)), { fr: '§ Par problème à résoudre', en: '§ By problem to solve' }, 'paper'),
+  ...bandsFor(cards.filter((c) => FUNCTION_HREFS.has(c.href)), { fr: "§ Par fonction de l'entreprise", en: '§ By business function' }, 'paper-2'),
+];
+
+const marketCases: SectionByType<'market-cases'> = {
+  type: 'market-cases',
+  background: 'paper-3',
+  variant: 'digest',
+  kicker_fr: '§ Études de cas du marché',
+  kicker_en: '§ Market case studies',
+  h2_fr: 'Études de cas du marché',
+  h2_en: 'Market case studies',
+  intro_fr: "Des déploiements réels, menés par d'autres entreprises et publiés par elles ou par les éditeurs de leurs outils. Nous avons lu chaque source ; le résultat est rapporté tel qu'elle le formule. Le détail de ce qui a été automatisé et la citation exacte sont sur la page de chaque fonction.",
+  intro_en: 'Real rollouts, run by other companies and published by them or by their tool vendors. We read each source; the result is reported as the source words it. What was automated in detail and the exact quote are on each function page.',
+  groups: (Object.entries(MARKET_CASE_FUNCTION_LABEL) as Array<[string, (typeof MARKET_CASE_FUNCTION_LABEL)[keyof typeof MARKET_CASE_FUNCTION_LABEL]]>).map(
+    ([fn, l]) => ({ function: fn, title_fr: l.fr, title_en: l.en, href: `${l.href}#etudes-de-cas-du-marche` }),
+  ),
+};
+
+const sections: SectionData[] = [hero, ...cardBands, { ...marketCases, anchor: 'etudes-de-cas-du-marche' } as SectionData, ctaFinal];
 
 const pageLd = buildCollectionPage(
   isFr ? "Cas d'usage IA pour PME · Waimia" : 'AI use cases for SMBs · Waimia',
   isFr
-    ? "Cas d'usage IA concrets pour PME : générer des leads, réduire le reporting, centraliser les données, standardiser les processus."
-    : 'Concrete AI use cases for SMBs: generate leads, cut reporting, centralize data, standardize processes.',
+    ? "Cas d'usage IA pour PME, par problème et par fonction : administratif, données, suivi commercial, support, comptabilité, RH."
+    : 'AI use cases for SMBs, by problem and by function: admin, data, sales follow-up, support, accounting, HR.',
   cards.map((c) => ({ '@type': 'WebPage', name: isFr ? c.title_fr : c.title_en, url: `${SITE.url}${c.href}` })),
 );
 ---
@@ -118,8 +145,8 @@ const pageLd = buildCollectionPage(
 <Base
   title={isFr ? "Cas d'usage IA pour PME · Waimia" : 'AI use cases for SMBs · Waimia'}
   description={isFr
-    ? "Cas d'usage IA concrets pour PME : générer des leads, réduire le reporting, centraliser les données, standardiser les processus. Le gain réel, pas une démo."
-    : 'Concrete AI use cases for SMBs: generate leads, cut reporting, centralize data, standardize processes. The real gain, not a demo.'}
+    ? "Cas d'usage IA pour PME, par problème et par fonction : administratif, données, suivi commercial, support, comptabilité, RH. Limites et sources comprises."
+    : 'AI use cases for SMBs, by problem and by function: admin, data, sales follow-up, support, accounting, HR. Limits and sources included.'}
   jsonLd={pageLd}
 >
   <MastheadBar

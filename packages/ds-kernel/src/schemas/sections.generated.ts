@@ -138,6 +138,7 @@ import { schema as logoWallSchema } from '../sections/logo-wall/schema';
 import { schema as manifestoActSchema } from '../sections/manifesto-act/schema';
 import { schema as manifestoBlockSchema } from '../sections/manifesto-block/schema';
 import { schema as manifestoStatementSchema } from '../sections/manifesto-statement/schema';
+import { schema as marketCasesSchema } from '../sections/market-cases/schema';
 import { schema as marqueeBandSchema } from '../sections/marquee-band/schema';
 import { schema as mastheadBarSchema } from '../sections/masthead-bar/schema';
 import { schema as maturityPyramidSchema } from '../sections/maturity-pyramid/schema';
@@ -362,6 +363,7 @@ export {
   manifestoActSchema,
   manifestoBlockSchema,
   manifestoStatementSchema,
+  marketCasesSchema,
   marqueeBandSchema,
   mastheadBarSchema,
   maturityPyramidSchema,
@@ -587,6 +589,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   manifestoActSchema,
   manifestoBlockSchema,
   manifestoStatementSchema,
+  marketCasesSchema,
   marqueeBandSchema,
   mastheadBarSchema,
   maturityPyramidSchema,
