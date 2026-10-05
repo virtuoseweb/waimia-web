@@ -58,7 +58,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/agents-ia",
-    "title": "Agents IA pour entreprise : conception et mise en production · Waimia",
+    "title": "Agents IA pour entreprise : conception et mise en production",
     "group": "offres",
     "collection": "services",
     "file": "services/agents-ia.json",
@@ -1915,7 +1915,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/finance-comptabilite",
-    "title": "IA en comptabilité : automatiser sans perdre le contrôle · Waimia",
+    "title": "IA en comptabilité : automatiser sans perdre le contrôle",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/finance-comptabilite.json",
@@ -3070,8 +3070,107 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/guides/agent-ia-definition",
+    "title": "Agent IA : c'est quoi ? Définition, coût et limites",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/agent-ia-definition.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agent IA : c'est quoi ? Définition, coût d'usage et limites",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Assistant, automatisation, agent IA : le tableau pour les distinguer",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "La même demande de SAV, traitée par une automatisation puis par un agent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Cinq questions pour savoir si on vous vend un agent, un chatbot ou une automatisation",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce que coûte l'usage : la même tâche en automatisation et en agent",
+        "variant": "editorial",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Cinq pannes d'agent, comment on les voit, et le garde-fou",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "pull-quote-block",
+        "label": "#10",
+        "variant": "centered",
+        "background": "ink"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Avez-vous besoin d'un agent, ou d'une automatisation ?",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Mettre un premier agent en production, en cinq étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Agent IA : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir si votre tâche demande un agent, ou seulement un workflow.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/ai-act-pme-calendrier",
-    "title": "AI Act pour PME : le calendrier à jour (octobre 2026) · Waimia",
+    "title": "AI Act pour PME : le calendrier à jour (octobre 2026)",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/ai-act-pme-calendrier.json",
@@ -3152,7 +3251,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/claude-cowork",
-    "title": "Claude Cowork : guide pour les PME (2026) · Waimia",
+    "title": "Claude Cowork : prix, fonctions et limites pour une PME",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/claude-cowork.json",
@@ -3160,7 +3259,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Claude Cowork : ce que c'est, ce qui change, comment l'utiliser en PME",
+        "label": "Claude Cowork : prix, fonctions et limites pour une PME",
         "background": "paper"
       },
       {
@@ -3169,8 +3268,19 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-table-block",
+        "label": "Prix de Claude Cowork : il est inclus dans les offres payantes de Claude",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
         "type": "editorial-prose",
-        "label": "#2",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
         "background": "paper"
       },
       {
@@ -3191,7 +3301,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#6",
+        "label": "#8",
         "background": "paper"
       },
       {
@@ -3279,6 +3389,88 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/devis-automatise",
+    "title": "Devis automatisé : la méthode pas à pas pour une PME",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/devis-automatise.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Devis automatisé : la méthode pas à pas, quel que soit l'outil",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Les quatre éléments à écrire avant d'ouvrir un outil",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Automatiser un devis en six étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quatre façons d'automatiser un devis, et le cas qui correspond à chacune",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : une entreprise de services qui envoie trente devis par mois",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand automatiser vos devis, et quand s'abstenir",
+        "background": "paper-2"
+      },
+      {
+        "type": "pull-quote-block",
+        "label": "#9",
+        "variant": "centered",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Devis automatisé : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir si vos devis valent d'être automatisés, et par où commencer.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/mcp-claude",
     "title": "MCP Claude : le protocole expliqué aux dirigeants · Waimia",
     "group": "ressources",
@@ -3351,6 +3543,106 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/n8n-prix",
+    "title": "n8n prix : tarifs 2026 et coût complet pour une PME",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/n8n-prix.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "n8n prix : tarifs 2026 et coût complet pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Prix mensuels, facturation annuelle, hors taxes",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les offres n8n, ligne par ligne",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les cinq postes de coût d'une automatisation n8n",
+        "variant": "editorial",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "n8n Cloud ou auto-hébergé : ce que vous payez en argent, ce que vous payez en temps",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "pull-quote-block",
+        "label": "#10",
+        "variant": "centered",
+        "background": "ink"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand n8n vaut son prix, et quand il ne le vaut pas",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Chiffrer votre cas en cinq étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Prix de n8n : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir ce que n8n coûtera chez vous, avant le premier workflow.",
         "background": "ink"
       }
     ]
@@ -3435,7 +3727,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/taches-a-automatiser-pme",
-    "title": "Automatisation PME : quelles tâches automatiser d'abord · Waimia",
+    "title": "Automatisation PME : quelles tâches automatiser d'abord",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/taches-a-automatiser-pme.json",
@@ -3615,7 +3907,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/essai-pillar-ia-pme-2026",
-    "title": "L'IA appliquée aux PME en 2026 : le guide pillar",
+    "title": "L'IA appliquée aux PME en 2026 : le guide complet",
     "group": "blog",
     "collection": "blog",
     "file": "blog/essai-pillar-ia-pme-2026.json",
@@ -4033,7 +4325,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/implantations/montpellier",
-    "title": "Agence IA à Montpellier : automatisation et agents IA · Waimia",
+    "title": "Agence IA à Montpellier : automatisation et agents IA",
     "group": "autres",
     "collection": "implantations",
     "file": "implantations/montpellier.json",
@@ -4272,10 +4564,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides",
+      "/ressources/guides/agent-ia-definition",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
+      "/ressources/guides/devis-automatise",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/n8n-prix",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/outils",

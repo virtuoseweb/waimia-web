@@ -86,12 +86,14 @@ const PAGES: Record<string, PageDef> = {
   '/services/automatisation-n8n': { label_fr: 'Agence n8n', label_en: 'n8n agency', kind: 'service', topics: ['automatisation'] },
   '/services/automatisation-make': { label_fr: 'Automatisation Make', label_en: 'Make automation', kind: 'service', topics: ['automatisation'] },
   '/ressources/comparatifs/n8n-vs-make': { label_fr: 'n8n ou Make : le comparatif', label_en: 'n8n vs Make', kind: 'comparatif', topics: ['automatisation'] },
+  '/ressources/guides/n8n-prix': { label_fr: 'n8n : prix et coût complet', label_en: 'n8n: pricing and full cost', kind: 'guide', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
   '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
   '/cas-usages/finance-comptabilite': { label_fr: 'IA et automatisation de la comptabilité', label_en: 'AI and accounting automation', kind: 'cas-usage', topics: ['automatisation', 'donnees'] },
   '/cas-usages/rh': { label_fr: 'IA et automatisation des ressources humaines', label_en: 'AI and HR automation', kind: 'cas-usage', topics: ['automatisation', 'conformite'] },
   '/ressources/guides/taches-a-automatiser-pme': { label_fr: "Guide : quelles tâches automatiser d'abord", label_en: 'Guide: which tasks to automate first', kind: 'guide', topics: ['automatisation', 'conseil'] },
   '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation classique', label_en: 'AI agent or classic automation', kind: 'article', topics: ['agents', 'automatisation'] },
+  '/ressources/guides/agent-ia-definition': { label_fr: 'Agent IA : définition et limites', label_en: 'AI agent: definition and limits', kind: 'guide', topics: ['agents', 'automatisation'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
@@ -125,6 +127,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/prospection-automatisee': { label_fr: 'Prospection automatisée', label_en: 'Automated prospecting', kind: 'service', topics: ['commercial'] },
   '/services/crm-scoring-routing': { label_fr: 'Automatisation CRM', label_en: 'CRM automation', kind: 'service', topics: ['commercial', 'donnees'] },
   '/services/sequences-de-suivi': { label_fr: 'Devis automatisé et relances', label_en: 'Automated quotes and follow-ups', kind: 'service', topics: ['commercial'] },
+  '/ressources/guides/devis-automatise': { label_fr: 'Guide : automatiser ses devis', label_en: 'Guide: automating your quotes', kind: 'guide', topics: ['commercial', 'automatisation'] },
   '/blog/cabler-son-crm-en-10-jours': { label_fr: 'Câbler son CRM en 10 jours', label_en: 'Wire your CRM in 10 days', kind: 'article', topics: ['commercial', 'donnees'] },
   '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil': { label_fr: 'Automatiser ses relances B2B', label_en: 'Automate B2B follow-ups', kind: 'article', topics: ['commercial'] },
   '/cas-usages/generer-plus-de-leads': { label_fr: 'Automatiser le suivi commercial', label_en: 'Generate more leads', kind: 'cas-usage', topics: ['commercial', 'acquisition'] },

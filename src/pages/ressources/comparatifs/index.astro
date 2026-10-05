@@ -2,7 +2,8 @@
 export const prerender = true;
 
 // Page SSG · /ressources/comparatifs · HUB comparatifs · rendu 100 % composable.
-// noindex=true : hub mince (politique index-on-quality strategy/10 §3).
+// Indexé depuis le 5 octobre 2026 : le hub liste 4 comparatifs complets (politique
+// index-on-quality strategy/10 §3 : un hub s'indexe à partir de 3 à 5 enfants réels).
 // Hero court + cartes via section catalogue `related-cards-band` (.min(2)/.max(3)).
 // Collection vide → 0 carte → 0 band (pas de crash).
 // Profondeur 3 niveaux (ressources/comparatifs/) → imports en `../../../`.
@@ -126,11 +127,11 @@ const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
 ---
 
 <Base
-  title={isFr ? 'Comparatifs IA · Waimia' : 'AI comparisons · Waimia'}
+  title={isFr ? 'Comparatifs IA : Claude, ChatGPT, n8n, Make · Waimia' : 'AI comparisons: Claude, ChatGPT, n8n, Make · Waimia'}
   description={isFr
     ? 'Comparatifs objectifs pour trancher entre outils, approches et fournisseurs IA. Des critères clairs, les écarts documentés, votre décision éclairée.'
     : 'Objective comparisons to decide between AI tools, approaches and vendors. Clear criteria, documented gaps, your informed decision.'}
-  noindex={true}
+  noindex={false}
 >
   <MastheadBar
     lang={lang}
