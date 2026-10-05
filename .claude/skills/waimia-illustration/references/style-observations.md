@@ -175,6 +175,139 @@ prompt inverse (sujet seul, le style vient de `style.json`).
 - **Prompt inverse** : *A chessboard tilts through an empty sky, its pieces scattering into
   a swirling cloud; a small man in a suit falls beneath it.*
 
+## 2 bis. Le reste de la bibliothèque (17 illustrations)
+
+Même format, plus court. Ensemble, les 28 illustrations montrent **cinq types de composition**
+qu'on peut réutiliser :
+1. **Grand vide + petit sujet** : style-17, snow-movement, style-11, band-showing-tv, computer-health.
+2. **Triptyque** (trois panneaux juxtaposés qui racontent une progression ou un contraste) :
+   fruits, no-no-yes, no-woman-cry, oh-men-boy.
+3. **Panneau coupé** (une colonne de couleur pleine + un champ vide ou une foule claire) :
+   money-in-the-pig, woman-and-people.
+4. **Rythme répété** (colonnes, rangées, tubes) : style-8, style-15, men-on-hand.
+5. **Plan serré dramatique** (un objet ou des mains, lumière forte) : style-st, style-13, pretty-woman.
+
+### car-on-the-road — « la trajectoire »
+- **Montre** : une voiture blanche vue du dessus sur une route noire, une bande rouge et une
+  ligne jaune en dessous, bande de ciel sarcelle en haut.
+- **Fait** : vue zénithale, bandes horizontales pleine largeur, motif graphique pur.
+- **Dégage** : élan, progression, chemin balisé. Idéal en bandeau fin.
+- **Prompt inverse** : *Top-down view of a small white vintage car driving along a wide dark
+  road with dashed lane markings, flat horizontal color bands above and below.*
+
+### computer-crash-landscape — « les outils d'hier »
+- **Montre** : un vieux Macintosh à l'écran fendu et son clavier, abandonnés sous un arbre noueux,
+  au bord d'une colline ; ciel coupé en deux, nuages.
+- **Fait** : ligne claire très détaillée (style BD), végétation gravée, grand aplat de ciel.
+- **Dégage** : mélancolie, obsolescence, dette technique, sans dramatiser.
+- **Prompt inverse** : *An old beige desktop computer with a cracked screen and its keyboard lie
+  abandoned under a gnarled tree on a hillside, a large plain sky with a few clouds.*
+
+### fruits — « ce qui se dégrade »
+- **Montre** : trois pommes alignées, de la plus fraîche à la plus pourrie, chacune avec son ombre.
+- **Fait** : gravure botanique vintage, fond crème uni, ombres portées en aplat.
+- **Dégage** : pédagogie, dégradation progressive, entretien nécessaire.
+- **Prompt inverse** : *Three apples in a row on a plain background, from fresh and glossy to
+  bruised to rotten, each with a flat cast shadow, vintage botanical engraving.*
+
+### its-x — « ce qu'on ne fait pas »
+- **Montre** : un open space minimaliste aux murs rouges, dominé par une gigantesque croix murale ;
+  bureaux et canapé minuscules au sol.
+- **Fait** : perspective frontale symétrique, rendu plus lisse (presque 3D) : à ne pas imiter.
+- **Dégage** : interdit, erreur, anti-pattern. Fort mais froid.
+- **Prompt inverse** : *A minimalist open-plan office seen in perfect symmetry, tiny desks and a
+  sofa dwarfed by a gigantic cross shape spanning the back wall.* (Garder le trait sérigraphié.)
+
+### money-in-the-pig — « investir »
+- **Montre** : un panneau crème vide à gauche ; à droite, sur fond rouge, une main en costume
+  glisse une pièce dans la fente d'un vieux distributeur.
+- **Fait** : panneau coupé, gravure hachurée sur la main et la machine, 40 % de vide.
+- **Dégage** : décision d'investir, geste précis, coût/bénéfice.
+- **Prompt inverse** : *Split composition: a plain empty panel on the left; on the right a hand in
+  a suit sleeve slides a coin into the slot of a vintage machine.*
+
+### no-no-yes — « trier, décider »
+- **Montre** : triptyque : panneau sens interdit dans des palmiers, feu rouge, puis colline verte dégagée.
+- **Fait** : trois panneaux de même hauteur, ciel bleu, aplats. (Les mots NO / YES sont à exclure
+  pour les nouvelles.)
+- **Dégage** : qualification, élimination puis feu vert.
+- **Prompt inverse** : *Triptych of three equal panels: a no-entry road sign among palm trees, a
+  red traffic light, then an open green hillside under a clear sky.*
+
+### no-woman-cry — « la finance, la posture »
+- **Montre** : triptyque : billets et disque rouge, histogramme boursier sur papier, femme en veste
+  rouge de dos regardant au loin.
+- **Fait** : collage éditorial, papier millimétré, portrait peint.
+- **Dégage** : performance, lecture des chiffres, assurance.
+- **Prompt inverse** : *Triptych: banknotes under a large red disc; a hand-drawn bar chart on graph
+  paper; a woman in a structured jacket seen from behind, looking into the distance.*
+
+### oh-men-boy — « les profils »
+- **Montre** : triptyque de portraits : une femme illuminée par un soleil éclatant au-dessus de ses
+  mains, une femme à lunettes tenant une carte, un homme en casque et lunettes d'aviateur.
+- **Fait** : portraits frontaux, mélange couleur / gravure noir et blanc.
+- **Dégage** : révélation, exploration, expertise. Un peu kitsch (hors pool automatique).
+
+### pretty-woman — « décider avec la donnée »
+- **Montre** : portrait d'une femme au carré court, main au menton, entourée de fenêtres d'interface
+  et de lignes de circuit en aplats.
+- **Fait** : portrait central plan serré, UI simplifiée en blocs sans texte lisible.
+- **Dégage** : réflexion, intelligence calme, pilotage. Limite d'usage : l'UI doit rester abstraite.
+
+### style-10 — « le signal dans le bruit »
+- **Montre** : une jungle dense coupée par une trouée rouge ; au centre un petit cœur anatomique et
+  un tracé de pouls.
+- **Fait** : végétation gravée très chargée, trouée en aplat.
+- **Dégage** : tension, signal vital, complexité. Ambigu (hors pool automatique).
+
+### style-11 — « le départ »
+- **Montre** : un coureur en silhouette sur une large bande crème, un petit avion rouge qui décolle
+  dans la bande de ciel, liseré rouge au sol.
+- **Fait** : trois bandes horizontales, deux petites figures aux extrémités, 80 % de vide.
+- **Dégage** : lancement, accélération, ambition légère.
+- **Prompt inverse** : *A running silhouette crosses a wide pale band at the bottom left while a
+  small propeller plane takes off in the top band at the right; flat horizontal bands, lots of space.*
+
+### style-12 — « le rythme »
+- **Montre** : un tracé d'électrocardiogramme blanc traverse un fond rouge plein ; des nuages
+  passent derrière.
+- **Fait** : aplat total + ligne fine + nuages peints.
+- **Dégage** : activité, pouls d'un système, monitoring. Bon séparateur.
+
+### style-13 — « le temps presse »
+- **Montre** : un réveil sur une table de nuit, dans une chambre sombre traversée par un rai de lumière.
+- **Fait** : plan serré, nuit bleu-noir, grain fort, seul objet coloré = le réveil.
+- **Dégage** : urgence, insomnie, temps perdu. Le plus sombre de la série : idéal en ink.
+- **Prompt inverse** : *A vintage alarm clock on a bedside table in a dark bedroom, a diagonal beam of
+  light crossing the wall, heavy grain.*
+
+### style-8 — « l'aiguillage »
+- **Montre** : cinq grands tubes verticaux, une personne en costume dans chacun ; une sixième, en
+  dessous, regarde.
+- **Fait** : rythme de colonnes répétées, format presque carré (à recadrer en 7:3 pour les nouvelles).
+- **Dégage** : parcours, routage, choix de voie, système qui oriente les gens.
+- **Prompt inverse** : *Five tall vertical tubes side by side, a figure in a suit standing inside each,
+  a sixth small figure below looking up at them.*
+
+### style-st — « au travail »
+- **Montre** : deux mains sur un clavier vues d'en face, halo lumineux rouge qui monte de l'écran.
+- **Fait** : plan serré, dégradé granuleux en halo, contraste fort.
+- **Dégage** : concentration, production, intensité. Utilisé en héros du guide.
+
+### super-girl — « se distinguer »
+- **Montre** : une femme à lunettes de soleil au centre d'une salle de spectateurs âgés en costume,
+  plusieurs aussi à lunettes.
+- **Fait** : portrait de groupe frontal, figure centrale en couleur vive.
+- **Dégage** : singularité, assurance, un peu décalé (hors pool automatique).
+
+### woman-and-people — « sortir du lot »
+- **Montre** : un panneau rouge avec une femme confiante qui regarde vers le haut ; à droite, une
+  foule esquissée en crème très pâle.
+- **Fait** : panneau coupé, figure en aplat net vs foule à peine tracée.
+- **Dégage** : leadership, confiance, différenciation sereine.
+- **Prompt inverse** : *Split composition: a solid color panel with a confident woman looking upward;
+  beside it a vast crowd sketched in very faint pale lines.*
+
 ## 3. Check-list « ça ressemble à du Waimia »
 
 - [ ] Une métaphore concrète, lisible sans légende, légèrement surréaliste.

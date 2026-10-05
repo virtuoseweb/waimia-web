@@ -26,7 +26,7 @@ Ce skill appelle l'API Images d'OpenAI. Il tourne là où Claude a accès à GPT
 ## 1. Le style (rétro-ingénierie des 28 illustrations existantes)
 
 **Lire d'abord `references/style-observations.md`** : grammaire commune (technique,
-composition, personnages, ton, interdits) + 11 illustrations analysées (ce qu'elles
+composition, personnages, ton, interdits) + les 28 illustrations analysées et 5 types de composition (ce qu'elles
 montrent, comment elles sont faites, ce qui s'en dégage, prompt inverse). `computer-health`
 est la référence du tritone (son ciel `#76B2D9` est l'origine du bleu `#75B0D7`).
 
