@@ -840,7 +840,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 2,
-      "label": "Claude vs ChatGPT : ce qui est vérifiable",
+      "label": "Claude vs ChatGPT : prix, données, outils",
       "background": "paper"
     },
     {
