@@ -332,6 +332,28 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
       },
     },
 
+    // ── FAQ → faq-accordion (faq_fr/faq_en du frontmatter, >= 2 questions). La section émet
+    //    elle-même le JSON-LD FAQPage (source canonique, comme sur les guides et secteurs). ──
+    {
+      id: 'faq',
+      when: ({ data }) => Array.isArray(data.faq_fr) && data.faq_fr.length >= 2,
+      build: ({ data }) => ({
+        type: 'faq-accordion',
+        background: 'paper-2',
+        kicker_fr: '§ Questions fréquentes',
+        kicker_en: '§ Frequently asked',
+        h2_fr: 'Les questions sur ce projet.',
+        h2_en: 'Questions about this project.',
+        open_first: true,
+        items: (data.faq_fr ?? []).map((f, i) => ({
+          q_fr: f.q,
+          q_en: (data.faq_en ?? [])[i]?.q ?? f.q,
+          a_fr: f.a,
+          a_en: (data.faq_en ?? [])[i]?.a ?? f.a,
+        })),
+      } satisfies SectionByType<'faq-accordion'>),
+    },
+
     // ── BANDE AUTEUR (card) — emplacement app (molécule AuthorCard hors-catalogue) ────
     {
       id: 'author-card',
