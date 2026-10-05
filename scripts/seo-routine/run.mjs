@@ -9,6 +9,11 @@
  * étapes tournent. Sans GSC_SERVICE_ACCOUNT_JSON, les étapes Search Console et Indexing API sont
  * marquées « non configuré » et le reste tourne.
  *
+ * Semaine : `week` est la semaine ISO du jour de la collecte (UTC). Le workflow tourne le dimanche
+ * soir : son résumé porte donc le numéro de la semaine qui se termine, et la session Claude du
+ * lundi celui de la semaine qui commence. La fraîcheur se juge par `generatedAt`, jamais par
+ * l'égalité des numéros de semaine (scripts/seo-routine/freshness.mjs, docs/seo/ROUTINE.md).
+ *
  * Usage : node scripts/seo-routine/run.mjs [--dry-run] [--indexing-all] [--brave-all] [--only=feeds,competitors]
  *   --dry-run : aucune écriture externe (ni IndexNow, ni Indexing API, ni resoumission du sitemap).
  *   --indexing-all : l'Indexing API reprend tout le sitemap (première passe complète, refonte),

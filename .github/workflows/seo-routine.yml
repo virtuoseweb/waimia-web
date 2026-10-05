@@ -13,13 +13,25 @@ name: Routine SEO · collecte hebdomadaire
 # Si le push sur main est refusé (protection de branche activée plus tard), le job se rabat
 # sur une branche seo-data/AAAA-Www et ouvre une PR (Vercel ne déploie pas ces branches).
 #
+# Quand : la collecte principale tourne le dimanche soir (19:17 UTC), pour que les données soient
+# prêtes avant la session Claude du lundi matin (7 h 42 à Paris). Un second créneau, le lundi à
+# 03:17 UTC, sert de rattrapage : il ne refait rien si une collecte complète de moins de 36 heures
+# existe déjà (scripts/seo-routine/freshness.mjs lit `generatedAt` et `steps` de latest.json), donc
+# aucun double envoi à l'Indexing API ni à IndexNow. Il ne recollecte que si celle du dimanche n'est
+# pas partie ou a laissé une étape en erreur. Minutes hors heure pleine : les créneaux à :00 sont
+# les plus chargés chez GitHub. Un lancement à la main (workflow_dispatch) collecte toujours.
+# Semaine : le résumé porte la semaine ISO du jour de la collecte. Celle du dimanche porte donc le
+# numéro de la semaine qui se termine, la session du lundi celui de la semaine qui commence : la
+# fraîcheur se juge par `generatedAt`, pas par le numéro de semaine (docs/seo/ROUTINE.md, section 2).
+#
 # Secret : GSC_SERVICE_ACCOUNT_JSON (facultatif : sans lui, les étapes Search Console et
 # Indexing API sont marquées « non configuré » et le reste tourne). Le même compte de service
 # sert aux deux API ; pour l'Indexing API il doit être propriétaire de la propriété.
 
 on:
   schedule:
-    - cron: '30 4 * * 1' # lundi 04:30 UTC
+    - cron: '17 19 * * 0' # dimanche 19:17 UTC : collecte principale
+    - cron: '17 3 * * 1' # lundi 03:17 UTC : rattrapage, sans effet si la collecte du dimanche est complète
   workflow_dispatch:
     inputs:
       dry_run:
@@ -58,11 +70,14 @@ jobs:
           node-version-file: .nvmrc
 
       # Les scripts n'utilisent que les modules intégrés de Node : aucune installation.
-      - name: Tests unitaires (flux, variations, position 8 à 20, état d'indexation, Indexing API)
+      - name: Tests unitaires (flux, variations, position 8 à 20, état d'indexation, Indexing API, file Brave, fraîcheur, calendrier)
         run: node --test "scripts/seo-routine/tests/*.test.mjs"
 
       - name: Configuration (mots-clés et pages cibles, flux, concurrents, clé IndexNow)
         run: node scripts/seo-routine/check-config.mjs
+
+      - name: Calendrier éditorial (schéma, statuts, semaines, pages cibles, avance)
+        run: node scripts/seo-routine/check-calendar.mjs
 
   collect:
     name: Collecte et commit des données
@@ -85,7 +100,16 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      # Créneau de rattrapage uniquement : une collecte complète de moins de 36 heures suffit.
+      # Les étapes suivantes sont alors sautées et le job se termine en succès, sans rien envoyer.
+      - name: Rattrapage · la collecte du dimanche a-t-elle abouti ?
+        id: fresh
+        if: github.event_name == 'schedule' && github.event.schedule == '17 3 * * 1'
+        run: |
+          node scripts/seo-routine/freshness.mjs --max-hours=36 | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Collecte
+        if: steps.fresh.outputs.fresh != 'true'
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
@@ -93,11 +117,11 @@ jobs:
         run: node scripts/seo-routine/run.mjs $DRY_RUN $INDEXING_ALL
 
       - name: Résumé du run
-        if: always()
+        if: always() && steps.fresh.outputs.fresh != 'true'
         run: node scripts/seo-routine/job-summary.mjs
 
       - name: Commit des données
-        if: ${{ !inputs.dry_run }}
+        if: ${{ !inputs.dry_run && steps.fresh.outputs.fresh != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
