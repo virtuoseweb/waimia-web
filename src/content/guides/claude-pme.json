@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Déployer Claude dans une PME : le guide pratique",
-  "title_en": "Deploying Claude in an SMB: the practical guide, from prerequisites to the first 90 days",
-  "description_fr": "Guide pratique pour déployer Claude en PME : les prérequis, cinq cas d'usage pour commencer, les données, les règles et les 90 premiers jours.",
-  "description_en": "Practical guide to deploy Claude in an SMB: the 6 prerequisites to lay, the 5 high-ROI use cases, structuring your data, governance and the first 90 days.",
+  "title_fr": "Guide Claude pour PME : déployer Claude en 90 jours (2026)",
+  "title_en": "Claude guide for SMBs: deploy Claude in 90 days (2026)",
+  "description_fr": "Guide Claude PME : 6 prérequis, 5 cas d'usage rentables, Claude for Small Business, gouvernance et plan des 90 premiers jours. Kit gratuit : charte IA, grille, calculateur ROI.",
+  "description_en": "Claude SMB guide: 6 prerequisites, 5 profitable use cases, Claude for Small Business, governance and the first 90-day plan. Free kit: AI policy, task grid, ROI calculator.",
   "slug": "claude-pme",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "claude-pme",
@@ -29,6 +29,10 @@
     {
       "q": "Par quels cas d'usage commencer avec Claude en PME ?",
       "a": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que le gain se mesure le plus facilement."
+    },
+    {
+      "q": "Qu'est-ce que Claude for Small Business ?",
+      "a": "C'est l'offre d'Anthropic lancée en mai 2026 pour les petites entreprises : des workflows prêts à l'emploi et des connecteurs vers les outils courants, qui tournent dans Claude Cowork avec un mode approbation par défaut. Elle accélère les cas d'usage génériques, mais ne remplace pas les prérequis : choix du premier cas, données propres, politique d'usage et mesure du gain."
     },
     {
       "q": "Faut-il structurer ses données avant de déployer Claude ?",
@@ -87,6 +91,10 @@
     {
       "q": "Which Claude use cases have the highest ROI in an SMB?",
       "a": "Five come up constantly: writing and rewriting content, summarising documents and meetings, first-level customer support, extracting data from documents, and automating repetitive tasks via the MCP protocol. The common thread: high volume, clear rules and a significant hourly cost. That's where AI pays off fastest."
+    },
+    {
+      "q": "What is Claude for Small Business?",
+      "a": "It's Anthropic's offer launched in May 2026 for small businesses: ready-to-run workflows and connectors to common tools, running in Claude Cowork with approval mode on by default. It speeds up generic use cases, but doesn't replace the prerequisites: choosing the first case, clean data, a usage policy and measuring the gain."
     },
     {
       "q": "Do you need to structure your data before deploying Claude?",
@@ -225,6 +233,12 @@
       ]
     },
     {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Ce qui change en 2026 : Claude for Small Business</h2><p>Anthropic a lancé le 13 mai 2026 <strong>Claude for Small Business</strong>, un ensemble de connecteurs et de workflows prêts à l'emploi qui tournent dans <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>. Au lancement : 15 workflows (finance, opérations, ventes, marketing, RH, service client) et des intégrations avec QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace et Microsoft 365. Le 15 septembre 2026, selon la presse spécialisée, l'offre est passée à 43 workflows et 27 intégrations supplémentaires (Shopify, Salesforce, Stripe, Zapier, Xero…).</p><ul><li><strong>Ce que ça simplifie :</strong> les cas d'usage génériques (relances, propositions commerciales, clôture mensuelle, brief hebdomadaire) démarrent sans développement.</li><li><strong>Ce que ça ne fait pas à votre place :</strong> choisir le bon premier cas, nettoyer vos données, écrire votre politique d'usage et mesurer le gain. Les six prérequis ci-dessous restent la condition de réussite.</li><li><strong>Le garde-fou par défaut :</strong> le mode approbation. Claude prépare, vous validez avant tout envoi, publication ou paiement. Gardez-le activé pendant tout le pilote.</li><li><strong>Le point d'attention pour une PME française :</strong> la plupart des intégrations visent des outils anglo-saxons. Si votre stack repose sur Pennylane, Sellsy, Axonaut ou un ERP métier, il faudra un connecteur <a href=\"/ressources/guides/mcp-claude\">MCP</a> sur mesure.</li></ul><p>Sources : <a href=\"https://www.anthropic.com/news/claude-for-small-business\" rel=\"noopener\">annonce officielle Anthropic</a> (13 mai 2026) ; extension de septembre rapportée par Forbes et la presse tech (15 septembre 2026). Dernière vérification : 5 octobre 2026.</p>",
+      "html_en": "<h2>What changes in 2026: Claude for Small Business</h2><p>On 13 May 2026 Anthropic launched <strong>Claude for Small Business</strong>, a set of connectors and ready-to-run workflows that run in <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>. At launch: 15 workflows (finance, operations, sales, marketing, HR, customer service) and integrations with QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace and Microsoft 365. On 15 September 2026, according to the trade press, the offer grew to 43 workflows and 27 additional integrations (Shopify, Salesforce, Stripe, Zapier, Xero…).</p><ul><li><strong>What it simplifies:</strong> generic use cases (follow-ups, proposals, month-end close, weekly brief) start without development.</li><li><strong>What it doesn't do for you:</strong> pick the right first case, clean your data, write your usage policy and measure the gain. The six prerequisites below remain the condition for success.</li><li><strong>The default safeguard:</strong> approval mode. Claude prepares, you approve before anything is sent, posted or paid. Keep it on for the whole pilot.</li><li><strong>The watch-out for a French SMB:</strong> most integrations target English-speaking tools. If your stack relies on Pennylane, Sellsy, Axonaut or a vertical ERP, you'll need a custom <a href=\"/ressources/guides/mcp-claude\">MCP</a> connector.</li></ul><p>Sources: <a href=\"https://www.anthropic.com/news/claude-for-small-business\" rel=\"noopener\">official Anthropic announcement</a> (13 May 2026); September expansion reported by Forbes and the tech press (15 September 2026). Last checked: 5 October 2026.</p>"
+    },
+    {
       "type": "feature-zigzag",
       "background": "paper-2",
       "kicker_fr": "§ Les 5 cas d'usage",
@@ -254,7 +268,13 @@
               "label_fr": "Relecture humaine, pas saisie",
               "label_en": "Human review, not typing"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
+          "media_alt_fr": "Une femme au bureau dont l'ombre tape à sa place sur l'ordinateur : Claude rédige le premier jet",
+          "media_alt_en": "A woman at her desk whose shadow types for her: Claude writes the first draft",
+          "link_label_fr": "Claude ou ChatGPT pour rédiger en PME ?",
+          "link_label_en": "Claude or ChatGPT for SMB writing?",
+          "link_href": "/ressources/comparatifs/claude-vs-chatgpt-pme"
         },
         {
           "kicker_fr": "Cas d'usage 02",
@@ -276,7 +296,13 @@
               "label_fr": "Compte-rendu prêt à envoyer",
               "label_en": "Summary ready to send"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/pretty-woman-paper.webp",
+          "media_alt_fr": "Une femme pensive entourée de documents et de graphiques : la synthèse de l'essentiel",
+          "media_alt_en": "A thoughtful woman surrounded by documents and charts: summarising what matters",
+          "link_label_fr": "Brancher Claude à votre base documentaire",
+          "link_label_en": "Connect Claude to your document base",
+          "link_href": "/services/base-de-connaissance-ia"
         },
         {
           "kicker_fr": "Cas d'usage 03",
@@ -298,7 +324,13 @@
               "label_fr": "Équipes sur les cas complexes",
               "label_en": "Teams on the complex cases"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Deux personnes se tendent la main : le support client qui garde le lien humain",
+          "media_alt_en": "Two people reaching out to shake hands: customer support that keeps the human link",
+          "link_label_fr": "Voir l'agent de support client",
+          "link_label_en": "See the customer support agent",
+          "link_href": "/services/agents-ia/agent-support-client"
         },
         {
           "kicker_fr": "Cas d'usage 04",
@@ -320,7 +352,13 @@
               "label_fr": "Fin de la saisie manuelle",
               "label_en": "End of manual entry"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
+          "media_alt_fr": "Billets, graphique et documents côte à côte : des données extraites et exploitables",
+          "media_alt_en": "Banknotes, a chart and documents side by side: data extracted and usable",
+          "link_label_fr": "Le cas d'usage finance et comptabilité",
+          "link_label_en": "The finance and accounting use case",
+          "link_href": "/cas-usages/finance-comptabilite"
         },
         {
           "kicker_fr": "Cas d'usage 05",
@@ -342,7 +380,13 @@
               "label_fr": "Accès cadrés et tracés",
               "label_en": "Framed and traced access"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/style-8-paper.webp",
+          "media_alt_fr": "Des personnes aiguillées dans des tubes parallèles : des tâches routées automatiquement vers le bon outil",
+          "media_alt_en": "People routed through parallel tubes: tasks routed automatically to the right tool",
+          "link_label_fr": "Le guide MCP : brancher Claude à vos outils",
+          "link_label_en": "The MCP guide: connect Claude to your tools",
+          "link_href": "/ressources/guides/mcp-claude"
         }
       ]
     },
@@ -421,7 +465,13 @@
               "label_fr": "Accessibles via MCP",
               "label_en": "Accessible via MCP"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/fruits-paper.webp",
+          "media_alt_fr": "Trois pommes de la plus saine à la plus abîmée : des données qui se dégradent sans entretien",
+          "media_alt_en": "Three apples from fresh to rotten: data that decays without upkeep",
+          "link_label_fr": "Centraliser vos données avant l'IA",
+          "link_label_en": "Centralise your data before AI",
+          "link_href": "/cas-usages/centraliser-donnees"
         },
         {
           "kicker_fr": "Prérequis 02",
@@ -443,7 +493,13 @@
               "label_fr": "Comptes pro, pas personnels",
               "label_en": "Pro accounts, not personal"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
+          "media_alt_fr": "Une main géante qui porte une équipe : un cadre de sécurité qui protège sans bloquer",
+          "media_alt_en": "A giant hand carrying a team: a security frame that protects without blocking",
+          "link_label_fr": "Télécharger le modèle de charte IA (gratuit)",
+          "link_label_en": "Download the AI policy template (free)",
+          "link_href": "/ressources/outils/charte-ia-entreprise"
         },
         {
           "kicker_fr": "Prérequis 03",
@@ -465,7 +521,13 @@
               "label_fr": "Résultat mesurable",
               "label_en": "Measurable result"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
+          "media_alt_fr": "Non, non, oui : trier les cas d'usage pour ne garder que le bon pilote",
+          "media_alt_en": "No, no, yes: sorting use cases to keep only the right pilot",
+          "link_label_fr": "Remplir la grille des tâches à automatiser",
+          "link_label_en": "Fill in the task automation grid",
+          "link_href": "/ressources/outils/grille-taches-a-automatiser"
         },
         {
           "kicker_fr": "Prérequis 04",
@@ -487,7 +549,13 @@
               "label_fr": "Bibliothèque de prompts",
               "label_en": "Prompt library"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
+          "media_alt_fr": "Un formateur au clavier devant une salle attentive : la formation des équipes",
+          "media_alt_en": "A trainer at the keyboard in front of an attentive room: training the teams",
+          "link_label_fr": "Voir la formation Claude en entreprise",
+          "link_label_en": "See the in-company Claude training",
+          "link_href": "/formations/claude"
         },
         {
           "kicker_fr": "Prérequis 05",
@@ -509,7 +577,13 @@
               "label_fr": "Comparaison avant/après",
               "label_en": "Before/after comparison"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/money-money-paper.webp",
+          "media_alt_fr": "Un personnage gravit des piles de pièces de plus en plus hautes : le ROI qui se mesure",
+          "media_alt_en": "A figure climbing ever-taller stacks of coins: ROI you can measure",
+          "link_label_fr": "Estimer votre ROI avec le calculateur",
+          "link_label_en": "Estimate your ROI with the calculator",
+          "link_href": "/ressources/outils/calculateur-roi-ia"
         },
         {
           "kicker_fr": "Prérequis 06",
@@ -531,7 +605,74 @@
               "label_fr": "Extension par paliers",
               "label_en": "Expansion in steps"
             }
-          ]
+          ],
+          "media_src": "/images/illustrations/ds/style-15-paper.webp",
+          "media_alt_fr": "Une équipe devant des tableaux de pilotage : la gouvernance qui organise l'extension",
+          "media_alt_en": "A team in front of planning boards: governance that organises expansion",
+          "link_label_fr": "AI Act : le calendrier pour les PME",
+          "link_label_en": "AI Act: the timeline for SMBs",
+          "link_href": "/ressources/guides/ai-act-pme-calendrier"
+        }
+      ]
+    },
+    {
+      "type": "resource-card-grid",
+      "background": "paper",
+      "columns": "2",
+      "kicker_fr": "§ Le kit de déploiement gratuit",
+      "kicker_en": "§ The free deployment kit",
+      "h2_fr": "Quatre outils pour passer du guide au plan",
+      "h2_en": "Four tools to turn the guide into a plan",
+      "intro_fr": "Chaque prérequis a son outil. Utilisables en ligne sans inscription ; laissez votre e-mail seulement si vous voulez garder une copie de vos résultats.",
+      "intro_en": "Each prerequisite has its tool. Usable online without signing up; leave your email only if you want to keep a copy of your results.",
+      "resources": [
+        {
+          "kind_fr": "Modèle PDF",
+          "kind_en": "PDF template",
+          "title_fr": "Charte IA pour PME",
+          "title_en": "AI policy for SMBs",
+          "desc_fr": "La politique d'usage du prérequis 02, prête à adapter : données autorisées, comptes, validation humaine.",
+          "desc_en": "The usage policy from prerequisite 02, ready to adapt: allowed data, accounts, human review.",
+          "format": "PDF",
+          "href": "/ressources/outils/charte-ia-entreprise",
+          "cta_label_fr": "Télécharger le modèle",
+          "cta_label_en": "Download the template"
+        },
+        {
+          "kind_fr": "Grille",
+          "kind_en": "Grid",
+          "title_fr": "Grille des tâches à automatiser",
+          "title_en": "Task automation grid",
+          "desc_fr": "Notez vos tâches sur le volume, le risque et le gain pour choisir votre premier cas d'usage.",
+          "desc_en": "Score your tasks on volume, risk and gain to pick your first use case.",
+          "format": "En ligne",
+          "href": "/ressources/outils/grille-taches-a-automatiser",
+          "cta_label_fr": "Remplir la grille",
+          "cta_label_en": "Fill in the grid"
+        },
+        {
+          "kind_fr": "Calculateur",
+          "kind_en": "Calculator",
+          "title_fr": "Calculateur de ROI IA",
+          "title_en": "AI ROI calculator",
+          "desc_fr": "La baseline du prérequis 05 : heures récupérables et gain annuel estimé sur votre cas pilote.",
+          "desc_en": "The baseline from prerequisite 05: recoverable hours and estimated yearly gain on your pilot case.",
+          "format": "En ligne",
+          "href": "/ressources/outils/calculateur-roi-ia",
+          "cta_label_fr": "Calculer mon ROI",
+          "cta_label_en": "Calculate my ROI"
+        },
+        {
+          "kind_fr": "Diagnostic",
+          "kind_en": "Assessment",
+          "title_fr": "Diagnostic de maturité IA",
+          "title_en": "AI maturity assessment",
+          "desc_fr": "Dix questions pour savoir quels prérequis sont déjà posés et par où commencer.",
+          "desc_en": "Ten questions to see which prerequisites are already in place and where to start.",
+          "format": "5 min",
+          "href": "/ressources/diagnostics/maturite-ia",
+          "cta_label_fr": "Faire le diagnostic",
+          "cta_label_en": "Take the assessment"
         }
       ]
     },
@@ -585,13 +726,13 @@
           "href": "/ressources/guides/claude-cowork"
         },
         {
-          "kicker_fr": "Formation",
-          "kicker_en": "Training",
-          "title_fr": "Formation Claude et agents IA",
-          "title_en": "Claude and AI agents training",
-          "lead_fr": "En intra-entreprise, sur vos cas réels : usage quotidien, connexion à vos outils, Claude Code, conception d'un agent.",
-          "lead_en": "In-company, on your real cases: daily use, connection to your tools, Claude Code, designing an agent.",
-          "href": "/formations/claude"
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "MCP : brancher Claude à vos outils",
+          "title_en": "MCP: connecting Claude to your tools",
+          "lead_fr": "Le cas d'usage 05 en détail : ce que fait un connecteur MCP, lesquels existent, quand en développer un sur mesure.",
+          "lead_en": "Use case 05 in detail: what an MCP connector does, which exist, when to build a custom one.",
+          "href": "/ressources/guides/mcp-claude"
         },
         {
           "kicker_fr": "Service",
@@ -623,6 +764,12 @@
           "q_en": "Which Claude use cases have the highest ROI in an SMB?",
           "a_fr": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que le gain se mesure le plus facilement.",
           "a_en": "Five come up constantly: writing and rewriting content, summarising documents and meetings, first-level customer support, extracting data from documents, and automating repetitive tasks via the MCP protocol. The common thread: high volume, clear rules and a significant hourly cost. That's where AI pays off fastest."
+        },
+        {
+          "q_fr": "Qu'est-ce que Claude for Small Business ?",
+          "q_en": "What is Claude for Small Business?",
+          "a_fr": "C'est l'offre d'Anthropic lancée en mai 2026 pour les petites entreprises : des workflows prêts à l'emploi et des connecteurs vers les outils courants, qui tournent dans Claude Cowork avec un mode approbation par défaut. Elle accélère les cas d'usage génériques, mais ne remplace pas les prérequis : choix du premier cas, données propres, politique d'usage et mesure du gain.",
+          "a_en": "It's Anthropic's offer launched in May 2026 for small businesses: ready-to-run workflows and connectors to common tools, running in Claude Cowork with approval mode on by default. It speeds up generic use cases, but doesn't replace the prerequisites: choosing the first case, clean data, a usage policy and measuring the gain."
         },
         {
           "q_fr": "Faut-il structurer ses données avant de déployer Claude ?",
