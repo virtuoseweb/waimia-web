@@ -1011,12 +1011,57 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 3,
+      "label": "Niveau 1 : à l'issue, vous savez utiliser ChatGPT",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 5,
+      "label": "Niveau 2 : à l'issue, vous savez étendre ChatGPT",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 7,
+      "label": "Niveau 3 : à l'issue, vous savez construire un système IA avec OpenAI",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 2,
-      "label": "À l'issue, vos équipes savent",
-      "background": "paper"
+      "index": 3,
+      "label": "Niveau 1 : à l'issue, vous savez utiliser Claude",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 5,
+      "label": "Niveau 2 : à l'issue, vous savez étendre Claude",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 7,
+      "label": "Niveau 3 : à l'issue, vous savez construire un système IA avec Claude",
+      "background": "paper-2"
     },
     {
       "collection": "formations",
@@ -1865,6 +1910,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
@@ -1914,11 +1968,21 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 11,
+      "label": "#11",
+      "variant": "note",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 6,
-      "label": "#6",
+      "index": 11,
+      "label": "#11",
       "variant": "note",
       "background": "paper"
     },
@@ -2234,20 +2298,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 4,
-      "label": "#4",
-      "background": "paper"
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
     },
     {
       "collection": "formations",
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 2,
-      "label": "#2",
+      "index": 3,
+      "label": "#3",
       "background": "paper-2"
     },
     {
@@ -2302,10 +2375,40 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 2,
+      "label": "Les trois niveaux de la formation ChatGPT",
+      "variant": "default",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 10,
+      "label": "Prérequis, format, durée et tarif",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 5,
+      "index": 2,
+      "label": "Les trois niveaux de la formation Claude",
+      "variant": "default",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 10,
       "label": "Prérequis, format, durée et tarif",
       "variant": "editorial",
       "background": "paper-2"
@@ -2370,12 +2473,57 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 4,
+      "label": "Programme du niveau 1 : utiliser l'application ChatGPT",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 6,
+      "label": "Programme du niveau 2 : devenir expert de l'application",
+      "background": "paper-3"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 8,
+      "label": "Programme du niveau 3 : deux parcours, un tronc commun",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 3,
-      "label": "Le programme, module par module",
+      "index": 4,
+      "label": "Programme du niveau 1 : utiliser l'application Claude",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 6,
+      "label": "Programme du niveau 2 : devenir expert de l'application",
       "background": "paper-3"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 8,
+      "label": "Programme du niveau 3 : deux parcours, un tronc commun",
+      "background": "paper"
     },
     {
       "collection": "formations",
@@ -3112,10 +3260,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 13,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 8,
+      "index": 13,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -3124,7 +3281,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 4,
+      "index": 5,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -4065,10 +4222,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 14,
+      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "background": "ink"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 9,
+      "index": 14,
       "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
       "background": "ink"
     },
@@ -4077,7 +4243,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 5,
+      "index": 6,
       "label": "Former sur vos tâches, pas sur des démonstrations.",
       "background": "ink"
     },
@@ -4791,6 +4957,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/formations/automatisation.json",
       "index": 0,
       "label": "Formation automatisation et IA",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 0,
+      "label": "Formation ChatGPT en entreprise",
       "background": "paper"
     },
     {
@@ -5654,7 +5829,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
-      "index": 3,
+      "index": 4,
       "label": "Comment se passe une formation",
       "background": "paper"
     }
@@ -6253,10 +6428,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "src/content/formations/chatgpt.json",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 7,
+      "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -6279,14 +6463,25 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     }
   ],
-  "service-catalog-list": [
+  "related-links": [
     {
       "collection": "formations",
       "file": "formations/index.json",
       "slug": "formations",
       "route": "src/content/formations/index.json",
       "index": 1,
-      "label": "Quatre formations, construites sur vos tâches",
+      "label": "Un outil, un niveau : votre formation",
+      "background": "paper-2"
+    }
+  ],
+  "service-catalog-list": [
+    {
+      "collection": "formations",
+      "file": "formations/index.json",
+      "slug": "formations",
+      "route": "src/content/formations/index.json",
+      "index": 2,
+      "label": "Cinq formations, construites sur vos tâches",
       "background": "paper"
     }
   ],

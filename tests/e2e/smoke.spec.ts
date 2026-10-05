@@ -36,6 +36,7 @@ const ROUTES = [
   "/formations/n8n",
   "/formations/make",
   "/formations/claude",
+  "/formations/chatgpt",
   "/implantations/bordeaux",
   "/implantations/lyon",
   "/conformite-ia",

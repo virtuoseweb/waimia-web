@@ -1,0 +1,724 @@
+{
+  "title_fr": "Formation ChatGPT en entreprise · Waimia",
+  "title_en": "ChatGPT training for companies · Waimia",
+  "description_fr": "Formation ChatGPT en entreprise, trois niveaux : utiliser l'application, en devenir expert, développer avec OpenAI Platform ou Codex. Sur vos cas réels.",
+  "description_en": "In-company ChatGPT training, three levels: using the app, becoming an expert, building with OpenAI Platform or Codex. On your real cases.",
+  "slug": "chatgpt",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "tags": [
+    "formation-chatgpt",
+    "formation-chatgpt-entreprise",
+    "formation-openai",
+    "formation-intra-entreprise"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Formation ChatGPT en entreprise"
+  },
+  "faq_fr": [
+    {
+      "q": "Quel niveau choisir pour la formation ChatGPT ?",
+      "a": "Niveau 1 si l'équipe utilise ChatGPT sans méthode commune ou débute. Niveau 2 si elle veut construire ses propres GPT et le relier à ses outils. Niveau 3 pour les développeurs qui veulent construire avec l'API d'OpenAI ou avec Codex. L'audit gratuit sert à vérifier le niveau de départ."
+    },
+    {
+      "q": "Formation ChatGPT ou formation Claude : laquelle choisir ?",
+      "a": "Celle de l'outil que votre entreprise utilise ou va déployer. Les deux formations suivent les trois mêmes niveaux, et les principes (consigne, relecture, données) se transposent de l'un à l'autre. Si l'outil n'est pas encore choisi, on en parle pendant l'audit."
+    },
+    {
+      "q": "Faut-il un abonnement payant à ChatGPT pour suivre la formation ?",
+      "a": "Il faut un accès à ChatGPT pour chaque participant. Certaines fonctions vues au niveau 2 dépendent de l'offre souscrite par l'entreprise. On vérifie ce point au cadrage, et le programme est ajusté à ce que vos comptes permettent réellement."
+    },
+    {
+      "q": "Le niveau 3 s'adresse-t-il à des non-développeurs ?",
+      "a": "Non. Il demande de savoir utiliser Git et un terminal, et de lire du code Python ou TypeScript pour le parcours plateforme. Pour les équipes métier, les niveaux 1 et 2 vont jusqu'aux GPT personnalisés et aux tâches en plusieurs étapes, sans écrire de code."
+    },
+    {
+      "q": "Repart-on avec un agent IA en production ?",
+      "a": "Non, et c'est volontaire. Aux niveaux 1 et 2, on repart avec un cadrage écrit et des réglages réutilisables. Au niveau 3, l'objectif est un prototype fonctionnel sur un cas de l'entreprise. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation."
+    },
+    {
+      "q": "Quelles données peut-on utiliser pendant la formation ?",
+      "a": "On le décide au cadrage. Par défaut : pas de données de santé, de paie ni de données clients nominatives dans les exercices. On travaille sur des documents réels non sensibles ou anonymisés."
+    },
+    {
+      "q": "Combien de temps dure la formation et combien coûte-t-elle ?",
+      "a": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise."
+    },
+    {
+      "q": "La formation peut-elle être financée ?",
+      "a": "Les formations sont dispensées via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation. On vérifie ce point avec vous et avec Akigora au cadrage, avant tout engagement."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Which level should we choose for the ChatGPT training?",
+      "a": "Level 1 if the team uses ChatGPT without a shared method or is starting out. Level 2 if it wants to build its own GPTs and connect ChatGPT to its tools. Level 3 for developers who want to build with the OpenAI API or with Codex. The free audit is there to check the starting level."
+    },
+    {
+      "q": "ChatGPT training or Claude training: which one?",
+      "a": "The one for the tool your company uses or will roll out. Both courses follow the same three levels, and the principles (instruction, review, data) carry over from one to the other. If the tool is not chosen yet, we discuss it during the audit."
+    },
+    {
+      "q": "Do we need a paid ChatGPT subscription to attend?",
+      "a": "Each participant needs ChatGPT access. Some features covered at level 2 depend on the plan the company has subscribed to. We check this during scoping, and the programme is adjusted to what your accounts actually allow."
+    },
+    {
+      "q": "Is level 3 for non-developers?",
+      "a": "No. It requires knowing Git and a terminal, and reading Python or TypeScript code for the platform track. For business teams, levels 1 and 2 go as far as custom GPTs and multi-step tasks, without writing code."
+    },
+    {
+      "q": "Do we leave with an AI agent in production?",
+      "a": "No, deliberately. At levels 1 and 2 you leave with a written scope and reusable settings. At level 3 the goal is a working prototype on a company case. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+    },
+    {
+      "q": "Which data can be used during the training?",
+      "a": "Decided during scoping. By default: no health, payroll or named customer data in exercises. We work on real, non-sensitive or anonymised documents."
+    },
+    {
+      "q": "How long does the training last and how much does it cost?",
+      "a": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. There is no fixed-date catalogue session: each training is built for one company."
+    },
+    {
+      "q": "Can the training be funded?",
+      "a": "Training is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. We check this with you and Akigora during scoping, before any commitment."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h1_fr": "Formation ChatGPT en entreprise",
+      "h1_en": "ChatGPT training for companies",
+      "lede_fr": "Trois niveaux, de l'application à l'API. Vos équipes passent d'un usage au coup par coup à une méthode commune, construisent leurs propres GPT, puis, pour les profils techniques, développent avec OpenAI Platform ou avec Codex.",
+      "lede_en": "Three levels, from the app to the API. Your teams move from ad hoc use to a shared method, build their own GPTs, then, for technical profiles, develop with OpenAI Platform or with Codex.",
+      "badges": [
+        {
+          "label_fr": "Intra-entreprise",
+          "label_en": "In-company"
+        },
+        {
+          "label_fr": "À distance ou sur site",
+          "label_en": "Remote or on site"
+        },
+        {
+          "label_fr": "Sur vos cas réels",
+          "label_en": "On your real cases"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les trois niveaux",
+        "label_en": "See the three levels",
+        "href": "#niveaux",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-passation-formation.svg",
+      "media_alt_fr": "Schéma : une passation de compétences entre un formateur et une équipe",
+      "media_alt_en": "Diagram: a skills handover between a trainer and a team"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "À qui s'adresse la formation ChatGPT ?",
+      "question_en": "Who is the ChatGPT training for?",
+      "term_fr": "Public",
+      "term_en": "Audience",
+      "answer_fr": "Aux entreprises où ChatGPT est déjà ouvert sur les postes, souvent sans règle ni méthode. Le niveau 1 donne une pratique commune aux équipes métier. Le niveau 2 forme les utilisateurs réguliers à construire des GPT et à relier ChatGPT aux outils de l'entreprise. Le niveau 3 s'adresse aux développeurs qui construisent avec l'API d'OpenAI ou avec Codex. Le cadrage décide du niveau, ou de l'enchaînement de deux niveaux.",
+      "answer_en": "For companies where ChatGPT is already open on people's machines, often with no rules or method. Level 1 gives business teams a shared practice. Level 2 trains regular users to build GPTs and connect ChatGPT to the company's tools. Level 3 is for developers who build with the OpenAI API or with Codex. Scoping decides the level, or the sequence of two levels."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "anchor": "niveaux",
+      "kicker_fr": "§ Trois niveaux",
+      "kicker_en": "§ Three levels",
+      "heading_fr": "Les trois niveaux de la formation ChatGPT",
+      "heading_en": "The three levels of the ChatGPT training",
+      "caption_fr": "Format conseillé : recommandation de Waimia, à confirmer au cadrage",
+      "caption_en": "Suggested format: Waimia's recommendation, to be confirmed during scoping",
+      "columns_fr": [
+        "Niveau",
+        "Public",
+        "Prérequis",
+        "Vous repartez avec",
+        "Durée"
+      ],
+      "columns_en": [
+        "Level",
+        "Audience",
+        "Prerequisites",
+        "You leave with",
+        "Duration"
+      ],
+      "rows_fr": [
+        [
+          "Niveau 1 : utiliser ChatGPT",
+          "Équipes métier qui débutent ou utilisent ChatGPT sans méthode commune",
+          "Un accès à ChatGPT par participant. Aucun prérequis technique",
+          "Livrables : une bibliothèque de consignes pour vos tâches, des instructions personnalisées réglées, un projet par participant, une fiche de règles d'usage",
+          "Format conseillé : {{prix.formation.f1.heures}} heures"
+        ],
+        [
+          "Niveau 2 : devenir expert de ChatGPT",
+          "Utilisateurs réguliers, référents IA, responsables d'équipe",
+          "Le niveau 1 ou une pratique régulière. Un espace de travail d'entreprise et les droits pour connecter des applications",
+          "Livrables : un GPT personnalisé par participant ou par équipe, une tâche complète documentée, les règles d'usage de l'équipe",
+          "Format conseillé : {{prix.formation.f1.heures}} heures si le niveau 1 est acquis ; {{prix.formation.f2.heures}} heures pour enchaîner les niveaux 1 et 2"
+        ],
+        [
+          "Niveau 3 : développer des systèmes IA",
+          "Développeurs, responsables des systèmes d'information, profils techniques",
+          "Savoir utiliser Git et un terminal. Python ou TypeScript pour le parcours plateforme. Un compte OpenAI Platform ou un accès à Codex",
+          "Livrables : un prototype fonctionnel sur un cas de l'entreprise, son cadrage écrit, un jeu de cas de test, la liste de ce qui reste avant la production",
+          "Format conseillé : {{prix.formation.f2.heures}} heures pour un parcours complet avec prototype ; {{prix.formation.f1.heures}} heures pour une initiation à un seul parcours"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Level 1: using ChatGPT",
+          "Business teams starting out or using ChatGPT with no shared method",
+          "ChatGPT access for each participant. No technical prerequisite",
+          "Deliverables: a library of instructions for your tasks, tuned custom instructions, one project per participant, a usage-rules sheet",
+          "Suggested format: {{prix.formation.f1.heures}} hours"
+        ],
+        [
+          "Level 2: becoming a ChatGPT expert",
+          "Regular users, AI champions, team leads",
+          "Level 1 or regular practice. A company workspace and rights to connect apps",
+          "Deliverables: one custom GPT per participant or per team, one documented whole task, the team's usage rules",
+          "Suggested format: {{prix.formation.f1.heures}} hours if level 1 is in place; {{prix.formation.f2.heures}} hours to cover levels 1 and 2 in a row"
+        ],
+        [
+          "Level 3: building AI systems",
+          "Developers, IT managers, technical profiles",
+          "Knowing Git and a terminal. Python or TypeScript for the platform track. An OpenAI Platform account or access to Codex",
+          "Deliverables: a working prototype on a company case, its written scope, a set of test cases, the list of what remains before production",
+          "Suggested format: {{prix.formation.f2.heures}} hours for a full track with a prototype; {{prix.formation.f1.heures}} hours for an introduction to a single track"
+        ]
+      ],
+      "variant": "default"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "anchor": "niveau-1",
+      "kicker_fr": "§ Niveau 1, objectifs",
+      "kicker_en": "§ Level 1, goals",
+      "heading_fr": "Niveau 1 : à l'issue, vous savez utiliser ChatGPT",
+      "heading_en": "Level 1: by the end, you can use ChatGPT",
+      "items": [
+        {
+          "label_fr": "Rédiger une consigne précise, avec le contexte et le format attendu, plutôt qu'une question en une ligne.",
+          "label_en": "Write a precise instruction, with context and the expected format, rather than a one-line question."
+        },
+        {
+          "label_fr": "Régler les instructions personnalisées et la mémoire : ce que ChatGPT retient de vous, et comment l'effacer.",
+          "label_en": "Tune custom instructions and memory: what ChatGPT remembers about you, and how to erase it."
+        },
+        {
+          "label_fr": "Ranger vos conversations et vos fichiers dans des projets.",
+          "label_en": "Keep your conversations and files in projects."
+        },
+        {
+          "label_fr": "Faire analyser un fichier de données et contrôler les calculs obtenus.",
+          "label_en": "Have a data file analysed and check the resulting calculations."
+        },
+        {
+          "label_fr": "Choisir entre la recherche web et la recherche approfondie, et lire les sources citées.",
+          "label_en": "Choose between web search and deep research, and read the cited sources."
+        },
+        {
+          "label_fr": "Reconnaître une réponse inventée et dire quelles données ne pas partager.",
+          "label_en": "Recognise a made-up answer and say which data not to share."
+        }
+      ]
+    },
+    {
+      "type": "editorial-timeline",
+      "background": "paper",
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Niveau 1, programme",
+      "eyebrow_en": "§ Level 1, programme",
+      "title_fr": "Programme du niveau 1 : utiliser l'application ChatGPT",
+      "title_en": "Level 1 programme: using the ChatGPT app",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Ce que ChatGPT fait bien, et mal",
+          "title_en": "What ChatGPT does well, and badly",
+          "body_fr": "Ce qu'on peut lui confier, là où il se trompe avec assurance, et ce que cela change pour un usage professionnel.",
+          "body_en": "What you can hand to it, where it is confidently wrong, and what that changes for professional use."
+        },
+        {
+          "num": "02",
+          "title_fr": "De la question à la consigne",
+          "title_en": "From question to instruction",
+          "body_fr": "Donner le contexte, un exemple et le format attendu. Chaque participant réécrit une demande qu'il fait déjà chaque semaine.",
+          "body_en": "Giving context, an example and the expected format. Each participant rewrites a request they already make every week."
+        },
+        {
+          "num": "03",
+          "title_fr": "Instructions personnalisées et mémoire",
+          "title_en": "Custom instructions and memory",
+          "body_fr": "Dire une fois comment on travaille. Voir ce que ChatGPT a retenu, le corriger, le désactiver quand il le faut.",
+          "body_en": "Saying once how you work. Seeing what ChatGPT has remembered, correcting it, turning it off when needed."
+        },
+        {
+          "num": "04",
+          "title_fr": "Projets",
+          "title_en": "Projects",
+          "body_fr": "Un projet par dossier ou par client, avec ses fichiers et ses consignes.",
+          "body_en": "One project per file or per client, with its files and instructions."
+        },
+        {
+          "num": "05",
+          "title_fr": "Fichiers et analyse de données",
+          "title_en": "Files and data analysis",
+          "body_fr": "Résumer un document long, interroger un tableau, obtenir un graphique. Vérifier un chiffre avant de le reprendre.",
+          "body_en": "Summarising a long document, querying a spreadsheet, getting a chart. Checking a figure before reusing it."
+        },
+        {
+          "num": "06",
+          "title_fr": "Recherche web et recherche approfondie",
+          "title_en": "Web search and deep research",
+          "body_fr": "Quand la recherche approfondie vaut l'attente, comment contrôler ses sources.",
+          "body_en": "When deep research is worth the wait, how to check its sources."
+        },
+        {
+          "num": "07",
+          "title_fr": "Règles d'usage",
+          "title_en": "Usage rules",
+          "body_fr": "Compte personnel ou espace de travail de l'entreprise, données interdites, relecture : une fiche d'une page pour l'équipe.",
+          "body_en": "Personal account or company workspace, off-limits data, review: a one-page sheet for the team."
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "anchor": "niveau-2",
+      "kicker_fr": "§ Niveau 2, objectifs",
+      "kicker_en": "§ Level 2, goals",
+      "heading_fr": "Niveau 2 : à l'issue, vous savez étendre ChatGPT",
+      "heading_en": "Level 2: by the end, you can extend ChatGPT",
+      "items": [
+        {
+          "label_fr": "Construire un GPT personnalisé pour une tâche récurrente, avec ses instructions et ses documents.",
+          "label_en": "Build a custom GPT for a recurring task, with its instructions and documents."
+        },
+        {
+          "label_fr": "Partager ce GPT dans l'équipe et décider qui le maintient.",
+          "label_en": "Share that GPT within the team and decide who maintains it."
+        },
+        {
+          "label_fr": "Relier ChatGPT aux outils de l'entreprise par les applications connectées, et dire ce que chacune expose.",
+          "label_en": "Connect ChatGPT to the company's tools through connected apps, and say what each one exposes."
+        },
+        {
+          "label_fr": "Confier une tâche en plusieurs étapes à ChatGPT et relire le livrable avec méthode.",
+          "label_en": "Hand a multi-step task to ChatGPT and review the deliverable methodically."
+        },
+        {
+          "label_fr": "Planifier une tâche récurrente et contrôler ce qu'elle produit.",
+          "label_en": "Schedule a recurring task and check what it produces."
+        },
+        {
+          "label_fr": "Rédiger les règles d'usage de l'équipe, base de votre charte IA.",
+          "label_en": "Write the team's usage rules, the basis of your AI policy."
+        }
+      ]
+    },
+    {
+      "type": "editorial-timeline",
+      "background": "paper-3",
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Niveau 2, programme",
+      "eyebrow_en": "§ Level 2, programme",
+      "title_fr": "Programme du niveau 2 : devenir expert de l'application",
+      "title_en": "Level 2 programme: becoming an expert in the app",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "GPT personnalisés",
+          "title_en": "Custom GPTs",
+          "body_fr": "Instructions, documents de référence, tests sur des cas réels. Chaque participant construit un GPT pour une de ses tâches.",
+          "body_en": "Instructions, reference documents, tests on real cases. Each participant builds a GPT for one of their tasks."
+        },
+        {
+          "num": "02",
+          "title_fr": "Partager et maintenir un GPT",
+          "title_en": "Sharing and maintaining a GPT",
+          "body_fr": "Qui y a accès, qui le met à jour, comment on sait qu'il ne répond plus correctement.",
+          "body_en": "Who has access, who updates it, how you know it has stopped answering correctly."
+        },
+        {
+          "num": "03",
+          "title_fr": "Applications connectées",
+          "title_en": "Connected apps",
+          "body_fr": "Relier la messagerie, les documents ou le CRM : ce que ChatGPT peut alors lire, ce que l'administrateur doit régler.",
+          "body_en": "Connecting email, documents or the CRM: what ChatGPT can then read, what the administrator must set up."
+        },
+        {
+          "num": "04",
+          "title_fr": "Confier une tâche complète",
+          "title_en": "Handing over a whole task",
+          "body_fr": "Les tâches en plusieurs étapes (ChatGPT Work) : préparer la demande, suivre l'avancement, valider le livrable.",
+          "body_en": "Multi-step tasks (ChatGPT Work): preparing the request, following progress, approving the deliverable."
+        },
+        {
+          "num": "05",
+          "title_fr": "Tâches planifiées",
+          "title_en": "Scheduled tasks",
+          "body_fr": "Une veille, un compte rendu, un contrôle qui revient chaque semaine : les planifier, et savoir quand les arrêter.",
+          "body_en": "A watch, a report, a check that comes back every week: scheduling them, and knowing when to stop them."
+        },
+        {
+          "num": "06",
+          "title_fr": "Règles d'usage et charte",
+          "title_en": "Usage rules and policy",
+          "body_fr": "Données interdites, qui valide quoi, RGPD et AI Act : la base de votre charte IA.",
+          "body_en": "Off-limits data, who approves what, GDPR and AI Act: the basis of your AI policy."
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "anchor": "niveau-3",
+      "kicker_fr": "§ Niveau 3, objectifs",
+      "kicker_en": "§ Level 3, goals",
+      "heading_fr": "Niveau 3 : à l'issue, vous savez construire un système IA avec OpenAI",
+      "heading_en": "Level 3: by the end, you can build an AI system with OpenAI",
+      "items": [
+        {
+          "label_fr": "Écrire le cadrage d'un agent : périmètre, outils accessibles, actions soumises à une validation humaine.",
+          "label_en": "Write the scope of an agent: perimeter, accessible tools, actions that need human approval."
+        },
+        {
+          "label_fr": "Parcours plateforme : appeler l'API Responses et obtenir une sortie structurée que votre code peut exploiter.",
+          "label_en": "Platform track: call the Responses API and get a structured output your code can use."
+        },
+        {
+          "label_fr": "Parcours plateforme : donner des outils au modèle (function calling, outils intégrés) et assembler un agent avec l'Agents SDK.",
+          "label_en": "Platform track: give the model tools (function calling, built-in tools) and assemble an agent with the Agents SDK."
+        },
+        {
+          "label_fr": "Parcours application et CLI : utiliser Codex sur un dépôt réel, régler ses modes d'approbation et relire ce qu'il modifie.",
+          "label_en": "App and CLI track: use Codex on a real repository, set its approval modes and review what it changes."
+        },
+        {
+          "label_fr": "Parcours application et CLI : donner le contexte du projet (AGENTS.md), brancher un serveur MCP et lancer Codex dans un script.",
+          "label_en": "App and CLI track: give the project context (AGENTS.md), connect an MCP server and run Codex from a script."
+        },
+        {
+          "label_fr": "Construire un jeu de cas de test et mesurer la qualité avant et après un changement.",
+          "label_en": "Build a set of test cases and measure quality before and after a change."
+        },
+        {
+          "label_fr": "Lister ce qui manque à votre prototype avant une mise en production.",
+          "label_en": "List what your prototype still lacks before going to production."
+        }
+      ]
+    },
+    {
+      "type": "editorial-timeline",
+      "background": "paper",
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Niveau 3, programme",
+      "eyebrow_en": "§ Level 3, programme",
+      "title_fr": "Programme du niveau 3 : deux parcours, un tronc commun",
+      "title_en": "Level 3 programme: two tracks, one common core",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Cadrer un agent",
+          "title_en": "Scoping an agent",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Périmètre, outils accessibles, validation humaine, critères de qualité. On écrit le cadrage du prototype avant de coder.",
+          "body_en": "Perimeter, accessible tools, human approval, quality criteria. We write the prototype's scope before coding."
+        },
+        {
+          "num": "02",
+          "title_fr": "Premiers appels à l'API",
+          "title_en": "First API calls",
+          "meta_fr": "Parcours plateforme",
+          "meta_en": "Platform track",
+          "body_fr": "API Responses, clés, choix du modèle, sorties structurées, coût d'un appel.",
+          "body_en": "Responses API, keys, model choice, structured outputs, cost of a call."
+        },
+        {
+          "num": "03",
+          "title_fr": "Outils et agents",
+          "title_en": "Tools and agents",
+          "meta_fr": "Parcours plateforme",
+          "meta_en": "Platform track",
+          "body_fr": "Function calling, outils intégrés (recherche web, recherche dans des fichiers, exécution de code), serveurs MCP. Puis l'Agents SDK : agents, passages de relais, garde-fous, traces.",
+          "body_en": "Function calling, built-in tools (web search, file search, code interpreter), MCP servers. Then the Agents SDK: agents, handoffs, guardrails, tracing."
+        },
+        {
+          "num": "04",
+          "title_fr": "Codex sur votre dépôt",
+          "title_en": "Codex on your repository",
+          "meta_fr": "Parcours application et CLI",
+          "meta_en": "App and CLI track",
+          "body_fr": "Codex dans le terminal : le contexte du projet (AGENTS.md), les modes d'approbation, le bac à sable, la relecture des modifications.",
+          "body_en": "Codex in the terminal: project context (AGENTS.md), approval modes, the sandbox, reviewing changes."
+        },
+        {
+          "num": "05",
+          "title_fr": "Étendre et automatiser Codex",
+          "title_en": "Extending and automating Codex",
+          "meta_fr": "Parcours application et CLI",
+          "meta_en": "App and CLI track",
+          "body_fr": "Serveurs MCP, compétences (skills), exécution sans interface avec codex exec dans un script ou en intégration continue.",
+          "body_en": "MCP servers, skills, running without an interface with codex exec in a script or in continuous integration."
+        },
+        {
+          "num": "06",
+          "title_fr": "Cadres d'exécution (harness)",
+          "title_en": "Harnesses",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Ce qu'un cadre d'exécution prend en charge : boucle, outils, approbations, contexte. Agents SDK, Codex SDK, ou sa propre boucle : comment choisir.",
+          "body_en": "What a harness takes care of: loop, tools, approvals, context. Agents SDK, Codex SDK, or your own loop: how to choose."
+        },
+        {
+          "num": "07",
+          "title_fr": "Tester et mesurer",
+          "title_en": "Testing and measuring",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Un jeu de cas réels, des critères écrits, des évaluations rejouées à chaque changement de consigne ou de modèle.",
+          "body_en": "A set of real cases, written criteria, evals rerun on each change of instruction or model."
+        },
+        {
+          "num": "08",
+          "title_fr": "Avant la production",
+          "title_en": "Before production",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Validation humaine, journalisation, coûts, RGPD et AI Act. Ce qui relève encore de la formation, et ce qui relève d'une mission.",
+          "body_en": "Human approval, logging, costs, GDPR and AI Act. What still belongs to training, and what belongs to an engagement."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Formation ChatGPT en entreprise : partir de l'usage qui existe déjà</h2>\n<p>Dans la plupart des entreprises, ChatGPT est arrivé avant toute décision. Chacun a son compte, ses habitudes, et personne ne sait quelles données y passent. La formation part de cet état réel : on regarde ce que l'équipe fait déjà avec l'outil, on garde ce qui marche, et on pose une méthode et des règles communes. Si vous hésitez encore entre les deux assistants, lisez notre comparatif <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT : lequel choisir en entreprise</a>.</p>\n<h2>Formation OpenAI Platform : construire avec l'API</h2>\n<p>Le parcours plateforme du niveau 3 s'adresse aux équipes qui intègrent les modèles d'OpenAI dans leur propre application ou dans leurs flux. On y travaille l'API Responses, les sorties structurées, les outils que l'on donne au modèle, puis l'Agents SDK pour assembler un agent dont on peut suivre chaque étape.</p>\n<h2>Formation Codex : l'agent de code d'OpenAI</h2>\n<p>Codex est l'agent de code d'OpenAI. Sa version en ligne de commande s'exécute en local, dans le terminal, sur le dossier que vous lui ouvrez. Le parcours application et CLI se fait sur votre propre dépôt : donner le contexte du projet, régler ce que Codex peut faire sans demander, relire ses modifications. Pour la construction et la mise en production d'un agent, voir notre service <a href=\"/services/agents-ia\">agents IA</a>.</p>\n<p>Les noms de produits et de fonctions cités sur cette page ont été relus le 5 octobre 2026 dans la documentation d'OpenAI : <a href=\"https://help.openai.com/en/collections/3742473-chatgpt\" rel=\"noopener\">help.openai.com</a>, <a href=\"https://developers.openai.com/api/docs\" rel=\"noopener\">la documentation de l'API</a> et <a href=\"https://developers.openai.com/codex/cli\" rel=\"noopener\">celle de Codex</a>. Ces produits évoluent vite : le programme est remis à jour au cadrage.</p>",
+      "html_en": "<h2>ChatGPT training for companies: start from the use that already exists</h2>\n<p>In most companies, ChatGPT arrived before any decision was made. Everyone has their own account and habits, and nobody knows which data goes through it. The training starts from that real state: we look at what the team already does with the tool, keep what works, and set a shared method and rules. If you are still choosing between the two assistants, read our comparison <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT: which to choose in a company</a>.</p>\n<h2>OpenAI Platform training: building with the API</h2>\n<p>The platform track of level 3 is for teams integrating OpenAI models into their own application or workflows. It covers the Responses API, structured outputs, the tools you give the model, then the Agents SDK to assemble an agent whose every step you can follow.</p>\n<h2>Codex training: OpenAI's coding agent</h2>\n<p>Codex is OpenAI's coding agent. Its command-line version runs locally, in the terminal, on the folder you open for it. The app and CLI track runs on your own repository: giving the project context, setting what Codex may do without asking, reviewing its changes. For building and shipping an agent, see our <a href=\"/services/agents-ia\">AI agents</a> service.</p>\n<p>The product and feature names quoted on this page were checked on 5 October 2026 in OpenAI's documentation: <a href=\"https://help.openai.com/en/collections/3742473-chatgpt\" rel=\"noopener\">help.openai.com</a>, <a href=\"https://developers.openai.com/api/docs\" rel=\"noopener\">the API documentation</a> and <a href=\"https://developers.openai.com/codex/cli\" rel=\"noopener\">the Codex documentation</a>. These products change quickly: the programme is updated during scoping.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Fiche pratique",
+      "kicker_en": "§ Practical details",
+      "heading_fr": "Prérequis, format, durée et tarif",
+      "heading_en": "Prerequisites, format, duration and price",
+      "columns_fr": [
+        "Rubrique",
+        "Détail"
+      ],
+      "columns_en": [
+        "Item",
+        "Detail"
+      ],
+      "rows_fr": [
+        [
+          "Prérequis",
+          "Un accès à ChatGPT pour chaque participant. Pour le niveau 3 : savoir utiliser Git et un terminal"
+        ],
+        [
+          "Format",
+          "Intra-entreprise, à distance ou sur site, sur les cas réels de votre entreprise"
+        ],
+        [
+          "Durée",
+          "Deux formats : {{prix.formation.f1.heures}} heures ou {{prix.formation.f2.heures}} heures"
+        ],
+        [
+          "Tarif",
+          "{{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ; {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT"
+        ],
+        [
+          "Formateur",
+          "Simon Beros, fondateur de Waimia. Il conçoit et met en production des automatisations et des agents IA pour des PME, et forme sur ce qu'il pratique."
+        ],
+        [
+          "Organisme",
+          "Akigora, organisme certifié Qualiopi"
+        ],
+        [
+          "Financement",
+          "Prise en charge possible selon votre situation"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Prerequisites",
+          "ChatGPT access for each participant. For level 3: knowing Git and a terminal"
+        ],
+        [
+          "Format",
+          "In-company, remote or on site, on your company's real cases"
+        ],
+        [
+          "Duration",
+          "Two formats: {{prix.formation.f1.heures}} hours or {{prix.formation.f2.heures}} hours"
+        ],
+        [
+          "Price",
+          "{{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT; {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT"
+        ],
+        [
+          "Trainer",
+          "Simon Beros, founder of Waimia. He designs and ships automations and AI agents for SMEs, and trains on what he practises."
+        ],
+        [
+          "Training organisation",
+          "Akigora, a Qualiopi-certified training organisation"
+        ],
+        [
+          "Funding",
+          "Funding may be possible depending on your situation"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "note",
+      "body_fr": "Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation : on regarde ce point avec vous et avec Akigora au cadrage.",
+      "body_en": "Training delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation: we look at this with you and Akigora during scoping."
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation Claude",
+          "title_en": "Claude training",
+          "lead_fr": "Les trois mêmes niveaux, sur Claude, Claude Platform et Claude Code.",
+          "lead_en": "The same three levels, on Claude, Claude Platform and Claude Code.",
+          "href": "/formations/claude"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Claude ou ChatGPT",
+          "title_en": "Claude or ChatGPT",
+          "lead_fr": "Les critères pour choisir l'assistant d'une PME.",
+          "lead_en": "The criteria for choosing an SME's assistant.",
+          "href": "/ressources/comparatifs/claude-vs-chatgpt-pme"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Toutes les formations",
+          "title_en": "All training courses",
+          "lead_fr": "Claude, ChatGPT, automatisation, n8n et Make.",
+          "lead_en": "Claude, ChatGPT, automation, n8n and Make.",
+          "href": "/formations"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Quel niveau choisir pour la formation ChatGPT ?",
+          "q_en": "Which level should we choose for the ChatGPT training?",
+          "a_fr": "Niveau 1 si l'équipe utilise ChatGPT sans méthode commune ou débute. Niveau 2 si elle veut construire ses propres GPT et le relier à ses outils. Niveau 3 pour les développeurs qui veulent construire avec l'API d'OpenAI ou avec Codex. L'audit gratuit sert à vérifier le niveau de départ.",
+          "a_en": "Level 1 if the team uses ChatGPT without a shared method or is starting out. Level 2 if it wants to build its own GPTs and connect ChatGPT to its tools. Level 3 for developers who want to build with the OpenAI API or with Codex. The free audit is there to check the starting level."
+        },
+        {
+          "q_fr": "Formation ChatGPT ou formation Claude : laquelle choisir ?",
+          "q_en": "ChatGPT training or Claude training: which one?",
+          "a_fr": "Celle de l'outil que votre entreprise utilise ou va déployer. Les deux formations suivent les trois mêmes niveaux, et les principes (consigne, relecture, données) se transposent de l'un à l'autre. Si l'outil n'est pas encore choisi, on en parle pendant l'audit.",
+          "a_en": "The one for the tool your company uses or will roll out. Both courses follow the same three levels, and the principles (instruction, review, data) carry over from one to the other. If the tool is not chosen yet, we discuss it during the audit."
+        },
+        {
+          "q_fr": "Faut-il un abonnement payant à ChatGPT pour suivre la formation ?",
+          "q_en": "Do we need a paid ChatGPT subscription to attend?",
+          "a_fr": "Il faut un accès à ChatGPT pour chaque participant. Certaines fonctions vues au niveau 2 dépendent de l'offre souscrite par l'entreprise. On vérifie ce point au cadrage, et le programme est ajusté à ce que vos comptes permettent réellement.",
+          "a_en": "Each participant needs ChatGPT access. Some features covered at level 2 depend on the plan the company has subscribed to. We check this during scoping, and the programme is adjusted to what your accounts actually allow."
+        },
+        {
+          "q_fr": "Le niveau 3 s'adresse-t-il à des non-développeurs ?",
+          "q_en": "Is level 3 for non-developers?",
+          "a_fr": "Non. Il demande de savoir utiliser Git et un terminal, et de lire du code Python ou TypeScript pour le parcours plateforme. Pour les équipes métier, les niveaux 1 et 2 vont jusqu'aux GPT personnalisés et aux tâches en plusieurs étapes, sans écrire de code.",
+          "a_en": "No. It requires knowing Git and a terminal, and reading Python or TypeScript code for the platform track. For business teams, levels 1 and 2 go as far as custom GPTs and multi-step tasks, without writing code."
+        },
+        {
+          "q_fr": "Repart-on avec un agent IA en production ?",
+          "q_en": "Do we leave with an AI agent in production?",
+          "a_fr": "Non, et c'est volontaire. Aux niveaux 1 et 2, on repart avec un cadrage écrit et des réglages réutilisables. Au niveau 3, l'objectif est un prototype fonctionnel sur un cas de l'entreprise. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation.",
+          "a_en": "No, deliberately. At levels 1 and 2 you leave with a written scope and reusable settings. At level 3 the goal is a working prototype on a company case. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+        },
+        {
+          "q_fr": "Quelles données peut-on utiliser pendant la formation ?",
+          "q_en": "Which data can be used during the training?",
+          "a_fr": "On le décide au cadrage. Par défaut : pas de données de santé, de paie ni de données clients nominatives dans les exercices. On travaille sur des documents réels non sensibles ou anonymisés.",
+          "a_en": "Decided during scoping. By default: no health, payroll or named customer data in exercises. We work on real, non-sensitive or anonymised documents."
+        },
+        {
+          "q_fr": "Combien de temps dure la formation et combien coûte-t-elle ?",
+          "q_en": "How long does the training last and how much does it cost?",
+          "a_fr": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise.",
+          "a_en": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. There is no fixed-date catalogue session: each training is built for one company."
+        },
+        {
+          "q_fr": "La formation peut-elle être financée ?",
+          "q_en": "Can the training be funded?",
+          "a_fr": "Les formations sont dispensées via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation. On vérifie ce point avec vous et avec Akigora au cadrage, avant tout engagement.",
+          "a_en": "Training is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. We check this with you and Akigora during scoping, before any commitment."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h2_fr": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "h2_en": "We build the programme on your tasks, not on a catalogue.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On repère les tâches sur lesquelles former votre équipe, le niveau de départ, et on vous dit si une formation est la bonne réponse.",
+      "subtitle_en": "The 45-minute audit is free. We identify the tasks to train your team on, the starting level, and tell you whether training is the right answer.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
