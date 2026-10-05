@@ -460,6 +460,9 @@
   .sec-grid[data-columns='4'],
   .sec-grid[data-columns='5'],
   .sec-grid[data-columns='6'] { grid-template-columns: 1fr; }
+  /* grid-asym : les ratios (data-col-ratio, spécificité 0,4,0) écrasaient la colonne unique
+     ci-dessus ; cartes de prix et livrables restaient côte à côte à 390 px. */
+  .sec-collection[data-layout='grid-asym'] .sec-grid[data-col-ratio] { grid-template-columns: 1fr; }
   .sec-editorial[data-layout='two-col'] .sec-grid,
   .sec-gallery[data-layout='masonry'] .sec-grid,
   .sec-collection[data-layout='masonry'] .sec-grid { column-count: 1; }
