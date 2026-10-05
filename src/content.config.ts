@@ -182,6 +182,7 @@ const cases = defineCollection({
               alt_fr: z.string(),
               alt_en: z.string(),
               kind: z.enum(['frame', 'tall']).default('frame'),
+              addr: z.string().optional(),
               caption_fr: z.string().optional(),
               caption_en: z.string().optional(),
             }),
