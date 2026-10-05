@@ -50,7 +50,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Description du hub blog sans mot-clé ; title « guide pillar » ; 6 titles de plus de 60 caractères.
 - Requêtes sans page : « n8n prix », « agents ia c'est quoi », et « devis automatisé » portée par une page service.
 
-**Actions** (PR de la branche `feat/seo-audit-2026-10-05`)
+**Actions** (PR #72, branche `feat/seo-audit-2026-10-05`)
 
 1. Création de `/ressources/guides/n8n-prix` (entrée `w42-n8n-prix`).
    - Recherche en ligne : « n8n prix », « n8n tarif auto-hébergé coût serveur PME ». Pages lues le 5 octobre 2026 : <https://tensoria.fr/blog/combien-coute-n8n-production>, <https://nordflux.de/fr/ressources/n8n-cout-licence>, <https://agence-scroll.com/fr/blog/price-automation-n8n>, <https://latenode.com/fr/blog/tarifs-n8n-2025-comparaison-complete-des-offres-et-analyse-des-couts-caches-face-aux-alternatives>, <https://sliplane.io/blog/n8n-pricing>. Elles donnent toutes la grille et des coûts de serveur ; aucune ne donne la durée maximale d'une exécution par offre, l'absence de partage en Community Edition, ce que la licence autorise à un prestataire, ni les cas où n8n n'est pas le bon choix.
