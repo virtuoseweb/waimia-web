@@ -103,6 +103,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 8,
       "label": "Simon Beros",
       "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
     }
   ],
   "bento-grid": [
@@ -885,6 +930,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 6,
+      "label": "Dans quels cas chacune convient",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -948,11 +1002,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 6,
+      "label": "Si vous déployez un système à haut risque : ce que l'article 26 demandera au 2 décembre 2027",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 7,
       "label": "Six questions pour partir du bon pied",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 6,
+      "label": "Huit questions à poser avant de brancher un serveur MCP",
       "background": "paper"
     },
     {
@@ -1910,6 +1982,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -1982,6 +2063,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -1996,6 +2086,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 1,
       "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 2,
+      "label": "#2",
       "background": "paper-2"
     },
     {
@@ -2253,6 +2370,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -2280,6 +2424,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -2294,6 +2474,96 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-cowork",
       "index": 6,
       "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 10,
+      "label": "#10",
       "background": "paper"
     },
     {
@@ -2546,6 +2816,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 4,
+      "label": "Claude Platform et OpenAI Platform, critère par critère",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -2556,11 +2836,101 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 4,
+      "label": "Le calendrier de l'AI Act au 5 octobre 2026",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
       "index": 3,
       "label": "Où Cowork est disponible, selon Anthropic",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 4,
+      "label": "Intégration classique ou serveur MCP",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 8,
+      "label": "MCP dans les plateformes de Claude et d'OpenAI",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 4,
+      "label": "Le coût complet : six postes, dont trois qu'on oublie",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 6,
+      "label": "Exemple illustratif : la saisie de factures fournisseurs",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 8,
+      "label": "Le tableau de calcul, ligne par ligne",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 4,
+      "label": "Les cinq critères, et comment les mesurer",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 6,
+      "label": "Selon le profil de la tâche, quoi faire",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 7,
+      "label": "Par fonction : le bon premier candidat",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -3209,6 +3579,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 9,
+      "label": "Questions fréquentes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -3281,6 +3660,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 12,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -3295,6 +3683,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 9,
       "label": "Ce que vous nous demandez",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 11,
+      "label": "Questions fréquentes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 11,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 12,
+      "label": "Questions fréquentes",
       "background": "paper"
     },
     {
@@ -4207,6 +4622,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 10,
+      "label": "La bonne plateforme se choisit sur vos données et vos contraintes.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -4279,6 +4703,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 13,
+      "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -4293,6 +4726,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 10,
       "label": "Vous savez par où commencer. Cadrons votre premier agent.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 12,
+      "label": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 12,
+      "label": "Un seuil de rentabilité calculé sur vos chiffres, pas sur une moyenne de marché.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 13,
+      "label": "Votre liste de tâches, classée et tranchée en 45 minutes.",
       "background": "ink"
     },
     {
@@ -5153,6 +5613,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 0,
+      "label": "Claude Platform ou OpenAI Platform : lequel choisir pour une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -5216,6 +5685,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 0,
+      "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne vraiment",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -5230,6 +5708,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 0,
       "label": "Déployer Claude dans votre PME.",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 0,
+      "label": "MCP (Model Context Protocol) expliqué à un dirigeant de PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 0,
+      "label": "Mesurer le ROI d'une automatisation ou d'un projet IA : la méthode complète",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 0,
+      "label": "Automatisation en PME : quelles tâches automatiser en premier",
       "background": "paper"
     },
     {
@@ -6167,6 +6672,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 9,
+      "label": "Quoi faire, échéance par échéance",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -6182,6 +6696,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Trois phases pour démarrer juste",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 5,
+      "label": "La cartographie en cinq étapes, sur deux semaines",
+      "background": "paper-3"
     },
     {
       "collection": "demonstrations",
@@ -6715,6 +7238,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 8,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -6778,6 +7310,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -6791,6 +7332,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 8,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 10,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/roi-automatisation.json",
+      "slug": "roi-automatisation",
+      "route": "/ressources/guides/roi-automatisation",
+      "index": 10,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 11,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -7078,11 +7646,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 7,
+      "label": "Ce qui vous concerne, ce qui ne vous concerne pas",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
       "index": 4,
       "label": "Quand l'utiliser en PME, et quand s'abstenir",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 7,
+      "label": "Quand faire développer un serveur MCP, et quand s'en passer",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/taches-a-automatiser-pme.json",
+      "slug": "taches-a-automatiser-pme",
+      "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 8,
+      "label": "Ce qu'on automatise d'abord, ce qu'on n'automatise pas",
       "background": "paper"
     },
     {

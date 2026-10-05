@@ -59,6 +59,12 @@ const ROUTES = [
   "/cas-clients/virtuoseos",
   "/cas-clients/prototypes-internes",
   "/cas-clients/isabelle-diaz-naturopathe",
+  // Articles de fond (2026-10-05) : quatre guides et un comparatif.
+  "/ressources/guides/roi-automatisation",
+  "/ressources/guides/taches-a-automatiser-pme",
+  "/ressources/guides/mcp-claude",
+  "/ressources/guides/ai-act-pme-calendrier",
+  "/ressources/comparatifs/claude-platform-vs-openai-platform",
 ];
 
 for (const path of ROUTES) {
