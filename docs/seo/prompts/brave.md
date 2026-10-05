@@ -21,17 +21,18 @@ Si la file est vide, dis-le, avec la date et le nombre d'URL lues dans le sitema
 
 **Étape 2 : soumettre, dans le navigateur de Simon.**
 
-1. Ouvre `https://search.brave.com/submit-url`.
+1. Ouvre `https://search.brave.com/submit-url` dans un nouvel onglet, sans le mettre au premier plan si c'est possible, pour ne pas gêner Simon.
 2. Colle une URL dans le champ « Insert the URL to be re-fetched », clique « Submit ». Une seule URL à la fois.
 3. Vérifie que la page affiche « Success · Thank you for your submission ». Tout autre résultat est un échec : note l'URL et ce qui s'est affiché. N'insiste pas plus de deux fois sur la même URL.
 4. Recharge la page avant l'URL suivante (le bouton reste inactif sinon), puis recommence.
 5. Arrête-toi à 40 soumissions, même si tout se passe bien : une vérification anti-robot est apparue vers 47 soumissions d'affilée le 4 octobre 2026.
+6. Ferme l'onglet que tu as ouvert. Ne touche à aucun autre onglet.
 
 **Si le navigateur est injoignable** (ordinateur éteint, extension déconnectée, onglet qui ne répond pas) : ne tente rien d'autre. Donne la file que tu as calculée, comme liste de ce qui n'a pas pu être soumis, et arrête-toi.
 
 **Interdits, sans exception.**
 
-- Devant un captcha, une case « je ne suis pas un robot », une page d'attente ou toute vérification humaine : arrête-toi net. Ne tente ni de la résoudre ni de la contourner. Tout ce qui restait passe dans « à reprendre ».
+- Devant un captcha, une case « je ne suis pas un robot », une page d'attente ou toute vérification humaine : arrête-toi net. Ne tente ni de la résoudre ni de la contourner. Tout ce qui restait passe dans « à reprendre ». Exception, à ne pas confondre : après chaque clic sur « Submit », le formulaire affiche de lui-même « Verifying you're a human being » quelques secondes, puis « Success ». C'est normal et ne demande aucune action : attends jusqu'à 30 secondes. Arrête-toi seulement si « Success » n'arrive pas dans ce délai ou si une épreuve à résoudre apparaît.
 - Ne jamais saisir d'identifiant ni de mot de passe. Le formulaire ne demande aucun compte : une demande de connexion est une raison de s'arrêter.
 - Ne jamais appeler l'adresse du formulaire directement (requête HTTP, script, `curl`) : la soumission passe par la page, dans le navigateur.
 - Ne soumettre que des URL de `https://waimia.com` issues de la file. Aucun autre site, aucun autre formulaire, aucun autre moteur.
