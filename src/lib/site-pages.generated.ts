@@ -3213,7 +3213,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/claude-pme",
-    "title": "Déployer Claude dans une PME : le guide pratique",
+    "title": "Guide Claude pour PME : déployer Claude en 90 jours (2026)",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/claude-pme.json",
@@ -3236,13 +3236,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
         "type": "feature-zigzag",
         "label": "Les cinq usages par lesquels commencer",
         "background": "paper-2"
       },
       {
         "type": "pull-quote-block",
-        "label": "#4",
+        "label": "#5",
         "variant": "centered",
         "background": "ink"
       },
@@ -3255,6 +3260,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "feature-zigzag",
         "label": "Les 6 prérequis à poser avant le premier compte",
         "background": "paper-2"
+      },
+      {
+        "type": "resource-card-grid",
+        "label": "Quatre outils pour passer du guide au plan",
+        "background": "paper"
       },
       {
         "type": "decision-list",

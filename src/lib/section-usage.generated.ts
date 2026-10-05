@@ -419,7 +419,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 60,
+    "count": 61,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -437,6 +437,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/claude-cowork",
+      "/ressources/guides/claude-pme",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
@@ -1248,6 +1249,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     "count": 1,
     "pages": [
       "src/content/formations/index.json"
+    ]
+  },
+  "resource-card-grid": {
+    "count": 1,
+    "pages": [
+      "/ressources/guides/claude-pme"
     ]
   },
   "roi-band": {
