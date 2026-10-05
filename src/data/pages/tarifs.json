@@ -175,26 +175,26 @@
           "includes_fr": [
             "Ateliers sur vos cas réels",
             "Programme défini après l'audit",
-            "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT, {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT",
+            "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT {{prix.formation.base}}, {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT {{prix.formation.base}}",
             "Prise en charge possible selon votre situation"
           ],
           "includes_en": [
             "Workshops on your real cases",
             "Programme defined after the audit",
-            "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT, {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT",
+            "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT {{prix.formation.base.en}}, {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT {{prix.formation.base.en}}",
             "Funding possible depending on your situation"
           ],
           "price_fr": "{{prix.formation.f1}} € HT",
           "price_en": "{{prix.formation.f1.en}} € ex VAT",
-          "price_note_fr": "Format {{prix.formation.f2.heures}} heures : {{prix.formation.f2}} € HT",
-          "price_note_en": "{{prix.formation.f2.heures}}-hour format: {{prix.formation.f2.en}} € ex VAT",
+          "price_note_fr": "Format {{prix.formation.f2.heures}} heures : {{prix.formation.f2}} € HT {{prix.formation.base}}",
+          "price_note_en": "{{prix.formation.f2.heures}}-hour format: {{prix.formation.f2.en}} € ex VAT {{prix.formation.base.en}}",
           "cta": {
             "label_fr": "Voir les formations",
             "label_en": "See the training programmes",
             "href": "/formations"
           },
-          "duration_fr": "Format {{prix.formation.f1.heures}} heures",
-          "duration_en": "{{prix.formation.f1.heures}}-hour format"
+          "duration_fr": "Format {{prix.formation.f1.heures}} heures, prix {{prix.formation.base}}",
+          "duration_en": "{{prix.formation.f1.heures}}-hour format, price {{prix.formation.base.en}}"
         }
       ],
       "aside": {
@@ -413,8 +413,8 @@
         {
           "q_fr": "Comment se passent les formations ?",
           "q_en": "How does training work?",
-          "a_fr": "Formations dispensées via Akigora, organisme certifié Qualiopi. Le programme (n8n, Make, Claude) est défini après l'audit, à partir de vos processus. Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Prise en charge possible selon votre situation.",
-          "a_en": "Training delivered through Akigora, a Qualiopi-certified body. The programme (n8n, Make, Claude) is defined after the audit, from your processes. Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. Funding possible depending on your situation."
+          "a_fr": "Formations dispensées via Akigora, organisme certifié Qualiopi. Le programme (n8n, Make, Claude) est défini après l'audit, à partir de vos processus. Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. {{prix.formation.note}}. Prise en charge possible selon votre situation.",
+          "a_en": "Training delivered through Akigora, a Qualiopi-certified body. The programme (n8n, Make, Claude) is defined after the audit, from your processes. Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. {{prix.formation.note.en}}. Funding possible depending on your situation."
         },
         {
           "q_fr": "Et si j'ai seulement besoin d'un site web ou de prospection ?",

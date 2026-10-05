@@ -9,7 +9,7 @@
 
 import { SITE } from '../../site.config';
 import founderData from '../../content/authors/simon-beros.json';
-import { ENGAGEMENT_OFFERS, type EngagementPricing } from '../../data/pricing';
+import { ENGAGEMENT_OFFERS, TRAINING_PRICE_NOTE, type EngagementPricing } from '../../data/pricing';
 
 const SITE_URL = SITE.url;
 
@@ -611,6 +611,8 @@ function buildCourse(input: BuildCourseInput): JsonLdObject {
   const courseOffer = (price: number, name?: string): JsonLdObject => ({
     '@type': 'Offer',
     ...(name ? { name } : {}),
+    // Le prix d'une formation s'entend par session, pas par participant (source : pricing.ts).
+    description: `${TRAINING_PRICE_NOTE.fr}.`,
     price,
     priceCurrency: 'EUR',
     priceSpecification: { '@type': 'PriceSpecification', price, priceCurrency: 'EUR', valueAddedTaxIncluded: false },

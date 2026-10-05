@@ -18,6 +18,7 @@ import {
   SCOPING_SPRINT_EUR,
   SCOPING_SPRINT_HOURS,
   TRAINING_FORMATS,
+  TRAINING_PRICE_NOTE,
   formatEur,
 } from '../../data/pricing';
 import { serviceDomains } from './service-catalog';
@@ -51,7 +52,7 @@ export function llmsDetails(): string[] {
   return [
     `L'offre, en cinq domaines :\n${domains}`,
     `Le parcours et les prix d'entrée (hors taxes, détail sur ${SITE.url}/tarifs) :\n${path}`,
-    `Formations : deux formats, ${training}. Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.`,
+    `Formations : deux formats, ${training}. ${TRAINING_PRICE_NOTE.fr}. Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.`,
     'Garde-fous : RGPD et AI Act pris en compte dès la conception, validation humaine sur les actions sensibles, journal des actions, code et workflows transférés au client en fin de mission.',
     `Qui : Simon Beros, fondateur, travaille seul avec les équipes métier du client (${SITE.url}/equipe/simon-beros).`,
     `Contact : ${SITE.email}. Prise de rendez-vous pour l'audit gratuit : ${SITE.url}${AUDIT_BOOKING_HREF}`,
