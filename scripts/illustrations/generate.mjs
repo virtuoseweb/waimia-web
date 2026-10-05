@@ -3,7 +3,7 @@
  * Génère une illustration Waimia DIRECTEMENT dans sa palette finale (aucun filtre après coup).
  *
  *   node scripts/illustrations/generate.mjs <slug> "<subject in English>" \
- *     [--palette duotone|tritone] [--quality high|medium] [--attempts 3] [--no-ink]
+ *     [--palette duotone|tritone] [--cast <distribution>] [--quality high|medium] [--attempts 3] [--no-ink]
  *
  * Étapes :
  *   1. Variante claire : prompt = dessin (style.json) + palette `<palette>-paper` + sujet.
@@ -23,7 +23,10 @@ import { ROOT, STYLE, loadSharp, parseArgs, checkPalette } from './_lib.mjs';
 
 const { flags, positional } = parseArgs(process.argv.slice(2), ['no-ink']);
 const [slug, subject] = positional;
-const family = flags.palette ?? 'duotone';
+const family = flags.palette ?? (flags.cast ? STYLE.casts[flags.cast]?.family : 'duotone') ?? 'duotone';
+const castName = flags.cast ?? STYLE.default_cast[family];
+const cast = STYLE.casts[castName];
+if (!cast || cast.family !== family) throw new Error(`Distribution ${castName} absente ou incompatible avec ${family}`);
 if (!slug || !subject || !['duotone', 'tritone'].includes(family)) {
   console.log('Usage : generate.mjs <slug> "<subject>" [--palette duotone|tritone] [--quality high] [--attempts 3] [--no-ink]');
   process.exit(1);
@@ -102,11 +105,11 @@ async function produce(tone, makeRaw, prompt) {
 }
 
 const anchors = `Match the house style of these existing illustrations (style only, do not copy their subjects):\n- ${STYLE.style_anchors.join('\n- ')}`;
-const base = `${STYLE.drawing_prompt}\n\n${anchors}\n\nColor rendering: ${STYLE.palettes[`${family}-paper`].prompt}\n\nSubject: ${subject}\n\nAvoid: ${STYLE.negative_prompt}`;
+const base = `${STYLE.drawing_prompt}\n\n${anchors}\n\nColor rendering: ${STYLE.palettes[`${family}-paper`].prompt}\n${cast.prompt}\n\nSubject: ${subject}\n\nAvoid: ${STYLE.negative_prompt}`;
 const paperRaw = await produce('paper', generate, base);
 
 if (!flags['no-ink']) {
-  const inkPrompt = `${STYLE.ink_from_paper_prompt}${STYLE.palettes[`${family}-ink`].prompt}\n\nAvoid: ${STYLE.negative_prompt}`;
+  const inkPrompt = `${STYLE.ink_from_paper_prompt}${STYLE.palettes[`${family}-ink`].prompt} Keep the same color roles (which area is background, subject, accent), only darkened to this palette.\n\nAvoid: ${STYLE.negative_prompt}`;
   const png = await sharp(paperRaw).png().toBuffer();
   await produce('ink', (p) => edit(png, p), inkPrompt);
 }

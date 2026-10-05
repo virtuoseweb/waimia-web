@@ -61,7 +61,8 @@ export async function checkPalette(file, paletteName) {
   if (!pal) throw new Error(`Palette inconnue : ${paletteName}`);
   const { check } = STYLE;
   const sharp = loadSharp();
-  const anchors = [...Object.values(pal.colors), ...pal.tints].map((h) => ({ h, lab: toLab(hex(h)) }));
+  // Famille bleue = le bleu et ses teintes (canal bleu nettement au-dessus du rouge).
+  const anchors = [...Object.values(pal.colors), ...pal.tints].map((h) => { const [r, , b] = hex(h); return { h, lab: toLab(hex(h)), blue: b - r > 20 }; });
   const blueLab = pal.colors.cyan ? toLab(hex(pal.colors.cyan)) : null;
   const { data } = await sharp(file).resize({ width: 364 }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   let sum = 0;
@@ -74,7 +75,7 @@ export async function checkPalette(file, paletteName) {
     let bestIsBlue = false;
     for (const a of anchors) {
       const d = Math.hypot(lab[0] - a.lab[0], lab[1] - a.lab[1], lab[2] - a.lab[2]);
-      if (d < best) { best = d; bestIsBlue = blueLab && a.lab === anchors.find((x) => x.h === pal.colors.cyan).lab; }
+      if (d < best) { best = d; bestIsBlue = Boolean(blueLab) && a.blue; }
     }
     sum += best;
     if (best < 12) near += 1;

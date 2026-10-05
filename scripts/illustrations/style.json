@@ -53,9 +53,12 @@
       "tints": [
         "#D98970",
         "#E5B4A2",
-        "#EDD3C5"
+        "#EDD3C5",
+        "#96C0DB",
+        "#B6D0DF",
+        "#D6E0E3"
       ],
-      "prompt": "STRICT THREE-COLOR RISOGRAPH PRINT. Terracotta red #C85130 and warm cream paper #F7F0E7 with their in-between tints (#D98970, #E5B4A2, #EDD3C5), plus exactly ONE accent ink: sky cyan blue #75B0D7, used as flat areas on 10 to 25% of the image (for example the sky, a screen, a window, a reflection or one key object). The blue stays flat and exactly #75B0D7, never shifted to navy, teal or turquoise. The darkest value anywhere is terracotta #C85130: no black, no grey, no other colors."
+      "prompt": "STRICT THREE-COLOR RISOGRAPH PRINT. Terracotta red #C85130 and warm cream paper #F7F0E7 with their in-between tints (#D98970, #E5B4A2, #EDD3C5), plus exactly ONE accent ink: sky cyan blue #75B0D7, used as flat areas exactly where the color roles below put it (it can be the background, the ground, the main subject or just one small touch). The blue stays flat and exactly #75B0D7, never shifted to navy, teal or turquoise. The darkest value anywhere is terracotta #C85130: no black, no grey, no other colors."
     },
     "tritone-ink": {
       "use": "variante fond sombre avec le point froid cyan.",
@@ -76,9 +79,12 @@
         "#C86649",
         "#D68B72",
         "#E5B5A3",
-        "#EED4C6"
+        "#EED4C6",
+        "#96C0DA",
+        "#B6D0DE",
+        "#D7DFE2"
       ],
-      "prompt": "STRICT THREE-COLOR DARK RISOGRAPH PRINT. Deep brown-black ink #100B08, terracotta #BA5032 and warm cream #F8EFE5 with flat steps between them (#542517, #943C23, #D1785E, #E5B5A3), plus exactly ONE accent ink: sky cyan blue #75B0D7 used as flat areas on 10 to 25% of the image (sky, screen, window, reflection or one key object). The blue stays flat and exactly #75B0D7, never shifted to navy, teal or turquoise. No grey, no green, no purple, no other colors."
+      "prompt": "STRICT THREE-COLOR DARK RISOGRAPH PRINT. Deep brown-black ink #100B08, terracotta #BA5032 and warm cream #F8EFE5 with flat steps between them (#542517, #943C23, #D1785E, #E5B5A3), plus exactly ONE accent ink: sky cyan blue #75B0D7 used as flat areas exactly where the color roles below put it (it can be the background, the ground, the main subject or just one small touch). The blue stays flat and exactly #75B0D7, never shifted to navy, teal or turquoise. No grey, no green, no purple, no other colors."
     }
   },
   "ink_from_paper_prompt": "Recolor this exact illustration without changing the drawing, the composition, the figures or the grain. Keep every shape in place. Apply this palette: ",
@@ -86,13 +92,152 @@
   "check": {
     "max_mean_delta_e": 9,
     "min_coverage": 0.9,
-    "cyan_min_share": 0.06,
+    "cyan_min_share": 0.005,
     "cyan_max_share": 0.75,
-    "comment": "Delta E CIE76 Lab de chaque pixel à la couleur la plus proche de (colors + tints). coverage = part des pixels à moins de 12 de Delta E. cyan_*_share : uniquement pour les palettes tritone. cyan_max_share 0.75 : les compositions « grand ciel » (référence computer-health) ont jusqu'à ~70 % de bleu."
+    "comment": "Delta E CIE76 Lab de chaque pixel à la couleur la plus proche de (colors + tints). coverage = part des pixels à moins de 12 de Delta E. cyan_*_share : uniquement pour les palettes tritone. cyan_max_share 0.75 : les compositions « grand ciel » (référence computer-health) ont jusqu'à ~70 % de bleu. cyan_min_share 0.005 : la distribution touche-bleue n'a qu'un petit élément bleu."
   },
   "style_anchors": [
     "House style reference 1: a calm woman in a 1960s dress sits in a lounge chair with a laptop while her own giant shadow stands behind her and types on another laptop; plain background, pale floor band.",
     "House style reference 2: a tiny lone figure on a dark textured ground at the far left, a gigantic arcing wave of stacked bands sweeping up across the sky; 70% empty space.",
     "House style reference 3: a giant laptop floats in a vast plain sky, a heartbeat line crosses the whole image, a grainy cloud, a thin strip of countryside with two tiny houses at the very bottom."
-  ]
+  ],
+  "casts_comment": "Distributions de couleurs : n'importe quelle couleur peut tenir n'importe quel rôle. Rôles : field (fond principal), ground (sol / second plan), shape (grande forme géométrique), subject (sujet principal, silhouettes), detail (petits éléments, accents). Valeurs : shadow, deep, mid, soft, pale, light, blue, ou gradient:<de>:<à> (dégradé en bandes de risographie). Choisir la distribution selon le message de la section (ex. contre-jour = tension, crème aéré = pédagogie, ciel bleu = sérénité, touche bleue = un seul élément à remarquer).",
+  "casts": {
+    "terracotta-plein": {
+      "family": "duotone",
+      "use": "défaut ; calme, éditorial (woman-computer, band-showing-tv)",
+      "map": {
+        "field": "mid",
+        "ground": "pale",
+        "shape": "soft",
+        "subject": "shadow",
+        "detail": "light"
+      },
+      "prompt": "Color roles: the large background is a flat mid terracotta; the ground strip is pale cream-pink; the big geometric shape is a light terracotta tint; figures and the main subject are the darkest terracotta; small details are cream."
+    },
+    "creme-aere": {
+      "family": "duotone",
+      "use": "pédagogie, clarté, avant/après (fruits, man-and-woman-hi)",
+      "map": {
+        "field": "light",
+        "ground": "pale",
+        "shape": "soft",
+        "subject": "shadow",
+        "detail": "mid"
+      },
+      "prompt": "Color roles: the large background is warm cream paper with lots of empty space; the ground strip is a pale tint; the big shape is a light terracotta tint; figures and the main subject are dark terracotta; small details are mid terracotta."
+    },
+    "contre-jour": {
+      "family": "duotone",
+      "use": "tension, nuit, urgence, révélation (style-13)",
+      "map": {
+        "field": "shadow",
+        "ground": "deep",
+        "shape": "mid",
+        "subject": "light",
+        "detail": "soft"
+      },
+      "prompt": "Color roles: the large background is the darkest tone; the ground is one step lighter; the big shape is mid terracotta; figures and the main subject are cream, glowing against the dark; small details are a light terracotta tint."
+    },
+    "degrade-aube": {
+      "family": "duotone",
+      "use": "progression, lancement, horizon (style-17)",
+      "map": {
+        "field": "gradient:mid:pale",
+        "ground": "deep",
+        "shape": "light",
+        "subject": "shadow",
+        "detail": "light"
+      },
+      "prompt": "Color roles: the background is a vertical banded gradient (4 to 5 flat risograph bands) from mid terracotta at the top to pale cream-pink at the horizon; the ground is deep terracotta; the big shape is cream; figures are the darkest terracotta."
+    },
+    "ciel-bleu": {
+      "family": "tritone",
+      "use": "sérénité, contrôle, vue d'ensemble (computer-health)",
+      "map": {
+        "field": "blue",
+        "ground": "pale",
+        "shape": "mid",
+        "subject": "shadow",
+        "detail": "light"
+      },
+      "prompt": "Color roles: the large background is a flat sky blue #75B0D7; the ground strip is pale cream-pink; the big shape is mid terracotta; figures and the main subject are dark terracotta; small details and clouds are cream."
+    },
+    "touche-bleue": {
+      "family": "tritone",
+      "use": "un seul élément à remarquer (le lien, l'outil, l'idée)",
+      "map": {
+        "field": "mid",
+        "ground": "pale",
+        "shape": "soft",
+        "subject": "shadow",
+        "detail": "blue"
+      },
+      "prompt": "Color roles: the large background is flat mid terracotta; the ground is pale cream-pink; the big shape is a light terracotta tint; figures are dark terracotta; ONLY the key small element (a cable, a tool, a spark, an object held) is sky blue #75B0D7, a small touch covering 2 to 8% of the image."
+    },
+    "objet-bleu": {
+      "family": "tritone",
+      "use": "le sujet principal EST la solution / la nouveauté",
+      "map": {
+        "field": "light",
+        "ground": "pale",
+        "shape": "soft",
+        "subject": "blue",
+        "detail": "shadow"
+      },
+      "prompt": "Color roles: the background is warm cream paper; the ground is a pale tint; the big shape is light terracotta; the main subject itself is sky blue #75B0D7; figures and small details are dark terracotta."
+    },
+    "sol-bleu": {
+      "family": "tritone",
+      "use": "eau, flux, fondation (mer, rivière, sol)",
+      "map": {
+        "field": "mid",
+        "ground": "blue",
+        "shape": "soft",
+        "subject": "shadow",
+        "detail": "light"
+      },
+      "prompt": "Color roles: the sky/background is flat mid terracotta; the lower band (sea, river or floor) is sky blue #75B0D7; the big shape is a light terracotta tint; figures are dark terracotta; details are cream."
+    },
+    "degrade-bleu": {
+      "family": "tritone",
+      "use": "ouverture, horizon, futur",
+      "map": {
+        "field": "gradient:blue:light",
+        "ground": "mid",
+        "shape": "soft",
+        "subject": "shadow",
+        "detail": "light"
+      },
+      "prompt": "Color roles: the background is a vertical banded gradient (4 to 5 flat risograph bands) from sky blue #75B0D7 at the top to cream at the horizon; the ground is mid terracotta; figures are dark terracotta; details cream."
+    },
+    "objet-bleu-terracotta": {
+      "family": "tritone",
+      "use": "le sujet principal est la solution, mis en avant sur un fond chaud",
+      "map": {
+        "field": "mid",
+        "ground": "pale",
+        "shape": "soft",
+        "subject": "blue",
+        "detail": "light"
+      },
+      "prompt": "Color roles: the large background is flat mid terracotta; the ground is pale cream-pink; the big shape is a light terracotta tint; the MAIN SUBJECT in the foreground is flat sky blue #75B0D7 and is the brightest, most noticeable element; figures are dark terracotta; small details are cream."
+    },
+    "forme-bleue": {
+      "family": "tritone",
+      "use": "la grande forme centrale (disque, panneau, bâtiment) porte le message",
+      "map": {
+        "field": "mid",
+        "ground": "pale",
+        "shape": "blue",
+        "subject": "shadow",
+        "detail": "light"
+      },
+      "prompt": "Color roles: the large background is flat mid terracotta; the ground is pale cream-pink; the big central geometric shape (disc, panel, building) is flat sky blue #75B0D7; figures and the main subject are dark terracotta; small details are cream."
+    }
+  },
+  "default_cast": {
+    "duotone": "terracotta-plein",
+    "tritone": "ciel-bleu"
+  }
 }

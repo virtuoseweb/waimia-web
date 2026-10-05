@@ -7,7 +7,7 @@
 // damier paper/ink opt-in.
 import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
-import { pickIllustration, illustrationSrc, type Illustration } from '../../lib/illustration-pick';
+import { pickIllustration, illustrationSrc, drawingKey, type Illustration } from '../../lib/illustration-pick';
 import illustrationLibrary from '../../data/illustrations.json';
 
 const ILLUSTRATIONS: Illustration[] = (illustrationLibrary as { illustrations: Illustration[] }).illustrations;
@@ -80,7 +80,7 @@ const usedSlugs = new Set<string>();
 for (const row of data.rows) {
   if (!row.media_src) continue;
   for (const ill of ILLUSTRATIONS) {
-    if (row.media_src.includes(ill.slug)) usedSlugs.add(ill.slug);
+    if (row.media_src.includes(ill.slug)) usedSlugs.add(drawingKey(ill));
   }
 }
 // Damier : le CSS inverse `.fz__row:nth-child(even)` (1-based) → index 0-based impair.
@@ -97,7 +97,7 @@ const fallbacks = data.rows.map((row, i) => {
     .filter(Boolean)
     .join(' ');
   const ill = pickIllustration(text, { exclude: usedSlugs, seed: i });
-  usedSlugs.add(ill.slug);
+  usedSlugs.add(drawingKey(ill));
   return {
     src: illustrationSrc(ill, rowIsInk(i) ? 'ink' : 'paper'),
     alt: isFr ? ill.alt_fr : ill.alt_en,

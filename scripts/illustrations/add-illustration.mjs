@@ -5,7 +5,10 @@
  *
  *   node scripts/illustrations/add-illustration.mjs <slug> --palette duotone|tritone \
  *     --alt-fr "Description FR" --alt-en "Description EN" --tags roi,croissance,gain \
- *     [--no-fallback] [--replace] [--source gpt-image-2]
+ *     [--cast <distribution>] [--drawing <slug du dessin>] [--no-fallback] [--replace] [--source gpt-image-2]
+ *
+ * --drawing : à renseigner pour les variantes de couleur d'un même dessin (même valeur pour
+ *             toutes) : FeatureZigzag n'en affiche jamais deux dans la même section.
  *
  * --no-fallback : n'entre pas dans le pool automatique de FeatureZigzag.
  * --replace     : écrase l'entrée existante du même slug.
@@ -53,6 +56,8 @@ const item = {
   tags,
   fallback: !flags['no-fallback'],
   palette: family,
+  ...(flags.cast ? { cast: flags.cast } : {}),
+  ...(flags.drawing ? { drawing: flags.drawing } : {}),
   source: flags.source ?? 'gpt-image-2',
 };
 if (idx >= 0) reg.illustrations[idx] = item;

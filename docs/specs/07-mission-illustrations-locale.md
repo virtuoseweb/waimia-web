@@ -5,6 +5,10 @@
 > `.claude/skills/waimia-illustration/SKILL.md` contient la méthode complète ; ce document
 > est le brief de mission à coller tel quel.
 
+> **Sans clé GPT** : le moteur B du skill (Claude dessine en SVG, `render-svg.mjs`) produit le
+> même lot dans la même DA, en rendu affiche vectorielle + grain. 3 dessins de démonstration
+> × 11 distributions sont déjà dans la bibliothèque (`source: claude-svg`).
+
 ## Prompt à coller
 
 ```text
@@ -16,7 +20,8 @@ que dans Codex).
 1. Vérifie l'accès : node scripts/illustrations/generate.mjs test-acces "a tiny figure
    standing in front of a huge simple door" --palette duotone --no-ink --attempts 1,
    ouvre le WebP, puis supprime le fichier test.
-2. Génère le lot 1 (tableau ci-dessous) : duotone ou tritone selon la colonne, variantes
+2. Génère le lot 1 (tableau ci-dessous) : duotone ou tritone selon la colonne, en variant les
+   distributions (--cast, cf skill §2 bis) d'une illustration à l'autre, variantes
    paper + ink. Contrôle visuel de CHAQUE fichier (Read). Enregistre avec
    add-illustration.mjs (alt FR/EN honnêtes, 3 à 6 tags).
 3. Remplace les illustrations surutilisées : dans src/content/services/**, les

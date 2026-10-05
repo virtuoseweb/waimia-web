@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · fallback Claude · « un cadre qui protège sans bloquer » (sécurité, gouvernance,
+       accompagnement) : un parapluie géant abrite une petite équipe au sec pendant qu'une
+       pluie de feuilles tombe tout autour. Le parapluie = {{subject}} (objet central). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+    <g id="leaf">
+      <rect x="-9" y="-6" width="18" height="12" fill="{{detail}}"/>
+    </g>
+    <clipPath id="outside">
+      <path d="M0 0 H1456 V624 H0 Z M392 270 Q728 -150 1064 270 L1064 520 L392 520 Z" clip-rule="evenodd"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque bas, à droite -->
+  <circle cx="1230" cy="520" r="170" fill="{{shape}}"/>
+  <!-- Sol -->
+  <rect y="510" width="1456" height="114" fill="{{ground}}"/>
+
+  <!-- Pluie de feuilles : uniquement hors de l'abri -->
+  <g clip-path="url(#outside)">
+    <g transform="rotate(14 728 300)">
+      <use href="#leaf" transform="translate(90 60) rotate(20)"/><use href="#leaf" transform="translate(180 170) rotate(-15)"/>
+      <use href="#leaf" transform="translate(130 300) rotate(35)"/><use href="#leaf" transform="translate(250 410) rotate(-30)"/>
+      <use href="#leaf" transform="translate(310 90) rotate(10)"/><use href="#leaf" transform="translate(380 230) rotate(-40)"/>
+      <use href="#leaf" transform="translate(420 380) rotate(25)"/><use href="#leaf" transform="translate(60 450) rotate(-10)"/>
+      <use href="#leaf" transform="translate(520 40) rotate(30)"/><use href="#leaf" transform="translate(640 20) rotate(-20)"/>
+      <use href="#leaf" transform="translate(800 30) rotate(15)"/><use href="#leaf" transform="translate(930 60) rotate(-35)"/>
+      <use href="#leaf" transform="translate(1040 140) rotate(22)"/><use href="#leaf" transform="translate(1110 260) rotate(-12)"/>
+      <use href="#leaf" transform="translate(1060 390) rotate(40)"/><use href="#leaf" transform="translate(1190 80) rotate(-25)"/>
+      <use href="#leaf" transform="translate(1260 210) rotate(18)"/><use href="#leaf" transform="translate(1330 340) rotate(-30)"/>
+      <use href="#leaf" transform="translate(1400 120) rotate(8)"/><use href="#leaf" transform="translate(1380 450) rotate(-18)"/>
+      <use href="#leaf" transform="translate(470 470) rotate(12)"/><use href="#leaf" transform="translate(1000 480) rotate(-22)"/>
+    </g>
+  </g>
+  <!-- Feuilles posées au sol, autour de l'abri -->
+  <g>
+    <use href="#leaf" transform="translate(300 520) rotate(5) scale(1 0.5)"/><use href="#leaf" transform="translate(420 528) rotate(-8) scale(1 0.5)"/>
+    <use href="#leaf" transform="translate(1040 524) rotate(6) scale(1 0.5)"/><use href="#leaf" transform="translate(1150 532) rotate(-4) scale(1 0.5)"/>
+  </g>
+
+  <!-- Ombre de l'abri au sol -->
+  <ellipse cx="728" cy="514" rx="330" ry="11" fill="{{deep}}" opacity="0.35"/>
+
+  <!-- LE PARAPLUIE (objet central) : toile large, apex à y≈62, bord festonné à y=270 -->
+  <g>
+    <path d="M400 270 Q728 -146 1056 270 Q1001 240 947 270 Q892 240 838 270 Q783 240 728 270 Q673 240 619 270 Q564 240 510 270 Q455 240 400 270 Z" fill="{{subject}}"/>
+    <g fill="none" stroke="{{shadow}}" stroke-width="2.5" opacity="0.3">
+      <path d="M728 64 Q600 140 510 270"/><path d="M728 64 Q660 150 619 270"/>
+      <path d="M728 64 L728 270"/><path d="M728 64 Q796 150 838 270"/><path d="M728 64 Q856 140 947 270"/>
+    </g>
+    <rect x="722" y="34" width="12" height="32" fill="{{shadow}}"/>
+    <path d="M728 270 L728 470 Q728 502 698 502 Q672 502 672 478" fill="none" stroke="{{shadow}}" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <!-- L'équipe, au sec sous l'abri -->
+  <use href="#man" transform="translate(560 512) scale(1.1)"/>
+  <use href="#woman" transform="translate(616 512) scale(1.1)"/>
+  <use href="#man" transform="translate(800 512) scale(1.15)"/>
+  <use href="#woman" transform="translate(858 512) scale(1.05)"/>
+  <use href="#man" transform="translate(912 512) scale(0.95)"/>
+</svg>

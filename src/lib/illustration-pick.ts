@@ -14,7 +14,15 @@ export type Illustration = {
   tags: string[];
   fallback: boolean;
   source: string;
+  /** Distribution de couleurs (scripts/illustrations/style.json `casts`). */
+  palette?: 'duotone' | 'tritone';
+  cast?: string;
+  /** Dessin d'origine : les variantes de couleur d'un même dessin partagent cette clé. */
+  drawing?: string;
 };
+
+/** Clé d'unicité par section : deux variantes du même dessin ne cohabitent jamais. */
+export const drawingKey = (ill: Illustration): string => ill.drawing ?? ill.slug;
 
 const ALL: Illustration[] = (library as { illustrations: Illustration[] }).illustrations;
 const POOL: Illustration[] = ALL.filter((ill) => ill.fallback);
@@ -63,7 +71,7 @@ export function pickIllustration(
 ): Illustration {
   const exclude = opts.exclude ?? new Set<string>();
   const seed = opts.seed ?? 0;
-  const available = POOL.filter((ill) => !exclude.has(ill.slug));
+  const available = POOL.filter((ill) => !exclude.has(drawingKey(ill)));
   const candidates = available.length > 0 ? available : POOL;
 
   const textWords = normalise(text).split(' ').filter(Boolean);
