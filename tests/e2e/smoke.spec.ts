@@ -52,6 +52,13 @@ const ROUTES = [
   "/cas-usages/finance-comptabilite",
   "/cas-usages/rh",
   "/implantations/paris",
+  // Réalisations IA (2026-10-05) : nouveaux cas clients et projets internes.
+  "/cas-clients/brow-x-professionnel",
+  "/cas-clients/inbound-value",
+  "/cas-clients/waimia-os",
+  "/cas-clients/virtuoseos",
+  "/cas-clients/prototypes-internes",
+  "/cas-clients/isabelle-diaz-naturopathe",
 ];
 
 for (const path of ROUTES) {

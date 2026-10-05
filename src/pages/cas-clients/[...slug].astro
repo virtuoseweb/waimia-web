@@ -61,14 +61,18 @@ if (authorSlug) {
 const allCases = (await getCollection('cases')).sort(
   (a, b) => (a.data.card?.order ?? 99) - (b.data.card?.order ?? 99),
 );
-const idx = allCases.findIndex((c) => c.id === entry.id);
+// Numérotation par nature : « Cas 0N » parmi les cas clients, « Projet 0N » parmi les projets internes.
+const sameKind = allCases.filter((c) => c.data.kind === d.kind);
+const idx = sameKind.findIndex((c) => c.id === entry.id);
 const caseNum = String(idx + 1).padStart(2, '0');
 
-const relatedCards: RelatedCardInput[] = allCases
+// Réalisations connexes : même nature d'abord, puis les autres (un projet interne renvoie
+// aussi vers des cas clients, et inversement).
+const relatedCards: RelatedCardInput[] = [...sameKind, ...allCases.filter((c) => c.data.kind !== d.kind)]
   .filter((c) => c.id !== entry.id)
   .slice(0, 3)
   .map((c) => ({
-    kicker: `§ Cas · ${c.data.sector_fr}`,
+    kicker: c.data.kind === 'interne' ? `§ Projet interne · ${c.data.sector_fr}` : `§ Cas · ${c.data.sector_fr}`,
     title_fr: c.data.title_fr,
     title_en: c.data.title_en,
     lead_fr: c.data.impact_fr,

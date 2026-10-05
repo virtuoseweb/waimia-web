@@ -1,0 +1,151 @@
+{
+  "title_fr": "Prototypes internes : LegiCheck, agent d'entretien, quiz",
+  "title_en": "Internal prototypes: LegiCheck, interview agent, quiz",
+  "description_fr": "Trois prototypes du studio : LegiCheck, analyse juridique sur données publiques, une application de préparation d'entretien avec agent IA, et un quiz.",
+  "description_en": "Three studio prototypes: LegiCheck, legal analysis on public data, an interview preparation app with an AI agent, and a quiz.",
+  "slug": "prototypes-internes",
+  "kind": "interne",
+  "publishedAt": "2026-10-05",
+  "updatedAt": "2026-10-05",
+  "provenance": "first-party",
+  "category": "productivite",
+  "tags": [
+    "prototypes",
+    "agents-ia",
+    "legicheck"
+  ],
+  "client": "Prototypes internes",
+  "sector_fr": "Prototypes et outils internes",
+  "sector_en": "Prototypes and internal tools",
+  "duration": "Prototypes",
+  "stack": [
+    "Next.js",
+    "React",
+    "Vitest",
+    "Playwright",
+    "Légifrance, Judilibre, Sirene, BODACC"
+  ],
+  "impact_fr": "Trois prototypes internes, décrits d'après leur dépôt. LegiCheck s'appuie sur des règles et sur des données publiques ; l'IA n'y rédige qu'un briefing indicatif. Aucun chiffre d'impact publié à ce jour.",
+  "impact_en": "Three internal prototypes, described from their repository. LegiCheck relies on rules and public data; the AI only writes an indicative briefing. No impact figure published to date.",
+  "impactKicker_fr": "§ Où en sont les prototypes",
+  "impactKicker_en": "§ Where the prototypes stand",
+  "author": "simon-beros",
+  "featured": false,
+  "contextStatement_fr": "À côté de ses deux systèmes d'exploitation, le studio a construit des projets plus petits. Trois sont décrits ici d'après leur dépôt : LegiCheck, une application de préparation d'entretien pilotée par un agent IA, et une application de quiz. Ce sont des prototypes, pas des produits.",
+  "contextStatement_en": "Alongside its two operating systems, the studio has built smaller projects. Three are described here from their repository: LegiCheck, an interview preparation app driven by an AI agent, and a quiz app. They are prototypes, not products.",
+  "phases": [
+    {
+      "num": "01",
+      "label_fr": "LegiCheck",
+      "label_en": "LegiCheck",
+      "body_fr": "Plateforme d'analyse juridique française. Elle croise Légifrance, Judilibre, Sirene et BODACC pour vérifier la conformité de textes, de contrats et de documents : recherche, jurisprudence, fiche d'entreprise, simulateurs.",
+      "body_en": "A French legal analysis platform. It cross-checks Légifrance, Judilibre, Sirene and BODACC to verify the compliance of texts, contracts and documents: search, case law, company record, simulators.",
+      "meta_fr": "Next.js · Vitest",
+      "meta_en": "Next.js · Vitest"
+    },
+    {
+      "num": "02",
+      "label_fr": "Préparation d'entretien",
+      "label_en": "Interview preparation",
+      "body_fr": "Application locale. L'utilisateur importe ses documents, active ceux qui comptent, puis règle un agent en mode simulation, RH, quiz ou coach. Le contexte utilisé est affiché : sources mobilisées, raison de la question.",
+      "body_en": "A local application. The user imports documents, activates the ones that matter, then sets an agent to simulation, HR, quiz or coach mode. The context used is shown: sources drawn on, reason for the question.",
+      "meta_fr": "Application locale",
+      "meta_en": "Local application"
+    },
+    {
+      "num": "03",
+      "label_fr": "Quiz",
+      "label_en": "Quiz",
+      "body_fr": "Une application Next.js de quiz : liste des quiz, partie, page de résultats.",
+      "body_en": "A Next.js quiz application: list of quizzes, play, results page.",
+      "meta_fr": "Next.js",
+      "meta_en": "Next.js"
+    }
+  ],
+  "deliverableCards": [
+    {
+      "title_fr": "LegiCheck : des règles d'abord",
+      "title_en": "LegiCheck: rules first",
+      "body_fr": "La vérification repose sur un moteur de règles : clauses abusives, délais, montants légaux, statut des articles. L'IA rédige un briefing de synthèse.",
+      "body_en": "Verification rests on a rules engine: unfair clauses, deadlines, legal amounts, article status. The AI writes a summary briefing.",
+      "format_fr": "RÔLE DE L'IA",
+      "format_en": "ROLE OF THE AI"
+    },
+    {
+      "title_fr": "LegiCheck : consignes du briefing",
+      "title_en": "LegiCheck: briefing instructions",
+      "body_fr": "L'assistant a pour consigne de n'inventer ni citation ni article, de signaler toute information manquante et de rappeler que le résultat est indicatif, sans valeur juridique.",
+      "body_en": "The assistant is instructed to invent no quotation and no article, to flag any missing information and to state that the result is indicative, with no legal value.",
+      "format_fr": "GARDE-FOU",
+      "format_en": "GUARDRAIL"
+    },
+    {
+      "title_fr": "Entretien : données sur le poste",
+      "title_en": "Interview: data on the workstation",
+      "body_fr": "Pas de compte utilisateur ni de base SQL : documents et mémoire d'entraînement restent en local. Le dépôt précise que l'application n'est pas prête pour un service public multi-utilisateurs.",
+      "body_en": "No user account and no SQL database: documents and training memory stay local. The repository states that the app is not ready for a public multi-user service.",
+      "format_fr": "LIMITE",
+      "format_en": "LIMIT"
+    },
+    {
+      "title_fr": "Tests automatisés",
+      "title_en": "Automated tests",
+      "body_fr": "LegiCheck compte 97 fichiers de test. L'application d'entretien a des tests d'API et un test d'interface.",
+      "body_en": "LegiCheck has 97 test files. The interview app has API tests and an interface test.",
+      "format_fr": "VÉRIFICATION",
+      "format_en": "VERIFICATION"
+    }
+  ],
+  "approachHeading_fr": "Trois prototypes, un par un.",
+  "approachHeading_en": "Three prototypes, one by one.",
+  "deliverablesKicker_fr": "§ Prototypes",
+  "deliverablesKicker_en": "§ Prototypes",
+  "deliverablesHeading_fr": "Rôle de l'IA, garde-fous et limites.",
+  "deliverablesHeading_en": "Role of the AI, guardrails and limits.",
+  "stackLead_fr": "Next.js et React pour les interfaces, Vitest et Playwright pour les tests, et les API publiques Légifrance, Judilibre, Sirene et BODACC pour LegiCheck.",
+  "stackLead_en": "Next.js and React for the interfaces, Vitest and Playwright for tests, and the public Légifrance, Judilibre, Sirene and BODACC APIs for LegiCheck.",
+  "ctaHeading_fr": "Une idée à <i>éprouver</i> avant de la financer ?",
+  "ctaHeading_en": "An idea to <i>test</i> before funding it?",
+  "ctaSubtitle_fr": "L'audit gratuit de 45 minutes sert à regarder votre besoin, vos données et ce qu'un premier pilote peut prouver.",
+  "ctaSubtitle_en": "The free 45-minute audit looks at your need, your data and what a first pilot can prove.",
+  "card": {
+    "order": 3,
+    "sector_fr": "Prototypes et outils internes",
+    "sector_en": "Prototypes and internal tools",
+    "title_fr": "Prototypes internes",
+    "title_en": "Internal prototypes",
+    "headline_fr": "LegiCheck, une application de préparation d'entretien avec agent IA, et un quiz.",
+    "headline_en": "LegiCheck, an interview preparation app with an AI agent, and a quiz.",
+    "duration_fr": "Prototypes",
+    "duration_en": "Prototypes"
+  },
+  "faq_fr": [
+    {
+      "q": "LegiCheck donne-t-il un avis juridique ?",
+      "a": "Non. C'est un prototype. Son briefing est indicatif et sans valeur juridique : il ne remplace pas un professionnel du droit."
+    },
+    {
+      "q": "Ces prototypes sont-ils en ligne ?",
+      "a": "Cette fiche les décrit d'après leur dépôt. Elle n'annonce aucune mise en ligne publique."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Does LegiCheck give legal advice?",
+      "a": "No. It is a prototype. Its briefing is indicative and has no legal value: it does not replace a legal professional."
+    },
+    {
+      "q": "Are these prototypes online?",
+      "a": "This page describes them from their repository. It announces no public release."
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce que fait l'IA, ce que fait l'humain</h2>\n<ul>\n<li><strong>Dans LegiCheck</strong>, les règles et les données publiques font la vérification. L'IA résume. La personne lit un résultat indicatif et décide.</li>\n<li><strong>Dans l'application d'entretien</strong>, l'agent pose les questions, commente les réponses et propose un entraînement. La personne choisit les documents fournis à l'agent et corrige ses propres réponses.</li>\n</ul>\n<h2>État d'avancement</h2>\n<p>Ce sont des prototypes. Le dépôt prévu pour les regrouper existe à l'état de squelette : les applications n'y ont pas encore été déplacées.</p>\n<h2>Ce qui est mesuré</h2>\n<p>Aucun chiffre d'impact publié à ce jour. Les deux systèmes d'exploitation du studio sont décrits à part : <a href=\"/cas-clients/waimia-os\">Waimia OS</a> et <a href=\"/cas-clients/virtuoseos\">VirtuoseOS</a>.</p>",
+      "html_en": "<h2>What the AI does, what people do</h2>\n<ul>\n<li><strong>In LegiCheck</strong>, rules and public data do the verification. The AI summarises. The person reads an indicative result and decides.</li>\n<li><strong>In the interview app</strong>, the agent asks the questions, comments on the answers and proposes training. The person chooses which documents the agent gets and corrects their own answers.</li>\n</ul>\n<h2>Progress</h2>\n<p>These are prototypes. The repository planned to group them exists as a skeleton: the applications have not been moved into it yet.</p>\n<h2>What is measured</h2>\n<p>No impact figure published to date. The studio’s two operating systems are described separately: <a href=\"/cas-clients/waimia-os\">Waimia OS</a> and <a href=\"/cas-clients/virtuoseos\">VirtuoseOS</a>.</p>"
+    }
+  ]
+}

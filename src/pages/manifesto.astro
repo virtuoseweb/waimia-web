@@ -27,7 +27,7 @@ import { SITE } from '../site.config';
 const lang = langFromPath(Astro.url.pathname);
 
 // Cas clients · source UNIQUE = collection `cases`, featured d'abord.
-const manifestoCases = (await getCollection('cases', ({ data }) => !data.ndaProtected))
+const manifestoCases = (await getCollection('cases', ({ data }) => !data.ndaProtected && data.kind === 'client'))
   .sort((a, b) => Number(b.data.featured ?? false) - Number(a.data.featured ?? false))
   .slice(0, 4);
 
