@@ -508,6 +508,66 @@
       "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), indexation.notIndexed ; trois requêtes suivies visent cette page (keywords.json)."
     },
     {
+      "id": "w45-revision-secteur-batiment",
+      "type": "révision",
+      "titreProvisoire": "IA et automatisation pour le bâtiment et les artisans",
+      "requeteCible": "ia batiment",
+      "intention": "Savoir ce que l'IA et l'automatisation changent dans ce secteur, et si Waimia y a déjà travaillé.",
+      "urlCible": "/secteurs/batiment",
+      "angle": "Hypothèse à vérifier en ligne : réécrire pour le positionnement IA (studio de développement IA et cabinet d'automatisation), appuyé sur le cas Desangles Peinture ; requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "src/content/secteurs/batiment.json (état actuel de la page, écrite avant le pivot IA)",
+        "src/content/cases/ (cas réels à citer, sans chiffre inventé)",
+        "Premiers résultats de la requête et de deux ou trois variantes"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page réécrite, sortie de src/data/sitemap-noindex-exclude.ts et `seo.noindex` à false : indexée à l'inspection d'URL, et lien rétabli dans le panneau E-E-A-T. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Décision de Simon du 5 octobre 2026 (session d'audit) : réindexer page par page, une fois la page réécrite et appuyée sur un cas réel. Page en noindex depuis le pivot d'octobre 2026 ; cas : src/content/cases/desangles-peinture.json."
+    },
+    {
+      "id": "w46-revision-secteur-e-commerce",
+      "type": "révision",
+      "titreProvisoire": "IA et automatisation pour le e-commerce",
+      "requeteCible": "ia e-commerce",
+      "intention": "Savoir ce que l'IA et l'automatisation changent dans ce secteur, et si Waimia y a déjà travaillé.",
+      "urlCible": "/secteurs/e-commerce",
+      "angle": "Hypothèse à vérifier en ligne : réécrire pour le positionnement IA, appuyé sur les cas Brow.X Professionnel (agent de SAV, en cours) et Balzeo ; requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "src/content/secteurs/e-commerce.json (état actuel de la page, écrite avant le pivot IA)",
+        "src/content/cases/ (cas réels à citer, sans chiffre inventé)",
+        "Premiers résultats de la requête et de deux ou trois variantes"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page réécrite, sortie de src/data/sitemap-noindex-exclude.ts et `seo.noindex` à false : indexée à l'inspection d'URL, et lien rétabli dans le panneau E-E-A-T. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Décision de Simon du 5 octobre 2026 (session d'audit). Page en noindex depuis le pivot d'octobre 2026 ; cas : src/content/cases/brow-x-professionnel.json et balzeo.json."
+    },
+    {
+      "id": "w47-revision-secteur-startup-logiciel",
+      "type": "révision",
+      "titreProvisoire": "IA et développement pour les startups et éditeurs de logiciel",
+      "requeteCible": "développement saas ia",
+      "intention": "Savoir ce que l'IA et l'automatisation changent dans ce secteur, et si Waimia y a déjà travaillé.",
+      "urlCible": "/secteurs/startup-logiciel",
+      "angle": "Hypothèse à vérifier en ligne : réécrire pour le positionnement IA, appuyé sur les projets logiciels réels. Avant d'écrire, relire les fiches cas et les compléter si elles ne disent pas ce que Simon décrit ; requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "src/content/secteurs/startup-logiciel.json (état actuel de la page, écrite avant le pivot IA)",
+        "src/content/cases/ (cas réels à citer, sans chiffre inventé)",
+        "Premiers résultats de la requête et de deux ou trois variantes"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page réécrite, sortie de src/data/sitemap-noindex-exclude.ts et `seo.noindex` à false : indexée à l'inspection d'URL, et lien rétabli dans le panneau E-E-A-T. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Décision de Simon du 5 octobre 2026 (session d'audit) : le secteur est pertinent. Ses mots : Amploi était un logiciel ; pour Inbound Value, une application « proof hub » livrée en une fois, installable dans l'espace Lovable du client, qui en porte les coûts, sans maintenance ni suivi ; puis une version SaaS que Simon a créée pour lui à partir de cette application. Cas : src/content/cases/amploi.json et inbound-value.json (à relire : la fiche Amploi décrit aujourd'hui un site marketing et un CRM)."
+    },
+    {
       "id": "idee-agence-ia-toulouse",
       "type": "page locale",
       "titreProvisoire": "Agence IA à Toulouse",

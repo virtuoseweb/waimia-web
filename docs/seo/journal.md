@@ -85,6 +85,11 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
    - `/services/automatisation-n8n` : lien vers le guide « prix de n8n » (version française). Ce n'est pas la révision `w42-revision-automatisation-n8n`, qui reste à faire.
    - `src/lib/internal-mesh.ts` : trois guides ajoutés au registre.
 
+6. Décisions de Simon du 5 octobre, appliquées dans la même PR.
+   - Hubs : l'indexation n'est plus écrite en dur. `src/lib/seo/hub-index.ts` : un hub s'indexe dès qu'il liste au moins 3 pages filles elles-mêmes indexables ; les pages filles en noindex ne sont plus listées. Appliqué à `/ressources/guides`, `/ressources/comparatifs` et `/ressources/outils` (3 outils : il passe en index). Le sitemap suit par l'intégration `sitemapHygiene`.
+   - Secteurs : les trois pages restent en noindex pour l'instant, mais le panneau E-E-A-T (accueil et pages services) affiche leurs libellés sans lien. Le lien revient de lui-même quand une page sort de `sitemap-noindex-exclude.ts`.
+   - Trois révisions inscrites au calendrier, avec passage en index à la livraison : `w45-revision-secteur-batiment`, `w46-revision-secteur-e-commerce`, `w47-revision-secteur-startup-logiciel`. Simon juge le secteur logiciel pertinent (Amploi, application livrée à Inbound Value, version SaaS qu'il en a tirée) : les fiches cas sont à relire avant d'écrire.
+
 **Calendrier** : trois créations livrées en avance (W42, W43, W44) et une révision (W43). Les créations restantes sont avancées d'autant pour garder une création par semaine : `w45-crm-sur-mesure` en W42, `w46-workflow-ia` en W43, `w47-freelance-cabinet-agence-ia` en W44, `w48-architecte-ia` en W45, `w49-chatbot-service-client` en W46. Il reste 5 semaines d'avance, sous le seuil de 6 : la prochaine session doit ajouter des idées datées.
 
 **Brouillon LinkedIn** : `docs/seo/posts/2026-W41.md` (trois brouillons, à relire et à publier par Simon).

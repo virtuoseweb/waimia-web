@@ -13,6 +13,7 @@ import UtilityTemplate from '../../../components/templates/UtilityTemplate.astro
 import Kicker from '../../../components/ui/atoms/Kicker.astro';
 import { buildCollectionPage } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
+import { hubNoindex } from '../../../lib/seo/hub-index';
 
 const hubCopyEntry = await getEntry('legal', 'outils-hub');
 if (!hubCopyEntry) throw new Error('Collection "legal" · entrée "outils-hub" introuvable.');
@@ -44,7 +45,7 @@ const collectionLd = buildCollectionPage(
   description="Calculateurs ROI et maturité IA gratuits pour PME B2B, sans inscription : un résultat immédiat à l'écran."
   kicker={kicker}
   jsonLd={collectionLd}
-  noindex={true}
+  noindex={hubNoindex(count)}
 >
   <Fragment slot="headline" set:html={hubCopy.headlineHtml} />
   <Fragment slot="lede" set:html={hubCopy.ledeHtml} />
