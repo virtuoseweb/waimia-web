@@ -58,19 +58,19 @@ const WORKFLOW_ILLUSTRATIONS = [
 const ill = (slug: string, alt_fr: string, alt_en: string) => ({ src: `/images/illustrations/ds/${slug}-paper.webp`, alt_fr, alt_en });
 const SECTOR_WORKFLOW_ILLUSTRATIONS: Record<string, ReadonlyArray<{ src: string; alt_fr: string; alt_en: string }>> = {
   batiment: [
-    ill('batiment-demandes-triees', 'Des enveloppes tombent du ciel dans trois caisses de chantier', 'Envelopes fall from the sky into three site crates'),
-    ill('batiment-devis-jour-meme', 'Un artisan tend une feuille à deux clients devant une charpente', 'A craftsman hands a sheet to two clients in front of a timber frame'),
-    ill('batiment-avis-chantiers', 'Un homme sur une échelle accroche des tableaux de maisons sur un mur', 'A man on a ladder hangs pictures of houses on a wall'),
+    ill('batiment-demandes-triees', 'Des enveloppes tombent dans trois caisses de chantier, sous le regard d\'un homme', 'Envelopes drop into three site crates while a man watches'),
+    ill('batiment-devis-jour-meme', 'Un artisan tend une feuille à deux clients devant une charpente en bois', 'A craftsman hands a sheet to two clients in front of a timber frame'),
+    ill('batiment-avis-chantiers', 'Un homme sur une échelle accroche des tableaux de maisons sur un long mur', 'A man on a ladder hangs pictures of houses on a long wall'),
   ],
   'e-commerce': [
-    ill('ecommerce-commandes-synchronisees', 'Un tapis roulant de colis relie une boutique à une camionnette', 'A conveyor of parcels links a shop to a delivery van'),
+    ill('ecommerce-commandes-synchronisees', 'Un tapis roulant de colis relie un entrepôt à une camionnette sous un ciel bleu', 'A conveyor of parcels links a warehouse to a van under a blue sky'),
     ill('ecommerce-support-client', 'Une file de clients avec des colis passe devant un long guichet', 'A queue of customers with parcels passes a long desk'),
-    ill('ecommerce-catalogue-a-jour', 'Un homme range des boîtes sur un immense mur d\'étagères', 'A man shelves boxes on a huge wall of shelves'),
+    ill('ecommerce-catalogue-a-jour', 'Un homme range une boîte avec une perche sur un immense mur d\'étagères', 'A man shelves a box with a pole on a huge wall of shelves'),
   ],
   'startup-logiciel': [
-    ill('logiciel-demandes-routees', 'Des avions en papier suivent les bras d\'un grand panneau indicateur', 'Paper planes follow the arms of a tall signpost'),
-    ill('logiciel-support-premier-niveau', 'Des visiteurs repartent avec une page d\'un livre géant posé en comptoir', 'Visitors leave with a page from a giant book used as a counter'),
-    ill('logiciel-prospection-cible', 'Des enveloppes s\'envolent d\'une falaise vers trois îles', 'Envelopes fly from a cliff toward three islands'),
+    ill('logiciel-demandes-routees', 'Des avions en papier volent vers un panneau indicateur à trois bras', 'Paper planes fly toward a three-armed signpost'),
+    ill('logiciel-support-premier-niveau', 'La nuit, des visiteurs repartent avec une page d\'un livre géant servant de comptoir', 'At night, visitors leave with a page from a giant book used as a counter'),
+    ill('logiciel-prospection-cible', 'Depuis une falaise, des enveloppes s\'envolent vers trois îles sur une mer bleue', 'From a cliff, envelopes fly toward three islands on a blue sea'),
   ],
 };
 
