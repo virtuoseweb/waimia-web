@@ -1,11 +1,11 @@
 {
   "title_fr": "Formation Claude et agents IA en entreprise · Waimia",
   "title_en": "Claude and AI agents training for companies · Waimia",
-  "description_fr": "Formation Claude et agents IA en intra-entreprise : usage quotidien, connexion à vos outils, Claude Code, conception d'un agent. Sur vos cas réels.",
-  "description_en": "In-company Claude and AI agents training: daily use, connecting your tools, Claude Code, designing an agent. On your real cases.",
+  "description_fr": "Formation Claude en entreprise, trois niveaux : utiliser l'application, en devenir expert, développer avec Claude Platform ou Claude Code. Sur vos cas réels.",
+  "description_en": "In-company Claude training, three levels: using the app, becoming an expert, building with Claude Platform or Claude Code. On your real cases.",
   "slug": "claude",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
   "tags": [
     "formation-claude",
     "formation-claude-code",
@@ -18,16 +18,24 @@
   },
   "faq_fr": [
     {
+      "q": "Quel niveau choisir pour la formation Claude ?",
+      "a": "Niveau 1 si l'équipe découvre Claude ou l'utilise de temps en temps. Niveau 2 si elle l'utilise chaque semaine et veut le brancher à ses outils. Niveau 3 pour les développeurs qui veulent construire avec l'API ou avec Claude Code. L'audit gratuit sert à vérifier le niveau de départ."
+    },
+    {
       "q": "Pourquoi une formation Claude et pas une formation IA générale ?",
-      "a": "Parce qu'on forme sur l'outil que l'équipe va réellement utiliser, avec ses fonctions propres. Les principes (consigne, relecture, données) se transposent à d'autres assistants. Si votre entreprise utilise un autre outil, dites-le au cadrage."
+      "a": "Parce qu'on forme sur l'outil que l'équipe va réellement utiliser, avec ses fonctions propres. Les principes (consigne, relecture, données) se transposent à d'autres assistants. Si votre entreprise utilise ChatGPT, la formation ChatGPT suit les trois mêmes niveaux."
     },
     {
       "q": "La formation Claude Code s'adresse-t-elle à des non-développeurs ?",
-      "a": "Non. Elle demande de savoir utiliser Git et un terminal. Pour les équipes métier, le parcours quotidien et les tâches complètes couvrent l'équivalent sans terminal."
+      "a": "Non. Claude Code est traité au niveau 3, qui demande de savoir utiliser Git et un terminal. Pour les équipes métier, les niveaux 1 et 2 couvrent l'équivalent sans terminal, y compris les tâches en plusieurs étapes."
     },
     {
       "q": "Repart-on avec un agent IA en production ?",
-      "a": "Non, et c'est volontaire. On repart avec un cadrage écrit et, selon le niveau, un prototype. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation."
+      "a": "Non, et c'est volontaire. Aux niveaux 1 et 2, on repart avec un cadrage écrit et des réglages réutilisables. Au niveau 3, l'objectif est un prototype fonctionnel sur un cas de l'entreprise. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation."
+    },
+    {
+      "q": "Au niveau 3, faut-il choisir entre la plateforme et Claude Code ?",
+      "a": "Dans le format de {{prix.formation.f1.heures}} heures, oui : on choisit un parcours. Dans le format de {{prix.formation.f2.heures}} heures, on peut suivre un parcours jusqu'au prototype, ou voir les deux plus rapidement. C'est une recommandation : le découpage se décide au cadrage, selon ce que l'équipe doit construire."
     },
     {
       "q": "Quelles données peut-on utiliser pendant la formation ?",
@@ -44,16 +52,24 @@
   ],
   "faq_en": [
     {
+      "q": "Which level should we choose for the Claude training?",
+      "a": "Level 1 if the team is new to Claude or uses it now and then. Level 2 if it uses Claude every week and wants to connect it to its tools. Level 3 for developers who want to build with the API or with Claude Code. The free audit is there to check the starting level."
+    },
+    {
       "q": "Why Claude training rather than general AI training?",
-      "a": "Because we train on the tool the team will actually use, with its own features. The principles (instruction, review, data) carry over to other assistants. If your company uses another tool, tell us during scoping."
+      "a": "Because we train on the tool the team will actually use, with its own features. The principles (instruction, review, data) carry over to other assistants. If your company uses ChatGPT, the ChatGPT training follows the same three levels."
     },
     {
       "q": "Is the Claude Code training for non-developers?",
-      "a": "No. It requires knowing Git and a terminal. For business teams, the daily track and whole-task modules cover the equivalent without a terminal."
+      "a": "No. Claude Code is covered at level 3, which requires knowing Git and a terminal. For business teams, levels 1 and 2 cover the equivalent without a terminal, including multi-step tasks."
     },
     {
       "q": "Do we leave with an AI agent in production?",
-      "a": "No, deliberately. You leave with a written scope and, depending on level, a prototype. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+      "a": "No, deliberately. At levels 1 and 2 you leave with a written scope and reusable settings. At level 3 the goal is a working prototype on a company case. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+    },
+    {
+      "q": "At level 3, do we have to choose between the platform and Claude Code?",
+      "a": "In the {{prix.formation.f1.heures}}-hour format, yes: you pick one track. In the {{prix.formation.f2.heures}}-hour format, you can follow one track through to a prototype, or cover both more quickly. This is a recommendation: the split is decided during scoping, based on what the team needs to build."
     },
     {
       "q": "Which data can be used during the training?",
@@ -76,8 +92,8 @@
       "kicker_en": "§ Training",
       "h1_fr": "Formation Claude et agents IA",
       "h1_en": "Claude and AI agents training",
-      "lede_fr": "Vos équipes apprennent à confier de vraies tâches à Claude, à le brancher à leurs outils et à savoir où s'arrêter. Avec un parcours distinct pour les profils techniques sur Claude Code et la conception d'agents.",
-      "lede_en": "Your teams learn to hand real tasks to Claude, connect it to their tools and know where to stop. With a separate track for technical profiles on Claude Code and agent design.",
+      "lede_fr": "Trois niveaux, du premier usage au développement. Vos équipes apprennent à confier de vraies tâches à Claude, à le brancher à leurs outils et à savoir où s'arrêter. Les profils techniques construisent avec Claude Platform ou avec Claude Code.",
+      "lede_en": "Three levels, from first use to development. Your teams learn to hand real tasks to Claude, connect it to their tools and know where to stop. Technical profiles build with Claude Platform or with Claude Code.",
       "badges": [
         {
           "label_fr": "Intra-entreprise",
@@ -99,9 +115,9 @@
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Comment se passe l'audit",
-        "label_en": "How the audit works",
-        "href": "/audit-ia-pme",
+        "label_fr": "Voir les trois niveaux",
+        "label_en": "See the three levels",
+        "href": "#niveaux",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/livrable-passation-formation.svg",
@@ -115,52 +131,125 @@
       "question_en": "Who is this training for?",
       "term_fr": "Public",
       "term_en": "Audience",
-      "answer_fr": "Deux publics, deux parcours. Les équipes métier (direction, commerce, administratif, support) qui utilisent ou vont utiliser Claude au quotidien. Les profils techniques (développeurs, responsables des systèmes d'information) qui veulent travailler avec Claude Code ou construire des agents. Le cadrage décide du parcours, ou du mélange des deux.",
-      "answer_en": "Two audiences, two tracks. Business teams (management, sales, back office, support) who use or will use Claude daily. Technical profiles (developers, IT managers) who want to work with Claude Code or build agents. Scoping decides the track, or the mix of both."
+      "answer_fr": "Trois niveaux, trois publics. Le niveau 1 s'adresse aux équipes métier (direction, commerce, administratif, support) qui commencent avec Claude. Le niveau 2 aux utilisateurs réguliers et aux référents qui veulent le brancher aux outils de l'entreprise. Le niveau 3 aux profils techniques (développeurs, responsables des systèmes d'information) qui construisent des systèmes IA. Le cadrage décide du niveau, ou de l'enchaînement de deux niveaux.",
+      "answer_en": "Three levels, three audiences. Level 1 is for business teams (management, sales, back office, support) starting out with Claude. Level 2 is for regular users and champions who want to connect it to the company's tools. Level 3 is for technical profiles (developers, IT managers) who build AI systems. Scoping decides the level, or the sequence of two levels."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "anchor": "niveaux",
+      "kicker_fr": "§ Trois niveaux",
+      "kicker_en": "§ Three levels",
+      "heading_fr": "Les trois niveaux de la formation Claude",
+      "heading_en": "The three levels of the Claude training",
+      "caption_fr": "Format conseillé : recommandation de Waimia, à confirmer au cadrage",
+      "caption_en": "Suggested format: Waimia's recommendation, to be confirmed during scoping",
+      "columns_fr": [
+        "Niveau",
+        "Public",
+        "Prérequis",
+        "Vous repartez avec",
+        "Durée"
+      ],
+      "columns_en": [
+        "Level",
+        "Audience",
+        "Prerequisites",
+        "You leave with",
+        "Duration"
+      ],
+      "rows_fr": [
+        [
+          "Niveau 1 : utiliser Claude",
+          "Équipes métier qui débutent ou utilisent Claude de temps en temps",
+          "Un accès à Claude par participant. Aucun prérequis technique",
+          "Livrables : une bibliothèque de consignes pour vos tâches, un projet configuré par participant, une fiche de règles d'usage",
+          "Format conseillé : {{prix.formation.f1.heures}} heures"
+        ],
+        [
+          "Niveau 2 : devenir expert de Claude",
+          "Utilisateurs réguliers, référents IA, responsables d'équipe",
+          "Le niveau 1 ou une pratique régulière. Les droits pour activer des connecteurs",
+          "Livrables : un projet d'équipe partagé, une compétence (skill) écrite pour une tâche récurrente, une tâche complète documentée, les règles d'usage de l'équipe",
+          "Format conseillé : {{prix.formation.f1.heures}} heures si le niveau 1 est acquis ; {{prix.formation.f2.heures}} heures pour enchaîner les niveaux 1 et 2"
+        ],
+        [
+          "Niveau 3 : développer des systèmes IA",
+          "Développeurs, responsables des systèmes d'information, profils techniques",
+          "Savoir utiliser Git et un terminal. Python ou TypeScript pour le parcours plateforme. Un compte Claude Platform ou un accès à Claude Code",
+          "Livrables : un prototype fonctionnel sur un cas de l'entreprise, son cadrage écrit, un jeu de cas de test, la liste de ce qui reste avant la production",
+          "Format conseillé : {{prix.formation.f2.heures}} heures pour un parcours complet avec prototype ; {{prix.formation.f1.heures}} heures pour une initiation à un seul parcours"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Level 1: using Claude",
+          "Business teams starting out or using Claude now and then",
+          "Claude access for each participant. No technical prerequisite",
+          "Deliverables: a library of instructions for your tasks, one configured project per participant, a usage-rules sheet",
+          "Suggested format: {{prix.formation.f1.heures}} hours"
+        ],
+        [
+          "Level 2: becoming a Claude expert",
+          "Regular users, AI champions, team leads",
+          "Level 1 or regular practice. Rights to enable connectors",
+          "Deliverables: a shared team project, a written skill for a recurring task, one documented whole task, the team's usage rules",
+          "Suggested format: {{prix.formation.f1.heures}} hours if level 1 is in place; {{prix.formation.f2.heures}} hours to cover levels 1 and 2 in a row"
+        ],
+        [
+          "Level 3: building AI systems",
+          "Developers, IT managers, technical profiles",
+          "Knowing Git and a terminal. Python or TypeScript for the platform track. A Claude Platform account or access to Claude Code",
+          "Deliverables: a working prototype on a company case, its written scope, a set of test cases, the list of what remains before production",
+          "Suggested format: {{prix.formation.f2.heures}} hours for a full track with a prototype; {{prix.formation.f1.heures}} hours for an introduction to a single track"
+        ]
+      ],
+      "variant": "default"
     },
     {
       "type": "decision-list",
-      "background": "paper",
-      "kicker_fr": "§ Objectifs",
-      "kicker_en": "§ Goals",
-      "heading_fr": "À l'issue, vos équipes savent",
-      "heading_en": "By the end, your teams can",
+      "background": "paper-2",
+      "anchor": "niveau-1",
+      "kicker_fr": "§ Niveau 1, objectifs",
+      "kicker_en": "§ Level 1, goals",
+      "heading_fr": "Niveau 1 : à l'issue, vous savez utiliser Claude",
+      "heading_en": "Level 1: by the end, you can use Claude",
       "items": [
         {
           "label_fr": "Rédiger une consigne qui produit un résultat utilisable du premier coup.",
           "label_en": "Write an instruction that yields a usable result first time."
         },
         {
-          "label_fr": "Organiser leur travail dans des projets, avec les bons documents de référence.",
-          "label_en": "Organise their work in projects, with the right reference documents."
+          "label_fr": "Organiser votre travail dans des projets, avec les bons documents de référence.",
+          "label_en": "Organise your work in projects, with the right reference documents."
         },
         {
-          "label_fr": "Brancher Claude aux outils de l'entreprise par des connecteurs.",
-          "label_en": "Connect Claude to the company's tools through connectors."
+          "label_fr": "Faire produire et corriger un document, un tableau ou une synthèse à partir de vos fichiers.",
+          "label_en": "Have Claude produce and correct a document, a table or a summary from your files."
         },
         {
-          "label_fr": "Confier une tâche complète à Claude et relire le résultat avec méthode.",
-          "label_en": "Hand a whole task to Claude and review the result methodically."
+          "label_fr": "Choisir entre une réponse directe, la recherche web et la recherche approfondie selon la question.",
+          "label_en": "Choose between a direct answer, web search and in-depth research depending on the question."
         },
         {
-          "label_fr": "Reconnaître une réponse inventée et savoir quelles données ne pas partager.",
-          "label_en": "Recognise a made-up answer and know which data not to share."
+          "label_fr": "Reconnaître une réponse inventée et la vérifier avant de vous en servir.",
+          "label_en": "Recognise a made-up answer and check it before using it."
         },
         {
-          "label_fr": "Pour le parcours technique : utiliser Claude Code sur un dépôt réel et cadrer un agent.",
-          "label_en": "For the technical track: use Claude Code on a real repository and scope an agent."
+          "label_fr": "Dire quelles données ne pas partager, et pourquoi.",
+          "label_en": "Say which data not to share, and why."
         }
       ]
     },
     {
       "type": "editorial-timeline",
-      "background": "paper-3",
+      "background": "paper",
       "orientation": "vertical",
       "numbered": true,
-      "eyebrow_fr": "§ Programme",
-      "eyebrow_en": "§ Programme",
-      "title_fr": "Le programme, module par module",
-      "title_en": "The programme, module by module",
+      "eyebrow_fr": "§ Niveau 1, programme",
+      "eyebrow_en": "§ Level 1, programme",
+      "title_fr": "Programme du niveau 1 : utiliser l'application Claude",
+      "title_en": "Level 1 programme: using the Claude app",
       "events": [
         {
           "num": "01",
@@ -171,17 +260,106 @@
         },
         {
           "num": "02",
-          "title_fr": "Travailler avec Claude au quotidien",
-          "title_en": "Working with Claude day to day",
-          "body_fr": "Consignes, documents de référence, projets, relecture.",
-          "body_en": "Instructions, reference documents, projects, review."
+          "title_fr": "Écrire une consigne",
+          "title_en": "Writing an instruction",
+          "body_fr": "Contexte, exemple, format attendu, puis corriger en deux ou trois échanges. Chaque participant travaille sur une de ses tâches.",
+          "body_en": "Context, example, expected format, then correcting in two or three turns. Each participant works on one of their own tasks."
         },
         {
           "num": "03",
-          "title_fr": "Brancher Claude à vos outils",
-          "title_en": "Connecting Claude to your tools",
-          "body_fr": "Connecteurs, compétences (skills) et plugins : ce qu'ils permettent, ce qu'ils exposent.",
-          "body_en": "Connectors, skills and plugins: what they enable, what they expose."
+          "title_fr": "Projets et documents de référence",
+          "title_en": "Projects and reference documents",
+          "body_fr": "Un projet par sujet, avec ses consignes et ses fichiers, pour ne pas tout réexpliquer à chaque conversation.",
+          "body_en": "One project per topic, with its instructions and files, so you do not re-explain everything in each conversation."
+        },
+        {
+          "num": "04",
+          "title_fr": "Fichiers et artefacts",
+          "title_en": "Files and artifacts",
+          "body_fr": "Analyser un document ou un tableau, produire un livrable (note, tableau, présentation) et le reprendre.",
+          "body_en": "Analysing a document or a spreadsheet, producing a deliverable (memo, table, presentation) and revising it."
+        },
+        {
+          "num": "05",
+          "title_fr": "Recherche web et recherche approfondie",
+          "title_en": "Web search and research",
+          "body_fr": "Quand s'en servir, comment lire les sources citées, ce qu'il reste à vérifier soi-même.",
+          "body_en": "When to use them, how to read the cited sources, what still needs checking yourself."
+        },
+        {
+          "num": "06",
+          "title_fr": "Règles d'usage",
+          "title_en": "Usage rules",
+          "body_fr": "Données interdites, relecture obligatoire, ce qui ne se délègue pas : une fiche d'une page pour l'équipe.",
+          "body_en": "Off-limits data, mandatory review, what is not delegated: a one-page sheet for the team."
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "anchor": "niveau-2",
+      "kicker_fr": "§ Niveau 2, objectifs",
+      "kicker_en": "§ Level 2, goals",
+      "heading_fr": "Niveau 2 : à l'issue, vous savez étendre Claude",
+      "heading_en": "Level 2: by the end, you can extend Claude",
+      "items": [
+        {
+          "label_fr": "Brancher Claude aux outils de l'entreprise par des connecteurs, et dire ce que chaque connecteur expose.",
+          "label_en": "Connect Claude to the company's tools through connectors, and say what each connector exposes."
+        },
+        {
+          "label_fr": "Écrire une compétence (skill) pour qu'une tâche récurrente soit refaite de la même façon.",
+          "label_en": "Write a skill so that a recurring task is done the same way each time."
+        },
+        {
+          "label_fr": "Installer un plugin et juger s'il est utile à l'équipe.",
+          "label_en": "Install a plugin and judge whether it is useful to the team."
+        },
+        {
+          "label_fr": "Confier une tâche en plusieurs étapes à Claude et relire le résultat avec méthode.",
+          "label_en": "Hand a multi-step task to Claude and review the result methodically."
+        },
+        {
+          "label_fr": "Planifier une tâche récurrente et contrôler ce qu'elle produit.",
+          "label_en": "Schedule a recurring task and check what it produces."
+        },
+        {
+          "label_fr": "Rédiger les règles d'usage de l'équipe, base de votre charte IA.",
+          "label_en": "Write the team's usage rules, the basis of your AI policy."
+        }
+      ]
+    },
+    {
+      "type": "editorial-timeline",
+      "background": "paper-3",
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Niveau 2, programme",
+      "eyebrow_en": "§ Level 2, programme",
+      "title_fr": "Programme du niveau 2 : devenir expert de l'application",
+      "title_en": "Level 2 programme: becoming an expert in the app",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Connecteurs",
+          "title_en": "Connectors",
+          "body_fr": "Connecteurs prêts à l'emploi et connecteurs personnalisés : ce qu'ils permettent, ce qu'ils exposent, qui les active.",
+          "body_en": "Pre-built and custom connectors: what they enable, what they expose, who enables them."
+        },
+        {
+          "num": "02",
+          "title_fr": "Compétences (skills)",
+          "title_en": "Skills",
+          "body_fr": "Décrire une façon de faire une fois, pour que Claude la reprenne. Chaque participant écrit une compétence sur une tâche réelle.",
+          "body_en": "Describing a way of working once, so that Claude reuses it. Each participant writes a skill for a real task."
+        },
+        {
+          "num": "03",
+          "title_fr": "Plugins",
+          "title_en": "Plugins",
+          "body_fr": "Ce qu'un plugin regroupe, comment en installer un, comment décider s'il a sa place dans l'équipe.",
+          "body_en": "What a plugin bundles, how to install one, how to decide whether it belongs in the team."
         },
         {
           "num": "04",
@@ -192,36 +370,148 @@
         },
         {
           "num": "05",
-          "title_fr": "Claude Code",
-          "title_en": "Claude Code",
-          "meta_fr": "Parcours technique",
-          "meta_en": "Technical track",
-          "body_fr": "Travailler dans un dépôt, donner du contexte au projet, relire ce que Claude modifie.",
-          "body_en": "Working in a repository, giving the project context, reviewing what Claude changes."
+          "title_fr": "Travailler à plusieurs",
+          "title_en": "Working as a team",
+          "body_fr": "Projets partagés, bibliothèque commune de consignes et de compétences, qui maintient quoi.",
+          "body_en": "Shared projects, a common library of instructions and skills, who maintains what."
         },
         {
           "num": "06",
-          "title_fr": "Concevoir un agent",
-          "title_en": "Designing an agent",
-          "meta_fr": "Parcours technique",
-          "meta_en": "Technical track",
-          "body_fr": "Périmètre, outils accessibles, validation humaine, mesure de la qualité avant mise en service.",
-          "body_en": "Scope, accessible tools, human approval, quality measurement before going live."
-        },
-        {
-          "num": "07",
-          "title_fr": "Règles d'usage",
-          "title_en": "Usage rules",
+          "title_fr": "Règles d'usage et charte",
+          "title_en": "Usage rules and policy",
           "body_fr": "Données interdites, qui valide quoi, RGPD et AI Act : la base de votre charte IA.",
           "body_en": "Off-limits data, who approves what, GDPR and AI Act: the basis of your AI policy."
         }
       ]
     },
     {
-      "type": "editorial-prose",
+      "type": "decision-list",
+      "background": "paper-2",
+      "anchor": "niveau-3",
+      "kicker_fr": "§ Niveau 3, objectifs",
+      "kicker_en": "§ Level 3, goals",
+      "heading_fr": "Niveau 3 : à l'issue, vous savez construire un système IA avec Claude",
+      "heading_en": "Level 3: by the end, you can build an AI system with Claude",
+      "items": [
+        {
+          "label_fr": "Écrire le cadrage d'un agent : périmètre, outils accessibles, actions soumises à une validation humaine.",
+          "label_en": "Write the scope of an agent: perimeter, accessible tools, actions that need human approval."
+        },
+        {
+          "label_fr": "Parcours plateforme : appeler l'API Messages et obtenir une réponse au format attendu par votre code.",
+          "label_en": "Platform track: call the Messages API and get a response in the format your code expects."
+        },
+        {
+          "label_fr": "Parcours plateforme : donner des outils au modèle (tool use) et gérer la boucle d'appels.",
+          "label_en": "Platform track: give the model tools (tool use) and handle the call loop."
+        },
+        {
+          "label_fr": "Parcours application et CLI : utiliser Claude Code sur un dépôt réel, lui donner le contexte du projet et relire ce qu'il modifie.",
+          "label_en": "App and CLI track: use Claude Code on a real repository, give it the project context and review what it changes."
+        },
+        {
+          "label_fr": "Parcours application et CLI : étendre Claude Code (compétences, hooks, serveurs MCP, sous-agents) et le lancer dans un script.",
+          "label_en": "App and CLI track: extend Claude Code (skills, hooks, MCP servers, subagents) and run it from a script."
+        },
+        {
+          "label_fr": "Construire un jeu de cas de test et mesurer la qualité avant et après un changement.",
+          "label_en": "Build a set of test cases and measure quality before and after a change."
+        },
+        {
+          "label_fr": "Lister ce qui manque à votre prototype avant une mise en production.",
+          "label_en": "List what your prototype still lacks before going to production."
+        }
+      ]
+    },
+    {
+      "type": "editorial-timeline",
       "background": "paper",
-      "html_fr": "<h2>Formation Claude Code : pour les équipes techniques</h2>\n<p>Claude Code est l'outil d'Anthropic pour travailler avec Claude dans un dépôt de code. Le parcours technique se fait sur votre propre code : donner le contexte du projet, découper une demande, relire les modifications, décider de ce qui passe en revue humaine. L'objectif n'est pas d'aller plus vite sur une démonstration, mais de garder un code que l'équipe comprend encore.</p>\n<h2>Formation agent IA : savoir cadrer avant de construire</h2>\n<p>Un agent IA est un modèle à qui l'on donne des outils et une tâche, et qui décide lui-même des étapes. La partie difficile n'est pas technique. C'est de décider ce qu'il a le droit de faire seul, ce qui demande une validation, et comment on mesure qu'il fait bien son travail. Ce module apprend à écrire ce cadrage. Pour la construction et la mise en production, voir notre service <a href=\"/services/agents-ia\">agents IA</a>.</p>",
-      "html_en": "<h2>Claude Code training: for technical teams</h2>\n<p>Claude Code is Anthropic's tool for working with Claude in a code repository. The technical track runs on your own code: giving the project context, breaking down a request, reviewing changes, deciding what goes to human review. The goal is not to go faster on a demo, but to keep code the team still understands.</p>\n<h2>AI agent training: scope before you build</h2>\n<p>An AI agent is a model given tools and a task, which decides the steps itself. The hard part is not technical. It is deciding what it may do alone, what needs approval, and how you measure that it does its job well. This module teaches how to write that scope. For building and shipping, see our <a href=\"/services/agents-ia\">AI agents</a> service.</p>"
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Niveau 3, programme",
+      "eyebrow_en": "§ Level 3, programme",
+      "title_fr": "Programme du niveau 3 : deux parcours, un tronc commun",
+      "title_en": "Level 3 programme: two tracks, one common core",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Cadrer un agent",
+          "title_en": "Scoping an agent",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Périmètre, outils accessibles, validation humaine, critères de qualité. On écrit le cadrage du prototype avant de coder.",
+          "body_en": "Perimeter, accessible tools, human approval, quality criteria. We write the prototype's scope before coding."
+        },
+        {
+          "num": "02",
+          "title_fr": "Premiers appels à l'API",
+          "title_en": "First API calls",
+          "meta_fr": "Parcours plateforme",
+          "meta_en": "Platform track",
+          "body_fr": "API Messages, console développeur, clés, choix du modèle, coût d'un appel.",
+          "body_en": "Messages API, developer console, keys, model choice, cost of a call."
+        },
+        {
+          "num": "03",
+          "title_fr": "Outils et boucle d'agent",
+          "title_en": "Tools and the agent loop",
+          "meta_fr": "Parcours plateforme",
+          "meta_en": "Platform track",
+          "body_fr": "Définir un outil, traiter les appels d'outils, brancher un serveur MCP. Le modèle décide des étapes, votre code garde la main.",
+          "body_en": "Defining a tool, handling tool calls, connecting an MCP server. The model decides the steps, your code stays in control."
+        },
+        {
+          "num": "04",
+          "title_fr": "Claude Code sur votre dépôt",
+          "title_en": "Claude Code on your repository",
+          "meta_fr": "Parcours application et CLI",
+          "meta_en": "App and CLI track",
+          "body_fr": "Le contexte du projet (CLAUDE.md), le découpage d'une demande, les permissions, la relecture des modifications.",
+          "body_en": "Project context (CLAUDE.md), breaking down a request, permissions, reviewing changes."
+        },
+        {
+          "num": "05",
+          "title_fr": "Étendre et automatiser Claude Code",
+          "title_en": "Extending and automating Claude Code",
+          "meta_fr": "Parcours application et CLI",
+          "meta_en": "App and CLI track",
+          "body_fr": "Compétences, hooks, serveurs MCP, sous-agents. Lancer Claude Code sans interface dans un script ou en intégration continue.",
+          "body_en": "Skills, hooks, MCP servers, subagents. Running Claude Code without an interface in a script or in continuous integration."
+        },
+        {
+          "num": "06",
+          "title_fr": "Cadres d'exécution (harness)",
+          "title_en": "Harnesses",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Ce qu'un cadre d'exécution prend en charge : boucle, outils, permissions, contexte. Agent SDK, Managed Agents, ou sa propre boucle : comment choisir.",
+          "body_en": "What a harness takes care of: loop, tools, permissions, context. Agent SDK, Managed Agents, or your own loop: how to choose."
+        },
+        {
+          "num": "07",
+          "title_fr": "Tester et mesurer",
+          "title_en": "Testing and measuring",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Un jeu de cas réels, des critères écrits, une mesure avant et après chaque changement de consigne ou de modèle.",
+          "body_en": "A set of real cases, written criteria, a measurement before and after each change of instruction or model."
+        },
+        {
+          "num": "08",
+          "title_fr": "Avant la production",
+          "title_en": "Before production",
+          "meta_fr": "Tronc commun",
+          "meta_en": "Common core",
+          "body_fr": "Validation humaine, journalisation, coûts, RGPD et AI Act. Ce qui relève encore de la formation, et ce qui relève d'une mission.",
+          "body_en": "Human approval, logging, costs, GDPR and AI Act. What still belongs to training, and what belongs to an engagement."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Formation Claude Code : pour les équipes techniques</h2>\n<p>Claude Code est l'outil d'Anthropic pour travailler avec Claude dans un dépôt de code. Il s'utilise dans le terminal, dans l'éditeur de code, dans l'application de bureau et dans le navigateur. Le parcours application et CLI du niveau 3 se fait sur votre propre code : donner le contexte du projet, découper une demande, relire les modifications, décider de ce qui passe en revue humaine. L'objectif n'est pas d'aller plus vite sur une démonstration, mais de garder un code que l'équipe comprend encore.</p>\n<h2>Formation Claude Platform : construire avec l'API</h2>\n<p>Le parcours plateforme s'adresse aux équipes qui intègrent Claude dans leur propre application ou dans leurs flux. On y travaille l'API Messages, les outils que l'on donne au modèle et la boucle qui les exécute. On y compare aussi deux façons de faire tourner un agent : écrire sa boucle, ou s'appuyer sur un cadre d'exécution (harness) qui la fournit.</p>\n<h2>Formation agent IA : savoir cadrer avant de construire</h2>\n<p>Un agent IA est un modèle à qui l'on donne des outils et une tâche, et qui décide lui-même des étapes. La partie difficile n'est pas technique. C'est de décider ce qu'il a le droit de faire seul, ce qui demande une validation, et comment on mesure qu'il fait bien son travail. Le niveau 3 commence par ce cadrage, puis construit un prototype. Pour la mise en production, voir notre service <a href=\"/services/agents-ia\">agents IA</a>. Pour les tâches en plusieurs étapes du niveau 2, voir notre guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>.</p>\n<p>Les noms de produits et de fonctions cités sur cette page ont été relus le 5 octobre 2026 dans la documentation d'Anthropic : <a href=\"https://claude.com/product/overview\" rel=\"noopener\">claude.com</a>, <a href=\"https://support.claude.com\" rel=\"noopener\">support.claude.com</a>, <a href=\"https://platform.claude.com/docs/en/intro\" rel=\"noopener\">platform.claude.com</a> et <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">code.claude.com</a>. Ces produits évoluent vite : le programme est remis à jour au cadrage.</p>",
+      "html_en": "<h2>Claude Code training: for technical teams</h2>\n<p>Claude Code is Anthropic's tool for working with Claude in a code repository. It runs in the terminal, in the code editor, in the desktop app and in the browser. The app and CLI track of level 3 runs on your own code: giving the project context, breaking down a request, reviewing changes, deciding what goes to human review. The goal is not to go faster on a demo, but to keep code the team still understands.</p>\n<h2>Claude Platform training: building with the API</h2>\n<p>The platform track is for teams integrating Claude into their own application or workflows. It covers the Messages API, the tools you give the model and the loop that runs them. It also compares two ways of running an agent: writing your own loop, or relying on a harness that provides it.</p>\n<h2>AI agent training: scope before you build</h2>\n<p>An AI agent is a model given tools and a task, which decides the steps itself. The hard part is not technical. It is deciding what it may do alone, what needs approval, and how you measure that it does its job well. Level 3 starts with that scope, then builds a prototype. For shipping to production, see our <a href=\"/services/agents-ia\">AI agents</a> service. For the multi-step tasks of level 2, see our <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a> guide.</p>\n<p>The product and feature names quoted on this page were checked on 5 October 2026 in Anthropic's documentation: <a href=\"https://claude.com/product/overview\" rel=\"noopener\">claude.com</a>, <a href=\"https://support.claude.com\" rel=\"noopener\">support.claude.com</a>, <a href=\"https://platform.claude.com/docs/en/intro\" rel=\"noopener\">platform.claude.com</a> and <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">code.claude.com</a>. These products change quickly: the programme is updated during scoping.</p>"
     },
     {
       "type": "editorial-table-block",
@@ -241,7 +531,7 @@
       "rows_fr": [
         [
           "Prérequis",
-          "Un accès à Claude pour chaque participant. Pour le parcours technique : savoir utiliser Git et un terminal"
+          "Un accès à Claude pour chaque participant. Pour le niveau 3 : savoir utiliser Git et un terminal"
         ],
         [
           "Format",
@@ -271,7 +561,7 @@
       "rows_en": [
         [
           "Prerequisites",
-          "Claude access for each participant. For the technical track: knowing Git and a terminal"
+          "Claude access for each participant. For level 3: knowing Git and a terminal"
         ],
         [
           "Format",
@@ -314,13 +604,13 @@
       "kicker_en": "§ Go further",
       "cards": [
         {
-          "kicker_fr": "Guide",
-          "kicker_en": "Guide",
-          "title_fr": "Claude Cowork",
-          "title_en": "Claude Cowork",
-          "lead_fr": "Ce que c'est, ce qui change, comment l'utiliser en PME.",
-          "lead_en": "What it is, what changes, how to use it in an SME.",
-          "href": "/ressources/guides/claude-cowork"
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation ChatGPT",
+          "title_en": "ChatGPT training",
+          "lead_fr": "Les trois mêmes niveaux, sur ChatGPT et OpenAI Platform.",
+          "lead_en": "The same three levels, on ChatGPT and OpenAI Platform.",
+          "href": "/formations/chatgpt"
         },
         {
           "kicker_fr": "Service",
@@ -336,8 +626,8 @@
           "kicker_en": "Training",
           "title_fr": "Toutes les formations",
           "title_en": "All training courses",
-          "lead_fr": "Automatisation, n8n et Make.",
-          "lead_en": "Automation, n8n and Make.",
+          "lead_fr": "Claude, ChatGPT, automatisation, n8n et Make.",
+          "lead_en": "Claude, ChatGPT, automation, n8n and Make.",
           "href": "/formations"
         }
       ]
@@ -349,22 +639,34 @@
       "h2_en": "Frequently asked questions",
       "items": [
         {
+          "q_fr": "Quel niveau choisir pour la formation Claude ?",
+          "q_en": "Which level should we choose for the Claude training?",
+          "a_fr": "Niveau 1 si l'équipe découvre Claude ou l'utilise de temps en temps. Niveau 2 si elle l'utilise chaque semaine et veut le brancher à ses outils. Niveau 3 pour les développeurs qui veulent construire avec l'API ou avec Claude Code. L'audit gratuit sert à vérifier le niveau de départ.",
+          "a_en": "Level 1 if the team is new to Claude or uses it now and then. Level 2 if it uses Claude every week and wants to connect it to its tools. Level 3 for developers who want to build with the API or with Claude Code. The free audit is there to check the starting level."
+        },
+        {
           "q_fr": "Pourquoi une formation Claude et pas une formation IA générale ?",
           "q_en": "Why Claude training rather than general AI training?",
-          "a_fr": "Parce qu'on forme sur l'outil que l'équipe va réellement utiliser, avec ses fonctions propres. Les principes (consigne, relecture, données) se transposent à d'autres assistants. Si votre entreprise utilise un autre outil, dites-le au cadrage.",
-          "a_en": "Because we train on the tool the team will actually use, with its own features. The principles (instruction, review, data) carry over to other assistants. If your company uses another tool, tell us during scoping."
+          "a_fr": "Parce qu'on forme sur l'outil que l'équipe va réellement utiliser, avec ses fonctions propres. Les principes (consigne, relecture, données) se transposent à d'autres assistants. Si votre entreprise utilise ChatGPT, la formation ChatGPT suit les trois mêmes niveaux.",
+          "a_en": "Because we train on the tool the team will actually use, with its own features. The principles (instruction, review, data) carry over to other assistants. If your company uses ChatGPT, the ChatGPT training follows the same three levels."
         },
         {
           "q_fr": "La formation Claude Code s'adresse-t-elle à des non-développeurs ?",
           "q_en": "Is the Claude Code training for non-developers?",
-          "a_fr": "Non. Elle demande de savoir utiliser Git et un terminal. Pour les équipes métier, le parcours quotidien et les tâches complètes couvrent l'équivalent sans terminal.",
-          "a_en": "No. It requires knowing Git and a terminal. For business teams, the daily track and whole-task modules cover the equivalent without a terminal."
+          "a_fr": "Non. Claude Code est traité au niveau 3, qui demande de savoir utiliser Git et un terminal. Pour les équipes métier, les niveaux 1 et 2 couvrent l'équivalent sans terminal, y compris les tâches en plusieurs étapes.",
+          "a_en": "No. Claude Code is covered at level 3, which requires knowing Git and a terminal. For business teams, levels 1 and 2 cover the equivalent without a terminal, including multi-step tasks."
         },
         {
           "q_fr": "Repart-on avec un agent IA en production ?",
           "q_en": "Do we leave with an AI agent in production?",
-          "a_fr": "Non, et c'est volontaire. On repart avec un cadrage écrit et, selon le niveau, un prototype. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation.",
-          "a_en": "No, deliberately. You leave with a written scope and, depending on level, a prototype. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+          "a_fr": "Non, et c'est volontaire. Aux niveaux 1 et 2, on repart avec un cadrage écrit et des réglages réutilisables. Au niveau 3, l'objectif est un prototype fonctionnel sur un cas de l'entreprise. Mettre un agent en production demande des tests et une supervision qui relèvent d'une mission, pas d'une formation.",
+          "a_en": "No, deliberately. At levels 1 and 2 you leave with a written scope and reusable settings. At level 3 the goal is a working prototype on a company case. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
+        },
+        {
+          "q_fr": "Au niveau 3, faut-il choisir entre la plateforme et Claude Code ?",
+          "q_en": "At level 3, do we have to choose between the platform and Claude Code?",
+          "a_fr": "Dans le format de {{prix.formation.f1.heures}} heures, oui : on choisit un parcours. Dans le format de {{prix.formation.f2.heures}} heures, on peut suivre un parcours jusqu'au prototype, ou voir les deux plus rapidement. C'est une recommandation : le découpage se décide au cadrage, selon ce que l'équipe doit construire.",
+          "a_en": "In the {{prix.formation.f1.heures}}-hour format, yes: you pick one track. In the {{prix.formation.f2.heures}}-hour format, you can follow one track through to a prototype, or cover both more quickly. This is a recommendation: the split is decided during scoping, based on what the team needs to build."
         },
         {
           "q_fr": "Quelles données peut-on utiliser pendant la formation ?",

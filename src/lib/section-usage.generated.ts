@@ -194,7 +194,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 31,
+    "count": 36,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -224,6 +224,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
@@ -336,7 +337,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 24,
+    "count": 25,
     "pages": [
       "/conformite-ia",
       "/demonstrations/avant-apres",
@@ -359,16 +360,18 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/base-de-connaissance-ia",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
     ]
   },
   "editorial-callout": {
-    "count": 5,
+    "count": 6,
     "pages": [
       "/conformite-ia",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
@@ -389,7 +392,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 37,
+    "count": 38,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/generer-plus-de-leads",
@@ -419,6 +422,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/site-web-ia",
       "secteurs/[...slug]",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -433,23 +437,25 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 6,
+    "count": 9,
     "pages": [
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/guides/claude-cowork",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
     ]
   },
   "editorial-timeline": {
-    "count": 7,
+    "count": 12,
     "pages": [
       "/conformite-ia",
       "/services/automatisation-make",
       "/services/base-de-connaissance-ia",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
@@ -497,7 +503,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 68,
+    "count": 69,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -549,6 +555,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/template-service-ref",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -622,7 +629,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 67,
+    "count": 68,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -675,6 +682,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/template-service-ref",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -809,7 +817,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 30,
+    "count": 31,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -837,6 +845,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/base-de-connaissance-ia",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -1107,7 +1116,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 29,
+    "count": 30,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1135,9 +1144,16 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/base-de-connaissance-ia",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
+      "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
+    ]
+  },
+  "related-links": {
+    "count": 1,
+    "pages": [
+      "src/content/formations/index.json"
     ]
   },
   "roi-band": {

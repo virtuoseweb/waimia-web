@@ -128,6 +128,8 @@ const {
       border: none;
       font-size: var(--text-body-sm, 14px);
     }
+    /* Lignes empilées : pas de filet épais entre les cellules de la dernière ligne. */
+    .ed-table-tr:last-child .ed-table-td { border-bottom: none; }
     .ed-table-tr .ed-table-td:first-child {
       font-weight: var(--fw-medium);
       color: var(--ink, #0C0B09);

@@ -1,16 +1,18 @@
 {
   "title_fr": "Formations IA et automatisation pour entreprises · Waimia",
   "title_en": "AI and automation training for companies · Waimia",
-  "description_fr": "Formations IA et automatisation en intra-entreprise : n8n, Make, Claude et agents IA, sur vos cas réels. Dispensées via Akigora, organisme certifié Qualiopi.",
-  "description_en": "In-company AI and automation training: n8n, Make, Claude and AI agents, on your real cases. Delivered via Akigora, a Qualiopi-certified organisation.",
+  "description_fr": "Formations IA et automatisation en intra-entreprise : Claude, ChatGPT, n8n et Make, sur vos cas réels. Dispensées via Akigora, organisme certifié Qualiopi.",
+  "description_en": "In-company AI and automation training: Claude, ChatGPT, n8n and Make, on your real cases. Delivered via Akigora, a Qualiopi-certified organisation.",
   "slug": "formations",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
   "tags": [
     "formation-ia-entreprise",
     "formateur-ia",
     "formation-ia-qualiopi",
-    "formation-automatisation"
+    "formation-automatisation",
+    "formation-chatgpt",
+    "formation-claude"
   ],
   "seo": {
     "noindex": false,
@@ -31,7 +33,7 @@
     },
     {
       "q": "Quelle formation choisir pour commencer ?",
-      "a": "Si l'équipe n'a jamais automatisé : la formation automatisation et IA. Si un outil est déjà choisi : la formation n8n ou Make. Si le sujet est l'usage de l'IA au quotidien ou la construction d'agents : la formation Claude et agents IA. En cas de doute, l'audit gratuit sert à trancher."
+      "a": "Si l'équipe n'a jamais automatisé : la formation automatisation et IA. Si un outil d'automatisation est déjà choisi : la formation n8n ou Make. Si le sujet est l'assistant IA, prenez la formation de l'outil utilisé, Claude ou ChatGPT : niveau 1 pour démarrer, niveau 2 pour les utilisateurs réguliers, niveau 3 pour les développeurs. En cas de doute, l'audit gratuit sert à trancher."
     },
     {
       "q": "Combien de temps dure la formation et combien coûte-t-elle ?",
@@ -43,7 +45,7 @@
     },
     {
       "q": "Faites-vous une formation ChatGPT ?",
-      "a": "Pas de formation dédiée. Nos formations portent sur l'automatisation (n8n, Make) et sur Claude et les agents IA. Les principes enseignés, consigne, relecture, protection des données, s'appliquent à n'importe quel assistant."
+      "a": "Oui. La formation ChatGPT suit trois niveaux : utiliser l'application, en devenir expert, puis développer des systèmes IA avec OpenAI Platform ou Codex. La formation Claude suit les trois mêmes niveaux."
     }
   ],
   "faq_en": [
@@ -61,7 +63,7 @@
     },
     {
       "q": "Which training should we start with?",
-      "a": "If the team has never automated: the automation and AI training. If a tool is already chosen: the n8n or Make training. If the subject is daily AI use or building agents: the Claude and AI agents training. If in doubt, the free audit settles it."
+      "a": "If the team has never automated: the automation and AI training. If an automation tool is already chosen: the n8n or Make training. If the subject is the AI assistant, take the training for the tool in use, Claude or ChatGPT: level 1 to start, level 2 for regular users, level 3 for developers. If in doubt, the free audit settles it."
     },
     {
       "q": "How long does the training last and how much does it cost?",
@@ -73,7 +75,7 @@
     },
     {
       "q": "Do you run ChatGPT training?",
-      "a": "No dedicated course. Our training covers automation (n8n, Make) and Claude and AI agents. The principles taught, instruction, review, data protection, apply to any assistant."
+      "a": "Yes. The ChatGPT training follows three levels: using the app, becoming an expert, then building AI systems with OpenAI Platform or Codex. The Claude training follows the same three levels."
     }
   ],
   "sections": [
@@ -117,13 +119,105 @@
       "media_alt_en": "Diagram: a skills handover between a trainer and a team"
     },
     {
+      "type": "related-links",
+      "background": "paper-2",
+      "anchor": "trouver",
+      "kicker_fr": "§ Trouver sa formation",
+      "kicker_en": "§ Find your training",
+      "h2_fr": "Un outil, un niveau : votre formation",
+      "h2_en": "One tool, one level: your training",
+      "groups": [
+        {
+          "label_fr": "Claude",
+          "label_en": "Claude",
+          "links": [
+            {
+              "label_fr": "Niveau 1 : utiliser l'application",
+              "label_en": "Level 1: using the app",
+              "href": "/formations/claude#niveau-1",
+              "desc_fr": "Équipes métier, sans prérequis",
+              "desc_en": "Business teams, no prerequisite"
+            },
+            {
+              "label_fr": "Niveau 2 : devenir expert",
+              "label_en": "Level 2: becoming an expert",
+              "href": "/formations/claude#niveau-2",
+              "desc_fr": "Connecteurs, compétences, tâches complètes",
+              "desc_en": "Connectors, skills, whole tasks"
+            },
+            {
+              "label_fr": "Niveau 3 : développer des systèmes IA",
+              "label_en": "Level 3: building AI systems",
+              "href": "/formations/claude#niveau-3",
+              "desc_fr": "Claude Platform ou Claude Code, pour développeurs",
+              "desc_en": "Claude Platform or Claude Code, for developers"
+            }
+          ]
+        },
+        {
+          "label_fr": "ChatGPT",
+          "label_en": "ChatGPT",
+          "links": [
+            {
+              "label_fr": "Niveau 1 : utiliser l'application",
+              "label_en": "Level 1: using the app",
+              "href": "/formations/chatgpt#niveau-1",
+              "desc_fr": "Équipes métier, sans prérequis",
+              "desc_en": "Business teams, no prerequisite"
+            },
+            {
+              "label_fr": "Niveau 2 : devenir expert",
+              "label_en": "Level 2: becoming an expert",
+              "href": "/formations/chatgpt#niveau-2",
+              "desc_fr": "GPT personnalisés, applications connectées, tâches complètes",
+              "desc_en": "Custom GPTs, connected apps, whole tasks"
+            },
+            {
+              "label_fr": "Niveau 3 : développer des systèmes IA",
+              "label_en": "Level 3: building AI systems",
+              "href": "/formations/chatgpt#niveau-3",
+              "desc_fr": "OpenAI Platform ou Codex, pour développeurs",
+              "desc_en": "OpenAI Platform or Codex, for developers"
+            }
+          ]
+        },
+        {
+          "label_fr": "Automatisation",
+          "label_en": "Automation",
+          "links": [
+            {
+              "label_fr": "Formation automatisation et IA",
+              "label_en": "Automation and AI training",
+              "href": "/formations/automatisation",
+              "desc_fr": "Pour démarrer : repérer, choisir l'outil, premier flux",
+              "desc_en": "To get started: spot, choose the tool, first flow"
+            },
+            {
+              "label_fr": "Formation n8n",
+              "label_en": "n8n training",
+              "href": "/formations/n8n",
+              "desc_fr": "Construire et maintenir des workflows, profils techniques",
+              "desc_en": "Build and maintain workflows, technical profiles"
+            },
+            {
+              "label_fr": "Formation Make",
+              "label_en": "Make training",
+              "href": "/formations/make",
+              "desc_fr": "Construire et modifier ses scénarios, équipes métier",
+              "desc_en": "Build and edit scenarios, business teams"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "service-catalog-list",
       "background": "paper",
       "roman": "I",
       "label_fr": "Les formations",
       "label_en": "The courses",
-      "heading_fr": "Quatre formations, construites sur vos tâches",
-      "heading_en": "Four courses, built on your tasks",
+      "heading_fr": "Cinq formations, construites sur vos tâches",
+      "heading_en": "Five courses, built on your tasks",
       "aside_fr": "Toutes en intra-entreprise, à distance ou sur site. Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT.",
       "aside_en": "All in-company, remote or on site. Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT.",
       "services": [
@@ -158,10 +252,19 @@
           "num": "04",
           "title_fr": "Formation Claude et agents IA",
           "title_en": "Claude and AI agents training",
-          "desc_fr": "Usage quotidien de Claude, connexion aux outils, Claude Code, cadrage d'un agent. Deux parcours.",
-          "desc_en": "Daily use of Claude, connecting tools, Claude Code, scoping an agent. Two tracks.",
-          "meta": "Métier et technique",
+          "desc_fr": "Trois niveaux : utiliser Claude, en devenir expert, développer avec Claude Platform ou Claude Code.",
+          "desc_en": "Three levels: using Claude, becoming an expert, building with Claude Platform or Claude Code.",
+          "meta": "Trois niveaux",
           "href": "/formations/claude"
+        },
+        {
+          "num": "05",
+          "title_fr": "Formation ChatGPT",
+          "title_en": "ChatGPT training",
+          "desc_fr": "Trois niveaux : utiliser ChatGPT, en devenir expert, développer avec OpenAI Platform ou Codex.",
+          "desc_en": "Three levels: using ChatGPT, becoming an expert, building with OpenAI Platform or Codex.",
+          "meta": "Trois niveaux",
+          "href": "/formations/chatgpt"
         }
       ]
     },
@@ -226,8 +329,8 @@
         {
           "q_fr": "Quelle formation choisir pour commencer ?",
           "q_en": "Which training should we start with?",
-          "a_fr": "Si l'équipe n'a jamais automatisé : la formation automatisation et IA. Si un outil est déjà choisi : la formation n8n ou Make. Si le sujet est l'usage de l'IA au quotidien ou la construction d'agents : la formation Claude et agents IA. En cas de doute, l'audit gratuit sert à trancher.",
-          "a_en": "If the team has never automated: the automation and AI training. If a tool is already chosen: the n8n or Make training. If the subject is daily AI use or building agents: the Claude and AI agents training. If in doubt, the free audit settles it."
+          "a_fr": "Si l'équipe n'a jamais automatisé : la formation automatisation et IA. Si un outil d'automatisation est déjà choisi : la formation n8n ou Make. Si le sujet est l'assistant IA, prenez la formation de l'outil utilisé, Claude ou ChatGPT : niveau 1 pour démarrer, niveau 2 pour les utilisateurs réguliers, niveau 3 pour les développeurs. En cas de doute, l'audit gratuit sert à trancher.",
+          "a_en": "If the team has never automated: the automation and AI training. If an automation tool is already chosen: the n8n or Make training. If the subject is the AI assistant, take the training for the tool in use, Claude or ChatGPT: level 1 to start, level 2 for regular users, level 3 for developers. If in doubt, the free audit settles it."
         },
         {
           "q_fr": "Combien de temps dure la formation et combien coûte-t-elle ?",
@@ -244,8 +347,8 @@
         {
           "q_fr": "Faites-vous une formation ChatGPT ?",
           "q_en": "Do you run ChatGPT training?",
-          "a_fr": "Pas de formation dédiée. Nos formations portent sur l'automatisation (n8n, Make) et sur Claude et les agents IA. Les principes enseignés, consigne, relecture, protection des données, s'appliquent à n'importe quel assistant.",
-          "a_en": "No dedicated course. Our training covers automation (n8n, Make) and Claude and AI agents. The principles taught, instruction, review, data protection, apply to any assistant."
+          "a_fr": "Oui. La formation ChatGPT suit trois niveaux : utiliser l'application, en devenir expert, puis développer des systèmes IA avec OpenAI Platform ou Codex. La formation Claude suit les trois mêmes niveaux.",
+          "a_en": "Yes. The ChatGPT training follows three levels: using the app, becoming an expert, then building AI systems with OpenAI Platform or Codex. The Claude training follows the same three levels."
         }
       ]
     },
