@@ -994,7 +994,11 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
     letter-spacing: -0.015em;
     text-wrap: balance;
     overflow-wrap: break-word;
-    hyphens: auto;
+    /* Pas de césure automatique : combinée à `text-wrap: balance`, elle coupait des mots
+       courants en plein titre (« agen-tique » à 1440 px comme à 390 px) alors que le mot
+       tenait sur la ligne. Un mot plus large que la ligne reste couvert par
+       `overflow-wrap: break-word`, et un mot composé se coupe à son trait d'union. */
+    hyphens: manual;
     font-weight: var(--fw-semibold);
     color: var(--ink);
     margin: 0 0 var(--hcs-h1-gap, 0);

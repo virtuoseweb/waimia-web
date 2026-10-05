@@ -83,7 +83,9 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
           eyebrow_fr: data.kind === 'interne' ? '§ Projet interne' : '§ Cas client',
           eyebrow_en: data.kind === 'interne' ? '§ Internal project' : '§ Cas client',
           ...(data.kind === 'interne' ? { num_label_fr: 'Projet', num_label_en: 'Project' } : {}),
-          h1_fr: data.title_fr,
+          // Espace insécable avant « : » (typographie française) : évite un deux-points orphelin
+          // en début de ligne quand le titre passe sur plusieurs lignes en corps display.
+          h1_fr: data.title_fr.replace(/ ([:;?!])/g, '\u00a0$1'),
           h1_en: data.title_en,
           ...(data.illustration
             ? { illustration: { ...data.illustration, side: data.illustration.side ?? 'right' } }

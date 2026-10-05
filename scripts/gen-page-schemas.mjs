@@ -109,9 +109,14 @@ async function loadConfigModule() {
     copyTsTree(KERNEL_SRC, path.join(tmpRoot, 'ds-kernel'));
 
     // content.config.ts (racine src/) -> <tmp>/content.config.ts (rebind @waimia + astro)
+    // Les imports RELATIFS de content.config.ts (ex. './data/pricing', source unique des prix)
+    // ne résolvent pas depuis le tmp : on les rebinde vers leur chemin absolu dans src/.
+    const rebindRelative = (code) =>
+      code.replace(/from ['"](\.\.?\/[^'"]+)['"]/g, (_m, rel) =>
+        `from ${JSON.stringify(path.join(repoRoot, 'src', rel))}`);
     fs.writeFileSync(
       path.join(tmpRoot, 'content.config.ts'),
-      rebind(fs.readFileSync(path.join(repoRoot, 'src/content.config.ts'), 'utf8')),
+      rebindRelative(rebind(fs.readFileSync(path.join(repoRoot, 'src/content.config.ts'), 'utf8'))),
     );
 
     const mod = await import(pathToFileURL(path.join(tmpRoot, 'content.config.ts')).href);
