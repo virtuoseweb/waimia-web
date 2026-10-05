@@ -105,7 +105,7 @@ sur le kw commercial ; les 3 contenus pointent vers elle en CTA.
 | `/cas-clients/resultats/reduction-temps-marketing` | — | terne | 301 → `/cas-usages/reduire-reporting` | P1 |
 | `/cas-usages` + 5 pages | outcome-intents (« générer plus de leads »…) | fort | garder · maillage cas-usage ↔ service verrouillé | P2 |
 | `/secteurs` (hub) | secteurs IA par métier | ok | garder | — |
-| `/secteurs/{e-commerce,liberal-independant}` | [service] pour [métier] | fort | garder index (caseRef réels) | — |
+| `/secteurs/{batiment,e-commerce}` | automatisation [devis / boutique] pour [métier] | fort | **index depuis 2026-10-05** : contenu commercial (prix, déroulé, FAQ d'achat), caseRef réels (desangles-peinture, balzeo), cibles du maillage (`internal-mesh.ts`, `kind: 'secteur'`) · liberal-independant redirigé en 301 | ✅ |
 | `/secteurs/startup-logiciel` | site pour startup/éditeur | ok | **noindex temporaire FAIT (F1 2026-07-17)** : amploi = RH/santé ≠ SaaS (hors ICP) · réindexable dès un vrai cas éditeur/SaaS · hors sitemap | ✅ |
 | 9 autres secteurs | — | — | noindex déjà (règle caseRef) · diversifier metricsHero cloné avant toute réindexation | P3 |
 | `/implantations/montpellier` | agence web / agence IA Montpellier | ok mais bridé | **+ JSON-LD LocalBusiness/ProfessionalService + NAP + GBP** (inputs Simon : téléphone, lien GBP) | P1 |

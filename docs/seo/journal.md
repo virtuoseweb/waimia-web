@@ -199,3 +199,15 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **À mesurer** : à la première collecte avec Search Console, relever le nombre de pages indexées et les KPI sur 28 jours. Ils servent de point zéro pour toutes les entrées suivantes.
 
 **Pour Simon** : faire la mise en route de `docs/seo/SETUP.md` (activer « Google Search Console API » dans le projet `master-well-486317-d9`, ajouter le compte de service comme propriétaire de `sc-domain:waimia.com`, créer le secret, lancer le workflow avec la première passe).
+
+### Décision du 5 octobre 2026 · pages secteurs
+
+**Décision (Simon).** Indexer les secteurs utiles et liés, laisser les autres hors index. Mesure sur le build avant changement : aucune page publique ne liait les trois secteurs encore en ligne (seuls le plan du site et la cartographie interne) ; les neuf autres sont redirigés en 301 vers `/services` depuis le pivot, sans lien entrant ni cas propre, et le restent.
+
+**Fait.**
+- `/secteurs/batiment` et `/secteurs/e-commerce` : index, sortis de `sitemap-noindex-exclude.ts`, déclarés cibles du maillage (`kind: 'secteur'`, groupe « Par secteur »). Contenu réécrit pour l'intention d'achat : douleurs, workflows alignés sur le title (le title e-commerce promettait commandes, support et catalogue, la page parlait de vitesse de site), déroulé semaine par semaine (`methodSteps` → `method-timeline`), offre et prix (`offer_sections` → `pricing-cards`, sprint 999 € HT puis régie 99 € HT/h), six questions d'achat en FAQ. Le diagnostic générique de maturité cède la place à l'offre.
+- `/secteurs/startup-logiciel` : même réécriture, **reste noindex** (cas Amploi = RH et santé au travail, pas un éditeur). Déclaré au registre du maillage : il s'active seul le jour où son `seo.noindex` tombe.
+- Visuels : illustrations propres à chaque workflow (skill `waimia-illustration`) à la place du pool générique partagé par les trois pages ; une du hub `/ressources` affichait un cadre vide (`media_src` jamais passé), elle reprend l'illustration du hero de l'article.
+
+**À mesurer.** Couverture Search Console des deux pages à partir de la collecte W42, puis impressions sur « automatisation devis bâtiment / artisan » et « automatisation e-commerce ».
+

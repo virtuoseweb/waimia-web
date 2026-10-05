@@ -76,7 +76,8 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   '/secteurs/therapeutes': '/services',
   '/secteurs/liberal-independant': '/services',
   // Hubs retirés (décision Simon 2026-10) : les trois pages secteur et la démonstration
-  // restantes restent publiées en noindex, sans page d'index. Pages statiques renommées
+  // restantes restent publiées sans page d'index (batiment et e-commerce indexables depuis
+  // le 2026-10-05, startup-logiciel en noindex faute de cas éditeur réel). Pages statiques renommées
   // `_index.astro` (src/pages/secteurs, src/pages/demonstrations) pour sortir du routing.
   '/secteurs': '/services',
   '/demonstrations': '/services',

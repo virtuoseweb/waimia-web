@@ -548,6 +548,9 @@ const secteurs = defineCollection({
       .optional(),
     // Override/extension composable (rendu data-driven, modèle services/offres).
     sections: sectionsArraySchema.optional(),
+    // Offre et prix du secteur (sections cataloguées, ex. pricing-cards), insérées par le
+    // template après la grille de cas ; remplacent alors le diagnostic générique.
+    offer_sections: sectionsArraySchema.optional(),
     // Corps de page (prose GEO) en DONNÉE (template-as-data) : le markdown MDX legacy
     // devient une liste de sections editorial-prose. RÉUTILISE le schéma kernel
     // editorial-prose (background/maxWidth/figures/type) + le texte rich-html porté par

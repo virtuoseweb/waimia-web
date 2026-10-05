@@ -61,6 +61,7 @@ type Kind =
   | 'cas-usage'
   | 'cas-client'
   | 'implantation'
+  | 'secteur'
   | 'studio';
 
 interface PageDef {
@@ -166,6 +167,12 @@ const PAGES: Record<string, PageDef> = {
   '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
+  // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par
+  //    Base (le gabarit secteur pose déjà le sien via `meshForSecteur`). ──
+  '/secteurs/batiment': { label_fr: 'Automatisation des devis dans le bâtiment', label_en: 'Quote automation in construction', kind: 'secteur', topics: ['commercial', 'acquisition'], emit: false },
+  '/secteurs/e-commerce': { label_fr: "Automatisation d'une boutique en ligne", label_en: 'Online shop automation', kind: 'secteur', topics: ['automatisation', 'agents'], emit: false },
+  '/secteurs/startup-logiciel': { label_fr: 'Automatisation commerciale des éditeurs de logiciel', label_en: 'Sales automation for software vendors', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
+
   // ── Studio : qui, comment, où ──
   '/agence': { label_fr: 'Le studio', label_en: 'The studio', kind: 'studio', topics: ['studio'], emit: false },
   '/agence/methode': { label_fr: 'La méthode', label_en: 'The method', kind: 'studio', topics: ['studio', 'conseil'], emit: false },
@@ -185,6 +192,7 @@ const GROUPS: Array<{ kinds: Kind[]; label_fr: string; label_en: string }> = [
   { kinds: ['formation'], label_fr: 'Formations', label_en: 'Training' },
   { kinds: ['guide', 'comparatif', 'diagnostic'], label_fr: 'Guides et comparatifs', label_en: 'Guides and comparisons' },
   { kinds: ['cas-client', 'cas-usage'], label_fr: 'Cas concrets', label_en: 'Real cases' },
+  { kinds: ['secteur'], label_fr: 'Par secteur', label_en: 'By sector' },
   { kinds: ['article'], label_fr: 'À lire', label_en: 'Worth reading' },
   { kinds: ['studio', 'implantation'], label_fr: 'Le studio', label_en: 'The studio' },
 ];
@@ -481,12 +489,13 @@ const SECTEUR_CASE: Record<string, string> = {
   'e-commerce': '/cas-clients/balzeo',
   'liberal-independant': '/cas-clients/les-carnets-de-montpellier',
   'services-b2b': '/cas-clients/amploi',
+  'startup-logiciel': '/cas-clients/amploi',
   therapeutes: '/cas-clients/isabelle-diaz-naturopathe',
 };
 
 /**
  * Maillage d'une page SECTEUR : les services, cas et ressources des deux thèmes dominants
- * du secteur. Les pages secteur ne sont pas des cibles du maillage (noindex à ce jour).
+ * du secteur. Les secteurs publiés sont aussi des CIBLES du registre (`kind: 'secteur'`).
  */
 export function meshForSecteur(secteurSlug: string, _lang: Lang = 'fr'): RelatedLinksData {
   const topics = SECTEUR_TOPICS[secteurSlug] ?? ['automatisation', 'conseil'];
