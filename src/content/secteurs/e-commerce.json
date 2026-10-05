@@ -1,8 +1,8 @@
 {
   "title_fr": "IA et automatisation pour l'e-commerce : commandes, support et catalogue",
   "title_en": "AI and automation for e-commerce: orders, support and catalogue",
-  "description_fr": "PME e-commerce : synchroniser commandes, stock et facturation, répondre au support récurrent avec un agent IA, tenir le catalogue à jour sans ressaisie.",
-  "description_en": "E-commerce SMBs: sync orders, stock and invoicing, answer recurring support with an AI agent, keep the catalogue current with no retyping.",
+  "description_fr": "PME e-commerce : commandes synchronisées sans ressaisie, support client répondu par un agent IA, catalogue tenu à jour. Sprint de départ à 999 € HT.",
+  "description_en": "E-commerce SMBs: orders synced with no re-keying, customer support answered by an AI agent, catalogue kept up to date. Starter sprint at 999 € ex VAT.",
   "slug": "e-commerce",
   "publishedAt": "2026-06-15",
   "icp_fr": "Boutiques en ligne et PME e-commerce",
@@ -13,54 +13,54 @@
   },
   "pains_fr": [
     {
-      "title": "70 % des paniers finissent abandonnés",
-      "body": "Le visiteur ajoute un produit puis disparaît : friction au paiement, doute sur la livraison, ou simple distraction. Chaque panier perdu est une vente déjà à moitié gagnée qui s'évapore."
+      "title": "Les commandes se ressaisissent à la main",
+      "body": "Boutique, facturation, stock, transporteur : chaque commande passe par plusieurs outils et autant de copier-coller. Une erreur de stock, et c'est une vente annulée et un client fâché."
     },
     {
-      "title": "Un site trop lent fait fuir avant la fiche produit",
-      "body": "Au-delà de 3 secondes de chargement sur mobile, une part des visiteurs part sans rien voir. La lenteur pénalise les ventes ET le référencement, donc le trafic futur."
+      "title": "Le support répond toujours aux mêmes questions",
+      "body": "Où est ma commande, comment retourner, quel délai. Une grande partie de la journée part en réponses déjà écrites cent fois, pendant que les vraies réclamations attendent."
     },
     {
-      "title": "Aucune visibilité sur ce qui convertit vraiment",
-      "body": "Sans suivi clair de l'acquisition et de la fidélisation, on optimise à l'aveugle : on ne sait pas quelle source rapporte ni quelle étape fait décrocher."
+      "title": "Un catalogue qui prend du retard",
+      "body": "Nouveautés pas en ligne, fiches incomplètes, données fournisseurs pas reprises. Chaque fiche manquante est un produit en stock qui ne se vend pas."
     },
     {
-      "title": "Le trafic via les IA explose, mais on n'en capte rien",
-      "body": "Les acheteurs passent de plus en plus par les moteurs IA pour comparer et décider. Un site invisible pour ces moteurs rate une vague de trafic qui convertit mieux que la moyenne."
+      "title": "Aucune alerte quand un flux casse",
+      "body": "Une synchronisation tombe en panne un vendredi soir, personne ne le voit avant lundi. Les commandes du week-end sont à reprendre une par une."
     }
   ],
   "pains_en": [
     {
-      "title": "70% of carts end up abandoned",
-      "body": "The visitor adds a product, then vanishes: checkout friction, delivery doubt, or plain distraction. Every lost cart is a half-won sale that evaporates."
+      "title": "Orders get re-keyed by hand",
+      "body": "Shop, invoicing, stock, carrier: every order goes through several tools and as many copy-pastes. One stock error, and it is a cancelled sale and an annoyed customer."
     },
     {
-      "title": "A slow site loses people before the product page",
-      "body": "Past 3 seconds of mobile load time, a share of visitors leaves without seeing anything. Slowness hurts sales AND search rankings, hence future traffic."
+      "title": "Support answers the same questions",
+      "body": "Where is my order, how do I return it, how long. A large part of the day goes on answers written a hundred times, while real complaints wait."
     },
     {
-      "title": "No visibility into what actually converts",
-      "body": "Without clear acquisition and retention tracking, you optimize blind: you don't know which source pays off or which step makes people drop."
+      "title": "A catalogue that falls behind",
+      "body": "New products not online, incomplete pages, supplier data not carried over. Every missing page is a product in stock that does not sell."
     },
     {
-      "title": "AI-referred traffic is booming, but you capture none of it",
-      "body": "Buyers increasingly go through AI engines to compare and decide. A site invisible to those engines misses a wave of traffic that converts better than average."
+      "title": "No alert when a flow breaks",
+      "body": "A sync fails on a Friday night, nobody sees it before Monday. Weekend orders have to be redone one by one."
     }
   ],
   "workflowsCible": [
-    "site e-commerce rapide",
-    "IA marchande de guidage",
-    "suivi acquisition et fidélisation"
+    "commandes synchronisées sans ressaisie",
+    "support client répondu par un agent IA",
+    "catalogue tenu à jour automatiquement"
   ],
   "kpis_fr": [
-    "taux de conversion",
-    "taux d'abandon panier",
-    "panier moyen"
+    "commandes traitées sans ressaisie",
+    "délai de première réponse",
+    "fiches produits à jour"
   ],
   "kpis_en": [
-    "conversion rate",
-    "cart abandonment rate",
-    "average order value"
+    "orders processed with no re-keying",
+    "first response time",
+    "product pages up to date"
   ],
   "metricsHero": [],
   "caseRef": "balzeo",
@@ -68,26 +68,58 @@
   "ctaPrimary_fr": "Réserver un audit IA gratuit →",
   "ctaPrimary_en": "Book a free AI audit →",
   "seo": {
-    "noindex": true
+    "noindex": false
   },
   "faq_fr": [
     {
-      "q": "Faut-il refaire tout mon site pour convertir mieux ?",
-      "a": "Pas toujours. On part d'un audit du terrain : souvent, accélérer le site, fluidifier le paiement et brancher un guidage IA suffit à récupérer une part des paniers perdus avant d'envisager une refonte complète."
+      "q": "Combien coûte l'automatisation d'une boutique en ligne ?",
+      "a": "On démarre par un sprint découverte de 10 heures à 999 € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
     },
     {
-      "q": "Qu'est-ce qu'une IA marchande concrètement ?",
-      "a": "Une couche qui aide le visiteur à trouver le bon produit, répond à ses objections et l'accompagne jusqu'au paiement, comme un vendeur en boutique, sans recruter d'équipe support 24/7."
+      "q": "Faut-il changer de plateforme e-commerce ?",
+      "a": "Non. On se branche sur votre boutique actuelle, Shopify, WooCommerce ou PrestaShop, et sur vos outils de facturation, par leurs API ou par un outil d'automatisation comme n8n ou Make. Une migration n'est proposée que si la plateforme bloque vraiment."
+    },
+    {
+      "q": "Qu'est-ce qu'un agent de service client IA, concrètement ?",
+      "a": "Un assistant branché sur vos commandes et vos conditions de vente. Il répond aux questions courantes sur le site ou par email, s'appuie sur vos sources, et transmet au bon interlocuteur ce qui sort de son périmètre."
+    },
+    {
+      "q": "L'agent peut-il répondre faux à un client ?",
+      "a": "Il ne répond qu'à partir de vos sources et transmet dès qu'il ne sait pas. Ses réponses sont relues les premières semaines avant d'élargir son périmètre. Les réclamations et les gestes commerciaux restent humains."
+    },
+    {
+      "q": "En combien de temps c'est en place ?",
+      "a": "Le premier flux de commande tourne à la fin du sprint découverte, en deux semaines. L'agent de service client demande trois à quatre semaines de plus, relecture comprise."
+    },
+    {
+      "q": "Faut-il refaire tout mon site pour vendre mieux ?",
+      "a": "Pas toujours. Souvent, l'arrière-boutique coûte plus cher que la vitrine : ressaisies, erreurs de stock, support débordé. On commence par là, et on ne parle de refonte que si le site freine vraiment les ventes."
     }
   ],
   "faq_en": [
     {
-      "q": "Do I need to rebuild my entire site to convert better?",
-      "a": "Not always. We start from a field audit: often, speeding up the site, smoothing checkout, and wiring an AI guide is enough to recover a share of lost carts before considering a full rebuild."
+      "q": "How much does automating an online shop cost?",
+      "a": "We start with a 10-hour discovery sprint at 999 € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
     },
     {
-      "q": "What is a shopping AI in concrete terms?",
-      "a": "A layer that helps the visitor find the right product, answers objections, and guides them to checkout, like an in-store salesperson, without hiring a 24/7 support team."
+      "q": "Do I need to change e-commerce platform?",
+      "a": "No. We connect to your current shop, Shopify, WooCommerce or PrestaShop, and to your invoicing tools, through their APIs or an automation tool such as n8n or Make. A migration is only suggested if the platform really blocks."
+    },
+    {
+      "q": "What is an AI customer service agent, concretely?",
+      "a": "An assistant wired to your orders and terms of sale. It answers common questions on the site or by email, relies on your sources, and hands over to the right person whatever falls outside its scope."
+    },
+    {
+      "q": "Can the agent give a customer a wrong answer?",
+      "a": "It only answers from your sources and hands over as soon as it does not know. Its answers are reviewed in the first weeks before widening its scope. Complaints and commercial gestures stay human."
+    },
+    {
+      "q": "How long until it runs?",
+      "a": "The first order flow runs at the end of the discovery sprint, in two weeks. The customer service agent takes three to four more weeks, review included."
+    },
+    {
+      "q": "Do I need to rebuild my whole site to sell more?",
+      "a": "Not always. The back office often costs more than the storefront: re-keying, stock errors, overloaded support. We start there, and only talk about a rebuild if the site really holds sales back."
     }
   ],
   "body_sections": [
@@ -98,5 +130,111 @@
       "html_fr": "<h2>Trois process qui s'automatisent dans une boutique en ligne</h2>\n<p>Le flux de commande : de la boutique vers la facturation, le stock et le transporteur, sans ressaisie, avec une alerte quand une étape échoue. C'est une <a href=\"/services/automatisations\">automatisation de processus</a> classique. Le support : « où en est ma commande », retours, délais. Un <a href=\"/services/agent-support-client\">agent de service client</a> répond depuis vos sources et transmet le reste à l'équipe. Le catalogue : fiches produits complétées et mises en forme à partir des données fournisseurs, relues avant publication.</p>\n<h2>Ce qui reste humain</h2>\n<p>Les réclamations, les gestes commerciaux, le choix de l'assortiment et les prix.</p>\n<h2>Un cas réel</h2>\n<p>Pour <a href=\"/cas-clients/balzeo\">Balzeo</a>, marque de gourdes écoresponsables, le projet a consisté à migrer la boutique vers WordPress et WooCommerce : chargement mobile passé de 5,2 à 2,4 secondes et coût de maintenance mensuel de 500 à 80 euros. C'est le volet site. Pour regarder vos flux de commande et votre support, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>Three processes that automate in an online shop</h2>\n<p>The order flow: from the shop to invoicing, stock and carrier, with no retyping, and an alert when a step fails. This is classic <a href=\"/services/automatisations\">process automation</a>. Support: \"where is my order\", returns, lead times. A <a href=\"/services/agent-support-client\">customer service agent</a> answers from your sources and passes the rest to the team. The catalogue: product pages completed and formatted from supplier data, reviewed before publication.</p>\n<h2>What stays human</h2>\n<p>Complaints, commercial gestures, assortment choices and prices.</p>\n<h2>A real case</h2>\n<p>For <a href=\"/cas-clients/balzeo\">Balzeo</a>, an eco-friendly bottle brand, the project migrated the shop to WordPress and WooCommerce: mobile load time from 5.2 to 2.4 seconds and monthly maintenance cost from 500 to 80 euros. That is the site strand. To look at your order flows and support, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     }
-  ]
+  ],
+  "methodSteps": [
+    {
+      "num": "01",
+      "label_fr": "Audit gratuit de 45 minutes",
+      "label_en": "Free 45-minute audit",
+      "body_fr": "On suit le trajet d'une commande et d'une question client chez vous. Vous repartez avec la liste de ce qui s'automatise, par ordre de rentabilité.",
+      "body_en": "We follow the path of an order and of a customer question in your shop. You leave with the list of what can be automated, ranked by payback.",
+      "meta_fr": "Semaine 0",
+      "meta_en": "Week 0"
+    },
+    {
+      "num": "02",
+      "label_fr": "Sprint découverte : le flux de commande",
+      "label_en": "Discovery sprint: the order flow",
+      "body_fr": "Dix heures pour relier la boutique à la facturation et au stock, avec une alerte en cas d'échec. Un premier flux en service, pas un rapport.",
+      "body_en": "Ten hours to connect the shop to invoicing and stock, with an alert on failure. A first flow live, not a report.",
+      "meta_fr": "Semaines 1 et 2",
+      "meta_en": "Weeks 1 and 2"
+    },
+    {
+      "num": "03",
+      "label_fr": "Agent de service client",
+      "label_en": "Customer service agent",
+      "body_fr": "Branché sur vos commandes et vos conditions de vente, relu les premières semaines, élargi question par question quand ses réponses sont justes.",
+      "body_en": "Wired to your orders and terms of sale, reviewed in the first weeks, widened question by question once its answers are right.",
+      "meta_fr": "Semaines 3 à 6",
+      "meta_en": "Weeks 3 to 6"
+    },
+    {
+      "num": "04",
+      "label_fr": "Catalogue et suivi",
+      "label_en": "Catalogue and tracking",
+      "body_fr": "Fiches complétées depuis les données fournisseurs, relues avant publication, et un tableau des flux : commandes passées, erreurs, messages traités.",
+      "body_en": "Pages completed from supplier data, reviewed before publishing, and a flow dashboard: orders passed, errors, messages handled.",
+      "meta_fr": "Ensuite",
+      "meta_en": "Then"
+    }
+  ],
+  "offer_sections": [
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix de l'automatisation d'une boutique en ligne",
+      "h2_en": "Price of automating an online shop",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : le flux de commande tourne à la fin. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints. Vous gardez tout.",
+      "lede_en": "We start with a fixed-price discovery sprint: the order flow runs at the end of it. What follows is quoted: we estimate the time together, validate it, then run it in sprints. You keep everything.",
+      "tiers": [
+        {
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Boutique reliée à la facturation et au stock",
+            "Alerte dès qu'une commande reste bloquée",
+            "Branché sur votre plateforme actuelle, sans migration",
+            "Un premier flux en service, pas un audit dormant"
+          ],
+          "features_en": [
+            "Shop connected to invoicing and stock",
+            "Alert as soon as an order gets stuck",
+            "Wired to your current platform, no migration",
+            "A first flow live, not a dormant audit"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Agent de service client relu puis élargi",
+            "Catalogue complété depuis vos fournisseurs",
+            "Exécuté en sprints, facturés en régie à {{prix.horaire}} € HT/h",
+            "Vous gardez les workflows, les accès et les données"
+          ],
+          "features_en": [
+            "Customer service agent reviewed then widened",
+            "Catalogue completed from your suppliers",
+            "Run in sprints, time and materials at {{prix.horaire}} € ex VAT/h",
+            "You keep the workflows, the access and the data"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=automatisations&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-05"
 }

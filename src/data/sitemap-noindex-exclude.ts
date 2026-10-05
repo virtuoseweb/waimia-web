@@ -79,10 +79,9 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/demonstrations/site-web-intelligent",
   // Hub /ressources/outils : indexation calculée depuis le 5 octobre 2026
   // (src/lib/seo/hub-index.ts), donc retiré de cette liste.
-  // Pivot IA 2026-10 · secteurs hors cible repassés noindex (seo.noindex:true frontmatter)
-  // → hors sitemap pour cohérence noindex↔crawl. Pages conservées (noindex,follow).
-  "/secteurs/batiment",
-  "/secteurs/e-commerce",
+  // Pivot IA 2026-10 · batiment et e-commerce étaient repassés noindex ; réindexés le
+  // 2026-10-05 (contenu commercial, prix, cas réel desangles-peinture / balzeo, maillage
+  // entrant via internal-mesh) ⟹ retirés de cette liste pour entrer au sitemap.
   // Pivot IA 2026-10 · articles hors positionnement passés noindex (seo.noindex:true,
   // page toujours générée avec meta robots noindex, cf blog/[...slug].astro).
   // Intégration refonte IA 2026-10 · les secteurs, articles et hubs retirés de cette liste

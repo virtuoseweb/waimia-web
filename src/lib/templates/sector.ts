@@ -53,6 +53,27 @@ const WORKFLOW_ILLUSTRATIONS = [
   { src: '/images/illustrations/ds/chess-paper.webp', alt_fr: 'Illustration : pièces d\'échecs, stratégie', alt_en: 'Illustration: chess pieces, strategy' },
 ] as const;
 
+// ── Illustrations PAR SECTEUR (skill waimia-illustration, 2026-10-05) : une métaphore par
+//    workflow, dans l'ordre de `workflowsCible`. Le pool générique reste le fallback. ──
+const ill = (slug: string, alt_fr: string, alt_en: string) => ({ src: `/images/illustrations/ds/${slug}-paper.webp`, alt_fr, alt_en });
+const SECTOR_WORKFLOW_ILLUSTRATIONS: Record<string, ReadonlyArray<{ src: string; alt_fr: string; alt_en: string }>> = {
+  batiment: [
+    ill('batiment-demandes-triees', 'Des enveloppes tombent dans trois caisses de chantier, sous le regard d\'un homme', 'Envelopes drop into three site crates while a man watches'),
+    ill('batiment-devis-jour-meme', 'Un artisan tend une feuille à deux clients devant une charpente en bois', 'A craftsman hands a sheet to two clients in front of a timber frame'),
+    ill('batiment-avis-chantiers', 'Un homme sur une échelle accroche des tableaux de maisons sur un long mur', 'A man on a ladder hangs pictures of houses on a long wall'),
+  ],
+  'e-commerce': [
+    ill('ecommerce-commandes-synchronisees', 'Un tapis roulant de colis relie un entrepôt à une camionnette sous un ciel bleu', 'A conveyor of parcels links a warehouse to a van under a blue sky'),
+    ill('ecommerce-support-client', 'Une file de clients avec des colis passe devant un long guichet', 'A queue of customers with parcels passes a long desk'),
+    ill('ecommerce-catalogue-a-jour', 'Un homme range une boîte avec une perche sur un immense mur d\'étagères', 'A man shelves a box with a pole on a huge wall of shelves'),
+  ],
+  'startup-logiciel': [
+    ill('logiciel-demandes-routees', 'Des avions en papier volent vers un panneau indicateur à trois bras', 'Paper planes fly toward a three-armed signpost'),
+    ill('logiciel-support-premier-niveau', 'La nuit, des visiteurs repartent avec une page d\'un livre géant servant de comptoir', 'At night, visitors leave with a page from a giant book used as a counter'),
+    ill('logiciel-prospection-cible', 'Depuis une falaise, des enveloppes s\'envolent vers trois îles sur une mer bleue', 'From a cliff, envelopes fly toward three islands on a blue sea'),
+  ],
+};
+
 // ── DÉ-TEMPLATISATION (décision 7, audit SEO final) · variantes PAR SECTEUR des blocs
 //    injectés autrement identiques entre sœurs (feature-zigzag lede + corps de rangée,
 //    sous-titre du climax CTA). Le défaut générique reste le FALLBACK ci-dessous → 0
@@ -64,35 +85,35 @@ const SECTOR_COPY: Record<string, {
   workflowBodies_fr: string[]; workflowBodies_en: string[];
 }> = {
   batiment: {
-    zigzagLede_fr: 'On outille la signature, pas la théorie : rassurer avant l\'appel, capter la demande, chiffrer vite. Branché sur vos outils, tenu par votre équipe.',
-    zigzagLede_en: 'We tool the signature, not the theory: reassure before the call, capture the request, quote fast. Wired to your tools, run by your team.',
-    ctaSubtitle_fr: 'On regarde vos demandes entrantes et votre visibilité locale en 45 minutes, et on vous dit vite si le terrain est opérable. Sans promesse en l\'air.',
-    ctaSubtitle_en: 'We look at your inbound requests and local visibility in 45 minutes, and tell you quickly whether the field is operationally viable. No empty promises.',
+    zigzagLede_fr: 'On outille la signature, pas la théorie : capter la demande, chiffrer vite, relancer, faire parler les chantiers finis. Branché sur vos outils, tenu par votre équipe.',
+    zigzagLede_en: 'We tool the signature, not the theory: capture the request, quote fast, follow up, let finished jobs speak. Wired to your tools, run by your team.',
+    ctaSubtitle_fr: 'On regarde vos demandes entrantes et vos devis en 45 minutes, et on vous dit vite ce qui s\'automatise. Sans promesse en l\'air.',
+    ctaSubtitle_en: 'We look at your inbound requests and quotes in 45 minutes, and tell you quickly what can be automated. No empty promises.',
     workflowBodies_fr: [
-      'Photos de chantiers, avis en évidence, coordonnées claires : le prospect voit une entreprise sérieuse avant même d\'appeler. C\'est ce qui déclenche la demande.',
-      'Chaque demande arrive triée : type de travaux, zone, urgence. Vous ouvrez une liste qualifiée, pas une pile d\'appels manqués à rappeler à l\'aveugle.',
-      'Le premier qui chiffre emporte souvent le chantier. On prépare les réponses pour que le devis parte le jour même, pas la semaine suivante.',
+      'Formulaire, email, message vocal transcrit : chaque demande arrive dans une liste unique, avec le type de travaux, la commune, le budget et l\'urgence. Vous rappelez d\'abord celles qui valent le déplacement.',
+      'Les prestations courantes sont pré-chiffrées à partir de votre grille de prix. Vous ajustez, vous validez, le devis part le jour même depuis votre outil habituel. L\'IA prépare, vous décidez du prix.',
+      'Relance automatique à J+3 puis à J+10 tant que le client n\'a pas répondu, puis demande d\'avis Google une fois le chantier réceptionné. Sans y penser, sans y passer vos soirées.',
     ],
     workflowBodies_en: [
-      'Job-site photos, reviews up front, clear contact details: the prospect sees a serious company before even calling. That is what triggers the request.',
-      'Every request comes sorted: type of work, area, urgency. You open a qualified list, not a pile of missed calls to return blind.',
-      'The first to quote often wins the job. We prep the answers so the quote goes out the same day, not the next week.',
+      'Form, email, transcribed voicemail: every request lands in a single list, with type of work, town, budget and urgency. You call back first the ones worth the trip.',
+      'Standard services are pre-priced from your price list. You adjust, you approve, the quote goes out the same day from your usual tool. AI prepares, you set the price.',
+      'Automatic follow-up on day 3 then day 10 while the client has not replied, then a Google review request once the job is handed over. Without thinking about it, without spending your evenings on it.',
     ],
   },
   'e-commerce': {
-    zigzagLede_fr: 'On travaille le tunnel, pas la vitrine : un site rapide, un guidage qui lève les objections, un suivi qui montre ce qui convertit. Branché sur votre stack actuelle.',
-    zigzagLede_en: 'We work the funnel, not the storefront: a fast site, guidance that clears objections, tracking that shows what converts. Wired to your current stack.',
-    ctaSubtitle_fr: 'On regarde votre tunnel d\'achat et vos perfs en 45 minutes, et on vous dit vite ce qui bloque la conversion. Sans promesse en l\'air.',
-    ctaSubtitle_en: 'We look at your checkout funnel and performance in 45 minutes, and tell you quickly what is blocking conversion. No empty promises.',
+    zigzagLede_fr: 'On automatise l\'arrière-boutique, pas la vitrine : commandes, support, catalogue. Branché sur votre boutique actuelle, sans migration imposée.',
+    zigzagLede_en: 'We automate the back office, not the storefront: orders, support, catalogue. Wired to your current shop, no forced migration.',
+    ctaSubtitle_fr: 'On suit une commande et une question client chez vous en 45 minutes, et on vous dit vite ce qui s\'automatise. Sans promesse en l\'air.',
+    ctaSubtitle_en: 'We follow an order and a customer question in 45 minutes, and tell you quickly what can be automated. No empty promises.',
     workflowBodies_fr: [
-      'Sous trois secondes de chargement mobile, sinon le visiteur part avant la fiche produit. On traque et on corrige ce qui ralentit le tunnel, page par page.',
-      'Un vendeur qui ne dort pas : il trouve le bon produit, répond aux objections livraison ou taille, et accompagne jusqu\'au paiement. Sans équipe support 24/7.',
-      'On branche le suivi qui manque : quelle source rapporte, quelle étape fait décrocher, qui revient. Vous arrêtez d\'optimiser à l\'aveugle.',
+      'Chaque commande part de la boutique vers la facturation, le stock et le transporteur sans copier-coller. Si une étape échoue, une alerte arrive avant que le client ne s\'en aperçoive.',
+      'Un agent répond aux questions récurrentes depuis vos vraies sources : suivi de colis, conditions de retour, délais. Ce qu\'il ne sait pas traiter part à l\'équipe avec le contexte déjà rempli.',
+      'Les fiches produits sont complétées et mises en forme à partir des données fournisseurs, puis relues avant publication. Vos nouveautés sont en ligne quand elles arrivent en stock.',
     ],
     workflowBodies_en: [
-      'Under three seconds of mobile load, or the visitor leaves before the product page. We track and fix what slows the funnel, page by page.',
-      'A salesperson that never sleeps: finds the right product, answers delivery or size objections, and guides to checkout. Without a 24/7 support team.',
-      'We wire the missing tracking: which source pays off, which step makes people drop, who comes back. You stop optimizing blind.',
+      'Every order flows from the shop to invoicing, stock and the carrier with no copy-paste. If a step fails, an alert arrives before the customer notices.',
+      'An agent answers recurring questions from your real sources: parcel tracking, return terms, lead times. What it cannot handle goes to the team with the context already filled in.',
+      'Product pages are completed and formatted from supplier data, then reviewed before publishing. New products are online when they arrive in stock.',
     ],
   },
   'liberal-independant': {
@@ -125,6 +146,22 @@ const SECTOR_COPY: Record<string, {
       'Your approach explained without jargon, your setting, your reviews: the hesitant new patient is reassured before the first exchange, where the decision is made.',
       'Visible slots, bookable in a few clicks. No more calls going unanswered and discouraging email back-and-forth.',
       'Surface on local search and the Google listing, with reviews up front. That is where the patient picks a practitioner near them.',
+    ],
+  },
+  'startup-logiciel': {
+    zigzagLede_fr: 'On outille le trajet du revenu : la demande, le support, la prospection. Branché sur votre CRM et votre documentation, transféré à votre équipe.',
+    zigzagLede_en: 'We tool the revenue path: the request, support, prospecting. Wired to your CRM and documentation, handed over to your team.',
+    ctaSubtitle_fr: 'On suit le trajet d\'une demande de démo chez vous en 45 minutes, et on vous dit vite où elle se perd. Sans promesse en l\'air.',
+    ctaSubtitle_en: 'We follow a demo request through your company in 45 minutes, and tell you quickly where it gets lost. No empty promises.',
+    workflowBodies_fr: [
+      'Chaque demande de démonstration crée une fiche dans le CRM, enrichie, notée et affectée au bon interlocuteur le jour même. Le prospect reçoit un créneau, pas un simple accusé de réception.',
+      'Un agent répond aux questions de prise en main depuis votre documentation et ouvre un ticket propre pour le reste. L\'équipe produit ne voit plus que ce qui demande vraiment un humain.',
+      'Des séquences régulières vers vos comptes cibles, personnalisées à partir de signaux publics, avec les réponses qui remontent dans le CRM. Le pipeline ne dépend plus de l\'agenda du fondateur.',
+    ],
+    workflowBodies_en: [
+      'Every demo request creates a CRM record, enriched, scored and assigned to the right person the same day. The prospect gets a slot, not just an acknowledgement.',
+      'An agent answers onboarding questions from your documentation and opens a clean ticket for the rest. The product team only sees what truly needs a human.',
+      'Regular sequences to your target accounts, personalised from public signals, with replies flowing back into the CRM. The pipeline no longer depends on the founder\'s calendar.',
     ],
   },
 };
@@ -219,8 +256,9 @@ const DEFAULT_PROSE_ILLUSTRATION = { src: '/images/illustrations/ds/style-8-pape
  */
 function workflowRowsFor(data: SectorData, slug: string) {
   const sectorCopy = SECTOR_COPY[slug];
+  const pool = SECTOR_WORKFLOW_ILLUSTRATIONS[slug] ?? WORKFLOW_ILLUSTRATIONS;
   return data.workflowsCible.slice(0, 4).map((wf, i) => {
-    const img = WORKFLOW_ILLUSTRATIONS[i % WORKFLOW_ILLUSTRATIONS.length];
+    const img = pool[i % pool.length];
     return {
       kicker_fr: String(i + 1).padStart(2, '0'),
       kicker_en: String(i + 1).padStart(2, '0'),
@@ -313,6 +351,21 @@ export const sectorTemplate = defineTemplate<SectorContext>({
       },
     },
 
+    // 3 bis · method-timeline (paper-2) · déroulé d'engagement · CONDITIONNEL (`methodSteps`)
+    {
+      id: 'method',
+      when: ({ data }) => (data.methodSteps?.length ?? 0) >= 3,
+      build: ({ data }) => ({
+        type: 'method-timeline',
+        background: 'paper-2',
+        kicker_fr: '§ Déroulé',
+        kicker_en: '§ How it runs',
+        h2_fr: 'Comment on travaille, semaine par semaine.',
+        h2_en: 'How we work, week by week.',
+        steps: data.methodSteps ?? [],
+      } satisfies SectionByType<'method-timeline'>),
+    },
+
     // 4 · metric-callout-band (paper-2) · preuve marché chiffrée · CONDITIONNEL
     {
       id: 'market',
@@ -336,9 +389,19 @@ export const sectorTemplate = defineTemplate<SectorContext>({
       build: ({ caseGrid }) => ({ ...caseGrid, background: 'paper' }) as SectionData,
     },
 
+    // 5 bis · offre et prix (sections cataloguées portées par la donnée, ex. pricing-cards).
+    //    Quand un secteur porte son offre, elle remplace le diagnostic générique (intention
+    //    commerciale : le prix et le premier livrable plutôt qu'une grille de maturité).
+    {
+      id: 'offer',
+      when: ({ data }) => (data.offer_sections?.length ?? 0) > 0,
+      build: ({ data }) => (data.offer_sections ?? []) as SectionData[],
+    },
+
     // 6 · diagnostic-stages (paper-2) · orientation « où en êtes-vous » · défaut partagé
     {
       id: 'diagnostic',
+      when: ({ data }) => !(data.offer_sections?.length),
       build: () => ({
         type: 'diagnostic-stages',
         background: 'paper-2',

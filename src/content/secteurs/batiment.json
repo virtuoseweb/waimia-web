@@ -1,8 +1,8 @@
 {
   "title_fr": "IA et automatisation pour le bâtiment : demandes triées, devis le jour même",
   "title_en": "AI and automation for construction: sorted requests, same-day quotes",
-  "description_fr": "Entreprises du bâtiment : demandes entrantes triées, devis préparés et relancés automatiquement, visibilité locale sur Google.",
-  "description_en": "Construction companies: incoming requests sorted, quotes prepared and chased automatically, local visibility. What automation changes in the sales pipeline.",
+  "description_fr": "Artisans et TPE du bâtiment : demandes triées dès l'arrivée, devis préparés le jour même et relancés, avis clients collectés. Sprint de départ à 999 € HT.",
+  "description_en": "Tradespeople and small construction firms: requests sorted on arrival, quotes prepared the same day and followed up, client reviews collected. Starter sprint at 999 € ex VAT.",
   "slug": "batiment",
   "publishedAt": "2026-06-15",
   "icp_fr": "TPE du bâtiment et artisans",
@@ -13,46 +13,54 @@
   },
   "pains_fr": [
     {
-      "title": "Des appels qui ne se transforment pas en devis",
-      "body": "Le téléphone sonne, mais entre les demandes mal qualifiées, les rappels oubliés et les devis trop lents, une part du potentiel file chez le concurrent qui a répondu en premier."
+      "title": "Le devis part trop tard",
+      "body": "Le client a demandé trois devis. Le premier qui répond proprement prend une longueur d'avance. Le vôtre part le dimanche soir, quand il part."
     },
     {
-      "title": "Un site qui ne rassure pas",
-      "body": "Sans photos de chantiers, sans avis visibles ni preuve de sérieux, le prospect doute. Or il consulte les avis avant de décider : un site faible, c'est une confiance perdue d'avance."
+      "title": "Des appels manqués que personne ne rappelle",
+      "body": "Sur le chantier, vous ne décrochez pas. Le message vocal attend, puis s'oublie. Chaque demande perdue est un chantier que vous ne verrez jamais passer."
     },
     {
-      "title": "Pas le temps de répondre vite",
-      "body": "Sur le terrain toute la journée, on rappelle le soir, parfois trop tard. La rapidité de réponse est pourtant un facteur décisif de signature dans le bâtiment."
+      "title": "Des devis envoyés, jamais relancés",
+      "body": "Un devis sans relance, c'est un devis laissé au concurrent. Personne n'a le temps de relancer à J+3 puis à J+10, alors personne ne le fait."
+    },
+    {
+      "title": "Des chantiers réussis que personne ne voit",
+      "body": "Le travail est bon, les clients sont contents, mais personne ne leur demande d'avis. Le prospect suivant compare sur Google et ne trouve rien sur vous."
     }
   ],
   "pains_en": [
     {
-      "title": "Calls that don't turn into quotes",
-      "body": "The phone rings, but between poorly qualified requests, forgotten callbacks and slow quotes, part of the potential goes to the competitor who answered first."
+      "title": "The quote goes out too late",
+      "body": "The client asked for three quotes. The first clean answer takes the lead. Yours goes out on Sunday night, if it goes out at all."
     },
     {
-      "title": "A site that doesn't reassure",
-      "body": "Without job-site photos, visible reviews or proof of seriousness, the prospect hesitates. Yet they check reviews before deciding: a weak site means trust lost in advance."
+      "title": "Missed calls nobody returns",
+      "body": "On site, you do not pick up. The voicemail waits, then gets forgotten. Every lost request is a job you will never see."
     },
     {
-      "title": "No time to respond fast",
-      "body": "On site all day, you call back in the evening, sometimes too late. Yet response speed is a decisive factor for signing in construction."
+      "title": "Quotes sent, never followed up",
+      "body": "A quote without follow-up is a quote handed to a competitor. Nobody has time to chase on day 3 and day 10, so nobody does."
+    },
+    {
+      "title": "Good jobs nobody sees",
+      "body": "The work is good, clients are happy, but nobody asks them for a review. The next prospect compares on Google and finds nothing about you."
     }
   ],
   "workflowsCible": [
-    "site qui rassure (chantiers, avis)",
-    "capture et qualification des demandes",
-    "réponse rapide aux devis"
+    "demandes triées dès leur arrivée",
+    "devis préparé le jour même",
+    "relances et avis clients automatiques"
   ],
   "kpis_fr": [
-    "taux de devis signés",
     "délai de réponse aux demandes",
-    "demandes qualifiées"
+    "devis relancés",
+    "taux de devis signés"
   ],
   "kpis_en": [
-    "quote signature rate",
-    "request response time",
-    "qualified requests"
+    "response time to requests",
+    "quotes followed up",
+    "quote signing rate"
   ],
   "metricsHero": [],
   "caseRef": "desangles-peinture",
@@ -60,26 +68,58 @@
   "ctaPrimary_fr": "Réserver un audit IA gratuit →",
   "ctaPrimary_en": "Book a free AI audit →",
   "seo": {
-    "noindex": true
+    "noindex": false
   },
   "faq_fr": [
     {
-      "q": "Un artisan a-t-il vraiment besoin d'un site ?",
-      "a": "Oui : la majorité des clients consultent les avis et le site avant d'appeler. Un site qui montre vos chantiers, vos avis et facilite la demande de devis transforme plus d'appels en signatures."
+      "q": "Combien coûte l'automatisation des devis pour un artisan ?",
+      "a": "On démarre par un sprint découverte de 10 heures à 999 € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
+    },
+    {
+      "q": "Faut-il changer de logiciel de devis ?",
+      "a": "Non. On part de votre outil actuel, logiciel de devis ou simple tableur, et on s'y branche quand il le permet. On ne vous propose d'en changer que s'il bloque vraiment, et on vous le dit avant de commencer."
+    },
+    {
+      "q": "En combien de temps c'est en place ?",
+      "a": "Le tri des demandes tourne à la fin du sprint découverte, en deux semaines. Les devis et les relances suivent en trois semaines environ, selon vos outils et le nombre de prestations à pré-chiffrer."
+    },
+    {
+      "q": "L'IA va-t-elle fixer mes prix ?",
+      "a": "Non. Elle pré-remplit le devis à partir de votre grille et vous validez chaque envoi. La visite, le métré et les cas particuliers restent à vous."
     },
     {
       "q": "Comment répondre plus vite sans passer ma soirée au téléphone ?",
       "a": "On capture et qualifie les demandes automatiquement, et on prépare les réponses : vous arrivez le soir avec des demandes déjà triées, pas une pile d'appels manqués."
+    },
+    {
+      "q": "Et si je n'ai pas de site ?",
+      "a": "On peut commencer sans : les demandes arrivent aussi par email et par téléphone. Si l'absence de site vous coûte des chantiers, on vous le dit, et un site vitrine fait partie de nos socles à prix fixe, dès 2 000 € HT."
     }
   ],
   "faq_en": [
     {
-      "q": "Does a tradesperson really need a website?",
-      "a": "Yes: most clients check reviews and the site before calling. A site that shows your work, your reviews and makes quote requests easy turns more calls into signatures."
+      "q": "How much does quote automation cost for a tradesperson?",
+      "a": "We start with a 10-hour discovery sprint at 999 € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
+    },
+    {
+      "q": "Do I need to change my quoting software?",
+      "a": "No. We start from your current tool, quoting software or a simple spreadsheet, and connect to it when it allows. We only suggest a change if it really blocks, and we tell you before starting."
+    },
+    {
+      "q": "How long until it runs?",
+      "a": "Request sorting runs at the end of the discovery sprint, in two weeks. Quotes and follow-ups come about three weeks later, depending on your tools and how many services need pre-pricing."
+    },
+    {
+      "q": "Will AI set my prices?",
+      "a": "No. It pre-fills the quote from your price list and you approve each one. The visit, the measurements and special cases stay with you."
     },
     {
       "q": "How do I respond faster without spending my evening on the phone?",
-      "a": "We capture and qualify requests automatically and prepare answers: you arrive in the evening with pre-sorted requests, not a pile of missed calls."
+      "a": "We capture and qualify requests automatically, and prepare the answers: you arrive in the evening with requests already sorted, not a pile of missed calls."
+    },
+    {
+      "q": "What if I have no website?",
+      "a": "We can start without one: requests also come by email and phone. If not having a site costs you jobs, we tell you, and a showcase site is one of our fixed-price packages, from 2,000 € ex VAT."
     }
   ],
   "body_sections": [
@@ -90,5 +130,111 @@
       "html_fr": "<h2>Ce que l'automatisation change dans une entreprise du bâtiment</h2>\n<p>Le temps manque au moment où il compte : la demande arrive pendant que l'équipe est sur le chantier. Trois tâches se prêtent à l'automatisation. Le tri des demandes : type de travaux, zone, urgence, enregistrés dès le formulaire ou l'email. La préparation du devis : les prestations standards pré-remplies, à ajuster et valider. La relance : un rappel à date tant que le client n'a pas répondu. Le détail est sur la page <a href=\"/services/sequences-de-suivi\">devis automatisé et relances</a>.</p>\n<h2>Ce qui reste humain</h2>\n<p>La visite, le métré, le chiffrage des cas particuliers et la relation avec le client. L'automatisation prépare le dossier ; elle ne décide pas du prix.</p>\n<h2>Un cas réel</h2>\n<p>Pour <a href=\"/cas-clients/desangles-peinture\">Desangles Peinture</a>, artisan peintre, le travail a porté sur la visibilité locale : le site est passé de la page 6 à la page 1 de Google sur ses villes d'intervention. C'est le volet site du projet, décrit sur la page <a href=\"/services/seo-geo-contenu\">SEO et GEO</a>. Pour regarder vos demandes entrantes et vos devis, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>What automation changes in a construction company</h2>\n<p>Time is short exactly when it matters: the request arrives while the team is on site. Three tasks lend themselves to automation. Request sorting: type of work, area, urgency, recorded from the form or email. Quote preparation: standard services pre-filled, to adjust and approve. Follow-up: a scheduled reminder as long as the client has not replied. Details are on the <a href=\"/services/sequences-de-suivi\">automated quotes and follow-ups</a> page.</p>\n<h2>What stays human</h2>\n<p>The visit, the measurements, pricing of special cases and the client relationship. Automation prepares the file; it does not set the price.</p>\n<h2>A real case</h2>\n<p>For <a href=\"/cas-clients/desangles-peinture\">Desangles Peinture</a>, a painting contractor, the work focused on local visibility: the site moved from page 6 to page 1 of Google on the towns served. This is the site strand of the project, described on the <a href=\"/services/seo-geo-contenu\">SEO and GEO</a> page. To look at your incoming requests and quotes, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     }
-  ]
+  ],
+  "methodSteps": [
+    {
+      "num": "01",
+      "label_fr": "Audit gratuit de 45 minutes",
+      "label_en": "Free 45-minute audit",
+      "body_fr": "On regarde d'où viennent vos demandes, combien se perdent et combien de temps prend un devis. Vous repartez avec un diagnostic, même si on ne travaille pas ensemble.",
+      "body_en": "We look at where your requests come from, how many get lost and how long a quote takes. You leave with a diagnosis, even if we do not work together.",
+      "meta_fr": "Semaine 0",
+      "meta_en": "Week 0"
+    },
+    {
+      "num": "02",
+      "label_fr": "Sprint découverte : le tri des demandes",
+      "label_en": "Discovery sprint: request sorting",
+      "body_fr": "Dix heures pour brancher la capture des demandes sur votre formulaire, votre email et votre téléphone. Un premier livrable en service, pas un rapport.",
+      "body_en": "Ten hours to wire request capture onto your form, email and phone. A first deliverable live, not a report.",
+      "meta_fr": "Semaines 1 et 2",
+      "meta_en": "Weeks 1 and 2"
+    },
+    {
+      "num": "03",
+      "label_fr": "Devis et relances branchés",
+      "label_en": "Quotes and follow-ups wired",
+      "body_fr": "Pré-chiffrage à partir de votre grille de prix, envoi depuis votre outil de devis, relances programmées. Testé sur vos vrais dossiers avant la mise en route.",
+      "body_en": "Pre-pricing from your price list, sending from your quoting tool, scheduled follow-ups. Tested on your real files before going live.",
+      "meta_fr": "Semaines 3 à 5",
+      "meta_en": "Weeks 3 to 5"
+    },
+    {
+      "num": "04",
+      "label_fr": "Avis et suivi",
+      "label_en": "Reviews and tracking",
+      "body_fr": "Demande d'avis après réception du chantier, et un tableau simple : demandes reçues, devis envoyés, devis signés. Vous voyez ce que l'automatisation rapporte.",
+      "body_en": "Review request after handover, and a simple dashboard: requests received, quotes sent, quotes signed. You see what automation brings in.",
+      "meta_fr": "Ensuite",
+      "meta_en": "Then"
+    }
+  ],
+  "offer_sections": [
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix de l'automatisation des devis dans le bâtiment",
+      "h2_en": "Price of quote automation in construction",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : le tri des demandes tourne à la fin. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints. Vous gardez tout.",
+      "lede_en": "We start with a fixed-price discovery sprint: request sorting runs at the end of it. What follows is quoted: we estimate the time together, validate it, then run it in sprints. You keep everything.",
+      "tiers": [
+        {
+          "name_fr": "Sprint découverte",
+          "name_en": "Discovery sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Capture des demandes branchée sur formulaire, email et téléphone",
+            "Fiche par demande : travaux, commune, budget, urgence",
+            "Une liste triée chaque soir, au lieu d'appels manqués",
+            "Un premier livrable en service, pas un audit dormant"
+          ],
+          "features_en": [
+            "Request capture wired to form, email and phone",
+            "One record per request: work, town, budget, urgency",
+            "A sorted list every evening instead of missed calls",
+            "A first deliverable live, not a dormant audit"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Pré-chiffrage depuis votre grille de prix",
+            "Relances programmées et demandes d'avis Google",
+            "Exécuté en sprints, facturés en régie à {{prix.horaire}} € HT/h",
+            "Vous gardez les workflows, les accès et les données"
+          ],
+          "features_en": [
+            "Pre-pricing from your price list",
+            "Scheduled follow-ups and Google review requests",
+            "Run in sprints, time and materials at {{prix.horaire}} € ex VAT/h",
+            "You keep the workflows, the access and the data"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=sequences-de-suivi&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-10-05"
 }

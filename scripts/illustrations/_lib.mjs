@@ -8,8 +8,18 @@ export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const STYLE = JSON.parse(readFileSync(join(ROOT, 'scripts/illustrations/style.json'), 'utf8'));
 export const REGISTRY = join(ROOT, 'src/data/illustrations.json');
 
-/** sharp vit dans le store pnpm (dépendance d'astro) : même chargeur que scripts/generate-images.mjs. */
+/**
+ * sharp vit dans le store pnpm (dépendance d'astro) : même chargeur que scripts/generate-images.mjs.
+ * Cache de fichiers coupé : les essais réécrivent le même WebP, et sharp relisait sinon le
+ * premier essai à chaque contrôle (mêmes mesures sur 3 essais différents, PR secteurs 2026-10-05).
+ */
 export function loadSharp() {
+  const s = findSharp();
+  s.cache(false);
+  return s;
+}
+
+function findSharp() {
   let dir = ROOT;
   for (let i = 0; i < 5; i += 1) {
     const direct = join(dir, 'node_modules', 'sharp');
