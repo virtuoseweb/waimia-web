@@ -61,9 +61,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // noindex (seo.noindex:true frontmatter) → caseRef amploi hors-ICP SaaS. Réindexable
   // dès qu'un vrai cas éditeur/SaaS remplace le caseRef.
   "/secteurs/startup-logiciel",
-  // Hubs noindex (politique hub < 3-5 enfants réels) encore listés dans le sitemap (gate 2026-07-14).
-  "/ressources/comparatifs",
-  "/ressources/guides",
+  // Hubs /ressources/guides et /ressources/comparatifs : indexation calculée depuis le
+  // 5 octobre 2026 (src/lib/seo/hub-index.ts), donc retirés de cette liste.
   // Hub diagnostics (V7-FOLD Phase C) : noindex tant que < 3-5 enfants réels (2 pour l'instant :
   // maturite-ia, site-web-intelligent) → hors sitemap pour cohérence. Retirer quand le hub
   // listera ≥ 3-5 diagnostics complets (politique index-on-quality, strategy/10 §3).
@@ -78,10 +77,8 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   "/partenaires",
   "/plan-du-site",
   "/demonstrations/site-web-intelligent",
-  // F1 hygiène d'index 2026-07-17 (post-audit d-transverse §5) : hub /ressources/outils
-  // passé noindex (prop noindex sur UtilityTemplate → Base) car thin (122 mots, listing 2
-  // outils). Les 2 pages filles (calculateur-roi-ia, score-maturite-ia) RESTENT indexées.
-  "/ressources/outils",
+  // Hub /ressources/outils : indexation calculée depuis le 5 octobre 2026
+  // (src/lib/seo/hub-index.ts), donc retiré de cette liste.
   // Pivot IA 2026-10 · secteurs hors cible repassés noindex (seo.noindex:true frontmatter)
   // → hors sitemap pour cohérence noindex↔crawl. Pages conservées (noindex,follow).
   "/secteurs/batiment",

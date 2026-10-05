@@ -2,13 +2,15 @@
 export const prerender = true;
 
 // Page SSG · /ressources/comparatifs · HUB comparatifs · rendu 100 % composable.
-// noindex=true : hub mince (politique index-on-quality strategy/10 §3).
+// Indexation CALCULÉE (src/lib/seo/hub-index.ts) : le hub s'indexe dès qu'il liste au moins
+// 3 comparatifs eux-mêmes indexables. Les comparatifs en noindex ne sont pas listés.
 // Hero court + cartes via section catalogue `related-cards-band` (.min(2)/.max(3)).
 // Collection vide → 0 carte → 0 band (pas de crash).
 // Profondeur 3 niveaux (ressources/comparatifs/) → imports en `../../../`.
 
 import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL } from '../../../data/conversion';
 import { getLiveCollection } from '../../../lib/live-collection';
+import { hubNoindex, isIndexableEntry } from '../../../lib/seo/hub-index';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
@@ -41,6 +43,7 @@ const curation: Record<string, { fr: string; en: string }> = {
 };
 
 const cards: Card[] = (await getLiveCollection('comparatifs'))
+  .filter(isIndexableEntry)
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
   .map((e) => {
     const d = e.data;
@@ -126,11 +129,11 @@ const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
 ---
 
 <Base
-  title={isFr ? 'Comparatifs IA · Waimia' : 'AI comparisons · Waimia'}
+  title={isFr ? 'Comparatifs IA : Claude, ChatGPT, n8n, Make · Waimia' : 'AI comparisons: Claude, ChatGPT, n8n, Make · Waimia'}
   description={isFr
     ? 'Comparatifs objectifs pour trancher entre outils, approches et fournisseurs IA. Des critères clairs, les écarts documentés, votre décision éclairée.'
     : 'Objective comparisons to decide between AI tools, approaches and vendors. Clear criteria, documented gaps, your informed decision.'}
-  noindex={true}
+  noindex={hubNoindex(cards.length)}
 >
   <MastheadBar
     lang={lang}

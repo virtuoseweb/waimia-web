@@ -2,13 +2,15 @@
 export const prerender = true;
 
 // Page SSG · /ressources/guides · HUB guides · rendu 100 % composable.
-// noindex=true : hub mince (politique index-on-quality strategy/10 §3).
+// Indexation CALCULÉE (src/lib/seo/hub-index.ts) : le hub s'indexe dès qu'il liste au moins
+// 3 guides eux-mêmes indexables. Les guides en noindex ne sont pas listés.
 // Hero court + cartes via section catalogue `related-cards-band` (.min(2)/.max(3)).
 // Collection vide → 0 carte → 0 band (pas de crash).
 // Profondeur 3 niveaux (ressources/guides/) → imports en `../../../`.
 
 import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL } from '../../../data/conversion';
 import { getCollection } from 'astro:content';
+import { hubNoindex, isIndexableEntry } from '../../../lib/seo/hub-index';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
@@ -20,6 +22,7 @@ const isFr = lang === 'fr';
 type Card = SectionByType<'related-cards-band'>['cards'][number];
 
 const cards: Card[] = (await getCollection('guides'))
+  .filter(isIndexableEntry)
   .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
   .map((e) => {
     const d = e.data;
@@ -120,11 +123,11 @@ const sections: SectionData[] = [hero, signature, ...cardBands, ctaFinal];
 ---
 
 <Base
-  title={isFr ? 'Guides pratiques IA · Waimia' : 'Practical AI guides · Waimia'}
+  title={isFr ? 'Guides IA et automatisation pour PME · Waimia' : 'AI and automation guides for SMBs · Waimia'}
   description={isFr
     ? "Des guides pratiques pour passer de l'intention à l'exécution sur vos projets IA. Des étapes claires, des exemples concrets, les pièges à éviter."
     : 'Practical guides to move from intent to execution on your AI projects. Clear steps, concrete examples, pitfalls to avoid.'}
-  noindex={true}
+  noindex={hubNoindex(cards.length)}
 >
   <MastheadBar
     lang={lang}

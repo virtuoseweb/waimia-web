@@ -1,8 +1,8 @@
 {
-  "title_fr": "Amploi : site marketing, CRM HubSpot et couche GEO",
-  "title_en": "Amploi: marketing site, HubSpot CRM and GEO layer",
-  "description_fr": "Amploi, entreprise adaptée RH : un site marketing Astro, les demandes routées dans HubSpot sans ressaisie et une couche schema.org pour les moteurs IA.",
-  "description_en": "Amploi, an HR adapted company: an Astro marketing site, requests routed into HubSpot with no retyping and a schema.org layer for AI engines.",
+  "title_fr": "Amploi : site Astro, CRM HubSpot et skills Claude",
+  "title_en": "Amploi: Astro site, HubSpot CRM and Claude skills",
+  "description_fr": "Amploi, entreprise adaptée RH : site Astro édité en glisser-déposer, demandes routées dans HubSpot, couche schema.org et skills de contenu pour un agent Claude.",
+  "description_en": "Amploi, an HR adapted company: Astro site edited by drag and drop, requests routed into HubSpot, schema.org layer and content skills for a Claude agent.",
   "slug": "amploi",
   "publishedAt": "2026-06-15",
   "provenance": "first-party",
@@ -17,10 +17,12 @@
     "TinaCMS",
     "HubSpot (CRM, Forms API)",
     "schema.org (GEO/AIO)",
+    "GitHub",
+    "Skills pour agent Claude",
     "Vercel"
   ],
-  "impact_fr": "Site marketing livré en 6 semaines, demandes routées automatiquement dans HubSpot, couche GEO (graphe schema.org et fichier llm.md) en production. Pas de mesure d'impact publiée à ce jour.",
-  "impact_en": "Marketing site delivered in 6 weeks, requests routed automatically into HubSpot, GEO layer (schema.org graph and llm.md file) in production. No impact measurement published to date.",
+  "impact_fr": "Site marketing livré en 6 semaines, éditable en glisser-déposer dans TinaCMS, demandes routées automatiquement dans HubSpot, couche GEO (graphe schema.org et fichier llm.md) en production, skills de création de contenu livrés dans un dépôt GitHub. Google PageSpeed Insights sur le site en production, le 5 octobre 2026 : 100 sur 100 dans les quatre catégories, sur mobile et sur ordinateur. Pas de mesure d'impact commercial publiée à ce jour.",
+  "impact_en": "Marketing site delivered in 6 weeks, editable by drag and drop in TinaCMS, requests routed automatically into HubSpot, GEO layer (schema.org graph and llm.md file) in production, content-creation skills delivered in a GitHub repository. Google PageSpeed Insights on the production site, 5 October 2026: 100 out of 100 in all four categories, on mobile and desktop. No business impact measurement published to date.",
   "illustration": {
     "src": "/images/illustrations/ds/super-girl-paper.webp",
     "alt_fr": "Une figure dynamique qui capte et qualifie les leads, illustration éditoriale duotone.",
@@ -32,8 +34,8 @@
     "kicker_en": "The result, live",
     "h2_fr": "Le site <i>livré</i>",
     "h2_en": "The <i>delivered</i> site",
-    "lede_fr": "Captures réelles du site institutionnel en production.",
-    "lede_en": "Real screenshots of the live institutional site.",
+    "lede_fr": "Captures réelles du site en production et de son rapport Google PageSpeed Insights.",
+    "lede_en": "Real screenshots of the live site and of its Google PageSpeed Insights report.",
     "url": "https://amploi.fr",
     "url_label_fr": "Visiter le site",
     "url_label_en": "Visit the site",
@@ -47,6 +49,24 @@
         "caption_en": "The promise and the offer from the first screen, no detour."
       },
       {
+        "src": "/images/cases/amploi/pagespeed-mobile.webp",
+        "alt_fr": "Rapport Google PageSpeed Insights d'amploi.fr du 5 octobre 2026, vue mobile : 100 en performances, accessibilité, bonnes pratiques et SEO.",
+        "alt_en": "Google PageSpeed Insights report for amploi.fr, 5 October 2026, mobile view: 100 in performance, accessibility, best practices and SEO.",
+        "kind": "frame",
+        "caption_fr": "Google PageSpeed Insights, mobile : 100 dans les quatre catégories (rapport du 5 octobre 2026).",
+        "caption_en": "Google PageSpeed Insights, mobile: 100 in all four categories (5 October 2026 report).",
+        "addr": "pagespeed.web.dev"
+      },
+      {
+        "src": "/images/cases/amploi/pagespeed-ordinateur.webp",
+        "alt_fr": "Rapport Google PageSpeed Insights d'amploi.fr du 5 octobre 2026, vue ordinateur : 100 en performances, accessibilité, bonnes pratiques et SEO.",
+        "alt_en": "Google PageSpeed Insights report for amploi.fr, 5 October 2026, desktop view: 100 in performance, accessibility, best practices and SEO.",
+        "kind": "frame",
+        "caption_fr": "Google PageSpeed Insights, ordinateur : 100 dans les quatre catégories, même rapport.",
+        "caption_en": "Google PageSpeed Insights, desktop: 100 in all four categories, same report.",
+        "addr": "pagespeed.web.dev"
+      },
+      {
         "src": "/images/cases/amploi/home-full.webp",
         "alt_fr": "Page d'accueil complète du site Amploi.",
         "alt_en": "Full Amploi home page.",
@@ -58,8 +78,8 @@
   },
   "author": "simon-beros",
   "featured": false,
-  "contextStatement_fr": "Amploi, entreprise adaptée et SCIC du groupe Vigiscope active depuis 2010 à Beauvais et Cergy, accompagne les grandes entreprises multi-sites sur leurs obligations RH via la plateforme VigiScope. Le projet comporte deux volets : un site marketing, et une couche données et IA (demandes routées dans le CRM, contenu lisible par les moteurs IA).",
-  "contextStatement_en": "Amploi, an adapted company and cooperative of the Vigiscope group active since 2010 in Beauvais and Cergy, supports large multi-site companies with their HR obligations through the VigiScope platform. The project has two strands: a marketing site, and a data and AI layer (requests routed into the CRM, content readable by AI engines).",
+  "contextStatement_fr": "Amploi, entreprise adaptée et SCIC du groupe Vigiscope active depuis 2010 à Beauvais et Cergy, accompagne les grandes entreprises multi-sites sur leurs obligations RH via la plateforme VigiScope. Le projet comporte deux volets : un site marketing avec un CMS sur mesure, et une couche données et IA (demandes routées dans le CRM, contenu lisible par les moteurs IA, skills de création de contenu pour un agent Claude).",
+  "contextStatement_en": "Amploi, an adapted company and cooperative of the Vigiscope group active since 2010 in Beauvais and Cergy, supports large multi-site companies with their HR obligations through the VigiScope platform. The project has two strands: a marketing site with a custom CMS, and a data and AI layer (requests routed into the CRM, content readable by AI engines, content-creation skills for a Claude agent).",
   "contextStats": [
     {
       "value": "6 sem.",
@@ -72,9 +92,14 @@
       "label_en": "Historic sites (Beauvais, Cergy)"
     },
     {
-      "value": "3",
-      "label_fr": "Livrables : site, CRM, couche GEO",
-      "label_en": "Deliverables: site, CRM, GEO layer"
+      "value": "4",
+      "label_fr": "Livrables : site, CRM, couche GEO, skills de contenu",
+      "label_en": "Deliverables: site, CRM, GEO layer, content skills"
+    },
+    {
+      "value": "100/100",
+      "label_fr": "Google PageSpeed Insights, 4 catégories, mobile et ordinateur (5 oct. 2026)",
+      "label_en": "Google PageSpeed Insights, 4 categories, mobile and desktop (5 Oct 2026)"
     }
   ],
   "bottlenecks": [
@@ -111,8 +136,8 @@
       "num": "01",
       "label_fr": "Volet site · site marketing Astro",
       "label_en": "Site strand · Astro marketing site",
-      "body_fr": "Construction d'un site marketing Astro en rendu statique (SSG/ISR), rapide et robuste, piloté par un design system sur mesure et éditable via TinaCMS.",
-      "body_en": "Build of a static-rendered Astro marketing site (SSG/ISR), fast and robust, driven by a custom design system and editable through TinaCMS.",
+      "body_fr": "Construction d'un site marketing Astro en rendu statique (SSG/ISR), piloté par un design system sur mesure. Le CMS est un TinaCMS configuré sur mesure : les équipes composent les pages en glisser-déposer.",
+      "body_en": "Build of a static-rendered Astro marketing site (SSG/ISR), driven by a custom design system. The CMS is a custom-configured TinaCMS: the teams compose pages by drag and drop.",
       "meta_fr": "Astro · Tailwind · TinaCMS",
       "meta_en": "Astro · Tailwind · TinaCMS"
     },
@@ -133,14 +158,23 @@
       "body_en": "Set-up of a structured schema.org graph and a /.well-known/llm.md file to maximize visibility for search engines and generative AI.",
       "meta_fr": "schema.org · llm.md",
       "meta_en": "schema.org · llm.md"
+    },
+    {
+      "num": "04",
+      "label_fr": "Volet IA · skills de création de contenu",
+      "label_en": "AI strand · content-creation skills",
+      "body_fr": "Des skills de création de contenu livrés dans un dépôt GitHub. Amploi les utilise en connectant ce dépôt à un agent Claude, qui écrit le contenu, le commite et déclenche le déploiement sur Vercel.",
+      "body_en": "Content-creation skills delivered in a GitHub repository. Amploi uses them by connecting that repository to a Claude agent, which writes the content, commits it and triggers the deployment on Vercel.",
+      "meta_fr": "GitHub · agent Claude · Vercel",
+      "meta_en": "GitHub · Claude agent · Vercel"
     }
   ],
   "deliverableCards": [
     {
       "title_fr": "Site Astro performant",
       "title_en": "High-performance Astro site",
-      "body_fr": "Un site marketing rapide en SSG/ISR, bâti sur un design system sur mesure et éditable sans technique via TinaCMS.",
-      "body_en": "A fast SSG/ISR marketing site, built on a custom design system and editable without code via TinaCMS.",
+      "body_fr": "Un site marketing rapide en SSG/ISR, bâti sur un design system sur mesure, avec un TinaCMS sur mesure où les pages se composent en glisser-déposer.",
+      "body_en": "A fast SSG/ISR marketing site, built on a custom design system, with a custom TinaCMS where pages are composed by drag and drop.",
       "format_fr": "VOLET SITE",
       "format_en": "VOLET SITE"
     },
@@ -159,6 +193,14 @@
       "body_en": "A schema.org @graph and an llm.md file to make the site readable and citable by search engines and AI.",
       "format_fr": "VOLET IA",
       "format_en": "VOLET IA"
+    },
+    {
+      "title_fr": "Skills de création de contenu",
+      "title_en": "Content-creation skills",
+      "body_fr": "Des skills livrés dans un dépôt GitHub : un agent Claude connecté au dépôt rédige, commite et déploie sur Vercel.",
+      "body_en": "Skills delivered in a GitHub repository: a Claude agent connected to the repository writes, commits and deploys on Vercel.",
+      "format_fr": "VOLET IA",
+      "format_en": "VOLET IA"
     }
   ],
   "bottlenecksHeading_fr": "Trois attentes pour le site.",
@@ -167,8 +209,8 @@
   "approachHeading_en": "Two strands, six weeks.",
   "deliverablesHeading_fr": "Un volet site, un volet données et IA.",
   "deliverablesHeading_en": "A site strand, a data and AI strand.",
-  "stackLead_fr": "Astro et TinaCMS pour le site, la Forms API de HubSpot pour le routage des demandes, schema.org et un fichier llm.md pour la lecture par les moteurs IA.",
-  "stackLead_en": "Astro and TinaCMS for the site, the HubSpot Forms API for request routing, schema.org and an llm.md file for AI engines.",
+  "stackLead_fr": "Astro et un TinaCMS sur mesure pour le site, la Forms API de HubSpot pour le routage des demandes, schema.org et un fichier llm.md pour la lecture par les moteurs IA, un dépôt GitHub et des skills pour l'agent Claude qui crée le contenu.",
+  "stackLead_en": "Astro and a custom TinaCMS for the site, the HubSpot Forms API for request routing, schema.org and an llm.md file for AI engines, a GitHub repository and skills for the Claude agent that creates content.",
   "ctaHeading_fr": "Vos demandes arrivent-elles <i>seules</i> dans votre CRM ?",
   "ctaHeading_en": "Do your requests reach your CRM <i>on their own</i>?",
   "ctaSubtitle_fr": "L'audit gratuit de 45 minutes sert à suivre le trajet d'une demande chez vous et à repérer ce qui s'automatise.",
@@ -179,8 +221,8 @@
     "sector_en": "HR and occupational health",
     "title_fr": "Amploi",
     "title_en": "Amploi",
-    "headline_fr": "Un site marketing, un CRM branché et une couche GEO, livrés en 6 semaines.",
-    "headline_en": "A marketing site, a connected CRM and a GEO layer, delivered in 6 weeks.",
+    "headline_fr": "Un site éditable en glisser-déposer, un CRM branché, une couche GEO et des skills de contenu pour un agent Claude.",
+    "headline_en": "A drag-and-drop editable site, a connected CRM, a GEO layer and content skills for a Claude agent.",
     "duration_fr": "6 semaines",
     "duration_en": "6 weeks"
   },
@@ -192,6 +234,14 @@
     {
       "q": "Qu'apporte la couche GEO/AIO ?",
       "a": "Un graphe schema.org structuré et un fichier llm.md aident les moteurs de recherche et les IA génératives à comprendre et citer correctement les contenus du site."
+    },
+    {
+      "q": "Comment Amploi crée-t-il du contenu avec un agent Claude ?",
+      "a": "Les skills de création de contenu sont livrés dans un dépôt GitHub. En connectant ce dépôt à un agent Claude, l'équipe d'Amploi lui confie la rédaction : l'agent écrit le contenu, le commite dans le dépôt, et le site se redéploie sur Vercel."
+    },
+    {
+      "q": "Quel est le score PageSpeed du site d'Amploi ?",
+      "a": "100 sur 100 dans les quatre catégories de Google PageSpeed Insights (performances, accessibilité, bonnes pratiques, SEO), sur mobile et sur ordinateur. La mesure porte sur le site en production, page d'accueil, rapport du 5 octobre 2026. Les captures du rapport figurent sur cette page."
     }
   ],
   "faq_en": [
@@ -202,6 +252,14 @@
     {
       "q": "What does the GEO/AIO layer bring?",
       "a": "A structured schema.org graph and an llm.md file help search engines and generative AI understand and correctly cite the site's content."
+    },
+    {
+      "q": "How does Amploi create content with a Claude agent?",
+      "a": "The content-creation skills are delivered in a GitHub repository. By connecting that repository to a Claude agent, Amploi's team hands it the writing: the agent writes the content, commits it to the repository, and the site redeploys on Vercel."
+    },
+    {
+      "q": "What is the PageSpeed score of the Amploi site?",
+      "a": "100 out of 100 in all four Google PageSpeed Insights categories (performance, accessibility, best practices, SEO), on mobile and desktop. The measurement covers the production site, home page, 5 October 2026 report. Screenshots of the report appear on this page."
     }
   ],
   "body_sections": [
@@ -209,8 +267,9 @@
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<p>Amploi accompagne depuis 2010 les grandes entreprises multi-sites sur leurs obligations RH : visites médicales, paie, données. Entreprise adaptée et SCIC du groupe Vigiscope, basée à Beauvais et Cergy, elle s'appuie sur la plateforme VigiScope. Le projet a comporté deux volets, livrés ensemble en six semaines.</p>\n<h2>Volet site et marketing</h2>\n<p>Un site marketing construit avec Astro, en rendu statique, sur un design system dédié. Les équipes d'Amploi modifient les contenus elles-mêmes dans TinaCMS, sans passer par un développeur.</p>\n<h2>Volet IA et données</h2>\n<p>Deux éléments. Le premier est une automatisation : chaque demande envoyée depuis le site est transmise à HubSpot par la Forms API et rangée dans le CRM, sans ressaisie ni perte d'information. C'est le mécanisme décrit sur la page <a href=\"/services/crm-scoring-routing\">automatisation CRM</a>. Le second est une couche de lisibilité pour les moteurs IA : un graphe schema.org structuré et un fichier /.well-known/llm.md, pour que le contenu soit compris et cité correctement par les moteurs de recherche et les assistants IA. La démarche est expliquée sur la page <a href=\"/services/seo-geo-contenu\">SEO et GEO</a>.</p>\n<h2>Ce qui n'est pas mesuré</h2>\n<p>Cette fiche décrit ce qui a été livré. Nous ne publions pas de chiffre d'impact (volume de demandes, citations par les IA) : ils seront ajoutés quand ils auront été mesurés avec le client.</p>",
-      "html_en": "<p>Since 2010 Amploi has supported large multi-site companies with their HR obligations: medical visits, payroll, data. An adapted company and cooperative of the Vigiscope group, based in Beauvais and Cergy, it relies on the VigiScope platform. The project had two strands, delivered together in six weeks.</p>\n<h2>Site and marketing strand</h2>\n<p>A marketing site built with Astro, statically rendered, on a dedicated design system. Amploi's teams edit content themselves in TinaCMS, without a developer.</p>\n<h2>AI and data strand</h2>\n<p>Two elements. The first is an automation: every request sent from the site is passed to HubSpot through the Forms API and filed in the CRM, with no retyping or information loss. This is the mechanism described on the <a href=\"/services/crm-scoring-routing\">CRM automation</a> page. The second is a readability layer for AI engines: a structured schema.org graph and a /.well-known/llm.md file, so content is understood and cited correctly by search engines and AI assistants. The approach is explained on the <a href=\"/services/seo-geo-contenu\">SEO and GEO</a> page.</p>\n<h2>What is not measured</h2>\n<p>This page describes what was delivered. We publish no impact figure (request volume, AI citations): they will be added once measured with the client.</p>"
+      "html_fr": "<p>Amploi accompagne depuis 2010 les grandes entreprises multi-sites sur leurs obligations RH : visites médicales, paie, données. Entreprise adaptée et SCIC du groupe Vigiscope, basée à Beauvais et Cergy, elle s'appuie sur la plateforme VigiScope. Le projet a comporté deux volets, livrés ensemble en six semaines.</p>\n<h2>Volet site et marketing</h2>\n<p>Un site marketing construit avec Astro, en rendu statique, sur un design system dédié. Le CMS est un TinaCMS configuré sur mesure, avec une interface en glisser-déposer : les équipes d'Amploi composent et modifient les pages elles-mêmes, sans passer par un développeur.</p>\n<h2>Volet IA et données</h2>\n<p>Trois éléments. Le premier est une automatisation : chaque demande envoyée depuis le site est transmise à HubSpot par la Forms API et rangée dans le CRM, sans ressaisie ni perte d'information. C'est le mécanisme décrit sur la page <a href=\"/services/crm-scoring-routing\">automatisation CRM</a>. Le second est une couche de lisibilité pour les moteurs IA : un graphe schema.org structuré et un fichier /.well-known/llm.md, pour que le contenu soit compris et cité correctement par les moteurs de recherche et les assistants IA. La démarche est expliquée sur la page <a href=\"/services/seo-geo-contenu\">SEO et GEO</a>.</p>\n<p>Le troisième est un jeu de skills de création de contenu, livré dans un dépôt GitHub. Amploi s'en sert en connectant ce dépôt à un agent Claude : l'agent écrit le contenu, le commite dans le dépôt, et le déploiement sur Vercel suit. Le client n'a pas besoin de Waimia pour publier. Le principe est celui décrit sur la page <a href=\"/services/integration-claude\">Claude en entreprise</a>.</p>\n<h2>Ce qui est mesuré</h2>\n<p>Google PageSpeed Insights, lancé le 5 octobre 2026 sur le site en production (page d'accueil d'amploi.fr), donne 100 sur 100 dans les quatre catégories (performances, accessibilité, bonnes pratiques, SEO), sur mobile comme sur ordinateur. Sur mobile, Google teste avec un téléphone de milieu de gamme et une connexion 4G lente : premier affichage en 1,1 s, plus grand élément affiché en 1,7 s, aucun temps de blocage, aucun décalage de mise en page. Le <a href=\"https://pagespeed.web.dev/analysis/https-amploi-fr/sy0utfy5ep?form_factor=mobile\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">rapport complet est consultable chez Google</a>, et les captures figurent plus bas sur cette page. Le score peut varier d'un point ou deux d'une analyse à l'autre : chacun peut relancer le test sur amploi.fr.</p>\n<h2>Ce qui n'est pas mesuré</h2>\n<p>Cette fiche décrit ce qui a été livré. Nous ne publions pas de chiffre d'impact commercial (volume de demandes, citations par les IA) : ils seront ajoutés quand ils auront été mesurés avec le client.</p>",
+      "html_en": "<p>Since 2010 Amploi has supported large multi-site companies with their HR obligations: medical visits, payroll, data. An adapted company and cooperative of the Vigiscope group, based in Beauvais and Cergy, it relies on the VigiScope platform. The project had two strands, delivered together in six weeks.</p>\n<h2>Site and marketing strand</h2>\n<p>A marketing site built with Astro, statically rendered, on a dedicated design system. The CMS is a custom-configured TinaCMS with a drag-and-drop interface: Amploi's teams compose and edit pages themselves, without a developer.</p>\n<h2>AI and data strand</h2>\n<p>Three elements. The first is an automation: every request sent from the site is passed to HubSpot through the Forms API and filed in the CRM, with no retyping or information loss. This is the mechanism described on the <a href=\"/services/crm-scoring-routing\">CRM automation</a> page. The second is a readability layer for AI engines: a structured schema.org graph and a /.well-known/llm.md file, so content is understood and cited correctly by search engines and AI assistants. The approach is explained on the <a href=\"/services/seo-geo-contenu\">SEO and GEO</a> page.</p>\n<p>The third is a set of content-creation skills, delivered in a GitHub repository. Amploi uses it by connecting that repository to a Claude agent: the agent writes the content, commits it to the repository, and the deployment on Vercel follows. The client does not need Waimia to publish. The principle is the one described on the <a href=\"/services/integration-claude\">Claude in business</a> page.</p>\n<h2>What is measured</h2>\n<p>Google PageSpeed Insights, run on 5 October 2026 on the production site (amploi.fr home page), gives 100 out of 100 in all four categories (performance, accessibility, best practices, SEO), on mobile and on desktop. On mobile, Google tests with a mid-range phone and a slow 4G connection: First Contentful Paint at 1.1 s, Largest Contentful Paint at 1.7 s, no blocking time, no layout shift. The <a href=\"https://pagespeed.web.dev/analysis/https-amploi-fr/sy0utfy5ep?form_factor=mobile\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">full report is available from Google</a>, and the screenshots appear further down this page. The score can move by a point or two from one run to the next: anyone can rerun the test on amploi.fr.</p>\n<h2>What is not measured</h2>\n<p>This page describes what was delivered. We publish no business impact figure (request volume, AI citations): they will be added once measured with the client.</p>"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-05"
 }

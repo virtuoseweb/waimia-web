@@ -64,7 +64,7 @@ const count = data.screens.length;
             <div class="frame">
               <div class="frame__bar" aria-hidden="true">
                 <span class="frame__dots"><i></i><i></i><i></i></span>
-                {domain && <span class="frame__addr">{domain}</span>}
+                {(screen.addr ?? domain) && <span class="frame__addr">{screen.addr ?? domain}</span>}
               </div>
               <div class="frame__view" data-kind={kind}>
                 <img

@@ -39,6 +39,9 @@ export const schema = z.object({
         // frame = above-fold ratio fixe (defaut) · tall = pleine page qui defile au survol.
         kind: z.enum(['frame', 'tall']).default('frame'),
         // Legende courte sous la capture : un avantage concret, pas une description.
+        // Adresse affichee dans la pseudo-barre du cadre quand la capture ne vient pas du site
+        // lui-meme (ex. un rapport tiers). Absent = domaine de `url`.
+        addr: z.string().optional(),
         caption_fr: z.string().optional(),
         caption_en: z.string().optional(),
       }),

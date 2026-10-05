@@ -9,7 +9,11 @@
 // src/content/outils/*, src/content/services/*. Routes : /secteurs/<slug>, /blog/<slug>,
 // /ressources/outils/<slug>, /services/<slug>, /equipe/simon-beros.
 
+import { NOINDEX_SITEMAP_PATHS } from './sitemap-noindex-exclude';
+
 export interface EeatLink {
+  /** Vrai si la page cible est en noindex : le libellé s'affiche sans lien. */
+  noindex?: boolean;
   label: string;
   href: string;
   /** petit libellé de catégorie (kicker), ex. « Secteur », « Article ». */
@@ -171,7 +175,11 @@ const TOOL_LINKS: Record<string, EeatLink> = {
 };
 
 const svc = (...ids: string[]): EeatLink[] => ids.map((id) => SERVICE_LINKS[id]);
-const sec = (...ids: string[]): EeatLink[] => ids.map((id) => SECTOR_LINKS[id]);
+// Un secteur dont la page est en noindex (liste NOINDEX_SITEMAP_PATHS) reste affiché, mais
+// SANS lien : le maillage ne pointe jamais une page que l'on demande aux moteurs d'ignorer.
+// Le lien revient tout seul quand la page sort de la liste.
+const sec = (...ids: string[]): EeatLink[] =>
+  ids.map((id) => ({ ...SECTOR_LINKS[id], noindex: NOINDEX_SITEMAP_PATHS.has(SECTOR_LINKS[id].href) }));
 const art = (...ids: string[]): EeatLink[] => ids.map((id) => ARTICLE_LINKS[id]);
 
 export const EEAT_PACK: EeatPack = {

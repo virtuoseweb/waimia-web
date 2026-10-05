@@ -115,6 +115,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -124,9 +133,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -572,6 +599,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "ink"
     },
     {
+      "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 5,
+      "label": "La même demande de SAV, traitée par une automatisation puis par un agent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 6,
+      "label": "Exemple type : une entreprise de services qui envoie trente devis par mois",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 8,
+      "label": "n8n Cloud ou auto-hébergé : ce que vous payez en argent, ce que vous payez en temps",
+      "background": "paper-2"
+    },
+    {
       "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
@@ -1002,6 +1056,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 7,
+      "label": "Cinq questions pour savoir si on vous vend un agent, un chatbot ou une automatisation",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -1016,6 +1079,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 9,
       "label": "Six questions pour partir du bon pied",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 3,
+      "label": "Les quatre éléments à écrire avant d'ouvrir un outil",
       "background": "paper"
     },
     {
@@ -2063,6 +2135,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -2090,9 +2171,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -2424,6 +2523,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -2463,8 +2589,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 2,
-      "label": "#2",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 4,
+      "label": "#4",
       "background": "paper"
     },
     {
@@ -2472,8 +2607,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 6,
-      "label": "#6",
+      "index": 8,
+      "label": "#8",
       "background": "paper"
     },
     {
@@ -2483,6 +2618,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 3,
       "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 10,
+      "label": "#10",
       "background": "paper"
     },
     {
@@ -2511,6 +2664,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 9,
       "label": "#9",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -2845,6 +3025,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 3,
+      "label": "Assistant, automatisation, agent IA : le tableau pour les distinguer",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 8,
+      "label": "Ce que coûte l'usage : la même tâche en automatisation et en agent",
+      "variant": "editorial",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 9,
+      "label": "Cinq pannes d'agent, comment on les voit, et le garde-fou",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -2858,10 +3068,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 3,
+      "index": 2,
+      "label": "Prix de Claude Cowork : il est inclus dans les offres payantes de Claude",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 5,
       "label": "Où Cowork est disponible, selon Anthropic",
       "variant": "editorial",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 5,
+      "label": "Quatre façons d'automatiser un devis, et le cas qui correspond à chacune",
+      "variant": "editorial",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -2880,6 +3110,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/mcp-claude",
       "index": 8,
       "label": "MCP dans les plateformes de Claude et d'OpenAI",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 4,
+      "label": "Les offres n8n, ligne par ligne",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 6,
+      "label": "Les cinq postes de coût d'une automatisation n8n",
+      "variant": "editorial",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 9,
+      "label": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
       "variant": "editorial",
       "background": "paper"
     },
@@ -3669,6 +3929,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 15,
+      "label": "Agent IA : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -3681,7 +3950,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 8,
+      "index": 10,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -3696,12 +3965,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 12,
+      "label": "Devis automatisé : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
       "index": 11,
       "label": "Questions fréquentes",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 15,
+      "label": "Prix de n8n : questions fréquentes",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -4712,6 +4999,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 16,
+      "label": "Savoir si votre tâche demande un agent, ou seulement un workflow.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -4724,7 +5020,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 9,
+      "index": 11,
       "label": "Savoir quelles tâches confier à Claude, et avec quelles règles.",
       "background": "ink"
     },
@@ -4739,11 +5035,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 13,
+      "label": "Savoir si vos devis valent d'être automatisés, et par où commencer.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
       "index": 12,
       "label": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 16,
+      "label": "Savoir ce que n8n coûtera chez vous, avant le premier workflow.",
       "background": "ink"
     },
     {
@@ -5694,6 +6008,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 0,
+      "label": "Agent IA : c'est quoi ? Définition, coût d'usage et limites",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -5707,7 +6030,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
       "index": 0,
-      "label": "Claude Cowork : ce que c'est, ce qui change, comment l'utiliser en PME",
+      "label": "Claude Cowork : prix, fonctions et limites pour une PME",
       "background": "paper"
     },
     {
@@ -5721,11 +6044,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 0,
+      "label": "Devis automatisé : la méthode pas à pas, quel que soit l'outil",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
       "index": 0,
       "label": "MCP (Model Context Protocol) expliqué à un dirigeant de PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 0,
+      "label": "n8n prix : tarifs 2026 et coût complet pour une PME",
       "background": "paper"
     },
     {
@@ -5928,6 +6269,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 2,
       "label": "Un plan, pas une promesse",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 3,
+      "label": "Prix mensuels, facturation annuelle, hors taxes",
       "variant": "accent",
       "background": "paper"
     }
@@ -6681,6 +7032,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 12,
+      "label": "Mettre un premier agent en production, en cinq étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -6693,7 +7053,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 5,
+      "index": 7,
       "label": "Démarrer en PME en quatre étapes",
       "background": "paper-3"
     },
@@ -6705,6 +7065,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 6,
       "label": "Trois phases pour démarrer juste",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 4,
+      "label": "Automatiser un devis en six étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 12,
+      "label": "Chiffrer votre cas en cinq étapes",
+      "background": "paper-3"
     },
     {
       "collection": "guides",
@@ -7082,11 +7460,41 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 10,
+      "label": "#10",
+      "variant": "centered",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 5,
       "label": "#5",
+      "variant": "centered",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 9,
+      "label": "#9",
+      "variant": "centered",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 10,
+      "label": "#10",
       "variant": "centered",
       "background": "ink"
     }
@@ -7319,6 +7727,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -7331,7 +7748,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 7,
+      "index": 9,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -7346,12 +7763,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
       "index": 10,
       "label": "Pour aller plus loin",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -7666,6 +8101,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-ia-definition.json",
+      "slug": "agent-ia-definition",
+      "route": "/ressources/guides/agent-ia-definition",
+      "index": 11,
+      "label": "Avez-vous besoin d'un agent, ou d'une automatisation ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -7678,9 +8122,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 4,
+      "index": 6,
       "label": "Quand l'utiliser en PME, et quand s'abstenir",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/devis-automatise.json",
+      "slug": "devis-automatise",
+      "route": "/ressources/guides/devis-automatise",
+      "index": 8,
+      "label": "Quand automatiser vos devis, et quand s'abstenir",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -7690,6 +8143,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 7,
       "label": "Quand faire développer un serveur MCP, et quand s'en passer",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-prix.json",
+      "slug": "n8n-prix",
+      "route": "/ressources/guides/n8n-prix",
+      "index": 11,
+      "label": "Quand n8n vaut son prix, et quand il ne le vaut pas",
+      "background": "paper"
     },
     {
       "collection": "guides",

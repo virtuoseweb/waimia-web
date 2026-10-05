@@ -1,0 +1,718 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "n8n prix : tarifs 2026 et coût complet pour une PME",
+  "title_en": "n8n pricing: 2026 plans and full cost for an SMB",
+  "description_fr": "Prix de n8n relevés le 5 octobre 2026 : Starter 20 €, Pro 50 €, Business 667 €, version gratuite. Coût complet, exemples chiffrés et limites de chaque offre.",
+  "description_en": "n8n prices read on 5 October 2026: Starter €20, Pro €50, Business €667, free edition. Full cost, worked examples and the limits of each plan.",
+  "slug": "n8n-prix",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "pilotage",
+  "tags": [
+    "n8n",
+    "prix",
+    "automatisation",
+    "auto-hebergement",
+    "guide-pme"
+  ],
+  "sources": [],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Quel est le prix de n8n en 2026 ?",
+      "a": "n8n Cloud coûte 20 € par mois pour l'offre Starter (2 500 exécutions) et 50 € par mois pour l'offre Pro (10 000 exécutions), en facturation annuelle. L'offre Business, à installer sur votre propre serveur, coûte 667 € par mois pour 40 000 exécutions. La Community Edition, auto-hébergée, n'a pas de licence à payer. Prix relevés sur la page tarifs de n8n le 5 octobre 2026."
+    },
+    {
+      "q": "n8n est-il gratuit ?",
+      "a": "La Community Edition de n8n est gratuite : vous l'installez sur votre serveur et vous ne payez pas de licence. Il reste le serveur, la mise en place et la maintenance, qui sont à votre charge. Selon la documentation de n8n, cette édition ne comprend ni le partage des workflows et des identifiants entre utilisateurs, ni l'authentification unique, ni les environnements, ni le contrôle de version avec Git."
+    },
+    {
+      "q": "Qu'est-ce qu'une exécution dans n8n ?",
+      "a": "Une exécution est un lancement complet d'un workflow, du déclencheur à la dernière étape. n8n précise que le nombre d'étapes et le volume de données traité ne changent rien : un workflow de vingt étapes compte pour une exécution, comme un workflow de trois étapes. C'est la différence avec les outils qui facturent chaque étape."
+    },
+    {
+      "q": "Que se passe-t-il si on dépasse le quota d'exécutions ?",
+      "a": "Pour les offres Business et Enterprise, n8n écrit que les workflows continuent de tourner et que des frais de dépassement peuvent s'appliquer si vous ne passez pas au palier supérieur. Sur l'offre Business, le dépassement est facturé 4 000 € par tranche de 300 000 exécutions supplémentaires. Pour Starter et Pro, la page tarifs ne chiffre pas le dépassement : vérifiez la règle dans votre espace client avant de lancer un workflow à forte fréquence."
+    },
+    {
+      "q": "Faut-il choisir n8n Cloud ou n8n auto-hébergé ?",
+      "a": "Choisissez n8n Cloud si personne dans l'entreprise ne sait administrer un serveur, ou si votre volume tient dans les 10 000 exécutions par mois de l'offre Pro affichée. Choisissez l'auto-hébergement si vos données ne doivent pas quitter votre infrastructure, si vos volumes sont élevés, ou si vous avez besoin de nœuds personnalisés. La documentation de n8n recommande elle-même l'offre Cloud aux équipes sans compétence technique."
+    },
+    {
+      "q": "Un prestataire peut-il utiliser la version gratuite de n8n pour ses clients ?",
+      "a": "Oui, dans une limite précise. La licence de n8n autorise un prestataire à construire des automatisations pour ses clients et à facturer la création, la mise en place, la maintenance, le conseil et la formation. Elle interdit d'héberger n8n comme un service où les clients construisent eux-mêmes leurs workflows, et de le revendre en marque blanche. Chez Waimia, n8n est installé sur le serveur ou le compte du client, qui en reste propriétaire."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What does n8n cost in 2026?",
+      "a": "n8n Cloud costs €20 per month for the Starter plan (2,500 executions) and €50 per month for the Pro plan (10,000 executions), billed annually. The Business plan, which runs on your own server, costs €667 per month for 40,000 executions. The self-hosted Community Edition has no licence fee. Prices read on n8n's pricing page on 5 October 2026."
+    },
+    {
+      "q": "Is n8n free?",
+      "a": "n8n's Community Edition is free: you install it on your own server and pay no licence. You still pay for the server, the setup and the maintenance. According to n8n's documentation, this edition does not include sharing workflows and credentials between users, single sign-on, environments or version control with Git."
+    },
+    {
+      "q": "What is an execution in n8n?",
+      "a": "An execution is one complete run of a workflow, from the trigger to the last step. n8n states that the number of steps and the amount of data processed make no difference: a twenty-step workflow counts as one execution, just like a three-step one. That is the difference with tools that bill every step."
+    },
+    {
+      "q": "What happens if you exceed the execution quota?",
+      "a": "For the Business and Enterprise plans, n8n writes that workflows keep running and that overage charges may apply if you do not move to the next usage tier. On the Business plan, overage is billed at €4,000 per extra bucket of 300,000 executions. For Starter and Pro, the pricing page gives no overage figure: check the rule in your account before launching a high-frequency workflow."
+    },
+    {
+      "q": "Should you pick n8n Cloud or self-hosted n8n?",
+      "a": "Pick n8n Cloud if nobody in the company can administer a server, or if your volume fits within the 10,000 executions per month of the listed Pro plan. Pick self-hosting if your data must stay on your infrastructure, if your volumes are high, or if you need custom nodes. n8n's own documentation recommends the Cloud option for teams without technical expertise."
+    },
+    {
+      "q": "Can a provider use the free version of n8n for its clients?",
+      "a": "Yes, within a precise limit. n8n's licence lets a provider build automations for its clients and charge for creation, setup, maintenance, consultancy and training. It forbids hosting n8n as a service where clients build their own workflows, and reselling it white-labelled. At Waimia, n8n is installed on the client's own server or account, and the client remains the owner."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "n8n prix : tarifs 2026 et coût complet pour une PME",
+      "h1_en": "n8n pricing: 2026 plans and the full cost for an SMB",
+      "lede_fr": "La grille de n8n tient en cinq lignes. Le coût réel d'une automatisation, lui, compte cinq postes : la licence, le serveur, la mise en place, la maintenance et les modèles d'IA. Ce guide donne les prix relevés chez l'éditeur le 5 octobre 2026, la façon d'estimer votre volume d'exécutions, et trois exemples chiffrés à refaire avec vos données.",
+      "lede_en": "n8n's price list fits in five lines. The real cost of an automation has five lines: the licence, the server, the setup, the maintenance and the AI models. This guide gives the prices read at the vendor on 5 October 2026, a way to estimate your execution volume, and three worked examples to redo with your own data.",
+      "badges": [
+        {
+          "label_fr": "Prix relevés chez l'éditeur",
+          "label_en": "Prices read at the vendor"
+        },
+        {
+          "label_fr": "Exemples illustratifs",
+          "label_en": "Illustrative examples"
+        },
+        {
+          "label_fr": "Vérifié le 5 octobre 2026",
+          "label_en": "Checked on 5 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-tableau-mesure.svg",
+      "media_alt_fr": "Schéma : un tableau qui additionne les postes de coût d'une automatisation",
+      "media_alt_en": "Diagram: a table adding up the cost lines of an automation"
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Combien coûte n8n ?",
+      "question_en": "How much does n8n cost?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "n8n, l'outil d'automatisation de workflows, coûte 20 € par mois en offre Starter (2 500 exécutions) et 50 € par mois en offre Pro (10 000 exécutions), hébergé par l'éditeur et facturé à l'année. L'offre Business coûte 667 € par mois pour 40 000 exécutions et s'installe sur votre serveur. La Community Edition, auto-hébergée, n'a pas de licence à payer : vous payez le serveur et le temps de maintenance. Prix relevés sur n8n.io le 5 octobre 2026.",
+      "answer_en": "n8n, the workflow automation tool, costs €20 per month on the Starter plan (2,500 executions) and €50 per month on the Pro plan (10,000 executions), hosted by the vendor and billed annually. The Business plan costs €667 per month for 40,000 executions and runs on your own server. The self-hosted Community Edition has no licence fee: you pay for the server and the maintenance time. Prices read on n8n.io on 5 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ La grille en quatre chiffres",
+      "eyebrow_en": "§ The price list in four figures",
+      "title_fr": "Prix mensuels, facturation annuelle, hors taxes",
+      "title_en": "Monthly prices, billed annually, excluding tax",
+      "metrics": [
+        {
+          "value": "0 €",
+          "label_fr": "Community Edition, sur votre serveur : pas de licence",
+          "label_en": "Community Edition, on your server: no licence fee"
+        },
+        {
+          "value": "20 €",
+          "label_fr": "Starter, hébergé par n8n : 2 500 exécutions",
+          "label_en": "Starter, hosted by n8n: 2,500 executions"
+        },
+        {
+          "value": "50 €",
+          "label_fr": "Pro, hébergé par n8n : 10 000 exécutions",
+          "label_en": "Pro, hosted by n8n: 10,000 executions"
+        },
+        {
+          "value": "667 €",
+          "label_fr": "Business, sur votre serveur : 40 000 exécutions",
+          "label_en": "Business, on your server: 40,000 executions"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Grille officielle",
+      "kicker_en": "§ Official price list",
+      "heading_fr": "Les offres n8n, ligne par ligne",
+      "heading_en": "n8n's plans, line by line",
+      "caption_fr": "Source : page tarifs de n8n (n8n.io/pricing), lue le 5 octobre 2026. Prix par mois en facturation annuelle ; n8n annonce 17 % d'économie par rapport à la facturation mensuelle. Pour passer en facturation mensuelle, basculez l'option « Monthly » de la page. n8n annonce des utilisateurs et des workflows illimités sur ses offres ; en Community Edition, les utilisateurs ne partagent pas leurs workflows.",
+      "caption_en": "Source: n8n's pricing page (n8n.io/pricing), read on 5 October 2026. Prices per month, billed annually; n8n states a 17% saving compared with monthly billing. For monthly billing, switch the page's “Monthly” option. n8n advertises unlimited users and workflows on its plans; on the Community Edition, users do not share their workflows.",
+      "columns_fr": [
+        "Offre",
+        "Prix par mois",
+        "Exécutions par mois",
+        "Hébergement",
+        "Limites à connaître",
+        "Support"
+      ],
+      "columns_en": [
+        "Plan",
+        "Price per month",
+        "Executions per month",
+        "Hosting",
+        "Limits to know",
+        "Support"
+      ],
+      "rows_fr": [
+        [
+          "Starter",
+          "20 €",
+          "2 500",
+          "Par n8n, à Francfort",
+          "5 exécutions simultanées, 5 minutes au plus par exécution, 1 projet partagé",
+          "Forum"
+        ],
+        [
+          "Pro",
+          "50 €",
+          "10 000",
+          "Par n8n, à Francfort",
+          "20 à 50 exécutions simultanées selon la taille de l'offre, 40 minutes au plus par exécution, 3 projets partagés",
+          "Forum"
+        ],
+        [
+          "Business",
+          "667 €",
+          "40 000",
+          "Sur votre serveur uniquement",
+          "6 projets partagés, authentification unique, environnements, contrôle de version avec Git",
+          "Forum"
+        ],
+        [
+          "Enterprise",
+          "Sur devis",
+          "Sur mesure",
+          "Par n8n ou sur votre serveur",
+          "Plus de 200 exécutions simultanées, projets illimités",
+          "Dédié, avec engagement de délai"
+        ],
+        [
+          "Community Edition",
+          "0 € de licence",
+          "Non facturées",
+          "Sur votre serveur uniquement",
+          "Pas de partage entre utilisateurs, pas d'authentification unique, pas d'environnements",
+          "Forum"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Starter",
+          "€20",
+          "2,500",
+          "By n8n, in Frankfurt",
+          "5 concurrent executions, 5 minutes at most per execution, 1 shared project",
+          "Forum"
+        ],
+        [
+          "Pro",
+          "€50",
+          "10,000",
+          "By n8n, in Frankfurt",
+          "20 to 50 concurrent executions depending on plan size, 40 minutes at most per execution, 3 shared projects",
+          "Forum"
+        ],
+        [
+          "Business",
+          "€667",
+          "40,000",
+          "On your server only",
+          "6 shared projects, single sign-on, environments, version control with Git",
+          "Forum"
+        ],
+        [
+          "Enterprise",
+          "On quote",
+          "Custom",
+          "By n8n or on your server",
+          "More than 200 concurrent executions, unlimited projects",
+          "Dedicated, with a response-time commitment"
+        ],
+        [
+          "Community Edition",
+          "€0 licence",
+          "Not billed",
+          "On your server only",
+          "No sharing between users, no single sign-on, no environments",
+          "Forum"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Ce que n8n facture : l'exécution, pas l'étape</h2>\n<p>n8n facture au nombre d'exécutions par mois. Une exécution est un lancement complet d'un workflow. L'éditeur l'écrit ainsi sur sa <a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">page tarifs</a> : le nombre d'étapes et la quantité de données traitées ne comptent pas. Un workflow qui lit une facture, l'enregistre, prévient un comptable et met à jour un tableau consomme une exécution, pas quatre.</p>\n<p>Conséquence pratique : ce qui fait monter la facture, ce n'est pas la complexité d'un workflow, c'est sa fréquence. La page tarifs donne le repère : un workflow planifié une fois par jour consomme 30 ou 31 exécutions par mois ; le même workflow lancé toutes les 5 minutes en consomme environ 8 600 à 8 900. À lui seul, il dépasse le quota de l'offre Starter et occupe presque toute l'offre Pro.</p>\n<h2>Estimer votre volume avant de choisir</h2>\n<p>Listez vos workflows et classez-les en trois familles.</p>\n<ul><li><strong>Planifiés</strong> : comptez les lancements par mois. Une fois par heure donne environ 720 exécutions, une fois par jour une trentaine.</li><li><strong>Déclenchés par un événement</strong> (un formulaire rempli, un email reçu, une commande passée) : le volume est celui de l'événement. 40 demandes par jour ouvré donnent environ 880 exécutions par mois.</li><li><strong>Conversationnels</strong> (un assistant qui répond à des messages) : chaque message reçu lance une exécution. Multipliez le nombre de conversations par le nombre moyen de messages.</li></ul>\n<p>Additionnez, puis ajoutez une marge : les tests et les relances après erreur consomment aussi. Si le total approche un quota, regardez d'abord la fréquence. Passer une vérification de toutes les 5 minutes à toutes les 15 minutes divise son volume par trois, et personne ne voit la différence sur une relance de devis.</p>\n<h2>Trois mauvaises surprises à anticiper</h2>\n<ul><li><strong>L'exécution coupée.</strong> En offre Starter, une exécution est limitée à 5 minutes, contre 40 minutes en offre Pro. Un workflow qui traite un gros fichier ou attend une réponse lente peut s'arrêter en cours de route.</li><li><strong>Le quota mangé par un seul workflow.</strong> Une vérification toutes les 5 minutes consomme à elle seule plus que le quota Starter. Réglez la fréquence avant de changer d'offre.</li><li><strong>Le saut de prix pour travailler à plusieurs.</strong> En Community Edition, les workflows ne se partagent pas entre utilisateurs. Une équipe qui veut construire à plusieurs sur son propre serveur passe à l'offre Business, à 667 € par mois, ou choisit n8n Cloud, où l'offre Pro compte 3 projets partagés.</li></ul>\n<h2>Ce que dit n8n du dépassement</h2>\n<p>Pour les offres Business et Enterprise, n8n indique que les workflows continuent de tourner après le quota, et que des frais de dépassement peuvent être facturés si vous ne passez pas au palier supérieur. Sur l'offre Business, le tarif publié est de 4 000 € par tranche de 300 000 exécutions supplémentaires. Pour Starter et Pro, la page tarifs ne publie pas de prix de dépassement : la règle se lit dans l'espace client.</p>",
+      "html_en": "<h2>What n8n bills: the execution, not the step</h2>\n<p>n8n bills by the number of executions per month. An execution is one complete run of a workflow. The vendor puts it this way on its <a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">pricing page</a>: the number of steps and the amount of data processed do not count. A workflow that reads an invoice, records it, notifies an accountant and updates a sheet uses one execution, not four.</p>\n<p>The practical consequence: what drives the bill up is not how complex a workflow is, it is how often it runs. The pricing page gives the benchmark: a workflow scheduled once a day uses 30 or 31 executions per month; the same workflow run every 5 minutes uses about 8,600 to 8,900. On its own it exceeds the Starter quota and takes up almost all of the Pro plan.</p>\n<h2>Estimate your volume before choosing</h2>\n<p>List your workflows and sort them into three families.</p>\n<ul><li><strong>Scheduled</strong>: count the runs per month. Once an hour gives about 720 executions, once a day about thirty.</li><li><strong>Triggered by an event</strong> (a form filled in, an email received, an order placed): the volume is that of the event. 40 requests per working day give about 880 executions per month.</li><li><strong>Conversational</strong> (an assistant answering messages): every message received starts an execution. Multiply the number of conversations by the average number of messages.</li></ul>\n<p>Add them up, then add a margin: tests and retries after an error also consume executions. If the total gets close to a quota, look at frequency first. Moving a check from every 5 minutes to every 15 minutes divides its volume by three, and nobody sees the difference on a quote follow-up.</p>\n<h2>Three unpleasant surprises to anticipate</h2>\n<ul><li><strong>The execution cut short.</strong> On the Starter plan, an execution is limited to 5 minutes, against 40 minutes on Pro. A workflow that processes a large file or waits for a slow response can stop midway.</li><li><strong>The quota eaten by a single workflow.</strong> A check every 5 minutes uses more than the Starter quota on its own. Adjust the frequency before changing plan.</li><li><strong>The price jump for working as a team.</strong> On the Community Edition, workflows are not shared between users. A team that wants to build together on its own server moves to the Business plan, at €667 per month, or chooses n8n Cloud, where the Pro plan has 3 shared projects.</li></ul>\n<h2>What n8n says about overage</h2>\n<p>For the Business and Enterprise plans, n8n states that workflows keep running past the quota, and that overage charges may be billed if you do not move to the next tier. On the Business plan, the published rate is €4,000 per extra bucket of 300,000 executions. For Starter and Pro, the pricing page publishes no overage price: the rule is in your account.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-3",
+      "kicker_fr": "§ Coût complet",
+      "kicker_en": "§ Full cost",
+      "heading_fr": "Les cinq postes de coût d'une automatisation n8n",
+      "heading_en": "The five cost lines of an n8n automation",
+      "caption_fr": "La licence n'est qu'une ligne sur cinq : ne comparez pas les offres sur ce seul poste. Prix de serveur : OVHcloud, lu le 5 octobre 2026. Prix des modèles : Anthropic, lu le 5 octobre 2026.",
+      "caption_en": "The licence is only one line out of five: do not compare plans on that line alone. Server price: OVHcloud, read on 5 October 2026. Model prices: Anthropic, read on 5 October 2026.",
+      "columns_fr": [
+        "Poste",
+        "n8n Cloud",
+        "n8n auto-hébergé",
+        "Ce qui le fait varier"
+      ],
+      "columns_en": [
+        "Line",
+        "n8n Cloud",
+        "Self-hosted n8n",
+        "What makes it vary"
+      ],
+      "rows_fr": [
+        [
+          "Licence",
+          "20 € ou 50 € par mois",
+          "0 € en Community Edition, 667 € par mois en Business",
+          "Le nombre d'exécutions, et le besoin de partage entre utilisateurs"
+        ],
+        [
+          "Serveur",
+          "Inclus",
+          "À partir de 3,81 € HT par mois pour 2 cœurs et 4 Go de mémoire chez OVHcloud",
+          "Le nombre d'exécutions simultanées et la taille des fichiers traités"
+        ],
+        [
+          "Mise en place",
+          "Création du compte, puis construction des workflows",
+          "Installation, base de données, sauvegardes, certificat, puis construction des workflows",
+          "Le nombre de logiciels à relier et la qualité des données d'entrée"
+        ],
+        [
+          "Maintenance",
+          "Mises à jour faites par n8n ; il reste la surveillance des workflows",
+          "Mises à jour, sauvegardes et sécurité à votre charge, plus la surveillance des workflows",
+          "Les changements d'interface des logiciels reliés"
+        ],
+        [
+          "Modèles d'IA",
+          "Facturés à part par l'éditeur du modèle",
+          "Facturés à part par l'éditeur du modèle",
+          "Le nombre de textes lus et leur longueur"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Licence",
+          "€20 or €50 per month",
+          "€0 on the Community Edition, €667 per month on Business",
+          "The number of executions, and the need to share between users"
+        ],
+        [
+          "Server",
+          "Included",
+          "From €3.81 excl. VAT per month for 2 cores and 4 GB of memory at OVHcloud",
+          "The number of concurrent executions and the size of the files processed"
+        ],
+        [
+          "Setup",
+          "Account creation, then building the workflows",
+          "Installation, database, backups, certificate, then building the workflows",
+          "The number of applications to connect and the quality of the input data"
+        ],
+        [
+          "Maintenance",
+          "Updates done by n8n; workflow monitoring remains",
+          "Updates, backups and security are yours, plus workflow monitoring",
+          "Interface changes in the connected applications"
+        ],
+        [
+          "AI models",
+          "Billed separately by the model vendor",
+          "Billed separately by the model vendor",
+          "The number of texts read and their length"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>n8n auto-hébergé : ce que « gratuit » veut dire</h2>\n<p>La Community Edition est le logiciel n8n installé sur votre propre serveur, sans clé de licence. La <a href=\"https://docs.n8n.io/deploy/host-n8n/community-edition-features\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de n8n</a> précise qu'elle contient presque toutes les fonctions, et liste celles qui manquent. Trois comptent pour une PME :</p>\n<ul><li><strong>Le partage.</strong> Sans licence payante, seuls le propriétaire de l'instance et la personne qui a créé un workflow ou un identifiant peuvent y accéder. Dès que deux personnes doivent travailler sur les mêmes workflows, c'est une contrainte.</li><li><strong>L'authentification unique</strong> (SAML, LDAP) : absente. Chaque utilisateur a un compte n8n à part.</li><li><strong>Les environnements et le contrôle de version avec Git</strong> : absents. Vous testez et vous publiez sur la même instance.</li></ul>\n<p>En s'enregistrant avec une adresse email, on débloque gratuitement les dossiers, le débogage dans l'éditeur et les données d'exécution personnalisées.</p>\n<p>Le serveur lui-même coûte peu : chez <a href=\"https://www.ovhcloud.com/fr/vps/\" rel=\"noopener noreferrer\" target=\"_blank\">OVHcloud</a>, un serveur privé virtuel de 2 cœurs et 4 Go de mémoire est affiché à partir de 3,81 € HT par mois, et un serveur de 4 cœurs et 8 Go à partir de 7,21 € HT. Ce qui coûte, c'est le temps. La documentation de n8n classe l'installation, l'hébergement et la maintenance parmi les tâches « à votre charge » en auto-hébergement, et recommande l'offre Cloud aux équipes qui n'ont pas de compétence technique.</p>\n<h2>Ce que la licence autorise à un prestataire</h2>\n<p>La Community Edition est publiée sous une licence propre à n8n, la Sustainable Use License. La <a href=\"https://docs.n8n.io/n8n-community-license/community-license/license-faq\" rel=\"noopener noreferrer\" target=\"_blank\">foire aux questions de la licence</a> est précise. Un prestataire peut construire des automatisations pour ses clients et facturer la création, la mise en place, la maintenance, le conseil et la formation. Il ne peut pas héberger n8n comme un service où ses clients construisent eux-mêmes leurs workflows, ni le revendre en marque blanche.</p>\n<p>Pour vous, client, la question à poser est simple : sur quel serveur, et sur quel compte, vos workflows tournent-ils ? Chez Waimia, n8n est installé sur votre serveur ou sur votre compte n8n Cloud. Vous gardez les accès et les workflows si la mission s'arrête.</p>\n<h2>Le coût des modèles d'IA, à part</h2>\n<p>Quand une étape demande de lire un texte libre (classer un email, extraire les lignes d'une facture), le workflow appelle un modèle d'IA. Cet appel est facturé par l'éditeur du modèle, en plus de n8n. Anthropic affiche, pour Claude Haiku 4.5, 1 dollar par million de jetons en entrée et 5 dollars par million en sortie (<a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">grille d'Anthropic</a>).</p>\n<p><strong>Exemple illustratif.</strong> 1 000 emails classés dans le mois, chacun demandant 2 000 jetons en entrée et 500 en sortie : 2 millions de jetons en entrée (2 dollars) et 0,5 million en sortie (2,50 dollars), soit 4,50 dollars pour le mois. Le poste reste faible tant que les textes sont courts et le modèle choisi à la mesure de la tâche.</p>",
+      "html_en": "<h2>Self-hosted n8n: what “free” means</h2>\n<p>The Community Edition is the n8n software installed on your own server, without a licence key. <a href=\"https://docs.n8n.io/deploy/host-n8n/community-edition-features\" rel=\"noopener noreferrer\" target=\"_blank\">n8n's documentation</a> states that it contains almost the complete feature set, and lists what is missing. Three items matter for an SMB:</p>\n<ul><li><strong>Sharing.</strong> Without a paid licence, only the instance owner and the person who created a workflow or a credential can access it. As soon as two people need to work on the same workflows, that is a constraint.</li><li><strong>Single sign-on</strong> (SAML, LDAP): absent. Each user has a separate n8n account.</li><li><strong>Environments and version control with Git</strong>: absent. You test and publish on the same instance.</li></ul>\n<p>Registering with an email address unlocks folders, debugging in the editor and custom execution data, free of charge.</p>\n<p>The server itself costs little: at <a href=\"https://www.ovhcloud.com/fr/vps/\" rel=\"noopener noreferrer\" target=\"_blank\">OVHcloud</a>, a virtual private server with 2 cores and 4 GB of memory is listed from €3.81 excl. VAT per month, and one with 4 cores and 8 GB from €7.21 excl. VAT. What costs money is time. n8n's documentation lists installation, hosting and maintenance as “your responsibility” when self-hosting, and recommends the Cloud option for teams without technical expertise.</p>\n<h2>What the licence allows a provider to do</h2>\n<p>The Community Edition is published under n8n's own licence, the Sustainable Use License. The <a href=\"https://docs.n8n.io/n8n-community-license/community-license/license-faq\" rel=\"noopener noreferrer\" target=\"_blank\">licence FAQ</a> is precise. A provider may build automations for its clients and charge for creation, setup, maintenance, consultancy and training. It may not host n8n as a service where its clients build their own workflows, nor resell it white-labelled.</p>\n<p>For you, the client, the question to ask is simple: on which server, and under which account, do your workflows run? At Waimia, n8n is installed on your server or on your n8n Cloud account. You keep the access and the workflows if the engagement stops.</p>\n<h2>The cost of AI models, separately</h2>\n<p>When a step needs to read free text (classify an email, extract the lines of an invoice), the workflow calls an AI model. That call is billed by the model vendor, on top of n8n. Anthropic lists, for Claude Haiku 4.5, 1 dollar per million input tokens and 5 dollars per million output tokens (<a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's price list</a>).</p>\n<p><strong>Illustrative example.</strong> 1,000 emails classified in the month, each needing 2,000 input tokens and 500 output tokens: 2 million input tokens (2 dollars) and 0.5 million output tokens (2.50 dollars), so 4.50 dollars for the month. The line stays small as long as the texts are short and the model is sized to the task.</p>"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Deux façons de payer",
+      "kicker_en": "§ Two ways to pay",
+      "h2_fr": "n8n Cloud ou auto-hébergé : ce que vous payez en argent, ce que vous payez en temps",
+      "h2_en": "n8n Cloud or self-hosted: what you pay in money, what you pay in time",
+      "without_label_fr": "n8n Cloud",
+      "without_label_en": "n8n Cloud",
+      "without_title_fr": "Un abonnement, pas de serveur à tenir",
+      "without_title_en": "A subscription, no server to run",
+      "without_items": [
+        {
+          "text_fr": "20 € ou 50 € par mois, quota d'exécutions compris.",
+          "text_en": "€20 or €50 per month, execution quota included."
+        },
+        {
+          "text_fr": "Hébergement, mises à jour et montée en charge assurés par n8n.",
+          "text_en": "Hosting, updates and scaling handled by n8n."
+        },
+        {
+          "text_fr": "Données stockées dans l'Union européenne, à Francfort.",
+          "text_en": "Data stored in the European Union, in Frankfurt."
+        },
+        {
+          "text_fr": "Une exécution est coupée après 5 minutes en Starter, 40 minutes en Pro.",
+          "text_en": "An execution is cut after 5 minutes on Starter, 40 minutes on Pro."
+        },
+        {
+          "text_fr": "Nœuds personnalisés et scripts système réservés à l'auto-hébergement, selon le tableau de la page tarifs.",
+          "text_en": "Custom nodes and system scripts are reserved for self-hosting, according to the pricing page's table."
+        }
+      ],
+      "with_label_fr": "Auto-hébergé",
+      "with_label_en": "Self-hosted",
+      "with_title_fr": "Pas de licence, un serveur à tenir",
+      "with_title_en": "No licence, a server to run",
+      "with_items": [
+        {
+          "text_fr": "0 € de licence en Community Edition, serveur à partir de quelques euros par mois.",
+          "text_en": "€0 licence on the Community Edition, server from a few euros per month."
+        },
+        {
+          "text_fr": "Mises à jour, sauvegardes et sécurité à votre charge ou à celle d'un prestataire.",
+          "text_en": "Updates, backups and security are yours, or a provider's."
+        },
+        {
+          "text_fr": "Données là où vous placez le serveur, y compris dans vos locaux.",
+          "text_en": "Data wherever you place the server, including on your premises."
+        },
+        {
+          "text_fr": "Pas d'exécutions facturées : la limite est celle du serveur.",
+          "text_en": "No billed executions: the limit is the server's."
+        },
+        {
+          "text_fr": "Nœuds personnalisés et scripts possibles.",
+          "text_en": "Custom nodes and scripts are possible."
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Exemples illustratifs · pas des cas clients",
+      "kicker_en": "§ Illustrative examples · not client cases",
+      "heading_fr": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
+      "heading_en": "Three monthly running budgets, assumptions written out",
+      "caption_fr": "Exemples illustratifs construits à partir des prix publics relevés le 5 octobre 2026. Ils chiffrent le fonctionnement mensuel : ni la construction des workflows, ni le temps de surveillance interne, ni la TVA. Les modèles d'IA sont facturés en dollars par leur éditeur. Le suivi Waimia est facultatif : palier « {{prix.maintenance.p1.nom}} » à {{prix.maintenance.p1}} € HT par mois, interventions à {{prix.horaire}} € HT de l'heure.",
+      "caption_en": "Illustrative examples built from public prices read on 5 October 2026. They cost the monthly running: not the building of the workflows, not in-house monitoring time, not VAT. AI models are billed in dollars by their vendor. Waimia's follow-up is optional: the “{{prix.maintenance.p1.nom.en}}” tier at €{{prix.maintenance.p1}} excl. VAT per month, interventions at €{{prix.horaire}} excl. VAT per hour.",
+      "columns_fr": [
+        "Cas",
+        "Hypothèses",
+        "Formule",
+        "Postes mensuels",
+        "Total mensuel"
+      ],
+      "columns_en": [
+        "Case",
+        "Assumptions",
+        "Plan",
+        "Monthly lines",
+        "Monthly total"
+      ],
+      "rows_fr": [
+        [
+          "Démarrer",
+          "3 workflows déclenchés par des demandes entrantes, environ 1 500 exécutions par mois, pas d'IA",
+          "n8n Cloud Starter",
+          "Licence 20 €",
+          "20 €"
+        ],
+        [
+          "Monter en charge",
+          "8 workflows, dont une vérification toutes les 15 minutes (environ 2 900 exécutions) et 2 000 exécutions déclenchées, soit environ 4 900 au total ; parmi elles, 1 000 emails classés par Claude Haiku 4.5",
+          "n8n Cloud Pro",
+          "Licence 50 € ; modèle 4,50 dollars",
+          "50 € et 4,50 dollars"
+        ],
+        [
+          "Garder les données chez soi",
+          "Mêmes workflows, serveur de 4 cœurs et 8 Go chez OVHcloud, Community Edition, suivi confié à Waimia",
+          "n8n auto-hébergé",
+          "Licence 0 € ; serveur 7,21 € HT ; suivi {{prix.maintenance.p1}} € HT ; modèle 4,50 dollars",
+          "7,21 € HT, plus {{prix.maintenance.p1}} € HT de suivi, plus 4,50 dollars"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Getting started",
+          "3 workflows triggered by incoming requests, about 1,500 executions per month, no AI",
+          "n8n Cloud Starter",
+          "Licence €20",
+          "€20"
+        ],
+        [
+          "Scaling up",
+          "8 workflows, including a check every 15 minutes (about 2,900 executions) and 2,000 triggered executions, about 4,900 in total; among them, 1,000 emails classified by Claude Haiku 4.5",
+          "n8n Cloud Pro",
+          "Licence €50; model 4.50 dollars",
+          "€50 and 4.50 dollars"
+        ],
+        [
+          "Keeping data in-house",
+          "Same workflows, a 4-core, 8 GB server at OVHcloud, Community Edition, follow-up handled by Waimia",
+          "Self-hosted n8n",
+          "Licence €0; server €7.21 excl. VAT; follow-up €{{prix.maintenance.p1}} excl. VAT; model 4.50 dollars",
+          "€7.21 excl. VAT, plus €{{prix.maintenance.p1}} excl. VAT of follow-up, plus 4.50 dollars"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "pull-quote-block",
+      "background": "ink",
+      "variant": "centered",
+      "quote_fr": "Dans n8n, ce qui fait monter la facture n'est pas la complexité d'un workflow. C'est sa fréquence.",
+      "quote_en": "In n8n, what drives the bill up is not how complex a workflow is. It is how often it runs.",
+      "cite_fr": "La règle à retenir avant de choisir une offre",
+      "cite_en": "The rule to remember before choosing a plan"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Avis Waimia",
+      "kicker_en": "§ Waimia's view",
+      "title_fr": "Quand n8n vaut son prix, et quand il ne le vaut pas",
+      "title_en": "When n8n is worth its price, and when it is not",
+      "aside_fr": "Cet avis est celui de Waimia, qui installe n8n et Make chez ses clients. Il n'engage pas l'éditeur.",
+      "aside_en": "This is the view of Waimia, which installs n8n and Make for its clients. It does not commit the vendor.",
+      "use_title_fr": "n8n est un bon choix si",
+      "use_title_en": "n8n is a good choice if",
+      "use_items_fr": [
+        "Vos workflows ont beaucoup d'étapes : vous payez le lancement, pas chaque étape",
+        "Vos données ne doivent pas sortir de votre infrastructure",
+        "Vous avez besoin d'appeler un logiciel sans connecteur, par requête HTTP ou par code",
+        "Quelqu'un, en interne ou chez un prestataire, surveille les workflows chaque semaine"
+      ],
+      "use_items_en": [
+        "Your workflows have many steps: you pay for the run, not for each step",
+        "Your data must not leave your infrastructure",
+        "You need to call an application that has no connector, by HTTP request or code",
+        "Someone, in-house or at a provider, monitors the workflows every week"
+      ],
+      "avoid_title_fr": "Regardez ailleurs si",
+      "avoid_title_en": "Look elsewhere if",
+      "avoid_items_fr": [
+        "Vous avez deux ou trois enchaînements simples et personne pour les surveiller : Make se prend en main plus vite",
+        "Vous voulez un support dédié à un prix public : Starter, Pro et Business n'ont que le forum, le support dédié est réservé à l'offre Enterprise, sur devis",
+        "Vous comptiez sur la version gratuite pour une équipe de cinq personnes : elle ne partage pas les workflows",
+        "Une seule tâche est en cause et un logiciel du marché la fait déjà"
+      ],
+      "avoid_items_en": [
+        "You have two or three simple sequences and nobody to monitor them: Make is quicker to pick up",
+        "You want dedicated support at a public price: Starter, Pro and Business only have the forum, dedicated support is reserved for the Enterprise plan, on quote",
+        "You were counting on the free version for a team of five: it does not share workflows",
+        "A single task is at stake and an off-the-shelf application already does it"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Chiffrer votre cas en cinq étapes",
+      "h2_en": "Cost your own case in five steps",
+      "intro_fr": "Un tableur suffit. Vous obtenez un budget mensuel et la formule n8n qui lui correspond.",
+      "intro_en": "A spreadsheet is enough. You get a monthly budget and the n8n plan that matches it.",
+      "steps": [
+        {
+          "title_fr": "Lister les workflows",
+          "title_en": "List the workflows",
+          "body_fr": "Une ligne par workflow envisagé : ce qui le déclenche, ce qu'il fait, quels logiciels il touche.",
+          "body_en": "One line per planned workflow: what triggers it, what it does, which applications it touches.",
+          "meta_fr": "Une ligne par workflow",
+          "meta_en": "One line per workflow"
+        },
+        {
+          "title_fr": "Compter les exécutions",
+          "title_en": "Count the executions",
+          "body_fr": "Pour chaque ligne, le nombre de lancements par mois. Planifié : la fréquence. Déclenché : le volume de l'événement.",
+          "body_en": "For each line, the number of runs per month. Scheduled: the frequency. Triggered: the volume of the event.",
+          "meta_fr": "Le chiffre qui décide",
+          "meta_en": "The figure that decides"
+        },
+        {
+          "title_fr": "Vérifier les limites",
+          "title_en": "Check the limits",
+          "body_fr": "Une exécution dépasse-t-elle 5 minutes ? Plus de 5 lancements en même temps ? Si oui, l'offre Starter ne suffit pas.",
+          "body_en": "Does one execution exceed 5 minutes? More than 5 runs at the same time? If so, the Starter plan is not enough.",
+          "meta_fr": "Durée et simultanéité",
+          "meta_en": "Duration and concurrency"
+        },
+        {
+          "title_fr": "Trancher l'hébergement",
+          "title_en": "Decide on hosting",
+          "body_fr": "Données sensibles, nœud personnalisé ou gros volume : auto-hébergement. Sinon, n8n Cloud. Puis nommez la personne qui surveille.",
+          "body_en": "Sensitive data, a custom node or a large volume: self-host. Otherwise, n8n Cloud. Then name the person who monitors.",
+          "meta_fr": "Et qui s'en occupe",
+          "meta_en": "And who looks after it"
+        },
+        {
+          "title_fr": "Ajouter les modèles d'IA",
+          "title_en": "Add the AI models",
+          "body_fr": "Nombre de textes lus par mois, multiplié par leur longueur en jetons et par le prix du modèle chez son éditeur.",
+          "body_en": "Number of texts read per month, multiplied by their length in tokens and by the model's price at its vendor.",
+          "meta_fr": "Facturé à part",
+          "meta_en": "Billed separately"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Et le prix d'une prestation n8n ?</h2>\n<p>Le prix de l'outil et le prix du projet sont deux choses. Chez Waimia, une mission n8n commence par un audit gratuit de 45 minutes, puis par un sprint de cadrage de 10 heures à 999 € HT, à prix fixe. Les interventions suivantes sont facturées {{prix.horaire}} € HT de l'heure, ou sur devis ferme après l'audit. Le détail est sur la page <a href=\"/services/automatisation-n8n\">agence n8n</a> et sur la page <a href=\"/tarifs\">tarifs</a>.</p>\n<p>Pour comparer n8n à Make avant de décider, lisez le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a>. Pour savoir si l'automatisation rapportera plus qu'elle ne coûte, le guide <a href=\"/ressources/guides/roi-automatisation\">mesurer le ROI d'une automatisation</a> donne la méthode de calcul.</p>\n<h2>Sources, vérifiées le 5 octobre 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, page tarifs</a> : offres, quotas, limites, définition de l'exécution, dépassement, lieu de stockage des données</li><li><a href=\"https://docs.n8n.io/choose-how-to-use-n8n\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation « Choose how to use n8n »</a> : comparaison entre n8n Cloud et l'auto-hébergement</li><li><a href=\"https://docs.n8n.io/deploy/host-n8n/community-edition-features\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation « Compare editions »</a> : fonctions absentes de la Community Edition</li><li><a href=\"https://docs.n8n.io/n8n-community-license/community-license/license-faq\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, foire aux questions de la licence</a> : usages autorisés et interdits</li><li><a href=\"https://www.ovhcloud.com/fr/vps/\" rel=\"noopener noreferrer\" target=\"_blank\">OVHcloud, serveurs privés virtuels</a> : prix des serveurs</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, grille de prix des modèles Claude</a> : prix de Claude Haiku 4.5</li></ul><p>Les prix d'un éditeur changent. Relisez la page tarifs de n8n avant de vous engager : ce guide indique la date de chaque relevé.</p>",
+      "html_en": "<h2>And the price of an n8n engagement?</h2>\n<p>The price of the tool and the price of the project are two different things. At Waimia, an n8n engagement starts with a free 45-minute audit, then a 10-hour scoping sprint at €999 excl. VAT, fixed price. Later interventions are billed €{{prix.horaire}} excl. VAT per hour, or on a firm quote after the audit. The details are on the <a href=\"/services/automatisation-n8n\">n8n agency</a> page and on the <a href=\"/tarifs\">pricing</a> page.</p>\n<p>To compare n8n with Make before deciding, read the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison. To find out whether the automation will bring in more than it costs, the guide on <a href=\"/ressources/guides/roi-automatisation\">measuring automation ROI</a> gives the calculation method.</p>\n<h2>Sources, checked on 5 October 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, pricing page</a>: plans, quotas, limits, definition of an execution, overage, data location</li><li><a href=\"https://docs.n8n.io/choose-how-to-use-n8n\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation “Choose how to use n8n”</a>: comparison between n8n Cloud and self-hosting</li><li><a href=\"https://docs.n8n.io/deploy/host-n8n/community-edition-features\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation “Compare editions”</a>: features missing from the Community Edition</li><li><a href=\"https://docs.n8n.io/n8n-community-license/community-license/license-faq\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, licence FAQ</a>: permitted and forbidden uses</li><li><a href=\"https://www.ovhcloud.com/fr/vps/\" rel=\"noopener noreferrer\" target=\"_blank\">OVHcloud, virtual private servers</a>: server prices</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude model price list</a>: price of Claude Haiku 4.5</li></ul><p>A vendor's prices change. Reread n8n's pricing page before committing: this guide gives the date of each reading.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "n8n vs Make",
+          "title_en": "n8n vs Make",
+          "lead_fr": "Facturation à l'exécution ou au crédit, hébergement, maintenance : verdict par situation.",
+          "lead_en": "Billing per execution or per credit, hosting, maintenance: a verdict per situation.",
+          "href": "/ressources/comparatifs/n8n-vs-make"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agence n8n pour PME",
+          "title_en": "n8n agency for SMBs",
+          "lead_fr": "Conception, hébergement et supervision de vos workflows, sur votre serveur ou en cloud.",
+          "lead_en": "Design, hosting and supervision of your workflows, on your server or in the cloud.",
+          "href": "/services/automatisation-n8n"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Mesurer le ROI d'une automatisation",
+          "title_en": "Measuring automation ROI",
+          "lead_fr": "Mesure de départ, coût complet, seuil de rentabilité, tableau à refaire.",
+          "lead_en": "Baseline measurement, full cost, break-even, a table to rebuild.",
+          "href": "/ressources/guides/roi-automatisation"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Prix de n8n : questions fréquentes",
+      "h2_en": "n8n pricing: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Quel est le prix de n8n en 2026 ?",
+          "a_fr": "n8n Cloud coûte 20 € par mois pour l'offre Starter (2 500 exécutions) et 50 € par mois pour l'offre Pro (10 000 exécutions), en facturation annuelle. L'offre Business, à installer sur votre propre serveur, coûte 667 € par mois pour 40 000 exécutions. La Community Edition, auto-hébergée, n'a pas de licence à payer. Prix relevés sur la page tarifs de n8n le 5 octobre 2026.",
+          "q_en": "What does n8n cost in 2026?",
+          "a_en": "n8n Cloud costs €20 per month for the Starter plan (2,500 executions) and €50 per month for the Pro plan (10,000 executions), billed annually. The Business plan, which runs on your own server, costs €667 per month for 40,000 executions. The self-hosted Community Edition has no licence fee. Prices read on n8n's pricing page on 5 October 2026."
+        },
+        {
+          "q_fr": "n8n est-il gratuit ?",
+          "a_fr": "La Community Edition de n8n est gratuite : vous l'installez sur votre serveur et vous ne payez pas de licence. Il reste le serveur, la mise en place et la maintenance, qui sont à votre charge. Selon la documentation de n8n, cette édition ne comprend ni le partage des workflows et des identifiants entre utilisateurs, ni l'authentification unique, ni les environnements, ni le contrôle de version avec Git.",
+          "q_en": "Is n8n free?",
+          "a_en": "n8n's Community Edition is free: you install it on your own server and pay no licence. You still pay for the server, the setup and the maintenance. According to n8n's documentation, this edition does not include sharing workflows and credentials between users, single sign-on, environments or version control with Git."
+        },
+        {
+          "q_fr": "Qu'est-ce qu'une exécution dans n8n ?",
+          "a_fr": "Une exécution est un lancement complet d'un workflow, du déclencheur à la dernière étape. n8n précise que le nombre d'étapes et le volume de données traité ne changent rien : un workflow de vingt étapes compte pour une exécution, comme un workflow de trois étapes. C'est la différence avec les outils qui facturent chaque étape.",
+          "q_en": "What is an execution in n8n?",
+          "a_en": "An execution is one complete run of a workflow, from the trigger to the last step. n8n states that the number of steps and the amount of data processed make no difference: a twenty-step workflow counts as one execution, just like a three-step one. That is the difference with tools that bill every step."
+        },
+        {
+          "q_fr": "Que se passe-t-il si on dépasse le quota d'exécutions ?",
+          "a_fr": "Pour les offres Business et Enterprise, n8n écrit que les workflows continuent de tourner et que des frais de dépassement peuvent s'appliquer si vous ne passez pas au palier supérieur. Sur l'offre Business, le dépassement est facturé 4 000 € par tranche de 300 000 exécutions supplémentaires. Pour Starter et Pro, la page tarifs ne chiffre pas le dépassement : vérifiez la règle dans votre espace client avant de lancer un workflow à forte fréquence.",
+          "q_en": "What happens if you exceed the execution quota?",
+          "a_en": "For the Business and Enterprise plans, n8n writes that workflows keep running and that overage charges may apply if you do not move to the next usage tier. On the Business plan, overage is billed at €4,000 per extra bucket of 300,000 executions. For Starter and Pro, the pricing page gives no overage figure: check the rule in your account before launching a high-frequency workflow."
+        },
+        {
+          "q_fr": "Faut-il choisir n8n Cloud ou n8n auto-hébergé ?",
+          "a_fr": "Choisissez n8n Cloud si personne dans l'entreprise ne sait administrer un serveur, ou si votre volume tient dans les 10 000 exécutions par mois de l'offre Pro affichée. Choisissez l'auto-hébergement si vos données ne doivent pas quitter votre infrastructure, si vos volumes sont élevés, ou si vous avez besoin de nœuds personnalisés. La documentation de n8n recommande elle-même l'offre Cloud aux équipes sans compétence technique.",
+          "q_en": "Should you pick n8n Cloud or self-hosted n8n?",
+          "a_en": "Pick n8n Cloud if nobody in the company can administer a server, or if your volume fits within the 10,000 executions per month of the listed Pro plan. Pick self-hosting if your data must stay on your infrastructure, if your volumes are high, or if you need custom nodes. n8n's own documentation recommends the Cloud option for teams without technical expertise."
+        },
+        {
+          "q_fr": "Un prestataire peut-il utiliser la version gratuite de n8n pour ses clients ?",
+          "a_fr": "Oui, dans une limite précise. La licence de n8n autorise un prestataire à construire des automatisations pour ses clients et à facturer la création, la mise en place, la maintenance, le conseil et la formation. Elle interdit d'héberger n8n comme un service où les clients construisent eux-mêmes leurs workflows, et de le revendre en marque blanche. Chez Waimia, n8n est installé sur le serveur ou le compte du client, qui en reste propriétaire.",
+          "q_en": "Can a provider use the free version of n8n for its clients?",
+          "a_en": "Yes, within a precise limit. n8n's licence lets a provider build automations for its clients and charge for creation, setup, maintenance, consultancy and training. It forbids hosting n8n as a service where clients build their own workflows, and reselling it white-labelled. At Waimia, n8n is installed on the client's own server or account, and the client remains the owner."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Chiffrer avant de construire",
+      "kicker_en": "§ Cost it before building",
+      "h2_fr": "Savoir ce que n8n coûtera chez vous, avant le premier workflow.",
+      "h2_en": "Know what n8n will cost in your company, before the first workflow.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On compte vos exécutions, on tranche entre n8n Cloud et l'auto-hébergement, et vous repartez avec un budget mensuel écrit.",
+      "subtitle_en": "The 45-minute audit is free. We count your executions, decide between n8n Cloud and self-hosting, and you leave with a written monthly budget.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -10,7 +10,9 @@
       "intention": "Comparer deux outils avant de choisir un abonnement d'équipe.",
       "urlCible": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "angle": "Colonne ChatGPT complétée depuis les sources d'OpenAI, exemple de coût illustratif, limites des engagements sur les données, section « Ce qui peut rater ».",
-      "sourcesALire": ["docs/seo/journal.md, entrée 2026-W41 (sources lues le 5 octobre 2026)"],
+      "sourcesALire": [
+        "docs/seo/journal.md, entrée 2026-W41 (sources lues le 5 octobre 2026)"
+      ],
       "semainePrevue": "2026-W41",
       "statut": "publié",
       "pr": 69,
@@ -25,17 +27,17 @@
       "requeteCible": "n8n prix",
       "intention": "Connaître le coût de n8n (offres hébergées, auto-hébergement) avant de s'engager.",
       "urlCible": "/ressources/guides/n8n-prix",
-      "angle": "Hypothèse à vérifier en ligne : les premiers résultats recopient la grille de l'éditeur ; apporter le coût complet pour une PME (hébergement, maintenance, temps de mise en place), un tableau par cas et un exemple illustratif, plus « quand n8n n'est pas le bon choix ».",
+      "angle": "Confirmé par la recherche du 5 octobre 2026 : les pages classées donnent la grille et des coûts de serveur. Apporté : limites par offre (durée d'une exécution, simultanéité), absence de partage en Community Edition, ce que la licence autorise à un prestataire, repère de fréquence, trois budgets illustratifs, cas où n8n n'est pas le bon choix.",
       "sourcesALire": [
-        "Page de prix officielle de n8n (URL à relever et à citer pendant la session)",
-        "https://community.n8n.io/c/announcements/5.rss (flux « n8n-annonces » de feeds.json : licence et tarifs)",
-        "Premiers résultats de la requête et de deux ou trois variantes",
-        "Pages de sparkyflow.com et kayro.ai sur n8n (competitors.json)",
-        "src/content/services/automatisations/automatisation-n8n.json et src/content/comparatifs/n8n-vs-make.json (ne pas contredire)"
+        "https://n8n.io/pricing/ (lu le 5 octobre 2026)",
+        "https://docs.n8n.io/deploy/host-n8n/community-edition-features (lu le 5 octobre 2026)",
+        "https://docs.n8n.io/n8n-community-license/community-license/license-faq (lu le 5 octobre 2026)",
+        "https://tensoria.fr/blog/combien-coute-n8n-production (lu le 5 octobre 2026)",
+        "https://nordflux.de/fr/ressources/n8n-cout-licence (lu le 5 octobre 2026)"
       ],
-      "semainePrevue": "2026-W42",
-      "statut": "planifié",
-      "pr": null,
+      "semainePrevue": "2026-W41",
+      "statut": "publié",
+      "pr": 72,
       "mesureAttendue": "Page indexée (inspection d'URL) et premières impressions sur « n8n prix ». Départ : aucune page, aucune impression. À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie sans page cible (target null, priorité 2, grappe n8n). Écartée en W41 (journal, « Non retenu cette semaine »)."
@@ -87,16 +89,16 @@
       "requeteCible": "devis automatisé",
       "intention": "Comprendre comment produire et relancer des devis sans ressaisie.",
       "urlCible": "/ressources/guides/devis-automatise",
-      "angle": "Hypothèse à vérifier en ligne : les résultats sont des pages d'éditeurs de logiciels de devis ; apporter une procédure pas à pas indépendante de l'outil (données d'entrée, calcul, validation humaine, relance) et les cas où l'automatisation ne vaut pas le coup. Si la recherche montre qu'une révision de la page service suffit, transformer l'entrée en révision.",
+      "angle": "Confirmé par la recherche du 5 octobre 2026 : les résultats sont des pages d'éditeurs. Apporté : les quatre éléments à écrire avant tout outil, une procédure en six étapes indépendante de l'outil, ce qui peut rater avec le garde-fou, la place limitée de l'IA, et les cas où ne pas automatiser.",
       "sourcesALire": [
         "Premiers résultats de « devis automatisé » et de deux ou trois variantes",
         "src/content/services/sequences-de-suivi.json (cible actuelle de la requête)",
         "Cas clients réels de src/content/cases/ qui touchent au devis",
         "Pages des concurrents de competitors.json sur le devis"
       ],
-      "semainePrevue": "2026-W43",
-      "statut": "planifié",
-      "pr": null,
+      "semainePrevue": "2026-W41",
+      "statut": "publié",
+      "pr": 72,
       "mesureAttendue": "Page indexée et premières impressions sur « devis automatisé ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie dont la cible actuelle, /services/sequences-de-suivi, est une page service générique, « explorée, actuellement non indexée » à la collecte du 4 octobre 2026."
@@ -129,15 +131,15 @@
       "requeteCible": "claude cowork prix",
       "intention": "Savoir ce que coûte Claude Cowork et dans quelle offre il est inclus.",
       "urlCible": "/ressources/guides/claude-cowork",
-      "angle": "Hypothèse à vérifier en ligne : un tableau de prix sourcé chez l'éditeur et daté, en tête de page, que les articles de presse n'ont pas à jour.",
+      "angle": "Fait le 5 octobre 2026 : tableau des prix par offre relu chez Anthropic, exemple illustratif pour une équipe de 10 personnes, ce qui fait varier l'usage, title et H1 avec « prix ».",
       "sourcesALire": [
         "Sources primaires d'Anthropic (feeds.json > noFeed : page d'actualités, notes de version)",
         "Premiers résultats de « claude cowork prix » et « claude cowork »",
         "https://www.journaldunet.com/intelligence-artificielle/rss/ (flux « jdn-ia » de feeds.json : requêtes qui montent)"
       ],
-      "semainePrevue": "2026-W43",
-      "statut": "planifié",
-      "pr": null,
+      "semainePrevue": "2026-W41",
+      "statut": "publié",
+      "pr": 72,
       "mesureAttendue": "Page inconnue de Google à la collecte du 4 octobre 2026 (« Google ne reconnaît pas cette URL »), aucune impression. Attendu : page indexée et impressions sur « claude cowork prix ». À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : « claude cowork prix » (priorité 2) et « claude cowork » (priorité 1) visent cette page ; docs/seo/data/latest.json, indexation.notIndexed."
@@ -149,16 +151,16 @@
       "requeteCible": "agents ia c'est quoi",
       "intention": "Comprendre ce qu'est un agent IA, sans jargon.",
       "urlCible": "/ressources/guides/agent-ia-definition",
-      "angle": "Hypothèse à vérifier en ligne : définition nette en deux phrases, tableau « agent, automatisation, assistant », exemples tirés des cas réels du repo, et ce qu'un agent ne sait pas faire. La cible actuelle est un article de comparaison, pas une définition.",
+      "angle": "Corrigé après relecture sceptique du 5 octobre 2026 : la définition et le tableau ne suffisaient pas. Apporté : cinq questions à poser à un vendeur, un coût d'usage chiffré (automatisation contre agent), cinq pannes avec leur garde-fou, deux projets réels situés dans le tableau.",
       "sourcesALire": [
         "Premiers résultats de « agents ia c'est quoi », « agent ia définition », « agent ia »",
         "src/content/blog/agent-ia-vs-automatisation-classique-2026.json (ne pas dupliquer, lier)",
         "https://blog.langchain.com/rss.xml et https://simonwillison.net/atom/everything/ (flux de feeds.json : définitions et limites)",
         "Pages de limova.ai et subti.ai sur les agents (competitors.json)"
       ],
-      "semainePrevue": "2026-W44",
-      "statut": "planifié",
-      "pr": null,
+      "semainePrevue": "2026-W41",
+      "statut": "publié",
+      "pr": 72,
       "mesureAttendue": "Page indexée et premières impressions sur « agents ia c'est quoi ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie dont la cible actuelle, /blog/agent-ia-vs-automatisation-classique-2026, est « explorée, actuellement non indexée » à la collecte du 4 octobre 2026."
@@ -218,7 +220,7 @@
         "src/content/blog/applications-internes-build-vs-buy-pme.json (même raisonnement, à lier)",
         "Pages des concurrents de competitors.json sur le CRM"
       ],
-      "semainePrevue": "2026-W45",
+      "semainePrevue": "2026-W42",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur « crm sur mesure ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
@@ -278,7 +280,7 @@
         "https://blog.n8n.io/rss/ et https://community.make.com/c/news/48.rss (flux de feeds.json)",
         "src/content/guides/taches-a-automatiser-pme.json et src/content/outils/grille-taches-a-automatiser.json (à lier, ne pas dupliquer)"
       ],
-      "semainePrevue": "2026-W46",
+      "semainePrevue": "2026-W43",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur « workflow ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
@@ -338,7 +340,7 @@
         "src/content/services/consultant-ia-claude.json et src/content/authors/ (ce que le site dit déjà de Simon)",
         "Pages des concurrents de competitors.json"
       ],
-      "semainePrevue": "2026-W47",
+      "semainePrevue": "2026-W44",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur « freelance ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
@@ -397,7 +399,7 @@
         "Premiers résultats de « architecte ia » et de deux variantes",
         "src/content/authors/ et src/content/blog/forward-deployed-engineer.json (ne pas dupliquer, lier)"
       ],
-      "semainePrevue": "2026-W48",
+      "semainePrevue": "2026-W45",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur « architecte ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
@@ -458,7 +460,7 @@
         "Pages de limova.ai et subti.ai (competitors.json)",
         "src/data/pricing.ts (aucun prix hors de cette source)"
       ],
-      "semainePrevue": "2026-W49",
+      "semainePrevue": "2026-W46",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur « chatbot service client ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
@@ -504,6 +506,66 @@
       "mesureAttendue": "« Détectée, actuellement non indexée » à la collecte du 4 octobre 2026. Attendu : page explorée puis indexée. À juger deux collectes après la mise en production. Si la page est indexée avant W49, replanifier en révision de contenu ou abandonner.",
       "resultat": null,
       "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), indexation.notIndexed ; trois requêtes suivies visent cette page (keywords.json)."
+    },
+    {
+      "id": "w45-revision-secteur-batiment",
+      "type": "révision",
+      "titreProvisoire": "IA et automatisation pour le bâtiment et les artisans",
+      "requeteCible": "ia batiment",
+      "intention": "Savoir ce que l'IA et l'automatisation changent dans ce secteur, et si Waimia y a déjà travaillé.",
+      "urlCible": "/secteurs/batiment",
+      "angle": "Hypothèse à vérifier en ligne : réécrire pour le positionnement IA (studio de développement IA et cabinet d'automatisation), appuyé sur le cas Desangles Peinture ; requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "src/content/secteurs/batiment.json (état actuel de la page, écrite avant le pivot IA)",
+        "src/content/cases/ (cas réels à citer, sans chiffre inventé)",
+        "Premiers résultats de la requête et de deux ou trois variantes"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page réécrite, sortie de src/data/sitemap-noindex-exclude.ts et `seo.noindex` à false : indexée à l'inspection d'URL, et lien rétabli dans le panneau E-E-A-T. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Décision de Simon du 5 octobre 2026 (session d'audit) : réindexer page par page, une fois la page réécrite et appuyée sur un cas réel. Page en noindex depuis le pivot d'octobre 2026 ; cas : src/content/cases/desangles-peinture.json."
+    },
+    {
+      "id": "w46-revision-secteur-e-commerce",
+      "type": "révision",
+      "titreProvisoire": "IA et automatisation pour le e-commerce",
+      "requeteCible": "ia e-commerce",
+      "intention": "Savoir ce que l'IA et l'automatisation changent dans ce secteur, et si Waimia y a déjà travaillé.",
+      "urlCible": "/secteurs/e-commerce",
+      "angle": "Hypothèse à vérifier en ligne : réécrire pour le positionnement IA, appuyé sur les cas Brow.X Professionnel (agent de SAV, en cours) et Balzeo ; requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "src/content/secteurs/e-commerce.json (état actuel de la page, écrite avant le pivot IA)",
+        "src/content/cases/ (cas réels à citer, sans chiffre inventé)",
+        "Premiers résultats de la requête et de deux ou trois variantes"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page réécrite, sortie de src/data/sitemap-noindex-exclude.ts et `seo.noindex` à false : indexée à l'inspection d'URL, et lien rétabli dans le panneau E-E-A-T. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Décision de Simon du 5 octobre 2026 (session d'audit). Page en noindex depuis le pivot d'octobre 2026 ; cas : src/content/cases/brow-x-professionnel.json et balzeo.json."
+    },
+    {
+      "id": "w47-revision-secteur-startup-logiciel",
+      "type": "révision",
+      "titreProvisoire": "IA et développement pour les startups et éditeurs de logiciel",
+      "requeteCible": "développement saas ia",
+      "intention": "Savoir ce que l'IA et l'automatisation changent dans ce secteur, et si Waimia y a déjà travaillé.",
+      "urlCible": "/secteurs/startup-logiciel",
+      "angle": "Hypothèse à vérifier en ligne : réécrire pour le positionnement IA, appuyé sur deux projets logiciels réels et distincts, Amploi et l'application livrée à Inbound Value. Avant d'écrire, compléter les deux fiches cas ; requête cible à confirmer par la recherche.",
+      "sourcesALire": [
+        "src/content/secteurs/startup-logiciel.json (état actuel de la page, écrite avant le pivot IA)",
+        "src/content/cases/ (cas réels à citer, sans chiffre inventé)",
+        "Premiers résultats de la requête et de deux ou trois variantes"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page réécrite, sortie de src/data/sitemap-noindex-exclude.ts et `seo.noindex` à false : indexée à l'inspection d'URL, et lien rétabli dans le panneau E-E-A-T. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Décision de Simon du 5 octobre 2026 (session d'audit) : le secteur est pertinent, appuyé sur deux projets DISTINCTS. (1) Amploi, client venu par Inbound Value : selon Simon, un CMS sur mesure TinaCMS avec interface en glisser-déposer, un score PageSpeed de 100/100/100/100, et des skills de création de contenu livrés dans un dépôt GitHub que le client utilise en y connectant un agent Claude, qui commite et déploie sur Vercel. (2) Inbound Value : une application « proof hub » livrée en une fois, installable dans l'espace Lovable du client, qui en porte les coûts, sans maintenance ni suivi ; Simon en a ensuite tiré une version SaaS pour lui. Fiches : src/content/cases/amploi.json et inbound-value.json, à compléter avec ces éléments avant d'écrire la page secteur (le score PageSpeed est à relever et à dater)."
     },
     {
       "id": "idee-agence-ia-toulouse",

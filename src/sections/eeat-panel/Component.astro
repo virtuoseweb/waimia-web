@@ -131,7 +131,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
             <div class="eep-colbody">
               <ul class="eep-chips">
                 {sectors.map((s) => (
-                  <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
+                  <li>{s.noindex ? <span class="eep-chip">{s.label}</span> : <a class="eep-chip" href={s.href}>{s.label}</a>}</li>
                 ))}
               </ul>
               <ul class="eep-exp">
@@ -254,7 +254,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
           <span class="eep-celllabel">Secteurs</span>
           <ul class="eep-chips">
             {sectors.map((s) => (
-              <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
+              <li>{s.noindex ? <span class="eep-chip">{s.label}</span> : <a class="eep-chip" href={s.href}>{s.label}</a>}</li>
             ))}
           </ul>
           <div class="eep-hubs">
@@ -376,7 +376,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
           <span class="eep-celllabel">Secteurs</span>
           <ul class="eep-chips">
             {sectors.map((s) => (
-              <li><a class="eep-chip" href={s.href}>{s.label}</a></li>
+              <li>{s.noindex ? <span class="eep-chip">{s.label}</span> : <a class="eep-chip" href={s.href}>{s.label}</a>}</li>
             ))}
           </ul>
           <div class="eep-hubs">
@@ -816,8 +816,8 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
   .eep--hero .eep-chip,
   .eep--columns .eep-chip { padding: var(--space-2) var(--space-3); }
   .eep--light .eep-chip { border-color: var(--hairline); color: var(--ink); }
-  .eep-chip:hover { border-color: var(--accent-sur-sombre); color: var(--accent-sur-sombre); }
-  .eep--light .eep-chip:hover { border-color: var(--accent); color: var(--accent-text); }
+  a.eep-chip:hover { border-color: var(--accent-sur-sombre); color: var(--accent-sur-sombre); }
+  .eep--light a.eep-chip:hover { border-color: var(--accent); color: var(--accent-text); }
 
   /* Expertise (columns) */
   .eep-exp { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
