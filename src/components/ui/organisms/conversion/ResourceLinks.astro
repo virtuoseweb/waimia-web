@@ -9,9 +9,10 @@ import {
   ROI_HREF,
   CHARTE_HREF,
   GRILLE_HREF,
+  CHECKLIST_HREF,
 } from '../../../../data/conversion';
 
-type Key = 'audit' | 'diagnostic' | 'grille' | 'roi' | 'charte';
+type Key = 'audit' | 'diagnostic' | 'grille' | 'roi' | 'charte' | 'checklist';
 /** Guides de méthode liés aux outils : affichés seulement si la page les demande (`extra`). */
 type ExtraKey = 'guide-taches' | 'guide-roi';
 interface Props {
@@ -27,6 +28,7 @@ const all: { key: Key; href: string; name: string; what: string; time: string }[
   { key: 'grille', href: GRILLE_HREF, name: 'Grille des tâches à automatiser', what: 'Listez vos tâches, leur fréquence et leur durée : la grille les classe par priorité.', time: '10 min' },
   { key: 'roi', href: ROI_HREF, name: 'Calculateur de temps récupérable', what: 'Vos heures, votre coût horaire, vos hypothèses : le budget à ne pas dépasser.', time: '2 min' },
   { key: 'charte', href: CHARTE_HREF, name: 'Modèle de charte IA pour PME', what: 'Neuf articles à adapter, lisibles en ligne, téléchargeables en PDF et en format Word.', time: 'Lecture 8 min' },
+  { key: 'checklist', href: CHECKLIST_HREF, name: 'Checklist 90 jours pour déployer Claude', what: 'Six prérequis et douze semaines : une case par action, un livrable par semaine, en ligne ou en PDF.', time: '12 semaines' },
   { key: 'audit', href: AUDIT_PAGE_HREF, name: 'Audit IA pour PME', what: 'Le déroulé des 45 minutes et un exemple de livrable.', time: '45 min, gratuit' },
 ];
 const guides: { key: ExtraKey; href: string; name: string; what: string; time: string }[] = [

@@ -137,6 +137,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/consultant-ia-claude': { label_fr: 'Consultant IA', label_en: 'AI consultant', kind: 'service', topics: ['conseil', 'claude'] },
   '/conformite-ia': { label_fr: 'Conformité IA : RGPD et AI Act', label_en: 'AI compliance: GDPR and AI Act', kind: 'service', topics: ['conformite', 'conseil'] },
   '/ressources/guides/ai-act-pme-calendrier': { label_fr: 'AI Act pour PME : le calendrier à jour', label_en: 'AI Act for SMBs: the current timeline', kind: 'guide', topics: ['conformite', 'conseil'] },
+  '/ressources/outils/checklist-90-jours-claude': { label_fr: 'Checklist 90 jours pour déployer Claude', label_en: '90-day Claude deployment checklist', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/diagnostics/maturite-ia': { label_fr: 'Diagnostic de maturité IA', label_en: 'AI maturity diagnostic', kind: 'diagnostic', topics: ['conseil'] },
   '/ressources/outils/calculateur-roi-ia': { label_fr: 'Calculateur de ROI IA', label_en: 'AI ROI calculator', kind: 'diagnostic', topics: ['conseil', 'automatisation'] },
   '/ressources/guides/roi-automatisation': { label_fr: "Guide : mesurer le ROI d'une automatisation", label_en: 'Guide: measuring automation ROI', kind: 'guide', topics: ['conseil', 'automatisation'] },

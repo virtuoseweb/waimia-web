@@ -1,12 +1,16 @@
 ---
 // Section catalogue · feature-zigzag
 // Lignes alternées visuel/texte (gauche-droite / droite-gauche / gauche-droite).
-// Chaque ligne = bloc média (line-art inline, image webp, ou SVG placeholder) +
+// Chaque ligne = bloc média (line-art inline, image webp, ou illustration fallback) +
 // colonne texte (kicker + titre + body + lien). Adaptativité par bloc via
 // container-query ; entrée directionnelle au scroll (CSS pur, observer existant) ;
 // damier paper/ink opt-in.
 import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
+import { pickIllustration, illustrationSrc, drawingKey, type Illustration } from '../../lib/illustration-pick';
+import illustrationLibrary from '../../data/illustrations.json';
+
+const ILLUSTRATIONS: Illustration[] = (illustrationLibrary as { illustrations: Illustration[] }).illustrations;
 
 // Line-art DS (Registre A) inliné au build via ?raw : le SVG vit dans le DOM →
 // `stroke="currentColor"` suit la couleur de texte du contexte et `var(--accent)`
@@ -66,53 +70,41 @@ const bodyHide = pl?.body?.hideOn;
 const mediaHide = pl?.media?.hideOn;
 const actionsJustify = pl?.actions?.justify;
 
-// ── Placeholder mockup « navigateur » (quand une row n'a pas de média) ──
-// Châssis CONSTANT factorisé (barre titre + carte intérieure + boutons bas) ;
-// seul le MODULE DROIT (boîte cadre paper-2, x 384 y 130 w 194 h 132) varie
-// selon i % 5 → chaque row affiche un motif visuellement distinct. Tous les
-// motifs tiennent dans x 396→566 / y 142→250 et n'utilisent que les tokens DS.
-const fzMotifs: string[] = [
-  // 0 · grille de points (5 col × 4 lignes), quelques-uns en accent
-  `<circle cx="408" cy="160" r="3" fill="var(--hairline)" /><circle cx="440" cy="160" r="3" fill="var(--accent)" opacity="0.5" /><circle cx="472" cy="160" r="3" fill="var(--hairline)" /><circle cx="504" cy="160" r="3" fill="var(--hairline)" /><circle cx="536" cy="160" r="3" fill="var(--accent)" opacity="0.5" />
-   <circle cx="408" cy="186" r="3" fill="var(--hairline)" /><circle cx="440" cy="186" r="3" fill="var(--hairline)" /><circle cx="472" cy="186" r="3" fill="var(--accent)" opacity="0.5" /><circle cx="504" cy="186" r="3" fill="var(--hairline)" /><circle cx="536" cy="186" r="3" fill="var(--hairline)" />
-   <circle cx="408" cy="212" r="3" fill="var(--hairline)" /><circle cx="440" cy="212" r="3" fill="var(--hairline)" /><circle cx="472" cy="212" r="3" fill="var(--hairline)" /><circle cx="504" cy="212" r="3" fill="var(--accent)" opacity="0.5" /><circle cx="536" cy="212" r="3" fill="var(--hairline)" />
-   <circle cx="408" cy="238" r="3" fill="var(--accent)" opacity="0.5" /><circle cx="440" cy="238" r="3" fill="var(--hairline)" /><circle cx="472" cy="238" r="3" fill="var(--hairline)" /><circle cx="504" cy="238" r="3" fill="var(--hairline)" /><circle cx="536" cy="238" r="3" fill="var(--hairline)" />`,
-  // 1 · jauge / anneau (2 cercles concentriques + arc accent ~270°)
-  `<circle cx="481" cy="196" r="38" fill="none" stroke="var(--hairline)" stroke-width="1" />
-   <circle cx="481" cy="196" r="26" fill="none" stroke="var(--hairline)" stroke-width="1" />
-   <path d="M481 158 A38 38 0 1 1 443 196" fill="none" stroke="var(--accent)" stroke-width="1.6" opacity="0.6" stroke-linecap="round" />`,
-  // 2 · histogramme (6 barres ascendantes, dernière en accent, base alignée à y=246)
-  `<rect x="404" y="222" width="16" height="24" rx="2" fill="var(--hairline)" />
-   <rect x="430" y="210" width="16" height="36" rx="2" fill="var(--hairline)" />
-   <rect x="456" y="196" width="16" height="50" rx="2" fill="var(--hairline)" />
-   <rect x="482" y="184" width="16" height="62" rx="2" fill="var(--hairline)" />
-   <rect x="508" y="170" width="16" height="76" rx="2" fill="var(--hairline)" />
-   <rect x="534" y="152" width="16" height="94" rx="2" fill="var(--accent)" />`,
-  // 3 · courbe / sparkline montante (zigzag accent + point au sommet final)
-  `<polyline points="400,238 422,214 444,226 466,192 488,206 510,170 532,184 558,150" fill="none" stroke="var(--accent)" stroke-width="1.6" opacity="0.9" stroke-linecap="round" stroke-linejoin="round" />
-   <circle cx="558" cy="150" r="3" fill="var(--accent)" />`,
-  // 4 · liste / formulaire (4 lignes : carré accent + barre grise)
-  `<rect x="404" y="158" width="6" height="6" rx="2" fill="var(--accent)" opacity="0.4" /><rect x="420" y="158" width="138" height="6" rx="2" fill="var(--hairline)" />
-   <rect x="404" y="180" width="6" height="6" rx="2" fill="var(--accent)" opacity="0.4" /><rect x="420" y="180" width="120" height="6" rx="2" fill="var(--hairline)" />
-   <rect x="404" y="202" width="6" height="6" rx="2" fill="var(--accent)" opacity="0.4" /><rect x="420" y="202" width="134" height="6" rx="2" fill="var(--hairline)" />
-   <rect x="404" y="224" width="6" height="6" rx="2" fill="var(--accent)" opacity="0.4" /><rect x="420" y="224" width="104" height="6" rx="2" fill="var(--hairline)" />`,
-];
-
-const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">
-  <rect x="40" y="36" width="180" height="11" rx="3" fill="var(--accent)" opacity="0.55" />
-  <rect x="40" y="62" width="120" height="8" rx="2" fill="var(--hairline)" />
-  <rect x="40" y="108" width="560" height="176" rx="8" fill="var(--paper)" stroke="var(--hairline)" stroke-width="1" />
-  <rect x="62" y="130" width="84" height="10" rx="2" fill="var(--accent)" opacity="0.45" />
-  <rect x="62" y="152" width="210" height="8" rx="2" fill="var(--hairline)" />
-  <rect x="62" y="170" width="168" height="8" rx="2" fill="var(--hairline)" />
-  <rect x="62" y="188" width="190" height="8" rx="2" fill="var(--hairline)" />
-  <rect x="62" y="214" width="120" height="8" rx="2" fill="var(--hairline)" />
-  <rect x="384" y="130" width="194" height="132" rx="6" fill="var(--paper-2)" stroke="var(--hairline)" stroke-width="1" />
-  ${fzMotifs[i % fzMotifs.length]}
-  <rect x="40" y="306" width="104" height="30" rx="15" fill="var(--accent)" opacity="0.18" />
-  <rect x="40" y="306" width="104" height="30" rx="15" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.4" />
-  <rect x="156" y="306" width="104" height="30" rx="15" fill="none" stroke="var(--hairline)" stroke-width="1" />
-</svg>`;
+// ── Fallback illustration (quand une row n'a pas de média) ──
+// Choisie dans la bibliothèque src/data/illustrations.json par correspondance de
+// mots-clés (titre + body + kicker de la row + h2 de section), déterministe au build.
+// Set de slugs utilisés PAR INSTANCE : 2 rows d'une même section n'ont jamais la même
+// image ; les slugs déjà posés explicitement via media_src sont aussi exclus.
+const sectionH2 = (isFr ? data.h2_fr : data.h2_en) ?? data.h2_fr ?? '';
+const usedSlugs = new Set<string>();
+for (const row of data.rows) {
+  if (!row.media_src) continue;
+  for (const ill of ILLUSTRATIONS) {
+    if (row.media_src.includes(ill.slug)) usedSlugs.add(drawingKey(ill));
+  }
+}
+// Damier : le CSS inverse `.fz__row:nth-child(even)` (1-based) → index 0-based impair.
+const rowIsInk = (i: number): boolean =>
+  data.background === 'ink' || (alternate && i % 2 === 1);
+const fallbacks = data.rows.map((row, i) => {
+  if (row.media_src) return undefined;
+  const text = [
+    isFr ? row.h3_fr : (row.h3_en ?? row.h3_fr),
+    isFr ? row.body_fr : (row.body_en ?? row.body_fr),
+    isFr ? row.kicker_fr : (row.kicker_en ?? row.kicker_fr),
+    sectionH2,
+  ]
+    .filter(Boolean)
+    .join(' ');
+  const ill = pickIllustration(text, { exclude: usedSlugs, seed: i });
+  usedSlugs.add(drawingKey(ill));
+  return {
+    src: illustrationSrc(ill, rowIsInk(i) ? 'ink' : 'paper'),
+    alt: isFr ? ill.alt_fr : ill.alt_en,
+    width: ill.width,
+    height: ill.height,
+  };
+});
 ---
 
 <section
@@ -147,10 +139,10 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
                 {art ? (
                   <div class="fz__art" set:html={art} role={alt ? 'img' : undefined} aria-label={alt || undefined} aria-hidden={alt ? undefined : 'true'} />
                 ) : row.media_src ? (
-                  <img class="fz__img" src={row.media_src} alt={alt} loading="lazy" decoding="async" width="640" height="360" />
-                ) : (
-                  <Fragment set:html={placeholderSvg(i)} />
-                )}
+                  <img class="fz__img" src={row.media_src} alt={alt} loading="lazy" decoding="async" width="640" height="360" sizes="(min-width: 64rem) 50vw, 100vw" />
+                ) : fallbacks[i] ? (
+                  <img class="fz__img" src={fallbacks[i]!.src} alt={fallbacks[i]!.alt} width={fallbacks[i]!.width} height={fallbacks[i]!.height} loading="lazy" decoding="async" sizes="(min-width: 64rem) 50vw, 100vw" />
+                ) : null}
               </div>
               <div class="fz__text" data-body-hide={bodyHide}>
                 {(isFr ? row.kicker_fr : row.kicker_en) && (
@@ -324,16 +316,6 @@ const placeholderSvg = (i: number): string => `<svg class="fz__svg" viewBox="0 0
     );
     opacity: 0.4;
     pointer-events: none;
-  }
-
-  .fz__svg {
-    position: relative;
-    z-index: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    padding: clamp(var(--space-4), 3vw, var(--space-7));
   }
 
   /* Line-art inline : trait = currentColor du contexte, accent = var(--accent). */

@@ -313,6 +313,10 @@ const RESSOURCES: MegaMenuSection = {
           label: { fr: 'Modèle de charte IA', en: 'AI charter template' },
           href: '/ressources/outils/charte-ia-entreprise',
         },
+        {
+          label: { fr: 'Checklist 90 jours pour déployer Claude', en: '90-day Claude deployment checklist' },
+          href: '/ressources/outils/checklist-90-jours-claude',
+        },
       ],
     },
   ],
@@ -413,6 +417,7 @@ const SOLUTIONS: MegaMenuSection = {
                   links: [
                     { label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' }, href: '/ressources/comparatifs/claude-vs-chatgpt-pme' },
                     { label: { fr: 'Guide : déployer Claude en PME', en: 'Guide: deploying Claude in an SME' }, href: '/ressources/guides/claude-pme' },
+                    { label: { fr: 'Checklist 90 jours pour déployer Claude', en: '90-day Claude deployment checklist' }, href: '/ressources/outils/checklist-90-jours-claude' },
                     { label: { fr: 'Guide MCP : brancher Claude à vos outils', en: 'MCP guide: connecting Claude to your tools' }, href: '/ressources/guides/mcp-claude' },
                     { label: { fr: 'Claude Platform ou OpenAI Platform', en: 'Claude Platform or OpenAI Platform' }, href: '/ressources/comparatifs/claude-platform-vs-openai-platform' },
                     { label: { fr: 'Guide Claude Cowork', en: 'Claude Cowork guide' }, href: '/ressources/guides/claude-cowork' },

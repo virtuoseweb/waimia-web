@@ -1077,7 +1077,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 7,
+      "index": 9,
       "label": "Six questions pour partir du bon pied",
       "background": "paper"
     },
@@ -2613,6 +2613,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -3950,7 +3959,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 9,
+      "index": 11,
       "label": "Ce que vous nous demandez",
       "background": "paper"
     },
@@ -4640,7 +4649,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 3,
+      "index": 4,
       "label": "Les cinq usages par lesquels commencer",
       "background": "paper-2"
     },
@@ -4649,7 +4658,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 6,
+      "index": 7,
       "label": "Les 6 prérequis à poser avant le premier compte",
       "background": "paper-2"
     },
@@ -5020,7 +5029,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 10,
+      "index": 12,
       "label": "Vous savez par où commencer. Cadrons votre premier agent.",
       "background": "ink"
     },
@@ -7053,7 +7062,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 5,
+      "index": 6,
       "label": "Trois phases pour démarrer juste",
       "background": "paper"
     },
@@ -7464,8 +7473,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 4,
-      "label": "#4",
+      "index": 5,
+      "label": "#5",
       "variant": "centered",
       "background": "ink"
     },
@@ -7748,7 +7757,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 8,
+      "index": 10,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -7879,6 +7888,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 1,
       "label": "Un outil, un niveau : votre formation",
       "background": "paper-2"
+    }
+  ],
+  "resource-card-grid": [
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 8,
+      "label": "Cinq outils pour passer du guide au plan",
+      "background": "paper"
     }
   ],
   "service-catalog-list": [

@@ -62,7 +62,7 @@ export const schema = z.object({
         .max(4)
         .optional(),
       // Média réel par bloc (corrige le placeholder vide). Optionnels → rétrocompat
-      // (un row sans media_src garde le SVG placeholder). .svg = inline line-art via
+      // (un row sans media_src retombe sur une illustration de src/data/illustrations.json). .svg = inline line-art via
       // ?raw (currentColor/var(--accent) résolvent) ; .webp = <img> avec dimensions.
       media_src: z.string().optional(),
       media_alt_fr: z.string().optional(),

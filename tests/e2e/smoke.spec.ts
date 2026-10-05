@@ -46,6 +46,7 @@ const ROUTES = [
   "/ressources/outils/charte-ia-entreprise",
   "/ressources/outils/grille-taches-a-automatiser",
   "/ressources/outils/calculateur-roi-ia",
+  "/ressources/outils/checklist-90-jours-claude",
   // Cas d'usage par fonction + études de cas du marché + page ville Paris (2026-10-05).
   "/cas-usages",
   "/cas-usages/support-sav",
