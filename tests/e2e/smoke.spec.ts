@@ -45,6 +45,12 @@ const ROUTES = [
   "/ressources/outils/charte-ia-entreprise",
   "/ressources/outils/grille-taches-a-automatiser",
   "/ressources/outils/calculateur-roi-ia",
+  // Articles de fond (2026-10-05) : quatre guides et un comparatif.
+  "/ressources/guides/roi-automatisation",
+  "/ressources/guides/taches-a-automatiser-pme",
+  "/ressources/guides/mcp-claude",
+  "/ressources/guides/ai-act-pme-calendrier",
+  "/ressources/comparatifs/claude-platform-vs-openai-platform",
 ];
 
 for (const path of ROUTES) {

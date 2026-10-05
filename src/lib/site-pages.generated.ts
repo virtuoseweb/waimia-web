@@ -2265,6 +2265,72 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+    "title": "Claude Platform ou OpenAI Platform pour une PME · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/claude-platform-vs-openai-platform.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Platform ou OpenAI Platform : lequel choisir pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Claude Platform et OpenAI Platform, critère par critère",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Dans quels cas chacune convient",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "La bonne plateforme se choisit sur vos données et vos contraintes.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
     "title": "Claude vs ChatGPT : lequel choisir en entreprise · Waimia",
     "group": "ressources",
@@ -2718,6 +2784,87 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/guides/ai-act-pme-calendrier",
+    "title": "AI Act pour PME : le calendrier à jour (octobre 2026) · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/ai-act-pme-calendrier.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne vraiment",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le calendrier de l'AI Act au 5 octobre 2026",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Si vous déployez un système à haut risque : ce que l'article 26 demandera au 2 décembre 2027",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui vous concerne, ce qui ne vous concerne pas",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Quoi faire, échéance par échéance",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-cowork",
     "title": "Claude Cowork : guide pour les PME (2026) · Waimia",
     "group": "ressources",
@@ -2841,6 +2988,244 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Vous savez par où commencer. Cadrons votre premier agent.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/mcp-claude",
+    "title": "MCP Claude : le protocole expliqué aux dirigeants · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/mcp-claude.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "MCP (Model Context Protocol) expliqué à un dirigeant de PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Intégration classique ou serveur MCP",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Huit questions à poser avant de brancher un serveur MCP",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand faire développer un serveur MCP, et quand s'en passer",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "MCP dans les plateformes de Claude et d'OpenAI",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/roi-automatisation",
+    "title": "ROI automatisation et IA : la méthode de calcul · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/roi-automatisation.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Mesurer le ROI d'une automatisation ou d'un projet IA : la méthode complète",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le coût complet : six postes, dont trois qu'on oublie",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Exemple illustratif : la saisie de factures fournisseurs",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le tableau de calcul, ligne par ligne",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un seuil de rentabilité calculé sur vos chiffres, pas sur une moyenne de marché.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/taches-a-automatiser-pme",
+    "title": "Automatisation PME : quelles tâches automatiser d'abord · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/taches-a-automatiser-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Automatisation en PME : quelles tâches automatiser en premier",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les cinq critères, et comment les mesurer",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "La cartographie en cinq étapes, sur deux semaines",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Selon le profil de la tâche, quoi faire",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Par fonction : le bon premier candidat",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qu'on automatise d'abord, ce qu'on n'automatise pas",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre liste de tâches, classée et tranchée en 45 minutes.",
         "background": "ink"
       }
     ]
@@ -3537,6 +3922,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources",
       "/ressources/comparatifs",
       "/ressources/comparatifs/claude-code-vs-cursor",
+      "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
@@ -3547,8 +3933,12 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides",
+      "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-pme",
+      "/ressources/guides/mcp-claude",
+      "/ressources/guides/roi-automatisation",
+      "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/outils",
       "/ressources/outils/calculateur-roi-ia",
       "/ressources/outils/charte-ia-entreprise",

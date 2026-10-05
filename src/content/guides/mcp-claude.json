@@ -1,0 +1,499 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "MCP Claude : le protocole expliqué aux dirigeants · Waimia",
+  "title_en": "MCP and Claude: the protocol explained to business owners · Waimia",
+  "description_fr": "MCP (Model Context Protocol) : ce que c'est, ce que ça change face à une intégration classique, risques, questions à poser avant de brancher un serveur.",
+  "description_en": "MCP (Model Context Protocol): what it is, what it changes versus a classic integration, risks, and questions to ask before connecting a server.",
+  "slug": "mcp-claude",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "data",
+  "tags": [
+    "mcp",
+    "mcp-claude",
+    "model-context-protocol",
+    "connecteurs",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Model Context Protocol, introduction",
+      "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "type": "research"
+    },
+    {
+      "name": "Model Context Protocol, security best practices",
+      "url": "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices",
+      "type": "research"
+    },
+    {
+      "name": "Anthropic, Claude Platform, MCP connector",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/mcp-connector",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, API documentation, MCP servers",
+      "url": "https://developers.openai.com/api/docs/guides/tools-connectors-mcp",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "MCP, ça veut dire quoi ?",
+      "a": "MCP signifie Model Context Protocol. Le site officiel du protocole le définit comme un standard open source pour connecter des applications d'IA à des systèmes externes : sources de données, outils, flux de travail. Il le compare à un port USB-C : une seule prise normalisée au lieu d'un câble différent par appareil."
+    },
+    {
+      "q": "MCP est-il réservé à Claude ?",
+      "a": "Non. Le site officiel présente MCP comme un protocole ouvert et cite parmi les applications compatibles Claude, ChatGPT, Visual Studio Code et Cursor. Les documentations d'Anthropic et d'OpenAI décrivent chacune comment brancher un serveur MCP sur leur plateforme. Un même serveur peut donc servir à plusieurs assistants."
+    },
+    {
+      "q": "MCP est-il sécurisé ?",
+      "a": "Le protocole ne sécurise rien à lui seul. Sa spécification écrit qu'il ne peut pas imposer ses principes de sécurité au niveau du protocole : le consentement, les droits et la validation des actions dépendent de la façon dont l'application et le serveur sont réalisés. La sécurité d'un branchement MCP se juge donc serveur par serveur : qui l'édite, quels droits porte son jeton, quelles actions demandent une validation."
+    },
+    {
+      "q": "Quelle différence entre MCP et une API ?",
+      "a": "Une API est la porte d'entrée d'un logiciel, faite pour être appelée par du code écrit à l'avance. Un serveur MCP se place devant une ou plusieurs API et les décrit dans un format qu'un modèle d'IA comprend : nom de l'outil, ce qu'il fait, paramètres attendus. Le modèle choisit alors quel outil appeler selon la demande. MCP ne remplace pas l'API, il la rend utilisable par un assistant."
+    },
+    {
+      "q": "Faut-il un développeur pour utiliser MCP ?",
+      "a": "Pour développer un serveur sur un outil interne, ou pour l'appeler depuis l'API d'un éditeur, oui : les documentations d'Anthropic et d'OpenAI s'adressent à des développeurs. Brancher un serveur existant dans une application d'assistant demande moins de technique, mais la procédure dépend de l'application et de votre offre : nous ne l'avons pas vérifiée pour cette page. Dans les deux cas, la décision qui compte n'est pas technique : c'est le choix des droits accordés."
+    },
+    {
+      "q": "Combien coûte un serveur MCP ?",
+      "a": "Le protocole est open source et ne se paie pas. Ce qui coûte, c'est le développement du serveur sur votre outil, son hébergement et sa maintenance quand l'outil évolue. Le montant dépend du nombre d'actions exposées et de l'état de l'API de départ : chez Waimia, il se chiffre sur devis après l'audit gratuit."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What does MCP mean?",
+      "a": "MCP stands for Model Context Protocol. The protocol's official site defines it as an open-source standard for connecting AI applications to external systems: data sources, tools, workflows. It compares it to a USB-C port: one standardised socket instead of a different cable per device."
+    },
+    {
+      "q": "Is MCP only for Claude?",
+      "a": "No. The official site presents MCP as an open protocol and lists Claude, ChatGPT, Visual Studio Code and Cursor among compatible applications. Anthropic's and OpenAI's documentation each describe how to connect an MCP server to their platform. The same server can therefore serve several assistants."
+    },
+    {
+      "q": "Is MCP secure?",
+      "a": "The protocol secures nothing by itself. Its specification says it cannot enforce its security principles at the protocol level: consent, permissions and approval of actions depend on how the application and the server are built. The security of an MCP connection is therefore judged server by server: who publishes it, what rights its token carries, which actions require approval."
+    },
+    {
+      "q": "What is the difference between MCP and an API?",
+      "a": "An API is a piece of software's front door, made to be called by code written in advance. An MCP server sits in front of one or more APIs and describes them in a format an AI model understands: tool name, what it does, expected parameters. The model then chooses which tool to call depending on the request. MCP does not replace the API, it makes it usable by an assistant."
+    },
+    {
+      "q": "Do you need a developer to use MCP?",
+      "a": "To develop a server on an internal tool, or to call it from a vendor's API, yes: Anthropic's and OpenAI's documentation is written for developers. Connecting an existing server in an assistant application takes less technical skill, but the procedure depends on the application and your plan: we did not check it for this page. In both cases, the decision that matters is not technical: it is the choice of the rights granted."
+    },
+    {
+      "q": "How much does an MCP server cost?",
+      "a": "The protocol is open source and free to use. What costs money is developing the server on your tool, hosting it and maintaining it as the tool changes. The amount depends on the number of actions exposed and on the state of the underlying API: at Waimia, it is quoted after the free audit."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "MCP (Model Context Protocol) expliqué à un dirigeant de PME",
+      "h1_en": "MCP (Model Context Protocol) explained to an SME owner",
+      "lede_fr": "MCP est le standard qui permet à un assistant comme Claude d'interroger vos outils et d'y agir. Ce guide explique ce que c'est, ce que ça change par rapport à une intégration classique, les trois risques à connaître et les questions à poser avant de brancher un serveur.",
+      "lede_en": "MCP is the standard that lets an assistant such as Claude query your tools and act in them. This guide explains what it is, what it changes compared with a classic integration, the three risks to know and the questions to ask before connecting a server.",
+      "badges": [
+        {
+          "label_fr": "Sources officielles",
+          "label_en": "Official sources"
+        },
+        {
+          "label_fr": "Vérifié le 5 octobre 2026",
+          "label_en": "Checked on 5 October 2026"
+        },
+        {
+          "label_fr": "Sans jargon",
+          "label_en": "No jargon"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/livrable-connecteurs-mcp.svg",
+      "media_alt_fr": "Schéma : un assistant relié à plusieurs outils par des connecteurs MCP",
+      "media_alt_en": "Diagram: an assistant linked to several tools through MCP connectors"
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "MCP, c'est quoi ?",
+      "question_en": "What is MCP?",
+      "term_fr": "Définition",
+      "term_en": "Definition",
+      "answer_fr": "MCP, pour Model Context Protocol, est un standard open source qui connecte une application d'IA à des systèmes externes : vos fichiers, votre CRM, votre base documentaire. Un « serveur MCP » décrit à l'assistant ce qu'il peut lire et faire dans un outil ; l'assistant choisit ensuite quoi appeler selon la demande. Claude et ChatGPT le prennent tous deux en charge. Pour un dirigeant, la question n'est pas technique : chaque serveur branché donne à l'IA des droits sur un outil, et ce sont ces droits qu'il faut décider.",
+      "answer_en": "MCP, short for Model Context Protocol, is an open-source standard that connects an AI application to external systems: your files, your CRM, your knowledge base. An \"MCP server\" describes to the assistant what it can read and do in a tool; the assistant then chooses what to call depending on the request. Claude and ChatGPT both support it. For a business owner, the question is not technical: each connected server gives the AI rights over a tool, and those rights are what has to be decided."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>En bref</h2><ul><li><strong>Un standard, pas un produit.</strong> Un serveur MCP écrit une fois fonctionne avec plusieurs assistants : c'est ce qui limite la dépendance à un éditeur.</li><li><strong>Le modèle choisit quoi appeler.</strong> C'est l'intérêt par rapport à une intégration classique, et c'est aussi le risque.</li><li><strong>La décision porte sur les droits.</strong> Lecture ou écriture, quel compte, quelles actions validées par une personne.</li></ul><h2>Comment ça marche, en trois mots</h2><p>La <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture\" rel=\"noopener noreferrer\" target=\"_blank\">documentation du protocole</a> décrit trois rôles. L'<strong>hôte</strong> est l'application d'IA que vous utilisez, par exemple Claude. Le <strong>serveur</strong> est un programme placé devant un outil, qui expose ce qu'on peut y faire. Entre les deux, un <strong>client</strong> par serveur tient la connexion.</p><p>Un serveur peut exposer trois choses, selon la <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/server-concepts\" rel=\"noopener noreferrer\" target=\"_blank\">même documentation</a> : des <strong>outils</strong>, c'est-à-dire des actions que le modèle déclenche lui-même (chercher, créer, envoyer) ; des <strong>ressources</strong>, des données en lecture seule ; et des <strong>modèles de consigne</strong> prêts à l'emploi.</p><p>Il existe deux types de serveurs. Un serveur <strong>local</strong> tourne sur le poste de l'utilisateur. Un serveur <strong>distant</strong> tourne chez un éditeur ou sur votre infrastructure et sert plusieurs utilisateurs. La distinction compte pour la sécurité : on y revient plus bas.</p>",
+      "html_en": "<h2>In short</h2><ul><li><strong>A standard, not a product.</strong> An MCP server written once works with several assistants: that is what limits dependence on one vendor.</li><li><strong>The model chooses what to call.</strong> That is the benefit compared with a classic integration, and it is also the risk.</li><li><strong>The decision is about rights.</strong> Read or write, which account, which actions approved by a person.</li></ul><h2>How it works, in three words</h2><p>The <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture\" rel=\"noopener noreferrer\" target=\"_blank\">protocol documentation</a> describes three roles. The <strong>host</strong> is the AI application you use, for example Claude. The <strong>server</strong> is a program placed in front of a tool, which exposes what can be done in it. Between the two, one <strong>client</strong> per server holds the connection.</p><p>A server can expose three things, according to the <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/server-concepts\" rel=\"noopener noreferrer\" target=\"_blank\">same documentation</a>: <strong>tools</strong>, meaning actions the model triggers itself (search, create, send); <strong>resources</strong>, read-only data; and ready-made <strong>prompt templates</strong>.</p><p>There are two kinds of server. A <strong>local</strong> server runs on the user's machine. A <strong>remote</strong> server runs at a vendor or on your infrastructure and serves several users. The distinction matters for security: more on that below.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Ce que ça change",
+      "kicker_en": "§ What it changes",
+      "heading_fr": "Intégration classique ou serveur MCP",
+      "heading_en": "Classic integration or MCP server",
+      "caption_fr": "Lecture de Waimia, à partir de la documentation du protocole. Les deux approches se complètent : un workflow n8n ou Make reste le bon choix pour une opération répétée à l'identique.",
+      "caption_en": "Waimia's reading, based on the protocol documentation. The two approaches complement each other: an n8n or Make workflow remains the right choice for an operation repeated identically.",
+      "columns_fr": [
+        "Critère",
+        "Intégration classique",
+        "Serveur MCP"
+      ],
+      "columns_en": [
+        "Criterion",
+        "Classic integration",
+        "MCP server"
+      ],
+      "rows_fr": [
+        [
+          "Qui décide de l'appel",
+          "Classique : un code ou une règle écrite à l'avance",
+          "MCP : le modèle, selon la demande de l'utilisateur"
+        ],
+        [
+          "Réutilisation",
+          "Classique : une intégration par couple d'outils",
+          "MCP : un serveur sert tous les assistants compatibles"
+        ],
+        [
+          "Prévisibilité",
+          "Classique : le même chemin à chaque exécution",
+          "MCP : le chemin varie d'une demande à l'autre"
+        ],
+        [
+          "Contrôle",
+          "Classique : les droits du compte technique",
+          "MCP : les droits du compte, plus une validation possible action par action"
+        ],
+        [
+          "Bon terrain",
+          "Classique : la même opération, des milliers de fois",
+          "MCP : des demandes variées, formulées en langage courant"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Who decides on the call",
+          "Classic: code or a rule written in advance",
+          "MCP: the model, depending on the user's request"
+        ],
+        [
+          "Reuse",
+          "Classic: one integration per pair of tools",
+          "MCP: one server serves every compatible assistant"
+        ],
+        [
+          "Predictability",
+          "Classic: the same path on every run",
+          "MCP: the path varies from one request to the next"
+        ],
+        [
+          "Control",
+          "Classic: the rights of the technical account",
+          "MCP: the account's rights, plus possible approval action by action"
+        ],
+        [
+          "Where it fits",
+          "Classic: the same operation, thousands of times",
+          "MCP: varied requests, phrased in plain language"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>À quoi ça sert dans une PME</h2><p>Quatre usages reviennent. Ce sont des exemples de ce que le protocole permet, pas des résultats mesurés.</p><ul><li><strong>Interroger le CRM en langage courant.</strong> « Quels devis envoyés il y a plus de quinze jours sont restés sans réponse ? » L'assistant lit, il n'écrit rien.</li><li><strong>Chercher dans la base documentaire.</strong> Procédures, contrats types, fiches produit : l'assistant répond en citant le document source.</li><li><strong>Préparer un rapport à partir de l'outil de gestion.</strong> Lecture des chiffres, mise en forme, livraison à relire.</li><li><strong>Préparer une action, sans la faire.</strong> Brouillon d'e-mail, ticket pré-rempli, ligne de devis : une personne valide avant l'envoi.</li></ul><p>Le point commun des trois premiers : lecture seule. C'est par là qu'on commence. Et pour une opération refaite à l'identique des centaines de fois, un workflow reste plus sûr qu'un assistant : voir <a href=\"/ressources/guides/taches-a-automatiser-pme\">quelles tâches automatiser en premier</a>.</p><h2>Les trois risques à connaître</h2><p><strong>1. Les droits accordés.</strong> Un serveur agit avec le jeton qu'on lui donne. Le <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">guide de sécurité du protocole</a> décrit le problème des jetons trop larges : s'ils fuient, tout ce qu'ils ouvrent est exposé, et les révoquer coupe tous les usages d'un coup. Il recommande le moindre privilège : commencer par la lecture, élever les droits seulement quand une action le demande.</p><p><strong>2. L'injection de consignes.</strong> Un modèle lit du contenu qu'il n'a pas écrit : un e-mail entrant, une page web, un ticket client. Ce contenu peut contenir des instructions cachées. La <a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">documentation d’OpenAI</a> donne l'exemple d'une demande de support piégée, et précise que faire confiance à l'éditeur du serveur ne suffit pas : il faut pouvoir faire confiance à tout le contenu accessible par ce serveur. Le scénario à éviter : un assistant qui lit du contenu extérieur et dispose, dans la même session, d'un outil capable d'envoyer des données dehors.</p><p><strong>3. Les données et le code qui sortent de chez vous.</strong> Anthropic rappelle dans sa <a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> que les serveurs distants tiers ne sont ni détenus, ni exploités, ni approuvés par lui, et qu'il ne faut se connecter qu'à des serveurs de confiance. Pour les serveurs locaux, le guide de sécurité est plus direct : ils s'exécutent avec les mêmes droits que l'application qui les lance, et un serveur malveillant peut exécuter n'importe quelle commande sur le poste.</p><p>La <a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">spécification</a> le dit sans détour : le protocole ne peut pas imposer ces principes de sécurité à son niveau. Ils reposent sur l'application, sur le serveur et sur vos réglages. Si des données personnelles passent par le serveur, le RGPD s'applique en plus : voir <a href=\"/conformite-ia\">IA conforme en PME</a> et le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l’AI Act</a>.</p>",
+      "html_en": "<h2>What it is for in an SME</h2><p>Four uses come up again and again. They are examples of what the protocol allows, not measured results.</p><ul><li><strong>Query the CRM in plain language.</strong> \"Which quotes sent more than fifteen days ago have had no reply?\" The assistant reads; it writes nothing.</li><li><strong>Search the knowledge base.</strong> Procedures, contract templates, product sheets: the assistant answers and cites the source document.</li><li><strong>Prepare a report from the management tool.</strong> Reading the figures, formatting, a deliverable to check.</li><li><strong>Prepare an action, without performing it.</strong> Email draft, pre-filled ticket, quote line: a person approves before sending.</li></ul><p>What the first three have in common: read-only. That is where you start. And for an operation redone identically hundreds of times, a workflow remains safer than an assistant: see <a href=\"/ressources/guides/taches-a-automatiser-pme\">which tasks to automate first</a>.</p><h2>The three risks to know</h2><p><strong>1. The rights granted.</strong> A server acts with the token it is given. The <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">protocol security guide</a> describes the problem of overly broad tokens: if they leak, everything they open is exposed, and revoking them cuts every use at once. It recommends least privilege: start with read access, raise rights only when an action requires it.</p><p><strong>2. Prompt injection.</strong> A model reads content it did not write: an incoming email, a web page, a customer ticket. That content may contain hidden instructions. <a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI documentation</a> gives the example of a booby-trapped support request, and states that trusting the server's developer is not enough: you need to be able to trust all the content accessible through that server. The scenario to avoid: an assistant that reads outside content and has, in the same session, a tool able to send data out.</p><p><strong>3. Data and code leaving your premises.</strong> Anthropic notes in its <a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> that third-party remote servers are not owned, operated or endorsed by it, and that you should only connect to servers you trust. For local servers, the security guide is blunter: they run with the same privileges as the application that launches them, and a malicious server can execute any command on the machine.</p><p>The <a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">specification</a> says it plainly: the protocol cannot enforce these security principles at its own level. They rest on the application, on the server and on your settings. If personal data goes through the server, the GDPR applies on top: see <a href=\"/conformite-ia\">compliant AI in an SME</a> and the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline</a>.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Avant de brancher",
+      "kicker_en": "§ Before connecting",
+      "heading_fr": "Huit questions à poser avant de brancher un serveur MCP",
+      "heading_en": "Eight questions to ask before connecting an MCP server",
+      "items": [
+        {
+          "label_fr": "Qui édite ce serveur, et qui l'héberge ? Un serveur officiel de l'éditeur de l'outil n'a pas le même statut qu'un projet trouvé sur un dépôt public.",
+          "label_en": "Who publishes this server, and who hosts it? An official server from the tool's vendor does not have the same standing as a project found in a public repository."
+        },
+        {
+          "label_fr": "Lecture seule ou écriture ? Si la lecture suffit à l'usage, n'ouvrez pas l'écriture.",
+          "label_en": "Read-only or write? If read access is enough for the use, do not open write access."
+        },
+        {
+          "label_fr": "Avec quel compte le serveur agit-il ? Un compte de service dédié, limité au nécessaire, pas le compte d'un dirigeant.",
+          "label_en": "Which account does the server act with? A dedicated service account, limited to what is needed, not an executive's account."
+        },
+        {
+          "label_fr": "Quelles données sortent, et vers où ? Le contenu lu par l'assistant est envoyé au modèle : vérifiez ce que cela implique pour vos données personnelles.",
+          "label_en": "What data leaves, and where to? The content read by the assistant is sent to the model: check what that means for your personal data."
+        },
+        {
+          "label_fr": "Du contenu extérieur peut-il arriver au modèle par ce serveur ? E-mails entrants, formulaires, pages web : c'est la porte de l'injection.",
+          "label_en": "Can outside content reach the model through this server? Incoming emails, forms, web pages: that is the door for injection."
+        },
+        {
+          "label_fr": "Quelles actions demandent une validation humaine ? Tout ce qui modifie, envoie, paie ou supprime.",
+          "label_en": "Which actions require human approval? Anything that modifies, sends, pays or deletes."
+        },
+        {
+          "label_fr": "Les appels sont-ils journalisés ? Sans journal, impossible de savoir ce que l'assistant a fait.",
+          "label_en": "Are calls logged? Without a log, there is no way to know what the assistant did."
+        },
+        {
+          "label_fr": "Comment coupe-t-on ? Qui révoque le jeton, en combien de temps, et qu'est-ce qui s'arrête avec.",
+          "label_en": "How do you cut it off? Who revokes the token, how fast, and what stops with it."
+        }
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Position Waimia",
+      "kicker_en": "§ Waimia position",
+      "title_fr": "Quand faire développer un serveur MCP, et quand s'en passer",
+      "title_en": "When to have an MCP server built, and when to do without",
+      "aside_fr": "Recommandations de Waimia, tirées de nos intégrations.",
+      "aside_en": "Waimia's recommendations, drawn from our integrations.",
+      "use_title_fr": "Faites-en développer un si",
+      "use_title_en": "Have one built if",
+      "use_items_fr": [
+        "Votre outil interne ou métier n'a pas de serveur MCP et vos équipes veulent l'interroger depuis l'assistant",
+        "Vous voulez exposer trois actions précises plutôt que toute l'API de l'outil",
+        "Les données ne doivent pas quitter votre réseau : serveur privé, relié par un tunnel",
+        "Plusieurs assistants ou agents doivent utiliser la même source"
+      ],
+      "use_items_en": [
+        "Your internal or line-of-business tool has no MCP server and your teams want to query it from the assistant",
+        "You want to expose three specific actions rather than the tool's whole API",
+        "The data must not leave your network: private server, linked through a tunnel",
+        "Several assistants or agents must use the same source"
+      ],
+      "avoid_title_fr": "Passez-vous-en si",
+      "avoid_title_en": "Do without if",
+      "avoid_items_fr": [
+        "L'éditeur de l'outil fournit déjà un serveur officiel : utilisez-le, avec des droits limités",
+        "L'opération est toujours la même, en volume : un workflow n8n ou Make est plus prévisible",
+        "Un seul programme appelle l'outil, sans assistant : un appel d'API classique suffit",
+        "Personne en interne ou chez un prestataire n'est nommé pour le maintenir"
+      ],
+      "avoid_items_en": [
+        "The tool's vendor already provides an official server: use it, with limited rights",
+        "The operation is always the same, at volume: an n8n or Make workflow is more predictable",
+        "A single program calls the tool, with no assistant: a plain API call is enough",
+        "Nobody in-house or at a contractor is named to maintain it"
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Chez les éditeurs",
+      "kicker_en": "§ At the vendors",
+      "heading_fr": "MCP dans les plateformes de Claude et d'OpenAI",
+      "heading_en": "MCP in the Claude and OpenAI platforms",
+      "caption_fr": "Lu dans la documentation pour développeurs d'Anthropic et d'OpenAI le 5 octobre 2026. Les statuts « bêta » et « aperçu » changent vite : vérifiez à la source.",
+      "caption_en": "Read in Anthropic's and OpenAI's developer documentation on 5 October 2026. \"Beta\" and \"preview\" statuses change fast: check at the source.",
+      "columns_fr": [
+        "Sujet",
+        "Claude Platform",
+        "OpenAI Platform"
+      ],
+      "columns_en": [
+        "Topic",
+        "Claude Platform",
+        "OpenAI Platform"
+      ],
+      "rows_fr": [
+        [
+          "Appeler un serveur distant depuis l'API",
+          "Claude : connecteur MCP, en bêta ; seuls les appels d'outils sont pris en charge",
+          "OpenAI : outil « mcp » de l'API Responses"
+        ],
+        [
+          "Serveur privé, derrière votre pare-feu",
+          "Claude : tunnels MCP, en aperçu de recherche, sur demande d'accès",
+          "OpenAI : Secure MCP Tunnel"
+        ],
+        [
+          "Validation des actions",
+          "Claude : outils activés, autorisés ou exclus un par un dans la requête",
+          "OpenAI : approbation par outil ; la documentation recommande de la garder pour les outils qui modifient des données"
+        ],
+        [
+          "Mise en garde de l'éditeur",
+          "Claude : serveurs tiers non détenus, non exploités, non approuvés par Anthropic",
+          "OpenAI : la confiance dans l'éditeur du serveur ne protège pas de l'injection"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Calling a remote server from the API",
+          "Claude: MCP connector, in beta; only tool calls are supported",
+          "OpenAI: the \"mcp\" tool of the Responses API"
+        ],
+        [
+          "Private server, behind your firewall",
+          "Claude: MCP tunnels, in research preview, on access request",
+          "OpenAI: Secure MCP Tunnel"
+        ],
+        [
+          "Approval of actions",
+          "Claude: tools enabled, allowlisted or denylisted one by one in the request",
+          "OpenAI: per-tool approval; the documentation recommends keeping it for tools that modify data"
+        ],
+        [
+          "Vendor's warning",
+          "Claude: third-party servers not owned, operated or endorsed by Anthropic",
+          "OpenAI: trusting the server's developer does not protect against injection"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Sources, vérifiées le 5 octobre 2026</h2><ul><li><a href=\"https://modelcontextprotocol.io/docs/getting-started/intro\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io : « What is the Model Context Protocol (MCP)? »</a></li><li><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io : architecture (hôte, client, serveur ; local et distant)</a></li><li><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/server-concepts\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io : serveurs (outils, ressources, modèles de consigne)</a></li><li><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io : bonnes pratiques de sécurité (périmètre des jetons, serveurs locaux)</a></li><li><a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io : spécification, section sécurité et confiance</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-connector\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : connecteur MCP (bêta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : serveurs MCP distants</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : tunnels MCP (aperçu de recherche)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools-connectors-mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : serveurs MCP et Secure MCP Tunnel</a></li><li><a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : MCP, risques et sécurité (injection de consignes)</a></li></ul>",
+      "html_en": "<h2>Sources, checked on 5 October 2026</h2><ul><li><a href=\"https://modelcontextprotocol.io/docs/getting-started/intro\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io: \"What is the Model Context Protocol (MCP)?\"</a></li><li><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io: architecture (host, client, server; local and remote)</a></li><li><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/server-concepts\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io: servers (tools, resources, prompts)</a></li><li><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io: security best practices (token scope, local servers)</a></li><li><a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">modelcontextprotocol.io: specification, security and trust section</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-connector\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: MCP connector (beta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: remote MCP servers</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: MCP tunnels (research preview)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools-connectors-mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: MCP servers and Secure MCP Tunnel</a></li><li><a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: MCP, risks and safety (prompt injection)</a></li></ul>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Claude en entreprise",
+          "title_en": "Claude in the workplace",
+          "lead_fr": "Connecteurs à vos outils, droits limités, règles d’usage.",
+          "lead_en": "Connectors to your tools, limited rights, usage rules.",
+          "href": "/services/integration-claude"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Claude Platform ou OpenAI Platform",
+          "title_en": "Claude Platform or OpenAI Platform",
+          "lead_fr": "Modèles, prix, agents, données : critère par critère.",
+          "lead_en": "Models, prices, agents, data: criterion by criterion.",
+          "href": "/ressources/comparatifs/claude-platform-vs-openai-platform"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Base de connaissance IA",
+          "title_en": "AI knowledge base",
+          "lead_fr": "Vos documents interrogeables, avec la source citée.",
+          "lead_en": "Your documents made searchable, with the source cited.",
+          "href": "/services/base-de-connaissance-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "MCP, ça veut dire quoi ?",
+          "a_fr": "MCP signifie Model Context Protocol. Le site officiel du protocole le définit comme un standard open source pour connecter des applications d'IA à des systèmes externes : sources de données, outils, flux de travail. Il le compare à un port USB-C : une seule prise normalisée au lieu d'un câble différent par appareil.",
+          "q_en": "What does MCP mean?",
+          "a_en": "MCP stands for Model Context Protocol. The protocol's official site defines it as an open-source standard for connecting AI applications to external systems: data sources, tools, workflows. It compares it to a USB-C port: one standardised socket instead of a different cable per device."
+        },
+        {
+          "q_fr": "MCP est-il réservé à Claude ?",
+          "a_fr": "Non. Le site officiel présente MCP comme un protocole ouvert et cite parmi les applications compatibles Claude, ChatGPT, Visual Studio Code et Cursor. Les documentations d'Anthropic et d'OpenAI décrivent chacune comment brancher un serveur MCP sur leur plateforme. Un même serveur peut donc servir à plusieurs assistants.",
+          "q_en": "Is MCP only for Claude?",
+          "a_en": "No. The official site presents MCP as an open protocol and lists Claude, ChatGPT, Visual Studio Code and Cursor among compatible applications. Anthropic's and OpenAI's documentation each describe how to connect an MCP server to their platform. The same server can therefore serve several assistants."
+        },
+        {
+          "q_fr": "MCP est-il sécurisé ?",
+          "a_fr": "Le protocole ne sécurise rien à lui seul. Sa spécification écrit qu'il ne peut pas imposer ses principes de sécurité au niveau du protocole : le consentement, les droits et la validation des actions dépendent de la façon dont l'application et le serveur sont réalisés. La sécurité d'un branchement MCP se juge donc serveur par serveur : qui l'édite, quels droits porte son jeton, quelles actions demandent une validation.",
+          "q_en": "Is MCP secure?",
+          "a_en": "The protocol secures nothing by itself. Its specification says it cannot enforce its security principles at the protocol level: consent, permissions and approval of actions depend on how the application and the server are built. The security of an MCP connection is therefore judged server by server: who publishes it, what rights its token carries, which actions require approval."
+        },
+        {
+          "q_fr": "Quelle différence entre MCP et une API ?",
+          "a_fr": "Une API est la porte d'entrée d'un logiciel, faite pour être appelée par du code écrit à l'avance. Un serveur MCP se place devant une ou plusieurs API et les décrit dans un format qu'un modèle d'IA comprend : nom de l'outil, ce qu'il fait, paramètres attendus. Le modèle choisit alors quel outil appeler selon la demande. MCP ne remplace pas l'API, il la rend utilisable par un assistant.",
+          "q_en": "What is the difference between MCP and an API?",
+          "a_en": "An API is a piece of software's front door, made to be called by code written in advance. An MCP server sits in front of one or more APIs and describes them in a format an AI model understands: tool name, what it does, expected parameters. The model then chooses which tool to call depending on the request. MCP does not replace the API, it makes it usable by an assistant."
+        },
+        {
+          "q_fr": "Faut-il un développeur pour utiliser MCP ?",
+          "a_fr": "Pour développer un serveur sur un outil interne, ou pour l'appeler depuis l'API d'un éditeur, oui : les documentations d'Anthropic et d'OpenAI s'adressent à des développeurs. Brancher un serveur existant dans une application d'assistant demande moins de technique, mais la procédure dépend de l'application et de votre offre : nous ne l'avons pas vérifiée pour cette page. Dans les deux cas, la décision qui compte n'est pas technique : c'est le choix des droits accordés.",
+          "q_en": "Do you need a developer to use MCP?",
+          "a_en": "To develop a server on an internal tool, or to call it from a vendor's API, yes: Anthropic's and OpenAI's documentation is written for developers. Connecting an existing server in an assistant application takes less technical skill, but the procedure depends on the application and your plan: we did not check it for this page. In both cases, the decision that matters is not technical: it is the choice of the rights granted."
+        },
+        {
+          "q_fr": "Combien coûte un serveur MCP ?",
+          "a_fr": "Le protocole est open source et ne se paie pas. Ce qui coûte, c'est le développement du serveur sur votre outil, son hébergement et sa maintenance quand l'outil évolue. Le montant dépend du nombre d'actions exposées et de l'état de l'API de départ : chez Waimia, il se chiffre sur devis après l'audit gratuit.",
+          "q_en": "How much does an MCP server cost?",
+          "a_en": "The protocol is open source and free to use. What costs money is developing the server on your tool, hosting it and maintaining it as the tool changes. The amount depends on the number of actions exposed and on the state of the underlying API: at Waimia, it is quoted after the free audit."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ MCP",
+      "kicker_en": "§ MCP",
+      "h2_fr": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
+      "h2_en": "Connect your tools to an assistant, with rights you have decided.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste les outils à relier, ce qui reste en lecture seule et ce qui demande une validation humaine.",
+      "subtitle_en": "The 45-minute audit is free. We list the tools to connect, what stays read-only and what requires human approval.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

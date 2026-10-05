@@ -1,0 +1,573 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Automatisation PME : quelles tâches automatiser d'abord · Waimia",
+  "title_en": "SME automation: which tasks to automate first · Waimia",
+  "description_fr": "Quelles tâches automatiser en premier dans une PME : cinq critères, une grille de décision, des exemples par fonction et les tâches à ne pas automatiser.",
+  "description_en": "Which tasks an SME should automate first: five criteria, a decision grid, examples by function and the tasks not to automate.",
+  "slug": "taches-a-automatiser-pme",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "automatisation",
+    "priorisation",
+    "cartographie-des-taches",
+    "automatisation-pme",
+    "guide-pme"
+  ],
+  "sources": [],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Quelles tâches peut-on automatiser dans une PME ?",
+      "a": "Celles qui reviennent souvent, suivent des règles qu'on peut écrire, et s'appuient sur des données déjà présentes dans un outil : recopie entre deux logiciels, saisie de factures, relances, mise à jour du CRM, tri des demandes entrantes, rapports assemblés à la main. Les tâches rares, celles dont les règles changent chaque mois et celles où une erreur ne se rattrape pas sont de mauvais premiers candidats."
+    },
+    {
+      "q": "Par quoi commencer quand on n'a jamais automatisé ?",
+      "a": "Par une tâche de recopie entre deux outils : même information saisie deux fois, règles simples, erreur visible et rattrapable. Elle apporte peu de prestige et beaucoup d'enseignements : vous découvrez l'état réel de vos données et vous installez les habitudes de supervision qui serviront aux chantiers suivants."
+    },
+    {
+      "q": "Faut-il un agent IA ou un simple workflow ?",
+      "a": "Un workflow suffit quand la règle s'écrit sans exception : si ceci, alors cela. Un agent IA se justifie quand il faut lire du texte libre, classer ou rédiger, donc quand la tâche demande du jugement. Dans ce cas, gardez une validation humaine tant que le taux d'erreur n'a pas été mesuré."
+    },
+    {
+      "q": "Combien de tâches automatiser en même temps ?",
+      "a": "Une ou deux. Chaque automatisation demande un propriétaire, une supervision des échecs et une période de rodage. Lancer cinq chantiers à la fois donne cinq pilotes à moitié finis. Mettez la première en production, mesurez, puis passez à la suivante."
+    },
+    {
+      "q": "Qui doit faire la cartographie des tâches ?",
+      "a": "Les personnes qui font le travail, pas leur responsable seul. Ce sont elles qui connaissent les exceptions, et ce sont les exceptions qui décident de la faisabilité. Le rôle de la direction est de fixer le cadre : une semaine de relevé, une grille commune, une décision à la fin."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Which tasks can be automated in an SME?",
+      "a": "Those that come back often, follow rules that can be written down, and rely on data already held in a tool: copying between two applications, invoice entry, reminders, CRM updates, sorting incoming requests, reports assembled by hand. Rare tasks, tasks whose rules change every month and tasks where an error cannot be undone are poor first candidates."
+    },
+    {
+      "q": "Where do you start when you have never automated anything?",
+      "a": "With a copying task between two tools: the same information entered twice, simple rules, a visible and recoverable error. It brings little prestige and a lot of learning: you find out the real state of your data and set up the monitoring habits that the next projects will need."
+    },
+    {
+      "q": "Do you need an AI agent or a simple workflow?",
+      "a": "A workflow is enough when the rule can be written with no exception: if this, then that. An AI agent is justified when free text has to be read, classified or drafted, so when the task requires judgement. In that case, keep human review until the error rate has been measured."
+    },
+    {
+      "q": "How many tasks should be automated at once?",
+      "a": "One or two. Each automation needs an owner, failure monitoring and a running-in period. Launching five projects at once gives five half-finished pilots. Put the first one into production, measure it, then move on to the next."
+    },
+    {
+      "q": "Who should map the tasks?",
+      "a": "The people who do the work, not their manager alone. They know the exceptions, and exceptions decide feasibility. Management's role is to set the frame: one week of logging, one shared grid, one decision at the end."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Automatisation en PME : quelles tâches automatiser en premier",
+      "h1_en": "Automation in an SME: which tasks to automate first",
+      "lede_fr": "On ne commence ni par la tâche la plus pénible ni par la plus visible. On commence par celle qui passe cinq critères : fréquence, durée, stabilité des règles, coût d'une erreur, accès aux données. Ce guide donne la méthode de cartographie, une grille de décision et l'ordre conseillé.",
+      "lede_en": "You start neither with the most painful task nor with the most visible one. You start with the one that passes five criteria: frequency, duration, stability of the rules, cost of an error, access to data. This guide gives the mapping method, a decision grid and the recommended order.",
+      "badges": [
+        {
+          "label_fr": "Méthode en cinq critères",
+          "label_en": "Five-criteria method"
+        },
+        {
+          "label_fr": "Grille de décision",
+          "label_en": "Decision grid"
+        },
+        {
+          "label_fr": "Mis à jour le 5 octobre 2026",
+          "label_en": "Updated on 5 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/probleme-outils-cloisonnes.svg",
+      "media_alt_fr": "Schéma : des outils cloisonnés entre lesquels une personne recopie des informations",
+      "media_alt_en": "Diagram: siloed tools between which a person copies information"
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Quelles tâches automatiser en premier dans une PME ?",
+      "question_en": "Which tasks should an SME automate first?",
+      "term_fr": "La réponse courte",
+      "term_en": "The short answer",
+      "answer_fr": "Automatisez d'abord la tâche qui revient plusieurs fois par semaine, dont les règles tiennent sur une page, dont les données sont déjà dans un outil, et dont une erreur se voit et se rattrape. En pratique, c'est presque toujours une recopie entre deux logiciels ou un tri de demandes entrantes. Gardez pour plus tard ce qui demande du jugement, et pour la fin ce qui paie, engage ou envoie en votre nom.",
+      "answer_en": "Automate first the task that comes back several times a week, whose rules fit on one page, whose data is already in a tool, and where an error is visible and recoverable. In practice, it is almost always a copy between two applications or a sorting of incoming requests. Keep for later what requires judgement, and for last what pays, commits or sends in your name."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>En bref</h2><ul><li><strong>Cinq critères, pas un.</strong> Le temps passé ne suffit pas : une tâche lourde aux règles floues est un mauvais premier chantier.</li><li><strong>Le coût d'une erreur fixe le niveau de validation humaine</strong>, pas la décision d'automatiser ou non.</li><li><strong>Une ou deux tâches à la fois</strong>, dans cet ordre : recopie, tri, rapport, puis jugement sous validation.</li></ul><h2>Pourquoi le temps passé ne suffit pas</h2><p>Le réflexe est de viser la tâche qui prend le plus d'heures. C'est le bon point de départ, pas le bon critère de décision. Une tâche de trente heures par mois dont chaque dossier est un cas particulier se termine en pilote qui ne sort pas. Une tâche de dix heures par mois aux règles stables est en production en quelques semaines et finance la suite.</p><p>La <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a> met ce raisonnement en chiffres : elle multiplie les heures par mois par un coefficient de faisabilité, lui-même tiré de la clarté des règles et de l'état des données. Ce guide ajoute ce que la grille ne calcule pas : le coût d'une erreur, les tâches à écarter et l'ordre des chantiers.</p>",
+      "html_en": "<h2>In short</h2><ul><li><strong>Five criteria, not one.</strong> Time spent is not enough: a heavy task with fuzzy rules is a poor first project.</li><li><strong>The cost of an error sets the level of human review</strong>, not the decision to automate or not.</li><li><strong>One or two tasks at a time</strong>, in this order: copying, sorting, reporting, then judgement under review.</li></ul><h2>Why time spent is not enough</h2><p>The reflex is to target the task that takes the most hours. It is the right starting point, not the right decision criterion. A thirty-hour-a-month task where every file is a special case ends up as a pilot that never ships. A ten-hour-a-month task with stable rules is in production within a few weeks and funds what comes next.</p><p>The <a href=\"/ressources/outils/grille-taches-a-automatiser\">task prioritisation grid</a> turns this reasoning into numbers: it multiplies hours per month by a feasibility coefficient, itself derived from how clear the rules are and the state of the data. This guide adds what the grid does not calculate: the cost of an error, the tasks to set aside and the order of the projects.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Cartographie",
+      "kicker_en": "§ Mapping",
+      "heading_fr": "Les cinq critères, et comment les mesurer",
+      "heading_en": "The five criteria, and how to measure them",
+      "caption_fr": "Les seuils de la dernière colonne sont des repères de praticien, pas des normes. Adaptez-les à la taille de votre équipe.",
+      "caption_en": "The thresholds in the last column are practitioner's rules of thumb, not standards. Adapt them to the size of your team.",
+      "columns_fr": [
+        "Critère",
+        "Question à poser",
+        "Comment le mesurer",
+        "Ce qui écarte la tâche"
+      ],
+      "columns_en": [
+        "Criterion",
+        "Question to ask",
+        "How to measure it",
+        "What rules the task out"
+      ],
+      "rows_fr": [
+        [
+          "Fréquence",
+          "Question : combien de fois par semaine ou par mois ?",
+          "Mesure : comptage dans l'outil, sur trois mois",
+          "Écarte : moins d'une fois par mois"
+        ],
+        [
+          "Durée",
+          "Question : combien de minutes par occurrence ?",
+          "Mesure : chronométrage de vingt occurrences, médiane",
+          "Écarte : un total sous deux heures par mois"
+        ],
+        [
+          "Règles",
+          "Question : la règle tient-elle sur une page, sans « ça dépend » ?",
+          "Mesure : faire écrire la procédure par la personne qui fait la tâche",
+          "Écarte : des règles qui changent chaque mois"
+        ],
+        [
+          "Coût d'une erreur",
+          "Question : que se passe-t-il si le résultat est faux ?",
+          "Mesure : erreur visible ou non, rattrapable ou non, qui la subit",
+          "N'écarte rien : fixe le niveau de validation humaine"
+        ],
+        [
+          "Accès aux données",
+          "Question : les données sont-elles dans un outil, lisibles par une machine ?",
+          "Mesure : l'outil a-t-il une API ou un export, les champs sont-ils remplis",
+          "Écarte : des données sur papier ou dans la tête de quelqu'un"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Frequency",
+          "Question: how many times per week or month?",
+          "Measure: count in the tool, over three months",
+          "Rules out: less than once a month"
+        ],
+        [
+          "Duration",
+          "Question: how many minutes per occurrence?",
+          "Measure: time twenty occurrences, take the median",
+          "Rules out: a total under two hours per month"
+        ],
+        [
+          "Rules",
+          "Question: does the rule fit on one page, with no \"it depends\"?",
+          "Measure: have the person who does the task write the procedure",
+          "Rules out: rules that change every month"
+        ],
+        [
+          "Cost of an error",
+          "Question: what happens if the result is wrong?",
+          "Measure: error visible or not, recoverable or not, who bears it",
+          "Rules out nothing: sets the level of human review"
+        ],
+        [
+          "Access to data",
+          "Question: is the data in a tool, readable by a machine?",
+          "Measure: does the tool have an API or an export, are the fields filled in",
+          "Rules out: data on paper or in someone's head"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "La cartographie en cinq étapes, sur deux semaines",
+      "h2_en": "Mapping in five steps, over two weeks",
+      "intro_fr": "Une procédure que vous pouvez suivre sans prestataire.",
+      "intro_en": "A procedure you can follow without a contractor.",
+      "steps": [
+        {
+          "title_fr": "Lister",
+          "title_en": "List",
+          "body_fr": "Pendant une semaine, chaque équipe note les tâches refaites à l'identique : recopies, relances, mises à jour, rapports. Une ligne par tâche, sans trier.",
+          "body_en": "For one week, each team writes down tasks redone identically: copies, reminders, updates, reports. One line per task, unsorted."
+        },
+        {
+          "title_fr": "Mesurer",
+          "title_en": "Measure",
+          "body_fr": "Pour chaque tâche, relevez la fréquence dans l'outil et chronométrez quelques occurrences. Calculez les heures par mois.",
+          "body_en": "For each task, read the frequency in the tool and time a few occurrences. Work out hours per month."
+        },
+        {
+          "title_fr": "Qualifier",
+          "title_en": "Qualify",
+          "body_fr": "Faites écrire la règle par la personne qui fait la tâche, exceptions comprises. Vérifiez où sont les données et si elles sont complètes.",
+          "body_en": "Have the rule written by the person who does the task, exceptions included. Check where the data is and whether it is complete."
+        },
+        {
+          "title_fr": "Noter le coût d'une erreur",
+          "title_en": "Note the cost of an error",
+          "body_fr": "Trois niveaux suffisent : rattrapable en interne, visible par un client, irréversible (paiement, envoi, engagement).",
+          "body_en": "Three levels are enough: recoverable internally, visible to a customer, irreversible (payment, sending, commitment)."
+        },
+        {
+          "title_fr": "Classer et choisir",
+          "title_en": "Rank and choose",
+          "body_fr": "Classez par heures par mois pondérées par la faisabilité. Retenez une ou deux tâches, nommez un propriétaire pour chacune.",
+          "body_en": "Rank by hours per month weighted by feasibility. Keep one or two tasks and name an owner for each."
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Grille de décision",
+      "kicker_en": "§ Decision grid",
+      "heading_fr": "Selon le profil de la tâche, quoi faire",
+      "heading_en": "What to do, depending on the task's profile",
+      "caption_fr": "Lecture : trouvez la ligne qui décrit votre tâche, la deuxième colonne donne la décision.",
+      "caption_en": "How to read it: find the line that describes your task; the second column gives the decision.",
+      "columns_fr": [
+        "Profil de la tâche",
+        "Décision",
+        "Pourquoi"
+      ],
+      "columns_en": [
+        "Task profile",
+        "Decision",
+        "Why"
+      ],
+      "rows_fr": [
+        [
+          "Fréquente, règles stables, données accessibles, erreur rattrapable",
+          "Automatiser en premier, avec un workflow",
+          "Outil : n8n ou Make, supervision des échecs"
+        ],
+        [
+          "Fréquente, règles stables, données éparpillées ou incomplètes",
+          "Centraliser et nettoyer les données d'abord",
+          "Sinon l'automatisation propage les erreurs plus vite"
+        ],
+        [
+          "Fréquente, texte libre à lire, classer ou rédiger, erreur rattrapable",
+          "Agent IA avec validation humaine",
+          "Mesurer le taux d'erreur avant de retirer la relecture"
+        ],
+        [
+          "Fréquente, erreur coûteuse ou irréversible",
+          "Automatiser la préparation, garder la décision humaine",
+          "La machine prépare le paiement ou le message, une personne valide"
+        ],
+        [
+          "Rare et longue",
+          "Modèle de document ou liste de contrôle",
+          "Le volume ne rembourse pas la construction"
+        ],
+        [
+          "Règles qui changent chaque mois",
+          "Stabiliser le processus avant tout",
+          "On n'automatise pas une règle qui n'existe pas encore"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Frequent, stable rules, accessible data, recoverable error",
+          "Automate first, with a workflow",
+          "Tool: n8n or Make, with failure monitoring"
+        ],
+        [
+          "Frequent, stable rules, scattered or incomplete data",
+          "Centralise and clean the data first",
+          "Otherwise automation spreads errors faster"
+        ],
+        [
+          "Frequent, free text to read, classify or draft, recoverable error",
+          "AI agent with human review",
+          "Measure the error rate before removing the review"
+        ],
+        [
+          "Frequent, costly or irreversible error",
+          "Automate the preparation, keep the decision human",
+          "The machine prepares the payment or message, a person approves"
+        ],
+        [
+          "Rare and long",
+          "Document template or checklist",
+          "Volume does not pay back the build"
+        ],
+        [
+          "Rules that change every month",
+          "Stabilise the process first",
+          "You cannot automate a rule that does not exist yet"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Exemples par fonction",
+      "kicker_en": "§ Examples by function",
+      "heading_fr": "Par fonction : le bon premier candidat",
+      "heading_en": "By function: the right first candidate",
+      "caption_fr": "Exemples tirés de notre pratique, à vérifier sur vos volumes avec les cinq critères. Le classement du tri de candidatures vient de l'annexe III du règlement européen sur l'IA, lue le 5 octobre 2026.",
+      "caption_en": "Examples from our practice, to be checked against your volumes with the five criteria. The classification of application screening comes from Annex III of the EU AI Act, read on 5 October 2026.",
+      "columns_fr": [
+        "Fonction",
+        "Bon premier candidat",
+        "À garder pour plus tard"
+      ],
+      "columns_en": [
+        "Function",
+        "Good first candidate",
+        "Keep for later"
+      ],
+      "rows_fr": [
+        [
+          "Administration et comptabilité",
+          "Premier candidat : saisie des factures fournisseurs, relances de paiement",
+          "Plus tard : rapprochements complexes, clôture"
+        ],
+        [
+          "Commercial",
+          "Premier candidat : mise à jour du CRM après un rendez-vous, devis standards",
+          "Plus tard : qualification fine, négociation"
+        ],
+        [
+          "Service client",
+          "Premier candidat : tri et routage des demandes, réponses aux questions récurrentes sous validation",
+          "Plus tard : litiges, gestes commerciaux"
+        ],
+        [
+          "Ressources humaines",
+          "Premier candidat : collecte des pièces d'un nouvel arrivant, réponses aux questions sur les congés",
+          "À traiter à part : tri de candidatures, classé à haut risque par l'AI Act"
+        ],
+        [
+          "Direction et pilotage",
+          "Premier candidat : rapport hebdomadaire assemblé à partir de plusieurs exports",
+          "Plus tard : prévisions, arbitrages"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Administration and accounting",
+          "First candidate: supplier invoice entry, payment reminders",
+          "Later: complex reconciliations, closing"
+        ],
+        [
+          "Sales",
+          "First candidate: CRM update after a meeting, standard quotes",
+          "Later: fine qualification, negotiation"
+        ],
+        [
+          "Customer service",
+          "First candidate: sorting and routing requests, answers to recurring questions under review",
+          "Later: disputes, goodwill gestures"
+        ],
+        [
+          "Human resources",
+          "First candidate: collecting a new hire's documents, answers to leave questions",
+          "Handle separately: screening applications, classed as high-risk by the AI Act"
+        ],
+        [
+          "Management and steering",
+          "First candidate: weekly report assembled from several exports",
+          "Later: forecasts, trade-offs"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Position Waimia",
+      "kicker_en": "§ Waimia position",
+      "title_fr": "Ce qu'on automatise d'abord, ce qu'on n'automatise pas",
+      "title_en": "What we automate first, and what we do not automate",
+      "aside_fr": "Ces recommandations sont les nôtres. Elles servent de garde-fou, pas de règle absolue.",
+      "aside_en": "These recommendations are ours. They serve as a safeguard, not as an absolute rule.",
+      "use_title_fr": "À automatiser d'abord",
+      "use_title_en": "Automate first",
+      "use_items_fr": [
+        "La même information saisie dans deux outils",
+        "Les relances qui partent toujours au même moment",
+        "Le tri des demandes entrantes vers la bonne personne",
+        "Le rapport reconstruit chaque semaine à partir d'exports"
+      ],
+      "use_items_en": [
+        "The same information entered in two tools",
+        "Reminders that always go out at the same time",
+        "Sorting incoming requests to the right person",
+        "The report rebuilt every week from exports"
+      ],
+      "avoid_title_fr": "À ne pas automatiser, ou pas maintenant",
+      "avoid_title_en": "Do not automate, or not now",
+      "avoid_items_fr": [
+        "Une décision qui engage l'entreprise : la machine prépare, une personne décide",
+        "Un paiement, une suppression ou un envoi externe sans validation humaine",
+        "Une tâche que personne ne sait décrire : écrivez d'abord la procédure",
+        "Un processus que vous comptez changer dans les trois mois",
+        "Une relation client ou managériale où l'échange lui-même a de la valeur"
+      ],
+      "avoid_items_en": [
+        "A decision that commits the company: the machine prepares, a person decides",
+        "A payment, a deletion or an external send without human approval",
+        "A task nobody can describe: write the procedure first",
+        "A process you plan to change within three months",
+        "A customer or management relationship where the exchange itself has value"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>L'ordre conseillé des chantiers</h2><p>Chaque étape prépare la suivante : elle nettoie des données, installe une supervision, et donne à l'équipe une raison de faire confiance à la suite.</p><ol><li><strong>Une recopie entre deux outils.</strong> Règles simples, résultat vérifiable d'un coup d'œil. Vous découvrez l'état réel de vos données.</li><li><strong>Un tri ou un routage.</strong> Les demandes arrivent au bon endroit. L'erreur se rattrape : une demande mal orientée se réoriente.</li><li><strong>Un rapport.</strong> Il s'appuie sur les données rendues propres par les deux premiers chantiers.</li><li><strong>Une tâche de jugement, sous validation.</strong> Un agent IA lit, classe ou rédige ; une personne relit. Vous mesurez le taux d'erreur.</li><li><strong>Une action sensible.</strong> Seulement quand les quatre premières tournent, et toujours avec une validation humaine sur ce qui paie, engage ou part à l'extérieur.</li></ol><p>Deux lectures avant l'étape 4 : le guide <a href=\"/ressources/guides/mcp-claude\">MCP expliqué à un dirigeant</a> si l'agent doit accéder à vos outils, et le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l’AI Act pour les PME</a> si la tâche touche au recrutement ou à l'évaluation de personnes.</p><h2>Une fois la tâche choisie</h2><p>Il reste à vérifier que le chantier se rembourse : c'est l'objet du guide <a href=\"/ressources/guides/roi-automatisation\">mesurer le ROI d’une automatisation</a>. Et à faire relire votre classement par quelqu'un qui en a vu d'autres : l'<a href=\"/audit-ia-pme\">audit IA de 45 minutes</a> reprend votre grille, vérifie les durées et tranche les cas limites. Si le choix porte sur l'outil, le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> donne les critères.</p>",
+      "html_en": "<h2>The recommended order of projects</h2><p>Each step prepares the next: it cleans data, sets up monitoring, and gives the team a reason to trust what follows.</p><ol><li><strong>A copy between two tools.</strong> Simple rules, a result you can check at a glance. You find out the real state of your data.</li><li><strong>A sorting or routing task.</strong> Requests land in the right place. The error is recoverable: a misrouted request gets rerouted.</li><li><strong>A report.</strong> It relies on the data cleaned up by the first two projects.</li><li><strong>A judgement task, under review.</strong> An AI agent reads, classifies or drafts; a person checks. You measure the error rate.</li><li><strong>A sensitive action.</strong> Only once the first four are running, and always with human approval on anything that pays, commits or goes outside.</li></ol><p>Two things to read before step 4: the guide <a href=\"/ressources/guides/mcp-claude\">MCP explained to a business owner</a> if the agent needs access to your tools, and the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline for SMEs</a> if the task touches recruitment or the evaluation of people.</p><h2>Once the task is chosen</h2><p>You still have to check that the project pays for itself: that is the subject of the guide on <a href=\"/ressources/guides/roi-automatisation\">measuring the ROI of an automation</a>. And have your ranking reviewed by someone who has seen others: the <a href=\"/audit-ia-pme\">45-minute AI audit</a> takes your grid, checks the durations and settles borderline cases. If the choice is about the tool, the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison gives the criteria.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Sources, vérifiées le 5 octobre 2026</h2><ul><li><a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-3\" rel=\"noopener noreferrer\" target=\"_blank\">Commission européenne, AI Act Service Desk : annexe III du règlement sur l'IA (domaine « emploi », recrutement et sélection)</a></li></ul><p>Le reste de cette page relève de la méthode et de l'avis de Waimia : il n'y a pas de source externe à citer.</p>",
+      "html_en": "<h2>Sources, checked on 5 October 2026</h2><ul><li><a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-3\" rel=\"noopener noreferrer\" target=\"_blank\">European Commission, AI Act Service Desk: Annex III of the AI Act (\"employment\" area, recruitment and selection)</a></li></ul><p>The rest of this page is Waimia's method and opinion: there is no external source to cite.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Outil",
+          "kicker_en": "Tool",
+          "title_fr": "Grille des tâches à automatiser",
+          "title_en": "Task prioritisation grid",
+          "lead_fr": "Vos tâches classées par priorité, sans inscription.",
+          "lead_en": "Your tasks ranked by priority, no sign-up.",
+          "href": "/ressources/outils/grille-taches-a-automatiser"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Mesurer le ROI d'une automatisation",
+          "title_en": "Measuring the ROI of an automation",
+          "lead_fr": "Coût complet, seuil de rentabilité, tableau de calcul.",
+          "lead_en": "Full cost, break-even, calculation table.",
+          "href": "/ressources/guides/roi-automatisation"
+        },
+        {
+          "kicker_fr": "Audit",
+          "kicker_en": "Audit",
+          "title_fr": "Audit IA pour PME",
+          "title_en": "AI audit for SMEs",
+          "lead_fr": "45 minutes pour trancher un ou deux chantiers.",
+          "lead_en": "45 minutes to settle on one or two projects.",
+          "href": "/audit-ia-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Quelles tâches peut-on automatiser dans une PME ?",
+          "a_fr": "Celles qui reviennent souvent, suivent des règles qu'on peut écrire, et s'appuient sur des données déjà présentes dans un outil : recopie entre deux logiciels, saisie de factures, relances, mise à jour du CRM, tri des demandes entrantes, rapports assemblés à la main. Les tâches rares, celles dont les règles changent chaque mois et celles où une erreur ne se rattrape pas sont de mauvais premiers candidats.",
+          "q_en": "Which tasks can be automated in an SME?",
+          "a_en": "Those that come back often, follow rules that can be written down, and rely on data already held in a tool: copying between two applications, invoice entry, reminders, CRM updates, sorting incoming requests, reports assembled by hand. Rare tasks, tasks whose rules change every month and tasks where an error cannot be undone are poor first candidates."
+        },
+        {
+          "q_fr": "Par quoi commencer quand on n'a jamais automatisé ?",
+          "a_fr": "Par une tâche de recopie entre deux outils : même information saisie deux fois, règles simples, erreur visible et rattrapable. Elle apporte peu de prestige et beaucoup d'enseignements : vous découvrez l'état réel de vos données et vous installez les habitudes de supervision qui serviront aux chantiers suivants.",
+          "q_en": "Where do you start when you have never automated anything?",
+          "a_en": "With a copying task between two tools: the same information entered twice, simple rules, a visible and recoverable error. It brings little prestige and a lot of learning: you find out the real state of your data and set up the monitoring habits that the next projects will need."
+        },
+        {
+          "q_fr": "Faut-il un agent IA ou un simple workflow ?",
+          "a_fr": "Un workflow suffit quand la règle s'écrit sans exception : si ceci, alors cela. Un agent IA se justifie quand il faut lire du texte libre, classer ou rédiger, donc quand la tâche demande du jugement. Dans ce cas, gardez une validation humaine tant que le taux d'erreur n'a pas été mesuré.",
+          "q_en": "Do you need an AI agent or a simple workflow?",
+          "a_en": "A workflow is enough when the rule can be written with no exception: if this, then that. An AI agent is justified when free text has to be read, classified or drafted, so when the task requires judgement. In that case, keep human review until the error rate has been measured."
+        },
+        {
+          "q_fr": "Combien de tâches automatiser en même temps ?",
+          "a_fr": "Une ou deux. Chaque automatisation demande un propriétaire, une supervision des échecs et une période de rodage. Lancer cinq chantiers à la fois donne cinq pilotes à moitié finis. Mettez la première en production, mesurez, puis passez à la suivante.",
+          "q_en": "How many tasks should be automated at once?",
+          "a_en": "One or two. Each automation needs an owner, failure monitoring and a running-in period. Launching five projects at once gives five half-finished pilots. Put the first one into production, measure it, then move on to the next."
+        },
+        {
+          "q_fr": "Qui doit faire la cartographie des tâches ?",
+          "a_fr": "Les personnes qui font le travail, pas leur responsable seul. Ce sont elles qui connaissent les exceptions, et ce sont les exceptions qui décident de la faisabilité. Le rôle de la direction est de fixer le cadre : une semaine de relevé, une grille commune, une décision à la fin.",
+          "q_en": "Who should map the tasks?",
+          "a_en": "The people who do the work, not their manager alone. They know the exceptions, and exceptions decide feasibility. Management's role is to set the frame: one week of logging, one shared grid, one decision at the end."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Priorités",
+      "kicker_en": "§ Priorities",
+      "h2_fr": "Votre liste de tâches, classée et tranchée en 45 minutes.",
+      "h2_en": "Your task list, ranked and settled in 45 minutes.",
+      "subtitle_fr": "L'audit est gratuit. Apportez votre grille remplie, ou une simple liste : on vérifie les durées, on tranche les cas limites et on retient un ou deux chantiers.",
+      "subtitle_en": "The audit is free. Bring your completed grid, or a simple list: we check the durations, settle borderline cases and keep one or two projects.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
