@@ -1,29 +1,34 @@
 # Journal de la routine SEO/GEO
 
-Une entrée par semaine, la plus récente en haut. Écrit par la session Claude hebdomadaire (voir `docs/seo/ROUTINE.md`, section 9). Chaque entrée dit ce qui a été fait, pourquoi, et quoi mesurer ensuite. Les chiffres viennent de `docs/seo/data/` : aucun chiffre de mémoire, aucun chiffre estimé.
+Une entrée par semaine, la plus récente en haut. Écrit par la session Claude hebdomadaire (voir `docs/seo/ROUTINE.md`, section 9). Le numéro de l'entrée est la semaine ISO de la session ; la collecte lue peut porter le numéro de la semaine précédente (runbook, section 0). Chaque entrée dit ce qui a été fait, pourquoi, et quoi mesurer ensuite. Les chiffres viennent de `docs/seo/data/` : aucun chiffre de mémoire, aucun chiffre estimé.
 
 ## Modèle d'entrée
 
 ```markdown
 ## AAAA-Www (collecte du JJ mois AAAA)
 
-**Données** : Search Console configuré oui/non · étapes en erreur : aucune / liste.
+**Données** : collecte du JJ mois AAAA à HH:MM UTC (`generatedAt`), fraîche oui/non (`freshness.mjs`) · Search Console configuré oui/non · étapes en erreur : aucune / liste.
 
 **KPI** (28 jours, variation contre les 28 précédents) : clics N (±N) · impressions N (±N) · CTR N % · position N (±N) · pages indexées N sur N.
 
-**Brave** : N URL dans la file de la semaine (`brave.count`), à soumettre par la tâche Brave.
+**Brave** : N URL dans la file du jour (`brave-queue.mjs --from-sitemap`), à soumettre par la tâche Brave.
 
 **Bilan mensuel** (premier lundi du mois seulement, runbook section 13) : évolution sur quatre semaines contre la référence · ce qui a marché ou non · changements proposés.
 
 **Bilan des actions précédentes**
 - AAAA-Www, `/chemin`, requête « … » : gagné / stable / perdu / trop tôt / non mesurable. Avant : position N, N impressions. Maintenant : position N, N impressions. Indexée : oui depuis le … / non (motif).
 
-**Actions de la semaine** (PR #N)
-1. Révision / création / fusion de `/chemin`.
-   - Pourquoi : règle 4.x du runbook, avec la donnée qui l'a déclenchée.
+**Actions de la semaine** (PR #N) : au moins une création et une à deux révisions (runbook, section 4). Sans création : la raison admise par la section 4.4, avec le fait qui la prouve.
+1. Création / révision / fusion de `/chemin` (entrée `id` du calendrier).
+   - Pourquoi : l'entrée du calendrier ou la règle 4.x du runbook, avec la donnée qui l'a déclenchée.
+   - Recherche en ligne : requêtes cherchées ; pages lues, avec lien (lues le JJ mois AAAA) ; ce qu'elles couvrent, ce qui manque.
    - Ce qui a changé : …
-   - Sources lues : lien (vérifié le JJ mois AAAA).
+   - Sources primaires : lien (vérifié le JJ mois AAAA).
    - À mesurer : `/chemin`, requête « … » : valeur de départ. Attendu : … À juger à partir de AAAA-Www.
+
+**Calendrier** : livré cette semaine · prévu la semaine suivante · entrées ajoutées (avec leur origine) · entrées abandonnées ou replanifiées (avec la raison) · N semaines d'avance (`check-calendar.mjs`).
+
+**Brouillon LinkedIn** : `docs/seo/posts/AAAA-Www.md` (à relire et à publier par Simon).
 
 **Non retenu cette semaine** : ce qui a été envisagé et écarté, en une ligne chacun.
 
@@ -31,6 +36,22 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 ```
 
 ## Entrées
+
+### Note du 5 octobre 2026 · collecte non partie, routine éditoriale
+
+**Constat.** La collecte planifiée du lundi 5 octobre 2026 (04:30 UTC) n'est pas partie : la liste des runs du workflow `seo-routine.yml`, relue le 5 octobre vers 08:30 UTC, ne contient aucun run `schedule`, seulement des runs `pull_request` et un run lancé à la main le 4 octobre à 21:19 UTC. La cause n'est pas établie.
+
+**Ce que cela a produit.** La session W41 a travaillé sur la collecte de la veille et n'a livré qu'une révision. La tâche Brave a répondu « rien à soumettre », faute de clé `brave` dans `latest.json`, alors que 15 pages neuves étaient en ligne.
+
+**Ce que change la PR de la branche `feat/routine-editoriale`.**
+- Collecte : créneau principal le dimanche à 19:17 UTC, rattrapage le lundi à 03:17 UTC, sans effet si une collecte complète de moins de 36 heures existe (`scripts/seo-routine/freshness.mjs`). La fraîcheur se juge par `generatedAt` (moins de 48 heures pour la session), plus par le numéro de semaine : la collecte du dimanche porte le numéro de la semaine qui se termine.
+- Brave : la tâche calcule sa file elle-même, sans secret ni état (`node scripts/seo-routine/brave-queue.mjs --from-sitemap --days=8`) : URL du sitemap de production au `lastmod` de moins de 8 jours, plus `brave.toSubmit` de la collecte s'il existe, 40 URL au plus par exécution. Calcul réel du 5 octobre 2026 à 08:11 UTC : 88 URL au sitemap, 84 dans la fenêtre (la refonte des 4 et 5 octobre a daté presque tout le site), dont les 15 pages inconnues de la dernière inspection d'indexation placées en tête ; 40 à soumettre, 44 à reprendre. Rien n'a été soumis par cette PR.
+- Rédaction : calendrier éditorial `docs/seo/calendrier-editorial.json` (28 entrées à l'amorce, 8 semaines d'avance, de 2026-W42 à 2026-W49), vérifié par `scripts/seo-routine/check-calendar.mjs`. Le runbook demande désormais au moins une création et une à deux révisions par semaine (plafond : 2 et 3), une recherche en ligne avant d'écrire, un volet GEO explicite, un brouillon de post LinkedIn par création, et ne fait plus dépendre la production de contenu de la collecte. La règle « une à trois actions, ne rien faire est un résultat valide » disparaît.
+- Prompts des deux tâches planifiées versionnés : `docs/seo/prompts/routine-hebdo.md` et `docs/seo/prompts/brave.md`.
+
+**À savoir.** Les angles du calendrier sont des hypothèses : aucune recherche en ligne n'a été faite pour l'amorce. Les créneaux planifiés ne sont pas éprouvés : le premier run `schedule` attendu est celui du dimanche qui suit la fusion.
+
+**Pour Simon.** Recopier les deux prompts dans les tâches planifiées après la fusion. Décider des trois idées du calendrier qui supposent une offre ou un positionnement (`idee-agence-ia-toulouse`, `idee-formation-claude-code`, `idee-logiciel-seo-ia-pme`). Faire soumettre à Brave les 84 URL en trois exécutions espacées (40, puis `--offset=40`, puis `--offset=80` pour les 4 dernières).
 
 ### 2026-W41 (session du 5 octobre 2026, données de la collecte du 4 octobre 2026)
 
