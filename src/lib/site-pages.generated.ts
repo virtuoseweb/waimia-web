@@ -1772,7 +1772,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/amploi",
-    "title": "Amploi : site marketing, CRM HubSpot et couche GEO",
+    "title": "Amploi : site Astro, CRM HubSpot et skills Claude",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/amploi.json",
