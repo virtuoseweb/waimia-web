@@ -911,7 +911,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Trois formules, un abonnement mensuel sans engagement",
+        "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
         "background": "paper"
       },
       {
@@ -3544,7 +3544,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/outils/grille-taches-a-automatiser",
-    "title": "Grille : quelles tâches automatiser en premier",
+    "title": "Grille des tâches à automatiser : modèle à remplir",
     "group": "ressources",
     "collection": "outils",
     "file": "outils/grille-taches-a-automatiser.json",

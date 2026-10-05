@@ -6382,7 +6382,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 7,
-      "label": "Trois formules, un abonnement mensuel sans engagement",
+      "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
       "background": "paper"
     },
     {
@@ -6490,7 +6490,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cold-email-b2b",
       "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
       "index": 13,
-      "label": "Trois formules, un abonnement mensuel sans engagement",
+      "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
       "background": "paper"
     },
     {
