@@ -1,0 +1,252 @@
+{
+  "title_fr": "Waimia OS : un OS agentique multi-entreprises",
+  "title_en": "Waimia OS: a multi-company agentic OS",
+  "description_fr": "Projet interne en construction : un système agentique pour exploiter une entreprise, avec agents bornés, appels d'outils tracés et validation humaine.",
+  "description_en": "Internal project under construction: an agentic system to run a company, with bounded agents, traced tool calls and human validation.",
+  "slug": "waimia-os",
+  "kind": "interne",
+  "publishedAt": "2026-10-05",
+  "updatedAt": "2026-10-05",
+  "provenance": "first-party",
+  "category": "gouvernance",
+  "tags": [
+    "agents-ia",
+    "os-agentique",
+    "mcp",
+    "postgresql"
+  ],
+  "client": "Waimia OS",
+  "sector_fr": "Système d'exploitation agentique",
+  "sector_en": "Agentic operating system",
+  "duration": "En construction",
+  "stack": [
+    "PostgreSQL",
+    "Next.js",
+    "Serveur MCP",
+    "Moteur de flux",
+    "Application de bureau Electron",
+    "Monorepo pnpm"
+  ],
+  "impact_fr": "En construction. Premier modèle métier prouvé : « Projet web d'agence », utilisé en interne. Agents bornés par rôle et mandat, appels d'outils tracés, validation humaine sur les sorties sensibles. Aucun chiffre d'impact publié à ce jour.",
+  "impact_en": "Under construction. First proven business template: “Agency web project”, used internally. Agents bounded by role and mandate, traced tool calls, human validation on sensitive outputs. No impact figure published to date.",
+  "impactKicker_fr": "§ Où en est le projet",
+  "impactKicker_en": "§ Where the project stands",
+  "author": "simon-beros",
+  "featured": false,
+  "contextStatement_fr": "Waimia OS est le système d'exploitation agentique que le studio construit pour lui-même : créer ou reprendre une entreprise et l'exploiter de bout en bout, de la vente à la comptabilité. Il se distribue comme une bibliothèque de modèles métier installables. Le premier modèle prouvé, « Projet web d'agence », sert à Simon Beros pour Waimia et VirtuoseWeb. Le produit est en construction.",
+  "contextStatement_en": "Waimia OS is the agentic operating system the studio is building for itself: to start or take over a company and run it end to end, from sales to accounting. It is distributed as a library of installable business templates. The first proven template, “Agency web project”, is used by Simon Beros for Waimia and VirtuoseWeb. The product is under construction.",
+  "contextStats": [
+    {
+      "value": "254",
+      "label_fr": "Migrations de base de données",
+      "label_en": "Database migrations"
+    },
+    {
+      "value": "298",
+      "label_fr": "Exigences inscrites au registre du produit",
+      "label_en": "Requirements in the product register"
+    },
+    {
+      "value": "177",
+      "label_fr": "Exigences dotées d'un scénario de preuve",
+      "label_en": "Requirements with a proof scenario"
+    }
+  ],
+  "bottlenecks": [
+    {
+      "num": "01",
+      "kicker_fr": "§ Périmètre",
+      "kicker_en": "§ Scope",
+      "title_fr": "Exploiter une entreprise de bout en bout",
+      "title_en": "Running a company end to end",
+      "body_fr": "Vente, marketing, production, design, support, développement, RH, comptabilité : l'objectif est un seul système, pas une couche IA posée sur un ERP.",
+      "body_en": "Sales, marketing, production, design, support, development, HR, accounting: the goal is one system, not an AI layer on top of an ERP."
+    },
+    {
+      "num": "02",
+      "kicker_fr": "§ Mandat",
+      "kicker_en": "§ Mandate",
+      "title_fr": "Un agent qui agit doit être borné",
+      "title_en": "An agent that acts must be bounded",
+      "body_fr": "Chaque agent reçoit un rôle, un mandat et une portée. Aucun réglage ne lui permet de s'attribuer des droits ni de sortir de sa portée.",
+      "body_en": "Each agent is given a role, a mandate and a scope. No setting lets it grant itself rights or step outside its scope."
+    },
+    {
+      "num": "03",
+      "kicker_fr": "§ Vérité",
+      "kicker_en": "§ Truth",
+      "title_fr": "Ce qui est affiché doit être vrai",
+      "title_en": "What is shown must be true",
+      "body_fr": "Le prédécesseur, VirtuoseOS, montrait beaucoup d'écrans pour peu de boucles fermées. La règle du nouveau produit : ce qui est affiché est vrai, ce qui est annoncé est fait, ce qui manque est dit.",
+      "body_en": "Its predecessor, VirtuoseOS, showed many screens for few closed loops. The rule of the new product: what is shown is true, what is announced is done, what is missing is said."
+    }
+  ],
+  "phases": [
+    {
+      "num": "01",
+      "label_fr": "Un socle PostgreSQL, deux régimes",
+      "label_en": "A PostgreSQL base, two modes",
+      "body_fr": "Le même code sert deux déploiements : auto-hébergé, une instance par entreprise, et SaaS, une base partagée cloisonnée par espace. L'isolation est tenue dans la base, au niveau des lignes.",
+      "body_en": "The same code serves two deployments: self-hosted, one instance per company, and SaaS, a shared database partitioned by workspace. Isolation is enforced in the database, at row level.",
+      "meta_fr": "Données",
+      "meta_en": "Data"
+    },
+    {
+      "num": "02",
+      "label_fr": "Des verbes, pas des écritures libres",
+      "label_en": "Verbs, not free writes",
+      "body_fr": "Toute action passe par un verbe du domaine, exécuté par un exécuteur unique. Une file de signatures humaines et un journal d'audit en ajout seul complètent le dispositif.",
+      "body_en": "Every action goes through a domain verb, run by a single executor. A queue of human signatures and an append-only audit log complete the set-up.",
+      "meta_fr": "Domaine",
+      "meta_en": "Domain"
+    },
+    {
+      "num": "03",
+      "label_fr": "Des agents sous mandat",
+      "label_en": "Agents under mandate",
+      "body_fr": "Un agent se déclare, reçoit un rôle, un mandat borné et un plafond d'appels de modèle. Il agit par des outils internes à l'application, et chaque appel est tracé.",
+      "body_en": "An agent is declared, given a role, a bounded mandate and a cap on model calls. It acts through tools internal to the application, and every call is traced.",
+      "meta_fr": "Agents",
+      "meta_en": "Agents"
+    },
+    {
+      "num": "04",
+      "label_fr": "Un moteur de flux et un ouvrier",
+      "label_en": "A flow engine and a worker",
+      "body_fr": "Les procédures s'exécutent en étapes typées, avec déclencheurs, reprise et trace d'étape. Un ouvrier les fait tourner hors de l'interface.",
+      "body_en": "Procedures run as typed steps, with triggers, resumption and a step trace. A worker runs them outside the interface.",
+      "meta_fr": "Exécution",
+      "meta_en": "Execution"
+    },
+    {
+      "num": "05",
+      "label_fr": "Des modèles métier installables",
+      "label_en": "Installable business templates",
+      "body_fr": "Un modèle décrit une organisation : modules, postes, flux, agents à déclarer. Il s'installe dans un espace sans embarquer ni secret ni donnée de son auteur.",
+      "body_en": "A template describes an organisation: modules, positions, flows, agents to declare. It installs into a workspace without carrying any secret or data from its author.",
+      "meta_fr": "Distribution",
+      "meta_en": "Distribution"
+    },
+    {
+      "num": "06",
+      "label_fr": "Plusieurs portes d'entrée",
+      "label_en": "Several entry points",
+      "body_fr": "Une application web, une application de bureau, un installateur en ligne de commande et un serveur MCP, par lequel un assistant de code appelle les verbes de l'instance.",
+      "body_en": "A web application, a desktop application, a command-line installer and an MCP server, through which a coding assistant calls the instance’s verbs.",
+      "meta_fr": "Accès",
+      "meta_en": "Access"
+    }
+  ],
+  "deliverableCards": [
+    {
+      "title_fr": "Autonomie réglable",
+      "title_en": "Adjustable autonomy",
+      "body_fr": "Réglable par opération, par agent ou par espace. Cinq modes de conversation, le mode par défaut est Manuel. Une politique absente ou ambiguë ne vaut jamais accord.",
+      "body_en": "Adjustable per operation, per agent or per workspace. Five conversation modes, the default is Manual. A missing or ambiguous policy never counts as consent.",
+      "format_fr": "GARDE-FOU",
+      "format_en": "GUARDRAIL"
+    },
+    {
+      "title_fr": "Validation humaine",
+      "title_en": "Human validation",
+      "body_fr": "Obligatoire sur les sorties sensibles. Elles attendent dans une file de signatures humaines.",
+      "body_en": "Mandatory on sensitive outputs. They wait in a queue of human signatures.",
+      "format_fr": "GARDE-FOU",
+      "format_en": "GUARDRAIL"
+    },
+    {
+      "title_fr": "Contenu tiers, geste bloqué",
+      "title_en": "Third-party content, action blocked",
+      "body_fr": "Un tour de conversation qui a lu un contenu tiers ne fait plus aucun geste sortant sans accord humain explicite, y compris dans le mode le plus autonome.",
+      "body_en": "A conversation turn that has read third-party content makes no outgoing action without explicit human consent, even in the most autonomous mode.",
+      "format_fr": "GARDE-FOU",
+      "format_en": "GUARDRAIL"
+    },
+    {
+      "title_fr": "Traçabilité",
+      "title_en": "Traceability",
+      "body_fr": "Toute capacité d'agent est un outil interne, mandaté et tracé, même quand une ligne de commande l'exécute.",
+      "body_en": "Every agent capability is an internal tool, mandated and traced, even when a command line runs it.",
+      "format_fr": "GARDE-FOU",
+      "format_en": "GUARDRAIL"
+    },
+    {
+      "title_fr": "Reprise manuelle",
+      "title_en": "Manual fallback",
+      "body_fr": "Chaque capacité d'agent a une reprise manuelle complète. Sans crédit de modèle, le travail devient une tâche humaine, pas un écran bloqué.",
+      "body_en": "Every agent capability has a complete manual fallback. Without model credit, the work becomes a human task, not a blocked screen.",
+      "format_fr": "GARDE-FOU",
+      "format_en": "GUARDRAIL"
+    },
+    {
+      "title_fr": "Bases jetables",
+      "title_en": "Disposable databases",
+      "body_fr": "Développement et tests se font sur des bases jetables, jamais sur la production. Des contrôles automatisés rejouent les migrations et vérifient l'isolation des données.",
+      "body_en": "Development and tests run on disposable databases, never on production. Automated checks replay the migrations and verify data isolation.",
+      "format_fr": "MÉTHODE",
+      "format_en": "METHOD"
+    }
+  ],
+  "bottlenecksHeading_fr": "Le problème visé.",
+  "bottlenecksHeading_en": "The problem addressed.",
+  "approachHeading_fr": "L'architecture, en clair.",
+  "approachHeading_en": "The architecture, in plain terms.",
+  "deliverablesKicker_fr": "§ En construction",
+  "deliverablesKicker_en": "§ Under construction",
+  "deliverablesHeading_fr": "Les garde-fous, tels qu'ils sont écrits.",
+  "deliverablesHeading_en": "The guardrails, as written.",
+  "stackLead_fr": "PostgreSQL pour les données, Next.js pour l'instance, un serveur MCP pour les assistants de code, un ouvrier pour les flux, Electron pour le bureau, le tout dans un monorepo pnpm.",
+  "stackLead_en": "PostgreSQL for data, Next.js for the instance, an MCP server for coding assistants, a worker for flows, Electron for the desktop, all in a pnpm monorepo.",
+  "ctaHeading_fr": "Des agents qui agissent, <i>sous mandat</i>.",
+  "ctaHeading_en": "Agents that act, <i>under mandate</i>.",
+  "ctaSubtitle_fr": "L'audit gratuit de 45 minutes sert à regarder vos processus, vos outils et ce qu'un agent peut y faire sous validation humaine.",
+  "ctaSubtitle_en": "The free 45-minute audit looks at your processes, your tools and what an agent can do there under human validation.",
+  "card": {
+    "order": 1,
+    "sector_fr": "Système d'exploitation agentique",
+    "sector_en": "Agentic operating system",
+    "title_fr": "Waimia OS",
+    "title_en": "Waimia OS",
+    "headline_fr": "Un système agentique pour exploiter une entreprise de bout en bout : agents bornés, appels tracés, validation humaine.",
+    "headline_en": "An agentic system to run a company end to end: bounded agents, traced calls, human validation.",
+    "duration_fr": "En construction",
+    "duration_en": "Under construction"
+  },
+  "faq_fr": [
+    {
+      "q": "Waimia OS est-il terminé ?",
+      "a": "Non. Il est en construction. Le premier modèle métier prouvé est « Projet web d'agence », utilisé par Simon Beros pour Waimia et VirtuoseWeb."
+    },
+    {
+      "q": "Un agent peut-il agir sans validation ?",
+      "a": "Cela dépend du réglage choisi par opération, par agent ou par espace. La validation humaine reste obligatoire sur les sorties sensibles, et un tour qui a lu un contenu tiers ne fait aucun geste sortant sans accord explicite."
+    },
+    {
+      "q": "Quel rapport avec les missions clients ?",
+      "a": "Les mêmes principes s'appliquent aux agents construits pour les clients : un périmètre borné, des appels tracés et une validation humaine sur les actions sensibles."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is Waimia OS finished?",
+      "a": "No. It is under construction. The first proven business template is “Agency web project”, used by Simon Beros for Waimia and VirtuoseWeb."
+    },
+    {
+      "q": "Can an agent act without validation?",
+      "a": "It depends on the setting chosen per operation, per agent or per workspace. Human validation stays mandatory on sensitive outputs, and a turn that has read third-party content makes no outgoing action without explicit consent."
+    },
+    {
+      "q": "How does it relate to client work?",
+      "a": "The same principles apply to the agents built for clients: a bounded scope, traced calls and human validation on sensitive actions."
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce que fait l'IA, ce que fait l'humain</h2>\n<ul>\n<li><strong>Les agents</strong> exécutent des procédures installées, par des outils internes à l'application, dans la limite de leur rôle et de leur mandat. Le dialogue compose des vues à partir de blocs, de données et de droits réels.</li>\n<li><strong>La personne</strong> choisit le niveau d'autonomie, signe les sorties sensibles et peut reprendre à la main toute capacité confiée à un agent.</li>\n</ul>\n<h2>État d'avancement</h2>\n<p>En construction. Relevés faits dans le dépôt le 5 octobre 2026 : 254 migrations de base de données, 68 écrans, 298 exigences inscrites au registre du produit. 177 ont un scénario de preuve automatisé, 121 n'en ont pas encore. Avoir un scénario ne veut pas dire que le scénario passe : l'état se rejoue par une commande, il ne se lit pas dans un document. Ces nombres mesurent un chantier, pas un résultat.</p>\n<p>Le premier modèle prouvé est « Projet web d'agence ». Les autres fonctions de l'entreprise arrivent flux par flux, pas toutes à la fois.</p>\n<h2>Ce qui reste à faire</h2>\n<p>Le socle n'est pas terminé. Les phases métier sont gelées tant qu'il ne tient pas ses propres exigences, hors sécurité et facture électronique. Restent notamment la synchronisation en temps réel, les vues de base, la corbeille à trente jours, les compétences d'agents versionnées et les consoles d'administration. Côté métier, la récurrence, la trésorerie et la reprise comptable n'ont pas encore de scénario de preuve.</p>\n<h2>Ce qui est mesuré</h2>\n<p>Aucun chiffre d'impact publié à ce jour : ni temps gagné, ni revenu, ni nombre d'utilisateurs. Le projet qui l'a précédé est décrit dans la fiche <a href=\"/cas-clients/virtuoseos\">VirtuoseOS</a>. Les mêmes principes sont appliqués en mission : voir <a href=\"/services/agents-ia\">agents IA</a> et <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>What the AI does, what people do</h2>\n<ul>\n<li><strong>Agents</strong> run installed procedures, through tools internal to the application, within the limits of their role and mandate. The dialogue composes views from real blocks, data and rights.</li>\n<li><strong>The person</strong> chooses the level of autonomy, signs sensitive outputs and can take over by hand any capability given to an agent.</li>\n</ul>\n<h2>Progress</h2>\n<p>Under construction. Counts taken in the repository on 5 October 2026: 254 database migrations, 68 screens, 298 requirements in the product register. 177 have an automated proof scenario, 121 do not yet. Having a scenario does not mean the scenario passes: the state is replayed by a command, not read in a document. These numbers measure a build, not a result.</p>\n<p>The first proven template is “Agency web project”. The other functions of the company arrive flow by flow, not all at once.</p>\n<h2>What remains to be done</h2>\n<p>The base is not finished. Business phases are frozen until it meets its own requirements, except security and electronic invoicing. Still to come, among others: real-time synchronisation, base views, a thirty-day bin, versioned agent skills and the administration consoles. On the business side, recurrence, cash flow and accounting takeover have no proof scenario yet.</p>\n<h2>What is measured</h2>\n<p>No impact figure published to date: no time saved, no revenue, no number of users. The project that came before it is described on the <a href=\"/cas-clients/virtuoseos\">VirtuoseOS</a> page. The same principles are applied in client work: see <a href=\"/services/agents-ia\">AI agents</a> and <a href=\"/conformite-ia\">AI compliance</a>.</p>"
+    }
+  ]
+}

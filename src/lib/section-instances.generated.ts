@@ -166,11 +166,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-support-client.json",
+      "slug": "agent-support-client",
+      "route": "/services/agent-support-client",
+      "index": 7,
+      "label": "Un cas en cours, et le projet interne qui pose les garde-fous",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 7,
+      "label": "Trois réalisations avec des agents",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 7,
       "label": "Deux projets où la saisie manuelle a disparu",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/base-de-connaissance-ia.json",
+      "slug": "base-de-connaissance-ia",
+      "route": "/services/base-de-connaissance-ia",
+      "index": 8,
+      "label": "Deux réalisations avec une base de connaissance",
       "background": "ink"
     },
     {
@@ -184,11 +211,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 7,
+      "label": "Trois réalisations autour de Claude et de MCP",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 7,
-      "label": "Trois projets de ce volet",
+      "label": "Cinq projets de ce volet",
       "background": "ink"
     },
     {
@@ -2402,8 +2438,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 8,
-      "label": "#8",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2411,8 +2447,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 8,
-      "label": "#8",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2474,8 +2510,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 8,
-      "label": "#8",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -2917,7 +2953,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 9,
+      "index": 10,
       "label": "Chatbot et agent de service client : vos questions",
       "background": "paper-2"
     },
@@ -2926,7 +2962,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 9,
+      "index": 10,
       "label": "Agents IA : vos questions",
       "background": "paper-2"
     },
@@ -2971,7 +3007,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 9,
+      "index": 10,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -3007,7 +3043,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 9,
+      "index": 10,
       "label": "Claude en entreprise : vos questions",
       "background": "paper-2"
     },
@@ -3870,7 +3906,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 10,
+      "index": 11,
       "label": "Combien de demandes identiques recevez-vous chaque semaine ?",
       "background": "ink"
     },
@@ -3879,7 +3915,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 10,
+      "index": 11,
       "label": "Quelle tâche confieriez-vous à un agent ?",
       "background": "ink"
     },
@@ -3924,7 +3960,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 10,
+      "index": 11,
       "label": "Vérifions d'abord si vous en avez besoin.",
       "background": "ink"
     },
@@ -3960,7 +3996,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 10,
+      "index": 11,
       "label": "Claude est déjà utilisé chez vous. Reste à l'encadrer.",
       "background": "ink"
     },
@@ -5270,7 +5306,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 7,
+      "index": 8,
       "label": "Prix d'un chatbot de service client",
       "background": "paper"
     },
@@ -5279,7 +5315,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 7,
+      "index": 8,
       "label": "Combien coûte un agent IA",
       "background": "paper"
     },
@@ -5342,7 +5378,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 7,
+      "index": 8,
       "label": "Combien coûte Claude en entreprise",
       "background": "paper"
     },
@@ -6229,7 +6265,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
-      "index": 8,
+      "index": 9,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },

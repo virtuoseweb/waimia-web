@@ -1,0 +1,218 @@
+{
+  "title_fr": "Brow.X Professionnel : agent IA pour le SAV (en cours)",
+  "title_en": "Brow.X Professionnel: AI agent for after-sales (ongoing)",
+  "description_fr": "Automatisation du SAV d'un e-commerce Shopify : agent sur Claude Managed Agents, Gmail, Shopify, transporteurs, validation humaine avant envoi. En cours.",
+  "description_en": "After-sales automation for a Shopify store: an agent on Claude Managed Agents, Gmail, Shopify, carriers, human validation before sending. In progress.",
+  "slug": "brow-x-professionnel",
+  "kind": "client",
+  "publishedAt": "2026-10-05",
+  "updatedAt": "2026-10-05",
+  "provenance": "first-party",
+  "category": "support",
+  "tags": [
+    "agents-ia",
+    "support-client",
+    "claude",
+    "shopify"
+  ],
+  "client": "Brow.X Professionnel",
+  "sector_fr": "E-commerce",
+  "sector_en": "E-commerce",
+  "duration": "En cours",
+  "stack": [
+    "Claude Managed Agents",
+    "Gmail",
+    "Shopify",
+    "Portail logistique",
+    "Transporteurs",
+    "Skills et base de connaissance"
+  ],
+  "impact_fr": "Projet en cours : un agent IA prépare les réponses aux demandes SAV rattachées à une commande, une personne valide avant envoi. Aucun chiffre d'impact publié à ce jour.",
+  "impact_en": "Project in progress: an AI agent prepares replies to after-sales requests tied to an order, a person validates before sending. No impact figure published to date.",
+  "impactKicker_fr": "§ Où en est le projet",
+  "impactKicker_en": "§ Where the project stands",
+  "author": "simon-beros",
+  "featured": false,
+  "contextStatement_fr": "Brow.X Professionnel vend en ligne depuis Montpellier, sur une boutique Shopify. Répondre à une demande de service après-vente oblige à croiser le message reçu dans Gmail, la commande dans Shopify, le portail logistique et le suivi du transporteur. Waimia construit le système qui prépare ce travail, sans retirer la décision à l'équipe. Le projet est en cours.",
+  "contextStatement_en": "Brow.X Professionnel sells online from Montpellier, on a Shopify store. Answering an after-sales request means cross-checking the message received in Gmail, the order in Shopify, the logistics portal and carrier tracking. Waimia is building the system that prepares this work, without taking the decision away from the team. The project is in progress.",
+  "contextStats": [
+    {
+      "value": "En cours",
+      "label_fr": "État du projet",
+      "label_en": "Project status"
+    },
+    {
+      "value": "V1",
+      "label_fr": "Demandes rattachées à un numéro de commande",
+      "label_en": "Requests tied to an order number"
+    },
+    {
+      "value": "Humain",
+      "label_fr": "Validation avant chaque envoi",
+      "label_en": "Validation before every send"
+    }
+  ],
+  "bottlenecks": [
+    {
+      "num": "01",
+      "kicker_fr": "§ Outils",
+      "kicker_en": "§ Tools",
+      "title_fr": "L'information est répartie",
+      "title_en": "Information is spread out",
+      "body_fr": "Une réponse SAV se construit à partir de quatre sources : le message reçu dans Gmail, la commande dans Shopify, le portail logistique et le suivi du transporteur.",
+      "body_en": "An after-sales reply is built from four sources: the message received in Gmail, the order in Shopify, the logistics portal and carrier tracking."
+    },
+    {
+      "num": "02",
+      "kicker_fr": "§ Accès",
+      "kicker_en": "§ Access",
+      "title_fr": "Tous les outils n'ont pas d'API",
+      "title_en": "Not every tool has an API",
+      "body_fr": "Certains portails ne se consultent que dans un navigateur. Le système passe par l'API quand c'est possible, par le navigateur sinon.",
+      "body_en": "Some portals can only be read in a browser. The system goes through the API when possible, through the browser otherwise."
+    },
+    {
+      "num": "03",
+      "kicker_fr": "§ Responsabilité",
+      "kicker_en": "§ Accountability",
+      "title_fr": "Une réponse engage l'entreprise",
+      "title_en": "A reply commits the company",
+      "body_fr": "Un message de SAV parle au nom de la marque. Aucun envoi ne part sans validation humaine, et les exceptions sont escaladées.",
+      "body_en": "An after-sales message speaks for the brand. Nothing is sent without human validation, and exceptions are escalated."
+    }
+  ],
+  "phases": [
+    {
+      "num": "01",
+      "label_fr": "Périmètre de la V1",
+      "label_en": "V1 scope",
+      "body_fr": "La première version ne traite que les demandes rattachées à un numéro de commande. Les autres demandes restent hors du périmètre de l'agent.",
+      "body_en": "The first version only handles requests tied to an order number. Other requests stay outside the agent’s scope.",
+      "meta_fr": "Périmètre",
+      "meta_en": "Scope"
+    },
+    {
+      "num": "02",
+      "label_fr": "Agent métier",
+      "label_en": "Business agent",
+      "body_fr": "Un agent sur Claude Managed Agents traite les demandes SAV. Il s'appuie sur des règles métier, une base de connaissance et des Skills.",
+      "body_en": "An agent on Claude Managed Agents handles after-sales requests. It relies on business rules, a knowledge base and Skills.",
+      "meta_fr": "Agent",
+      "meta_en": "Agent"
+    },
+    {
+      "num": "03",
+      "label_fr": "Intégrations",
+      "label_en": "Integrations",
+      "body_fr": "Gmail pour les messages, Shopify pour les commandes, le portail logistique et les transporteurs pour l'état d'un colis. Par API quand c'est possible, par le navigateur sinon.",
+      "body_en": "Gmail for messages, Shopify for orders, the logistics portal and carriers for parcel status. Through the API when possible, through the browser otherwise.",
+      "meta_fr": "Intégrations",
+      "meta_en": "Integrations"
+    },
+    {
+      "num": "04",
+      "label_fr": "Validation et escalade",
+      "label_en": "Validation and escalation",
+      "body_fr": "Chaque réponse préparée passe devant une personne avant envoi. Les exceptions sont gérées à part et escaladées.",
+      "body_en": "Every prepared reply goes past a person before it is sent. Exceptions are handled separately and escalated.",
+      "meta_fr": "Contrôle",
+      "meta_en": "Control"
+    }
+  ],
+  "deliverableCards": [
+    {
+      "title_fr": "Agent SAV sur Claude Managed Agents",
+      "title_en": "After-sales agent on Claude Managed Agents",
+      "body_fr": "Il traite les demandes SAV du périmètre V1 et prépare la réponse.",
+      "body_en": "It handles after-sales requests within the V1 scope and prepares the reply.",
+      "format_fr": "VOLET IA",
+      "format_en": "AI STRAND"
+    },
+    {
+      "title_fr": "Connexions aux outils",
+      "title_en": "Tool connections",
+      "body_fr": "Gmail, Shopify, portail logistique, transporteurs. API quand c'est possible, navigateur sinon.",
+      "body_en": "Gmail, Shopify, logistics portal, carriers. API when possible, browser otherwise.",
+      "format_fr": "INTÉGRATION",
+      "format_en": "INTEGRATION"
+    },
+    {
+      "title_fr": "Règles métier, base de connaissance et Skills",
+      "title_en": "Business rules, knowledge base and Skills",
+      "body_fr": "Les règles de l'entreprise et sa base de connaissance cadrent ce que l'agent prépare.",
+      "body_en": "The company’s rules and its knowledge base frame what the agent prepares.",
+      "format_fr": "VOLET IA",
+      "format_en": "AI STRAND"
+    },
+    {
+      "title_fr": "Validation humaine et escalade",
+      "title_en": "Human validation and escalation",
+      "body_fr": "Aucune réponse n'est envoyée sans validation. Les exceptions suivent un circuit d'escalade.",
+      "body_en": "No reply is sent without validation. Exceptions follow an escalation path.",
+      "format_fr": "GARDE-FOU",
+      "format_en": "GUARDRAIL"
+    }
+  ],
+  "bottlenecksHeading_fr": "Trois contraintes de départ.",
+  "bottlenecksHeading_en": "Three starting constraints.",
+  "approachHeading_fr": "Ce qui se construit, dans l'ordre.",
+  "approachHeading_en": "What is being built, in order.",
+  "deliverablesKicker_fr": "§ En construction",
+  "deliverablesKicker_en": "§ Under construction",
+  "deliverablesHeading_fr": "Les briques du système.",
+  "deliverablesHeading_en": "The building blocks.",
+  "stackLead_fr": "Claude Managed Agents pour l'agent, Gmail et Shopify pour les demandes et les commandes, le portail logistique et les transporteurs pour l'état des colis.",
+  "stackLead_en": "Claude Managed Agents for the agent, Gmail and Shopify for requests and orders, the logistics portal and carriers for parcel status.",
+  "ctaHeading_fr": "Un service client à <i>soulager</i> ?",
+  "ctaHeading_en": "A support desk to <i>relieve</i>?",
+  "ctaSubtitle_fr": "L'audit gratuit de 45 minutes sert à regarder vos demandes entrantes, vos outils et ce qu'un agent peut préparer sous validation humaine.",
+  "ctaSubtitle_en": "The free 45-minute audit looks at your incoming requests, your tools and what an agent can prepare under human validation.",
+  "card": {
+    "order": 6,
+    "sector_fr": "E-commerce · Shopify",
+    "sector_en": "E-commerce · Shopify",
+    "title_fr": "Brow.X Professionnel",
+    "title_en": "Brow.X Professionnel",
+    "headline_fr": "Un agent IA prépare les réponses SAV, une personne valide avant envoi.",
+    "headline_en": "An AI agent prepares after-sales replies, a person validates before sending.",
+    "duration_fr": "En cours",
+    "duration_en": "In progress"
+  },
+  "faq_fr": [
+    {
+      "q": "L'agent envoie-t-il des réponses seul ?",
+      "a": "Non. Chaque réponse préparée par l'agent est validée par une personne avant envoi. Les exceptions sont escaladées."
+    },
+    {
+      "q": "Quelles demandes sont couvertes par la première version ?",
+      "a": "Seulement les demandes rattachées à un numéro de commande. Les autres restent hors du périmètre de l'agent en V1."
+    },
+    {
+      "q": "Y a-t-il des résultats chiffrés ?",
+      "a": "Pas encore. Le projet est en cours : aucun chiffre d'impact publié à ce jour."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Does the agent send replies on its own?",
+      "a": "No. Every reply prepared by the agent is validated by a person before it is sent. Exceptions are escalated."
+    },
+    {
+      "q": "Which requests does the first version cover?",
+      "a": "Only requests tied to an order number. The others stay outside the agent’s scope in V1."
+    },
+    {
+      "q": "Are there measured results?",
+      "a": "Not yet. The project is in progress: no impact figure published to date."
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Volet IA (Waimia)</h2>\n<p>Cette fiche ne décrit qu'un volet : l'automatisation du service après-vente. Le système réunit un agent métier sur Claude Managed Agents, des intégrations (Gmail, Shopify, portail logistique, transporteurs), des règles métier, une base de connaissance et des Skills. C'est le type de projet décrit sur la page <a href=\"/services/agent-support-client\">agent de support client</a>.</p>\n<h2>Ce que fait l'IA, ce que fait l'humain</h2>\n<ul>\n<li><strong>L'agent</strong> traite la demande SAV : il s'appuie sur les outils connectés, les règles métier et la base de connaissance pour préparer la réponse.</li>\n<li><strong>L'équipe</strong> valide chaque réponse avant envoi et reprend les exceptions et les cas escaladés.</li>\n</ul>\n<h2>Garde-fous</h2>\n<ul>\n<li>Validation humaine avant tout envoi.</li>\n<li>Périmètre de la V1 limité aux demandes rattachées à un numéro de commande.</li>\n<li>Règles métier et base de connaissance qui cadrent les réponses.</li>\n<li>Gestion des exceptions et escalade vers une personne.</li>\n</ul>\n<h2>État et mesures</h2>\n<p>Le système est en cours de construction. Rien n'est annoncé comme livré. Aucun chiffre d'impact publié à ce jour : ni volume de demandes traitées, ni délai de réponse, ni taux de validation. Les mesures seront ajoutées quand elles auront été relevées avec le client.</p>",
+      "html_en": "<h2>AI strand (Waimia)</h2>\n<p>This page describes one strand only: after-sales automation. The system brings together a business agent on Claude Managed Agents, integrations (Gmail, Shopify, logistics portal, carriers), business rules, a knowledge base and Skills. It is the kind of project described on the <a href=\"/services/agent-support-client\">customer support agent</a> page.</p>\n<h2>What the AI does, what people do</h2>\n<ul>\n<li><strong>The agent</strong> handles the after-sales request: it relies on the connected tools, the business rules and the knowledge base to prepare the reply.</li>\n<li><strong>The team</strong> validates every reply before it is sent and takes over exceptions and escalated cases.</li>\n</ul>\n<h2>Guardrails</h2>\n<ul>\n<li>Human validation before anything is sent.</li>\n<li>V1 scope limited to requests tied to an order number.</li>\n<li>Business rules and a knowledge base that frame the replies.</li>\n<li>Exception handling and escalation to a person.</li>\n</ul>\n<h2>Status and measurement</h2>\n<p>The system is under construction. Nothing is announced as delivered. No impact figure published to date: no volume of requests handled, no response time, no validation rate. Measurements will be added once they have been taken with the client.</p>"
+    }
+  ]
+}

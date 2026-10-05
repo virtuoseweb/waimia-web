@@ -53,15 +53,19 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 30,
+    "count": 34,
     "pages": [
       "/lp/hub",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
+      "/services/agent-support-client",
+      "/services/agents-ia",
       "/services/automatisations",
+      "/services/base-de-connaissance-ia",
       "/services/crm-scoring-routing",
+      "/services/integration-claude",
       "/services/seo-geo-contenu",
       "/services/site-web-ia",
       "/services/systeme-acquisition",

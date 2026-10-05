@@ -100,13 +100,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "case-card-grid",
+        "label": "Trois réalisations avec des agents",
+        "background": "ink"
+      },
+      {
         "type": "pricing-cards",
         "label": "Combien coûte un agent IA",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -165,13 +170,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "case-card-grid",
+        "label": "Un cas en cours, et le projet interne qui pose les garde-fous",
+        "background": "ink"
+      },
+      {
         "type": "pricing-cards",
         "label": "Prix d'un chatbot de service client",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -500,6 +510,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-3"
       },
       {
+        "type": "case-card-grid",
+        "label": "Deux réalisations avec une base de connaissance",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -760,13 +775,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "case-card-grid",
+        "label": "Trois réalisations autour de Claude et de MCP",
+        "background": "ink"
+      },
+      {
         "type": "pricing-cards",
         "label": "Combien coûte Claude en entreprise",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -956,7 +976,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Trois projets de ce volet",
+        "label": "Cinq projets de ce volet",
         "background": "ink"
       },
       {
@@ -1769,6 +1789,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/cas-clients/brow-x-professionnel",
+    "title": "Brow.X Professionnel : agent IA pour le SAV (en cours)",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/brow-x-professionnel.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/cas-clients/desangles-peinture",
     "title": "Desangles Peinture : référencement local, page 6 à 1",
     "group": "cas-clients",
@@ -1778,8 +1807,17 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/cas-clients/inbound-value",
+    "title": "Inbound Value : serveur MCP de hub de preuve sociale",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/inbound-value.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/cas-clients/isabelle-diaz-naturopathe",
-    "title": "Isabelle Diaz, naturopathe : présence en ligne et RDV",
+    "title": "Isabelle Diaz, naturopathe : site IA et contenu automatisé",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/isabelle-diaz-naturopathe.json",
@@ -1788,10 +1826,37 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/les-carnets-de-montpellier",
-    "title": "Les Carnets de Montpellier : une communauté payante",
+    "title": "Les Carnets de Montpellier : média payant et agent IA",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/les-carnets-de-montpellier.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/cas-clients/prototypes-internes",
+    "title": "Prototypes internes : LegiCheck, agent d'entretien, quiz",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/prototypes-internes.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/cas-clients/virtuoseos",
+    "title": "VirtuoseOS : le premier OS agentique du studio",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/virtuoseos.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/cas-clients/waimia-os",
+    "title": "Waimia OS : un OS agentique multi-entreprises",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/waimia-os.json",
     "editable": false,
     "sections": []
   },
@@ -3510,9 +3575,14 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/cas-clients",
       "/cas-clients/amploi",
       "/cas-clients/balzeo",
+      "/cas-clients/brow-x-professionnel",
       "/cas-clients/desangles-peinture",
+      "/cas-clients/inbound-value",
       "/cas-clients/isabelle-diaz-naturopathe",
-      "/cas-clients/les-carnets-de-montpellier"
+      "/cas-clients/les-carnets-de-montpellier",
+      "/cas-clients/prototypes-internes",
+      "/cas-clients/virtuoseos",
+      "/cas-clients/waimia-os"
     ]
   },
   {
