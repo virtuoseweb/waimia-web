@@ -111,12 +111,155 @@ export const HOURLY_RATE_EUR = 99 as const;
 /** Paliers mensuels de maintenance, en euros HT par mois (ordre croissant). */
 export const MAINTENANCE_TIERS_EUR = [99, 249, 449] as const;
 
-/** Jetons de prix reconnus dans le contenu → valeur affichée (nombre seul, sans devise). */
+// ─── Maintenance : contenu des trois paliers (précisions Simon 2026-10) · SOURCE UNIQUE ──
+// Nom, résumé et lignes incluses de chaque palier. /tarifs, la page maintenance, la FAQ,
+// /llms.txt et le JSON-LD `OfferCatalog` lisent ce tableau (directement ou par jetons).
+// Rien n'est promis ici que Simon n'ait formulé : ni nombre de systèmes, ni pénalité.
+
+export interface MaintenancePlan {
+  /** Identifiant de jeton : p1, p2, p3. */
+  id: 'p1' | 'p2' | 'p3';
+  /** Forfait mensuel, en euros HT. */
+  price: number;
+  name: { fr: string; en: string };
+  /** Résumé d'une phrase (FAQ, llms.txt, description de l'offre en JSON-LD). */
+  summary: { fr: string; en: string };
+  /** Lignes incluses, telles qu'affichées dans la grille. */
+  includes: { fr: readonly string[]; en: readonly string[] };
+}
+
+export const MAINTENANCE_PLANS: readonly MaintenancePlan[] = [
+  {
+    id: 'p1',
+    price: MAINTENANCE_TIERS_EUR[0],
+    name: { fr: 'Suivi', en: 'Monitoring' },
+    summary: {
+      fr: `Analyse mensuelle, reporting et contrôle des coûts. Les interventions sont facturées ${HOURLY_RATE_EUR} € HT de l'heure.`,
+      en: `Monthly analysis, reporting and cost control. Interventions are billed ${HOURLY_RATE_EUR} € ex VAT an hour.`,
+    },
+    includes: {
+      fr: [
+        'Analyse mensuelle',
+        'Reporting',
+        'Contrôle des coûts',
+        `Interventions facturées ${HOURLY_RATE_EUR} € HT de l'heure`,
+      ],
+      en: [
+        'Monthly analysis',
+        'Reporting',
+        'Cost control',
+        `Interventions billed ${HOURLY_RATE_EUR} € ex VAT an hour`,
+      ],
+    },
+  },
+  {
+    id: 'p2',
+    price: MAINTENANCE_TIERS_EUR[1],
+    name: { fr: 'Suivi et interventions', en: 'Monitoring and interventions' },
+    summary: {
+      fr: `Tout ce qui est inclus dans le palier à ${MAINTENANCE_TIERS_EUR[0]} €, plus 2 heures d'intervention par mois et un traitement des demandes en moins de 72 heures.`,
+      en: `Everything in the ${MAINTENANCE_TIERS_EUR[0]} € tier, plus 2 hours of intervention a month and requests handled in under 72 hours.`,
+    },
+    includes: {
+      fr: [
+        `Tout le palier à ${MAINTENANCE_TIERS_EUR[0]} € : analyse mensuelle, reporting, contrôle des coûts`,
+        "2 heures d'intervention par mois",
+        'Demandes traitées en moins de 72 heures',
+      ],
+      en: [
+        `Everything in the ${MAINTENANCE_TIERS_EUR[0]} € tier: monthly analysis, reporting, cost control`,
+        '2 hours of intervention a month',
+        'Requests handled in under 72 hours',
+      ],
+    },
+  },
+  {
+    id: 'p3',
+    price: MAINTENANCE_TIERS_EUR[2],
+    name: { fr: 'Optimisation continue', en: 'Continuous optimisation' },
+    summary: {
+      fr: "Optimisation en continu ; nouveaux scénarios et nouvelles automatisations IA pertinentes pour votre activité, évolutions ; jusqu'à 5 heures d'intervention par mois ; priorité dans la file de traitement des erreurs, du débogage et de l'adaptation des scénarios aux nouvelles contraintes (nouveau modèle, nouvelles interfaces des applications tierces, etc.) ; intervention y compris le dimanche ; résolution des problèmes en moins de 24 heures.",
+      en: 'Continuous optimisation; new scenarios and new AI automations relevant to your business, upgrades; up to 5 hours of intervention a month; priority in the queue for errors, debugging and adapting scenarios to new constraints (new model, new interfaces of third-party applications, etc.); intervention including on Sundays; problems resolved in under 24 hours.',
+    },
+    includes: {
+      fr: [
+        'Optimisation en continu',
+        'Nouveaux scénarios et nouvelles automatisations IA pertinentes pour votre activité, évolutions',
+        "Jusqu'à 5 heures d'intervention par mois",
+        'Priorité dans la file de traitement : erreurs, débogage, adaptation des scénarios aux nouvelles contraintes (nouveau modèle, nouvelles interfaces des applications tierces, etc.)',
+        'Intervention y compris le dimanche',
+        'Problèmes résolus en moins de 24 heures',
+      ],
+      en: [
+        'Continuous optimisation',
+        'New scenarios and new AI automations relevant to your business, upgrades',
+        'Up to 5 hours of intervention a month',
+        'Priority in the processing queue: errors, debugging, adapting scenarios to new constraints (new model, new interfaces of third-party applications, etc.)',
+        'Intervention including on Sundays',
+        'Problems resolved in under 24 hours',
+      ],
+    },
+  },
+];
+
+// ─── Formations : deux formats (précisions Simon 2026-10) · SOURCE UNIQUE ────────────────
+// Durée en heures et prix en euros HT (le site annonce ses prix hors taxes, note de /tarifs).
+// Les pages /formations/*, la ligne Formation de /tarifs, /llms.txt et le JSON-LD `Course`
+// (offers + hasCourseInstance.courseWorkload) lisent ce tableau.
+
+export interface TrainingFormat {
+  /** Identifiant de jeton : f1, f2. */
+  id: 'f1' | 'f2';
+  hours: number;
+  price: number;
+}
+
+export const TRAINING_FORMATS: readonly TrainingFormat[] = [
+  { id: 'f1', hours: 10, price: 2000 },
+  { id: 'f2', hours: 20, price: 4000 },
+];
+
+// ─── Système commercial / prospection (précisions Simon 2026-10) · SOURCE UNIQUE ─────────
+/** Prix d'entrée de l'abonnement, en euros HT par mois (« dès 980 € HT/mois »). */
+export const SALES_SYSTEM_FLOOR_EUR = 980 as const;
+/** Essai gratuit : nombre de leads offerts, pour 0 €. C'est un essai, pas le prix. */
+export const SALES_SYSTEM_TRIAL_LEADS = 30 as const;
+
+/** Montant en toutes lettres typographiques, sans devise : « 2 000 » (fr) ou « 2,000 » (en). */
+const amount = (value: number, lang: 'fr' | 'en') =>
+  lang === 'fr' ? value.toLocaleString('fr-FR').replace(/[\u00a0\u202f\s]/g, ' ') : value.toLocaleString('en-US');
+
+/**
+ * Jetons reconnus dans le contenu → texte affiché. Les jetons de montant donnent le nombre
+ * seul, sans devise ; un suffixe `.en` donne la version anglaise quand elle diffère.
+ */
 export const PRICING_TOKENS: Readonly<Record<string, string>> = {
   'prix.horaire': String(HOURLY_RATE_EUR),
   'prix.maintenance.p1': String(MAINTENANCE_TIERS_EUR[0]),
   'prix.maintenance.p2': String(MAINTENANCE_TIERS_EUR[1]),
   'prix.maintenance.p3': String(MAINTENANCE_TIERS_EUR[2]),
+  // Contenu des paliers : nom, résumé, lignes incluses (numérotées à partir de 1).
+  ...Object.fromEntries(
+    MAINTENANCE_PLANS.flatMap((plan) => [
+      [`prix.maintenance.${plan.id}.nom`, plan.name.fr],
+      [`prix.maintenance.${plan.id}.nom.en`, plan.name.en],
+      [`prix.maintenance.${plan.id}.resume`, plan.summary.fr],
+      [`prix.maintenance.${plan.id}.resume.en`, plan.summary.en],
+      ...plan.includes.fr.map((line, i) => [`prix.maintenance.${plan.id}.inclus.${i + 1}`, line]),
+      ...plan.includes.en.map((line, i) => [`prix.maintenance.${plan.id}.inclus.${i + 1}.en`, line]),
+    ]),
+  ),
+  // Formations : durée (heures) et prix de chaque format.
+  ...Object.fromEntries(
+    TRAINING_FORMATS.flatMap((f) => [
+      [`prix.formation.${f.id}.heures`, String(f.hours)],
+      [`prix.formation.${f.id}`, amount(f.price, 'fr')],
+      [`prix.formation.${f.id}.en`, amount(f.price, 'en')],
+    ]),
+  ),
+  // Système commercial : prix d'entrée mensuel et volume de l'essai gratuit.
+  'prix.commercial': String(SALES_SYSTEM_FLOOR_EUR),
+  'prix.commercial.essai': String(SALES_SYSTEM_TRIAL_LEADS),
 };
 
 /** Empreinte des valeurs : sale le digest du cache de contenu (un prix change → tout est relu). */
@@ -148,7 +291,7 @@ export function applyPricingTokens<T>(value: T): T {
 }
 
 // ─── Parcours d'engagement (page /tarifs) · SOURCE UNIQUE des montants balisés ───────────
-// Les cinq étapes affichées sur /tarifs, avec leur prix d'entrée. Le JSON-LD `OfferCatalog`
+// Les cinq étapes affichées sur /tarifs et les deux formats de formation, avec leur prix. Le JSON-LD `OfferCatalog`
 // de la page (src/lib/seo/schema-builder.ts → buildPricingCatalog) et le résumé de
 // /llms.txt lisent ces valeurs ; le gate check-jsonld vérifie que chaque montant balisé est
 // bien affiché sur la page.
@@ -180,6 +323,8 @@ export interface EngagementOffer {
   id: string;
   /** Libellé tel qu'affiché sur /tarifs. */
   name: string;
+  /** Ce que l'offre comprend, en une phrase (affiché sur /tarifs). */
+  description?: string;
   pricing: EngagementPricing;
 }
 
@@ -205,11 +350,12 @@ export const ENGAGEMENT_OFFERS: readonly EngagementOffer[] = [
     name: 'Déploiement sur mesure',
     pricing: { kind: 'from', price: DEPLOYMENT_FLOOR_EUR },
   },
-  ...MAINTENANCE_TIERS_EUR.map(
-    (price, i): EngagementOffer => ({
-      id: `maintenance-p${i + 1}`,
-      name: `Accompagnement continu, palier ${i + 1}`,
-      pricing: { kind: 'monthly', price },
+  ...MAINTENANCE_PLANS.map(
+    (plan): EngagementOffer => ({
+      id: `maintenance-${plan.id}`,
+      name: `Accompagnement continu : ${plan.name.fr}`,
+      description: plan.summary.fr,
+      pricing: { kind: 'monthly', price: plan.price },
     }),
   ),
   {
@@ -217,6 +363,13 @@ export const ENGAGEMENT_OFFERS: readonly EngagementOffer[] = [
     name: 'Interventions hors forfait',
     pricing: { kind: 'hourly', price: HOURLY_RATE_EUR },
   },
+  ...TRAINING_FORMATS.map(
+    (format): EngagementOffer => ({
+      id: `formation-${format.id}`,
+      name: `Formation, format ${format.hours} heures`,
+      pricing: { kind: 'fixed', price: format.price },
+    }),
+  ),
 ];
 
 /** Ligne du parcours par id (échec de build si l'id n'existe pas). */

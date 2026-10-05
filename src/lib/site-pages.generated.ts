@@ -1221,7 +1221,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Trois formules pour alimenter votre pipeline",
+        "label": "Un essai gratuit, puis deux formules pour alimenter votre pipeline",
         "background": "paper"
       },
       {

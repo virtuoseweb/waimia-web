@@ -35,7 +35,7 @@
     },
     {
       "q": "Combien de temps dure la formation et combien coûte-t-elle ?",
-      "a": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise."
+      "a": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise."
     },
     {
       "q": "Qui anime les formations ?",
@@ -65,7 +65,7 @@
     },
     {
       "q": "How long does the training last and how much does it cost?",
-      "a": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+      "a": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. There is no fixed-date catalogue session: each training is built for one company."
     },
     {
       "q": "Who delivers the training?",
@@ -124,8 +124,8 @@
       "label_en": "The courses",
       "heading_fr": "Quatre formations, construites sur vos tâches",
       "heading_en": "Four courses, built on your tasks",
-      "aside_fr": "Toutes en intra-entreprise, à distance ou sur site. Durée et tarif définis au cadrage.",
-      "aside_en": "All in-company, remote or on site. Duration and price set during scoping.",
+      "aside_fr": "Toutes en intra-entreprise, à distance ou sur site. Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT.",
+      "aside_en": "All in-company, remote or on site. Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT.",
       "services": [
         {
           "num": "01",
@@ -168,8 +168,8 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Formation IA en entreprise : ce qui distingue une formation utile</h2>\n<p>La plupart des formations IA montrent ce que l'outil sait faire. Les participants sortent convaincus, puis retournent à leurs tâches et rien ne change. Notre parti pris est inverse : on part d'une tâche que l'équipe fait vraiment, et la formation est réussie si cette tâche est faite autrement le lundi suivant.</p>\n<p>Concrètement, cela impose trois choses. Un cadrage avant la formation, pour choisir les tâches et vérifier le niveau de départ. Des exercices sur vos outils et vos documents, pas sur des exemples de catalogue. Et du temps de pratique : chaque participant construit quelque chose.</p>\n<h2>Un formateur IA qui pratique</h2>\n<p>Les formations sont animées par <a href=\"/equipe/simon-beros\">Simon Beros</a>, fondateur de Waimia. Son métier principal n'est pas la formation : il conçoit et met en production des automatisations, des agents IA et des applications métier pour des PME et des ETI. Ce que vos équipes apprennent vient de ce qui tient, ou casse, en production.</p>\n<h2>Formation IA et Qualiopi : le cadre</h2>\n<p>Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation. La durée et le tarif sont définis au cadrage : ils dépendent du niveau de départ, du nombre de participants et des cas à traiter.</p>",
-      "html_en": "<h2>AI training for companies: what makes training useful</h2>\n<p>Most AI training shows what the tool can do. Participants leave convinced, go back to their tasks and nothing changes. Our stance is the opposite: we start from a task the team really does, and the training has worked if that task is done differently the following Monday.</p>\n<p>In practice this requires three things. Scoping before the training, to pick the tasks and check the starting level. Exercises on your tools and documents, not on catalogue examples. And practice time: every participant builds something.</p>\n<h2>An AI trainer who practises</h2>\n<p>Training is delivered by <a href=\"/equipe/simon-beros\">Simon Beros</a>, founder of Waimia. Training is not his main job: he designs and ships automations, AI agents and business applications for SMEs and mid-sized companies. What your teams learn comes from what holds up, or breaks, in production.</p>\n<h2>AI training and Qualiopi: the framework</h2>\n<p>Training delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. Duration and price are set during scoping: they depend on the starting level, the number of participants and the cases to cover.</p>"
+      "html_fr": "<h2>Formation IA en entreprise : ce qui distingue une formation utile</h2>\n<p>La plupart des formations IA montrent ce que l'outil sait faire. Les participants sortent convaincus, puis retournent à leurs tâches et rien ne change. Notre parti pris est inverse : on part d'une tâche que l'équipe fait vraiment, et la formation est réussie si cette tâche est faite autrement le lundi suivant.</p>\n<p>Concrètement, cela impose trois choses. Un cadrage avant la formation, pour choisir les tâches et vérifier le niveau de départ. Des exercices sur vos outils et vos documents, pas sur des exemples de catalogue. Et du temps de pratique : chaque participant construit quelque chose.</p>\n<h2>Un formateur IA qui pratique</h2>\n<p>Les formations sont animées par <a href=\"/equipe/simon-beros\">Simon Beros</a>, fondateur de Waimia. Son métier principal n'est pas la formation : il conçoit et met en production des automatisations, des agents IA et des applications métier pour des PME et des ETI. Ce que vos équipes apprennent vient de ce qui tient, ou casse, en production.</p>\n<h2>Formation IA et Qualiopi : le cadre</h2>\n<p>Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation. Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT.</p>",
+      "html_en": "<h2>AI training for companies: what makes training useful</h2>\n<p>Most AI training shows what the tool can do. Participants leave convinced, go back to their tasks and nothing changes. Our stance is the opposite: we start from a task the team really does, and the training has worked if that task is done differently the following Monday.</p>\n<p>In practice this requires three things. Scoping before the training, to pick the tasks and check the starting level. Exercises on your tools and documents, not on catalogue examples. And practice time: every participant builds something.</p>\n<h2>An AI trainer who practises</h2>\n<p>Training is delivered by <a href=\"/equipe/simon-beros\">Simon Beros</a>, founder of Waimia. Training is not his main job: he designs and ships automations, AI agents and business applications for SMEs and mid-sized companies. What your teams learn comes from what holds up, or breaks, in production.</p>\n<h2>AI training and Qualiopi: the framework</h2>\n<p>Training delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation. Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT.</p>"
     },
     {
       "type": "process-steps",
@@ -188,8 +188,8 @@
         {
           "title_fr": "Cadrage",
           "title_en": "Scoping",
-          "body_fr": "Choix des tâches, niveau de départ, participants, format, durée, tarif, et prise en charge avec Akigora.",
-          "body_en": "Choice of tasks, starting level, participants, format, duration, price, and funding with Akigora."
+          "body_fr": "Choix des tâches, niveau de départ, participants, format de {{prix.formation.f1.heures}} ou {{prix.formation.f2.heures}} heures, et prise en charge avec Akigora.",
+          "body_en": "Choice of tasks, starting level, participants, {{prix.formation.f1.heures}}-hour or {{prix.formation.f2.heures}}-hour format, and funding with Akigora."
         },
         {
           "title_fr": "Formation",
@@ -232,8 +232,8 @@
         {
           "q_fr": "Combien de temps dure la formation et combien coûte-t-elle ?",
           "q_en": "How long does the training last and how much does it cost?",
-          "a_fr": "La durée et le tarif sont définis au cadrage. Ils dépendent du niveau de départ, du nombre de participants et des cas à traiter. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise.",
-          "a_en": "Duration and price are set during scoping. They depend on the starting level, the number of participants and the cases to cover. There is no fixed-date catalogue session: each training is built for one company."
+          "a_fr": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Il n'y a pas de session catalogue à date fixe : chaque formation est construite pour une entreprise.",
+          "a_en": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. There is no fixed-date catalogue session: each training is built for one company."
         },
         {
           "q_fr": "Qui anime les formations ?",

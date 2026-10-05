@@ -2,8 +2,8 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Prospection automatisée par l'IA pour PME B2B · Waimia",
   "title_en": "AI-automated prospecting for B2B SMEs · Waimia",
-  "description_fr": "Prospection automatisée B2B pour PME : ciblage, séquences email et LinkedIn, réponses remontées dans votre CRM. Abonnement dès 980 € HT par mois.",
-  "description_en": "Automated B2B prospecting for SMBs: targeting, email and LinkedIn sequences, replies pushed to your CRM. Subscription from €980 excl. VAT per month.",
+  "description_fr": "Prospection automatisée B2B pour PME : ciblage, séquences email et LinkedIn, réponses remontées dans votre CRM. Abonnement dès {{prix.commercial}} € HT par mois.",
+  "description_en": "Automated B2B prospecting for SMBs: targeting, email and LinkedIn sequences, replies pushed to your CRM. Subscription from €{{prix.commercial}} excl. VAT per month.",
   "slug": "prospection-automatisee",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-10-04T00:00:00.000Z",
@@ -18,14 +18,14 @@
   "seo": {
     "noindex": false,
     "serviceType": "Prospection outbound automatisée pour PME B2B",
-    "priceRange": "980-1650€/mois",
+    "priceRange": "{{prix.commercial}}-1650€/mois",
     "priceMin": 980,
     "priceMax": 1650
   },
   "faq_fr": [
     {
       "q": "Combien coûte la prospection automatisée ?",
-      "a": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à 980 € HT par mois et Pro à 1 650 € HT par mois. Un premier échange gratuit inclut une liste de 30 prospects. Le détail de chaque formule figure dans la grille de cette page."
+      "a": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à {{prix.commercial}} € HT par mois et Pro à 1 650 € HT par mois. Un premier échange gratuit inclut une liste de 30 prospects. Le détail de chaque formule figure dans la grille de cette page."
     },
     {
       "q": "La prospection automatisée est-elle légale au regard du RGPD ?",
@@ -51,7 +51,7 @@
   "faq_en": [
     {
       "q": "How much does automated prospecting cost?",
-      "a": "Two monthly subscription plans, with no minimum term: Standard at €980 excl. VAT per month and Pro at €1,650 excl. VAT per month. A free first call includes a list of 30 prospects. Each plan is detailed in the grid on this page."
+      "a": "Two monthly subscription plans, with no minimum term: Standard at €{{prix.commercial}} excl. VAT per month and Pro at €1,650 excl. VAT per month. A free first call includes a list of 30 prospects. Each plan is detailed in the grid on this page."
     },
     {
       "q": "Is automated prospecting legal under GDPR?",
@@ -127,7 +127,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "980 € HT / mois",
+          "value": "{{prix.commercial}} € HT / mois",
           "label_fr": "formule Standard ; formule Pro à 1 650 € HT par mois",
           "label_en": "Standard plan; Pro plan at €1,650 excl. VAT per month",
           "emphasis": true
@@ -365,7 +365,7 @@
         {
           "name_fr": "Standard",
           "name_en": "Standard",
-          "price": "980 €",
+          "price": "{{prix.commercial}} €",
           "period_fr": "HT / mois",
           "period_en": "ex VAT / month",
           "features_fr": [
@@ -476,9 +476,9 @@
       "items": [
         {
           "q_fr": "Combien coûte la prospection automatisée ?",
-          "a_fr": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à 980 € HT par mois et Pro à 1 650 € HT par mois. Un premier échange gratuit inclut une liste de 30 prospects. Le détail de chaque formule figure dans la grille de cette page.",
+          "a_fr": "Deux formules en abonnement mensuel, sans engagement de durée : Standard à {{prix.commercial}} € HT par mois et Pro à 1 650 € HT par mois. Un premier échange gratuit inclut une liste de 30 prospects. Le détail de chaque formule figure dans la grille de cette page.",
           "q_en": "How much does automated prospecting cost?",
-          "a_en": "Two monthly subscription plans, with no minimum term: Standard at €980 excl. VAT per month and Pro at €1,650 excl. VAT per month. A free first call includes a list of 30 prospects. Each plan is detailed in the grid on this page."
+          "a_en": "Two monthly subscription plans, with no minimum term: Standard at €{{prix.commercial}} excl. VAT per month and Pro at €1,650 excl. VAT per month. A free first call includes a list of 30 prospects. Each plan is detailed in the grid on this page."
         },
         {
           "q_fr": "La prospection automatisée est-elle légale au regard du RGPD ?",

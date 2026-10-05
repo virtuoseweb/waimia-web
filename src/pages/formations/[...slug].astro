@@ -4,14 +4,16 @@ export const prerender = true;
 // Page SSG · /formations (hub) et /formations/[slug] · rendu 100 % composable (registry).
 // Route minimale : aucun markup propre, tout passe par <SectionsRenderer>.
 // Source : src/content/formations/*.json via src/lib/formations.ts (index.json = hub).
-// JSON-LD : Service sur le hub ; Service + Course (buildCourse) sur chaque page de formation.
-// Aucun prix balisé (les formations sont sur devis) ; Akigora est déclaré comme organisme
-// qui dispense la formation (provider), conformément à la mention affichée sur les pages.
+// JSON-LD : Service + ItemList (les formations) sur le hub ; Service + Course (buildCourse)
+// sur chaque page de formation. Durée et prix des deux formats viennent de la source unique
+// (src/data/pricing.ts → TRAINING_FORMATS) et sont affichés sur la page ; Akigora est déclaré
+// comme organisme qui dispense la formation (provider), conformément à la mention affichée.
 
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
-import { buildService, buildCourse } from '../../lib/seo/schema-builder';
+import { buildService, buildCourse, buildItemList } from '../../lib/seo/schema-builder';
+import { TRAINING_FORMATS } from '../../data/pricing';
 import { SITE } from '../../site.config';
 import { listFormations } from '../../lib/formations';
 
@@ -33,7 +35,7 @@ const description = lang === 'en' ? data.description_en : data.description_fr;
 const pageUrl = `${SITE.url}/formations${isHub ? '' : `/${entry.id}`}`;
 const serviceLd = buildService({ name: title, description, url: pageUrl, serviceType: data.seo?.serviceType });
 // Modalités : balisées seulement si la page les affiche (« à distance ou sur site »).
-// Durée et tarif sont définis au cadrage : ni `courseWorkload` ni `offers`.
+// Deux formats affichés (durée + prix) : une `CourseInstance` (courseWorkload) et une `Offer` chacun.
 const showsBothModes = /à distance ou sur site/i.test(JSON.stringify(data));
 const courseLd = isHub
   ? null
@@ -42,10 +44,23 @@ const courseLd = isHub
       description,
       url: pageUrl,
       ...(showsBothModes ? { modes: ['online', 'onsite'] as const } : {}),
+      formats: TRAINING_FORMATS,
       // Mention affichée sur les pages : « Formations dispensées via Akigora, organisme certifié Qualiopi ».
       deliveredBy: { name: 'Akigora', description: 'Organisme certifié Qualiopi' },
     });
-const pageLd = courseLd ? [serviceLd, courseLd] : [serviceLd];
+// Hub : liste des pages de formation (page de synthèse attendue par Google pour une liste de cours).
+const listLd = isHub
+  ? buildItemList(
+      title.split(' · ')[0],
+      listFormations()
+        .filter((f) => f.id !== 'index')
+        .map((f) => ({
+          name: (lang === 'en' ? f.data.title_en : f.data.title_fr).split(' · ')[0],
+          url: `${SITE.url}/formations/${f.id}`,
+        })),
+    )
+  : null;
+const pageLd = courseLd ? [serviceLd, courseLd] : listLd ? [serviceLd, listLd] : [serviceLd];
 const hubLabel = lang === 'fr' ? 'Formations' : 'Training';
 ---
 

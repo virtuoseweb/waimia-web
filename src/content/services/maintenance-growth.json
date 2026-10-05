@@ -6,7 +6,7 @@
   "description_en": "Website and WordPress maintenance for SMEs: monthly plan from {{prix.maintenance.p1}} €, continuous SEO, reporting and SLA fixes. No commitment. Bordeaux.",
   "slug": "maintenance-growth",
   "publishedAt": "2026-06-22T00:00:00.000Z",
-  "updatedAt": "2026-07-15T00:00:00.000Z",
+  "updatedAt": "2026-10-04T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "maintenance-growth",
@@ -33,11 +33,11 @@
     },
     {
       "q": "Qu'est-ce qui est inclus dans le premier palier, à {{prix.maintenance.p1}} € par mois ?",
-      "a": "La maintenance de base, tout inclus : la gestion de l'hébergement Vercel, quelques modifications chaque mois, les mises à jour et la sécurité en continu, l'hébergement web o2switch.fr et le nom de domaine avec sa gestion DNS. C'est le forfait qui garde votre site en vie, rapide et sûr, sans que vous ayez à y penser."
+      "a": "Palier {{prix.maintenance.p1.nom}}. {{prix.maintenance.p1.resume}}"
     },
     {
       "q": "Comment sont facturées les interventions hors forfait ?",
-      "a": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, selon le nombre et la criticité des systèmes suivis. Le périmètre de chaque palier est précisé au devis. Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution."
+      "a": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1.nom}} à {{prix.maintenance.p1}} € HT par mois, {{prix.maintenance.p2.nom}} à {{prix.maintenance.p2}} € HT par mois, {{prix.maintenance.p3.nom}} à {{prix.maintenance.p3}} € HT par mois. Palier {{prix.maintenance.p2.nom}}. {{prix.maintenance.p2.resume}} Palier {{prix.maintenance.p3.nom}}. {{prix.maintenance.p3.resume}} Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution."
     },
     {
       "q": "Vous gérez le SEO dans la durée, ou juste la technique ?",
@@ -75,11 +75,11 @@
     },
     {
       "q": "What's included in the first tier, at {{prix.maintenance.p1}} € a month?",
-      "a": "Base maintenance, all included: Vercel hosting managed for you, a few content edits each month, continuous updates and security, web hosting on o2switch.fr and the domain name with its DNS management. It's the retainer that keeps your site alive, fast and secure, without you having to think about it."
+      "a": "{{prix.maintenance.p1.nom.en}} tier. {{prix.maintenance.p1.resume.en}}"
     },
     {
       "q": "How is work outside the plan billed?",
-      "a": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month, depending on the number and criticality of the systems covered. The scope of each tier is set out in the quote. Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
+      "a": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1.nom.en}} at {{prix.maintenance.p1}} € ex VAT a month, {{prix.maintenance.p2.nom.en}} at {{prix.maintenance.p2}} € ex VAT a month, {{prix.maintenance.p3.nom.en}} at {{prix.maintenance.p3}} € ex VAT a month. {{prix.maintenance.p2.nom.en}} tier. {{prix.maintenance.p2.resume.en}} {{prix.maintenance.p3.nom.en}} tier. {{prix.maintenance.p3.resume.en}} Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
     },
     {
       "q": "Do you handle SEO over time, or just the technical side?",
@@ -616,28 +616,26 @@
       "kicker_en": "§ Retainers",
       "h2_fr": "Combien coûte la maintenance de votre site",
       "h2_en": "How much your site maintenance costs",
-      "lede_fr": "Trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, selon le nombre et la criticité des systèmes suivis. Le périmètre de chaque palier est précisé au devis. Les interventions hors forfait sont facturées {{prix.horaire}} € HT de l'heure. Sans engagement de durée.",
-      "lede_en": "Three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month, depending on the number and criticality of the systems covered. The scope of each tier is set out in the quote. Work outside the plan is billed {{prix.horaire}} € ex VAT an hour. No duration commitment.",
+      "lede_fr": "Trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois. Les interventions hors forfait sont facturées {{prix.horaire}} € HT de l'heure. Sans engagement de durée.",
+      "lede_en": "Three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month. Work outside the plan is billed {{prix.horaire}} € ex VAT an hour. No duration commitment.",
       "tiers": [
         {
-          "name_fr": "Palier 1",
-          "name_en": "Tier 1",
+          "name_fr": "{{prix.maintenance.p1.nom}}",
+          "name_en": "{{prix.maintenance.p1.nom.en}}",
           "price": "{{prix.maintenance.p1}} €",
-          "period_fr": "/ mois · tout inclus · HT",
-          "period_en": "/ month · all included · ex VAT",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · ex VAT",
           "features_fr": [
-            "Gestion de l'hébergement Vercel",
-            "Quelques modifications par mois",
-            "Mises à jour et sécurité en continu",
-            "Hébergement web o2switch.fr",
-            "Nom de domaine et gestion DNS"
+            "{{prix.maintenance.p1.inclus.1}}",
+            "{{prix.maintenance.p1.inclus.2}}",
+            "{{prix.maintenance.p1.inclus.3}}",
+            "{{prix.maintenance.p1.inclus.4}}"
           ],
           "features_en": [
-            "Vercel hosting managed for you",
-            "A few content edits each month",
-            "Continuous updates and security",
-            "Web hosting on o2switch.fr",
-            "Domain name and DNS management"
+            "{{prix.maintenance.p1.inclus.1.en}}",
+            "{{prix.maintenance.p1.inclus.2.en}}",
+            "{{prix.maintenance.p1.inclus.3.en}}",
+            "{{prix.maintenance.p1.inclus.4.en}}"
           ],
           "cta": {
             "label_fr": "Garder mon site en vie →",
@@ -647,22 +645,20 @@
           }
         },
         {
-          "name_fr": "Palier 2",
-          "name_en": "Tier 2",
+          "name_fr": "{{prix.maintenance.p2.nom}}",
+          "name_en": "{{prix.maintenance.p2.nom.en}}",
           "price": "{{prix.maintenance.p2}} €",
           "period_fr": "/ mois · HT",
           "period_en": "/ month · ex VAT",
           "features_fr": [
-            "Pour davantage de systèmes suivis, ou des systèmes plus critiques",
-            "Périmètre précisé au devis",
-            "Interventions hors forfait : {{prix.horaire}} € HT de l'heure",
-            "Sans engagement de durée"
+            "{{prix.maintenance.p2.inclus.1}}",
+            "{{prix.maintenance.p2.inclus.2}}",
+            "{{prix.maintenance.p2.inclus.3}}"
           ],
           "features_en": [
-            "For more systems covered, or more critical ones",
-            "Scope set out in the quote",
-            "Work outside the plan: {{prix.horaire}} € ex VAT an hour",
-            "No duration commitment"
+            "{{prix.maintenance.p2.inclus.1.en}}",
+            "{{prix.maintenance.p2.inclus.2.en}}",
+            "{{prix.maintenance.p2.inclus.3.en}}"
           ],
           "cta": {
             "label_fr": "Réserver un audit IA gratuit →",
@@ -673,22 +669,26 @@
           "featured": true
         },
         {
-          "name_fr": "Palier 3",
-          "name_en": "Tier 3",
+          "name_fr": "{{prix.maintenance.p3.nom}}",
+          "name_en": "{{prix.maintenance.p3.nom.en}}",
           "price": "{{prix.maintenance.p3}} €",
           "period_fr": "/ mois · HT",
           "period_en": "/ month · ex VAT",
           "features_fr": [
-            "Pour davantage de systèmes suivis, ou des systèmes plus critiques",
-            "Périmètre précisé au devis",
-            "Interventions hors forfait : {{prix.horaire}} € HT de l'heure",
-            "Sans engagement de durée"
+            "{{prix.maintenance.p3.inclus.1}}",
+            "{{prix.maintenance.p3.inclus.2}}",
+            "{{prix.maintenance.p3.inclus.3}}",
+            "{{prix.maintenance.p3.inclus.4}}",
+            "{{prix.maintenance.p3.inclus.5}}",
+            "{{prix.maintenance.p3.inclus.6}}"
           ],
           "features_en": [
-            "For more systems covered, or more critical ones",
-            "Scope set out in the quote",
-            "Work outside the plan: {{prix.horaire}} € ex VAT an hour",
-            "No duration commitment"
+            "{{prix.maintenance.p3.inclus.1.en}}",
+            "{{prix.maintenance.p3.inclus.2.en}}",
+            "{{prix.maintenance.p3.inclus.3.en}}",
+            "{{prix.maintenance.p3.inclus.4.en}}",
+            "{{prix.maintenance.p3.inclus.5.en}}",
+            "{{prix.maintenance.p3.inclus.6.en}}"
           ],
           "cta": {
             "label_fr": "Réserver un audit IA gratuit →",
@@ -729,14 +729,14 @@
         {
           "q_fr": "Qu'est-ce qui est inclus dans le premier palier, à {{prix.maintenance.p1}} € par mois ?",
           "q_en": "What's included in the first tier, at {{prix.maintenance.p1}} € a month?",
-          "a_fr": "La maintenance de base, tout inclus : la gestion de l'hébergement Vercel, quelques modifications chaque mois, les mises à jour et la sécurité en continu, l'hébergement web o2switch.fr et le nom de domaine avec sa gestion DNS. C'est le forfait qui garde votre site en vie, rapide et sûr, sans que vous ayez à y penser.",
-          "a_en": "Base maintenance, all included: Vercel hosting managed for you, a few content edits each month, continuous updates and security, web hosting on o2switch.fr and the domain name with its DNS management. It's the retainer that keeps your site alive, fast and secure, without you having to think about it."
+          "a_fr": "Palier {{prix.maintenance.p1.nom}}. {{prix.maintenance.p1.resume}}",
+          "a_en": "{{prix.maintenance.p1.nom.en}} tier. {{prix.maintenance.p1.resume.en}}"
         },
         {
           "q_fr": "Comment sont facturées les interventions hors forfait ?",
           "q_en": "How is work outside the plan billed?",
-          "a_fr": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, selon le nombre et la criticité des systèmes suivis. Le périmètre de chaque palier est précisé au devis. Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution.",
-          "a_en": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month, depending on the number and criticality of the systems covered. The scope of each tier is set out in the quote. Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
+          "a_fr": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1.nom}} à {{prix.maintenance.p1}} € HT par mois, {{prix.maintenance.p2.nom}} à {{prix.maintenance.p2}} € HT par mois, {{prix.maintenance.p3.nom}} à {{prix.maintenance.p3}} € HT par mois. Palier {{prix.maintenance.p2.nom}}. {{prix.maintenance.p2.resume}} Palier {{prix.maintenance.p3.nom}}. {{prix.maintenance.p3.resume}} Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution.",
+          "a_en": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1.nom.en}} at {{prix.maintenance.p1}} € ex VAT a month, {{prix.maintenance.p2.nom.en}} at {{prix.maintenance.p2}} € ex VAT a month, {{prix.maintenance.p3.nom.en}} at {{prix.maintenance.p3}} € ex VAT a month. {{prix.maintenance.p2.nom.en}} tier. {{prix.maintenance.p2.resume.en}} {{prix.maintenance.p3.nom.en}} tier. {{prix.maintenance.p3.resume.en}} Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
         },
         {
           "q_fr": "Vous gérez le SEO dans la durée, ou juste la technique ?",

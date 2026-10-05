@@ -9,6 +9,7 @@
 
 import { z } from 'zod';
 import { sectionsArraySchema } from '@waimia/ds-kernel';
+import { applyPricingTokens } from '../data/pricing';
 
 const faqArray = z.array(z.object({ q: z.string(), a: z.string() })).optional();
 
@@ -40,7 +41,8 @@ export function listFormations(): FormationEntry[] {
   return Object.entries(files)
     .map(([path, mod]) => {
       const id = path.split('/').pop()!.replace(/\.json$/, '');
-      const parsed = formationSchema.safeParse(mod.default);
+      // Jetons `{{prix.*}}` (durée et prix des formats) résolus depuis src/data/pricing.ts.
+      const parsed = formationSchema.safeParse(applyPricingTokens(mod.default));
       if (!parsed.success) {
         throw new Error(`formations/${id}.json invalide : ${parsed.error.message}`);
       }
