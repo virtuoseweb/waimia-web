@@ -115,3 +115,19 @@ test("charte IA : texte lisible, champs personnalisables, PDF servi", async ({ p
   // Signature du fichier plutôt que l'en-tête : le serveur de test ne type pas les .pdf.
   expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
 });
+
+test("checklist 90 jours : cases cochables et conservées, PDF servi", async ({ page, request }) => {
+  await page.goto("/ressources/outils/checklist-90-jours-claude");
+  await expect(page.locator("[data-ck-sheet] h3")).toHaveCount(3);
+  await expect(page.locator("[data-ck-sheet] h4")).toHaveCount(12);
+  const box = page.locator("#ck-p1");
+  await page.locator('label[for="ck-p1"]').click();
+  await expect(box).toBeChecked();
+  await expect(page.locator("[data-ck-done]")).toHaveText("1");
+  await page.reload();
+  await expect(page.locator("#ck-p1")).toBeChecked();
+  const href = await page.locator(".ck-actions a[download]").getAttribute("href");
+  const pdf = await request.get(href!);
+  expect(pdf.status()).toBe(200);
+  expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+});

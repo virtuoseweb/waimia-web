@@ -245,6 +245,7 @@ export const MM_RESOURCES: MegaMenu = {
         { href: '/ressources/diagnostics/maturite-ia', label: { en: 'AI maturity diagnostic', fr: 'Diagnostic maturité IA' } },
         { href: '/ressources/outils/grille-taches-a-automatiser', label: { en: 'Task automation grid', fr: 'Grille des tâches à automatiser' } },
         { href: '/ressources/outils/charte-ia-entreprise', label: { en: 'AI charter template', fr: 'Modèle de charte IA' } },
+        { href: '/ressources/outils/checklist-90-jours-claude', label: { en: '90-day Claude deployment checklist', fr: 'Checklist 90 jours Claude en PME' } },
       ],
     },
   ],

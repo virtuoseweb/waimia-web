@@ -1,0 +1,74 @@
+---
+export const prerender = true;
+
+// Page SSG · /ressources/outils/checklist-90-jours-claude · lead magnet « Checklist 90
+// jours pour déployer Claude en PME » (prolonge le guide /ressources/guides/claude-pme).
+// La checklist est lisible et cochable en entier sur la page, imprimable, téléchargeable
+// en PDF sans e-mail. La capture d'e-mail est facultative (organism LeadCapture →
+// /api/lead-magnet).
+// Route explicite : l'entrée `outils/checklist-90-jours-claude` (JSON) ne sert qu'au
+// listing du hub ; [...slug].astro l'exclut.
+
+import Base from '../../../layouts/Base.astro';
+import MastheadBar from '../../../components/sections/MastheadBar.astro';
+import CtaFinal from '../../../components/sections/CtaFinal.astro';
+import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
+import ChecklistDocument from '../../../components/ui/organisms/conversion/ChecklistDocument.astro';
+import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
+import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
+import { buildArticle, buildWebApplication } from '../../../lib/seo/schema-builder';
+import { SITE } from '../../../site.config';
+import { CHECKLIST_HREF, auditCtaFinal } from '../../../data/conversion';
+import { prerequisites, phases } from '../../../data/checklist-90-jours-claude';
+
+const nWeeks = phases.reduce((n, p) => n + p.weeks.length, 0);
+const title = 'Checklist 90 jours pour déployer Claude en PME (PDF)';
+const description = "Déployer Claude en PME en 90 jours : 6 prérequis, 12 semaines, une case par action et les indicateurs à suivre. En ligne et en PDF, sans inscription.";
+const ld = buildArticle({
+  headline: title,
+  description,
+  datePublished: '2026-10-05',
+  dateModified: '2026-10-05',
+  mainEntityOfPage: `${SITE.url}${CHECKLIST_HREF}`,
+});
+// La checklist se coche et se remplit dans le navigateur : outil gratuit, balisé comme tel.
+const webAppLd = buildWebApplication({ name: 'Checklist 90 jours pour déployer Claude en PME', description, url: `${SITE.url}${CHECKLIST_HREF}` });
+const cta = auditCtaFinal(
+  'La checklist donne l\'ordre des actions. L\'audit choisit votre cas pilote.',
+  '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et le cas d\'usage par lequel commencer, écrit noir sur blanc.',
+);
+---
+{/* showUpdated={false} : la date de mise à jour figure déjà dans les repères du bandeau d'introduction. */}
+<Base title={title} description={description} jsonLd={[ld, webAppLd]} ogType="article" showUpdated={false}>
+  <MastheadBar
+    lang="fr"
+    items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Ressources', href: '/ressources' },
+      { label: 'Outils', href: '/ressources/outils' },
+      { label: 'Checklist 90 jours Claude' },
+    ]}
+  />
+  <ToolIntro
+    h1="Checklist 90 jours : déployer Claude dans votre PME"
+    lede={`Le plan du guide « Déployer Claude dans votre PME », rendu actionnable : ${prerequisites.length} prérequis, ${phases.length} phases de 30 jours, une case par action et un livrable par semaine. Cochez en ligne ou imprimez-la pour votre réunion de lancement.`}
+    facts={[
+      { label: 'Format', value: 'En ligne, PDF' },
+      { label: 'Longueur', value: `${prerequisites.length} prérequis, ${nWeeks} semaines` },
+      { label: 'E-mail', value: 'Non requis' },
+      { label: 'Mise à jour', value: '5 octobre 2026' },
+    ]}
+  >
+    <a slot="actions" class="btn btn-ghost" href="/ressources/guides/claude-pme">Lire le guide complet</a>
+  </ToolIntro>
+  <ChecklistDocument />
+  <LeadCapture
+    band
+    slug="checklist-90-jours-claude"
+    title="Recevoir la checklist par e-mail"
+    description="Le lien vers le PDF et vers cette page, pour les retrouver ou les partager avec l'équipe qui pilotera le déploiement."
+    buttonLabel="Recevoir la checklist"
+  />
+  <ResourceLinks exclude={['checklist']} />
+  <CtaFinal data={cta} lang="fr" />
+</Base>

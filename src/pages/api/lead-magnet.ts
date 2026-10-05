@@ -1,7 +1,7 @@
 /**
  * API · POST /api/lead-magnet
  * Capture d'e-mail OPTIONNELLE des ressources (diagnostic de maturité IA, calculateur,
- * charte IA, grille des tâches) : envoie UN e-mail « version à garder » avec le
+ * charte IA, grille des tâches, checklist 90 jours) : envoie UN e-mail « version à garder » avec le
  * récapitulatif saisi à l'écran + une alerte interne. La valeur reste accessible sans
  * e-mail sur la page ; ce endpoint ne sert que la copie par e-mail.
  *

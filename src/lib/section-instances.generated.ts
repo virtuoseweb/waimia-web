@@ -7462,7 +7462,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 8,
-      "label": "Quatre outils pour passer du guide au plan",
+      "label": "Cinq outils pour passer du guide au plan",
       "background": "paper"
     }
   ],

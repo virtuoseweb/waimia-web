@@ -3263,7 +3263,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "resource-card-grid",
-        "label": "Quatre outils pour passer du guide au plan",
+        "label": "Cinq outils pour passer du guide au plan",
         "background": "paper"
       },
       {
@@ -3549,6 +3549,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "ressources",
     "collection": "outils",
     "file": "outils/charte-ia-entreprise.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/ressources/outils/checklist-90-jours-claude",
+    "title": "Checklist 90 jours pour déployer Claude en PME",
+    "group": "ressources",
+    "collection": "outils",
+    "file": "outils/checklist-90-jours-claude.json",
     "editable": false,
     "sections": []
   },
@@ -4291,6 +4300,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/outils",
       "/ressources/outils/calculateur-roi-ia",
       "/ressources/outils/charte-ia-entreprise",
+      "/ressources/outils/checklist-90-jours-claude",
       "/ressources/outils/grille-taches-a-automatiser"
     ]
   },
