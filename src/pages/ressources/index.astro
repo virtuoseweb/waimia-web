@@ -7,6 +7,7 @@ export const prerender = true;
 // Composition directe d'organismes existants : masthead + Featured tool +
 // Cases + WritingNotes (blog) + Cookbooks + Newsletter band + CtaBand.
 
+import { blogHeroIllustration } from '../../lib/hero-illustrations';
 import { getCollection } from 'astro:content';
 import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
@@ -160,6 +161,12 @@ const resourceGridData = {
 
 // ── ARTICLE VEDETTE · la note longue la plus récente, mise en avant distincte ──
 const _featArticle = [...blogLongReads].sort(byDate)[0];
+// Média = l'illustration du hero de l'article (même règle que blog/[...slug].astro), sinon
+// la une affichait le cadre vide du composant.
+const _featIllustration = _featArticle
+  ? ((_featArticle.data as { heroIllustration?: { src: string; alt_fr: string; alt_en: string } }).heroIllustration ??
+    blogHeroIllustration((_featArticle.data as { category?: string }).category))
+  : null;
 const featuredArticleData = _featArticle
   ? ({
       type: 'feature-split-media' as const,
@@ -172,6 +179,9 @@ const featuredArticleData = _featArticle
       body_fr: _featArticle.data.description_fr,
       body_en: _featArticle.data.description_en,
       points: [],
+      media_src: _featIllustration?.src,
+      media_alt_fr: _featIllustration?.alt_fr,
+      media_alt_en: _featIllustration?.alt_en,
       media_caption_fr: `${_featArticle.data.readingTime ? `${_featArticle.data.readingTime} min de lecture · ` : ''}${_featArticle.data.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}`,
       media_caption_en: `${_featArticle.data.readingTime ? `${_featArticle.data.readingTime} min read · ` : ''}${_featArticle.data.publishedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`,
       cta_label_fr: 'Lire l\'article →',
