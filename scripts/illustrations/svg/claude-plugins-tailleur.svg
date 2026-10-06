@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · sur mesure : un tailleur mesure une ceinture à outils géante sur un mannequin. Ceinture = {{subject}}. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{shadow}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="walker">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(16 0 -44)"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(-16 0 -44)"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="760" cy="300" r="236" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <!-- mannequin -->
+  <rect x="752" y="380" width="16" height="110" fill="{{shadow}}"/>
+  <path d="M700 498 L760 470 L820 498 Z" fill="{{shadow}}"/>
+  <path d="M684 120 Q760 92 836 120 Q858 200 826 260 Q842 320 830 380 L690 380 Q678 320 694 260 Q662 200 684 120 Z" fill="{{deep}}"/>
+  <rect x="742" y="96" width="36" height="26" rx="8" fill="{{shadow}}"/>
+  <!-- ceinture à outils -->
+  <rect x="640" y="258" width="240" height="56" fill="{{subject}}"/>
+  <rect x="742" y="262" width="36" height="48" fill="{{light}}"/><rect x="752" y="272" width="16" height="28" fill="{{subject}}"/>
+  <rect x="612" y="300" width="86" height="132" fill="{{subject}}"/>
+  <rect x="704" y="310" width="70" height="110" fill="{{subject}}"/>
+  <rect x="790" y="310" width="70" height="110" fill="{{subject}}"/>
+  <rect x="866" y="300" width="74" height="132" fill="{{subject}}"/>
+  <rect x="630" y="236" width="12" height="70" fill="{{shadow}}"/><rect x="618" y="226" width="36" height="18" fill="{{shadow}}"/>
+  <rect x="726" y="250" width="8" height="64" fill="{{light}}"/>
+  <rect x="808" y="246" width="10" height="70" fill="{{shadow}}"/>
+  <rect x="890" y="244" width="22" height="60" fill="{{light}}"/>
+  <!-- ruban -->
+  <path d="M540 360 Q700 342 940 352" stroke="{{detail}}" stroke-width="9" fill="none"/>
+  <path d="M540 360 L540 420" stroke="{{detail}}" stroke-width="9" fill="none"/>
+  <!-- tailleur et assistante -->
+  <use href="#pointer" transform="translate(520 504) scale(1.6)"/>
+  <use href="#woman" transform="translate(1080 504) scale(1.5)"/>
+  <rect x="1106" y="352" width="92" height="118" fill="{{subject}}"/>
+  <path d="M1120 380 L1184 380 M1120 408 L1170 408 M1120 436 L1178 436" stroke="{{light}}" stroke-width="5"/>
+
+</svg>

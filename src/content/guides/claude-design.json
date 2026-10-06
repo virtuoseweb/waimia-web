@@ -1,0 +1,803 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude Design : usages en PME, prix, limites, alternatives",
+  "title_en": "Claude Design: SMB uses, price, limits, alternatives",
+  "description_fr": "Claude Design en PME : ce qu'il produit, son prix réel dans les offres Claude, ses limites au 5 octobre 2026 et quand un designer reste utile.",
+  "description_en": "Claude Design for SMBs: what it produces, its real price within Claude plans, its limits as of 5 October 2026 and when a designer is still needed.",
+  "slug": "claude-design",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "claude-design",
+    "claude",
+    "anthropic",
+    "design",
+    "presentations",
+    "guide-pme"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sources": [
+    {
+      "name": "Anthropic, Introducing Claude Design by Anthropic Labs",
+      "url": "https://www.anthropic.com/news/claude-design-anthropic-labs",
+      "type": "enterprise",
+      "publishedAt": "2026-04-17"
+    },
+    {
+      "name": "Centre d'aide Claude, Claude Design (disponibilité, accès, exports, limites)",
+      "url": "https://support.claude.com/en/articles/14604416",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, design system et itération dans Claude Design",
+      "url": "https://support.claude.com/en/articles/14604397",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Cowork is now Claude",
+      "url": "https://claude.com/blog/cowork-is-now-claude",
+      "type": "enterprise",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "Anthropic, tarifs de Claude",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, conformité régionale et résidence des données",
+      "url": "https://claude.com/regional-compliance",
+      "type": "enterprise"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Combien coûte Claude Design ?",
+      "a": "Claude Design n'a pas de prix à lui : il est inclus dans les offres payantes de Claude. Sur la page tarifs d'Anthropic, lue le 5 octobre 2026, Pro coûte 20 dollars par mois (17 dollars en annuel), Max démarre à 100 dollars par mois, Team Standard coûte 25 dollars par siège et par mois (20 dollars en annuel) et Enterprise 20 dollars par siège en annuel plus l'usage au tarif de l'API. Prix hors TVA et hors taux de change."
+    },
+    {
+      "q": "Claude Design est-il gratuit ?",
+      "a": "Non. Au 5 octobre 2026, Claude Design est réservé aux offres payantes : Pro, Max, Team et Enterprise. L'offre gratuite de Claude ne l'inclut pas. Sur Enterprise, un owner de l'organisation doit l'activer ; sur les autres offres payantes, il est actif par défaut."
+    },
+    {
+      "q": "Claude Design a-t-il un quota séparé ?",
+      "a": "Non. D'après le centre d'aide d'Anthropic, Claude Design n'a pas de quota à part : il consomme les limites d'usage de votre offre, comme vos conversations. Plusieurs pages françaises parlent encore d'un quota hebdomadaire séparé : c'était la règle de la période de lancement, ce n'est plus le cas au 5 octobre 2026."
+    },
+    {
+      "q": "Claude Design peut-il remplacer Figma ou Canva ?",
+      "a": "Pas dans une PME qui les utilise déjà. Anthropic a prévu l'envoi des projets vers Canva, Miro ou Adobe, et l'import de fichiers Figma, pas leur remplacement. Claude Design sert à produire vite une première version ; l'outil de design où votre équipe travaille reste l'endroit où le fichier vit, se corrige à plusieurs et garde son historique, que Claude Design n'a pas encore."
+    },
+    {
+      "q": "Peut-on utiliser notre charte graphique dans Claude Design ?",
+      "a": "Oui. Claude Design applique le design system de l'organisation : couleurs, typographies, composants. La condition est d'en avoir un. Si votre charte se résume à un logo et deux couleurs, faites-la compléter par un designer avant : c'est elle qui donnera une identité à tout ce que l'outil produira ensuite."
+    },
+    {
+      "q": "Peut-on mettre en ligne un site fait avec Claude Design ?",
+      "a": "Techniquement, un projet s'exporte en HTML ou s'envoie vers Vercel, Netlify, Wix ou Lovable. Mais une maquette n'est pas un site qui vend : vitesse de chargement, référencement, formulaires reliés à votre CRM, accessibilité et sécurité restent à faire. Pour une page de test, l'export suffit ; pour votre site principal, passez par un développeur ou une agence."
+    },
+    {
+      "q": "Nos documents sont-ils protégés (RGPD) ?",
+      "a": "Ce que vous mettez dans Claude Design suit les règles de votre offre Claude. Sur Free, Pro et Max, un réglage décide si vos échanges servent à l'entraînement ; sur Team et Enterprise, pas d'entraînement par défaut. Les apps Claude stockent les données aux États-Unis par défaut. Ne chargez pas de données clients sensibles sans règle interne écrite."
+    },
+    {
+      "q": "Qui s'en occupe dans une PME, et faut-il se faire accompagner ?",
+      "a": "Une personne qui produit déjà les supports, souvent au marketing ou à la direction commerciale, peut être autonome en quelques séances si votre charte existe. Un accompagnement se justifie pour poser la charte dans l'outil, écrire les consignes de l'équipe et former plusieurs personnes. Chez Waimia, le sprint découverte est à 999 euros HT pour 10 heures."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does Claude Design cost?",
+      "a": "Claude Design has no price of its own: it is included in Claude's paid plans. On Anthropic's pricing page, read on 5 October 2026, Pro costs 20 dollars a month (17 billed annually), Max starts at 100 dollars a month, Team Standard costs 25 dollars per seat per month (20 billed annually) and Enterprise 20 dollars per seat billed annually plus usage at API rates. Prices exclude VAT and exchange rates."
+    },
+    {
+      "q": "Is Claude Design free?",
+      "a": "No. As of 5 October 2026, Claude Design is limited to paid plans: Pro, Max, Team and Enterprise. Claude's free plan does not include it. On Enterprise, an organisation owner has to turn it on; on the other paid plans it is on by default."
+    },
+    {
+      "q": "Does Claude Design have a separate quota?",
+      "a": "No. According to Anthropic's help center, Claude Design has no quota of its own: it draws on your plan's usage limits, like your conversations. Several French pages still mention a separate weekly quota: that was the launch-period rule, it is no longer the case as of 5 October 2026."
+    },
+    {
+      "q": "Can Claude Design replace Figma or Canva?",
+      "a": "Not in an SMB that already uses them. Anthropic built sending to Canva, Miro and Adobe, and importing Figma files, not a replacement. Claude Design is for producing a first version fast; the design tool your team already uses remains where the file lives, gets edited by several people and keeps its history, which Claude Design does not have yet."
+    },
+    {
+      "q": "Can we use our brand guidelines in Claude Design?",
+      "a": "Yes. Claude Design applies the organisation's design system: colours, typefaces, components. The condition is having one. If your guidelines boil down to a logo and two colours, have a designer complete them first: they are what will give an identity to everything the tool produces next."
+    },
+    {
+      "q": "Can we put a site made with Claude Design online?",
+      "a": "Technically, a project exports to HTML or can be sent to Vercel, Netlify, Wix or Lovable. But a mock-up is not a site that sells: load speed, search visibility, forms wired to your CRM, accessibility and security still need doing. For a test page, the export is enough; for your main site, go through a developer or an agency."
+    },
+    {
+      "q": "Are our documents protected (GDPR)?",
+      "a": "What you put into Claude Design follows your Claude plan's rules. On Free, Pro and Max, a setting decides whether your chats are used for training; on Team and Enterprise, no training by default. Claude apps store data in the United States by default. Do not upload sensitive client data without a written internal rule."
+    },
+    {
+      "q": "Who handles it in an SMB, and do we need help?",
+      "a": "Someone who already produces your materials, often in marketing or sales, can be autonomous within a few sessions if your guidelines exist. Outside help makes sense to set the guidelines up in the tool, write the team's instructions and train several people. At Waimia, the discovery sprint costs 999 euros ex VAT for 10 hours."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · Claude Design",
+      "kicker_en": "§ Guide · Claude Design",
+      "h1_fr": "Claude Design : usages en PME, limites et <i class=\"acc\">alternatives</i>",
+      "h1_en": "Claude Design: SMB uses, limits and <i class=\"acc\">alternatives</i>",
+      "lede_fr": "Claude Design fabrique des maquettes, des decks et des one-pagers à partir d'une demande écrite. Ce guide dit ce qu'il produit vraiment, ce qu'il coûte dans votre offre Claude, où il s'arrête, et à quel moment un designer ou une agence reprend la main. Faits relus le 5 octobre 2026 sur les pages d'Anthropic.",
+      "lede_en": "Claude Design builds mock-ups, decks and one-pagers from a written request. This guide covers what it really produces, what it costs within your Claude plan, where it stops, and when a designer or an agency takes over. Facts checked on 5 October 2026 against Anthropic's pages.",
+      "badges": [
+        {
+          "label_fr": "Faits relus le 5 octobre 2026",
+          "label_en": "Facts checked on 5 October 2026"
+        },
+        {
+          "label_fr": "Sources officielles Anthropic",
+          "label_en": "Official Anthropic sources"
+        },
+        {
+          "label_fr": "Angle PME",
+          "label_en": "SMB angle"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Déployer Claude dans l'équipe",
+        "label_en": "Roll Claude out to the team",
+        "href": "/services/integration-claude",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-design-mur-maquette-paper.webp",
+        "alt_fr": "Une petite silhouette face à un mur immense où des formes simples s'assemblent en mise en page",
+        "alt_en": "A small figure facing a huge wall where simple shapes assemble into a page layout",
+        "side": "right"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Claude Design, c'est quoi, et est-ce utile à une PME ?",
+      "question_en": "What is Claude Design, and is it useful to an SMB?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Claude Design est l'outil de création visuelle de Claude, lancé le 17 avril 2026 et en bêta au 5 octobre 2026. Il produit maquettes, prototypes, decks et one-pagers en appliquant votre charte, sans abonnement séparé : il consomme le quota de votre offre payante. Il suffit pour les supports courants ; un site ou une identité de marque demandent encore un professionnel.",
+      "answer_en": "Claude Design is Claude's visual creation tool, launched on 17 April 2026 and in beta as of 5 October 2026. It produces mock-ups, prototypes, decks and one-pagers using your brand guidelines, with no separate subscription: it draws on your paid plan's quota. It covers everyday materials; a website or a brand identity still need a professional."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ L'essentiel au 5 octobre 2026",
+      "eyebrow_en": "§ Key facts as of 5 October 2026",
+      "title_fr": "Quatre faits à connaître avant d'ouvrir l'outil",
+      "title_en": "Four facts to know before opening the tool",
+      "metrics": [
+        {
+          "value": "17/04/2026",
+          "label_fr": "Lancement par Anthropic Labs",
+          "label_en": "Launch by Anthropic Labs"
+        },
+        {
+          "value": "Bêta",
+          "label_fr": "Statut actuel, sur Pro, Max, Team et Enterprise",
+          "label_en": "Current status, on Pro, Max, Team and Enterprise"
+        },
+        {
+          "value": "0 quota",
+          "label_fr": "à part : Design puise dans les limites de votre offre",
+          "label_en": "of its own: Design draws on your plan's limits"
+        },
+        {
+          "value": "5 formats",
+          "label_fr": "d'export (ZIP, PDF, PPTX, HTML, Google Slides), plus l'envoi vers Canva, Gamma ou Miro",
+          "label_en": "of export (ZIP, PDF, PPTX, HTML, Google Slides), plus sending to Canva, Gamma or Miro"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Mise à jour",
+      "kicker_en": "§ Update",
+      "heading_fr": "Idées reçues sur Claude Design, corrigées au 5 octobre 2026",
+      "heading_en": "Claude Design misconceptions, corrected as of 5 October 2026",
+      "caption_fr": "Les deux premières lignes figurent encore sur plusieurs pages françaises bien placées sur « claude design » : elles décrivaient la période de lancement d'avril 2026. Source : centre d'aide Claude (articles 14604416 et 14604397) et annonce Anthropic du 16 septembre 2026, lus le 5 octobre 2026.",
+      "caption_en": "The first two rows still appear on several well-ranked French pages: they described the April 2026 launch period. Source: Claude Help Center (articles 14604416 and 14604397) and Anthropic's 16 September 2026 announcement, read on 5 October 2026.",
+      "columns_fr": [
+        "Ce qu'on lit encore",
+        "Ce qui est vrai au 5 octobre 2026"
+      ],
+      "columns_en": [
+        "What you still read",
+        "What is true as of 5 October 2026"
+      ],
+      "rows_fr": [
+        [
+          "Claude Design est en « research preview »",
+          "Il est en bêta, sur les offres Pro, Max, Team et Enterprise."
+        ],
+        [
+          "Claude Design a son propre quota hebdomadaire",
+          "Pas de quota séparé : l'usage compte dans les limites de votre offre, avec le reste de Claude."
+        ],
+        [
+          "Il faut passer par un site à part",
+          "claude.ai/design existe toujours, mais Design s'ouvre aussi dans une conversation, dans l'onglet Artifacts et avec /design dans Claude Code. Il est intégré aux conversations depuis le 16 septembre 2026."
+        ],
+        [
+          "Tout le monde y a accès, même en gratuit",
+          "Réservé aux offres payantes. Sur Enterprise, un owner doit l'activer."
+        ],
+        [
+          "Il ne sort que des images",
+          "Exports ZIP, PDF, PPTX, HTML autonome et Google Slides, envoi vers Canva, Gamma, Miro, Adobe, HubSpot, Lovable, Replit, v0, Vercel, Netlify ou Wix, transfert vers Claude Code."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Claude Design is a \"research preview\"",
+          "It is in beta, on Pro, Max, Team and Enterprise plans."
+        ],
+        [
+          "Claude Design has its own weekly quota",
+          "No separate quota: usage counts against your plan's limits, along with the rest of Claude."
+        ],
+        [
+          "You have to use a separate site",
+          "claude.ai/design still exists, but Design also opens in a conversation, in the Artifacts tab and with /design in Claude Code. It has been built into conversations since 16 September 2026."
+        ],
+        [
+          "Everyone has access, even on Free",
+          "Paid plans only. On Enterprise, an owner has to turn it on."
+        ],
+        [
+          "It only outputs images",
+          "Exports to ZIP, PDF, PPTX, standalone HTML and Google Slides, sending to Canva, Gamma, Miro, Adobe, HubSpot, Lovable, Replit, v0, Vercel, Netlify or Wix, handoff to Claude Code."
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Où trouver Claude Design</h2><p>D'après le centre d'aide d'Anthropic, il y a quatre portes d'entrée :</p><ul><li><strong>claude.ai/design</strong>, l'espace dédié. C'est le seul endroit qui exporte vers Google Slides.</li><li><strong>Une conversation ordinaire</strong>, en choisissant Design comme type de sortie (menu Output). C'est possible depuis la refonte du 16 septembre 2026, celle qui a aussi intégré Cowork à Claude : notre <a href=\"/ressources/guides/claude-cowork\">guide Claude Cowork</a> détaille ce changement.</li><li><strong>L'onglet Artifacts</strong>, où vous retrouvez vos créations.</li><li><strong>La commande /design dans Claude Code</strong>, pour les équipes qui ont un développeur. Voir <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</li></ul><p>Sur mobile, on consulte et on partage. On ne crée pas.</p><h2>Comment on travaille avec</h2><p>Vous décrivez le support voulu : à qui il s'adresse, ce qu'il doit faire passer, son format, ses contraintes. Claude Design propose une première version. Vous l'ajustez ensuite de trois façons : en commentant une zone précise, en modifiant directement un texte ou un élément, ou avec les curseurs que l'outil propose.</p><p>C'est plus rapide qu'un aller-retour par e-mail avec un prestataire, à une condition : arriver avec un fond clair. Claude Design met en forme une idée. Il ne la trouve pas à votre place, et il ne vérifie pas vos chiffres.</p><p>Design n'est qu'une pièce de l'ensemble. Vos consignes de rédaction peuvent vivre dans des <a href=\"/ressources/guides/claude-skills\">skills Claude</a>, et une équipe peut les recevoir toutes prêtes via des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins d'entreprise</a>. Le panorama complet est dans notre guide des <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités de Claude pour une PME</a>.</p>",
+      "html_en": "<h2>Where to find Claude Design</h2><p>According to Anthropic's help center, there are four ways in:</p><ul><li><strong>claude.ai/design</strong>, the dedicated space. It is the only place that exports to Google Slides.</li><li><strong>A regular conversation</strong>, by choosing Design as the output type (Output menu). This has been possible since the 16 September 2026 overhaul, which also merged Cowork into Claude: our <a href=\"/ressources/guides/claude-cowork\">Claude Cowork guide</a> covers that change.</li><li><strong>The Artifacts tab</strong>, where your creations are stored.</li><li><strong>The /design command in Claude Code</strong>, for teams with a developer. See <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business</a>.</li></ul><p>On mobile, you view and share. You do not create.</p><h2>How you work with it</h2><p>You describe the material you need: who it is for, what it must get across, its format, its constraints. Claude Design proposes a first version. You then adjust it three ways: by commenting on a specific area, by editing a text or element directly, or with the sliders the tool offers.</p><p>It is faster than an email back-and-forth with a supplier, on one condition: bring clear substance. Claude Design shapes an idea. It does not find it for you, and it does not check your numbers.</p><p>Design is one piece of the whole. Your writing guidelines can live in <a href=\"/ressources/guides/claude-skills\">Claude skills</a>, and a team can receive them ready-made through <a href=\"/ressources/guides/claude-plugins-entreprise\">business plugins</a>. The full overview is in our guide to <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features for an SMB</a>.</p>"
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper-2",
+      "kicker_fr": "§ Ce que ça produit",
+      "kicker_en": "§ What it produces",
+      "h2_fr": "Ce que Claude Design produit, et ce que vous devez apporter",
+      "h2_en": "What Claude Design produces, and what you must bring",
+      "lede_fr": "Anthropic cite quatre familles de livrables. Pour chacune, la qualité du résultat dépend surtout de la matière que vous fournissez : arguments, chiffres réels, charte.",
+      "lede_en": "Anthropic lists four families of deliverables. For each, the quality of the result depends mostly on the material you provide: arguments, real figures, brand guidelines.",
+      "rows": [
+        {
+          "kicker_fr": "Supports 01",
+          "kicker_en": "Materials 01",
+          "h3_fr": "Decks, one-pagers et supports marketing",
+          "h3_en": "Decks, one-pagers and marketing materials",
+          "body_fr": "Le cas le plus courant en PME : un deck de rendez-vous commercial, une fiche produit d'une page, une présentation d'offre, un visuel pour un salon. Vous apportez le fond : arguments, chiffres réels, références clients que vous avez le droit de citer. Claude Design apporte la mise en page, la hiérarchie visuelle et la cohérence d'une diapositive à l'autre. Les exports PPTX et Google Slides permettent de reprendre le fichier dans vos outils habituels.",
+          "body_en": "The most common SMB case: a sales meeting deck, a one-page product sheet, an offer presentation, a trade-show visual. You bring the substance: arguments, real figures, client references you are allowed to cite. Claude Design brings the layout, the visual hierarchy and consistency from one slide to the next. PPTX and Google Slides exports let you pick the file up in your usual tools.",
+          "points": [
+            {
+              "label_fr": "Export PPTX, PDF ou Google Slides",
+              "label_en": "Export to PPTX, PDF or Google Slides"
+            },
+            {
+              "label_fr": "Retouches par commentaires",
+              "label_en": "Edits through comments"
+            },
+            {
+              "label_fr": "Le fond reste à votre charge",
+              "label_en": "The substance stays your job"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/claude-design-deck-rangee-paper.webp",
+          "media_alt_fr": "Cinq silhouettes en file portent chacune un grand panneau vierge, comme une suite de diapositives",
+          "media_alt_en": "Five figures in single file each carry a large blank board, like a sequence of slides"
+        },
+        {
+          "kicker_fr": "Supports 02",
+          "kicker_en": "Materials 02",
+          "h3_fr": "Maquettes et prototypes interactifs",
+          "h3_en": "Mock-ups and interactive prototypes",
+          "body_fr": "Une page d'accueil à tester, un écran d'outil interne, un parcours de prise de rendez-vous. Claude Design produit des maquettes cliquables à montrer à un client ou à votre équipe avant d'engager un développement. C'est l'usage le plus sous-estimé : décider sur une maquette coûte beaucoup moins cher que corriger un site déjà construit. Mais un prototype sert à décider, pas à mettre en ligne. La version de production se construit ensuite, par un développeur ou via le transfert vers Claude Code.",
+          "body_en": "A homepage to test, an internal tool screen, a booking flow. Claude Design produces clickable mock-ups to show a client or your team before committing to development. It is the most underrated use: deciding on a mock-up costs far less than fixing a site already built. But a prototype is for deciding, not for going live. The production version is built afterwards, by a developer or through the handoff to Claude Code.",
+          "points": [
+            {
+              "label_fr": "Maquette cliquable avant tout devis",
+              "label_en": "Clickable mock-up before any quote"
+            },
+            {
+              "label_fr": "Transfert possible vers Claude Code",
+              "label_en": "Handoff to Claude Code possible"
+            },
+            {
+              "label_fr": "Pas une version de production",
+              "label_en": "Not a production version"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/claude-design-maquette-chantier-paper.webp",
+          "media_alt_fr": "Un architecte tient une petite maquette en papier devant un vrai bâtiment en chantier, à contre-jour",
+          "media_alt_en": "An architect holds a small paper model in front of a real building under construction, backlit"
+        },
+        {
+          "kicker_fr": "Supports 03",
+          "kicker_en": "Materials 03",
+          "h3_fr": "Le design system de votre organisation",
+          "h3_en": "Your organisation's design system",
+          "body_fr": "Claude Design applique un design system d'organisation : couleurs, typographies, composants. Une fois votre charte en place, chaque deck et chaque maquette part de vos codes au lieu d'un modèle générique. C'est là que se joue l'écart entre un support qui sent l'outil et un support qui ressemble à votre marque. Encore faut-il avoir une charte. Si elle tient en un logo et deux couleurs, c'est un travail de designer à faire d'abord, une fois pour toutes.",
+          "body_en": "Claude Design applies an organisation-wide design system: colours, typefaces, components. Once your guidelines are in place, every deck and mock-up starts from your codes instead of a generic template. That is where the gap lies between material that looks machine-made and material that looks like your brand. You still need guidelines. If yours are a logo and two colours, that is a designer's job to do first, once and for all.",
+          "points": [
+            {
+              "label_fr": "Couleurs, typographies, composants",
+              "label_en": "Colours, typefaces, components"
+            },
+            {
+              "label_fr": "Valable pour toute l'organisation",
+              "label_en": "Applies across the organisation"
+            },
+            {
+              "label_fr": "Suppose une charte existante",
+              "label_en": "Assumes existing guidelines"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/claude-design-nuancier-paper.webp",
+          "media_alt_fr": "Une silhouette déploie un immense éventail de nuanciers de couleurs, plus grand qu'elle",
+          "media_alt_en": "A figure unfolds a huge fan of colour swatch cards, taller than herself"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-design-sorties-multiples-paper.webp",
+          "alt_fr": "Des feuilles s'envolent d'une table à dessin vers plusieurs bâtiments distincts à l'horizon",
+          "alt_en": "Sheets fly from a drafting table toward several separate buildings on the horizon",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Exports : où vont vos fichiers</h2><p>Claude Design ne vous enferme pas. D'après le centre d'aide, un projet s'exporte en <strong>ZIP</strong>, en <strong>PDF</strong>, en <strong>PPTX</strong>, en <strong>HTML autonome</strong> ou vers <strong>Google Slides</strong> (depuis claude.ai/design uniquement). Il s'envoie aussi vers Canva, Gamma, Miro, Adobe, Vercel, Netlify, Lovable, HubSpot, Wix et d'autres services. Enfin, il se transfère vers Claude Code pour devenir du code.</p><h2>Claude Design, Figma ou Canva : la mauvaise question</h2><p>La requête « Claude Design vs Figma » revient souvent. La liste des exports y répond déjà en partie : Anthropic a prévu l'envoi vers Canva et l'import de fichiers Figma pour bâtir un design system, pas le remplacement de ces outils. Notre lecture, en PME :</p><ul><li><strong>Claude Design</strong> sert à passer d'une idée écrite à une première version propre, vite : deck, one-pager, maquette à discuter.</li><li><strong>Votre outil de design</strong>, Figma, Canva ou un autre, reste l'endroit où le fichier vit dans la durée, où plusieurs personnes le modifient et où la charte est tenue à jour.</li><li><strong>Le bon enchaînement</strong> : premier jet dans Claude Design, export vers l'outil où l'équipe travaille déjà, finitions et archivage là-bas. C'est d'autant plus vrai que Claude Design n'a pas d'historique de versions.</li></ul><p>Si vous n'avez aucun outil de design aujourd'hui, Claude Design peut suffire pour des supports internes et commerciaux. Pour comparer Claude à d'autres assistants sur l'ensemble de ses usages, notre <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">comparatif Claude ou ChatGPT pour une PME</a> pose les critères.</p>",
+      "html_en": "<h2>Exports: where your files go</h2><p>Claude Design does not lock you in. According to the help center, a project exports to <strong>ZIP</strong>, <strong>PDF</strong>, <strong>PPTX</strong>, <strong>standalone HTML</strong> or <strong>Google Slides</strong> (from claude.ai/design only). It can also be sent to Canva, Gamma, Miro, Adobe, Vercel, Netlify, Lovable, HubSpot, Wix and other services. Finally, it can be handed to Claude Code to become code.</p><h2>Claude Design, Figma or Canva: the wrong question</h2><p>\"Claude Design vs Figma\" is a frequent search. The export list already answers part of it: Anthropic built sending to Canva and importing Figma files to build a design system, not a replacement for these tools. Our reading, for SMBs:</p><ul><li><strong>Claude Design</strong> gets you from a written idea to a clean first version, fast: deck, one-pager, mock-up to discuss.</li><li><strong>Your design tool</strong>, Figma, Canva or another, remains where the file lives over time, where several people edit it and where the guidelines are kept up to date.</li><li><strong>The right sequence</strong>: first draft in Claude Design, export to the tool your team already uses, finishing and archiving there. All the more so since Claude Design has no version history.</li></ul><p>If you have no design tool today, Claude Design can be enough for internal and sales materials. To compare Claude with other assistants across all uses, our <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude or ChatGPT for an SMB comparison</a> sets out the criteria.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Prix",
+      "kicker_en": "§ Price",
+      "heading_fr": "Claude Design prix : inclus dans les offres payantes de Claude",
+      "heading_en": "Claude Design price: included in Claude's paid plans",
+      "caption_fr": "Source : claude.com/pricing et centre d'aide Claude, lus le 5 octobre 2026. Prix publics en dollars américains, hors TVA et hors taux de change : le montant facturé en euros peut différer. Claude Design n'a pas de quota séparé. La dernière colonne est une lecture Waimia, pas une recommandation d'Anthropic.",
+      "caption_en": "Source: claude.com/pricing and Claude Help Center, read on 5 October 2026. Public prices in US dollars, excluding VAT and exchange rates: the amount billed in euros may differ. Claude Design has no separate quota. The last column is Waimia's reading, not an Anthropic recommendation.",
+      "columns_fr": [
+        "Offre",
+        "Prix affiché",
+        "Claude Design",
+        "Pour qui, selon Waimia"
+      ],
+      "columns_en": [
+        "Plan",
+        "Listed price",
+        "Claude Design",
+        "For whom, per Waimia"
+      ],
+      "rows_fr": [
+        [
+          "Free",
+          "0 $",
+          "Non inclus",
+          "Tester Claude, pas Design"
+        ],
+        [
+          "Pro",
+          "20 $ par mois, 17 $ par mois en annuel (200 $ par an)",
+          "Inclus en bêta, actif par défaut",
+          "Un dirigeant ou un commercial qui fait quelques supports par mois"
+        ],
+        [
+          "Max",
+          "À partir de 100 $ par mois, 5 ou 20 fois l'usage de Pro",
+          "Inclus en bêta, actif par défaut",
+          "Une personne qui produit des supports chaque semaine"
+        ],
+        [
+          "Team Standard",
+          "25 $ par siège et par mois, 20 $ en annuel, de 2 à 150 sièges",
+          "Inclus en bêta, actif par défaut",
+          "Une équipe qui veut une administration commune et le SSO"
+        ],
+        [
+          "Team Premium",
+          "125 $ par siège et par mois, 100 $ en annuel",
+          "Inclus en bêta, actif par défaut",
+          "Les utilisateurs intensifs d'une équipe"
+        ],
+        [
+          "Enterprise",
+          "20 $ par siège et par mois en annuel, plus l'usage au tarif de l'API",
+          "Inclus en bêta, à activer par un owner",
+          "Une organisation avec exigences d'audit et de rétention"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Free",
+          "$0",
+          "Not included",
+          "Trying Claude, not Design"
+        ],
+        [
+          "Pro",
+          "$20 a month, $17 a month billed annually ($200 a year)",
+          "Included in beta, on by default",
+          "A manager or salesperson making a few materials a month"
+        ],
+        [
+          "Max",
+          "From $100 a month, 5 or 20 times Pro usage",
+          "Included in beta, on by default",
+          "Someone producing materials every week"
+        ],
+        [
+          "Team Standard",
+          "$25 per seat per month, $20 billed annually, 2 to 150 seats",
+          "Included in beta, on by default",
+          "A team wanting shared admin and SSO"
+        ],
+        [
+          "Team Premium",
+          "$125 per seat per month, $100 billed annually",
+          "Included in beta, on by default",
+          "A team's heavy users"
+        ],
+        [
+          "Enterprise",
+          "$20 per seat per month billed annually, plus usage at API rates",
+          "Included in beta, turned on by an owner",
+          "An organisation with audit and retention requirements"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-design-feuilles-vent-paper.webp",
+          "alt_fr": "Des feuilles de croquis s'envolent au vent loin d'une table à dessin où une silhouette continue de dessiner",
+          "alt_en": "Sketch sheets blow away from a drafting desk where a figure keeps drawing",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Les limites réelles, écrites par Anthropic</h2><p>Le centre d'aide liste lui-même ce qui ne fonctionne pas encore bien. À lire avant de bâtir un process dessus :</p><ul><li><strong>Pas d'historique de versions.</strong> Une modification remplace la précédente. Exportez un PDF à chaque étape validée si vous devez revenir en arrière ou prouver ce qui a été envoyé à un client.</li><li><strong>Des commentaires inline parfois perdus.</strong> Ne vous en servez pas comme registre de validation. Gardez les décisions ailleurs.</li><li><strong>Une co-édition simultanée peu fiable.</strong> Une personne à la fois sur un même projet ; la relecture se fait sur l'export.</li><li><strong>De la lenteur sur les gros codebases.</strong> Cela concerne surtout le passage au code ; une maquette modeste reste fluide.</li><li><strong>Le statut bêta.</strong> Les fonctions et les menus peuvent changer d'un mois à l'autre.</li><li><strong>Le mobile en lecture seule.</strong> On consulte et on partage depuis le téléphone, on crée sur ordinateur.</li></ul><h2>Ce que l'outil ne fera pas à votre place</h2><p>Ici, c'est la lecture de Waimia, pas celle d'Anthropic. Claude Design ne vérifie pas que vos chiffres sont justes, que vos références clients sont autorisées, ni que les images respectent des droits. Il ne remplace pas une réflexion de positionnement : un beau deck sur une offre floue reste une offre floue. Et il ne fait pas votre site : passer d'une maquette à une page en ligne rapide, bien référencée et reliée à votre CRM, c'est un autre métier.</p><p>Côté données, ce que vous chargez dans Claude Design suit les règles de votre offre Claude. Sur Free, Pro et Max, un réglage décide si vos échanges servent à l'entraînement ; sur Team et Enterprise, pas d'entraînement par défaut. Les apps Claude stockent les données aux États-Unis par défaut. Avant d'y mettre des documents clients, lisez notre page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>The real limits, as written by Anthropic</h2><p>The help center itself lists what does not work well yet. Read it before building a process on top:</p><ul><li><strong>No version history.</strong> An edit replaces the previous one. Export a PDF at each approved stage if you may need to go back or prove what was sent to a client.</li><li><strong>Inline comments sometimes lost.</strong> Do not use them as an approval record. Keep decisions elsewhere.</li><li><strong>Unreliable simultaneous co-editing.</strong> One person at a time on a project; review happens on the export.</li><li><strong>Slowness on large codebases.</strong> This mostly affects the move to code; a modest mock-up stays smooth.</li><li><strong>Beta status.</strong> Features and menus can change from one month to the next.</li><li><strong>Read-only mobile.</strong> You view and share from your phone, you create on a computer.</li></ul><h2>What the tool will not do for you</h2><p>This is Waimia's reading, not Anthropic's. Claude Design does not check that your numbers are right, that your client references are cleared, or that images respect rights. It does not replace positioning work: a beautiful deck on a vague offer is still a vague offer. And it does not build your website: going from a mock-up to a fast, well-indexed page wired to your CRM is another job.</p><p>On data, what you upload to Claude Design follows your Claude plan's rules. On Free, Pro and Max, a setting decides whether your chats are used for training; on Team and Enterprise, no training by default. Claude apps store data in the United States by default. Before adding client documents, read our <a href=\"/conformite-ia\">AI compliance</a> page.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Cas PME",
+      "kicker_en": "§ SMB cases",
+      "heading_fr": "Quatre usages concrets en PME, et ce qui reste à faire",
+      "heading_en": "Four concrete SMB uses, and what is left to do",
+      "caption_fr": "Scénarios illustratifs construits par Waimia, pas des cas clients. Aucun gain de temps n'est mesuré ici : il dépend surtout de la qualité de ce que vous fournissez.",
+      "caption_en": "Illustrative scenarios built by Waimia, not client cases. No time saving is measured here: it depends mostly on the quality of what you provide.",
+      "columns_fr": [
+        "Besoin",
+        "Ce que vous fournissez",
+        "Ce que Claude Design rend",
+        "Ce qui reste à faire"
+      ],
+      "columns_en": [
+        "Need",
+        "What you provide",
+        "What Claude Design returns",
+        "What is left to do"
+      ],
+      "rows_fr": [
+        [
+          "Deck pour un rendez-vous commercial",
+          "Votre offre, les objections fréquentes, des références autorisées, votre charte",
+          "Un deck exportable en PPTX ou Google Slides",
+          "Vérifier chaque chiffre, adapter au client, préparer l'oral"
+        ],
+        [
+          "One-pager produit ou service",
+          "Le texte validé, les prix publics, une photo dont vous avez les droits",
+          "Une page en PDF aux couleurs de la marque",
+          "Relire les mentions légales, faire un test d'impression"
+        ],
+        [
+          "Proposition commerciale mise en page",
+          "Le devis, le périmètre, le planning, les conditions",
+          "Un document structuré exportable en PDF",
+          "Contrôler les montants, archiver la version envoyée (pas d'historique dans l'outil)"
+        ],
+        [
+          "Maquette d'une nouvelle page de site",
+          "Le message principal, la cible, les preuves, la page actuelle",
+          "Une maquette cliquable à montrer en interne",
+          "Arbitrer, puis confier développement, référencement et formulaires à un professionnel"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Deck for a sales meeting",
+          "Your offer, frequent objections, cleared references, your guidelines",
+          "A deck exportable to PPTX or Google Slides",
+          "Check every figure, tailor to the client, prepare the pitch"
+        ],
+        [
+          "Product or service one-pager",
+          "Approved copy, public prices, a photo you hold rights to",
+          "A branded one-page PDF",
+          "Review legal notices, run a print test"
+        ],
+        [
+          "Designed sales proposal",
+          "The quote, scope, schedule, terms",
+          "A structured document exportable to PDF",
+          "Check amounts, archive the version sent (no history in the tool)"
+        ],
+        [
+          "Mock-up of a new web page",
+          "The main message, the audience, proof points, the current page",
+          "A clickable mock-up to show internally",
+          "Decide, then hand development, SEO and forms to a professional"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper-3",
+      "lead_magnet": "guide-achat-claude-pme",
+      "kicker_fr": "§ Guide d'achat gratuit",
+      "kicker_en": "§ Free buying guide",
+      "h2_fr": "Quelle offre Claude donne accès à Design, et à quel coût réel ?",
+      "h2_en": "Which Claude plan gives access to Design, and at what real cost?",
+      "body_fr": "Recevez par e-mail le « Guide d'achat Claude pour PME : plan, coût, configuration », au format PDF. Vous y trouverez la comparaison des offres Free, Pro, Max, Team et Enterprise, ce que chacune ouvre (dont Claude Design), le calcul du coût pour une équipe et les réglages à faire le premier jour.",
+      "body_en": "Get the \"Claude buying guide for SMBs: plan, cost, setup\" by email, as a PDF. It compares the Free, Pro, Max, Team and Enterprise plans, what each one unlocks (including Claude Design), how to work out the cost for a team and the settings to make on day one.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir le guide d'achat →",
+      "submit_label_en": "Get the buying guide →",
+      "hint_fr": "Le PDF arrive par e-mail. Votre adresse n'est ni revendue ni partagée.",
+      "hint_en": "The PDF arrives by email. Your address is never sold or shared."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-design-relais-plan-paper.webp",
+          "alt_fr": "Deux silhouettes sur deux plateformes rocheuses se passent un long plan roulé au-dessus du vide",
+          "alt_en": "Two figures on two rocky platforms pass a long rolled blueprint across a gap",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Quand un designer ou une agence reste nécessaire</h2><p>Claude Design baisse le coût d'un premier jet. Il ne fait pas disparaître quatre besoins qui relèvent encore d'un professionnel :</p><ol><li><strong>Le design system de marque.</strong> L'outil applique une charte, il ne la conçoit pas. Logo décliné, palette, typographies, composants, règles d'usage : c'est un travail de designer, fait une fois, que Claude Design réutilisera ensuite.</li><li><strong>L'industrialisation d'un prototype.</strong> Une maquette cliquable n'a ni accessibilité vérifiée, ni performance mesurée, ni sécurité. En faire une application utilisée chaque jour demande un développeur, même si le transfert vers Claude Code fait gagner du temps.</li><li><strong>Le passage au site web.</strong> Un site qui vend doit charger vite, être lisible par Google et par les moteurs IA, envoyer ses formulaires dans votre CRM. C'est le périmètre de notre <a href=\"/services/site-web-ia\">création de site internet pour PME</a> et de nos <a href=\"/services/landing-pages-tunnels\">landing pages et tunnels</a>.</li><li><strong>Le déploiement dans l'équipe.</strong> Choisir l'offre, installer la charte dans l'outil, écrire les consignes, former les personnes qui produiront les supports. C'est ce que couvre l'<a href=\"/services/integration-claude\">intégration de Claude en entreprise</a>.</li></ol><p>Et le cas où vous n'avez pas besoin de nous : si vous faites trois decks par an et que votre charte tient déjà dans un modèle PowerPoint propre, une offre Pro et une prise en main suffisent. Notre <a href=\"/formations/claude\">formation Claude</a> couvre cet usage sans projet sur mesure.</p>",
+      "html_en": "<h2>When a designer or an agency is still needed</h2><p>Claude Design lowers the cost of a first draft. It does not remove four needs that still call for a professional:</p><ol><li><strong>The brand design system.</strong> The tool applies guidelines, it does not design them. Logo variants, palette, typefaces, components, usage rules: that is a designer's job, done once, which Claude Design then reuses.</li><li><strong>Industrialising a prototype.</strong> A clickable mock-up has no verified accessibility, no measured performance, no security. Turning it into an app used every day takes a developer, even if the handoff to Claude Code saves time.</li><li><strong>Moving to a website.</strong> A site that sells must load fast, be readable by Google and AI engines, and send its forms to your CRM. That is the scope of our <a href=\"/services/site-web-ia\">SMB website design</a> and our <a href=\"/services/landing-pages-tunnels\">landing pages and funnels</a>.</li><li><strong>Rolling it out to the team.</strong> Choosing the plan, setting the guidelines up in the tool, writing instructions, training the people who will produce materials. That is what <a href=\"/services/integration-claude\">Claude integration for business</a> covers.</li></ol><p>And the case where you do not need us: if you make three decks a year and your guidelines already fit in a clean PowerPoint template, a Pro plan and an onboarding session are enough. Our <a href=\"/formations/claude\">Claude training</a> covers that use without a bespoke project.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Faire soi-même ou sous-traiter",
+      "kicker_en": "§ Do it yourself or outsource",
+      "title_fr": "Claude Design suffit, ou il faut un professionnel ?",
+      "title_en": "Is Claude Design enough, or do you need a professional?",
+      "aside_fr": "Lecture Waimia, à partir de ce que l'outil fait et ne fait pas au 5 octobre 2026.",
+      "aside_en": "Waimia's reading, based on what the tool does and does not do as of 5 October 2026.",
+      "use_title_fr": "Claude Design seul suffit",
+      "use_title_en": "Claude Design alone is enough",
+      "use_items_fr": [
+        "Supports internes : notes de cadrage, présentations d'équipe, comptes rendus mis en forme",
+        "Decks commerciaux à partir d'une charte déjà définie",
+        "One-pagers et fiches produit déclinés d'un modèle existant",
+        "Maquettes pour discuter d'une idée avant de la chiffrer"
+      ],
+      "use_items_en": [
+        "Internal materials: briefing notes, team presentations, formatted minutes",
+        "Sales decks based on existing brand guidelines",
+        "One-pagers and product sheets derived from an existing template",
+        "Mock-ups to discuss an idea before pricing it"
+      ],
+      "avoid_title_fr": "Un professionnel reste nécessaire",
+      "avoid_title_en": "A professional is still needed",
+      "avoid_items_fr": [
+        "Pas de charte de marque, ou une charte incomplète",
+        "Un prototype qui doit devenir une application utilisée chaque jour",
+        "Un site ou une landing page qui doit générer des contacts",
+        "Un déploiement à toute une équipe, avec règles d'usage et formation",
+        "Des documents où une erreur engage l'entreprise : contrats, réponses à appel d'offres"
+      ],
+      "avoid_items_en": [
+        "No brand guidelines, or incomplete ones",
+        "A prototype that must become an app used every day",
+        "A website or landing page that must generate leads",
+        "A rollout to a whole team, with usage rules and training",
+        "Documents where a mistake binds the company: contracts, tender responses"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode Waimia",
+      "kicker_en": "§ Waimia method",
+      "h2_fr": "Comment Waimia s'y prend",
+      "h2_en": "How Waimia goes about it",
+      "intro_fr": "Un accompagnement possible, pas obligatoire. L'audit de 45 minutes est gratuit ; le sprint découverte est à prix fixe, 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure si vous voulez aller plus loin.",
+      "intro_en": "Support if you want it, not a requirement. The 45-minute audit is free; the discovery sprint is fixed-price, 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT per hour if you want to go further.",
+      "steps": [
+        {
+          "title_fr": "Regarder vos supports actuels",
+          "title_en": "Look at your current materials",
+          "body_fr": "Pendant l'audit, on passe en revue ce que vous produisez déjà : decks, fiches, propositions. On repère ce qui peut passer dans Claude Design et ce qui n'y a pas sa place.",
+          "body_en": "During the audit, we review what you already produce: decks, sheets, proposals. We spot what can move to Claude Design and what does not belong there."
+        },
+        {
+          "title_fr": "Vérifier la charte",
+          "title_en": "Check the guidelines",
+          "body_fr": "Si votre charte est exploitable, on l'installe dans l'outil. Si elle ne l'est pas, on vous le dit, et on vous oriente vers un designer avant d'aller plus loin.",
+          "body_en": "If your guidelines are usable, we set them up in the tool. If not, we say so and point you to a designer before going further."
+        },
+        {
+          "title_fr": "Produire avec l'équipe",
+          "title_en": "Produce with the team",
+          "body_fr": "Deux ou trois supports réels, faits avec les personnes qui les feront ensuite seules. Pas de démonstration sur un exemple inventé.",
+          "body_en": "Two or three real materials, made with the people who will then make them alone. No demo on a made-up example."
+        },
+        {
+          "title_fr": "Poser les règles et passer le relais",
+          "title_en": "Set the rules and hand over",
+          "body_fr": "Données autorisées, archivage des versions exportées, qui valide quoi. Ce qui doit devenir du code part vers un développeur, chez nous ou ailleurs.",
+          "body_en": "Allowed data, archiving of exported versions, who approves what. Anything that must become code goes to a developer, ours or someone else's."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Les fonctionnalités de Claude pour une PME",
+          "title_en": "Claude features for an SMB",
+          "lead_fr": "Chaque produit Claude, ce qu'il fait et pour qui.",
+          "lead_en": "Each Claude product, what it does and for whom.",
+          "href": "/ressources/guides/claude-fonctionnalites-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Cowork est désormais Claude",
+          "title_en": "Claude Cowork is now Claude",
+          "lead_fr": "Ce que la fusion du 16 septembre 2026 change pour vos équipes.",
+          "lead_en": "What the 16 September 2026 merge changes for your teams.",
+          "href": "/ressources/guides/claude-cowork"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Claude en entreprise",
+          "title_en": "Claude for business",
+          "lead_fr": "Choix de l'offre, charte dans l'outil, règles d'usage, formation.",
+          "lead_en": "Plan choice, guidelines in the tool, usage rules, training.",
+          "href": "/services/integration-claude"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes sur Claude Design",
+      "h2_en": "Claude Design FAQ",
+      "items": [
+        {
+          "q_fr": "Combien coûte Claude Design ?",
+          "q_en": "How much does Claude Design cost?",
+          "a_fr": "Claude Design n'a pas de prix à lui : il est inclus dans les offres payantes de Claude. Sur la page tarifs d'Anthropic, lue le 5 octobre 2026, Pro coûte 20 dollars par mois (17 dollars en annuel), Max démarre à 100 dollars par mois, Team Standard coûte 25 dollars par siège et par mois (20 dollars en annuel) et Enterprise 20 dollars par siège en annuel plus l'usage au tarif de l'API. Prix hors TVA et hors taux de change.",
+          "a_en": "Claude Design has no price of its own: it is included in Claude's paid plans. On Anthropic's pricing page, read on 5 October 2026, Pro costs 20 dollars a month (17 billed annually), Max starts at 100 dollars a month, Team Standard costs 25 dollars per seat per month (20 billed annually) and Enterprise 20 dollars per seat billed annually plus usage at API rates. Prices exclude VAT and exchange rates."
+        },
+        {
+          "q_fr": "Claude Design est-il gratuit ?",
+          "q_en": "Is Claude Design free?",
+          "a_fr": "Non. Au 5 octobre 2026, Claude Design est réservé aux offres payantes : Pro, Max, Team et Enterprise. L'offre gratuite de Claude ne l'inclut pas. Sur Enterprise, un owner de l'organisation doit l'activer ; sur les autres offres payantes, il est actif par défaut.",
+          "a_en": "No. As of 5 October 2026, Claude Design is limited to paid plans: Pro, Max, Team and Enterprise. Claude's free plan does not include it. On Enterprise, an organisation owner has to turn it on; on the other paid plans it is on by default."
+        },
+        {
+          "q_fr": "Claude Design a-t-il un quota séparé ?",
+          "q_en": "Does Claude Design have a separate quota?",
+          "a_fr": "Non. D'après le centre d'aide d'Anthropic, Claude Design n'a pas de quota à part : il consomme les limites d'usage de votre offre, comme vos conversations. Plusieurs pages françaises parlent encore d'un quota hebdomadaire séparé : c'était la règle de la période de lancement, ce n'est plus le cas au 5 octobre 2026.",
+          "a_en": "No. According to Anthropic's help center, Claude Design has no quota of its own: it draws on your plan's usage limits, like your conversations. Several French pages still mention a separate weekly quota: that was the launch-period rule, it is no longer the case as of 5 October 2026."
+        },
+        {
+          "q_fr": "Claude Design peut-il remplacer Figma ou Canva ?",
+          "q_en": "Can Claude Design replace Figma or Canva?",
+          "a_fr": "Pas dans une PME qui les utilise déjà. Anthropic a prévu l'envoi des projets vers Canva, Miro ou Adobe, et l'import de fichiers Figma, pas leur remplacement. Claude Design sert à produire vite une première version ; l'outil de design où votre équipe travaille reste l'endroit où le fichier vit, se corrige à plusieurs et garde son historique, que Claude Design n'a pas encore.",
+          "a_en": "Not in an SMB that already uses them. Anthropic built sending to Canva, Miro and Adobe, and importing Figma files, not a replacement. Claude Design is for producing a first version fast; the design tool your team already uses remains where the file lives, gets edited by several people and keeps its history, which Claude Design does not have yet."
+        },
+        {
+          "q_fr": "Peut-on utiliser notre charte graphique dans Claude Design ?",
+          "q_en": "Can we use our brand guidelines in Claude Design?",
+          "a_fr": "Oui. Claude Design applique le design system de l'organisation : couleurs, typographies, composants. La condition est d'en avoir un. Si votre charte se résume à un logo et deux couleurs, faites-la compléter par un designer avant : c'est elle qui donnera une identité à tout ce que l'outil produira ensuite.",
+          "a_en": "Yes. Claude Design applies the organisation's design system: colours, typefaces, components. The condition is having one. If your guidelines boil down to a logo and two colours, have a designer complete them first: they are what will give an identity to everything the tool produces next."
+        },
+        {
+          "q_fr": "Peut-on mettre en ligne un site fait avec Claude Design ?",
+          "q_en": "Can we put a site made with Claude Design online?",
+          "a_fr": "Techniquement, un projet s'exporte en HTML ou s'envoie vers Vercel, Netlify, Wix ou Lovable. Mais une maquette n'est pas un site qui vend : vitesse de chargement, référencement, formulaires reliés à votre CRM, accessibilité et sécurité restent à faire. Pour une page de test, l'export suffit ; pour votre site principal, passez par un développeur ou une agence.",
+          "a_en": "Technically, a project exports to HTML or can be sent to Vercel, Netlify, Wix or Lovable. But a mock-up is not a site that sells: load speed, search visibility, forms wired to your CRM, accessibility and security still need doing. For a test page, the export is enough; for your main site, go through a developer or an agency."
+        },
+        {
+          "q_fr": "Nos documents sont-ils protégés (RGPD) ?",
+          "q_en": "Are our documents protected (GDPR)?",
+          "a_fr": "Ce que vous mettez dans Claude Design suit les règles de votre offre Claude. Sur Free, Pro et Max, un réglage décide si vos échanges servent à l'entraînement ; sur Team et Enterprise, pas d'entraînement par défaut. Les apps Claude stockent les données aux États-Unis par défaut. Ne chargez pas de données clients sensibles sans règle interne écrite.",
+          "a_en": "What you put into Claude Design follows your Claude plan's rules. On Free, Pro and Max, a setting decides whether your chats are used for training; on Team and Enterprise, no training by default. Claude apps store data in the United States by default. Do not upload sensitive client data without a written internal rule."
+        },
+        {
+          "q_fr": "Qui s'en occupe dans une PME, et faut-il se faire accompagner ?",
+          "q_en": "Who handles it in an SMB, and do we need help?",
+          "a_fr": "Une personne qui produit déjà les supports, souvent au marketing ou à la direction commerciale, peut être autonome en quelques séances si votre charte existe. Un accompagnement se justifie pour poser la charte dans l'outil, écrire les consignes de l'équipe et former plusieurs personnes. Chez Waimia, le sprint découverte est à 999 euros HT pour 10 heures.",
+          "a_en": "Someone who already produces your materials, often in marketing or sales, can be autonomous within a few sessions if your guidelines exist. Outside help makes sense to set the guidelines up in the tool, write the team's instructions and train several people. At Waimia, the discovery sprint costs 999 euros ex VAT for 10 hours."
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "paper-3",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Claude change chaque mois. Recevez seulement ce qui compte pour une PME.",
+      "h2_en": "Claude changes every month. Get only what matters to an SMB.",
+      "body_fr": "Une lettre courte quand un changement d'offre, de prix ou de fonction touche vraiment votre usage : statut de Claude Design, évolutions de Cowork, nouvelles règles d'administration.",
+      "body_en": "A short letter when a change in plans, prices or features really affects your use: Claude Design status, Cowork changes, new admin rules.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Claude en PME",
+      "kicker_en": "§ Claude for SMBs",
+      "h2_fr": "Savoir ce que Claude Design peut produire chez vous, et ce qu'il faut confier à un pro.",
+      "h2_en": "Know what Claude Design can produce for you, and what to hand to a pro.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde vos supports, votre charte et vos besoins de site, puis on vous dit franchement ce qui se fait en interne.",
+      "subtitle_en": "The 45-minute audit is free. We look at your materials, your guidelines and your website needs, then tell you plainly what can be done in-house.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégration de Claude",
+          "label_en": "See Claude integration",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

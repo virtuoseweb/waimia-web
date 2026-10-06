@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · claude-skills · pas de synchronisation entre surfaces : trois îles, chacune sa propre cabane identique, aucun pont -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="seated">
+      <circle cx="0" cy="-62" r="7" fill="{{subject}}"/>
+      <path d="M-10 -53 Q0 -57 10 -53 L11 -20 L-11 -20 Z" fill="{{subject}}"/>
+      <rect x="-11" y="-22" width="26" height="8" fill="{{subject}}"/>
+      <rect x="9" y="-22" width="7" height="22" fill="{{subject}}"/>
+      <rect x="-14" y="-16" width="4" height="16" fill="{{deep}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1210" cy="150" r="96" fill="{{shape}}"/>
+  <rect y="392" width="1456" height="232" fill="{{ground}}"/>
+  <rect x="60" y="450" width="160" height="3" fill="{{light}}"/><rect x="340" y="480" width="220" height="3" fill="{{light}}"/><rect x="620" y="445" width="140" height="3" fill="{{light}}"/><rect x="860" y="500" width="200" height="3" fill="{{light}}"/><rect x="1120" y="460" width="180" height="3" fill="{{light}}"/><rect x="200" y="540" width="240" height="3" fill="{{light}}"/><rect x="700" y="560" width="180" height="3" fill="{{light}}"/><rect x="1000" y="585" width="220" height="3" fill="{{light}}"/><rect x="470" y="605" width="160" height="3" fill="{{light}}"/>
+  <path d="M90 400 Q140 352 260 346 Q380 352 430 400 Z" fill="{{pale}}"/>
+  <path d="M90 400 L430 400 L410 414 L110 414 Z" fill="{{soft}}"/>
+  <rect x="226" y="286" width="68" height="58" fill="{{subject}}"/>
+  <path d="M216 288 L260 252 L304 288 Z" fill="{{subject}}"/>
+  <rect x="250" y="316" width="20" height="28" fill="{{light}}"/>
+  <path d="M558 400 Q608 340 728 334 Q848 340 898 400 Z" fill="{{pale}}"/>
+  <path d="M558 400 L898 400 L878 414 L578 414 Z" fill="{{soft}}"/>
+  <rect x="694" y="274" width="68" height="58" fill="{{subject}}"/>
+  <path d="M684 276 L728 240 L772 276 Z" fill="{{subject}}"/>
+  <rect x="718" y="304" width="20" height="28" fill="{{light}}"/>
+  <path d="M1026 400 Q1076 356 1196 350 Q1316 356 1366 400 Z" fill="{{pale}}"/>
+  <path d="M1026 400 L1366 400 L1346 414 L1046 414 Z" fill="{{soft}}"/>
+  <rect x="1162" y="290" width="68" height="58" fill="{{subject}}"/>
+  <path d="M1152 292 L1196 256 L1240 292 Z" fill="{{subject}}"/>
+  <rect x="1186" y="320" width="20" height="28" fill="{{light}}"/>
+  <use href="#man" transform="translate(372 398) scale(0.62)"/>
+  <rect x="376" y="356" width="14" height="10" fill="{{light}}"/>
+
+</svg>

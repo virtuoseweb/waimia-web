@@ -1,6 +1,6 @@
 // Email · LeadMagnetDelivery · POST /api/lead-magnet
 // « Version à garder » d'une ressource consultée sur le site : lien vers la page,
-// fichier à télécharger s'il existe, et récapitulatif des résultats saisis à l'écran
+// fichier(s) EN PIÈCE JOINTE s'il y en a (jamais de lien public : ressources verrouillées), et récapitulatif des résultats saisis à l'écran
 // (diagnostic, calculateur, grille). Aucune promesse de séquence : un seul e-mail.
 import {
   wrapEmail,
@@ -9,7 +9,6 @@ import {
   h1Style,
   pStyle,
   mutedStyle,
-  buttonLinkStyle,
   accentLinkStyle,
   cardSoftStyle,
 } from "./_layout";
@@ -25,8 +24,10 @@ interface Props {
   title: string;
   /** URL canonique de la page de la ressource */
   pageUrl: string;
-  /** URL d'un fichier à télécharger (PDF), si la ressource en a un */
-  fileUrl?: string;
+  /** Fichiers joints à cet e-mail (nom et taille en octets) ; aucun lien de téléchargement */
+  attachments?: { filename: string; sizeBytes: number }[];
+  /** Langue de l'e-mail */
+  lang?: "fr" | "en";
   /** Résultats saisis ou calculés à l'écran, recopiés tels quels */
   summary?: SummaryLine[];
   /** URL de prise de rendez-vous pour l'audit */
@@ -36,7 +37,8 @@ interface Props {
 export default function LeadMagnetDelivery({
   title,
   pageUrl,
-  fileUrl,
+  attachments = [],
+  lang = "fr",
   summary = [],
   auditUrl,
 }: Props): string {
@@ -58,24 +60,50 @@ export default function LeadMagnetDelivery({
         `</table></div>`
       : "";
 
-  const fileBlock = fileUrl
-    ? `<div style="padding:8px 0 20px;">` +
-      `<a href="${escapeUrl(fileUrl)}" style="${buttonLinkStyle}">Télécharger le PDF</a>` +
-      `</div>`
-    : "";
+  const en = lang === "en";
+  const sizeLabel = (n: number): string => {
+    if (n >= 1024 * 1024) return `${(n / (1024 * 1024)).toFixed(1).replace(".", en ? "." : ",")} ${en ? "MB" : "Mo"}`;
+    return `${Math.max(1, Math.round(n / 1024))} ${en ? "KB" : "Ko"}`;
+  };
+
+  const fileBlock =
+    attachments.length > 0
+      ? `<div style="${cardSoftStyle}">` +
+        `<p style="${pStyle}margin:0 0 8px;">${en ? "Attached to this email:" : attachments.length > 1 ? "Fichiers en pièce jointe :" : "Fichier en pièce jointe :"}</p>` +
+        attachments
+          .map(
+            (f) =>
+              `<p style="font-size:14px;line-height:1.6;color:#0C0B09;margin:0;">${escapeHtml(f.filename)} <span style="color:#7A6F60;">(${en ? "approx. " : "environ "}${sizeLabel(f.sizeBytes)})</span></p>`,
+          )
+          .join("") +
+        `</div>` +
+        `<p style="${mutedStyle}">${en ? "The file is not available through a public link: it is only sent by email. Keep this message." : "Le fichier n'est pas disponible par un lien public : il n'est envoyé que par e-mail. Gardez ce message."}</p>`
+      : "";
+
+  const intro = en
+    ? attachments.length > 0
+      ? `Here is what you asked for on the site: the file is attached to this email. `
+      : `Here is the version to keep, as requested on the site. `
+    : attachments.length > 0
+      ? `Voici ce que vous avez demandé sur le site : le fichier est en pièce jointe de cet e-mail. `
+      : `Voici la version à garder, comme demandé sur le site. `;
+  const introDetail =
+    summary.length > 0
+      ? en
+        ? `The lines below repeat what you entered and what was calculated on screen. They are your answers and your assumptions, not a promise of results.`
+        : `Les lignes ci-dessous reprennent ce que vous avez saisi et ce qui a été calculé à l'écran. Ce sont vos réponses et vos hypothèses, pas un engagement de résultat.`
+      : en
+        ? `It is a template: adapt it to your company before sharing it.`
+        : `C'est un modèle : adaptez-le à votre entreprise avant de le diffuser.`;
 
   const content =
     `<h1 style="${h1Style}">${titleSafe}</h1>` +
-    `<p style="${pStyle}">Voici la version à garder, comme demandé sur le site. ` +
-    (summary.length > 0
-      ? `Les lignes ci-dessous reprennent ce que vous avez saisi et ce qui a été calculé à l'écran. Ce sont vos réponses et vos hypothèses, pas un engagement de résultat.`
-      : `Le document est un modèle : adaptez-le à votre entreprise avant de le diffuser.`) +
-    `</p>` +
-    summaryBlock +
+    `<p style="${pStyle}">${intro}${introDetail}</p>` +
     fileBlock +
-    `<p style="${pStyle}">La page en ligne reste accessible : <a href="${escapeUrl(pageUrl)}" style="${accentLinkStyle}">${escapeHtml(pageUrl)}</a></p>` +
-    `<p style="${pStyle}">Pour passer de ces chiffres à un premier chantier, l'audit IA dure 45 minutes en visio et il est gratuit : <a href="${escapeUrl(auditUrl)}" style="${accentLinkStyle}">choisir un créneau</a>.</p>` +
-    `<p style="${mutedStyle}">Vous recevez ce message parce que vous l'avez demandé. Sans inscription à la lettre mensuelle de votre part, c'est le seul que vous recevrez. Une question : <a href="mailto:${SITE.email}" style="${accentLinkStyle}">${SITE.email}</a></p>`;
+    summaryBlock +
+    `<p style="${pStyle}">${en ? "The online page stays available:" : "La page en ligne reste accessible :"} <a href="${escapeUrl(pageUrl)}" style="${accentLinkStyle}">${escapeHtml(pageUrl)}</a></p>` +
+    `<p style="${pStyle}">${en ? `To go from this to a first project, the AI audit lasts 45 minutes by video and is free: <a href="${escapeUrl(auditUrl)}" style="${accentLinkStyle}">pick a slot</a>.` : `Pour passer de ces éléments à un premier chantier, l'audit IA dure 45 minutes en visio et il est gratuit : <a href="${escapeUrl(auditUrl)}" style="${accentLinkStyle}">choisir un créneau</a>.`}</p>` +
+    `<p style="${mutedStyle}">${en ? `You receive this message because you asked for it. Unless you also ticked the monthly newsletter, it is the only one you will receive. A question: <a href="mailto:${SITE.email}" style="${accentLinkStyle}">${SITE.email}</a>` : `Vous recevez ce message parce que vous l'avez demandé. Sans inscription à la lettre mensuelle de votre part, c'est le seul que vous recevrez. Une question : <a href="mailto:${SITE.email}" style="${accentLinkStyle}">${SITE.email}</a>`}</p>`;
 
-  return wrapEmail(content, `${title} · la version à garder`, pageUrl);
+  return wrapEmail(content, en ? `${title} · your file` : `${title} · la version à garder`, pageUrl);
 }

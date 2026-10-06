@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot IMG1 · un cadran solaire géant posé au sol, son ombre longue ; deux silhouettes lisent l heure au bord du disque -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pusher">
+      <circle cx="10" cy="-86" r="7.5" fill="{{subject}}"/>
+      <path d="M-6 -78 Q4 -82 14 -76 L4 -42 L-18 -44 Z" fill="{{subject}}"/>
+      <rect x="2" y="-74" width="34" height="6" rx="3" fill="{{subject}}" transform="rotate(8 2 -74)"/>
+      <path d="M-18 -44 L-4 -44 L-14 -2 L-26 -2 Z" fill="{{subject}}"/>
+      <path d="M-6 -44 L6 -44 L14 -2 L2 -2 Z" fill="{{subject}}"/>
+      <rect x="-30" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="2" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="260" cy="140" r="56" fill="{{detail}}"/>
+  <rect y="440" width="1456" height="184" fill="{{ground}}"/>
+  <ellipse cx="728" cy="510" rx="400" ry="84" fill="{{shape}}"/>
+  <g fill="{{detail}}">
+    <rect x="376.6" y="483.8" width="18" height="8" rx="3"/><rect x="427.8" y="463.7" width="18" height="8" rx="3"/><rect x="507.4" y="447.8" width="18" height="8" rx="3"/><rect x="607.8" y="437.5" width="18" height="8" rx="3"/><rect x="719.0" y="434.0" width="18" height="8" rx="3"/><rect x="830.2" y="437.5" width="18" height="8" rx="3"/><rect x="930.6" y="447.8" width="18" height="8" rx="3"/><rect x="1010.2" y="463.7" width="18" height="8" rx="3"/><rect x="1061.4" y="483.8" width="18" height="8" rx="3"/>
+  </g>
+  <path d="M728 512 L1080 470 L1088 488 L740 520 Z" fill="{{deep}}"/>
+  <path d="M700 512 L756 512 L728 240 Z" fill="{{subject}}"/>
+  <use href="#man" transform="translate(1180 540) scale(1.3)"/>
+  <use href="#woman" transform="translate(1240 560) scale(1.3)"/>
+
+</svg>

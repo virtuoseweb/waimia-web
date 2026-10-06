@@ -238,8 +238,32 @@ const RESSOURCES: MegaMenuSection = {
           href: '/ressources/guides/claude-pme',
         },
         {
-          label: { fr: 'Guide Claude Cowork', en: 'Claude Cowork guide' },
+          label: { fr: 'Claude Cowork est désormais Claude', en: 'Claude Cowork is now Claude' },
           href: '/ressources/guides/claude-cowork',
+        },
+        {
+          label: { fr: 'Claude : fonctionnalités, offres et prix', en: 'Claude: features, plans and pricing' },
+          href: '/ressources/guides/claude-fonctionnalites-pme',
+        },
+        {
+          label: { fr: 'Claude Code en entreprise', en: 'Claude Code for business' },
+          href: '/ressources/guides/claude-code-entreprise',
+        },
+        {
+          label: { fr: 'Skills Claude : créer et déployer', en: 'Claude skills: build and deploy' },
+          href: '/ressources/guides/claude-skills',
+        },
+        {
+          label: { fr: 'Plugins et connecteurs Claude', en: 'Claude plugins and connectors' },
+          href: '/ressources/guides/claude-plugins-entreprise',
+        },
+        {
+          label: { fr: 'Claude Design en PME', en: 'Claude Design for SMBs' },
+          href: '/ressources/guides/claude-design',
+        },
+        {
+          label: { fr: "Guide d'achat Claude pour PME (PDF)", en: "Claude buyer's guide for SMBs (PDF)" },
+          href: '/ressources/outils/guide-achat-claude-pme',
         },
         {
           label: { fr: 'Guide MCP : brancher Claude à vos outils', en: 'MCP guide: connecting Claude to your tools' },
@@ -420,7 +444,13 @@ const SOLUTIONS: MegaMenuSection = {
                     { label: { fr: 'Checklist 90 jours pour déployer Claude', en: '90-day Claude deployment checklist' }, href: '/ressources/outils/checklist-90-jours-claude' },
                     { label: { fr: 'Guide MCP : brancher Claude à vos outils', en: 'MCP guide: connecting Claude to your tools' }, href: '/ressources/guides/mcp-claude' },
                     { label: { fr: 'Claude Platform ou OpenAI Platform', en: 'Claude Platform or OpenAI Platform' }, href: '/ressources/comparatifs/claude-platform-vs-openai-platform' },
-                    { label: { fr: 'Guide Claude Cowork', en: 'Claude Cowork guide' }, href: '/ressources/guides/claude-cowork' },
+                    { label: { fr: 'Claude Cowork est désormais Claude', en: 'Claude Cowork is now Claude' }, href: '/ressources/guides/claude-cowork' },
+                    { label: { fr: 'Claude : fonctionnalités, offres et prix', en: 'Claude: features, plans and pricing' }, href: '/ressources/guides/claude-fonctionnalites-pme' },
+                    { label: { fr: 'Claude Code en entreprise', en: 'Claude Code for business' }, href: '/ressources/guides/claude-code-entreprise' },
+                    { label: { fr: 'Skills Claude : créer et déployer', en: 'Claude skills: build and deploy' }, href: '/ressources/guides/claude-skills' },
+                    { label: { fr: 'Plugins et connecteurs Claude', en: 'Claude plugins and connectors' }, href: '/ressources/guides/claude-plugins-entreprise' },
+                    { label: { fr: 'Claude Design en PME', en: 'Claude Design for SMBs' }, href: '/ressources/guides/claude-design' },
+                    { label: { fr: "Guide d'achat Claude pour PME (PDF)", en: "Claude buyer's guide for SMBs (PDF)" }, href: '/ressources/outils/guide-achat-claude-pme' },
                     { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
                   ],
                 },

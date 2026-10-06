@@ -82,10 +82,7 @@
       "about-story__aside-title",
       "about-story__body",
       "about-story__grid",
-      "about-story__label",
       "about-story__milestone",
-      "about-story__narrative",
-      "about-story__timeline",
       "about-story__year"
     ],
     "tokensUsed": [
@@ -112,10 +109,6 @@
       {
         "name": "--ink",
         "value": "#0C0B09"
-      },
-      {
-        "name": "--leading-body",
-        "value": "1.5"
       },
       {
         "name": "--leading-prose",
@@ -549,16 +542,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 4,
       "samples": [
-        "#fff",
         "1px",
         "2px",
         "3px",
         "640px"
       ]
     },
-    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (#fff, 1px, 2px)."
+    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 2px, 3px)."
   },
   {
     "id": "architecture-diagram",
@@ -568,8 +560,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -866,10 +857,6 @@
         "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
-        "name": "--text-small",
-        "value": "13px"
-      },
-      {
         "name": "--tracking-display",
         "value": "-0.025em"
       },
@@ -880,19 +867,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 10,
+      "count": 9,
       "samples": [
-        "0.1em",
         "100%",
         "1px",
         "240px",
         "320px",
         "700px",
         "768px",
-        "860px"
+        "860px",
+        "880px"
       ]
     },
-    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (0.1em, 100%, 1px)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 1px, 240px)."
   },
   {
     "id": "article-grid",
@@ -980,9 +967,9 @@
       "article-card__title",
       "article-grid",
       "article-grid__h2",
-      "article-grid__hd",
       "article-grid__intro",
-      "article-grid__list"
+      "article-grid__list",
+      "sr-only"
     ],
     "tokensUsed": [
       {
@@ -1010,10 +997,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--fw-semibold",
         "value": "600"
       },
@@ -1032,10 +1015,6 @@
       {
         "name": "--ink-3",
         "value": "#2B2620"
-      },
-      {
-        "name": "--leading-body",
-        "value": "1.5"
       },
       {
         "name": "--leading-h3",
@@ -1082,18 +1061,6 @@
         "value": "2rem"
       },
       {
-        "name": "--space-9",
-        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h2",
-        "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
       },
@@ -1106,21 +1073,23 @@
         "value": "0.12em"
       }
     ],
-    "tailwindUtils": [],
+    "tailwindUtils": [
+      "sr-only"
+    ],
     "hardcodedLiterals": {
-      "count": 9,
+      "count": 8,
       "samples": [
         "-0.01em",
-        "-0.02em",
+        "-1px",
         "-4px",
         "100%",
         "1px",
         "2px",
         "640px",
-        "760px"
+        "980px"
       ]
     },
-    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-0.01em, -0.02em, -4px)."
+    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, -1px, -4px)."
   },
   {
     "id": "asymmetric-services",
@@ -1624,10 +1593,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--gut",
         "value": "32px"
       },
@@ -1702,10 +1667,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h2",
@@ -1917,8 +1878,10 @@
       "name": "BorderedPullquote",
       "path": "src/sections/bordered-pullquote/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "manifesto-sections",
     "subcategory": "Editorial Sections",
@@ -2334,11 +2297,6 @@
         "default": "CASE"
       },
       {
-        "name": "caseRefs",
-        "type": "array",
-        "required": false
-      },
-      {
         "name": "cases",
         "type": "array",
         "required": false,
@@ -2697,6 +2655,11 @@
     "description_en": "Featured case-study grid: one highlighted case (wide column, optional cover) plus secondary cases as numbered rows, with provenance chip.",
     "schemaFields": [
       {
+        "name": "anchor_id",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "background",
         "type": "enum",
         "required": false,
@@ -2715,6 +2678,46 @@
       },
       {
         "name": "first_party_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "item_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "item_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
         "type": "string",
         "required": false
       },
@@ -2752,6 +2755,9 @@
       "cas-card-provenance",
       "cas-card-title",
       "cas-grid",
+      "cas-grid-head",
+      "cas-grid-head__lede",
+      "cas-grid-head__title",
       "cas-grid-outer",
       "cas-secondary"
     ],
@@ -2865,6 +2871,10 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -2883,6 +2893,10 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
+      },
+      {
+        "name": "--wrap-prose",
+        "value": "720px"
       }
     ],
     "tailwindUtils": [],
@@ -3244,7 +3258,6 @@
     "scopedClasses": [
       "acc",
       "cspot",
-      "cspot__body",
       "cspot__card",
       "cspot__cite",
       "cspot__cta",
@@ -3471,7 +3484,6 @@
       "challenges__card",
       "challenges__grid",
       "challenges__head",
-      "challenges__icon",
       "challenges__inner",
       "challenges__num",
       "challenges__title"
@@ -3620,8 +3632,10 @@
       "name": "ClosingCtaBand",
       "path": "src/sections/closing-cta-band/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
@@ -3860,13 +3874,11 @@
       "code-showcase__bar",
       "code-showcase__cmt",
       "code-showcase__code",
-      "code-showcase__copy",
       "code-showcase__dots",
       "code-showcase__file",
       "code-showcase__frame",
       "code-showcase__grid",
       "code-showcase__h2",
-      "code-showcase__intro",
       "code-showcase__lang",
       "code-showcase__line",
       "code-showcase__ln",
@@ -3890,10 +3902,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -3908,14 +3916,6 @@
       {
         "name": "--ink-rgb",
         "value": "12, 11, 9"
-      },
-      {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
-        "name": "--leading-h3",
-        "value": "1.1"
       },
       {
         "name": "--leading-relaxed",
@@ -3970,14 +3970,6 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h2",
-        "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
         "name": "--text-small",
         "value": "13px"
       },
@@ -3988,16 +3980,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 4,
       "samples": [
-        "-0.02em",
         "10px",
         "1px",
         "44px",
         "880px"
       ]
     },
-    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-0.02em, 10px, 1px)."
+    "agentGuide": "Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (10px, 1px, 44px)."
   },
   {
     "id": "coming-soon-pills",
@@ -4263,7 +4254,6 @@
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
-      "feature-grid__intro-desc",
       "feature-grid__item",
       "feature-grid__lede",
       "feature-grid__list",
@@ -4276,7 +4266,6 @@
       "icon-trio__col",
       "icon-trio__cols",
       "icon-trio__glyph",
-      "icon-trio__title",
       "kicker",
       "N",
       "problems-grid",
@@ -4760,10 +4749,6 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
       },
@@ -4872,7 +4857,6 @@
       "cmp-callout__col-title",
       "cmp-callout__cols",
       "cmp-callout__glyph",
-      "cmp-callout__header",
       "cmp-callout__note"
     ],
     "tokensUsed": [
@@ -4887,10 +4871,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-semibold",
-        "value": "600"
       },
       {
         "name": "--hairline",
@@ -4929,10 +4909,6 @@
         "value": "0.75rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -4961,7 +4937,7 @@
         "860px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 860px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 860px)."
   },
   {
     "id": "comparison-table",
@@ -5039,7 +5015,6 @@
       "pcm__glyph--no",
       "pcm__glyph--yes",
       "pcm__group",
-      "pcm__header",
       "pcm__plan-cta",
       "pcm__plan-name",
       "pcm__plan-note",
@@ -5330,10 +5305,8 @@
       "contact-form__field",
       "contact-form__form",
       "contact-form__grid",
-      "contact-form__hint",
       "contact-form__input",
       "contact-form__input--error",
-      "contact-form__intro",
       "contact-form__textarea",
       "sr-only"
     ],
@@ -5447,9 +5420,7 @@
         "value": "0.08em"
       }
     ],
-    "tailwindUtils": [
-      "sr-only"
-    ],
+    "tailwindUtils": [],
     "hardcodedLiterals": {
       "count": 10,
       "samples": [
@@ -5553,14 +5524,6 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
-        "name": "--font-sans",
-        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--fw-regular",
         "value": "400"
       },
@@ -5625,10 +5588,6 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
         "name": "--text-small",
         "value": "13px"
       },
@@ -5663,7 +5622,7 @@
         "700px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-sur-clair. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (0.06em, 130px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-sur-clair. Typographie : --font-mono --fw-regular. Dette : 10 litteral(s) hardcode(s) (0.06em, 130px, 1px)."
   },
   {
     "id": "cta-band",
@@ -5892,7 +5851,6 @@
       "sol-cta-body",
       "sol-cta-btns",
       "sol-cta-final",
-      "sol-sec",
       "sol-sec-dark",
       "wrap",
       "wrap-tight"
@@ -6051,11 +6009,12 @@
       "form",
       "inline",
       "lead",
+      "lead-magnet",
       "newsletter"
     ],
     "status": "stable",
-    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention.",
-    "description_en": "CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent.",
+    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention. Prop optionnelle `lead_magnet` (slug) : le fichier est livré par e-mail en pièce jointe.",
+    "description_en": "CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent. Optional `lead_magnet` prop (slug): the file is delivered by email as an attachment.",
     "schemaFields": [
       {
         "name": "background",
@@ -6110,6 +6069,11 @@
         "required": false
       },
       {
+        "name": "lead_magnet",
+        "type": "string",
+        "required": false
+      },
+      {
         "name": "placeholder_en",
         "type": "string",
         "required": false,
@@ -6141,12 +6105,11 @@
       "cta-form__confirm",
       "cta-form__error",
       "cta-form__form",
-      "cta-form__hint",
       "cta-form__inner",
       "cta-form__input",
       "cta-form__input--error",
+      "cta-form__optin",
       "cta-form__row",
-      "cta-form__text",
       "sr-only"
     ],
     "tokensUsed": [
@@ -6219,12 +6182,12 @@
         "value": "4px"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-10",
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
       },
       {
         "name": "--space-3",
@@ -6255,19 +6218,19 @@
       "sr-only"
     ],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 10,
       "samples": [
         "-1px",
         "0.01em",
         "0.06em",
         "10px",
+        "15px",
         "1px",
         "200px",
-        "2px",
-        "860px"
+        "2px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-1px, 0.01em, 0.06em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (-1px, 0.01em, 0.06em)."
   },
   {
     "id": "cta-inline",
@@ -6502,10 +6465,6 @@
         "value": "500"
       },
       {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
-      },
-      {
         "name": "--hairline-strong",
         "value": "rgba(var(--ink-rgb), 0.18)"
       },
@@ -6548,10 +6507,6 @@
       {
         "name": "--radius-sm",
         "value": "4px"
-      },
-      {
-        "name": "--section-base",
-        "value": "var(--space-11)"
       },
       {
         "name": "--space-10",
@@ -6670,11 +6625,9 @@
     "scopedClasses": [
       "cta-split",
       "cta-split__body",
-      "cta-split__ctas",
       "cta-split__inner",
       "cta-split__kicker",
       "cta-split__svg",
-      "cta-split__text",
       "cta-split__visual"
     ],
     "tokensUsed": [
@@ -6715,24 +6668,12 @@
         "value": "#E6E0D0"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-1",
         "value": "0.25rem"
       },
       {
         "name": "--space-10",
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
-        "name": "--space-3",
-        "value": "0.75rem"
-      },
-      {
-        "name": "--space-5",
-        "value": "1.5rem"
       },
       {
         "name": "--space-8",
@@ -6745,16 +6686,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 4,
       "samples": [
         "100%",
-        "1px",
         "240px",
         "320px",
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-3. Couleur : --accent --ink --muted. Typographie : --font-sans --leading-body. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 240px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-8. Couleur : --accent --ink --muted. Typographie : --font-sans --leading-body. Dette : 4 litteral(s) hardcode(s) (100%, 240px, 320px)."
   },
   {
     "id": "curriculum-timeline",
@@ -6762,8 +6702,10 @@
       "name": "CurriculumTimeline",
       "path": "src/sections/curriculum-timeline/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "timelines",
     "subcategory": "Editorial Sections",
@@ -6973,8 +6915,6 @@
       "data-table",
       "data-table__caption",
       "data-table__h2",
-      "data-table__hd",
-      "data-table__intro",
       "data-table__scroll",
       "data-table__table"
     ],
@@ -6994,10 +6934,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-medium",
-        "value": "500"
       },
       {
         "name": "--fw-regular",
@@ -7022,10 +6958,6 @@
       {
         "name": "--leading-body",
         "value": "1.5"
-      },
-      {
-        "name": "--leading-h3",
-        "value": "1.1"
       },
       {
         "name": "--muted",
@@ -7060,18 +6992,6 @@
         "value": "1rem"
       },
       {
-        "name": "--space-9",
-        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h2",
-        "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
         "name": "--text-small",
         "value": "13px"
       },
@@ -7082,15 +7002,13 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 2,
       "samples": [
-        "-0.02em",
         "100%",
-        "1px",
-        "760px"
+        "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-9. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.02em, 100%, 1px). data-coupling : data-table data-table__caption data-table__h2."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (100%, 1px). data-coupling : data-table data-table__caption data-table__h2."
   },
   {
     "id": "decision-list",
@@ -7618,7 +7536,6 @@
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
-      "feature-grid__intro-desc",
       "feature-grid__item",
       "feature-grid__lede",
       "feature-grid__list",
@@ -7631,7 +7548,6 @@
       "icon-trio__col",
       "icon-trio__cols",
       "icon-trio__glyph",
-      "icon-trio__title",
       "kicker",
       "N",
       "problems-grid",
@@ -7977,7 +7893,6 @@
       "sol-cta-body",
       "sol-cta-btns",
       "sol-cta-final",
-      "sol-sec",
       "sol-sec-dark",
       "wrap",
       "wrap-tight"
@@ -8275,10 +8190,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
       },
@@ -8311,10 +8222,6 @@
         "value": "var(--space-11)"
       },
       {
-        "name": "--section-loose",
-        "value": "var(--space-13)"
-      },
-      {
         "name": "--space-10",
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
@@ -8345,10 +8252,6 @@
       {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -8376,8 +8279,10 @@
       "name": "DiagnosticStages",
       "path": "src/components/sections/DiagnosticStages.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
     "category": "marketing",
     "categorySlug": "process-sections",
     "subcategory": "Process Sections",
@@ -8490,6 +8395,8 @@
       "diag__track",
       "header",
       "N",
+      "reveal-stagger",
+      "ts",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -8542,10 +8449,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h3",
         "value": "1.1"
       },
@@ -8568,6 +8471,14 @@
       {
         "name": "--radius-full",
         "value": "50%"
+      },
+      {
+        "name": "--rail",
+        "value": ""
+      },
+      {
+        "name": "--rail-to",
+        "value": ""
       },
       {
         "name": "--section-base",
@@ -8743,14 +8654,6 @@
         "value": "400"
       },
       {
-        "name": "--gut",
-        "value": "32px"
-      },
-      {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -8789,10 +8692,6 @@
       {
         "name": "--section-ample",
         "value": ""
-      },
-      {
-        "name": "--section-base",
-        "value": "var(--space-11)"
       },
       {
         "name": "--section-compact",
@@ -8845,17 +8744,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 5,
       "samples": [
         "-0.018em",
         "-0.01em",
         "0.06em",
         "0.12em",
-        "1px",
         "2.8em"
       ]
     },
-    "agentGuide": "Espacement : --space-12 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.018em, -0.01em, 0.06em)."
+    "agentGuide": "Espacement : --space-12 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-0.018em, -0.01em, 0.06em)."
   },
   {
     "id": "ecosystem-partners",
@@ -9094,18 +8992,9 @@
       }
     ],
     "scopedClasses": [
-      "editorial-callout",
-      "editorial-callout__col"
+      "editorial-callout"
     ],
     "tokensUsed": [
-      {
-        "name": "--gut",
-        "value": "32px"
-      },
-      {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
-      },
       {
         "name": "--ink",
         "value": "#0C0B09"
@@ -9127,10 +9016,6 @@
         "value": ""
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--section-compact",
         "value": ""
       },
@@ -9141,20 +9026,14 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--wrap-prose",
-        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 1,
-      "samples": [
-        "1px"
-      ]
+      "count": 0,
+      "samples": []
     },
-    "agentGuide": "Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-9. Couleur : --ink --paper --paper-2. Dette : 1 litteral(s) hardcode(s) (1px)."
+    "agentGuide": "Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-9. Couleur : --ink --paper --paper-2."
   },
   {
     "id": "editorial-case-grid",
@@ -9162,8 +9041,10 @@
       "name": "EditorialCaseGrid",
       "path": "src/sections/editorial-case-grid/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/manifesto.astro"
+    ],
     "category": "marketing",
     "categorySlug": "testimonial-sections",
     "subcategory": "Testimonial Sections",
@@ -9325,17 +9206,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 5,
       "samples": [
         "-0.015em",
         "-32px",
         "1200px",
-        "32px",
         "768px",
         "820px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-6 --space-9. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.015em, -32px, 1200px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-6 --space-9. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.015em, -32px, 1200px)."
   },
   {
     "id": "editorial-dingbat-rule",
@@ -9405,14 +9285,6 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
-        "name": "--gut",
-        "value": "32px"
-      },
-      {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -9439,10 +9311,6 @@
       {
         "name": "--section-ample",
         "value": ""
-      },
-      {
-        "name": "--section-base",
-        "value": "var(--space-11)"
       },
       {
         "name": "--section-compact",
@@ -9475,13 +9343,12 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 2,
+      "count": 1,
       "samples": [
-        "0.12em",
-        "1px"
+        "0.12em"
       ]
     },
-    "agentGuide": "Layout : `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --text-small. Dette : 2 litteral(s) hardcode(s) (0.12em, 1px)."
+    "agentGuide": "Layout : `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --text-small. Dette : 1 litteral(s) hardcode(s) (0.12em)."
   },
   {
     "id": "editorial-dropcap-prose",
@@ -9535,7 +9402,6 @@
     ],
     "scopedClasses": [
       "editorial-dropcap",
-      "editorial-dropcap__col",
       "editorial-dropcap__lead",
       "editorial-dropcap__p"
     ],
@@ -9543,14 +9409,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--gut",
-        "value": "32px"
-      },
-      {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
         "name": "--ink",
@@ -9581,10 +9439,6 @@
         "value": ""
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--section-compact",
         "value": ""
       },
@@ -9603,21 +9457,16 @@
       {
         "name": "--text-body-md",
         "value": ""
-      },
-      {
-        "name": "--wrap-prose",
-        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 2,
+      "count": 1,
       "samples": [
-        "17px",
-        "1px"
+        "17px"
       ]
     },
-    "agentGuide": "Layout : `variant` (schema, 0 CSS). Espacement : --space-12 --space-4 --space-9. Couleur : --ink --ink-2 --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (17px, 1px)."
+    "agentGuide": "Layout : `variant` (schema, 0 CSS). Espacement : --space-12 --space-4 --space-9. Couleur : --ink --ink-2 --paper. Typographie : --font-sans --leading-body. Dette : 1 litteral(s) hardcode(s) (17px)."
   },
   {
     "id": "editorial-preview",
@@ -9629,8 +9478,7 @@
     "consumers": [
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro",
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -9846,19 +9694,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 13,
+      "count": 12,
       "samples": [
         "-0.015em",
         "0.14em",
-        "0.1em",
         "110px",
         "12px",
         "1px",
         "2px",
-        "32px"
+        "32px",
+        "48px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.015em, 0.14em, 0.1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, 0.14em, 110px)."
   },
   {
     "id": "editorial-prose",
@@ -9938,10 +9786,6 @@
         "value": "500"
       },
       {
-        "name": "--gut",
-        "value": "32px"
-      },
-      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -9980,10 +9824,6 @@
       {
         "name": "--radius-lg",
         "value": "12px"
-      },
-      {
-        "name": "--section-base",
-        "value": "var(--space-11)"
       },
       {
         "name": "--space-2",
@@ -10353,10 +10193,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
       },
@@ -10389,10 +10225,6 @@
         "value": "var(--space-11)"
       },
       {
-        "name": "--section-loose",
-        "value": "var(--space-13)"
-      },
-      {
         "name": "--space-10",
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
@@ -10423,10 +10255,6 @@
       {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -10511,7 +10339,6 @@
     ],
     "scopedClasses": [
       "editorial-timeline",
-      "editorial-timeline__col",
       "editorial-timeline__eyebrow",
       "editorial-timeline__title",
       "timeline-body",
@@ -10530,14 +10357,6 @@
       {
         "name": "--fw-medium",
         "value": "500"
-      },
-      {
-        "name": "--gut",
-        "value": "32px"
-      },
-      {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
         "name": "--ink",
@@ -10572,10 +10391,6 @@
         "value": ""
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--section-compact",
         "value": ""
       },
@@ -10602,22 +10417,17 @@
       {
         "name": "--tracking-mono",
         "value": "0.12em"
-      },
-      {
-        "name": "--wrap-prose",
-        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 3,
+      "count": 2,
       "samples": [
         "-0.018em",
-        "0.12em",
-        "1px"
+        "0.12em"
       ]
     },
-    "agentGuide": "Layout : `orientation` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (-0.018em, 0.12em, 1px)."
+    "agentGuide": "Layout : `orientation` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (-0.018em, 0.12em)."
   },
   {
     "id": "editorial-write-feed",
@@ -10777,8 +10587,10 @@
       "name": "EeatPanel",
       "path": "src/components/sections/EeatPanel.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
     "category": "marketing",
     "categorySlug": "trust-sections",
     "subcategory": "Trust Sections",
@@ -10875,6 +10687,8 @@
       "eep-creds__item",
       "eep-creds__label",
       "eep-creds__list",
+      "eep-creds__scope",
+      "eep-creds__text",
       "eep-cta",
       "eep-cta__glyph",
       "eep-cta__title",
@@ -10915,7 +10729,8 @@
       "eep-role",
       "eep-role--ink",
       "is-on",
-      "reveal-stagger"
+      "reveal-stagger",
+      "ts"
     ],
     "tokensUsed": [
       {
@@ -10967,12 +10782,20 @@
         "value": "500"
       },
       {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
         "name": "--ink",
         "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
       },
       {
         "name": "--leading-h2",
@@ -11093,19 +10916,280 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 17,
+      "count": 19,
       "samples": [
         "-0.015em",
+        "-28px",
         "0.5em",
         "100%",
         "12rem",
         "14rem",
         "16rem",
+        "18rem"
+      ]
+    },
+    "agentGuide": "Layout : `background`, `silo`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-0.015em, -28px, 0.5em)."
+  },
+  {
+    "id": "engagement-ledger",
+    "component": {
+      "name": "EngagementLedger",
+      "path": "src/sections/engagement-ledger/Component.astro"
+    },
+    "usage": "site",
+    "consumers": [
+      "src/pages/tarifs.astro"
+    ],
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "tags": [
+      "engagement",
+      "ledger",
+      "pricing",
+      "rate-card",
+      "steps"
+    ],
+    "status": "stable",
+    "description_fr": "Registre tarifaire : un parcours d’engagement lu ligne à ligne (repère d’étape, prestation, contenu, durée, prix aligné à droite, action). Ni cartes ni onglets : tout le parcours visible d’un regard, avec un bloc de lignes secondaires en retrait.",
+    "description_en": "Pricing ledger: an engagement path read row by row (step marker, service, contents, duration, right-aligned price, action). No cards, no tabs: the whole path visible at a glance, with a block of secondary lines set back.",
+    "schemaFields": [
+      {
+        "name": "aside",
+        "type": "array",
+        "required": false,
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "footnote_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "footnote_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h1_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h1_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lede_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "rows",
+        "type": "array",
+        "required": true,
+        "constraint": "min:2 max:8"
+      }
+    ],
+    "scopedClasses": [
+      "is-entry",
+      "ledger",
+      "ledger__aside",
+      "ledger__aside-body",
+      "ledger__aside-head",
+      "ledger__aside-items",
+      "ledger__aside-price",
+      "ledger__aside-title",
+      "ledger__body",
+      "ledger__cost",
+      "ledger__cta",
+      "ledger__footnote",
+      "ledger__head",
+      "ledger__includes",
+      "ledger__lede",
+      "ledger__name",
+      "ledger__price",
+      "ledger__row",
+      "ledger__rows",
+      "ledger__step",
+      "ledger__terms",
+      "ledger__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline",
+        "value": "rgba(var(--ink-rgb), 0.09)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--text-title-lg",
+        "value": "38px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 12,
+      "samples": [
+        "0.25em",
+        "0.35em",
+        "0.45em",
+        "0.7em",
+        "1100px",
+        "15rem",
         "18rem",
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background`, `silo`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 17 litteral(s) hardcode(s) (-0.015em, 0.5em, 100%)."
+    "agentGuide": "Espacement : --space-1 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (0.25em, 0.35em, 0.45em)."
   },
   {
     "id": "faq-accordion",
@@ -11171,7 +11255,6 @@
       "faq-accordion",
       "faq-accordion__a",
       "faq-accordion__arrow",
-      "faq-accordion__header",
       "faq-accordion__intro",
       "faq-accordion__item",
       "faq-accordion__q",
@@ -11231,10 +11314,6 @@
         "value": "1.5rem"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
       },
@@ -11256,7 +11335,7 @@
         "56px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 2px, 56px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 2px, 56px)."
   },
   {
     "id": "faq-cta-aside",
@@ -11362,7 +11441,6 @@
       "faq-cta__aside",
       "faq-cta__card",
       "faq-cta__card-body",
-      "faq-cta__card-note",
       "faq-cta__card-title",
       "faq-cta__grid",
       "faq-cta__header",
@@ -11462,17 +11540,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 5,
       "samples": [
         "-0.015em",
-        "0.06em",
         "1px",
         "2px",
         "56px",
         "900px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.015em, 0.06em, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.015em, 1px, 2px)."
   },
   {
     "id": "faq-two-column",
@@ -11533,7 +11610,6 @@
       "faq-two-col",
       "faq-two-col__a",
       "faq-two-col__grid",
-      "faq-two-col__header",
       "faq-two-col__item",
       "faq-two-col__q"
     ],
@@ -11583,10 +11659,6 @@
         "value": "0.5rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -11597,10 +11669,6 @@
       {
         "name": "--space-8",
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h3",
@@ -11620,7 +11688,7 @@
         "clamp(var(--space-8)"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-4. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-semibold. Dette : 3 litteral(s) hardcode(s) (1px, 760px, clamp(var(--space-8))."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-semibold. Dette : 3 litteral(s) hardcode(s) (1px, 760px, clamp(var(--space-8))."
   },
   {
     "id": "feature-accordion",
@@ -11782,10 +11850,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-body",
@@ -11975,10 +12039,6 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
       },
@@ -12010,8 +12070,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -12124,7 +12183,6 @@
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
-      "feature-grid__intro-desc",
       "feature-grid__item",
       "feature-grid__lede",
       "feature-grid__list",
@@ -12137,7 +12195,6 @@
       "icon-trio__col",
       "icon-trio__cols",
       "icon-trio__glyph",
-      "icon-trio__title",
       "kicker",
       "N",
       "problems-grid",
@@ -13027,12 +13084,10 @@
       "fz__cell",
       "fz__header",
       "fz__img",
-      "fz__lede",
       "fz__link",
       "fz__points",
       "fz__row",
       "fz__rows",
-      "fz__svg",
       "fz__text",
       "fz__visual",
       "header",
@@ -13048,10 +13103,6 @@
       {
         "name": "--accent-rgb",
         "value": "201, 79, 46"
-      },
-      {
-        "name": "--accent-text",
-        "value": "var(--accent-sur-clair)"
       },
       {
         "name": "--dur-reveal",
@@ -13118,10 +13169,6 @@
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
       {
-        "name": "--space-2",
-        "value": "0.5rem"
-      },
-      {
         "name": "--space-4",
         "value": "1rem"
       },
@@ -13140,10 +13187,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h3",
@@ -13168,7 +13211,7 @@
         "24px"
       ]
     },
-    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%)."
+    "agentGuide": "Layout : `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%)."
   },
   {
     "id": "fit-columns",
@@ -13574,10 +13617,6 @@
         "value": "0.75rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -13769,10 +13808,6 @@
         "value": "1.5rem"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
       },
@@ -13839,17 +13874,12 @@
       "guarantee-block__content",
       "guarantee-block__item",
       "guarantee-block__list",
-      "guarantee-block__num",
-      "guarantee-block__title"
+      "guarantee-block__num"
     ],
     "tokensUsed": [
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-medium",
-        "value": "500"
       },
       {
         "name": "--hairline",
@@ -13894,10 +13924,6 @@
       {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -13909,7 +13935,7 @@
         "600px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (1px, 56px, 600px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --leading-relaxed. Dette : 3 litteral(s) hardcode(s) (1px, 56px, 600px)."
   },
   {
     "id": "hero-academy-hub",
@@ -14477,10 +14503,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -14567,10 +14589,6 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -14974,7 +14992,6 @@
       "hero-lead-magnet__meta",
       "hero-lead-magnet__panel",
       "hero-split",
-      "hero-split__ctas",
       "hero-split__inner",
       "hero-split__left",
       "hero-split__meta",
@@ -15773,10 +15790,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -15883,10 +15896,6 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -15965,6 +15974,16 @@
         "type": "enum",
         "required": false,
         "constraint": "left | right"
+      },
+      {
+        "name": "num_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "num_label_fr",
+        "type": "string",
+        "required": false
       },
       {
         "name": "specs",
@@ -16877,10 +16896,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -16955,10 +16970,6 @@
       {
         "name": "--tracking-mono",
         "value": "0.12em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -17320,7 +17331,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 34,
+      "count": 35,
       "samples": [
         "-0.015em",
         "-0.035em",
@@ -17332,7 +17343,7 @@
         "120%"
       ]
     },
-    "agentGuide": "Layout : `background`, `media_register`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
+    "agentGuide": "Layout : `background`, `media_register`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 35 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
   },
   {
     "id": "hero-course",
@@ -18565,10 +18576,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -18639,10 +18646,6 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -19565,10 +19568,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -19609,10 +19608,6 @@
         "value": "2rem"
       },
       {
-        "name": "--space-7",
-        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
       },
@@ -19631,10 +19626,6 @@
       {
         "name": "--tracking-display",
         "value": "-0.025em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -20822,8 +20813,8 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/agence/index.astro",
-      "src/pages/_expertise-claude.astro"
+      "src/pages/_expertise-claude.astro",
+      "src/pages/agence/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "hero-header-sections",
@@ -21113,7 +21104,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 34,
+      "count": 35,
       "samples": [
         "-0.015em",
         "-0.035em",
@@ -21125,7 +21116,7 @@
         "120%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 35 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
   },
   {
     "id": "hero-landing",
@@ -21701,7 +21692,6 @@
       "hero-lead-magnet__meta",
       "hero-lead-magnet__panel",
       "hero-split",
-      "hero-split__ctas",
       "hero-split__inner",
       "hero-split__left",
       "hero-split__meta",
@@ -22211,10 +22201,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -22293,10 +22279,6 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -22319,8 +22301,10 @@
       "name": "HeroManifesto",
       "path": "src/sections/hero-manifesto/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/manifesto.astro"
+    ],
     "category": "marketing",
     "categorySlug": "hero-header-sections",
     "subcategory": "Hero Header Sections",
@@ -22949,10 +22933,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -23051,10 +23031,6 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       }
     ],
     "tailwindUtils": [],
@@ -23948,7 +23924,7 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 34,
+      "count": 35,
       "samples": [
         "-0.015em",
         "-0.035em",
@@ -23960,7 +23936,7 @@
         "120%"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 35 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%)."
   },
   {
     "id": "hero-problem-index",
@@ -26095,7 +26071,6 @@
       "hero-lead-magnet__meta",
       "hero-lead-magnet__panel",
       "hero-split",
-      "hero-split__ctas",
       "hero-split__inner",
       "hero-split__left",
       "hero-split__meta",
@@ -26769,10 +26744,6 @@
         "value": "72px"
       },
       {
-        "name": "--hero-chrome-above",
-        "value": "0px"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -26851,10 +26822,6 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--viewport-h",
-        "value": "100svh"
       },
       {
         "name": "--wrap-tight",
@@ -28868,7 +28835,6 @@
       "hsh__panel",
       "hsh__panel-index",
       "hsh__points",
-      "hsh__text",
       "hsh__title",
       "hsh__track"
     ],
@@ -28978,16 +28944,8 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-small",
@@ -29087,7 +29045,6 @@
       "hrl__img",
       "hrl__item",
       "hrl__label",
-      "hrl__lede",
       "hrl__list",
       "hrl__meta",
       "hrl__reveal",
@@ -29129,6 +29086,10 @@
         "value": "1.5"
       },
       {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
         "name": "--muted",
         "value": "#6B6560"
       },
@@ -29165,16 +29126,8 @@
         "value": "0.75rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h3",
@@ -29202,7 +29155,7 @@
         "clamp(220px, 22vw, 340px)"
       ]
     },
-    "agentGuide": "Layout : `background`, `reveal_mode` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1px)."
+    "agentGuide": "Layout : `background`, `reveal_mode` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1px)."
   },
   {
     "id": "hover-reveal-words",
@@ -29628,7 +29581,6 @@
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
-      "feature-grid__intro-desc",
       "feature-grid__item",
       "feature-grid__lede",
       "feature-grid__list",
@@ -29641,7 +29593,6 @@
       "icon-trio__col",
       "icon-trio__cols",
       "icon-trio__glyph",
-      "icon-trio__title",
       "kicker",
       "N",
       "problems-grid",
@@ -29969,10 +29920,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
@@ -29987,10 +29934,6 @@
       {
         "name": "--leading-body",
         "value": "1.5"
-      },
-      {
-        "name": "--leading-h3",
-        "value": "1.1"
       },
       {
         "name": "--paper",
@@ -30037,16 +29980,8 @@
         "value": "clamp(15px, 1vw, 17px)"
       },
       {
-        "name": "--text-h2",
-        "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
         "name": "--text-small",
         "value": "13px"
-      },
-      {
-        "name": "--tracking-display",
-        "value": "-0.025em"
       }
     ],
     "tailwindUtils": [],
@@ -30129,10 +30064,8 @@
     "scopedClasses": [
       "integrations",
       "integrations__cell",
-      "integrations__group",
       "integrations__group-title",
       "integrations__groups",
-      "integrations__header",
       "integrations__lede",
       "integrations__list",
       "integrations__name"
@@ -30209,10 +30142,6 @@
       {
         "name": "--space-8",
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-body",
@@ -30557,14 +30486,6 @@
         "value": "500"
       },
       {
-        "name": "--gut",
-        "value": "32px"
-      },
-      {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
       },
@@ -30599,10 +30520,6 @@
       {
         "name": "--section-ample",
         "value": ""
-      },
-      {
-        "name": "--section-base",
-        "value": "var(--space-11)"
       },
       {
         "name": "--section-compact",
@@ -30647,16 +30564,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 5,
+      "count": 4,
       "samples": [
         "-0.018em",
         "0.12em",
-        "1px",
         "520px",
         "900px"
       ]
     },
-    "agentGuide": "Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.018em, 0.12em, 1px)."
+    "agentGuide": "Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.018em, 0.12em, 520px)."
   },
   {
     "id": "keyword-strip",
@@ -30664,8 +30580,10 @@
       "name": "KeywordStrip",
       "path": "src/sections/keyword-strip/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "content-sections",
     "subcategory": "Editorial Sections",
@@ -30893,10 +30811,6 @@
       {
         "name": "--ink",
         "value": "#0C0B09"
-      },
-      {
-        "name": "--leading-body",
-        "value": "1.5"
       },
       {
         "name": "--muted",
@@ -31211,11 +31125,6 @@
         "required": false
       },
       {
-        "name": "logoIds",
-        "type": "array",
-        "required": false
-      },
-      {
         "name": "logos",
         "type": "array",
         "required": false,
@@ -31348,7 +31257,6 @@
       "logo-wall",
       "logo-wall__cell",
       "logo-wall__grid",
-      "logo-wall__header",
       "logo-wall__img",
       "logo-wall__link"
     ],
@@ -31396,10 +31304,6 @@
       {
         "name": "--space-5",
         "value": "1.5rem"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       }
     ],
     "tailwindUtils": [],
@@ -31416,7 +31320,7 @@
         "3px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --accent --ink --paper. Dette : 13 litteral(s) hardcode(s) (-1px, 100%, 110px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Dette : 13 litteral(s) hardcode(s) (-1px, 100%, 110px)."
   },
   {
     "id": "manifesto-act",
@@ -31898,6 +31802,260 @@
     "agentGuide": "Layout : `tone` (schema, 0 CSS). Espacement : --spacing-block. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.02em, 0%, 1400px)."
   },
   {
+    "id": "market-cases",
+    "component": {
+      "name": "MarketCases",
+      "path": "src/sections/market-cases/Component.astro"
+    },
+    "usage": "site",
+    "consumers": [
+      "src/pages/cas-usages/index.astro"
+    ],
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "tags": [
+      "case-study",
+      "citation",
+      "eeat",
+      "market",
+      "sources",
+      "third-party"
+    ],
+    "status": "stable",
+    "description_fr": "Rubrique « Études de cas du marché » : cas réels documentés et réalisés par des tiers. Chaque fiche porte le libellé « Cas documenté, non réalisé par Waimia », la citation exacte du résultat, ses limites, le lien vers la source et la date de lecture. Registre froid (filet complémentaire, pointillés) distinct des preuves Waimia. Contenu global lu dans src/data/market-cases.ts.",
+    "description_en": "Market case studies: real, documented cases delivered by third parties. Each entry carries the label \"Documented case, not delivered by Waimia\", the exact quoted result, its limits, the source link and the date it was read. Cold register (complementary rule, dashed lines) distinct from Waimia proof. Global content read from src/data/market-cases.ts.",
+    "schemaFields": [
+      {
+        "name": "groups",
+        "type": "array",
+        "required": true,
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "intro_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "intro_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "constraint": "full | digest"
+      }
+    ],
+    "scopedClasses": [
+      "mkt",
+      "mkt__attribution",
+      "mkt__case",
+      "mkt__company",
+      "mkt__fact",
+      "mkt__facts",
+      "mkt__group",
+      "mkt__group-title",
+      "mkt__head",
+      "mkt__id",
+      "mkt__intro",
+      "mkt__label",
+      "mkt__list",
+      "mkt__more",
+      "mkt__notice",
+      "mkt__profile",
+      "mkt__quote",
+      "mkt__quote-label",
+      "mkt__read",
+      "mkt__sources",
+      "mkt__sr",
+      "mkt__title"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--complementary",
+        "value": "#2090A8"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-medium",
+        "value": "500"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--ink-2",
+        "value": "#1A1814"
+      },
+      {
+        "name": "--ink-rgb",
+        "value": "12, 11, 9"
+      },
+      {
+        "name": "--leading-h2",
+        "value": "1.02"
+      },
+      {
+        "name": "--leading-h3",
+        "value": "1.1"
+      },
+      {
+        "name": "--leading-lede",
+        "value": "1.4"
+      },
+      {
+        "name": "--leading-relaxed",
+        "value": "1.6"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--space-1",
+        "value": "0.25rem"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--space-8",
+        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
+      },
+      {
+        "name": "--space-9",
+        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--text-title-lg",
+        "value": "38px"
+      },
+      {
+        "name": "--tracking-display",
+        "value": "-0.025em"
+      },
+      {
+        "name": "--tracking-mono-tight",
+        "value": "0.08em"
+      },
+      {
+        "name": "--wrap-read",
+        "value": "900px"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 8,
+      "samples": [
+        "0.25em",
+        "1000px",
+        "11rem",
+        "1px",
+        "2px",
+        "3px",
+        "50%",
+        "640px"
+      ]
+    },
+    "agentGuide": "Layout : `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --ink --ink-2 --ink-rgb. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (0.25em, 1000px, 11rem)."
+  },
+  {
     "id": "marquee-band",
     "component": {
       "name": "MarqueeBand",
@@ -32009,6 +32167,10 @@
         "value": "2rem"
       },
       {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
       },
@@ -32019,17 +32181,16 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 5,
       "samples": [
         "-0.01em",
         "-50%",
         ".1em",
         "1px",
-        "28px",
-        "40px"
+        "28px"
       ]
     },
-    "agentGuide": "Layout : `background`, `scale` (schema, 0 CSS). Espacement : --space-4 --space-6. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.01em, -50%, .1em)."
+    "agentGuide": "Layout : `background`, `scale` (schema, 0 CSS). Espacement : --space-4 --space-6 --space-7. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.01em, -50%, .1em)."
   },
   {
     "id": "masthead-bar",
@@ -32096,8 +32257,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "timelines",
@@ -32710,24 +32870,12 @@
     ],
     "tokensUsed": [
       {
-        "name": "--font-sans",
-        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
         "name": "--ink",
         "value": "#0C0B09"
-      },
-      {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
-        "name": "--muted",
-        "value": "#6B6560"
       },
       {
         "name": "--paper",
@@ -32750,10 +32898,6 @@
         "value": "1rem"
       },
       {
-        "name": "--text-small",
-        "value": "13px"
-      },
-      {
         "name": "--wrap-prose",
         "value": "720px"
       }
@@ -32766,7 +32910,7 @@
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background`, `display`, `media_kind` (schema, 0 CSS). Espacement : --space-4. Couleur : --ink --muted --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (100%, 1px)."
+    "agentGuide": "Layout : `background`, `display`, `media_kind` (schema, 0 CSS). Espacement : --space-4. Couleur : --ink --paper --paper-2. Dette : 2 litteral(s) hardcode(s) (100%, 1px)."
   },
   {
     "id": "media-swap-band",
@@ -32857,16 +33001,13 @@
     "scopedClasses": [
       "is-active",
       "msb",
-      "msb__col",
       "msb__col-head",
       "msb__cols",
       "msb__cta",
       "msb__fig",
       "msb__frame",
       "msb__header",
-      "msb__label",
-      "msb__lede",
-      "msb__sublabel"
+      "msb__label"
     ],
     "tokensUsed": [
       {
@@ -32894,14 +33035,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
-        "name": "--muted",
-        "value": "#6B6560"
-      },
-      {
         "name": "--paper",
         "value": "#F6F1E8"
       },
@@ -32926,10 +33059,6 @@
         "value": "0.25rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
@@ -32938,16 +33067,8 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -32960,7 +33081,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background`, `swap_mode` (schema, 0 CSS). Espacement : --space-1 --space-4 --space-7. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 640px)."
+    "agentGuide": "Layout : `background`, `swap_mode` (schema, 0 CSS). Espacement : --space-1 --space-7 --space-9. Couleur : --ink --paper --paper-2. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 640px)."
   },
   {
     "id": "method-diagram-list",
@@ -32968,8 +33089,10 @@
       "name": "MethodDiagramList",
       "path": "src/sections/method-diagram-list/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "process-sections",
     "subcategory": "Process Sections",
@@ -33589,10 +33712,6 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
       },
@@ -33692,7 +33811,6 @@
     "scopedClasses": [
       "metric-callout",
       "metric-callout__context",
-      "metric-callout__head",
       "metric-callout__item",
       "metric-callout__label",
       "metric-callout__list",
@@ -33744,16 +33862,8 @@
         "value": "246, 241, 232"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-2",
         "value": "0.5rem"
-      },
-      {
-        "name": "--space-4",
-        "value": "1rem"
       },
       {
         "name": "--space-5",
@@ -33762,10 +33872,6 @@
       {
         "name": "--space-6",
         "value": "2rem"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-body",
@@ -33788,7 +33894,7 @@
         "760px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 760px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 760px)."
   },
   {
     "id": "metric-shift",
@@ -33893,10 +33999,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--fw-semibold",
         "value": "600"
       },
@@ -33915,10 +34017,6 @@
       {
         "name": "--leading-body",
         "value": "1.5"
-      },
-      {
-        "name": "--leading-h3",
-        "value": "1.1"
       },
       {
         "name": "--leading-lede",
@@ -34331,21 +34429,12 @@
       "nl-section__body",
       "nl-section__form",
       "nl-section__head",
-      "nl-section__hint",
       "nl-section__inner"
     ],
     "tokensUsed": [
       {
-        "name": "--font-mono",
-        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
-      },
-      {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--hairline",
-        "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
         "name": "--ink",
@@ -34376,10 +34465,6 @@
         "value": "246, 241, 232"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-3",
         "value": "0.75rem"
       },
@@ -34394,23 +34479,17 @@
       {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 4,
+      "count": 2,
       "samples": [
-        "0.06em",
         "100%",
-        "1px",
         "480px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (0.06em, 100%, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --ink --muted --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (100%, 480px)."
   },
   {
     "id": "numbered-layer-list",
@@ -34418,8 +34497,10 @@
       "name": "NumberedLayerList",
       "path": "src/sections/numbered-layer-list/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/technologies.astro"
+    ],
     "category": "marketing",
     "categorySlug": "content-sections",
     "subcategory": "Editorial Sections",
@@ -34818,7 +34899,6 @@
       "off-proof-metric-cell",
       "off-proof-metrics",
       "off-proof-metrics-rule",
-      "off-sec",
       "off-sec-hd",
       "pull-quote",
       "section-eyebrow",
@@ -34860,10 +34940,6 @@
       {
         "name": "--paper-rgb",
         "value": "246, 241, 232"
-      },
-      {
-        "name": "--section-base",
-        "value": "var(--space-11)"
       },
       {
         "name": "--section-loose",
@@ -34922,8 +34998,10 @@
       "name": "OfferRail",
       "path": "src/sections/offer-rail/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Feature Sections",
@@ -36265,10 +36343,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--muted",
         "value": "#6B6560"
       },
@@ -36297,10 +36371,6 @@
         "value": "0.5rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -36321,20 +36391,12 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-kicker",
         "value": "11px"
       },
       {
         "name": "--text-micro",
         "value": "9px"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -36350,7 +36412,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (0.16em, 0.1em, 100%)."
+    "agentGuide": "Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (0.16em, 0.1em, 100%)."
   },
   {
     "id": "pricing-cards",
@@ -36760,7 +36822,6 @@
       "pcm__glyph--no",
       "pcm__glyph--yes",
       "pcm__group",
-      "pcm__header",
       "pcm__plan-cta",
       "pcm__plan-name",
       "pcm__plan-note",
@@ -37056,7 +37117,6 @@
       "pricing-single__benefits-label",
       "pricing-single__btn",
       "pricing-single__card",
-      "pricing-single__check",
       "pricing-single__desc",
       "pricing-single__guarantee",
       "pricing-single__header",
@@ -37163,10 +37223,6 @@
         "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
@@ -37251,11 +37307,9 @@
     "scopedClasses": [
       "pricing-table",
       "pricing-table__btn",
-      "pricing-table__check",
       "pricing-table__cta",
       "pricing-table__features",
       "pricing-table__grid",
-      "pricing-table__header",
       "pricing-table__price",
       "pricing-table__tier",
       "pricing-table__tier--featured",
@@ -37342,10 +37396,6 @@
       {
         "name": "--space-5",
         "value": "1.5rem"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h2",
@@ -37476,7 +37526,8 @@
       "pricing-tabs__shell",
       "pricing-tabs__tab",
       "pricing-tabs__tablist",
-      "pricing-tabs__title"
+      "pricing-tabs__title",
+      "sr-only"
     ],
     "tokensUsed": [
       {
@@ -37552,6 +37603,10 @@
         "value": "246, 241, 232"
       },
       {
+        "name": "--radius-md",
+        "value": "8px"
+      },
+      {
         "name": "--radius-pill",
         "value": "999px"
       },
@@ -37600,21 +37655,23 @@
         "value": "13px"
       }
     ],
-    "tailwindUtils": [],
+    "tailwindUtils": [
+      "sr-only"
+    ],
     "hardcodedLiterals": {
-      "count": 28,
+      "count": 27,
       "samples": [
+        "-1px",
         "-4px",
         ".12em",
         "100%",
         "10px",
         "112px",
         "144px",
-        "156px",
-        "18%"
+        "156px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 28 litteral(s) hardcode(s) (-4px, .12em, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 27 litteral(s) hardcode(s) (-1px, -4px, .12em)."
   },
   {
     "id": "pricing-toggle",
@@ -37709,7 +37766,6 @@
       "pricing-toggle__btn",
       "pricing-toggle__card",
       "pricing-toggle__card-hd",
-      "pricing-toggle__check",
       "pricing-toggle__features",
       "pricing-toggle__grid",
       "pricing-toggle__header",
@@ -38159,7 +38215,6 @@
       "feature-grid__header",
       "feature-grid__header-cta",
       "feature-grid__icon",
-      "feature-grid__intro-desc",
       "feature-grid__item",
       "feature-grid__lede",
       "feature-grid__list",
@@ -38172,7 +38227,6 @@
       "icon-trio__col",
       "icon-trio__cols",
       "icon-trio__glyph",
-      "icon-trio__title",
       "kicker",
       "N",
       "problems-grid",
@@ -38493,8 +38547,6 @@
       "process-steps__connector",
       "process-steps__content",
       "process-steps__h2",
-      "process-steps__hd",
-      "process-steps__intro",
       "process-steps__list",
       "process-steps__num",
       "process-steps__row",
@@ -38596,14 +38648,6 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h2",
-        "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
       },
@@ -38618,17 +38662,15 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 6,
+      "count": 4,
       "samples": [
-        "-0.02em",
         "1px",
         "40px",
         "48px",
-        "640px",
-        "760px"
+        "640px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-ink --accent-text. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, 1px, 40px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-ink --accent-text. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 40px, 48px)."
   },
   {
     "id": "product-reel",
@@ -38685,8 +38727,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "stats-sections",
@@ -38761,7 +38802,6 @@
       "pull-quote-mark",
       "stat-block",
       "stat-block__grid",
-      "stat-block__header",
       "stat-block__item",
       "stat-block__label",
       "stat-block__split",
@@ -38857,10 +38897,6 @@
         "value": "2rem"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
       },
@@ -38899,8 +38935,10 @@
       "name": "ProseAside",
       "path": "src/sections/prose-aside/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "content-sections",
     "subcategory": "Editorial Sections",
@@ -39162,8 +39200,10 @@
       "name": "PublicationsPanel",
       "path": "src/sections/publications-panel/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "content-listing-sections",
     "subcategory": "Editorial Sections",
@@ -39644,10 +39684,6 @@
         "value": "50%"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-1",
         "value": "0.25rem"
       },
@@ -39755,6 +39791,7 @@
       "related-k",
       "related-lead",
       "related-title",
+      "sr-only",
       "wrap-wide"
     ],
     "tokensUsed": [
@@ -39815,15 +39852,18 @@
         "value": "2rem"
       }
     ],
-    "tailwindUtils": [],
+    "tailwindUtils": [
+      "sr-only"
+    ],
     "hardcodedLiterals": {
-      "count": 2,
+      "count": 3,
       "samples": [
+        "-1px",
         "-2px",
         "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6. Couleur : --accent-text --ink --muted. Dette : 2 litteral(s) hardcode(s) (-2px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-6. Couleur : --accent-text --ink --muted. Dette : 3 litteral(s) hardcode(s) (-1px, -2px, 1px)."
   },
   {
     "id": "related-links",
@@ -39976,7 +40016,6 @@
       "resource-card__top",
       "resource-grid",
       "resource-grid__h2",
-      "resource-grid__hd",
       "resource-grid__intro",
       "resource-grid__list"
     ],
@@ -40028,10 +40067,6 @@
       {
         "name": "--ink-2",
         "value": "#1A1814"
-      },
-      {
-        "name": "--leading-body",
-        "value": "1.5"
       },
       {
         "name": "--leading-h3",
@@ -40086,18 +40121,6 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--space-9",
-        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h2",
-        "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
       },
@@ -40112,19 +40135,17 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 6,
       "samples": [
         "-0.01em",
-        "-0.02em",
         "-4px",
         "1px",
         "2px",
         "640px",
-        "760px",
         "980px"
       ]
     },
-    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, -0.02em, -4px)."
+    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.01em, -4px, 1px)."
   },
   {
     "id": "rich-text",
@@ -40349,7 +40370,6 @@
       "sol-proof",
       "sol-roi-grid",
       "sol-roi-hd",
-      "sol-sec",
       "sol-sec-dark",
       "start-10",
       "start-9"
@@ -40552,7 +40572,6 @@
       "sgal__index",
       "sgal__inline-img",
       "sgal__item",
-      "sgal__lede",
       "sgal__link",
       "sgal__list",
       "sgal__media",
@@ -40628,10 +40647,6 @@
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
-        "name": "--space-2",
-        "value": "0.5rem"
-      },
-      {
         "name": "--space-3",
         "value": "0.75rem"
       },
@@ -40646,10 +40661,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h3",
@@ -40671,7 +40682,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background`, `media_side` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px)."
+    "agentGuide": "Layout : `background`, `media_side` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px)."
   },
   {
     "id": "sector-card-grid",
@@ -40679,8 +40690,10 @@
       "name": "SectorCardGrid",
       "path": "src/sections/sector-card-grid/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/secteurs/_index.astro"
+    ],
     "category": "marketing",
     "categorySlug": "content-listing-sections",
     "subcategory": "Content Listing Sections",
@@ -40961,19 +40974,19 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 14,
+      "count": 13,
       "samples": [
         "-0.022em",
         "-2px",
         ".14em",
-        "0.1em",
         "100%",
         "110px",
         "12px",
-        "180px"
+        "180px",
+        "1px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 14 litteral(s) hardcode(s) (-0.022em, -2px, .14em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.022em, -2px, .14em)."
   },
   {
     "id": "services-grid",
@@ -40983,8 +40996,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -41097,8 +41109,7 @@
       "services-grid__illus-art",
       "services-grid__illus-cap",
       "services-grid__num",
-      "services-grid__sep",
-      "services-grid__spec"
+      "services-grid__sep"
     ],
     "tokensUsed": [
       {
@@ -41276,8 +41287,10 @@
       "name": "SignedWritingList",
       "path": "src/sections/signed-writing-list/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "category": "marketing",
     "categorySlug": "content-listing-sections",
     "subcategory": "Editorial Sections",
@@ -41477,8 +41490,10 @@
       "name": "SiteShowcase",
       "path": "src/sections/site-showcase/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/cas-clients/[...slug].astro"
+    ],
     "category": "marketing",
     "categorySlug": "gallery-sections",
     "subcategory": "Gallery Sections",
@@ -41722,10 +41737,8 @@
       "name": "SocialProof",
       "path": "src/components/sections/SocialProof.astro"
     },
-    "usage": "site",
-    "consumers": [
-      "src/pages/index.astro"
-    ],
+    "usage": "library",
+    "consumers": [],
     "category": "marketing",
     "categorySlug": "logo-sections",
     "subcategory": "Logo Sections",
@@ -42029,9 +42042,7 @@
       "stk__card",
       "stk__header",
       "stk__img",
-      "stk__index",
       "stk__item",
-      "stk__lede",
       "stk__link",
       "stk__list",
       "stk__points",
@@ -42044,10 +42055,6 @@
       {
         "name": "--accent",
         "value": "#C94F2E"
-      },
-      {
-        "name": "--accent-text",
-        "value": "var(--accent-sur-clair)"
       },
       {
         "name": "--font-sans",
@@ -42106,10 +42113,6 @@
         "value": "0 12px 40px rgba(var(--ink-rgb), 0.08)"
       },
       {
-        "name": "--space-2",
-        "value": "0.5rem"
-      },
-      {
         "name": "--space-3",
         "value": "0.75rem"
       },
@@ -42134,10 +42137,6 @@
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
       },
@@ -42160,7 +42159,7 @@
         "768px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-sans --fw-medium. Dette : 11 litteral(s) hardcode(s) (0.55em, 100%, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-sans --fw-medium. Dette : 11 litteral(s) hardcode(s) (0.55em, 100%, 1px)."
   },
   {
     "id": "stat-block",
@@ -42258,7 +42257,6 @@
       "pull-quote-mark",
       "stat-block",
       "stat-block__grid",
-      "stat-block__header",
       "stat-block__item",
       "stat-block__label",
       "stat-block__split",
@@ -42352,10 +42350,6 @@
       {
         "name": "--space-6",
         "value": "2rem"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-body",
@@ -42456,8 +42450,6 @@
       "stat-counter",
       "stat-counter__cell",
       "stat-counter__grid",
-      "stat-counter__h2",
-      "stat-counter__head",
       "stat-counter__kicker",
       "stat-counter__label",
       "stat-counter__num"
@@ -42476,20 +42468,8 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
-        "name": "--font-sans",
-        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-semibold",
-        "value": "600"
-      },
-      {
         "name": "--ink",
         "value": "#0C0B09"
-      },
-      {
-        "name": "--leading-h3",
-        "value": "1.1"
       },
       {
         "name": "--muted",
@@ -42528,31 +42508,18 @@
         "value": "2rem"
       },
       {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
       },
       {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
-      },
-      {
         "name": "--text-small",
         "value": "13px"
-      },
-      {
-        "name": "--wrap-prose",
-        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 7,
+      "count": 6,
       "samples": [
-        "-0.01em",
         "-0.02em",
         ".1em",
         "220px",
@@ -42561,7 +42528,7 @@
         "900px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-0.01em, -0.02em, .1em)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, .1em, 220px)."
   },
   {
     "id": "statement-orbit",
@@ -42912,10 +42879,6 @@
         "value": "#1A1814"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h2",
         "value": "1.02"
       },
@@ -42978,10 +42941,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--stats-bento-gap",
@@ -43084,7 +43043,6 @@
       "steps-horizontal",
       "steps-horizontal__connector",
       "steps-horizontal__content",
-      "steps-horizontal__header",
       "steps-horizontal__list",
       "steps-horizontal__pill",
       "steps-horizontal__step",
@@ -43153,10 +43111,6 @@
         "value": "0.5rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-5",
         "value": "1.5rem"
       },
@@ -43167,10 +43121,6 @@
       {
         "name": "--space-9",
         "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h3",
@@ -43190,7 +43140,7 @@
         "760px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-ink --ink. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 40px, 760px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --accent-ink --ink. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 40px, 760px)."
   },
   {
     "id": "sticky-scroll-storytelling",
@@ -43198,8 +43148,10 @@
       "name": "StickyScrollStorytelling",
       "path": "src/sections/sticky-scroll-storytelling/Component.astro"
     },
-    "usage": "library",
-    "consumers": [],
+    "usage": "site",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
     "category": "marketing",
     "categorySlug": "feature-sections",
     "subcategory": "Narrative Sections",
@@ -43744,7 +43696,6 @@
       "team-bio-grid__avatar",
       "team-bio-grid__bio",
       "team-bio-grid__card",
-      "team-bio-grid__header",
       "team-bio-grid__initials",
       "team-bio-grid__lede",
       "team-bio-grid__list",
@@ -43771,10 +43722,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-semibold",
-        "value": "600"
       },
       {
         "name": "--hairline",
@@ -43821,24 +43768,12 @@
         "value": "0.5rem"
       },
       {
-        "name": "--space-4",
-        "value": "1rem"
-      },
-      {
         "name": "--space-6",
         "value": "2rem"
       },
       {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-small",
@@ -43860,7 +43795,7 @@
         "64px"
       ]
     },
-    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (100%, 1023px, 1px)."
+    "agentGuide": "Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-2 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (100%, 1023px, 1px)."
   },
   {
     "id": "team-card-grid",
@@ -44207,10 +44142,6 @@
         "value": "12, 11, 9"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
       },
@@ -44235,14 +44166,6 @@
         "value": "246, 241, 232"
       },
       {
-        "name": "--section-loose",
-        "value": "var(--space-13)"
-      },
-      {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -44253,10 +44176,6 @@
       {
         "name": "--space-5",
         "value": "1.5rem"
-      },
-      {
-        "name": "--space-9",
-        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
       },
       {
         "name": "--text-h1",
@@ -44289,7 +44208,7 @@
         "700px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.018em, 10%, 100%)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.018em, 10%, 100%)."
   },
   {
     "id": "tech-integration-flow",
@@ -44364,7 +44283,6 @@
       "tech-aside",
       "tech-int-flow",
       "tech-integration",
-      "tech-sec",
       "tech-sec-hd",
       "tech-sec-paper",
       "timeline-content",
@@ -44398,10 +44316,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
       },
@@ -44426,14 +44340,6 @@
         "value": "246, 241, 232"
       },
       {
-        "name": "--section-loose",
-        "value": "var(--space-13)"
-      },
-      {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
-      },
-      {
         "name": "--space-2",
         "value": "0.5rem"
       },
@@ -44446,16 +44352,8 @@
         "value": "1.5rem"
       },
       {
-        "name": "--space-9",
-        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -44470,7 +44368,7 @@
         "820px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 1240px, 1px)."
   },
   {
     "id": "tech-models-table",
@@ -44611,10 +44509,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
       },
@@ -44647,10 +44541,6 @@
         "value": "var(--space-11)"
       },
       {
-        "name": "--section-loose",
-        "value": "var(--space-13)"
-      },
-      {
         "name": "--space-10",
         "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
@@ -44681,10 +44571,6 @@
       {
         "name": "--text-h1",
         "value": "clamp(34px, 5.5vw, 80px)"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [
@@ -44796,7 +44682,6 @@
       "tech-pos-statement",
       "tech-pos-title",
       "tech-positioning",
-      "tech-sec",
       "tech-sec-paper",
       "wrap"
     ],
@@ -44842,10 +44727,6 @@
         "value": "12, 11, 9"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--muted",
         "value": "#6B6560"
       },
@@ -44864,10 +44745,6 @@
       {
         "name": "--paper-rgb",
         "value": "246, 241, 232"
-      },
-      {
-        "name": "--section-loose",
-        "value": "var(--space-13)"
       },
       {
         "name": "--space-1",
@@ -45231,10 +45108,6 @@
         "value": "#0C0B09"
       },
       {
-        "name": "--leading-body",
-        "value": "1.5"
-      },
-      {
         "name": "--leading-h1",
         "value": "0.96"
       },
@@ -45257,14 +45130,6 @@
       {
         "name": "--paper-rgb",
         "value": "246, 241, 232"
-      },
-      {
-        "name": "--section-loose",
-        "value": "var(--space-13)"
-      },
-      {
-        "name": "--space-10",
-        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
       },
       {
         "name": "--space-2",
@@ -45293,10 +45158,6 @@
       {
         "name": "--text-h3",
         "value": "clamp(19px, 1.8vw, 26px)"
-      },
-      {
-        "name": "--text-small",
-        "value": "13px"
       }
     ],
     "tailwindUtils": [],
@@ -45312,7 +45173,7 @@
         "800px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 18px)."
   },
   {
     "id": "terminal-metrics-strip",
@@ -45934,7 +45795,6 @@
       "testimonial-block",
       "testimonial-block__author",
       "testimonial-block__footer",
-      "testimonial-block__header",
       "testimonial-block__item",
       "testimonial-block__list",
       "testimonial-block__quote"
@@ -45991,10 +45851,6 @@
       {
         "name": "--space-7",
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
-      },
-      {
-        "name": "--spacing-block",
-        "value": "clamp(28px, 3vw, 48px)"
       },
       {
         "name": "--text-h3",
@@ -46075,8 +45931,6 @@
       "tlm__author-role",
       "tlm__card",
       "tlm__grid",
-      "tlm__h2",
-      "tlm__head",
       "tlm__inner",
       "tlm__kicker",
       "tlm__logo",
@@ -46118,10 +45972,6 @@
       {
         "name": "--ink",
         "value": "#0C0B09"
-      },
-      {
-        "name": "--leading-h3",
-        "value": "1.1"
       },
       {
         "name": "--leading-relaxed",
@@ -46184,20 +46034,12 @@
         "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
       },
       {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
         "name": "--text-body-md",
         "value": ""
       },
       {
         "name": "--text-h2",
         "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-small",
@@ -46210,27 +46052,23 @@
       {
         "name": "--tracking-mono",
         "value": "0.12em"
-      },
-      {
-        "name": "--wrap-prose",
-        "value": "720px"
       }
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 11,
+      "count": 10,
       "samples": [
         "-0.015em",
-        "-0.01em",
         "-2px",
         ".1em",
         "100%",
         "17px",
         "180px",
-        "1px"
+        "1px",
+        "28px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.015em, -0.01em, -2px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (-0.015em, -2px, .1em)."
   },
   {
     "id": "testimonial-metrics",
@@ -46381,10 +46219,6 @@
         "value": "246, 241, 232"
       },
       {
-        "name": "--section-base",
-        "value": "var(--space-11)"
-      },
-      {
         "name": "--space-12",
         "value": "clamp(calc(7.5rem * var(--fl-space-shrink)), calc((7.5rem * var(--fl-space-shrink)) + (7.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 7.5rem)"
       },
@@ -46415,10 +46249,6 @@
       {
         "name": "--text-h2",
         "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-small",
@@ -46536,7 +46366,6 @@
       "testimonial-spotlight__grid",
       "testimonial-spotlight__initials",
       "testimonial-spotlight__logo",
-      "testimonial-spotlight__main",
       "testimonial-spotlight__name",
       "testimonial-spotlight__portrait",
       "testimonial-spotlight__quote",
@@ -46554,10 +46383,6 @@
       {
         "name": "--fw-medium",
         "value": "500"
-      },
-      {
-        "name": "--fw-semibold",
-        "value": "600"
       },
       {
         "name": "--hairline",
@@ -46642,10 +46467,6 @@
       {
         "name": "--text-h2",
         "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-small",
@@ -46997,10 +46818,6 @@
       {
         "name": "--text-h2",
         "value": "clamp(26px, 3.6vw, 52px)"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       }
     ],
     "tailwindUtils": [],
@@ -47084,14 +46901,11 @@
     "scopedClasses": [
       "acc",
       "timeline-h",
-      "timeline-h__body",
       "timeline-h__card",
       "timeline-h__date",
       "timeline-h__dot",
       "timeline-h__event",
       "timeline-h__h2",
-      "timeline-h__hd",
-      "timeline-h__intro",
       "timeline-h__label",
       "timeline-h__rail",
       "timeline-h__status",
@@ -47123,10 +46937,6 @@
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
       },
       {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
         "name": "--fw-semibold",
         "value": "600"
       },
@@ -47137,10 +46947,6 @@
       {
         "name": "--ink",
         "value": "#0C0B09"
-      },
-      {
-        "name": "--leading-body",
-        "value": "1.5"
       },
       {
         "name": "--leading-h3",
@@ -47187,10 +46993,6 @@
         "value": "0.5rem"
       },
       {
-        "name": "--space-3",
-        "value": "0.75rem"
-      },
-      {
         "name": "--space-4",
         "value": "1rem"
       },
@@ -47201,18 +47003,6 @@
       {
         "name": "--space-6",
         "value": "2rem"
-      },
-      {
-        "name": "--space-9",
-        "value": "clamp(calc(4rem * var(--fl-space-shrink)), calc((4rem * var(--fl-space-shrink)) + (4rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 4rem)"
-      },
-      {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
-        "name": "--text-h2",
-        "value": "clamp(26px, 3.6vw, 52px)"
       },
       {
         "name": "--text-h3",
@@ -47229,9 +47019,8 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 8,
+      "count": 7,
       "samples": [
-        "-0.02em",
         "-50%",
         "14px",
         "240px",
@@ -47241,7 +47030,7 @@
         "760px"
       ]
     },
-    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-11 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.02em, -50%, 14px)."
+    "agentGuide": "Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-11 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-50%, 14px, 240px)."
   },
   {
     "id": "trust-badges-band",
@@ -47311,7 +47100,6 @@
       "trust-badges__cell",
       "trust-badges__glyph",
       "trust-badges__grid",
-      "trust-badges__h2",
       "trust-badges__head",
       "trust-badges__item",
       "trust-badges__item-glyph",
@@ -47335,28 +47123,12 @@
         "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
       },
       {
-        "name": "--font-sans",
-        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-medium",
-        "value": "500"
-      },
-      {
-        "name": "--fw-semibold",
-        "value": "600"
-      },
-      {
         "name": "--hairline",
         "value": "rgba(var(--ink-rgb), 0.09)"
       },
       {
         "name": "--ink",
         "value": "#0C0B09"
-      },
-      {
-        "name": "--leading-h3",
-        "value": "1.1"
       },
       {
         "name": "--muted",
@@ -47407,16 +47179,8 @@
         "value": ""
       },
       {
-        "name": "--text-body",
-        "value": "clamp(15px, 1vw, 17px)"
-      },
-      {
         "name": "--text-glyph",
         "value": "22px"
-      },
-      {
-        "name": "--text-h3",
-        "value": "clamp(19px, 1.8vw, 26px)"
       },
       {
         "name": "--text-small",
@@ -47429,9 +47193,8 @@
     ],
     "tailwindUtils": [],
     "hardcodedLiterals": {
-      "count": 7,
+      "count": 6,
       "samples": [
-        "-0.01em",
         ".04em",
         ".1em",
         "1px",
@@ -47440,7 +47203,7 @@
         "900px"
       ]
     },
-    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.01em, .04em, .1em)."
+    "agentGuide": "Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-mono --text-glyph. Dette : 6 litteral(s) hardcode(s) (.04em, .1em, 1px)."
   },
   {
     "id": "trust-legal-section",
@@ -47548,8 +47311,7 @@
       "trust-meta",
       "trust-sections",
       "trust-toc",
-      "trust-toc-k",
-      "trust-toc-num"
+      "trust-toc-k"
     ],
     "tokensUsed": [
       {
@@ -48103,8 +47865,7 @@
     },
     "usage": "site",
     "consumers": [
-      "src/pages/en/index.astro",
-      "src/pages/index.astro"
+      "src/pages/en/index.astro"
     ],
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -48546,7 +48307,6 @@
       "versus__group",
       "versus__grouprow",
       "versus__h2",
-      "versus__head",
       "versus__icon",
       "versus__icon--no",
       "versus__icon--yes",
@@ -48576,10 +48336,6 @@
       {
         "name": "--font-sans",
         "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
-      },
-      {
-        "name": "--fw-medium",
-        "value": "500"
       },
       {
         "name": "--fw-semibold",
@@ -48646,10 +48402,6 @@
         "value": "1.5rem"
       },
       {
-        "name": "--space-8",
-        "value": "clamp(calc(3rem * var(--fl-space-shrink)), calc((3rem * var(--fl-space-shrink)) + (3rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 3rem)"
-      },
-      {
         "name": "--text-body",
         "value": "clamp(15px, 1vw, 17px)"
       },
@@ -48668,10 +48420,6 @@
       {
         "name": "--tracking-mono-tight",
         "value": "0.08em"
-      },
-      {
-        "name": "--wrap-prose",
-        "value": "720px"
       }
     ],
     "tailwindUtils": [],

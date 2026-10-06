@@ -3,8 +3,9 @@ export const prerender = true;
 
 // Page SSG · /ressources/outils/charte-ia-entreprise · lead magnet « Modèle de charte IA
 // pour PME » (requête visée : charte ia entreprise). La charte est lisible en entier sur
-// la page, personnalisable, téléchargeable (PDF, Word) sans e-mail. La capture d'e-mail
-// est facultative (organism LeadCapture → /api/lead-magnet).
+// la page, personnalisable, utilisable en ligne et exportable en Word sans e-mail. Le PDF
+// est VERROUILLÉ : e-mail obligatoire, livré en pièce jointe (organism LeadCapture `required`
+// → /api/lead-magnet), jamais servi par le site.
 // Route explicite : l'entrée `outils/charte-ia-entreprise` (JSON) ne sert qu'au listing
 // du hub ; [...slug].astro l'exclut.
 
@@ -21,7 +22,7 @@ import { CHARTE_HREF, auditCtaFinal } from '../../../data/conversion';
 import { charterArticles } from '../../../data/charte-ia-pme';
 
 const title = 'Charte IA entreprise : modèle gratuit pour PME (PDF et Word)';
-const description = "Modèle de charte IA pour PME en neuf articles : outils autorisés, données interdites, validation humaine. En ligne, PDF et Word, sans inscription.";
+const description = "Modèle de charte IA pour PME en neuf articles : outils autorisés, données interdites, validation humaine. En ligne et Word sans e-mail ; le PDF par e-mail.";
 const ld = buildArticle({
   headline: title,
   description,
@@ -51,19 +52,21 @@ const cta = auditCtaFinal(
     h1="Charte IA entreprise : un modèle pour PME, à adapter"
     lede={`${charterArticles.length} articles courts qui règlent les questions que vos équipes se posent déjà : quel outil, quelles données, qui relit, qui valide. Le texte est en entier ci-dessous.`}
     facts={[
-      { label: 'Format', value: 'En ligne, PDF, Word' },
+      { label: 'Format', value: 'En ligne, Word, PDF par e-mail' },
       { label: 'Longueur', value: `${charterArticles.length} articles, 8 min de lecture` },
-      { label: 'E-mail', value: 'Non requis' },
+      { label: 'E-mail', value: 'Requis pour le PDF seulement' },
       { label: 'Mise à jour', value: '4 octobre 2026' },
     ]}
   />
   <CharterDocument />
   <LeadCapture
     band
-        slug="charte-ia-entreprise"
-        title="Recevoir le modèle par e-mail"
-        description="Le lien vers le PDF et vers cette page, pour les retrouver ou les transférer à la personne qui rédigera votre charte."
-        buttonLabel="Recevoir le modèle"
+    required
+    anchorId="recevoir-le-pdf"
+    slug="charte-ia-entreprise"
+    title="Recevoir le PDF par e-mail"
+    description="Le modèle de charte au format PDF, avec ses notes d'adaptation, arrive en pièce jointe. Il n'est pas disponible en téléchargement direct."
+    buttonLabel="Recevoir le PDF"
   />
   <ResourceLinks exclude={['charte']} />
   <CtaFinal data={cta} lang="fr" />

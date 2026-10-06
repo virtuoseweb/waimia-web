@@ -3,7 +3,7 @@
 //
 // Source unique du texte : src/data/checklist-90-jours-claude.ts → page
 // /ressources/outils/checklist-90-jours-claude → feuille d'impression (@media print de
-// l'organism ChecklistDocument) → public/telechargements/checklist-90-jours-claude-pme-waimia.pdf.
+// l'organism ChecklistDocument) → private/telechargements/checklist-90-jours-claude-pme-waimia.pdf.
 // À relancer après toute modification du texte de la checklist, puis committer le PDF.
 //
 // Usage :
@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 const args = process.argv.slice(2);
 const base = args.includes('--base') ? args[args.indexOf('--base') + 1] : 'http://localhost:4321';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const out = resolve(root, 'public/telechargements/checklist-90-jours-claude-pme-waimia.pdf');
+const out = resolve(root, 'private/telechargements/checklist-90-jours-claude-pme-waimia.pdf');
 mkdirSync(dirname(out), { recursive: true });
 
 const browser = await chromium.launch(

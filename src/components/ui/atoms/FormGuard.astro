@@ -1,0 +1,36 @@
+---
+// Atom · FormGuard · anti-robots de TOUT formulaire qui poste vers /api/*.
+// À placer dans le <form>. Contrat serveur : src/lib/honeypot.ts (isBotSubmission).
+//   - `website` : champ piège HORS ÉCRAN (jamais display:none seul : certains robots l'ignorent
+//     alors), tabindex -1, autocomplete off, aria-hidden. Un humain ne le remplit pas.
+//   - `_t` : horodatage du chargement posé par un script en ligne ; le serveur traite une
+//     soumission en moins de 2 s comme un robot. Vide sans JS : pas de rejet.
+// Le JS de soumission doit envoyer les deux : `new FormData(form)` les reprend seuls ; un
+// payload construit à la main inclut `website` et `_t` (voir `data-form-t`).
+// Gate : scripts/check-honeypot.mjs.
+---
+<div class="fg-trap" aria-hidden="true">
+  <label>Ne pas remplir <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+</div>
+<input type="hidden" name="_t" value="" data-form-t />
+<script is:inline>
+  (function () {
+    function stamp() {
+      document.querySelectorAll('input[data-form-t]').forEach(function (i) {
+        if (!i.value) i.value = String(Date.now());
+      });
+    }
+    stamp();
+    document.addEventListener('astro:page-load', stamp);
+  })();
+</script>
+<style>
+  .fg-trap {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+</style>

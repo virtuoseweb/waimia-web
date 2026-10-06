@@ -75,8 +75,14 @@
   ],
   "sections": [
     {
-      "type": "hero-masthead-card",
+      "type": "hero-split-media",
       "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/donnees-reporting-v3-cadran-paper.webp",
+        "alt_fr": "Illustration : une personne sur un escabeau relève l'aiguille d'un immense cadran rond posé sur un pied",
+        "alt_en": "Illustration: a person on a stepladder reads the needle of a huge round dial on a stand",
+        "side": "right"
+      },
       "kicker_fr": "§ Tableau de bord et reporting automatisé",
       "kicker_en": "§ Dashboard and automated reporting",
       "h1_fr": "Un <i class=\"acc\">tableau de bord</i> à jour, sans reporting refait à la main.",
@@ -101,8 +107,6 @@
           "label_en": "Data on your side"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
-      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -114,10 +118,7 @@
         "label_en": "How the audit works",
         "href": "/audit-ia-pme",
         "variant": "ghost"
-      },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma d'un dispositif de reporting : les données de vos outils convergent vers un socle unique, puis alimentent des tableaux de bord à jour en temps réel.",
-      "media_alt_en": "Diagram of a reporting setup: data from your tools converges into a single base, then feeds dashboards up to date in real time."
+      }
     },
     {
       "type": "proof-bar",
@@ -199,6 +200,14 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/donnees-reporting-v3-trois-mesures-paper.webp",
+          "alt_fr": "Illustration : trois règles de longueurs différentes posées sur la même planche, trois personnes autour",
+          "alt_en": "Illustration: three rulers of different lengths laid on the same plank, three people around it",
+          "side": "right"
+        }
+      ],
       "html_fr": "<h2>Pourquoi vos chiffres ne concordent pas</h2>\n<p>Parce que chaque outil compte à sa façon. Le CRM compte un client à la signature, la facturation à la première facture, le tableur du commercial à la poignée de main. Le problème n'est pas technique : personne n'a écrit ce que « un client » ou « le chiffre d'affaires du mois » veut dire. Le premier travail est donc un dictionnaire : une définition par indicateur, validée par la direction.</p>\n<h2>Ce qu'on met en place</h2>\n<p>Des connexions vers vos sources (CRM, facturation, e-commerce, tableurs, outil métier), le plus souvent avec <a href=\"/services/automatisation-n8n\">n8n</a>. Une base de données qui conserve l'historique. Des tableaux de bord limités à ce qui se décide : cinq à dix indicateurs par destinataire, pas cinquante. L'article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> aide à choisir. Quand un tableur fait encore office de source, on le garde tant qu'il est fiable et on le remplace par une <a href=\"/services/applications-internes\">application métier</a> s'il ne l'est plus.</p>\n<p>On peut ajouter une synthèse rédigée par un modèle d'IA : un commentaire hebdomadaire qui signale les écarts. Elle est utile si quelqu'un la lit ; on ne l'installe pas par défaut.</p>\n<h2>Combien de temps</h2>\n<p>Un premier tableau de bord est habituellement en ligne en 2 à 6 semaines, sur un périmètre restreint : une fonction, quelques indicateurs. La durée dépend de la qualité des données sources. Des fiches clients en double ou des dates saisies en texte se corrigent avant d'être affichées.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Des données sources sales : un tableau de bord les rend visibles, il ne les répare pas. Trop d'indicateurs : personne ne regarde. Un tableau sans destinataire : chaque écran a un lecteur nommé et une décision associée. Le détail de la démarche est dans le cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a>.</p>\n<p>Pour savoir quelles sources brancher en premier, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>Why your figures do not match</h2>\n<p>Because each tool counts its own way. The CRM counts a customer at signature, invoicing at the first invoice, the salesperson's spreadsheet at the handshake. The problem is not technical: nobody wrote down what \"a customer\" or \"this month's revenue\" means. The first job is a dictionary: one definition per indicator, approved by management.</p>\n<h2>What we set up</h2>\n<p>Connections to your sources (CRM, invoicing, e-commerce, spreadsheets, business tool), most often with <a href=\"/services/automatisation-n8n\">n8n</a>. A database that keeps history. Dashboards limited to what gets decided: five to ten indicators per reader, not fifty. The article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">SMB dashboard: the data that matters</a> helps choose. When a spreadsheet still acts as a source, we keep it while it is reliable and replace it with a <a href=\"/services/applications-internes\">business application</a> when it is not.</p>\n<p>We can add a summary written by an AI model: a weekly comment flagging deviations. It is useful if someone reads it; we do not install it by default.</p>\n<h2>How long</h2>\n<p>A first dashboard is usually online within 2 to 6 weeks, on a narrow scope: one function, a few indicators. It depends on source data quality. Duplicate customer records or dates typed as text are fixed before being displayed.</p>\n<h2>What can go wrong</h2>\n<p>Dirty source data: a dashboard makes it visible, it does not repair it. Too many indicators: nobody looks. A dashboard with no reader: each screen has a named reader and an associated decision. The approach is detailed in the use case <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a>.</p>\n<p>To know which sources to connect first, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },

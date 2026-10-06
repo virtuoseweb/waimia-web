@@ -29,7 +29,7 @@
  * Exit  : 0 propre · 1 erreur(s) · 2 dist/client absent.
  */
 
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { scanDist, isIndexable, textOf, normalizePath, SITE_ORIGIN, DIST } from './lib/dist-scan.mjs';
 
@@ -88,6 +88,13 @@ const HQ_ID = `${SITE_ORIGIN}/#localbusiness`;
 const ORG_REF_PROPS = ['provider', 'publisher', 'worksFor', 'parentOrganization', 'seller'];
 const SINGLETONS = ['Organization', 'WebSite', 'BreadcrumbList', 'FAQPage', 'ProfessionalService', 'OfferCatalog'];
 
+/** Slugs des ressources verrouillées : un fichier `src/data/lead-magnets/<slug>.ts` par ressource (hors types.ts). */
+const GATED_RESOURCES = new Set(
+  readdirSync(new URL('../src/data/lead-magnets/', import.meta.url))
+    .filter((f) => f.endsWith('.ts') && f !== 'types.ts')
+    .map((f) => f.replace(/\.ts$/, '')),
+);
+
 /** Blocs attendus par type de page : [test(pathname), [types dont au moins un par groupe], libellé]. */
 const COVERAGE = [
   [(p) => true, [['Organization'], ['WebSite']], 'toute page'],
@@ -97,7 +104,9 @@ const COVERAGE = [
   [(p) => /^\/formations\/.+/.test(p), [['Course']], 'page formation'],
   [(p) => /^\/blog\/.+/.test(p), [ARTICLE_TYPES], 'article de blog'],
   [(p) => /^\/ressources\/(guides|comparatifs|diagnostics)\/.+/.test(p), [ARTICLE_TYPES], 'ressource éditoriale'],
-  [(p) => /^\/ressources\/outils\/.+/.test(p), [['WebApplication', 'SoftwareApplication']], 'outil interactif'],
+  // Ressources verrouillées (fichier livré par e-mail, aucune application en ligne) : Article, pas WebApplication.
+  [(p) => /^\/ressources\/outils\/.+/.test(p) && GATED_RESOURCES.has(p.split('/').pop()), [ARTICLE_TYPES], 'ressource à télécharger'],
+  [(p) => /^\/ressources\/outils\/.+/.test(p) && !GATED_RESOURCES.has(p.split('/').pop()), [['WebApplication', 'SoftwareApplication']], 'outil interactif'],
   [(p) => /^\/cas-clients\/.+/.test(p), [ARTICLE_TYPES], 'cas client'],
   [(p) => /^\/equipe\/.+/.test(p), [['Person'], ['ProfilePage']], 'page auteur'],
   [(p) => /^\/implantations\/.+/.test(p), [['ProfessionalService']], 'page implantation'],

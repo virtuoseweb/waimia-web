@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- tritone sol-bleu · deux grues portuaires identiques au bord d'un quai, chacune soulève la même caisse ; une petite silhouette entre les deux regarde. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+
+    <g id="crane">
+      <!-- portique -->
+      <path d="M-62 0 L-30 -170 L-18 -170 L-48 0 Z" fill="{{shape}}"/>
+      <path d="M62 0 L30 -170 L18 -170 L48 0 Z" fill="{{shape}}"/>
+      <rect x="-56" y="-70" width="112" height="9" fill="{{shape}}"/>
+      <!-- cabine -->
+      <rect x="-34" y="-206" width="68" height="40" fill="{{shape}}"/>
+      <rect x="-24" y="-198" width="22" height="18" fill="{{deep}}"/>
+      <!-- tour -->
+      <rect x="-10" y="-360" width="20" height="156" fill="{{shape}}"/>
+      <g stroke="{{deep}}" stroke-width="3"><path d="M-10 -340 L10 -310 M10 -300 L-10 -270 M-10 -260 L10 -230"/></g>
+      <!-- flèche et contre-flèche -->
+      <rect x="-90" y="-368" width="330" height="14" fill="{{shape}}"/>
+      <rect x="-88" y="-354" width="34" height="30" fill="{{deep}}"/>
+      <path d="M0 -400 L-80 -368 L-72 -368 L0 -394 L230 -368 L240 -368 Z" fill="{{shape}}"/>
+      <rect x="-3" y="-404" width="6" height="40" fill="{{shape}}"/>
+      <!-- câble et caisse -->
+      <rect x="208" y="-354" width="3" height="170" fill="{{subject}}"/>
+      <path d="M190 -184 L210 -196 L230 -184 Z" fill="{{subject}}"/>
+      <rect x="176" y="-184" width="68" height="50" fill="{{detail}}"/>
+      <g fill="{{soft}}"><rect x="176" y="-184" width="68" height="5"/><rect x="176" y="-139" width="68" height="5"/><rect x="190" y="-184" width="5" height="50"/><rect x="225" y="-184" width="5" height="50"/></g>
+    </g>
+  
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- eau du port -->
+  <rect y="472" width="1456" height="152" fill="{{ground}}"/>
+  <g fill="{{detail}}">
+    <rect x="80" y="510" width="160" height="3"/><rect x="400" y="540" width="220" height="3"/><rect x="760" y="505" width="140" height="3"/>
+    <rect x="1040" y="560" width="200" height="3"/><rect x="240" y="590" width="180" height="3"/><rect x="900" y="596" width="160" height="3"/>
+  </g>
+  <!-- quai -->
+  <rect x="0" y="430" width="1456" height="44" fill="{{pale}}"/>
+  <rect x="0" y="466" width="1456" height="8" fill="{{deep}}"/>
+  <g fill="{{soft}}"><rect x="100" y="474" width="10" height="14"/><rect x="440" y="474" width="10" height="14"/><rect x="780" y="474" width="10" height="14"/><rect x="1120" y="474" width="10" height="14"/></g>
+  <!-- deux grues identiques -->
+  <use href="#crane" transform="translate(300 430)"/>
+  <use href="#crane" transform="translate(880 430)"/>
+  <!-- petite silhouette entre les deux, sur le quai -->
+  <use href="#man" transform="translate(740 446) scale(0.7)"/>
+</svg>

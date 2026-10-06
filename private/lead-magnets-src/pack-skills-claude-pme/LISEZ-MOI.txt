@@ -1,0 +1,126 @@
+PACK DE 8 SKILLS CLAUDE POUR PME
+Waimia · waimia.com · version du 5 octobre 2026
+
+Ce dossier contient 8 skills prêts à adapter :
+
+  devis-commercial            brouillon de devis à partir d'une demande client
+  compte-rendu-reunion        compte rendu : décisions, actions, points ouverts
+  relance-facture-impayee     relance graduée d'une facture impayée
+  fiche-de-poste              fiche de poste et offre d'emploi non discriminante
+  veille-concurrentielle      note de veille sourcée et datée
+  rapport-mensuel-pilotage    rapport mensuel à partir d'exports chiffrés
+  charte-redactionnelle       votre ton de marque appliqué à tous les textes
+  tri-emails-entrants         tri, repérage des e-mails suspects, brouillons
+
+Le mode d'emploi complet (PDF) vous a été envoyé avec ce fichier.
+
+
+CONTENU DU ZIP
+--------------
+
+  skills/            un dossier par skill (SKILL.md + fichiers à compléter)
+                     à utiliser pour Claude Code, ou pour modifier un skill
+  pour-claude-ai/    un fichier .zip par skill, prêt à téléverser sur claude.ai
+  LISEZ-MOI.txt      ce fichier
+
+
+ÉTAPE 0 · ADAPTER AVANT D'INSTALLER (15 à 45 minutes par skill)
+---------------------------------------------------------------
+
+Six skills s'appuient sur un fichier à compléter, placé dans leur dossier :
+
+  devis-commercial          grille-tarifaire.md et modele-devis.md
+  relance-facture-impayee   modeles-relance.md
+  veille-concurrentielle    concurrents.md
+  rapport-mensuel-pilotage  indicateurs.md
+  charte-redactionnelle     charte.md
+  tri-emails-entrants       categories.md
+
+Remplacez chaque [À COMPLÉTER] avec un éditeur de texte (TextEdit en mode
+texte brut, Bloc-notes, VS Code). Tant qu'un champ reste vide, Claude le
+signale au lieu d'inventer.
+
+Si vous modifiez un dossier, refaites son zip pour claude.ai (voir plus bas).
+
+
+INSTALLER SUR CLAUDE.AI (application web, bureau, mobile)
+---------------------------------------------------------
+
+Chemins vérifiés dans le centre d'aide d'Anthropic le 5 octobre 2026.
+L'interface évolue : si un libellé a changé, cherchez « Skills » dans
+les réglages.
+
+1. Activez l'exécution de code :
+   - Free, Pro, Max : Paramètres > Capacités (Settings > Capabilities),
+     option « Exécution de code et création de fichiers ».
+   - Team, Enterprise : un propriétaire de l'organisation active
+     « Code execution and file creation » et « Skills » dans
+     Paramètres de l'organisation > Plugins & skills, onglet « Policy ».
+
+2. Ouvrez Personnaliser > Skills (Customize > Skills).
+
+3. Cliquez sur « + », puis « + Create skill », puis « Upload a skill ».
+
+4. Choisissez un fichier du dossier pour-claude-ai/ (un skill à la fois).
+
+5. Vérifiez que le skill est activé dans la liste.
+
+Règle à connaître : un skill téléversé sur claude.ai est personnel. Sur les
+offres Team et Enterprise, un propriétaire peut aussi le mettre à
+disposition de toute l'organisation, et le partage entre collègues dépend
+d'un réglage d'administration (« Skill sharing »). Sur Free, Pro et Max,
+chaque personne installe ses propres skills.
+
+Refaire le zip d'un skill modifié : le zip doit contenir le dossier du
+skill à sa racine, et le nom du dossier doit être celui du skill.
+   - Mac : clic droit sur le dossier skills/devis-commercial > Compresser.
+   - Windows : clic droit sur le dossier > Envoyer vers > Dossier compressé.
+
+
+INSTALLER DANS CLAUDE CODE
+--------------------------
+
+Copiez le dossier du skill (pas le zip) dans l'un de ces emplacements :
+
+   ~/.claude/skills/<nom-du-skill>/     pour vous, dans tous vos projets
+   .claude/skills/<nom-du-skill>/       pour un projet (à versionner avec
+                                        le projet pour le partager)
+
+Exemple sur Mac ou Linux, depuis le dossier décompressé :
+
+   mkdir -p ~/.claude/skills
+   cp -R skills/devis-commercial ~/.claude/skills/
+
+Claude Code utilise le skill quand votre demande correspond à sa
+description, ou quand vous tapez /devis-commercial.
+
+Les skills ne se synchronisent pas entre claude.ai, Claude Code et l'API :
+installez-les sur chaque surface que vous utilisez.
+
+
+TESTER
+------
+
+Pour chaque skill, faites trois essais avant de l'utiliser pour de vrai :
+  1. une demande normale (ex. « prépare le devis pour cette demande »),
+  2. une demande incomplète (Claude doit poser des questions),
+  3. une demande qui ne le concerne pas (le skill ne doit pas se déclencher).
+Le PDF détaille la méthode et les erreurs fréquentes.
+
+
+SÉCURITÉ
+--------
+
+N'installez que des skills dont vous avez lu le contenu. Ceux-ci ne
+contiennent que du texte : aucun script, aucun appel réseau.
+Relisez toujours ce que Claude produit avant de l'envoyer à un client,
+un candidat ou un fournisseur.
+
+
+POUR ALLER PLUS LOIN
+--------------------
+
+Partager ces skills avec toute une équipe, les relier à vos outils
+(messagerie, CRM, facturation) ou les faire écrire sur vos propres
+processus : https://waimia.com/ressources/guides/claude-skills
+Audit gratuit : https://waimia.com/contact?offer=audit-ia-pme&intent=audit

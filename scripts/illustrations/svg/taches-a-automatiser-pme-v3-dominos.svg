@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot IMG1 · une rangée de dominos de plus en plus grands ; une petite silhouette pousse le premier, le plus petit -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pusher">
+      <circle cx="10" cy="-86" r="7.5" fill="{{subject}}"/>
+      <path d="M-6 -78 Q4 -82 14 -76 L4 -42 L-18 -44 Z" fill="{{subject}}"/>
+      <rect x="2" y="-74" width="34" height="6" rx="3" fill="{{subject}}" transform="rotate(8 2 -74)"/>
+      <path d="M-18 -44 L-4 -44 L-14 -2 L-26 -2 Z" fill="{{subject}}"/>
+      <path d="M-6 -44 L6 -44 L14 -2 L2 -2 Z" fill="{{subject}}"/>
+      <rect x="-30" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="2" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect x="330" y="430" width="40" height="70" fill="{{shape}}"/><rect x="370" y="438" width="10" height="62" fill="{{subject}}"/><rect x="430" y="404" width="52" height="96" fill="{{shape}}"/><rect x="482" y="412" width="10" height="88" fill="{{subject}}"/><rect x="550" y="370" width="66" height="130" fill="{{shape}}"/><rect x="616" y="378" width="10" height="122" fill="{{subject}}"/><rect x="690" y="324" width="82" height="176" fill="{{shape}}"/><rect x="772" y="332" width="10" height="168" fill="{{subject}}"/><rect x="860" y="264" width="100" height="236" fill="{{shape}}"/><rect x="960" y="272" width="10" height="228" fill="{{subject}}"/><rect x="1070" y="180" width="124" height="320" fill="{{shape}}"/><rect x="1194" y="188" width="10" height="312" fill="{{subject}}"/>
+  <use href="#pusher" transform="translate(300 500) scale(1.1)"/>
+  <ellipse cx="600" cy="510" rx="400" ry="6" fill="{{deep}}"/>
+
+</svg>

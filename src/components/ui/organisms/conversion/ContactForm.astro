@@ -1,4 +1,5 @@
 ---
+import FormGuard from '../../atoms/FormGuard.astro';
 // Organism · ContactForm · formulaire de demande de /contact (hors catalogue).
 //
 // Poste en JSON vers /api/contact. États gérés : vide, erreur par champ (validation
@@ -28,10 +29,7 @@ const id = (k: string) => `${idPrefix}-${k}`;
   data-contact-form
   novalidate
 >
-  <div class="cv-hp" aria-hidden="true">
-    <label for={id('website')}>Ne pas remplir</label>
-    <input type="text" id={id('website')} name="website" tabindex="-1" autocomplete="off" />
-  </div>
+  <FormGuard />
   <input type="hidden" name="lang" value="fr" />
   <input type="hidden" name="offer" value="" data-contact-offer />
   <input type="hidden" name="intent" value="" data-contact-intent />

@@ -76,6 +76,20 @@ jobs:
       - name: Gate · form endpoints exist (anti-régression forms)
         run: node scripts/check-form-endpoints.mjs
 
+      # Anti-robots : champ piège `website` + horodatage sur tout formulaire, isBotSubmission() dans tout endpoint.
+      - name: Gate · honeypot sur tous les formulaires
+        run: node scripts/check-honeypot.mjs
+
+      # Livraison des ressources verrouillées (pièce jointe, 503 honnêtes, honeypot) : faux serveur Resend.
+      # node:module registerHooks exige Node >= 22.15 (le build reste sur .nvmrc).
+      - name: Node récent pour le test de livraison
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.18'
+
+      - name: Test · livraison lead magnet (faux Resend)
+        run: node --test scripts/tests/lead-magnet-delivery.test.mjs
+
       # Gate gutter canonique : le gutter horizontal du site est UNIQUE = var(--gut) (tokens.css,
       # responsive 32→20→16px). Interdit tout override de padding horizontal sur .wrap/.wrap-wide/
       # .wrap-tight (ex. padding: 0 var(--space-8)) et tout usage du token fantôme var(--space-page-x).

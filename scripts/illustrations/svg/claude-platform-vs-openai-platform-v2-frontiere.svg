@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- tritone touche-bleue · deux grands territoires plats séparés par une rivière étroite (seul élément bleu) ; un pont unique avec une guérite ; une silhouette y porte une caisse. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1180" cy="200" r="90" fill="{{shape}}"/>
+  <rect y="200" width="1456" height="424" fill="{{ground}}"/>
+  <!-- sillons des deux territoires, en perspective -->
+  <g fill="{{soft}}">
+    <path d="M0 260 L640 210 L640 214 L0 272 Z"/><path d="M0 330 L630 226 L630 231 L0 346 Z"/><path d="M0 430 L620 246 L618 252 L0 452 Z"/><path d="M0 570 L610 272 L606 280 L0 600 Z"/>
+    <path d="M1456 250 L790 210 L790 214 L1456 262 Z"/><path d="M1456 320 L800 226 L802 231 L1456 336 Z"/><path d="M1456 420 L812 246 L815 252 L1456 442 Z"/><path d="M1456 560 L826 272 L831 280 L1456 590 Z"/>
+  </g>
+  <!-- la rivière, étroite, du lointain au premier plan -->
+  <path d="M710 200 L724 200 C 740 260, 690 300, 740 360 C 790 420, 720 500, 770 624 L668 624 C 630 520, 700 430, 668 360 C 636 300, 700 260, 710 200 Z" fill="{{detail}}"/>
+  <!-- pont unique -->
+  <path d="M600 384 L840 384 L840 402 L600 402 Z" fill="{{shape}}"/>
+  <rect x="600" y="402" width="240" height="8" fill="{{deep}}"/>
+  <g fill="{{shadow}}">
+    <rect x="600" y="368" width="240" height="4"/>
+    <rect x="606" y="368" width="4" height="16"/><rect x="646" y="368" width="4" height="16"/><rect x="686" y="368" width="4" height="16"/><rect x="726" y="368" width="4" height="16"/><rect x="766" y="368" width="4" height="16"/><rect x="806" y="368" width="4" height="16"/><rect x="834" y="368" width="4" height="16"/>
+  </g>
+  <!-- guérite au bout du pont, côté droit -->
+  <rect x="850" y="318" width="44" height="72" fill="{{subject}}"/>
+  <path d="M842 320 L872 296 L902 320 Z" fill="{{subject}}"/>
+  <rect x="860" y="332" width="24" height="18" fill="{{light}}"/>
+  <rect x="850" y="388" width="44" height="6" fill="{{deep}}"/>
+  <!-- silhouette portant une caisse vers la guérite -->
+  <use href="#man" transform="translate(520 404) scale(0.82)"/>
+  <rect x="502" y="342" width="38" height="28" fill="{{light}}"/>
+  <rect x="502" y="342" width="38" height="4" fill="{{soft}}"/><rect x="519" y="342" width="4" height="28" fill="{{soft}}"/>
+  <ellipse cx="520" cy="405" rx="18" ry="3" fill="{{soft}}"/>
+</svg>

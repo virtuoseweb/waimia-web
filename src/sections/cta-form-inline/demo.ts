@@ -18,4 +18,5 @@ export const demo: DemoData = {
     submit_label_en: 'Subscribe →',
     hint_fr: 'Sans spam · Désinscription en 1 clic',
     hint_en: 'No spam · Unsubscribe in 1 click',
+    // Pour une ressource verrouillée, ajouter : lead_magnet: 'checklist-90-jours-claude' (slug de LEAD_MAGNETS).
   };

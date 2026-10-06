@@ -1,4 +1,5 @@
 ---
+import FormGuard from '../ui/atoms/FormGuard.astro';
 // Section W6 · newsletter-band
 // Bande newsletter fond sombre : titre éditorial (1.2fr) + formulaire email (1fr). Source : `hub-nl` (ressources/index.astro).
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -43,7 +44,7 @@ const hint = isFr ? data.hint_fr : data.hint_en;
         action={data.form_action ?? '#'}
       >
         <div class="newsletter-band__field">
-          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
+          <FormGuard />
           <label for="nl-email" class="sr-only">Email</label>
           <input
             id="nl-email"

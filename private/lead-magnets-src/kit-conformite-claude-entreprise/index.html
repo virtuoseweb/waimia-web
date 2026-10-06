@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Kit conformité et administration de Claude en entreprise · Waimia</title>
+<style>
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; src: url("../../../public/fonts/instrument-serif-regular.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; src: url("../../../public/fonts/instrument-serif-regular-ext.woff2") format("woff2"); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; src: url("../../../public/fonts/instrument-serif-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 100 900; src: url("../../../public/fonts/inter-tight-regular.woff2") format("woff2"); }
+@font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 100 900; src: url("../../../public/fonts/inter-tight-regular-ext.woff2") format("woff2"); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter Tight"; font-style: italic; font-weight: 100 900; src: url("../../../public/fonts/inter-tight-italic.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; src: url("../../../public/fonts/jetbrains-mono-regular.woff2") format("woff2"); }
+
+:root {
+  --paper: #F6F1E8; --paper-2: #EFE9DD; --paper-3: #E6E0D0;
+  --ink: #0C0B09; --ink-2: #1A1814; --muted: #6B6560;
+  --accent: #C94F2E; --accent-dark: #A83D20; --rule: #D9D1C2; --blue: #75B0D7;
+}
+@page { size: A4; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: "Inter Tight", system-ui, sans-serif; font-size: 10pt; line-height: 1.5; color: var(--ink); background: #fff; }
+.page { break-after: page; page-break-after: always; }
+.page:last-child { break-after: auto; page-break-after: auto; }
+h1, h2, h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; line-height: 1.1; margin: 0; }
+h1 { font-size: 40pt; letter-spacing: -0.01em; }
+h2 { font-size: 24pt; margin: 0 0 4mm; }
+h3 { font-size: 14pt; margin: 5mm 0 2mm; }
+h2 i, h1 i { color: var(--accent); }
+p { margin: 0 0 2.6mm; }
+ul, ol { margin: 0 0 3mm; padding-left: 5mm; }
+li { margin-bottom: 1.4mm; }
+a { color: var(--accent-dark); text-decoration: none; }
+.kicker { font-family: "JetBrains Mono", monospace; font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 3mm; }
+.lede { font-size: 11.5pt; color: var(--ink-2); max-width: 150mm; }
+.muted { color: var(--muted); }
+.small { font-size: 8.5pt; }
+.tag { display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 6.8pt; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.4mm 1.6mm; border-radius: 1mm; vertical-align: 1px; white-space: nowrap; }
+.tag.fait { background: var(--ink); color: var(--paper); }
+.tag.verif { background: transparent; color: var(--accent-dark); border: 0.6pt solid var(--accent-dark); }
+.box { background: var(--paper); border-left: 2.4pt solid var(--accent); padding: 3.5mm 4.5mm; margin: 3mm 0 4mm; }
+.box.ink { background: var(--ink); color: var(--paper); border-left-color: var(--blue); }
+.box.ink a { color: #F0B49F; }
+.box p:last-child, .box ul:last-child { margin-bottom: 0; }
+figure { margin: 0 0 4mm; }
+figure img { width: 100%; display: block; border-radius: 1.2mm; }
+figcaption { font-size: 7.5pt; color: var(--muted); margin-top: 1.2mm; }
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 8.4pt; line-height: 1.35; }
+th { text-align: left; font-family: "JetBrains Mono", monospace; font-weight: 400; font-size: 6.8pt; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); border-bottom: 1pt solid var(--ink); padding: 1.6mm 1.8mm; }
+td { border-bottom: 0.5pt solid var(--rule); padding: 1.8mm 1.8mm; vertical-align: top; }
+tr { break-inside: avoid; page-break-inside: avoid; }
+td.check { width: 22mm; color: var(--muted); font-size: 7.5pt; }
+.box-check { display: inline-block; width: 3mm; height: 3mm; border: 0.7pt solid var(--ink); border-radius: 0.5mm; margin-right: 1.4mm; vertical-align: -0.4mm; }
+.line { border-bottom: 0.5pt solid var(--rule); height: 7mm; }
+.fill td { height: 11mm; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; }
+.toc { list-style: none; padding: 0; margin: 4mm 0; counter-reset: toc; }
+.toc li { display: grid; grid-template-columns: 12mm 1fr; border-bottom: 0.5pt solid var(--rule); padding: 2.2mm 0; margin: 0; }
+.toc li b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 15pt; color: var(--accent); line-height: 1; }
+.toc li span { font-size: 10pt; }
+.cover { min-height: 255mm; display: flex; flex-direction: column; }
+.cover .brand { font-family: "Instrument Serif", serif; font-size: 20pt; letter-spacing: 0.01em; }
+.cover .brand span { color: var(--accent); }
+.cover h1 { margin: 14mm 0 5mm; }
+.cover .meta { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; border-top: 1pt solid var(--ink); padding-top: 4mm; font-size: 8.5pt; }
+.cover .meta b { display: block; font-family: "JetBrains Mono", monospace; font-weight: 400; font-size: 6.8pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 1mm; }
+.policy { border: 1pt solid var(--ink); padding: 6mm 7mm; }
+.policy h3 { margin-top: 0; }
+.policy ol { padding-left: 5mm; }
+.policy li { margin-bottom: 1.6mm; }
+.blank { display: inline-block; min-width: 38mm; border-bottom: 0.6pt solid var(--ink); }
+.q { display: grid; grid-template-columns: 7mm 1fr; gap: 1mm; padding: 1.8mm 0; border-bottom: 0.5pt solid var(--rule); break-inside: avoid; }
+.q b { color: var(--accent); font-family: "Instrument Serif", serif; font-weight: 400; font-size: 12pt; line-height: 1.1; }
+.timeline { border-left: 1.2pt solid var(--accent); padding-left: 5mm; margin: 3mm 0 4mm 2mm; }
+.timeline div { margin-bottom: 3mm; }
+.timeline b { font-family: "JetBrains Mono", monospace; font-weight: 400; font-size: 8pt; color: var(--accent-dark); display: block; }
+</style>
+</head>
+<body>
+
+<!-- 1 · Couverture -->
+<section class="page cover">
+  <div class="brand">waimia<span>.</span></div>
+  <h1>Kit conformité et administration de <i>Claude</i> en entreprise</h1>
+  <p class="lede">Les réglages à vérifier en Team et Enterprise, les points RGPD, une trame d'analyse d'impact, un modèle de politique d'usage, un registre à remplir et les questions à poser au fournisseur. Pour le dirigeant ou le DSI d'une PME qui veut déployer Claude sans découvrir les réglages après coup.</p>
+  <figure style="margin-top:8mm">
+    <img src="img/kit-conformite-claude-tableau-paper.webp" alt="Une petite silhouette avec un bloc-notes devant un immense tableau de contrôle couvert de cadrans">
+  </figure>
+  <div class="meta">
+    <div><b>État des sources</b>5 octobre 2026. Les offres de Claude changent vite : revérifiez avant chaque décision.</div>
+    <div><b>Pour qui</b>Dirigeant, DSI, référent IA ou DPO d'une PME de 5 à 250 personnes.</div>
+    <div><b>Statut</b>Document de travail. Ce kit n'est pas un avis juridique et ne remplace pas votre DPO ou votre conseil.</div>
+  </div>
+</section>
+
+<!-- 2 · Mode d'emploi et sommaire -->
+<section class="page">
+  <div class="kicker">Mode d'emploi</div>
+  <h2>Comment lire ce kit</h2>
+  <p>Chaque affirmation sur Claude porte une étiquette. <span class="tag fait">Fait</span> signifie : lu dans une source primaire d'Anthropic (claude.com, support.claude.com, privacy.claude.com, code.claude.com, platform.claude.com) le 5 octobre 2026, source citée. <span class="tag verif">À vérifier</span> signifie : point juridique, contractuel ou de configuration que nous ne pouvons pas trancher pour vous, ou que la source ne précise pas. Ce qui est « à vérifier » se vérifie dans votre console d'administration, votre contrat ou auprès de votre conseil.</p>
+  <div class="box">
+    <p><strong>Trois règles de lecture.</strong></p>
+    <ul>
+      <li>Les réglages décrits sont ceux des applications Claude (claude.ai, bureau, mobile) en offres Team et Enterprise. L'API, AWS Bedrock et Google Vertex ont leurs propres conditions.</li>
+      <li>Une valeur par défaut n'est pas une recommandation. Notre recommandation de départ est indiquée à part.</li>
+      <li>Ce kit complète votre charte IA, il ne la remplace pas. Le modèle de charte complet est sur <a href="https://waimia.com/ressources/outils/charte-ia-entreprise">waimia.com/ressources/outils/charte-ia-entreprise</a>.</li>
+    </ul>
+  </div>
+  <h3>Sommaire</h3>
+  <ol class="toc">
+    <li><b>1</b><span>Les réglages d'administration à vérifier, Team et Enterprise</span></li>
+    <li><b>2</b><span>Plugins, connecteurs et marketplaces : la diffusion sous contrôle</span></li>
+    <li><b>3</b><span>Les points RGPD : stockage, entraînement, rétention, contrat</span></li>
+    <li><b>4</b><span>Mini trame d'analyse d'impact</span></li>
+    <li><b>5</b><span>Modèle de politique d'usage d'une page</span></li>
+    <li><b>6</b><span>Registre des usages, à remplir</span></li>
+    <li><b>7</b><span>Les questions à poser au fournisseur</span></li>
+    <li><b>8</b><span>Le calendrier AI Act utile, et la suite</span></li>
+  </ol>
+  <p class="small muted">Rappel sur le vocabulaire : Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Le mot « Cowork » reste celui des réglages d'administration, d'où son emploi ici.</p>
+</section>
+
+<!-- 3 · Réglages (1/2) -->
+<section class="page">
+  <div class="kicker">Partie 1 · Administration</div>
+  <h2>Les réglages à vérifier, <i>avant</i> le premier compte</h2>
+  <p>Source principale : aide Claude, réglages Cowork pour Team et Enterprise (support.claude.com/en/articles/13455879), lue le 5 octobre 2026. Cochez la dernière colonne quand le réglage a été vérifié dans votre console, avec la date.</p>
+  <table>
+    <thead><tr><th style="width:30mm">Réglage</th><th>Valeur par défaut</th><th>Recommandation de départ</th><th>Vérifié le</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cowork pour l'organisation</strong></td><td><span class="tag fait">Fait</span> Activé par défaut ; désactivé par défaut pour les organisations HIPAA.</td><td>Laisser activé si un groupe pilote est désigné ; sinon le désactiver le temps de rédiger les règles.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+      <tr><td><strong>Exécution de Cowork dans le cloud</strong></td><td><span class="tag fait">Fait</span> Activée par défaut en Team, désactivée par défaut en Enterprise.</td><td>En Team, décider explicitement. Une tâche cloud tourne appareil éteint : savoir qui en a lancé et avec quels accès.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+      <tr><td><strong>Navigateur intégré</strong></td><td><span class="tag fait">Fait</span> Contrôle séparé dans les réglages d'organisation.</td><td>Désactivé tant que les sites autorisés ne sont pas listés. <span class="tag verif">À vérifier</span> valeur par défaut dans votre console.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+      <tr><td><strong>Claude in Chrome</strong></td><td><span class="tag fait">Fait</span> Contrôle séparé ; disponible en Pro, Max et Team, en Enterprise si l'administrateur l'active.</td><td>Réserver à un groupe nommé. Une extension qui agit dans le navigateur voit tout ce que voit l'utilisateur.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+      <tr><td><strong>Mode d'approbation automatique</strong></td><td><span class="tag fait">Fait</span> Contrôle séparé pour l'organisation. Côté utilisateur, autonomie « Auto » ou « Manual », Manual par défaut.</td><td>Garder Manual comme règle ; Auto seulement pour des tâches sans envoi ni écriture externe.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+      <tr><td><strong>« Always allow » des connecteurs</strong></td><td><span class="tag fait">Fait</span> Désactivé par défaut.</td><td>Laisser désactivé. Chaque action d'un connecteur reste validée par l'utilisateur.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+      <tr><td><strong>Historique local des sessions Cowork</strong></td><td><span class="tag fait">Fait</span> Non soumis à la politique de rétention standard ; ne peut pas être géré ni supprimé centralement par les administrateurs.</td><td>L'écrire dans la politique d'usage : quelles données ne passent pas par Cowork sur un poste. Voir partie 3.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+      <tr><td><strong>Claude Design</strong></td><td><span class="tag fait">Fait</span> En bêta ; actif par défaut, sauf en Enterprise où un owner doit l'activer (support.claude.com/en/articles/14604416).</td><td>Activer si la marque et ses fichiers sources sont prêts à être partagés avec l'outil.</td><td class="check"><span class="box-check"></span>__ / __</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 4 · Réglages (2/2) -->
+<section class="page">
+  <div class="kicker">Partie 1 · Administration, suite</div>
+  <h2>Ce qui dépend de l'offre</h2>
+  <p>Certains contrôles n'existent qu'en Enterprise. Si l'un d'eux est indispensable pour vous (journal d'audit exigé par un client, rétention courte imposée), c'est un critère de choix d'offre, pas un détail de configuration. Source : page tarifs de Claude et aide Enterprise (claude.com/pricing ; support.claude.com/en/articles/11526368), lues le 5 octobre 2026.</p>
+  <table>
+    <thead><tr><th style="width:44mm">Contrôle</th><th>Team</th><th>Enterprise</th><th>Votre besoin</th></tr></thead>
+    <tbody>
+      <tr><td>SSO, console d'administration</td><td><span class="tag fait">Fait</span> Oui</td><td><span class="tag fait">Fait</span> Oui</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Provisionnement des comptes (SCIM)</td><td><span class="tag verif">À vérifier</span> non listé dans l'offre Team lue</td><td><span class="tag fait">Fait</span> Oui</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Journaux d'audit</td><td><span class="tag verif">À vérifier</span> non listés dans l'offre Team lue</td><td><span class="tag fait">Fait</span> Oui</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Compliance API (export pour outils de conformité)</td><td><span class="tag verif">À vérifier</span></td><td><span class="tag fait">Fait</span> Oui</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Rétention personnalisée</td><td><span class="tag verif">À vérifier</span> durée applicable dans votre contrat</td><td><span class="tag fait">Fait</span> Oui</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Liste blanche d'adresses IP</td><td><span class="tag verif">À vérifier</span></td><td><span class="tag fait">Fait</span> Oui</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Analyse du contenu des skills et plugins</td><td><span class="tag verif">À vérifier</span></td><td><span class="tag fait">Fait</span> En bêta depuis le 6 août 2026 (notes de version)</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Diffusion des plugins par groupe</td><td>Réglage pour toute l'organisation</td><td><span class="tag fait">Fait</span> Surcharge par groupe</td><td class="check"><span class="box-check"></span>requis</td></tr>
+      <tr><td>Option HIPAA</td><td><span class="tag verif">À vérifier</span></td><td><span class="tag fait">Fait</span> Disponible</td><td class="check"><span class="box-check"></span>requis</td></tr>
+    </tbody>
+  </table>
+  <h3>Les repères de prix, pour situer le choix</h3>
+  <p><span class="tag fait">Fait</span> Prix lus sur claude.com/pricing le 5 octobre 2026, en dollars, hors TVA et taux de change. Team Standard : 25 $ par siège et par mois, 20 $ en annuel, de 2 à 150 sièges. Team Premium : 125 $, 100 $ en annuel. Enterprise : 20 $ par siège et par mois facturé à l'année, plus l'usage au tarif de l'API. Le quota d'un siège est partagé entre le chat, Cowork et Claude Code. <span class="tag verif">À vérifier</span> le prix en euros et le traitement de la TVA pour la France, depuis une connexion française au moment de l'achat.</p>
+</section>
+
+<!-- 5 · Plugins -->
+<section class="page">
+  <div class="kicker">Partie 2 · Plugins et connecteurs</div>
+  <h2>La diffusion sous contrôle</h2>
+  <p>Un plugin regroupe des skills, des connecteurs vers vos outils et des sous-agents, parfois des commandes et des hooks. Il donne à Claude des savoir-faire et des accès : c'est donc un objet de gouvernance. Sources : aide Claude sur les plugins (support.claude.com/en/articles/13837440 et 13837433), documentation Agent Skills, page sécurité de Claude Code.</p>
+  <div class="cols">
+    <div>
+      <h3>Ce qui est établi</h3>
+      <ul>
+        <li><span class="tag fait">Fait</span> Plugins disponibles sur Pro, Max, Team et Enterprise ; hooks et sous-agents seulement dans Cowork et Claude Code.</li>
+        <li><span class="tag fait">Fait</span> Marketplaces publiées par Anthropic : Knowledge Work (ajoutée par défaut), Financial Services, Legal, Life Sciences.</li>
+        <li><span class="tag fait">Fait</span> Team et Enterprise peuvent ajouter une marketplace privée. Quatre niveaux par plugin : installé par défaut, disponible, requis, indisponible. Surcharge par groupe en Enterprise.</li>
+        <li><span class="tag fait">Fait</span> Sur Team et Enterprise, le propriétaire peut provisionner un skill pour toute l'organisation (Organization settings, Skills) et autoriser ou non le partage entre membres. Le partage est désactivé par défaut : décidez qui peut partager. Les plugins servent à cibler des groupes.</li>
+        <li><span class="tag fait">Fait</span> Anthropic examine les connecteurs de son annuaire mais n'audite pas la sécurité des serveurs MCP.</li>
+        <li><span class="tag fait">Fait</span> Les skills peuvent servir à exfiltrer des données ; Anthropic recommande de n'utiliser que des skills de confiance. Les skills ne sont pas couverts par la conservation zéro (ZDR).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Les décisions à prendre</h3>
+      <table>
+        <thead><tr><th>Décision</th><th>Votre choix</th></tr></thead>
+        <tbody>
+          <tr><td>La marketplace Knowledge Work reste-t-elle visible ?</td><td class="line"></td></tr>
+          <tr><td>Quels plugins publics passent en « indisponible » ?</td><td class="line"></td></tr>
+          <tr><td>Qui tient la marketplace privée (nom) ?</td><td class="line"></td></tr>
+          <tr><td>Qui lit le contenu d'un plugin avant sa diffusion ?</td><td class="line"></td></tr>
+          <tr><td>Quels connecteurs en écriture sont autorisés ?</td><td class="line"></td></tr>
+          <tr><td>Compte de service par connecteur : oui / non</td><td class="line"></td></tr>
+          <tr><td>Quel plugin est « requis », et pour quel groupe ?</td><td class="line"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="box">
+    <p><strong>Notre règle de départ.</strong> Lecture seule d'abord ; écriture ouverte action par action. Un compte de service dédié par connecteur, jamais le compte d'un dirigeant. Aucun skill ni plugin installé sans que quelqu'un l'ait lu. Tout envoi vers l'extérieur validé par une personne.</p>
+  </div>
+</section>
+
+<!-- 6 · RGPD -->
+<section class="page">
+  <div class="kicker">Partie 3 · RGPD</div>
+  <h2>Où vont les données, et ce qu'en fait le fournisseur</h2>
+  <figure>
+    <img src="img/kit-conformite-claude-pont-paper.webp" alt="Un long pont au-dessus d'une mer calme, des silhouettes portent des colis, une guérite de douane au milieu">
+  </figure>
+  <table>
+    <thead><tr><th style="width:42mm">Sujet</th><th>Ce que dit Anthropic au 5 octobre 2026</th><th style="width:44mm">Ce que vous en faites</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Lieu de stockage</strong></td><td><span class="tag fait">Fait</span> Données stockées aux États-Unis par défaut ; trafic routable vers des pays d'Amérique, d'Europe, d'Asie et d'Australie (privacy.claude.com/en/articles/7996890).</td><td>Le mentionner au registre des traitements.</td></tr>
+      <tr><td><strong>Résidence en Europe</strong></td><td><span class="tag fait">Fait</span> Pas d'hébergement européen annoncé pour les applications Claude. Résidence UE possible via AWS Bedrock en inférence limitée à l'UE (profil « Geo » EU, pas « Global ») ou Google Vertex ; Microsoft Foundry UE annoncé « à venir » (claude.com/regional-compliance).</td><td>Si la résidence UE est exigée, l'architecture change : ce n'est plus claude.ai.</td></tr>
+      <tr><td><strong>Entraînement des modèles</strong></td><td><span class="tag fait">Fait</span> Team, Enterprise et API (conditions commerciales) : pas d'entraînement sur vos données par défaut.</td><td>Garder la preuve contractuelle.</td></tr>
+      <tr><td><strong>Comptes Free, Pro, Max</strong></td><td><span class="tag fait">Fait</span> Conditions grand public : réglage d'entraînement ; s'il est activé, conservation dé-identifiée jusqu'à 5 ans ; sinon rétention de 30 jours. S'applique aussi à Claude Code utilisé depuis ces comptes.</td><td>Interdire les comptes personnels pour le travail (politique, partie 5).</td></tr>
+      <tr><td><strong>Historique local Cowork</strong></td><td><span class="tag fait">Fait</span> Hors politique de rétention standard, non supprimable centralement par l'administrateur.</td><td>Règle de poste : données sensibles hors Cowork local.</td></tr>
+      <tr><td><strong>Contrat et certifications</strong></td><td><span class="tag fait">Fait</span> DPA disponible ; SOC 2 Type 2, ISO 27001, 27017, 27018, CSA STAR.</td><td>Signer et archiver le DPA.</td></tr>
+      <tr><td><strong>Inférence aux États-Unis seulement</strong></td><td><span class="tag fait">Fait</span> Option en Enterprise facturé à l'usage.</td><td>Utile si vous voulez limiter les pays de traitement.</td></tr>
+      <tr><td><strong>Mécanisme de transfert hors UE</strong></td><td><span class="tag verif">À vérifier</span> Non couvert par nos sources : lisez le DPA (clauses contractuelles types, cadre de transfert invoqué).</td><td>Avec votre DPO ou conseil.</td></tr>
+      <tr><td><strong>Sous-traitants ultérieurs</strong></td><td><span class="tag verif">À vérifier</span> Liste et procédure de notification à obtenir.</td><td>À joindre au registre.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 7 · Analyse d'impact -->
+<section class="page">
+  <div class="kicker">Partie 4 · Analyse d'impact</div>
+  <h2>Une trame courte, à remplir par usage</h2>
+  <p>Une analyse d'impact relative à la protection des données (AIPD) est exigée par le RGPD quand un traitement présente un risque élevé pour les personnes. <span class="tag verif">À vérifier</span> si vos usages de Claude y sont soumis : c'est l'avis de votre DPO ou de votre conseil, à partir des critères publiés par la CNIL. Même quand elle n'est pas obligatoire, cette trame sert de fiche de décision, une par usage.</p>
+  <div class="q"><b>1</b><div><strong>Le traitement.</strong> Quel usage (ex. : préparer les réponses du support client) ? Quel service ? Quelle surface (chat, Cowork, Claude Code, plugin) ?<div class="line"></div><div class="line"></div></div></div>
+  <div class="q"><b>2</b><div><strong>Les données.</strong> Quelles catégories passent par Claude ? Y a-t-il des données sensibles, des données de salariés, de clients, de mineurs ?<div class="line"></div><div class="line"></div></div></div>
+  <div class="q"><b>3</b><div><strong>Les personnes concernées.</strong> Clients, prospects, salariés, candidats, fournisseurs ? Combien, à peu près ?<div class="line"></div></div></div>
+  <div class="q"><b>4</b><div><strong>La nécessité.</strong> L'usage fonctionne-t-il avec moins de données (extraits, pseudonymes, données agrégées) ?<div class="line"></div><div class="line"></div></div></div>
+  <div class="q"><b>5</b><div><strong>Les accès.</strong> Quels connecteurs, en lecture ou en écriture, avec quel compte ? Quelles actions sont validées par une personne ?<div class="line"></div><div class="line"></div></div></div>
+  <div class="q"><b>6</b><div><strong>Les risques.</strong> Fuite, erreur envoyée à un client, décision prise sans relecture, injection de consignes par un contenu reçu, conservation locale non maîtrisée.<div class="line"></div><div class="line"></div></div></div>
+  <div class="q"><b>7</b><div><strong>Les mesures.</strong> Réglages (partie 1), règles (partie 5), formation, journalisation, revue périodique.<div class="line"></div><div class="line"></div></div></div>
+  <div class="q"><b>8</b><div><strong>La décision.</strong> Autorisé / autorisé sous conditions / refusé. Par qui, le <span class="blank"></span>. Prochaine revue le <span class="blank"></span>.</div></div>
+</section>
+
+<!-- 8 · Politique d'usage -->
+<section class="page">
+  <div class="kicker">Partie 5 · Politique d'usage</div>
+  <h2>Le modèle d'une page</h2>
+  <p class="small muted">Version courte, à afficher ou à faire signer. Elle résume la charte complète, qu'elle ne remplace pas : le modèle de charte IA détaillé (champ d'application, données interdites, incidents, sanctions) est sur waimia.com/ressources/outils/charte-ia-entreprise, et le cadre général sur waimia.com/conformite-ia.</p>
+  <div class="policy">
+    <h3>Utiliser Claude chez <span class="blank"></span></h3>
+    <ol>
+      <li>Claude s'utilise uniquement avec le compte fourni par l'entreprise, offre <span class="blank" style="min-width:24mm"></span>. Jamais avec un compte personnel ou gratuit.</li>
+      <li>Ne passent jamais par Claude : données de santé, bancaires, pièces d'identité, dossiers RH, mots de passe et clés d'accès, documents sous accord de confidentialité sans accord écrit.</li>
+      <li>Les plugins et connecteurs autorisés sont ceux de la marketplace de l'entreprise. Toute autre installation passe par <span class="blank"></span>.</li>
+      <li>Une réponse de Claude est un brouillon. La personne qui l'utilise en est responsable et la relit avant tout usage.</li>
+      <li>Rien ne part à l'extérieur (e-mail, publication, devis, paiement) sans validation par une personne.</li>
+      <li>Les tâches qui agissent dans des fichiers ou des outils (Cowork, tâches planifiées) restent en mode de validation manuelle, sauf exception écrite.</li>
+      <li>Sur un poste, l'historique local de Cowork n'est pas effacé par l'entreprise : on n'y traite pas de données sensibles.</li>
+      <li>Un contenu reçu de l'extérieur (e-mail, page web, pièce jointe) peut contenir des consignes cachées : on ne demande pas à Claude d'agir sur un tel contenu sans relire ce qu'il propose.</li>
+      <li>Un doute, une erreur, une fuite possible : on prévient <span class="blank"></span> le jour même.</li>
+      <li>Cette politique est revue tous les <span class="blank" style="min-width:16mm"></span> mois, et à chaque changement d'offre ou de plugin requis.</li>
+    </ol>
+    <p class="small" style="margin-top:4mm">Lu et accepté par <span class="blank"></span> le <span class="blank" style="min-width:26mm"></span></p>
+  </div>
+</section>
+
+<!-- 9 · Registre -->
+<section class="page">
+  <div class="kicker">Partie 6 · Registre des usages</div>
+  <h2>Qui fait quoi avec Claude, et avec quels accès</h2>
+  <p>Une ligne par usage. Le registre sert à trois choses : répondre à un client ou à un auditeur qui demande où passent ses données, savoir quoi revoir quand une offre ou un plugin change, et préparer les obligations de l'AI Act qui vous concernent.</p>
+  <table class="fill">
+    <thead><tr><th style="width:26mm">Usage</th><th style="width:20mm">Service, référent</th><th style="width:22mm">Surface, plugin</th><th style="width:24mm">Données</th><th style="width:24mm">Connecteurs, droits</th><th style="width:20mm">Validation humaine</th><th>Décision, date</th></tr></thead>
+    <tbody>
+      <tr><td class="small muted">Ex. : réponses support</td><td class="small muted">Support, C. D.</td><td class="small muted">Chat, plugin customer-support</td><td class="small muted">Tickets, nom et e-mail client</td><td class="small muted">Outil de tickets, lecture</td><td class="small muted">Envoi validé par l'agent</td><td class="small muted">Autorisé, 05/10</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <p class="small muted">La ligne d'exemple est illustrative. Conservez le registre avec le DPA signé et la politique d'usage.</p>
+</section>
+
+<!-- 10 · Questions au fournisseur -->
+<section class="page">
+  <div class="kicker">Partie 7 · Questions au fournisseur</div>
+  <h2>À poser à Anthropic, au revendeur ou à l'intégrateur</h2>
+  <figure>
+    <img src="img/kit-conformite-claude-registre-paper.webp" alt="Un immense registre ouvert posé comme un paysage, des silhouettes écrivent le long des lignes">
+  </figure>
+  <div class="cols">
+    <div>
+      <h3>Contrat et données</h3>
+      <div class="q"><b>1</b><div>Quel DPA s'applique à notre offre, et quel mécanisme de transfert hors UE invoque-t-il ?</div></div>
+      <div class="q"><b>2</b><div>Quelle est la durée de conservation des conversations et des fichiers dans notre offre, et peut-on la réduire ?</div></div>
+      <div class="q"><b>3</b><div>Quelle est la liste des sous-traitants ultérieurs, et comment sommes-nous prévenus d'un changement ?</div></div>
+      <div class="q"><b>4</b><div>Si la résidence UE est exigée, quelle architecture proposez-vous (Bedrock, Vertex) et que perd-on par rapport à claude.ai ?</div></div>
+      <div class="q"><b>5</b><div>Comment récupérer et supprimer nos données en fin de contrat ?</div></div>
+      <div class="q"><b>6</b><div>Que devient l'historique local de Cowork sur un poste rendu ou perdu ?</div></div>
+    </div>
+    <div>
+      <h3>Plugins, connecteurs, intégration</h3>
+      <div class="q"><b>7</b><div>Quels plugins et connecteurs installez-vous, et qui en a lu le contenu ?</div></div>
+      <div class="q"><b>8</b><div>Avec quel compte chaque connecteur agit-il, et avec quels droits exactement ?</div></div>
+      <div class="q"><b>9</b><div>Quelles actions demandent une validation humaine, et où est-ce réglé ?</div></div>
+      <div class="q"><b>10</b><div>Qui maintient la marketplace privée, et comment une mise à jour est-elle testée avant diffusion ?</div></div>
+      <div class="q"><b>11</b><div>Qu'est-ce qui est journalisé, où, et combien de temps ?</div></div>
+      <div class="q"><b>12</b><div>À la fin de la mission, que récupérons-nous : dépôt, skills, documentation, accès ?</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · AI Act et suite -->
+<section class="page">
+  <div class="kicker">Partie 8 · AI Act, et la suite</div>
+  <h2>Le calendrier utile, sans s'y noyer</h2>
+  <p>En règle générale, utiliser Claude pour rédiger, analyser ou préparer ne fait pas d'une PME un fournisseur de système à haut risque ; un usage qui touche au recrutement, au crédit ou à l'évaluation de personnes se regarde de plus près. Les obligations qui touchent le plus souvent un utilisateur sont la maîtrise de l'IA (former les personnes qui s'en servent) et la transparence. Les dates ci-dessous viennent de notre guide AI Act, à jour au 5 octobre 2026. <span class="tag verif">À vérifier</span> à la source avant toute décision : le texte a été modifié en 2026 et peut l'être encore.</p>
+  <div class="timeline">
+    <div><b>2 février 2025</b>Pratiques interdites et obligation de maîtrise de l'IA (article 4) applicables.</div>
+    <div><b>2 août 2025</b>Règles sur les modèles d'IA à usage général applicables (elles visent d'abord les fournisseurs de modèles).</div>
+    <div><b>2 août 2026</b>Application générale du règlement, dont les obligations de transparence.</div>
+    <div><b>2 décembre 2027 et 2 août 2028</b>Systèmes à haut risque, reportés par l'omnibus de juillet 2026 (annexe III, puis annexe I).</div>
+  </div>
+  <p>Le détail, avec les sources primaires : waimia.com/ressources/guides/ai-act-pme-calendrier.</p>
+  <div class="box ink">
+    <p><strong>Si vous voulez de l'aide pour appliquer ce kit.</strong></p>
+    <ul>
+      <li><strong>Audit IA gratuit de 45 minutes</strong> : on passe en revue vos réglages, vos usages et ce qui doit rester hors de portée. waimia.com/contact?offer=audit-ia-pme&amp;intent=audit</li>
+      <li><strong>Sprint découverte, 999 € HT pour 10 heures</strong> : réglages, politique d'usage, registre et premier plugin privé spécifiés pour votre entreprise. La suite est estimée en heures et validée par vous avant tout travail en régie.</li>
+      <li><strong>Pour aller plus loin</strong> : le guide des plugins Claude en entreprise (waimia.com/ressources/guides/claude-plugins-entreprise) et le guide Claude pour PME (waimia.com/ressources/guides/claude-pme).</li>
+    </ul>
+  </div>
+  <p class="small muted">Sources lues le 5 octobre 2026 : support.claude.com (articles 13455879, 13837440, 13837433, 11526368, 14604416, notes de version 12138966) ; claude.com/pricing ; claude.com/regional-compliance ; privacy.claude.com (articles 7996890 et 10023548) ; anthropic.com/news/updates-to-our-consumer-terms ; platform.claude.com, documentation Agent Skills ; code.claude.com/docs/en/security. Ce kit est un document de travail fourni par Waimia. Il ne constitue pas un avis juridique.</p>
+</section>
+
+</body>
+</html>

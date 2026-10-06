@@ -10,9 +10,11 @@
 //   - En ligne    : cases à cocher, champs d'en-tête et tableau d'indicateurs saisissables,
 //                   conservés dans le navigateur (localStorage, try/catch : la page marche
 //                   sans stockage).
-//   - PDF         : fichier statique public/telechargements/… (checklist vierge),
-//                   régénéré par scripts/gen-checklist-pdf.mjs à partir de la feuille
-//                   d'impression ci-dessous.
+//   - PDF         : VERROUILLÉ. Fichier privé (private/telechargements/…, jamais servi par
+//                   le site), envoyé en pièce jointe par e-mail via LeadCapture (e-mail
+//                   obligatoire). Régénéré par scripts/gen-checklist-pdf.mjs à partir de la
+//                   feuille d'impression ci-dessous. La checklist en ligne reste utilisable
+//                   sans e-mail.
 //   - Impression  : A4, champs en lignes à remplir, colonnes « Responsable / Date »,
 //                   points de passage encadrés, tableau d'indicateurs vide. Ce qui a été
 //                   saisi à l'écran s'imprime sur les lignes.
@@ -28,9 +30,6 @@ import {
   metricColumns,
   warnings,
 } from '../../../../data/checklist-90-jours-claude';
-import { LEAD_MAGNETS } from '../../../../data/conversion';
-
-const pdfHref = LEAD_MAGNETS['checklist-90-jours-claude'].file;
 const total =
   prerequisites.length + phases.reduce((n, p) => n + p.weeks.reduce((m, w) => m + w.items.length + 1, 0), 0);
 ---
@@ -48,12 +47,12 @@ const total =
       </ol>
       <p class="cv-note">Vos cases, vos champs et vos chiffres restent dans ce navigateur. Rien n'est envoyé.</p>
       <div class="ck-actions">
-        <a class="btn btn-primary" href={pdfHref} download>Télécharger le PDF</a>
+        <a class="btn btn-primary" href="#recevoir-le-pdf">Recevoir le PDF par e-mail</a>
         <button class="btn btn-ghost cv-btn" type="button" data-ck-print>Imprimer</button>
         <button class="btn btn-ghost cv-btn" type="button" data-ck-reset>Tout effacer</button>
       </div>
       <p class="cv-note ck-feedback" role="status" data-ck-feedback></p>
-      <p class="cv-note">Le PDF est la version vierge, à imprimer pour une réunion de lancement. L'impression depuis cette page reprend vos cases et vos champs.</p>
+      <p class="cv-note">La checklist en ligne s'utilise sans e-mail. Le PDF vierge, à imprimer pour une réunion de lancement, s'obtient par e-mail (formulaire en bas de page). L'impression depuis cette page reprend vos cases et vos champs.</p>
     </aside>
 
     <article class="ck-sheet" data-ck-sheet>

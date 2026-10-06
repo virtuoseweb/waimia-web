@@ -1,9 +1,11 @@
 ---
+import FormGuard from '../ui/atoms/FormGuard.astro';
 // CtaFormInline · section CONVERSION · bande CTA + mini-formulaire inline (email + bouton)
 // Capture à l'instant d'intention, sans page dédiée. Variante newsletter/lead.
 // Reprend le contrat /api/newsletter + honeypot du pattern NewsletterSignup.
 import type { SectionByType } from '@waimia/ds-kernel';
 import Kicker from '../ui/atoms/Kicker.astro';
+import { SITE } from '../../site.config';
 
 interface Props {
   data: SectionByType<'cta-form-inline'>;
@@ -18,10 +20,12 @@ const body = isFr ? data.body_fr : data.body_en;
 const placeholder = isFr ? data.placeholder_fr : data.placeholder_en;
 const submit = isFr ? data.submit_label_fr : data.submit_label_en;
 const hint = isFr ? data.hint_fr : data.hint_en;
-const action = data.form_action ?? '/api/newsletter';
+// Ressource verrouillée : `lead_magnet` (slug) → /api/lead-magnet, livraison par e-mail en pièce jointe.
+const leadMagnet = data.lead_magnet;
+const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/newsletter');
 ---
 
-<section class="cta-form sec-cta-band" data-bg={data.background} data-nl-lang={lang}>
+<section class="cta-form sec-cta-band" data-bg={data.background} data-nl-lang={lang} data-contact={SITE.email}>
   <div class="wrap-wide cta-form__inner">
     <div class="cta-form__text u-stack-4">
       {kicker && <Kicker tone="accent">{kicker}</Kicker>}
@@ -29,8 +33,8 @@ const action = data.form_action ?? '/api/newsletter';
       {body && <p class="cta-form__body">{body}</p>}
     </div>
 
-    <form class="cta-form__form" action={action} method="post" novalidate data-nl-form>
-      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
+    <form class="cta-form__form" action={action} method="post" novalidate data-nl-form data-lead-magnet={leadMagnet}>
+      <FormGuard />
       <div class="cta-form__row">
         <label for="cta-form-email" class="sr-only">Email</label>
         <input
@@ -45,11 +49,21 @@ const action = data.form_action ?? '/api/newsletter';
         />
         <button type="submit" class="cta-form__btn" data-mag="0.15">{submit}</button>
       </div>
+      {leadMagnet && (
+        <label class="cta-form__optin">
+          <input type="checkbox" name="newsletter" />
+          <span>{isFr ? 'Recevoir aussi la lettre (un envoi par mois, désinscription en un clic)' : 'Also get the newsletter (one email a month, unsubscribe in one click)'}</span>
+        </label>
+      )}
       <p id="cta-form-error" class="cta-form__error" aria-live="assertive" hidden data-nl-error></p>
       {hint && <p id="cta-form-hint" class="cta-form__hint u-hint-mono">{hint}</p>}
     </form>
     <p class="cta-form__confirm" aria-live="polite" hidden data-nl-confirm>
-      {isFr ? '✓ Bien reçu. Vérifiez votre boîte mail.' : '✓ Got it. Check your inbox.'}
+      {leadMagnet
+        ? (isFr
+          ? '✓ Demande reçue. Le fichier arrive par e-mail, en pièce jointe : pensez à vérifier vos courriers indésirables.'
+          : '✓ Request received. The file is on its way by email, as an attachment: remember to check your spam folder.')
+        : (isFr ? '✓ Bien reçu. Vérifiez votre boîte mail.' : '✓ Got it. Check your inbox.')}
     </p>
   </div>
 </section>
@@ -131,6 +145,9 @@ const action = data.form_action ?? '/api/newsletter';
   }
   .cta-form[data-bg='ink'] :is(h2, .cta-form__body, .cta-form__confirm) { color: var(--paper); }
   .cta-form[data-bg='ink'] .cta-form__input { background: rgba(var(--paper-rgb), 0.06); color: var(--paper); }
+  .cta-form__optin { display: flex; align-items: flex-start; gap: var(--space-2); margin-top: var(--space-3); font-size: var(--text-small); line-height: var(--leading-body); cursor: pointer; }
+  .cta-form__optin input { margin: 3px 0 0; width: 15px; height: 15px; flex-shrink: 0; accent-color: var(--ink); }
+  .cta-form[data-bg='ink'] .cta-form__optin { color: var(--paper); }
   .cta-form[data-bg='ink'] .cta-form__btn { background: var(--paper); color: var(--ink); }
 
   @media (max-width: 860px) {
@@ -173,7 +190,14 @@ const action = data.form_action ?? '/api/newsletter';
         return;
       }
       if (btn) btn.disabled = true;
-      var payload = { email: value, lang: lang, website: honeypot ? honeypot.value : '' };
+      var slug = form.dataset.leadMagnet;
+      var payload = { email: value, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '' };
+      if (slug) {
+        payload.slug = slug;
+        var optin = form.querySelector('input[name="newsletter"]');
+        if (optin && optin.checked) payload.newsletter = true;
+      }
+      var contact = section && section.dataset.contact;
       try {
         var res = await fetch(form.getAttribute('action') || '/api/newsletter', {
           method: 'POST',
@@ -186,7 +210,16 @@ const action = data.form_action ?? '/api/newsletter';
           var confirm = section && section.querySelector('[data-nl-confirm]');
           if (confirm) confirm.removeAttribute('hidden');
         } else {
-          showError(data.error || (lang === 'fr' ? 'Erreur, veuillez réessayer.' : 'Error, please try again.'));
+          var msg = data.error;
+          if (slug && (res.status === 503 || res.status === 502)) {
+            // Honnête : rien n'a été envoyé, on donne l'adresse de contact.
+            msg = lang === 'fr'
+              ? 'L\'envoi par e-mail est indisponible pour le moment : rien n\'a été envoyé. Écrivez-nous à ' + contact + ', nous vous envoyons le fichier.'
+              : 'Email delivery is unavailable right now: nothing was sent. Write to ' + contact + ' and we will send you the file.';
+          } else if (slug && res.status === 429) {
+            msg = lang === 'fr' ? 'Trop de demandes en peu de temps. Réessayez dans quelques minutes.' : 'Too many requests. Please try again in a few minutes.';
+          }
+          showError(msg || (lang === 'fr' ? 'Erreur, veuillez réessayer.' : 'Error, please try again.'));
           if (btn) btn.disabled = false;
         }
       } catch (_) {

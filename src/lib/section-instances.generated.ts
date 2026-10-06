@@ -133,6 +133,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -340,7 +376,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 7,
+      "index": 12,
       "label": "Trois réalisations autour de Claude et de MCP",
       "background": "ink"
     },
@@ -498,6 +534,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "ink"
     }
   ],
+  "code-showcase": [
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 5,
+      "label": "Un en-tête de deux champs, puis une procédure en texte",
+      "background": "paper-2"
+    }
+  ],
   "comparison-duo": [
     {
       "collection": "audits",
@@ -609,6 +656,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 11,
+      "label": "Claude Code ou un IDE assisté comme Cursor : pas le même métier",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 12,
+      "label": "Quand acheter et configurer Claude seul, quand se faire accompagner",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 12,
+      "label": "Quand le faire vous-même, quand le faire faire",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -675,7 +749,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 4,
+      "index": 8,
       "label": "Exemple type : une PME de négoce de 60 personnes",
       "background": "paper"
     },
@@ -702,7 +776,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 4,
+      "index": 8,
       "label": "Exemple type : un bureau d'études de 40 personnes",
       "background": "paper"
     },
@@ -916,6 +990,152 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     }
   ],
+  "cta-form-inline": [
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 9,
+      "label": "Abonnement, API, Bedrock ou Vertex : recevez le guide d'achat Claude (PDF, 14 pages)",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 6,
+      "label": "Vous penchez pour Claude ? Recevez le guide d'achat pour PME (PDF, 14 pages)",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 10,
+      "label": "Avant d'ouvrir Claude Code à une équipe : la checklist 90 jours",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 11,
+      "label": "Les réglages d'administration de Cowork, vérifiés un par un",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 10,
+      "label": "Quelle offre Claude donne accès à Design, et à quel coût réel ?",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 10,
+      "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 10,
+      "label": "Recevez le kit conformité et administration de Claude en entreprise",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 4,
+      "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 11,
+      "label": "Recevez le pack de 8 skills Claude pour PME",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 14,
+      "label": "Le plan des 90 jours, case par case",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 17,
+      "label": "Recevez le kit conformité et administration de Claude",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 10,
+      "label": "Recevez le pack de 8 skills Claude pour PME",
+      "background": "accent"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 9,
+      "label": "Avant de brancher un connecteur : recevez le kit conformité Claude (PDF, 11 pages)",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 7,
+      "label": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 7,
+      "label": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 13,
+      "label": "Recevez la checklist des 90 jours pour déployer Claude (PDF, 5 pages)",
+      "background": "paper-2"
+    }
+  ],
   "data-table": [
     {
       "collection": "diagnostics",
@@ -987,7 +1207,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
-      "index": 6,
+      "index": 8,
       "label": "Dans quels cas chacune convient",
       "background": "paper"
     },
@@ -996,7 +1216,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 4,
+      "index": 7,
       "label": "Choisir selon votre situation",
       "background": "paper"
     },
@@ -1074,11 +1294,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 11,
+      "label": "La règle de choix, cas par cas",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 9,
-      "label": "Six questions pour partir du bon pied",
+      "index": 20,
+      "label": "Six cas où vous n'avez pas besoin de Waimia",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 13,
+      "label": "Les cas où vous n'avez pas besoin de nous",
       "background": "paper"
     },
     {
@@ -1149,7 +1387,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 6,
+      "index": 10,
       "label": "Vous n'avez pas besoin d'un consultant IA si",
       "background": "paper"
     },
@@ -1176,7 +1414,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 6,
+      "index": 11,
       "label": "Ne déployez pas Claude si",
       "background": "paper"
     },
@@ -1275,7 +1513,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 3,
+      "index": 4,
       "label": "Niveau 1 : à l'issue, vous savez utiliser Claude",
       "background": "paper-2"
     },
@@ -1284,7 +1522,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 5,
+      "index": 6,
       "label": "Niveau 2 : à l'issue, vous savez étendre Claude",
       "background": "paper-2"
     },
@@ -1293,7 +1531,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 7,
+      "index": 8,
       "label": "Niveau 3 : à l'issue, vous savez construire un système IA avec Claude",
       "background": "paper-2"
     },
@@ -1702,7 +1940,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 5,
+      "index": 9,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -1729,7 +1967,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 5,
+      "index": 9,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -2153,6 +2391,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -2162,12 +2409,48 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-pme.json",
-      "slug": "claude-pme",
-      "route": "/ressources/guides/claude-pme",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -2323,8 +2606,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 11,
-      "label": "#11",
+      "index": 15,
+      "label": "#15",
       "variant": "note",
       "background": "paper"
     },
@@ -2490,8 +2773,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
-      "index": 7,
-      "label": "#7",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 10,
+      "label": "#10",
       "background": "paper-2"
     },
     {
@@ -2501,6 +2793,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 3,
       "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 5,
+      "label": "#5",
       "background": "paper-2"
     },
     {
@@ -2586,12 +2887,39 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
       "index": 3,
       "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 6,
+      "label": "#6",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -2607,6 +2935,150 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 13,
+      "label": "#13",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 9,
+      "label": "#9",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 12,
+      "label": "#12",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
       "index": 8,
       "label": "#8",
       "background": "paper"
@@ -2616,8 +3088,62 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 3,
-      "label": "#3",
+      "index": 12,
+      "label": "#12",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 15,
+      "label": "#15",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 16,
+      "label": "#16",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 18,
+      "label": "#18",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 11,
+      "label": "#11",
       "background": "paper"
     },
     {
@@ -2661,8 +3187,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
-      "index": 9,
-      "label": "#9",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mcp-claude.json",
+      "slug": "mcp-claude",
+      "route": "/ressources/guides/mcp-claude",
+      "index": 11,
+      "label": "#11",
       "background": "paper-2"
     },
     {
@@ -2847,6 +3382,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
@@ -2871,6 +3415,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 3,
       "label": "#3",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -2940,8 +3493,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 9,
-      "label": "#9",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 11,
+      "label": "#11",
       "background": "paper-2"
     },
     {
@@ -3015,6 +3577,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 4,
+      "label": "Ce qui a bougé chez Claude, et ce que ça change pour vous",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -3065,23 +3637,157 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-cowork.json",
-      "slug": "claude-cowork",
-      "route": "/ressources/guides/claude-cowork",
-      "index": 2,
-      "label": "Prix de Claude Cowork : il est inclus dans les offres payantes de Claude",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 4,
+      "label": "Dix fonctions de Claude Code, et à quoi elles servent en entreprise",
       "variant": "editorial",
-      "background": "paper"
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 8,
+      "label": "Où Claude Code est inclus, et à quel prix",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 12,
+      "label": "Trois façons de démarrer avec Claude Code, et quand chacune est la bonne",
+      "variant": "editorial",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 5,
-      "label": "Où Cowork est disponible, selon Anthropic",
+      "index": 3,
+      "label": "Claude Cowork avant et après la fusion",
       "variant": "editorial",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 7,
+      "label": "Prix de Claude Cowork : inclus dans les offres payantes",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 3,
+      "label": "Idées reçues sur Claude Design, corrigées au 5 octobre 2026",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 7,
+      "label": "Claude Design prix : inclus dans les offres payantes de Claude",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 9,
+      "label": "Quatre usages concrets en PME, et ce qui reste à faire",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 4,
+      "label": "Les offres Claude, ligne par ligne",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 8,
+      "label": "Fonctionnalités, administration et données : la matrice par offre",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 5,
+      "label": "Les cinq briques d'un plugin et où chacune fonctionne",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 7,
+      "label": "Six usages concrets en PME, plugin par plugin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 10,
+      "label": "Cinq usages qui se mesurent vite",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 19,
+      "label": "Ce que chaque option demande, et ce qu'elle coûte",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 6,
+      "label": "Quatre surfaces, quatre façons d'installer et de partager",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 8,
+      "label": "Six exemples concrets, avec ce qu'il faut leur donner",
+      "variant": "editorial",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -3108,7 +3814,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
-      "index": 8,
+      "index": 10,
       "label": "MCP dans les plateformes de Claude et d'OpenAI",
       "variant": "editorial",
       "background": "paper"
@@ -3204,6 +3910,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 6,
+      "label": "Six questions à poser à un consultant IA avant de signer",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 4,
+      "label": "Quelle offre Claude pour votre équipe",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
       "collection": "formations",
       "file": "formations/automatisation.json",
       "slug": "automatisation",
@@ -3248,7 +3974,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 10,
+      "index": 12,
+      "label": "Formation Waimia, ressources gratuites ou cursus long : comment choisir",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 14,
       "label": "Prérequis, format, durée et tarif",
       "variant": "editorial",
       "background": "paper-2"
@@ -3283,6 +4019,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 2,
       "label": "Le calendrier de l'AI Act",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 6,
+      "label": "Claude Cowork en six étapes, de janvier à septembre 2026",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -3343,7 +4088,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 4,
+      "index": 5,
       "label": "Programme du niveau 1 : utiliser l'application Claude",
       "background": "paper"
     },
@@ -3352,7 +4097,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 6,
+      "index": 7,
       "label": "Programme du niveau 2 : devenir expert de l'application",
       "background": "paper-3"
     },
@@ -3361,7 +4106,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 8,
+      "index": 9,
       "label": "Programme du niveau 3 : deux parcours, un tronc commun",
       "background": "paper"
     },
@@ -3435,8 +4180,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 8,
-      "label": "#8",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -3462,8 +4207,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 9,
-      "label": "#9",
+      "index": 15,
+      "label": "#15",
       "variant": "media"
     },
     {
@@ -3851,7 +4596,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
-      "index": 9,
+      "index": 12,
       "label": "Questions fréquentes",
       "background": "paper-2"
     },
@@ -3860,7 +4605,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 6,
+      "index": 10,
       "label": "Claude vs ChatGPT : vos questions",
       "background": "paper"
     },
@@ -3947,11 +4692,47 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 16,
+      "label": "Claude Code en entreprise : les questions des acheteurs",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 10,
-      "label": "Questions fréquentes",
+      "index": 15,
+      "label": "Questions fréquentes sur Claude Cowork",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 15,
+      "label": "Questions fréquentes sur Claude Design",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 16,
+      "label": "Prix et offres de Claude : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 16,
+      "label": "Questions fréquentes sur les plugins Claude",
       "background": "paper"
     },
     {
@@ -3959,8 +4740,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 11,
-      "label": "Ce que vous nous demandez",
+      "index": 24,
+      "label": "Déployer Claude en PME : les questions des acheteurs",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 17,
+      "label": "Skills Claude : les questions des dirigeants",
       "background": "paper"
     },
     {
@@ -3977,7 +4767,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
-      "index": 11,
+      "index": 13,
       "label": "Questions fréquentes",
       "background": "paper-2"
     },
@@ -4076,7 +4866,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 9,
+      "index": 14,
       "label": "Consultant IA : vos questions",
       "background": "paper-2"
     },
@@ -4103,7 +4893,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 10,
+      "index": 16,
       "label": "Claude en entreprise : vos questions",
       "background": "paper-2"
     },
@@ -4220,7 +5010,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 13,
+      "index": 17,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -4646,12 +5436,39 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-pme.json",
-      "slug": "claude-pme",
-      "route": "/ressources/guides/claude-pme",
-      "index": 4,
-      "label": "Les cinq usages par lesquels commencer",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 5,
+      "label": "Trois fonctions qui font d'un outil individuel un outil d'équipe",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 5,
+      "label": "Ce que Claude Design produit, et ce que vous devez apporter",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 6,
+      "label": "Trois fonctionnalités qui changent le travail d'une PME",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 6,
+      "label": "Marketplaces officielles, dépôt ouvert, Claude Marketplace",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -4659,7 +5476,34 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 7,
-      "label": "Les 6 prérequis à poser avant le premier compte",
+      "label": "Par où commencer selon votre profil",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 9,
+      "label": "Écrire, sécuriser, diffuser",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 4,
+      "label": "Ce que la mission tranche pour vous",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 5,
+      "label": "Trois chantiers, dans cet ordre",
       "background": "paper-2"
     },
     {
@@ -4678,6 +5522,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/demonstrations/integration-claude.json",
       "index": 2,
       "label": "Le même process, deux mondes",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 3,
+      "label": "Ce que l'équipe sait faire en sortant",
       "background": "paper"
     },
     {
@@ -4921,7 +5774,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
-      "index": 10,
+      "index": 13,
       "label": "La bonne plateforme se choisit sur vos données et vos contraintes.",
       "background": "ink"
     },
@@ -4930,7 +5783,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 7,
+      "index": 11,
       "label": "L'outil compte moins que le cadre.",
       "background": "ink"
     },
@@ -5017,11 +5870,47 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 17,
+      "label": "Claude Code chez vous : on vérifie d'abord que c'est le bon outil.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 11,
-      "label": "Savoir quelles tâches confier à Claude, et avec quelles règles.",
+      "index": 17,
+      "label": "Savoir quelles tâches confier à Claude, et avec quels réglages.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 17,
+      "label": "Savoir ce que Claude Design peut produire chez vous, et ce qu'il faut confier à un pro.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 17,
+      "label": "Savoir quelle offre Claude prendre, et pour combien de sièges, avant la première facture.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 17,
+      "label": "Un plugin qui porte votre méthode, diffusé à ceux qui en ont besoin.",
       "background": "ink"
     },
     {
@@ -5029,8 +5918,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 12,
-      "label": "Vous savez par où commencer. Cadrons votre premier agent.",
+      "index": 25,
+      "label": "Vous savez par où commencer. Cadrons votre premier cas.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 18,
+      "label": "Vos procédures en skills qui tournent, pour toute l'équipe",
       "background": "ink"
     },
     {
@@ -5047,7 +5945,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
-      "index": 12,
+      "index": 14,
       "label": "Brancher vos outils sur un assistant, avec des droits que vous avez décidés.",
       "background": "ink"
     },
@@ -5146,7 +6044,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 10,
+      "index": 16,
       "label": "Par quoi commencer, et que laisser de côté ?",
       "background": "ink"
     },
@@ -5173,7 +6071,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 11,
+      "index": 18,
       "label": "Claude est déjà utilisé chez vous. Reste à l'encadrer.",
       "background": "ink"
     },
@@ -5290,7 +6188,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 14,
+      "index": 18,
       "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
       "background": "ink"
     },
@@ -5529,24 +6427,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/agents-ia.json",
-      "slug": "agents-ia",
-      "route": "/services/agents-ia",
-      "index": 0,
-      "label": "Agents IA pour votre entreprise",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes.json",
-      "slug": "applications-internes",
-      "route": "/services/applications-internes",
-      "index": 0,
-      "label": "Application métier et logiciel sur mesure",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
@@ -5565,15 +6445,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/consultant-ia-claude.json",
-      "slug": "consultant-ia-claude",
-      "route": "/services/consultant-ia-claude",
-      "index": 0,
-      "label": "Consultant IA indépendant pour PME",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
@@ -5583,56 +6454,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/donnees-reporting.json",
-      "slug": "donnees-reporting",
-      "route": "/services/donnees-reporting",
-      "index": 0,
-      "label": "Un tableau de bord à jour, sans reporting refait à la main.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/integration-claude.json",
-      "slug": "integration-claude",
-      "route": "/services/integration-claude",
-      "index": 0,
-      "label": "Intégrer Claude dans votre entreprise",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/landing-pages-tunnels.json",
-      "slug": "landing-pages-tunnels",
-      "route": "/services/landing-pages-tunnels",
-      "index": 0,
-      "label": "Des landing pages qui convertissent, un tunnel qui trie vos leads.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee.json",
-      "slug": "prospection-automatisee",
-      "route": "/services/prospection-automatisee",
-      "index": 0,
-      "label": "Prospection automatisée par l'IA",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 0,
       "label": "Visible sur Google, cité par les IA : le référencement double couche.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 0,
-      "label": "Devis automatisés et relances sans oubli",
       "background": "paper"
     },
     {
@@ -6026,11 +6852,47 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 0,
+      "label": "Claude Code en entreprise : fonctionnalités, coût et déploiement",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
       "index": 0,
-      "label": "Claude Cowork : prix, fonctions et limites pour une PME",
+      "label": "Claude Cowork est désormais Claude : ce qui change",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 0,
+      "label": "Claude Design : usages en PME, limites et alternatives",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 0,
+      "label": "Claude : fonctionnalités, offres et prix pour une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 0,
+      "label": "Plugins et connecteurs Claude pour l'entreprise : le guide",
       "background": "paper"
     },
     {
@@ -6039,7 +6901,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
       "index": 0,
-      "label": "Déployer Claude dans votre PME.",
+      "label": "Déployer Claude dans votre PME : le guide complet",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 0,
+      "label": "Skills Claude : créer, partager et déployer vos procédures en entreprise",
       "background": "paper"
     },
     {
@@ -6089,6 +6960,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 0,
+      "label": "Agents IA pour votre entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes.json",
+      "slug": "applications-internes",
+      "route": "/services/applications-internes",
+      "index": 0,
+      "label": "Application métier et logiciel sur mesure",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
@@ -6103,6 +6992,60 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/base-de-connaissance-ia",
       "index": 0,
       "label": "Base de connaissance IA : le second cerveau de votre entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 0,
+      "label": "Consultant IA indépendant pour PME",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting.json",
+      "slug": "donnees-reporting",
+      "route": "/services/donnees-reporting",
+      "index": 0,
+      "label": "Un tableau de bord à jour, sans reporting refait à la main.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 0,
+      "label": "Intégrer Claude dans votre entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/landing-pages-tunnels.json",
+      "slug": "landing-pages-tunnels",
+      "route": "/services/landing-pages-tunnels",
+      "index": 0,
+      "label": "Des landing pages qui convertissent, un tunnel qui trie vos leads.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee.json",
+      "slug": "prospection-automatisee",
+      "route": "/services/prospection-automatisee",
+      "index": 0,
+      "label": "Prospection automatisée par l'IA",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/sequences-de-suivi.json",
+      "slug": "sequences-de-suivi",
+      "route": "/services/sequences-de-suivi",
+      "index": 0,
+      "label": "Devis automatisés et relances sans oubli",
       "background": "paper"
     },
     {
@@ -6264,13 +7207,71 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "key-metric-grid": [
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 2,
+      "label": "Les chiffres à connaître avant d'équiper une équipe",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 2,
+      "label": "Quatre repères avant de changer quoi que ce soit",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 2,
+      "label": "Quatre faits à connaître avant d'ouvrir l'outil",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 3,
+      "label": "Offres entreprise, prix par siège et par mois, hors TVA",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 3,
+      "label": "Ce qu'il faut retenir en quatre chiffres",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 2,
+      "index": 5,
       "label": "Un plan, pas une promesse",
-      "variant": "accent",
-      "background": "paper"
+      "variant": "accent"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 3,
+      "label": "Ce qu'Anthropic fixe, au 5 octobre 2026",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -6470,6 +7471,71 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Méthode Waimia",
       "background": "paper-2"
+    }
+  ],
+  "newsletter-signup-section": [
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 14,
+      "label": "Les changements de Claude, triés pour une PME",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-cowork.json",
+      "slug": "claude-cowork",
+      "route": "/ressources/guides/claude-cowork",
+      "index": 16,
+      "label": "La fusion n'est pas finie. Soyez prévenu quand elle touche votre offre.",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 16,
+      "label": "Claude change chaque mois. Recevez seulement ce qui compte pour une PME.",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 15,
+      "label": "Les offres Claude changent vite. Soyez prévenu quand ça vous concerne.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 15,
+      "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 23,
+      "label": "Claude change chaque mois. Recevez seulement ce qui touche une PME.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 16,
+      "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+      "background": "ink"
     }
   ],
   "pain-severity-list": [
@@ -6696,7 +7762,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 7,
+      "index": 12,
       "label": "Combien coûte un accompagnement IA",
       "background": "paper"
     },
@@ -6723,8 +7789,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
-      "index": 8,
-      "label": "Combien coûte Claude en entreprise",
+      "index": 13,
+      "label": "Combien coûte une intégration de Claude",
       "background": "paper"
     },
     {
@@ -7004,6 +8070,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 8,
+      "label": "Comment trancher en deux semaines, sur vos documents",
+      "background": "paper-2"
+    },
+    {
       "collection": "diagnostics",
       "file": "diagnostics/claude-pme.json",
       "slug": "claude-pme",
@@ -7050,21 +8125,75 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 13,
+      "label": "On cadre d'abord, on code ensuite",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 7,
-      "label": "Démarrer en PME en quatre étapes",
+      "index": 12,
+      "label": "Démarrer, ou passer la fusion, en quatre étapes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 13,
+      "label": "Comment Waimia s'y prend",
       "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 13,
+      "label": "Comment Waimia déploie Claude dans une PME",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 13,
+      "label": "Comment Waimia construit et déploie un plugin privé",
+      "background": "paper"
     },
     {
       "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 6,
-      "label": "Trois phases pour démarrer juste",
+      "index": 13,
+      "label": "Trois phases de 30 jours, du test à l'usage d'équipe",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 21,
+      "label": "Du premier rendez-vous à l'équipe autonome",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 14,
+      "label": "De la procédure orale au plugin qui tourne",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -7091,6 +8220,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/taches-a-automatiser-pme",
       "index": 5,
       "label": "La cartographie en cinq étapes, sur deux semaines",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 11,
+      "label": "Comment se déroule une mission de conseil IA",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 14,
+      "label": "Le déroulé d'un déploiement",
       "background": "paper-3"
     },
     {
@@ -7470,16 +8617,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/claude-pme.json",
-      "slug": "claude-pme",
-      "route": "/ressources/guides/claude-pme",
-      "index": 5,
-      "label": "#5",
-      "variant": "centered",
-      "background": "ink"
-    },
-    {
-      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -7658,7 +8795,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
-      "index": 8,
+      "index": 11,
       "label": "Pour aller plus loin",
       "background": "paper"
     },
@@ -7667,7 +8804,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 5,
+      "index": 9,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -7745,10 +8882,46 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-entreprise.json",
+      "slug": "claude-code-entreprise",
+      "route": "/ressources/guides/claude-code-entreprise",
+      "index": 15,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 9,
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-fonctionnalites-pme.json",
+      "slug": "claude-fonctionnalites-pme",
+      "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 14,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -7757,9 +8930,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 10,
+      "index": 22,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 15,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -7775,7 +8957,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
-      "index": 10,
+      "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper"
     },
@@ -7825,6 +9007,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 15,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 17,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
       "collection": "demonstrations",
       "file": "demonstrations/integration-claude.json",
       "slug": "integration-claude",
@@ -7856,7 +9056,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 12,
+      "index": 16,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -7896,9 +9096,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 8,
-      "label": "Cinq outils pour passer du guide au plan",
+      "index": 3,
+      "label": "Six guides détaillés, une question d'acheteur chacun",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 9,
+      "label": "Quatre outils pour poser les prérequis",
+      "background": "paper-2"
     }
   ],
   "service-catalog-list": [
@@ -8100,6 +9309,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-platform-vs-openai-platform.json",
+      "slug": "claude-platform-vs-openai-platform",
+      "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "index": 7,
+      "label": "Quand l'abonnement suffit, quand passer par la plateforme",
+      "background": "paper"
+    },
+    {
       "collection": "guides",
       "file": "guides/agent-ia-definition.json",
       "slug": "agent-ia-definition",
@@ -8122,8 +9340,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
-      "index": 6,
-      "label": "Quand l'utiliser en PME, et quand s'abstenir",
+      "index": 9,
+      "label": "Quelles tâches confier à Claude en PME, et lesquelles garder",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-design.json",
+      "slug": "claude-design",
+      "route": "/ressources/guides/claude-design",
+      "index": 12,
+      "label": "Claude Design suffit, ou il faut un professionnel ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-plugins-entreprise.json",
+      "slug": "claude-plugins-entreprise",
+      "route": "/ressources/guides/claude-plugins-entreprise",
+      "index": 11,
+      "label": "Quand prendre un plugin officiel, quand en faire construire un",
       "background": "paper"
     },
     {
@@ -8178,6 +9414,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/base-de-connaissance-ia",
       "index": 3,
       "label": "Quand ça vaut le coût, et quand non",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude.json",
+      "slug": "integration-claude",
+      "route": "/services/integration-claude",
+      "index": 10,
+      "label": "Quand déployer Claude vous-même, et quand nous appeler",
       "background": "paper"
     }
   ],

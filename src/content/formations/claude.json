@@ -5,7 +5,7 @@
   "description_en": "In-company Claude training, three levels: using the app, becoming an expert, building with Claude Platform or Claude Code. On your real cases.",
   "slug": "claude",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05",
   "tags": [
     "formation-claude",
     "formation-claude-code",
@@ -28,6 +28,14 @@
     {
       "q": "La formation Claude Code s'adresse-t-elle à des non-développeurs ?",
       "a": "Non. Claude Code est traité au niveau 3, qui demande de savoir utiliser Git et un terminal. Pour les équipes métier, les niveaux 1 et 2 couvrent l'équivalent sans terminal, y compris les tâches en plusieurs étapes."
+    },
+    {
+      "q": "Faut-il un abonnement payant à Claude pour suivre la formation ?",
+      "a": "Pour le niveau 1, un compte suffit, mais travailler sur des documents de l'entreprise suppose une offre professionnelle : sur Free, Pro et Max s'appliquent les conditions grand public. Pour le niveau 2, il faut une organisation Team ou Enterprise pour les connecteurs et les plugins partagés. Pour le parcours Claude Code du niveau 3, au moins une offre Pro, ou un compte de développeur sur la plateforme : Claude Code n'est pas inclus dans l'offre gratuite."
+    },
+    {
+      "q": "La formation couvre-t-elle Claude Cowork ?",
+      "a": "Oui, au niveau 2. Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). On forme sur l'interface que vos équipes ont réellement le jour de la session, et on vérifie ce point au cadrage."
     },
     {
       "q": "Repart-on avec un agent IA en production ?",
@@ -64,6 +72,14 @@
       "a": "No. Claude Code is covered at level 3, which requires knowing Git and a terminal. For business teams, levels 1 and 2 cover the equivalent without a terminal, including multi-step tasks."
     },
     {
+      "q": "Do participants need a paid Claude plan for the training?",
+      "a": "For level 1, an account is enough, but working on company documents requires a business plan: Free, Pro and Max fall under consumer terms. For level 2, you need a Team or Enterprise organisation for shared connectors and plugins. For the Claude Code track of level 3, at least a Pro plan, or a developer account on the platform: Claude Code is not included in the free plan."
+    },
+    {
+      "q": "Does the training cover Claude Cowork?",
+      "a": "Yes, at level 2. Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). We train on the interface your teams actually have on the day, and check this at scoping."
+    },
+    {
       "q": "Do we leave with an AI agent in production?",
       "a": "No, deliberately. At levels 1 and 2 you leave with a written scope and reusable settings. At level 3 the goal is a working prototype on a company case. Putting an agent in production requires testing and supervision that belong to an engagement, not a training course."
     },
@@ -92,8 +108,8 @@
       "kicker_en": "§ Training",
       "h1_fr": "Formation Claude et agents IA",
       "h1_en": "Claude and AI agents training",
-      "lede_fr": "Trois niveaux, du premier usage au développement. Vos équipes apprennent à confier de vraies tâches à Claude, à le brancher à leurs outils et à savoir où s'arrêter. Les profils techniques construisent avec Claude Platform ou avec Claude Code.",
-      "lede_en": "Three levels, from first use to development. Your teams learn to hand real tasks to Claude, connect it to their tools and know where to stop. Technical profiles build with Claude Platform or with Claude Code.",
+      "lede_fr": "Trois niveaux, du premier usage au développement. Vos équipes apprennent à confier de vraies tâches à Claude, à le brancher à leurs outils et à savoir où s'arrêter. Les profils techniques construisent avec Claude Platform ou avec Claude Code. Sans formation, la plupart des licences servent à reformuler des e-mails : c'est le coût caché d'un déploiement.",
+      "lede_en": "Three levels, from first use to development. Your teams learn to hand real tasks to Claude, connect it to their tools and know where to stop. Technical profiles build with Claude Platform or with Claude Code. Without training, most licences end up rewording emails: that is the hidden cost of a rollout.",
       "badges": [
         {
           "label_fr": "Intra-entreprise",
@@ -106,6 +122,10 @@
         {
           "label_fr": "Sur vos cas réels",
           "label_en": "On your real cases"
+        },
+        {
+          "label_fr": "Via Akigora, Qualiopi",
+          "label_en": "Via Akigora, Qualiopi"
         }
       ],
       "cta_primary": {
@@ -120,9 +140,12 @@
         "href": "#niveaux",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/livrable-passation-formation.svg",
-      "media_alt_fr": "Schéma : une passation de compétences entre un formateur et une équipe",
-      "media_alt_en": "Diagram: a skills handover between a trainer and a team"
+      "illustration": {
+        "src": "/images/illustrations/ds/formation-claude-v2-marches-paper.webp",
+        "alt_fr": "Illustration : trois énormes blocs en escalier sur une plaine, une personne à chaque niveau, la dernière au sommet",
+        "alt_en": "Illustration: three huge stepped blocks on a plain, one person on each level, the last one at the top",
+        "side": "right"
+      }
     },
     {
       "type": "direct-answer",
@@ -207,6 +230,60 @@
       "variant": "default"
     },
     {
+      "type": "feature-zigzag",
+      "background": "paper",
+      "kicker_fr": "§ Ce que chaque niveau change",
+      "kicker_en": "§ What each level changes",
+      "h2_fr": "Ce que l'équipe sait faire en sortant",
+      "h2_en": "What the team can do afterwards",
+      "lede_fr": "Pas de diplôme, pas de quiz : on juge une formation à ce que les participants font le lundi suivant.",
+      "lede_en": "No diploma, no quiz: a training course is judged by what participants do the following Monday.",
+      "rows": [
+        {
+          "kicker_fr": "Niveau 1",
+          "kicker_en": "Level 1",
+          "h3_fr": "Formuler une demande qui donne un résultat utilisable",
+          "h3_en": "Phrase a request that gives a usable result",
+          "body_fr": "La plupart des déceptions viennent de demandes floues. Les participants apprennent à donner le contexte, un exemple et le format attendu, sur leurs propres tâches, puis à reconnaître une réponse inventée. Ils repartent avec une bibliothèque de consignes et un projet configuré chacun.",
+          "body_en": "Most disappointments come from vague requests. Participants learn to give context, an example and the expected format, on their own tasks, then to spot a made-up answer. They leave with a library of instructions and one configured project each.",
+          "link_label_fr": "Ce que Claude sait faire en 2026",
+          "link_label_en": "What Claude can do in 2026",
+          "link_href": "/ressources/guides/claude-fonctionnalites-pme",
+          "media_src": "/images/illustrations/ds/formation-claude-v2-semaphore-paper.webp",
+          "media_alt_fr": "Illustration : deux personnes éloignées sur deux buttes, l'une fait des signaux avec deux fanions, l'autre répond",
+          "media_alt_en": "Illustration: two distant people on two mounds, one signals with two flags, the other answers"
+        },
+        {
+          "kicker_fr": "Niveau 2",
+          "kicker_en": "Level 2",
+          "h3_fr": "Relier Claude aux outils et encoder une façon de faire",
+          "h3_en": "Connect Claude to tools and encode a way of working",
+          "body_fr": "Connecteurs, skills, plugins, tâches complètes : c'est là que Claude cesse d'être un chat. Chaque participant écrit un skill sur une tâche récurrente réelle. Le référent apprend comment ce skill rejoint un plugin d'équipe, la seule façon de le diffuser à tous depuis l'administration.",
+          "body_en": "Connectors, skills, plugins, full tasks: this is where Claude stops being a chat. Each participant writes a skill on a real recurring task. The lead learns how that skill joins a team plugin, the only way to roll it out to everyone from the admin side.",
+          "link_label_fr": "Le guide des skills Claude",
+          "link_label_en": "The Claude skills guide",
+          "link_href": "/ressources/guides/claude-skills",
+          "media_src": "/images/illustrations/ds/formation-claude-v2-metier-tisser-paper.webp",
+          "media_alt_fr": "Illustration : une personne au travail sur un grand métier à tisser, des fils venus de plusieurs bobines forment une étoffe",
+          "media_alt_en": "Illustration: a person working at a large loom, threads from several spools merge into one fabric"
+        },
+        {
+          "kicker_fr": "Niveau 3",
+          "kicker_en": "Level 3",
+          "h3_fr": "Construire un prototype et le mesurer avant de le croire",
+          "h3_en": "Build a prototype and measure it before trusting it",
+          "body_fr": "Les profils techniques construisent sur un cas de l'entreprise, avec l'API ou avec Claude Code, et écrivent le jeu de cas de test qui dira si le prototype tient. Point de vigilance traité en séance : en terminal et dans VS Code, Claude Code démarre désormais en mode Auto, un classifieur qui bloque les actions jugées dangereuses, et non plus en lecture seule.",
+          "body_en": "Technical profiles build on a company case, with the API or Claude Code, and write the test set that will tell whether the prototype holds. A point covered in session: in the terminal and VS Code, Claude Code now starts in Auto mode, a classifier that blocks actions judged dangerous, no longer in read-only mode.",
+          "link_label_fr": "Claude Code en entreprise",
+          "link_label_en": "Claude Code in business",
+          "link_href": "/ressources/guides/claude-code-entreprise",
+          "media_src": "/images/illustrations/ds/formation-claude-v2-planeur-paper.webp",
+          "media_alt_fr": "Illustration : du haut d'une tour, une personne lance un planeur en papier ; au sol, une autre note où il atterrit",
+          "media_alt_en": "Illustration: from the top of a tower, a person launches a paper glider; on the ground, another notes where it lands"
+        }
+      ]
+    },
+    {
       "type": "decision-list",
       "background": "paper-2",
       "anchor": "niveau-1",
@@ -228,8 +305,8 @@
           "label_en": "Have Claude produce and correct a document, a table or a summary from your files."
         },
         {
-          "label_fr": "Choisir entre une réponse directe, la recherche web et la recherche approfondie selon la question.",
-          "label_en": "Choose between a direct answer, web search and in-depth research depending on the question."
+          "label_fr": "Choisir entre une réponse directe et une recherche web selon la question, et lire les sources citées.",
+          "label_en": "Choose between a direct answer and a web search depending on the question, and read the cited sources."
         },
         {
           "label_fr": "Reconnaître une réponse inventée et la vérifier avant de vous en servir.",
@@ -276,15 +353,15 @@
           "num": "04",
           "title_fr": "Fichiers et artefacts",
           "title_en": "Files and artifacts",
-          "body_fr": "Analyser un document ou un tableau, produire un livrable (note, tableau, présentation) et le reprendre.",
-          "body_en": "Analysing a document or a spreadsheet, producing a deliverable (memo, table, presentation) and revising it."
+          "body_fr": "Analyser un document ou un tableau, produire un livrable (note, tableau, présentation) et le reprendre. Selon votre offre : Claude Docs, Claude Slides et Claude Design, en bêta sur les offres payantes.",
+          "body_en": "Analysing a document or a spreadsheet, producing a deliverable (memo, table, presentation) and revising it. Depending on your plan: Claude Docs, Claude Slides and Claude Design, in beta on paid plans."
         },
         {
           "num": "05",
-          "title_fr": "Recherche web et recherche approfondie",
-          "title_en": "Web search and research",
+          "title_fr": "Recherche web",
+          "title_en": "Web search",
           "body_fr": "Quand s'en servir, comment lire les sources citées, ce qu'il reste à vérifier soi-même.",
-          "body_en": "When to use them, how to read the cited sources, what still needs checking yourself."
+          "body_en": "When to use it, how to read the cited sources, what still needs checking yourself."
         },
         {
           "num": "06",
@@ -358,15 +435,15 @@
           "num": "03",
           "title_fr": "Plugins",
           "title_en": "Plugins",
-          "body_fr": "Ce qu'un plugin regroupe, comment en installer un, comment décider s'il a sa place dans l'équipe.",
-          "body_en": "What a plugin bundles, how to install one, how to decide whether it belongs in the team."
+          "body_fr": "Ce qu'un plugin regroupe (skills, connecteurs, sous-agents), comment en installer un depuis une marketplace, comment décider s'il a sa place dans l'équipe.",
+          "body_en": "What a plugin bundles (skills, connectors, sub-agents), how to install one from a marketplace, how to decide whether it belongs in the team."
         },
         {
           "num": "04",
           "title_fr": "Confier une tâche complète",
           "title_en": "Handing over a whole task",
-          "body_fr": "Les tâches en plusieurs étapes (Cowork) : dossiers ouverts, validations, tâches planifiées.",
-          "body_en": "Multi-step tasks (Cowork): opened folders, approvals, scheduled tasks."
+          "body_fr": "Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). On travaille les dossiers autorisés, le mode d'autonomie, les validations et les tâches planifiées.",
+          "body_en": "Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). We work on trusted folders, the autonomy mode, approvals and scheduled tasks."
         },
         {
           "num": "05",
@@ -510,8 +587,106 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Formation Claude Code : pour les équipes techniques</h2>\n<p>Claude Code est l'outil d'Anthropic pour travailler avec Claude dans un dépôt de code. Il s'utilise dans le terminal, dans l'éditeur de code, dans l'application de bureau et dans le navigateur. Le parcours application et CLI du niveau 3 se fait sur votre propre code : donner le contexte du projet, découper une demande, relire les modifications, décider de ce qui passe en revue humaine. L'objectif n'est pas d'aller plus vite sur une démonstration, mais de garder un code que l'équipe comprend encore.</p>\n<h2>Formation Claude Platform : construire avec l'API</h2>\n<p>Le parcours plateforme s'adresse aux équipes qui intègrent Claude dans leur propre application ou dans leurs flux. On y travaille l'API Messages, les outils que l'on donne au modèle et la boucle qui les exécute. On y compare aussi deux façons de faire tourner un agent : écrire sa boucle, ou s'appuyer sur un cadre d'exécution (harness) qui la fournit.</p>\n<h2>Formation agent IA : savoir cadrer avant de construire</h2>\n<p>Un agent IA est un modèle à qui l'on donne des outils et une tâche, et qui décide lui-même des étapes. La partie difficile n'est pas technique. C'est de décider ce qu'il a le droit de faire seul, ce qui demande une validation, et comment on mesure qu'il fait bien son travail. Le niveau 3 commence par ce cadrage, puis construit un prototype. Pour la mise en production, voir notre service <a href=\"/services/agents-ia\">agents IA</a>. Pour les tâches en plusieurs étapes du niveau 2, voir notre guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>.</p>\n<p>Les noms de produits et de fonctions cités sur cette page ont été relus le 5 octobre 2026 dans la documentation d'Anthropic : <a href=\"https://claude.com/product/overview\" rel=\"noopener\">claude.com</a>, <a href=\"https://support.claude.com\" rel=\"noopener\">support.claude.com</a>, <a href=\"https://platform.claude.com/docs/en/intro\" rel=\"noopener\">platform.claude.com</a> et <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">code.claude.com</a>. Ces produits évoluent vite : le programme est remis à jour au cadrage.</p>",
-      "html_en": "<h2>Claude Code training: for technical teams</h2>\n<p>Claude Code is Anthropic's tool for working with Claude in a code repository. It runs in the terminal, in the code editor, in the desktop app and in the browser. The app and CLI track of level 3 runs on your own code: giving the project context, breaking down a request, reviewing changes, deciding what goes to human review. The goal is not to go faster on a demo, but to keep code the team still understands.</p>\n<h2>Claude Platform training: building with the API</h2>\n<p>The platform track is for teams integrating Claude into their own application or workflows. It covers the Messages API, the tools you give the model and the loop that runs them. It also compares two ways of running an agent: writing your own loop, or relying on a harness that provides it.</p>\n<h2>AI agent training: scope before you build</h2>\n<p>An AI agent is a model given tools and a task, which decides the steps itself. The hard part is not technical. It is deciding what it may do alone, what needs approval, and how you measure that it does its job well. Level 3 starts with that scope, then builds a prototype. For shipping to production, see our <a href=\"/services/agents-ia\">AI agents</a> service. For the multi-step tasks of level 2, see our <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a> guide.</p>\n<p>The product and feature names quoted on this page were checked on 5 October 2026 in Anthropic's documentation: <a href=\"https://claude.com/product/overview\" rel=\"noopener\">claude.com</a>, <a href=\"https://support.claude.com\" rel=\"noopener\">support.claude.com</a>, <a href=\"https://platform.claude.com/docs/en/intro\" rel=\"noopener\">platform.claude.com</a> and <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">code.claude.com</a>. These products change quickly: the programme is updated during scoping.</p>"
+      "html_fr": "<h2>Formation Claude Code : pour les équipes techniques</h2>\n<p>Claude Code est l'outil d'Anthropic pour travailler avec Claude dans un dépôt de code. Il s'utilise dans le terminal, dans l'éditeur de code, dans l'application de bureau et dans le navigateur. Le parcours application et CLI du niveau 3 se fait sur votre propre code : donner le contexte du projet, découper une demande, relire les modifications, décider de ce qui passe en revue humaine. L'objectif n'est pas d'aller plus vite sur une démonstration, mais de garder un code que l'équipe comprend encore. Pour le coût, la sécurité et le déploiement côté entreprise, voir le guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</p>\n<h2>Formation Claude Platform : construire avec l'API</h2>\n<p>Le parcours plateforme s'adresse aux équipes qui intègrent Claude dans leur propre application ou dans leurs flux. On y travaille l'API Messages, les outils que l'on donne au modèle et la boucle qui les exécute. On y compare aussi deux façons de faire tourner un agent : écrire sa boucle, ou s'appuyer sur un cadre d'exécution (harness) qui la fournit.</p>\n<h2>Formation agent IA : savoir cadrer avant de construire</h2>\n<p>Un agent IA est un modèle à qui l'on donne des outils et une tâche, et qui décide lui-même des étapes. La partie difficile n'est pas technique. C'est de décider ce qu'il a le droit de faire seul, ce qui demande une validation, et comment on mesure qu'il fait bien son travail. Le niveau 3 commence par ce cadrage, puis construit un prototype. Pour la mise en production, voir notre service <a href=\"/services/agents-ia\">agents IA</a>. Pour le cadre de déploiement complet, voir le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>.</p>\n<p>Les noms de produits et de fonctions cités sur cette page ont été relus le 5 octobre 2026 dans la documentation d'Anthropic : <a href=\"https://claude.com/product/overview\" rel=\"noopener\">claude.com</a>, <a href=\"https://support.claude.com\" rel=\"noopener\">support.claude.com</a>, <a href=\"https://platform.claude.com/docs/en/intro\" rel=\"noopener\">platform.claude.com</a> et <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">code.claude.com</a>. Ces produits évoluent vite : le programme est remis à jour au cadrage.</p>",
+      "html_en": "<h2>Claude Code training: for technical teams</h2>\n<p>Claude Code is Anthropic's tool for working with Claude in a code repository. It runs in the terminal, in the code editor, in the desktop app and in the browser. The app and CLI track of level 3 runs on your own code: giving the project context, breaking down a request, reviewing changes, deciding what goes to human review. The goal is not to go faster on a demo, but to keep code the team still understands. For cost, security and company-wide rollout, see the guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>.</p>\n<h2>Claude Platform training: building with the API</h2>\n<p>The platform track is for teams integrating Claude into their own application or workflows. It covers the Messages API, the tools you give the model and the loop that runs them. It also compares two ways of running an agent: writing your own loop, or relying on a harness that provides it.</p>\n<h2>AI agent training: scope before you build</h2>\n<p>An AI agent is a model given tools and a task, which decides the steps itself. The hard part is not technical. It is deciding what it may do alone, what needs approval, and how you measure that it does its job well. Level 3 starts with that scope, then builds a prototype. For shipping to production, see our <a href=\"/services/agents-ia\">AI agents</a> service. For the full rollout framework, see the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a>.</p>\n<p>The product and feature names quoted on this page were checked on 5 October 2026 in Anthropic's documentation: <a href=\"https://claude.com/product/overview\" rel=\"noopener\">claude.com</a>, <a href=\"https://support.claude.com\" rel=\"noopener\">support.claude.com</a>, <a href=\"https://platform.claude.com/docs/en/intro\" rel=\"noopener\">platform.claude.com</a> and <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">code.claude.com</a>. These products change quickly: the programme is updated during scoping.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce que la formation couvre en octobre 2026</h2>\n<p>Claude change vite. Une formation montée sur la version de janvier enseigne aujourd'hui des écrans qui n'existent plus. Trois changements récents sont intégrés au programme.</p>\n<p><strong>Un seul Claude.</strong> Depuis le 16 septembre 2026, le chat et Cowork fusionnent : Claude décide seul si une demande appelle une réponse rapide ou une tâche complète. Les équipes doivent savoir régler son autonomie et relire ce qu'il a fait. Le détail est dans notre page <a href=\"/ressources/guides/claude-cowork\">Claude Cowork est désormais Claude</a>.</p>\n<p><strong>Des documents, des présentations et des maquettes.</strong> Claude Docs, Claude Slides et <a href=\"/ressources/guides/claude-design\">Claude Design</a> sont en bêta sur les offres payantes. Pour une équipe commerciale ou marketing, c'est souvent le premier gain visible : un deck ou un one-pager repris en dix minutes au lieu d'une demi-journée. Le quota est partagé avec le reste de Claude, ce qui se règle.</p>\n<p><strong>Des skills et des plugins pour l'équipe.</strong> Un skill écrit par une personne reste le sien. Pour qu'une équipe travaille de la même façon, on le diffuse par un <a href=\"/ressources/guides/claude-plugins-entreprise\">plugin</a> depuis l'administration. Le niveau 2 forme à ce circuit, de l'écriture à la diffusion.</p>\n<h2>Ce que la formation ne couvre pas</h2>\n<p>La mise en production d'un agent, ses tests de charge et sa supervision : c'est une mission d'<a href=\"/services/agents-ia\">agents IA</a>, pas une formation. Le paramétrage complet de votre organisation Claude, des connecteurs et des droits : c'est une mission d'<a href=\"/services/integration-claude\">intégration de Claude</a>. La formation peut précéder ces missions ou les suivre ; elle ne les remplace pas.</p>",
+      "html_en": "<h2>What the training covers in October 2026</h2>\n<p>Claude changes fast. A course built on the January version now teaches screens that no longer exist. Three recent changes are built into the programme.</p>\n<p><strong>One Claude.</strong> Since 16 September 2026, chat and Cowork are merging: Claude decides by itself whether a request calls for a quick answer or a full task. Teams must know how to set its autonomy and review what it did. Details in our page <a href=\"/ressources/guides/claude-cowork\">Claude Cowork is now Claude</a>.</p>\n<p><strong>Documents, presentations and mock-ups.</strong> Claude Docs, Claude Slides and <a href=\"/ressources/guides/claude-design\">Claude Design</a> are in beta on paid plans. For a sales or marketing team, it is often the first visible gain: a deck or one-pager revised in ten minutes instead of half a day. The quota is shared with the rest of Claude, which can be managed.</p>\n<p><strong>Skills and plugins for the team.</strong> A skill written by one person stays theirs. For a team to work the same way, it is rolled out through a <a href=\"/ressources/guides/claude-plugins-entreprise\">plugin</a> from the admin side. Level 2 trains on that circuit, from writing to rollout.</p>\n<h2>What the training does not cover</h2>\n<p>Putting an agent into production, load testing and supervising it: that is an <a href=\"/services/agents-ia\">AI agents</a> engagement, not training. Fully configuring your Claude organisation, connectors and rights: that is a <a href=\"/services/integration-claude\">Claude integration</a> engagement. Training can come before or after these engagements; it does not replace them.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Les autres options",
+      "kicker_en": "§ The other options",
+      "heading_fr": "Formation Waimia, ressources gratuites ou cursus long : comment choisir",
+      "heading_en": "Waimia training, free resources or long course: how to choose",
+      "caption_fr": "Lecture de Waimia au 5 octobre 2026. Claude Academy est l'offre de formation gratuite d'Anthropic (documentation Claude Code, lue le 5 octobre 2026).",
+      "caption_en": "Waimia's reading as of 5 October 2026. Claude Academy is Anthropic's free training offer (Claude Code documentation, read on 5 October 2026).",
+      "columns_fr": [
+        "Option",
+        "Pour qui",
+        "Ce que vous obtenez",
+        "Limite"
+      ],
+      "columns_en": [
+        "Option",
+        "For whom",
+        "What you get",
+        "Limit"
+      ],
+      "rows_fr": [
+        [
+          "Claude Academy (Anthropic, gratuit)",
+          "Un développeur autonome qui veut les bases de Claude Code",
+          "Des modules officiels, dont Claude Code 101 et Claude Code in Action",
+          "Rien sur vos processus, vos données ni vos règles d'usage"
+        ],
+        [
+          "Cursus long inter-entreprises",
+          "Un développeur qui change de pratique en profondeur",
+          "Plusieurs jours de pratique encadrée, souvent orientés code",
+          "Peu adapté aux équipes métier ; exemples génériques"
+        ],
+        [
+          "Formation Waimia intra-entreprise",
+          "Une équipe qui doit s'en servir lundi sur ses propres tâches",
+          "Consignes, projets, skills et règles écrits sur vos cas, référent formé",
+          "Pas de session catalogue : un programme par entreprise"
+        ],
+        [
+          "Pas de formation",
+          "Une équipe de deux ou trois personnes déjà à l'aise",
+          "La checklist des 90 jours et un référent qui avance seul",
+          "Les mauvaises habitudes s'installent vite et se corrigent lentement"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Claude Academy (Anthropic, free)",
+          "A self-directed developer who wants Claude Code basics",
+          "Official modules, including Claude Code 101 and Claude Code in Action",
+          "Nothing on your processes, data or usage rules"
+        ],
+        [
+          "Long multi-company course",
+          "A developer deeply changing their practice",
+          "Several days of supervised practice, often code-oriented",
+          "A poor fit for business teams; generic examples"
+        ],
+        [
+          "Waimia in-company training",
+          "A team that must use it on Monday for its own tasks",
+          "Instructions, projects, skills and rules written on your cases, trained lead",
+          "No catalogue session: one programme per company"
+        ],
+        [
+          "No training",
+          "A team of two or three already comfortable",
+          "The 90-day checklist and a lead who moves forward alone",
+          "Bad habits set in fast and are slow to fix"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper-2",
+      "anchor": "checklist",
+      "kicker_fr": "§ Checklist · PDF gratuit",
+      "kicker_en": "§ Checklist · free PDF",
+      "h2_fr": "Recevez la checklist des 90 jours pour déployer Claude (PDF, 5 pages)",
+      "h2_en": "Get the 90-day checklist to roll out Claude (PDF, 5 pages)",
+      "body_fr": "Le plan qu'on suit après une formation : six prérequis à cocher avant de commencer, trois phases de 30 jours, douze semaines avec un livrable par semaine et les indicateurs à remplir pour savoir si l'équipe s'en sert vraiment. À imprimer et à confier au référent. Le fichier arrive par e-mail, en pièce jointe.",
+      "body_en": "The plan we follow after a training course: six prerequisites to tick before starting, three 30-day phases, twelve weeks with one deliverable a week and the indicators to fill in to know whether the team really uses it. Print it and hand it to the lead. The file arrives by email, as an attachment.",
+      "submit_label_fr": "Recevoir la checklist →",
+      "submit_label_en": "Get the checklist →",
+      "hint_fr": "Un seul envoi : le PDF. La lettre mensuelle seulement si vous cochez la case.",
+      "hint_en": "One email: the PDF. The monthly newsletter only if you tick the box.",
+      "lead_magnet": "checklist-90-jours-claude"
     },
     {
       "type": "editorial-table-block",
@@ -604,6 +779,24 @@
       "kicker_en": "§ Go further",
       "cards": [
         {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Claude en entreprise",
+          "title_en": "Claude in business",
+          "lead_fr": "Offre, connecteurs, skills, charte et référent formé.",
+          "lead_en": "Plan, connectors, skills, policy and trained lead.",
+          "href": "/services/integration-claude"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Plugins Claude en entreprise",
+          "title_en": "Claude plugins in business",
+          "lead_fr": "Diffuser skills et connecteurs à toute une équipe.",
+          "lead_en": "Roll out skills and connectors to a whole team.",
+          "href": "/ressources/guides/claude-plugins-entreprise"
+        },
+        {
           "kicker_fr": "Formation",
           "kicker_en": "Training",
           "title_fr": "Formation ChatGPT",
@@ -611,24 +804,6 @@
           "lead_fr": "Les trois mêmes niveaux, sur ChatGPT et OpenAI Platform.",
           "lead_en": "The same three levels, on ChatGPT and OpenAI Platform.",
           "href": "/formations/chatgpt"
-        },
-        {
-          "kicker_fr": "Service",
-          "kicker_en": "Service",
-          "title_fr": "Claude en entreprise",
-          "title_en": "Claude in the enterprise",
-          "lead_fr": "Intégration, connecteurs et règles d'usage.",
-          "lead_en": "Integration, connectors and usage rules.",
-          "href": "/services/integration-claude"
-        },
-        {
-          "kicker_fr": "Formation",
-          "kicker_en": "Training",
-          "title_fr": "Toutes les formations",
-          "title_en": "All training courses",
-          "lead_fr": "Claude, ChatGPT, automatisation, n8n et Make.",
-          "lead_en": "Claude, ChatGPT, automation, n8n and Make.",
-          "href": "/formations"
         }
       ]
     },
@@ -655,6 +830,18 @@
           "q_en": "Is the Claude Code training for non-developers?",
           "a_fr": "Non. Claude Code est traité au niveau 3, qui demande de savoir utiliser Git et un terminal. Pour les équipes métier, les niveaux 1 et 2 couvrent l'équivalent sans terminal, y compris les tâches en plusieurs étapes.",
           "a_en": "No. Claude Code is covered at level 3, which requires knowing Git and a terminal. For business teams, levels 1 and 2 cover the equivalent without a terminal, including multi-step tasks."
+        },
+        {
+          "q_fr": "Faut-il un abonnement payant à Claude pour suivre la formation ?",
+          "q_en": "Do participants need a paid Claude plan for the training?",
+          "a_fr": "Pour le niveau 1, un compte suffit, mais travailler sur des documents de l'entreprise suppose une offre professionnelle : sur Free, Pro et Max s'appliquent les conditions grand public. Pour le niveau 2, il faut une organisation Team ou Enterprise pour les connecteurs et les plugins partagés. Pour le parcours Claude Code du niveau 3, au moins une offre Pro, ou un compte de développeur sur la plateforme : Claude Code n'est pas inclus dans l'offre gratuite.",
+          "a_en": "For level 1, an account is enough, but working on company documents requires a business plan: Free, Pro and Max fall under consumer terms. For level 2, you need a Team or Enterprise organisation for shared connectors and plugins. For the Claude Code track of level 3, at least a Pro plan, or a developer account on the platform: Claude Code is not included in the free plan."
+        },
+        {
+          "q_fr": "La formation couvre-t-elle Claude Cowork ?",
+          "q_en": "Does the training cover Claude Cowork?",
+          "a_fr": "Oui, au niveau 2. Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). On forme sur l'interface que vos équipes ont réellement le jour de la session, et on vérifie ce point au cadrage.",
+          "a_en": "Yes, at level 2. Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). We train on the interface your teams actually have on the day, and check this at scoping."
         },
         {
           "q_fr": "Repart-on avec un agent IA en production ?",

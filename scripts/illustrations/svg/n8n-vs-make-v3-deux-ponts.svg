@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot IMG1 · deux ponts de construction différente franchissent la même rivière ; une silhouette sur un îlot entre les deux -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pusher">
+      <circle cx="10" cy="-86" r="7.5" fill="{{subject}}"/>
+      <path d="M-6 -78 Q4 -82 14 -76 L4 -42 L-18 -44 Z" fill="{{subject}}"/>
+      <rect x="2" y="-74" width="34" height="6" rx="3" fill="{{subject}}" transform="rotate(8 2 -74)"/>
+      <path d="M-18 -44 L-4 -44 L-14 -2 L-26 -2 Z" fill="{{subject}}"/>
+      <path d="M-6 -44 L6 -44 L14 -2 L2 -2 Z" fill="{{subject}}"/>
+      <rect x="-30" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="2" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="230" r="150" fill="{{shape}}"/>
+  <rect y="430" width="1456" height="194" fill="{{ground}}"/>
+  <path d="M640 470 Q728 440 816 470 L830 500 L626 500 Z" fill="{{pale}}"/>
+  <path d="M60 380 L640 380 L640 410 L60 410 Z" fill="{{subject}}"/>
+  <path d="M100 410 L620 410 L620 520 L560 520 Q560 450 500 450 Q440 450 440 520 L400 520 Q400 450 340 450 Q280 450 280 520 L240 520 Q240 450 180 450 Q120 450 120 520 L100 520 Z" fill="{{subject}}"/>
+  <rect x="840" y="400" width="560" height="14" fill="{{subject}}"/>
+  <rect x="930" y="250" width="16" height="270" fill="{{subject}}"/><rect x="1290" y="250" width="16" height="270" fill="{{subject}}"/>
+  <path d="M840 400 Q890 260 938 252 Q1118 400 1298 252 Q1350 260 1400 400" stroke="{{detail}}" stroke-width="5" fill="none"/>
+  <g stroke="{{detail}}" stroke-width="3"><line x1="980" y1="313" x2="980" y2="400"/><line x1="1030" y1="365" x2="1030" y2="400"/><line x1="1080" y1="393" x2="1080" y2="400"/><line x1="1130" y1="399" x2="1130" y2="400"/><line x1="1180" y1="382" x2="1180" y2="400"/><line x1="1230" y1="343" x2="1230" y2="400"/></g>
+  <use href="#man" transform="translate(728 476) scale(1.2)"/>
+
+</svg>

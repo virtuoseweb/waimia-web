@@ -3,9 +3,9 @@ export const prerender = true;
 
 // Page SSG · /ressources/outils/checklist-90-jours-claude · lead magnet « Checklist 90
 // jours pour déployer Claude en PME » (prolonge le guide /ressources/guides/claude-pme).
-// La checklist est lisible et cochable en entier sur la page, imprimable, téléchargeable
-// en PDF sans e-mail. La capture d'e-mail est facultative (organism LeadCapture →
-// /api/lead-magnet).
+// La checklist est lisible et cochable en entier sur la page et imprimable, sans e-mail. Le PDF
+// est VERROUILLÉ : e-mail obligatoire, livré en pièce jointe (organism LeadCapture `required` →
+// /api/lead-magnet), jamais servi par le site.
 // Route explicite : l'entrée `outils/checklist-90-jours-claude` (JSON) ne sert qu'au
 // listing du hub ; [...slug].astro l'exclut.
 
@@ -23,7 +23,7 @@ import { prerequisites, phases } from '../../../data/checklist-90-jours-claude';
 
 const nWeeks = phases.reduce((n, p) => n + p.weeks.length, 0);
 const title = 'Checklist 90 jours pour déployer Claude en PME (PDF)';
-const description = "Déployer Claude en PME en 90 jours : 6 prérequis, 12 semaines, une case par action et les indicateurs à suivre. En ligne et en PDF, sans inscription.";
+const description = "Déployer Claude en PME en 90 jours : 6 prérequis, 12 semaines, une case par action, les indicateurs à suivre. En ligne sans e-mail, PDF par e-mail.";
 const ld = buildArticle({
   headline: title,
   description,
@@ -53,9 +53,9 @@ const cta = auditCtaFinal(
     h1="Checklist 90 jours : déployer Claude dans votre PME"
     lede={`Le plan du guide « Déployer Claude dans votre PME », rendu actionnable : ${prerequisites.length} prérequis, ${phases.length} phases de 30 jours, une case par action et un livrable par semaine. Cochez en ligne ou imprimez-la pour votre réunion de lancement.`}
     facts={[
-      { label: 'Format', value: 'En ligne, PDF' },
+      { label: 'Format', value: 'En ligne, PDF par e-mail' },
       { label: 'Longueur', value: `${prerequisites.length} prérequis, ${nWeeks} semaines` },
-      { label: 'E-mail', value: 'Non requis' },
+      { label: 'E-mail', value: 'Requis pour le PDF seulement' },
       { label: 'Mise à jour', value: '5 octobre 2026' },
     ]}
   >
@@ -64,10 +64,12 @@ const cta = auditCtaFinal(
   <ChecklistDocument />
   <LeadCapture
     band
+    required
+    anchorId="recevoir-le-pdf"
     slug="checklist-90-jours-claude"
-    title="Recevoir la checklist par e-mail"
-    description="Le lien vers le PDF et vers cette page, pour les retrouver ou les partager avec l'équipe qui pilotera le déploiement."
-    buttonLabel="Recevoir la checklist"
+    title="Recevoir le PDF par e-mail"
+    description="Le PDF de la checklist vierge arrive en pièce jointe, à imprimer pour la réunion de lancement. Il n'est pas disponible en téléchargement direct."
+    buttonLabel="Recevoir le PDF"
   />
   <ResourceLinks exclude={['checklist']} />
   <CtaFinal data={cta} lang="fr" />

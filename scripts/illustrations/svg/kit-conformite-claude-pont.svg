@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · données hors UE : un long pont au-dessus de la mer, des colis traversent, une guérite de douane au milieu. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{shadow}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="walker">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(16 0 -44)"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(-16 0 -44)"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1130" cy="190" r="120" fill="{{shape}}"/>
+  <rect y="400" width="1456" height="224" fill="{{ground}}"/>
+  <path d="M0 330 L230 340 L260 470 L0 470 Z" fill="{{subject}}"/>
+  <path d="M1456 330 L1226 340 L1196 470 L1456 470 Z" fill="{{subject}}"/>
+  <rect x="300" y="362" width="18" height="120" fill="{{subject}}"/><rect x="420" y="362" width="18" height="120" fill="{{subject}}"/><rect x="540" y="362" width="18" height="120" fill="{{subject}}"/><rect x="660" y="362" width="18" height="120" fill="{{subject}}"/><rect x="780" y="362" width="18" height="120" fill="{{subject}}"/><rect x="900" y="362" width="18" height="120" fill="{{subject}}"/><rect x="1020" y="362" width="18" height="120" fill="{{subject}}"/><rect x="1140" y="362" width="18" height="120" fill="{{subject}}"/><path d="M309 368 Q369 330 429 368" stroke="{{subject}}" stroke-width="6" fill="none"/><path d="M429 368 Q489 330 549 368" stroke="{{subject}}" stroke-width="6" fill="none"/><path d="M549 368 Q609 330 669 368" stroke="{{subject}}" stroke-width="6" fill="none"/><path d="M669 368 Q729 330 789 368" stroke="{{subject}}" stroke-width="6" fill="none"/><path d="M789 368 Q849 330 909 368" stroke="{{subject}}" stroke-width="6" fill="none"/><path d="M909 368 Q969 330 1029 368" stroke="{{subject}}" stroke-width="6" fill="none"/><path d="M1029 368 Q1089 330 1149 368" stroke="{{subject}}" stroke-width="6" fill="none"/><rect x="120" y="520" width="90" height="5" fill="{{detail}}"/><rect x="420" y="560" width="140" height="5" fill="{{detail}}"/><rect x="760" y="530" width="110" height="5" fill="{{detail}}"/><rect x="1040" y="575" width="130" height="5" fill="{{detail}}"/><rect x="1300" y="540" width="80" height="5" fill="{{detail}}"/><rect x="600" y="600" width="70" height="5" fill="{{detail}}"/>
+  <rect x="210" y="344" width="1036" height="22" fill="{{subject}}"/>
+  <path d="M210 316 L1246 316" stroke="{{subject}}" stroke-width="4"/>
+  <!-- guérite et barrière -->
+  <rect x="694" y="250" width="72" height="94" fill="{{detail}}"/>
+  <path d="M684 252 L730 220 L776 252 Z" fill="{{subject}}"/>
+  <rect x="708" y="270" width="44" height="30" fill="{{subject}}"/>
+  <rect x="776" y="300" width="150" height="10" fill="{{detail}}"/>
+  <rect x="806" y="300" width="22" height="10" fill="{{subject}}"/><rect x="858" y="300" width="22" height="10" fill="{{subject}}"/>
+  <!-- porteurs -->
+  <use href="#walker" transform="translate(400 344) scale(0.7)"/><rect x="408" y="266" width="22" height="18" fill="{{detail}}"/>
+  <use href="#walker" transform="translate(500 344) scale(0.7)"/><rect x="508" y="266" width="22" height="18" fill="{{detail}}"/>
+  <use href="#man" transform="translate(1000 344) scale(0.7)"/><rect x="1008" y="268" width="22" height="18" fill="{{detail}}"/>
+
+</svg>

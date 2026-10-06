@@ -76,8 +76,14 @@
   ],
   "sections": [
     {
-      "type": "hero-masthead-card",
+      "type": "hero-split-media",
       "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/prospection-automatisee-v3-semeur-paper.webp",
+        "alt_fr": "Illustration : une personne pousse un semoir à roues le long de sillons réguliers, des pousses lèvent derrière elle",
+        "alt_en": "Illustration: a person pushes a wheeled seeder along even furrows, sprouts coming up behind",
+        "side": "right"
+      },
       "kicker_fr": "§ Prospection automatisée",
       "kicker_en": "§ Automated prospecting",
       "h1_fr": "Prospection <i class=\"acc\">automatisée</i> par l'IA",
@@ -102,8 +108,6 @@
           "label_en": "No minimum term"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
-      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -115,10 +119,7 @@
         "label_en": "How the audit works",
         "href": "/audit-ia-pme",
         "variant": "ghost"
-      },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma du dispositif : une cible ICP est enrichie, entre dans une séquence multicanal, répond, puis la donnée remonte au CRM qui déclenche un rendez-vous.",
-      "media_alt_en": "Device diagram: an ICP target is enriched, enters a multichannel sequence, replies, then the data flows up to the CRM that triggers a meeting."
+      }
     },
     {
       "type": "proof-bar",
@@ -200,6 +201,14 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/prospection-automatisee-v3-longue-vue-paper.webp",
+          "alt_fr": "Illustration : depuis une colline, une personne observe à la longue-vue une vallée de maisons dont trois sont bleues",
+          "alt_en": "Illustration: from a hill, a person looks through a telescope at a valley of houses, three of them blue",
+          "side": "right"
+        }
+      ],
       "html_fr": "<h2>Ce que le système fait, étape par étape</h2>\n<p>D'abord le ciblage : on écrit avec vous les critères du client idéal (secteur, taille, fonction, signal d'achat) et on constitue une liste dédoublonnée. Ensuite l'infrastructure d'envoi : des noms de domaine et des adresses dédiés, authentifiés (SPF, DKIM, DMARC) et mis en chauffe, pour que votre domaine principal ne soit jamais exposé. Puis les séquences : quelques messages courts, personnalisés par un modèle d'IA à partir d'informations publiques sur l'entreprise visée, relus avant le lancement. Enfin la remontée : chaque réponse arrive dans votre CRM avec son historique.</p>\n<p>La prospection est le volet sortant du <a href=\"/services/systeme-commercial\">système commercial</a>. Elle n'a d'intérêt que si la suite est tenue : un <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> pour ne perdre aucune réponse, et des <a href=\"/services/sequences-de-suivi\">relances</a> pour les devis qui suivent.</p>\n<h2>Ce que dit la règle</h2>\n<p>Selon <a href=\"https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique\" rel=\"nofollow noopener\" target=\"_blank\">la CNIL</a>, la prospection par courrier électronique entre professionnels est possible sans consentement préalable, à condition que la personne soit informée et puisse s'y opposer simplement. Chaque message contient donc l'identité de l'expéditeur et un lien de désinscription, et toute opposition est enregistrée et respectée. Pour les particuliers, le consentement préalable est la règle : on ne fait pas de prospection B2C. Information vérifiée le 4 octobre 2026.</p>\n<h2>Combien de temps avant des résultats</h2>\n<p>La première séquence part habituellement 2 à 4 semaines après le démarrage : le temps de constituer les listes et de chauffer les adresses d'envoi. On ne promet pas un nombre de rendez-vous : il dépend de votre offre, de votre marché et de la précision du ciblage. Ce qu'on mesure et qu'on vous montre chaque mois : messages délivrés, réponses, réponses positives, rendez-vous pris.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un ciblage trop large, qui produit du volume et aucune réponse. Des messages génériques : la personnalisation par IA ne compense pas une offre floue. Une réputation d'envoi dégradée par des volumes trop élevés : on plafonne les envois par adresse. Et le plus fréquent : des réponses positives que personne ne rappelle.</p>\n<p>Pour vérifier que votre offre se prête à la prospection sortante, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> ou lisez <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automatiser les relances B2B sans SDR</a>.</p>",
       "html_en": "<h2>What the system does, step by step</h2>\n<p>First, targeting: we write the ideal customer criteria with you (sector, size, role, buying signal) and build a deduplicated list. Then the sending infrastructure: dedicated domains and addresses, authenticated (SPF, DKIM, DMARC) and warmed up, so your main domain is never exposed. Then the sequences: a few short messages, personalised by an AI model from public information on the target company, reviewed before launch. Finally, the feed: every reply lands in your CRM with its history.</p>\n<p>Prospecting is the outbound part of the <a href=\"/services/systeme-commercial\">sales system</a>. It is only worth it if the rest holds: an <a href=\"/services/crm-scoring-routing\">automated CRM</a> so no reply is lost, and <a href=\"/services/sequences-de-suivi\">follow-ups</a> for the quotes that come after.</p>\n<h2>What the rule says</h2>\n<p>According to <a href=\"https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique\" rel=\"nofollow noopener\" target=\"_blank\">the CNIL</a>, email prospecting between professionals is allowed without prior consent, provided the person is informed and can easily object. Each message therefore includes the sender's identity and an opt-out link, and every objection is recorded and honoured. For consumers, prior consent is the rule: we do not do B2C prospecting. Checked on 4 October 2026.</p>\n<h2>How long before results</h2>\n<p>The first sequence usually goes out 2 to 4 weeks after kickoff: the time to build lists and warm up sending addresses. We do not promise a number of meetings: it depends on your offer, your market and targeting precision. What we measure and show you each month: messages delivered, replies, positive replies, meetings booked.</p>\n<h2>What can go wrong</h2>\n<p>Targeting that is too broad, producing volume and no replies. Generic messages: AI personalisation does not make up for a vague offer. A sender reputation damaged by excessive volume: we cap sends per address. And the most common: positive replies nobody calls back.</p>\n<p>To check that your offer suits outbound prospecting, start with the <a href=\"/audit-ia-pme\">free AI audit</a> or read <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automating B2B follow-ups without an SDR</a>.</p>"
     },

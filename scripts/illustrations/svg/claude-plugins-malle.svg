@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · un plugin = une malle d'outils rangés (skills, connecteurs, sous-agents). Malle = {{shape}}. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{shadow}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="walker">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(16 0 -44)"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(-16 0 -44)"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1190" cy="150" r="64" fill="{{detail}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <ellipse cx="740" cy="506" rx="300" ry="12" fill="{{deep}}"/>
+  <!-- portes ouvertes -->
+  <path d="M600 132 L468 164 L468 468 L600 500 Z" fill="{{shape}}"/>
+  <path d="M588 160 L484 184 L484 450 L588 474 Z" fill="{{soft}}"/>
+  <path d="M880 132 L1012 164 L1012 468 L880 500 Z" fill="{{shape}}"/>
+  <path d="M892 160 L996 184 L996 450 L892 474 Z" fill="{{soft}}"/>
+  <!-- caisse -->
+  <rect x="600" y="120" width="280" height="384" fill="{{shape}}"/>
+  <rect x="616" y="140" width="248" height="346" fill="{{deep}}"/>
+  <rect x="600" y="112" width="280" height="16" fill="{{subject}}"/>
+  <rect x="600" y="496" width="280" height="12" fill="{{subject}}"/>
+  <rect x="616" y="250" width="248" height="9" fill="{{subject}}"/>
+  <rect x="616" y="366" width="248" height="9" fill="{{subject}}"/>
+  <rect x="736" y="140" width="9" height="110" fill="{{subject}}"/>
+  <rect x="736" y="375" width="9" height="111" fill="{{subject}}"/>
+  <!-- clé -->
+  <circle cx="660" cy="196" r="22" fill="{{detail}}"/><circle cx="660" cy="196" r="10" fill="{{deep}}"/>
+  <rect x="680" y="191" width="44" height="10" fill="{{detail}}"/><rect x="708" y="200" width="7" height="14" fill="{{detail}}"/>
+  <!-- boussole -->
+  <circle cx="804" cy="196" r="38" fill="{{detail}}"/><circle cx="804" cy="196" r="30" fill="{{pale}}"/>
+  <path d="M804 168 L812 196 L804 224 L796 196 Z" fill="{{subject}}"/>
+  <!-- registres -->
+  <rect x="636" y="290" width="34" height="76" fill="{{pale}}"/><rect x="674" y="282" width="30" height="84" fill="{{detail}}"/>
+  <rect x="708" y="296" width="26" height="70" fill="{{soft}}"/><rect x="738" y="288" width="32" height="78" fill="{{pale}}"/>
+  <!-- combiné téléphonique -->
+  <path d="M790 352 Q786 318 806 316 L820 330 Q808 336 812 344 L842 344 Q846 336 834 330 L848 316 Q868 318 864 352 Z" fill="{{detail}}"/>
+  <!-- ciseaux -->
+  <circle cx="660" cy="452" r="14" fill="none" stroke="{{detail}}" stroke-width="7"/>
+  <circle cx="696" cy="452" r="14" fill="none" stroke="{{detail}}" stroke-width="7"/>
+  <path d="M668 440 L736 392 L742 398 L678 446 Z" fill="{{detail}}"/>
+  <path d="M688 440 L640 394 L634 400 L680 446 Z" fill="{{detail}}"/>
+  <!-- rouleau / cartes -->
+  <rect x="770" y="400" width="74" height="22" rx="11" fill="{{pale}}"/>
+  <rect x="770" y="430" width="74" height="22" rx="11" fill="{{detail}}"/>
+  <!-- pieds -->
+  <rect x="612" y="504" width="18" height="10" fill="{{subject}}"/><rect x="850" y="504" width="18" height="10" fill="{{subject}}"/>
+  <!-- silhouettes -->
+  <use href="#pointer" transform="translate(1080 504) scale(1.5)"/>
+  <use href="#walker" transform="translate(300 506) scale(0.9)"/>
+
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Claude Design (exports) : des feuilles partent d'une table à dessin vers plusieurs bâtiments distincts. -->
+  <defs><g id="man"><circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/><path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/><rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/><rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/></g> <g id="sheet"><rect x="-24" y="-16" width="48" height="32" fill="{{light}}"/><rect x="-24" y="-16" width="48" height="32" fill="none" stroke="{{deep}}" stroke-width="1.5"/><rect x="-17" y="-9" width="26" height="3" fill="{{pale}}"/><rect x="-17" y="-1" width="34" height="3" fill="{{pale}}"/><rect x="-17" y="7" width="20" height="3" fill="{{pale}}"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="300" r="200" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="496" width="1456" height="5" fill="{{deep}}"/>
+  <!-- Bâtiments au loin -->
+  <g fill="{{deep}}">
+    <rect x="90" y="430" width="70" height="68"/><path d="M84 432 L125 400 L166 432 Z"/>
+    <rect x="300" y="452" width="110" height="46"/><rect x="330" y="420" width="40" height="34"/>
+    <rect x="1050" y="410" width="60" height="88"/><rect x="1118" y="440" width="44" height="58"/>
+    <rect x="1300" y="446" width="100" height="52"/><path d="M1294 448 L1350 418 L1406 448 Z"/>
+  </g>
+  <!-- Trajectoires -->
+  <g fill="none" stroke="{{detail}}" stroke-width="3" stroke-dasharray="10 12" stroke-linecap="round">
+    <path d="M700 370 C 560 160, 260 170, 125 392"/>
+    <path d="M720 360 C 640 250, 450 280, 355 410"/>
+    <path d="M750 360 C 850 220, 1020 240, 1085 400"/>
+    <path d="M770 370 C 960 140, 1260 170, 1350 410"/>
+  </g>
+  <use href="#sheet" transform="translate(470 196) rotate(-18)"/>
+  <use href="#sheet" transform="translate(250 252) rotate(-34) scale(0.85)"/>
+  <use href="#sheet" transform="translate(500 296) rotate(-28) scale(0.8)"/>
+  <use href="#sheet" transform="translate(950 270) rotate(22) scale(0.9)"/>
+  <use href="#sheet" transform="translate(1020 205) rotate(14)"/>
+  <use href="#sheet" transform="translate(1230 236) rotate(30) scale(0.85)"/>
+  <!-- Table à dessin -->
+  <g>
+    <path d="M640 372 L820 352 L828 384 L648 404 Z" fill="{{subject}}"/>
+    <path d="M652 404 L630 500 M812 384 L840 500 M690 400 L700 500 M780 390 L770 500" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+    <use href="#sheet" transform="translate(735 372) rotate(-6) scale(1.3 0.6)"/>
+  </g>
+  <use href="#man" transform="translate(930 500) scale(1.25)"/>
+</svg>

@@ -1,4 +1,6 @@
 // @ts-check
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
@@ -31,6 +33,23 @@ import { enabledAppIntegrations, APPS } from './src/apps.config.ts';
 // représentaient ~4 300 des ~4 400 pages HTML du build et exposaient en prod des outils
 // de travail (dont l'endpoint serverless /api/ds/chat). Cf src/lib/seo/internal-tools.mjs.
 const INTERNAL_TOOLS = internalToolsEnabled();
+
+// Ressources VERROUILLÉES (lead magnets) : PDF/ZIP hors `public/` (donc jamais servis),
+// lus par la fonction serverless /api/lead-magnet et envoyés en pièce jointe Resend.
+// `includeFiles` de @astrojs/vercel n'accepte PAS de glob (chaque entrée devient
+// `new URL(file, root)`) : on liste donc les fichiers présents au chargement de la config (cwd = racine du projet, comme pour toute commande astro).
+// Un fichier ajouté dans private/telechargements/ est repris au build suivant.
+const PRIVATE_DOWNLOADS_DIR = 'private/telechargements';
+const PRIVATE_DOWNLOAD_FILES = (() => {
+  try {
+    return readdirSync(join(process.cwd(), PRIVATE_DOWNLOADS_DIR))
+      .filter((f) => !f.startsWith('.'))
+      .sort()
+      .map((f) => `./${PRIVATE_DOWNLOADS_DIR}/${f}`);
+  } catch {
+    return [];
+  }
+})();
 
 // Interdictions d'exploration communes à TOUS les robots. Chaque préfixe interne est
 // interdit en « segment entier » : `/library$` (la page hub) et `/library/` (son
@@ -119,6 +138,7 @@ export default defineConfig({
   // API routes actuelles : toutes dans exclude → toujours fresh, jamais cachées ISR.
   // cf /tmp/codex-missions/tier12-isr-perf/DONE.md pour le guide ISR complet (Tier 12).
   adapter: vercel({
+    includeFiles: PRIVATE_DOWNLOAD_FILES,
     isr: {
       expiration: 3600, // TTL par défaut 1h pour les futures routes SSR cachables
       bypassToken: process.env.ISR_BYPASS_TOKEN, // secret Vercel env var (preview bypass)
@@ -331,6 +351,10 @@ export default defineConfig({
     // Les cibles sont finales : les anciennes 301 qui pointaient une de ces pages ont été
     // re-ciblées ci-dessus (un seul saut, gate check-redirects).
     ...REDIRECTED_PATHS,
+    // Ressources verrouillées (2026-10) : les PDF ne sont plus servis (déplacés hors public/,
+    // livrés par e-mail). Les anciennes URL publiques redirigent vers la page de la ressource.
+    '/telechargements/checklist-90-jours-claude-pme-waimia.pdf': { status: 301, destination: '/ressources/outils/checklist-90-jours-claude' },
+    '/telechargements/charte-ia-pme-modele-waimia.pdf': { status: 301, destination: '/ressources/outils/charte-ia-entreprise' },
   },
   integrations: [
     react(),

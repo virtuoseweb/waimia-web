@@ -21,7 +21,7 @@ if (!kw.length) err('keywords.json : aucun mot-clé');
 const seen = new Set();
 for (const k of kw) {
   const id = normalizeText(k.query);
-  if (!k.query || typeof k.volume !== 'number' || !k.cluster || ![1, 2, 3].includes(k.priority)) err(`keywords.json : entrée incomplète (${JSON.stringify(k)})`);
+  if (!k.query || (k.volume !== null && typeof k.volume !== 'number') || !k.cluster || ![1, 2, 3].includes(k.priority)) err(`keywords.json : entrée incomplète (${JSON.stringify(k)})`);
   if (seen.has(id)) err(`keywords.json : doublon « ${k.query} »`);
   seen.add(id);
   if (k.target !== null && (!k.target?.startsWith('/') || !targetExists(k.target))) err(`keywords.json : page cible introuvable pour « ${k.query} » : ${k.target}`);

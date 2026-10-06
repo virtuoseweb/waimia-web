@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · registre des usages : un immense registre ouvert comme un paysage, des silhouettes écrivent le long des lignes. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{shadow}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="walker">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(16 0 -44)"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(-16 0 -44)"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <path d="M130 500 L728 470 L1326 500 L1326 530 L130 530 Z" fill="{{subject}}"/>
+  <path d="M160 490 Q420 300 728 410 L728 486 Z" fill="{{detail}}"/>
+  <path d="M1296 490 Q1036 300 728 410 L728 486 Z" fill="{{detail}}"/>
+  <path d="M728 410 L728 486" stroke="{{subject}}" stroke-width="6"/>
+  <path d="M262 452 Q440 380 700 430" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M1194 452 Q1016 380 756 430" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M274 441 Q440 394 700 437" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M1182 441 Q1016 394 756 437" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M286 430 Q440 408 700 444" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M1170 430 Q1016 408 756 444" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M298 420 Q440 422 700 451" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M1158 420 Q1016 422 756 451" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M310 409 Q440 436 700 458" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M1146 409 Q1016 436 756 458" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M322 398 Q440 450 700 465" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <path d="M1134 398 Q1016 450 756 465" stroke="{{soft}}" stroke-width="3" fill="none"/>
+  <!-- crayon géant -->
+  <path d="M520 220 L556 238 L470 404 L434 386 Z" fill="{{shape}}"/>
+  <path d="M434 386 L470 404 L446 432 Z" fill="{{pale}}"/>
+  <path d="M520 220 L556 238 L564 222 L528 204 Z" fill="{{subject}}"/>
+  <use href="#man" transform="translate(410 408) scale(1.0)"/>
+  <use href="#walker" transform="translate(910 392) scale(0.95)"/>
+  <rect x="924" y="318" width="28" height="22" fill="{{light}}"/>
+  <use href="#woman" transform="translate(1110 420) scale(0.9)"/>
+
+</svg>

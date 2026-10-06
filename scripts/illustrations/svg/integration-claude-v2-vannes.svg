@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot EXIST · « ouvrir les outils avec des droits limités » : un réservoir et ses canalisations, une personne sur une échelle tourne une grande vanne à moitié, un seul filet d’eau coule. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="man-walk">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{light}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="man-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="man-walk-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="woman-l">
+      <circle cx="0" cy="-90" r="7" fill="{{light}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{light}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{light}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{light}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{light}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{light}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{light}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- réservoir -->
+  <rect x="140" y="80" width="400" height="440" fill="{{shape}}"/>
+  <rect x="128" y="62" width="424" height="22" fill="{{subject}}"/>
+  <rect x="140" y="84" width="400" height="50" fill="{{pale}}"/>
+  <g fill="{{deep}}"><rect x="140" y="250" width="400" height="4"/><rect x="140" y="380" width="400" height="4"/></g>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <!-- canalisations -->
+  <g fill="{{subject}}">
+    <rect x="540" y="100" width="720" height="40"/><rect x="1220" y="100" width="40" height="130"/><rect x="1210" y="226" width="60" height="16"/>
+    <rect x="540" y="300" width="200" height="40"/><rect x="700" y="300" width="40" height="120"/><rect x="690" y="416" width="60" height="16"/>
+    <rect x="540" y="430" width="100" height="40"/><rect x="632" y="422" width="16" height="56"/>
+    <rect x="532" y="92" width="16" height="56"/><rect x="532" y="292" width="16" height="56"/><rect x="532" y="422" width="16" height="56"/>
+    <rect x="1000" y="92" width="14" height="56"/><rect x="640" y="292" width="14" height="56"/>
+  </g>
+  <rect x="540" y="106" width="720" height="5" fill="{{deep}}"/>
+  <!-- vanne sur la conduite haute -->
+  <rect x="783" y="140" width="14" height="40" fill="{{subject}}"/>
+  <circle cx="790" cy="226" r="56" fill="none" stroke="{{subject}}" stroke-width="12"/>
+  <g transform="translate(790 226)"><rect x="-4" y="-54" width="8" height="108" fill="{{subject}}" transform="rotate(20)"/><rect x="-4" y="-54" width="8" height="108" fill="{{subject}}" transform="rotate(80)"/><rect x="-4" y="-54" width="8" height="108" fill="{{subject}}" transform="rotate(140)"/></g>
+  <circle cx="790" cy="226" r="13" fill="{{light}}"/>
+  <!-- filet d’eau unique -->
+  <rect x="1237" y="242" width="6" height="278" fill="{{light}}"/>
+  <ellipse cx="1240" cy="522" rx="46" ry="6" fill="{{light}}"/>
+  <!-- échelle -->
+  <rect x="838" y="290" width="7" height="232" fill="{{subject}}"/><rect x="884" y="290" width="7" height="232" fill="{{subject}}"/>
+  <rect x="842" y="300" width="44" height="6" fill="{{subject}}"/><rect x="842" y="326" width="44" height="6" fill="{{subject}}"/><rect x="842" y="352" width="44" height="6" fill="{{subject}}"/><rect x="842" y="378" width="44" height="6" fill="{{subject}}"/><rect x="842" y="404" width="44" height="6" fill="{{subject}}"/><rect x="842" y="430" width="44" height="6" fill="{{subject}}"/><rect x="842" y="456" width="44" height="6" fill="{{subject}}"/><rect x="842" y="482" width="44" height="6" fill="{{subject}}"/><rect x="842" y="508" width="44" height="6" fill="{{subject}}"/>
+  <g transform="translate(866 404) scale(1.25)"><rect x="-3" y="-78" width="6" height="46" rx="3" fill="{{light}}" transform="rotate(128 0 -78)"/><rect x="-3" y="-78" width="6" height="46" rx="3" fill="{{light}}" transform="rotate(4 0 -78)"/><use href="#man-l"/></g>
+
+</svg>

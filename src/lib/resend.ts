@@ -18,7 +18,9 @@
  * API Resend · https://resend.com/docs/api-reference/emails/send-email
  *   POST https://api.resend.com/emails
  *   Authorization: Bearer ${apiKey}
- *   Body: { from, to, subject, html | text, reply_to, tags }
+ *   Body: { from, to, subject, html | text, reply_to, tags, attachments }
+ *   attachments[] : { filename, content } (content = Base64 ; 40 Mo max par e-mail
+ *   après encodage Base64, doc Resend consultée le 2026-10-05).
  *
  * Usage :
  *   import { sendEmail, emitEvent } from '~/lib/resend';
@@ -27,14 +29,22 @@
 
 import { SITE } from "../site.config";
 
+// Clé et URL lus AU MOMENT DE L'APPEL (pas à l'import) : même comportement en production
+// (Astro/Vite remplace `import.meta.env.X` à la compilation) et testable sous node avec un
+// faux serveur Resend (scripts/tests/lead-magnet-delivery.test.mjs).
 // RESEND_API_URL · override optionnel (tests locaux contre un serveur factice, pour
 // prouver le chemin « e-mail envoyé » sans clé réelle). Absent en production.
-const RESEND_API_URL =
-  (import.meta.env.RESEND_API_URL as string | undefined)?.trim() ||
-  "https://api.resend.com";
-const apiKey = import.meta.env.RESEND_API_KEY;
+function resendApiUrl(): string {
+  return (
+    (import.meta.env.RESEND_API_URL as string | undefined)?.trim() ||
+    "https://api.resend.com"
+  );
+}
+function resendApiKey(): string | undefined {
+  return (import.meta.env.RESEND_API_KEY as string | undefined) || undefined;
+}
 
-if (!apiKey && import.meta.env.PROD) {
+if (!resendApiKey() && import.meta.env.PROD) {
   console.error("[resend] RESEND_API_KEY missing in production env");
 }
 
@@ -74,6 +84,8 @@ interface SendArgs {
   tags?: { name: string; value: string }[];
   /** Reply-to si différent du From */
   replyTo?: string;
+  /** Pièces jointes · `content` en Base64 (40 Mo max par e-mail après encodage) */
+  attachments?: { filename: string; content: string }[];
 }
 
 export async function sendEmail({
@@ -82,7 +94,9 @@ export async function sendEmail({
   html,
   tags,
   replyTo,
+  attachments,
 }: SendArgs) {
+  const apiKey = resendApiKey();
   if (!apiKey) {
     console.warn("[resend] skipped (no API key)", { to, subject });
     return { id: "dev-no-send", skipped: true };
@@ -95,9 +109,10 @@ export async function sendEmail({
     html,
     reply_to: replyTo ?? EMAIL_REPLY_TO,
     ...(tags && tags.length > 0 ? { tags } : {}),
+    ...(attachments && attachments.length > 0 ? { attachments } : {}),
   };
 
-  const response = await fetch(`${RESEND_API_URL}/emails`, {
+  const response = await fetch(`${resendApiUrl()}/emails`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -133,6 +148,7 @@ interface EventPayload {
 }
 
 export async function emitEvent(name: EventName, payload: EventPayload) {
+  const apiKey = resendApiKey();
   if (!apiKey) {
     console.warn("[resend] event skipped (no API key)", { name, payload });
     return { skipped: true };
@@ -155,7 +171,7 @@ export async function emitEvent(name: EventName, payload: EventPayload) {
   };
 
   const response = await fetch(
-    `${RESEND_API_URL}/audiences/${audienceId}/contacts`,
+    `${resendApiUrl()}/audiences/${audienceId}/contacts`,
     {
       method: "POST",
       headers: {
