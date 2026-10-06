@@ -125,7 +125,7 @@ docs/
 ├── audits/      (8)       01 template-registry-migration · 02-section-colocation-38 (modules co-localisés src/sections/, gate check:section-modules) · 03 audit-consolidé-2026-06-15 (RÉFÉRENCE état avant cutover) · 04 packages-monorepo-40 (BLUEPRINT #40, clôturé 4 packages) · 05 media-inventory (ex-audit/, dossier singulier supprimé) · 06 token-coherence (ex-02, renuméroté pour lever la collision, RÉFÉRENCE) · 07 p2-triangulation-2026-07-19 · **08 ref-global-content-model (CADRAGE P4.4-e, gate `{ref}`, attente arbitrage Simon)**
 ├── specs/       (6)       01 ecosystem-partners · 04 copy minée ex-tunnel site-web-ia (préservée Phase C) · 05 builder-vision-reference · 06 builder-architecture. *(Archivés → archive/ : 02 adr-architecture-site ADR-002, 03 adr-ouverture-silo-acquerir ADR-003.)*
 ├── archive/               périmé / superseded (~60 docs : cartography/ (23), audit-refonte/ (5), audits consommés, DS périmés…)
-├── seo/                   routine SEO/GEO hebdomadaire : ROUTINE (runbook de la session Claude) · SETUP (mise en route Search Console) · journal · keywords/feeds/competitors.json · data/ (collecte commitée par le workflow seo-routine, NE PAS éditer)
+├── seo/                   routine SEO/GEO hebdomadaire : ROUTINE (runbook de la session Claude) · SETUP (mise en route Search Console) · journal · **rapport-strategie-2026-10-06.md (bilan cluster Claude + plan silos/maillage/cannibalisations)** · keywords/feeds/competitors.json · data/ (collecte commitée par le workflow seo-routine, NE PAS éditer)
 ├── session-reports/       journaux de session horodatés (SR-*)
 ├── visual-audit/          (mémoire visuelle, preuves GF-1, cf son README) · cartography/ + audit-refonte/ → archivés 2026-06-15
 ```
