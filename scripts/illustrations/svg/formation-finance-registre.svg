@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · formation-ia-finance-pme · un registre géant ouvert, trois silhouettes penchées -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <circle cx="728" cy="250" r="190" fill="{{shape}}"/>
+  <rect x="440" y="440" width="576" height="22" fill="{{subject}}"/>
+  <rect x="470" y="462" width="18" height="58" fill="{{subject}}"/><rect x="968" y="462" width="18" height="58" fill="{{subject}}"/>
+  <path d="M480 440 L500 330 L726 344 L726 440 Z" fill="{{detail}}"/>
+  <path d="M976 440 L956 330 L730 344 L730 440 Z" fill="{{detail}}"/>
+  <path d="M520 360 L700 370 M516 382 L700 391 M512 404 L700 412 M508 426 L700 432 M756 370 L936 360 M756 391 L940 382 M756 412 L944 404 M756 432 L948 426" stroke="{{subject}}" stroke-width="4" fill="none"/>
+  <rect x="756" y="398" width="120" height="18" fill="{{mid}}" opacity="0.6"/>
+  <use href="#pointer" transform="translate(1060 520) scale(1.3)"/>
+  <use href="#woman" transform="translate(400 520) scale(1.25)"/>
+  <use href="#man" transform="translate(340 520) scale(1.15)"/>
+</svg>

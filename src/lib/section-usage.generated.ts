@@ -213,8 +213,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "cta-final": {
-    "count": 4,
+    "count": 10,
     "pages": [
+      "/ressources/guides/agent-ia-definition",
+      "/ressources/guides/devis-automatise",
+      "/ressources/guides/financement-formation-ia-opco",
+      "/ressources/guides/n8n-prix",
+      "/ressources/guides/roi-automatisation",
+      "/ressources/guides/taches-a-automatiser-pme",
       "src/components/templates/ConversionFunnelTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
@@ -222,23 +228,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "cta-form-inline": {
-    "count": 21,
+    "count": 7,
     "pages": [
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/guides/choisir-agence-ia-pme",
-      "/ressources/guides/claude-code-entreprise",
-      "/ressources/guides/claude-cowork",
-      "/ressources/guides/claude-design",
-      "/ressources/guides/claude-fonctionnalites-pme",
-      "/ressources/guides/claude-for-small-business",
-      "/ressources/guides/claude-plugins-entreprise",
-      "/ressources/guides/claude-pme",
-      "/ressources/guides/claude-rgpd-pme",
-      "/ressources/guides/claude-skills",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
-      "/ressources/guides/cout-integration-claude-pme",
-      "/ressources/guides/mcp-claude",
       "/services/consultant-ia-claude",
       "/services/integration-claude",
       "src/content/formations/claude.json"
@@ -1136,8 +1131,20 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "lead-capture-band": {
-    "count": 6,
+    "count": 21,
     "pages": [
+      "/ressources/guides/ai-act-pme-calendrier",
+      "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-cowork",
+      "/ressources/guides/claude-design",
+      "/ressources/guides/claude-fonctionnalites-pme",
+      "/ressources/guides/claude-for-small-business",
+      "/ressources/guides/claude-plugins-entreprise",
+      "/ressources/guides/claude-pme",
+      "/ressources/guides/claude-rgpd-pme",
+      "/ressources/guides/claude-skills",
+      "/ressources/guides/cout-integration-claude-pme",
+      "/ressources/guides/mcp-claude",
       "src/components/templates/LeadMagnetLanding.astro",
       "src/components/ui/organisms/conversion/MaturityDiagnostic.astro",
       "src/pages/ressources/outils/[...slug].astro",

@@ -3272,13 +3272,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper-2"
+      },
+      {
         "type": "comparison-duo",
         "label": "La même demande de SAV, traitée par une automatisation puis par un agent",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#6",
+        "label": "#7",
         "background": "paper-2"
       },
       {
@@ -3300,7 +3305,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pull-quote-block",
-        "label": "#10",
+        "label": "#11",
         "variant": "centered",
         "background": "ink"
       },
@@ -3316,7 +3321,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#13",
+        "label": "#14",
         "background": "paper"
       },
       {
@@ -3365,6 +3370,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "#4",
+        "background": "ink"
+      },
+      {
         "type": "editorial-table-block",
         "label": "Le calendrier de l'AI Act au 6 octobre 2026",
         "variant": "editorial",
@@ -3372,7 +3382,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#5",
+        "label": "#6",
         "background": "paper"
       },
       {
@@ -3387,7 +3397,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#8",
+        "label": "#9",
         "background": "paper-2"
       },
       {
@@ -3397,7 +3407,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#10",
+        "label": "#11",
         "background": "paper"
       },
       {
@@ -3579,9 +3589,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Avant d'ouvrir Claude Code à une équipe : la checklist 90 jours",
-        "background": "paper-2"
+        "background": "ink"
       },
       {
         "type": "comparison-duo",
@@ -3688,9 +3698,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Les réglages d'administration de Cowork, vérifiés un par un",
-        "background": "paper-3"
+        "background": "ink"
       },
       {
         "type": "process-steps",
@@ -3787,9 +3797,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Quelle offre Claude donne accès à Design, et à quel coût réel ?",
-        "background": "paper-3"
+        "background": "ink"
       },
       {
         "type": "editorial-prose",
@@ -3888,9 +3898,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
-        "background": "paper-2"
+        "background": "ink"
       },
       {
         "type": "decision-list",
@@ -3994,9 +4004,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
-        "background": "paper-2"
+        "background": "ink"
       },
       {
         "type": "tech-when-dual",
@@ -4090,9 +4100,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Recevez le kit conformité et administration de Claude en entreprise",
-        "background": "paper-2"
+        "background": "ink"
       },
       {
         "type": "tech-when-dual",
@@ -4160,7 +4170,7 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
         "background": "paper-2"
       },
@@ -4195,7 +4205,7 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Recevez le pack de 8 skills Claude pour PME",
         "background": "paper-2"
       },
@@ -4210,7 +4220,7 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Le plan des 90 jours, case par case",
         "background": "paper-2"
       },
@@ -4225,9 +4235,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-3"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Recevez le kit conformité et administration de Claude",
-        "background": "paper-2"
+        "background": "ink"
       },
       {
         "type": "editorial-prose",
@@ -4328,9 +4338,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Recevez le kit de conformité Claude en entreprise",
-        "background": "accent"
+        "background": "ink"
       },
       {
         "type": "editorial-prose",
@@ -4440,9 +4450,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Recevez le pack de 8 skills Claude pour PME",
-        "background": "accent"
+        "background": "ink"
       },
       {
         "type": "editorial-prose",
@@ -4654,9 +4664,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Recevez le guide d'achat Claude pour PME, avec les budgets calculés",
-        "background": "paper-2"
+        "background": "ink"
       },
       {
         "type": "tech-when-dual",
@@ -4735,19 +4745,24 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper-2"
+      },
+      {
         "type": "tech-when-dual",
         "label": "Quand automatiser vos devis, et quand s'abstenir",
         "background": "paper-2"
       },
       {
         "type": "pull-quote-block",
-        "label": "#9",
+        "label": "#10",
         "variant": "centered",
         "background": "ink"
       },
       {
         "type": "editorial-prose",
-        "label": "#10",
+        "label": "#11",
         "background": "paper"
       },
       {
@@ -4802,6 +4817,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper-2"
+      },
+      {
         "type": "editorial-table-block",
         "label": "Chaque fait, sa source, sa date",
         "variant": "editorial",
@@ -4814,7 +4834,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#8",
         "background": "paper"
       },
       {
@@ -4824,12 +4844,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#9",
+        "label": "#10",
         "background": "paper"
       },
       {
         "type": "pull-quote-block",
-        "label": "#10",
+        "label": "#11",
         "variant": "centered",
         "background": "ink"
       },
@@ -4905,9 +4925,9 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "cta-form-inline",
+        "type": "lead-capture-band",
         "label": "Avant de brancher un connecteur : recevez le kit conformité Claude (PDF, 11 pages)",
-        "background": "paper"
+        "background": "ink"
       },
       {
         "type": "editorial-table-block",
@@ -4978,6 +4998,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper-2"
+      },
+      {
         "type": "editorial-table-block",
         "label": "Les cinq postes de coût d'une automatisation n8n",
         "variant": "editorial",
@@ -4985,7 +5010,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#8",
         "background": "paper"
       },
       {
@@ -5001,7 +5026,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pull-quote-block",
-        "label": "#10",
+        "label": "#11",
         "variant": "centered",
         "background": "ink"
       },
@@ -5017,7 +5042,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#13",
+        "label": "#14",
         "background": "paper"
       },
       {
@@ -5066,6 +5091,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper-2"
+      },
+      {
         "type": "editorial-table-block",
         "label": "Le coût complet : six postes, dont trois qu'on oublie",
         "variant": "editorial",
@@ -5073,7 +5103,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#5",
+        "label": "#6",
         "background": "paper"
       },
       {
@@ -5084,7 +5114,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#8",
         "background": "paper-2"
       },
       {
@@ -5095,7 +5125,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#9",
+        "label": "#10",
         "background": "paper"
       },
       {
@@ -5144,6 +5174,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper-2"
+      },
+      {
         "type": "editorial-table-block",
         "label": "Les cinq critères, et comment les mesurer",
         "variant": "editorial",
@@ -5173,12 +5208,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#9",
+        "label": "#10",
         "background": "paper-2"
       },
       {
         "type": "editorial-prose",
-        "label": "#10",
+        "label": "#11",
         "background": "paper"
       },
       {
@@ -5296,6 +5331,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/architecte-ia-role-pme",
+    "title": "Architecte IA : le rôle, les livrables, et quand en avoir un",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/architecte-ia-role-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/automatiser-relance-devis-n8n",
     "title": "Automatiser la relance de devis avec n8n, pas à pas",
     "group": "blog",
@@ -5341,11 +5385,47 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-microsoft-copilot-pme",
+    "title": "Claude dans Microsoft Copilot : ce que ça change en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-microsoft-copilot-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/creer-agent-ia-claude",
+    "title": "Agent IA Claude : quatre façons d'en construire un",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/creer-agent-ia-claude.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/essai-pillar-ia-pme-2026",
     "title": "L'IA appliquée aux PME en 2026 : le guide complet",
     "group": "blog",
     "collection": "blog",
     "file": "blog/essai-pillar-ia-pme-2026.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/formation-ia-cpf-qualiopi",
+    "title": "Formation IA éligible au CPF : ce qu'il faut vérifier",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/formation-ia-cpf-qualiopi.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/formation-ia-finance-pme",
+    "title": "Formation IA pour la finance : quel programme exiger",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/formation-ia-finance-pme.json",
     "editable": false,
     "sections": []
   },
@@ -5409,6 +5489,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/webflow-vs-wordpress-vs-site-code-ia-2026.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/workflow-ia-exemples-pme",
+    "title": "Workflow IA : cinq exemples concrets pour une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/workflow-ia-exemples-pme.json",
     "editable": false,
     "sections": []
   },
@@ -6046,19 +6135,25 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog",
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/applications-internes-build-vs-buy-pme",
+      "/blog/architecte-ia-role-pme",
       "/blog/automatiser-relance-devis-n8n",
       "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
       "/blog/avis-n8n-vs-zapier-2026",
       "/blog/brain-circuit",
       "/blog/cabler-son-crm-en-10-jours",
+      "/blog/claude-microsoft-copilot-pme",
+      "/blog/creer-agent-ia-claude",
       "/blog/essai-pillar-ia-pme-2026",
+      "/blog/formation-ia-cpf-qualiopi",
+      "/blog/formation-ia-finance-pme",
       "/blog/forward-deployed-engineer",
       "/blog/google-ads-vs-meta-ads-pme-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/trier-emails-entrant-claude-n8n",
-      "/blog/webflow-vs-wordpress-vs-site-code-ia-2026"
+      "/blog/webflow-vs-wordpress-vs-site-code-ia-2026",
+      "/blog/workflow-ia-exemples-pme"
     ]
   },
   {

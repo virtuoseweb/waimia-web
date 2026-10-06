@@ -98,6 +98,16 @@ Conséquence éditoriale : « agence n8n » (320, KD 8) et « expert automatisat
 
 À retenir : (1) les pages locales à KD 1-6 sont un levier réel mais ne se fabriquent pas sans preuve locale (règle déjà posée : Toulouse et Nantes seulement avec présence réelle) ; (2) les guides d'outils récents captent du trafic sur les nouveautés dans les jours qui suivent leur sortie.
 
+## 3 bis. Concurrents mesurés le 6/10/2026 (Organic Rankings, base FR)
+
+| Domaine | Mots-clés | Trafic estimé / mois | Mécanique observée |
+|---|---|---|---|
+| kayro.ai | 169 | 500 | une page dédiée par requête exacte : « agence automatisation ia » (590, KD 48) en position 1, « agence n8n » (390, KD 13) position 9, « agence automatisation make » (390, KD 15) position 5, « accompagnement ia » (170, KD 19) position 2, « audit ia entreprise » position 7 ; une page par ville (Strasbourg, Toulouse, Lyon, Lille, Dijon, Marseille, Bordeaux) |
+| tensoria.fr | 372 | 475 | pages ville (KD 1 à 6), guides d'outils (NotebookLM, Cowork), articles sur les modèles Claude |
+| claudin.tech | 146 | 107 | page « claude cowork » (position 38 sur 18 100), articles Cowork Windows (590, KD 29) et Claude for Legal (590, KD 29), pages secteur |
+
+Enseignements : (1) « claude cowork » = 18 100 recherches, KD 20 : le guide `/ressources/guides/claude-cowork` doit viser cette requête exacte (aucun des deux concurrents ne la tient au-dessus de la position 16) ; (2) « claude cowork windows » (590, KD 29) est un article à écrire ; (3) Kayro prouve qu'une page par intitulé exact (agence n8n, agence automatisation make, accompagnement ia, audit ia) suffit à prendre des positions 1 à 9 avec un site jeune ; nous avons déjà ces pages, il faut aligner leurs title, H1 et premiers paragraphes sur l'intitulé exact ; (4) les pages par ville ne sont tenables que là où nous avons une présence réelle (Bordeaux, Montpellier, Lyon, Paris existent déjà).
+
 ## 4. Décisions
 
 1. Chaque page service garde une requête principale unique (colonne « Page cible »), pas de doublon entre agents-ia, automatisations et systemes-operationnels-ia.

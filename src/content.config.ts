@@ -472,6 +472,9 @@ const blog = defineCollection({
     headings: z
       .array(z.object({ depth: z.number(), slug: z.string(), text: z.string() }))
       .optional(),
+    // Ressource liée à l'article (clé de LEAD_MAGNETS, src/data/conversion.ts) : bloc `lead`
+    // du template essay, après le corps. Clé inconnue = échec du build (resolveEssayLead).
+    lead_magnet: z.string().regex(/^[a-z0-9-]+$/).optional(),
     // V1 legacy (rétrocompat)
     editorialType: z
       .enum(['Field Note', 'Case', 'Essay', 'Cookbook', 'Tutorial', 'Note', 'Review'])

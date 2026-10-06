@@ -3,7 +3,7 @@
 // Doctrine « template-as-data » (décision nuit 0018) : ce fichier n'est PAS un composant
 // monolithique : c'est la DÉFINITION du template de la collection `blog`. Il ÉLÈVE 1:1 la
 // séquence que `src/pages/blog/[...slug].astro` + `EssayTemplate.astro` construisaient
-// (hero-essay · corps de prose · cluster connexe · footer 3-col · faq · cta) en une liste
+// (hero-essay · corps de prose · ressource liée · cluster connexe · footer 3-col · faq · cta) en une liste
 // ORDONNÉE de blocs + les mappings frontmatter→données.
 //
 // ⚠️ Spécificité vs `sector`/`case-study` (rapport §Arbitrage A) : l'article de blog n'est
@@ -23,7 +23,15 @@
 //     le JSON, dériver le cross-entry, appeler ce mapper, et rendre `<EssayTemplate>`.
 // Fidélité : mêmes données, mêmes valeurs, mêmes conditions que l'ancienne route/ template.
 
-import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
+import {
+  AUDIT_BOOKING_HREF,
+  AUDIT_BOOKING_LABEL,
+  LEAD_MAGNETS,
+  TOOL_ENTRY_COPY,
+  type LeadMagnetEntry,
+  type LeadMagnetSlug,
+  type ToolEntryCopy,
+} from '../../data/conversion';
 import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -87,6 +95,45 @@ export type EssayContext = TemplateContext<EssayData> & {
   relatedOffresData: EssayCrossLink[];
 };
 
+/** Section du bloc `lead` : capture e-mail (PDF verrouillé) ou appel vers un outil interactif. */
+export type EssayLeadSection = SectionByType<'lead-capture-band'> | SectionByType<'cta-final'>;
+
+/**
+ * Résout `lead_magnet` (clé de LEAD_MAGNETS) en section catalogue :
+ *   • OUTIL interactif (clé de TOOL_ENTRY_COPY) → `cta-final` vers la page de l'outil, sans
+ *     formulaire (le résultat n'existe que sur cette page) ;
+ *   • ressource VERROUILLÉE (pièces jointes) → `lead-capture-band` en carte, e-mail obligatoire.
+ * Toute autre valeur LÈVE une erreur : le build échoue en nommant l'article et la clé.
+ */
+export function resolveEssayLead(slug: string, articleId: string): EssayLeadSection {
+  const where = `blog « ${articleId} » : lead_magnet « ${slug} »`;
+  if (!Object.prototype.hasOwnProperty.call(LEAD_MAGNETS, slug)) {
+    throw new Error(`${where} absent de LEAD_MAGNETS (src/data/conversion.ts). Clés possibles : ${Object.keys(LEAD_MAGNETS).join(', ')}.`);
+  }
+  if (Object.prototype.hasOwnProperty.call(TOOL_ENTRY_COPY, slug)) {
+    const t: ToolEntryCopy = TOOL_ENTRY_COPY[slug as keyof typeof TOOL_ENTRY_COPY];
+    return {
+      type: 'cta-final',
+      background: 'paper-2',
+      h2_fr: t.h2,
+      h2_en: t.h2,
+      body_fr: t.body,
+      body_en: t.body,
+      cta_primary: { label_fr: t.label, label_en: t.label, href: t.href, variant: 'primary' },
+    } satisfies SectionByType<'cta-final'>;
+  }
+  const entry: LeadMagnetEntry = LEAD_MAGNETS[slug as LeadMagnetSlug];
+  if (!entry.attachments || entry.attachments.length === 0) {
+    throw new Error(`${where} : outil sans entrée dans TOOL_ENTRY_COPY ni pièce jointe (src/data/conversion.ts).`);
+  }
+  return {
+    type: 'lead-capture-band',
+    variant: 'card',
+    background: 'paper-2',
+    lead_magnet: slug,
+  } satisfies SectionByType<'lead-capture-band'>;
+}
+
 /** Kicker éditorial « § Blog · <catégorie> » (parité route legacy). */
 function essayKicker(data: EssayData): string {
   return `§ Blog · ${data.category}`;
@@ -130,13 +177,21 @@ export const essayTemplate = defineTemplate<EssayContext>({
         props: { html: bodyHtml, headings, sources: data.sources },
       }),
     },
-    // 3 · Cluster connexe (RelatedByCluster) → slot, conditionnel (cluster présent).
+    // 3 · RESSOURCE liée (lead_magnet) · conditionnel. Après le corps, avant le cluster :
+    //     PDF verrouillé → lead-capture-band (carte, fin de la colonne de prose) ;
+    //     outil interactif → cta-final vers la page de l'outil. Clé inconnue = build en échec.
+    {
+      id: 'lead',
+      when: ({ data }) => Boolean(data.lead_magnet),
+      build: ({ data, articleId }) => resolveEssayLead(data.lead_magnet!, articleId),
+    },
+    // 4 · Cluster connexe (RelatedByCluster) → slot, conditionnel (cluster présent).
     {
       id: 'related-cluster',
       when: ({ data }) => Boolean(data.cluster),
       build: ({ data, articleId }) => ({ slot: 'essay-cluster', props: { cluster: data.cluster, articleId } }),
     },
-    // 4 · FOOTER 3-col (related + auteur + contact) → slot bespoke.
+    // 5 · FOOTER 3-col (related + auteur + contact) → slot bespoke.
     {
       id: 'footer',
       build: ({ relatedCards, relatedCasesData, relatedOffresData, authorSlug }) => ({
@@ -144,7 +199,7 @@ export const essayTemplate = defineTemplate<EssayContext>({
         props: { relatedCards, relatedCasesData, relatedOffresData, authorSlug },
       }),
     },
-    // 5 · FAQ (faq-accordion catalogué) · conditionnel (>= 1 item, gate legacy `length > 0`).
+    // 6 · FAQ (faq-accordion catalogué) · conditionnel (>= 1 item, gate legacy `length > 0`).
     {
       id: 'faq',
       when: ({ data }) => Array.isArray(data.faq_fr) && data.faq_fr.length > 0,
@@ -157,7 +212,7 @@ export const essayTemplate = defineTemplate<EssayContext>({
         items: (data.faq_fr ?? []).map((f) => ({ q_fr: f.q, q_en: f.q, a_fr: f.a, a_en: f.a })),
       } satisfies SectionByType<'faq-accordion'>),
     },
-    // 6 · CTA final (cta-band catalogué, fond paper-2).
+    // 7 · CTA final (cta-band catalogué, fond paper-2).
     {
       id: 'cta',
       build: ({ data, lang }) => {
@@ -217,5 +272,6 @@ export function buildEssayProps(ctx: EssayContext) {
     publishedAt: data.publishedAt,
     illustration: heroIllustration,
     faqItems: data.faq_fr,
+    leadSection: data.lead_magnet ? resolveEssayLead(data.lead_magnet, articleId) : undefined,
   };
 }

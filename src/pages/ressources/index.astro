@@ -217,14 +217,14 @@ const collectionLd = buildCollectionPage(
     display: inline-flex;
     align-items: baseline;
     gap: var(--space-2);
-    padding: 8px 16px;
+    padding: var(--space-2) var(--space-4);
     border: 1px solid var(--hairline);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     font-family: var(--font-sans);
     font-size: var(--text-small);
     color: var(--ink);
     text-decoration: none;
-    transition: background 200ms var(--ease), border-color 200ms var(--ease);
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
   .res-chip:hover { border-color: var(--ink); }
   .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }

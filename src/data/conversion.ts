@@ -101,6 +101,40 @@ export const LEAD_MAGNETS = {
 export type LeadMagnetSlug = keyof typeof LEAD_MAGNETS;
 
 /**
+ * Appel vers un OUTIL interactif depuis une autre page (article de blog) : pas de formulaire,
+ * le résultat n'existe que sur la page de l'outil. Texte GLOBAL par ressource (clé = slug de
+ * LEAD_MAGNETS), rendu par la section catalogue `cta-final` (bloc `lead` du template essay).
+ * Une ressource absente d'ici est traitée comme verrouillée (PDF) si elle a des pièces jointes.
+ */
+export interface ToolEntryCopy {
+  href: string;
+  h2: string;
+  body: string;
+  label: string;
+}
+
+export const TOOL_ENTRY_COPY = {
+  'grille-taches-a-automatiser': {
+    href: GRILLE_HREF,
+    h2: 'Classez vos tâches avant de choisir le premier cas',
+    body: 'Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Vous pouvez ensuite la recevoir par e-mail pour la garder.',
+    label: 'Classer mes tâches',
+  },
+  'calculateur-roi-ia': {
+    href: ROI_HREF,
+    h2: 'Chiffrez le gain avant de vous engager',
+    body: 'Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.',
+    label: 'Calculer mon gain',
+  },
+  'diagnostic-maturite-ia': {
+    href: DIAGNOSTIC_HREF,
+    h2: "Où en est votre entreprise avec l'IA ?",
+    body: "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
+    label: 'Faire le diagnostic',
+  },
+} as const satisfies Partial<Record<LeadMagnetSlug, ToolEntryCopy>>;
+
+/**
  * Bande finale « audit » des pages outil (section catalogue `cta-final`).
  * Source unique : même boutons partout, seul le texte d'accroche varie par page.
  */
