@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/comparatifs.page.schema.json",
-  "title_fr": "Claude Code vs Cursor · agentique ou autocomplétion ?",
-  "title_en": "Claude Code vs Cursor · agentic or autocomplete?",
-  "description_fr": "Claude Code vs Cursor pour développer avec l'IA : agent autonome qui orchestre vs autocomplétion dans l'éditeur. Le comparatif honnête et le verdict.",
-  "description_en": "Claude Code vs Cursor to build with AI: an autonomous agent that orchestrates versus autocomplete in the editor. The honest comparison and the verdict.",
+  "title_fr": "Claude Code vs Cursor : lequel choisir en 2026 ?",
+  "title_en": "Claude Code vs Cursor: which one to pick in 2026?",
+  "description_fr": "Claude Code vs Cursor pour développer avec l'IA : agent en terminal ou éditeur augmenté, prix au 6 octobre 2026, garde-fous. Le comparatif et le verdict.",
+  "description_en": "Claude Code vs Cursor to build with AI: terminal agent or augmented editor, prices as of October 6, 2026, guardrails. The comparison and the verdict.",
   "slug": "claude-code-vs-cursor",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "claude-code-vs-cursor",
@@ -25,11 +25,11 @@
     },
     {
       "q": "Cursor n'a-t-il pas aussi un mode agent ?",
-      "a": "Si, et il est bon. Mais son centre de gravité reste l'éditeur : l'agent vit dans l'IDE, sous votre regard, fichier par fichier. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence n'est pas une case à cocher, c'est une posture de conception."
+      "a": "Si, et il est bon : sa documentation décrit des sous-agents lancés en parallèle, des Cloud Agents qui tournent dans des machines virtuelles isolées et une CLI pour les scripts. Mais son centre de gravité reste l'éditeur. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence n'est pas une case à cocher, c'est une posture de conception."
     },
     {
       "q": "Qu'est-ce que l'orchestration multi-agents apporte concrètement ?",
-      "a": "Claude Code peut déléguer à des sous-agents : un qui explore, un qui code, un qui teste, un qui relit. Chacun travaille dans son contexte isolé et remonte un résultat. Sur une migration de 200 fichiers ou un audit de tout un dépôt, ça change l'échelle : on ne fait plus une tâche à la fois, on lance une flotte. Cursor, centré sur un développeur dans son éditeur, n'est pas pensé pour ce parallélisme."
+      "a": "Claude Code peut déléguer à des sous-agents : un qui explore, un qui code, un qui teste, un qui relit. Chacun travaille dans son contexte isolé et remonte un résultat. Sur une migration de 200 fichiers ou un audit de tout un dépôt, ça change l'échelle : on ne fait plus une tâche à la fois, on lance une flotte. Cursor propose aussi des sous-agents en parallèle ; chez Claude Code, leur rôle et leurs outils se décrivent dans des fichiers que l'équipe versionne et partage."
     },
     {
       "q": "Lequel choisir si je débute avec l'IA dans mon code ?",
@@ -37,19 +37,19 @@
     },
     {
       "q": "Claude Code est-il dangereux puisqu'il agit seul ?",
-      "a": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et n'écrit jamais en production sans votre feu vert. L'autonomie n'est pas l'absence de garde-fous : c'est l'inverse, un agent sérieux se conçoit avec des barrières explicites. Le vrai risque, c'est de le lancer sans cadre, pas l'outil lui-même."
+      "a": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et, bien configuré, n'écrit pas en production sans votre feu vert. Par défaut, d'après la documentation d'Anthropic, un classifieur bloque les actions jugées dangereuses et une sandbox peut isoler fichiers et réseau. L'autonomie n'est pas l'absence de garde-fous. Le vrai risque, c'est de le lancer sans cadre, pas l'outil lui-même."
     },
     {
       "q": "Peut-on utiliser les deux en même temps ?",
-      "a": "C'est même la configuration la plus efficace. Cursor pour le travail fin, ligne à ligne, quand on conçoit en direct ; Claude Code pour les missions longues, répétitives ou parallélisables qu'on délègue en arrière-plan. Les deux partagent le même dépôt git, qui sert d'arbitre. Beaucoup d'équipes sérieuses ne choisissent pas l'un contre l'autre : elles les combinent selon la nature de la tâche."
+      "a": "C'est même la configuration la plus efficace. Cursor pour le travail fin, ligne à ligne, quand on conçoit en direct ; Claude Code pour les missions longues, répétitives ou parallélisables qu'on délègue en arrière-plan. La documentation de Claude Code cite d'ailleurs Cursor parmi les éditeurs où son extension s'installe. Les deux partagent le même dépôt git, qui sert d'arbitre. Beaucoup d'équipes ne choisissent pas l'un contre l'autre : elles les combinent selon la nature de la tâche."
     },
     {
       "q": "Est-ce que le choix d'outil dépend du modèle sous-jacent ?",
-      "a": "En partie. Cursor est multi-modèles et vous laisse brancher plusieurs fournisseurs. Claude Code est conçu autour des modèles Claude et de leur grande fenêtre de contexte, ce qui sert particulièrement les missions agentiques sur de gros dépôts. Mais l'écart de fond n'est pas le modèle : c'est l'architecture du produit, éditeur augmenté d'un côté, agent orchestrable de l'autre."
+      "a": "En partie. Cursor est multi-modèles et vous laisse brancher plusieurs fournisseurs ; les modèles tiers y sont décomptés au tarif de l'API (Claude Opus 5.5 : 4 $ en entrée et 20 $ en sortie par million de jetons au 6 octobre 2026). Claude Code est conçu autour des modèles Claude et de leur grande fenêtre de contexte, inclus dans l'abonnement dans la limite du quota. Mais l'écart de fond n'est pas le modèle : c'est l'architecture du produit, éditeur augmenté d'un côté, agent orchestrable de l'autre."
     },
     {
       "q": "Vous nous aidez à mettre en place lequel ?",
-      "a": "Les deux, selon votre maturité et vos process. Notre métier d'intégrateur Claude est précisément de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et former vos équipes pour que la compétence reste chez vous. L'audit gratuit de 45 min sert à cadrer ce point de départ."
+      "a": "Les deux, selon votre maturité et vos process. Notre métier d'intégrateur Claude est précisément de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et <a href=\"/formations/claude\">former vos équipes</a> pour que la compétence reste chez vous. Si Cursor sert mieux votre équipe, nous le disons. L'audit gratuit de 45 min sert à cadrer ce point de départ."
     }
   ],
   "faq_en": [
@@ -59,11 +59,11 @@
     },
     {
       "q": "Doesn't Cursor also have an agent mode?",
-      "a": "It does, and it's good. But its center of gravity stays the editor: the agent lives in the IDE, under your eye, file by file. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference isn't a checkbox, it's a design stance."
+      "a": "It does, and it's good: its documentation describes sub-agents launched in parallel, Cloud Agents running in isolated virtual machines and a CLI for scripts. But its center of gravity stays the editor. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference isn't a checkbox, it's a design stance."
     },
     {
       "q": "What does multi-agent orchestration actually bring?",
-      "a": "Claude Code can delegate to sub-agents: one that explores, one that codes, one that tests, one that reviews. Each works in its own isolated context and reports back. On a 200-file migration or a whole-repo audit, it changes the scale: you no longer do one task at a time, you launch a fleet. Cursor, centered on one developer in their editor, isn't designed for that parallelism."
+      "a": "Claude Code can delegate to sub-agents: one that explores, one that codes, one that tests, one that reviews. Each works in its own isolated context and reports back. On a 200-file migration or a whole-repo audit, it changes the scale: you no longer do one task at a time, you launch a fleet. Cursor also offers parallel sub-agents; in Claude Code, their role and tools are described in files the team versions and shares."
     },
     {
       "q": "Which should I pick if I'm starting with AI in my code?",
@@ -71,19 +71,75 @@
     },
     {
       "q": "Is Claude Code dangerous since it acts alone?",
-      "a": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and never writes to production without your green light. Autonomy isn't the absence of guardrails: it's the opposite, a serious agent is designed with explicit barriers. The real risk is launching it with no frame, not the tool itself."
+      "a": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and, properly configured, doesn't write to production without your green light. By default, according to Anthropic's documentation, a classifier blocks actions deemed dangerous and a sandbox can isolate files and network. Autonomy isn't the absence of guardrails. The real risk is launching it with no frame, not the tool itself."
     },
     {
       "q": "Can you use both at the same time?",
-      "a": "That's actually the most effective setup. Cursor for fine, line-by-line work when you design live; Claude Code for long, repetitive or parallelizable missions you delegate in the background. Both share the same git repo, which acts as the referee. Many serious teams don't pick one against the other: they combine them by the nature of the task."
+      "a": "That's actually the most effective setup. Cursor for fine, line-by-line work when you design live; Claude Code for long, repetitive or parallelizable missions you delegate in the background. Claude Code's documentation even lists Cursor among the editors its extension installs in. Both share the same git repo, which acts as the referee. Many teams don't pick one against the other: they combine them by the nature of the task."
     },
     {
       "q": "Does the tool choice depend on the underlying model?",
-      "a": "Partly. Cursor is multi-model and lets you plug in several providers. Claude Code is built around Claude models and their large context window, which especially serves agentic missions on big repos. But the core gap isn't the model: it's the product architecture, augmented editor on one side, orchestrable agent on the other."
+      "a": "Partly. Cursor is multi-model and lets you plug in several providers; third-party models are billed there at API rates (Claude Opus 5.5: $4 input and $20 output per million tokens as of October 6, 2026). Claude Code is built around Claude models and their large context window, included in the subscription within the quota. But the core gap isn't the model: it's the product architecture, augmented editor on one side, orchestrable agent on the other."
     },
     {
       "q": "Which one do you help us set up?",
-      "a": "Both, depending on your maturity and your processes. Our job as a Claude integrator is precisely to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and train your teams so the skill stays with you. The free 45-min audit exists to frame that starting point."
+      "a": "Both, depending on your maturity and your processes. Our job as a Claude integrator is precisely to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and <a href=\"/formations/claude\">train your teams</a> so the skill stays with you. If Cursor serves your team better, we say so. The free 45-min audit exists to frame that starting point."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Cursor, page tarifs",
+      "url": "https://cursor.com/pricing",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Cursor, documentation, offres et modèles",
+      "url": "https://cursor.com/docs/account/pricing",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Cursor, documentation, sous-agents",
+      "url": "https://cursor.com/docs/agent/subagents",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Cursor, documentation, Cloud Agents",
+      "url": "https://cursor.com/docs/cloud-agent",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Cursor, documentation, CLI non interactive",
+      "url": "https://cursor.com/docs/cli/headless",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Anthropic, page tarifs Claude",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, Claude Code, vue d'ensemble",
+      "url": "https://code.claude.com/docs/en/overview",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, Claude Code, coûts",
+      "url": "https://code.claude.com/docs/en/costs",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, Claude Code, sécurité",
+      "url": "https://code.claude.com/docs/en/security",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
     }
   ],
   "sections": [
@@ -99,16 +155,16 @@
       "h1_en": "Claude Code <i class=\"acc\">vs</i> Cursor.",
       "definition_kicker_fr": "Deux philosophies, pas deux versions du même outil",
       "definition_kicker_en": "Two philosophies, not two versions of the same tool",
-      "lede_fr": "Cursor augmente votre éditeur : il complète, suggère, répond, vous gardez la main sur chaque ligne. Claude Code est un <i>agent</i> en terminal : il prend une intention, lit le dépôt, planifie, édite, teste et itère seul. Ce comparatif tranche selon votre travail réel, pas selon la mode.",
-      "lede_en": "Cursor augments your editor: it completes, suggests, answers, you keep your hand on every line. Claude Code is a terminal <i>agent</i>: it takes an intent, reads the repo, plans, edits, tests and iterates on its own. This comparison decides on your real work, not on the hype.",
+      "lede_fr": "Cursor augmente votre éditeur : il complète, suggère, répond, et son agent sait aussi mener une tâche seul. Claude Code est un <i>agent</i> en terminal : il prend une intention, lit le dépôt, planifie, édite, teste et itère seul. En 2026, les deux font de l'agentique. Ce comparatif tranche selon votre travail réel, pas selon la mode.",
+      "lede_en": "Cursor augments your editor: it completes, suggests, answers, and its agent can also carry a task on its own. Claude Code is a terminal <i>agent</i>: it takes an intent, reads the repo, plans, edits, tests and iterates on its own. In 2026, both do agentic work. This comparison decides on your real work, not on the hype.",
       "badges": [
         {
-          "label_fr": "Agentique vs autocomplétion",
-          "label_en": "Agentic vs autocomplete"
+          "label_fr": "Éditeur d'abord vs agent d'abord",
+          "label_en": "Editor first vs agent first"
         },
         {
-          "label_fr": "Orchestration multi-agents",
-          "label_en": "Multi-agent orchestration"
+          "label_fr": "Prix relevés le 6 octobre 2026",
+          "label_en": "Prices checked October 6, 2026"
         },
         {
           "label_fr": "Verdict honnête, pas de hype",
@@ -135,15 +191,15 @@
       "question_en": "Claude Code or Cursor: which to pick to build with AI?",
       "term_fr": "Claude Code vs Cursor",
       "term_en": "Claude Code vs Cursor",
-      "answer_fr": "Choisissez Cursor si vous voulez accélérer votre frappe en gardant le contrôle ligne à ligne dans un éditeur familier : sa courbe d'apprentissage est douce et le retour immédiat. Choisissez Claude Code si vous voulez déléguer des tâches entières à un agent autonome qui lit le dépôt, planifie, édite plusieurs fichiers et lance les tests sans surveillance constante, avec une vraie orchestration multi-agents pour les gros chantiers. Pour le travail agentique sérieux, parallélisable et scriptable, Claude Code prend l'avantage. Les deux ne s'excluent pas : la configuration la plus efficace les combine, Cursor pour le travail fin, Claude Code pour les missions longues déléguées.",
-      "answer_en": "Pick Cursor if you want to speed up your typing while keeping line-by-line control in a familiar editor: its learning curve is gentle and the feedback immediate. Pick Claude Code if you want to delegate whole tasks to an autonomous agent that reads the repo, plans, edits multiple files and runs the tests without constant supervision, with real multi-agent orchestration for large jobs. For serious, parallelizable and scriptable agentic work, Claude Code takes the lead. The two aren't mutually exclusive: the most effective setup combines them, Cursor for fine work, Claude Code for long delegated missions."
+      "answer_fr": "Choisissez Cursor si vous voulez accélérer votre frappe en gardant le contrôle ligne à ligne dans un éditeur familier : sa courbe d'apprentissage est douce, le retour immédiat, et vous choisissez entre plusieurs fournisseurs de modèles. Choisissez Claude Code si vous voulez déléguer des tâches entières à un agent autonome qui lit le dépôt, planifie, édite plusieurs fichiers et lance les tests sans surveillance constante. Au 6 octobre 2026, Cursor Pro coûte 20 $ par mois ; Claude Code est inclus dans Claude Pro (20 $) et Team (25 $ par siège). Les deux ne s'excluent pas : la configuration la plus efficace les combine, Cursor pour le travail fin, Claude Code pour les missions longues déléguées.",
+      "answer_en": "Pick Cursor if you want to speed up your typing while keeping line-by-line control in a familiar editor: its learning curve is gentle, the feedback immediate, and you choose between several model providers. Pick Claude Code if you want to delegate whole tasks to an autonomous agent that reads the repo, plans, edits multiple files and runs the tests without constant supervision. As of October 6, 2026, Cursor Pro costs $20 a month; Claude Code is included in Claude Pro ($20) and Team ($25 per seat). The two aren't mutually exclusive: the most effective setup combines them, Cursor for fine work, Claude Code for long delegated missions."
     },
     {
       "type": "comparison-table",
       "anchor": "comparatif",
       "background": "paper",
-      "h2_fr": "Claude Code face à Cursor, capacité par capacité",
-      "h2_en": "Claude Code against Cursor, capability by capability",
+      "h2_fr": "Claude Code face à Cursor, capacité par capacité (6 octobre 2026)",
+      "h2_en": "Claude Code against Cursor, capability by capability (October 6, 2026)",
       "column_headers_fr": [
         "Capacité",
         "Claude Code",
@@ -167,7 +223,7 @@
           "feature_fr": "Autocomplétion en frappe",
           "feature_en": "Inline autocomplete",
           "values": [
-            "bon",
+            false,
             "excellent"
           ]
         },
@@ -176,15 +232,15 @@
           "feature_en": "End-to-end task execution",
           "values": [
             true,
-            "partiel"
+            true
           ]
         },
         {
-          "feature_fr": "Orchestration multi-agents",
-          "feature_en": "Multi-agent orchestration",
+          "feature_fr": "Sous-agents en parallèle",
+          "feature_en": "Parallel sub-agents",
           "values": [
             true,
-            false
+            true
           ]
         },
         {
@@ -192,7 +248,15 @@
           "feature_en": "Background, scriptable runs",
           "values": [
             true,
-            false
+            "CLI -p"
+          ]
+        },
+        {
+          "feature_fr": "Agents qui tournent dans le cloud",
+          "feature_en": "Agents running in the cloud",
+          "values": [
+            true,
+            true
           ]
         },
         {
@@ -208,7 +272,7 @@
           "feature_en": "Runs tests and iterates alone",
           "values": [
             true,
-            "partiel"
+            true
           ]
         },
         {
@@ -234,6 +298,30 @@
             "Claude · contexte large",
             "multi-modèles"
           ]
+        },
+        {
+          "feature_fr": "Offre individuelle d'entrée",
+          "feature_en": "Entry individual plan",
+          "values": [
+            "20 $ (Claude Pro)",
+            "20 $/mois (Pro)"
+          ]
+        },
+        {
+          "feature_fr": "Offre équipe d'entrée",
+          "feature_en": "Entry team plan",
+          "values": [
+            "25 $/siège (Team)",
+            "40 $/utilisateur (Teams)"
+          ]
+        },
+        {
+          "feature_fr": "Ce que l'abonnement emporte aussi",
+          "feature_en": "What the subscription also includes",
+          "values": [
+            "Chat, Cowork, Design",
+            "L'éditeur seul"
+          ]
         }
       ]
     },
@@ -242,18 +330,18 @@
       "background": "paper-2",
       "kicker_fr": "§ Ce qui les sépare vraiment",
       "kicker_en": "§ What truly sets them apart",
-      "h2_fr": "Quatre lignes de <i>fracture</i>",
-      "h2_en": "Four lines of <i>fracture</i>",
-      "lede_fr": "Au-delà des fonctionnalités, ce sont quatre choix de conception qui décident lequel sert votre travail. Aucun n'est meilleur dans l'absolu : ils répondent à des intentions différentes.",
-      "lede_en": "Beyond features, four design choices decide which one serves your work. Neither is better in absolute terms: they answer different intentions.",
+      "h2_fr": "Cinq lignes de <i>fracture</i>",
+      "h2_en": "Five lines of <i>fracture</i>",
+      "lede_fr": "Sous-agents, agents dans le cloud, CLI : en 2026, les deux outils ont convergé. Au-delà des fonctionnalités, ce sont cinq choix de conception et de prix qui décident lequel sert votre travail. Aucun n'est meilleur dans l'absolu : ils répondent à des intentions différentes.",
+      "lede_en": "Sub-agents, cloud agents, CLI: in 2026, the two tools have converged. Beyond features, five design and pricing choices decide which one serves your work. Neither is better in absolute terms: they answer different intentions.",
       "rows": [
         {
           "kicker_fr": "Fracture 01",
           "kicker_en": "Fracture 01",
           "h3_fr": "Agentique vs autocomplétion",
           "h3_en": "Agentic vs autocomplete",
-          "body_fr": "Cursor répond à la question « aide-moi à écrire cette ligne ». Claude Code répond à « fais cette tâche ». Le premier reste collé à votre curseur, le second prend une intention de haut niveau et la mène jusqu'au diff testé. Tant que vous tapez vous-même, Cursor brille ; dès que vous voulez déléguer, l'agent prend le relais.",
-          "body_en": "Cursor answers the question \"help me write this line\". Claude Code answers \"do this task\". The first stays glued to your cursor, the second takes a high-level intent and carries it to a tested diff. As long as you type yourself, Cursor shines; the moment you want to delegate, the agent takes over.",
+          "body_fr": "Cursor répond d'abord à la question « aide-moi à écrire cette ligne ». Claude Code répond à « fais cette tâche ». Le premier reste collé à votre curseur, le second prend une intention de haut niveau et la mène jusqu'au diff testé. Cursor a lui aussi un agent qui mène une tâche seul, mais son point fort reste l'autocomplétion, que Claude Code ne propose pas. Tant que vous tapez vous-même, Cursor brille ; dès que vous voulez déléguer, l'agent prend le relais.",
+          "body_en": "Cursor first answers the question \"help me write this line\". Claude Code answers \"do this task\". The first stays glued to your cursor, the second takes a high-level intent and carries it to a tested diff. Cursor also has an agent that carries a task alone, but its strength remains autocomplete, which Claude Code doesn't offer. As long as you type yourself, Cursor shines; the moment you want to delegate, the agent takes over.",
           "points": [
             {
               "label_fr": "Cursor accélère la frappe",
@@ -274,8 +362,8 @@
           "kicker_en": "Fracture 02",
           "h3_fr": "Orchestration et passage à l'échelle",
           "h3_en": "Orchestration and scaling",
-          "body_fr": "Claude Code délègue à des sous-agents qui travaillent en parallèle, chacun dans son contexte isolé : un explore, un code, un teste, un relit. Sur une migration de 200 fichiers ou un audit de dépôt entier, on ne traite plus une tâche à la fois, on lance une flotte. Cursor, pensé pour un développeur dans son éditeur, n'est pas câblé pour ce parallélisme.",
-          "body_en": "Claude Code delegates to sub-agents working in parallel, each in its own isolated context: one explores, one codes, one tests, one reviews. On a 200-file migration or a whole-repo audit, you no longer handle one task at a time, you launch a fleet. Cursor, built for one developer in their editor, isn't wired for that parallelism.",
+          "body_fr": "Claude Code délègue à des sous-agents qui travaillent en parallèle, chacun dans son contexte isolé : un explore, un code, un teste, un relit. Sur une migration de 200 fichiers ou un audit de dépôt entier, on ne traite plus une tâche à la fois, on lance une flotte. Cursor a comblé ce retard : sa documentation décrit des sous-agents lancés simultanément et des Cloud Agents qui tournent dans des machines virtuelles isolées. L'écart est ailleurs : chez Claude Code, la flotte se cadre par des fichiers versionnés dans le dépôt (CLAUDE.md, skills, hooks) que toute l'équipe partage.",
+          "body_en": "Claude Code delegates to sub-agents working in parallel, each in its own isolated context: one explores, one codes, one tests, one reviews. On a 200-file migration or a whole-repo audit, you no longer handle one task at a time, you launch a fleet. Cursor has closed that gap: its documentation describes sub-agents launched simultaneously and Cloud Agents running in isolated virtual machines. The difference lies elsewhere: in Claude Code, the fleet is framed by files versioned in the repo (CLAUDE.md, skills, hooks) that the whole team shares.",
           "points": [
             {
               "label_fr": "Sous-agents en contexte isolé",
@@ -286,18 +374,21 @@
               "label_en": "A fleet, not one task"
             },
             {
-              "label_fr": "Pensé pour les gros chantiers",
-              "label_en": "Built for large jobs"
+              "label_fr": "Cursor le fait aussi, cadré autrement",
+              "label_en": "Cursor does it too, framed differently"
             }
-          ]
+          ],
+          "link_label_fr": "Claude Code en entreprise, le guide",
+          "link_label_en": "Claude Code in the enterprise, the guide",
+          "link_href": "/ressources/guides/claude-code-entreprise"
         },
         {
           "kicker_fr": "Fracture 03",
           "kicker_en": "Fracture 03",
           "h3_fr": "Terminal scriptable vs IDE",
           "h3_en": "Scriptable terminal vs IDE",
-          "body_fr": "Sans interface, Claude Code se branche partout : en arrière-plan, dans un script, dans une intégration continue, lancé puis surveillé pendant que vous faites autre chose. Cette absence d'éditeur n'est pas un manque, c'est ce qui le rend orchestrable. Cursor, lui, met l'IDE au centre et y excelle pour le travail fin et interactif.",
-          "body_en": "With no interface, Claude Code plugs in everywhere: in the background, in a script, in continuous integration, launched then watched while you do something else. That lack of an editor isn't a gap, it's what makes it orchestrable. Cursor, conversely, puts the IDE at the center and excels there for fine, interactive work.",
+          "body_fr": "Sans interface, Claude Code se branche partout : en arrière-plan, dans un script, dans une intégration continue (GitHub Actions, GitLab CI), lancé puis surveillé pendant que vous faites autre chose. Cette absence d'éditeur n'est pas un manque, c'est ce qui le rend orchestrable. Cursor, lui, met l'IDE au centre et y excelle pour le travail fin et interactif, même s'il propose aussi une CLI non interactive pour les scripts.",
+          "body_en": "With no interface, Claude Code plugs in everywhere: in the background, in a script, in continuous integration (GitHub Actions, GitLab CI), launched then watched while you do something else. That lack of an editor isn't a gap, it's what makes it orchestrable. Cursor, conversely, puts the IDE at the center and excels there for fine, interactive work, even though it also offers a non-interactive CLI for scripts.",
           "points": [
             {
               "label_fr": "Lançable en arrière-plan",
@@ -318,20 +409,48 @@
           "kicker_en": "Fracture 04",
           "h3_fr": "Contrôle et garde-fous",
           "h3_en": "Control and guardrails",
-          "body_fr": "Avec Cursor, vous validez chaque suggestion : le contrôle est immédiat et granulaire. Avec Claude Code, le contrôle se déplace vers le plan et le diff : l'agent propose une approche, demande validation sur le sensible, travaille sur branche isolée et ne touche pas la production sans feu vert. Lire un diff plutôt que taper chaque ligne, c'est un autre mode de maîtrise, pas une perte.",
-          "body_en": "With Cursor, you approve every suggestion: control is immediate and granular. With Claude Code, control shifts to the plan and the diff: the agent proposes an approach, asks for approval on the sensitive, works on an isolated branch and never touches production without a green light. Reading a diff rather than typing every line is another mode of mastery, not a loss.",
+          "body_fr": "Avec Cursor, vous validez chaque suggestion : le contrôle est immédiat et granulaire. Avec Claude Code, le contrôle se déplace vers le plan et le diff : l'agent propose une approche, demande validation sur le sensible, travaille sur branche isolée et ne touche pas la production sans feu vert. D'après la documentation d'Anthropic, le mode Auto, actif par défaut, passe chaque action par un classifieur qui bloque celles jugées dangereuses, et l'administrateur peut imposer ces réglages à toute l'entreprise. Lire un diff plutôt que taper chaque ligne, c'est un autre mode de maîtrise, pas une perte.",
+          "body_en": "With Cursor, you approve every suggestion: control is immediate and granular. With Claude Code, control shifts to the plan and the diff: the agent proposes an approach, asks for approval on the sensitive, works on an isolated branch and never touches production without a green light. According to Anthropic's documentation, Auto mode, on by default, runs every action through a classifier that blocks the ones deemed dangerous, and the admin can enforce these settings company-wide. Reading a diff rather than typing every line is another mode of mastery, not a loss.",
           "points": [
             {
               "label_fr": "Cursor : validation ligne à ligne",
               "label_en": "Cursor: line-by-line approval"
             },
             {
-              "label_fr": "Claude Code : plan, diff, branche isolée",
-              "label_en": "Claude Code: plan, diff, isolated branch"
+              "label_fr": "Claude Code : plan, diff, mode Auto",
+              "label_en": "Claude Code: plan, diff, Auto mode"
             },
             {
               "label_fr": "Autonomie cadrée, pas débridée",
               "label_en": "Framed autonomy, not unleashed"
+            }
+          ],
+          "link_label_fr": "Cadrer l'IA côté conformité",
+          "link_label_en": "Frame AI on the compliance side",
+          "link_href": "/conformite-ia"
+        },
+        {
+          "kicker_fr": "Fracture 05",
+          "kicker_en": "Fracture 05",
+          "h3_fr": "Ce que vous payez, et pour qui",
+          "h3_en": "What you pay, and for whom",
+          "body_fr": "Un siège Cursor Teams coûte 40 $ par mois et ne sert qu'aux développeurs. Un siège Claude Team Standard coûte 25 $ (20 $ en annuel) et donne aussi le chat, Cowork et Claude Design à la même personne. Sur une équipe de dix personnes dont trois développeurs, le calcul change. Dans Cursor, les modèles Claude sont décomptés au tarif de l'API : 4 $ en entrée et 20 $ en sortie par million de jetons pour Claude Opus 5.5. Facturé à l'usage via l'API, Claude Code coûte en moyenne environ 13 $ par développeur et par jour actif, selon Anthropic. Prix hors taxes au 6 octobre 2026.",
+          "body_en": "A Cursor Teams seat costs $40 a month and only serves developers. A Claude Team Standard seat costs $25 ($20 billed annually) and also gives the same person chat, Cowork and Claude Design. On a ten-person team with three developers, the math changes. In Cursor, Claude models are billed at API rates: $4 input and $20 output per million tokens for Claude Opus 5.5. Billed by usage through the API, Claude Code averages about $13 per developer per active day, according to Anthropic. Prices excl. tax as of October 6, 2026.",
+          "link_label_fr": "Voir nos tarifs d'intégration",
+          "link_label_en": "See our integration pricing",
+          "link_href": "/tarifs",
+          "points": [
+            {
+              "label_fr": "Cursor Teams : 40 $/utilisateur",
+              "label_en": "Cursor Teams: $40/user"
+            },
+            {
+              "label_fr": "Claude Team : 25 $/siège, tout Claude",
+              "label_en": "Claude Team: $25/seat, all of Claude"
+            },
+            {
+              "label_fr": "Claude dans Cursor : tarif API",
+              "label_en": "Claude in Cursor: API rates"
             }
           ]
         }
@@ -366,8 +485,16 @@
           "label_en": "You want to launch background, scriptable work integrated into your CI: Claude Code."
         },
         {
-          "label_fr": "Vous voulez le meilleur des deux : Cursor pour le fin, Claude Code pour les missions déléguées, le dépôt git comme arbitre.",
-          "label_en": "You want the best of both: Cursor for fine work, Claude Code for delegated missions, the git repo as referee."
+          "label_fr": "Toute l'entreprise paie déjà Claude Team : testez d'abord Claude Code, il est déjà dans le siège.",
+          "label_en": "The whole company already pays for Claude Team: try Claude Code first, it's already in the seat."
+        },
+        {
+          "label_fr": "Vous voulez comparer chaque semaine les modèles de plusieurs fournisseurs : Cursor.",
+          "label_en": "You want to compare models from several providers every week: Cursor."
+        },
+        {
+          "label_fr": "Vous voulez le meilleur des deux : Cursor pour le fin, l'extension Claude Code dedans pour les missions déléguées, le dépôt git comme arbitre.",
+          "label_en": "You want the best of both: Cursor for fine work, the Claude Code extension inside it for delegated missions, the git repo as referee."
         }
       ]
     },
@@ -423,14 +550,14 @@
         {
           "q_fr": "Cursor n'a-t-il pas aussi un mode agent ?",
           "q_en": "Doesn't Cursor also have an agent mode?",
-          "a_fr": "Si, et il est bon. Mais son centre de gravité reste l'éditeur : l'agent vit dans l'IDE, sous votre regard, fichier par fichier. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence n'est pas une case à cocher, c'est une posture de conception.",
-          "a_en": "It does, and it's good. But its center of gravity stays the editor: the agent lives in the IDE, under your eye, file by file. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference isn't a checkbox, it's a design stance."
+          "a_fr": "Si, et il est bon : sa documentation décrit des sous-agents lancés en parallèle, des Cloud Agents qui tournent dans des machines virtuelles isolées et une CLI pour les scripts. Mais son centre de gravité reste l'éditeur. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence n'est pas une case à cocher, c'est une posture de conception.",
+          "a_en": "It does, and it's good: its documentation describes sub-agents launched in parallel, Cloud Agents running in isolated virtual machines and a CLI for scripts. But its center of gravity stays the editor. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference isn't a checkbox, it's a design stance."
         },
         {
           "q_fr": "Qu'est-ce que l'orchestration multi-agents apporte concrètement ?",
           "q_en": "What does multi-agent orchestration actually bring?",
-          "a_fr": "Claude Code peut déléguer à des sous-agents : un qui explore, un qui code, un qui teste, un qui relit. Chacun travaille dans son contexte isolé et remonte un résultat. Sur une migration de 200 fichiers ou un audit de tout un dépôt, ça change l'échelle : on ne fait plus une tâche à la fois, on lance une flotte. Cursor, centré sur un développeur dans son éditeur, n'est pas pensé pour ce parallélisme.",
-          "a_en": "Claude Code can delegate to sub-agents: one that explores, one that codes, one that tests, one that reviews. Each works in its own isolated context and reports back. On a 200-file migration or a whole-repo audit, it changes the scale: you no longer do one task at a time, you launch a fleet. Cursor, centered on one developer in their editor, isn't designed for that parallelism."
+          "a_fr": "Claude Code peut déléguer à des sous-agents : un qui explore, un qui code, un qui teste, un qui relit. Chacun travaille dans son contexte isolé et remonte un résultat. Sur une migration de 200 fichiers ou un audit de tout un dépôt, ça change l'échelle : on ne fait plus une tâche à la fois, on lance une flotte. Cursor propose aussi des sous-agents en parallèle ; chez Claude Code, leur rôle et leurs outils se décrivent dans des fichiers que l'équipe versionne et partage.",
+          "a_en": "Claude Code can delegate to sub-agents: one that explores, one that codes, one that tests, one that reviews. Each works in its own isolated context and reports back. On a 200-file migration or a whole-repo audit, it changes the scale: you no longer do one task at a time, you launch a fleet. Cursor also offers parallel sub-agents; in Claude Code, their role and tools are described in files the team versions and shares."
         },
         {
           "q_fr": "Lequel choisir si je débute avec l'IA dans mon code ?",
@@ -441,26 +568,26 @@
         {
           "q_fr": "Claude Code est-il dangereux puisqu'il agit seul ?",
           "q_en": "Is Claude Code dangerous since it acts alone?",
-          "a_fr": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et n'écrit jamais en production sans votre feu vert. L'autonomie n'est pas l'absence de garde-fous : c'est l'inverse, un agent sérieux se conçoit avec des barrières explicites. Le vrai risque, c'est de le lancer sans cadre, pas l'outil lui-même.",
-          "a_en": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and never writes to production without your green light. Autonomy isn't the absence of guardrails: it's the opposite, a serious agent is designed with explicit barriers. The real risk is launching it with no frame, not the tool itself."
+          "a_fr": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et, bien configuré, n'écrit pas en production sans votre feu vert. Par défaut, d'après la documentation d'Anthropic, un classifieur bloque les actions jugées dangereuses et une sandbox peut isoler fichiers et réseau. L'autonomie n'est pas l'absence de garde-fous. Le vrai risque, c'est de le lancer sans cadre, pas l'outil lui-même.",
+          "a_en": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and, properly configured, doesn't write to production without your green light. By default, according to Anthropic's documentation, a classifier blocks actions deemed dangerous and a sandbox can isolate files and network. Autonomy isn't the absence of guardrails. The real risk is launching it with no frame, not the tool itself."
         },
         {
           "q_fr": "Peut-on utiliser les deux en même temps ?",
           "q_en": "Can you use both at the same time?",
-          "a_fr": "C'est même la configuration la plus efficace. Cursor pour le travail fin, ligne à ligne, quand on conçoit en direct ; Claude Code pour les missions longues, répétitives ou parallélisables qu'on délègue en arrière-plan. Les deux partagent le même dépôt git, qui sert d'arbitre. Beaucoup d'équipes sérieuses ne choisissent pas l'un contre l'autre : elles les combinent selon la nature de la tâche.",
-          "a_en": "That's actually the most effective setup. Cursor for fine, line-by-line work when you design live; Claude Code for long, repetitive or parallelizable missions you delegate in the background. Both share the same git repo, which acts as the referee. Many serious teams don't pick one against the other: they combine them by the nature of the task."
+          "a_fr": "C'est même la configuration la plus efficace. Cursor pour le travail fin, ligne à ligne, quand on conçoit en direct ; Claude Code pour les missions longues, répétitives ou parallélisables qu'on délègue en arrière-plan. La documentation de Claude Code cite d'ailleurs Cursor parmi les éditeurs où son extension s'installe. Les deux partagent le même dépôt git, qui sert d'arbitre. Beaucoup d'équipes ne choisissent pas l'un contre l'autre : elles les combinent selon la nature de la tâche.",
+          "a_en": "That's actually the most effective setup. Cursor for fine, line-by-line work when you design live; Claude Code for long, repetitive or parallelizable missions you delegate in the background. Claude Code's documentation even lists Cursor among the editors its extension installs in. Both share the same git repo, which acts as the referee. Many teams don't pick one against the other: they combine them by the nature of the task."
         },
         {
           "q_fr": "Est-ce que le choix d'outil dépend du modèle sous-jacent ?",
           "q_en": "Does the tool choice depend on the underlying model?",
-          "a_fr": "En partie. Cursor est multi-modèles et vous laisse brancher plusieurs fournisseurs. Claude Code est conçu autour des modèles Claude et de leur grande fenêtre de contexte, ce qui sert particulièrement les missions agentiques sur de gros dépôts. Mais l'écart de fond n'est pas le modèle : c'est l'architecture du produit, éditeur augmenté d'un côté, agent orchestrable de l'autre.",
-          "a_en": "Partly. Cursor is multi-model and lets you plug in several providers. Claude Code is built around Claude models and their large context window, which especially serves agentic missions on big repos. But the core gap isn't the model: it's the product architecture, augmented editor on one side, orchestrable agent on the other."
+          "a_fr": "En partie. Cursor est multi-modèles et vous laisse brancher plusieurs fournisseurs ; les modèles tiers y sont décomptés au tarif de l'API (Claude Opus 5.5 : 4 $ en entrée et 20 $ en sortie par million de jetons au 6 octobre 2026). Claude Code est conçu autour des modèles Claude et de leur grande fenêtre de contexte, inclus dans l'abonnement dans la limite du quota. Mais l'écart de fond n'est pas le modèle : c'est l'architecture du produit, éditeur augmenté d'un côté, agent orchestrable de l'autre.",
+          "a_en": "Partly. Cursor is multi-model and lets you plug in several providers; third-party models are billed there at API rates (Claude Opus 5.5: $4 input and $20 output per million tokens as of October 6, 2026). Claude Code is built around Claude models and their large context window, included in the subscription within the quota. But the core gap isn't the model: it's the product architecture, augmented editor on one side, orchestrable agent on the other."
         },
         {
           "q_fr": "Vous nous aidez à mettre en place lequel ?",
           "q_en": "Which one do you help us set up?",
-          "a_fr": "Les deux, selon votre maturité et vos process. Notre métier d'intégrateur Claude est précisément de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et former vos équipes pour que la compétence reste chez vous. L'audit gratuit de 45 min sert à cadrer ce point de départ.",
-          "a_en": "Both, depending on your maturity and your processes. Our job as a Claude integrator is precisely to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and train your teams so the skill stays with you. The free 45-min audit exists to frame that starting point."
+          "a_fr": "Les deux, selon votre maturité et vos process. Notre métier d'intégrateur Claude est précisément de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et <a href=\"/formations/claude\">former vos équipes</a> pour que la compétence reste chez vous. Si Cursor sert mieux votre équipe, nous le disons. L'audit gratuit de 45 min sert à cadrer ce point de départ.",
+          "a_en": "Both, depending on your maturity and your processes. Our job as a Claude integrator is precisely to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and <a href=\"/formations/claude\">train your teams</a> so the skill stays with you. If Cursor serves your team better, we say so. The free 45-min audit exists to frame that starting point."
         }
       ]
     },

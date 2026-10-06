@@ -6,7 +6,7 @@
   "description_en": "Claude Design for SMBs: what it produces, its real price within Claude plans, its limits as of 5 October 2026 and when a designer is still needed.",
   "slug": "claude-design",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "claude-design",
@@ -51,6 +51,12 @@
       "name": "Anthropic, conformité régionale et résidence des données",
       "url": "https://claude.com/regional-compliance",
       "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Pro plan pricing, local currency and tax (centre d'aide)",
+      "url": "https://support.claude.com/en/articles/8325606",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
     }
   ],
   "faq_fr": [
@@ -129,12 +135,12 @@
       "kicker_en": "§ Guide · Claude Design",
       "h1_fr": "Claude Design : usages en PME, limites et <i class=\"acc\">alternatives</i>",
       "h1_en": "Claude Design: SMB uses, limits and <i class=\"acc\">alternatives</i>",
-      "lede_fr": "Claude Design fabrique des maquettes, des decks et des one-pagers à partir d'une demande écrite. Ce guide dit ce qu'il produit vraiment, ce qu'il coûte dans votre offre Claude, où il s'arrête, et à quel moment un designer ou une agence reprend la main. Faits relus le 5 octobre 2026 sur les pages d'Anthropic.",
-      "lede_en": "Claude Design builds mock-ups, decks and one-pagers from a written request. This guide covers what it really produces, what it costs within your Claude plan, where it stops, and when a designer or an agency takes over. Facts checked on 5 October 2026 against Anthropic's pages.",
+      "lede_fr": "Claude Design fabrique des maquettes, des decks et des one-pagers à partir d'une demande écrite. Ce guide dit ce qu'il produit vraiment, ce qu'il coûte dans votre offre Claude, où il s'arrête, et à quel moment un designer ou une agence reprend la main. Faits relus le 6 octobre 2026 sur les pages d'Anthropic.",
+      "lede_en": "Claude Design builds mock-ups, decks and one-pagers from a written request. This guide covers what it really produces, what it costs within your Claude plan, where it stops, and when a designer or an agency takes over. Facts checked on 6 October 2026 against Anthropic's pages.",
       "badges": [
         {
-          "label_fr": "Faits relus le 5 octobre 2026",
-          "label_en": "Facts checked on 5 October 2026"
+          "label_fr": "Faits relus le 6 octobre 2026",
+          "label_en": "Facts checked on 6 October 2026"
         },
         {
           "label_fr": "Sources officielles Anthropic",
@@ -238,7 +244,7 @@
         ],
         [
           "Tout le monde y a accès, même en gratuit",
-          "Réservé aux offres payantes. Sur Enterprise, un owner doit l'activer."
+          "Réservé aux offres payantes. Actif par défaut en Pro, Max et Team ; en Enterprise, un owner l'active dans Paramètres de l'organisation > Artifacts."
         ],
         [
           "Il ne sort que des images",
@@ -260,7 +266,7 @@
         ],
         [
           "Everyone has access, even on Free",
-          "Paid plans only. On Enterprise, an owner has to turn it on."
+          "Paid plans only. On by default on Pro, Max and Team; on Enterprise, an owner turns it on in Organization settings > Artifacts."
         ],
         [
           "It only outputs images",
@@ -315,8 +321,8 @@
           "kicker_en": "Materials 02",
           "h3_fr": "Maquettes et prototypes interactifs",
           "h3_en": "Mock-ups and interactive prototypes",
-          "body_fr": "Une page d'accueil à tester, un écran d'outil interne, un parcours de prise de rendez-vous. Claude Design produit des maquettes cliquables à montrer à un client ou à votre équipe avant d'engager un développement. C'est l'usage le plus sous-estimé : décider sur une maquette coûte beaucoup moins cher que corriger un site déjà construit. Mais un prototype sert à décider, pas à mettre en ligne. La version de production se construit ensuite, par un développeur ou via le transfert vers Claude Code.",
-          "body_en": "A homepage to test, an internal tool screen, a booking flow. Claude Design produces clickable mock-ups to show a client or your team before committing to development. It is the most underrated use: deciding on a mock-up costs far less than fixing a site already built. But a prototype is for deciding, not for going live. The production version is built afterwards, by a developer or through the handoff to Claude Code.",
+          "body_fr": "Une page d'accueil à tester, un écran d'outil interne, un parcours de prise de rendez-vous. Claude Design produit des maquettes cliquables à montrer à un client ou à votre équipe avant d'engager un développement. À mon avis, c'est l'usage le plus rentable pour une PME : décider sur une maquette coûte beaucoup moins cher que corriger un site déjà construit. Mais un prototype sert à décider, pas à mettre en ligne. La version de production se construit ensuite, par un développeur ou via le transfert vers Claude Code.",
+          "body_en": "A homepage to test, an internal tool screen, a booking flow. Claude Design produces clickable mock-ups to show a client or your team before committing to development. In my view, it is the most profitable use for an SMB: deciding on a mock-up costs far less than fixing a site already built. But a prototype is for deciding, not for going live. The production version is built afterwards, by a developer or through the handoff to Claude Code.",
           "points": [
             {
               "label_fr": "Maquette cliquable avant tout devis",
@@ -340,8 +346,8 @@
           "kicker_en": "Materials 03",
           "h3_fr": "Le design system de votre organisation",
           "h3_en": "Your organisation's design system",
-          "body_fr": "Claude Design applique un design system d'organisation : couleurs, typographies, composants. Une fois votre charte en place, chaque deck et chaque maquette part de vos codes au lieu d'un modèle générique. C'est là que se joue l'écart entre un support qui sent l'outil et un support qui ressemble à votre marque. Encore faut-il avoir une charte. Si elle tient en un logo et deux couleurs, c'est un travail de designer à faire d'abord, une fois pour toutes.",
-          "body_en": "Claude Design applies an organisation-wide design system: colours, typefaces, components. Once your guidelines are in place, every deck and mock-up starts from your codes instead of a generic template. That is where the gap lies between material that looks machine-made and material that looks like your brand. You still need guidelines. If yours are a logo and two colours, that is a designer's job to do first, once and for all.",
+          "body_fr": "Claude Design applique un design system d'organisation : couleurs, typographies, composants. Il se construit à partir de fichiers Figma, de decks existants, de logos et de polices, de vos actifs de marque ou d'un dépôt de code. En Team et Enterprise, on le règle une fois et tous les projets créés ensuite en partent ; un owner peut réserver la publication à quelques personnes. Mon conseil : confiez ce réglage à une seule personne, celle qui tient la marque. Encore faut-il avoir une charte. Si elle tient en un logo et deux couleurs, c'est un travail de designer à faire d'abord, une fois pour toutes.",
+          "body_en": "Claude Design applies an organisation-wide design system: colours, typefaces, components. It is built from Figma files, existing decks, logos and fonts, brand assets or a code repository. On Team and Enterprise, you set it once and every new project starts from it; an owner can reserve publishing to a few people. My advice: give this to one person, whoever owns the brand. You still need guidelines. If yours are a logo and two colours, that is a designer's job to do first, once and for all.",
           "points": [
             {
               "label_fr": "Couleurs, typographies, composants",
@@ -383,8 +389,8 @@
       "kicker_en": "§ Price",
       "heading_fr": "Claude Design prix : inclus dans les offres payantes de Claude",
       "heading_en": "Claude Design price: included in Claude's paid plans",
-      "caption_fr": "Source : claude.com/pricing et centre d'aide Claude, lus le 5 octobre 2026. Prix publics en dollars américains, hors TVA et hors taux de change : le montant facturé en euros peut différer. Claude Design n'a pas de quota séparé. La dernière colonne est une lecture Waimia, pas une recommandation d'Anthropic.",
-      "caption_en": "Source: claude.com/pricing and Claude Help Center, read on 5 October 2026. Public prices in US dollars, excluding VAT and exchange rates: the amount billed in euros may differ. Claude Design has no separate quota. The last column is Waimia's reading, not an Anthropic recommendation.",
+      "caption_fr": "Source : claude.com/pricing et centre d'aide Claude, relus le 6 octobre 2026. Prix publics en dollars américains, hors taxes ; selon la région, la TVA est incluse dans le prix affiché ou ajoutée au paiement. Claude Design n'a pas de quota séparé. La dernière colonne est une lecture Waimia, pas une recommandation d'Anthropic.",
+      "caption_en": "Source: claude.com/pricing and Claude Help Center, re-read on 6 October 2026. Public prices in US dollars, excluding tax; depending on the region, VAT is included in the displayed price or added at checkout. Claude Design has no separate quota. The last column is Waimia's reading, not an Anthropic recommendation.",
       "columns_fr": [
         "Offre",
         "Prix affiché",

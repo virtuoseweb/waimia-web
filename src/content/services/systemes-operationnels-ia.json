@@ -6,7 +6,7 @@
   "description_en": "AI automation agency for SMEs: we automate your repetitive tasks and connect AI agents to them, on your tools. Free 45-min audit.",
   "slug": "systemes-operationnels-ia",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "automatisation-ia",
@@ -14,6 +14,14 @@
     "integration-claude",
     "application-metier",
     "outils-internes"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, Introducing the Model Context Protocol",
+      "url": "https://www.anthropic.com/news/model-context-protocol",
+      "type": "enterprise",
+      "publishedAt": "2024-11-25"
+    }
   ],
   "seo": {
     "noindex": false,
@@ -37,7 +45,7 @@
     },
     {
       "q": "Qu'est-ce que MCP et pourquoi ça compte ?",
-      "a": "MCP est le protocole qui branche Claude sur vos outils métier (CRM, base de données, tableur, messagerie) de façon propre et stable. Fini les scripts fragiles qui cassent à la moindre mise à jour : l'agent lit et agit sur vos vraies données."
+      "a": "MCP (Model Context Protocol) est un standard ouvert publié par Anthropic le 25 novembre 2024 pour relier un assistant IA à vos outils métier : CRM, base de données, tableur, messagerie. Pour vous, cela veut dire des connecteurs standard plutôt que des scripts maison, et un agent qui lit et agit sur vos vraies données, dans le périmètre que vous lui donnez. C'est le cœur de notre <a href=\"/services/integration-claude\">intégration de Claude</a>."
     },
     {
       "q": "L'IA prend-elle des décisions à ma place ?",
@@ -75,7 +83,7 @@
     },
     {
       "q": "What is MCP and why does it matter?",
-      "a": "MCP is the protocol that wires Claude to your business tools (CRM, database, spreadsheet, messaging) cleanly and stably. No more fragile scripts that break on the slightest update: the agent reads and acts on your real data."
+      "a": "MCP (Model Context Protocol) is an open standard Anthropic published on 25 November 2024 to connect an AI assistant to your business tools: CRM, database, spreadsheet, messaging. For you, it means standard connectors instead of in-house scripts, and an agent that reads and acts on your real data, within the scope you give it. It is the core of our <a href=\"/services/integration-claude\">Claude integration</a>."
     },
     {
       "q": "Does the AI make decisions for me?",
@@ -178,8 +186,8 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "L'<i class=\"acc\">automatisation IA</i> d'une PME, c'est l'ensemble des workflows, des agents IA et des applications métier qui exécutent les tâches répétitives à la place des équipes : les workflows font circuler la donnée entre les outils, les agents traitent ce qui demande du jugement, sous validation humaine, et chaque exécution est mesurée et journalisée. Waimia le construit module par module, en commençant par celui qui rend le plus de temps.",
-      "statement_en": "The <i class=\"acc\">AI automation</i> of an SME is the set of workflows, AI agents and business applications that execute repetitive tasks in place of the teams: workflows move data between tools, agents handle what requires judgement, under human validation, and every execution is measured and logged. Waimia builds it module by module, starting with the one that gives back the most time.",
+      "statement_fr": "L'<i class=\"acc\">automatisation IA</i> d'une PME, c'est l'ensemble des workflows, des agents IA et des applications métier qui exécutent les tâches répétitives à la place des équipes. Les workflows font circuler la donnée entre les outils. Les agents traitent ce qui demande du jugement, sous validation humaine. Chaque exécution est mesurée et journalisée. Waimia le construit module par module, en commençant par celui qui rend le plus de temps.",
+      "statement_en": "The <i class=\"acc\">AI automation</i> of an SME is the set of workflows, AI agents and business applications that execute repetitive tasks in place of the teams. Workflows move data between tools. Agents handle what requires judgement, under human validation. Every execution is measured and logged. Waimia builds it module by module, starting with the one that gives back the most time.",
       "pills": [
         {
           "label_fr": "Exécute le répétitif",
@@ -280,7 +288,7 @@
         {
           "label_fr": "Données et reporting",
           "label_en": "Data and reporting",
-          "meta_fr": "Piloter · les KPI recolés et lus par l'IA",
+          "meta_fr": "Piloter · les KPI rapprochés et lus par l'IA",
           "meta_en": "Steer · KPIs pulled together and read by the AI",
           "media_src": "/images/illustrations/ds/money-in-the-pig-paper.webp",
           "media_alt_fr": "Une tirelire : les données rapprochées qui rendent le pilotage lisible.",
@@ -315,8 +323,8 @@
           "kicker_en": "Module 01",
           "h3_fr": "Automatiser · exécuter le répétitif",
           "h3_en": "Automate · run the repetitive",
-          "body_fr": "Les automatisations suppriment la ressaisie entre vos outils, les agents IA prennent en charge les tâches qui demandent du jugement. On utilise le plus simple des deux qui fait le travail, jamais l'usine à gaz.",
-          "body_en": "Automations remove re-entry between your tools, AI agents take on the tasks that need judgement. We use the simpler of the two that does the job, never the overkill machine.",
+          "body_fr": "Les automatisations suppriment la ressaisie entre vos outils, les agents IA prennent en charge les tâches qui demandent du jugement. Mon conseil : prenez le plus simple des deux qui fait le travail. Un workflow coûte moins cher à faire tourner et se trompe moins qu'un agent.",
+          "body_en": "Automations remove re-entry between your tools, AI agents take on the tasks that need judgement. My advice: pick the simpler of the two that does the job. A workflow costs less to run and makes fewer mistakes than an agent.",
           "points": [
             {
               "label_fr": "Workflows qui suppriment le copier-coller",
@@ -343,20 +351,20 @@
           "kicker_en": "Module 02",
           "h3_fr": "Connecter · Claude sur vos outils via MCP",
           "h3_en": "Connect · Claude on your tools via MCP",
-          "body_fr": "L'intégration de Claude via MCP branche l'IA à votre CRM, vos bases et vos outils métier, proprement et durablement. Fini les scripts maison fragiles qui cassent à la moindre mise à jour.",
-          "body_en": "Claude integration via MCP wires the AI to your CRM, databases and business tools, cleanly and durably. No more fragile in-house scripts that break on the slightest update.",
+          "body_fr": "L'intégration de Claude via MCP branche l'IA à votre CRM, vos bases et vos outils métier. MCP (Model Context Protocol) est un standard ouvert publié par Anthropic le 25 novembre 2024 pour relier un assistant aux systèmes où vivent vos données. Un connecteur standard se maintient mieux qu'un script maison écrit pour une seule intégration.",
+          "body_en": "Claude integration via MCP wires the AI to your CRM, databases and business tools. MCP (Model Context Protocol) is an open standard Anthropic published on 25 November 2024 to connect an assistant to the systems where your data lives. A standard connector is easier to maintain than an in-house script written for a single integration.",
           "points": [
             {
-              "label_fr": "Branchement MCP propre et stable",
-              "label_en": "Clean, stable MCP wiring"
+              "label_fr": "Connecteurs MCP standard",
+              "label_en": "Standard MCP connectors"
             },
             {
               "label_fr": "L'IA lit et agit sur vos vraies données",
               "label_en": "The AI reads and acts on your real data"
             },
             {
-              "label_fr": "Fini les scripts fragiles maison",
-              "label_en": "No more fragile in-house scripts"
+              "label_fr": "Moins de scripts maison à maintenir",
+              "label_en": "Fewer in-house scripts to maintain"
             }
           ],
           "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
@@ -399,11 +407,11 @@
           "kicker_en": "Core",
           "h3_fr": "Piloter · données, reporting et gouvernance",
           "h3_en": "Steer · data, reporting and governance",
-          "body_fr": "Tous les modules partagent une seule base et un seul pilotage. L'IA recolle vos KPI, synthétise le tableau de bord et alerte sur les anomalies. La gouvernance borne chaque agent et trace chaque action. Vous décidez, le système exécute.",
+          "body_fr": "Tous les modules partagent une seule base et un seul pilotage. L'IA rapproche vos KPI, synthétise le tableau de bord et alerte sur les anomalies. La gouvernance borne chaque agent et trace chaque action. Vous décidez, le système exécute.",
           "body_en": "All modules share one base and one piloting layer. The AI pulls your KPIs together, synthesises the dashboard and alerts on anomalies. Governance bounds each agent and traces each action. You decide, the system executes.",
           "points": [
             {
-              "label_fr": "KPI recolés et lus par l'IA",
+              "label_fr": "KPI rapprochés et lus par l'IA",
               "label_en": "KPIs pulled together and read by the AI"
             },
             {
@@ -447,13 +455,13 @@
           "sector_fr": "Externalisation RH",
           "sector_en": "HR outsourcing",
           "duration": "6 sem.",
-          "stack": "CRM HubSpot · Formulaires · Attribution",
-          "impact_fr": "Formulaires branchés HubSpot avec attribution des leads : la saisie et le routage des contacts, avant manuels, passent en flux automatique dans le CRM.",
-          "impact_en": "HubSpot-connected forms with lead attribution: contact entry and routing, previously manual, move into an automatic flow in the CRM.",
+          "stack": "CRM HubSpot · Formulaires · Routage",
+          "impact_fr": "Site livré en 6 semaines, formulaires branchés sur HubSpot : les demandes de contact arrivent dans le CRM et y sont routées automatiquement.",
+          "impact_en": "Site delivered in 6 weeks, forms wired to HubSpot: contact requests land in the CRM and are routed automatically.",
           "href": "/cas-clients/amploi",
           "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : la saisie et le routage des contacts passés en flux automatique.",
-          "media_alt_en": "A dynamic figure: contact entry and routing moved into an automatic flow."
+          "media_alt_fr": "Une figure dynamique : les demandes de contact routées automatiquement dans le CRM.",
+          "media_alt_en": "A dynamic figure: contact requests routed automatically in the CRM."
         },
         {
           "client": "Balzeo",
@@ -461,12 +469,12 @@
           "sector_en": "Eco-friendly e-commerce",
           "duration": "8 sem.",
           "stack": "Refonte · Perf · Maintenance",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s) et coût de maintenance -84 %, le temps d'exploitation rendu aux équipes.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s) and maintenance cost cut by 84%, operating time given back to the teams.",
+          "impact_fr": "Refonte complète : temps de chargement mobile réduit de moitié (5,2 s à 2,4 s) et coût de maintenance réduit de 84 %.",
+          "impact_en": "Full rebuild: mobile load time halved (5.2s to 2.4s) and maintenance cost cut by 84%.",
           "href": "/cas-clients/balzeo",
           "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : l'exploitation allégée et le temps rendu aux équipes.",
-          "media_alt_en": "Fresh fruit: leaner operations and time given back to the teams."
+          "media_alt_fr": "Des fruits frais : une boutique plus légère à faire tourner.",
+          "media_alt_en": "Fresh fruit: a shop that is lighter to run."
         },
         {
           "client": "Les Carnets de Montpellier",
@@ -474,12 +482,12 @@
           "sector_en": "Heritage / Local media",
           "duration": "6 sem.",
           "stack": "Création · Abonnement · Éditorial",
-          "impact_fr": "Site créé de zéro avec gestion des membres et des abonnés outillée : 40 articles publiés, 150 membres et 35 abonnés payants en 3 mois, sans back-office manuel.",
-          "impact_en": "Site built from scratch with tooled member and subscriber management: 40 articles, 150 members and 35 paying subscribers in 3 months, with no manual back office.",
+          "impact_fr": "Site créé de zéro avec gestion des membres et des abonnés outillée. Trois mois après le lancement : plus de 40 articles publiés, plus de 150 membres et plus de 35 abonnés payants.",
+          "impact_en": "Site built from scratch with tooled member and subscriber management. Three months after launch: over 40 articles, over 150 members and over 35 paying subscribers.",
           "href": "/cas-clients/les-carnets-de-montpellier",
           "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local : la gestion des membres et des abonnés outillée, sans back-office manuel.",
-          "media_alt_en": "A local media outlet: tooled member and subscriber management, with no manual back office."
+          "media_alt_fr": "Un média local : la gestion des membres et des abonnés outillée.",
+          "media_alt_en": "A local media outlet: tooled member and subscriber management."
         }
       ],
       "all_label_fr": "Voir toutes les réalisations →",
@@ -615,51 +623,57 @@
       "h2_en": "What you ask us",
       "items": [
         {
+          "q_fr": "Quelle différence entre les systèmes opérationnels IA et le service d'automatisations ?",
+          "a_fr": "Les systèmes opérationnels IA sont le portefeuille complet : automatisations, agents IA, intégration Claude et applications internes, orchestrés sur une base gouvernée. Les <a href=\"/services/automatisations\">automatisations</a> en sont le premier module : les workflows qui suppriment la ressaisie. On commence souvent par là, puis on ajoute les autres modules au besoin.",
+          "q_en": "What's the difference between operational AI systems and the automations service?",
+          "a_en": "Operational AI systems are the full portfolio: automations, AI agents, Claude integration and internal apps, orchestrated on a governed base. <a href=\"/services/automatisations\">Automations</a> are the first module: the workflows that remove re-entry. We often start there, then add the other modules as needed."
+        },
+        {
           "q_fr": "C'est une offre unique ou un ensemble de modules ?",
-          "q_en": "Is this a single offer or a set of modules?",
           "a_fr": "Un ensemble de modules articulés : automatisations, agents IA, intégration de Claude, applications métier internes et données & reporting. Chacun existe seul. Assemblés sur une base gouvernée, ils forment le système opérationnel de votre entreprise.",
+          "q_en": "Is this a single offer or a set of modules?",
           "a_en": "A set of articulated modules: automations, AI agents, Claude integration, internal business apps and data & reporting. Each stands alone. Assembled on a governed base, they form your company's operational system."
         },
         {
           "q_fr": "Par où commencer si je ne sais pas quoi automatiser ?",
-          "q_en": "Where to start if I don't know what to automate?",
           "a_fr": "Par l'audit gratuit de 45 minutes. On passe vos tâches répétitives en revue et on les classe par le temps qu'elles prennent. On démarre par le chantier le plus rentable, on mesure, puis on étend.",
+          "q_en": "Where to start if I don't know what to automate?",
           "a_en": "With the diagnostic. We map your repetitive tasks and prioritise them by the time and money they burn. We start with the work that hurts most, prove the value, then extend."
         },
         {
           "q_fr": "Qu'est-ce que MCP et pourquoi ça compte ?",
+          "a_fr": "MCP (Model Context Protocol) est un standard ouvert publié par Anthropic le 25 novembre 2024 pour relier un assistant IA à vos outils métier : CRM, base de données, tableur, messagerie. Pour vous, cela veut dire des connecteurs standard plutôt que des scripts maison, et un agent qui lit et agit sur vos vraies données, dans le périmètre que vous lui donnez. C'est le cœur de notre <a href=\"/services/integration-claude\">intégration de Claude</a>.",
           "q_en": "What is MCP and why does it matter?",
-          "a_fr": "MCP est le protocole qui branche Claude sur vos outils métier (CRM, base de données, tableur, messagerie) de façon propre et stable. Fini les scripts fragiles qui cassent à la moindre mise à jour : l'agent lit et agit sur vos vraies données.",
-          "a_en": "MCP is the protocol that wires Claude to your business tools (CRM, database, spreadsheet, messaging) cleanly and stably. No more fragile scripts that break on the slightest update: the agent reads and acts on your real data."
+          "a_en": "MCP (Model Context Protocol) is an open standard Anthropic published on 25 November 2024 to connect an AI assistant to your business tools: CRM, database, spreadsheet, messaging. For you, it means standard connectors instead of in-house scripts, and an agent that reads and acts on your real data, within the scope you give it. It is the core of our <a href=\"/services/integration-claude\">Claude integration</a>."
         },
         {
           "q_fr": "L'IA prend-elle des décisions à ma place ?",
-          "q_en": "Does the AI make decisions for me?",
           "a_fr": "Non. Vous gardez la main : chaque action sensible passe par une validation humaine. L'IA propose, vous tranchez. Le périmètre de ce que l'agent a le droit de faire est posé dès le départ, et tout est tracé.",
+          "q_en": "Does the AI make decisions for me?",
           "a_en": "No. You keep control: every sensitive action goes through a human validation. The AI proposes, you decide. The scope of what the agent may do is set from the start, and everything is traced."
         },
         {
           "q_fr": "Quelle différence entre une automatisation et un agent IA ?",
-          "q_en": "What is the difference between an automation and an AI agent?",
           "a_fr": "Une automatisation suit des règles fixes : si ceci, alors cela. Un agent IA raisonne sur une tâche, s'adapte au contexte et enchaîne les étapes. On utilise le plus simple des deux qui fait le travail, jamais l'usine à gaz.",
+          "q_en": "What is the difference between an automation and an AI agent?",
           "a_en": "An automation follows fixed rules: if this, then that. An AI agent reasons over a task, adapts to context and chains the steps. We use the simpler of the two that does the job, never the overkill machine."
         },
         {
           "q_fr": "Vous développez aussi des applications internes ?",
-          "q_en": "Do you also build internal applications?",
           "a_fr": "Oui. Quand un tableur ou un outil du marché ne suffit plus, on développe l'application métier dont l'équipe a besoin : interface simple, branchée à vos données et à vos automatisations. Vous gardez le code.",
+          "q_en": "Do you also build internal applications?",
           "a_en": "Yes. When a spreadsheet or an off-the-shelf tool no longer fits, we build the business application the team needs: a simple interface, wired to your data and your automations. You keep the code."
         },
         {
           "q_fr": "Qui pilote le système une fois livré ?",
-          "q_en": "Who pilots the system once delivered?",
           "a_fr": "Vous gardez la main, l'IA fait le répétitif. On forme un référent en interne et on documente le dispositif. L'équipe est autonome à la livraison, vous n'êtes captifs d'aucun prestataire pour faire évoluer les agents.",
+          "q_en": "Who pilots the system once delivered?",
           "a_en": "You keep control, the AI does the repetitive work. We train an internal referent and document the setup. The team is autonomous at delivery, captive to no vendor to evolve the agents."
         },
         {
           "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-          "q_en": "Where are you based, and do we need to be in Bordeaux?",
           "a_fr": "Le studio est basé à Bordeaux et travaille à distance, avec des déplacements à Bordeaux, Montpellier, Lyon et Paris. L'audit, la conception et le suivi se font en visio ou sur site, selon vous.",
+          "q_en": "Where are you based, and do we need to be in Bordeaux?",
           "a_en": "The studio is in Bordeaux and supports SMBs locally and remotely. The diagnostic, the build and the follow-up happen by video or on site, as you prefer. Proximity helps, it is not a condition."
         }
       ]

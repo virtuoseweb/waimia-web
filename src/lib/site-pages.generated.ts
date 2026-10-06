@@ -1848,7 +1848,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/balzeo",
-    "title": "Balzeo : migration WordPress, site deux fois plus rapide",
+    "title": "Balzeo : migration WordPress, site 2× plus rapide",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/balzeo.json",
@@ -1857,7 +1857,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/brow-x-professionnel",
-    "title": "Brow.X Professionnel : agent IA pour le SAV (en cours)",
+    "title": "Brow.X : agent IA pour le SAV (en cours)",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/brow-x-professionnel.json",
@@ -1866,7 +1866,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/desangles-peinture",
-    "title": "Desangles Peinture : référencement local, page 6 à 1",
+    "title": "Desangles Peinture : SEO local, de la page 6 à 1",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/desangles-peinture.json",
@@ -1875,7 +1875,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/inbound-value",
-    "title": "Inbound Value : serveur MCP de hub de preuve sociale",
+    "title": "Inbound Value : serveur MCP, hub de preuve sociale",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/inbound-value.json",
@@ -1884,7 +1884,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/isabelle-diaz-naturopathe",
-    "title": "Isabelle Diaz, naturopathe : site IA et contenu automatisé",
+    "title": "Isabelle Diaz : site IA et contenu automatisé",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/isabelle-diaz-naturopathe.json",
@@ -1893,7 +1893,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/les-carnets-de-montpellier",
-    "title": "Les Carnets de Montpellier : média payant et agent IA",
+    "title": "Les Carnets de Montpellier : média payant, agent IA",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/les-carnets-de-montpellier.json",
@@ -1902,7 +1902,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/prototypes-internes",
-    "title": "Prototypes internes : LegiCheck, agent d'entretien, quiz",
+    "title": "Prototypes internes : LegiCheck, entretien, quiz",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/prototypes-internes.json",
@@ -2569,7 +2569,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/comparatifs/claude-code-vs-cursor",
-    "title": "Claude Code vs Cursor · agentique ou autocomplétion ?",
+    "title": "Claude Code vs Cursor : lequel choisir en 2026 ?",
     "group": "ressources",
     "collection": "comparatifs",
     "file": "comparatifs/claude-code-vs-cursor.json",
@@ -2587,12 +2587,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-table",
-        "label": "Claude Code face à Cursor, capacité par capacité",
+        "label": "Claude Code face à Cursor, capacité par capacité (6 octobre 2026)",
         "background": "paper"
       },
       {
         "type": "feature-zigzag",
-        "label": "Quatre lignes de fracture",
+        "label": "Cinq lignes de fracture",
         "background": "paper-2"
       },
       {
@@ -2728,7 +2728,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Ce qui a bougé chez Claude, et ce que ça change pour vous",
+        "label": "Ce qui a bougé chez Claude et ChatGPT, et ce que ça change",
         "variant": "editorial",
         "background": "paper"
       },
@@ -2876,8 +2876,73 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+    "title": "n8n vs Make vs Zapier : comparatif PME · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "n8n vs Make vs Zapier : lequel choisir pour votre PME",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "n8n, Make et Zapier, critère par critère",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Notre verdict, situation par situation",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le bon outil se choisit sur vos tâches, pas sur un tableau.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
-    "title": "Site Web Intelligent vs WordPress · le comparatif honnête pour PME",
+    "title": "Site Web Intelligent vs WordPress : le comparatif PME",
     "group": "ressources",
     "collection": "comparatifs",
     "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
@@ -3301,7 +3366,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Le calendrier de l'AI Act au 5 octobre 2026",
+        "label": "Le calendrier de l'AI Act au 6 octobre 2026",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -3348,6 +3413,106 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/choisir-agence-ia-pme",
+    "title": "Choisir une agence IA en PME : le guide honnête",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/choisir-agence-ia-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Choisir une agence IA quand on dirige une PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Agence IA, freelance, éditeur, équipe interne : le comparatif honnête",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "La grille de décision : huit critères, trois éliminatoires",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "ink"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Fixez vos règles d'usage de l'IA avant qu'un prestataire touche vos données",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Huit points à écrire dans le devis ou le contrat",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Les cas où Waimia n'est pas le bon choix",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Si vous nous choisissez : comment Waimia travaille",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Choisir une agence IA : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un prestataire qui vous dit où il n'est pas utile. Ça se vérifie en 45 minutes.",
         "background": "ink"
       }
     ]
@@ -3765,6 +3930,107 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-for-small-business",
+    "title": "Claude for Small Business : le guide pour PME en France",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-for-small-business.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude for Small Business : ce que le plugin fait pour une PME française",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Le plugin en quatre chiffres, au 6 octobre 2026",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les 12 commandes du plugin et ce qu'elles valent en France",
+        "background": "paper-2"
+      },
+      {
+        "type": "feature-zigzag",
+        "label": "Qui décide, qui voit quoi, et comment combler les trous",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Pennylane, Qonto, Sage, PayFit : qui se branche à Claude",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand le plugin suffit, quand faire développer des connecteurs",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia adapte le plugin à une PME française",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Les nouveaux connecteurs français à Claude, quand ils sortent",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur Claude for Small Business",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le plugin est américain. Votre compta ne l'est pas.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-plugins-entreprise",
     "title": "Plugins Claude en entreprise : le guide 2026",
     "group": "ressources",
@@ -4006,6 +4272,114 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-rgpd-pme",
+    "title": "Claude et RGPD : utiliser Claude en conformité en PME",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-rgpd-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude et RGPD : utiliser Claude en conformité dans une PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Ce qu'Anthropic établit, au 5 octobre 2026",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Entraînement, rétention, contrat : offre par offre",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Registre, analyse d'impact, politique d'usage, DPA : ce que chacun fait",
+        "variant": "editorial",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le kit de conformité Claude en entreprise",
+        "background": "accent"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Ce qui passe par Claude, ce qui reste dehors",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand avancer seul, quand faire intervenir un DPO ou Waimia",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia s'y prend",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Les changements de Claude qui touchent vos données, une fois par mois",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude et RGPD : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir quelles données passent par Claude, avant que ce soit trop tard.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-skills",
     "title": "Skills Claude : créer, partager et déployer en entreprise",
     "group": "ressources",
@@ -4113,6 +4487,205 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+    "title": "Combien coûte un agent IA en PME : le coût complet",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/combien-coute-un-agent-ia-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Combien coûte un agent IA pour une PME ?",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Ce qui est sourcé, et ce qui ne l'est pas",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce qui compose le prix d'un agent IA",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le guide d'achat Claude pour PME",
+        "background": "accent"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Quand vous n'avez pas besoin de Waimia",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia chiffre un agent",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Les prix de Claude et des outils d'agents, une fois par mois",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Prix d'un agent IA : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir ce qu'un agent coûtera chez vous, avant la première heure facturée.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/cout-integration-claude-pme",
+    "title": "Coût d'une intégration Claude en PME : prix détaillés",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/cout-integration-claude-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Combien coûte une intégration Claude en PME ?",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Trois chiffres d'Anthropic, un prix Waimia",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "La grille des offres Claude, en dollars",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les heures par poste : des exemples, pas un devis",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les trois exemples côte à côte, sans les additionner",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le guide d'achat Claude pour PME, avec les budgets calculés",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand le faire soi-même, quand payer un accompagnement",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Quand les prix de Claude bougent, vous le savez avant votre prochain devis",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Coût d'une intégration Claude : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un budget écrit avant d'acheter la première licence. L'audit est gratuit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/devis-automatise",
     "title": "Devis automatisé : la méthode pas à pas pour une PME",
     "group": "ressources",
@@ -4190,6 +4763,89 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Savoir si vos devis valent d'être automatisés, et par où commencer.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/financement-formation-ia-opco",
+    "title": "Financer une formation IA en entreprise : guide OPCO",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/financement-formation-ia-opco.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Financement d'une formation IA en entreprise : OPCO, devis, convention",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Ce que disent les sources officielles, pour la France entière",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Chaque fait, sa source, sa date",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Six étapes, de l'identification de l'OPCO au suivi",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand compter sur un financement, quand ne pas le faire",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "pull-quote-block",
+        "label": "#10",
+        "variant": "centered",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "On vérifie la prise en charge avant de vous engager.",
         "background": "ink"
       }
     ]
@@ -4640,6 +5296,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/automatiser-relance-devis-n8n",
+    "title": "Automatiser la relance de devis avec n8n, pas à pas",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/automatiser-relance-devis-n8n.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
     "title": "Automatiser les relances B2B sans commercial dédié",
     "group": "blog",
@@ -4686,7 +5351,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/forward-deployed-engineer",
-    "title": "Forward deployed engineer : définition et rôle en PME",
+    "title": "Forward deployed engineer : définition, rôle PME",
     "group": "blog",
     "collection": "blog",
     "file": "blog/forward-deployed-engineer.json",
@@ -4726,6 +5391,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/tableau-de-bord-pme-quelles-donnees-suivre.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/trier-emails-entrant-claude-n8n",
+    "title": "Trier ses e-mails entrants avec Claude et n8n",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/trier-emails-entrant-claude-n8n.json",
     "editable": false,
     "sections": []
   },
@@ -5327,6 +6001,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
+      "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "/ressources/diagnostics/_index",
       "/ressources/diagnostics/claude-pme",
@@ -5336,14 +6011,20 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/ai-act-pme-calendrier",
+      "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-fonctionnalites-pme",
+      "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
+      "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/devis-automatise",
+      "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
       "/ressources/guides/roi-automatisation",
@@ -5365,6 +6046,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog",
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/applications-internes-build-vs-buy-pme",
+      "/blog/automatiser-relance-devis-n8n",
       "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
       "/blog/avis-n8n-vs-zapier-2026",
       "/blog/brain-circuit",
@@ -5375,6 +6057,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
+      "/blog/trier-emails-entrant-claude-n8n",
       "/blog/webflow-vs-wordpress-vs-site-code-ia-2026"
     ]
   },

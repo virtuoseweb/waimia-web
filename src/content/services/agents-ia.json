@@ -1,7 +1,7 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Agents IA pour entreprise : conception et mise en production",
-  "title_en": "AI agents for business: design and production deployment · Waimia",
+  "title_en": "AI agents for business: design and deployment",
   "description_fr": "Agents IA pour entreprise : un agent par mission (tri, relance, veille, reporting), branché à vos outils, avec validation humaine. Dès 999 € HT.",
   "description_en": "AI agents for business: one agent per mission (triage, follow-up, monitoring, reporting), wired to your tools, with human approval. From €999 excl. VAT.",
   "slug": "agents-ia",
@@ -14,6 +14,19 @@
     "automatisation-ia",
     "mcp",
     "chatbot-ia"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, Introducing the Model Context Protocol",
+      "url": "https://www.anthropic.com/news/model-context-protocol",
+      "type": "enterprise",
+      "publishedAt": "2024-11-25"
+    },
+    {
+      "name": "Claude, page conformité régionale (entraînement sur les données commerciales), lue le 6 octobre 2026",
+      "url": "https://claude.com/regional-compliance",
+      "type": "enterprise"
+    }
   ],
   "seo": {
     "noindex": false,
@@ -28,11 +41,11 @@
     },
     {
       "q": "Combien coûte un agent IA pour une entreprise ?",
-      "a": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement."
+      "a": "Trois postes. La conception : sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise."
     },
     {
       "q": "Agent IA ou chatbot : quelle différence ?",
-      "a": "Un chatbot répond dans une fenêtre de conversation. Un agent agit : il crée un ticket, met à jour une fiche, prépare un document. Un chatbot branché à vos données et autorisé à agir est un agent avec une interface de conversation."
+      "a": "Un chatbot répond dans une fenêtre de conversation. Un agent agit : il crée un ticket, met à jour une fiche, prépare un document. Un chatbot relié à vos données et autorisé à agir est un agent, avec une fenêtre de conversation en façade."
     },
     {
       "q": "Quels exemples d'agents IA en PME ?",
@@ -40,11 +53,11 @@
     },
     {
       "q": "Agent IA et RGPD : quelles précautions ?",
-      "a": "Limiter les données envoyées au modèle au strict nécessaire, utiliser une offre professionnelle du modèle, tracer les actions et inscrire le traitement à votre registre. Pour Claude, Anthropic indique ne pas utiliser par défaut les données de ses offres commerciales pour entraîner ses modèles (centre de confidentialité Anthropic, vérifié le 4 octobre 2026)."
+      "a": "Envoyer au modèle le strict nécessaire, passer par une offre professionnelle, journaliser les actions et inscrire le traitement à votre registre. Au 6 octobre 2026, la page conformité d'Anthropic indique que les données des offres commerciales de Claude ne servent pas, par défaut, à entraîner ses modèles."
     },
     {
       "q": "Combien de temps pour mettre un agent IA en production ?",
-      "a": "Quelques jours de cadrage, puis quelques semaines selon le nombre d'outils à connecter et la qualité des sources. Le premier agent est volontairement étroit : une mission, mesurée, avant d'élargir."
+      "a": "Comptez quelques jours de cadrage, puis quelques semaines selon le nombre d'outils à connecter et l'état de vos sources. Le premier agent est volontairement étroit : une mission, mesurée, avant d'élargir."
     }
   ],
   "faq_en": [
@@ -54,11 +67,11 @@
     },
     {
       "q": "How much does an AI agent cost for a business?",
-      "a": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
+      "a": "Three items. Design: a discovery sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
     },
     {
       "q": "AI agent or chatbot: what is the difference?",
-      "a": "A chatbot answers in a conversation window. An agent acts: it creates a ticket, updates a record, prepares a document. A chatbot wired to your data and allowed to act is an agent with a chat interface."
+      "a": "A chatbot answers in a chat window. An agent acts: it opens a ticket, updates a record, prepares a document. A chatbot connected to your data and allowed to act is an agent with a chat window in front."
     },
     {
       "q": "What are examples of AI agents in SMBs?",
@@ -66,11 +79,11 @@
     },
     {
       "q": "AI agents and GDPR: what precautions?",
-      "a": "Limit the data sent to the model to what is strictly needed, use a business plan of the model, log actions and record the processing in your register. For Claude, Anthropic states that by default it does not use data from its commercial products to train its models (Anthropic privacy center, checked on 4 October 2026)."
+      "a": "Send the model only what it needs, use a business plan, log the actions and record the processing in your register. As of 6 October 2026, Anthropic's compliance page states that data from Claude's commercial offers is not used to train its models by default."
     },
     {
       "q": "How long does it take to put an AI agent into production?",
-      "a": "A few days of scoping, then a few weeks depending on the number of tools to connect and the quality of the sources. The first agent is deliberately narrow: one mission, measured, before widening."
+      "a": "Expect a few days of scoping, then a few weeks depending on how many tools must be connected and the state of your sources. The first agent is deliberately narrow: one mission, measured, before widening."
     }
   ],
   "sections": [
@@ -87,8 +100,8 @@
       "kicker_en": "§ AI agents",
       "h1_fr": "<i class=\"acc\">Agents IA</i> pour votre entreprise",
       "h1_en": "<i class=\"acc\">AI agents</i> for your business",
-      "lede_fr": "Un agent IA est un programme qui s'appuie sur un modèle de langage (Claude ou OpenAI) pour accomplir une mission précise dans vos logiciels : lire, décider entre plusieurs actions, agir, rendre compte. Waimia conçoit ces agents pour les PME et ETI, un agent par mission, avec un périmètre écrit, une validation humaine sur les actions sensibles et un journal de tout ce qu'il fait.",
-      "lede_en": "An AI agent is a program that relies on a language model (Claude or OpenAI) to carry out a specific mission inside your software: read, decide between several actions, act, report. Waimia designs these agents for SMBs, one agent per mission, with a written scope, human approval on sensitive actions and a log of everything it does.",
+      "lede_fr": "Un agent IA s'appuie sur un modèle de langage (Claude ou OpenAI) pour mener une mission précise dans vos logiciels : il lit, choisit l'action, l'exécute et rend compte. Nous en concevons pour des PME et des ETI, avec une règle simple : une mission par agent, un périmètre écrit, une validation humaine sur ce qui engage l'entreprise et un journal de chaque action.",
+      "lede_en": "An AI agent uses a language model (Claude or OpenAI) to carry out one specific mission inside your software: it reads, picks the action, executes it and reports back. We build them for SMBs with a simple rule: one mission per agent, a written scope, human approval on anything that commits the company, and a log of every action.",
       "badges": [
         {
           "label_fr": "Un agent, une mission",
@@ -208,8 +221,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Agents IA, c'est quoi en pratique</h2>\n<p>Trois missions reviennent en PME. Trier : l'agent lit les emails ou les demandes entrantes, les classe et prépare la réponse. Relancer : il repère les devis sans suite, rédige la relance dans le ton de la maison et la soumet à validation. Rendre compte : il rassemble chaque semaine les chiffres de plusieurs outils et rédige la synthèse. Le cas le plus demandé est le support : il a sa page, <a href=\"/services/agent-support-client\">chatbot et agent de service client</a>. Quand l'agent doit répondre à partir de vos documents internes, on commence par une <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a>.</p>\n<p>Un agent n'est pas toujours nécessaire. Si la règle s'écrit en « si ceci, alors cela », une <a href=\"/services/automatisations\">automatisation</a> fait le travail pour moins cher. L'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation</a> détaille la frontière.</p>\n<h2>Avec quels outils</h2>\n<p>Le modèle : Claude ou OpenAI, choisi selon la tâche. Les connexions : l'agent accède à vos logiciels par leurs API ou par des connecteurs MCP, le Model Context Protocol, un <a href=\"https://www.anthropic.com/news/model-context-protocol\" rel=\"nofollow noopener\" target=\"_blank\">standard ouvert publié par Anthropic</a> pour relier un modèle à des sources de données et des outils (vérifié le 4 octobre 2026). L'orchestration : n8n quand l'agent s'insère dans un workflow. Le déploiement de Claude à l'échelle de l'entreprise est traité sur la page <a href=\"/services/integration-claude\">intégration Claude</a>.</p>\n<h2>Combien de temps</h2>\n<p>Le cadrage prend quelques jours, un premier agent utile sort en quelques semaines. Le temps se passe surtout à écrire le périmètre (ce que l'agent fait seul, ce qu'il soumet, ce qu'il ne touche jamais) et à le tester sur vos vrais cas, y compris ceux qui doivent échouer proprement.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un agent peut se tromper avec assurance. On traite ce risque de trois façons : il ne répond que depuis les sources qu'on lui donne, les actions qui engagent l'entreprise (envoyer, payer, supprimer) passent par une validation humaine, et chaque action est journalisée pour être relue. Deuxième risque : les données. On documente quelles données personnelles passent par le modèle, pour votre registre RGPD et vos obligations au titre de l'AI Act. Troisième risque : le coût d'usage du modèle, estimé avant le lancement puis suivi.</p>\n<p>Pour savoir si l'une de vos tâches relève d'un agent, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>. Si vos équipes doivent construire ou faire évoluer leurs propres agents, les formations <a href=\"/formations/claude\">Claude</a> et <a href=\"/formations/chatgpt\">ChatGPT</a> vont jusqu'à ce niveau.</p>",
-      "html_en": "<h2>AI agents in practice</h2>\n<p>Three missions come back in SMBs. Triage: the agent reads incoming emails or requests, classifies them and drafts the reply. Follow-up: it spots quotes left unanswered, writes the follow-up in the house tone and submits it for approval. Reporting: every week it gathers figures from several tools and writes the summary. The most requested case is support, which has its own page: <a href=\"/services/agent-support-client\">customer service chatbot and agent</a>.</p>\n<p>An agent is not always needed. If the rule can be written as \"if this, then that\", an <a href=\"/services/automatisations\">automation</a> does the job for less. The article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or automation</a> details the boundary.</p>\n<h2>With which tools</h2>\n<p>The model: Claude or OpenAI, chosen for the task. The connections: the agent reaches your software through APIs or MCP connectors, the Model Context Protocol, an <a href=\"https://www.anthropic.com/news/model-context-protocol\" rel=\"nofollow noopener\" target=\"_blank\">open standard published by Anthropic</a> for connecting a model to data sources and tools (checked on 4 October 2026). Orchestration: n8n when the agent sits inside a workflow. Company-wide Claude deployment is covered on the <a href=\"/services/integration-claude\">Claude integration</a> page.</p>\n<h2>How long</h2>\n<p>Scoping takes a few days, a first useful agent ships in a few weeks. Most of the time goes into writing the scope (what the agent does alone, what it submits, what it never touches) and testing it on your real cases, including those that must fail cleanly.</p>\n<h2>What can go wrong</h2>\n<p>An agent can be confidently wrong. We handle this in three ways: it only answers from the sources we give it, actions that commit the company (send, pay, delete) go through human approval, and every action is logged for review. Second risk: data. We document which personal data goes through the model, for your GDPR register and your AI Act obligations. Third risk: model usage cost, estimated before launch and then tracked.</p>\n<p>To find out whether one of your tasks calls for an agent, start with the <a href=\"/audit-ia-pme\">free AI audit</a>. If your teams are to build or evolve their own agents, the <a href=\"/formations/claude\">Claude</a> and <a href=\"/formations/chatgpt\">ChatGPT</a> training courses go up to that level.</p>"
+      "html_fr": "<h2>Agents IA, c'est quoi en pratique</h2>\n<p>En PME, trois missions reviennent. Le tri : l'agent lit les emails ou les demandes entrantes, les classe et prépare la réponse. La relance : il repère les devis restés sans suite, rédige la relance dans le ton de la maison et vous la soumet. Le compte rendu : chaque semaine, il rassemble les chiffres de plusieurs outils et écrit la synthèse. Le support client est le cas le plus demandé, il a sa page : <a href=\"/services/agent-support-client\">chatbot et agent de service client</a>. Si l'agent doit répondre à partir de vos documents internes, on commence par une <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a>.</p>\n<p>Souvent, vous n'avez pas besoin d'un agent. Si la règle s'écrit « si ceci, alors cela », une <a href=\"/services/automatisations\">automatisation</a> fait le travail pour moins cher et se trompe moins. Mon conseil : gardez l'agent pour ce qui demande de lire et de juger. L'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation</a> trace la frontière.</p>\n<h2>Avec quels outils</h2>\n<p>Le modèle : Claude ou OpenAI, selon la tâche et vos contraintes. Les connexions : l'agent accède à vos logiciels par leurs API ou par des connecteurs MCP. Le Model Context Protocol est un standard ouvert qu'Anthropic a publié le 25 novembre 2024 pour relier un modèle à des sources de données et à des outils (<a href=\"https://www.anthropic.com/news/model-context-protocol\" rel=\"nofollow noopener\" target=\"_blank\">annonce d'Anthropic</a>). L'orchestration : n8n, quand l'agent s'insère dans un workflow plus large. Le déploiement de Claude dans toute l'entreprise a sa propre page : <a href=\"/services/integration-claude\">intégration Claude</a>.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours de cadrage, puis quelques semaines pour un premier agent utile. Le temps part surtout dans l'écriture du périmètre : ce que l'agent fait seul, ce qu'il vous soumet, ce qu'il ne touche jamais. Puis dans les tests sur vos vrais cas, y compris ceux où il doit échouer proprement.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un agent peut se tromper avec aplomb. Il ne répond donc qu'à partir des sources qu'on lui donne. Envoyer, payer, supprimer : ces actions passent par une validation humaine. Et chaque action est journalisée pour être relue.</p>\n<p>Les données, ensuite. On documente quelles données personnelles passent par le modèle, pour votre registre RGPD et vos obligations au titre de l'AI Act. Côté Claude, au 6 octobre 2026, la page conformité d'Anthropic indique que les données des offres commerciales (Team, Enterprise, API) ne servent pas, par défaut, à entraîner ses modèles.</p>\n<p>Le coût, enfin. L'usage du modèle est facturé au volume par l'éditeur. On l'estime avant le lancement, puis on le suit chaque mois.</p>\n<p>Pour savoir si l'une de vos tâches relève d'un agent, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>. Si vos équipes veulent construire leurs propres agents, les formations <a href=\"/formations/claude\">Claude</a> et <a href=\"/formations/chatgpt\">ChatGPT</a> vont jusque-là.</p>",
+      "html_en": "<h2>AI agents in practice</h2>\n<p>Three missions keep coming up in SMBs. Triage: the agent reads incoming emails or requests, sorts them and drafts the reply. Follow-up: it spots quotes that went quiet, writes the reminder in your house tone and submits it to you. Reporting: every week it pulls figures from several tools and writes the summary. Customer support is the most requested case and has its own page: <a href=\"/services/agent-support-client\">customer service chatbot and agent</a>. If the agent must answer from your internal documents, we start with an <a href=\"/services/base-de-connaissance-ia\">AI knowledge base</a>.</p>\n<p>Often you don't need an agent at all. If the rule fits in \"if this, then that\", an <a href=\"/services/automatisations\">automation</a> does the job for less and makes fewer mistakes. My advice: keep agents for work that requires reading and judgement. The article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or automation</a> draws the line.</p>\n<h2>With which tools</h2>\n<p>The model: Claude or OpenAI, depending on the task and your constraints. The connections: the agent reaches your software through APIs or MCP connectors. The Model Context Protocol is an open standard Anthropic published on 25 November 2024 to connect a model to data sources and tools (<a href=\"https://www.anthropic.com/news/model-context-protocol\" rel=\"nofollow noopener\" target=\"_blank\">Anthropic's announcement</a>). Orchestration: n8n, when the agent is one step in a larger workflow. Rolling Claude out across the company has its own page: <a href=\"/services/integration-claude\">Claude integration</a>.</p>\n<h2>How long</h2>\n<p>A few days of scoping, then a few weeks for a first useful agent. Most of the time goes into writing the scope: what the agent does alone, what it submits, what it never touches. Then into testing on your real cases, including the ones where it must fail cleanly.</p>\n<h2>What can go wrong</h2>\n<p>An agent can be wrong with full confidence. So it only answers from the sources we give it. Sending, paying, deleting: those actions go through human approval. And every action is logged for review.</p>\n<p>Then data. We document which personal data goes through the model, for your GDPR register and your AI Act obligations. On the Claude side, as of 6 October 2026, Anthropic's compliance page states that data from its commercial offers (Team, Enterprise, API) is not used to train its models by default.</p>\n<p>Finally, cost. Model usage is billed by volume by the vendor. We estimate it before launch, then track it every month.</p>\n<p>To find out whether one of your tasks calls for an agent, start with the <a href=\"/audit-ia-pme\">free AI audit</a>. If your teams want to build their own agents, the <a href=\"/formations/claude\">Claude</a> and <a href=\"/formations/chatgpt\">ChatGPT</a> courses go that far.</p>"
     },
     {
       "type": "comparison-duo",
@@ -274,8 +287,8 @@
       "kicker_en": "§ What you keep",
       "title_fr": "Ce qui vous reste à la fin",
       "title_en": "What you keep at the end",
-      "lead_fr": "Un agent est fait de textes et de connexions. Tout vous est remis.",
-      "lead_en": "An agent is made of text and connections. Everything is handed over.",
+      "lead_fr": "Un agent, c'est du texte et des connexions. Tout vous est remis.",
+      "lead_en": "An agent is text and connections. All of it is handed over.",
       "items": [
         {
           "title_fr": "Les consignes de l'agent",
@@ -377,8 +390,8 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Combien coûte un agent IA",
       "h2_en": "How much an AI agent costs",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : cadrage de la tâche prioritaire et un premier agent en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos agents, vos accès et la documentation.",
-      "lede_en": "We start with a fixed-price discovery sprint: scoping of the priority task and a first agent in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your agents, your access and the documentation.",
+      "lede_fr": "On démarre par un sprint découverte à prix fixe : le cadrage de la tâche prioritaire et un premier agent en production. La suite se fait sur devis : on estime ensemble le temps nécessaire, vous validez, on l'exécute en sprints en régie. Vos agents, vos accès et la documentation restent à vous.",
+      "lede_en": "We start with a fixed-price discovery sprint: scoping the priority task and a first agent in production. What follows is quoted: we estimate the time together, you approve it, we deliver it in time-and-materials sprints. Your agents, your access and the documentation stay yours.",
       "tiers": [
         {
           "name_fr": "Sprint découverte",
@@ -432,8 +445,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier agent conçu, branché via MCP et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les agents suivants, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos agents, vos accès et la documentation sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first agent designed, wired via MCP and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next agents require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your agents, your access and the documentation are yours."
+      "footnote_fr": "Le sprint découverte est à prix fixe : 999 € HT pour 10 heures. Il couvre le cadrage de la tâche prioritaire et un premier agent branché via MCP, mis en production, qui tourne à la fin du sprint. La suite se fait sur devis : on estime ensemble le temps des agents suivants, vous validez, on l'exécute en sprints en régie à {{prix.horaire}} € HT de l'heure, sans dégressivité. Pas d'abonnement, pas de captivité : vos agents, vos accès et la documentation restent à vous.",
+      "footnote_en": "The discovery sprint is fixed-price: 999 € ex VAT for 10 hours. It covers scoping the priority task and a first agent wired via MCP and put into production, running by the end of the sprint. What follows is quoted: we estimate together the time the next agents need, you approve it, we deliver it in time-and-materials sprints at {{prix.horaire}} € ex VAT an hour, with no volume discount. No subscription, no lock-in: your agents, your access and the documentation stay yours."
     },
     {
       "type": "eeat-panel",
@@ -456,15 +469,15 @@
         },
         {
           "q_fr": "Combien coûte un agent IA pour une entreprise ?",
-          "a_fr": "Trois postes : la conception (sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure), l'usage du modèle facturé par l'éditeur selon le volume, et la maintenance en régie quand le périmètre évolue. Le coût d'usage est estimé avant le lancement.",
+          "a_fr": "Trois postes. La conception : sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise.",
           "q_en": "How much does an AI agent cost for a business?",
-          "a_en": "Three items: design (discovery sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT), model usage billed by the vendor based on volume, and maintenance on a time-and-materials basis as the scope evolves. Usage cost is estimated before launch."
+          "a_en": "Three items. Design: a discovery sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
         },
         {
           "q_fr": "Agent IA ou chatbot : quelle différence ?",
-          "a_fr": "Un chatbot répond dans une fenêtre de conversation. Un agent agit : il crée un ticket, met à jour une fiche, prépare un document. Un chatbot branché à vos données et autorisé à agir est un agent avec une interface de conversation.",
+          "a_fr": "Un chatbot répond dans une fenêtre de conversation. Un agent agit : il crée un ticket, met à jour une fiche, prépare un document. Un chatbot relié à vos données et autorisé à agir est un agent, avec une fenêtre de conversation en façade.",
           "q_en": "AI agent or chatbot: what is the difference?",
-          "a_en": "A chatbot answers in a conversation window. An agent acts: it creates a ticket, updates a record, prepares a document. A chatbot wired to your data and allowed to act is an agent with a chat interface."
+          "a_en": "A chatbot answers in a chat window. An agent acts: it opens a ticket, updates a record, prepares a document. A chatbot connected to your data and allowed to act is an agent with a chat window in front."
         },
         {
           "q_fr": "Quels exemples d'agents IA en PME ?",
@@ -474,15 +487,15 @@
         },
         {
           "q_fr": "Agent IA et RGPD : quelles précautions ?",
-          "a_fr": "Limiter les données envoyées au modèle au strict nécessaire, utiliser une offre professionnelle du modèle, tracer les actions et inscrire le traitement à votre registre. Pour Claude, Anthropic indique ne pas utiliser par défaut les données de ses offres commerciales pour entraîner ses modèles (centre de confidentialité Anthropic, vérifié le 4 octobre 2026).",
+          "a_fr": "Envoyer au modèle le strict nécessaire, passer par une offre professionnelle, journaliser les actions et inscrire le traitement à votre registre. Au 6 octobre 2026, la page conformité d'Anthropic indique que les données des offres commerciales de Claude ne servent pas, par défaut, à entraîner ses modèles.",
           "q_en": "AI agents and GDPR: what precautions?",
-          "a_en": "Limit the data sent to the model to what is strictly needed, use a business plan of the model, log actions and record the processing in your register. For Claude, Anthropic states that by default it does not use data from its commercial products to train its models (Anthropic privacy center, checked on 4 October 2026)."
+          "a_en": "Send the model only what it needs, use a business plan, log the actions and record the processing in your register. As of 6 October 2026, Anthropic's compliance page states that data from Claude's commercial offers is not used to train its models by default."
         },
         {
           "q_fr": "Combien de temps pour mettre un agent IA en production ?",
-          "a_fr": "Quelques jours de cadrage, puis quelques semaines selon le nombre d'outils à connecter et la qualité des sources. Le premier agent est volontairement étroit : une mission, mesurée, avant d'élargir.",
+          "a_fr": "Comptez quelques jours de cadrage, puis quelques semaines selon le nombre d'outils à connecter et l'état de vos sources. Le premier agent est volontairement étroit : une mission, mesurée, avant d'élargir.",
           "q_en": "How long does it take to put an AI agent into production?",
-          "a_en": "A few days of scoping, then a few weeks depending on the number of tools to connect and the quality of the sources. The first agent is deliberately narrow: one mission, measured, before widening."
+          "a_en": "Expect a few days of scoping, then a few weeks depending on how many tools must be connected and the state of your sources. The first agent is deliberately narrow: one mission, measured, before widening."
         }
       ]
     },

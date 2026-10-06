@@ -6,7 +6,7 @@
   "description_en": "n8n vs Make: billing per execution or per credit, hosting, maintenance. Sourced criteria table and a verdict per situation for an SME.",
   "slug": "n8n-vs-make",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "n8n-vs-make",
@@ -29,11 +29,11 @@
     },
     {
       "q": "Lequel est le moins cher ?",
-      "a": "Cela dépend de la forme de vos automatisations, pas de leur nombre. n8n compte une exécution par workflow, quel que soit le nombre d'étapes. Make compte des crédits par action de module. Un workflow long et fréquent coûte donc moins cher à l'unité sur n8n ; un scénario court et rare tient souvent dans une petite offre Make. Faites le calcul sur vos trois automatisations principales avant de choisir."
+      "a": "Cela dépend de la forme de vos automatisations, pas de leur nombre. n8n compte une exécution par workflow, quel que soit le nombre d'étapes. Make compte des crédits par action de module. Un workflow long et fréquent coûte donc moins cher à l'unité sur n8n ; un scénario court et rare tient souvent dans une petite offre Make. Au 6 octobre 2026, en annuel : 8 étapes lancées 1 000 fois par mois tiennent dans Make Core à 9 $, contre 20 € pour n8n Starter ; 10 étapes lancées 10 000 fois tiennent dans n8n Pro à 50 €, mais consomment environ 100 000 crédits sur Make. Faites le calcul sur vos trois automatisations principales avant de choisir."
     },
     {
       "q": "Où sont hébergées les données avec n8n et avec Make ?",
-      "a": "Pour n8n en cloud, l'éditeur indique des serveurs à Francfort, en Allemagne. En auto-hébergé, les données sont là où vous installez n8n. Pour Make, la documentation décrit des zones Europe et États-Unis rattachées à votre organisation. Dans les deux cas, vérifiez aussi où vont les données envoyées aux services appelés par vos workflows."
+      "a": "Pour n8n en cloud, l'éditeur indique des serveurs à Francfort, en Allemagne. En auto-hébergé, les données sont là où vous installez n8n. Pour Make, la documentation décrit des zones Europe et États-Unis rattachées à votre organisation. Dans les deux cas, les données envoyées aux services que vos workflows appellent suivent l'hébergement de ces services, pas celui de l'outil d'automatisation."
     },
     {
       "q": "Peut-on migrer de Make vers n8n plus tard ?",
@@ -55,11 +55,11 @@
     },
     {
       "q": "Which one is cheaper?",
-      "a": "It depends on the shape of your automations, not their number. n8n counts one execution per workflow, whatever the number of steps. Make counts credits per module action. A long, frequent workflow is therefore cheaper per run on n8n; a short, occasional scenario often fits a small Make plan. Do the maths on your three main automations before choosing."
+      "a": "It depends on the shape of your automations, not their number. n8n counts one execution per workflow, whatever the number of steps. Make counts credits per module action. A long, frequent workflow is therefore cheaper per run on n8n; a short, occasional scenario often fits a small Make plan. As of 6 October 2026, billed annually: 8 steps run 1,000 times a month fit Make Core at $9, against €20 for n8n Starter; 10 steps run 10,000 times fit n8n Pro at €50, but use about 100,000 credits on Make. Do the maths on your three main automations before choosing."
     },
     {
       "q": "Where is data hosted with n8n and with Make?",
-      "a": "For n8n cloud, the vendor states servers in Frankfurt, Germany. Self-hosted, data sits wherever you install n8n. For Make, the documentation describes Europe and United States zones tied to your organization. In both cases, also check where data sent to the services your workflows call ends up."
+      "a": "For n8n cloud, the vendor states servers in Frankfurt, Germany. Self-hosted, data sits wherever you install n8n. For Make, the documentation describes Europe and United States zones tied to your organization. In both cases, data sent to the services your workflows call follows those services' hosting, not the automation tool's."
     },
     {
       "q": "Can you migrate from Make to n8n later?",
@@ -86,8 +86,8 @@
           "label_en": "Sourced facts"
         },
         {
-          "label_fr": "Vérifié le 4 octobre 2026",
-          "label_en": "Checked on 4 October 2026"
+          "label_fr": "Prix relevés le 6 octobre 2026",
+          "label_en": "Prices checked on 6 October 2026"
         },
         {
           "label_fr": "Verdict par situation",
@@ -120,8 +120,8 @@
       "question_en": "n8n or Make: which to choose?",
       "term_fr": "La réponse courte",
       "term_en": "The short answer",
-      "answer_fr": "Prenez Make si la personne qui maintiendra les automatisations n'est pas technique et si vos scénarios sont courts. Prenez n8n si vos workflows sont longs ou fréquents, si vous avez besoin de code, ou si les données doivent rester sur votre infrastructure. Le prix se décide sur un point précis : n8n facture l'exécution du workflow entier, Make facture chaque action de module.",
-      "answer_en": "Pick Make if the person who will maintain the automations is not technical and your scenarios are short. Pick n8n if your workflows are long or frequent, if you need code, or if data must stay on your infrastructure. Price comes down to one precise point: n8n bills the run of the whole workflow, Make bills each module action."
+      "answer_fr": "Prenez Make si la personne qui maintiendra les automatisations n'est pas technique et si vos scénarios sont courts : 10 000 crédits Make coûtent 9 $ par mois en facturation annuelle. Prenez n8n si vos workflows sont longs ou fréquents, si vous avez besoin de code, ou si les données doivent rester sur votre infrastructure. Le prix se décide sur un point précis : n8n facture l'exécution du workflow entier, Make facture chaque action de module.",
+      "answer_en": "Pick Make if the person who will maintain the automations is not technical and your scenarios are short: 10,000 Make credits cost $9 a month billed annually. Pick n8n if your workflows are long or frequent, if you need code, or if data must stay on your infrastructure. Price comes down to one precise point: n8n bills the run of the whole workflow, Make bills each module action."
     },
     {
       "type": "editorial-table-block",
@@ -130,8 +130,8 @@
       "kicker_en": "§ Criteria",
       "heading_fr": "n8n vs Make, critère par critère",
       "heading_en": "n8n vs Make, criterion by criterion",
-      "caption_fr": "Informations lues sur les sites officiels de n8n et de Make le 4 octobre 2026. Les offres changent : vérifiez avant de vous engager.",
-      "caption_en": "Information read on the official n8n and Make sites on 4 October 2026. Plans change: check before committing.",
+      "caption_fr": "Informations lues sur les sites officiels de n8n et de Make le 6 octobre 2026. n8n affiche ses prix en euros, Make en dollars, hors taxes.",
+      "caption_en": "Information read on the official n8n and Make sites on 6 October 2026. n8n shows prices in euros, Make in dollars, excluding tax.",
       "columns_fr": [
         "Critère",
         "n8n",
@@ -155,13 +155,13 @@
         ],
         [
           "Offre gratuite",
-          "n8n : édition Community, à héberger soi-même",
-          "Make : 1 000 crédits par mois, 2 scénarios actifs"
+          "n8n : édition Community, à héberger soi-même ; en cloud, un essai mais pas d'offre gratuite",
+          "Make : 1 000 crédits par mois, 2 scénarios actifs, 15 minutes minimum entre deux exécutions"
         ],
         [
           "Première offre cloud payante",
-          "n8n : Starter, 20 € par mois facturé à l'année, 2 500 exécutions",
-          "Make : offres payantes à partir de 10 000 crédits par mois (prix en dollars sur le site)"
+          "n8n : Starter, 20 € par mois facturé à l'année, 2 500 exécutions ; Pro, 50 € pour 10 000",
+          "Make : Core, 9 $ par mois facturé à l'année pour 10 000 crédits, scénarios actifs illimités"
         ],
         [
           "Licence",
@@ -171,7 +171,7 @@
         [
           "Sortir du catalogue",
           "n8n : nœud Code (JavaScript ou Python) et requêtes HTTP",
-          "Make : application HTTP pour appeler toute API"
+          "Make : application HTTP pour appeler toute API ; app Make Code, 2 crédits par seconde d'exécution"
         ]
       ],
       "rows_en": [
@@ -187,13 +187,13 @@
         ],
         [
           "Free option",
-          "n8n: Community edition, self-hosted",
-          "Make: 1,000 credits per month, 2 active scenarios"
+          "n8n: Community edition, self-hosted; on cloud, a trial but no free plan",
+          "Make: 1,000 credits per month, 2 active scenarios, 15 minutes minimum between runs"
         ],
         [
           "First paid cloud plan",
-          "n8n: Starter, €20 per month billed annually, 2,500 executions",
-          "Make: paid plans from 10,000 credits per month (prices in dollars on the site)"
+          "n8n: Starter, €20 per month billed annually, 2,500 executions; Pro, €50 for 10,000",
+          "Make: Core, $9 per month billed annually for 10,000 credits, unlimited active scenarios"
         ],
         [
           "Licence",
@@ -203,7 +203,7 @@
         [
           "Going beyond the catalogue",
           "n8n: Code node (JavaScript or Python) and HTTP requests",
-          "Make: HTTP app to call any API"
+          "Make: HTTP app to call any API; Make Code app, 2 credits per second of execution"
         ]
       ],
       "variant": "editorial"
@@ -211,8 +211,8 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Le critère qui change la facture : ce que chacun compte</h2>\n<p>C'est la différence la plus concrète entre les deux outils, et elle est écrite noir sur blanc sur leurs pages tarifs.</p>\n<p><strong>n8n compte des exécutions.</strong> Sa page tarifs précise qu'une exécution est un passage complet du workflow, quel que soit le nombre d'étapes ou le volume de données traité.</p>\n<p><strong>Make compte des crédits.</strong> Sa page tarifs précise que chaque action effectuée par un module consomme des crédits, le plus souvent un par action.</p>\n<p><strong>Exemple de calcul</strong> (illustratif, à refaire avec vos chiffres) : un workflow de 8 étapes lancé 1 000 fois par mois représente 1 000 exécutions sur n8n. Le même traitement sur Make représente de l'ordre de 8 000 crédits, davantage si une étape boucle sur plusieurs éléments. Avec 3 étapes et 200 lancements par mois, la différence ne compte plus : 200 exécutions d'un côté, environ 600 crédits de l'autre, ce qui tient dans l'offre gratuite de Make.</p>\n<h2>Hébergement et données : la question à poser avant le prix</h2>\n<p>n8n existe en deux formes : un service cloud hébergé par l'éditeur à Francfort, et une édition à installer sur votre propre serveur. Make est un service cloud, avec des zones Europe et États-Unis. Si une règle interne ou un client vous impose de garder les données sur votre infrastructure, le choix est fait : c'est n8n auto-hébergé. Dans les autres cas, l'hébergement n'est pas un critère éliminatoire, et il vaut mieux regarder qui maintiendra l'outil.</p>\n<h2>Qui va maintenir : le critère qu'on oublie</h2>\n<p>Une automatisation vit plusieurs années. Elle casse quand un outil connecté change, quand un champ est renommé, quand un cas imprévu arrive. Notre avis, tiré des missions : l'outil qui convient est celui que la personne chargée de la maintenance sait ouvrir et lire. Une équipe métier sans développeur reprend plus facilement un scénario Make. Une équipe avec un profil technique tire plus de n8n, parce qu'elle peut écrire du code dans un nœud, versionner et héberger elle-même.</p>",
-      "html_en": "<h2>The criterion that changes the bill: what each one counts</h2>\n<p>This is the most concrete difference between the two tools, and it is written in plain terms on their pricing pages.</p>\n<p><strong>n8n counts executions.</strong> Its pricing page states that an execution is a single run of the entire workflow, however many steps it has or however much data it processes.</p>\n<p><strong>Make counts credits.</strong> Its pricing page states that each action performed by a module consumes credits, most often one per action.</p>\n<p><strong>Worked example</strong> (illustrative, redo it with your numbers): an 8-step workflow run 1,000 times a month is 1,000 executions on n8n. The same job on Make is on the order of 8,000 credits, more if a step loops over several items. With 3 steps and 200 runs a month the difference stops mattering: 200 executions on one side, about 600 credits on the other, which fits Make's free plan.</p>\n<h2>Hosting and data: the question to ask before price</h2>\n<p>n8n comes in two forms: a cloud service hosted by the vendor in Frankfurt, and an edition to install on your own server. Make is a cloud service, with Europe and United States zones. If an internal rule or a customer requires data to stay on your infrastructure, the choice is made: self-hosted n8n. Otherwise hosting is not a knockout criterion, and you are better off looking at who will maintain the tool.</p>\n<h2>Who will maintain it: the forgotten criterion</h2>\n<p>An automation lives for years. It breaks when a connected tool changes, when a field is renamed, when an unexpected case shows up. Our view, drawn from engagements: the right tool is the one the person in charge of maintenance can open and read. A business team with no developer takes over a Make scenario more easily. A team with a technical profile gets more out of n8n, because it can write code in a node, version and self-host.</p>",
+      "html_fr": "<h2>Le critère qui change la facture : ce que chacun compte</h2>\n<p>C'est la différence la plus concrète entre les deux outils, et elle est écrite noir sur blanc sur leurs pages tarifs.</p>\n<p><strong>n8n compte des exécutions.</strong> Sa page tarifs précise qu'une exécution est un passage complet du workflow, quel que soit le nombre d'étapes ou le volume de données traité.</p>\n<p><strong>Make compte des crédits.</strong> Sa page tarifs précise que chaque action effectuée par un module consomme des crédits, le plus souvent un par action.</p>\n<p><strong>Exemple de calcul</strong> (illustratif, à refaire avec vos chiffres) : un workflow de 8 étapes lancé 1 000 fois par mois représente 1 000 exécutions sur n8n. Le même traitement sur Make représente de l'ordre de 8 000 crédits, davantage si une étape boucle sur plusieurs éléments. Avec 3 étapes et 200 lancements par mois, la différence ne compte plus : 200 exécutions d'un côté, environ 600 crédits de l'autre, ce qui tient dans l'offre gratuite de Make.</p>\n<p><strong>Ce que ça coûte</strong> (prix du 6 octobre 2026, facturation annuelle) : dans le premier exemple, Make reste moins cher, car 8 000 crédits tiennent dans l'offre Core à 9 $ par mois, contre 20 € pour n8n Starter. L'écart s'inverse quand le volume grimpe : un workflow de 10 étapes lancé 10 000 fois par mois tient dans n8n Pro à 50 € par mois, alors qu'il consomme environ 100 000 crédits sur Make, dix fois le palier d'entrée. Pour le détail des offres n8n, voyez notre <a href=\"/ressources/guides/n8n-prix\">guide des prix n8n</a>.</p>\n<h2>Hébergement et données : la question à poser avant le prix</h2>\n<p>n8n existe en deux formes : un service cloud hébergé par l'éditeur à Francfort, et une édition à installer sur votre propre serveur. Make est un service cloud, avec des zones Europe et États-Unis. Si une règle interne ou un client vous impose de garder les données sur votre infrastructure, le choix est fait : c'est n8n auto-hébergé. Dans les autres cas, l'hébergement n'est pas un critère éliminatoire, et il vaut mieux regarder qui maintiendra l'outil.</p>\n<h2>Qui va maintenir : le critère qu'on oublie</h2>\n<p>Une automatisation vit plusieurs années. Elle casse quand un outil connecté change, quand un champ est renommé, quand un cas imprévu arrive. Notre avis, tiré des missions : l'outil qui convient est celui que la personne chargée de la maintenance sait ouvrir et lire. Une équipe métier sans développeur reprend plus facilement un scénario Make. Une équipe avec un profil technique tire plus de n8n, parce qu'elle peut écrire du code dans un nœud, versionner et héberger elle-même. Pour monter en compétence, nous formons sur <a href=\"/formations/make\">Make</a> comme sur <a href=\"/formations/n8n\">n8n</a>.</p>",
+      "html_en": "<h2>The criterion that changes the bill: what each one counts</h2>\n<p>This is the most concrete difference between the two tools, and it is written in plain terms on their pricing pages.</p>\n<p><strong>n8n counts executions.</strong> Its pricing page states that an execution is a single run of the entire workflow, however many steps it has or however much data it processes.</p>\n<p><strong>Make counts credits.</strong> Its pricing page states that each action performed by a module consumes credits, most often one per action.</p>\n<p><strong>Worked example</strong> (illustrative, redo it with your numbers): an 8-step workflow run 1,000 times a month is 1,000 executions on n8n. The same job on Make is on the order of 8,000 credits, more if a step loops over several items. With 3 steps and 200 runs a month the difference stops mattering: 200 executions on one side, about 600 credits on the other, which fits Make's free plan.</p>\n<p><strong>What it costs</strong> (prices as of 6 October 2026, billed annually): in the first example Make stays cheaper, because 8,000 credits fit the Core plan at $9 a month, against €20 for n8n Starter. The gap flips as volume grows: a 10-step workflow run 10,000 times a month fits n8n Pro at €50 a month, while it uses about 100,000 credits on Make, ten times the entry tier. For n8n's plans in detail, see our <a href=\"/ressources/guides/n8n-prix\">n8n pricing guide</a>.</p>\n<h2>Hosting and data: the question to ask before price</h2>\n<p>n8n comes in two forms: a cloud service hosted by the vendor in Frankfurt, and an edition to install on your own server. Make is a cloud service, with Europe and United States zones. If an internal rule or a customer requires data to stay on your infrastructure, the choice is made: self-hosted n8n. Otherwise hosting is not a knockout criterion, and you are better off looking at who will maintain the tool.</p>\n<h2>Who will maintain it: the forgotten criterion</h2>\n<p>An automation lives for years. It breaks when a connected tool changes, when a field is renamed, when an unexpected case shows up. Our view, drawn from engagements: the right tool is the one the person in charge of maintenance can open and read. A business team with no developer takes over a Make scenario more easily. A team with a technical profile gets more out of n8n, because it can write code in a node, version and self-host. To build skills in-house, we train on <a href=\"/formations/make\">Make</a> as well as <a href=\"/formations/n8n\">n8n</a>.</p>",
       "figures": [
         {
           "src": "/images/illustrations/ds/n8n-vs-make-v3-boulier-paper.webp",
@@ -258,8 +258,8 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Sources, vérifiées le 4 octobre 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, page tarifs : offres, définition d'une exécution, hébergement à Francfort</a></li><li><a href=\"https://docs.n8n.io/reference/license/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : Sustainable Use License (fair-code)</a></li><li><a href=\"https://docs.n8n.io/hosting/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : auto-hébergement et éditions</a></li><li><a href=\"https://docs.n8n.io/code/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : nœud Code (JavaScript, Python)</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, page tarifs : crédits, offre gratuite</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, catalogue des applications</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, documentation API : zones EU et US</a></li></ul>",
-      "html_en": "<h2>Sources, checked on 4 October 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, pricing page: plans, definition of an execution, Frankfurt hosting</a></li><li><a href=\"https://docs.n8n.io/reference/license/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: Sustainable Use License (fair-code)</a></li><li><a href=\"https://docs.n8n.io/hosting/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: self-hosting and editions</a></li><li><a href=\"https://docs.n8n.io/code/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: Code node (JavaScript, Python)</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, pricing page: credits, free plan</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, app catalogue</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, API documentation: EU and US zones</a></li></ul>"
+      "html_fr": "<h2>Sources, relevées le 4 et le 6 octobre 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, page tarifs : offres, définition d'une exécution, hébergement à Francfort</a></li><li><a href=\"https://docs.n8n.io/reference/license/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : Sustainable Use License (fair-code)</a></li><li><a href=\"https://docs.n8n.io/hosting/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : auto-hébergement et éditions</a></li><li><a href=\"https://docs.n8n.io/code/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : nœud Code (JavaScript, Python)</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, page tarifs : crédits, offre gratuite</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, catalogue des applications</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, documentation API : zones EU et US</a></li></ul>",
+      "html_en": "<h2>Sources, checked on 4 and 6 October 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, pricing page: plans, definition of an execution, Frankfurt hosting</a></li><li><a href=\"https://docs.n8n.io/reference/license/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: Sustainable Use License (fair-code)</a></li><li><a href=\"https://docs.n8n.io/hosting/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: self-hosting and editions</a></li><li><a href=\"https://docs.n8n.io/code/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: Code node (JavaScript, Python)</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, pricing page: credits, free plan</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, app catalogue</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, API documentation: EU and US zones</a></li></ul>"
     },
     {
       "type": "related-cards-band",
@@ -317,14 +317,14 @@
         {
           "q_fr": "Lequel est le moins cher ?",
           "q_en": "Which one is cheaper?",
-          "a_fr": "Cela dépend de la forme de vos automatisations, pas de leur nombre. n8n compte une exécution par workflow, quel que soit le nombre d'étapes. Make compte des crédits par action de module. Un workflow long et fréquent coûte donc moins cher à l'unité sur n8n ; un scénario court et rare tient souvent dans une petite offre Make. Faites le calcul sur vos trois automatisations principales avant de choisir.",
-          "a_en": "It depends on the shape of your automations, not their number. n8n counts one execution per workflow, whatever the number of steps. Make counts credits per module action. A long, frequent workflow is therefore cheaper per run on n8n; a short, occasional scenario often fits a small Make plan. Do the maths on your three main automations before choosing."
+          "a_fr": "Cela dépend de la forme de vos automatisations, pas de leur nombre. n8n compte une exécution par workflow, quel que soit le nombre d'étapes. Make compte des crédits par action de module. Un workflow long et fréquent coûte donc moins cher à l'unité sur n8n ; un scénario court et rare tient souvent dans une petite offre Make. Au 6 octobre 2026, en annuel : 8 étapes lancées 1 000 fois par mois tiennent dans Make Core à 9 $, contre 20 € pour n8n Starter ; 10 étapes lancées 10 000 fois tiennent dans n8n Pro à 50 €, mais consomment environ 100 000 crédits sur Make. Faites le calcul sur vos trois automatisations principales avant de choisir.",
+          "a_en": "It depends on the shape of your automations, not their number. n8n counts one execution per workflow, whatever the number of steps. Make counts credits per module action. A long, frequent workflow is therefore cheaper per run on n8n; a short, occasional scenario often fits a small Make plan. As of 6 October 2026, billed annually: 8 steps run 1,000 times a month fit Make Core at $9, against €20 for n8n Starter; 10 steps run 10,000 times fit n8n Pro at €50, but use about 100,000 credits on Make. Do the maths on your three main automations before choosing."
         },
         {
           "q_fr": "Où sont hébergées les données avec n8n et avec Make ?",
           "q_en": "Where is data hosted with n8n and with Make?",
-          "a_fr": "Pour n8n en cloud, l'éditeur indique des serveurs à Francfort, en Allemagne. En auto-hébergé, les données sont là où vous installez n8n. Pour Make, la documentation décrit des zones Europe et États-Unis rattachées à votre organisation. Dans les deux cas, vérifiez aussi où vont les données envoyées aux services appelés par vos workflows.",
-          "a_en": "For n8n cloud, the vendor states servers in Frankfurt, Germany. Self-hosted, data sits wherever you install n8n. For Make, the documentation describes Europe and United States zones tied to your organization. In both cases, also check where data sent to the services your workflows call ends up."
+          "a_fr": "Pour n8n en cloud, l'éditeur indique des serveurs à Francfort, en Allemagne. En auto-hébergé, les données sont là où vous installez n8n. Pour Make, la documentation décrit des zones Europe et États-Unis rattachées à votre organisation. Dans les deux cas, les données envoyées aux services que vos workflows appellent suivent l'hébergement de ces services, pas celui de l'outil d'automatisation.",
+          "a_en": "For n8n cloud, the vendor states servers in Frankfurt, Germany. Self-hosted, data sits wherever you install n8n. For Make, the documentation describes Europe and United States zones tied to your organization. In both cases, data sent to the services your workflows call follows those services' hosting, not the automation tool's."
         },
         {
           "q_fr": "Peut-on migrer de Make vers n8n plus tard ?",

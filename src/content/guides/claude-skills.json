@@ -6,7 +6,7 @@
   "description_en": "Claude Skills: how they work, SKILL.md structure, sharing limits, security, 6 SMB examples and real cost. Do it yourself or have it done.",
   "slug": "claude-skills",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "productivite",
   "cluster": "claude-pme",
   "tags": [
@@ -53,6 +53,12 @@
       "url": "https://claude.com/pricing",
       "type": "enterprise",
       "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, Provision and manage skills for your organization (centre d'aide), lu le 6 octobre 2026",
+      "url": "https://support.claude.com/en/articles/13119606",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
     }
   ],
   "seo": {
@@ -69,7 +75,7 @@
     },
     {
       "q": "Peut-on partager un skill avec toute l'équipe ?",
-      "a": "Sur claude.ai, un skill est personnel par défaut. Sur Team et Enterprise, le centre d'aide d'Anthropic décrit un partage par l'organisation et entre collègues, selon les réglages d'un propriétaire, et la page tarifs d'Anthropic confirme le déploiement de skills à l'échelle de l'organisation. La documentation développeurs qui dit l'inverse cite aussi un ancien chemin de menu. Dans Claude Code, on partage par le dossier .claude/skills d'un projet. Pour plusieurs équipes et plusieurs surfaces, la voie prévue est le plugin diffusé par une marketplace privée."
+      "a": "Oui, sur Team et Enterprise. Un propriétaire publie le skill depuis les paramètres de l'organisation et tous les membres le reçoivent aussitôt ; les membres peuvent aussi partager les leurs avec des collègues ou un groupe si le réglage de partage est actif. Les membres connectés à Claude Code avec leur compte y retrouvent ces skills. Sur Pro et Max, chacun installe les siens. Pour plusieurs équipes, la voie la plus propre reste le plugin diffusé par une marketplace privée."
     },
     {
       "q": "Quelle différence entre un skill, un projet et un plugin ?",
@@ -85,7 +91,7 @@
     },
     {
       "q": "Où vont les données et quid du RGPD ?",
-      "a": "D'après Anthropic, les données de claude.ai sont stockées aux États-Unis par défaut, sans hébergement européen confirmé pour l'application au 5 octobre 2026. Les offres Team et Enterprise ne servent pas à entraîner les modèles par défaut. Les skills ne sont pas couverts par les accords de conservation zéro de l'API. Ne mettez ni secret ni donnée personnelle dans un skill, et encadrez l'usage par une charte."
+      "a": "Les données de claude.ai sont stockées aux États-Unis par défaut. Au 6 octobre 2026, Anthropic ne propose aucune option de résidence européenne pour l'application elle-même ; elle existe en passant par AWS Bedrock ou Google Vertex. Les offres Team et Enterprise ne servent pas à entraîner les modèles par défaut. Les skills ne sont pas couverts par les accords de conservation zéro de l'API. Ne mettez ni secret ni donnée personnelle dans un skill, et encadrez l'usage par une charte."
     },
     {
       "q": "Combien de temps pour déployer des skills dans une PME avec Waimia ?",
@@ -103,7 +109,7 @@
     },
     {
       "q": "Can a skill be shared with the whole team?",
-      "a": "On claude.ai, a skill is personal by default. On Team and Enterprise, Anthropic's help center describes organisation-wide and peer sharing, depending on an owner's settings, and Anthropic's pricing page confirms organisation-wide skills deployment. The developer docs that say the opposite also cite an old menu path. In Claude Code, you share through a project's .claude/skills folder. For several teams and surfaces, the intended route is a plugin distributed through a private marketplace."
+      "a": "Yes, on Team and Enterprise. An owner publishes the skill from organisation settings and every member gets it immediately; members can also share theirs with colleagues or a group if the sharing setting is on. Members signed in to Claude Code with their account find these skills there too. On Pro and Max, everyone installs their own. For several teams, the cleanest route is still a plugin distributed through a private marketplace."
     },
     {
       "q": "What is the difference between a skill, a project and a plugin?",
@@ -119,7 +125,7 @@
     },
     {
       "q": "Where does the data go, and what about GDPR?",
-      "a": "According to Anthropic, claude.ai data is stored in the United States by default, with no confirmed EU hosting for the app as of 5 October 2026. Team and Enterprise plans are not used for model training by default. Skills are not covered by the API's zero data retention arrangements. Put no secrets or personal data in a skill, and frame usage with a policy."
+      "a": "claude.ai data is stored in the United States by default. As of 6 October 2026, Anthropic offers no EU residency option for the app itself; it exists through AWS Bedrock or Google Vertex. Team and Enterprise plans are not used for model training by default. Skills are not covered by the API's zero data retention arrangements. Put no secrets or personal data in a skill, and frame usage with a policy."
     },
     {
       "q": "How long does it take to deploy skills in an SMB with Waimia?",
@@ -134,8 +140,8 @@
       "kicker_en": "§ Guide · Claude in business",
       "h1_fr": "Skills Claude : créer, partager et déployer vos <i class=\"acc\">procédures</i> en entreprise",
       "h1_en": "Claude Skills: build, share and deploy your <i class=\"acc\">procedures</i> in a business",
-      "lede_fr": "Un skill, c'est une procédure écrite que Claude relit au bon moment : votre façon de chiffrer un devis, de relancer un impayé, de rédiger un compte rendu. Ce guide explique comment ça marche, où ça marche, ce qui bloque quand on passe d'une personne à une équipe, les risques de sécurité, six exemples pour une PME et ce que coûte un skill bien écrit.",
-      "lede_en": "A skill is a written procedure that Claude rereads at the right moment: your way of pricing a quote, chasing an unpaid invoice, writing meeting minutes. This guide explains how it works, where it works, what breaks when you move from one person to a team, the security risks, six SMB examples and what a well-written skill costs.",
+      "lede_fr": "Un skill, c'est une procédure écrite que Claude relit au bon moment : votre façon de chiffrer un devis, de relancer un impayé, de rédiger un compte rendu. Ici : comment Claude le lit, où l'installer, ce qui coince quand on passe d'une personne à une équipe, les risques, six exemples pour une PME et le vrai coût d'un skill bien écrit.",
+      "lede_en": "A skill is a written procedure that Claude rereads at the right moment: your way of pricing a quote, chasing an unpaid invoice, writing meeting minutes. Here: how Claude reads it, where to install it, what breaks when you move from one person to a team, the risks, six SMB examples and what a well-written skill really costs.",
       "badges": [
         {
           "label_fr": "Sources Anthropic lues le 5 octobre 2026",
@@ -178,7 +184,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "5 octobre 2026",
-      "updatedDate": "5 octobre 2026"
+      "updatedDate": "6 octobre 2026"
     },
     {
       "type": "direct-answer",
@@ -187,8 +193,8 @@
       "question_en": "What is a Claude skill, in one sentence?",
       "term_fr": "Skill Claude (Agent Skill)",
       "term_en": "Claude Skill (Agent Skill)",
-      "answer_fr": "Un skill Claude est un dossier qui contient une procédure écrite (le fichier SKILL.md) et, si besoin, des modèles ou des scripts. Claude garde en mémoire son nom et sa description, puis charge la procédure seulement quand une demande y correspond. Il fonctionne sur claude.ai, dans Claude Code et par l'API, mais ne se synchronise pas entre ces surfaces.",
-      "answer_en": "A Claude skill is a folder holding a written procedure (the SKILL.md file) and, if needed, templates or scripts. Claude keeps its name and description in mind, then loads the procedure only when a request matches it. It works on claude.ai, in Claude Code and through the API, but does not sync between these surfaces."
+      "answer_fr": "Un skill Claude est un dossier qui contient une procédure écrite (le fichier SKILL.md) et, si besoin, des modèles ou des scripts. Claude garde en tête son nom et sa description, puis charge la procédure seulement quand une demande y correspond. Il fonctionne sur claude.ai, dans Claude Code et par l'API ; seuls claude.ai et Claude Code se synchronisent entre eux.",
+      "answer_en": "A Claude skill is a folder holding a written procedure (the SKILL.md file) and, if needed, templates or scripts. Claude keeps its name and description in mind, then loads the procedure only when a request matches it. It works on claude.ai, in Claude Code and through the API; only claude.ai and Claude Code sync with each other."
     },
     {
       "type": "key-metric-grid",
@@ -318,8 +324,8 @@
       "kicker_en": "§ Where it works",
       "heading_fr": "Quatre surfaces, quatre façons d'installer et de partager",
       "heading_en": "Four surfaces, four ways to install and share",
-      "caption_fr": "Sources : documentation Agent Skills, documentation Claude Code et centre d'aide d'Anthropic, lus le 5 octobre 2026. Les skills ne se synchronisent pas d'une surface à l'autre.",
-      "caption_en": "Sources: Agent Skills documentation, Claude Code documentation and Anthropic help center, read on 5 October 2026. Skills do not sync from one surface to another.",
+      "caption_fr": "Sources : documentation Agent Skills, documentation Claude Code et centre d'aide d'Anthropic, relus le 6 octobre 2026. Les skills de l'API restent isolés ; ceux de claude.ai descendent dans Claude Code pour les comptes connectés.",
+      "caption_en": "Sources: Agent Skills documentation, Claude Code documentation and Anthropic help center, re-read on 6 October 2026. API skills stay isolated; claude.ai skills flow down into Claude Code for signed-in accounts.",
       "columns_fr": [
         "Surface",
         "Comment on installe",
@@ -335,14 +341,14 @@
       "rows_fr": [
         [
           "claude.ai (web, bureau, mobile)",
-          "Personnaliser > Skills, puis téléversement d'un zip par skill ; exécution de code activée",
-          "Vous, par défaut ; partage d'organisation possible en Team et Enterprise selon les réglages",
-          "Skills Word, Excel, PowerPoint et PDF d'Anthropic déjà actifs. Accès réseau variable selon les réglages"
+          "Personnaliser > Skills > Ajouter, un zip par skill ; exécution de code activée",
+          "Vous, par défaut. En Team et Enterprise, un propriétaire publie un skill pour toute l'organisation, et les membres partagent les leurs avec des collègues ou un groupe",
+          "Skills Word, Excel, PowerPoint et PDF d'Anthropic déjà actifs. Description limitée à 200 caractères. Accès réseau selon les réglages"
         ],
         [
           "Claude Code",
-          "Copie du dossier dans ~/.claude/skills (personnel) ou .claude/skills (projet)",
-          "Vous, ou tous ceux qui partagent le projet ; plugins pour aller plus loin",
+          "Dossier dans ~/.claude/skills (personnel), .claude/skills (projet) ou dans un plugin",
+          "Vous, tous ceux qui partagent le projet, ou l'équipe via un plugin. Les skills de votre compte claude.ai s'y ajoutent si vous êtes connecté avec",
           "Appel direct par /nom-du-skill. Pas de skills de documents Anthropic. Accès réseau de la machine"
         ],
         [
@@ -361,14 +367,14 @@
       "rows_en": [
         [
           "claude.ai (web, desktop, mobile)",
-          "Customize > Skills, then upload one zip per skill; code execution enabled",
-          "You, by default; organisation sharing possible on Team and Enterprise depending on settings",
-          "Anthropic's Word, Excel, PowerPoint and PDF skills already active. Network access varies with settings"
+          "Customize > Skills > Add, one zip per skill; code execution enabled",
+          "You, by default. On Team and Enterprise, an owner publishes a skill to the whole organisation, and members share theirs with colleagues or a group",
+          "Anthropic's Word, Excel, PowerPoint and PDF skills already active. Description capped at 200 characters. Network access depends on settings"
         ],
         [
           "Claude Code",
-          "Copy the folder into ~/.claude/skills (personal) or .claude/skills (project)",
-          "You, or everyone sharing the project; plugins to go further",
+          "Folder in ~/.claude/skills (personal), .claude/skills (project) or inside a plugin",
+          "You, everyone sharing the project, or the team through a plugin. Your claude.ai account skills are added when you sign in with it",
           "Direct call with /skill-name. No Anthropic document skills. Machine's network access"
         ],
         [
@@ -397,8 +403,8 @@
           "side": "left"
         }
       ],
-      "html_fr": "<h2>Les limites réelles, celles que les tutoriels oublient</h2>\n<p>La plupart des articles sur les skills s'arrêtent à « créez votre skill en cinq minutes ». C'est vrai pour une personne. Les difficultés commencent quand dix personnes doivent utiliser le même skill, dans la même version, sur plusieurs outils.</p>\n<h3>Pas de synchronisation entre surfaces</h3>\n<p>La documentation d'Anthropic est explicite : un skill téléversé sur claude.ai n'est pas disponible par l'API, un skill de l'API n'apparaît pas sur claude.ai, et les skills de Claude Code vivent sur le disque, à part. Une équipe qui utilise claude.ai le jour et Claude Code pour ses scripts gère donc deux copies. Quand l'une change, l'autre ne suit pas.</p>\n<h3>Le partage sur claude.ai : deux sources officielles qui divergent</h3>\n<p>La documentation développeurs indique que les skills personnalisés de claude.ai sont individuels, ne sont pas partagés à l'organisation et ne se gèrent pas de façon centralisée par l'administration. Le centre d'aide, de son côté, décrit pour Team et Enterprise un propriétaire qui peut mettre un skill à disposition de toute l'organisation, et un réglage « Skill sharing » qui permet aux membres de partager les leurs. Au 5 octobre 2026, les deux pages coexistent. La page tarifs d'Anthropic confirme le déploiement de skills à l'échelle de l'organisation sur Team et Enterprise ; la page développeurs qui dit l'inverse cite aussi un ancien chemin de menu. Notre lecture : le partage existe côté application pour les organisations ; le partage entre membres dépend du réglage choisi par un propriétaire. Sur Pro et Max, chacun installe ses skills.</p>\n<h3>Pour une équipe, la voie prévue est le plugin</h3>\n<p>Un plugin regroupe des skills, des connecteurs vers vos outils et, selon les surfaces, des sous-agents et des commandes. Sur Team et Enterprise, l'organisation publie ses plugins dans une marketplace privée et choisit pour chacun s'il est installé par défaut, disponible, requis ou indisponible. Une correction faite une fois arrive chez tout le monde. Le détail est dans le guide <a href=\"/ressources/guides/claude-plugins-entreprise\">Plugins Claude en entreprise</a>, et pour les équipes techniques dans <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</p>\n<h3>Un skill ne remplace pas un connecteur</h3>\n<p>Un skill dit comment faire. Il ne donne pas accès à votre CRM, à votre logiciel de facturation ou à votre messagerie : c'est le rôle d'un connecteur, le plus souvent un serveur MCP, expliqué dans le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a>. Un skill de relance sans connecteur travaille sur ce que vous lui collez ; avec un connecteur en lecture, il va chercher la facture lui-même.</p>",
-      "html_en": "<h2>The real limits, the ones tutorials leave out</h2>\n<p>Most articles about skills stop at 'create your skill in five minutes'. That is true for one person. The trouble starts when ten people must use the same skill, in the same version, across several tools.</p>\n<h3>No sync between surfaces</h3>\n<p>Anthropic's documentation is explicit: a skill uploaded to claude.ai is not available through the API, an API skill does not appear on claude.ai, and Claude Code skills live on disk, separately. A team that uses claude.ai by day and Claude Code for its scripts therefore manages two copies. When one changes, the other does not follow.</p>\n<h3>Sharing on claude.ai: two official sources that disagree</h3>\n<p>The developer documentation says custom skills on claude.ai are individual, not shared with the organisation and not centrally managed by admins. The help center, for its part, describes for Team and Enterprise an owner who can make a skill available to the whole organisation, and a 'Skill sharing' setting that lets members share theirs. As of 5 October 2026, both pages coexist. Anthropic's pricing page confirms organisation-wide skills deployment on Team and Enterprise; the developer page that says the opposite also cites an old menu path. Our reading: sharing exists in the app for organisations; peer sharing depends on the setting an owner chooses. On Pro and Max, everyone installs their own skills.</p>\n<h3>For a team, the intended route is the plugin</h3>\n<p>A plugin bundles skills, connectors to your tools and, depending on the surface, subagents and commands. On Team and Enterprise, the organisation publishes its plugins in a private marketplace and decides for each one whether it is installed by default, available, required or unavailable. A fix made once reaches everyone. The details are in the guide <a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins in business</a>, and for technical teams in <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>.</p>\n<h3>A skill does not replace a connector</h3>\n<p>A skill says how to do something. It gives no access to your CRM, invoicing software or mailbox: that is a connector's job, usually an MCP server, explained in the <a href=\"/ressources/guides/mcp-claude\">MCP guide</a>. A reminder skill without a connector works on what you paste; with a read-only connector, it fetches the invoice itself.</p>"
+      "html_fr": "<h2>Les limites réelles, celles que les tutoriels oublient</h2>\n<p>Créer un skill pour soi prend cinq minutes. Les difficultés commencent quand dix personnes doivent utiliser le même skill, dans la même version, sur plusieurs outils.</p>\n<h3>Trois surfaces, une seule passerelle</h3>\n<p>Un skill téléversé sur claude.ai n'existe pas pour l'API, et un skill de l'API n'apparaît pas sur claude.ai. La passerelle qui existe va de claude.ai vers Claude Code : au 6 octobre 2026, quand vous ouvrez Claude Code avec votre compte Claude, il télécharge les skills de ce compte et vérifie les mises à jour environ toutes les 10 minutes. Un administrateur peut couper cette synchronisation par un paramètre géré. Dans l'autre sens, un skill écrit dans un dossier de projet Claude Code reste sur le disque. Une équipe qui mélange les trois surfaces gère donc encore deux copies, et la documentation développeurs, qui affirme qu'aucune surface ne se synchronise, est en retard sur ce point.</p>\n<h3>Le partage sur claude.ai : ce qui existe vraiment</h3>\n<p>En Team et Enterprise, un propriétaire passe par Paramètres de l'organisation > Plugins et skills, téléverse ou crée le skill, et celui-ci est aussitôt mis à disposition de tous les membres, dans une rubrique « Skills de l'organisation ». Le réglage « Skill sharing » laisse en plus chaque membre partager un skill avec des collègues précis ou un groupe entier. D'après le centre d'aide, ce réglage est activé par défaut en Team et en Enterprise tant que l'organisation n'a rien choisi, et désactivé par défaut dans les configurations réglementées comme HIPAA. Mon conseil : décidez qui publie avant d'ouvrir le partage entre membres, sinon vous retrouvez trois skills « devis » concurrents en un mois. Sur Pro et Max, chacun installe les siens.</p>\n<h3>Pour plusieurs équipes, le plugin reste la bonne voie</h3>\n<p>Un plugin regroupe des skills, des connecteurs vers vos outils et, selon les surfaces, des sous-agents et des commandes. Sur Team et Enterprise, l'organisation publie ses plugins dans une marketplace privée et choisit pour chacun s'il est installé par défaut, disponible, requis ou indisponible. Une correction faite une fois arrive chez tout le monde, avec le connecteur dont le skill a besoin. Le détail est dans le guide <a href=\"/ressources/guides/claude-plugins-entreprise\">Plugins Claude en entreprise</a>, et pour les équipes techniques dans <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</p>\n<h3>Un skill ne remplace pas un connecteur</h3>\n<p>Un skill dit comment faire. Il ne donne pas accès à votre CRM, à votre logiciel de facturation ou à votre messagerie : c'est le rôle d'un connecteur, le plus souvent un serveur MCP, expliqué dans le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a>. Un skill de relance sans connecteur travaille sur ce que vous lui collez ; avec un connecteur en lecture, il va chercher la facture lui-même.</p>",
+      "html_en": "<h2>The real limits, the ones tutorials leave out</h2>\n<p>Creating a skill for yourself takes five minutes. The trouble starts when ten people must use the same skill, in the same version, across several tools.</p>\n<h3>Three surfaces, one bridge</h3>\n<p>A skill uploaded to claude.ai does not exist for the API, and an API skill does not appear on claude.ai. The one bridge runs from claude.ai to Claude Code: as of 6 October 2026, when you open Claude Code with your Claude account, it downloads that account's skills and checks for updates about every 10 minutes. An admin can turn this sync off through a managed setting. The other way round, a skill written in a Claude Code project folder stays on disk. A team mixing all three surfaces still manages two copies, and the developer docs, which say no surface syncs, are behind on this point.</p>\n<h3>Sharing on claude.ai: what actually exists</h3>\n<p>On Team and Enterprise, an owner goes to Organization settings > Plugins & skills, uploads or creates the skill, and it is immediately available to every member, under 'Organization skills'. The 'Skill sharing' setting also lets each member share a skill with specific colleagues or a whole group. According to the help center, it is on by default for Team and Enterprise until the organisation sets a preference, and off by default in regulated setups such as HIPAA. My advice: decide who publishes before opening peer sharing, or you will have three competing 'quote' skills within a month. On Pro and Max, everyone installs their own.</p>\n<h3>For several teams, the plugin is still the right route</h3>\n<p>A plugin bundles skills, connectors to your tools and, depending on the surface, subagents and commands. On Team and Enterprise, the organisation publishes its plugins in a private marketplace and decides for each one whether it is installed by default, available, required or unavailable. A fix made once reaches everyone, along with the connector the skill needs. The details are in the guide <a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins in business</a>, and for technical teams in <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>.</p>\n<h3>A skill does not replace a connector</h3>\n<p>A skill says how to do something. It gives no access to your CRM, invoicing software or mailbox: that is a connector's job, usually an MCP server, explained in the <a href=\"/ressources/guides/mcp-claude\">MCP guide</a>. A reminder skill without a connector works on what you paste; with a read-only connector, it fetches the invoice itself.</p>"
     },
     {
       "type": "editorial-table-block",
@@ -506,8 +512,8 @@
       "kicker_en": "§ Three points that make the difference",
       "h2_fr": "Écrire, sécuriser, diffuser",
       "h2_en": "Write, secure, distribute",
-      "lede_fr": "Un skill utile tient à trois choses : une procédure précise, un contenu auquel on peut faire confiance, et une diffusion qui ne crée pas dix versions différentes.",
-      "lede_en": "A useful skill depends on three things: a precise procedure, content you can trust, and a rollout that does not create ten different versions.",
+      "lede_fr": "Un skill utile demande une procédure précise, un contenu sûr et une diffusion qui ne fabrique pas dix versions.",
+      "lede_en": "A useful skill needs a precise procedure, safe content and a rollout that does not produce ten versions.",
       "rows": [
         {
           "kicker_fr": "Écrire",
@@ -542,8 +548,8 @@
           "kicker_en": "Secure",
           "h3_fr": "Un skill s'installe comme un logiciel",
           "h3_en": "A skill is installed like software",
-          "body_fr": "Anthropic le dit sans détour : n'utilisez que des skills écrits par vous ou par Anthropic, ou auditez-les entièrement. Un skill malveillant peut pousser Claude à utiliser ses outils autrement qu'annoncé et faire sortir des données. Les skills qui vont chercher du contenu en ligne sont les plus risqués, car ce contenu peut contenir des instructions cachées. Les organisations Enterprise peuvent activer une analyse du contenu des skills téléversés sur claude.ai ; elle ne couvre pas ceux de l'API. La charte IA d'entreprise est le bon endroit pour écrire qui a le droit d'installer quoi.",
-          "body_en": "Anthropic says it plainly: use only skills written by you or by Anthropic, or audit them fully. A malicious skill can push Claude to use its tools in ways that do not match its stated purpose and leak data. Skills that fetch content online are the riskiest, because that content can hold hidden instructions. Enterprise organisations can turn on content scanning for skills uploaded to claude.ai; it does not cover API skills. The company AI policy is the right place to write down who may install what.",
+          "body_fr": "La documentation d'Anthropic est nette : n'utilisez que des skills écrits par vous ou par Anthropic, ou auditez-les entièrement. Un skill malveillant peut pousser Claude à utiliser ses outils autrement qu'annoncé et faire sortir des données. Les skills qui vont chercher du contenu en ligne sont les plus risqués, car ce contenu peut contenir des instructions cachées. Les organisations Enterprise peuvent activer une analyse du contenu des skills téléversés sur claude.ai et dans Cowork ; elle ne couvre pas ceux envoyés par l'API ou la Console. La charte IA d'entreprise est le bon endroit pour écrire qui a le droit d'installer quoi.",
+          "body_en": "Anthropic says it plainly: use only skills written by you or by Anthropic, or audit them fully. A malicious skill can push Claude to use its tools in ways that do not match its stated purpose and leak data. Skills that fetch content online are the riskiest, because that content can hold hidden instructions. Enterprise organisations can turn on content scanning for skills uploaded to claude.ai and Cowork; it does not cover skills sent through the API or the Console. The company AI policy is the right place to write down who may install what.",
           "points": [
             {
               "label_fr": "Lire tous les fichiers, pas seulement SKILL.md",
@@ -826,8 +832,8 @@
         {
           "q_fr": "Peut-on partager un skill avec toute l'équipe ?",
           "q_en": "Can a skill be shared with the whole team?",
-          "a_fr": "Sur claude.ai, un skill est personnel par défaut. Sur Team et Enterprise, le centre d'aide d'Anthropic décrit un partage par l'organisation et entre collègues, selon les réglages d'un propriétaire, et la page tarifs d'Anthropic confirme le déploiement de skills à l'échelle de l'organisation. La documentation développeurs qui dit l'inverse cite aussi un ancien chemin de menu. Dans Claude Code, on partage par le dossier .claude/skills d'un projet. Pour plusieurs équipes et plusieurs surfaces, la voie prévue est le plugin diffusé par une marketplace privée.",
-          "a_en": "On claude.ai, a skill is personal by default. On Team and Enterprise, Anthropic's help center describes organisation-wide and peer sharing, depending on an owner's settings, and Anthropic's pricing page confirms organisation-wide skills deployment. The developer docs that say the opposite also cite an old menu path. In Claude Code, you share through a project's .claude/skills folder. For several teams and surfaces, the intended route is a plugin distributed through a private marketplace."
+          "a_fr": "Oui, sur Team et Enterprise. Un propriétaire publie le skill depuis les paramètres de l'organisation et tous les membres le reçoivent aussitôt ; les membres peuvent aussi partager les leurs avec des collègues ou un groupe si le réglage de partage est actif. Les membres connectés à Claude Code avec leur compte y retrouvent ces skills. Sur Pro et Max, chacun installe les siens. Pour plusieurs équipes, la voie la plus propre reste le plugin diffusé par une marketplace privée.",
+          "a_en": "Yes, on Team and Enterprise. An owner publishes the skill from organisation settings and every member gets it immediately; members can also share theirs with colleagues or a group if the sharing setting is on. Members signed in to Claude Code with their account find these skills there too. On Pro and Max, everyone installs their own. For several teams, the cleanest route is still a plugin distributed through a private marketplace."
         },
         {
           "q_fr": "Quelle différence entre un skill, un projet et un plugin ?",
@@ -850,8 +856,8 @@
         {
           "q_fr": "Où vont les données et quid du RGPD ?",
           "q_en": "Where does the data go, and what about GDPR?",
-          "a_fr": "D'après Anthropic, les données de claude.ai sont stockées aux États-Unis par défaut, sans hébergement européen confirmé pour l'application au 5 octobre 2026. Les offres Team et Enterprise ne servent pas à entraîner les modèles par défaut. Les skills ne sont pas couverts par les accords de conservation zéro de l'API. Ne mettez ni secret ni donnée personnelle dans un skill, et encadrez l'usage par une charte.",
-          "a_en": "According to Anthropic, claude.ai data is stored in the United States by default, with no confirmed EU hosting for the app as of 5 October 2026. Team and Enterprise plans are not used for model training by default. Skills are not covered by the API's zero data retention arrangements. Put no secrets or personal data in a skill, and frame usage with a policy."
+          "a_fr": "Les données de claude.ai sont stockées aux États-Unis par défaut. Au 6 octobre 2026, Anthropic ne propose aucune option de résidence européenne pour l'application elle-même ; elle existe en passant par AWS Bedrock ou Google Vertex. Les offres Team et Enterprise ne servent pas à entraîner les modèles par défaut. Les skills ne sont pas couverts par les accords de conservation zéro de l'API. Ne mettez ni secret ni donnée personnelle dans un skill, et encadrez l'usage par une charte.",
+          "a_en": "claude.ai data is stored in the United States by default. As of 6 October 2026, Anthropic offers no EU residency option for the app itself; it exists through AWS Bedrock or Google Vertex. Team and Enterprise plans are not used for model training by default. Skills are not covered by the API's zero data retention arrangements. Put no secrets or personal data in a skill, and frame usage with a policy."
         },
         {
           "q_fr": "Combien de temps pour déployer des skills dans une PME avec Waimia ?",

@@ -133,9 +133,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -160,6 +178,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -169,9 +196,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -674,12 +728,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 11,
+      "label": "Ce qui passe par Claude, ce qui reste dehors",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
       "index": 12,
       "label": "Quand le faire vous-même, quand le faire faire",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 11,
+      "label": "Quand vous n'avez pas besoin de Waimia",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -959,7 +1031,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 2,
-      "label": "Claude Code face à Cursor, capacité par capacité",
+      "label": "Claude Code face à Cursor, capacité par capacité (6 octobre 2026)",
       "background": "paper"
     },
     {
@@ -1011,6 +1083,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 9,
+      "label": "Fixez vos règles d'usage de l'IA avant qu'un prestataire touche vos données",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -1043,6 +1124,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-fonctionnalites-pme",
       "index": 10,
       "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 11,
+      "label": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
       "background": "paper-2"
     },
     {
@@ -1092,12 +1182,39 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 9,
+      "label": "Recevez le kit de conformité Claude en entreprise",
+      "background": "accent"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
       "index": 10,
       "label": "Recevez le pack de 8 skills Claude pour PME",
       "background": "accent"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 10,
+      "label": "Recevez le guide d'achat Claude pour PME",
+      "background": "accent"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 12,
+      "label": "Recevez le guide d'achat Claude pour PME, avec les budgets calculés",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -1240,6 +1357,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 5,
+      "label": "Notre verdict, situation par situation",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -1291,6 +1417,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 6,
       "label": "Si vous déployez un système à haut risque : ce que l'article 26 demandera au 2 décembre 2027",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 12,
+      "label": "Les cas où Waimia n'est pas le bon choix",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -1505,7 +1640,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt",
       "route": "src/content/formations/chatgpt.json",
       "index": 7,
-      "label": "Niveau 3 : à l'issue, vous savez construire un système IA avec OpenAI",
+      "label": "Niveau 3 : vous construisez un système IA sur la plateforme d'OpenAI ou avec Codex",
       "background": "paper-2"
     },
     {
@@ -2328,6 +2463,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -2391,6 +2535,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -2427,6 +2580,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -2445,6 +2607,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -2454,9 +2625,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -2823,6 +3021,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
       "collection": "guides",
       "file": "guides/agent-ia-definition.json",
       "slug": "agent-ia-definition",
@@ -2881,6 +3115,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
       "index": 10,
       "label": "#10",
       "background": "paper"
@@ -3028,6 +3307,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 9,
       "label": "#9",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -3121,6 +3436,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -3148,6 +3508,87 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 9,
+      "label": "#9",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -3162,6 +3603,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/devis-automatise",
       "index": 10,
       "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 9,
+      "label": "#9",
       "background": "paper"
     },
     {
@@ -3581,7 +4049,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 4,
-      "label": "Ce qui a bougé chez Claude, et ce que ça change pour vous",
+      "label": "Ce qui a bougé chez Claude et ChatGPT, et ce que ça change",
       "variant": "editorial",
       "background": "paper"
     },
@@ -3593,6 +4061,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 2,
       "label": "n8n vs Make, critère par critère",
       "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 2,
+      "label": "n8n, Make et Zapier, critère par critère",
       "background": "paper"
     },
     {
@@ -3631,8 +4108,35 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 4,
-      "label": "Le calendrier de l'AI Act au 5 octobre 2026",
+      "label": "Le calendrier de l'AI Act au 6 octobre 2026",
       "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 4,
+      "label": "Agence IA, freelance, éditeur, équipe interne : le comparatif honnête",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 6,
+      "label": "La grille de décision : huit critères, trois éliminatoires",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 11,
+      "label": "Huit points à écrire dans le devis ou le contrat",
       "background": "paper-2"
     },
     {
@@ -3735,6 +4239,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 5,
+      "label": "Les 12 commandes du plugin et ce qu'elles valent en France",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 8,
+      "label": "Pennylane, Qonto, Sage, PayFit : qui se branche à Claude",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -3771,6 +4293,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 5,
+      "label": "Entraînement, rétention, contrat : offre par offre",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 7,
+      "label": "Registre, analyse d'impact, politique d'usage, DPA : ce que chacun fait",
+      "variant": "editorial",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -3791,6 +4333,53 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 4,
+      "label": "Ce qui compose le prix d'un agent IA",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 7,
+      "label": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 5,
+      "label": "La grille des offres Claude, en dollars",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 8,
+      "label": "Les heures par poste : des exemples, pas un devis",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 11,
+      "label": "Les trois exemples côte à côte, sans les additionner",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -3798,6 +4387,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Quatre façons d'automatiser un devis, et le cas qui correspond à chacune",
       "variant": "editorial",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 5,
+      "label": "Chaque fait, sa source, sa date",
+      "variant": "editorial",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -4071,7 +4670,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt",
       "route": "src/content/formations/chatgpt.json",
       "index": 6,
-      "label": "Programme du niveau 2 : devenir expert de l'application",
+      "label": "Programme du niveau 2 : étendre ChatGPT avec des GPT et des applications",
       "background": "paper-3"
     },
     {
@@ -4080,7 +4679,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt",
       "route": "src/content/formations/chatgpt.json",
       "index": 8,
-      "label": "Programme du niveau 3 : deux parcours, un tronc commun",
+      "label": "Programme du niveau 3 : parcours plateforme, parcours Codex, socle partagé",
       "background": "paper"
     },
     {
@@ -4629,6 +5228,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 9,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -4692,6 +5300,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 16,
+      "label": "Choisir une agence IA : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -4728,6 +5345,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 16,
+      "label": "Questions fréquentes sur Claude for Small Business",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -4746,6 +5372,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 17,
+      "label": "Claude et RGPD : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -4755,11 +5390,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 15,
+      "label": "Prix d'un agent IA : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 16,
+      "label": "Coût d'une intégration Claude : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
       "index": 12,
       "label": "Devis automatisé : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 12,
+      "label": "Questions fréquentes",
       "background": "paper"
     },
     {
@@ -5386,7 +6048,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 3,
-      "label": "Quatre lignes de fracture",
+      "label": "Cinq lignes de fracture",
       "background": "paper-2"
     },
     {
@@ -5459,6 +6121,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-fonctionnalites-pme",
       "index": 6,
       "label": "Trois fonctionnalités qui changent le travail d'une PME",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 6,
+      "label": "Qui décide, qui voit quoi, et comment combler les trous",
       "background": "paper-2"
     },
     {
@@ -5807,6 +6478,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 10,
+      "label": "Le bon outil se choisit sur vos tâches, pas sur un tableau.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -5870,6 +6550,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 17,
+      "label": "Un prestataire qui vous dit où il n'est pas utile. Ça se vérifie en 45 minutes.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -5906,6 +6595,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 17,
+      "label": "Le plugin est américain. Votre compta ne l'est pas.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -5924,6 +6622,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 18,
+      "label": "Savoir quelles données passent par Claude, avant que ce soit trop tard.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -5933,11 +6640,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 16,
+      "label": "Savoir ce qu'un agent coûtera chez vous, avant la première heure facturée.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 17,
+      "label": "Un budget écrit avant d'acheter la première licence. L'audit est gratuit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
       "index": 13,
       "label": "Savoir si vos devis valent d'être automatisés, et par où commencer.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 13,
+      "label": "On vérifie la prise en charge avant de vous engager.",
       "background": "ink"
     },
     {
@@ -6180,7 +6914,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt",
       "route": "src/content/formations/chatgpt.json",
       "index": 14,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "label": "Vos usages ChatGPT d'aujourd'hui servent de matière première.",
       "background": "ink"
     },
     {
@@ -6189,7 +6923,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude",
       "route": "src/content/formations/claude.json",
       "index": 18,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "label": "Le programme se monte sur vos tâches Claude, pas sur un catalogue.",
       "background": "ink"
     },
     {
@@ -6207,7 +6941,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "make",
       "route": "src/content/formations/make.json",
       "index": 9,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "label": "Vos scénarios Make servent de support de cours.",
       "background": "ink"
     },
     {
@@ -6216,7 +6950,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "n8n",
       "route": "src/content/formations/n8n.json",
       "index": 9,
-      "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
+      "label": "Vos workflows n8n sont le programme.",
       "background": "ink"
     },
     {
@@ -6798,6 +7532,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 0,
+      "label": "n8n vs Make vs Zapier : lequel choisir pour votre PME",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -6852,6 +7595,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 0,
+      "label": "Choisir une agence IA quand on dirige une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -6888,6 +7640,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 0,
+      "label": "Claude for Small Business : ce que le plugin fait pour une PME française",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -6906,6 +7667,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 0,
+      "label": "Claude et RGPD : utiliser Claude en conformité dans une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -6915,11 +7685,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 0,
+      "label": "Combien coûte un agent IA pour une PME ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 0,
+      "label": "Combien coûte une intégration Claude en PME ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
       "index": 0,
       "label": "Devis automatisé : la méthode pas à pas, quel que soit l'outil",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 0,
+      "label": "Financement d'une formation IA en entreprise : OPCO, devis, convention",
       "background": "paper"
     },
     {
@@ -7247,6 +8044,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 3,
+      "label": "Le plugin en quatre chiffres, au 6 octobre 2026",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -7266,12 +8073,52 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 3,
+      "label": "Ce qu'Anthropic établit, au 5 octobre 2026",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
       "index": 3,
       "label": "Ce qu'Anthropic fixe, au 5 octobre 2026",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 3,
+      "label": "Ce qui est sourcé, et ce qui ne l'est pas",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 3,
+      "label": "Trois chiffres d'Anthropic, un prix Waimia",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 3,
+      "label": "Ce que disent les sources officielles, pour la France entière",
+      "variant": "accent",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -7476,6 +8323,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "newsletter-signup-section": [
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 15,
+      "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -7512,6 +8368,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 15,
+      "label": "Les nouveaux connecteurs français à Claude, quand ils sortent",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -7530,11 +8395,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 16,
+      "label": "Les changements de Claude qui touchent vos données, une fois par mois",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
       "index": 16,
       "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 14,
+      "label": "Les prix de Claude et des outils d'agents, une fois par mois",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 15,
+      "label": "Quand les prix de Claude bougent, vous le savez avant votre prochain devis",
       "background": "ink"
     }
   ],
@@ -8125,6 +9017,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 13,
+      "label": "Si vous nous choisissez : comment Waimia travaille",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -8161,6 +9062,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 13,
+      "label": "Comment Waimia adapte le plugin à une PME française",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -8188,6 +9098,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 14,
+      "label": "Comment Waimia s'y prend",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -8197,11 +9116,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 12,
+      "label": "Comment Waimia chiffre un agent",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
       "index": 4,
       "label": "Automatiser un devis en six étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 6,
+      "label": "Six étapes, de l'identification de l'OPCO au suivi",
       "background": "paper-3"
     },
     {
@@ -8627,6 +9564,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 10,
+      "label": "#10",
+      "variant": "centered",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -8828,6 +9775,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/n8n-vs-make-vs-zapier.json",
+      "slug": "n8n-vs-make-vs-zapier",
+      "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "index": 8,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/site-web-intelligent-vs-wordpress.json",
       "slug": "site-web-intelligent-vs-wordpress",
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -8882,6 +9838,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/choisir-agence-ia-pme.json",
+      "slug": "choisir-agence-ia-pme",
+      "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -8918,6 +9883,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -8936,6 +9910,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 15,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
@@ -8945,9 +9928,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/combien-coute-un-agent-ia-pme.json",
+      "slug": "combien-coute-un-agent-ia-pme",
+      "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "index": 13,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
       "index": 11,
       "label": "Pour aller plus loin",
       "background": "paper-2"
@@ -9355,11 +10365,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 12,
+      "label": "Quand le plugin suffit, quand faire développer des connecteurs",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
       "index": 11,
       "label": "Quand prendre un plugin officiel, quand en faire construire un",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-rgpd-pme.json",
+      "slug": "claude-rgpd-pme",
+      "route": "/ressources/guides/claude-rgpd-pme",
+      "index": 13,
+      "label": "Quand avancer seul, quand faire intervenir un DPO ou Waimia",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-integration-claude-pme.json",
+      "slug": "cout-integration-claude-pme",
+      "route": "/ressources/guides/cout-integration-claude-pme",
+      "index": 13,
+      "label": "Quand le faire soi-même, quand payer un accompagnement",
       "background": "paper"
     },
     {
@@ -9370,6 +10407,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 8,
       "label": "Quand automatiser vos devis, et quand s'abstenir",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/financement-formation-ia-opco.json",
+      "slug": "financement-formation-ia-opco",
+      "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 8,
+      "label": "Quand compter sur un financement, quand ne pas le faire",
+      "background": "paper"
     },
     {
       "collection": "guides",

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · choisir-agence-ia-pme · une balance géante : piles de caisses à gauche, un seul objet lourd à droite, deux observateurs -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="300" r="260" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect x="716" y="170" width="24" height="330" fill="{{subject}}"/>
+  <rect x="660" y="488" width="136" height="14" fill="{{subject}}"/>
+  <circle cx="728" cy="170" r="22" fill="{{subject}}"/>
+  <circle cx="728" cy="170" r="8" fill="{{light}}"/>
+  <g transform="rotate(-4 728 170)">
+    <rect x="348" y="162" width="760" height="16" rx="8" fill="{{subject}}"/>
+  </g>
+  <path d="M349 197 L260 370 M349 197 L438 370" stroke="{{subject}}" stroke-width="4" fill="none"/>
+  <path d="M1107 144 L1018 300 M1107 144 L1196 300" stroke="{{subject}}" stroke-width="4" fill="none"/>
+  <path d="M240 370 L458 370 Q430 410 349 412 Q268 410 240 370 Z" fill="{{subject}}"/>
+  <path d="M998 300 L1216 300 Q1188 340 1107 342 Q1026 340 998 300 Z" fill="{{subject}}"/>
+  <rect x="270" y="296" width="62" height="74" fill="{{detail}}"/><rect x="336" y="318" width="52" height="52" fill="{{deep}}"/><rect x="392" y="330" width="46" height="40" fill="{{detail}}"/>
+  <rect x="290" y="226" width="56" height="70" fill="{{deep}}"/><rect x="350" y="250" width="44" height="46" fill="{{detail}}"/><rect x="306" y="170" width="46" height="56" fill="{{detail}}"/>
+  <circle cx="1107" cy="262" r="40" fill="{{detail}}"/><circle cx="1107" cy="262" r="16" fill="{{deep}}"/>
+  <use href="#pointer" transform="translate(500 512) scale(1.3)"/>
+  <use href="#reacher" transform="translate(960 512) scale(1.2)"/>
+  <use href="#man" transform="translate(1210 512)"/>
+
+</svg>

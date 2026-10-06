@@ -6,7 +6,7 @@
   "description_en": "AI agent: definition, a table to tell it from a chatbot and an automation, a worked running cost, questions to ask a vendor, limits.",
   "slug": "agent-ia-definition",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "productivite",
   "tags": [
     "agents-ia",
@@ -15,7 +15,29 @@
     "claude",
     "guide-pme"
   ],
-  "sources": [],
+  "sources": [
+    {
+      "name": "Anthropic, Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "research",
+      "publishedAt": "2024-12-19"
+    },
+    {
+      "name": "OpenAI, API documentation, Agents",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude Platform, pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, help center, Claude Cowork and chat are one Claude",
+      "url": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude",
+      "type": "enterprise"
+    }
+  ],
   "seo": {
     "noindex": false
   },
@@ -34,7 +56,7 @@
     },
     {
       "q": "ChatGPT ou Claude sont-ils des agents IA ?",
-      "a": "Dans leur usage de base, ChatGPT et Claude sont des assistants : ils répondent dans une conversation. Ils deviennent des agents quand on leur donne des outils et qu'on les laisse enchaîner des actions. C'est le cas de Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé) : voir le guide Claude Cowork de Waimia, sources à l'appui."
+      "a": "Dans leur usage de base, ChatGPT et Claude sont des assistants : ils répondent dans une conversation. Ils deviennent des agents quand on leur donne des outils et qu'on les laisse enchaîner des actions. C'est le cas de Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, qui fusionne avec Claude depuis le 16 septembre 2026, en déploiement progressif, Pro et Max d'abord. Le guide Claude Cowork de Waimia détaille ce qui change."
     },
     {
       "q": "Un agent IA peut-il agir sans validation humaine ?",
@@ -60,7 +82,7 @@
     },
     {
       "q": "Are ChatGPT or Claude AI agents?",
-      "a": "In their basic use, ChatGPT and Claude are assistants: they answer in a conversation. They become agents when given tools and allowed to chain actions. That is the case of Cowork, Claude's agent that carries out tasks in your files and tools, now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now): see Waimia's Claude Cowork guide, with sources."
+      "a": "In their basic use, ChatGPT and Claude are assistants: they answer in a conversation. They become agents when given tools and allowed to chain actions. That is the case of Cowork, Claude's agent that carries out tasks in your files and tools, which has been merging into Claude since 16 September 2026, in a gradual rollout, Pro and Max first. Waimia's Claude Cowork guide covers what changes."
     },
     {
       "q": "Can an AI agent act without human approval?",
@@ -79,8 +101,8 @@
       "kicker_en": "§ Guide",
       "h1_fr": "Agent IA : c'est quoi ? Définition, coût d'usage et limites",
       "h1_en": "What is an AI agent? Definition, running cost and limits",
-      "lede_fr": "Le mot « agent » sert à vendre des choses très différentes : un assistant conversationnel (souvent appelé chatbot), une automatisation, un agent. Ce guide donne une définition courte, un tableau pour distinguer les trois, cinq questions à poser à un vendeur, un exemple de coût d'usage, et la liste de ce qui peut rater avec le garde-fou correspondant.",
-      "lede_en": "The word “agent” is used to sell very different things: a conversational assistant (often called a chatbot), an automation, an agent. This guide gives a short definition, a table to tell the three apart, five questions to ask a vendor, an example of running cost, and the list of what can go wrong with the matching safeguard.",
+      "lede_fr": "Le mot « agent » sert à vendre trois choses très différentes : un assistant qui répond, une automatisation qui déroule un scénario, un agent qui décide de ses étapes. Ils n'ont ni le même prix ni les mêmes risques. Ce guide vous donne de quoi les distinguer en une ligne, ce que coûte vraiment l'usage, et les questions qui démasquent un vendeur.",
+      "lede_en": "The word “agent” is used to sell three very different things: an assistant that answers, an automation that runs a script, an agent that decides its own steps. They differ in price and in risk. This guide gives you a one-line test to tell them apart, the real running cost, and the questions that expose a vendor.",
       "badges": [
         {
           "label_fr": "Définition sourcée",
@@ -91,8 +113,8 @@
           "label_en": "Running cost worked out"
         },
         {
-          "label_fr": "Vérifié le 5 octobre 2026",
-          "label_en": "Checked on 5 October 2026"
+          "label_fr": "Vérifié le 6 octobre 2026",
+          "label_en": "Checked on 6 October 2026"
         }
       ],
       "cta_primary": {
@@ -123,7 +145,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "5 octobre 2026",
-      "updatedDate": "5 octobre 2026"
+      "updatedDate": "6 octobre 2026"
     },
     {
       "type": "direct-answer",
@@ -302,8 +324,8 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Deux projets de Waimia, et où ils se situent dans le tableau</h2>\n<p><strong>Un agent de service après-vente pour un e-commerce.</strong> Waimia construit pour <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a>, boutique en ligne sur Shopify, un agent qui prépare les réponses aux demandes de SAV. Il s'appuie sur la boîte mail, la boutique, le suivi des transporteurs, des règles métier et une base de connaissance. Deux garde-fous : l'équipe valide chaque réponse avant envoi, et la première version ne traite que les demandes rattachées à un numéro de commande. Le projet est en cours de construction. Aucun chiffre d'impact n'est publié.</p>\n<p><strong>Un assistant documentaire pour un média local, à la limite de la définition.</strong> Pour <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>, Waimia a mis en place un agent dans Notion qui s'appuie sur les documents de l'historien, rangés dans son Drive. L'historien reste la source : ce sont ses documents et son écriture qui alimentent l'agent. Selon le tableau ci-dessus, ce projet est plus proche d'un assistant doté d'une base de connaissance que d'un agent qui enchaîne des actions : le mot « agent » y désigne la fonction de Notion. Aucun chiffre d'impact n'est publié sur ce volet.</p>\n<p>Dans le premier projet, la règle est écrite : l'agent prépare, une personne décide. C'est la forme d'agent que Waimia recommande pour démarrer en PME, et la moins spectaculaire.</p>\n<h2>Ce qu'un agent IA ne sait pas faire</h2>\n<ul><li><strong>Être fiable à chaque fois.</strong> Un agent enchaîne des étapes, et les erreurs se cumulent. Calcul illustratif : si chaque étape réussit 95 fois sur 100, une tâche de dix étapes réussit environ 60 fois sur 100 (0,95 à la puissance 10). D'où l'intérêt de tâches courtes et d'une relecture.</li><li><strong>Deviner une règle qui n'est pas écrite.</strong> Si personne n'a rédigé la procédure, l'agent en invente une. Écrire la procédure est une étape du projet à part entière.</li><li><strong>Agir sans accès.</strong> Un agent ne fait que ce que ses outils lui permettent. Un logiciel sans interface de programmation ni export reste hors de portée.</li><li><strong>Porter une décision.</strong> Rembourser, refuser, engager l'entreprise : l'agent peut préparer le dossier, pas assumer le choix.</li><li><strong>Coûter aussi peu qu'une automatisation.</strong> Chaque étape appelle le modèle. Une tâche identique des milliers de fois par mois relève d'un workflow, pas d'un agent.</li></ul>",
-      "html_en": "<h2>Two Waimia projects, and where they sit in the table</h2>\n<p><strong>A customer-support agent for an online shop.</strong> For <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a>, a Shopify store, Waimia is building an agent that prepares replies to support requests. It relies on the mailbox, the shop, carrier tracking, business rules and a knowledge base. Two safeguards: the team approves every reply before it is sent, and the first version only handles requests tied to an order number. The project is under construction. No impact figure is published.</p>\n<p><strong>A document assistant for a local media outlet, at the edge of the definition.</strong> For <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>, Waimia set up an agent in Notion that relies on the historian's documents, stored in his Drive. The historian remains the source: his documents and his writing feed the agent. By the table above, this project is closer to an assistant with a knowledge base than to an agent chaining actions: the word “agent” there refers to Notion's feature. No impact figure is published for this part.</p>\n<p>In the first project, the rule is written down: the agent prepares, a person decides. It is the form of agent Waimia recommends to start with in an SMB, and the least spectacular.</p>\n<h2>What an AI agent cannot do</h2>\n<ul><li><strong>Be reliable every time.</strong> An agent chains steps, and errors compound. Illustrative calculation: if each step succeeds 95 times out of 100, a ten-step task succeeds about 60 times out of 100 (0.95 to the power of 10). Hence the value of short tasks and a review.</li><li><strong>Guess a rule that is not written.</strong> If nobody wrote the procedure, the agent makes one up. Writing the procedure is a project step in its own right.</li><li><strong>Act without access.</strong> An agent only does what its tools allow. An application with no programming interface and no export stays out of reach.</li><li><strong>Own a decision.</strong> Refund, refuse, commit the company: the agent can prepare the file, not take responsibility for the choice.</li><li><strong>Cost as little as an automation.</strong> Every step calls the model. A task repeated identically thousands of times a month belongs in a workflow, not an agent.</li></ul>",
+      "html_fr": "<h2>Deux projets de Waimia, et où ils se situent dans le tableau</h2>\n<p><strong>Un agent de service après-vente pour un e-commerce.</strong> Waimia construit pour <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a>, boutique en ligne sur Shopify, un agent qui prépare les réponses aux demandes de SAV. Il s'appuie sur la boîte mail, la boutique, le suivi des transporteurs, des règles métier et une base de connaissance. Deux garde-fous : l'équipe valide chaque réponse avant envoi, et la première version ne traite que les demandes rattachées à un numéro de commande. Le projet est en cours de construction. Aucun chiffre d'impact n'est publié.</p>\n<p><strong>Un assistant documentaire pour un média local, à la limite de la définition.</strong> Pour <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>, Waimia a mis en place un agent dans Notion qui s'appuie sur les documents de l'historien, rangés dans son Drive. L'historien reste la source : ce sont ses documents et son écriture qui alimentent l'agent. Selon le tableau ci-dessus, ce projet est plus proche d'un assistant doté d'une base de connaissance que d'un agent qui enchaîne des actions : le mot « agent » y désigne la fonction de Notion. Aucun chiffre d'impact n'est publié sur ce volet.</p>\n<p>Dans le premier projet, la règle est écrite : l'agent prépare, une personne décide. C'est la forme que je recommande pour démarrer en PME. La moins spectaculaire, et celle qui tient en production.</p>\n<h2>Ce qu'un agent IA ne sait pas faire</h2>\n<ul><li><strong>Être fiable à chaque fois.</strong> Un agent enchaîne des étapes, et les erreurs se cumulent. Calcul illustratif : si chaque étape réussit 95 fois sur 100, une tâche de dix étapes réussit environ 60 fois sur 100 (0,95 à la puissance 10). D'où l'intérêt de tâches courtes et d'une relecture.</li><li><strong>Deviner une règle qui n'est pas écrite.</strong> Si personne n'a rédigé la procédure, l'agent en invente une. Écrire la procédure est une étape du projet à part entière.</li><li><strong>Agir sans accès.</strong> Un agent ne fait que ce que ses outils lui permettent. Un logiciel sans interface de programmation ni export reste hors de portée.</li><li><strong>Porter une décision.</strong> Rembourser, refuser, engager l'entreprise : l'agent peut préparer le dossier, pas assumer le choix.</li><li><strong>Coûter aussi peu qu'une automatisation.</strong> Chaque étape appelle le modèle. Une tâche identique des milliers de fois par mois relève d'un workflow, pas d'un agent.</li></ul>",
+      "html_en": "<h2>Two Waimia projects, and where they sit in the table</h2>\n<p><strong>A customer-support agent for an online shop.</strong> For <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a>, a Shopify store, Waimia is building an agent that prepares replies to support requests. It relies on the mailbox, the shop, carrier tracking, business rules and a knowledge base. Two safeguards: the team approves every reply before it is sent, and the first version only handles requests tied to an order number. The project is under construction. No impact figure is published.</p>\n<p><strong>A document assistant for a local media outlet, at the edge of the definition.</strong> For <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>, Waimia set up an agent in Notion that relies on the historian's documents, stored in his Drive. The historian remains the source: his documents and his writing feed the agent. By the table above, this project is closer to an assistant with a knowledge base than to an agent chaining actions: the word “agent” there refers to Notion's feature. No impact figure is published for this part.</p>\n<p>In the first project, the rule is written down: the agent prepares, a person decides. It is the form I recommend to start with in an SMB. The least spectacular, and the one that holds up in production.</p>\n<h2>What an AI agent cannot do</h2>\n<ul><li><strong>Be reliable every time.</strong> An agent chains steps, and errors compound. Illustrative calculation: if each step succeeds 95 times out of 100, a ten-step task succeeds about 60 times out of 100 (0.95 to the power of 10). Hence the value of short tasks and a review.</li><li><strong>Guess a rule that is not written.</strong> If nobody wrote the procedure, the agent makes one up. Writing the procedure is a project step in its own right.</li><li><strong>Act without access.</strong> An agent only does what its tools allow. An application with no programming interface and no export stays out of reach.</li><li><strong>Own a decision.</strong> Refund, refuse, commit the company: the agent can prepare the file, not take responsibility for the choice.</li><li><strong>Cost as little as an automation.</strong> Every step calls the model. A task repeated identically thousands of times a month belongs in a workflow, not an agent.</li></ul>",
       "figures": [
         {
           "src": "/images/illustrations/ds/agent-ia-definition-v3-cadran-paper.webp",
@@ -349,8 +371,8 @@
       "kicker_en": "§ Illustrative example · not a client case",
       "heading_fr": "Ce que coûte l'usage : la même tâche en automatisation et en agent",
       "heading_en": "What running it costs: the same task as an automation and as an agent",
-      "caption_fr": "Hypothèses : 500 demandes par mois, 3 000 jetons lus et 400 jetons écrits par appel au modèle. Prix d'Anthropic lus le 5 octobre 2026 : Claude Haiku 4.5 à 1 dollar par million de jetons en entrée et 5 dollars en sortie, Claude Sonnet 5.5 à 2 dollars et 10 dollars. Hors construction, hors taxes. Remplacez par vos volumes.",
-      "caption_en": "Assumptions: 500 requests a month, 3,000 tokens read and 400 tokens written per model call. Anthropic prices read on 5 October 2026: Claude Haiku 4.5 at 1 dollar per million input tokens and 5 dollars per million output tokens, Claude Sonnet 5.5 at 2 dollars and 10 dollars. Excluding build, excluding tax. Replace with your own volumes.",
+      "caption_fr": "Hypothèses : 500 demandes par mois, 3 000 jetons lus et 400 jetons écrits par appel au modèle. Prix de la page tarifs de l'API d'Anthropic au 6 octobre 2026 : Claude Haiku 4.5 à 1 dollar par million de jetons en entrée et 5 en sortie, Claude Sonnet 5.5 à 2 et 10 dollars. La même page précise que les modèles depuis Claude 4.7 comptent environ 30 % de jetons de plus pour un même texte : à texte égal, la ligne agent approche 39 dollars. Hors construction, hors taxes.",
+      "caption_en": "Assumptions: 500 requests a month, 3,000 tokens read and 400 tokens written per model call. Prices from Anthropic's API pricing page on 6 October 2026: Claude Haiku 4.5 at 1 dollar per million input tokens and 5 per million output tokens, Claude Sonnet 5.5 at 2 and 10 dollars. The same page notes that models from Claude 4.7 onwards count about 30% more tokens for the same text: for identical text, the agent line comes close to 39 dollars. Excluding build, excluding tax.",
       "columns_fr": [
         "Montage",
         "Appels au modèle par mois",
@@ -490,8 +512,8 @@
       "kicker_en": "§ Waimia's view",
       "title_fr": "Avez-vous besoin d'un agent, ou d'une automatisation ?",
       "title_en": "Do you need an agent, or an automation?",
-      "aside_fr": "Règle appliquée par Waimia : l'outil le plus simple qui suffit, et une personne sur ce qui engage.",
-      "aside_en": "The rule Waimia applies: the simplest tool that is enough, and a person on anything binding.",
+      "aside_fr": "Mon conseil : l'outil le plus simple qui suffit, et une personne sur tout ce qui engage l'entreprise.",
+      "aside_en": "My advice: the simplest tool that does the job, and a person on anything that commits the company.",
       "use_title_fr": "Un agent se justifie si",
       "use_title_en": "An agent is justified if",
       "use_items_fr": [
@@ -580,8 +602,8 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Sources, vérifiées le 5 octobre 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Building effective agents », 19 décembre 2024</a> : définitions des workflows et des agents, conseil de commencer simple, conditions d'arrêt, points de validation humaine, tests en environnement isolé</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation de l'API, page « Agents »</a> : description des agents</li><li>Fiches <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> et <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a> : état des projets cités</li></ul><p>Pour décider tâche par tâche, l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation classique</a> détaille où passe la frontière. Le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork est désormais Claude</a> décrit l'agent d'Anthropic, aujourd'hui intégré à Claude, et le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a> donne le cadre pour le déployer dans une équipe. La prestation est décrite sur la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a>.</p>",
-      "html_en": "<h2>Sources, checked on 5 October 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, “Building effective agents”, 19 December 2024</a>: definitions of workflows and agents, the advice to start simple, stopping conditions, human checkpoints, sandbox testing</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation, “Agents” page</a>: description of agents</li><li>Case pages <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> and <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>: status of the projects cited</li></ul><p>On the decision side, the article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or classic automation</a> details where the line falls task by task. The guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork is now Claude</a> describes Anthropic's agent, now built into Claude, and the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a> sets the framework to roll it out to a team. The service is described on the <a href=\"/services/agents-ia\">AI agents for business</a> page.</p>"
+      "html_fr": "<h2>Sources, relues le 6 octobre 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Building effective agents », 19 décembre 2024</a> : définitions des workflows et des agents, conseil de commencer simple, conditions d'arrêt, points de validation humaine, tests en environnement isolé</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation de l'API, page « Agents »</a> : description des agents</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, tarifs de l'API</a> : prix de Claude Haiku 4.5 et Claude Sonnet 5.5, écart de comptage des jetons des modèles récents</li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, aide : fusion de Cowork et du chat</a> : déploiement progressif, Pro et Max d'abord</li><li>Fiches <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> et <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a> : état des projets cités</li></ul><p>Pour décider tâche par tâche, l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation classique</a> détaille où passe la frontière. Le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork est désormais Claude</a> décrit l'agent d'Anthropic, aujourd'hui intégré à Claude, et le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a> donne le cadre pour le déployer dans une équipe. La prestation est décrite sur la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a>.</p>",
+      "html_en": "<h2>Sources, re-read on 6 October 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, “Building effective agents”, 19 December 2024</a>: definitions of workflows and agents, the advice to start simple, stopping conditions, human checkpoints, sandbox testing</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation, “Agents” page</a>: description of agents</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, API pricing</a>: Claude Haiku 4.5 and Claude Sonnet 5.5 prices, token count difference of recent models</li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic help centre: Cowork and chat merger</a>: gradual rollout, Pro and Max first</li><li>Case pages <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> and <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>: status of the projects cited</li></ul><p>On the decision side, the article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or classic automation</a> details where the line falls task by task. The guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork is now Claude</a> describes Anthropic's agent, now built into Claude, and the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a> sets the framework to roll it out to a team. The service is described on the <a href=\"/services/agents-ia\">AI agents for business</a> page.</p>"
     },
     {
       "type": "related-cards-band",
@@ -644,9 +666,9 @@
         },
         {
           "q_fr": "ChatGPT ou Claude sont-ils des agents IA ?",
-          "a_fr": "Dans leur usage de base, ChatGPT et Claude sont des assistants : ils répondent dans une conversation. Ils deviennent des agents quand on leur donne des outils et qu'on les laisse enchaîner des actions. C'est le cas de Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé) : voir le guide Claude Cowork de Waimia, sources à l'appui.",
+          "a_fr": "Dans leur usage de base, ChatGPT et Claude sont des assistants : ils répondent dans une conversation. Ils deviennent des agents quand on leur donne des outils et qu'on les laisse enchaîner des actions. C'est le cas de Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, qui fusionne avec Claude depuis le 16 septembre 2026, en déploiement progressif, Pro et Max d'abord. Le guide Claude Cowork de Waimia détaille ce qui change.",
           "q_en": "Are ChatGPT or Claude AI agents?",
-          "a_en": "In their basic use, ChatGPT and Claude are assistants: they answer in a conversation. They become agents when given tools and allowed to chain actions. That is the case of Cowork, Claude's agent that carries out tasks in your files and tools, now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now): see Waimia's Claude Cowork guide, with sources."
+          "a_en": "In their basic use, ChatGPT and Claude are assistants: they answer in a conversation. They become agents when given tools and allowed to chain actions. That is the case of Cowork, Claude's agent that carries out tasks in your files and tools, which has been merging into Claude since 16 September 2026, in a gradual rollout, Pro and Max first. Waimia's Claude Cowork guide covers what changes."
         },
         {
           "q_fr": "Un agent IA peut-il agir sans validation humaine ?",

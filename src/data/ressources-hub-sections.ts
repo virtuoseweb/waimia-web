@@ -24,7 +24,7 @@ export const mastheadData = {
   align: 'left' as const,
   kicker_fr: '§ Hub · Ressources',
   kicker_en: '§ Hub · Resources',
-  h1_fr: 'Tout ce qu\'on <i>publie</i>.',
+  h1_fr: 'Ressources <i>IA</i> pour PME.',
   h1_en: 'Everything we <i>publish</i>.',
   lede_fr: 'Cas mesurables, articles de fond, guides pratiques, comparatifs, diagnostics et calculateurs gratuits. Pas de pensum SEO. Tout est relu, signé, et confidentiel quand le client le demande.',
   lede_en: 'Measurable cases, in-depth articles, practical guides, comparisons, diagnostics and free calculators. No SEO padding. Everything is reviewed, signed, and kept confidential when the client asks.',

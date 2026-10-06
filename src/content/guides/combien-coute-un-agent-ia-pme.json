@@ -1,0 +1,652 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Combien coûte un agent IA en PME : le coût complet",
+  "title_en": "How much does an AI agent cost an SMB: the full cost",
+  "description_fr": "Combien coûte un agent IA en PME ? Les cinq postes (modèle, n8n ou Make, intégration, maintenance, supervision), prix du 6 octobre 2026, sprint dès 999 € HT.",
+  "description_en": "How much does an AI agent cost an SMB? Five items (model, n8n or Make, integration, maintenance, supervision), 6 October 2026 prices, sprint from €999.",
+  "slug": "combien-coute-un-agent-ia-pme",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "category": "pilotage",
+  "tags": [
+    "agent-ia",
+    "prix",
+    "cout",
+    "budget",
+    "n8n",
+    "make",
+    "claude",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, grille de prix des modèles Claude, relue le 6 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Anthropic, tarifs Claude (Team, Enterprise), relus le 6 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "n8n, page tarifs, relue le 6 octobre 2026",
+      "url": "https://n8n.io/pricing/",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Make, page tarifs, lue le 6 octobre 2026",
+      "url": "https://www.make.com/en/pricing",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Combien coûte un <i class=\"acc\">agent IA</i> pour une PME ?",
+      "h1_en": "How much does an <i class=\"acc\">AI agent</i> cost an SMB?",
+      "lede_fr": "Un agent IA ne se chiffre pas avec un seul prix, parce qu'il en contient cinq : le modèle, l'orchestration, l'intégration, la maintenance et la supervision humaine. Ce guide décompose chaque poste avec les prix publics relevés le 6 octobre 2026, donne la formule pour chiffrer votre cas, et dit à quel moment un agent ne vaut pas son coût.",
+      "lede_en": "An AI agent cannot be priced with a single figure, because it contains five: the model, orchestration, integration, maintenance and human supervision. This guide breaks down each item with the public prices read on 6 October 2026, gives the formula to price your case, and says when an agent is not worth its cost.",
+      "badges": [
+        {
+          "label_fr": "Prix publics relevés le 6 octobre 2026",
+          "label_en": "Public prices read on 6 October 2026"
+        },
+        {
+          "label_fr": "Exemples illustratifs, pas des cas clients",
+          "label_en": "Illustrative examples, not client cases"
+        },
+        {
+          "label_fr": "Chaque prix daté et sourcé",
+          "label_en": "Every price dated and sourced"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/combien-coute-un-agent-ia-pme-iceberg-paper.webp",
+        "alt_fr": "Un petit voilier s'approche d'un iceberg dont la pointe émerge et dont la masse immergée est bien plus grande",
+        "alt_en": "A small sailboat approaches an iceberg whose tip shows while the submerged mass is far larger",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Combien coûte un agent IA pour une PME ?",
+      "question_en": "How much does an AI agent cost an SMB?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Un agent IA coûte cinq choses : le modèle, facturé à l'usage, l'orchestration (n8n, Make), l'intégration à vos outils, la maintenance et la supervision humaine. Le modèle pèse souvent quelques dollars par mois ; l'intégration, des heures. Chez Waimia : sprint découverte de 10 heures à 999 € HT, puis régie à {{prix.horaire}} € HT de l'heure. Sans périmètre écrit, je ne donne pas de chiffre.",
+      "answer_en": "An AI agent costs five things: the model, billed by usage, orchestration (n8n, Make), integration with your tools, maintenance and human supervision. The model often weighs a few dollars a month; integration, hours. At Waimia: a 10-hour discovery sprint at €999 excl. VAT, then time and materials at €{{prix.horaire}} excl. VAT per hour. Without a written scope, I give no figure."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les chiffres de départ",
+      "eyebrow_en": "§ The starting figures",
+      "title_fr": "Ce qui est sourcé, et ce qui ne l'est pas",
+      "title_en": "What is sourced, and what is not",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint découverte de 10 heures, prix fixe, chez Waimia",
+          "label_en": "10-hour discovery sprint, fixed price, at Waimia"
+        },
+        {
+          "value": "{{prix.horaire}} € HT",
+          "label_fr": "l'heure en régie, pour la suite, chez Waimia",
+          "label_en": "per hour on a time-and-materials basis, afterwards, at Waimia"
+        },
+        {
+          "value": "1 $ · 5 $",
+          "label_fr": "par million de jetons en entrée et en sortie pour Claude Haiku 4.5, d'après la grille d'Anthropic",
+          "label_en": "per million input and output tokens for Claude Haiku 4.5, per Anthropic's price list"
+        },
+        {
+          "value": "4,50 $",
+          "label_fr": "pour classer 1 000 e-mails avec ce modèle, selon les hypothèses écrites plus bas",
+          "label_en": "to classify 1,000 emails with that model, under the assumptions written below"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les cinq postes",
+      "kicker_en": "§ The five items",
+      "heading_fr": "Ce qui compose le prix d'un agent IA",
+      "heading_en": "What makes up the price of an AI agent",
+      "caption_fr": "Le modèle et l'orchestration ont un prix public ; l'intégration, la maintenance et la supervision se chiffrent en heures. Aucun montant n'est donné pour des agents « typiques » : ils dépendent du périmètre, des outils reliés et de la qualité de vos données.",
+      "caption_en": "The model and orchestration have a public price; integration, maintenance and supervision are priced in hours. No amount is given for \"typical\" agents: they depend on scope, the tools connected and the quality of your data.",
+      "columns_fr": [
+        "Poste",
+        "Ce que c'est",
+        "Comment ça se facture",
+        "Ce qui le fait varier"
+      ],
+      "columns_en": [
+        "Item",
+        "What it is",
+        "How it is billed",
+        "What makes it vary"
+      ],
+      "rows_fr": [
+        [
+          "1. Le modèle",
+          "Le modèle de langage qui lit, décide et rédige (Claude, par exemple)",
+          "Au jeton, par l'éditeur, en dollars ; ou par siège pour des personnes",
+          "Nombre de textes traités, longueur, choix du modèle"
+        ],
+        [
+          "2. L'orchestration",
+          "Le logiciel qui enchaîne déclencheurs, appels au modèle et actions (n8n, Make)",
+          "Abonnement mensuel, ou serveur à héberger",
+          "Nombre d'exécutions par mois, hébergement"
+        ],
+        [
+          "3. L'intégration",
+          "Construire l'agent, le brancher à vos outils, écrire ses consignes, le tester",
+          "En heures de travail",
+          "Nombre d'outils reliés, qualité des données, règles d'escalade"
+        ],
+        [
+          "4. La maintenance",
+          "Corriger quand un outil change, surveiller les erreurs, ajuster les consignes",
+          "En heures, ou forfait mensuel",
+          "Changements d'interface des outils reliés, dérive des cas"
+        ],
+        [
+          "5. La supervision humaine",
+          "La personne qui relit, valide les actions sensibles et traite les cas hors cadre",
+          "En temps interne",
+          "Volume, niveau de risque de chaque action"
+        ]
+      ],
+      "rows_en": [
+        [
+          "1. The model",
+          "The language model that reads, decides and writes (Claude, for example)",
+          "By the token, by the vendor, in dollars; or per seat for people",
+          "Number of texts processed, length, model choice"
+        ],
+        [
+          "2. Orchestration",
+          "The software that chains triggers, model calls and actions (n8n, Make)",
+          "Monthly subscription, or a server to host",
+          "Executions per month, hosting"
+        ],
+        [
+          "3. Integration",
+          "Building the agent, connecting it to your tools, writing its instructions, testing it",
+          "In hours of work",
+          "Number of tools connected, data quality, escalation rules"
+        ],
+        [
+          "4. Maintenance",
+          "Fixing when a tool changes, monitoring errors, adjusting instructions",
+          "In hours, or a monthly flat fee",
+          "Interface changes in connected tools, case drift"
+        ],
+        [
+          "5. Human supervision",
+          "The person who reviews, validates sensitive actions and handles out-of-scope cases",
+          "In internal time",
+          "Volume, risk level of each action"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Poste 1, le modèle : une ligne à la consommation</h2>\n<p>Claude se paie de deux façons, et il faut choisir la bonne pour un agent. Pour des <strong>personnes</strong> qui l'utilisent dans l'application, c'est un abonnement par siège : d'après <a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">la page tarifs de Claude</a>, relue le 6 octobre 2026, Team Standard coûte 25 $ par siège et par mois (20 $ en facturation annuelle) et Enterprise 20 $ par siège et par mois, facturé annuellement, plus l'usage au tarif de l'API. Pour un <strong>agent qui tourne tout seul</strong> dans un flux, c'est l'API, facturée au jeton. Un jeton est un fragment de mot ; vous payez les jetons lus (entrée) et les jetons écrits (sortie).</p>\n<p>Exemple de calcul avec la <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">grille de prix d'Anthropic</a>, relue le 6 octobre 2026 : Claude Haiku 4.5 coûte 1 $ par million de jetons en entrée et 5 $ par million en sortie. Un agent qui classe 1 000 e-mails dans le mois, à 2 000 jetons en entrée et 500 en sortie par e-mail, consomme 2 millions de jetons en entrée (2 $) et 0,5 million en sortie (2,50 $) : 4,50 $ pour le mois. Prix en dollars, hors TVA et hors taux de change : Anthropic facture l'API en dollars. Remplacez 2 000 et 500 par la longueur de vos propres textes, le reste du calcul ne change pas.</p>\n<p>Deux nuances. La grille d'Anthropic change à chaque sortie de modèle : nous datons chaque prix et mettons la page à jour quand la grille bouge. Et un modèle plus capable coûte plus cher par jeton : le choix du modèle fait partie du chiffrage (voir <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude ou ChatGPT pour une PME</a> et le <a href=\"/ressources/guides/claude-pme\">guide Claude pour les PME</a>).</p>",
+      "html_en": "<h2>Item 1, the model: a line that follows consumption</h2>\n<p>Claude is paid for in two ways, and you must pick the right one for an agent. For <strong>people</strong> using it in the app, it is a per-seat subscription: according to <a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Claude's pricing page</a>, reread on 6 October 2026, Team Standard costs $25 per seat per month ($20 billed annually) and Enterprise $20 per seat per month billed annually, plus usage at API rates. For an <strong>agent that runs on its own</strong> in a flow, it is the API, billed by the token. A token is a fragment of a word; you pay for tokens read (input) and tokens written (output).</p>\n<p>Worked example with <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's price list</a>, reread on 6 October 2026: Claude Haiku 4.5 costs $1 per million input tokens and $5 per million output tokens. An agent classifying 1,000 emails in the month, at 2,000 input tokens and 500 output tokens per email, uses 2 million input tokens ($2) and 0.5 million output tokens ($2.50): $4.50 for the month. Prices in dollars, excluding VAT and exchange rates: Anthropic bills the API in dollars. Replace 2,000 and 500 with the length of your own texts; the rest of the calculation stays the same.</p>\n<p>Two nuances. Anthropic's list changes with every model release: we date every price and update this page when the list moves. And a more capable model costs more per token: choosing the model is part of the pricing (see <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude or ChatGPT for an SMB</a> and the <a href=\"/ressources/guides/claude-pme\">guide to Claude for SMBs</a>).</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/combien-coute-un-agent-ia-pme-compteur-paper.webp",
+          "alt_fr": "Un grand tuyau porte un compteur à aiguille et un robinet qui goutte dans trois seaux de tailles différentes",
+          "alt_en": "A large pipe carries a dial meter and a tap dripping into three buckets of different sizes"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Postes 2 et 3, l'orchestration et l'intégration</h2>\n<p><strong>L'orchestration</strong> est le logiciel qui déclenche l'agent, lui passe les données et exécute ses décisions. Pour n8n, notre <a href=\"/ressources/guides/n8n-prix\">guide des prix n8n</a> relève, au 6 octobre 2026, 20 € par mois en offre Starter (2 500 exécutions), 50 € par mois en offre Pro (10 000 exécutions), facturation annuelle, et une version auto-hébergée sans licence à payer, avec un serveur à partir de 3,81 € HT par mois chez OVHcloud. Pour Make, la <a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">page tarifs</a> affiche le 6 octobre 2026, en dollars : Core à 9 $, Pro à 16 $ et Teams à 29 $ par mois pour 10 000 crédits, avec au moins 15 % d'économie en paiement annuel. Attention à l'unité : chez Make, chaque action d'un module consomme un crédit, alors que n8n compte un lancement complet du workflow. Un agent de dix étapes consomme donc environ dix crédits chez Make, une exécution chez n8n. Le détail est dans le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> et la page <a href=\"/services/automatisation-make\">automatisation avec Make</a>. Retenez la mécanique : ce qui fait monter la facture d'orchestration, c'est la fréquence des lancements, pas le nombre d'étapes.</p>\n<p><strong>L'intégration</strong> est presque toujours le plus gros poste. C'est le travail pour brancher l'agent à vos outils (messagerie, CRM, agenda, fichiers), écrire ses consignes, définir quand il s'arrête et passe la main, et le tester sur vos cas réels. Elle se chiffre en heures. Chez Waimia, le <a href=\"/tarifs\">sprint de cadrage</a> dure 10 heures, à 999 € HT, prix fixe ; la suite est facturée en régie à {{prix.horaire}} € HT de l'heure. La formule pour votre cas : heures estimées multipliées par {{prix.horaire}} €. À titre d'arithmétique, et non de devis : 15 heures donneraient 1 485 € HT, 30 heures 2 970 € HT. Le nombre d'heures vient du cadrage, jamais d'une moyenne de marché.</p>\n<p>Vous voulez voir ce qu'est un agent avant de le chiffrer ? Lisez <a href=\"/ressources/guides/agent-ia-definition\">ce qu'est un agent IA, et ses limites</a>, puis la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a>. Pour un cadrage de devis détaillé, voir <a href=\"/ressources/guides/devis-automatise\">le devis automatisé</a>.</p>",
+      "html_en": "<h2>Items 2 and 3, orchestration and integration</h2>\n<p><strong>Orchestration</strong> is the software that triggers the agent, passes it the data and carries out its decisions. For n8n, our <a href=\"/ressources/guides/n8n-prix\">n8n pricing guide</a> records, as of 5 October 2026, €20 per month on the Starter plan (2,500 executions), €50 per month on the Pro plan (10,000 executions), billed annually, and a self-hosted edition with no licence fee, with a server from €3.81 excl. VAT per month at OVHcloud. For Make, the <a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">pricing page</a> shows on 6 October 2026, in dollars: Core at $9, Pro at $16 and Teams at $29 a month for 10,000 credits, with at least 15% off for annual payment. Watch the unit: on Make, every module action uses a credit, while n8n counts one full workflow run. A ten-step agent therefore uses about ten credits on Make and one execution on n8n. The detail is in the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison and on the <a href=\"/services/automatisation-make\">Make automation</a> page. Keep the mechanism in mind: what raises the orchestration bill is how often runs are triggered, not the number of steps.</p>\n<p><strong>Integration</strong> is almost always the biggest item. It is the work of connecting the agent to your tools (mailbox, CRM, calendar, files), writing its instructions, defining when it stops and hands over, and testing it on your real cases. It is priced in hours. At Waimia, the <a href=\"/tarifs\">scoping sprint</a> lasts 10 hours at €999 excl. VAT, fixed price; the rest is billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. The formula for your case: estimated hours multiplied by €{{prix.horaire}}. As arithmetic, not a quote: 15 hours would give €1,485 excl. VAT, 30 hours €2,970. The number of hours comes from the scoping, never from a market average.</p>\n<p>Want to see what an agent is before pricing it? Read <a href=\"/ressources/guides/agent-ia-definition\">what an AI agent is, and its limits</a>, then the <a href=\"/services/agents-ia\">AI agents for business</a> page. For a detailed quote framework, see <a href=\"/ressources/guides/devis-automatise\">the automated quote</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Exemples illustratifs · pas des cas clients",
+      "kicker_en": "§ Illustrative examples · not client cases",
+      "heading_fr": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
+      "heading_en": "Three monthly running budgets, written assumptions",
+      "caption_fr": "Exemples construits à partir des prix publics relevés le 6 octobre 2026 : n8n (n8n.io/pricing), Anthropic (grille des modèles), OVHcloud (serveur, via le guide n8n). Ils chiffrent le fonctionnement mensuel, pas la construction de l'agent, ni la supervision interne, ni la TVA. Le suivi Waimia est facultatif : palier « {{prix.maintenance.p1.nom}} » à {{prix.maintenance.p1}} € HT par mois.",
+      "caption_en": "Examples built from public prices read on 6 October 2026: n8n (n8n.io/pricing), Anthropic (model price list), OVHcloud (server, via the n8n guide). They price monthly running costs, not building the agent, nor internal supervision, nor VAT. Waimia follow-up is optional: the \"{{prix.maintenance.p1.nom.en}}\" tier at €{{prix.maintenance.p1}} excl. VAT per month.",
+      "columns_fr": [
+        "Cas",
+        "Hypothèses",
+        "Postes mensuels",
+        "Total de fonctionnement"
+      ],
+      "columns_en": [
+        "Case",
+        "Assumptions",
+        "Monthly items",
+        "Running total"
+      ],
+      "rows_fr": [
+        [
+          "Démarrer",
+          "Un agent trie 1 000 e-mails par mois (2 000 jetons en entrée, 500 en sortie chacun), Claude Haiku 4.5, n8n Cloud Starter",
+          "Orchestration 20 € ; modèle 4,50 $",
+          "20 € et 4,50 $"
+        ],
+        [
+          "Monter en charge",
+          "Même agent, 10 000 e-mails par mois, n8n Cloud Pro (10 000 exécutions incluses)",
+          "Orchestration 50 € ; modèle 45 $",
+          "50 € et 45 $"
+        ],
+        [
+          "Auto-héberger",
+          "Même agent que « Démarrer », n8n sur votre serveur, sans licence",
+          "Serveur à partir de 3,81 € HT ; modèle 4,50 $ ; mises à jour et sauvegardes à votre charge",
+          "3,81 € HT et 4,50 $, plus votre temps"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Starting out",
+          "An agent sorts 1,000 emails per month (2,000 input tokens, 500 output each), Claude Haiku 4.5, n8n Cloud Starter",
+          "Orchestration €20; model $4.50",
+          "€20 and $4.50"
+        ],
+        [
+          "Scaling up",
+          "Same agent, 10,000 emails per month, n8n Cloud Pro (10,000 executions included)",
+          "Orchestration €50; model $45",
+          "€50 and $45"
+        ],
+        [
+          "Self-hosting",
+          "Same agent as \"Starting out\", n8n on your server, no licence",
+          "Server from €3.81 excl. VAT; model $4.50; updates and backups on you",
+          "€3.81 excl. VAT and $4.50, plus your time"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Poste 4, la maintenance : le pont qu'on repeint sans fin</h2>\n<p>Un agent n'est pas un projet qu'on livre puis qu'on oublie. Les logiciels qu'il touche changent d'interface, une règle commerciale évolue, de nouveaux cas arrivent que les consignes ne prévoyaient pas, un modèle est remplacé par un autre. La maintenance recouvre trois travaux : corriger quand un outil relié change, surveiller les erreurs et les coûts, ajuster les consignes d'après les cas réels.</p>\n<p>Deux façons de la payer. En heures, au même taux que l'intégration ({{prix.horaire}} € HT chez Waimia), quand les interventions sont rares. Ou par forfait mensuel : notre palier d'entrée, « {{prix.maintenance.p1.nom}} », coûte {{prix.maintenance.p1}} € HT par mois, le détail est sur la page <a href=\"/tarifs\">tarifs</a>. Le bon choix dépend du nombre d'agents et de la fréquence de changement de vos outils. Pour savoir si l'ensemble rapportera plus qu'il ne coûte, utilisez le guide <a href=\"/ressources/guides/roi-automatisation\">mesurer le ROI d'une automatisation</a>.</p>\n<p>Ce qui ne se chiffre pas à l'avance, c'est la dérive : un agent qui marchait en octobre peut se dégrader en janvier sans qu'aucune erreur n'apparaisse. D'où le poste suivant.</p>",
+      "html_en": "<h2>Item 4, maintenance: the bridge that is repainted endlessly</h2>\n<p>An agent is not a project you deliver and forget. The software it touches changes interface, a business rule evolves, new cases arrive that the instructions did not foresee, one model is replaced by another. Maintenance covers three jobs: fixing when a connected tool changes, monitoring errors and costs, adjusting instructions from real cases.</p>\n<p>Two ways to pay for it. In hours, at the same rate as integration (€{{prix.horaire}} excl. VAT at Waimia), when interventions are rare. Or through a monthly flat fee: our entry tier, \"{{prix.maintenance.p1.nom.en}}\", costs €{{prix.maintenance.p1}} excl. VAT per month, with details on the <a href=\"/tarifs\">pricing</a> page. The right choice depends on the number of agents and how often your tools change. To know whether the whole will return more than it costs, use the guide <a href=\"/ressources/guides/roi-automatisation\">measuring the ROI of an automation</a>.</p>\n<p>What cannot be priced in advance is drift: an agent that worked in October can degrade by January without any error appearing. Hence the next item.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/combien-coute-un-agent-ia-pme-pont-paper.webp",
+          "alt_fr": "Une personne repeint au rouleau un long pont à arches, la moitié déjà claire, l'autre pas encore",
+          "alt_en": "A person rolls paint onto a long arched bridge, half already pale and the other half not yet"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Poste 5, la supervision humaine : le coût que les devis oublient</h2>\n<p>Un agent qui agit dans vos outils (envoyer un e-mail, modifier une fiche client, émettre un devis) doit être supervisé, et cette supervision est du temps de quelqu'un de chez vous. Elle ne figure pas dans la plupart des devis, parce qu'elle ne se facture pas : elle se planifie.</p>\n<p>Pour la chiffrer, comptez trois choses : le nombre d'actions que l'agent prépare par semaine, la part qui exige une validation (toutes celles qui ne se rattrapent pas : envoi à un client, paiement, suppression), et le temps moyen pour relire une action. La formule : actions à valider par semaine multipliées par minutes de relecture. À vous de mesurer ces minutes sur vingt cas réels avant de choisir le niveau d'autonomie.</p>\n<p>Le bon réglage n'est pas « tout valider » ni « ne rien valider ». C'est une validation humaine sur les actions irréversibles, un contrôle par échantillon sur les autres, et une règle d'escalade écrite : l'agent passe la main quand le cas sort du cadre. C'est aussi ce qui garde l'ensemble conforme : voir <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD</a> et la page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>Item 5, human supervision: the cost quotes forget</h2>\n<p>An agent that acts in your tools (sending an email, editing a client record, issuing a quote) must be supervised, and that supervision is someone's time on your side. It is missing from most quotes, because it is not billed: it is planned.</p>\n<p>To price it, count three things: how many actions the agent prepares per week, the share that needs validation (all those that cannot be undone: sending to a client, payment, deletion), and the average time to review one action. The formula: actions to validate per week multiplied by minutes of review. Measure those minutes on twenty real cases before choosing the level of autonomy.</p>\n<p>The right setting is neither \"validate everything\" nor \"validate nothing\". It is human validation on irreversible actions, spot checks on the others, and a written escalation rule: the agent hands over when a case falls outside the frame. That is also what keeps the whole compliant: see <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR</a> and the <a href=\"/conformite-ia\">AI compliance</a> page.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/combien-coute-un-agent-ia-pme-barriere-paper.webp",
+          "alt_fr": "Une personne actionne un levier pour relever la barrière d'une arche, caisse par caisse, sur un rail",
+          "alt_en": "A person works a lever to raise the barrier of an archway, crate by crate, along a rail"
+        }
+      ]
+    },
+    {
+      "type": "cta-form-inline",
+      "anchor": "guide-achat",
+      "background": "accent",
+      "lead_magnet": "guide-achat-claude-pme",
+      "kicker_fr": "§ Ressource gratuite · envoyée par e-mail",
+      "kicker_en": "§ Free resource · sent by email",
+      "h2_fr": "Recevez le guide d'achat Claude pour PME",
+      "h2_en": "Get the Claude buying guide for SMBs",
+      "body_fr": "Un PDF de 14 pages : la grille Claude en une page, une matrice de décision par profil, la méthode et les formules pour estimer le coût, trois budgets calculés pour 5, 15 et 40 personnes, les pièges d'achat et la configuration du jour 1. Prix Anthropic en dollars, relevés le 5 octobre 2026, hors TVA.",
+      "body_en": "A 14-page PDF: the Claude price grid on one page, a decision matrix by profile, the method and formulas to estimate cost, three budgets calculated for 5, 15 and 40 people, purchasing pitfalls and day-1 setup. Anthropic prices in dollars, read on 5 October 2026, excluding VAT.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir le guide par e-mail →",
+      "submit_label_en": "Send me the guide →",
+      "hint_fr": "Envoi immédiat à cette adresse. Pas d'inscription à la lettre sans votre accord.",
+      "hint_en": "Sent right away to this address. No newsletter signup without your consent."
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Faire soi-même ou sous-traiter",
+      "kicker_en": "§ Do it yourself or outsource",
+      "h2_fr": "Quand vous n'avez pas besoin de Waimia",
+      "h2_en": "When you do not need Waimia",
+      "without_label_fr": "Faites-le vous-même si",
+      "without_label_en": "Do it yourself if",
+      "without_title_fr": "Le besoin est simple et vous avez le temps",
+      "without_title_en": "The need is simple and you have the time",
+      "without_items": [
+        {
+          "text_fr": "Une seule tâche, dans un seul logiciel, qu'un abonnement du marché fait déjà.",
+          "text_en": "One task, in one tool, that a market subscription already does."
+        },
+        {
+          "text_fr": "Une automatisation à règles fixes suffit : pas besoin d'agent, un enchaînement n8n ou Make le fait.",
+          "text_en": "A fixed-rule automation is enough: no agent needed, an n8n or Make flow does it."
+        },
+        {
+          "text_fr": "Quelqu'un chez vous sait surveiller les erreurs chaque semaine.",
+          "text_en": "Someone at your company can monitor errors every week."
+        },
+        {
+          "text_fr": "L'erreur coûte peu et se rattrape.",
+          "text_en": "A mistake costs little and can be undone."
+        }
+      ],
+      "with_label_fr": "Faites-vous accompagner si",
+      "with_label_en": "Get support if",
+      "with_title_fr": "Le périmètre est flou ou le risque est réel",
+      "with_title_en": "The scope is unclear or the risk is real",
+      "with_items": [
+        {
+          "text_fr": "Plusieurs outils à relier, des données de clients et des actions qui partent à l'extérieur.",
+          "text_en": "Several tools to connect, client data and actions that go outside."
+        },
+        {
+          "text_fr": "Personne n'a le temps de construire, tester puis maintenir.",
+          "text_en": "Nobody has the time to build, test and then maintain."
+        },
+        {
+          "text_fr": "Vous ne savez pas encore quelle tâche vaut un agent et laquelle vaut une simple règle.",
+          "text_en": "You do not yet know which task deserves an agent and which just a rule."
+        },
+        {
+          "text_fr": "Vous voulez un budget écrit avant d'engager quoi que ce soit.",
+          "text_en": "You want a written budget before committing to anything."
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Comment Waimia chiffre un agent",
+      "h2_en": "How Waimia prices an agent",
+      "intro_fr": "Dans cet ordre, sans engagement avant le cadrage. Le prix sort du périmètre, pas l'inverse.",
+      "intro_en": "In this order, no commitment before the scoping. The price comes out of the scope, not the other way round.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit de 45 minutes",
+          "title_en": "Free 45-minute audit",
+          "body_fr": "On passe vos tâches en revue : lesquelles relèvent d'un agent, d'une automatisation, ou ne valent pas le coup.",
+          "body_en": "We review your tasks: which call for an agent, an automation, or are not worth it.",
+          "meta_fr": "45 minutes, gratuit",
+          "meta_en": "45 minutes, free"
+        },
+        {
+          "title_fr": "Sprint découverte",
+          "title_en": "Discovery sprint",
+          "body_fr": "On cadre la tâche prioritaire, on mesure vos volumes et on écrit le budget des cinq postes.",
+          "body_en": "We scope the priority task, measure your volumes and write the budget for the five items.",
+          "meta_fr": "10 h, 999 € HT, prix fixe",
+          "meta_en": "10 h, €999 excl. VAT, fixed price"
+        },
+        {
+          "title_fr": "Construction en régie",
+          "title_en": "Time-and-materials build",
+          "body_fr": "On construit par sprints, avec une estimation validée avant chaque lot.",
+          "body_en": "We build in sprints, with an estimate validated before each batch.",
+          "meta_fr": "{{prix.horaire}} € HT de l'heure",
+          "meta_en": "€{{prix.horaire}} excl. VAT per hour"
+        },
+        {
+          "title_fr": "Supervision et suivi",
+          "title_en": "Supervision and follow-up",
+          "body_fr": "Vous gardez les agents, les accès et la documentation ; le suivi est facultatif.",
+          "body_en": "You keep the agents, access and documentation; follow-up is optional.",
+          "meta_fr": "Au choix",
+          "meta_en": "Your choice"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA pour entreprise",
+          "title_en": "AI agents for business",
+          "lead_fr": "Un agent par mission, branché à vos outils, avec validation humaine.",
+          "lead_en": "One agent per mission, connected to your tools, with human validation.",
+          "href": "/services/agents-ia"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "n8n : prix et coût complet",
+          "title_en": "n8n: pricing and full cost",
+          "lead_fr": "Les cinq postes de coût d'une automatisation n8n, exemples chiffrés.",
+          "lead_en": "The five cost items of an n8n automation, worked examples.",
+          "href": "/ressources/guides/n8n-prix"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Agent IA : définition et limites",
+          "title_en": "AI agent: definition and limits",
+          "lead_fr": "Ce qu'est un agent, ce qu'il n'est pas, et quand préférer une règle.",
+          "lead_en": "What an agent is, what it is not, and when to prefer a rule.",
+          "href": "/ressources/guides/agent-ia-definition"
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "ink",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Les prix de Claude et des outils d'agents, une fois par mois",
+      "h2_en": "Claude and agent tool pricing, once a month",
+      "body_fr": "Offres, grilles de prix, nouveaux modèles : ce qui a changé, ce que ça change dans votre budget, avec la source et la date. Sans relance commerciale.",
+      "body_en": "Plans, price lists, new models: what changed, what it changes in your budget, with the source and date. No sales follow-ups.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Prix d'un agent IA : questions fréquentes",
+      "h2_en": "AI agent pricing: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Combien coûte un agent IA pour une PME ?",
+          "a_fr": "Cela dépend du périmètre, et je ne donne pas de fourchette de marché : elle ne voudrait rien dire pour votre cas. Le coût se compose du modèle, de l'orchestration, de l'intégration, de la maintenance et de la supervision humaine. Chez Waimia : audit gratuit de 45 minutes, sprint découverte de 10 heures à 999 € HT, puis {{prix.horaire}} € HT de l'heure en régie.",
+          "q_en": "How much does an AI agent cost an SMB?",
+          "a_en": "It depends on the scope, and I give no market range: it would mean nothing for your case. The cost is made up of the model, orchestration, integration, maintenance and human supervision. At Waimia: a free 45-minute audit, a 10-hour discovery sprint at €999 excl. VAT, then €{{prix.horaire}} excl. VAT per hour on time and materials."
+        },
+        {
+          "q_fr": "Quel est le poste le plus cher ?",
+          "a_fr": "Dans la plupart des cas, l'intégration, parce qu'elle se compte en heures de travail, alors que le modèle se compte en dollars. Sur l'exemple du tri d'e-mails de ce guide, le modèle coûte 4,50 $ pour 1 000 e-mails. Un petit volume ne rend donc pas l'agent bon marché : c'est le temps de construction qui pèse.",
+          "q_en": "What is the most expensive item?",
+          "a_en": "In most cases, integration, because it is counted in hours of work while the model is counted in dollars. In this guide's email sorting example, the model costs $4.50 per 1,000 emails. A small volume therefore does not make the agent cheap: build time is what weighs."
+        },
+        {
+          "q_fr": "Combien coûte le modèle Claude pour un agent ?",
+          "a_fr": "Il se facture au jeton via l'API. D'après la grille d'Anthropic relue le 6 octobre 2026, Claude Haiku 4.5 coûte 1 $ par million de jetons en entrée et 5 $ en sortie ; Claude Sonnet 5.5, 2 $ et 10 $. Pour trier ou extraire, Haiku suffit souvent. Les abonnements par siège (Team, Enterprise) concernent des personnes, pas un agent autonome.",
+          "q_en": "How much does the Claude model cost for an agent?",
+          "a_en": "It is billed by the token through the API. According to Anthropic's price list reread on 6 October 2026, Claude Haiku 4.5 costs $1 per million input tokens and $5 for output; Claude Sonnet 5.5, $2 and $10. For sorting or extraction, Haiku is often enough. Per-seat subscriptions (Team, Enterprise) are for people, not an autonomous agent."
+        },
+        {
+          "q_fr": "n8n ou Make : lequel est le moins cher ?",
+          "a_fr": "Cela dépend du nombre d'étapes et de la fréquence. n8n facture le lancement complet : 20 € ou 50 € par mois en Cloud au 6 octobre 2026, ou une version auto-hébergée sans licence. Make facture chaque action de module : à partir de 9 $ par mois pour 10 000 crédits. Plus vos flux ont d'étapes, plus n8n devient avantageux. Voir le comparatif n8n vs Make.",
+          "q_en": "n8n or Make: which is cheaper?",
+          "a_en": "It depends on the number of steps and the frequency. n8n bills the full run: €20 or €50 a month on Cloud as of 6 October 2026, or a self-hosted edition with no licence. Make bills each module action: from $9 a month for 10,000 credits. The more steps your flows have, the more n8n pulls ahead. See the n8n vs Make comparison."
+        },
+        {
+          "q_fr": "Que coûte la maintenance d'un agent IA ?",
+          "a_fr": "Elle se paie en heures ou par forfait mensuel. Chez Waimia, le palier d'entrée du suivi coûte {{prix.maintenance.p1}} € HT par mois et les interventions hors forfait {{prix.horaire}} € HT de l'heure. Le bon choix dépend du nombre d'agents et de la fréquence de changement de vos outils.",
+          "q_en": "What does AI agent maintenance cost?",
+          "a_en": "It is paid in hours or through a monthly flat fee. At Waimia, the entry follow-up tier costs €{{prix.maintenance.p1}} excl. VAT per month and out-of-scope interventions €{{prix.horaire}} excl. VAT per hour. The right choice depends on the number of agents and how often your tools change."
+        },
+        {
+          "q_fr": "Faut-il quelqu'un en interne pour superviser l'agent ?",
+          "a_fr": "Oui, au moins une personne référente. Elle valide les actions irréversibles, contrôle un échantillon des autres et traite les cas hors cadre. Son temps est un coût réel : actions à valider par semaine multipliées par minutes de relecture.",
+          "q_en": "Do I need someone in-house to supervise the agent?",
+          "a_en": "Yes, at least one lead person. They validate irreversible actions, spot check the others and handle out-of-scope cases. Their time is a real cost: actions to validate per week multiplied by minutes of review."
+        },
+        {
+          "q_fr": "Puis-je avoir un prix ferme avant de m'engager ?",
+          "a_fr": "Oui pour le cadrage : le sprint découverte est à 999 € HT, prix fixe. La construction se fait ensuite en régie, avec une estimation en heures validée avant chaque lot. L'audit de 45 minutes qui précède est gratuit.",
+          "q_en": "Can I get a firm price before committing?",
+          "a_en": "Yes for the scoping: the discovery sprint is €999 excl. VAT, fixed price. The build is then done on a time-and-materials basis, with an hourly estimate validated before each batch. The 45-minute audit before it is free."
+        },
+        {
+          "q_fr": "Un agent IA est-il toujours rentable ?",
+          "a_fr": "Non. Si la règle est fixe, une automatisation coûte moins cher. Si l'erreur n'est pas rattrapable et que personne ne valide, ne le faites pas. Un agent vaut son coût quand la tâche est répétée, lit des contenus non structurés et se supervise à faible coût. Pour mesurer, voir le guide ROI.",
+          "q_en": "Is an AI agent always profitable?",
+          "a_en": "No. If the rule is fixed, an automation costs less. If a mistake cannot be undone and nobody validates, do not do it. An agent is worth its cost when the task is repeated, reads unstructured content and can be supervised cheaply. To measure, see the ROI guide."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Chiffrer avant de construire",
+      "kicker_en": "§ Price before building",
+      "h2_fr": "Savoir ce qu'un agent coûtera chez vous, avant la première heure facturée.",
+      "h2_en": "Know what an agent will cost you, before the first billed hour.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On passe vos tâches en revue, on dit lesquelles valent un agent, et vous repartez avec une première estimation des cinq postes.",
+      "subtitle_en": "The 45-minute audit is free. We review your tasks, say which are worth an agent, and you leave with a first estimate of the five items.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir les agents IA",
+          "label_en": "See AI agents",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Combien coûte un agent IA pour une PME ?",
+      "a": "Cela dépend du périmètre, et je ne donne pas de fourchette de marché : elle ne voudrait rien dire pour votre cas. Le coût se compose du modèle, de l'orchestration, de l'intégration, de la maintenance et de la supervision humaine. Chez Waimia : audit gratuit de 45 minutes, sprint découverte de 10 heures à 999 € HT, puis {{prix.horaire}} € HT de l'heure en régie."
+    },
+    {
+      "q": "Quel est le poste le plus cher ?",
+      "a": "Dans la plupart des cas, l'intégration, parce qu'elle se compte en heures de travail, alors que le modèle se compte en dollars. Sur l'exemple du tri d'e-mails de ce guide, le modèle coûte 4,50 $ pour 1 000 e-mails. Un petit volume ne rend donc pas l'agent bon marché : c'est le temps de construction qui pèse."
+    },
+    {
+      "q": "Combien coûte le modèle Claude pour un agent ?",
+      "a": "Il se facture au jeton via l'API. D'après la grille d'Anthropic relue le 6 octobre 2026, Claude Haiku 4.5 coûte 1 $ par million de jetons en entrée et 5 $ en sortie ; Claude Sonnet 5.5, 2 $ et 10 $. Pour trier ou extraire, Haiku suffit souvent. Les abonnements par siège (Team, Enterprise) concernent des personnes, pas un agent autonome."
+    },
+    {
+      "q": "n8n ou Make : lequel est le moins cher ?",
+      "a": "Cela dépend du nombre d'étapes et de la fréquence. n8n facture le lancement complet : 20 € ou 50 € par mois en Cloud au 6 octobre 2026, ou une version auto-hébergée sans licence. Make facture chaque action de module : à partir de 9 $ par mois pour 10 000 crédits. Plus vos flux ont d'étapes, plus n8n devient avantageux. Voir le comparatif n8n vs Make."
+    },
+    {
+      "q": "Que coûte la maintenance d'un agent IA ?",
+      "a": "Elle se paie en heures ou par forfait mensuel. Chez Waimia, le palier d'entrée du suivi coûte {{prix.maintenance.p1}} € HT par mois et les interventions hors forfait {{prix.horaire}} € HT de l'heure. Le bon choix dépend du nombre d'agents et de la fréquence de changement de vos outils."
+    },
+    {
+      "q": "Faut-il quelqu'un en interne pour superviser l'agent ?",
+      "a": "Oui, au moins une personne référente. Elle valide les actions irréversibles, contrôle un échantillon des autres et traite les cas hors cadre. Son temps est un coût réel : actions à valider par semaine multipliées par minutes de relecture."
+    },
+    {
+      "q": "Puis-je avoir un prix ferme avant de m'engager ?",
+      "a": "Oui pour le cadrage : le sprint découverte est à 999 € HT, prix fixe. La construction se fait ensuite en régie, avec une estimation en heures validée avant chaque lot. L'audit de 45 minutes qui précède est gratuit."
+    },
+    {
+      "q": "Un agent IA est-il toujours rentable ?",
+      "a": "Non. Si la règle est fixe, une automatisation coûte moins cher. Si l'erreur n'est pas rattrapable et que personne ne valide, ne le faites pas. Un agent vaut son coût quand la tâche est répétée, lit des contenus non structurés et se supervise à faible coût. Pour mesurer, voir le guide ROI."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does an AI agent cost an SMB?",
+      "a": "It depends on the scope, and I give no market range: it would mean nothing for your case. The cost is made up of the model, orchestration, integration, maintenance and human supervision. At Waimia: a free 45-minute audit, a 10-hour discovery sprint at €999 excl. VAT, then €{{prix.horaire}} excl. VAT per hour on time and materials."
+    },
+    {
+      "q": "What is the most expensive item?",
+      "a": "In most cases, integration, because it is counted in hours of work while the model is counted in dollars. In this guide's email sorting example, the model costs $4.50 per 1,000 emails. A small volume therefore does not make the agent cheap: build time is what weighs."
+    },
+    {
+      "q": "How much does the Claude model cost for an agent?",
+      "a": "It is billed by the token through the API. According to Anthropic's price list reread on 6 October 2026, Claude Haiku 4.5 costs $1 per million input tokens and $5 for output; Claude Sonnet 5.5, $2 and $10. For sorting or extraction, Haiku is often enough. Per-seat subscriptions (Team, Enterprise) are for people, not an autonomous agent."
+    },
+    {
+      "q": "n8n or Make: which is cheaper?",
+      "a": "It depends on the number of steps and the frequency. n8n bills the full run: €20 or €50 a month on Cloud as of 6 October 2026, or a self-hosted edition with no licence. Make bills each module action: from $9 a month for 10,000 credits. The more steps your flows have, the more n8n pulls ahead. See the n8n vs Make comparison."
+    },
+    {
+      "q": "What does AI agent maintenance cost?",
+      "a": "It is paid in hours or through a monthly flat fee. At Waimia, the entry follow-up tier costs €{{prix.maintenance.p1}} excl. VAT per month and out-of-scope interventions €{{prix.horaire}} excl. VAT per hour. The right choice depends on the number of agents and how often your tools change."
+    },
+    {
+      "q": "Do I need someone in-house to supervise the agent?",
+      "a": "Yes, at least one lead person. They validate irreversible actions, spot check the others and handle out-of-scope cases. Their time is a real cost: actions to validate per week multiplied by minutes of review."
+    },
+    {
+      "q": "Can I get a firm price before committing?",
+      "a": "Yes for the scoping: the discovery sprint is €999 excl. VAT, fixed price. The build is then done on a time-and-materials basis, with an hourly estimate validated before each batch. The 45-minute audit before it is free."
+    },
+    {
+      "q": "Is an AI agent always profitable?",
+      "a": "No. If the rule is fixed, an automation costs less. If a mistake cannot be undone and nobody validates, do not do it. An agent is worth its cost when the task is repeated, reads unstructured content and can be supervised cheaply. To measure, see the ROI guide."
+    }
+  ]
+}

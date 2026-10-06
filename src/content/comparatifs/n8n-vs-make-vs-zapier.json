@@ -1,0 +1,458 @@
+{
+  "$schema": "../../schemas/generated/comparatifs.page.schema.json",
+  "title_fr": "n8n vs Make vs Zapier : comparatif PME · Waimia",
+  "title_en": "n8n vs Make vs Zapier: SME comparison · Waimia",
+  "description_fr": "n8n vs Make vs Zapier : prix officiels datés, coût total, hébergement, limites, et quel outil choisir selon votre PME. Quand aucun des trois ne suffit.",
+  "description_en": "n8n vs Make vs Zapier: dated official prices, total cost, hosting, limits, and which tool to choose for your SME. When none of the three is enough.",
+  "slug": "n8n-vs-make-vs-zapier",
+  "publishedAt": "2026-10-06T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "category": "productivite",
+  "tags": [
+    "n8n-vs-make-vs-zapier",
+    "n8n",
+    "make",
+    "zapier",
+    "automatisation",
+    "comparatif"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Quel est le moins cher entre n8n, Make et Zapier ?",
+      "a": "Cela dépend de la forme de vos automatisations. n8n compte un passage du workflow entier, Make un crédit par action de module, Zapier une tâche par action réussie. Au 6 octobre 2026, en annuel, un workflow de 6 étapes lancé 1 000 fois par mois coûte 20 € chez n8n, 9 $ chez Make et 89 $ chez Zapier. À 10 étapes et 10 000 lancements : 50 €, 99 $ et 489 $. Mon conseil : faites ce calcul sur vos trois automatisations principales."
+    },
+    {
+      "q": "n8n est-il vraiment gratuit ?",
+      "a": "L'édition Community est gratuite et s'installe sur votre serveur, sous une licence « fair-code » : usage interne autorisé, revente comme service aux clients soumise à accord. Gratuit ne veut pas dire sans coût : il faut un serveur, des sauvegardes, des mises à jour et quelqu'un pour les assurer. Le poste à chiffrer n'est pas la licence, c'est le temps de cette personne."
+    },
+    {
+      "q": "Quel outil est le plus simple pour une équipe non technique ?",
+      "a": "Zapier et Make sont les plus guidés, sans serveur à gérer. Entre les deux, Zapier est souvent jugé plus rapide à prendre en main pour des enchaînements simples, Make plus à l'aise dès qu'il faut des branches et des boucles. C'est un avis de praticien, pas une mesure. Le critère décisif reste celui qui maintiendra les automatisations dans deux ans."
+    },
+    {
+      "q": "Où sont hébergées mes données avec chacun ?",
+      "a": "n8n en cloud : serveurs à Francfort, en Allemagne, d'après l'éditeur ; en auto-hébergé, là où vous l'installez. Make : zones Europe et États-Unis rattachées à l'organisation, d'après sa documentation. Zapier : serveurs AWS aux États-Unis, sans option de stockage limité à l'UE, avec une certification au Data Privacy Framework UE-États-Unis pour les transferts. Les données envoyées aux services appelés par vos workflows suivent, elles, l'hébergement de ces services."
+    },
+    {
+      "q": "Peut-on changer d'outil plus tard ?",
+      "a": "Oui, mais sans export en un clic : chaque scénario se reconstruit. La logique, elle, se réutilise si elle est documentée indépendamment de l'outil. Documentez dès le départ ce que fait chaque automatisation, qui la possède et où elle tourne."
+    },
+    {
+      "q": "Et si ma tâche demande du jugement, par exemple trier des e-mails ?",
+      "a": "Un workflow suit des règles fixes. Si la tâche change à chaque fois et demande de lire et de comprendre un texte, un modèle de langage s'ajoute à l'automatisation, avec une validation humaine sur les cas sensibles. Les trois outils savent appeler un modèle ; la question devient alors celle des garde-fous, pas celle de l'outil."
+    },
+    {
+      "q": "Peut-on être accompagné sans changer toute notre stack ?",
+      "a": "Oui. L'audit gratuit de 45 minutes part de vos automatisations réelles et dit lequel des trois outils convient, ou si aucun ne convient. Ensuite, le sprint découverte est à 999 € HT, puis la régie à {{prix.horaire}} € HT de l'heure si vous poursuivez. Les formations n8n et Make sont dispensées via Akigora, organisme certifié Qualiopi."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Which is cheapest between n8n, Make and Zapier?",
+      "a": "It depends on the shape of your automations. n8n counts one run of the whole workflow, Make one credit per module action, Zapier one task per successful action. As of 6 October 2026, billed annually, a 6-step workflow run 1,000 times a month costs €20 on n8n, $9 on Make and $89 on Zapier. At 10 steps and 10,000 runs: €50, $99 and $489. My advice: run this calculation on your three main automations."
+    },
+    {
+      "q": "Is n8n really free?",
+      "a": "The Community edition is free and runs on your server, under a fair-code licence: internal use is allowed, reselling it as a service to customers needs an agreement. Free does not mean costless: you need a server, backups, updates and someone to handle them. The cost to estimate is not the licence, it is that person's time."
+    },
+    {
+      "q": "Which tool is simplest for a non-technical team?",
+      "a": "Zapier and Make are the most guided, with no server to manage. Between the two, Zapier is often seen as quicker to learn for simple chains, Make as more comfortable once you need branches and loops. This is a practitioner's opinion, not a measurement. The deciding criterion remains who will maintain the automations in two years."
+    },
+    {
+      "q": "Where is my data hosted with each?",
+      "a": "n8n cloud: servers in Frankfurt, Germany, according to the vendor; self-hosted, wherever you install it. Make: Europe and United States zones tied to the organisation, according to its documentation. Zapier: AWS servers in the United States, no EU-only storage option, with EU-US Data Privacy Framework certification for transfers. Data sent to the services your workflows call follows those services' hosting."
+    },
+    {
+      "q": "Can you switch tool later?",
+      "a": "Yes, but there is no one-click export: each scenario is rebuilt. The logic can be reused if it is documented independently of the tool. Document from day one what each automation does, who owns it and where it runs."
+    },
+    {
+      "q": "What if my task needs judgement, such as sorting emails?",
+      "a": "A workflow follows fixed rules. If the task changes every time and requires reading and understanding text, a language model is added to the automation, with human validation on sensitive cases. All three tools can call a model; the question then becomes safeguards, not the tool."
+    },
+    {
+      "q": "Can we get support without changing our whole stack?",
+      "a": "Yes. The free 45-minute audit starts from your real automations and says which of the three tools fits, or whether none does. Then the discovery sprint is €999 excl. VAT, followed by time-and-materials at €99 excl. VAT per hour if you continue. The n8n and Make trainings are delivered through Akigora, a Qualiopi-certified body."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Comparatif",
+      "kicker_en": "§ Comparison",
+      "h1_fr": "n8n vs Make vs Zapier : lequel choisir pour votre PME",
+      "h1_en": "n8n vs Make vs Zapier: which to choose for your SME",
+      "lede_fr": "Trois outils, trois unités de facturation, trois façons de s'héberger et de se maintenir. Voici les prix et les faits publiés par les éditeurs au 6 octobre 2026, deux calculs de coût, et notre verdict : quand choisir chacun, et quand aucun des trois ne convient.",
+      "lede_en": "Three tools, three billing units, three ways of hosting and maintaining. Here are the prices and facts the vendors published as of 6 October 2026, two cost calculations, and our verdict: when to choose each, and when none of the three fits.",
+      "badges": [
+        {
+          "label_fr": "Prix officiels datés",
+          "label_en": "Dated official prices"
+        },
+        {
+          "label_fr": "Relevé le 6 octobre 2026",
+          "label_en": "Read on 6 October 2026"
+        },
+        {
+          "label_fr": "Verdict par situation",
+          "label_en": "Verdict per situation"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/n8n-vs-make-vs-zapier-trois-portes-paper.webp",
+        "alt_fr": "Trois portes de formes différentes dans un champ, une silhouette hésite entre elles",
+        "alt_en": "Three doors of different shapes in a field, a figure hesitating between them",
+        "side": "right"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "n8n, Make ou Zapier : lequel choisir ?",
+      "question_en": "n8n, Make or Zapier: which to choose?",
+      "term_fr": "La réponse courte",
+      "term_en": "The short answer",
+      "answer_fr": "Zapier pour démarrer vite avec peu d'étapes, Make pour des scénarios plus riches maintenus par une équipe métier, n8n pour des workflows longs, fréquents ou à garder sur vos serveurs. Le prix se joue sur l'unité facturée : l'exécution entière chez n8n, le crédit par action chez Make, la tâche par action réussie chez Zapier. Si la tâche demande du jugement, aucun des trois ne suffit seul.",
+      "answer_en": "Zapier to start fast with few steps, Make for richer scenarios maintained by a business team, n8n for long or frequent workflows or ones to keep on your servers. Price turns on the billing unit: the whole execution at n8n, the credit per action at Make, the task per successful action at Zapier. If the task needs judgement, none of the three is enough alone."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Tableau à trois",
+      "kicker_en": "§ Three-way table",
+      "heading_fr": "n8n, Make et Zapier, critère par critère",
+      "heading_en": "n8n, Make and Zapier, criterion by criterion",
+      "caption_fr": "Prix et faits lus sur les pages officielles des trois éditeurs le 6 octobre 2026. Dollars pour Make et Zapier, euros pour n8n, hors taxes. Facturation annuelle sauf mention contraire.",
+      "caption_en": "Prices and facts read on the three vendors' official pages on 6 October 2026. Dollars for Make and Zapier, euros for n8n, excluding taxes. Annual billing unless stated otherwise.",
+      "columns_fr": [
+        "Critère",
+        "n8n",
+        "Make",
+        "Zapier"
+      ],
+      "columns_en": [
+        "Criterion",
+        "n8n",
+        "Make",
+        "Zapier"
+      ],
+      "rows_fr": [
+        [
+          "Unité facturée",
+          "Exécution : un passage complet du workflow, quel que soit le nombre d'étapes",
+          "Crédit : une action de module en consomme un",
+          "Tâche : chaque action réussie ; déclencheurs, échecs, filtres, Formatter et Paths non comptés"
+        ],
+        [
+          "Offre gratuite",
+          "Édition Community, à héberger soi-même",
+          "1 000 crédits par mois, 2 scénarios actifs",
+          "100 tâches par mois, Zaps à deux étapes seulement (un déclencheur, une action)"
+        ],
+        [
+          "Première offre payante",
+          "Starter : 20 € par mois, 2 500 exécutions",
+          "Core : 9 $ par mois (10,59 $ en mensuel), 10 000 crédits, scénarios actifs illimités",
+          "Professional : 19,99 $ par mois (29,99 $ en mensuel), 750 tâches"
+        ],
+        [
+          "Palier de 10 000 unités",
+          "Pro : 50 € par mois, 10 000 exécutions",
+          "Core : 9 $ par mois, 10 000 crédits",
+          "Professional : 129 $ par mois (193,50 $ en mensuel), 10 000 tâches"
+        ],
+        [
+          "Hébergement",
+          "Cloud à Francfort, ou votre serveur",
+          "Cloud, zones Europe et États-Unis",
+          "Cloud sur AWS aux États-Unis, sans option de stockage limité à l'UE"
+        ],
+        [
+          "Installation sur votre serveur",
+          "Oui (Community ; offre Business auto-hébergée)",
+          "Non",
+          "Non"
+        ],
+        [
+          "Code et API libres",
+          "Nœud Code (JavaScript, Python) et requêtes HTTP, sur toutes les offres",
+          "Application HTTP pour toute API ; app Make Code (JavaScript, Python) sur les offres payantes, 2 crédits par seconde d'exécution",
+          "Code by Zapier (JavaScript, Python) dès l'offre gratuite, 1 seconde d'exécution par étape (30 en Professional) ; Webhooks à partir de Professional"
+        ],
+        [
+          "Prise en main par une équipe non technique",
+          "Demande un profil à l'aise avec la logique de données",
+          "Guidée, plus riche en branches que Zapier",
+          "La plus guidée des trois (avis de praticien)"
+        ],
+        [
+          "Quand l'envisager",
+          "Workflows longs ou fréquents, données chez vous, besoin de code",
+          "Scénarios courts à moyens, équipe métier autonome",
+          "Premières automatisations rapides, peu d'étapes"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Billing unit",
+          "Execution: one full run of the workflow, whatever the number of steps",
+          "Credit: one module action uses one",
+          "Task: each successful action; triggers, failures, filters, Formatter and Paths not counted"
+        ],
+        [
+          "Free option",
+          "Community edition, self-hosted",
+          "1,000 credits per month, 2 active scenarios",
+          "100 tasks per month, two-step Zaps only (one trigger, one action)"
+        ],
+        [
+          "First paid plan",
+          "Starter: €20 per month, 2,500 executions",
+          "Core: $9 per month ($10.59 billed monthly), 10,000 credits, unlimited active scenarios",
+          "Professional: $19.99 per month ($29.99 billed monthly), 750 tasks"
+        ],
+        [
+          "10,000-unit tier",
+          "Pro: €50 per month, 10,000 executions",
+          "Core: $9 per month, 10,000 credits",
+          "Professional: $129 per month ($193.50 billed monthly), 10,000 tasks"
+        ],
+        [
+          "Hosting",
+          "Cloud in Frankfurt, or your server",
+          "Cloud, Europe and United States zones",
+          "Cloud on AWS in the United States, no EU-only storage option"
+        ],
+        [
+          "Install on your server",
+          "Yes (Community; self-hosted Business plan)",
+          "No",
+          "No"
+        ],
+        [
+          "Free code and API",
+          "Code node (JavaScript, Python) and HTTP requests, on every plan",
+          "HTTP app for any API; Make Code app (JavaScript, Python) on paid plans, 2 credits per second of execution",
+          "Code by Zapier (JavaScript, Python) from the free plan, 1 second of runtime per step (30 on Professional); Webhooks from Professional"
+        ],
+        [
+          "Learning curve for a non-technical team",
+          "Needs someone comfortable with data logic",
+          "Guided, richer in branches than Zapier",
+          "The most guided of the three (practitioner's view)"
+        ],
+        [
+          "When to consider it",
+          "Long or frequent workflows, data in-house, need for code",
+          "Short to medium scenarios, autonomous business team",
+          "Quick first automations, few steps"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/n8n-vs-make-vs-zapier-compteurs-paper.webp",
+          "alt_fr": "Trois compteurs de tailles différentes, une silhouette lit le plus petit",
+          "alt_en": "Three meters of different sizes, a figure reads the smallest one",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce que chaque outil compte, et pourquoi ça change la facture</h2>\n<p>La vraie différence entre les trois n'est pas le nombre d'applications branchées. C'est l'unité facturée.</p>\n<p><strong>n8n compte des exécutions.</strong> Une exécution est un passage complet du workflow, quel que soit le nombre d'étapes ou le volume de données.</p>\n<p><strong>Make compte des crédits.</strong> Chaque action de module en consomme un, déclencheur compris.</p>\n<p><strong>Zapier compte des tâches.</strong> Une tâche est une action menée à bien. Les déclencheurs, les actions en échec et les outils internes (Filter, Formatter, Paths) ne sont pas comptés.</p>\n<p>Deux calculs, en scénarios illustratifs, aux prix du 6 octobre 2026 en facturation annuelle :</p>\n<ul>\n<li><strong>6 étapes (1 déclencheur, 5 actions), 1 000 lancements par mois.</strong> n8n : 1 000 exécutions, offre Starter à 20 € par mois. Make : environ 6 000 crédits, offre Core à 9 $ par mois. Zapier : 5 000 tâches, palier Professional de 5 000 tâches à 89 $ par mois.</li>\n<li><strong>10 étapes (1 déclencheur, 9 actions), 10 000 lancements par mois.</strong> n8n : 10 000 exécutions, offre Pro à 50 € par mois. Make : environ 100 000 crédits, palier Core de 150 000 crédits à 99 $ par mois. Zapier : 90 000 tâches, palier Professional de 100 000 tâches à 489 $ par mois.</li>\n</ul>\n<p>À l'autre bout, 3 étapes lancées 200 fois par mois tiennent dans l'offre gratuite de Make (environ 600 crédits sur 1 000). Pas dans celle de Zapier : 100 tâches et des Zaps limités à deux étapes. La règle : plus le workflow est long et fréquent, plus l'unité de facturation pèse.</p>\n<p>Pour le détail des montants n8n, voyez <a href=\"/ressources/guides/n8n-prix\">notre guide des prix de n8n</a>. Pour la comparaison à deux, <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n contre Make</a> détaille chaque critère, et <a href=\"/blog/avis-n8n-vs-zapier-2026\">notre avis n8n contre Zapier</a> donne notre verdict de praticien.</p>",
+      "html_en": "<h2>What each tool counts, and why it changes the bill</h2>\n<p>The real difference between the three is not the number of connected apps. It is the unit they bill.</p>\n<p><strong>n8n counts executions.</strong> An execution is one full run of the workflow, whatever the number of steps or the volume of data.</p>\n<p><strong>Make counts credits.</strong> Each module action uses one, trigger included.</p>\n<p><strong>Zapier counts tasks.</strong> A task is an action completed successfully. Triggers, failed actions and built-in tools (Filter, Formatter, Paths) are not counted.</p>\n<p>Two calculations, as illustrative scenarios, at 6 October 2026 prices billed annually:</p>\n<ul>\n<li><strong>6 steps (1 trigger, 5 actions), 1,000 runs a month.</strong> n8n: 1,000 executions, Starter plan at €20 a month. Make: about 6,000 credits, Core plan at $9 a month. Zapier: 5,000 tasks, Professional 5,000-task tier at $89 a month.</li>\n<li><strong>10 steps (1 trigger, 9 actions), 10,000 runs a month.</strong> n8n: 10,000 executions, Pro plan at €50 a month. Make: about 100,000 credits, 150,000-credit Core tier at $99 a month. Zapier: 90,000 tasks, Professional 100,000-task tier at $489 a month.</li>\n</ul>\n<p>At the other end, 3 steps run 200 times a month fit Make's free plan (about 600 credits out of 1,000). Not Zapier's: 100 tasks and Zaps limited to two steps. The rule: the longer and more frequent the workflow, the more the billing unit weighs.</p>\n<p>For n8n amounts in detail, see <a href=\"/ressources/guides/n8n-prix\">our n8n pricing guide</a>. For the two-way comparison, <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> details each criterion, and <a href=\"/blog/avis-n8n-vs-zapier-2026\">our n8n vs Zapier review</a> gives our practitioner's verdict.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Hébergement et données : la question à poser avant le prix</h2>\n<p>n8n est le seul des trois qui s'installe sur votre propre serveur. Si une règle interne ou un client impose de garder les données chez vous, le choix est fait : n8n auto-hébergé. Ses offres cloud sont hébergées à Francfort d'après l'éditeur. Make décrit des zones Europe et États-Unis. Zapier indique héberger les données sur des serveurs AWS aux États-Unis et ne propose pas de stockage limité à l'Union européenne ; il s'appuie sur sa certification au Data Privacy Framework UE-États-Unis pour les transferts. Si votre DPO exige un hébergement européen, Zapier sort de la liste.</p>\n<h2>Les limites que les pages tarifs ne mettent pas en avant</h2>\n<ul>\n<li><strong>n8n auto-hébergé.</strong> Vous devenez l'exploitant : serveur, sauvegardes, mises à jour, supervision. L'offre Business n'existe qu'en installation sur votre infrastructure, à 667 € par mois en facturation annuelle pour 40 000 exécutions.</li>\n<li><strong>Make.</strong> Les crédits fondent dès qu'un scénario boucle sur beaucoup d'éléments : chaque passage compte. L'offre gratuite se limite à 2 scénarios actifs et à une exécution planifiée toutes les 15 minutes au plus.</li>\n<li><strong>Zapier.</strong> Le coût monte par paliers de tâches, et le mensuel coûte nettement plus que l'annuel : 29,99 $ contre 19,99 $ par mois pour 750 tâches. L'offre gratuite ne permet que des Zaps à deux étapes.</li>\n<li><strong>Les trois.</strong> Aucun ne remplace la gouvernance : qui possède l'automatisation, qui est prévenu quand elle échoue, où est la documentation.</li>\n</ul>\n<h2>Qui va maintenir : le critère qu'on oublie</h2>\n<p>Une automatisation vit plusieurs années. Elle casse quand un outil connecté change, quand un champ est renommé, quand un jeton expire. Si la personne qui la maintiendra n'est pas technique, Zapier ou Make l'emportent presque toujours, même plus chers. Avec un profil technique ou un prestataire, n8n donne plus de latitude. Notre <a href=\"/services/automatisation-n8n\">service n8n</a> et notre <a href=\"/services/automatisation-make\">service Make</a> couvrent la mise en place ; les formations <a href=\"/formations/n8n\">n8n</a> et <a href=\"/formations/make\">Make</a> servent à reprendre la main en interne.</p>",
+      "html_en": "<h2>Hosting and data: the question to ask before price</h2>\n<p>n8n is the only one of the three you can install on your own server. If an internal rule or a client forces you to keep data in-house, the choice is made: self-hosted n8n. Its cloud plans are hosted in Frankfurt according to the vendor. Make describes Europe and United States zones. Zapier states that it hosts data on AWS servers in the United States and offers no EU-only storage; it relies on its EU-US Data Privacy Framework certification for transfers. If your DPO requires European hosting, Zapier is out.</p>\n<h2>The limits that pricing pages do not put forward</h2>\n<ul>\n<li><strong>Self-hosted n8n.</strong> You become the operator: server, backups, updates, monitoring. The Business plan exists only installed on your infrastructure, at €667 a month billed annually for 40,000 executions.</li>\n<li><strong>Make.</strong> Credits melt as soon as a scenario loops over many items: each pass counts. The free plan is limited to 2 active scenarios and one scheduled run every 15 minutes at most.</li>\n<li><strong>Zapier.</strong> Cost rises by task tiers, and monthly billing costs clearly more than annual: $29.99 versus $19.99 a month for 750 tasks. The free plan only allows two-step Zaps.</li>\n<li><strong>All three.</strong> None replaces governance: who owns the automation, who is alerted when it fails, where the documentation is.</li>\n</ul>\n<h2>Who will maintain it: the forgotten criterion</h2>\n<p>An automation lives for several years. It breaks when a connected tool changes, when a field is renamed, when a token expires. If the person maintaining it is not technical, Zapier or Make almost always win, even when dearer. With a technical profile or a provider, n8n gives more latitude. Our <a href=\"/services/automatisation-n8n\">n8n service</a> and <a href=\"/services/automatisation-make\">Make service</a> cover set-up; the <a href=\"/formations/n8n\">n8n</a> and <a href=\"/formations/make\">Make</a> trainings help you take control in-house.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand choisir lequel",
+      "kicker_en": "§ When to choose which",
+      "heading_fr": "Notre verdict, situation par situation",
+      "heading_en": "Our verdict, situation by situation",
+      "items": [
+        {
+          "label_fr": "Une équipe métier sans développeur doit garder la main, avec des scénarios de complexité moyenne : Make.",
+          "label_en": "A business team without a developer must stay in control, with scenarios of medium complexity: Make."
+        },
+        {
+          "label_fr": "Quelques automatisations simples à mettre en route cette semaine, sans personne pour les maintenir de près : Zapier.",
+          "label_en": "A few simple automations to start this week, with nobody to maintain them closely: Zapier."
+        },
+        {
+          "label_fr": "Des workflows de plus de dix étapes, lancés des milliers de fois par mois : n8n.",
+          "label_en": "Workflows of more than ten steps, run thousands of times a month: n8n."
+        },
+        {
+          "label_fr": "Les données doivent rester sur votre infrastructure : n8n auto-hébergé, et seulement lui.",
+          "label_en": "Data must stay on your infrastructure: self-hosted n8n, and only it."
+        },
+        {
+          "label_fr": "Un besoin de code, de boucles complexes ou d'appels à un système interne : n8n.",
+          "label_en": "A need for code, complex loops or calls to an internal system: n8n."
+        },
+        {
+          "label_fr": "Un budget serré et un volume faible : l'offre gratuite de Make ou de Zapier pour tester, sans abonnement.",
+          "label_en": "A tight budget and low volume: Make's or Zapier's free plan to test, with no subscription."
+        },
+        {
+          "label_fr": "Aucun des trois si la tâche change à chaque fois et demande du jugement : c'est le terrain d'un agent IA.",
+          "label_en": "None of the three if the task changes every time and needs judgement: that is AI agent territory."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/n8n-vs-make-vs-zapier-trois-tapis-arretes-paper.webp",
+          "alt_fr": "Trois tapis roulants à l'arrêt, une personne porte une seule lettre à la main",
+          "alt_en": "Three stopped conveyor belts, a person carries a single letter by hand",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Quand les trois sont inutiles</h2>\n<p>Un outil d'automatisation exécute des règles. Il devient le mauvais outil dans trois cas.</p>\n<ul>\n<li><strong>La tâche change à chaque fois.</strong> Lire un e-mail, comprendre une demande, rédiger une réponse : c'est du jugement. Il faut un modèle de langage, avec validation humaine. Voyez <a href=\"/services/agents-ia\">nos agents IA</a> et le <a href=\"/ressources/guides/claude-pme\">guide pour déployer Claude en PME</a>.</li>\n<li><strong>Le volume est minuscule.</strong> Une tâche faite cinq fois par mois à la main ne justifie ni abonnement ni maintenance. Chiffrez le temps réel avant de construire.</li>\n<li><strong>Le processus lui-même est flou.</strong> Automatiser un processus mal défini l'accélère sans le corriger. Décrivez-le d'abord sur papier, avec les cas d'exception.</li>\n</ul>\n<p>Pour décider quoi automatiser en premier, voyez <a href=\"/ressources/guides/taches-a-automatiser-pme\">les tâches à automatiser en PME</a> et <a href=\"/ressources/guides/roi-automatisation\">le calcul du retour sur investissement</a>.</p>",
+      "html_en": "<h2>When all three are useless</h2>\n<p>An automation tool executes rules. It becomes the wrong tool in three cases.</p>\n<ul>\n<li><strong>The task changes every time.</strong> Reading an email, understanding a request, drafting a reply: that is judgement. You need a language model, with human validation. See <a href=\"/services/agents-ia\">our AI agents</a> and the <a href=\"/ressources/guides/claude-pme\">guide to deploying Claude in an SMB</a>.</li>\n<li><strong>The volume is tiny.</strong> A task done five times a month by hand justifies neither a subscription nor maintenance. Measure the real time before building.</li>\n<li><strong>The process itself is vague.</strong> Automating a poorly defined process speeds it up without fixing it. Describe it on paper first, with the exceptions.</li>\n</ul>\n<p>To decide what to automate first, see <a href=\"/ressources/guides/taches-a-automatiser-pme\">the tasks to automate in an SMB</a> and <a href=\"/ressources/guides/roi-automatisation\">the return-on-investment calculation</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Sources, relevées le 6 octobre 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, page tarifs : offres, définition d'une exécution, hébergement à Francfort, nœud Code et requêtes HTTP</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, page tarifs : offres, paliers de crédits, offre gratuite</a></li><li><a href=\"https://zapier.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Zapier, page tarifs : offres, paliers de tâches, définition d'une tâche, Code by Zapier, Webhooks</a></li><li><a href=\"https://zapier.com/legal/data-privacy\" rel=\"noopener noreferrer\" target=\"_blank\">Zapier, confidentialité : hébergement AWS aux États-Unis, pas de stockage limité à l'UE, Data Privacy Framework</a></li><li><a href=\"https://help.make.com/the-make-code-app-is-available\" rel=\"noopener noreferrer\" target=\"_blank\">Make, centre d'aide : app Make Code, offres payantes et consommation de crédits</a></li><li><a href=\"https://apps.make.com/http\" rel=\"noopener noreferrer\" target=\"_blank\">Make, documentation : application HTTP</a></li><li><a href=\"https://docs.n8n.io/reference/license/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : Sustainable Use License (fair-code)</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, documentation API : zones EU et US</a></li></ul><p>Prix des pages officielles à cette date, hors taxes : Make et Zapier affichent en dollars, n8n en euros. Aucun prix n'est repris d'un site tiers.</p>",
+      "html_en": "<h2>Sources, read on 6 October 2026</h2><ul><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, pricing page: plans, definition of an execution, Frankfurt hosting, Code node and HTTP requests</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, pricing page: plans, credit tiers, free plan</a></li><li><a href=\"https://zapier.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Zapier, pricing page: plans, task tiers, definition of a task, Code by Zapier, Webhooks</a></li><li><a href=\"https://zapier.com/legal/data-privacy\" rel=\"noopener noreferrer\" target=\"_blank\">Zapier, data privacy: AWS hosting in the United States, no EU-only storage, Data Privacy Framework</a></li><li><a href=\"https://help.make.com/the-make-code-app-is-available\" rel=\"noopener noreferrer\" target=\"_blank\">Make, help centre: Make Code app, paid plans and credit usage</a></li><li><a href=\"https://apps.make.com/http\" rel=\"noopener noreferrer\" target=\"_blank\">Make, documentation: HTTP app</a></li><li><a href=\"https://docs.n8n.io/reference/license/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: Sustainable Use License (fair-code)</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, API documentation: EU and US zones</a></li></ul><p>Prices from the official pages on that date, excluding taxes: Make and Zapier show dollars, n8n euros. No price is taken from a third-party site.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "n8n contre Make",
+          "title_en": "n8n vs Make",
+          "lead_fr": "Le même exercice à deux, critère par critère.",
+          "lead_en": "The same exercise for two, criterion by criterion.",
+          "href": "/ressources/comparatifs/n8n-vs-make"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agence n8n",
+          "title_en": "n8n agency",
+          "lead_fr": "Workflows n8n conçus, hébergés et supervisés.",
+          "lead_en": "n8n workflows designed, hosted and supervised.",
+          "href": "/services/automatisation-n8n"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agence Make",
+          "title_en": "Make agency",
+          "lead_fr": "Scénarios Make en production, documentés, transmis à votre équipe.",
+          "lead_en": "Make scenarios in production, documented, handed over to your team.",
+          "href": "/services/automatisation-make"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Quel est le moins cher entre n8n, Make et Zapier ?",
+          "a_fr": "Cela dépend de la forme de vos automatisations. n8n compte un passage du workflow entier, Make un crédit par action de module, Zapier une tâche par action réussie. Au 6 octobre 2026, en annuel, un workflow de 6 étapes lancé 1 000 fois par mois coûte 20 € chez n8n, 9 $ chez Make et 89 $ chez Zapier. À 10 étapes et 10 000 lancements : 50 €, 99 $ et 489 $. Mon conseil : faites ce calcul sur vos trois automatisations principales.",
+          "q_en": "Which is cheapest between n8n, Make and Zapier?",
+          "a_en": "It depends on the shape of your automations. n8n counts one run of the whole workflow, Make one credit per module action, Zapier one task per successful action. As of 6 October 2026, billed annually, a 6-step workflow run 1,000 times a month costs €20 on n8n, $9 on Make and $89 on Zapier. At 10 steps and 10,000 runs: €50, $99 and $489. My advice: run this calculation on your three main automations."
+        },
+        {
+          "q_fr": "n8n est-il vraiment gratuit ?",
+          "a_fr": "L'édition Community est gratuite et s'installe sur votre serveur, sous une licence « fair-code » : usage interne autorisé, revente comme service aux clients soumise à accord. Gratuit ne veut pas dire sans coût : il faut un serveur, des sauvegardes, des mises à jour et quelqu'un pour les assurer. Le poste à chiffrer n'est pas la licence, c'est le temps de cette personne.",
+          "q_en": "Is n8n really free?",
+          "a_en": "The Community edition is free and runs on your server, under a fair-code licence: internal use is allowed, reselling it as a service to customers needs an agreement. Free does not mean costless: you need a server, backups, updates and someone to handle them. The cost to estimate is not the licence, it is that person's time."
+        },
+        {
+          "q_fr": "Quel outil est le plus simple pour une équipe non technique ?",
+          "a_fr": "Zapier et Make sont les plus guidés, sans serveur à gérer. Entre les deux, Zapier est souvent jugé plus rapide à prendre en main pour des enchaînements simples, Make plus à l'aise dès qu'il faut des branches et des boucles. C'est un avis de praticien, pas une mesure. Le critère décisif reste celui qui maintiendra les automatisations dans deux ans.",
+          "q_en": "Which tool is simplest for a non-technical team?",
+          "a_en": "Zapier and Make are the most guided, with no server to manage. Between the two, Zapier is often seen as quicker to learn for simple chains, Make as more comfortable once you need branches and loops. This is a practitioner's opinion, not a measurement. The deciding criterion remains who will maintain the automations in two years."
+        },
+        {
+          "q_fr": "Où sont hébergées mes données avec chacun ?",
+          "a_fr": "n8n en cloud : serveurs à Francfort, en Allemagne, d'après l'éditeur ; en auto-hébergé, là où vous l'installez. Make : zones Europe et États-Unis rattachées à l'organisation, d'après sa documentation. Zapier : serveurs AWS aux États-Unis, sans option de stockage limité à l'UE, avec une certification au Data Privacy Framework UE-États-Unis pour les transferts. Les données envoyées aux services appelés par vos workflows suivent, elles, l'hébergement de ces services.",
+          "q_en": "Where is my data hosted with each?",
+          "a_en": "n8n cloud: servers in Frankfurt, Germany, according to the vendor; self-hosted, wherever you install it. Make: Europe and United States zones tied to the organisation, according to its documentation. Zapier: AWS servers in the United States, no EU-only storage option, with EU-US Data Privacy Framework certification for transfers. Data sent to the services your workflows call follows those services' hosting."
+        },
+        {
+          "q_fr": "Peut-on changer d'outil plus tard ?",
+          "a_fr": "Oui, mais sans export en un clic : chaque scénario se reconstruit. La logique, elle, se réutilise si elle est documentée indépendamment de l'outil. Documentez dès le départ ce que fait chaque automatisation, qui la possède et où elle tourne.",
+          "q_en": "Can you switch tool later?",
+          "a_en": "Yes, but there is no one-click export: each scenario is rebuilt. The logic can be reused if it is documented independently of the tool. Document from day one what each automation does, who owns it and where it runs."
+        },
+        {
+          "q_fr": "Et si ma tâche demande du jugement, par exemple trier des e-mails ?",
+          "a_fr": "Un workflow suit des règles fixes. Si la tâche change à chaque fois et demande de lire et de comprendre un texte, un modèle de langage s'ajoute à l'automatisation, avec une validation humaine sur les cas sensibles. Les trois outils savent appeler un modèle ; la question devient alors celle des garde-fous, pas celle de l'outil.",
+          "q_en": "What if my task needs judgement, such as sorting emails?",
+          "a_en": "A workflow follows fixed rules. If the task changes every time and requires reading and understanding text, a language model is added to the automation, with human validation on sensitive cases. All three tools can call a model; the question then becomes safeguards, not the tool."
+        },
+        {
+          "q_fr": "Peut-on être accompagné sans changer toute notre stack ?",
+          "a_fr": "Oui. L'audit gratuit de 45 minutes part de vos automatisations réelles et dit lequel des trois outils convient, ou si aucun ne convient. Ensuite, le sprint découverte est à 999 € HT, puis la régie à {{prix.horaire}} € HT de l'heure si vous poursuivez. Les formations n8n et Make sont dispensées via Akigora, organisme certifié Qualiopi.",
+          "q_en": "Can we get support without changing our whole stack?",
+          "a_en": "Yes. The free 45-minute audit starts from your real automations and says which of the three tools fits, or whether none does. Then the discovery sprint is €999 excl. VAT, followed by time-and-materials at €99 excl. VAT per hour if you continue. The n8n and Make trainings are delivered through Akigora, a Qualiopi-certified body."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Choisir son outil",
+      "kicker_en": "§ Choosing your tool",
+      "h2_fr": "Le bon outil se choisit sur vos tâches, pas sur un tableau.",
+      "h2_en": "The right tool is chosen on your tasks, not on a table.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On prend vos trois automatisations prioritaires, on fait le calcul avec vous et on vous dit lequel des trois convient, ou si aucun ne convient.",
+      "subtitle_en": "The 45-minute audit is free. We take your three priority automations, do the maths with you and tell you which of the three fits, or whether none does.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir la formation n8n",
+          "label_en": "See the n8n training",
+          "href": "/formations/n8n",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

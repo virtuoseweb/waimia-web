@@ -14,6 +14,28 @@
     "make-vs-n8n",
     "scenarios-make"
   ],
+  "sources": [
+    {
+      "name": "Make, page tarifs (crédits, offre gratuite, offre Core, agents IA), lue le 6 octobre 2026",
+      "url": "https://www.make.com/en/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Make, documentation API : structure et zones, lue le 6 octobre 2026",
+      "url": "https://developers.make.com/api-documentation/getting-started/api-structure",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, page tarifs (définition d'une exécution), lue le 6 octobre 2026",
+      "url": "https://n8n.io/pricing/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, documentation du nœud Code, lue le 6 octobre 2026",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/",
+      "type": "enterprise"
+    }
+  ],
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation Make pour PME",
@@ -23,15 +45,15 @@
   "faq_fr": [
     {
       "q": "Combien coûte une automatisation Make réalisée par Waimia ?",
-      "a": "On commence par un audit gratuit de 45 minutes. Pour l'automatisation, le sprint découverte affiché sur le site est à 999 € HT pour 10 heures : cadrage de la tâche prioritaire et un premier scénario en production. La suite est sur devis après l'audit. L'abonnement Make est à votre nom et à votre charge : vous restez propriétaire du compte et des scénarios."
+      "a": "On commence par un audit gratuit de 45 minutes. Ensuite, le sprint découverte est à 999 € HT pour 10 heures : cadrage de la tâche prioritaire et un premier scénario en production. La suite est chiffrée sur devis après l'audit. L'abonnement Make est à votre nom et à votre charge : le compte et les scénarios vous appartiennent."
     },
     {
       "q": "Make ou n8n : lequel recommandez-vous ?",
-      "a": "Aucun par principe. Make quand l'équipe métier doit lire et modifier les scénarios elle-même et que les volumes restent modérés. n8n quand les workflows sont longs, volumineux, ou que les données doivent rester sur votre infrastructure. Le détail des critères est dans notre comparatif n8n vs Make."
+      "a": "Aucun par principe. Make quand votre équipe métier doit lire et modifier les scénarios elle-même et que les volumes restent modérés. n8n quand les workflows sont longs, volumineux, ou que les données doivent rester sur votre infrastructure. Les critères détaillés sont dans notre comparatif n8n vs Make."
     },
     {
       "q": "Nous avons déjà des scénarios Make qui tournent mal. Vous reprenez l'existant ?",
-      "a": "Oui. La reprise commence par un inventaire : quels scénarios tournent, lesquels échouent, combien de crédits ils consomment, lesquels n'ont aucune gestion d'erreur. On corrige ce qui coûte le plus, on documente, et on vous dit si un scénario gagnerait à être réécrit ailleurs."
+      "a": "Oui. On commence par l'inventaire : quels scénarios tournent, lesquels échouent, combien de crédits ils consomment, lesquels n'ont aucune gestion d'erreur. On corrige d'abord ce qui coûte le plus, on documente, et on vous dit franchement si un scénario gagnerait à être réécrit ailleurs."
     },
     {
       "q": "Qui est propriétaire des scénarios à la fin de la mission ?",
@@ -39,25 +61,25 @@
     },
     {
       "q": "Où sont hébergées les données qui passent par Make ?",
-      "a": "Make est un service cloud. Sa documentation décrit des zones d'hébergement en Europe et aux États-Unis, rattachées à votre organisation (par exemple eu1.make.com ou us1.make.com). On vérifie la zone de votre organisation pendant le cadrage et on limite les données personnelles qui transitent par les scénarios au strict nécessaire."
+      "a": "Make est un service cloud. Au 6 octobre 2026, sa documentation API liste des zones en Europe (eu1, eu2) et aux États-Unis (us1, us2), et chaque organisation est rattachée à une zone. On vérifie la vôtre pendant le cadrage, et on réduit au strict nécessaire les données personnelles qui passent par les scénarios."
     },
     {
       "q": "Peut-on mettre de l'IA dans un scénario Make ?",
-      "a": "Oui. Un scénario peut appeler un modèle (Claude ou OpenAI) pour classer, résumer ou rédiger, puis continuer avec le résultat. Make propose aussi des agents IA, avec son propre fournisseur de modèles ou votre clé. On garde une validation humaine sur ce qui part vers un client ou modifie une donnée sensible."
+      "a": "Oui. Un scénario peut appeler un modèle (Claude ou OpenAI) pour classer, résumer ou rédiger, puis continuer avec le résultat. Au 6 octobre 2026, Make propose aussi des agents IA, en bêta, avec son propre fournisseur de modèles ou votre clé. On garde une validation humaine sur tout ce qui part vers un client ou modifie une donnée sensible."
     }
   ],
   "faq_en": [
     {
       "q": "How much does a Make automation built by Waimia cost?",
-      "a": "We start with a free 45-minute audit. For automation, the discovery sprint listed on the site is €999 excl. tax for 10 hours: scoping the priority task and a first scenario in production. The rest is quoted after the audit. The Make subscription is in your name and paid by you: you own the account and the scenarios."
+      "a": "We start with a free 45-minute audit. Then the discovery sprint is €999 excl. VAT for 10 hours: scoping the priority task and a first scenario in production. Anything beyond is quoted after the audit. The Make subscription is in your name and paid by you: the account and the scenarios belong to you."
     },
     {
       "q": "Make or n8n: which one do you recommend?",
-      "a": "Neither by default. Make when the business team must read and edit scenarios itself and volumes stay moderate. n8n when workflows are long, high-volume, or data must stay on your infrastructure. The detailed criteria are in our n8n vs Make comparison."
+      "a": "Neither by default. Make when your business team must read and edit scenarios itself and volumes stay moderate. n8n when workflows are long, high-volume, or data must stay on your infrastructure. The detailed criteria are in our n8n vs Make comparison."
     },
     {
       "q": "We already have Make scenarios that run badly. Do you take over existing work?",
-      "a": "Yes. A takeover starts with an inventory: which scenarios run, which fail, how many credits they consume, which have no error handling. We fix what costs the most, document it, and tell you if a scenario would be better rewritten elsewhere."
+      "a": "Yes. We start with an inventory: which scenarios run, which fail, how many credits they burn, which have no error handling. We fix what costs the most first, document it, and tell you plainly if a scenario would be better rewritten elsewhere."
     },
     {
       "q": "Who owns the scenarios at the end of the engagement?",
@@ -65,11 +87,11 @@
     },
     {
       "q": "Where is the data that goes through Make hosted?",
-      "a": "Make is a cloud service. Its documentation describes hosting zones in Europe and the United States, tied to your organization (for example eu1.make.com or us1.make.com). We check your organization's zone during scoping and keep personal data passing through scenarios to the strict minimum."
+      "a": "Make is a cloud service. As of 6 October 2026, its API documentation lists zones in Europe (eu1, eu2) and the United States (us1, us2), and each organization belongs to one zone. We check yours during scoping and keep the personal data flowing through scenarios to the strict minimum."
     },
     {
       "q": "Can you put AI inside a Make scenario?",
-      "a": "Yes. A scenario can call a model (Claude or OpenAI) to classify, summarise or draft, then continue with the result. Make also offers AI agents, with its own model provider or your key. We keep human validation on anything sent to a customer or changing sensitive data."
+      "a": "Yes. A scenario can call a model (Claude or OpenAI) to classify, summarise or draft, then carry on with the result. As of 6 October 2026, Make also offers AI agents, in beta, using its own model provider or your key. We keep human approval on anything sent to a customer or changing sensitive data."
     }
   ],
   "sections": [
@@ -86,8 +108,8 @@
       "kicker_en": "§ Make automation",
       "h1_fr": "Agence Make pour PME",
       "h1_en": "Make agency for SMEs",
-      "lede_fr": "Waimia conçoit vos scénarios Make, les met en production et les documente pour que votre équipe puisse les reprendre. Et quand Make n'est pas le bon outil pour votre cas, on vous le dit avant de commencer.",
-      "lede_en": "Waimia designs your Make scenarios, ships them to production and documents them so your team can take over. And when Make is not the right tool for your case, we tell you before starting.",
+      "lede_fr": "Nous concevons vos scénarios Make, nous les mettons en production et nous les documentons pour que votre équipe puisse les reprendre. Si Make n'est pas le bon outil pour votre cas, on vous le dit avant de commencer.",
+      "lede_en": "We design your Make scenarios, put them into production and document them so your team can take them over. If Make is the wrong tool for your case, we say so before we start.",
       "badges": [
         {
           "label_fr": "Scénarios en production",
@@ -154,8 +176,8 @@
       "question_en": "What does a Make agency actually do?",
       "term_fr": "Agence Make",
       "term_en": "Make agency",
-      "answer_fr": "Elle transforme une tâche répétitive en scénario Make fiable : un déclencheur, des modules reliés à vos outils, des filtres, une gestion des erreurs et une alerte quand quelque chose échoue. Chez Waimia, le travail ne s'arrête pas au scénario qui marche en démo. Il est mis en production dans votre compte, mesuré, documenté, puis transmis à une personne de votre équipe.",
-      "answer_en": "It turns a repetitive task into a reliable Make scenario: a trigger, modules connected to your tools, filters, error handling and an alert when something fails. At Waimia the work does not stop at a scenario that works in a demo. It is shipped in your account, measured, documented, then handed over to someone on your team."
+      "answer_fr": "Elle transforme une tâche répétitive en scénario Make fiable : un déclencheur, des modules reliés à vos outils, des filtres, une gestion des erreurs et une alerte quand quelque chose casse. Un scénario qui marche en démo ne suffit pas. Le nôtre tourne dans votre compte, il est mesuré, documenté, puis confié à une personne de votre équipe.",
+      "answer_en": "It turns a repetitive task into a reliable Make scenario: a trigger, modules connected to your tools, filters, error handling and an alert when something breaks. A scenario that works in a demo is not enough. Ours runs in your account, is measured, documented, then handed to someone on your team."
     },
     {
       "type": "tech-when-dual",
@@ -164,34 +186,34 @@
       "kicker_en": "Make or n8n",
       "title_fr": "Quand Make est le bon choix, et quand il ne l'est pas",
       "title_en": "When Make is the right choice, and when it is not",
-      "aside_fr": "Critères vérifiés sur les sites officiels le 4 octobre 2026.",
-      "aside_en": "Criteria checked on the official sites on 4 October 2026.",
+      "aside_fr": "Tarifs et fonctions relevés sur les pages officielles de Make et de n8n le 6 octobre 2026.",
+      "aside_en": "Pricing and features taken from Make's and n8n's official pages on 6 October 2026.",
       "use_title_fr": "Make convient quand",
       "use_title_en": "Make fits when",
       "use_items_fr": [
         "Votre équipe métier doit lire et modifier les scénarios elle-même, sans développeur",
-        "Vos outils sont des logiciels en ligne courants, déjà au catalogue de Make (plus de 3 000 applications annoncées)",
+        "Vos outils sont des logiciels en ligne courants : au 6 octobre 2026, Make annonce plus de 3 000 applications standard",
         "Les scénarios sont courts et les volumes modérés : la facture au crédit reste prévisible",
         "Vous ne voulez administrer aucun serveur"
       ],
       "use_items_en": [
         "Your business team must read and edit scenarios itself, without a developer",
-        "Your tools are common online software already in Make's catalogue (over 3,000 apps advertised)",
+        "Your tools are common online software: as of 6 October 2026, Make lists over 3,000 standard apps",
         "Scenarios are short and volumes moderate: credit billing stays predictable",
         "You do not want to run any server"
       ],
       "avoid_title_fr": "Mieux vaut n8n quand",
       "avoid_title_en": "Prefer n8n when",
       "avoid_items_fr": [
-        "Les workflows sont longs ou très fréquents : chaque action de module consomme un crédit sur Make",
+        "Les workflows sont longs ou très fréquents : sur Make, chaque action de module compte un crédit ; chez n8n, une exécution compte pour tout le workflow",
         "Les données doivent rester sur votre propre infrastructure : n8n s'installe chez vous, Make est un service cloud",
-        "La logique demande du code : n8n a un nœud Code en JavaScript ou Python",
+        "La logique demande du code : le nœud Code de n8n accepte JavaScript et Python",
         "La tâche change à chaque fois et demande du jugement : ce n'est ni Make ni n8n, c'est le travail d'un agent IA"
       ],
       "avoid_items_en": [
-        "Workflows are long or very frequent: each module action uses a credit on Make",
+        "Workflows are long or very frequent: on Make each module action costs a credit; on n8n one execution covers the whole workflow",
         "Data must stay on your own infrastructure: n8n can be self-hosted, Make is a cloud service",
-        "The logic needs code: n8n has a Code node in JavaScript or Python",
+        "The logic needs code: n8n's Code node runs JavaScript and Python",
         "The task changes every time and needs judgement: that is neither Make nor n8n, it is a job for an AI agent"
       ]
     },
@@ -206,8 +228,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Automatisation Make : par quoi on commence</h2>\n<p>On ne commence pas par l'outil. On commence par la tâche qui coûte le plus d'heures et qui se répète à l'identique. Trois exemples types de premiers scénarios (ce sont des exemples, pas des références clients) :</p>\n<ul>\n<li><strong>Demande entrante vers CRM.</strong> Un formulaire ou un mail arrive, le scénario crée la fiche, l'affecte, prévient la bonne personne. Fin de la ressaisie.</li>\n<li><strong>Relance de devis.</strong> Un devis sans réponse depuis un délai que vous fixez déclenche un rappel préparé, envoyé après votre validation.</li>\n<li><strong>Dossier client à l'ouverture.</strong> Une affaire signée crée le dossier, les tâches et les accès dans vos outils, dans le même ordre à chaque fois.</li>\n</ul>\n<h2>Ce que Make facture, et pourquoi ça compte</h2>\n<p>Make facture au crédit. Sa page tarifs l'explique ainsi : chaque action effectuée par un module consomme des crédits, le plus souvent un par action. Un scénario de dix modules exécuté mille fois consomme donc de l'ordre de dix mille crédits. L'offre gratuite donne 1 000 crédits par mois, avec deux scénarios actifs au maximum.</p>\n<p>Conséquence pratique : sur Make, un scénario bien conçu est un scénario court. On filtre tôt, on évite les boucles inutiles, on regroupe les appels. C'est une partie du travail que vous payez, et c'est aussi le critère qui fait parfois basculer vers <a href=\"/services/automatisation-n8n\">n8n</a>, qui compte une exécution par workflow quel que soit le nombre d'étapes.</p>",
-      "html_en": "<h2>Make automation: where we start</h2>\n<p>We don't start with the tool. We start with the task that costs the most hours and repeats identically. Three typical first scenarios (examples, not client references):</p>\n<ul>\n<li><strong>Inbound request to CRM.</strong> A form or email arrives, the scenario creates the record, assigns it, notifies the right person. No more re-keying.</li>\n<li><strong>Quote follow-up.</strong> A quote unanswered after a delay you set triggers a prepared reminder, sent after your approval.</li>\n<li><strong>Client file at kickoff.</strong> A signed deal creates the folder, tasks and accesses in your tools, in the same order every time.</li>\n</ul>\n<h2>What Make bills, and why it matters</h2>\n<p>Make bills by the credit. Its pricing page explains it this way: each action performed by a module consumes credits, most often one per action. A ten-module scenario run a thousand times therefore uses on the order of ten thousand credits. The free plan gives 1,000 credits per month, with at most two active scenarios.</p>\n<p>Practical consequence: on Make, a well-designed scenario is a short one. Filter early, avoid needless loops, batch calls. That is part of the work you pay for, and it is also the criterion that sometimes tips the choice to <a href=\"/services/automatisation-n8n\">n8n</a>, which counts one execution per workflow whatever the number of steps.</p>"
+      "html_fr": "<h2>Automatisation Make : par quoi on commence</h2>\n<p>Pas par l'outil. Par la tâche qui vous coûte le plus d'heures et qui se répète à l'identique. Trois premiers scénarios typiques (des exemples, pas des références clients) :</p>\n<ul>\n<li><strong>Demande entrante vers CRM.</strong> Un formulaire ou un mail arrive, le scénario crée la fiche, l'affecte et prévient la bonne personne. Plus de ressaisie.</li>\n<li><strong>Relance de devis.</strong> Un devis sans réponse après le délai que vous fixez déclenche une relance préparée, envoyée après votre validation.</li>\n<li><strong>Dossier client à l'ouverture.</strong> Une affaire signée crée le dossier, les tâches et les accès dans vos outils, dans le même ordre à chaque fois.</li>\n</ul>\n<h2>Ce que Make facture, et pourquoi ça compte</h2>\n<p>Make facture au crédit. Au 6 octobre 2026, sa page tarifs l'écrit ainsi : chaque action de module, comme ajouter une ligne dans Google Sheets ou lire un compte Gmail, compte pour un crédit. Un scénario de dix modules exécuté mille fois consomme donc environ dix mille crédits. L'offre gratuite donne 1 000 crédits par mois et deux scénarios actifs au maximum. L'offre Core est affichée à 9 $ par mois pour 10 000 crédits.</p>\n<p>Conséquence : sur Make, un bon scénario est un scénario court. On filtre tôt, on évite les boucles inutiles, on regroupe les appels. Ce travail fait partie de ce que vous payez. C'est aussi le critère qui fait parfois pencher vers <a href=\"/services/automatisation-n8n\">n8n</a> : sa page tarifs définit une exécution comme un passage complet du workflow, quel que soit le nombre d'étapes.</p>",
+      "html_en": "<h2>Make automation: where we start</h2>\n<p>Not with the tool. With the task that costs you the most hours and repeats the same way every time. Three typical first scenarios (examples, not client references):</p>\n<ul>\n<li><strong>Inbound request to CRM.</strong> A form or email arrives; the scenario creates the record, assigns it and notifies the right person. No more re-keying.</li>\n<li><strong>Quote follow-up.</strong> A quote left unanswered past the delay you set triggers a prepared reminder, sent once you approve it.</li>\n<li><strong>Client file at kickoff.</strong> A signed deal creates the folder, tasks and access in your tools, in the same order every time.</li>\n</ul>\n<h2>What Make bills, and why it matters</h2>\n<p>Make bills by the credit. As of 6 October 2026, its pricing page puts it this way: each module action, such as adding a Google Sheets row or fetching Gmail data, counts as one credit. A ten-module scenario run a thousand times therefore uses about ten thousand credits. The free plan gives 1,000 credits a month and at most two active scenarios. The Core plan is listed at $9 a month for 10,000 credits.</p>\n<p>The upshot: on Make, a good scenario is a short one. Filter early, avoid needless loops, batch calls. That work is part of what you pay for. It is also what sometimes tips the choice to <a href=\"/services/automatisation-n8n\">n8n</a>: its pricing page defines an execution as one full run of the workflow, however many steps it has.</p>"
     },
     {
       "type": "deliverables-grid",
@@ -253,7 +275,7 @@
         {
           "title_fr": "Mesure avant et après",
           "title_en": "Before and after measurement",
-          "body_fr": "Le temps passé sur la tâche avant, et après. Sur vos chiffres, pas sur des moyennes de marché.",
+          "body_fr": "Le temps passé sur la tâche avant, puis après. Sur vos chiffres, pas sur des moyennes de marché.",
           "body_en": "Time spent on the task before, and after. On your numbers, not market averages."
         }
       ]
@@ -302,16 +324,16 @@
           "num": "05",
           "title_fr": "Passation",
           "title_en": "Handover",
-          "body_fr": "Documentation, démonstration à votre équipe, puis extension aux tâches suivantes si le pilote tient ses promesses.",
-          "body_en": "Documentation, demo to your team, then extension to the next tasks if the pilot delivers."
+          "body_fr": "Documentation, démonstration à votre équipe, puis passage aux tâches suivantes si le pilote a tenu.",
+          "body_en": "Documentation, a walkthrough for your team, then on to the next tasks if the pilot held up."
         }
       ]
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Sources, vérifiées le 4 octobre 2026</h2><ul><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, page tarifs (crédits, offre gratuite, agents IA)</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, catalogue des applications</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, documentation API : zones EU et US</a></li><li><a href=\"https://help.make.com/router\" rel=\"noopener noreferrer\" target=\"_blank\">Make, centre d'aide : routeurs et filtres</a></li><li><a href=\"https://help.make.com/error-handlers\" rel=\"noopener noreferrer\" target=\"_blank\">Make, centre d'aide : gestionnaires d'erreur</a></li><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, page tarifs (définition d'une exécution)</a></li></ul>",
-      "html_en": "<h2>Sources, checked on 4 October 2026</h2><ul><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, pricing page (credits, free plan, AI agents)</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, app catalogue</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, API documentation: EU and US zones</a></li><li><a href=\"https://help.make.com/router\" rel=\"noopener noreferrer\" target=\"_blank\">Make, help center: routers and filters</a></li><li><a href=\"https://help.make.com/error-handlers\" rel=\"noopener noreferrer\" target=\"_blank\">Make, help center: error handlers</a></li><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, pricing page (definition of an execution)</a></li></ul>"
+      "html_fr": "<h2>Sources, relevées le 6 octobre 2026</h2><ul><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, page tarifs (crédits, offre gratuite, offre Core, agents IA)</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, catalogue des applications</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, documentation API : zones EU et US</a></li><li><a href=\"https://help.make.com/router\" rel=\"noopener noreferrer\" target=\"_blank\">Make, centre d'aide : routeurs et filtres</a></li><li><a href=\"https://help.make.com/error-handlers\" rel=\"noopener noreferrer\" target=\"_blank\">Make, centre d'aide : gestionnaires d'erreur</a></li><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, page tarifs (définition d'une exécution)</a></li><li><a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation du nœud Code (JavaScript et Python)</a></li></ul>",
+      "html_en": "<h2>Sources, checked on 6 October 2026</h2><ul><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, pricing page (credits, free plan, Core plan, AI agents)</a></li><li><a href=\"https://www.make.com/en/integrations\" rel=\"noopener noreferrer\" target=\"_blank\">Make, app catalogue</a></li><li><a href=\"https://developers.make.com/api-documentation/getting-started/api-structure\" rel=\"noopener noreferrer\" target=\"_blank\">Make, API documentation: EU and US zones</a></li><li><a href=\"https://help.make.com/router\" rel=\"noopener noreferrer\" target=\"_blank\">Make, help center: routers and filters</a></li><li><a href=\"https://help.make.com/error-handlers\" rel=\"noopener noreferrer\" target=\"_blank\">Make, help center: error handlers</a></li><li><a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, pricing page (definition of an execution)</a></li><li><a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, Code node documentation (JavaScript and Python)</a></li></ul>"
     },
     {
       "type": "related-cards-band",
@@ -357,20 +379,20 @@
         {
           "q_fr": "Combien coûte une automatisation Make réalisée par Waimia ?",
           "q_en": "How much does a Make automation built by Waimia cost?",
-          "a_fr": "On commence par un audit gratuit de 45 minutes. Pour l'automatisation, le sprint découverte affiché sur le site est à 999 € HT pour 10 heures : cadrage de la tâche prioritaire et un premier scénario en production. La suite est sur devis après l'audit. L'abonnement Make est à votre nom et à votre charge : vous restez propriétaire du compte et des scénarios.",
-          "a_en": "We start with a free 45-minute audit. For automation, the discovery sprint listed on the site is €999 excl. tax for 10 hours: scoping the priority task and a first scenario in production. The rest is quoted after the audit. The Make subscription is in your name and paid by you: you own the account and the scenarios."
+          "a_fr": "On commence par un audit gratuit de 45 minutes. Ensuite, le sprint découverte est à 999 € HT pour 10 heures : cadrage de la tâche prioritaire et un premier scénario en production. La suite est chiffrée sur devis après l'audit. L'abonnement Make est à votre nom et à votre charge : le compte et les scénarios vous appartiennent.",
+          "a_en": "We start with a free 45-minute audit. Then the discovery sprint is €999 excl. VAT for 10 hours: scoping the priority task and a first scenario in production. Anything beyond is quoted after the audit. The Make subscription is in your name and paid by you: the account and the scenarios belong to you."
         },
         {
           "q_fr": "Make ou n8n : lequel recommandez-vous ?",
           "q_en": "Make or n8n: which one do you recommend?",
-          "a_fr": "Aucun par principe. Make quand l'équipe métier doit lire et modifier les scénarios elle-même et que les volumes restent modérés. n8n quand les workflows sont longs, volumineux, ou que les données doivent rester sur votre infrastructure. Le détail des critères est dans notre <a href=\"/ressources/comparatifs/n8n-vs-make\">comparatif n8n vs Make</a>.",
-          "a_en": "Neither by default. Make when the business team must read and edit scenarios itself and volumes stay moderate. n8n when workflows are long, high-volume, or data must stay on your infrastructure. The detailed criteria are in our <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make comparison</a>."
+          "a_fr": "Aucun par principe. Make quand votre équipe métier doit lire et modifier les scénarios elle-même et que les volumes restent modérés. n8n quand les workflows sont longs, volumineux, ou que les données doivent rester sur votre infrastructure. Les critères détaillés sont dans notre <a href=\"/ressources/comparatifs/n8n-vs-make\">comparatif n8n vs Make</a>.",
+          "a_en": "Neither by default. Make when your business team must read and edit scenarios itself and volumes stay moderate. n8n when workflows are long, high-volume, or data must stay on your infrastructure. The detailed criteria are in our <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make comparison</a>."
         },
         {
           "q_fr": "Nous avons déjà des scénarios Make qui tournent mal. Vous reprenez l'existant ?",
           "q_en": "We already have Make scenarios that run badly. Do you take over existing work?",
-          "a_fr": "Oui. La reprise commence par un inventaire : quels scénarios tournent, lesquels échouent, combien de crédits ils consomment, lesquels n'ont aucune gestion d'erreur. On corrige ce qui coûte le plus, on documente, et on vous dit si un scénario gagnerait à être réécrit ailleurs.",
-          "a_en": "Yes. A takeover starts with an inventory: which scenarios run, which fail, how many credits they consume, which have no error handling. We fix what costs the most, document it, and tell you if a scenario would be better rewritten elsewhere."
+          "a_fr": "Oui. On commence par l'inventaire : quels scénarios tournent, lesquels échouent, combien de crédits ils consomment, lesquels n'ont aucune gestion d'erreur. On corrige d'abord ce qui coûte le plus, on documente, et on vous dit franchement si un scénario gagnerait à être réécrit ailleurs.",
+          "a_en": "Yes. We start with an inventory: which scenarios run, which fail, how many credits they burn, which have no error handling. We fix what costs the most first, document it, and tell you plainly if a scenario would be better rewritten elsewhere."
         },
         {
           "q_fr": "Qui est propriétaire des scénarios à la fin de la mission ?",
@@ -381,14 +403,14 @@
         {
           "q_fr": "Où sont hébergées les données qui passent par Make ?",
           "q_en": "Where is the data that goes through Make hosted?",
-          "a_fr": "Make est un service cloud. Sa documentation décrit des zones d'hébergement en Europe et aux États-Unis, rattachées à votre organisation (par exemple eu1.make.com ou us1.make.com). On vérifie la zone de votre organisation pendant le cadrage et on limite les données personnelles qui transitent par les scénarios au strict nécessaire.",
-          "a_en": "Make is a cloud service. Its documentation describes hosting zones in Europe and the United States, tied to your organization (for example eu1.make.com or us1.make.com). We check your organization's zone during scoping and keep personal data passing through scenarios to the strict minimum."
+          "a_fr": "Make est un service cloud. Au 6 octobre 2026, sa documentation API liste des zones en Europe (eu1, eu2) et aux États-Unis (us1, us2), et chaque organisation est rattachée à une zone. On vérifie la vôtre pendant le cadrage, et on réduit au strict nécessaire les données personnelles qui passent par les scénarios.",
+          "a_en": "Make is a cloud service. As of 6 October 2026, its API documentation lists zones in Europe (eu1, eu2) and the United States (us1, us2), and each organization belongs to one zone. We check yours during scoping and keep the personal data flowing through scenarios to the strict minimum."
         },
         {
           "q_fr": "Peut-on mettre de l'IA dans un scénario Make ?",
           "q_en": "Can you put AI inside a Make scenario?",
-          "a_fr": "Oui. Un scénario peut appeler un modèle (Claude ou OpenAI) pour classer, résumer ou rédiger, puis continuer avec le résultat. Make propose aussi des agents IA, avec son propre fournisseur de modèles ou votre clé. On garde une validation humaine sur ce qui part vers un client ou modifie une donnée sensible.",
-          "a_en": "Yes. A scenario can call a model (Claude or OpenAI) to classify, summarise or draft, then continue with the result. Make also offers AI agents, with its own model provider or your key. We keep human validation on anything sent to a customer or changing sensitive data."
+          "a_fr": "Oui. Un scénario peut appeler un modèle (Claude ou OpenAI) pour classer, résumer ou rédiger, puis continuer avec le résultat. Au 6 octobre 2026, Make propose aussi des agents IA, en bêta, avec son propre fournisseur de modèles ou votre clé. On garde une validation humaine sur tout ce qui part vers un client ou modifie une donnée sensible.",
+          "a_en": "Yes. A scenario can call a model (Claude or OpenAI) to classify, summarise or draft, then carry on with the result. As of 6 October 2026, Make also offers AI agents, in beta, using its own model provider or your key. We keep human approval on anything sent to a customer or changing sensitive data."
         }
       ]
     },

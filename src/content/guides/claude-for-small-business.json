@@ -1,0 +1,856 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude for Small Business : le guide pour PME en France",
+  "title_en": "Claude for Small Business: a guide for SMBs in France",
+  "description_fr": "Claude for Small Business en France : 43 workflows, connecteurs QuickBooks, Pennylane ou Sage, offres Pro ou Team, coût réel, RGPD et limites.",
+  "description_en": "Claude for Small Business in France: 43 workflows, QuickBooks, Pennylane or Sage connectors, Pro or Team plans, real cost, GDPR and limits.",
+  "slug": "claude-for-small-business",
+  "publishedAt": "2026-10-06",
+  "updatedAt": "2026-10-06",
+  "category": "productivite",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "claude-for-small-business",
+    "claude-pme",
+    "plugins-claude",
+    "connecteurs-claude",
+    "pennylane",
+    "quickbooks"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, Introducing Claude for Small Business (13 mai 2026), lu le 6 octobre 2026",
+      "url": "https://www.anthropic.com/news/claude-for-small-business",
+      "type": "enterprise",
+      "publishedAt": "2026-05-13"
+    },
+    {
+      "name": "Anthropic, Claude for Small Business launches new workflows, integrations, and training programs (15 septembre 2026), lu le 6 octobre 2026",
+      "url": "https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs",
+      "type": "enterprise",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "name": "Anthropic, page Claude for Small Business (FAQ offres et données), lue le 6 octobre 2026",
+      "url": "https://claude.com/solutions/small-business",
+      "type": "enterprise"
+    },
+    {
+      "name": "Claude Academy, How to install and use the Claude for Small Business plugin, lu le 6 octobre 2026",
+      "url": "https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, dépôt knowledge-work-plugins, dossier small-business (v1.35.1), lu le 6 octobre 2026",
+      "url": "https://github.com/anthropics/knowledge-work-plugins/tree/main/small-business",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : utiliser les plugins, lue le 6 octobre 2026",
+      "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : Claude Cowork et le chat ne font qu'un, lue le 6 octobre 2026",
+      "url": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, page tarifs Claude, relevée le 6 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, pays et régions servis, lu le 6 octobre 2026",
+      "url": "https://www.anthropic.com/supported-countries",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, centre de confidentialité : localisation des données",
+      "url": "https://privacy.claude.com/en/articles/7996890",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : administration de Cowork (Team et Enterprise)",
+      "url": "https://support.claude.com/en/articles/13455879",
+      "type": "enterprise"
+    },
+    {
+      "name": "Pennylane, serveur MCP (offres compatibles, lecture seule), lu le 6 octobre 2026",
+      "url": "https://www.pennylane.com/fr/mcp",
+      "type": "enterprise"
+    },
+    {
+      "name": "Qonto, documentation du serveur MCP, lue le 6 octobre 2026",
+      "url": "https://docs.qonto.com/mcp/overview.md",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, annuaire des connecteurs : Qonto, lu le 6 octobre 2026",
+      "url": "https://claude.com/connectors/qonto",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, annuaire des connecteurs : Pipedrive, lu le 6 octobre 2026",
+      "url": "https://claude.com/connectors/pipedrive-mcp",
+      "type": "enterprise"
+    },
+    {
+      "name": "Sage, Sage Intacct expands trusted automation (AI Gateway et MCP, 28 mai 2026), lu le 6 octobre 2026",
+      "url": "https://www.sage.com/en-us/news/press-releases/2026/05/sage-intacct-expands-trusted-automation-across-core-finance-workflows/",
+      "type": "enterprise",
+      "publishedAt": "2026-05-28"
+    },
+    {
+      "name": "PayFit, documentation développeurs (Partner API), lue le 6 octobre 2026",
+      "url": "https://developers.payfit.io/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Silae, API Silae, lue le 6 octobre 2026",
+      "url": "https://www.silae.fr/api-silae/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Sellsy, documentation API v2, lue le 6 octobre 2026",
+      "url": "https://docs.sellsy.com/api/v2/",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Claude for Small Business est-il disponible en France ?",
+      "a": "Oui. La France figure dans la liste des pays où Anthropic sert Claude, et le plugin s'installe depuis n'importe quelle offre payante. Ce qui est américain, c'est le contenu : 37 connecteurs sans éditeur français, des parcours fiscaux et RH écrits pour le droit des États-Unis, des ateliers organisés aux États-Unis. Le plugin fonctionne en France ; une partie de sa valeur n'y arrive pas."
+    },
+    {
+      "q": "Faut-il un abonnement Team ou Enterprise pour l'utiliser ?",
+      "a": "Non. Anthropic écrit, le 15 septembre 2026, que le plugin est disponible sur chaque offre payante et recommande Team dès que l'entreprise compte plus d'une personne. Le tutoriel d'installation cite Pro, Max, Team et Enterprise. Team et Enterprise ne sont pas requis pour installer ; ils comptent pour les données, car ce sont les offres où Anthropic n'entraîne pas ses modèles sur vos contenus par défaut."
+    },
+    {
+      "q": "Combien coûte Claude for Small Business ?",
+      "a": "Le plugin n'a pas de prix séparé : vous payez l'abonnement Claude. Au 6 octobre 2026, Pro coûte 20 $ par mois (17 $ en annuel), Team Standard 25 $ par siège et par mois (20 $ en annuel), hors TVA et taux de change. S'ajoutent les abonnements de vos outils : le serveur MCP de Pennylane, par exemple, demande l'offre Essentiel côté entreprise."
+    },
+    {
+      "q": "Est-ce que Claude peut payer, envoyer ou déclarer à ma place ?",
+      "a": "Pas par défaut. Chaque workflow démarre en mode approbation : Claude prépare, met en attente, et rien ne part, ne se publie ni ne se paie sans votre accord. Vous pouvez ensuite laisser tourner un workflow seul, un par un. La paie est préparée dans Gusto mais c'est vous qui la soumettez, et Anthropic précise que Claude ne dépose rien auprès d'une administration."
+    },
+    {
+      "q": "Mes données comptables servent-elles à entraîner Claude ?",
+      "a": "Sur Team et Enterprise, non par défaut : c'est écrit dans l'annonce et sur la page tarifs. Sur Pro et Max, la page tarifs indique un entraînement en « opt-out » : il faut désactiver le réglage vous-même. Mon conseil : dès que des chiffres clients ou salariés passent dans Claude, prenez Team, ou coupez le réglage le jour de l'ouverture du compte."
+    },
+    {
+      "q": "Pennylane, Qonto ou Pipedrive fonctionnent-ils avec le plugin ?",
+      "a": "Pas comme connecteurs du plugin, mais ils se branchent à Claude. Qonto et Pipedrive ont un connecteur vérifié dans l'annuaire d'Anthropic ; Pennylane publie un serveur MCP en lecture seule à ajouter en connecteur personnalisé. Les skills du plugin peuvent ensuite être réécrits pour lire ces outils à la place de QuickBooks ou HubSpot : c'est le travail de personnalisation qu'Anthropic prévoit."
+    },
+    {
+      "q": "Combien de temps faut-il pour le mettre en place ?",
+      "a": "L'installation prend quelques minutes, et le fichier README du plugin annonce une configuration guidée d'environ 15 minutes pour connecter deux outils. Ce délai ne vaut que si vos outils sont dans la liste. Avec Pennylane, Sellsy ou PayFit, comptez le temps de brancher les connecteurs, de réécrire les skills utiles et de les tester sur un mois réel avant de leur faire confiance."
+    },
+    {
+      "q": "Quand faut-il faire appel à un prestataire ?",
+      "a": "Quand la valeur est dans un outil que le plugin ne lit pas, ou quand l'erreur coûte cher : clôture, paie, relances clients. Seul avec QuickBooks, Stripe et Gmail, vous n'avez probablement besoin de personne. Avec une pile française, un sprint découverte de 999 € HT chez Waimia sert à décider quels connecteurs et quels skills valent d'être construits, avant d'engager quoi que ce soit."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is Claude for Small Business available in France?",
+      "a": "Yes. France is on Anthropic's list of countries where Claude is served, and the plugin installs on any paid plan. What is American is the content: 37 connectors with no French vendor, tax and HR flows written for US law, workshops held in the US. The plugin works in France; part of its value does not arrive there."
+    },
+    {
+      "q": "Do I need a Team or Enterprise plan to use it?",
+      "a": "No. On 15 September 2026 Anthropic wrote that the plugin is available on every paid plan and recommends Team as soon as the business has more than one person. The install tutorial lists Pro, Max, Team and Enterprise. Team and Enterprise are not required to install; they matter for data, because they are the plans where Anthropic does not train on your content by default."
+    },
+    {
+      "q": "How much does Claude for Small Business cost?",
+      "a": "The plugin has no separate price: you pay for the Claude subscription. As of 6 October 2026, Pro is $20 a month ($17 billed annually) and Team Standard is $25 per seat per month ($20 annually), excluding VAT and exchange rate. Add the plans of your own tools: Pennylane's MCP server, for example, requires the Essentiel plan for businesses."
+    },
+    {
+      "q": "Can Claude pay, send or file on my behalf?",
+      "a": "Not by default. Every workflow starts in approval mode: Claude prepares and stages, and nothing sends, posts or pays without your OK. You can later let a workflow run on its own, one at a time. Payroll is staged in Gusto but you submit it, and Anthropic states that Claude files nothing with any authority."
+    },
+    {
+      "q": "Is my accounting data used to train Claude?",
+      "a": "On Team and Enterprise, not by default: it says so in the announcement and on the pricing page. On Pro and Max, the pricing page shows training as opt-out: you have to switch the setting off yourself. My advice: as soon as client or employee figures go through Claude, take Team, or turn the setting off the day you open the account."
+    },
+    {
+      "q": "Do Pennylane, Qonto or Pipedrive work with the plugin?",
+      "a": "Not as plugin connectors, but they connect to Claude. Qonto and Pipedrive have a verified connector in Anthropic's directory; Pennylane publishes a read-only MCP server you add as a custom connector. The plugin's skills can then be rewritten to read those tools instead of QuickBooks or HubSpot: that is the customisation Anthropic plans for."
+    },
+    {
+      "q": "How long does it take to set up?",
+      "a": "Installation takes a few minutes, and the plugin's README describes a guided setup of about 15 minutes to connect two tools. That only holds if your tools are on the list. With Pennylane, Sellsy or PayFit, allow time to connect the connectors, rewrite the useful skills and test them on a real month before trusting them."
+    },
+    {
+      "q": "When should I bring in a provider?",
+      "a": "When the value sits in a tool the plugin does not read, or when mistakes are expensive: month-end close, payroll, customer reminders. Alone with QuickBooks, Stripe and Gmail, you probably need nobody. With a French stack, a €999 excl. VAT discovery sprint at Waimia is for deciding which connectors and skills are worth building, before committing to anything."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · Claude en PME",
+      "kicker_en": "§ Guide · Claude for SMBs",
+      "h1_fr": "Claude for Small Business : ce que le plugin fait pour une PME française",
+      "h1_en": "Claude for Small Business: what the plugin does for a French SMB",
+      "lede_fr": "Anthropic a sorti en mai 2026 un plugin pour petites entreprises : 43 workflows, 37 connecteurs, de la clôture du mois à la relance des devis. Il est bien pensé. Il est aussi écrit pour une PME américaine qui tourne sur QuickBooks et Gusto. Voici ce qui marche chez vous, ce qui ne marche pas, et ce que ça coûte.",
+      "lede_en": "In May 2026 Anthropic released a plugin for small businesses: 43 workflows, 37 connectors, from month-end close to chasing quotes. It is well designed. It is also written for a US business running on QuickBooks and Gusto. Here is what works for you, what does not, and what it costs.",
+      "badges": [
+        {
+          "label_fr": "Sources Anthropic et éditeurs",
+          "label_en": "Anthropic and vendor sources"
+        },
+        {
+          "label_fr": "Vérifié le 6 octobre 2026",
+          "label_en": "Checked on 6 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir le guide d'achat Claude",
+        "label_en": "Get the Claude buyer's guide",
+        "href": "/ressources/outils/guide-achat-claude-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-small-business-etabli-paper.webp",
+        "alt_fr": "Un grand panneau à outils bleu dressé dans un champ, une femme y décroche un seul outil",
+        "alt_en": "A large blue pegboard of tools standing in a field, a woman takes down a single tool",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "6 octobre 2026",
+      "updatedDate": "6 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "C'est quoi, Claude for Small Business ?",
+      "question_en": "What is Claude for Small Business?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Claude for Small Business est un plugin d'Anthropic sans prix séparé, installé dans Claude Cowork, qui regroupe 43 workflows de gestion (clôture, trésorerie, paie, relances, prospection, devis, marketing) et 37 connecteurs à des logiciels. Il fonctionne sur toute offre Claude payante, dès Pro. Claude prépare le travail ; rien ne part, ne se publie ni ne se paie sans votre accord.",
+      "answer_en": "Claude for Small Business is an Anthropic plugin with no separate price, installed in Claude Cowork, that bundles 43 business workflows (close, cash, payroll, reminders, prospecting, proposals, marketing) and 37 software connectors. It runs on any paid Claude plan, from Pro up. Claude prepares the work; nothing sends, posts or pays without your approval."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Le plugin en quatre chiffres, au 6 octobre 2026",
+      "title_en": "The plugin in four figures, as of 6 October 2026",
+      "metrics": [
+        {
+          "value": "43",
+          "label_fr": "Workflows annoncés par Anthropic le 15 septembre 2026, contre 15 au lancement de mai",
+          "label_en": "Workflows announced by Anthropic on 15 September 2026, up from 15 at the May launch"
+        },
+        {
+          "value": "37",
+          "label_fr": "Connecteurs partenaires, de QuickBooks à Zoom, utilisables par les workflows",
+          "label_en": "Partner connectors, from QuickBooks to Zoom, usable by the workflows"
+        },
+        {
+          "value": "900 000+",
+          "label_fr": "Installations revendiquées par Anthropic entre mai et septembre 2026",
+          "label_en": "Installs claimed by Anthropic between May and September 2026"
+        },
+        {
+          "value": "0",
+          "label_fr": "Éditeur français parmi ces 37 connecteurs : ni Pennylane, ni Qonto, ni Sellsy",
+          "label_en": "French vendors among those 37 connectors: no Pennylane, Qonto or Sellsy"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [],
+      "html_fr": "<h2>Ce que c'est exactement</h2><p>Le nom laisse croire à un produit. C'est un <strong>plugin</strong> : un paquet de skills (des consignes écrites pour une tâche), de commandes et de connecteurs, qu'on installe en un clic dans Claude. Anthropic l'a présenté le 13 mai 2026 comme « un ensemble de connecteurs et de workflows prêts à l'emploi ». Le 15 septembre, il est passé de 15 à 43 workflows et a gagné 27 intégrations.</p><p>Il tourne dans <strong>Claude Cowork</strong>, l'agent de Claude qui travaille dans vos fichiers et vos outils. Le tutoriel officiel demande l'application de bureau Claude : on ouvre Cowork, on clique sur Customize, puis Plugins, puis on installe « Small Business ». Cowork est en train de fusionner avec le chat : depuis le 16 septembre 2026, le déploiement commence par Pro et Max, et Team suivra. Le nom change, les fonctions restent. Notre <a href=\"/ressources/guides/claude-cowork\">guide Claude Cowork</a> détaille cette fusion.</p><p>Le plugin est open source. Son code est dans le dépôt GitHub d'Anthropic <code>knowledge-work-plugins</code>, dossier <code>small-business</code>, en version 1.35.1 au 15 septembre 2026. J'ai lu ses fichiers. C'est utile, parce que la page commerciale vend une promesse et que le dépôt montre ce que Claude fait vraiment à chaque étape.</p><h3>Comment il s'organise</h3><p>Deux étages. En bas, des skills unitaires : rapprocher un relevé, classer une facture fournisseur, prévoir la trésorerie à 30, 60 et 90 jours, relancer un impayé, qualifier un prospect. Au-dessus, des commandes comme <code>/close-month</code> ou <code>/plan-payroll</code>, qui enchaînent plusieurs skills avec un point d'arrêt entre chaque étape. Vous pouvez taper la commande ou écrire la demande en français courant : Claude choisit le skill.</p><p>La première étape s'appelle <code>/smb-onboard</code>. Claude vous interroge sur l'entreprise, vous aide à connecter deux outils et enregistre le contexte : pays, devise, date de clôture de l'exercice, ton de marque. Ce contexte sert ensuite à tous les skills. Le README annonce une quinzaine de minutes pour cette étape.</p><p>Pour mettre le plugin à votre main, une commande de personnalisation réécrit les consignes par défaut à partir de votre activité. C'est le même mécanisme que pour tout <a href=\"/ressources/guides/claude-plugins-entreprise\">plugin Claude en entreprise</a>, et les skills eux-mêmes suivent les règles décrites dans notre <a href=\"/ressources/guides/claude-skills\">guide des skills Claude</a>.</p><h3>Pour qui il est fait</h3><p>Anthropic le dit sur sa page : la plupart des utilisateurs dirigent des entreprises de moins de dix personnes, souvent seuls. Le plugin vise le dirigeant qui fait sa compta le dimanche soir, pas la direction financière d'une PME de 80 salariés. Si vous êtes dans le second cas, lisez plutôt notre guide <a href=\"/ressources/guides/claude-pme\">Claude pour les PME</a>, qui couvre le déploiement d'équipe.</p><h3>Les 31 skills derrière les commandes</h3><p>Le tutoriel d'Anthropic liste 12 commandes et 31 skills : 43 entrées, le chiffre annoncé (<code>speed-to-lead</code> y figure deux fois, comme commande et comme skill). Le README du dépôt compte 44 skills, parce qu'il ajoute un aiguilleur interne et un skill de charte graphique. Voici ce qu'ils couvrent, regroupés par métier.</p><p><strong>Finance.</strong> <code>ap-processor</code> pour les factures fournisseurs, <code>cash-flow-snapshot</code> pour la prévision de trésorerie, <code>month-end-prep</code> pour la clôture, <code>invoice-chase</code> pour les impayés, <code>payroll-prep</code>, <code>report-builder</code>, <code>business-pulse</code> et <code>tax-season-organizer</code>. La relance d'impayés est le skill le plus directement utile en France : il classe les factures en retard et rédige un rappel adapté à la façon dont chaque client a payé jusqu'ici.</p><p><strong>Ventes.</strong> <code>lead-finder</code>, <code>lead-triage</code>, <code>outreach-composer</code>, <code>speed-to-lead</code>, <code>crm-autopilot</code> qui tient le CRM à jour depuis vos e-mails et vos rendez-vous, et <code>proposal-builder</code> qui transforme une note vocale, des photos ou un cahier des charges en devis chiffré à partir de vos affaires passées.</p><p><strong>Marketing et clients.</strong> <code>growth-pulse</code>, <code>social-content-engine</code>, <code>canva-creator</code>, <code>ad-manager</code>, <code>content-strategy</code>, <code>review-reputation</code> pour les avis clients, <code>seo-ai-visibility</code> qui mesure si l'on vous trouve dans les moteurs et les assistants IA, et <code>ticket-deflector</code> pour les réponses au service client.</p><p><strong>Organisation et recrutement.</strong> <code>inbox-manager</code>, <code>inventory-planner</code>, <code>hiring-screener</code>, <code>job-post-builder</code>, <code>contract-review</code> qui résume un contrat et liste les clauses à risque, et <code>grant-rfp-writer</code> pour les subventions et appels d'offres.</p><p><strong>Construction.</strong> <code>smb-onboard</code>, <code>build-connector</code> et <code>build-agent</code>. Les deux derniers sont les plus intéressants pour une PME française, j'y reviens plus bas.</p><p>Un détail compte : plusieurs skills sont écrits pour un seul pays. Le fichier de règles du plugin le dit sans détour. Le calcul fiscal et la liste 1099 suivent le droit fédéral américain, la recherche de subventions interroge des portails américains, la liste de documents d'embauche et la lettre d'offre suivent le droit du travail américain. Le plugin est honnête : il s'arrête et vous le dit au lieu de calculer un faux chiffre. Mais ce sont quatre skills sur 31 que vous n'utiliserez pas tels quels.</p>",
+      "html_en": "<h2>What it is, exactly</h2><p>The name suggests a product. It is a <strong>plugin</strong>: a package of skills (written instructions for a task), commands and connectors that you install in one click inside Claude. Anthropic introduced it on 13 May 2026 as \"a package of connectors and ready-to-run workflows\". On 15 September it went from 15 to 43 workflows and gained 27 integrations.</p><p>It runs in <strong>Claude Cowork</strong>, Claude's agent that works in your files and tools. The official tutorial requires the Claude desktop app: open Cowork, click Customize, then Plugins, then install \"Small Business\". Cowork is merging with chat: since 16 September 2026 the rollout starts with Pro and Max, with Team to follow. The name changes, the features stay. Our <a href=\"/ressources/guides/claude-cowork\">Claude Cowork guide</a> covers the merger.</p><p>The plugin is open source. Its code sits in Anthropic's <code>knowledge-work-plugins</code> GitHub repository, <code>small-business</code> folder, version 1.35.1 as of 15 September 2026. I read its files. That matters, because the marketing page sells a promise and the repository shows what Claude actually does at each step.</p><h3>How it is organised</h3><p>Two layers. At the bottom, single skills: reconcile a statement, code a supplier bill, forecast cash at 30, 60 and 90 days, chase an unpaid invoice, qualify a lead. On top, commands such as <code>/close-month</code> or <code>/plan-payroll</code> chain several skills with a stop between each step. You can type the command or describe the job in plain language: Claude picks the skill.</p><p>The first step is <code>/smb-onboard</code>. Claude asks about the business, helps you connect two tools and stores the context: country, currency, financial year end, brand tone. Every skill then uses it. The README puts this step at about fifteen minutes.</p><p>To make the plugin yours, a customisation command rewrites the default instructions from your business. It is the same mechanism as any <a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugin for business</a>, and the skills follow the rules in our <a href=\"/ressources/guides/claude-skills\">Claude skills guide</a>.</p><h3>Who it is for</h3><p>Anthropic says it on its page: most users run businesses under ten people, many solo. The plugin targets the owner doing the books on Sunday night, not the finance team of an 80-person company. If you are the latter, read our <a href=\"/ressources/guides/claude-pme\">Claude for SMBs guide</a> instead, which covers team rollout.</p><h3>The 31 skills behind the commands</h3><p>Anthropic's tutorial lists 12 commands and 31 skills: 43 entries, the announced figure (<code>speed-to-lead</code> appears twice, as a command and as a skill). The repository README counts 44 skills, because it adds an internal router and a brand-style skill. Here is what they cover, grouped by function.</p><p><strong>Finance.</strong> <code>ap-processor</code> for supplier bills, <code>cash-flow-snapshot</code> for cash forecasting, <code>month-end-prep</code> for the close, <code>invoice-chase</code> for unpaid invoices, <code>payroll-prep</code>, <code>report-builder</code>, <code>business-pulse</code> and <code>tax-season-organizer</code>. Invoice chasing is the most directly useful skill in France: it ranks overdue invoices and drafts a reminder matched to how each customer has paid so far.</p><p><strong>Sales.</strong> <code>lead-finder</code>, <code>lead-triage</code>, <code>outreach-composer</code>, <code>speed-to-lead</code>, <code>crm-autopilot</code> which keeps the CRM current from your emails and meetings, and <code>proposal-builder</code> which turns a voice memo, photos or an RFP into a priced proposal based on your past deals.</p><p><strong>Marketing and customers.</strong> <code>growth-pulse</code>, <code>social-content-engine</code>, <code>canva-creator</code>, <code>ad-manager</code>, <code>content-strategy</code>, <code>review-reputation</code> for customer reviews, <code>seo-ai-visibility</code> which checks whether search engines and AI assistants find you, and <code>ticket-deflector</code> for customer service replies.</p><p><strong>Operations and hiring.</strong> <code>inbox-manager</code>, <code>inventory-planner</code>, <code>hiring-screener</code>, <code>job-post-builder</code>, <code>contract-review</code> which summarises a contract and lists risky clauses, and <code>grant-rfp-writer</code> for grants and tenders.</p><p><strong>Building.</strong> <code>smb-onboard</code>, <code>build-connector</code> and <code>build-agent</code>. The last two matter most for a French SMB; more on them below.</p><p>One detail matters: several skills are written for a single country. The plugin's rules file says so plainly. Tax estimates and 1099 lists follow US federal law, grant search queries US portals, the onboarding paperwork list and the offer letter follow US employment law. The plugin is honest: it stops and tells you instead of producing a wrong number. But that is four skills out of 31 you will not use as they are.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les workflows",
+      "kicker_en": "§ The workflows",
+      "heading_fr": "Les 12 commandes du plugin et ce qu'elles valent en France",
+      "heading_en": "The plugin's 12 commands and what they are worth in France",
+      "caption_fr": "Commandes lues dans le tutoriel Claude Academy et le dépôt du plugin le 6 octobre 2026. La dernière colonne est notre lecture pour une PME française, pas une mention d'Anthropic. Les 31 skills unitaires sont décrits plus haut.",
+      "caption_en": "Commands read in the Claude Academy tutorial and the plugin repository on 6 October 2026. The last column is our reading for a French SMB, not an Anthropic statement. The 31 single skills are described above.",
+      "columns_fr": [
+        "Commande",
+        "Ce qu'elle fait",
+        "En France"
+      ],
+      "columns_en": [
+        "Command",
+        "What it does",
+        "In France"
+      ],
+      "rows_fr": [
+        [
+          "/monday-brief",
+          "Une page le lundi : trésorerie, ventes, pipeline, agenda, la priorité de la semaine",
+          "Oui, depuis un tableur ou vos connecteurs"
+        ],
+        [
+          "/close-month",
+          "Rapproche les comptes avec les encaissements, signale les écarts, rédige le dossier pour l'expert-comptable",
+          "Partiel : QuickBooks, Xero ou NetSuite requis, sinon relevés importés"
+        ],
+        [
+          "/plan-payroll",
+          "Vérifie que la trésorerie couvre la paie, relance les impayés, prépare le lot de paie",
+          "Non pour la paie : Gusto est américain ; la partie trésorerie reste utile"
+        ],
+        [
+          "/pay-the-bills",
+          "Classe les factures fournisseurs, vérifie la trésorerie, prépare les paiements pour validation",
+          "Partiel : lecture possible, paiement à faire dans votre banque"
+        ],
+        [
+          "/tax-prep",
+          "Acomptes d'impôt trimestriels et liste 1099 pour le comptable",
+          "Non : le skill s'arrête si le pays n'est pas les États-Unis"
+        ],
+        [
+          "/restock",
+          "Calcule ce qu'il faut recommander, rédige bons de commande et e-mails fournisseurs",
+          "Oui avec Shopify ou Square"
+        ],
+        [
+          "/report-pack",
+          "Lance vos rapports enregistrés selon un calendrier",
+          "Oui"
+        ],
+        [
+          "/call-list",
+          "Classe les prospects du jour et prépare une fiche d'appel pour chacun",
+          "Oui avec HubSpot ; Pipedrive à brancher"
+        ],
+        [
+          "/grow-pipeline",
+          "Trouve des prospects proches de vos meilleurs clients et rédige la prospection",
+          "Partiel : Apollo et Clay couvrent mal les TPE françaises"
+        ],
+        [
+          "/speed-to-lead",
+          "Répond aux demandes entrantes le soir et le week-end avec deux créneaux réels",
+          "Oui avec Gmail ou Microsoft 365"
+        ],
+        [
+          "/marketing-monday",
+          "Bilan marketing de la semaine, avis clients, mouvements des concurrents",
+          "Oui"
+        ],
+        [
+          "/reactivate",
+          "Repère les clients qui n'achètent plus et rédige un message de reconquête",
+          "Oui avec un CRM ou un export"
+        ]
+      ],
+      "rows_en": [
+        [
+          "/monday-brief",
+          "One page on Monday: cash, sales, pipeline, calendar, the week's priority",
+          "Yes, from a spreadsheet or your connectors"
+        ],
+        [
+          "/close-month",
+          "Reconciles books against settlements, flags gaps, writes the accountant's close packet",
+          "Partly: needs QuickBooks, Xero or NetSuite, or imported statements"
+        ],
+        [
+          "/plan-payroll",
+          "Checks cash covers payroll, chases unpaid invoices, stages the payroll run",
+          "Not for payroll: Gusto is US-only; the cash part still helps"
+        ],
+        [
+          "/pay-the-bills",
+          "Codes supplier bills, checks cash, lines up payments for approval",
+          "Partly: reading works, payment happens in your bank"
+        ],
+        [
+          "/tax-prep",
+          "US quarterly estimated tax and 1099 list for the accountant",
+          "No: the skill stops when the country is not the US"
+        ],
+        [
+          "/restock",
+          "Works out what to reorder, drafts purchase orders and supplier emails",
+          "Yes with Shopify or Square"
+        ],
+        [
+          "/report-pack",
+          "Runs your saved reports on a schedule",
+          "Yes"
+        ],
+        [
+          "/call-list",
+          "Ranks today's leads and writes a call card for each",
+          "Yes with HubSpot; Pipedrive to connect"
+        ],
+        [
+          "/grow-pipeline",
+          "Finds prospects like your best customers and writes the outreach",
+          "Partly: Apollo and Clay cover French micro-businesses poorly"
+        ],
+        [
+          "/speed-to-lead",
+          "Answers inbound inquiries at night and weekends with two real slots",
+          "Yes with Gmail or Microsoft 365"
+        ],
+        [
+          "/marketing-monday",
+          "Weekly marketing review, customer reviews, competitor moves",
+          "Yes"
+        ],
+        [
+          "/reactivate",
+          "Finds customers who stopped buying and drafts a win-back message",
+          "Yes with a CRM or an export"
+        ]
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper-2",
+      "kicker_fr": "§ Contrôle",
+      "kicker_en": "§ Control",
+      "h2_fr": "Qui décide, qui voit quoi, et comment combler les trous",
+      "h2_en": "Who decides, who sees what, and how to fill the gaps",
+      "lede_fr": "Trois mécanismes font la différence entre un assistant qu'on laisse travailler et un risque qu'on subit.",
+      "lede_en": "Three mechanisms make the difference between an assistant you let work and a risk you put up with.",
+      "rows": [
+        {
+          "kicker_fr": "Mécanisme 01",
+          "kicker_en": "Mechanism 01",
+          "h3_fr": "Rien ne part sans votre accord",
+          "h3_en": "Nothing goes out without your OK",
+          "body_fr": "Chaque workflow démarre en mode approbation. Claude prépare, met en attente, puis attend. Quand un workflow vous a prouvé qu'il est fiable, vous pouvez le laisser tourner seul, workflow par workflow, et revenir en arrière quand vous voulez. Certains s'arrêtent volontairement avant la dernière marche : la paie est préparée, c'est vous qui la soumettez. Le README précise que classer une facture et la payer sont deux validations distinctes.",
+          "body_en": "Every workflow starts in approval mode. Claude prepares, stages, then waits. Once a workflow has proved reliable, you can let it run on its own, one workflow at a time, and switch back whenever you like. Some deliberately stop before the last step: payroll is staged, you submit it. The README notes that coding a bill and paying it are two separate approvals.",
+          "points": [
+            {
+              "label_fr": "Approbation par défaut, autonomie workflow par workflow",
+              "label_en": "Approval by default, autonomy one workflow at a time"
+            },
+            {
+              "label_fr": "Aucune déclaration déposée par Claude",
+              "label_en": "Claude files nothing with any authority"
+            },
+            {
+              "label_fr": "Un chiffre illisible est signalé, jamais deviné",
+              "label_en": "An unreadable figure is flagged, never guessed"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/claude-small-business-tampon-paper.webp",
+          "media_alt_fr": "Un tampon géant suspendu au-dessus d'une feuille, un homme tient la corde qui le retient",
+          "media_alt_en": "A giant rubber stamp hanging over a sheet of paper, a man holds the rope that keeps it up"
+        },
+        {
+          "kicker_fr": "Mécanisme 02",
+          "kicker_en": "Mechanism 02",
+          "h3_fr": "Construire le connecteur qui manque",
+          "h3_en": "Building the missing connector",
+          "body_fr": "Si votre outil n'a pas de connecteur, build-connector le relie, par l'annuaire de Claude ou par Zapier. build-agent transforme une tâche que vous refaites chaque semaine en workflow nommé, lançable à la demande ou selon un calendrier. Anthropic précise que la connexion démarre en lecture seule et que toute modification attend votre accord. C'est utile pour un outil simple. Pour une paie ou une comptabilité, je préfère un connecteur écrit et testé une fois, plutôt qu'un pont improvisé dans une conversation.",
+          "body_en": "If your tool has no connector, build-connector links it, through Claude's directory or through Zapier. build-agent turns a task you redo every week into a named workflow you can run on demand or on a schedule. Anthropic says the connection starts read-only and any change waits for your OK. That is fine for a simple tool. For payroll or accounting, I prefer a connector written and tested once over a bridge improvised in a conversation.",
+          "link_label_fr": "Comprendre MCP avant de brancher",
+          "link_label_en": "Understand MCP before connecting",
+          "link_href": "/ressources/guides/mcp-claude",
+          "media_src": "/images/illustrations/ds/claude-small-business-brique-paper.webp",
+          "media_alt_fr": "Un long mur auquel manque une brique, un homme sur une échelle porte une brique claire",
+          "media_alt_en": "A long wall with one brick missing, a man on a ladder carries a pale brick"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-small-business-prise-paper.webp",
+          "alt_fr": "Un homme tire une fiche à broches plates vers une prise murale géante à trous ronds",
+          "alt_en": "A man pulls a flat-pin plug toward a giant wall socket with round holes",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce qui marche en France, ce qui ne marche pas</h2><p>Le plugin s'installe en France sans restriction : la France est sur la liste des pays servis par Anthropic, et les services dans l'Union européenne sont fournis par Anthropic Ireland. La page existe en français. Le problème n'est pas l'accès. C'est la prise.</p><p>Regardez la liste des 37 connecteurs : QuickBooks, Xero, NetSuite, Zoho Books, MYOB pour la comptabilité ; Gusto pour la paie ; Stripe, Square, PayPal, Airwallex pour les paiements ; HubSpot, Salesforce, Zoho CRM, Apollo, Clay pour la vente. Aucun éditeur français. Or une PME française type tient sa compta dans Pennylane, Sage ou chez son expert-comptable, sa paie dans PayFit ou Silae, sa banque chez Qonto, ses devis dans Sellsy.</p><h3>Ce qui marche tel quel</h3><p>Tout ce qui lit vos e-mails, votre agenda et vos fichiers : le brief du lundi, la réponse aux demandes entrantes, le tri de la boîte mail, les devis à partir de vos anciens devis, l'analyse de contrat, le marketing avec Canva, la gestion des avis. Gmail, Google Drive, Microsoft 365, Slack, Notion et Canva sont des outils que vos équipes utilisent déjà. Si vous vendez sur Shopify ou encaissez avec Stripe, la partie ventes et stocks fonctionne aussi.</p><h3>Ce qui marche à moitié</h3><p>La finance. Anthropic a prévu le cas : sans connecteur, chaque workflow tourne à partir d'un tableur, d'un PDF ou d'un e-mail transféré. Vous exportez votre grand livre et vos relevés, Claude rapproche et rédige. Ça marche. Mais c'est un export manuel chaque mois, et la promesse « ça tourne tout seul le lundi à 6 h 30 » disparaît.</p><h3>Ce qui ne marche pas</h3><p>La paie (Gusto n'existe pas en France), la fiscalité (le skill refuse de calculer hors des États-Unis, à juste titre), la prospection par Apollo ou Clay sur des TPE françaises, peu couvertes par ces bases, et les ateliers et webinaires gratuits, tous américains. La formation en ligne AI Fluency for Small Business, coproduite avec PayPal, reste accessible à distance.</p><p>La bonne nouvelle : plusieurs éditeurs français ont ouvert leurs propres connecteurs à Claude, indépendamment du plugin. Le tableau suivant fait le point, outil par outil.</p>",
+      "html_en": "<h2>What works in France, what does not</h2><p>The plugin installs in France without restriction: France is on Anthropic's list of served countries, and services in the European Union are provided by Anthropic Ireland. The page exists in French. Access is not the problem. The plug is.</p><p>Look at the 37 connectors: QuickBooks, Xero, NetSuite, Zoho Books, MYOB for accounting; Gusto for payroll; Stripe, Square, PayPal, Airwallex for payments; HubSpot, Salesforce, Zoho CRM, Apollo, Clay for sales. No French vendor. Yet a typical French SMB keeps its books in Pennylane, Sage or at its accountant's, runs payroll in PayFit or Silae, banks with Qonto and issues quotes in Sellsy.</p><h3>What works as is</h3><p>Anything that reads your email, calendar and files: the Monday brief, answering inbound inquiries, inbox triage, proposals built from past ones, contract review, marketing with Canva, review management. Gmail, Google Drive, Microsoft 365, Slack, Notion and Canva are tools your teams already use. If you sell on Shopify or take payments with Stripe, the sales and stock side works too.</p><h3>What half works</h3><p>Finance. Anthropic planned for it: without a connector, every workflow runs from a spreadsheet, a PDF or a forwarded email. You export your ledger and statements, Claude reconciles and writes. It works. But it is a manual export every month, and the \"runs on its own at 6:30 on Monday\" promise goes away.</p><h3>What does not work</h3><p>Payroll (Gusto does not exist in France), tax (the skill refuses to compute outside the US, rightly), prospecting through Apollo or Clay on French micro-businesses, which those databases cover poorly, and the free workshops and webinars, all American. The AI Fluency for Small Business online course, co-produced with PayPal, remains available remotely.</p><p>The good news: several French vendors have opened their own connectors to Claude, independently of the plugin. The next table goes tool by tool.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Logiciels français",
+      "kicker_en": "§ French software",
+      "heading_fr": "Pennylane, Qonto, Sage, PayFit : qui se branche à Claude",
+      "heading_en": "Pennylane, Qonto, Sage, PayFit: who connects to Claude",
+      "caption_fr": "Pages éditeurs, documentations développeurs et annuaire de connecteurs d'Anthropic lus le 6 octobre 2026. « Aucun connecteur officiel trouvé » signifie : recherche sur le site et la documentation de l'éditeur sans résultat à cette date. Un serveur tiers n'engage pas l'éditeur.",
+      "caption_en": "Vendor pages, developer docs and Anthropic's connector directory read on 6 October 2026. \"No official connector found\" means a search of the vendor's site and documentation returned nothing on that date. A third-party server does not bind the vendor.",
+      "columns_fr": [
+        "Outil",
+        "API publique",
+        "Connecteur Claude officiel",
+        "Conséquence"
+      ],
+      "columns_en": [
+        "Tool",
+        "Public API",
+        "Official Claude connector",
+        "Consequence"
+      ],
+      "rows_fr": [
+        [
+          "Pennylane",
+          "Oui, API documentée pour entreprises et cabinets",
+          "Oui : serveur MCP officiel, lecture seule ; entreprises dès l'offre Essentiel, cabinets sans surcoût",
+          "Interroger compta et transactions depuis Claude ; pas d'écriture"
+        ],
+        [
+          "Qonto",
+          "Oui, Business API",
+          "Oui : connecteur vérifié dans l'annuaire d'Anthropic ; lecture, factures clients, demandes de virement à valider dans Qonto",
+          "La trésorerie réelle arrive dans Claude ; les virements SEPA restent hors du MCP"
+        ],
+        [
+          "Pipedrive",
+          "Oui, API publique",
+          "Oui : connecteur vérifié dans l'annuaire d'Anthropic, lecture et écriture, toutes offres payantes Pipedrive",
+          "Remplace HubSpot dans les skills de vente après personnalisation"
+        ],
+        [
+          "Sage",
+          "Selon le produit",
+          "Serveur MCP officiel pour Sage Intacct seulement, ouvert aux États-Unis, Royaume-Uni, Canada, Australie et Afrique du Sud ; rien trouvé pour Sage 50, Sage 100 ou Sage Active en France",
+          "Export de fichiers ou connecteur sur mesure"
+        ],
+        [
+          "PayFit",
+          "Oui, API partenaires",
+          "Aucun connecteur officiel trouvé au 6 octobre 2026 ; des serveurs tiers existent",
+          "Paie hors de portée du plugin sans développement"
+        ],
+        [
+          "Silae",
+          "Oui, API réservée aux partenaires",
+          "Aucun connecteur officiel trouvé au 6 octobre 2026",
+          "Passer par l'éditeur ou un intégrateur partenaire"
+        ],
+        [
+          "Sellsy",
+          "Oui, API v2",
+          "Aucun connecteur officiel trouvé au 6 octobre 2026 ; des serveurs tiers existent",
+          "Devis et factures à relier par connecteur sur mesure"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Pennylane",
+          "Yes, documented API for businesses and accounting firms",
+          "Yes: official MCP server, read-only; businesses from the Essentiel plan, firms at no extra cost",
+          "Query books and transactions from Claude; no writing"
+        ],
+        [
+          "Qonto",
+          "Yes, Business API",
+          "Yes: verified connector in Anthropic's directory; reads, client invoices, transfer requests approved in Qonto",
+          "Real cash position reaches Claude; SEPA transfers stay outside the MCP"
+        ],
+        [
+          "Pipedrive",
+          "Yes, public API",
+          "Yes: verified connector in Anthropic's directory, read and write, all paid Pipedrive plans",
+          "Replaces HubSpot in the sales skills after customisation"
+        ],
+        [
+          "Sage",
+          "Depends on the product",
+          "Official MCP server for Sage Intacct only, live in the US, UK, Canada, Australia and South Africa; nothing found for Sage 50, Sage 100 or Sage Active in France",
+          "File export or custom connector"
+        ],
+        [
+          "PayFit",
+          "Yes, partner API",
+          "No official connector found as of 6 October 2026; third-party servers exist",
+          "Payroll out of the plugin's reach without development"
+        ],
+        [
+          "Silae",
+          "Yes, partner-only API",
+          "No official connector found as of 6 October 2026",
+          "Go through the vendor or a partner integrator"
+        ],
+        [
+          "Sellsy",
+          "Yes, API v2",
+          "No official connector found as of 6 October 2026; third-party servers exist",
+          "Quotes and invoices to link through a custom connector"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [],
+      "html_fr": "<h2>Ce que ça coûte vraiment</h2><p>Le plugin n'a pas de prix séparé. Ce que vous payez, c'est Claude, plus les offres de vos outils, plus le temps de mise en route. Prix relevés sur la page tarifs d'Anthropic le 6 octobre 2026, en dollars, hors TVA et taux de change :</p><ul><li><strong>Pro</strong> : 20 $ par mois, ou 17 $ par mois en annuel (200 $ payés d'avance). Pour une personne seule.</li><li><strong>Team</strong>, de 2 à 150 personnes : siège Standard à 25 $ par mois, 20 $ en annuel ; siège Premium à 125 $, 100 $ en annuel, pour cinq fois plus d'usage. On peut mélanger les deux.</li><li><strong>Max</strong> : à partir de 100 $ par mois, pour un usage intensif.</li></ul><p>Anthropic recommande Pro pour une personne et Team dès qu'il y a plus d'une personne. Je suis d'accord, pour une raison que la page tarifs résume en un mot : sur Pro, l'entraînement est en « opt-out », sur Team il est coupé par défaut.</p><h3>Un exemple, pour fixer les idées</h3><p>Scénario construit pour l'exemple, pas un client. Une entreprise de cinq personnes prend cinq sièges Team Standard en annuel : 5 × 20 $ = 100 $ par mois, hors TVA. Sa compta est dans Pennylane : le serveur MCP demande l'offre Essentiel, qu'elle a peut-être déjà. Sa banque est Qonto : le connecteur se branche sans abonnement Claude particulier, et ce qu'il peut faire dépend de son rôle et de son offre Qonto. Si l'offre Essentiel est déjà prise, le surcoût logiciel se limite à l'abonnement Claude.</p><p>Le vrai coût est ailleurs. C'est le temps passé à réécrire <code>/close-month</code> pour qu'il lise Pennylane au lieu de QuickBooks, à vérifier le premier mois ligne par ligne, et à décider qui valide quoi. Comptez-le avant de comparer à « 20 $ par mois ».</p><p>Pour un budget complet par taille d'équipe, voyez notre guide <a href=\"/ressources/guides/cout-integration-claude-pme\">coût d'une intégration Claude en PME</a> et la page <a href=\"/tarifs\">tarifs Waimia</a>. Les quotas sont partagés entre le chat, Cowork et Claude Code : un dirigeant qui code aussi avec Claude consomme le même compteur.</p><p>Vous ne savez pas où vous en êtes ? L'<a href=\"/audit-ia-pme\">audit IA pour PME</a> fait l'inventaire de vos outils et de ce que Claude peut en tirer, et vous pouvez <a href=\"/contact?offer=audit-ia-pme&intent=audit\">réserver les 45 minutes gratuites ici</a>. Si l'équipe doit d'abord apprendre à déléguer à Claude, la <a href=\"/formations/claude\">formation Claude</a> est le bon point de départ.</p>",
+      "html_en": "<h2>What it really costs</h2><p>The plugin has no separate price. What you pay for is Claude, plus your tools' plans, plus setup time. Prices taken from Anthropic's pricing page on 6 October 2026, in dollars, excluding VAT and exchange rate:</p><ul><li><strong>Pro</strong>: $20 a month, or $17 a month billed annually ($200 up front). For one person.</li><li><strong>Team</strong>, 2 to 150 people: Standard seat at $25 a month, $20 annually; Premium seat at $125, $100 annually, for five times the usage. Seats can be mixed.</li><li><strong>Max</strong>: from $100 a month, for heavy use.</li></ul><p>Anthropic recommends Pro for one person and Team as soon as there is more than one. I agree, for a reason the pricing page sums up in one word: on Pro, training is opt-out; on Team it is off by default.</p><h3>An example, to make it concrete</h3><p>A scenario built for illustration, not a client. A five-person business takes five Team Standard seats annually: 5 × $20 = $100 a month, excluding VAT. Its books are in Pennylane: the MCP server requires the Essentiel plan, which it may already have. It banks with Qonto: the connector needs no special Claude plan, and what it can do depends on its role and Qonto plan. If the Essentiel plan is already in place, the extra software cost is the Claude subscription alone.</p><p>The real cost is elsewhere. It is the time spent rewriting <code>/close-month</code> so it reads Pennylane instead of QuickBooks, checking the first month line by line, and deciding who approves what. Count it before comparing with \"$20 a month\".</p><p>For a full budget by team size, see our guide to <a href=\"/ressources/guides/cout-integration-claude-pme\">the cost of a Claude integration in an SMB</a> and the <a href=\"/tarifs\">Waimia pricing page</a>. Quotas are shared between chat, Cowork and Claude Code: an owner who also codes with Claude draws on the same meter.</p><p>Not sure where you stand? The <a href=\"/audit-ia-pme\">SMB AI audit</a> inventories your tools and what Claude can get out of them, and you can <a href=\"/contact?offer=audit-ia-pme&intent=audit\">book the free 45 minutes here</a>. If the team first needs to learn to delegate to Claude, the <a href=\"/formations/claude\">Claude training</a> is the right starting point.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "figures": [],
+      "html_fr": "<h2>Risques et RGPD : les cinq points à régler avant d'installer</h2><p><strong>1. L'entraînement.</strong> Anthropic écrit dans l'annonce, puis dans la mise à jour de septembre, qu'il n'entraîne pas ses modèles sur vos données par défaut sur Team et Enterprise. La FAQ de la page commerciale va plus loin et dit « non » sans préciser d'offre. Je retiens la formulation la plus prudente, celle de l'annonce : sur Pro et Max, le réglage existe et c'est à vous de le couper.</p><p><strong>2. La localisation.</strong> Les données des applications Claude sont stockées aux États-Unis par défaut, d'après le centre de confidentialité d'Anthropic. Il n'y a pas d'hébergement dans l'Union européenne pour claude.ai. Pour des données de paie ou de santé, c'est un sujet à traiter dans votre registre, pas à découvrir après. Notre guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> détaille les clauses et le DPA.</p><p><strong>3. Les permissions.</strong> Claude voit ce que le compte connecté voit, ni plus ni moins. C'est rassurant si vos droits sont propres. Si votre comptable a un accès administrateur à tout, Claude aussi, quand il passe par son compte. Connectez avec le compte le moins privilégié qui fait le travail.</p><p><strong>4. Les conditions de l'éditeur.</strong> Qonto prévient dans sa documentation : connecter son serveur MCP partage les données du compte avec l'assistant choisi et lève le secret professionnel à cet égard. Ce n'est pas une raison de refuser. C'est une décision à prendre en connaissance de cause, idéalement par le dirigeant, pas par un salarié curieux.</p><p><strong>5. L'historique local de Cowork.</strong> L'aide d'Anthropic indique que l'historique local des sessions Cowork n'est pas soumis à la politique de rétention standard et ne peut pas être supprimé centralement par un administrateur. Sur un poste partagé ou un ordinateur perdu, c'est le point faible.</p><p>Ajoutez la règle du plugin lui-même : ses livrables ne sont pas des conseils financiers, fiscaux, juridiques ou RH, et doivent être relus par vous et, le cas échéant, par un professionnel. Le dossier de clôture va à votre expert-comptable, il ne le remplace pas. Pour cadrer tout cela par écrit, la page <a href=\"/conformite-ia\">conformité IA</a> présente notre approche.</p>",
+      "html_en": "<h2>Risks and GDPR: five points to settle before installing</h2><p><strong>1. Training.</strong> Anthropic writes in the announcement, then in the September update, that it does not train on your data by default on Team and Enterprise. The FAQ on the marketing page goes further and says \"no\" without naming a plan. I keep the more cautious wording, the announcement's: on Pro and Max, the setting exists and you have to turn it off.</p><p><strong>2. Location.</strong> Claude app data is stored in the United States by default, according to Anthropic's privacy centre. There is no EU hosting for claude.ai. For payroll or health data, that belongs in your processing register, not in a later surprise. Our guide to <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR in SMBs</a> covers the clauses and the DPA.</p><p><strong>3. Permissions.</strong> Claude sees what the connected account sees, no more, no less. Reassuring if your access rights are clean. If your bookkeeper has admin access to everything, so does Claude when it goes through that account. Connect with the least privileged account that does the job.</p><p><strong>4. Vendor terms.</strong> Qonto warns in its documentation that connecting its MCP server shares account data with the chosen assistant and lifts professional secrecy in that respect. Not a reason to refuse. A decision to take knowingly, ideally by the owner, not by a curious employee.</p><p><strong>5. Cowork's local history.</strong> Anthropic's help pages state that local Cowork session history is not subject to the standard retention policy and cannot be deleted centrally by an admin. On a shared or lost computer, that is the weak spot.</p><p>Add the plugin's own rule: its outputs are not financial, tax, legal or HR advice and must be reviewed by you and, where appropriate, a professional. The close packet goes to your accountant; it does not replace them. To put all this in writing, our <a href=\"/conformite-ia\">AI compliance page</a> sets out our approach.</p>"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper-2",
+      "lead_magnet": "guide-achat-claude-pme",
+      "kicker_fr": "§ Guide gratuit, envoyé par e-mail",
+      "kicker_en": "§ Free guide, sent by email",
+      "h2_fr": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
+      "h2_en": "Get the Claude buyer's guide for SMBs (PDF, 14 pages)",
+      "body_fr": "Avant d'installer le plugin, choisissez la bonne offre. Le guide compare Pro, Team et Enterprise, chiffre trois budgets pour 5, 15 et 40 personnes avec les formules écrites, liste douze pièges d'achat et les douze réglages du premier jour d'une organisation Team.",
+      "body_en": "Before installing the plugin, pick the right plan. The guide compares Pro, Team and Enterprise, works out three budgets for 5, 15 and 40 people with the formulas written out, and lists twelve buying traps and the twelve day-one settings for a Team organisation.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir le guide (PDF) →",
+      "submit_label_en": "Get the guide (PDF) →",
+      "hint_fr": "Un seul e-mail avec le PDF. Pas d'inscription à la lettre sans votre accord.",
+      "hint_en": "One email with the PDF. No newsletter sign-up without your consent."
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Plugin seul ou sur mesure",
+      "kicker_en": "§ Plugin alone or custom",
+      "title_fr": "Quand le plugin suffit, quand faire développer des connecteurs",
+      "title_en": "When the plugin is enough, when to have connectors built",
+      "aside_fr": "Mon avis, après lecture du code du plugin. Dans le doute, commencez par le plugin seul pendant un mois : il vous dira lui-même où il bute.",
+      "aside_en": "My view, after reading the plugin's code. When in doubt, run the plugin alone for a month: it will show you where it gets stuck.",
+      "use_title_fr": "Le plugin seul suffit si",
+      "use_title_en": "The plugin alone is enough if",
+      "use_items_fr": [
+        "Vous êtes seul ou à deux et votre besoin tient dans l'e-mail, l'agenda et les fichiers",
+        "Vous vendez sur Shopify ou encaissez avec Stripe, Square ou PayPal",
+        "Votre CRM est HubSpot, Pipedrive ou Zoho, ou un simple tableur",
+        "Un export mensuel de votre compta vers Claude ne vous dérange pas",
+        "Vous voulez d'abord voir à quoi ressemble un brief du lundi avant d'investir"
+      ],
+      "use_items_en": [
+        "You work alone or in pairs and your need fits in email, calendar and files",
+        "You sell on Shopify or take payments with Stripe, Square or PayPal",
+        "Your CRM is HubSpot, Pipedrive or Zoho, or a plain spreadsheet",
+        "A monthly export of your books into Claude does not bother you",
+        "You first want to see what a Monday brief looks like before investing"
+      ],
+      "avoid_title_fr": "Des connecteurs sur mesure se justifient si",
+      "avoid_title_en": "Custom connectors are justified if",
+      "avoid_items_fr": [
+        "Votre compta, votre paie ou vos devis vivent dans Sage, PayFit, Silae ou Sellsy",
+        "Vous voulez que la clôture ou les relances tournent sans export manuel",
+        "Plusieurs personnes valident et les droits doivent être séparés proprement",
+        "Un logiciel métier ou interne porte vos données clés",
+        "Une erreur de chiffre vous coûterait plus qu'une semaine de développement"
+      ],
+      "avoid_items_en": [
+        "Your books, payroll or quotes live in Sage, PayFit, Silae or Sellsy",
+        "You want the close or reminders to run without manual exports",
+        "Several people approve and access rights must be cleanly separated",
+        "A line-of-business or in-house tool holds your key data",
+        "A wrong figure would cost you more than a week of development"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Comment Waimia adapte le plugin à une PME française",
+      "h2_en": "How Waimia adapts the plugin to a French SMB",
+      "intro_fr": "Quatre étapes. Chacune laisse un livrable que vous gardez, même si vous arrêtez après.",
+      "intro_en": "Four steps. Each leaves a deliverable you keep, even if you stop afterwards.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit de 45 minutes",
+          "title_en": "Free 45-minute audit",
+          "body_fr": "On liste vos outils, ce que le plugin lit déjà, ce qui manque et ce qui doit rester hors de portée de Claude. Vous repartez avec la liste, que vous travailliez avec nous ou non.",
+          "body_en": "We list your tools, what the plugin already reads, what is missing and what must stay out of Claude's reach. You leave with the list, whether or not you work with us.",
+          "meta_fr": "Gratuit",
+          "meta_en": "Free"
+        },
+        {
+          "title_fr": "Sprint découverte",
+          "title_en": "Discovery sprint",
+          "body_fr": "Installation du plugin, branchement des connecteurs officiels existants (Pennylane, Qonto, Pipedrive selon votre pile), réécriture des deux ou trois skills qui comptent, et spécification des connecteurs à construire.",
+          "body_en": "Plugin installation, connection of existing official connectors (Pennylane, Qonto, Pipedrive depending on your stack), rewrite of the two or three skills that matter, and spec of the connectors to build.",
+          "meta_fr": "999 € HT · 10 h",
+          "meta_en": "€999 excl. VAT · 10 h"
+        },
+        {
+          "title_fr": "Connecteurs sur mesure",
+          "title_en": "Custom connectors",
+          "body_fr": "Développement des connecteurs manquants sur les API des éditeurs, en lecture d'abord, testés sur un mois réel de vos données avant toute écriture.",
+          "body_en": "Building the missing connectors on the vendors' APIs, read-only first, tested on a real month of your data before any write access.",
+          "meta_fr": "Régie · {{prix.horaire}} € HT/h",
+          "meta_en": "Time and materials · €99 excl. VAT/h"
+        },
+        {
+          "title_fr": "Passation",
+          "title_en": "Handover",
+          "body_fr": "Les skills, les connecteurs et la documentation sont à votre nom. Un référent chez vous sait les faire évoluer. Si vous voulez une équipe formée, la formation Claude prend le relais.",
+          "body_en": "Skills, connectors and documentation are in your name. A lead on your side knows how to evolve them. If you want a trained team, the Claude training takes over.",
+          "meta_fr": "Inclus",
+          "meta_en": "Included"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude pour les PME : le guide complet",
+          "title_en": "Claude for SMBs: the complete guide",
+          "lead_fr": "Offres, usages, déploiement d'équipe et limites, au-delà du seul plugin.",
+          "lead_en": "Plans, uses, team rollout and limits, beyond the plugin alone.",
+          "href": "/ressources/guides/claude-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Cowork : ce qu'il devient",
+          "title_en": "Claude Cowork: what it is becoming",
+          "lead_fr": "L'agent qui fait tourner le plugin, et sa fusion avec le chat.",
+          "lead_en": "The agent that runs the plugin, and its merger with chat.",
+          "href": "/ressources/guides/claude-cowork"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégration Claude en entreprise",
+          "title_en": "Claude integration for business",
+          "lead_fr": "Connecteurs, plugins privés et déploiement par Waimia.",
+          "lead_en": "Connectors, private plugins and rollout by Waimia.",
+          "href": "/services/integration-claude"
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "ink",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Les nouveaux connecteurs français à Claude, quand ils sortent",
+      "h2_en": "New French connectors to Claude, as they ship",
+      "body_fr": "Une fois par mois : quel éditeur a ouvert un serveur MCP, ce qui change dans le plugin, ce que ça permet à une PME. Pas de recopie de communiqués.",
+      "body_en": "Once a month: which vendor opened an MCP server, what changed in the plugin, what it lets an SMB do. No press releases copied out.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes sur Claude for Small Business",
+      "h2_en": "Frequently asked questions about Claude for Small Business",
+      "items": [
+        {
+          "q_fr": "Claude for Small Business est-il disponible en France ?",
+          "a_fr": "Oui. La France figure dans la liste des pays où Anthropic sert Claude, et le plugin s'installe depuis n'importe quelle offre payante. Ce qui est américain, c'est le contenu : 37 connecteurs sans éditeur français, des parcours fiscaux et RH écrits pour le droit des États-Unis, des ateliers organisés aux États-Unis. Le plugin fonctionne en France ; une partie de sa valeur n'y arrive pas.",
+          "q_en": "Is Claude for Small Business available in France?",
+          "a_en": "Yes. France is on Anthropic's list of countries where Claude is served, and the plugin installs on any paid plan. What is American is the content: 37 connectors with no French vendor, tax and HR flows written for US law, workshops held in the US. The plugin works in France; part of its value does not arrive there."
+        },
+        {
+          "q_fr": "Faut-il un abonnement Team ou Enterprise pour l'utiliser ?",
+          "a_fr": "Non. Anthropic écrit, le 15 septembre 2026, que le plugin est disponible sur chaque offre payante et recommande Team dès que l'entreprise compte plus d'une personne. Le tutoriel d'installation cite Pro, Max, Team et Enterprise. Team et Enterprise ne sont pas requis pour installer ; ils comptent pour les données, car ce sont les offres où Anthropic n'entraîne pas ses modèles sur vos contenus par défaut.",
+          "q_en": "Do I need a Team or Enterprise plan to use it?",
+          "a_en": "No. On 15 September 2026 Anthropic wrote that the plugin is available on every paid plan and recommends Team as soon as the business has more than one person. The install tutorial lists Pro, Max, Team and Enterprise. Team and Enterprise are not required to install; they matter for data, because they are the plans where Anthropic does not train on your content by default."
+        },
+        {
+          "q_fr": "Combien coûte Claude for Small Business ?",
+          "a_fr": "Le plugin n'a pas de prix séparé : vous payez l'abonnement Claude. Au 6 octobre 2026, Pro coûte 20 $ par mois (17 $ en annuel), Team Standard 25 $ par siège et par mois (20 $ en annuel), hors TVA et taux de change. S'ajoutent les abonnements de vos outils : le serveur MCP de Pennylane, par exemple, demande l'offre Essentiel côté entreprise.",
+          "q_en": "How much does Claude for Small Business cost?",
+          "a_en": "The plugin has no separate price: you pay for the Claude subscription. As of 6 October 2026, Pro is $20 a month ($17 billed annually) and Team Standard is $25 per seat per month ($20 annually), excluding VAT and exchange rate. Add the plans of your own tools: Pennylane's MCP server, for example, requires the Essentiel plan for businesses."
+        },
+        {
+          "q_fr": "Est-ce que Claude peut payer, envoyer ou déclarer à ma place ?",
+          "a_fr": "Pas par défaut. Chaque workflow démarre en mode approbation : Claude prépare, met en attente, et rien ne part, ne se publie ni ne se paie sans votre accord. Vous pouvez ensuite laisser tourner un workflow seul, un par un. La paie est préparée dans Gusto mais c'est vous qui la soumettez, et Anthropic précise que Claude ne dépose rien auprès d'une administration.",
+          "q_en": "Can Claude pay, send or file on my behalf?",
+          "a_en": "Not by default. Every workflow starts in approval mode: Claude prepares and stages, and nothing sends, posts or pays without your OK. You can later let a workflow run on its own, one at a time. Payroll is staged in Gusto but you submit it, and Anthropic states that Claude files nothing with any authority."
+        },
+        {
+          "q_fr": "Mes données comptables servent-elles à entraîner Claude ?",
+          "a_fr": "Sur Team et Enterprise, non par défaut : c'est écrit dans l'annonce et sur la page tarifs. Sur Pro et Max, la page tarifs indique un entraînement en « opt-out » : il faut désactiver le réglage vous-même. Mon conseil : dès que des chiffres clients ou salariés passent dans Claude, prenez Team, ou coupez le réglage le jour de l'ouverture du compte.",
+          "q_en": "Is my accounting data used to train Claude?",
+          "a_en": "On Team and Enterprise, not by default: it says so in the announcement and on the pricing page. On Pro and Max, the pricing page shows training as opt-out: you have to switch the setting off yourself. My advice: as soon as client or employee figures go through Claude, take Team, or turn the setting off the day you open the account."
+        },
+        {
+          "q_fr": "Pennylane, Qonto ou Pipedrive fonctionnent-ils avec le plugin ?",
+          "a_fr": "Pas comme connecteurs du plugin, mais ils se branchent à Claude. Qonto et Pipedrive ont un connecteur vérifié dans l'annuaire d'Anthropic ; Pennylane publie un serveur MCP en lecture seule à ajouter en connecteur personnalisé. Les skills du plugin peuvent ensuite être réécrits pour lire ces outils à la place de QuickBooks ou HubSpot : c'est le travail de personnalisation qu'Anthropic prévoit.",
+          "q_en": "Do Pennylane, Qonto or Pipedrive work with the plugin?",
+          "a_en": "Not as plugin connectors, but they connect to Claude. Qonto and Pipedrive have a verified connector in Anthropic's directory; Pennylane publishes a read-only MCP server you add as a custom connector. The plugin's skills can then be rewritten to read those tools instead of QuickBooks or HubSpot: that is the customisation Anthropic plans for."
+        },
+        {
+          "q_fr": "Combien de temps faut-il pour le mettre en place ?",
+          "a_fr": "L'installation prend quelques minutes, et le fichier README du plugin annonce une configuration guidée d'environ 15 minutes pour connecter deux outils. Ce délai ne vaut que si vos outils sont dans la liste. Avec Pennylane, Sellsy ou PayFit, comptez le temps de brancher les connecteurs, de réécrire les skills utiles et de les tester sur un mois réel avant de leur faire confiance.",
+          "q_en": "How long does it take to set up?",
+          "a_en": "Installation takes a few minutes, and the plugin's README describes a guided setup of about 15 minutes to connect two tools. That only holds if your tools are on the list. With Pennylane, Sellsy or PayFit, allow time to connect the connectors, rewrite the useful skills and test them on a real month before trusting them."
+        },
+        {
+          "q_fr": "Quand faut-il faire appel à un prestataire ?",
+          "a_fr": "Quand la valeur est dans un outil que le plugin ne lit pas, ou quand l'erreur coûte cher : clôture, paie, relances clients. Seul avec QuickBooks, Stripe et Gmail, vous n'avez probablement besoin de personne. Avec une pile française, un sprint découverte de 999 € HT chez Waimia sert à décider quels connecteurs et quels skills valent d'être construits, avant d'engager quoi que ce soit.",
+          "q_en": "When should I bring in a provider?",
+          "a_en": "When the value sits in a tool the plugin does not read, or when mistakes are expensive: month-end close, payroll, customer reminders. Alone with QuickBooks, Stripe and Gmail, you probably need nobody. With a French stack, a €999 excl. VAT discovery sprint at Waimia is for deciding which connectors and skills are worth building, before committing to anything."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Claude for Small Business",
+      "kicker_en": "§ Claude for Small Business",
+      "h2_fr": "Le plugin est américain. Votre compta ne l'est pas.",
+      "h2_en": "The plugin is American. Your books are not.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On repart avec ce que le plugin fait déjà pour vous, ce qui manque, et ce que coûterait de le combler. Pour un accompagnement plus large, voyez aussi notre offre de consultant IA Claude.",
+      "subtitle_en": "The 45-minute audit is free. You leave with what the plugin already does for you, what is missing, and what filling the gap would cost. For broader support, see our Claude AI consultant offer too.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le consultant IA Claude",
+          "label_en": "See the Claude AI consultant",
+          "href": "/services/consultant-ia-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
