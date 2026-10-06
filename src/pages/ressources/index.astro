@@ -1,325 +1,183 @@
 ---
 import FormGuard from '../../components/ui/atoms/FormGuard.astro';
-// Page · /ressources · Hub landing Ressources
+// Page · /ressources · INDEX UNIFIÉ des ressources (refonte 2026-10-06).
 export const prerender = true;
 
-// Source : waimia-handoff2 / ressources.html (450 LoC)
+// Demande Simon : une page qui, comme /blog, affiche TOUS les guides, comparatifs, outils et
+// articles, avec un filtre par type, et vers laquelle le menu renvoie (« Tout voir »).
 //
-// Composition directe d'organismes existants : masthead + Featured tool +
-// Cases + WritingNotes (blog) + Cookbooks + Newsletter band + CtaBand.
+// Composition : en-tête `list-index-section` (filtres en slot, compteurs réels) + liste
+// chronologique en `article-grid` (sections cataloguées, aucune nouvelle section). Le schéma
+// d'`article-grid` borne une grille à 12 cartes : la liste est découpée en grilles
+// successives de 12, dans l'ordre des dates, puis fondue en une seule grille par le CSS.
+//
+// Filtre par type SANS JavaScript : chaque bouton pointe une ancre (#type-guides…) ; la règle
+// CSS `:has(:target)` masque les cartes dont l'href n'est pas sous le préfixe du type
+// (RESOURCE_KINDS). Toutes les cartes restent dans le HTML (indexables, aucun doublon).
+// Les hubs /ressources/guides, /comparatifs et /outils restent les pages de chaque type.
 
-import { blogHeroIllustration } from '../../lib/hero-illustrations';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
 import Kicker from '../../components/ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
-import HeroCentered from '../../components/sections/HeroCentered.astro';
 import Button from '../../components/ui/atoms/Button.astro';
 import Bi from '../../components/ui/atoms/Bi.astro';
-import EditorialSplitGrid from '../../components/sections/EditorialSplitGrid.astro';
-import FeatureSplitMedia from '../../components/sections/FeatureSplitMedia.astro';
-import ResourceCardGrid from '../../components/sections/ResourceCardGrid.astro';
+import ListIndexSection from '../../components/sections/ListIndexSection.astro';
 import ArticleGrid from '../../components/sections/ArticleGrid.astro';
-import MetricCalloutBand from '../../components/sections/MetricCalloutBand.astro';
 import { langFromPath } from '../../lib/i18n';
-import { isLegacyRoutedType } from '../../lib/blog-routing';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import { blogEntryHref } from '../../lib/blog-routing';
-// Sections statiques (vague V3) → module ; le reste (dérivé collections + 2 blocs bespoke) reste ici.
-import { mastheadData, ctaData } from '../../data/ressources-hub-sections';
-import ResourceLinks from '../../components/ui/organisms/conversion/ResourceLinks.astro';
+import { isIndexableEntry } from '../../lib/seo/hub-index';
+import { SITE } from '../../site.config';
+import { indexHeadData, ctaData, RESOURCE_KINDS, type ResourceKind } from '../../data/ressources-hub-sections';
 
 const lang = langFromPath(Astro.url.pathname);
+const isFr = lang === 'fr';
+
+type Item = {
+  kind: ResourceKind;
+  title_fr: string;
+  title_en: string;
+  excerpt_fr: string;
+  excerpt_en: string;
+  date: Date;
+  read_time?: string;
+  href: string;
+};
+
+// Titre court : la partie avant « · » (même règle que les hubs guides et comparatifs).
+const shortTitle = (full: string) => full.split(' · ')[0].trim();
+
+const [guides, comparatifs, outils, blog, maturite] = await Promise.all([
+  getCollection('guides'),
+  getLiveCollection('comparatifs'),
+  getCollection('outils'),
+  getLiveCollection('blog'),
+  getEntry('diagnostics', 'maturite-ia'),
+]);
+
+const items: Item[] = [
+  ...guides.filter(isIndexableEntry).map((e) => ({
+    kind: 'guides' as const,
+    title_fr: shortTitle(e.data.title_fr),
+    title_en: shortTitle(e.data.title_en),
+    excerpt_fr: e.data.description_fr,
+    excerpt_en: e.data.description_en,
+    date: e.data.publishedAt,
+    href: `/ressources/guides/${e.data.slug ?? e.id}`,
+  })),
+  ...comparatifs.filter(isIndexableEntry).map((e) => ({
+    kind: 'comparatifs' as const,
+    title_fr: shortTitle(e.data.title_fr),
+    title_en: shortTitle(e.data.title_en),
+    excerpt_fr: e.data.description_fr,
+    excerpt_en: e.data.description_en,
+    date: e.data.publishedAt,
+    href: `/ressources/comparatifs/${e.data.slug ?? e.id}`,
+  })),
+  ...outils.filter((e) => !e.data.seo?.noindex).map((e) => ({
+    kind: 'outils' as const,
+    title_fr: shortTitle(e.data.title_fr),
+    title_en: shortTitle(e.data.title_en),
+    excerpt_fr: e.data.description_fr,
+    excerpt_en: e.data.description_en,
+    date: e.data.publishedAt,
+    href: `/ressources/outils/${e.id}`,
+  })),
+  ...(maturite
+    ? [{
+        kind: 'outils' as const,
+        title_fr: shortTitle(maturite.data.title_fr),
+        title_en: shortTitle(maturite.data.title_en),
+        excerpt_fr: maturite.data.description_fr,
+        excerpt_en: maturite.data.description_en,
+        date: new Date(maturite.data.publishedAt),
+        href: '/ressources/diagnostics/maturite-ia',
+      }]
+    : []),
+  // Articles : même périmètre que /blog (les articles en noindex ne sont pas listés).
+  ...blog.filter((e) => !e.data.seo?.noindex).map((e) => ({
+    kind: 'articles' as const,
+    title_fr: e.data.title_fr,
+    title_en: e.data.title_en,
+    excerpt_fr: e.data.excerpt_fr ?? e.data.description_fr,
+    excerpt_en: e.data.excerpt_en ?? e.data.description_en,
+    date: e.data.publishedAt,
+    read_time: e.data.readingTime ? `${e.data.readingTime} min` : undefined,
+    href: blogEntryHref(e),
+  })),
+].sort((a, b) => b.date.getTime() - a.date.getTime() || a.title_fr.localeCompare(b.title_fr, 'fr'));
+
+const count = (k: ResourceKind) => items.filter((i) => i.kind === k).length;
+const kindOf = (k: ResourceKind) => RESOURCE_KINDS.find((r) => r.key === k)!;
+const fmtDate = (d: Date) =>
+  `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
+
+// Grilles successives de 12 cartes (borne du schéma article-grid), ordre chronologique conservé.
+const GRID_MAX = 12;
+const grids: SectionByType<'article-grid'>[] = [];
+for (let i = 0; i < items.length; i += GRID_MAX) {
+  grids.push({
+    type: 'article-grid',
+    background: 'paper',
+    columns: '3',
+    articles: items.slice(i, i + GRID_MAX).map((it) => ({
+      tag_fr: kindOf(it.kind).tag_fr,
+      tag_en: kindOf(it.kind).tag_en,
+      title_fr: it.title_fr,
+      title_en: it.title_en,
+      excerpt_fr: it.excerpt_fr,
+      excerpt_en: it.excerpt_en,
+      date: fmtDate(it.date),
+      read_time_fr: it.read_time,
+      read_time_en: it.read_time,
+      href: it.href,
+    })),
+  });
+}
+
+const filters = [
+  { id: 'type-tout', label: isFr ? 'Tous' : 'All', n: items.length },
+  ...RESOURCE_KINDS.map((k) => ({ id: `type-${k.key}`, label: isFr ? k.label_fr : k.label_en, n: count(k.key) })),
+].filter((f) => f.n > 0);
 
 const collectionLd = buildCollectionPage(
-  'Ressources Waimia',
-  'Hub éditorial : blog in-silo, outils, cas clients.',
-  ['Blog', 'Outils', 'Cas clients'],
+  'Ressources IA pour PME · Waimia',
+  'Index de toutes les ressources Waimia : guides, comparatifs, outils gratuits et articles, triés par date.',
+  items.map((i) => `${SITE.url}${i.href}`),
 );
-
-const [allBlog, allCases] = await Promise.all([
-  getLiveCollection('blog'),
-  // Cas clients seulement : les projets internes ne sont pas des « cas clients signés ».
-  getCollection('cases', ({ data }) => data.kind === 'client'),
-]);
-
-const byDate = (
-  a: { data: { publishedAt: Date } },
-  b: { data: { publishedAt: Date } },
-) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
-
-const sortedBlog = [...allBlog].sort(byDate);
-const sortedCases = [...allCases].sort(byDate);
-
-// hrefs corrigés : /cas-clients/{slug} (pas /ressources/cas/)
-const caseCards = sortedCases.map((c, i) => ({
-  num: String(i + 1).padStart(2, '0'),
-  kicker: `CAS · ${c.data.sector_fr.toUpperCase()}`,
-  title_fr: c.data.client,
-  sub_fr: c.data.impact_fr,
-  lead_fr: c.data.description_fr,
-  href: `/cas-clients/${c.id}`,
-}));
-
-const blogCards = sortedBlog.slice(0, 3).map((b, i) => ({
-  kicker: `BLOG · ${String(i + 1).padStart(2, '0')}`,
-  title_fr: b.data.title_fr,
-  title_en: b.data.title_en,
-  lead_fr: `${b.data.description_fr} →`,
-  lead_en: `${b.data.description_en} →`,
-  href: blogEntryHref(b),
-}));
-
-// ── Compteurs RÉELS par catégorie (0 invention) ──
-const blogLongReads = sortedBlog.filter((b) => !isLegacyRoutedType(b));
-const nBlog = blogLongReads.length;
-const allOutils = (await getCollection('outils')).filter((e) => !e.data.seo?.noindex);
-const nOutils = allOutils.length;
-const [allComparatifs, allGuides] = await Promise.all([
-  getLiveCollection('comparatifs'),
-  getCollection('guides'),
-]);
-const nComparatifs = allComparatifs.length;
-const nGuides = allGuides.length;
-
-// SEO état final : livres-blancs / cookbooks / field-notes / veille-ia supprimés.
-const featuredData = null;
-
-// ── GRILLE par TYPE · une card par catégorie NON VIDE, compteur réel ──
-const categories = [
-  nBlog > 0 && {
-    kind_fr: 'Articles', kind_en: 'Articles',
-    title_fr: 'Le blog', title_en: 'The blog',
-    desc_fr: 'Essais, notes et avis. Publiés quand on a vraiment quelque chose à dire.',
-    desc_en: 'Essays, notes and reviews. Published when we genuinely have something to say.',
-    format: `${nBlog} ${nBlog > 1 ? 'articles' : 'article'}`,
-    href: '/blog',
-    cta_label_fr: 'Lire les articles', cta_label_en: 'Read the articles',
-  },
-  nOutils > 0 && {
-    kind_fr: 'Outils', kind_en: 'Tools',
-    title_fr: 'Outils gratuits', title_en: 'Free tools',
-    desc_fr: 'Calculateur de temps récupérable, grille des tâches à automatiser, modèle de charte IA, checklist 90 jours. Utilisables sans e-mail.',
-    desc_en: 'Recoverable-time calculator, task prioritisation grid, AI policy template, 90-day checklist. Usable without email.',
-    format: `${nOutils} ${nOutils > 1 ? 'outils' : 'outil'}`,
-    href: '/ressources/outils',
-    cta_label_fr: 'Utiliser l\'outil', cta_label_en: 'Use the tool',
-  },
-  nComparatifs > 0 && {
-    kind_fr: 'Comparatifs', kind_en: 'Comparisons',
-    title_fr: 'Comparatifs objectifs', title_en: 'Objective comparisons',
-    desc_fr: 'Claude vs ChatGPT, GEO vs SEO, site intelligent vs WordPress. L\'arbitrage tranché, sans langue de bois.',
-    desc_en: 'Claude vs ChatGPT, GEO vs SEO, intelligent site vs WordPress. The call made plainly.',
-    format: `${nComparatifs} comparatifs`,
-    href: '/ressources/comparatifs',
-    cta_label_fr: 'Comparer', cta_label_en: 'Compare',
-  },
-  nGuides > 0 && {
-    kind_fr: 'Guides', kind_en: 'Guides',
-    title_fr: 'Guides pratiques', title_en: 'Practical guides',
-    desc_fr: 'Des how-to opérationnels et datés, pas des articles. Des prérequis aux 90 premiers jours.',
-    desc_en: 'Operational, dated how-tos, not articles. From prerequisites to the first 90 days.',
-    format: `${nGuides} ${nGuides > 1 ? 'guides' : 'guide'}`,
-    href: '/ressources/guides',
-    cta_label_fr: 'Suivre le guide', cta_label_en: 'Follow the guide',
-  },
-  {
-    kind_fr: 'Diagnostic', kind_en: 'Diagnostic',
-    title_fr: 'Diagnostic de maturité IA', title_en: 'AI maturity diagnostic',
-    desc_fr: "Dix questions, un niveau de 1 à 5, une note par dimension et le point à traiter en premier. Résultat immédiat, sans e-mail.",
-    desc_en: 'Ten questions, a level from 1 to 5, a score per dimension and the first point to fix. Instant result, no email.',
-    format: '10 questions · 4 min',
-    href: '/ressources/diagnostics/maturite-ia',
-    cta_label_fr: 'Faire le diagnostic', cta_label_en: 'Take the diagnostic',
-  },
-].filter(Boolean) as Array<{
-  kind_fr: string; kind_en: string; title_fr: string; title_en: string;
-  desc_fr: string; desc_en: string; format: string; href: string;
-  cta_label_fr: string; cta_label_en: string; gated?: boolean;
-}>;
-
-const resourceGridData = {
-  type: 'resource-card-grid' as const,
-  background: 'paper' as const,
-  columns: '3' as const,
-  kicker_fr: '§ Par format · tout ce qu\'on publie',
-  kicker_en: '§ By format · everything we publish',
-  h2_fr: 'Choisissez votre entrée.',
-  h2_en: 'Pick your way in.',
-  intro_fr: `${categories.length} formats, des compteurs réels. Rien d\'inventé : ce que vous voyez est ce qui existe.`,
-  intro_en: `${categories.length} formats, real counters. Nothing invented: what you see is what exists.`,
-  resources: categories.map((c) => ({
-    kind_fr: c.kind_fr, kind_en: c.kind_en,
-    title_fr: c.title_fr, title_en: c.title_en,
-    desc_fr: c.desc_fr, desc_en: c.desc_en,
-    format: c.format, href: c.href,
-    cta_label_fr: c.cta_label_fr, cta_label_en: c.cta_label_en,
-    gated: c.gated ?? false,
-  })),
-} satisfies SectionByType<'resource-card-grid'>;
-
-// ── ARTICLE VEDETTE · la note longue la plus récente, mise en avant distincte ──
-const _featArticle = [...blogLongReads].sort(byDate)[0];
-// Média = l'illustration du hero de l'article (même règle que blog/[...slug].astro), sinon
-// la une affichait le cadre vide du composant.
-const _featIllustration = _featArticle
-  ? ((_featArticle.data as { heroIllustration?: { src: string; alt_fr: string; alt_en: string } }).heroIllustration ??
-    blogHeroIllustration((_featArticle.data as { category?: string }).category))
-  : null;
-const featuredArticleData = _featArticle
-  ? ({
-      type: 'feature-split-media' as const,
-      background: 'paper' as const,
-      reversed: true,
-      kicker_fr: `§ À la une · ${(_featArticle.data.editorialType ?? 'Essai')}`,
-      kicker_en: `§ Featured · ${(_featArticle.data.editorialType ?? 'Essay')}`,
-      h2_fr: _featArticle.data.title_fr,
-      h2_en: _featArticle.data.title_en,
-      body_fr: _featArticle.data.description_fr,
-      body_en: _featArticle.data.description_en,
-      points: [],
-      media_src: _featIllustration?.src,
-      media_alt_fr: _featIllustration?.alt_fr,
-      media_alt_en: _featIllustration?.alt_en,
-      media_caption_fr: `${_featArticle.data.readingTime ? `${_featArticle.data.readingTime} min de lecture · ` : ''}${_featArticle.data.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}`,
-      media_caption_en: `${_featArticle.data.readingTime ? `${_featArticle.data.readingTime} min read · ` : ''}${_featArticle.data.publishedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`,
-      cta_label_fr: 'Lire l\'article →',
-      cta_label_en: 'Read the article →',
-      cta_href: `/blog/${_featArticle.id}`,
-    } satisfies SectionByType<'feature-split-media'>)
-  : null;
-
-// ── DERNIERS ARTICLES · vraie grille éditoriale (le reste des notes longues récentes) ──
-const articleGridData = {
-  type: 'article-grid' as const,
-  background: 'paper-2' as const,
-  columns: '3' as const,
-  kicker_fr: '§ Blog · les plus récents',
-  kicker_en: '§ Blog · most recent',
-  h2_fr: 'Les dernières notes longues.',
-  h2_en: 'The latest long reads.',
-  articles: [...blogLongReads].sort(byDate).filter((b) => b.id !== _featArticle?.id).slice(0, 6).map((b) => ({
-    tag_fr: (b.data.editorialType ?? 'Essai').toUpperCase(),
-    tag_en: (b.data.editorialType ?? 'Essay').toUpperCase(),
-    title_fr: b.data.title_fr,
-    title_en: b.data.title_en,
-    excerpt_fr: b.data.description_fr,
-    excerpt_en: b.data.description_en,
-    date: b.data.publishedAt.toISOString().slice(0, 10),
-    read_time_fr: b.data.readingTime ? `${b.data.readingTime} min` : undefined,
-    read_time_en: b.data.readingTime ? `${b.data.readingTime} min` : undefined,
-    href: `/blog/${b.id}`,
-  })),
-} satisfies SectionByType<'article-grid'>;
-
-// ── BANDE INK · preuve éditoriale chiffrée (compteurs réels du hub) ──
-const proofBandData = {
-  type: 'metric-callout-band' as const,
-  background: 'ink' as const,
-  kicker_fr: '§ Le fond éditorial',
-  kicker_en: '§ The editorial substance',
-  context_fr: 'Pas un blog d\'agence. Un fonds de travail signé, relu, daté. Chaque chiffre ci-dessous est le compte réel de ce qui est en ligne aujourd\'hui.',
-  context_en: 'Not an agency blog. A signed, reviewed, dated body of work. Every figure below is the real count of what is online today.',
-  metrics: [
-    { value: String(nBlog), label_fr: 'notes publiées', label_en: 'published notes' },
-    { value: String(nOutils), label_fr: 'outils gratuits', label_en: 'free tools' },
-    { value: String(sortedCases.length), label_fr: 'cas clients publiés', label_en: 'published client cases' },
-  ],
-} satisfies SectionByType<'metric-callout-band'>;
-
-const splitData = {
-  type: 'editorial-split-grid' as const,
-  left: {
-    slot: 'left' as const,
-    kicker_fr: '§ Blog · notes longues',
-    kicker_en: '§ Blog · long reads',
-    h2_fr: 'Une note à la fois.',
-    h2_en: 'One note at a time.',
-    lede_fr: 'Pas de calendrier éditorial. On publie quand on a vraiment quelque chose à dire.',
-    lede_en: 'No editorial calendar. We publish when we genuinely have something to say.',
-    cards: blogCards,
-    cta: { label_fr: 'Tous les articles →', label_en: 'All articles →', href: '/blog', variant: 'ghost' as const },
-  },
-  right: {
-    slot: 'right' as const,
-    kicker_fr: '§ Outils gratuits',
-    kicker_en: '§ Free tools',
-    h2_fr: 'Un outil par décision.',
-    h2_en: 'One tool per decision.',
-    lede_fr: 'Temps récupérable, priorité des tâches, charte IA. Le résultat est sur la page, l\'e-mail est facultatif.',
-    lede_en: 'Recoverable time, task priority, AI policy. The result is on the page, email is optional.',
-    cards: allOutils.slice(0, 3).map((o) => ({
-      kicker: 'OUTIL',
-      title_fr: o.data.title_fr,
-      title_en: o.data.title_fr,
-      lead_fr: '',
-      lead_en: '',
-      href: `/ressources/outils/${o.id}`,
-    })),
-    cta: { label_fr: 'Tous les outils →', label_en: 'All tools →', href: '/ressources/outils', variant: 'ghost' as const },
-  },
-} satisfies SectionByType<'editorial-split-grid'>;
-
-// mastheadData + ctaData (statiques) → `src/data/ressources-hub-sections.ts` (vague V3).
 ---
 <Base
   title="Ressources IA pour PME : guides, outils, comparatifs · Waimia"
-  description="Ressources IA pour PME : cas clients, blog, guides pratiques, comparatifs, diagnostics et calculateurs ROI gratuits, relus et datés."
+  description="Toutes les ressources IA pour PME en une page : guides pratiques, comparatifs, outils gratuits et articles, triés par date et filtrables par type."
   jsonLd={collectionLd}
 >
-  {/* MASTHEAD · paper */}
-  <HeroCentered data={mastheadData} lang="fr" />
-
-  {/* FEATURED · livre blanc le plus fort · paper-2 */}
-  {featuredData && <FeatureSplitMedia data={featuredData} lang="fr" />}
-
-  {/* GRILLE PAR FORMAT · compteurs réels · paper */}
-  <ResourceCardGrid data={resourceGridData} lang="fr" />
-
-  {/* OUTILS DU PARCOURS · diagnostic, grille, calculateur, charte, audit (source unique) */}
-  <ResourceLinks title="Les outils gratuits, sans inscription" background="paper-2" />
-
-  {/* ARTICLE VEDETTE · note longue la plus récente · paper */}
-  {featuredArticleData && <FeatureSplitMedia data={featuredArticleData} lang="fr" />}
-
-  {/* DERNIERS ARTICLES · vraie grille éditoriale · paper-2 */}
-  <ArticleGrid data={articleGridData} lang="fr" />
-
-  {/* BANDE INK · preuve éditoriale chiffrée */}
-  <MetricCalloutBand data={proofBandData} lang="fr" />
-
-  {/* CAS CLIENTS · fiches publiées (kind = client) · paper */}
-  <section class="hub-cases-detail">
-    <div class="wrap-wide">
-      <Kicker tone="accent" class="hub-cd-k">§ Cas clients · {sortedCases.length} fiches publiées</Kicker>
-      <h2 class="hub-cd-h2">{String(caseCards.length)} missions. Des chiffres quand ils existent.</h2>
-      <p class="hub-cd-lead">
-        Pas de témoignage publicitaire : chaque fiche dit ce qui a été construit, ce qui est encore en cours, et ce qui est mesuré ou non.
-      </p>
-      <ol class="hub-cd-list reveal-stagger">
-        {caseCards.map((c) => (
-          <li class="hub-cd-row">
-            <a class="hub-cd-link" href={c.href}>
-              <span class="hub-cd-num">{c.num}</span>
-              <span class="hub-cd-body">
-                <span class="hub-cd-kicker">{c.kicker}</span>
-                <span class="hub-cd-title">{c.title_fr} <i>· {c.sub_fr}</i></span>
-                <span class="hub-cd-text">{c.lead_fr}</span>
-              </span>
-              <span class="hub-cd-arr" aria-hidden>→</span>
+  <div class="res-index">
+    <ListIndexSection data={indexHeadData} lang={lang}>
+      <Fragment slot="filters">
+        <nav class="res-filters" aria-label={isFr ? 'Filtrer par type' : 'Filter by type'}>
+          {filters.map((f) => (
+            <a class="res-chip" href={`#${f.id}`}>
+              {f.label} <span class="res-chip-n">{f.n}</span>
             </a>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
+          ))}
+        </nav>
+      </Fragment>
+      <Fragment slot="list">
+        {/* Ancres de filtre : cibles :target, placées en tête de liste (le saut d'ancre
+            amène le lecteur sur la liste filtrée). */}
+        {filters.map((f) => <span class="res-anchor" id={f.id} aria-hidden="true"></span>)}
+        <h2 class="sr-only">{isFr ? 'Toutes les ressources, de la plus récente à la plus ancienne' : 'All resources, newest first'}</h2>
+        <div class="res-list">
+          {grids.map((g) => <ArticleGrid data={g} lang={lang} />)}
+        </div>
+      </Fragment>
+    </ListIndexSection>
+  </div>
 
-  {/* BLOG + LIVRES BLANCS · split éditorial vers pages détaillées · paper */}
-  <EditorialSplitGrid data={splitData} lang="fr" />
-
-  {/* NEWSLETTER BAND · ink */}
+  {/* NEWSLETTER BAND · ink (ancre #newsletter liée depuis /blog) */}
   <section id="newsletter" class="hub-nl">
     <div class="wrap-wide hub-nl-wrap">
       <div>
@@ -347,87 +205,75 @@ const splitData = {
     </div>
   </section>
 
-  <CtaFinal data={ctaData} lang="fr" />
+  <CtaFinal data={ctaData} lang={lang} />
 </Base>
 
 <style>
-  .hub-cases-detail { padding: var(--space-12) var(--space-6); background: var(--paper); }
-  :global(.hub-cd-k) { display: block; margin-bottom: 18px; }
-  .hub-cd-h2 {
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  /* ── Filtres · pastilles (tokens DS existants, aucun token neuf) ── */
+  .res-filters { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .res-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: 8px 16px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
     font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    line-height: var(--leading-h1);
-    letter-spacing: -0.024em;
-    margin: 0 0 var(--space-5);
-    text-wrap: balance;
-    font-weight: var(--fw-semibold);
+    font-size: var(--text-small);
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 200ms var(--ease), border-color 200ms var(--ease);
   }
-  .hub-cd-h2 :global(i) { font-style: italic; color: var(--accent-text); }
-  .hub-cd-lead {
-    font-family: var(--font-sans);
-    font-size: var(--text-h3);
-    color: var(--muted);
-    max-width: 760px;
-    margin: 0 0 var(--space-9);
-    line-height: 1.45;
+  .res-chip:hover { border-color: var(--ink); }
+  .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  .res-chip-n { font-family: var(--font-mono); color: var(--muted); }
+
+  /* Pastille active : « Tous » par défaut, sinon celle dont l'ancre est ciblée. */
+  .res-index:not(:has(.res-anchor:target)) .res-chip[href='#type-tout'],
+  .res-index:has(#type-tout:target) .res-chip[href='#type-tout'],
+  .res-index:has(#type-guides:target) .res-chip[href='#type-guides'],
+  .res-index:has(#type-comparatifs:target) .res-chip[href='#type-comparatifs'],
+  .res-index:has(#type-outils:target) .res-chip[href='#type-outils'],
+  .res-index:has(#type-articles:target) .res-chip[href='#type-articles'] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
   }
-  .hub-cd-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px solid var(--ink);
-  }
-  .hub-cd-row { border-bottom: 1px solid var(--hairline); }
-  .hub-cd-link {
+  .res-index:not(:has(.res-anchor:target)) .res-chip[href='#type-tout'] .res-chip-n,
+  .res-index:has(#type-tout:target) .res-chip[href='#type-tout'] .res-chip-n,
+  .res-index:has(#type-guides:target) .res-chip[href='#type-guides'] .res-chip-n,
+  .res-index:has(#type-comparatifs:target) .res-chip[href='#type-comparatifs'] .res-chip-n,
+  .res-index:has(#type-outils:target) .res-chip[href='#type-outils'] .res-chip-n,
+  .res-index:has(#type-articles:target) .res-chip[href='#type-articles'] .res-chip-n { color: inherit; }
+
+  /* Ancres : la cible de saut tient compte de l'en-tête fixe. */
+  .res-anchor { display: block; scroll-margin-top: 96px; }
+
+  /* Grilles successives fondues en UNE grille : les sections article-grid (12 cartes au plus
+     chacune) et leurs conteneurs passent en `display: contents`, les cartes deviennent les
+     enfants directs de .res-list. Un filtre ne laisse donc pas de trous entre les grilles.
+     Mêmes colonnes et points de rupture que le composant (3 / 2 / 1). */
+  .res-list {
     display: grid;
-    grid-template-columns: 80px 1fr 60px;
-    gap: var(--space-7);
-    padding: var(--spacing-block) 0;
-    align-items: start;
-    color: inherit;
-    transition: background 240ms var(--ease);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: calc(-1 * var(--space-7));
   }
-  .hub-cd-link:hover { background: rgba(var(--ink-rgb), 0.02); }
-  .hub-cd-num {
-    font-family: var(--font-display);
-    font-size: var(--text-h1);
-    line-height: 0.9;
-    color: var(--accent-text);
-    font-style: italic;
-  }
-  .hub-cd-body { display: flex; flex-direction: column; gap: 6px; }
-  .hub-cd-kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--accent-text);
-    letter-spacing: 0.14em;
-  }
-  .hub-cd-title {
-    font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    font-weight: var(--fw-semibold);
-    text-wrap: balance;
-  }
-  .hub-cd-title :global(i) { font-style: italic; color: var(--muted); font-size: 0.7em; }
-  .hub-cd-text {
-    font-size: var(--text-small);
-    line-height: 1.55;
-    color: var(--muted);
-    max-width: var(--wrap-prose);
-    text-wrap: pretty;
-  }
-  .hub-cd-arr {
-    font-family: var(--font-mono);
-    font-size: var(--text-glyph);
-    color: var(--accent-text);
-    align-self: center;
-    text-align: right;
-  }
-  @media (max-width: 700px) {
-    .hub-cd-link { grid-template-columns: 48px 1fr; }
-    .hub-cd-arr { display: none; }
+  .res-list :global(.article-grid),
+  .res-list :global(.article-grid > .wrap-wide),
+  .res-list :global(.article-grid__list) { display: contents; }
+  @media (max-width: 980px) { .res-list { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .res-list { margin-top: calc(-1 * var(--space-5)); } }
+  @media (max-width: 640px) { .res-list { grid-template-columns: 1fr; } }
+
+  /* ── Filtre par type (CSS seul) : masque les cartes hors du préfixe ciblé ── */
+  .res-index:has(#type-guides:target) .res-list :global(.article-card:not([href^='/ressources/guides/'])),
+  .res-index:has(#type-comparatifs:target) .res-list :global(.article-card:not([href^='/ressources/comparatifs/'])),
+  .res-index:has(#type-outils:target) .res-list :global(.article-card:not([href^='/ressources/outils/']):not([href^='/ressources/diagnostics/'])),
+  .res-index:has(#type-articles:target) .res-list :global(.article-card:is([href^='/ressources/guides/'], [href^='/ressources/comparatifs/'], [href^='/ressources/outils/'], [href^='/ressources/diagnostics/'])) {
+    display: none;
   }
 
   .hub-nl { padding: var(--space-12) var(--space-6); background: var(--ink); color: var(--paper); }

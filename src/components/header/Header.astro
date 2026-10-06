@@ -610,6 +610,15 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                 ))}
               </div>
             )}
+            {/* « Tout voir » mobile (2026-10-06, menus allégés) : jumeau du lien de pied du
+                mega panel desktop, pour que chaque rubrique renvoie aussi à son hub en mobile. */}
+            {item.parentHref && (
+              <div class="m-sheet-acc-col">
+                <a href={lh(item.parentHref)}>
+                  {lang === 'fr' ? `Tout voir : ${t(item.label, lang)} →` : `See all: ${t(item.label, lang)} →`}
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>

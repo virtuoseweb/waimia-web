@@ -207,83 +207,77 @@ function mapLegacyFeatured(featured: LegacyFeaturedCard, image?: string): MegaMe
 // Prise de rendez-vous : AUDIT_BOOKING_HREF (source unique : sitemap.ts). `/audit-ia-pme`
 // PRÉSENTE l'audit (liens « Audit IA PME ») ; les « Réserver un audit » mènent au contact.
 
-// ─── RESSOURCES · uniquement des pages indexables (les index /ressources/guides,
-// /comparatifs et /outils sont noindex, /ressources/diagnostics est redirigé : on lie les
-// pages de contenu directement).
+// ─── RESSOURCES · allégé (2026-10-06, demande Simon : « un hub, quelques liens importants,
+// Tout voir »). Quatre entrées seulement, chacune vers son hub (guides, comparatifs, outils,
+// blog), plus le guide pilier en bloc mis en avant. Le détail (tous les guides, comparatifs,
+// outils et articles, filtrables par type) vit sur l'index unifié /ressources, lié par
+// « Tout voir ». Les hubs sont indexables dès 3 pages filles (règle calculée, hub-index.ts).
 const RESSOURCES: MegaMenuSection = {
   parent: 'ressources',
   label: MM_RESOURCES.label,
   parentHref: MM_RESOURCES.href,
   matchPrefixes: ['/ressources', '/blog'],
   lead: {
-    fr: 'Guides, comparatifs et outils pour décider où l\'IA et l\'automatisation valent le coup dans une PME.',
-    en: 'Guides, comparisons and tools to decide where AI and automation are worth it in an SME.',
+    fr: 'Guides, comparatifs et outils pour décider où l\'IA vaut le coup dans une PME.',
+    en: 'Guides, comparisons and tools to decide where AI is worth it in an SME.',
   },
   columns: [
     {
-      kicker: { fr: 'LIRE', en: 'READING' },
-      title: { fr: 'Lire', en: 'Reading' },
+      kicker: { fr: 'APPRENDRE', en: 'LEARN' },
+      title: { fr: 'Apprendre', en: 'Learn' },
       links: [
+        {
+          label: { fr: 'Guides', en: 'Guides' },
+          href: '/ressources/guides',
+          description: {
+            fr: 'Un chantier de bout en bout, étape par étape.',
+            en: 'One project end to end, step by step.',
+          },
+        },
         {
           label: { fr: 'Blog', en: 'Blog' },
           href: '/blog',
           description: {
-            fr: 'Notes de terrain sur l\'IA et l\'automatisation en PME.',
-            en: 'Field notes on AI and automation in SMEs.',
+            fr: 'Notes de terrain sur l\'IA et l\'automatisation.',
+            en: 'Field notes on AI and automation.',
           },
-          featured: true,
         },
+      ],
+    },
+    {
+      kicker: { fr: 'DÉCIDER', en: 'DECIDE' },
+      title: { fr: 'Décider', en: 'Decide' },
+      links: [
         {
-          label: { fr: 'Déployer Claude en PME', en: 'Deploying Claude in an SME' },
-          href: '/ressources/guides/claude-pme',
+          label: { fr: 'Comparatifs', en: 'Comparisons' },
+          href: '/ressources/comparatifs',
           description: {
-            fr: 'Le guide pilier, avec un guide par produit.',
-            en: 'The pillar guide, with one guide per product.',
+            fr: 'Deux outils face à face, l\'arbitrage tranché.',
+            en: 'Two tools side by side, the call made plainly.',
+          },
+        },
+        {
+          label: { fr: 'Outils gratuits', en: 'Free tools' },
+          href: '/ressources/outils',
+          description: {
+            fr: 'Calculateurs, grilles et modèles, sans inscription.',
+            en: 'Calculators, grids and templates, no sign-up.',
           },
         },
       ],
-      footer: {
-        label: { fr: 'Tous les guides →', en: 'All guides →' },
-        href: '/ressources/guides',
-      },
-    },
-    {
-      kicker: { fr: 'COMPARER', en: 'COMPARE' },
-      title: { fr: 'Comparer', en: 'Compare' },
-      links: [
-        {
-          label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' },
-          href: '/ressources/comparatifs/claude-vs-chatgpt-pme',
-        },
-        {
-          label: { fr: 'n8n ou Make', en: 'n8n or Make' },
-          href: '/ressources/comparatifs/n8n-vs-make',
-        },
-      ],
-      footer: {
-        label: { fr: 'Tous les comparatifs →', en: 'All comparisons →' },
-        href: '/ressources/comparatifs',
-      },
-    },
-    {
-      kicker: { fr: 'MESURER', en: 'MEASURE' },
-      title: { fr: 'Outils', en: 'Tools' },
-      links: [
-        {
-          label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' },
-          href: '/ressources/outils/calculateur-roi-ia',
-        },
-        {
-          label: { fr: 'Diagnostic de maturité IA', en: 'AI maturity diagnostic' },
-          href: '/ressources/diagnostics/maturite-ia',
-        },
-      ],
-      footer: {
-        label: { fr: 'Tous les outils →', en: 'All tools →' },
-        href: '/ressources/outils',
-      },
     },
   ],
+  featured: {
+    kicker: { fr: 'GUIDE PILIER', en: 'PILLAR GUIDE' },
+    label: { fr: 'Déployer Claude en PME', en: 'Deploying Claude in an SME' },
+    body: {
+      fr: 'Quel produit pour quel besoin, ce que ça coûte, les risques et l\'ordre de déploiement.',
+      en: 'Which product for which need, what it costs, the risks and the rollout order.',
+    },
+    cta: { fr: 'Lire le guide →', en: 'Read the guide →' },
+    href: '/ressources/guides/claude-pme',
+    image: '/images/illustrations/ds/claude-pme-hub-carrefour-paper.webp',
+  },
 };
 
 const SOLUTIONS: MegaMenuSection = {
@@ -292,8 +286,8 @@ const SOLUTIONS: MegaMenuSection = {
   parentHref: '/services',
   matchPrefixes: ['/services', '/formations', '/audit-ia-pme'],
   lead: {
-    fr: 'Studio de développement IA et cabinet d\'automatisation des processus pour PME et ETI. Le site web et la prospection sont des outils, pas le métier.',
-    en: 'AI development studio and process automation practice for SMEs. The website and prospecting are tools, not the job.',
+    fr: 'Studio de développement IA et cabinet d\'automatisation des processus pour PME et ETI.',
+    en: 'AI development studio and process automation practice for SMEs.',
   },
   columns: [
     {
@@ -427,7 +421,6 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Programmes', en: 'Programmes' },
                   links: [
-                    { label: { fr: 'Formation automatisation', en: 'Automation training' }, href: '/formations/automatisation' },
                     { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n' },
                     { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make' },
                     { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
@@ -450,73 +443,53 @@ const SOLUTIONS: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Outils commerciaux', en: 'Sales tooling' },
-          key: 'commercial',
+          label: { fr: 'Commercial et visibilité', en: 'Sales and visibility' },
+          key: 'appui',
           href: '/services/systeme-commercial',
           hubLabel: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
-          description: { fr: 'En appui : prospection, CRM et relances automatisés, branchés au reste du système.', en: 'In support: automated prospecting, CRM and follow-ups, connected to the rest of the system.' },
+          description: { fr: 'En appui : CRM, prospection, site et référencement, branchés au reste du système.', en: 'In support: CRM, prospecting, website and search, connected to the rest of the system.' },
           links: [
             {
-              label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
-              href: '/services/prospection-automatisee',
-              description: { fr: 'Prospection multicanale automatisée, branchée à votre CRM.', en: 'Automated multichannel prospecting, connected to your CRM.' },
-                          },
+              label: { fr: 'Prospection et CRM', en: 'Prospecting and CRM' },
+              href: '/services/systeme-commercial',
+              description: { fr: 'Prospection outillée, CRM branché et relances automatiques.', en: 'Tool-driven prospecting, connected CRM and automatic follow-ups.' },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Prospection automatisée', en: 'Automated prospecting' }, href: '/services/prospection-automatisee' },
+                    { label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' }, href: '/services/crm-scoring-routing' },
+                    { label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' }, href: '/services/sequences-de-suivi' },
+                  ],
+                },
+              ],
+            },
             {
-              label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' },
-              href: '/services/crm-scoring-routing',
-              description: { fr: 'CRM branché, scoring des leads et affectation au bon commercial.', en: 'Connected CRM, lead scoring and assignment to the right rep.' },
-                          },
-            {
-              label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' },
-              href: '/services/sequences-de-suivi',
-              description: { fr: 'Relances automatisées déclenchées par le comportement.', en: 'Automated follow-ups triggered by behaviour.' },
-                          },
+              label: { fr: 'Site et référencement', en: 'Website and search' },
+              href: '/services/systeme-acquisition',
+              description: { fr: 'Être trouvé par Google et cité par les moteurs IA.', en: 'Be found by Google and cited by AI engines.' },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Site web IA', en: 'AI website' }, href: '/services/site-web-ia' },
+                    { label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' }, href: '/services/seo-geo-contenu' },
+                    { label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' }, href: '/services/landing-pages-tunnels' },
+                  ],
+                },
+              ],
+            },
           ],
           featured: {
             kicker: { fr: 'EN APPUI', en: 'IN SUPPORT' },
-            label: { fr: 'Outils commerciaux', en: 'Sales tooling' },
+            label: { fr: 'Des outils, pas le métier', en: 'Tools, not the job' },
             body: {
-              fr: 'Un CRM branché et une prospection outillée (Apollo, Lemlist, Pharow). Un outil du système, pas une prestation d\'agence.',
-              en: 'A connected CRM and tool-driven prospecting (Apollo, Lemlist, Pharow). A tool of the system, not an agency service.',
+              fr: 'Le CRM, la prospection et le site amènent la demande que les automatisations traitent ensuite.',
+              en: 'The CRM, prospecting and website bring the demand the automations then process.',
             },
             cta: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
             href: '/services/systeme-commercial',
             image: '/images/besoins/besoin-acquerir.webp',
-          },
-        },
-        {
-          label: { fr: 'Visibilité web', en: 'Web visibility' },
-          key: 'acquisition',
-          href: '/services/systeme-acquisition',
-          hubLabel: { fr: 'Voir les outils de visibilité →', en: 'See visibility tooling →' },
-          description: { fr: 'En appui : site, référencement Google et moteurs IA, pages de conversion.', en: 'In support: website, Google and AI-engine visibility, conversion pages.' },
-          links: [
-            {
-              label: { fr: 'Site web IA', en: 'AI website' },
-              href: '/services/site-web-ia',
-              description: { fr: 'Un site rapide, mesuré, branché au CRM et lisible par les moteurs IA.', en: 'A fast, measured site, connected to the CRM and readable by AI engines.' },
-                          },
-            {
-              label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' },
-              href: '/services/seo-geo-contenu',
-              description: { fr: 'Être trouvé par Google et cité par les moteurs IA.', en: 'Be found by Google and cited by AI engines.' },
-                          },
-            {
-              label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' },
-              href: '/services/landing-pages-tunnels',
-              description: { fr: 'Pages de conversion reliées au CRM.', en: 'Conversion pages connected to the CRM.' },
-                          },
-          ],
-          featured: {
-            kicker: { fr: 'EN APPUI', en: 'IN SUPPORT' },
-            label: { fr: 'Visibilité web', en: 'Web visibility' },
-            body: {
-              fr: 'Le site et le référencement sont des outils au service du système : ils amènent la demande que les automatisations traitent ensuite.',
-              en: 'The website and search visibility are tools serving the system: they bring the demand the automations then process.',
-            },
-            cta: { fr: 'Voir les outils de visibilité →', en: 'See visibility tooling →' },
-            href: '/services/systeme-acquisition',
-            image: '/images/besoins/besoin-piloter.webp',
           },
         },
       ],
@@ -548,8 +521,8 @@ const CAS_USAGES: MegaMenuSection = {
   parentHref: '/cas-usages',
   matchPrefixes: ['/cas-usages'],
   lead: {
-    fr: 'Partir du problème ou de la fonction, pas de la technologie : ce qu\'on automatise, dans quel ordre et où sont les limites.',
-    en: 'Start from the problem or the function, not the technology: what we automate, in what order and where the limits are.',
+    fr: 'Partir du problème ou de la fonction, pas de la technologie.',
+    en: 'Start from the problem or the function, not the technology.',
   },
   columns: [
     {
@@ -557,9 +530,9 @@ const CAS_USAGES: MegaMenuSection = {
       title: { fr: 'Par problème', en: 'By problem' },
       goal: { fr: 'Rendre du temps aux équipes', en: 'Give time back to teams' },
       links: [
-        { label: { fr: "Automatiser l'administratif", en: 'Standardize processes' }, href: '/cas-usages/standardiser-processus' },
-        { label: { fr: 'Centraliser données et reporting', en: 'Centralize data' }, href: '/cas-usages/centraliser-donnees' },
-        { label: { fr: 'Automatiser le suivi commercial', en: 'Generate more leads' }, href: '/cas-usages/generer-plus-de-leads' },
+        { label: { fr: "Automatiser l'administratif", en: 'Automate admin work' }, href: '/cas-usages/standardiser-processus' },
+        { label: { fr: 'Centraliser données et reporting', en: 'Centralise data and reporting' }, href: '/cas-usages/centraliser-donnees' },
+        { label: { fr: 'Automatiser le suivi commercial', en: 'Automate sales follow-up' }, href: '/cas-usages/generer-plus-de-leads' },
       ],
     },
     {
@@ -579,7 +552,6 @@ const CAS_USAGES: MegaMenuSection = {
       links: [
         { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
         { label: { fr: 'Grille des tâches à automatiser', en: 'Task automation grid' }, href: '/ressources/outils/grille-taches-a-automatiser' },
-        { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
         { label: { fr: 'Audit IA PME', en: 'SME AI audit' }, href: '/audit-ia-pme' },
       ],
     },
@@ -653,8 +625,8 @@ const AGENCE: MegaMenuSection = {
   parentHref: '/agence',
   matchPrefixes: ['/agence', '/tarifs', '/manifesto', '/technologies', '/equipe', '/implantations', '/conformite-ia'],
   lead: {
-    fr: 'Un studio solo basé à Bordeaux, missions à distance. Un ingénieur qui travaille avec vos équipes métier.',
-    en: 'A solo studio based in Bordeaux, working remotely. One engineer working with your business teams.',
+    fr: 'Un studio solo basé à Bordeaux : un ingénieur qui travaille avec vos équipes métier.',
+    en: 'A solo studio based in Bordeaux: one engineer working with your business teams.',
   },
   columns: [
     {
@@ -662,7 +634,7 @@ const AGENCE: MegaMenuSection = {
       title: { fr: 'Le studio', en: 'The studio' },
       links: [
         {
-          label: { fr: 'À propos de Waimia', en: 'About Waimia' },
+          label: { fr: 'À propos', en: 'About' },
           href: '/agence',
         },
         {
@@ -671,6 +643,14 @@ const AGENCE: MegaMenuSection = {
           description: {
             fr: 'L\'ingénieur qui audite, construit et transfère.',
             en: 'The engineer who audits, builds and hands over.',
+          },
+        },
+        {
+          label: { fr: 'Implantations', en: 'Locations' },
+          href: '/implantations',
+          description: {
+            fr: 'Bordeaux, Montpellier, Lyon, Paris et à distance.',
+            en: 'Bordeaux, Montpellier, Lyon, Paris and remote.',
           },
         },
       ],
@@ -686,7 +666,6 @@ const AGENCE: MegaMenuSection = {
             fr: 'Audit, pilote, mesure, transfert.',
             en: 'Audit, pilot, measure, handover.',
           },
-          featured: true,
         },
         {
           label: { fr: 'Tarifs', en: 'Pricing' },
@@ -695,17 +674,6 @@ const AGENCE: MegaMenuSection = {
             fr: 'Audit gratuit, sprint à 999 € HT, pilote dès 2 000 € HT.',
             en: 'Free audit, sprint at 999 € ex VAT, pilot from 2,000 € ex VAT.',
           },
-          featured: true,
-        },
-      ],
-    },
-    {
-      kicker: { fr: 'PRÉSENCE', en: 'PRESENCE' },
-      title: { fr: 'Présence', en: 'Presence' },
-      links: [
-        {
-          label: { fr: 'Bordeaux, Montpellier, Lyon, Paris', en: 'Bordeaux, Montpellier, Lyon, Paris' },
-          href: '/implantations',
         },
       ],
       footer: {

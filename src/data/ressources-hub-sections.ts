@@ -1,34 +1,45 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Hub Ressources · /ressources · sections statiques en donnée (JSONification, vague V3)
+// Hub Ressources · /ressources · sections statiques en donnée
 // ─────────────────────────────────────────────────────────────────────────────
-// Extraction des SEULS littéraux de section 100 % STATIQUES du frontmatter de
-// `src/pages/ressources/index.astro` (fiche 0027 D6 · vague V3 hubs) : le masthead et le
-// CTA final, sans aucune dérivation runtime.
-//
-// Ce qui NE migre PAS (dette assumée, conforme à la doctrine V1/D6) :
-//   • Les sections DÉRIVÉES des collections à l'exécution (resource-card-grid + compteurs
-//     réels, feature-split-media article vedette, article-grid, metric-callout-band chiffré,
-//     editorial-split-grid) restent construites dans la page — comme la home V1 garde ses
-//     merges dérivés côté page (donnée = fonction du contenu réel, pas un littéral figé).
-//   • Les 2 sections BESPOKE (`.hub-cases-detail`, bande newsletter `.hub-nl` + son <script>)
-//     n'ont pas d'équivalent catalogué → markup conservé dans la page (D6 : ne pas décomposer).
-//
-// 0 valeur réécrite : transcription CARACTÈRE POUR CARACTÈRE de l'ancien frontmatter.
+// Refonte 2026-10-06 (demande Simon : « une page qui, comme le blog, affiche tous les outils,
+// comparatifs et guides ») : /ressources devient l'INDEX UNIFIÉ. La page dérive à l'exécution
+// la liste complète (guides, comparatifs, outils, articles) triée par date et rendue en
+// `article-grid` ; ce module ne porte que les littéraux statiques :
+//   • l'en-tête de l'index (section cataloguée `list-index-section`, ses filtres sont passés
+//     en slot par la page car ils portent des compteurs réels) ;
+//   • les libellés des filtres par type (ordre d'affichage, préfixes d'URL qui les définissent) ;
+//   • le CTA final.
 import type { SectionByType } from '@waimia/ds-kernel';
 
-// ── MASTHEAD · hero-hub-masthead (paper, statique) ──
-export const mastheadData = {
-  type: 'hero-hub-masthead' as const,
-  variant: 'hub' as const,
-  decoration: false,
-  align: 'left' as const,
-  kicker_fr: '§ Hub · Ressources',
-  kicker_en: '§ Hub · Resources',
+// ── EN-TÊTE · list-index-section (paper, statique) ──
+export const indexHeadData = {
+  type: 'list-index-section' as const,
+  kicker_fr: '§ Ressources · tout ce qu\'on publie',
+  kicker_en: '§ Resources · everything we publish',
   h1_fr: 'Ressources <i>IA</i> pour PME.',
-  h1_en: 'Everything we <i>publish</i>.',
-  lede_fr: 'Cas mesurables, articles de fond, guides pratiques, comparatifs, diagnostics et calculateurs gratuits. Pas de pensum SEO. Tout est relu, signé, et confidentiel quand le client le demande.',
-  lede_en: 'Measurable cases, in-depth articles, practical guides, comparisons, diagnostics and free calculators. No SEO padding. Everything is reviewed, signed, and kept confidential when the client asks.',
-} satisfies SectionByType<'hero-hub-masthead'>;
+  h1_en: 'AI <i>resources</i> for SMEs.',
+  lede_fr: 'Guides, comparatifs, outils gratuits et articles, du plus récent au plus ancien. Filtrez par type : chaque contenu est daté, signé et relu.',
+  lede_en: 'Guides, comparisons, free tools and articles, newest first. Filter by type: every piece is dated, signed and reviewed.',
+} satisfies SectionByType<'list-index-section'>;
+
+// ── FILTRES PAR TYPE · ordre d'affichage. `prefixes` = débuts d'URL qui définissent le type
+// (le filtre CSS de la page s'appuie sur l'attribut href des cartes). Le type « articles »
+// regroupe tout ce qui n'est pas sous les trois autres préfixes (blog et notes de terrain). ──
+export type ResourceKind = 'guides' | 'comparatifs' | 'outils' | 'articles';
+
+export const RESOURCE_KINDS: ReadonlyArray<{
+  key: ResourceKind;
+  label_fr: string;
+  label_en: string;
+  tag_fr: string;
+  tag_en: string;
+  prefixes: string[];
+}> = [
+  { key: 'guides', label_fr: 'Guides', label_en: 'Guides', tag_fr: 'GUIDE', tag_en: 'GUIDE', prefixes: ['/ressources/guides/'] },
+  { key: 'comparatifs', label_fr: 'Comparatifs', label_en: 'Comparisons', tag_fr: 'COMPARATIF', tag_en: 'COMPARISON', prefixes: ['/ressources/comparatifs/'] },
+  { key: 'outils', label_fr: 'Outils', label_en: 'Tools', tag_fr: 'OUTIL', tag_en: 'TOOL', prefixes: ['/ressources/outils/', '/ressources/diagnostics/'] },
+  { key: 'articles', label_fr: 'Articles', label_en: 'Articles', tag_fr: 'ARTICLE', tag_en: 'ARTICLE', prefixes: [] },
+];
 
 // ── CTA final · cta-final (paper, statique) ──
 export const ctaData = {
