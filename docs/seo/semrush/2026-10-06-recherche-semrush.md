@@ -116,6 +116,49 @@ Enseignements : (1) « claude cowork » = 18 100 recherches, KD 20 : le guide `/
 4. Formation : renforcer `/formations/chatgpt` pour « formation chatgpt » (KD 22) et traiter « formation ia cpf » / « qualiopi » dans la page formation seulement si la certification est avérée (Qualiopi d'Akigora non confirmée au registre).
 5. Suivre ces 46 requêtes dans la routine (déjà dans `docs/seo/keywords.json`), recontrôler dans 4 semaines.
 
-## 5. Ce qu'il reste à faire dans Semrush
+## 5. Keyword Gap : waimia.com contre kayro.ai et tensoria.fr (base France, desktop, données du 5/10/2026, relevé le 6/10/2026)
 
-Keyword Gap et Backlink Gap contre Tensoria, Topic Research, SEO Writing Assistant sur les pages cibles, et l'export fichier. Non réalisés à cette date.
+Recouvrement de mots-clés organiques : waimia.com **2**, kayro.ai **143**, tensoria.fr **318**. Aucune requête partagée entre nous et eux ; 443 requêtes « untapped » (au moins un concurrent, pas nous) ; 18 « missing » (les deux concurrents, pas nous).
+
+Les 18 requêtes « missing » (position kayro.ai / tensoria.fr entre parenthèses) :
+
+| Requête | Intent | Vol. | KD | CPC | Pos. kayro / tensoria |
+|---|---|---|---|---|---|
+| n8n c'est quoi | I | 590 | 19 | 0,64 | 57 / 36 |
+| agence n8n | C | 390 | 13 | 1,62 | 9 / 28 |
+| agence automatisation n8n | I | 320 | 11 | 2,11 | 9 / 13 |
+| agence ia toulouse | C | 210 | 18 | 3,47 | 2 / 6 |
+| ia recrutement bordeaux | N | 140 | 26 | 0 | 39 / 35 |
+| agence no code toulouse | I/N | 110 | 15 | 0 | 32 / 67 |
+| agence automatisation no code toulouse | I | 90 | 19 | 0 | 13 / 11 |
+| agence automatisation workflow toulouse | I | 90 | 2 | 0 | 11 / 1 |
+| agence pour automatiser les processus métier à toulouse | I | 90 | 4 | 0 | 11 / 2 |
+| agence spécialisée en automatisation make à toulouse | I | 90 | 1 | 0 | 6 / 4 |
+| agence spécialisée en automatisation zapier à toulouse | I | 90 | 5 | 0 | 12 / 5 |
+| audit ia entreprise | I | 90 | 7 | 0 | 7 / 15 |
+| agence automatisation pme toulouse | I | 70 | 2 | 0 | 8 / 1 |
+| agence d'automatisation à toulouse | C | 70 | 6 | 0 | 6 / 2 |
+| agence ia bordeaux | I | 70 | 10 | 2,59 | 9 / 18 |
+| agence n8n toulouse | I | 70 | 1 | 0 | 28 / 1 |
+| audit ia pour entreprises | I | 70 | 10 | 0 | 8 / 11 |
+| c'est quoi n8n | I | 70 | 19 | 0,62 | 97 / 36 |
+
+Lecture :
+1. **Toulouse** concentre 9 des 18 requêtes (volumes de 70 à 210, KD 1 à 19) : c'est la mécanique de Tensoria et Kayro. Pas de page Toulouse tant qu'il n'y a pas de présence réelle (règle déjà posée) ; à arbitrer par Simon.
+2. **Bordeaux** : « agence ia bordeaux » (70, KD 10, CPC 2,59) et « ia recrutement bordeaux » (140, KD 26) sont sur notre ville. La page `/implantations/bordeaux` doit porter « agence ia bordeaux » ; « ia recrutement bordeaux » ne se couvre que si une offre recrutement existe (non vérifié, donc rien d'écrit).
+3. **n8n** : « n8n c'est quoi » + « c'est quoi n8n » (660 cumulés, intent informationnel, KD 19) : un article dédié « Qu'est-ce que n8n » en maillage vers `/services/automatisation-n8n`. « agence automatisation n8n » (320, KD 11) rejoint « agence n8n » sur la page n8n.
+4. **Audit IA** : « audit ia entreprise » et « audit ia pour entreprises » (90 + 70) sont déjà visés par `/audit-ia-pme` (variante « entreprise(s) » à vérifier dans le H2 ou la FAQ).
+
+## 5 bis. Backlink Gap : waimia.com contre kayro.ai et tensoria.fr (relevé le 6/10/2026)
+
+306 domaines référents pointent vers au moins un des deux concurrents et pas vers waimia.com (4 pages de 100). Rappel : waimia.com a 270 domaines référents mais un Authority Score de 2 (section 1), donc la qualité des liens existants est à regarder avant d'en chercher d'autres.
+
+**Liés aux DEUX concurrents (2 sur 3), les plus accessibles** : substack.com (AS 87, média), seo-hero.ninja (AS 28), airagent.fr (AS 26), the-intelligence-academy.com (AS 23), heeya.fr (AS 18), aiautomationdb.com (AS 6, annuaire d'outils IA), trustgent.com (AS 5), klaryx.fr (AS 2).
+
+**Pistes d'une seule cible, utiles pour la France** : bpifrance.fr (AS 52, Kayro) et sciencespo.fr (AS 54, Kayro) : probablement des contenus à nom propre, non reproductibles ; annuaires et magazines de start-up (annuaire-startups.pro AS 18, lannuaire.digital AS 17, startupmagazine.fr AS 9, getlatka.com AS 42) ; sites de la sphère IA francophone (briefia.fr AS 22, decodeur-ia.com AS 7, ia4business.info AS 24).
+
+**Décision.** Aucune démarche de lien n'est lancée : contacter ces sites est un envoi externe, à valider par Simon, et chaque lien se mérite par un contenu (étude, outil, guide cité). Priorités possibles si Simon valide : (1) fiche dans les annuaires d'outils et d'agences IA francophones listés ci-dessus ; (2) contenus liables (l'outil de classement des tâches, le calculateur de ROI, la charte IA) proposés aux newsletters IA francophones. À ne pas faire : achat de liens, échanges de liens en masse.
+
+## 6. Ce qu'il reste à faire dans Semrush
+
+Topic Research, SEO Writing Assistant sur les pages cibles, et l'export fichier. Keyword Gap (section 5) et Backlink Gap (section 5 bis) faits le 6/10/2026. La liste Semrush « waimia-gap-kayro-tensoria-2026-10-06 » a été tentée mais sa création n'a pas pu être confirmée à l'écran : la trace fiable est ce document.

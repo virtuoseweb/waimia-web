@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · n8n-c-est-quoi · une chaîne de relais reliés par un câble, un déclencheur au bout, une silhouette à côté -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <circle cx="1060" cy="300" r="190" fill="{{shape}}"/>
+  <rect x="300" y="290" width="860" height="22" fill="{{detail}}"/>
+  <rect x="300" y="308" width="860" height="5" fill="{{deep}}"/>
+  <circle cx="300" cy="301" r="46" fill="{{subject}}"/>
+  <circle cx="300" cy="301" r="22" fill="{{light}}"/>
+  <path d="M286 301 L312 286 L312 316 Z" fill="{{subject}}"/>
+  <rect x="520" y="257" width="74" height="74" rx="10" fill="{{subject}}"/>
+  <rect x="540" y="277" width="34" height="34" fill="{{detail}}"/>
+  <rect x="760" y="257" width="74" height="74" rx="10" fill="{{subject}}"/>
+  <rect x="780" y="277" width="34" height="34" fill="{{detail}}"/>
+  <rect x="1000" y="257" width="74" height="74" rx="10" fill="{{subject}}"/>
+  <rect x="1020" y="277" width="34" height="34" fill="{{detail}}"/>
+  <circle cx="1160" cy="301" r="30" fill="{{subject}}"/>
+  <circle cx="1160" cy="301" r="12" fill="{{light}}"/>
+  <rect x="296" y="347" width="8" height="153" fill="{{subject}}"/>
+  <rect x="553" y="331" width="8" height="169" fill="{{subject}}"/>
+  <rect x="793" y="331" width="8" height="169" fill="{{subject}}"/>
+  <rect x="1033" y="331" width="8" height="169" fill="{{subject}}"/>
+  <rect x="1156" y="331" width="8" height="169" fill="{{subject}}"/>
+  <use href="#pointer" transform="translate(420 560) scale(1.5)"/>
+</svg>
