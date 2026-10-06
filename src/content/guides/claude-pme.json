@@ -157,7 +157,7 @@
     },
     {
       "q": "Qui fait quoi si Waimia déploie Claude chez nous ?",
-      "a": "On commence par un audit gratuit de 45 minutes. Si un déploiement se justifie, le sprint découverte (999 euros HT pour 10 heures) choisit l'offre et les sièges, pose les règles d'usage et cadre le cas pilote. La suite se chiffre sur devis et s'exécute en régie à {{prix.horaire}} euros HT de l'heure, sur estimation validée par vous. Vous gardez les comptes, la configuration, les consignes et la documentation : vous pouvez changer de prestataire."
+      "a": "On commence par un audit gratuit de 45 minutes. Si un déploiement se justifie, le sprint de cadrage (999 euros HT pour 10 heures) choisit l'offre et les sièges, pose les règles d'usage et cadre le cas pilote. La suite se chiffre sur devis et s'exécute en régie à {{prix.horaire}} euros HT de l'heure, sur estimation validée par vous. Vous gardez les comptes, la configuration, les consignes et la documentation : vous pouvez changer de prestataire."
     },
     {
       "q": "Comment mesurer le retour sur investissement ?",
@@ -215,7 +215,7 @@
     },
     {
       "q": "Who does what if Waimia deploys Claude for us?",
-      "a": "We start with a free 45-minute audit. If deployment makes sense, the discovery sprint (€999 excl. VAT for 10 hours) picks the plan and seats, sets usage rules and frames the pilot. The rest is quoted and run as time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. You keep accounts, configuration, instructions and documentation."
+      "a": "We start with a free 45-minute audit. If deployment makes sense, the scoping sprint (€999 excl. VAT for 10 hours) picks the plan and seats, sets usage rules and frames the pilot. The rest is quoted and run as time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. You keep accounts, configuration, instructions and documentation."
     },
     {
       "q": "How do we measure ROI?",
@@ -791,8 +791,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Combien ça coûte, en vrai</h2><p>Le prix d'un siège est la partie visible de la facture. Chiffrez quatre postes séparément avant de signer.</p><h3>1. Les sièges</h3><p>Le poste le plus facile à lire. Team s'ouvre dès deux sièges, en version Standard ou Premium ; Enterprise se paie au siège plus l'usage ; Pro et Max sont des comptes individuels aux conditions grand public. Les montants bougent : nous les tenons à jour, avec leur source et leur date, dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix</a>. Ne recopiez pas une grille trouvée sur un blog : plusieurs affichent encore l'ancien modèle Enterprise ou un minimum Team faux.</p><h3>2. L'usage au-delà du quota</h3><p>En Team et Enterprise, chaque siège a un quota mesuré sur une fenêtre glissante de 5 heures et sur la semaine, partagé entre la conversation, les tâches et Claude Code. Au-delà, l'organisation achète des crédits d'usage, avec des plafonds par organisation, par groupe ou par membre. Fixez ces plafonds le premier jour : sans eux, un seul utilisateur enthousiaste fait déraper le mois. Pour un poste de développeur, Anthropic publie un repère de coût par jour actif, repris dans le guide Claude Code.</p><h3>3. Le temps interne</h3><p>C'est le poste que personne ne budgète. Choisir le cas, écrire la règle d'usage, préparer le contexte, former, mesurer : comptez le temps d'un référent pendant trois mois, et celui des personnes qui écrivent les procédures avec lui. Notre estimation, à prendre comme un ordre de grandeur et non comme une mesure : quelques heures par semaine pour le référent pendant le pilote, davantage s'il faut nettoyer des données.</p><h3>4. L'accompagnement, si vous en prenez un</h3><p>Il n'est pas obligatoire, et la section suivante dit quand il ne sert à rien. Chez Waimia, l'audit est gratuit, le sprint découverte coûte 999 € HT pour 10 heures, et la suite se fait en régie à {{prix.horaire}} € HT de l'heure, sur une estimation que vous validez avant. Tous les prix sont publics sur la page <a href=\"/tarifs\">tarifs</a>. Les licences Claude, elles, se paient directement à Anthropic.</p><p>Pour poser ces quatre postes sur votre cas, le <a href=\"/ressources/outils/guide-achat-claude-pme\">guide d'achat Claude pour PME</a> calcule trois budgets types, pour 5, 15 et 40 personnes, avec les formules visibles, mensuel contre annuel et le seuil entre Team et Enterprise.</p>",
-      "html_en": "<h2>What it really costs</h2><p>The seat price is the visible part. Four cost lines, to budget separately before signing.</p><h3>1. Seats</h3><p>Team starts at two seats, Standard or Premium; Enterprise is per seat plus usage; Pro and Max are individual consumer accounts. Dated, sourced amounts are in <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and pricing</a>. Do not copy a price list from a blog.</p><h3>2. Usage beyond the quota</h3><p>On Team and Enterprise, each seat has a quota over a rolling 5-hour window and a week, shared between chat, tasks and Claude Code. Beyond it, usage credits apply, with caps per organisation, group or member. Set the caps on day one.</p><h3>3. Internal time</h3><p>The line nobody budgets: choosing the case, writing the rule, preparing context, training, measuring. Our rough estimate: a few hours a week for the lead during the pilot.</p><h3>4. Support, if you take any</h3><p>Not mandatory. At Waimia the audit is free, the discovery sprint costs €999 excl. VAT for 10 hours, then time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. All prices are on the <a href=\"/tarifs\">pricing</a> page. Claude licences are paid to Anthropic.</p><p>The <a href=\"/ressources/outils/guide-achat-claude-pme\">Claude buyer's guide for SMBs</a> works out three budgets, for 5, 15 and 40 people.</p>"
+      "html_fr": "<h2>Combien ça coûte, en vrai</h2><p>Le prix d'un siège est la partie visible de la facture. Chiffrez quatre postes séparément avant de signer.</p><h3>1. Les sièges</h3><p>Le poste le plus facile à lire. Team s'ouvre dès deux sièges, en version Standard ou Premium ; Enterprise se paie au siège plus l'usage ; Pro et Max sont des comptes individuels aux conditions grand public. Les montants bougent : nous les tenons à jour, avec leur source et leur date, dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix</a>. Ne recopiez pas une grille trouvée sur un blog : plusieurs affichent encore l'ancien modèle Enterprise ou un minimum Team faux.</p><h3>2. L'usage au-delà du quota</h3><p>En Team et Enterprise, chaque siège a un quota mesuré sur une fenêtre glissante de 5 heures et sur la semaine, partagé entre la conversation, les tâches et Claude Code. Au-delà, l'organisation achète des crédits d'usage, avec des plafonds par organisation, par groupe ou par membre. Fixez ces plafonds le premier jour : sans eux, un seul utilisateur enthousiaste fait déraper le mois. Pour un poste de développeur, Anthropic publie un repère de coût par jour actif, repris dans le guide Claude Code.</p><h3>3. Le temps interne</h3><p>C'est le poste que personne ne budgète. Choisir le cas, écrire la règle d'usage, préparer le contexte, former, mesurer : comptez le temps d'un référent pendant trois mois, et celui des personnes qui écrivent les procédures avec lui. Notre estimation, à prendre comme un ordre de grandeur et non comme une mesure : quelques heures par semaine pour le référent pendant le pilote, davantage s'il faut nettoyer des données.</p><h3>4. L'accompagnement, si vous en prenez un</h3><p>Il n'est pas obligatoire, et la section suivante dit quand il ne sert à rien. Chez Waimia, l'audit est gratuit, le sprint de cadrage coûte 999 € HT pour 10 heures, et la suite se fait en régie à {{prix.horaire}} € HT de l'heure, sur une estimation que vous validez avant. Tous les prix sont publics sur la page <a href=\"/tarifs\">tarifs</a>. Les licences Claude, elles, se paient directement à Anthropic.</p><p>Pour poser ces quatre postes sur votre cas, le <a href=\"/ressources/outils/guide-achat-claude-pme\">guide d'achat Claude pour PME</a> calcule trois budgets types, pour 5, 15 et 40 personnes, avec les formules visibles, mensuel contre annuel et le seuil entre Team et Enterprise.</p>",
+      "html_en": "<h2>What it really costs</h2><p>The seat price is the visible part. Four cost lines, to budget separately before signing.</p><h3>1. Seats</h3><p>Team starts at two seats, Standard or Premium; Enterprise is per seat plus usage; Pro and Max are individual consumer accounts. Dated, sourced amounts are in <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and pricing</a>. Do not copy a price list from a blog.</p><h3>2. Usage beyond the quota</h3><p>On Team and Enterprise, each seat has a quota over a rolling 5-hour window and a week, shared between chat, tasks and Claude Code. Beyond it, usage credits apply, with caps per organisation, group or member. Set the caps on day one.</p><h3>3. Internal time</h3><p>The line nobody budgets: choosing the case, writing the rule, preparing context, training, measuring. Our rough estimate: a few hours a week for the lead during the pilot.</p><h3>4. Support, if you take any</h3><p>Not mandatory. At Waimia the audit is free, the scoping sprint costs €999 excl. VAT for 10 hours, then time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. All prices are on the <a href=\"/tarifs\">pricing</a> page. Claude licences are paid to Anthropic.</p><p>The <a href=\"/ressources/outils/guide-achat-claude-pme\">Claude buyer's guide for SMBs</a> works out three budgets, for 5, 15 and 40 people.</p>"
     },
     {
       "type": "editorial-prose",
@@ -871,7 +871,7 @@
         [
           "Conseil",
           "Vous ne savez pas par où commencer ni dans quel ordre ; plusieurs services sont concernés",
-          "Sprint découverte à 999 € HT pour 10 heures, puis régie à {{prix.horaire}} € HT de l'heure sur estimation validée",
+          "Sprint de cadrage à 999 € HT pour 10 heures, puis régie à {{prix.horaire}} € HT de l'heure sur estimation validée",
           "Une feuille de route chiffrée et une charte d'usage"
         ],
         [
@@ -883,7 +883,7 @@
         [
           "Intégration",
           "Connecteurs vers vos outils, plugin privé, données sensibles, personne de disponible en interne",
-          "Sprint découverte à 999 € HT pour 10 heures, puis régie à {{prix.horaire}} € HT de l'heure sur estimation validée",
+          "Sprint de cadrage à 999 € HT pour 10 heures, puis régie à {{prix.horaire}} € HT de l'heure sur estimation validée",
           "Comptes, configuration, consignes, documentation"
         ]
       ],
@@ -897,7 +897,7 @@
         [
           "Consulting",
           "You do not know where to start or in what order; several departments involved",
-          "Discovery sprint at €999 excl. VAT for 10 hours, then {{prix.horaire}} € excl. VAT per hour on an approved estimate",
+          "Scoping sprint at €999 excl. VAT for 10 hours, then {{prix.horaire}} € excl. VAT per hour on an approved estimate",
           "A costed roadmap and a usage policy"
         ],
         [
@@ -909,7 +909,7 @@
         [
           "Integration",
           "Connectors to your tools, private plugin, sensitive data, nobody available in-house",
-          "Discovery sprint at €999 excl. VAT for 10 hours, then {{prix.horaire}} € excl. VAT per hour on an approved estimate",
+          "Scoping sprint at €999 excl. VAT for 10 hours, then {{prix.horaire}} € excl. VAT per hour on an approved estimate",
           "Accounts, configuration, instructions, documentation"
         ]
       ]
@@ -967,8 +967,8 @@
           "meta_en": "Free"
         },
         {
-          "title_fr": "Sprint découverte",
-          "title_en": "Discovery sprint",
+          "title_fr": "Sprint de cadrage",
+          "title_en": "Scoping sprint",
           "body_fr": "Cartographie des cas d'usage, choix du cas pilote, répartition des sièges, premières règles d'usage, estimation de la suite en heures.",
           "body_en": "Use case mapping, pilot choice, seat split, first usage rules, estimate of the next steps in hours.",
           "meta_fr": "999 € HT · 10 h",
@@ -1131,8 +1131,8 @@
         {
           "q_fr": "Qui fait quoi si Waimia déploie Claude chez nous ?",
           "q_en": "Who does what if Waimia deploys Claude for us?",
-          "a_fr": "On commence par un audit gratuit de 45 minutes. Si un déploiement se justifie, le sprint découverte (999 euros HT pour 10 heures) choisit l'offre et les sièges, pose les règles d'usage et cadre le cas pilote. La suite se chiffre sur devis et s'exécute en régie à {{prix.horaire}} euros HT de l'heure, sur estimation validée par vous. Vous gardez les comptes, la configuration, les consignes et la documentation : vous pouvez changer de prestataire.",
-          "a_en": "We start with a free 45-minute audit. If deployment makes sense, the discovery sprint (€999 excl. VAT for 10 hours) picks the plan and seats, sets usage rules and frames the pilot. The rest is quoted and run as time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. You keep accounts, configuration, instructions and documentation."
+          "a_fr": "On commence par un audit gratuit de 45 minutes. Si un déploiement se justifie, le sprint de cadrage (999 euros HT pour 10 heures) choisit l'offre et les sièges, pose les règles d'usage et cadre le cas pilote. La suite se chiffre sur devis et s'exécute en régie à {{prix.horaire}} euros HT de l'heure, sur estimation validée par vous. Vous gardez les comptes, la configuration, les consignes et la documentation : vous pouvez changer de prestataire.",
+          "a_en": "We start with a free 45-minute audit. If deployment makes sense, the scoping sprint (€999 excl. VAT for 10 hours) picks the plan and seats, sets usage rules and frames the pilot. The rest is quoted and run as time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. You keep accounts, configuration, instructions and documentation."
         },
         {
           "q_fr": "Comment mesurer le retour sur investissement ?",

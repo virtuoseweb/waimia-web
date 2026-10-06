@@ -108,8 +108,8 @@
       "question_en": "How much does an AI agent cost an SMB?",
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
-      "answer_fr": "Un agent IA coûte cinq choses : le modèle, facturé à l'usage, l'orchestration (n8n, Make), l'intégration à vos outils, la maintenance et la supervision humaine. Le modèle pèse souvent quelques dollars par mois ; l'intégration, des heures. Chez Waimia : sprint découverte de 10 heures à 999 € HT, puis régie à {{prix.horaire}} € HT de l'heure. Sans périmètre écrit, je ne donne pas de chiffre.",
-      "answer_en": "An AI agent costs five things: the model, billed by usage, orchestration (n8n, Make), integration with your tools, maintenance and human supervision. The model often weighs a few dollars a month; integration, hours. At Waimia: a 10-hour discovery sprint at €999 excl. VAT, then time and materials at €{{prix.horaire}} excl. VAT per hour. Without a written scope, I give no figure."
+      "answer_fr": "Un agent IA coûte cinq choses : le modèle, facturé à l'usage, l'orchestration (n8n, Make), l'intégration à vos outils, la maintenance et la supervision humaine. Le modèle pèse souvent quelques dollars par mois ; l'intégration, des heures. Chez Waimia : sprint de cadrage de 10 heures à 999 € HT, puis régie à {{prix.horaire}} € HT de l'heure. Sans périmètre écrit, je ne donne pas de chiffre.",
+      "answer_en": "An AI agent costs five things: the model, billed by usage, orchestration (n8n, Make), integration with your tools, maintenance and human supervision. The model often weighs a few dollars a month; integration, hours. At Waimia: a 10-hour scoping sprint at €999 excl. VAT, then time and materials at €{{prix.horaire}} excl. VAT per hour. Without a written scope, I give no figure."
     },
     {
       "type": "key-metric-grid",
@@ -123,8 +123,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 heures, prix fixe, chez Waimia",
-          "label_en": "10-hour discovery sprint, fixed price, at Waimia"
+          "label_fr": "sprint de cadrage de 10 heures, prix fixe, chez Waimia",
+          "label_en": "10-hour scoping sprint, fixed price, at Waimia"
         },
         {
           "value": "{{prix.horaire}} € HT",
@@ -427,8 +427,8 @@
           "meta_en": "45 minutes, free"
         },
         {
-          "title_fr": "Sprint découverte",
-          "title_en": "Discovery sprint",
+          "title_fr": "Sprint de cadrage",
+          "title_en": "Scoping sprint",
           "body_fr": "On cadre la tâche prioritaire, on mesure vos volumes et on écrit le budget des cinq postes.",
           "body_en": "We scope the priority task, measure your volumes and write the budget for the five items.",
           "meta_fr": "10 h, 999 € HT, prix fixe",
@@ -507,9 +507,9 @@
       "items": [
         {
           "q_fr": "Combien coûte un agent IA pour une PME ?",
-          "a_fr": "Cela dépend du périmètre, et je ne donne pas de fourchette de marché : elle ne voudrait rien dire pour votre cas. Le coût se compose du modèle, de l'orchestration, de l'intégration, de la maintenance et de la supervision humaine. Chez Waimia : audit gratuit de 45 minutes, sprint découverte de 10 heures à 999 € HT, puis {{prix.horaire}} € HT de l'heure en régie.",
+          "a_fr": "Cela dépend du périmètre, et je ne donne pas de fourchette de marché : elle ne voudrait rien dire pour votre cas. Le coût se compose du modèle, de l'orchestration, de l'intégration, de la maintenance et de la supervision humaine. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage de 10 heures à 999 € HT, puis {{prix.horaire}} € HT de l'heure en régie.",
           "q_en": "How much does an AI agent cost an SMB?",
-          "a_en": "It depends on the scope, and I give no market range: it would mean nothing for your case. The cost is made up of the model, orchestration, integration, maintenance and human supervision. At Waimia: a free 45-minute audit, a 10-hour discovery sprint at €999 excl. VAT, then €{{prix.horaire}} excl. VAT per hour on time and materials."
+          "a_en": "It depends on the scope, and I give no market range: it would mean nothing for your case. The cost is made up of the model, orchestration, integration, maintenance and human supervision. At Waimia: a free 45-minute audit, a 10-hour scoping sprint at €999 excl. VAT, then €{{prix.horaire}} excl. VAT per hour on time and materials."
         },
         {
           "q_fr": "Quel est le poste le plus cher ?",
@@ -543,9 +543,9 @@
         },
         {
           "q_fr": "Puis-je avoir un prix ferme avant de m'engager ?",
-          "a_fr": "Oui pour le cadrage : le sprint découverte est à 999 € HT, prix fixe. La construction se fait ensuite en régie, avec une estimation en heures validée avant chaque lot. L'audit de 45 minutes qui précède est gratuit.",
+          "a_fr": "Oui pour le cadrage : le sprint de cadrage est à 999 € HT, prix fixe. La construction se fait ensuite en régie, avec une estimation en heures validée avant chaque lot. L'audit de 45 minutes qui précède est gratuit.",
           "q_en": "Can I get a firm price before committing?",
-          "a_en": "Yes for the scoping: the discovery sprint is €999 excl. VAT, fixed price. The build is then done on a time-and-materials basis, with an hourly estimate validated before each batch. The 45-minute audit before it is free."
+          "a_en": "Yes for the scoping: the scoping sprint is €999 excl. VAT, fixed price. The build is then done on a time-and-materials basis, with an hourly estimate validated before each batch. The 45-minute audit before it is free."
         },
         {
           "q_fr": "Un agent IA est-il toujours rentable ?",
@@ -584,7 +584,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte un agent IA pour une PME ?",
-      "a": "Cela dépend du périmètre, et je ne donne pas de fourchette de marché : elle ne voudrait rien dire pour votre cas. Le coût se compose du modèle, de l'orchestration, de l'intégration, de la maintenance et de la supervision humaine. Chez Waimia : audit gratuit de 45 minutes, sprint découverte de 10 heures à 999 € HT, puis {{prix.horaire}} € HT de l'heure en régie."
+      "a": "Cela dépend du périmètre, et je ne donne pas de fourchette de marché : elle ne voudrait rien dire pour votre cas. Le coût se compose du modèle, de l'orchestration, de l'intégration, de la maintenance et de la supervision humaine. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage de 10 heures à 999 € HT, puis {{prix.horaire}} € HT de l'heure en régie."
     },
     {
       "q": "Quel est le poste le plus cher ?",
@@ -608,7 +608,7 @@
     },
     {
       "q": "Puis-je avoir un prix ferme avant de m'engager ?",
-      "a": "Oui pour le cadrage : le sprint découverte est à 999 € HT, prix fixe. La construction se fait ensuite en régie, avec une estimation en heures validée avant chaque lot. L'audit de 45 minutes qui précède est gratuit."
+      "a": "Oui pour le cadrage : le sprint de cadrage est à 999 € HT, prix fixe. La construction se fait ensuite en régie, avec une estimation en heures validée avant chaque lot. L'audit de 45 minutes qui précède est gratuit."
     },
     {
       "q": "Un agent IA est-il toujours rentable ?",
@@ -618,7 +618,7 @@
   "faq_en": [
     {
       "q": "How much does an AI agent cost an SMB?",
-      "a": "It depends on the scope, and I give no market range: it would mean nothing for your case. The cost is made up of the model, orchestration, integration, maintenance and human supervision. At Waimia: a free 45-minute audit, a 10-hour discovery sprint at €999 excl. VAT, then €{{prix.horaire}} excl. VAT per hour on time and materials."
+      "a": "It depends on the scope, and I give no market range: it would mean nothing for your case. The cost is made up of the model, orchestration, integration, maintenance and human supervision. At Waimia: a free 45-minute audit, a 10-hour scoping sprint at €999 excl. VAT, then €{{prix.horaire}} excl. VAT per hour on time and materials."
     },
     {
       "q": "What is the most expensive item?",
@@ -642,7 +642,7 @@
     },
     {
       "q": "Can I get a firm price before committing?",
-      "a": "Yes for the scoping: the discovery sprint is €999 excl. VAT, fixed price. The build is then done on a time-and-materials basis, with an hourly estimate validated before each batch. The 45-minute audit before it is free."
+      "a": "Yes for the scoping: the scoping sprint is €999 excl. VAT, fixed price. The build is then done on a time-and-materials basis, with an hourly estimate validated before each batch. The 45-minute audit before it is free."
     },
     {
       "q": "Is an AI agent always profitable?",

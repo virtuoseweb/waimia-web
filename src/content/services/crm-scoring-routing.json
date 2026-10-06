@@ -24,7 +24,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation d'un CRM ?",
-      "a": "Le sprint découverte est à 999 € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur."
+      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur."
     },
     {
       "q": "Qu'est-ce que le lead scoring, en pratique ?",
@@ -50,7 +50,7 @@
   "faq_en": [
     {
       "q": "How much does CRM automation cost?",
-      "a": "The discovery sprint is €999 excl. VAT for 10 hours: CRM audit, cleaning, first scoring and assignment rules. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The CRM licence remains at your expense, with its vendor."
+      "a": "The scoping sprint is €999 excl. VAT for 10 hours: CRM audit, cleaning, first scoring and assignment rules. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The CRM licence remains at your expense, with its vendor."
     },
     {
       "q": "What is lead scoring, in practice?",
@@ -127,8 +127,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -386,12 +386,12 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'une automatisation CRM",
       "h2_en": "Price of CRM automation",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : audit du CRM, nettoyage et premières règles de scoring et de routing en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez le CRM, les règles et la donnée.",
-      "lede_en": "We start with a fixed-price discovery sprint: CRM audit, cleaning and the first scoring and routing rules in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the CRM, the rules and the data.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : audit du CRM, nettoyage et premières règles de scoring et de routing en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez le CRM, les règles et la donnée.",
+      "lede_en": "We start with a fixed-price scoping sprint: CRM audit, cleaning and the first scoring and routing rules in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the CRM, the rules and the data.",
       "tiers": [
         {
-          "name_fr": "Sprint découverte",
-          "name_en": "Discovery sprint",
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
           "price": "999 €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
@@ -441,8 +441,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : audit du CRM, nettoyage, dédoublonnage et premières règles de scoring et de routing, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le scoring, le routing et l'enrichissement dans la durée, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, le CRM, les règles et la donnée sont à vous. La licence du CRM n'est pas comprise : elle se paie à l'éditeur.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: CRM audit, cleaning, deduplication and the first scoring and routing rules, with a deliverable in hand by the end. What follows is quoted: we estimate together the time scoring, routing and enrichment require over time, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment, no subscription: at the end, the CRM, the rules and the data are yours. The CRM licence is not included: you pay it to the vendor."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : audit du CRM, nettoyage, dédoublonnage et premières règles de scoring et de routing, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le scoring, le routing et l'enrichissement dans la durée, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, le CRM, les règles et la donnée sont à vous. La licence du CRM n'est pas comprise : elle se paie à l'éditeur.",
+      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: CRM audit, cleaning, deduplication and the first scoring and routing rules, with a deliverable in hand by the end. What follows is quoted: we estimate together the time scoring, routing and enrichment require over time, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment, no subscription: at the end, the CRM, the rules and the data are yours. The CRM licence is not included: you pay it to the vendor."
     },
     {
       "type": "eeat-panel",
@@ -459,9 +459,9 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation d'un CRM ?",
-          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur.",
+          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur.",
           "q_en": "How much does CRM automation cost?",
-          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: CRM audit, cleaning, first scoring and assignment rules. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The CRM licence remains at your expense, with its vendor."
+          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: CRM audit, cleaning, first scoring and assignment rules. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The CRM licence remains at your expense, with its vendor."
         },
         {
           "q_fr": "Qu'est-ce que le lead scoring, en pratique ?",

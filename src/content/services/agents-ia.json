@@ -41,7 +41,7 @@
     },
     {
       "q": "Combien coûte un agent IA pour une entreprise ?",
-      "a": "Trois postes. La conception : sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise."
+      "a": "Trois postes. La conception : sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise."
     },
     {
       "q": "Agent IA ou chatbot : quelle différence ?",
@@ -67,7 +67,7 @@
     },
     {
       "q": "How much does an AI agent cost for a business?",
-      "a": "Three items. Design: a discovery sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
+      "a": "Three items. Design: a scoping sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
     },
     {
       "q": "AI agent or chatbot: what is the difference?",
@@ -141,8 +141,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -390,12 +390,12 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Combien coûte un agent IA",
       "h2_en": "How much an AI agent costs",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : le cadrage de la tâche prioritaire et un premier agent en production. La suite se fait sur devis : on estime ensemble le temps nécessaire, vous validez, on l'exécute en sprints en régie. Vos agents, vos accès et la documentation restent à vous.",
-      "lede_en": "We start with a fixed-price discovery sprint: scoping the priority task and a first agent in production. What follows is quoted: we estimate the time together, you approve it, we deliver it in time-and-materials sprints. Your agents, your access and the documentation stay yours.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : le cadrage de la tâche prioritaire et un premier agent en production. La suite se fait sur devis : on estime ensemble le temps nécessaire, vous validez, on l'exécute en sprints en régie. Vos agents, vos accès et la documentation restent à vous.",
+      "lede_en": "We start with a fixed-price scoping sprint: scoping the priority task and a first agent in production. What follows is quoted: we estimate the time together, you approve it, we deliver it in time-and-materials sprints. Your agents, your access and the documentation stay yours.",
       "tiers": [
         {
-          "name_fr": "Sprint découverte",
-          "name_en": "Discovery sprint",
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
           "price": "999 €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
@@ -445,8 +445,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe : 999 € HT pour 10 heures. Il couvre le cadrage de la tâche prioritaire et un premier agent branché via MCP, mis en production, qui tourne à la fin du sprint. La suite se fait sur devis : on estime ensemble le temps des agents suivants, vous validez, on l'exécute en sprints en régie à {{prix.horaire}} € HT de l'heure, sans dégressivité. Pas d'abonnement, pas de captivité : vos agents, vos accès et la documentation restent à vous.",
-      "footnote_en": "The discovery sprint is fixed-price: 999 € ex VAT for 10 hours. It covers scoping the priority task and a first agent wired via MCP and put into production, running by the end of the sprint. What follows is quoted: we estimate together the time the next agents need, you approve it, we deliver it in time-and-materials sprints at {{prix.horaire}} € ex VAT an hour, with no volume discount. No subscription, no lock-in: your agents, your access and the documentation stay yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe : 999 € HT pour 10 heures. Il couvre le cadrage de la tâche prioritaire et un premier agent branché via MCP, mis en production, qui tourne à la fin du sprint. La suite se fait sur devis : on estime ensemble le temps des agents suivants, vous validez, on l'exécute en sprints en régie à {{prix.horaire}} € HT de l'heure, sans dégressivité. Pas d'abonnement, pas de captivité : vos agents, vos accès et la documentation restent à vous.",
+      "footnote_en": "The scoping sprint is fixed-price: 999 € ex VAT for 10 hours. It covers scoping the priority task and a first agent wired via MCP and put into production, running by the end of the sprint. What follows is quoted: we estimate together the time the next agents need, you approve it, we deliver it in time-and-materials sprints at {{prix.horaire}} € ex VAT an hour, with no volume discount. No subscription, no lock-in: your agents, your access and the documentation stay yours."
     },
     {
       "type": "eeat-panel",
@@ -469,9 +469,9 @@
         },
         {
           "q_fr": "Combien coûte un agent IA pour une entreprise ?",
-          "a_fr": "Trois postes. La conception : sprint découverte à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise.",
+          "a_fr": "Trois postes. La conception : sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise.",
           "q_en": "How much does an AI agent cost for a business?",
-          "a_en": "Three items. Design: a discovery sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
+          "a_en": "Three items. Design: a scoping sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
         },
         {
           "q_fr": "Agent IA ou chatbot : quelle différence ?",

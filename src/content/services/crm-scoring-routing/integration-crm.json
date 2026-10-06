@@ -44,7 +44,7 @@
     },
     {
       "q": "Combien coûte une intégration CRM ?",
-      "a": "Deux façons d'engager. On démarre par un sprint découverte de 10 heures à 999 € HT : audit du CRM, branchement des premières sources, nettoyage et dédoublonnage de base, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée : à la fin, le CRM et la donnée sont à vous."
+      "a": "Deux façons d'engager. On démarre par un sprint de cadrage de 10 heures à 999 € HT : audit du CRM, branchement des premières sources, nettoyage et dédoublonnage de base, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée : à la fin, le CRM et la donnée sont à vous."
     }
   ],
   "faq_en": [
@@ -70,7 +70,7 @@
     },
     {
       "q": "How much does a CRM integration cost?",
-      "a": "Two ways to engage. We start with a 10-hour discovery sprint at 999 € ex VAT: CRM audit, wiring of the first sources, base cleaning and deduplication, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment: at the end, the CRM and the data are yours."
+      "a": "Two ways to engage. We start with a 10-hour scoping sprint at 999 € ex VAT: CRM audit, wiring of the first sources, base cleaning and deduplication, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment: at the end, the CRM and the data are yours."
     }
   ],
   "sections": [
@@ -139,8 +139,8 @@
       "metrics": [
         {
           "value": "Dès 999 €",
-          "label_fr": "sprint découverte de 10 h · suite sur devis",
-          "label_en": "10-h discovery sprint · next steps on quote",
+          "label_fr": "sprint de cadrage de 10 h · suite sur devis",
+          "label_en": "10-h scoping sprint · next steps on quote",
           "emphasis": true
         },
         {
@@ -782,12 +782,12 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Deux façons de brancher votre CRM",
       "h2_en": "Two ways to wire your CRM",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : audit du CRM, branchement des premières sources et dédoublonnage en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez le CRM, les branchements et la donnée.",
-      "lede_en": "We start with a fixed-price discovery sprint: CRM audit, wiring of the first sources and deduplication in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the CRM, the wiring and the data.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : audit du CRM, branchement des premières sources et dédoublonnage en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez le CRM, les branchements et la donnée.",
+      "lede_en": "We start with a fixed-price scoping sprint: CRM audit, wiring of the first sources and deduplication in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the CRM, the wiring and the data.",
       "tiers": [
         {
-          "name_fr": "Sprint découverte",
-          "name_en": "Discovery sprint",
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
           "price": "999 €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
@@ -837,8 +837,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : audit du CRM, branchement des premières sources, nettoyage et dédoublonnage de base, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les automatisations et l'enrichissement dans la durée, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, le CRM, les branchements et la donnée sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: CRM audit, wiring of the first sources, base cleaning and deduplication, with a deliverable in hand by the end. What follows is quoted: we estimate together the time automations and enrichment require over time, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment, no subscription: at the end, the CRM, the wiring and the data are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : audit du CRM, branchement des premières sources, nettoyage et dédoublonnage de base, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les automatisations et l'enrichissement dans la durée, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, le CRM, les branchements et la donnée sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: CRM audit, wiring of the first sources, base cleaning and deduplication, with a deliverable in hand by the end. What follows is quoted: we estimate together the time automations and enrichment require over time, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment, no subscription: at the end, the CRM, the wiring and the data are yours."
     },
     {
       "type": "eeat-panel",
@@ -886,8 +886,8 @@
         {
           "q_fr": "Combien coûte une intégration CRM ?",
           "q_en": "How much does a CRM integration cost?",
-          "a_fr": "Deux façons d'engager. On démarre par un sprint découverte de 10 heures à 999 € HT : audit du CRM, branchement des premières sources, nettoyage et dédoublonnage de base, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée : à la fin, le CRM et la donnée sont à vous.",
-          "a_en": "Two ways to engage. We start with a 10-hour discovery sprint at 999 € ex VAT: CRM audit, wiring of the first sources, base cleaning and deduplication, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment: at the end, the CRM and the data are yours."
+          "a_fr": "Deux façons d'engager. On démarre par un sprint de cadrage de 10 heures à 999 € HT : audit du CRM, branchement des premières sources, nettoyage et dédoublonnage de base, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée : à la fin, le CRM et la donnée sont à vous.",
+          "a_en": "Two ways to engage. We start with a 10-hour scoping sprint at 999 € ex VAT: CRM audit, wiring of the first sources, base cleaning and deduplication, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment: at the end, the CRM and the data are yours."
         }
       ]
     },
