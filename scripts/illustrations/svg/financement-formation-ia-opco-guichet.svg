@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « un dossier passé par un guichet à une personne qui le tamponne ». -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="folder"><rect x="-28" y="-20" width="56" height="40" fill="{{light}}"/><rect x="-28" y="-26" width="24" height="8" fill="{{light}}"/><rect x="-28" y="-20" width="56" height="40" fill="none" stroke="{{deep}}" stroke-width="2"/></g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
+  <rect x="640" y="120" width="560" height="380" fill="{{shape}}"/>
+  <rect x="700" y="190" width="200" height="150" fill="{{light}}"/>
+  <rect x="700" y="190" width="200" height="150" fill="none" stroke="{{deep}}" stroke-width="4"/>
+  <rect x="930" y="190" width="200" height="150" fill="{{deep}}" opacity="0.85"/>
+  <rect x="620" y="360" width="600" height="30" fill="{{deep}}"/>
+  <rect x="640" y="390" width="560" height="110" fill="{{mid}}"/>
+  <use href="#folder" transform="translate(600 345) rotate(-6)"/>
+  <use href="#man" transform="translate(470 500) scale(1.5)"/>
+  <use href="#man" transform="translate(800 500) scale(1.35)"/>
+  <rect x="1000" y="300" width="70" height="60" fill="{{detail}}"/>
+  <g fill="none" stroke="{{detail}}" stroke-width="2" stroke-linecap="round" opacity="0.9"><path d="M90 440 Q250 380 420 400"/><path d="M60 500 Q260 440 440 455"/></g>
+</svg>

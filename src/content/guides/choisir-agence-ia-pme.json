@@ -1,0 +1,785 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Choisir une agence IA en PME : le guide honnête",
+  "title_en": "Choosing an AI agency for an SMB: the honest guide",
+  "description_fr": "Choisir une agence IA, un freelance ou un éditeur en PME : grille de décision, signaux d'alerte, contrat et propriété, et quand Waimia n'est pas le bon choix.",
+  "description_en": "How to choose an AI agency, freelancer or vendor for an SMB: decision grid, warning signs, contract and ownership, and when Waimia is not the right choice.",
+  "slug": "choisir-agence-ia-pme",
+  "publishedAt": "2026-10-05",
+  "updatedAt": "2026-10-06",
+  "category": "gouvernance",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "agence-ia",
+    "sous-traiter-ia",
+    "freelance-ia",
+    "choisir-prestataire-ia",
+    "propriete-systeme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic : conformité régionale, certifications et résidence des données",
+      "url": "https://claude.com/regional-compliance",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic : annonce du Claude Partner Network (12 mars 2026)",
+      "url": "https://www.anthropic.com/news/claude-partner-network",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic : conditions grand public et réglage d'entraînement",
+      "url": "https://privacy.claude.com/en/articles/10023548",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic : documentation des Agent Skills",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : plugins et marketplaces",
+      "url": "https://support.claude.com/en/articles/13837440",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, centre de confidentialité : où sont stockées les données (page mise à jour le 15 juin 2026, lue le 6 octobre 2026)",
+      "url": "https://privacy.claude.com/en/articles/7996890",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Combien coûte une agence IA pour une PME ?",
+      "a": "Cela dépend du périmètre : un audit d'une demi-journée et un agent branché sur votre CRM n'ont pas le même prix, donc une moyenne ne dit rien. Comparez la structure plutôt que le total : nombre d'heures, livrables, plafond, coût de la suite. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage à 999 € HT pour 10 heures, puis estimation en heures validée par vous et facturée {{prix.horaire}} € HT de l'heure, sans dégressivité. Les licences Claude sont une dépense séparée, détaillée dans le guide du coût d'une intégration Claude."
+    },
+    {
+      "q": "Agence IA, freelance ou éditeur : lequel choisir ?",
+      "a": "Le freelance convient à un besoin borné et à un budget serré, à condition d'exiger documentation et accès à votre nom. L'agence convient à un besoin qui traverse plusieurs outils et services. L'éditeur ou son partenaire convient à un achat de licences en volume avec support contractuel, mais conseille rarement contre son propre outil. Dans beaucoup de PME, la bonne réponse est hybride : sous-traiter le cadrage et la première mise en production, former un référent interne."
+    },
+    {
+      "q": "Faut-il sous-traiter ou internaliser l'IA en PME ?",
+      "a": "Tâche par tâche, pas en bloc. Internalisez ce qui change tous les jours et touche vos données : les consignes, la relecture, le choix de ce qu'on confie à Claude. Sous-traitez ce qui se construit une fois et demande un savoir-faire rare : le choix de l'offre, la console d'administration, les connecteurs, un plugin privé. Ne sous-traitez jamais la propriété des comptes et des règles."
+    },
+    {
+      "q": "À qui appartiennent les skills, plugins et automatisations livrés ?",
+      "a": "Cela dépend du contrat, donc écrivez-le. Les CGV de Waimia (article 9) prévoient que le client acquiert, après paiement complet, des droits d'utilisation sur les créations spécifiques, tandis que Waimia conserve ses méthodes, outils et composants réutilisables. Si vous voulez aussi le droit de modifier et de confier la reprise à un tiers, demandez-le explicitement au devis, et faites relire par un juriste."
+    },
+    {
+      "q": "Peut-on faire confiance à une agence « partenaire » ou « certifiée » ?",
+      "a": "C'est un signal, pas une preuve. Anthropic a lancé en mars 2026 un Claude Partner Network dont l'adhésion est gratuite, avec une certification « Claude Certified Architect, Foundations » et un annuaire de partenaires de services. Un logo ne remplace ni un livrable montrable ni un client à appeler. Demandez la certification de la personne qui fera le travail, pas seulement celle de l'entreprise. Pour la formation, Waimia passe par Akigora, organisme certifié Qualiopi."
+    },
+    {
+      "q": "Le prestataire peut-il travailler sur mon compte Claude ?",
+      "a": "Il doit même le faire : l'organisation Claude, les connecteurs et les skills doivent vivre chez vous, avec un administrateur délégué que vous pouvez révoquer. À l'inverse, un compte ou un espace ouvert au nom du prestataire est un signal d'alerte. Gardez aussi les comptes personnels Free, Pro et Max hors du travail : les conditions grand public s'y appliquent, avec un réglage d'entraînement qui, activé, permet une conservation de données dé-identifiées jusqu'à cinq ans."
+    },
+    {
+      "q": "Dans quels cas Waimia n'est-elle pas le bon choix ?",
+      "a": "Si vous voulez tester Claude avec deux ou trois personnes, si votre équipe technique maîtrise déjà Claude Code, si vous avez une intégration lourde avec un système d'information ancien, si votre appel d'offres exige des références ou certifications que nous n'affichons pas, si vous voulez une équipe dédiée à plein temps sur site. Waimia est un studio d'une personne : la capacité est notre limite."
+    },
+    {
+      "q": "Combien de temps dure une mission, et que se passe-t-il à la fin ?",
+      "a": "Nous ne donnons pas de délai générique. Le sprint représente 10 heures de travail ; la durée calendaire dépend de votre disponibilité. Pour une équipe pilote, notre page intégration indique habituellement 2 à 8 semaines (ouverture des comptes, connexion des outils, consignes partagées, charte, formation). À la fin, un référent est formé, les accès et la documentation vous sont remis : vous continuez seul, avec nous ou avec un autre prestataire."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does an AI agency cost an SMB?",
+      "a": "It depends on scope: a half-day audit and an agent wired to your CRM do not cost the same, so an average tells you nothing. Compare the structure rather than the total: number of hours, deliverables, cap, cost of what follows. At Waimia: a free 45-minute audit, a scoping sprint at €999 excl. VAT for 10 hours, then an estimate in hours that you approve, billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount. Claude licences are a separate cost, detailed in the guide to what a Claude integration costs."
+    },
+    {
+      "q": "AI agency, freelancer or software vendor: which one to choose?",
+      "a": "A freelancer suits a bounded need and a tight budget, provided you demand documentation and access in your name. An agency suits a need that spans several tools and teams. A vendor or its partner suits a volume licence purchase with contractual support, but rarely advises against its own tool. In many SMBs the right answer is hybrid: outsource scoping and the first production release, train an in-house lead."
+    },
+    {
+      "q": "Should an SMB outsource or internalise AI?",
+      "a": "Task by task, not as a whole. Keep in-house what changes every day and touches your data: the instructions, the review, the choice of what to entrust to Claude. Outsource what is built once and needs rare know-how: choosing the plan, the admin console, connectors, a private plugin. Never outsource ownership of accounts and rules."
+    },
+    {
+      "q": "Who owns the skills, plugins and automations delivered?",
+      "a": "It depends on the contract, so write it down. Waimia's terms (article 9) provide that after full payment the client acquires rights of use on specific creations, while Waimia keeps its methods, tools and reusable components. If you also want the right to modify and to have a third party take over, ask for it explicitly in the quote, and have a lawyer read it."
+    },
+    {
+      "q": "Can you trust an agency that is a \"partner\" or \"certified\"?",
+      "a": "It is a signal, not proof. In March 2026 Anthropic launched a Claude Partner Network with free membership, a \"Claude Certified Architect, Foundations\" certification and a directory of service partners. A logo replaces neither a deliverable you can be shown nor a client you can call. Ask for the certification of the person who will do the work, not only the company's. For training, Waimia goes through Akigora, a Qualiopi-certified organisation."
+    },
+    {
+      "q": "Can the supplier work on my Claude account?",
+      "a": "It should: the Claude organisation, connectors and skills must live with you, with a delegated admin you can revoke. Conversely, an account or workspace opened in the supplier's name is a warning sign. Also keep personal Free, Pro and Max accounts out of work: consumer terms apply there, with a training setting that, when enabled, allows de-identified data to be kept for up to five years."
+    },
+    {
+      "q": "When is Waimia not the right choice?",
+      "a": "If you want to try Claude with two or three people, if your technical team already masters Claude Code, if you have a heavy integration with a legacy information system, if your tender requires references or certifications we do not display, or if you want a dedicated team on site full time. Waimia is a one-person studio: capacity is our limit."
+    },
+    {
+      "q": "How long does an engagement last, and what happens at the end?",
+      "a": "We give no generic deadline. The sprint is 10 hours of work; calendar time depends on your availability. For a pilot team, our integration page states usually 2 to 8 weeks (opening accounts, connecting tools, shared instructions, policy, training). At the end a lead is trained and access and documentation are handed to you: you continue alone, with us or with another supplier."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · Faire appel à une agence IA",
+      "kicker_en": "§ Guide · Hiring an AI agency",
+      "h1_fr": "Choisir une <i class=\"acc\">agence IA</i> quand on dirige une PME",
+      "h1_en": "Choosing an <i class=\"acc\">AI agency</i> when you run an SMB",
+      "lede_fr": "Agence IA, freelance, éditeur ou équipe interne : quatre façons de mettre l'IA au travail, et une seule qui convient à votre situation. Ce guide donne la grille pour trancher, les questions à poser, les signaux d'alerte et les clauses qui décident de qui possède quoi. Il dit aussi quand Waimia n'est pas le bon choix.",
+      "lede_en": "AI agency, freelancer, software vendor or in-house team: four ways to put AI to work, and only one that fits your situation. This guide gives you the grid to decide, the questions to ask, the warning signs and the clauses that settle who owns what. It also says when Waimia is not the right choice.",
+      "badges": [
+        {
+          "label_fr": "Grille de décision en 8 critères",
+          "label_en": "Decision grid, 8 criteria"
+        },
+        {
+          "label_fr": "Contrat et propriété",
+          "label_en": "Contract and ownership"
+        },
+        {
+          "label_fr": "Vérifié le 5 octobre 2026",
+          "label_en": "Checked on 5 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir l'offre d'intégration Claude",
+        "label_en": "See the Claude integration offer",
+        "href": "/services/integration-claude",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/choisir-agence-ia-quatre-portes-paper.webp",
+        "alt_fr": "Un visiteur et une silhouette devant quatre portes isolées dans un champ, une seule porte bleue",
+        "alt_en": "A visitor and a figure facing four free-standing doors in a field, only one of them blue",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "6 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment choisir une agence IA quand on est une PME ?",
+      "question_en": "How do you choose an AI agency when you run an SMB?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Décidez d'abord ce que vous achetez : une décision, un système qui tourne ou une équipe capable de l'opérer. Puis notez chaque candidat sur huit critères, dont trois éliminatoires : propriété des accès, traitement des données, chiffrage en heures. Écartez celui qui ne vous déconseille rien, et gardez vos comptes à votre nom.",
+      "answer_en": "First decide what you are buying: a decision, a system that runs, or a team able to operate it. Then score each candidate on eight criteria, three of them knockout: ownership of access, data handling, hour-based pricing. Drop the one who never advises against anything, and keep your accounts in your own name."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Avant de comparer des agences, décidez ce que vous achetez</h2>\n<p>La plupart des PME comparent des devis qui ne vendent pas la même chose. L'un chiffre une étude, l'autre une automatisation, le troisième des licences avec un peu de formation. Le moins cher gagne, et six mois plus tard personne ne sait qui fait tourner le système.</p>\n<p>Il n'existe que trois achats, et <a href=\"/blog/forward-deployed-engineer\">ils ne demandent pas le même prestataire</a>.</p>\n<ul>\n<li><strong>Une décision.</strong> Où l'IA vaut un investissement chez vous, dans quel ordre, avec quelles règles. Le livrable est un document que vous pouvez défendre devant votre associé. C'est le terrain d'un <a href=\"/services/consultant-ia-claude\">consultant IA</a>.</li>\n<li><strong>Un système qui tourne.</strong> Un agent, une automatisation, une connexion entre Claude et vos logiciels, qui fait le travail sans vous. Le livrable est un objet en production, avec ses accès et sa documentation. C'est le terrain d'une <a href=\"/services/integration-claude\">intégration</a> ou d'un <a href=\"/services/agents-ia\">agent IA</a>.</li>\n<li><strong>Une équipe capable.</strong> <a href=\"/blog/formation-ia-cpf-qualiopi\">Des personnes qui savent s'en servir</a>, avec des règles et un référent. Le livrable est une compétence qui reste chez vous. C'est le terrain d'une <a href=\"/formations/claude\">formation</a> et d'une charte.</li>\n</ul>\n<p>Une fois la distinction faite, la moitié des comparaisons s'effondre. <a href=\"/blog/architecte-ia-role-pme\">Un freelance excellent sur les automatisations n'est pas un bon conseil en stratégie</a>. Un cabinet de conseil ne livrera pas votre connecteur. Un éditeur ne vous dira pas que son outil est de trop.</p>\n<p>Écrivez en une phrase ce que vous achetez avant d'appeler qui que ce soit. Si vous n'y arrivez pas, c'est le signal que vous avez besoin du premier achat, une décision, avant de choisir un prestataire pour les deux autres. L'<a href=\"/audit-ia-pme\">audit IA gratuit de 45 minutes</a> sert à poser cette phrase, que vous travailliez ensuite avec nous ou non.</p>",
+      "html_en": "<h2>Before comparing agencies, decide what you are buying</h2>\n<p>Most SMBs compare quotes that do not sell the same thing. One prices a study, another an automation, the third licences with a little training. The cheapest wins, and six months later nobody knows who keeps the system running.</p>\n<p>There are only three purchases, and they do not call for the same supplier.</p>\n<ul>\n<li><strong>A decision.</strong> Where AI is worth an investment in your company, in what order, under what rules. The deliverable is a document you can defend in front of your partner. That is the ground of an <a href=\"/services/consultant-ia-claude\">AI consultant</a>.</li>\n<li><strong>A system that runs.</strong> An agent, an automation, a link between Claude and your software, doing the work without you. The deliverable is something in production, with its access and documentation. That is the ground of an <a href=\"/services/integration-claude\">integration</a> or an <a href=\"/services/agents-ia\">AI agent</a>.</li>\n<li><strong>A capable team.</strong> People who know how to use it, with rules and a lead. The deliverable is a skill that stays with you. That is the ground of <a href=\"/formations/claude\">training</a> and a policy.</li>\n</ul>\n<p>Once the distinction is made, half of the comparisons collapse. <a href=\"/blog/architecte-ia-role-pme\">An excellent freelancer on automations is not a good strategy adviser</a>. A consulting firm will not deliver your connector. A software vendor will not tell you its tool is one too many.</p>\n<p>Write what you are buying in one sentence before calling anyone. If you cannot, you need the first purchase, a decision, before choosing a supplier for the other two. The <a href=\"/audit-ia-pme\">free 45-minute AI audit</a> exists to write that sentence, whether you then work with us or not.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les quatre voies",
+      "kicker_en": "§ The four routes",
+      "heading_fr": "Agence IA, freelance, éditeur, équipe interne : le comparatif honnête",
+      "heading_en": "AI agency, freelancer, vendor, in-house team: the honest comparison",
+      "caption_fr": "Lecture de Waimia, qui vend l'une de ces voies : prenez-la comme un avis, pas comme une mesure. Le tableau compare des situations, pas des prix : un prix n'a de sens qu'avec un périmètre écrit.",
+      "caption_en": "Waimia's reading, and Waimia sells one of these routes: take it as an opinion, not a measurement. The table compares situations, not prices: a price only means something with a written scope.",
+      "columns_fr": [
+        "Voie",
+        "Bon choix quand",
+        "Risque principal",
+        "À exiger"
+      ],
+      "columns_en": [
+        "Route",
+        "Right choice when",
+        "Main risk",
+        "What to demand"
+      ],
+      "rows_fr": [
+        [
+          "Agence IA spécialisée",
+          "Le besoin traverse plusieurs outils et services : choisir l'offre, brancher des logiciels, écrire les règles, former une équipe.",
+          "Une facturation en heures sans plafond, et une offre web rebaptisée « IA ».",
+          "Un devis en heures validé par vous, un livrable relu, les accès à votre nom."
+        ],
+        [
+          "Freelance",
+          "Le besoin est borné : un automatisme, un connecteur, un agent. Le budget est serré.",
+          "Une seule personne : congés, maladie, départ. Pas de relecture croisée.",
+          "Une documentation écrite, des accès sur vos comptes, le nom d'un remplaçant possible."
+        ],
+        [
+          "Éditeur, revendeur ou partenaire officiel de l'outil",
+          "Vous achetez des licences en volume, vous voulez un support contractuel ou un marché public.",
+          "Le conseil porte sur son outil, rarement sur la question de savoir si c'est le bon.",
+          "Ce qui est inclus dans l'accompagnement, ce qui est facturé en plus, la liberté de changer d'outil."
+        ],
+        [
+          "Équipe interne, avec un référent",
+          "L'usage est quotidien, les données sont sensibles, quelqu'un peut y consacrer du temps réel.",
+          "Le référent seul, qui prend cela sur son poste, et qui peut partir.",
+          "Du temps dédié, une formation, une documentation qu'une autre personne sait relire."
+        ],
+        [
+          "Hybride : sous-traiter le départ, internaliser la suite",
+          "Vous voulez un système en production sans attendre, puis vous voulez le garder en main.",
+          "Un transfert de compétences promis mais jamais fait.",
+          "Un transfert daté, avec un livrable : le référent opère seul avant la fin de la mission."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Specialist AI agency",
+          "The need spans several tools and teams: choosing the plan, connecting software, writing the rules, training a team.",
+          "Hour-based billing with no cap, and a web offer relabelled \"AI\".",
+          "A quote in hours that you approve, a deliverable you can read, access in your name."
+        ],
+        [
+          "Freelancer",
+          "The need is bounded: one automation, one connector, one agent. The budget is tight.",
+          "One person: holidays, illness, departure. No cross-review.",
+          "Written documentation, access on your own accounts, the name of a possible stand-in."
+        ],
+        [
+          "Vendor, reseller or official partner of the tool",
+          "You buy licences in volume, you want contractual support or a public tender.",
+          "Advice is about its tool, rarely about whether it is the right one.",
+          "What the support covers, what is billed on top, the freedom to change tools."
+        ],
+        [
+          "In-house team, with a lead",
+          "Usage is daily, data is sensitive, someone can give it real time.",
+          "A lone lead who does this on top of their job, and who may leave.",
+          "Dedicated time, training, documentation another person can read."
+        ],
+        [
+          "Hybrid: outsource the start, keep the rest in-house",
+          "You want a system in production without waiting, then you want to hold it yourself.",
+          "A skills transfer that is promised and never done.",
+          "A dated transfer with a deliverable: the lead operates alone before the mission ends."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/choisir-agence-ia-balance-paper.webp",
+          "alt_fr": "Une balance géante : des caisses empilées d'un côté, un seul disque de l'autre, des silhouettes autour",
+          "alt_en": "A giant scale: stacked crates on one side, a single disc on the other, small figures around it",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Sous-traiter ou internaliser l'IA en PME : la règle qui tranche</h2>\n<p>La question revient dans toutes les PME : faut-il confier l'IA à un prestataire ou la monter en interne ? Posée en bloc, elle n'a pas de réponse. Posée tâche par tâche, elle en a une.</p>\n<p><strong>Internalisez ce qui change tous les jours et touche vos données.</strong> Les consignes données à Claude, la relecture des résultats, le choix de ce qu'on lui confie : cela doit vivre chez vous, avec un référent. Personne d'extérieur ne sait mieux que vous ce qu'est un bon devis ou une bonne réponse client.</p>\n<p><strong>Sous-traitez ce qui se construit une fois et demande un savoir-faire rare.</strong> Le choix de l'offre et du nombre de sièges, la console d'administration, les connecteurs vers vos logiciels, un <a href=\"/ressources/guides/claude-plugins-entreprise\">plugin privé</a> : un travail ponctuel qu'une équipe interne mettrait longtemps à apprendre pour ne s'en servir qu'une fois.</p>\n<p><strong>Ne sous-traitez jamais la propriété.</strong> Les comptes, les accès, les règles et les procédures écrites restent à votre nom, quelle que soit la voie. C'est l'objet de la section sur le contrat plus bas.</p>\n<h3>Trois situations, pour voir la règle à l'œuvre</h3>\n<p>Ces situations sont construites pour l'exemple. Ce ne sont pas des clients.</p>\n<p><i>Un cabinet de huit personnes</i> veut que Claude rédige ses comptes rendus et prépare ses rendez-vous. Aucun outil à brancher. La bonne réponse est probablement de ne rien sous-traiter : ouvrir des comptes Team, écrire une charte d'une page, suivre la <a href=\"/ressources/outils/checklist-90-jours-claude\">checklist des 90 jours</a>. Le <a href=\"/ressources/outils/guide-achat-claude-pme\">guide d'achat</a> aide à choisir l'offre.</p>\n<p><i>Une PME de trente personnes</i> veut un agent qui relance les devis sans réponse depuis son CRM. Il y a un outil à connecter, des données clients, des règles à écrire. C'est le cas typique de la voie hybride : <a href=\"/blog/forward-deployed-engineer\">un prestataire construit le connecteur et le premier agent</a>, un référent apprend à le faire évoluer.</p>\n<p><i>Une entreprise de cent vingt personnes</i> lance un appel d'offres avec exigences de support contractuel et de références. L'éditeur, son partenaire officiel ou une grande structure est probablement mieux placé qu'une petite agence. Nous préférons vous le dire ici que dans un devis.</p>\n<p>Pour comparer Claude à ses alternatives avant de choisir qui l'installe, lisez le <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">comparatif Claude et ChatGPT pour PME</a>. Le choix de l'outil précède le choix du prestataire, jamais l'inverse.</p>",
+      "html_en": "<h2>Outsourcing or building AI in-house in an SMB: the rule that settles it</h2>\n<p>The question comes up in every SMB: hand AI to a supplier or build it internally? Asked as a whole, it has no answer. Asked task by task, it does.</p>\n<p><strong>Keep in-house what changes every day and touches your data.</strong> The instructions given to Claude, the review of results, the choice of what to entrust to it: that must live with you, with a lead. Nobody outside knows better than you what a good quote or a good customer reply looks like.</p>\n<p><strong>Outsource what is built once and needs rare know-how.</strong> Choosing the plan and seat count, the admin console, connectors to your software, a <a href=\"/ressources/guides/claude-plugins-entreprise\">private plugin</a>: one-off work an internal team would take long to learn only to use it once.</p>\n<p><strong>Never outsource ownership.</strong> Accounts, access, rules and written procedures stay in your name, whatever the route. That is the point of the contract section below.</p>\n<h3>Three situations, to see the rule at work</h3>\n<p>These situations are built as examples. They are not clients.</p>\n<p><i>An eight-person firm</i> wants Claude to write its meeting notes and prepare its appointments. No tool to connect. The right answer is probably to outsource nothing: open Team accounts, write a one-page policy, follow the <a href=\"/ressources/outils/checklist-90-jours-claude\">90-day checklist</a>. The <a href=\"/ressources/outils/guide-achat-claude-pme\">buying guide</a> helps choose the plan.</p>\n<p><i>A thirty-person SMB</i> wants an agent that chases unanswered quotes from its CRM. There is a tool to connect, customer data, rules to write. This is the typical hybrid case: a supplier builds the connector and the first agent, a lead learns to evolve it.</p>\n<p><i>A company of one hundred and twenty people</i> issues a tender with contractual support and reference requirements. The vendor, its official partner or a large firm is probably better placed than a small agency. We would rather tell you here than in a quote.</p>\n<p>To compare Claude with its alternatives before choosing who installs it, read the <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT comparison for SMBs</a>. The choice of tool comes before the choice of supplier, never the other way round.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ La grille",
+      "kicker_en": "§ The grid",
+      "heading_fr": "La grille de décision : huit critères, trois éliminatoires",
+      "heading_en": "The decision grid: eight criteria, three of them knockout",
+      "caption_fr": "Notez chaque critère de 0 (réponse qui disqualifie) à 2 (bonne réponse). Un 0 sur l'un des trois critères éliminatoires écarte le candidat, quelle que soit sa note totale. Grille de Waimia, valable pour nous comme pour un concurrent.",
+      "caption_en": "Score each criterion from 0 (disqualifying answer) to 2 (good answer). A 0 on any of the three knockout criteria drops the candidate, whatever the total. Waimia's grid, valid for us as for a competitor.",
+      "columns_fr": [
+        "Critère",
+        "La question à poser",
+        "Bonne réponse",
+        "Réponse qui disqualifie"
+      ],
+      "columns_en": [
+        "Criterion",
+        "The question to ask",
+        "Good answer",
+        "Disqualifying answer"
+      ],
+      "rows_fr": [
+        [
+          "1. Preuves",
+          "Montrez-moi un livrable d'une mission passée, même anonymisé.",
+          "Un document ou un système réel, expliqué étape par étape, avec ce qui a échoué.",
+          "Une plaquette, des logos, aucun livrable montrable."
+        ],
+        [
+          "2. Compréhension du besoin",
+          "Qu'avez-vous besoin de savoir sur mes processus avant de chiffrer ?",
+          "Des questions sur vos tâches, vos volumes, vos données, avant tout devis.",
+          "Un devis envoyé après un seul appel."
+        ],
+        [
+          "3. Neutralité d'outil",
+          "Dans quel cas me déconseilleriez-vous Claude ?",
+          "Une réponse précise : donnée trop sensible, besoin hors périmètre, outil déjà payé qui suffit.",
+          "« Claude répond à tout. » Qui ne déconseille rien vend un outil."
+        ],
+        [
+          "4. Propriété des accès (éliminatoire)",
+          "Sur quel compte travaillez-vous, et que me restitue-t-on à la fin ?",
+          "Une organisation créée à votre nom, le prestataire en administrateur délégué, une restitution écrite.",
+          "Vos accès créés chez lui, ou « on garde la main pour vous simplifier la vie »."
+        ],
+        [
+          "5. Données et conformité (éliminatoire)",
+          "Où passent mes données, qui est sous-traitant, quel contrat les encadre ?",
+          "Une réponse factuelle : offre commerciale (Team, Enterprise ou API) sans entraînement par défaut, DPA, localisation expliquée.",
+          "Un compte personnel, ou « conforme RGPD » sans dire pourquoi."
+        ],
+        [
+          "6. Chiffrage (éliminatoire)",
+          "Combien d'heures, pour quoi, avec quel plafond ?",
+          "Un devis en heures et en livrables, validé par vous avant démarrage, avec un plafond.",
+          "Une régie sans plafond, ou un forfait « IA » sans périmètre écrit."
+        ],
+        [
+          "7. Transfert de compétences",
+          "Qui, chez moi, saura opérer le système à la fin ?",
+          "Un référent nommé, formé, qui opère seul avant la fin de la mission.",
+          "Rien de prévu : vous les rappelez pour chaque réglage."
+        ],
+        [
+          "8. Continuité",
+          "Que se passe-t-il s'ils s'arrêtent, ou si la personne qui travaille part ?",
+          "Documentation à jour, accès partagés, un remplaçant identifié.",
+          "Tout est dans la tête d'une personne."
+        ]
+      ],
+      "rows_en": [
+        [
+          "1. Proof",
+          "Show me a deliverable from a past engagement, even anonymised.",
+          "A real document or system, walked through step by step, including what failed.",
+          "A brochure, logos, nothing you can be shown."
+        ],
+        [
+          "2. Grasp of the need",
+          "What do you need to know about my processes before pricing?",
+          "Questions about your tasks, volumes and data, before any quote.",
+          "A quote sent after a single call."
+        ],
+        [
+          "3. Tool neutrality",
+          "In which case would you advise me against Claude?",
+          "A precise answer: data too sensitive, need out of scope, a tool already paid for that is enough.",
+          "\"Claude does everything.\" Whoever advises against nothing is selling a tool."
+        ],
+        [
+          "4. Ownership of access (knockout)",
+          "Which account do you work on, and what is handed back at the end?",
+          "An organisation created in your name, the supplier as delegated admin, a written handback.",
+          "Your access created on their side, or \"we keep control to make life easy for you\"."
+        ],
+        [
+          "5. Data and compliance (knockout)",
+          "Where does my data go, who is a processor, which contract covers it?",
+          "A factual answer: a commercial plan (Team, Enterprise or API) with no training by default, a DPA, location explained.",
+          "A personal account, or \"GDPR compliant\" with no explanation."
+        ],
+        [
+          "6. Pricing (knockout)",
+          "How many hours, for what, with what cap?",
+          "A quote in hours and deliverables, approved by you before the start, with a cap.",
+          "Open-ended time and materials, or an \"AI\" lump sum with no written scope."
+        ],
+        [
+          "7. Skills transfer",
+          "Who on my side will be able to operate the system at the end?",
+          "A named, trained lead who operates alone before the mission ends.",
+          "Nothing planned: you call them back for every setting."
+        ],
+        [
+          "8. Continuity",
+          "What happens if they stop, or the person doing the work leaves?",
+          "Up-to-date documentation, shared access, an identified stand-in.",
+          "Everything lives in one person's head."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Comment utiliser la grille, et quoi penser des prix</h2>\n<p>Envoyez les mêmes huit questions par écrit à trois candidats, pas deux, pas cinq. Comparez les réponses côte à côte. À l'oral, un commercial entraîné gagne toujours ; par écrit, les esquives se voient. Demandez aussi le nom de la personne qui fera réellement le travail, et lisez ce qu'elle a déjà livré.</p>\n<p>Appelez une référence. Pas un logo sur une plaquette : un client que vous pouvez joindre, à qui vous demanderez ce qui a mal tourné et ce que le prestataire a fait ensuite. Un prestataire qui n'a personne à vous donner n'est pas forcément mauvais. C'est un risque, et c'est vous qui le payez.</p>\n<h3>Les prix : pourquoi je ne donne pas de moyenne</h3>\n<p>Une moyenne de marché pour « une mission d'agence IA » ne vaut rien : elle mélange un audit d'une demi-journée et un agent en production branché sur un CRM. Le chiffre qui compte est celui de votre périmètre : combien d'heures, pour quel livrable, avec quel plafond, et ce que coûte la suite. Je me méfie du prestataire qui annonce un prix avant d'avoir posé une seule question.</p>\n<p>Chez Waimia, les tarifs sont publics. L'audit de 45 minutes est gratuit. Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures. Au-delà, la mission est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure, sans dégressivité (détail sur la page <a href=\"/tarifs\">tarifs</a>). Un chiffrage complet, licences Claude comprises, figure dans le guide <a href=\"/ressources/guides/cout-integration-claude-pme\">coût d'une intégration Claude en PME</a>.</p>",
+      "html_en": "<h2>How to use the grid, and what to make of prices</h2>\n<p>Send the same eight questions in writing to three candidates, not two, not five. Compare the answers side by side. Face to face, a trained salesperson always wins; in writing, evasions show. Also ask for the name of the person who will actually do the work, and read what they have already delivered.</p>\n<p>Call a reference. Not a logo on a brochure: a client you can reach, whom you ask what went wrong and what the supplier did next. A supplier with nobody to give you is not necessarily bad. It is a risk, and you are the one paying for it.</p>\n<h3>Prices: why I give no average</h3>\n<p>A market average for \"an AI agency engagement\" is worthless: it lumps a half-day audit together with a production agent wired to a CRM. The number that matters is the one for your scope: how many hours, for which deliverable, with what cap, and what comes next. I distrust any supplier who names a price before asking a single question.</p>\n<p>At Waimia, prices are public. The 45-minute audit is free. The scoping sprint is fixed price, €999 excl. VAT for 10 hours. Beyond that, the work is estimated in hours, approved by you, then billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount (details on the <a href=\"/tarifs\">pricing</a> page). A full costing, Claude licences included, is in the guide <a href=\"/ressources/guides/cout-integration-claude-pme\">what a Claude integration costs an SMB</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "ink",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/choisir-agence-ia-drapeaux-ink.webp",
+          "alt_fr": "De nuit, une silhouette à la lanterne montre du doigt une rangée de mâts à fanions sur une route",
+          "alt_en": "At night, a figure with a lantern points at a row of pennant poles along a road",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Six signaux d'alerte à repérer dès le premier rendez-vous</h2>\n<p>Aucun n'est une preuve. Deux ou trois ensemble suffisent à ralentir.</p>\n<ol>\n<li><strong>Le résultat chiffré avant le diagnostic.</strong> « 30 % de temps gagné » annoncé sans avoir regardé vos tâches. Un gain se mesure à partir d'un point de départ, pas d'une plaquette.</li>\n<li>L'outil avant le problème. On vous parle de la solution dès la première minute et de vos processus à la dernière. Tout est faisable, rien n'est déconseillé.</li>\n<li><strong>Vos accès créés chez eux.</strong> Compte, espace de travail ou clé d'API au nom du prestataire, « pour vous simplifier la vie ». Vous payez, il possède.</li>\n<li>Une boîte noire. Un « agent maison » dont vous ne pouvez ni lire les instructions ni sortir la configuration. Avec Claude, les skills sont des dossiers de fichiers lisibles : un livrable que vous ne pouvez pas relire n'est pas un livrable.</li>\n<li><strong>Le flou sur les données.</strong> « Conforme RGPD » sans dire quelle offre, quel contrat, où sont stockées les données. D'après Anthropic, les applications Claude stockent les données aux États-Unis par défaut ; une résidence européenne passe par des clouds tiers comme AWS Bedrock ou Google Vertex. Je n'ai trouvé aucun hébergement en France annoncé pour l'application Claude : un prestataire qui le promet doit le prouver par écrit.</li>\n<li>Une régie sans plafond ni livrable daté. Des heures qui s'écoulent, un compte rendu mensuel, aucune pièce que vous pourriez montrer à votre associé.</li>\n</ol>\n<p>Le <a href=\"/conformite-ia\">cadre de conformité IA</a> détaille ce qu'un prestataire sérieux doit être capable de vous expliquer sur le RGPD et l'AI Act.</p>",
+      "html_en": "<h2>Six warning signs to spot at the first meeting</h2>\n<p>None is proof. Two or three together are enough to slow down.</p>\n<ol>\n<li><strong>The figure before the diagnosis.</strong> \"30% time saved\" announced without looking at your tasks. A gain is measured from a starting point, not a brochure.</li>\n<li>The tool before the problem. They talk about the solution from the first minute and about your processes in the last. Everything is possible, nothing is advised against.</li>\n<li><strong>Your access created on their side.</strong> Account, workspace or API key in the supplier's name, \"to make life easy for you\". You pay, they own.</li>\n<li>A black box. A \"house agent\" whose instructions you cannot read and whose configuration you cannot export. With Claude, skills are folders of readable files: a deliverable you cannot read is not a deliverable.</li>\n<li><strong>Fog about data.</strong> \"GDPR compliant\" without saying which plan, which contract, where data is stored. According to Anthropic, Claude apps store data in the United States by default; European residency goes through third-party clouds such as AWS Bedrock or Google Vertex. I found no hosting in France announced for the Claude app: a supplier who promises it must prove it in writing.</li>\n<li>Open-ended billing with no dated deliverable. Hours flowing by, a monthly report, nothing you could show your partner.</li>\n</ol>\n<p>The <a href=\"/conformite-ia\">AI compliance framework</a> details what a serious supplier should be able to explain about GDPR and the AI Act.</p>"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper-2",
+      "lead_magnet": "charte-ia-entreprise",
+      "kicker_fr": "§ Avant de signer avec qui que ce soit",
+      "kicker_en": "§ Before signing with anyone",
+      "h2_fr": "Fixez vos règles d'usage de l'IA avant qu'un prestataire touche vos données",
+      "h2_en": "Set your AI usage rules before a supplier touches your data",
+      "body_fr": "Recevez par e-mail le modèle de charte IA pour PME : un PDF de 5 pages en neuf articles (outils autorisés, données interdites, validation humaine, responsable à contacter). Joint en annexe d'un devis, il dit au prestataire ce qu'il a le droit de manipuler. Une version en ligne et un fichier Word existent sans e-mail sur la page de l'outil.",
+      "body_en": "Get the AI policy template for SMBs by email: a 5-page PDF in nine articles (permitted tools, forbidden data, human review, who to contact). Attached to a quote, it tells the supplier what it may handle. An online version and a Word file are available without email on the tool page.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir la charte (PDF) →",
+      "submit_label_en": "Get the policy (PDF) →",
+      "hint_fr": "Un seul e-mail avec le PDF. Pas d'inscription à la lettre sans votre accord. Ce modèle n'est pas un conseil juridique.",
+      "hint_en": "One email with the PDF. No newsletter sign-up without your consent. This template is not legal advice."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/choisir-agence-ia-clef-remise-paper.webp",
+          "alt_fr": "Une clé géante plantée devant une petite maison, deux silhouettes l'encadrent",
+          "alt_en": "A giant key planted in front of a small house, two figures standing either side",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Contrat et propriété du système : ce qu'il faut écrire avant de signer</h2>\n<p>La question qui fâche arrive toujours après la livraison : à qui appartient ce qu'on vient de construire ? Écrivez la réponse avant, pas après. Inutile d'un contrat de cinquante pages ; huit points suffisent, dans le devis ou en annexe.</p>\n<p>L'écosystème Claude aide, parce qu'une grande partie de ce qu'un prestataire livre tient dans des fichiers lisibles. Un <a href=\"/ressources/guides/claude-skills\">skill</a> est un dossier avec un fichier SKILL.md. Un <a href=\"/ressources/guides/claude-plugins-entreprise\">plugin</a> est un paquet de skills, de connecteurs et de sous-agents qu'on diffuse par une marketplace privée sur les offres Team et Enterprise. Vous pouvez donc exiger de les relire, de les versionner chez vous et de les emporter. Ce qui n'est pas lisible ne doit pas être livré. Pour les connecteurs, le guide sur <a href=\"/ressources/guides/mcp-claude\">MCP expliqué aux dirigeants</a> donne les questions à poser.</p>\n<p>La troisième colonne du tableau dit ce que prévoient les conditions de Waimia telles qu'elles sont publiées, ou ce qui reste à convenir au devis. Ce n'est pas un conseil juridique : faites relire par un juriste avant de signer, avec nous comme avec un autre.</p>",
+      "html_en": "<h2>Contract and ownership of the system: what to write before you sign</h2>\n<p>The awkward question always comes after delivery: who owns what has just been built? Write the answer before, not after. No need for a fifty-page contract; eight points are enough, in the quote or in an appendix.</p>\n<p>The Claude ecosystem helps, because much of what a supplier delivers fits in readable files. A <a href=\"/ressources/guides/claude-skills\">skill</a> is a folder with a SKILL.md file. A <a href=\"/ressources/guides/claude-plugins-entreprise\">plugin</a> is a package of skills, connectors and sub-agents distributed through a private marketplace on the Team and Enterprise plans. You can therefore demand to read them, version them on your side and take them away. What is not readable should not be delivered. For connectors, the guide on <a href=\"/ressources/guides/mcp-claude\">MCP explained to business owners</a> gives the questions to ask.</p>\n<p>The third column of the table says what Waimia's published terms provide, or what remains to be agreed in the quote. This is not legal advice: have a lawyer read it before signing, with us as with anyone else.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Qui possède quoi",
+      "kicker_en": "§ Who owns what",
+      "heading_fr": "Huit points à écrire dans le devis ou le contrat",
+      "heading_en": "Eight points to write in the quote or the contract",
+      "caption_fr": "Colonne de droite : conditions générales de vente de Waimia (articles 3, 9 et 10, version du 12 juin 2026) et pages services publiées, lues le 5 octobre 2026. Une clause publiée n'est pas un contrat signé : le devis fait foi.",
+      "caption_en": "Right-hand column: Waimia's general terms of sale (articles 3, 9 and 10, version of 12 June 2026) and published service pages, read on 5 October 2026. A published clause is not a signed contract: the quote prevails.",
+      "columns_fr": [
+        "Point",
+        "À écrire",
+        "Chez Waimia (CGV et pages publiées)"
+      ],
+      "columns_en": [
+        "Point",
+        "To write down",
+        "At Waimia (terms and published pages)"
+      ],
+      "rows_fr": [
+        [
+          "Comptes et abonnements Claude",
+          "L'organisation Claude (Team ou Enterprise) est créée au nom de l'entreprise, avec une adresse de l'entreprise comme propriétaire. Le prestataire n'a qu'un rôle délégué, révocable.",
+          "La page intégration décrit l'ouverture de l'organisation à votre nom et la fermeture des comptes personnels. Aucun abonnement chez Waimia."
+        ],
+        [
+          "Skills, plugins, consignes",
+          "Livrés en fichiers lisibles, déposés dans un espace que vous contrôlez, avec le droit de les modifier.",
+          "Accès, connecteurs, skills et supports sont documentés et remis au référent (page intégration)."
+        ],
+        [
+          "Automatisations et code sur mesure",
+          "Droits d'utilisation, de modification et de reprise par un tiers, après paiement complet ; code ou configuration remis.",
+          "CGV, article 9 : après paiement complet, le client acquiert des droits d'utilisation sur les créations spécifiques. La modification et la reprise par un tiers se demandent explicitement au devis."
+        ],
+        [
+          "Outils et méthodes du prestataire",
+          "Ce qui reste au prestataire, nommément, et ce qu'il vous concède pour que le système continue de tourner.",
+          "CGV, article 9 : Waimia conserve ses méthodes, outils, frameworks internes et composants réutilisables. Listez ceux dont votre système dépend."
+        ],
+        [
+          "Données",
+          "Quelles données entrent dans le système, sur quelle offre, avec quel contrat (DPA), qui est sous-traitant.",
+          "Une charte d'usage est incluse dans la mission de conseil. Le DPA est celui d'Anthropic pour l'offre commerciale que vous choisissez."
+        ],
+        [
+          "Confidentialité",
+          "Durée, périmètre, sort des documents à la fin.",
+          "CGV, article 10 : confidentialité réciproque pendant le contrat et deux ans après son terme."
+        ],
+        [
+          "Prix et plafond",
+          "Heures estimées, validées par vous, plafond, ce qui est facturé en plus.",
+          "Sprint à prix fixe (999 € HT pour 10 heures), puis estimation en heures validée par vous, au taux de {{prix.horaire}} € HT. Devis valable 30 jours (CGV, article 3)."
+        ],
+        [
+          "Sortie",
+          "Documentation, passation à un référent ou à un autre prestataire, questions après la dernière facture.",
+          "La mission vise un référent interne formé qui continue sans Waimia. Un suivi facultatif existe (paliers sur la page tarifs) ; le reste se négocie au devis."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Claude accounts and subscriptions",
+          "The Claude organisation (Team or Enterprise) is created in the company's name, with a company address as owner. The supplier only holds a delegated, revocable role.",
+          "The integration page describes opening the organisation in your name and closing personal accounts. No subscription at Waimia."
+        ],
+        [
+          "Skills, plugins, instructions",
+          "Delivered as readable files, stored in a space you control, with the right to edit them.",
+          "Access, connectors, skills and materials are documented and handed to the lead (integration page)."
+        ],
+        [
+          "Automations and custom code",
+          "Rights to use, modify and have a third party take over, after full payment; code or configuration handed over.",
+          "Terms, article 9: after full payment, the client acquires rights of use on specific creations. Modification and takeover by a third party must be requested explicitly in the quote."
+        ],
+        [
+          "Supplier's tools and methods",
+          "What stays with the supplier, by name, and what it grants you so the system keeps running.",
+          "Terms, article 9: Waimia keeps its methods, tools, internal frameworks and reusable components. List those your system depends on."
+        ],
+        [
+          "Data",
+          "Which data enters the system, on which plan, under which contract (DPA), who is a processor.",
+          "A usage policy is included in the consulting engagement. The DPA is Anthropic's for the commercial plan you choose."
+        ],
+        [
+          "Confidentiality",
+          "Duration, scope, fate of documents at the end.",
+          "Terms, article 10: mutual confidentiality during the contract and two years after its end."
+        ],
+        [
+          "Price and cap",
+          "Estimated hours, approved by you, a cap, what is billed on top.",
+          "Fixed-price sprint (€999 excl. VAT for 10 hours), then an estimate in hours approved by you, at €{{prix.horaire}} excl. VAT. Quote valid for 30 days (terms, article 3)."
+        ],
+        [
+          "Exit",
+          "Documentation, handover to a lead or another supplier, questions after the last invoice.",
+          "The engagement aims at a trained in-house lead who carries on without Waimia. Optional follow-up exists (tiers on the pricing page); the rest is negotiated in the quote."
+        ]
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Honnêtement",
+      "kicker_en": "§ Honestly",
+      "heading_fr": "Les cas où Waimia n'est pas le bon choix",
+      "heading_en": "The cases where Waimia is not the right choice",
+      "items": [
+        {
+          "label_fr": "Vous voulez tester Claude avec deux ou trois personnes : le guide d'achat, la checklist des 90 jours et une demi-journée suffisent. Gardez votre budget.",
+          "label_en": "You want to try Claude with two or three people: the buying guide, the 90-day checklist and half a day are enough. Keep your budget."
+        },
+        {
+          "label_fr": "Votre équipe technique est à l'aise avec Claude Code : la documentation officielle est ce qu'il vous faut. Une revue ponctuelle de vos réglages suffira peut-être.",
+          "label_en": "Your technical team is comfortable with Claude Code: the official documentation is what you need. A one-off review of your settings may be enough."
+        },
+        {
+          "label_fr": "Vous avez besoin d'une intégration lourde avec un ERP ou un système d'information ancien, avec une équipe dédiée : une ESN ou le partenaire de votre éditeur est mieux outillé.",
+          "label_en": "You need a heavy integration with an ERP or a legacy information system, with a dedicated team: an IT services firm or your vendor's partner is better equipped."
+        },
+        {
+          "label_fr": "Votre appel d'offres exige des références ou des certifications d'organisation que nous n'affichons pas. Waimia est un studio d'une personne : certaines exigences passent par une structure plus grosse.",
+          "label_en": "Your tender requires references or organisational certifications that we do not display. Waimia is a one-person studio: some requirements call for a larger firm."
+        },
+        {
+          "label_fr": "Vous voulez une équipe dédiée à plein temps sur site : ce n'est pas notre format. Nos missions se font à distance, avec des déplacements possibles à Bordeaux, Montpellier, Lyon et Paris.",
+          "label_en": "You want a dedicated team on site full time: that is not our format. Our engagements run remotely, with possible visits to Bordeaux, Montpellier, Lyon and Paris."
+        },
+        {
+          "label_fr": "Votre besoin tient dans l'assistant déjà inclus dans une suite que vous payez : commencez par l'exploiter avant de faire appel à qui que ce soit.",
+          "label_en": "Your need fits in the assistant already included in a suite you pay for: start by using it before calling anyone."
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Si vous nous choisissez : comment Waimia travaille",
+      "h2_en": "If you choose us: how Waimia works",
+      "intro_fr": "Cinq étapes. Chacune laisse un livrable que vous gardez, même si vous vous arrêtez après.",
+      "intro_en": "Five steps. Each leaves a deliverable you keep, even if you stop afterwards.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit de 45 minutes",
+          "title_en": "Free 45-minute audit",
+          "body_fr": "On vérifie si votre besoin est une décision, un système ou une compétence, et si nous sommes le bon prestataire. Si non, on vous le dit.",
+          "body_en": "We check whether your need is a decision, a system or a skill, and whether we are the right supplier. If not, we tell you.",
+          "meta_fr": "Gratuit",
+          "meta_en": "Free"
+        },
+        {
+          "title_fr": "Sprint de cadrage à prix fixe",
+          "title_en": "Fixed-price scoping sprint",
+          "body_fr": "Cartographie des usages, budget licences, choix de l'offre, un premier usage branché et mesuré.",
+          "body_en": "Mapping of uses, licence budget, choice of plan, a first use connected and measured.",
+          "meta_fr": "999 € HT · 10 h",
+          "meta_en": "€999 excl. VAT · 10 h"
+        },
+        {
+          "title_fr": "Devis en heures, validé par vous",
+          "title_en": "Quote in hours, approved by you",
+          "body_fr": "Pour la suite, on estime ensemble le temps nécessaire, vous le validez, puis on exécute en régie. Le devis dit ce que chaque lot livre.",
+          "body_en": "For what follows, we estimate the time together, you approve it, then we execute on time and materials. The quote says what each batch delivers.",
+          "meta_fr": "{{prix.horaire}} € HT de l'heure",
+          "meta_en": "€{{prix.horaire}} excl. VAT per hour"
+        },
+        {
+          "title_fr": "Mise en place, accès à votre nom",
+          "title_en": "Setup, access in your name",
+          "body_fr": "Organisation ouverte à votre nom, comptes personnels fermés, connecteurs en lecture seule d'abord, règles écrites.",
+          "body_en": "Organisation opened in your name, personal accounts closed, connectors read-only first, rules written down.",
+          "meta_fr": "Sur votre organisation",
+          "meta_en": "On your organisation"
+        },
+        {
+          "title_fr": "Transfert au référent",
+          "title_en": "Handover to your lead",
+          "body_fr": "Un référent est formé, tout est documenté et remis. À la fin, vous pouvez continuer sans nous, avec nous ou avec un autre prestataire.",
+          "body_en": "A lead is trained, everything is documented and handed over. At the end you can continue without us, with us or with another supplier.",
+          "meta_fr": "Sans abonnement obligatoire",
+          "meta_en": "No mandatory subscription"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude pour les PME : le guide complet",
+          "title_en": "Claude for SMBs: the complete guide",
+          "lead_fr": "Le panorama d'ensemble : offres, fonctions, données, déploiement.",
+          "lead_en": "The overall picture: plans, features, data, rollout.",
+          "href": "/ressources/guides/claude-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Coût d'une intégration Claude en PME",
+          "title_en": "What a Claude integration costs an SMB",
+          "lead_fr": "Licences en dollars, sprint à 999 € HT, coûts cachés, trois scénarios illustratifs.",
+          "lead_en": "Licences in dollars, the €999 sprint, hidden costs, three illustrative scenarios.",
+          "href": "/ressources/guides/cout-integration-claude-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Les fonctionnalités de Claude utiles à une PME",
+          "title_en": "The Claude features that matter to an SMB",
+          "lead_fr": "Ce que Claude sait faire avant de payer qui que ce soit pour l'installer.",
+          "lead_en": "What Claude can do before you pay anyone to install it.",
+          "href": "/ressources/guides/claude-fonctionnalites-pme"
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "ink",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+      "h2_en": "The Claude changes that matter to an SMB, once a month",
+      "body_fr": "Offres, prix, données, nouveautés d'administration : ce qui a changé, et ce qu'il faut en faire. Pas de communiqué de presse recopié.",
+      "body_en": "Plans, prices, data, admin changes: what moved, and what to do about it. No press releases copied out.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Choisir une agence IA : vos questions",
+      "h2_en": "Choosing an AI agency: your questions",
+      "items": [
+        {
+          "q_fr": "Combien coûte une agence IA pour une PME ?",
+          "a_fr": "Cela dépend du périmètre : un audit d'une demi-journée et un agent branché sur votre CRM n'ont pas le même prix, donc une moyenne ne dit rien. Comparez la structure plutôt que le total : nombre d'heures, livrables, plafond, coût de la suite. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage à 999 € HT pour 10 heures, puis estimation en heures validée par vous et facturée {{prix.horaire}} € HT de l'heure, sans dégressivité. Les licences Claude sont une dépense séparée, détaillée dans le guide du coût d'une intégration Claude.",
+          "q_en": "How much does an AI agency cost an SMB?",
+          "a_en": "It depends on scope: a half-day audit and an agent wired to your CRM do not cost the same, so an average tells you nothing. Compare the structure rather than the total: number of hours, deliverables, cap, cost of what follows. At Waimia: a free 45-minute audit, a scoping sprint at €999 excl. VAT for 10 hours, then an estimate in hours that you approve, billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount. Claude licences are a separate cost, detailed in the guide to what a Claude integration costs."
+        },
+        {
+          "q_fr": "Agence IA, freelance ou éditeur : lequel choisir ?",
+          "a_fr": "Le freelance convient à un besoin borné et à un budget serré, à condition d'exiger documentation et accès à votre nom. L'agence convient à un besoin qui traverse plusieurs outils et services. L'éditeur ou son partenaire convient à un achat de licences en volume avec support contractuel, mais conseille rarement contre son propre outil. Dans beaucoup de PME, la bonne réponse est hybride : sous-traiter le cadrage et la première mise en production, former un référent interne.",
+          "q_en": "AI agency, freelancer or software vendor: which one to choose?",
+          "a_en": "A freelancer suits a bounded need and a tight budget, provided you demand documentation and access in your name. An agency suits a need that spans several tools and teams. A vendor or its partner suits a volume licence purchase with contractual support, but rarely advises against its own tool. In many SMBs the right answer is hybrid: outsource scoping and the first production release, train an in-house lead."
+        },
+        {
+          "q_fr": "Faut-il sous-traiter ou internaliser l'IA en PME ?",
+          "a_fr": "Tâche par tâche, pas en bloc. Internalisez ce qui change tous les jours et touche vos données : les consignes, la relecture, le choix de ce qu'on confie à Claude. Sous-traitez ce qui se construit une fois et demande un savoir-faire rare : le choix de l'offre, la console d'administration, les connecteurs, un plugin privé. Ne sous-traitez jamais la propriété des comptes et des règles.",
+          "q_en": "Should an SMB outsource or internalise AI?",
+          "a_en": "Task by task, not as a whole. Keep in-house what changes every day and touches your data: the instructions, the review, the choice of what to entrust to Claude. Outsource what is built once and needs rare know-how: choosing the plan, the admin console, connectors, a private plugin. Never outsource ownership of accounts and rules."
+        },
+        {
+          "q_fr": "À qui appartiennent les skills, plugins et automatisations livrés ?",
+          "a_fr": "Cela dépend du contrat, donc écrivez-le. Les CGV de Waimia (article 9) prévoient que le client acquiert, après paiement complet, des droits d'utilisation sur les créations spécifiques, tandis que Waimia conserve ses méthodes, outils et composants réutilisables. Si vous voulez aussi le droit de modifier et de confier la reprise à un tiers, demandez-le explicitement au devis, et faites relire par un juriste.",
+          "q_en": "Who owns the skills, plugins and automations delivered?",
+          "a_en": "It depends on the contract, so write it down. Waimia's terms (article 9) provide that after full payment the client acquires rights of use on specific creations, while Waimia keeps its methods, tools and reusable components. If you also want the right to modify and to have a third party take over, ask for it explicitly in the quote, and have a lawyer read it."
+        },
+        {
+          "q_fr": "Peut-on faire confiance à une agence « partenaire » ou « certifiée » ?",
+          "a_fr": "C'est un signal, pas une preuve. Anthropic a lancé en mars 2026 un Claude Partner Network dont l'adhésion est gratuite, avec une certification « Claude Certified Architect, Foundations » et un annuaire de partenaires de services. Un logo ne remplace ni un livrable montrable ni un client à appeler. Demandez la certification de la personne qui fera le travail, pas seulement celle de l'entreprise. Pour la formation, Waimia passe par Akigora, organisme certifié Qualiopi.",
+          "q_en": "Can you trust an agency that is a \"partner\" or \"certified\"?",
+          "a_en": "It is a signal, not proof. In March 2026 Anthropic launched a Claude Partner Network with free membership, a \"Claude Certified Architect, Foundations\" certification and a directory of service partners. A logo replaces neither a deliverable you can be shown nor a client you can call. Ask for the certification of the person who will do the work, not only the company's. For training, Waimia goes through Akigora, a Qualiopi-certified organisation."
+        },
+        {
+          "q_fr": "Le prestataire peut-il travailler sur mon compte Claude ?",
+          "a_fr": "Il doit même le faire : l'organisation Claude, les connecteurs et les skills doivent vivre chez vous, avec un administrateur délégué que vous pouvez révoquer. À l'inverse, un compte ou un espace ouvert au nom du prestataire est un signal d'alerte. Gardez aussi les comptes personnels Free, Pro et Max hors du travail : les conditions grand public s'y appliquent, avec un réglage d'entraînement qui, activé, permet une conservation de données dé-identifiées jusqu'à cinq ans.",
+          "q_en": "Can the supplier work on my Claude account?",
+          "a_en": "It should: the Claude organisation, connectors and skills must live with you, with a delegated admin you can revoke. Conversely, an account or workspace opened in the supplier's name is a warning sign. Also keep personal Free, Pro and Max accounts out of work: consumer terms apply there, with a training setting that, when enabled, allows de-identified data to be kept for up to five years."
+        },
+        {
+          "q_fr": "Dans quels cas Waimia n'est-elle pas le bon choix ?",
+          "a_fr": "Si vous voulez tester Claude avec deux ou trois personnes, si votre équipe technique maîtrise déjà Claude Code, si vous avez une intégration lourde avec un système d'information ancien, si votre appel d'offres exige des références ou certifications que nous n'affichons pas, si vous voulez une équipe dédiée à plein temps sur site. Waimia est un studio d'une personne : la capacité est notre limite.",
+          "q_en": "When is Waimia not the right choice?",
+          "a_en": "If you want to try Claude with two or three people, if your technical team already masters Claude Code, if you have a heavy integration with a legacy information system, if your tender requires references or certifications we do not display, or if you want a dedicated team on site full time. Waimia is a one-person studio: capacity is our limit."
+        },
+        {
+          "q_fr": "Combien de temps dure une mission, et que se passe-t-il à la fin ?",
+          "a_fr": "Nous ne donnons pas de délai générique. Le sprint représente 10 heures de travail ; la durée calendaire dépend de votre disponibilité. Pour une équipe pilote, notre page intégration indique habituellement 2 à 8 semaines (ouverture des comptes, connexion des outils, consignes partagées, charte, formation). À la fin, un référent est formé, les accès et la documentation vous sont remis : vous continuez seul, avec nous ou avec un autre prestataire.",
+          "q_en": "How long does an engagement last, and what happens at the end?",
+          "a_en": "We give no generic deadline. The sprint is 10 hours of work; calendar time depends on your availability. For a pilot team, our integration page states usually 2 to 8 weeks (opening accounts, connecting tools, shared instructions, policy, training). At the end a lead is trained and access and documentation are handed to you: you continue alone, with us or with another supplier."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Choisir son prestataire",
+      "kicker_en": "§ Choosing a supplier",
+      "h2_fr": "Un prestataire qui vous dit où il n'est pas utile. Ça se vérifie en 45 minutes.",
+      "h2_en": "A supplier who tells you where they are not useful. You can check in 45 minutes.",
+      "subtitle_fr": "L'audit est gratuit. Vous repartez avec la phrase qui dit ce que vous achetez, et un avis franc sur la voie qui vous convient, même si ce n'est pas la nôtre.",
+      "subtitle_en": "The audit is free. You leave with the sentence that says what you are buying, and a frank opinion on the route that suits you, even if it is not ours.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'offre d'intégration Claude",
+          "label_en": "See the Claude integration offer",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

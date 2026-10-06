@@ -4,15 +4,16 @@
 // Parcours complet sur la page, sans e-mail :
 //   10 questions (5 dimensions × 2) → score sur 30 → niveau 1 à 5 → restitution à l'écran
 //   (niveau, lecture, barres par dimension, point faible, prochaine étape) → CTA audit.
-// L'e-mail est facultatif (organism LeadCapture, révélé après le calcul) et ne sert qu'à
-// recevoir le détail. Les réponses sont gardées dans le navigateur (localStorage), jamais
-// envoyées tant que la personne ne demande pas la copie par e-mail.
+// Le résultat s'affiche sans e-mail. Juste dessous, la section catalogue `lead-capture-band`
+// (mode open, révélée après le calcul) invite à recevoir le diagnostic complet par e-mail.
+// Les réponses sont gardées dans le navigateur (localStorage), jamais envoyées tant que la
+// personne ne demande pas l'e-mail.
 //
 // Accessibilité : chaque question est un <fieldset> avec <legend> ; les réponses sont des
 // radios natifs (clavier : flèches) ; les questions sans réponse sont signalées en texte ;
 // le résultat reçoit le focus et son titre est annoncé.
 import './form.css';
-import LeadCapture from './LeadCapture.astro';
+import LeadCaptureBand from '../../../../sections/lead-capture-band/Component.astro';
 import { dimensions, levels, MAX_SCORE, QUESTION_COUNT } from '../../../../data/diagnostic-maturite-ia';
 import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF } from '../../../../data/conversion';
 
@@ -120,19 +121,17 @@ let n = 0;
         </div>
       </div>
 
-      <LeadCapture
-        slug="diagnostic-maturite-ia"
-        title="Recevoir le détail par e-mail"
-        description="Votre niveau, votre score par dimension, vos dix réponses et les deux recommandations, dans un e-mail à garder ou à transférer."
-        buttonLabel="Recevoir le détail"
-      />
-
       <p class="md-redo"><button type="button" class="md-redo-btn" data-md-redo>Modifier mes réponses</button></p>
     </div>
   </div>
 
   <script type="application/json" data-md-data set:html={JSON.stringify(clientData)} />
 </section>
+
+<LeadCaptureBand
+  lang="fr"
+  data={{ type: 'lead-capture-band', lead_magnet: 'diagnostic-maturite-ia', background: 'ink', anchor_id: 'recevoir-le-diagnostic', initially_hidden: true }}
+/>
 
 <script is:inline>
 (function () {
@@ -251,6 +250,8 @@ let n = 0;
       last = { a: a, r: compute(a) };
       render(last.r);
       result.hidden = false;
+      // Capture e-mail (lead-capture-band) : révélée dès qu'un résultat existe.
+      document.querySelectorAll('[data-lcb][data-slug="diagnostic-maturite-ia"]').forEach(function (el) { el.hidden = false; });
       result.focus({ preventScroll: true });
       result.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     });
@@ -261,8 +262,8 @@ let n = 0;
       if (first) first.focus({ preventScroll: true });
     });
 
-    // Copie par e-mail : on fournit le détail au composant LeadCapture.
-    root.addEventListener('cv:collect', function (e) {
+    // Copie par e-mail : on fournit le détail au formulaire (la bande vit hors de `root`).
+    document.addEventListener('cv:collect', function (e) {
       if (!last || e.detail.slug !== 'diagnostic-maturite-ia') return;
       var r = last.r;
       e.detail.headline = 'Niveau ' + r.level.level + ' (' + r.level.name + ') · ' + r.total + '/' + data.max;

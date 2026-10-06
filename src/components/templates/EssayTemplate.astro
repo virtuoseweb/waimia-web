@@ -19,6 +19,8 @@ import RelatedCards from '../ui/molecules/RelatedCards.astro';
 import AuthorCard from '../ui/molecules/AuthorCard.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
 import FaqAccordion from '../sections/FaqAccordion.astro';
+import CtaFinal from '../sections/CtaFinal.astro';
+import LeadCaptureBand from '../../sections/lead-capture-band/Component.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import MastheadBar from '../sections/MastheadBar.astro';
@@ -94,6 +96,10 @@ interface Props {
   /** FAQ (optionnel) : rendue via le composant catalogue FaqAccordion, qui émet
    *  aussi l'unique JSON-LD FAQPage (source canonique · GEO/AIO). Absent = 0 rendu. */
   faqItems?: Array<{ q: string; a: string }>;
+  /** Ressource liée (bloc `lead` du template essay, résolu par `resolveEssayLead`) :
+   *  `lead-capture-band` en carte à la fin de la prose (PDF verrouillé) ou `cta-final`
+   *  après le corps (outil interactif). Absent = 0 rendu. */
+  leadSection?: SectionByType<'lead-capture-band'> | SectionByType<'cta-final'>;
 }
 const {
   title,
@@ -122,6 +128,7 @@ const {
   publishedAt,
   illustration,
   faqItems,
+  leadSection,
   noindex = false,
 } = Astro.props as Props;
 
@@ -221,6 +228,7 @@ const articleLd = buildArticle({
         <div class="essay-prose reveal">
           <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} readingTime={readingTime} />
           <Fragment set:html={localizedBodyHtml} />
+          {leadSection?.type === 'lead-capture-band' && <LeadCaptureBand data={leadSection} lang={lang} />}
           <div class="essay-share-end">
             <ShareButtons url={canonicalUrl} title={title} lang={lang} />
           </div>
@@ -247,6 +255,8 @@ const articleLd = buildArticle({
         )}
       </div>
     </div>
+
+    {leadSection?.type === 'cta-final' && <CtaFinal data={leadSection} lang={lang} />}
 
     {cluster && (
       <div class="wrap-wide essay-related-cluster">

@@ -132,6 +132,7 @@ export const SECTION_FAMILY: Record<SectionType, string> = {
   'journey-steps': 'process-steps',
   'key-metric-grid': 'stat-grid',
   'keyword-strip': 'band',
+  'lead-capture-band': 'form-panel',
   'learning-path-list': 'list',
   'list-index-section': 'list',
   'logo-marquee': 'marquee',

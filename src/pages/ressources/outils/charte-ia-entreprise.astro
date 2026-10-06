@@ -5,7 +5,7 @@ export const prerender = true;
 // pour PME » (requête visée : charte ia entreprise). La charte est lisible en entier sur
 // la page, personnalisable, utilisable en ligne et exportable en Word sans e-mail. Le PDF
 // est VERROUILLÉ : e-mail obligatoire, livré en pièce jointe (organism LeadCapture `required`
-// → /api/lead-magnet), jamais servi par le site.
+// → /api/lead-magnet), jamais servi par le site. Capture : section catalogue lead-capture-band.
 // Route explicite : l'entrée `outils/charte-ia-entreprise` (JSON) ne sert qu'au listing
 // du hub ; [...slug].astro l'exclut.
 
@@ -14,7 +14,7 @@ import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
 import CharterDocument from '../../../components/ui/organisms/conversion/CharterDocument.astro';
-import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
+import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
 import { buildArticle, buildWebApplication } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
@@ -59,15 +59,7 @@ const cta = auditCtaFinal(
     ]}
   />
   <CharterDocument />
-  <LeadCapture
-    band
-    required
-    anchorId="recevoir-le-pdf"
-    slug="charte-ia-entreprise"
-    title="Recevoir le PDF par e-mail"
-    description="Le modèle de charte au format PDF, avec ses notes d'adaptation, arrive en pièce jointe. Il n'est pas disponible en téléchargement direct."
-    buttonLabel="Recevoir le PDF"
-  />
+  <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: 'charte-ia-entreprise', background: 'ink', anchor_id: 'recevoir-le-pdf' }} />
   <ResourceLinks exclude={['charte']} />
   <CtaFinal data={cta} lang="fr" />
 </Base>

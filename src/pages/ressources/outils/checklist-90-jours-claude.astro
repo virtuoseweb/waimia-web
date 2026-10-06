@@ -14,7 +14,7 @@ import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
 import ChecklistDocument from '../../../components/ui/organisms/conversion/ChecklistDocument.astro';
-import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
+import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
 import { buildArticle, buildWebApplication } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
@@ -62,15 +62,7 @@ const cta = auditCtaFinal(
     <a slot="actions" class="btn btn-ghost" href="/ressources/guides/claude-pme">Lire le guide complet</a>
   </ToolIntro>
   <ChecklistDocument />
-  <LeadCapture
-    band
-    required
-    anchorId="recevoir-le-pdf"
-    slug="checklist-90-jours-claude"
-    title="Recevoir le PDF par e-mail"
-    description="Le PDF de la checklist vierge arrive en pièce jointe, à imprimer pour la réunion de lancement. Il n'est pas disponible en téléchargement direct."
-    buttonLabel="Recevoir le PDF"
-  />
+  <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: 'checklist-90-jours-claude', background: 'ink', anchor_id: 'recevoir-le-pdf' }} />
   <ResourceLinks exclude={['checklist']} />
   <CtaFinal data={cta} lang="fr" />
 </Base>

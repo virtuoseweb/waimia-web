@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · claude-microsoft-copilot-pme · deux portes dans un mur, une seule ouverte sur le ciel -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="508" width="1456" height="116" fill="{{ground}}"/>
+  <rect x="438" y="150" width="580" height="358" fill="{{shape}}"/>
+  <rect x="438" y="138" width="580" height="16" fill="{{subject}}"/>
+  <rect x="520" y="250" width="130" height="258" fill="{{subject}}"/>
+  <circle cx="630" cy="384" r="6" fill="{{light}}"/>
+  <rect x="806" y="250" width="130" height="258" fill="{{detail}}"/>
+  <path d="M806 250 L760 236 L760 520 L806 508 Z" fill="{{subject}}"/>
+  <rect x="826" y="430" width="90" height="14" fill="{{light}}"/>
+  <path d="M760 520 L806 508 L936 508 L1000 560 L760 560 Z" fill="{{soft}}" opacity="0.55"/>
+  <use href="#man" transform="translate(728 560) scale(1.25)"/>
+</svg>

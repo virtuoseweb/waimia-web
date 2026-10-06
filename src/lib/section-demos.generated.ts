@@ -11,6 +11,7 @@ import { demo as featureComparisonGridDemo } from '../sections/feature-compariso
 import { demo as featureAccordionDemo } from '../sections/feature-accordion/demo';
 import { demo as faqCtaAsideDemo } from '../sections/faq-cta-aside/demo';
 import { demo as ctaFormInlineDemo } from '../sections/cta-form-inline/demo';
+import { demo as leadCaptureBandDemo } from '../sections/lead-capture-band/demo';
 import { demo as contactFormDemo } from '../sections/contact-form/demo';
 import { demo as bookingEmbedDemo } from '../sections/booking-embed/demo';
 import { demo as newsletterSignupSectionDemo } from '../sections/newsletter-signup-section/demo';
@@ -236,6 +237,7 @@ export const SECTION_DEMOS: Record<SectionType, DemoData> = {
   'feature-accordion': featureAccordionDemo,
   'faq-cta-aside': faqCtaAsideDemo,
   'cta-form-inline': ctaFormInlineDemo,
+  'lead-capture-band': leadCaptureBandDemo,
   'contact-form': contactFormDemo,
   'booking-embed': bookingEmbedDemo,
   'newsletter-signup-section': newsletterSignupSectionDemo,

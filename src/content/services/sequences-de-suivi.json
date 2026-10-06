@@ -6,7 +6,7 @@
   "description_en": "Automated quotes and client follow-ups for SMBs: quote pre-filled from the CRM, follow-ups triggered on schedule, no quote left unanswered. From €999 excl. VAT.",
   "slug": "sequences-de-suivi",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "sequences-de-suivi",
@@ -17,14 +17,14 @@
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Séquences de suivi, nurturing et relance automatisée des leads",
+    "serviceType": "Devis automatisé, relances de devis et de factures impayées",
     "priceRange": "dès 999 €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation des devis et des relances ?",
-      "a": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Comment relancer un devis sans réponse ?",
@@ -40,17 +40,17 @@
     },
     {
       "q": "Relances automatiques et RGPD : est-ce autorisé ?",
-      "a": "Relancer un client à propos d'un devis qu'il a demandé relève de la relation commerciale en cours. Il faut conserver un historique, permettre au client de demander l'arrêt des messages et ne pas réutiliser ses coordonnées pour un autre objet sans base légale."
+      "a": "Relancer un client à propos d'un devis qu'il a demandé relève de la relation commerciale en cours. Il faut conserver un historique, permettre au client de demander l'arrêt des messages et ne pas réutiliser ses coordonnées pour un autre objet sans base légale. Pour lui proposer ensuite autre chose, ce sont les règles de prospection de la CNIL qui s'appliquent."
     },
     {
       "q": "Peut-on aussi relancer les factures impayées ?",
-      "a": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier."
+      "a": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier. Entre professionnels, chaque facture payée en retard ouvre droit à une indemnité forfaitaire de 40 € pour frais de recouvrement (article D441-5 du Code de commerce) : la dernière relance peut la rappeler."
     }
   ],
   "faq_en": [
     {
       "q": "How much does it cost to automate quotes and follow-ups?",
-      "a": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
+      "a": "The scoping sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "How do you follow up on an unanswered quote?",
@@ -66,11 +66,11 @@
     },
     {
       "q": "Automatic follow-ups and GDPR: is it allowed?",
-      "a": "Following up with a client about a quote they requested is part of the ongoing business relationship. Keep a history, let the client ask for messages to stop, and do not reuse their details for another purpose without a legal basis."
+      "a": "Following up with a client about a quote they requested is part of the ongoing business relationship. Keep a history, let the client ask for messages to stop, and do not reuse their details for another purpose without a legal basis. To offer them something else later, the CNIL prospecting rules apply."
     },
     {
       "q": "Can unpaid invoices be chased too?",
-      "a": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step."
+      "a": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step. Between businesses in France, each invoice paid late entitles you to a flat €40 recovery fee (Commercial Code, article D441-5): the last reminder can mention it."
     }
   ],
   "sections": [
@@ -128,8 +128,8 @@
       "metrics": [
         {
           "value": "999 € HT",
-          "label_fr": "sprint découverte de 10 h, puis {{prix.horaire}} € HT de l'heure",
-          "label_en": "10-hour discovery sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
@@ -208,8 +208,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Deux moitiés : produire le devis, puis le suivre</h2>\n<p>Première moitié, la production. Les informations existent déjà : le client les a données dans un formulaire ou le commercial les a saisies dans le CRM. Le système les reprend, remplit le modèle de devis, calcule les lignes selon votre grille, et soumet le document au commercial. Il relit, ajuste et envoie. Pour les devis complexes (métré, visite technique), l'automatisation prépare le dossier ; le chiffrage reste humain.</p>\n<p>Seconde moitié, le suivi. Une fois le devis envoyé, une séquence démarre : un rappel après quelques jours, un second avec une information utile, un dernier avant l'échéance de validité. Chaque message est rédigé dans votre ton et s'arrête dès que le client répond ou signe.</p>\n<h2>Avec quels outils</h2>\n<p>Votre CRM pour l'état de chaque devis, votre outil de devis ou de facturation s'il a une API, n8n ou Make pour l'enchaînement, et un modèle d'IA pour adapter le texte des relances au contexte. La base est un <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> : sans statut fiable sur chaque devis, aucune relance ne peut se déclencher au bon moment. L'ensemble forme le <a href=\"/services/systeme-commercial\">système commercial</a>, alimenté en amont par la <a href=\"/services/prospection-automatisee\">prospection automatisée</a>.</p>\n<h2>Combien de temps</h2>\n<p>Une première séquence de relance est habituellement en service en 2 à 4 semaines. La génération du devis demande plus de travail quand votre grille tarifaire comporte beaucoup d'exceptions : on commence par les devis les plus standards.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La relance envoyée à un client qui a déjà répondu par téléphone : le commercial doit pouvoir arrêter la séquence d'un clic, et le CRM doit être tenu à jour. Le ton trop insistant : trois messages espacés, pas dix. Le devis faux parti sans relecture : aucun devis n'est envoyé sans validation humaine.</p>\n<p>La démarche est détaillée dans <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automatiser les relances B2B</a>. Pour regarder votre cas, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
-      "html_en": "<h2>Two halves: produce the quote, then follow it</h2>\n<p>First half, production. The information already exists: the client gave it in a form or the salesperson entered it in the CRM. The system takes it, fills in the quote template, computes the lines from your price grid, and submits the document to the salesperson. They review, adjust and send. For complex quotes (measurements, site visit), automation prepares the file; pricing stays human.</p>\n<p>Second half, follow-up. Once the quote is sent, a sequence starts: a reminder after a few days, a second with useful information, a last one before the validity date. Each message is written in your tone and stops as soon as the client replies or signs.</p>\n<h2>With which tools</h2>\n<p>Your CRM for each quote's status, your quoting or invoicing tool if it has an API, n8n or Make for the chain, and an AI model to adapt follow-up text to context. The foundation is an <a href=\"/services/crm-scoring-routing\">automated CRM</a>: without a reliable status on each quote, no follow-up can fire at the right time. Together they form the <a href=\"/services/systeme-commercial\">sales system</a>, fed upstream by <a href=\"/services/prospection-automatisee\">automated prospecting</a>.</p>\n<h2>How long</h2>\n<p>A first follow-up sequence is usually live within 2 to 4 weeks. Quote generation takes more work when your price grid has many exceptions: we start with the most standard quotes.</p>\n<h2>What can go wrong</h2>\n<p>A reminder sent to a client who already replied by phone: the salesperson must be able to stop the sequence in one click, and the CRM must be kept up to date. Too pushy a tone: three spaced messages, not ten. A wrong quote sent unreviewed: no quote goes out without human approval.</p>\n<p>The approach is detailed in <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automating B2B follow-ups</a>. To look at your case, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+      "html_fr": "<h2>Deux moitiés : produire le devis, puis le suivre</h2>\n<p>Première moitié, la production. Les informations existent déjà : le client les a données dans un formulaire ou le commercial les a saisies dans le CRM. Le système les reprend, remplit le modèle de devis, calcule les lignes selon votre grille, et soumet le document au commercial. Il relit, ajuste et envoie. Pour les devis complexes (métré, visite technique), l'automatisation prépare le dossier ; le chiffrage reste humain.</p>\n<p>Seconde moitié, le suivi. Une fois le devis envoyé, une séquence démarre : un rappel après quelques jours, un second avec une information utile, un dernier avant l'échéance de validité. Chaque message est rédigé dans votre ton et s'arrête dès que le client répond ou signe.</p>\n<h2>Avec quels outils</h2>\n<p>Votre CRM pour l'état de chaque devis, votre outil de devis ou de facturation s'il a une API, n8n ou Make pour l'enchaînement, et un modèle d'IA pour adapter le texte des relances au contexte. La base est un <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> : sans statut fiable sur chaque devis, aucune relance ne peut se déclencher au bon moment. L'ensemble forme le <a href=\"/services/systeme-commercial\">système commercial</a>, alimenté en amont par la <a href=\"/services/prospection-automatisee\">prospection automatisée</a>.</p>\n<h2>Combien de temps pour mettre en place des relances automatiques</h2>\n<p>Une première séquence de relance est habituellement en service en 2 à 4 semaines. La génération du devis demande plus de travail quand votre grille tarifaire comporte beaucoup d'exceptions : on commence par les devis les plus standards.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La relance qui part chez un client qui a déjà dit oui au téléphone : le commercial doit pouvoir arrêter la séquence d'un clic, et le CRM doit être tenu à jour. Le ton trop insistant : trois messages espacés, pas dix. Le devis faux envoyé sans relecture : chez nous, aucun devis ne part sans validation humaine.</p>\n<p>La démarche est détaillée dans <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automatiser les relances B2B</a>, le <a href=\"/ressources/guides/devis-automatise\">guide du devis automatisé</a> et le tutoriel <a href=\"/blog/automatiser-relance-devis-n8n\">relance de devis avec n8n</a>. Pour regarder votre cas, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Two halves: produce the quote, then follow it</h2>\n<p>First half, production. The information already exists: the client gave it in a form or the salesperson entered it in the CRM. The system takes it, fills in the quote template, computes the lines from your price grid, and submits the document to the salesperson. They review, adjust and send. For complex quotes (measurements, site visit), automation prepares the file; pricing stays human.</p>\n<p>Second half, follow-up. Once the quote is sent, a sequence starts: a reminder after a few days, a second with useful information, a last one before the validity date. Each message is written in your tone and stops as soon as the client replies or signs.</p>\n<h2>With which tools</h2>\n<p>Your CRM for each quote's status, your quoting or invoicing tool if it has an API, n8n or Make for the chain, and an AI model to adapt follow-up text to context. The foundation is an <a href=\"/services/crm-scoring-routing\">automated CRM</a>: without a reliable status on each quote, no follow-up can fire at the right time. Together they form the <a href=\"/services/systeme-commercial\">sales system</a>, fed upstream by <a href=\"/services/prospection-automatisee\">automated prospecting</a>.</p>\n<h2>How long it takes to set up automatic follow-ups</h2>\n<p>A first follow-up sequence is usually live within 2 to 4 weeks. Quote generation takes more work when your price grid has many exceptions: we start with the most standard quotes.</p>\n<h2>What can go wrong</h2>\n<p>A reminder sent to a client who already replied by phone: the salesperson must be able to stop the sequence in one click, and the CRM must be kept up to date. Too pushy a tone: three spaced messages, not ten. A wrong quote sent unreviewed: no quote goes out without human approval.</p>\n<p>The approach is detailed in <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automating B2B follow-ups</a>, the <a href=\"/ressources/guides/devis-automatise\">automated quote guide</a> and the <a href=\"/blog/automatiser-relance-devis-n8n\">n8n quote follow-up tutorial</a>. To look at your case, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
@@ -346,25 +346,25 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'un dispositif de devis et de relances",
       "h2_en": "Price of a quote and follow-up setup",
-      "lede_fr": "On démarre par un sprint découverte à prix fixe : segmentation de la base et première séquence de réveil en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez les séquences, les segments et la base.",
-      "lede_en": "We start with a fixed-price discovery sprint: base segmentation and a first wake-up sequence in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the sequences, the segments and the base.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : l'inventaire de vos devis en attente et une première séquence de relance en service. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez les modèles, les séquences et les règles.",
+      "lede_en": "We start with a fixed-price scoping sprint: an inventory of your pending quotes and a first follow-up sequence live. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the templates, the sequences and the rules.",
       "tiers": [
         {
-          "name_fr": "Sprint découverte",
-          "name_en": "Discovery sprint",
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
           "price": "999 €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
-            "Segmentation de la base existante",
-            "Une première séquence de réactivation email",
-            "Déclencheurs comportementaux de base posés",
+            "Inventaire des devis en attente et de leurs statuts",
+            "Une première séquence de relance sur ces devis",
+            "Déclencheurs posés dans le CRM (envoi, J+5, fin de validité)",
             "Un premier livrable en main, pas un audit dormant"
           ],
           "features_en": [
-            "Segmentation of the existing base",
-            "A first email reactivation sequence",
-            "Base behavioural triggers in place",
+            "Inventory of pending quotes and their statuses",
+            "A first follow-up sequence on those quotes",
+            "Triggers set in the CRM (sent, day 5, validity date)",
             "A first deliverable in hand, not a dormant audit"
           ],
           "cta": {
@@ -384,14 +384,14 @@
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
             "Exécuté en sprints, facturés en régie",
-            "Nurturing multicanal piloté et itéré",
-            "Vous gardez les séquences, les segments et la base"
+            "Devis générés depuis le CRM, séquences supplémentaires",
+            "Vous gardez les modèles, les séquences et les règles"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
             "Run in sprints, time and materials frame",
-            "Multichannel nurturing steered and iterated",
-            "You keep the sequences, the segments and the base"
+            "Quotes generated from the CRM, more sequences",
+            "You keep the templates, the sequences and the rules"
           ],
           "cta": {
             "label_fr": "Cadrer la suite →",
@@ -401,8 +401,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint découverte est à prix fixe, 999 € HT pour 10 heures : segmentation de la base et première séquence de réveil, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demande le nurturing multicanal dans la durée, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, les séquences, les segments et la base sont à vous.",
-      "footnote_en": "The discovery sprint is fixed-price, 999 € ex VAT for 10 hours: base segmentation and a first wake-up sequence, with a deliverable in hand by the end. What follows is quoted: we estimate together the time multichannel nurturing requires over time, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment, no subscription: at the end, the sequences, the segments and the base are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : inventaire des devis en attente et première séquence de relance, en service dès la fin. La suite (génération des devis, relances de factures, autres séquences) se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans engagement de durée ni abonnement : à la fin, les modèles, les séquences et les règles sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: inventory of pending quotes and a first follow-up sequence, live by the end. What follows (quote generation, invoice reminders, more sequences) is quoted: we estimate together the time needed, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No duration commitment, no subscription: at the end, the templates, the sequences and the rules are yours."
     },
     {
       "type": "eeat-panel",
@@ -419,9 +419,9 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation des devis et des relances ?",
-          "a_fr": "Le sprint découverte est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does it cost to automate quotes and follow-ups?",
-          "a_en": "The discovery sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Comment relancer un devis sans réponse ?",
@@ -443,15 +443,15 @@
         },
         {
           "q_fr": "Relances automatiques et RGPD : est-ce autorisé ?",
-          "a_fr": "Relancer un client à propos d'un devis qu'il a demandé relève de la relation commerciale en cours. Il faut conserver un historique, permettre au client de demander l'arrêt des messages et ne pas réutiliser ses coordonnées pour un autre objet sans base légale.",
+          "a_fr": "Relancer un client à propos d'un devis qu'il a demandé relève de la relation commerciale en cours. Il faut conserver un historique, permettre au client de demander l'arrêt des messages et ne pas réutiliser ses coordonnées pour un autre objet sans base légale. Pour lui proposer ensuite autre chose, ce sont les règles de prospection de la CNIL qui s'appliquent.",
           "q_en": "Automatic follow-ups and GDPR: is it allowed?",
-          "a_en": "Following up with a client about a quote they requested is part of the ongoing business relationship. Keep a history, let the client ask for messages to stop, and do not reuse their details for another purpose without a legal basis."
+          "a_en": "Following up with a client about a quote they requested is part of the ongoing business relationship. Keep a history, let the client ask for messages to stop, and do not reuse their details for another purpose without a legal basis. To offer them something else later, the CNIL prospecting rules apply."
         },
         {
           "q_fr": "Peut-on aussi relancer les factures impayées ?",
-          "a_fr": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier.",
+          "a_fr": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier. Entre professionnels, chaque facture payée en retard ouvre droit à une indemnité forfaitaire de 40 € pour frais de recouvrement (article D441-5 du Code de commerce) : la dernière relance peut la rappeler.",
           "q_en": "Can unpaid invoices be chased too?",
-          "a_en": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step."
+          "a_en": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step. Between businesses in France, each invoice paid late entitles you to a flat €40 recovery fee (Commercial Code, article D441-5): the last reminder can mention it."
         }
       ]
     },
@@ -482,6 +482,20 @@
           "variant": "ghost"
         }
       ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Service-public.gouv.fr (Entreprendre), Délais de paiement entre professionnels et pénalités de retard (vérifiée le 7 août 2026, lue le 6 octobre 2026)",
+      "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F23211",
+      "type": "state",
+      "publishedAt": "2026-08-07"
+    },
+    {
+      "name": "CNIL, La prospection commerciale par courrier électronique (mise à jour le 10 juin 2026, lue le 6 octobre 2026)",
+      "url": "https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique",
+      "type": "state",
+      "publishedAt": "2026-06-10"
     }
   ]
 }

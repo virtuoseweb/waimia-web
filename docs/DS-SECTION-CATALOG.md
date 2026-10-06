@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 223
+> Sections : 224
 
 ---
 
@@ -1273,6 +1273,43 @@
 **Dette hardcode** : 4 valeur(s) — 1px, 768px, 860px, clamp(var(--space-6)
 
 **Agent** : Layout : `actionsAlign`, `background`, `contentAlign`, `density`, `layout`, `texture` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-3. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (1px, 768px, 860px).
+
+---
+
+### `lead-capture-band`
+
+> Bande de capture d'e-mail d'une ressource (lead magnet) : titre fort, accroche, liste de ce que l'e-mail apporte, un seul champ, bouton primaire, mention RGPD courte et aperçu (couverture dessinée ou illustration). Mode `required` (fichier verrouillé, envoyé en pièce jointe) ou `open` (résultat d'un outil déjà affiché, l'e-mail en garde la version). Variantes `band` (pleine largeur) et `card` (dans un article). Moteur : organism LeadCapture → POST /api/lead-magnet.
+> LeadCaptureBand · src/sections/lead-capture-band/Component.astro · marketing/cta-sections
+> status : stable · tags : capture, conversion, email, form, lead, lead-magnet, pdf, rgpd
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `anchor_id` | string | non |  |  |
+| `benefits_en` | array | non |  | min:1 max:6 |
+| `benefits_fr` | array | non |  | min:1 max:6 |
+| `body_en` | string | non |  |  |
+| `body_fr` | string | non |  |  |
+| `h2_en` | string | non |  |  |
+| `h2_fr` | string | non |  |  |
+| `initially_hidden` | boolean | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lead_magnet` | string | oui |  |  |
+| `mode` | enum | non |  | required | open |
+| `preview` | unknown | non |  |  |
+| `submit_label_en` | string | non |  |  |
+| `submit_label_fr` | string | non |  |  |
+| `variant` | enum | non |  | band | card |
+
+**Tokens** : `--accent` `--accent-sur-clair` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline-strong` `--header-height` `--ink` `--leading-body` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
+
+**Classes scoped** : .cv-btn .cv-label .cv-note .lc-optin .lcb .lcb__body .lcb__cover .lcb__cover-f .lcb__cover-k .lcb__cover-m .lcb__cover-rule .lcb__cover-t .lcb__form .lcb__h2 .lcb__head .lcb__img .lcb__in .lcb__list .lcb__preview
+
+**Dette hardcode** : 20 valeur(s) — -0.01em, -0.024em, -1px, 0.42em, 100%, 11px, 12px, 16px
+
+**Agent** : Layout : `mode`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-0.01em, -0.024em, -1px).
 
 ---
 

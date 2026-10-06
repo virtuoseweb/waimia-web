@@ -1,0 +1,634 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Financer une formation IA en entreprise : guide OPCO",
+  "title_en": "Funding AI training in a company: the OPCO guide",
+  "description_fr": "Financer une formation IA par votre OPCO : Qualiopi, demande à déposer avant la session, devis, convention, paiement après le 1er octobre 2026.",
+  "description_en": "Funding AI training through your OPCO: Qualiopi, filing before the session starts, quote, agreement, and who pays the provider after 1 October 2026.",
+  "slug": "financement-formation-ia-opco",
+  "publishedAt": "2026-10-06T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "category": "gouvernance",
+  "cluster": "claude",
+  "tags": [
+    "financement-formation",
+    "opco",
+    "qualiopi",
+    "formation-ia",
+    "formation-claude",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "France compétences, Qualiopi : l'obligation qualité en vigueur depuis le 1er janvier 2022",
+      "url": "https://www.francecompetences.fr/fiche/qualiopi-lobligation-qualite-en-vigueur-depuis-le-1er-janvier-2022/",
+      "type": "state",
+      "publishedAt": "2022-02-21"
+    },
+    {
+      "name": "France compétences, Le soutien au plan de développement des compétences des entreprises",
+      "url": "https://www.francecompetences.fr/fiche-ruf/le-soutien-au-plan-de-developpement-des-competences-des-entreprises/",
+      "type": "state",
+      "publishedAt": "2026-02-26"
+    },
+    {
+      "name": "France compétences, moteur de recherche pour identifier son OPCO",
+      "url": "https://www.francecompetences.fr/fiche/nouveau-systeme-de-collecte-des-contributions-formation-apprentissage-france-competences-lance-un-moteur-de-recherche-pour-identifier-son-opco/",
+      "type": "state",
+      "publishedAt": "2022-02-21"
+    },
+    {
+      "name": "France compétences, Comprendre la formation professionnelle et l'apprentissage (date non affichée, lue le 6 octobre 2026)",
+      "url": "https://www.francecompetences.fr/comprendre-lecosysteme/la-formation-professionnelle/qui-fait-quoi/",
+      "type": "state"
+    },
+    {
+      "name": "service-public.fr, How does your Opco support you in the evolution of your employees' skills?",
+      "url": "https://entreprendre.service-public.gouv.fr/actualites/A18256?lang=en",
+      "type": "state",
+      "publishedAt": "2025-05-13"
+    },
+    {
+      "name": "Constructys, Découvrez les modalités de participation financière 2026",
+      "url": "https://www.constructys.fr/decouvrez-les-modalites-de-participation-financiere-2026/",
+      "type": "enterprise",
+      "publishedAt": "2025-12-19"
+    },
+    {
+      "name": "OPCO Santé, conditions générales de gestion, hospitalisation privée, applicables au 1er janvier 2026",
+      "url": "https://www.opco-sante.fr/app/uploads/2026/01/opco0235_conditions-generales-de-gestion-hp-2026_pdf_site.pdf",
+      "type": "enterprise",
+      "publishedAt": "2025-12-18"
+    },
+    {
+      "name": "Atlas, Réforme de la TVA : ce qui change pour le financement de vos formations",
+      "url": "https://www.opco-atlas.fr/actualites/reforme-de-la-tva-ce-qui-change-pour-le-financement-de-vos-formations.html",
+      "type": "enterprise",
+      "publishedAt": "2026-10-01"
+    },
+    {
+      "name": "AKTO, Facturation électronique et réforme de la TVA des OPCO (mise à jour du 2 octobre 2026)",
+      "url": "https://www.akto.fr/facturation-electronique-tva/",
+      "type": "enterprise",
+      "publishedAt": "2026-06-24"
+    },
+    {
+      "name": "Ministère du Travail, Liste publique des organismes de formation (data.gouv.fr, lue le 6 octobre 2026)",
+      "url": "https://www.data.gouv.fr/fr/datasets/liste-publique-des-organismes-de-formation-l-6351-7-1-du-code-du-travail/",
+      "type": "state"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Une formation IA peut-elle être financée par un OPCO ?",
+      "a": "Oui, si votre OPCO l'accepte. Il n'existe pas de financement automatique des formations à l'IA : l'OPCO décide selon ses critères, votre branche et la taille de l'entreprise, sur la base d'un devis et d'un programme. Une formation construite sur les tâches réelles de l'équipe se défend bien, parce que son programme dit précisément ce que les salariés sauront faire."
+    },
+    {
+      "q": "Comment savoir quel est mon OPCO ?",
+      "a": "France compétences met en ligne un moteur de recherche qui donne l'OPCO d'une entreprise à partir de l'identifiant de sa convention collective (IDCC), ou de son numéro SIRET depuis le deuxième trimestre 2022. Sans convention collective, une recherche avancée s'appuie sur le département et l'activité principale (page du 21 février 2022)."
+    },
+    {
+      "q": "Pourquoi l'organisme de formation doit-il être certifié Qualiopi ?",
+      "a": "Depuis le 1er janvier 2022, les prestataires d'actions de compétences qui veulent accéder à des fonds publics ou mutualisés doivent être certifiés, notamment pour les fonds des OPCO (France compétences, 21 février 2022). Les formations Waimia sont dispensées via Akigora, organisme certifié Qualiopi."
+    },
+    {
+      "q": "La certification Qualiopi garantit-elle la prise en charge ?",
+      "a": "Non. Qualiopi est une condition pour l'organisme, pas une promesse pour votre dossier. L'OPCO examine chaque demande selon ses propres critères, et un dossier peut être refusé avec un organisme certifié. D'où la règle : réponse écrite de l'OPCO d'abord, engagement ensuite."
+    },
+    {
+      "q": "Faut-il faire la demande avant le début de la formation ?",
+      "a": "Oui. Les OPCO l'écrivent dans leurs règles : chez Constructys, le dossier complet doit arriver 15 jours calendaires avant le début, et une demande reçue après le démarrage n'est pas financée (modalités 2026). OPCO Santé demande une saisie en amont et deux mois d'avance pour garantir une réponse avant la session. Comptez donc le délai de votre OPCO dans le calendrier."
+    },
+    {
+      "q": "Quel montant sera pris en charge pour notre formation ?",
+      "a": "Personne ne peut l'annoncer honnêtement avant l'examen du dossier, et je me méfie de qui le fait. Les barèmes varient selon l'OPCO, la branche et l'année : un OPCO interrogé par service-public.fr fixe, pour un métier donné, un coût pédagogique pris en charge à l'heure. Le montant se connaît à la réponse de votre OPCO."
+    },
+    {
+      "q": "Les formations Waimia sont-elles finançables ?",
+      "a": "Elles sont dispensées via Akigora, organisme certifié Qualiopi : la condition côté organisme est remplie. La décision revient ensuite à votre OPCO. Waimia vérifie la prise en charge avec vous et avec Akigora au cadrage, avant tout engagement. Une session coûte {{prix.formation.f1}} € HT pour {{prix.formation.f1.heures}} heures ou {{prix.formation.f2}} € HT pour {{prix.formation.f2.heures}} heures."
+    },
+    {
+      "q": "Que faire si la prise en charge est refusée ?",
+      "a": "Deux options. Réduire le périmètre (un format plus court, un groupe plus ciblé) et redéposer, ou financer la session sur le budget de l'entreprise : le tarif est connu à l'avance, par session et non par participant. Dans les deux cas, la décision se prend sur une réponse écrite, pas sur une hypothèse."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Can an OPCO fund AI training?",
+      "a": "Yes, if your OPCO accepts it. There is no automatic funding for AI courses: the OPCO decides on its own criteria, your sector and your company size, based on a quote and a programme. A course built on the team's real tasks makes a strong file, because its programme states precisely what employees will be able to do."
+    },
+    {
+      "q": "How do I find my OPCO?",
+      "a": "France compétences runs a search engine that returns a company's OPCO from its collective agreement code (IDCC), or from its SIRET number since the second quarter of 2022. Without a collective agreement, an advanced search uses the department and the main activity (page dated 21 February 2022)."
+    },
+    {
+      "q": "Why must the training provider be Qualiopi-certified?",
+      "a": "Since 1 January 2022, providers of skills development actions that want access to public or pooled funds must be certified, including for OPCO funds (France compétences, 21 February 2022). Waimia's training courses are delivered via Akigora, a Qualiopi-certified training organisation."
+    },
+    {
+      "q": "Does Qualiopi guarantee funding?",
+      "a": "No. Qualiopi is a condition for the provider, not a promise for your file. The OPCO reviews each request against its own criteria, and a file can be refused even with a certified provider. Hence the rule: the OPCO's written answer first, commitment second."
+    },
+    {
+      "q": "Must the request be filed before the training starts?",
+      "a": "Yes. OPCOs write it into their rules: at Constructys, the complete file must arrive 15 calendar days before the start, and a request received after the course has begun is not funded (2026 terms). OPCO Santé requires the request to be entered beforehand, and two months ahead to guarantee an answer before the session. Build your OPCO's deadline into the calendar."
+    },
+    {
+      "q": "How much will be covered for our course?",
+      "a": "Nobody can honestly state it before the file is reviewed, and I distrust anyone who does. Rates vary by OPCO, sector and year: one OPCO interviewed by service-public.fr sets, for a given trade, a covered teaching cost per hour. The amount is known when your OPCO answers."
+    },
+    {
+      "q": "Are Waimia's courses eligible for funding?",
+      "a": "They are delivered via Akigora, a Qualiopi-certified training organisation: the provider-side condition is met. The decision then rests with your OPCO. Waimia checks funding with you and with Akigora during scoping, before any commitment. A session costs {{prix.formation.f1.en}} € ex VAT for {{prix.formation.f1.heures}} hours or {{prix.formation.f2.en}} € ex VAT for {{prix.formation.f2.heures}} hours."
+    },
+    {
+      "q": "What if funding is refused?",
+      "a": "Two options. Reduce the scope (a shorter format, a more targeted group) and refile, or fund the session from the company budget: the price is known in advance, per session and not per participant. In both cases the decision rests on a written answer, not an assumption."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Financement d'une formation IA en entreprise : OPCO, devis, convention",
+      "h1_en": "Funding AI training in a company: OPCO, quote, agreement",
+      "lede_fr": "Une partie d'une formation à Claude ou à l'IA peut être prise en charge par l'OPCO de votre entreprise. Le circuit tient en cinq pièces : votre OPCO, un organisme certifié Qualiopi, un devis, une demande déposée avant la session, une convention. Chaque règle citée ici vient d'un texte officiel ou d'un OPCO, avec sa date. Aucun taux promis.",
+      "lede_en": "Part of a Claude or AI training course can be covered by your company's OPCO. The circuit has five pieces: your OPCO, a Qualiopi-certified provider, a quote, a request filed before the session, an agreement. Every rule quoted here comes from an official text or an OPCO, with its date. No promised rate.",
+      "badges": [
+        {
+          "label_fr": "Sources officielles datées",
+          "label_en": "Dated official sources"
+        },
+        {
+          "label_fr": "Aucun taux promis",
+          "label_en": "No promised rate"
+        },
+        {
+          "label_fr": "Consulté le 6 octobre 2026",
+          "label_en": "Read on 6 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir la formation Claude",
+        "label_en": "See the Claude training",
+        "href": "/formations/claude",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/financement-formation-ia-opco-bornes-paper.webp",
+        "alt_fr": "Illustration : une personne marche sur un chemin jalonné de trois panneaux vers une porte",
+        "alt_en": "Illustration: a person walks along a path marked by three signposts towards a door",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "6 octobre 2026",
+      "updatedDate": "6 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment financer une formation IA en entreprise ?",
+      "question_en": "How do you fund AI training in a company?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Par l'OPCO de votre entreprise. Trois conditions : un organisme certifié Qualiopi, une demande déposée avant le début de la session, l'accord de l'OPCO. Le délai de dépôt dépend de l'OPCO : Constructys exige un dossier complet 15 jours calendaires avant le début pour 2026. Le montant se connaît après la réponse.",
+      "answer_en": "Through your company's OPCO. Three conditions: a Qualiopi-certified provider, a request filed before the session starts, and the OPCO's approval. The filing deadline depends on the OPCO: for 2026, Constructys requires a complete file 15 calendar days before the start. The amount is known once the OPCO answers."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Le système en quatre chiffres",
+      "eyebrow_en": "§ The system in four figures",
+      "title_fr": "Ce que disent les sources officielles, pour la France entière",
+      "title_en": "What the official sources say, for France as a whole",
+      "metrics": [
+        {
+          "value": "11",
+          "label_fr": "OPCO au total, qui financent la formation en alternance et appuient les entreprises (France compétences, page sans date affichée, lue le 6 octobre 2026)",
+          "label_en": "OPCOs in total, which fund work-based training and support companies (France compétences, page with no date shown, read on 6 October 2026)"
+        },
+        {
+          "value": "< 50",
+          "label_fr": "salariés : seuil des fonds dédiés au plan de développement des compétences gérés par les OPCO (France compétences, 26 février 2026)",
+          "label_en": "employees: threshold of the skills development plan funds managed by OPCOs (France compétences, 26 February 2026)"
+        },
+        {
+          "value": "19 h",
+          "label_fr": "durée moyenne des formations initiées en 2024 avec l'appui de ces fonds (France compétences, 26 février 2026)",
+          "label_en": "average length of courses started in 2024 with the support of these funds (France compétences, 26 February 2026)"
+        },
+        {
+          "value": "568 €",
+          "label_fr": "coût unitaire moyen en 2024, dont 270 € de coûts pédagogiques : une moyenne nationale, pas votre devis (France compétences, 26 février 2026)",
+          "label_en": "average unit cost in 2024, of which €270 teaching costs: a national average, not your quote (France compétences, 26 February 2026)"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Qui fait quoi : entreprise, OPCO, organisme de formation</h2>\n<p>L'entreprise commande la formation et verse sa contribution. L'OPCO, opérateur de compétences, redistribue des fonds de formation et appuie les entreprises. L'organisme de formation conçoit et dispense la session.</p>\n<p>Selon <a href=\"https://www.francecompetences.fr/comprendre-lecosysteme/la-formation-professionnelle/qui-fait-quoi/\" rel=\"noopener\">France compétences</a>, l'employeur participe au financement de la formation par une contribution annuelle assise sur la masse salariale. Selon le même document, les 11 OPCO ont pour missions de financer l'alternance, d'aider les branches à construire les certifications et d'accompagner les entreprises dans la définition de leurs besoins en compétences.</p>\n<p>Pour la formation des salariés, <a href=\"https://www.francecompetences.fr/fiche-ruf/le-soutien-au-plan-de-developpement-des-competences-des-entreprises/\" rel=\"noopener\">France compétences</a> précise que l'essentiel des fonds publics et mutualisés transite par les OPCO. Ils gèrent des fonds dédiés au plan de développement des compétences des entreprises de moins de 50 salariés. Ils apportent aussi un appui technique : catalogue de formation, ingénierie financière ou juridique.</p>\n<p>Pour une PME, la conséquence est simple : la seule réponse qui compte sur la prise en charge est celle de votre OPCO. Ni l'organisme ni nous ne pouvons la donner à sa place. Notre travail est de lui remettre un dossier qu'il instruit sans aller-retour. Pour le contenu des formations, voir la <a href=\"/formations/claude\">formation Claude</a>, la <a href=\"/formations/chatgpt\">formation ChatGPT</a> ou <a href=\"/formations\">toutes les formations</a>.</p>",
+      "html_en": "<h2>Who does what: company, OPCO, training provider</h2>\n<p>The company orders the training and pays its contribution. The OPCO, a skills operator, redistributes training funds and supports companies. The training provider designs and delivers the session.</p>\n<p>According to <a href=\"https://www.francecompetences.fr/comprendre-lecosysteme/la-formation-professionnelle/qui-fait-quoi/\" rel=\"noopener\">France compétences</a>, the employer takes part in funding training through an annual contribution based on payroll. According to the same document, the 11 OPCOs have the missions of funding work-based training, helping sectors build certifications and supporting companies in defining their skills needs.</p>\n<p>For employee training, <a href=\"https://www.francecompetences.fr/fiche-ruf/le-soutien-au-plan-de-developpement-des-competences-des-entreprises/\" rel=\"noopener\">France compétences</a> states that most public and pooled funds go through OPCOs. They manage funds dedicated to the skills development plan of companies with fewer than 50 employees. They also provide technical support: a training catalogue, financial or legal engineering.</p>\n<p>For an SMB the consequence is simple: the only answer on funding that counts is your OPCO's. Neither the provider nor we can give it in its place. Our job is to hand it a file it can process without back-and-forth. For course content, see the <a href=\"/formations/claude\">Claude training</a>, the <a href=\"/formations/chatgpt\">ChatGPT training</a> or <a href=\"/formations\">all training courses</a>.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/financement-formation-ia-opco-aqueduc-paper.webp",
+          "alt_fr": "Illustration : un long aqueduc alimente un petit réservoir près de deux personnes",
+          "alt_en": "Illustration: a long aqueduct feeds a small tank next to two people",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "type": "cta-final",
+      "background": "paper-2",
+      "h2_fr": "Où en est votre entreprise avec l'IA ?",
+      "h2_en": "Où en est votre entreprise avec l'IA ?",
+      "body_fr": "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
+      "body_en": "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
+      "cta_primary": {
+        "label_fr": "Faire le diagnostic →",
+        "label_en": "Faire le diagnostic →",
+        "href": "/ressources/diagnostics/maturite-ia",
+        "variant": "primary"
+      }
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Ce qui est sourcé",
+      "kicker_en": "§ What is sourced",
+      "heading_fr": "Chaque fait, sa source, sa date",
+      "heading_en": "Each fact, its source, its date",
+      "caption_fr": "Pages lues le 6 octobre 2026. Quand une page n'affiche pas de date, nous l'écrivons. Les règles d'un OPCO valent pour ses adhérents, pas pour tous.",
+      "caption_en": "Pages read on 6 October 2026. When a page shows no date, we say so. One OPCO's rules apply to its members, not to everyone.",
+      "columns_fr": [
+        "Fait",
+        "Source",
+        "Date de la source"
+      ],
+      "columns_en": [
+        "Fact",
+        "Source",
+        "Source date"
+      ],
+      "rows_fr": [
+        [
+          "Qualiopi est exigée des prestataires qui veulent accéder aux fonds des OPCO et d'autres financeurs, depuis le 1er janvier 2022",
+          "France compétences, « Qualiopi : l'obligation qualité en vigueur depuis le 1er janvier 2022 »",
+          "21 février 2022"
+        ],
+        [
+          "Les OPCO gèrent des fonds dédiés au plan de développement des compétences des entreprises de moins de 50 salariés",
+          "France compétences, « Le soutien au plan de développement des compétences des entreprises »",
+          "26 février 2026"
+        ],
+        [
+          "Un moteur de recherche permet de trouver son OPCO par IDCC ou par SIRET",
+          "France compétences, page de lancement du moteur de recherche",
+          "21 février 2022"
+        ],
+        [
+          "L'employeur finance la formation par une contribution annuelle assise sur la masse salariale",
+          "France compétences, « Comprendre la formation professionnelle et l'apprentissage »",
+          "Non affichée"
+        ],
+        [
+          "Les barèmes de prise en charge varient selon le secteur professionnel",
+          "service-public.fr, entretien avec un Opco de proximité",
+          "13 mai 2025"
+        ],
+        [
+          "Constructys (BTP) : pour les formations démarrant à partir du 1er janvier 2026, dossier complet 15 jours calendaires avant le début ; une demande arrivée après le début n'est pas financée",
+          "Constructys, « Découvrez les modalités de participation financière 2026 »",
+          "19 décembre 2025"
+        ],
+        [
+          "OPCO Santé (hospitalisation privée) : demande saisie en amont du démarrage, et au moins deux mois avant pour avoir une réponse garantie avant le départ en formation",
+          "OPCO Santé, conditions générales de gestion applicables au 1er janvier 2026",
+          "18 décembre 2025 (date du document)"
+        ],
+        [
+          "Depuis le 1er octobre 2026, l'OPCO ne paie plus en principe l'organisme à la place de l'entreprise (fin de la subrogation). Exception : le plan de développement des compétences des entreprises de moins de 50 salariés",
+          "Atlas, « Réforme de la TVA : ce qui change pour le financement de vos formations » ; AKTO, page réforme de la TVA",
+          "1er octobre 2026 (Atlas) ; 24 juin 2026, mise à jour le 2 octobre 2026 (AKTO)"
+        ],
+        [
+          "La liste publique des organismes de formation indique, pour chacun, s'il détient une certification qualité en cours de validité et pour quelles catégories d'actions",
+          "Ministère du Travail, jeu de données sur data.gouv.fr",
+          "Mise à jour quotidienne, lue le 6 octobre 2026"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Qualiopi is required of providers that want access to OPCO funds and other funders, since 1 January 2022",
+          "France compétences, \"Qualiopi: the quality obligation in force since 1 January 2022\"",
+          "21 February 2022"
+        ],
+        [
+          "OPCOs manage funds dedicated to the skills development plan of companies with fewer than 50 employees",
+          "France compétences, \"Support for companies' skills development plans\"",
+          "26 February 2026"
+        ],
+        [
+          "A search engine finds your OPCO by IDCC or SIRET",
+          "France compétences, search engine launch page",
+          "21 February 2022"
+        ],
+        [
+          "The employer funds training through an annual contribution based on payroll",
+          "France compétences, \"Understanding vocational training and apprenticeship\"",
+          "Not shown"
+        ],
+        [
+          "Funding rates vary by professional sector",
+          "service-public.fr, interview with a local Opco",
+          "13 May 2025"
+        ],
+        [
+          "Constructys (construction): for courses starting from 1 January 2026, a complete file 15 calendar days before the start; a request received after the start is not funded",
+          "Constructys, \"Découvrez les modalités de participation financière 2026\"",
+          "19 December 2025"
+        ],
+        [
+          "OPCO Santé (private hospitals): request entered before the course starts, and at least two months before to be guaranteed an answer before the training begins",
+          "OPCO Santé, general management conditions applicable from 1 January 2026",
+          "18 December 2025 (document date)"
+        ],
+        [
+          "Since 1 October 2026, the OPCO in principle no longer pays the provider on the company's behalf (end of subrogation). Exception: the skills development plan of companies with fewer than 50 employees",
+          "Atlas, \"Réforme de la TVA : ce qui change pour le financement de vos formations\"; AKTO, VAT reform page",
+          "1 October 2026 (Atlas); 24 June 2026, updated 2 October 2026 (AKTO)"
+        ],
+        [
+          "The public list of training providers shows, for each one, whether it holds a valid quality certification and for which categories of action",
+          "Ministry of Labour, dataset on data.gouv.fr",
+          "Updated daily, read on 6 October 2026"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ La démarche",
+      "kicker_en": "§ The process",
+      "h2_fr": "Six étapes, de l'identification de l'OPCO au suivi",
+      "h2_en": "Six steps, from identifying the OPCO to follow-up",
+      "intro_fr": "Les étapes 1, 2 et 4 reposent sur des sources officielles ou sur les règles publiées par les OPCO. Les étapes 3, 5 et 6 sont notre méthode : les pièces exactes sont celles que demande votre OPCO.",
+      "intro_en": "Steps 1, 2 and 4 rest on official sources or on rules published by OPCOs. Steps 3, 5 and 6 are our method: the exact documents are those your OPCO asks for.",
+      "steps": [
+        {
+          "title_fr": "Identifier votre OPCO",
+          "title_en": "Identify your OPCO",
+          "body_fr": "Utilisez le moteur de recherche de France compétences avec le code IDCC de votre convention collective ou votre numéro SIRET. Notez le nom et le contact de votre conseiller.",
+          "body_en": "Use the France compétences search engine with your collective agreement's IDCC code or your SIRET number. Note your adviser's name and contact.",
+          "meta_fr": "Source officielle",
+          "meta_en": "Official source"
+        },
+        {
+          "title_fr": "Vérifier la certification Qualiopi",
+          "title_en": "Check the Qualiopi certification",
+          "body_fr": "Sans certification, l'action ne peut pas être financée par un OPCO. La liste publique des organismes de formation, publiée par le ministère du Travail et mise à jour chaque jour, indique si la certification d'un organisme est en cours de validité.",
+          "body_en": "Without certification, the course cannot be funded by an OPCO. The public list of training providers, published by the Ministry of Labour and updated daily, shows whether a provider's certification is currently valid.",
+          "meta_fr": "Source officielle",
+          "meta_en": "Official source"
+        },
+        {
+          "title_fr": "Obtenir devis et programme",
+          "title_en": "Get a quote and programme",
+          "body_fr": "Un devis par session, un programme daté, les objectifs, la durée, le public. Plus le programme est précis, plus le dossier est lisible pour l'OPCO.",
+          "body_en": "One quote per session, a dated programme, the objectives, the duration, the audience. The more precise the programme, the more readable the file for the OPCO.",
+          "meta_fr": "Méthode Waimia",
+          "meta_en": "Waimia method"
+        },
+        {
+          "title_fr": "Déposer la demande de prise en charge",
+          "title_en": "File the funding request",
+          "body_fr": "Déposez-la avant le début de la session, sur l'espace en ligne de votre OPCO. Le délai varie : 15 jours calendaires chez Constructys, deux mois chez OPCO Santé pour une réponse garantie. Pas de signature ferme avant la réponse.",
+          "body_en": "File it before the session starts, on your OPCO's online portal. The deadline varies: 15 calendar days at Constructys, two months at OPCO Santé for a guaranteed answer. No firm signature before the answer.",
+          "meta_fr": "Règles publiées par les OPCO",
+          "meta_en": "Rules published by OPCOs"
+        },
+        {
+          "title_fr": "Signer la convention",
+          "title_en": "Sign the agreement",
+          "body_fr": "La convention lie l'entreprise et l'organisme : objet, dates, durée, prix. Elle suit la réponse de l'OPCO et la reprend sans l'inventer.",
+          "body_en": "The agreement binds the company and the provider: subject, dates, duration, price. It follows the OPCO's answer and mirrors it without inventing anything.",
+          "meta_fr": "Méthode Waimia",
+          "meta_en": "Waimia method"
+        },
+        {
+          "title_fr": "Suivre et justifier",
+          "title_en": "Follow up and justify",
+          "body_fr": "Gardez les feuilles de présence, les livrables et la facture. Ce sont les pièces que l'OPCO peut réclamer après la session.",
+          "body_en": "Keep attendance sheets, deliverables and the invoice. These are the documents the OPCO may ask for after the session.",
+          "meta_fr": "Méthode Waimia",
+          "meta_en": "Waimia method"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Qualiopi : ce que ça garantit et ce que ça ne garantit pas</h2>\n<p><a href=\"/blog/formation-ia-cpf-qualiopi\">Qualiopi est la certification qualité des organismes de formation</a>. D'après <a href=\"https://www.francecompetences.fr/fiche/qualiopi-lobligation-qualite-en-vigueur-depuis-le-1er-janvier-2022/\" rel=\"noopener\">France compétences</a>, elle est exigée depuis le 1er janvier 2022 des prestataires d'actions de compétences qui veulent accéder à des fonds publics ou mutualisés, ceux des OPCO compris. Elle est délivrée par des organismes certificateurs accrédités par le Cofrac ou, dans des cas précis, par des instances de labellisation reconnues par France compétences.</p>\n<p>Elle atteste que l'organisme respecte un cadre qualité. Elle ne dit rien de la pertinence de la formation pour votre équipe, et elle ne vaut pas accord de votre OPCO. Un dossier peut être refusé avec un organisme certifié.</p>\n<p>Chez Waimia, les formations sont dispensées via Akigora, organisme certifié Qualiopi. Nous ne publions pas de taux de prise en charge : il dépend de votre OPCO, de votre branche et de l'année, et il ne se connaît qu'après l'instruction du dossier. Le contenu des formations est détaillé sur <a href=\"/formations/claude\">la page formation Claude</a>, et le cadre de déploiement dans le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>. Pour savoir ce que l'équipe apprendrait, voir <a href=\"/ressources/guides/claude-fonctionnalites-pme\">les fonctionnalités de Claude</a> et <a href=\"/ressources/guides/claude-skills\">les skills Claude</a>.</p>",
+      "html_en": "<h2>Qualiopi: what it guarantees and what it does not</h2>\n<p>Qualiopi is the quality certification for training providers. According to <a href=\"https://www.francecompetences.fr/fiche/qualiopi-lobligation-qualite-en-vigueur-depuis-le-1er-janvier-2022/\" rel=\"noopener\">France compétences</a>, it has been required since 1 January 2022 of providers of skills development actions that want access to public or pooled funds, OPCO funds included. It is issued by certifying bodies accredited by Cofrac or, in specific cases, by labelling bodies recognised by France compétences.</p>\n<p>It attests that the provider meets a quality framework. It says nothing about how relevant the course is for your team, and it is not your OPCO's approval. A file can be refused even with a certified provider.</p>\n<p>At Waimia, training is delivered via Akigora, a Qualiopi-certified training organisation. We publish no funding rate: it depends on your OPCO, your sector and the year, and it is only known once the file has been reviewed. Course content is detailed on <a href=\"/formations/claude\">the Claude training page</a>, and the rollout framework in the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a>. To see what the team would learn, read <a href=\"/ressources/guides/claude-fonctionnalites-pme\">what Claude can do</a> and <a href=\"/ressources/guides/claude-skills\">Claude skills</a>.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/financement-formation-ia-opco-guichet-paper.webp",
+          "alt_fr": "Illustration : une personne tend un dossier à un guichet tenu par une autre personne",
+          "alt_en": "Illustration: a person hands a folder to a counter staffed by another person",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Avis Waimia",
+      "kicker_en": "§ Waimia's view",
+      "title_fr": "Quand compter sur un financement, quand ne pas le faire",
+      "title_en": "When to count on funding, and when not to",
+      "aside_fr": "Cet avis est celui de Waimia, qui dispense des formations via Akigora. Il ne remplace pas la réponse de votre OPCO.",
+      "aside_en": "This is Waimia's view; Waimia delivers training via Akigora. It does not replace your OPCO's answer.",
+      "use_title_fr": "Comptez dessus si",
+      "use_title_en": "Count on it if",
+      "use_items_fr": [
+        "Votre OPCO est identifié et vous avez son contact",
+        "L'organisme est certifié Qualiopi et vous avez son numéro",
+        "Le devis et le programme sont écrits, par session",
+        "Vous avez la réponse écrite de l'OPCO avant de signer"
+      ],
+      "use_items_en": [
+        "Your OPCO is identified and you have its contact",
+        "The provider is Qualiopi-certified and you have its number",
+        "The quote and programme are written, per session",
+        "You have the OPCO's written answer before signing"
+      ],
+      "avoid_title_fr": "Ne comptez pas dessus si",
+      "avoid_title_en": "Do not count on it if",
+      "avoid_items_fr": [
+        "La formation a déjà commencé et rien n'a été demandé",
+        "Vous n'avez pas lu les critères de votre OPCO",
+        "On vous annonce un taux avant tout examen du dossier",
+        "Votre calendrier ne laisse aucun délai à l'instruction"
+      ],
+      "avoid_items_en": [
+        "The training has already started and nothing was requested",
+        "You have not read your OPCO's criteria",
+        "Someone quotes you a rate before any review of the file",
+        "Your calendar leaves no time for the review"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Le prix d'une formation Waimia, et ce que le financement change</h2>\n<p>Le prix s'entend par session, pas par participant : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT, ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. Il n'y a pas de session catalogue à date fixe : <a href=\"/blog/formation-ia-finance-pme\">chaque formation est construite pour une entreprise, sur ses tâches réelles</a>. Le détail est sur <a href=\"/tarifs\">la page tarifs</a>.</p>\n<p>Le financement ne change pas ce prix. Il change ce qui reste à votre charge, et qui avance l'argent. Sur ce second point, la règle a changé le 1er octobre 2026 avec la réforme de la TVA des OPCO : en principe, l'entreprise paie l'organisme puis se fait rembourser par son OPCO. Exception utile aux PME : une formation financée par le plan de développement des compétences des entreprises de moins de 50 salariés peut encore être payée directement par l'OPCO à l'organisme (Atlas, 1er octobre 2026 ; AKTO, mise à jour du 2 octobre 2026). Au-delà de 50 salariés, prévoyez la trésorerie. Pour le chiffrer sans l'inventer, calculez d'abord le coût complet de votre projet : le <a href=\"/ressources/guides/roi-automatisation\">guide ROI de l'automatisation</a> donne la méthode.</p>\n<p><a href=\"/blog/architecte-ia-role-pme\">Une formation ne remplace pas une mission</a>. Mettre un agent en production ou configurer votre organisation Claude relève du <a href=\"/services/integration-claude\">service d'intégration de Claude</a> ou de l'accompagnement par un <a href=\"/services/consultant-ia-claude\">consultant IA Claude</a>. Pour un premier avis gratuit, l'<a href=\"/audit-ia-pme\">audit IA</a> dit si la formation est la bonne réponse. Côté règles d'usage, voir la page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>The price of a Waimia training course, and what funding changes</h2>\n<p>The price is per session, not per participant: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT, or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. There is no fixed-date catalogue session: each course is built for one company, on its real tasks. Details are on <a href=\"/tarifs\">the pricing page</a>.</p>\n<p>Funding does not change that price. It changes what stays on your side, and who advances the money. On that second point the rule changed on 1 October 2026 with the OPCO VAT reform: in principle, the company pays the provider and then claims reimbursement from its OPCO. A useful exception for SMBs: a course funded by the skills development plan of companies with fewer than 50 employees can still be paid by the OPCO directly to the provider (Atlas, 1 October 2026; AKTO, updated 2 October 2026). Above 50 employees, plan the cash flow. To cost your project without inventing anything, first work out its full cost: the <a href=\"/ressources/guides/roi-automatisation\">automation ROI guide</a> gives the method.</p>\n<p>Training does not replace an engagement. Putting an agent into production or configuring your Claude organisation belongs to the <a href=\"/services/integration-claude\">Claude integration service</a> or to support from a <a href=\"/services/consultant-ia-claude\">Claude AI consultant</a>. For a free first opinion, the <a href=\"/audit-ia-pme\">AI audit</a> says whether training is the right answer. On usage rules, see the <a href=\"/conformite-ia\">AI compliance</a> page.</p>"
+    },
+    {
+      "type": "pull-quote-block",
+      "background": "ink",
+      "variant": "centered",
+      "quote_fr": "Un taux annoncé avant l'examen du dossier n'est pas un fait. C'est un argument de vente.",
+      "quote_en": "A rate announced before the file is reviewed is not a fact. It is a sales argument.",
+      "cite_fr": "Waimia, règle appliquée à ses propres offres",
+      "cite_en": "Waimia, rule applied to its own offers"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation Claude",
+          "title_en": "Claude training",
+          "lead_fr": "Trois niveaux, de l'application à l'API, sur vos cas réels.",
+          "lead_en": "Three levels, from the app to the API, on your real cases.",
+          "href": "/formations/claude"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude pour PME",
+          "title_en": "Claude for SMBs",
+          "lead_fr": "Le cadre de déploiement complet, du choix de l'offre à la charte.",
+          "lead_en": "The full rollout framework, from plan choice to policy.",
+          "href": "/ressources/guides/claude-pme"
+        },
+        {
+          "kicker_fr": "Tarifs",
+          "kicker_en": "Pricing",
+          "title_fr": "Tarifs Waimia",
+          "title_en": "Waimia pricing",
+          "lead_fr": "Audit, sprint de cadrage, régie et formations, hors taxes.",
+          "lead_en": "Audit, scoping sprint, hourly work and training, excluding tax.",
+          "href": "/tarifs"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Une formation IA peut-elle être financée par un OPCO ?",
+          "q_en": "Can an OPCO fund AI training?",
+          "a_fr": "Oui, si votre OPCO l'accepte. Il n'existe pas de financement automatique des formations à l'IA : l'OPCO décide selon ses critères, votre branche et la taille de l'entreprise, sur la base d'un devis et d'un programme. Une formation construite sur les tâches réelles de l'équipe se défend bien, parce que son programme dit précisément ce que les salariés sauront faire.",
+          "a_en": "Yes, if your OPCO accepts it. There is no automatic funding for AI courses: the OPCO decides on its own criteria, your sector and your company size, based on a quote and a programme. A course built on the team's real tasks makes a strong file, because its programme states precisely what employees will be able to do."
+        },
+        {
+          "q_fr": "Comment savoir quel est mon OPCO ?",
+          "q_en": "How do I find my OPCO?",
+          "a_fr": "France compétences met en ligne un moteur de recherche qui donne l'OPCO d'une entreprise à partir de l'identifiant de sa convention collective (IDCC), ou de son numéro SIRET depuis le deuxième trimestre 2022. Sans convention collective, une recherche avancée s'appuie sur le département et l'activité principale (page du 21 février 2022).",
+          "a_en": "France compétences runs a search engine that returns a company's OPCO from its collective agreement code (IDCC), or from its SIRET number since the second quarter of 2022. Without a collective agreement, an advanced search uses the department and the main activity (page dated 21 February 2022)."
+        },
+        {
+          "q_fr": "Pourquoi l'organisme de formation doit-il être certifié Qualiopi ?",
+          "q_en": "Why must the training provider be Qualiopi-certified?",
+          "a_fr": "Depuis le 1er janvier 2022, les prestataires d'actions de compétences qui veulent accéder à des fonds publics ou mutualisés doivent être certifiés, notamment pour les fonds des OPCO (France compétences, 21 février 2022). Les formations Waimia sont dispensées via Akigora, organisme certifié Qualiopi.",
+          "a_en": "Since 1 January 2022, providers of skills development actions that want access to public or pooled funds must be certified, including for OPCO funds (France compétences, 21 February 2022). Waimia's training courses are delivered via Akigora, a Qualiopi-certified training organisation."
+        },
+        {
+          "q_fr": "La certification Qualiopi garantit-elle la prise en charge ?",
+          "q_en": "Does Qualiopi guarantee funding?",
+          "a_fr": "Non. Qualiopi est une condition pour l'organisme, pas une promesse pour votre dossier. L'OPCO examine chaque demande selon ses propres critères, et un dossier peut être refusé avec un organisme certifié. D'où la règle : réponse écrite de l'OPCO d'abord, engagement ensuite.",
+          "a_en": "No. Qualiopi is a condition for the provider, not a promise for your file. The OPCO reviews each request against its own criteria, and a file can be refused even with a certified provider. Hence the rule: the OPCO's written answer first, commitment second."
+        },
+        {
+          "q_fr": "Faut-il faire la demande avant le début de la formation ?",
+          "q_en": "Must the request be filed before the training starts?",
+          "a_fr": "Oui. Les OPCO l'écrivent dans leurs règles : chez Constructys, le dossier complet doit arriver 15 jours calendaires avant le début, et une demande reçue après le démarrage n'est pas financée (modalités 2026). OPCO Santé demande une saisie en amont et deux mois d'avance pour garantir une réponse avant la session. Comptez donc le délai de votre OPCO dans le calendrier.",
+          "a_en": "Yes. OPCOs write it into their rules: at Constructys, the complete file must arrive 15 calendar days before the start, and a request received after the course has begun is not funded (2026 terms). OPCO Santé requires the request to be entered beforehand, and two months ahead to guarantee an answer before the session. Build your OPCO's deadline into the calendar."
+        },
+        {
+          "q_fr": "Quel montant sera pris en charge pour notre formation ?",
+          "q_en": "How much will be covered for our course?",
+          "a_fr": "Personne ne peut l'annoncer honnêtement avant l'examen du dossier, et je me méfie de qui le fait. Les barèmes varient selon l'OPCO, la branche et l'année : un OPCO interrogé par service-public.fr fixe, pour un métier donné, un coût pédagogique pris en charge à l'heure. Le montant se connaît à la réponse de votre OPCO.",
+          "a_en": "Nobody can honestly state it before the file is reviewed, and I distrust anyone who does. Rates vary by OPCO, sector and year: one OPCO interviewed by service-public.fr sets, for a given trade, a covered teaching cost per hour. The amount is known when your OPCO answers."
+        },
+        {
+          "q_fr": "Les formations Waimia sont-elles finançables ?",
+          "q_en": "Are Waimia's courses eligible for funding?",
+          "a_fr": "Elles sont dispensées via Akigora, organisme certifié Qualiopi : la condition côté organisme est remplie. La décision revient ensuite à votre OPCO. Waimia vérifie la prise en charge avec vous et avec Akigora au cadrage, avant tout engagement. Une session coûte {{prix.formation.f1}} € HT pour {{prix.formation.f1.heures}} heures ou {{prix.formation.f2}} € HT pour {{prix.formation.f2.heures}} heures.",
+          "a_en": "They are delivered via Akigora, a Qualiopi-certified training organisation: the provider-side condition is met. The decision then rests with your OPCO. Waimia checks funding with you and with Akigora during scoping, before any commitment. A session costs {{prix.formation.f1.en}} € ex VAT for {{prix.formation.f1.heures}} hours or {{prix.formation.f2.en}} € ex VAT for {{prix.formation.f2.heures}} hours."
+        },
+        {
+          "q_fr": "Que faire si la prise en charge est refusée ?",
+          "q_en": "What if funding is refused?",
+          "a_fr": "Deux options. Réduire le périmètre (un format plus court, un groupe plus ciblé) et redéposer, ou financer la session sur le budget de l'entreprise : le tarif est connu à l'avance, par session et non par participant. Dans les deux cas, la décision se prend sur une réponse écrite, pas sur une hypothèse.",
+          "a_en": "Two options. Reduce the scope (a shorter format, a more targeted group) and refile, or fund the session from the company budget: the price is known in advance, per session and not per participant. In both cases the decision rests on a written answer, not an assumption."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h2_fr": "On vérifie la prise en charge avant de vous engager.",
+      "h2_en": "We check funding before you commit.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On cadre le besoin de formation, le niveau de départ et ce qu'il faut demander à votre OPCO, sans promettre un taux.",
+      "subtitle_en": "The 45-minute audit is free. We scope the training need, the starting level and what to ask your OPCO, without promising a rate.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir la formation Claude",
+          "label_en": "See the Claude training",
+          "href": "/formations/claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

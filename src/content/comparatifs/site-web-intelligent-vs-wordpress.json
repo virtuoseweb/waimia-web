@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/comparatifs.page.schema.json",
-  "title_fr": "Site Web Intelligent vs WordPress · le comparatif honnête pour PME",
-  "title_en": "Intelligent Website vs WordPress · the honest comparison for SMBs",
+  "title_fr": "Site Web Intelligent vs WordPress : le comparatif PME",
+  "title_en": "Intelligent Website vs WordPress: the SMB comparison",
   "description_fr": "Site Web Intelligent Waimia ou WordPress ? Performance, SEO/GEO, maintenance, sécurité et coût total comparés pour une PME qui veut un actif, pas une dette.",
   "description_en": "Intelligent Website by Waimia or WordPress? Performance, SEO/GEO, maintenance, security and total cost compared for an SMB that wants an asset, not a debt.",
   "slug": "site-web-intelligent-vs-wordpress",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "site-web-intelligent",
@@ -26,11 +26,11 @@
     },
     {
       "q": "Pourquoi un Site Web Intelligent est-il plus rapide qu'un WordPress ?",
-      "a": "Le Site Web Intelligent est généré en statique (SSG) : les pages sont pré-calculées et servies telles quelles, sans base de données interrogée à chaque visite. WordPress assemble la page à la volée, charge un thème et une dizaine de plugins, puis interroge MySQL. Le premier vise 100/100 PageSpeed, le second se traîne souvent sous 50 sur mobile sans optimisation lourde."
+      "a": "Le Site Web Intelligent est généré en statique (SSG) : les pages sont pré-calculées et servies telles quelles, sans base de données interrogée à chaque visite. WordPress assemble la page à la volée, charge son thème et ses extensions, puis interroge MySQL. Résultat mesuré par le Web Almanac 2025 : seuls 45 % des sites WordPress passent les Core Web Vitals sur mobile. Nous visons 100/100 sur PageSpeed."
     },
     {
       "q": "Et la sécurité, WordPress est-il vraiment risqué ?",
-      "a": "WordPress concentre une part énorme des sites du web, donc une part énorme des attaques. Chaque plugin tiers est une surface d'entrée, et une mise à jour oubliée suffit. Le Site Web Intelligent n'a pas d'admin exposée ni de base de données en frontal : il n'y a quasiment rien à pirater côté serveur. La surface d'attaque est réduite par conception, pas par rustines."
+      "a": "WordPress équipe 40,1 % des sites web (W3Techs, 6 octobre 2026), donc il attire les attaques. Son cœur est solide : 6 failles en 2025 selon Patchstack. Le risque vient des extensions : 91 % des 11 334 failles de l'année, dont 46 % sans correctif au moment de leur publication. Une mise à jour oubliée suffit. Le Site Web Intelligent n'a pas d'admin exposée ni de base de données en frontal : il n'y a quasiment rien à pirater côté serveur. La surface d'attaque est réduite par conception, pas par rustines."
     },
     {
       "q": "Migrer depuis WordPress, c'est tout casser ?",
@@ -38,19 +38,15 @@
     },
     {
       "q": "Le coût total est-il vraiment plus bas qu'un WordPress ?",
-      "a": "À l'achat, un WordPress monté vite peut sembler moins cher. Sur trois ans, le calcul s'inverse : hébergement musclé, licences de plugins premium, maintenance récurrente, correctifs de sécurité et refonte quand la pile devient ingérable. Le Site Web Intelligent coûte plus à poser et beaucoup moins à porter. C'est un actif qui s'amortit, pas une dette qui s'accumule."
+      "a": "À l'achat, un WordPress monté vite peut sembler moins cher. Sur trois ans, le calcul s'inverse : hébergement musclé, licences de plugins premium, maintenance récurrente, correctifs de sécurité et refonte quand la pile devient ingérable. Le Site Web Intelligent coûte plus à poser et beaucoup moins à porter. Nos projets démarrent à 2 000 € HT, et l'audit chiffre votre cas réel plutôt qu'une moyenne."
     },
     {
       "q": "Le Site Web Intelligent est-il citable par les IA comme ChatGPT ou Perplexity ?",
-      "a": "Oui, c'est un objectif de conception. Le contenu est balisé Schema.org, structuré en format extractible et tissé en maillage interne, ce qui le rend lisible et citable par les moteurs génératifs. WordPress peut s'en approcher avec des extensions SEO, mais le GEO reste un ajout, pas une fondation. Chez Waimia, c'est natif dès la première page."
+      "a": "C'est un objectif de conception, pas une garantie : aucun prestataire ne contrôle ce qu'une IA cite. Le contenu est balisé Schema.org, structuré en format extractible et tissé en maillage interne, ce qui le rend lisible et citable par les moteurs génératifs. WordPress peut s'en approcher avec des extensions SEO, mais le GEO reste un ajout, pas une fondation. Chez Waimia, c'est natif dès la première page."
     },
     {
       "q": "Qui édite le contenu une fois le site livré ?",
       "a": "Vous, sans dépendre d'un développeur. Le Site Web Intelligent s'édite via un CMS git-based comme TinaCMS, ou se pilote par un chatbot IA pour les évolutions courantes. Pas de chantier de plugins ni de thème à dompter. Chaque changement est versionné dans le code, donc réversible. WordPress offre un éditeur familier, mais au prix de la maintenance qui l'accompagne."
-    },
-    {
-      "q": "Et si je veux ajouter une boutique ou un agent IA plus tard ?",
-      "a": "L'architecture est composable : on ajoute une brique sans tout refondre. E-commerce, agent de qualification, intégration CRM ou nouveau module se branchent sur la base existante. WordPress le permet aussi via plugins, mais chaque ajout empile une dépendance et un risque de conflit. Le Site Web Intelligent monte de version pendant que vous l'utilisez."
     },
     {
       "q": "WordPress n'a-t-il aucun avantage face au Site Web Intelligent ?",
@@ -64,11 +60,11 @@
     },
     {
       "q": "Why is an Intelligent Website faster than WordPress?",
-      "a": "The Intelligent Website is generated as static (SSG): pages are pre-computed and served as-is, with no database queried on each visit. WordPress assembles the page on the fly, loads a theme and a dozen plugins, then queries MySQL. The first aims for 100/100 PageSpeed, the second often crawls below 50 on mobile without heavy optimisation."
+      "a": "The Intelligent Website is generated as static (SSG): pages are pre-computed and served as-is, with no database queried on each visit. WordPress assembles the page on the fly, loads its theme and plugins, then queries MySQL. Measured result in the 2025 Web Almanac: only 45% of WordPress sites pass Core Web Vitals on mobile. We aim for 100/100 on PageSpeed."
     },
     {
       "q": "What about security, is WordPress really risky?",
-      "a": "WordPress powers a huge share of the web, so it draws a huge share of the attacks. Every third-party plugin is an entry surface, and one forgotten update is enough. The Intelligent Website has no exposed admin or front-facing database: there is almost nothing to hack on the server side. The attack surface is reduced by design, not by patches."
+      "a": "WordPress powers 40.1% of all websites (W3Techs, 6 October 2026), so it draws attacks. Its core is solid: 6 vulnerabilities in 2025 according to Patchstack. The risk comes from plugins: 91% of the year's 11,334 vulnerabilities, 46% of them unpatched at disclosure. One forgotten update is enough. The Intelligent Website has no exposed admin or front-facing database: there is almost nothing to hack on the server side. The attack surface is reduced by design, not by patches."
     },
     {
       "q": "Does migrating from WordPress break everything?",
@@ -76,23 +72,37 @@
     },
     {
       "q": "Is the total cost really lower than WordPress?",
-      "a": "Upfront, a quickly assembled WordPress can look cheaper. Over three years, the maths flips: beefy hosting, premium plugin licences, recurring maintenance, security fixes and a rebuild when the stack becomes unmanageable. The Intelligent Website costs more to lay down and far less to carry. It's an asset that amortises, not a debt that accumulates."
+      "a": "Upfront, a quickly assembled WordPress can look cheaper. Over three years, the maths flips: beefy hosting, premium plugin licences, recurring maintenance, security fixes and a rebuild when the stack becomes unmanageable. The Intelligent Website costs more to lay down and far less to carry. Our projects start at €2,000 excl. tax, and the audit prices your real case rather than an average."
     },
     {
       "q": "Is the Intelligent Website citable by AIs like ChatGPT or Perplexity?",
-      "a": "Yes, it's a design goal. Content is Schema.org tagged, structured in extractable format and woven into internal linking, making it readable and citable by generative engines. WordPress can get close with SEO extensions, but GEO stays an add-on, not a foundation. At Waimia, it's native from the first page."
+      "a": "It's a design goal, not a guarantee: no provider controls what an AI cites. Content is Schema.org tagged, structured in extractable format and woven into internal linking, making it readable and citable by generative engines. WordPress can get close with SEO extensions, but GEO stays an add-on, not a foundation. At Waimia, it's native from the first page."
     },
     {
       "q": "Who edits the content once the site is delivered?",
       "a": "You do, without depending on a developer. The Intelligent Website is edited through a git-based CMS like TinaCMS, or steered by an AI chatbot for routine changes. No plugin project or theme to tame. Every change is versioned in the code, so reversible. WordPress offers a familiar editor, but at the price of the maintenance that comes with it."
     },
     {
-      "q": "What if I want to add a shop or an AI agent later?",
-      "a": "The architecture is composable: we add a block without redoing everything. E-commerce, a qualification agent, a CRM integration or a new module plug into the existing base. WordPress allows this too via plugins, but each addition stacks a dependency and a risk of conflict. The Intelligent Website moves up versions while you use it."
-    },
-    {
       "q": "Does WordPress have no advantage over the Intelligent Website?",
       "a": "It does. For a simple blog run by a non-technical owner, a very tight budget and zero acquisition ambition, WordPress stays a reasonable choice: huge ecosystem, hosts everywhere, profiles easy to find. The Intelligent Website serves another need: turning the site into a measurable, durable asset. The right tool depends on ambition, not fashion."
+    }
+  ],
+  "sources": [
+    {
+      "name": "W3Techs, usage statistics of WordPress",
+      "url": "https://w3techs.com/technologies/details/cm-wordpress",
+      "type": "research",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Patchstack, State of WordPress Security in 2026",
+      "url": "https://www.patchstack.com/whitepaper/state-of-wordpress-security-in-2026/",
+      "type": "enterprise"
+    },
+    {
+      "name": "HTTP Archive, Web Almanac 2025, chapitre CMS",
+      "url": "https://almanac.httparchive.org/en/2025/cms",
+      "type": "research"
     }
   ],
   "sections": [
@@ -147,8 +157,8 @@
       "question_en": "Should an SMB choose an Intelligent Website or WordPress?",
       "term_fr": "Site Web Intelligent vs WordPress",
       "term_en": "Intelligent Website vs WordPress",
-      "answer_fr": "Pour une PME qui veut un site rapide, bien référencé, sûr et durable, le Site Web Intelligent l'emporte sur WordPress sur cinq critères décisifs : la performance, parce qu'un rendu statique sert des pages pré-calculées là où WordPress assemble tout à chaque visite ; le SEO/GEO, natif et citable par les IA plutôt qu'ajouté par extensions ; la maintenance, quasi nulle contre une pile de plugins à surveiller ; la sécurité, sans admin ni base exposée ; et le coût total sur trois ans, plus bas malgré un investissement initial supérieur. WordPress garde l'avantage sur un seul terrain : un blog simple, à très petit budget, sans ambition d'acquisition. Le bon choix dépend donc de ce que vous attendez du site : un document en ligne, ou un actif qui travaille. Ce comparatif tranche un face-à-face ciblé, notre approche contre WordPress. Si vous pesez encore trois technologies, notre guide neutre Webflow vs WordPress vs site codé IA prend de la hauteur sur les trois voies.",
-      "answer_en": "For an SMB that wants a fast, well-ranked, secure and durable site, the Intelligent Website beats WordPress on five decisive criteria: performance, because static rendering serves pre-computed pages where WordPress assembles everything on each visit; SEO/GEO, native and citable by AIs rather than bolted on via extensions; maintenance, near zero versus a plugin stack to watch; security, with no exposed admin or database; and total cost over three years, lower despite a higher upfront investment. WordPress keeps the edge on one ground only: a simple blog, on a very tight budget, with no acquisition ambition. The right choice depends on what you expect from the site: an online document, or an asset that works. This page settles a focused duel, our approach against WordPress. If you are still weighing three technologies, our neutral guide, Webflow vs WordPress vs an AI-coded site, takes the wider view across all three."
+      "answer_fr": "Pour une PME qui veut un site rapide, bien référencé, sûr et durable, le Site Web Intelligent l'emporte sur WordPress sur cinq critères décisifs : la performance, parce qu'un rendu statique sert des pages pré-calculées là où WordPress assemble tout à chaque visite (seuls 45 % des sites WordPress passent les Core Web Vitals sur mobile, selon le Web Almanac 2025) ; le SEO/GEO, natif et citable par les IA plutôt qu'ajouté par extensions ; la maintenance, quasi nulle contre une pile de plugins à surveiller ; la sécurité, sans admin ni base exposée, quand 91 % des failles WordPress de 2025 venaient des extensions ; et le coût total sur trois ans, plus bas malgré un investissement initial supérieur. WordPress garde l'avantage sur un seul terrain : un blog simple, à très petit budget, sans ambition d'acquisition. Si vous pesez encore trois technologies, notre guide neutre Webflow vs WordPress vs site codé IA prend de la hauteur sur les trois voies.",
+      "answer_en": "For an SMB that wants a fast, well-ranked, secure and durable site, the Intelligent Website beats WordPress on five decisive criteria: performance, because static rendering serves pre-computed pages where WordPress assembles everything on each visit (only 45% of WordPress sites pass Core Web Vitals on mobile, per the 2025 Web Almanac); SEO/GEO, native and citable by AIs rather than bolted on via extensions; maintenance, near zero versus a plugin stack to watch; security, with no exposed admin or database, when 91% of 2025 WordPress vulnerabilities came from plugins; and total cost over three years, lower despite a higher upfront investment. WordPress keeps the edge on one ground only: a simple blog, on a very tight budget, with no acquisition ambition. If you are still weighing three technologies, our neutral guide, Webflow vs WordPress vs an AI-coded site, takes the wider view across all three."
     },
     {
       "type": "comparison-table",
@@ -167,11 +177,11 @@
       ],
       "rows": [
         {
-          "feature_fr": "Performance (PageSpeed mobile)",
-          "feature_en": "Performance (mobile PageSpeed)",
+          "feature_fr": "Core Web Vitals réussis (mobile)",
+          "feature_en": "Core Web Vitals passed (mobile)",
           "values": [
-            "souvent < 50",
-            "100/100 visé"
+            "45 % des sites (2025)",
+            "100/100 PageSpeed visé"
           ]
         },
         {
@@ -202,7 +212,7 @@
           "feature_fr": "Surface d'attaque",
           "feature_en": "Attack surface",
           "values": [
-            "admin + plugins exposés",
+            "91 % des failles : extensions",
             "réduite par conception"
           ]
         },
@@ -255,8 +265,8 @@
           "kicker_en": "Gap 01",
           "h3_fr": "Performance",
           "h3_en": "Performance",
-          "body_fr": "Le Site Web Intelligent sert des pages statiques pré-calculées : rien à assembler, rien à interroger, le navigateur affiche presque instantanément. WordPress recompose chaque page à la volée, charge un thème et une dizaine de plugins, puis interroge sa base. Sur mobile, l'écart se chiffre en secondes, et chaque seconde coûte des conversions.",
-          "body_en": "The Intelligent Website serves pre-computed static pages: nothing to assemble, nothing to query, the browser renders almost instantly. WordPress recomposes each page on the fly, loads a theme and a dozen plugins, then queries its database. On mobile, the gap is measured in seconds, and every second costs conversions.",
+          "body_fr": "Le Site Web Intelligent sert des pages statiques pré-calculées : rien à assembler, rien à interroger, le navigateur affiche presque instantanément. WordPress recompose chaque page à la volée, charge son thème et ses extensions, puis interroge sa base. Le Web Almanac 2025 le mesure : seuls 45 % des sites WordPress passent les Core Web Vitals sur mobile, l'un des taux les plus bas parmi les CMS étudiés.",
+          "body_en": "The Intelligent Website serves pre-computed static pages: nothing to assemble, nothing to query, the browser renders almost instantly. WordPress recomposes each page on the fly, loads its theme and plugins, then queries its database. The 2025 Web Almanac measures it: only 45% of WordPress sites pass Core Web Vitals on mobile, among the lowest rates of the CMSs studied.",
           "points": [
             {
               "label_fr": "100/100 PageSpeed visé en SSG",
@@ -267,8 +277,8 @@
               "label_en": "No database queried per visit"
             },
             {
-              "label_fr": "Vitesse stable même en pic de trafic",
-              "label_en": "Stable speed even at traffic peaks"
+              "label_fr": "WordPress : 45 % passent sur mobile",
+              "label_en": "WordPress: 45% pass on mobile"
             }
           ]
         },
@@ -292,7 +302,10 @@
               "label_fr": "Maillage interne tissé, pas plaqué",
               "label_en": "Internal linking woven, not pasted"
             }
-          ]
+          ],
+          "link_label_fr": "GEO vs SEO, le comparatif",
+          "link_label_en": "GEO vs SEO, the comparison",
+          "link_href": "/ressources/comparatifs/geo-vs-seo"
         },
         {
           "kicker_fr": "Écart 03",
@@ -324,12 +337,12 @@
           "kicker_en": "Gap 04",
           "h3_fr": "Sécurité",
           "h3_en": "Security",
-          "body_fr": "WordPress concentre l'essentiel des attaques du web parce qu'il en équipe l'essentiel des sites : chaque plugin est une porte, chaque mise à jour oubliée une faille. Le Site Web Intelligent n'expose ni admin ni base de données en frontal : il n'y a quasiment rien à attaquer côté serveur. La surface d'attaque est réduite par conception, pas colmatée après coup.",
-          "body_en": "WordPress draws most of the web's attacks because it powers most of its sites: every plugin is a door, every forgotten update a flaw. The Intelligent Website exposes neither admin nor front-facing database: there is almost nothing to attack on the server side. The attack surface is reduced by design, not patched afterward.",
+          "body_fr": "WordPress équipe 40,1 % des sites web (W3Techs, 6 octobre 2026), ce qui en fait une cible rentable. Son cœur tient bien : Patchstack n'y a recensé que 6 failles en 2025. Les extensions, non : 91 % des 11 334 failles de l'année, dont 46 % sans correctif au moment de leur publication. Le Site Web Intelligent n'expose ni admin ni base de données en frontal : il n'y a quasiment rien à attaquer côté serveur. La surface d'attaque est réduite par conception, pas colmatée après coup.",
+          "body_en": "WordPress powers 40.1% of all websites (W3Techs, 6 October 2026), which makes it a profitable target. Its core holds up: Patchstack logged only 6 vulnerabilities there in 2025. Plugins don't: 91% of the year's 11,334 vulnerabilities, 46% of them unpatched at disclosure. The Intelligent Website exposes neither admin nor front-facing database: there is almost nothing to attack on the server side. The attack surface is reduced by design, not patched afterward.",
           "points": [
             {
-              "label_fr": "Pas d'admin ni de base exposée",
-              "label_en": "No exposed admin or database"
+              "label_fr": "91 % des failles WordPress : extensions",
+              "label_en": "91% of WordPress flaws: plugins"
             },
             {
               "label_fr": "Surface d'attaque réduite par conception",
@@ -381,16 +394,16 @@
       "without_title_en": "WordPress built fast",
       "without_items": [
         {
-          "text_fr": "Le site rame sur mobile et le PageSpeed reste sous 50 malgré les plugins de cache.",
-          "text_en": "The site lags on mobile and PageSpeed stays under 50 despite cache plugins."
+          "text_fr": "Le site rame sur mobile et rejoint les 55 % de sites WordPress qui échouent aux Core Web Vitals.",
+          "text_en": "The site lags on mobile and joins the 55% of WordPress sites that fail Core Web Vitals."
         },
         {
           "text_fr": "Chaque évolution passe par un prestataire ou un chantier de plugins à risque.",
           "text_en": "Every change goes through a vendor or a risky plugin project."
         },
         {
-          "text_fr": "Une faille non corrigée ouvre la porte et le site tombe un matin sans prévenir.",
-          "text_en": "An unpatched flaw opens the door and the site goes down one morning without warning."
+          "text_fr": "Une extension non mise à jour ouvre une faille, et près d'une sur deux n'a pas de correctif le jour où elle est publiée.",
+          "text_en": "An outdated plugin opens a hole, and nearly one in two has no fix on the day it's disclosed."
         },
         {
           "text_fr": "Au bout de deux ans, la pile est ingérable et on parle déjà de tout refaire.",
@@ -403,8 +416,8 @@
       "with_title_en": "Intelligent Website",
       "with_items": [
         {
-          "text_fr": "Les pages s'affichent instantanément et le 100/100 tient même en pic de trafic.",
-          "text_en": "Pages render instantly and the 100/100 holds even at traffic peaks."
+          "text_fr": "Les pages statiques s'affichent vite, même en pic de trafic.",
+          "text_en": "Static pages render fast, even at traffic peaks."
         },
         {
           "text_fr": "Le contenu s'édite en minutes, versionné, sans toucher à un développeur.",
@@ -465,8 +478,8 @@
           "kicker_en": "Service",
           "title_fr": "Site web intelligent",
           "title_en": "Intelligent website",
-          "lead_fr": "Le détail de l'offre : création ou refonte, instrumentation, SEO/GEO et CRM, à partir de 2 000 €.",
-          "lead_en": "The full offer: build or rebuild, instrumentation, SEO/GEO and CRM, from 2,000 €.",
+          "lead_fr": "Le détail de l'offre : création ou refonte, instrumentation, SEO/GEO et CRM, à partir de 2 000 € HT.",
+          "lead_en": "The full offer: build or rebuild, instrumentation, SEO/GEO and CRM, from €2,000 excl. tax.",
           "href": "/services/site-web-ia"
         },
         {
@@ -477,6 +490,15 @@
           "lead_fr": "Vous pesez trois technologies, pas ce seul duel ? Le guide neutre prend de la hauteur sur les trois voies, sans vendre la nôtre.",
           "lead_en": "Weighing three technologies, not just this duel? The neutral guide takes the wider view across all three, without selling ours.",
           "href": "/blog/webflow-vs-wordpress-vs-site-code-ia-2026"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "GEO vs SEO",
+          "title_en": "GEO vs SEO",
+          "lead_fr": "Être trouvé sur Google et cité par les IA : ce qui change, ce qui reste vrai, sources à l'appui.",
+          "lead_en": "Being found on Google and cited by AI: what changes, what still holds, with sources.",
+          "href": "/ressources/comparatifs/geo-vs-seo"
         }
       ]
     },
@@ -497,14 +519,14 @@
         {
           "q_fr": "Pourquoi un Site Web Intelligent est-il plus rapide qu'un WordPress ?",
           "q_en": "Why is an Intelligent Website faster than WordPress?",
-          "a_fr": "Le Site Web Intelligent est généré en statique (SSG) : les pages sont pré-calculées et servies telles quelles, sans base de données interrogée à chaque visite. WordPress assemble la page à la volée, charge un thème et une dizaine de plugins, puis interroge MySQL. Le premier vise 100/100 PageSpeed, le second se traîne souvent sous 50 sur mobile sans optimisation lourde.",
-          "a_en": "The Intelligent Website is generated as static (SSG): pages are pre-computed and served as-is, with no database queried on each visit. WordPress assembles the page on the fly, loads a theme and a dozen plugins, then queries MySQL. The first aims for 100/100 PageSpeed, the second often crawls below 50 on mobile without heavy optimisation."
+          "a_fr": "Le Site Web Intelligent est généré en statique (SSG) : les pages sont pré-calculées et servies telles quelles, sans base de données interrogée à chaque visite. WordPress assemble la page à la volée, charge son thème et ses extensions, puis interroge MySQL. Résultat mesuré par le Web Almanac 2025 : seuls 45 % des sites WordPress passent les Core Web Vitals sur mobile. Nous visons 100/100 sur PageSpeed.",
+          "a_en": "The Intelligent Website is generated as static (SSG): pages are pre-computed and served as-is, with no database queried on each visit. WordPress assembles the page on the fly, loads its theme and plugins, then queries MySQL. Measured result in the 2025 Web Almanac: only 45% of WordPress sites pass Core Web Vitals on mobile. We aim for 100/100 on PageSpeed."
         },
         {
           "q_fr": "Et la sécurité, WordPress est-il vraiment risqué ?",
           "q_en": "What about security, is WordPress really risky?",
-          "a_fr": "WordPress concentre une part énorme des sites du web, donc une part énorme des attaques. Chaque plugin tiers est une surface d'entrée, et une mise à jour oubliée suffit. Le Site Web Intelligent n'a pas d'admin exposée ni de base de données en frontal : il n'y a quasiment rien à pirater côté serveur. La surface d'attaque est réduite par conception, pas par rustines.",
-          "a_en": "WordPress powers a huge share of the web, so it draws a huge share of the attacks. Every third-party plugin is an entry surface, and one forgotten update is enough. The Intelligent Website has no exposed admin or front-facing database: there is almost nothing to hack on the server side. The attack surface is reduced by design, not by patches."
+          "a_fr": "WordPress équipe 40,1 % des sites web (W3Techs, 6 octobre 2026), donc il attire les attaques. Son cœur est solide : 6 failles en 2025 selon Patchstack. Le risque vient des extensions : 91 % des 11 334 failles de l'année, dont 46 % sans correctif au moment de leur publication. Une mise à jour oubliée suffit. Le Site Web Intelligent n'a pas d'admin exposée ni de base de données en frontal : il n'y a quasiment rien à pirater côté serveur. La surface d'attaque est réduite par conception, pas par rustines.",
+          "a_en": "WordPress powers 40.1% of all websites (W3Techs, 6 October 2026), so it draws attacks. Its core is solid: 6 vulnerabilities in 2025 according to Patchstack. The risk comes from plugins: 91% of the year's 11,334 vulnerabilities, 46% of them unpatched at disclosure. One forgotten update is enough. The Intelligent Website has no exposed admin or front-facing database: there is almost nothing to hack on the server side. The attack surface is reduced by design, not by patches."
         },
         {
           "q_fr": "Migrer depuis WordPress, c'est tout casser ?",
@@ -515,14 +537,14 @@
         {
           "q_fr": "Le coût total est-il vraiment plus bas qu'un WordPress ?",
           "q_en": "Is the total cost really lower than WordPress?",
-          "a_fr": "À l'achat, un WordPress monté vite peut sembler moins cher. Sur trois ans, le calcul s'inverse : hébergement musclé, licences de plugins premium, maintenance récurrente, correctifs de sécurité et refonte quand la pile devient ingérable. Le Site Web Intelligent coûte plus à poser et beaucoup moins à porter. C'est un actif qui s'amortit, pas une dette qui s'accumule.",
-          "a_en": "Upfront, a quickly assembled WordPress can look cheaper. Over three years, the maths flips: beefy hosting, premium plugin licences, recurring maintenance, security fixes and a rebuild when the stack becomes unmanageable. The Intelligent Website costs more to lay down and far less to carry. It's an asset that amortises, not a debt that accumulates."
+          "a_fr": "À l'achat, un WordPress monté vite peut sembler moins cher. Sur trois ans, le calcul s'inverse : hébergement musclé, licences de plugins premium, maintenance récurrente, correctifs de sécurité et refonte quand la pile devient ingérable. Le Site Web Intelligent coûte plus à poser et beaucoup moins à porter. Nos projets démarrent à 2 000 € HT, et l'audit chiffre votre cas réel plutôt qu'une moyenne.",
+          "a_en": "Upfront, a quickly assembled WordPress can look cheaper. Over three years, the maths flips: beefy hosting, premium plugin licences, recurring maintenance, security fixes and a rebuild when the stack becomes unmanageable. The Intelligent Website costs more to lay down and far less to carry. Our projects start at €2,000 excl. tax, and the audit prices your real case rather than an average."
         },
         {
           "q_fr": "Le Site Web Intelligent est-il citable par les IA comme ChatGPT ou Perplexity ?",
           "q_en": "Is the Intelligent Website citable by AIs like ChatGPT or Perplexity?",
-          "a_fr": "Oui, c'est un objectif de conception. Le contenu est balisé Schema.org, structuré en format extractible et tissé en maillage interne, ce qui le rend lisible et citable par les moteurs génératifs. WordPress peut s'en approcher avec des extensions SEO, mais le GEO reste un ajout, pas une fondation. Chez Waimia, c'est natif dès la première page.",
-          "a_en": "Yes, it's a design goal. Content is Schema.org tagged, structured in extractable format and woven into internal linking, making it readable and citable by generative engines. WordPress can get close with SEO extensions, but GEO stays an add-on, not a foundation. At Waimia, it's native from the first page."
+          "a_fr": "C'est un objectif de conception, pas une garantie : aucun prestataire ne contrôle ce qu'une IA cite. Le contenu est balisé Schema.org, structuré en format extractible et tissé en maillage interne, ce qui le rend lisible et citable par les moteurs génératifs. WordPress peut s'en approcher avec des extensions SEO, mais le GEO reste un ajout, pas une fondation. Chez Waimia, c'est natif dès la première page.",
+          "a_en": "It's a design goal, not a guarantee: no provider controls what an AI cites. Content is Schema.org tagged, structured in extractable format and woven into internal linking, making it readable and citable by generative engines. WordPress can get close with SEO extensions, but GEO stays an add-on, not a foundation. At Waimia, it's native from the first page."
         },
         {
           "q_fr": "Qui édite le contenu une fois le site livré ?",

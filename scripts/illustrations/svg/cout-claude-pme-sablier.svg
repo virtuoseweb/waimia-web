@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · cout-integration-claude-pme · un sablier géant au milieu d une plaine, deux silhouettes à côté -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="300" r="240" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect x="588" y="92" width="280" height="22" fill="{{subject}}"/>
+  <rect x="588" y="486" width="280" height="22" fill="{{subject}}"/>
+  <rect x="596" y="114" width="12" height="372" fill="{{subject}}"/><rect x="848" y="114" width="12" height="372" fill="{{subject}}"/>
+  <path d="M630 114 L826 114 L742 296 L742 316 L826 486 L630 486 L714 316 L714 296 Z" fill="{{light}}"/>
+  <path d="M652 130 L804 130 L728 276 Z" fill="{{mid}}"/>
+  <rect x="725" y="290" width="6" height="190" fill="{{mid}}"/>
+  <path d="M630 486 L826 486 L728 410 Z" fill="{{mid}}"/>
+  <use href="#pointer" transform="translate(420 512) scale(1.4)"/>
+  <use href="#woman" transform="translate(1050 512) scale(1.2)"/>
+  <use href="#man" transform="translate(1120 512)"/>
+  <use href="#man" transform="translate(1180 512) scale(0.9)"/>
+
+</svg>

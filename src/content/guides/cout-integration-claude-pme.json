@@ -1,0 +1,705 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Coût d'une intégration Claude en PME : prix détaillés",
+  "title_en": "Cost of a Claude integration for SMBs: detailed prices",
+  "description_fr": "Prix d'une intégration Claude en PME : licences en dollars sourcées, sprint de cadrage à 999 € HT puis heures, coûts cachés et trois exemples chiffrés.",
+  "description_en": "What a Claude integration costs an SMB: sourced dollar licence prices, a €999 scoping sprint then hourly work, hidden costs and three worked examples.",
+  "slug": "cout-integration-claude-pme",
+  "publishedAt": "2026-10-05",
+  "updatedAt": "2026-10-05",
+  "category": "pilotage",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "cout-claude",
+    "prix-claude",
+    "integration-claude",
+    "budget-ia",
+    "licences-claude"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic : tarifs Claude (Free, Pro, Max, Team, Enterprise)",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : Team Premium (usage par session)",
+      "url": "https://support.claude.com/en/articles/9266767",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : Enterprise, minimum de 20 sièges",
+      "url": "https://support.claude.com/en/articles/13393991",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic : Claude Enterprise en libre-service, siège plus usage",
+      "url": "https://claude.com/blog/self-serve-enterprise",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic : coûts de Claude Code (documentation)",
+      "url": "https://code.claude.com/docs/en/costs",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic : conformité régionale et résidence des données",
+      "url": "https://claude.com/regional-compliance",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : devise et TVA",
+      "url": "https://support.claude.com/en/articles/8325606",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : administration Team et Enterprise (Cowork)",
+      "url": "https://support.claude.com/en/articles/13455879",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Combien coûte Claude pour une PME de 15 personnes ?",
+      "a": "Prenons un exemple construit : 12 sièges Team Standard et 3 Premium, facturés à l'année. Les licences font 6 480 dollars par an hors TVA, 8 100 en mensuel. La mise en place : le sprint de cadrage à 999 € HT pour 10 heures, puis, pour trois skills et un connecteur, de l'ordre de 15 à 27 heures à {{prix.horaire}} € HT. Le chiffrage réel de votre cas se fait au sprint."
+    },
+    {
+      "q": "Team ou Enterprise : lequel est le moins cher ?",
+      "a": "Enterprise affiche le siège le moins cher (20 dollars par siège et par mois, facturés à l'année, 20 sièges minimum), mais s'y ajoute l'usage au tarif de l'API. Dans notre exemple C, l'équilibre avec Team se situe à 480 dollars d'usage par mois, soit 12 dollars par personne. Au-delà, Team est moins cher ; en deçà, Enterprise. Enterprise se choisit surtout pour ses contrôles : SCIM, journaux d'audit, Compliance API, rétention personnalisée, filtrage par adresse IP."
+    },
+    {
+      "q": "Combien de temps faut-il pour mettre en place Claude dans une équipe ?",
+      "a": "Il faut distinguer les heures de travail et la durée calendaire. Notre page intégration indique habituellement 2 à 8 semaines pour une équipe pilote : ouverture des comptes, connexion des outils, consignes partagées, charte et formation. Nous ne promettons pas de délai au-delà : il dépend de votre disponibilité pour valider, donner les accès et tester. Le sprint de cadrage représente 10 heures de travail."
+    },
+    {
+      "q": "Qui achète les licences : nous ou le prestataire ?",
+      "a": "Idéalement vous, directement chez Anthropic, au nom de l'entreprise : le compte et l'organisation restent à vous. Chez Waimia, l'intégration est facturée en heures et la page intégration ne prévoit aucun abonnement chez nous ; les licences relèvent de votre contrat avec Anthropic. Si un devis inclut des licences revendues, demandez la marge et le nom du titulaire du compte."
+    },
+    {
+      "q": "La mise en place peut-elle être financée ou prise en charge ?",
+      "a": "La formation, en partie : Waimia la dispense via Akigora, organisme certifié Qualiopi, ce qui remplit la condition pour un financement par l'OPCO de votre entreprise. La décision revient à votre OPCO ; le guide sur le financement d'une formation IA détaille le circuit et les délais. Le paramétrage et les connecteurs sont une prestation de conseil, pas une formation : nous ne les présentons pas à un OPCO."
+    },
+    {
+      "q": "Les prix en dollars : et la TVA, et le taux de change ?",
+      "a": "Les prix de cette page sont ceux d'Anthropic au 5 octobre 2026, en dollars, hors TVA. Au 6 octobre 2026, la page tarifs n'affiche aucun prix en euros, même en français. L'aide d'Anthropic indique que la facturation peut se faire en devise locale là où elle est proposée, la taxe étant incluse ou ajoutée selon la région. Budgétez en dollars, avec une marge de change."
+    },
+    {
+      "q": "Quels coûts oublie-t-on le plus souvent ?",
+      "a": "Les sièges que personne n'ouvre, le quota partagé entre chat, Claude Code et Cowork avec des crédits d'usage facturés au-delà, l'usage à l'API sur Enterprise, le temps du référent et la revue périodique des skills et des plugins. La section sur les coûts cachés en détaille huit, avec leur source."
+    },
+    {
+      "q": "Claude Code coûte-t-il en plus ?",
+      "a": "Claude Code est inclus dans Pro, Max, Team et Enterprise, pas dans Free. Sur Team et Enterprise, il consomme le même quota par siège que le chat. Facturé à l'API, Anthropic observe environ 13 dollars par développeur et par jour actif en entreprise, soit 150 à 250 dollars par mois, et moins de 30 dollars par jour pour 90 % des utilisateurs. Le guide Claude Code en entreprise détaille le sujet."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does Claude cost an SMB of 15 people?",
+      "a": "Take a constructed example: 12 Team Standard seats and 3 Premium, billed annually. Licences come to $6,480 a year excluding VAT, $8,100 monthly. Setup: the scoping sprint at €999 excl. VAT for 10 hours, then, for three skills and one connector, around 15 to 27 hours at €{{prix.horaire}} excl. VAT. Your own case is costed for real during the sprint."
+    },
+    {
+      "q": "Team or Enterprise: which is cheaper?",
+      "a": "Enterprise lists the cheapest seat ($20 per seat per month billed annually, 20 seats minimum), but usage at API rates is added. In our example C, break-even with Team sits at $480 of usage a month, or $12 per person. Above that, Team is cheaper; below, Enterprise. Enterprise is mainly chosen for its controls: SCIM, audit logs, Compliance API, custom retention, IP allowlisting."
+    },
+    {
+      "q": "How long does it take to set Claude up in a team?",
+      "a": "Working hours and calendar time are different things. Our integration page usually states 2 to 8 weeks for a pilot team: opening accounts, connecting tools, shared instructions, policy and training. We promise no deadline beyond that: it depends on your availability to approve, grant access and test. The scoping sprint is 10 hours of work."
+    },
+    {
+      "q": "Who buys the licences: us or the supplier?",
+      "a": "Ideally you, directly from Anthropic, in the company's name: the account and organisation stay yours. At Waimia, integration is billed by the hour and the integration page provides no subscription with us; licences fall under your contract with Anthropic. If a quote includes resold licences, ask for the margin and the name of the account holder."
+    },
+    {
+      "q": "Can the setup be funded or covered?",
+      "a": "Training, partly: Waimia delivers it via Akigora, a Qualiopi-certified organisation, which meets the condition for funding by your company's OPCO. The decision rests with your OPCO; the guide on funding AI training covers the circuit and the deadlines. Configuration and connectors are consulting work, not training: we do not submit them to an OPCO."
+    },
+    {
+      "q": "Prices in dollars: what about VAT and the exchange rate?",
+      "a": "The prices on this page are Anthropic's as of 5 October 2026, in dollars, excluding VAT. As of 6 October 2026, the pricing page shows no euro price, even in French. Anthropic's help pages say billing may be in local currency where supported, with tax included or added depending on the region. Budget in dollars, with an exchange-rate margin."
+    },
+    {
+      "q": "Which costs are most often forgotten?",
+      "a": "Seats nobody opens, the quota shared between chat, Claude Code and Cowork with usage credits billed beyond it, API usage on Enterprise, the lead's time and the periodic review of skills and plugins. The hidden costs section details eight, with their source."
+    },
+    {
+      "q": "Does Claude Code cost extra?",
+      "a": "Claude Code is included in Pro, Max, Team and Enterprise, not in Free. On Team and Enterprise it draws on the same per-seat quota as chat. Billed on the API, Anthropic observes about $13 per developer per active day in enterprise, i.e. $150 to $250 a month, and under $30 a day for 90% of users. The guide Claude Code for business covers the topic."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · Budget Claude en entreprise",
+      "kicker_en": "§ Guide · Claude budget for business",
+      "h1_fr": "Combien coûte une <i class=\"acc\">intégration Claude</i> en PME ?",
+      "h1_en": "How much does a <i class=\"acc\">Claude integration</i> cost an SMB?",
+      "lede_fr": "Vous payez deux factures : des licences en dollars à Anthropic, et un travail de mise en place facturé à l'heure. Ce guide les sépare, source chaque prix Anthropic, montre trois exemples de calcul et signale les postes qui font déraper un budget. Les exemples sont construits, pas tirés de clients.",
+      "lede_en": "You pay two bills: dollar licences to Anthropic, and setup work billed by the hour. This guide keeps them apart, sources every Anthropic price, walks through three worked examples and flags the items that blow a budget. The examples are constructed, not taken from clients.",
+      "badges": [
+        {
+          "label_fr": "Prix Anthropic lus le 5 octobre 2026",
+          "label_en": "Anthropic prices read on 5 October 2026"
+        },
+        {
+          "label_fr": "Sprint 999 € HT puis régie",
+          "label_en": "€999 sprint, then time and materials"
+        },
+        {
+          "label_fr": "Scénarios illustratifs",
+          "label_en": "Illustrative scenarios"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir le guide d'achat (PDF)",
+        "label_en": "Get the buying guide (PDF)",
+        "href": "/ressources/outils/guide-achat-claude-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/cout-claude-pme-metre-paper.webp",
+        "alt_fr": "Un mètre ruban géant déroulé le long de trois blocs de tailles croissantes, deux silhouettes mesurent",
+        "alt_en": "A giant tape measure unrolled along three blocks of rising size, two figures measuring",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Combien coûte une intégration Claude en PME ?",
+      "question_en": "How much does a Claude integration cost an SMB?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Deux postes séparés. Licences : Claude Team est affiché 20 dollars par siège et par mois en annuel (25 en mensuel), hors TVA. Mise en place chez Waimia : sprint de cadrage de 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure sur estimation validée. Exemple pour 15 personnes : 6 480 dollars de licences par an, et le sprint plus 15 à 27 heures.",
+      "answer_en": "Two separate items. Licences: Claude Team is listed at $20 per seat per month billed annually ($25 monthly), excluding VAT. Setup at Waimia: a €999 excl. VAT scoping sprint for 10 hours, then €{{prix.horaire}} excl. VAT per hour on an approved estimate. Example for 15 people: $6,480 a year in licences, plus the sprint and 15 to 27 hours."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Trois chiffres d'Anthropic, un prix Waimia",
+      "title_en": "Three Anthropic figures, one Waimia price",
+      "metrics": [
+        {
+          "value": "20 $",
+          "label_fr": "Team Standard, par siège et par mois en facturation annuelle (25 $ en mensuel). Source : page tarifs Claude, 5 octobre 2026",
+          "label_en": "Team Standard, per seat per month billed annually ($25 monthly). Source: Claude pricing page, 5 October 2026"
+        },
+        {
+          "value": "20 sièges",
+          "label_fr": "Minimum pour Enterprise, facturé 20 $ par siège et par mois à l'année, plus l'usage au tarif de l'API",
+          "label_en": "Minimum for Enterprise, billed $20 per seat per month annually, plus usage at API rates"
+        },
+        {
+          "value": "13 $",
+          "label_fr": "Coût observé de Claude Code à l'API, par développeur et par jour actif, soit 150 à 250 $ par mois (Anthropic)",
+          "label_en": "Observed cost of Claude Code on the API, per developer per active day, i.e. $150 to $250 a month (Anthropic)"
+        },
+        {
+          "value": "999 € HT",
+          "label_fr": "Sprint de cadrage Waimia, 10 heures à prix fixe. La suite s'estime en heures, que vous validez avant de démarrer",
+          "label_en": "Waimia scoping sprint, 10 hours at a fixed price. What follows is estimated in hours that you approve before work starts"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Deux factures, qu'on n'additionne pas sans précaution</h2>\n<p>Une intégration de Claude en entreprise se paie en deux morceaux qui n'ont rien en commun. Les <strong>licences</strong> sont un abonnement récurrent, versé à Anthropic, affiché en dollars. La <strong>mise en place</strong> <a href=\"/blog/architecte-ia-role-pme\">est un travail ponctuel, versé à un prestataire</a>, facturé en euros et en heures. Les additionner dans un seul chiffre cache les deux.</p>\n<p>Trois choses à savoir avant de lire les prix.</p>\n<ul>\n<li><strong>Tous les prix Claude ci-dessous sont en dollars, hors TVA et hors taux de change</strong>, tels qu'Anthropic les affichait le 5 octobre 2026. L'aide d'Anthropic indique que le prix peut s'afficher en devise locale selon la région, TVA incluse ou ajoutée. Au 6 octobre 2026, la page tarifs d'Anthropic, y compris dans sa version française, n'affiche que des dollars. Budgétez en dollars avec une marge de change, et ignorez les conversions arrondies qui circulent sur les blogs.</li>\n<li><strong>Ces prix bougent.</strong> Les offres Team et Enterprise ont changé de modèle, et plusieurs pages françaises citent encore d'anciennes grilles (Team « de 5 à 150 sièges » alors que le minimum officiel est de 2, Enterprise « à partir de 50 sièges à 125 $ » alors que le modèle actuel est un siège à 20 $ plus l'usage).</li>\n<li><strong>Le côté Waimia est public.</strong> Audit gratuit de 45 minutes, sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure sur estimation validée par vous. Le détail est sur la page <a href=\"/tarifs\">tarifs</a> et sur la page <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a>.</li>\n</ul>\n<p>Ce guide ne chiffre pas un projet d'agent sur mesure, ni un développement d'application : pour cela, l'estimation passe par l'<a href=\"/audit-ia-pme\">audit</a>. Il chiffre ce que la plupart des PME achètent d'abord : choisir l'offre, ouvrir les comptes, écrire les règles, brancher un ou deux outils, former un référent.</p>",
+      "html_en": "<h2>Two bills, not to be added up carelessly</h2>\n<p>A Claude integration at work is paid in two pieces that have nothing in common. <strong>Licences</strong> are a recurring subscription paid to Anthropic and shown in dollars. <strong>Setup</strong> is one-off work paid to a supplier, billed in euros and hours. Adding them into one figure hides both.</p>\n<p>Three precautions before reading the prices.</p>\n<ul>\n<li><strong>Every Claude price below is in dollars, excluding VAT and exchange rate</strong>, as Anthropic displayed it on 5 October 2026. Anthropic's help pages say the price may be shown in local currency depending on the region, with VAT included or added. As of 6 October 2026, Anthropic's pricing page, French version included, shows dollars only. Budget in dollars with an exchange-rate margin, and ignore the rounded conversions that circulate on blogs.</li>\n<li><strong>These prices move.</strong> The Team and Enterprise plans have changed model, and several French pages still quote old grids (Team \"5 to 150 seats\" when the official minimum is 2, Enterprise \"from 50 seats at $125\" when the current model is a $20 seat plus usage).</li>\n<li><strong>Waimia's side is public.</strong> A free 45-minute audit, a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} excl. VAT per hour on an estimate you approve. Details are on the <a href=\"/tarifs\">pricing</a> page and the <a href=\"/services/integration-claude\">Claude integration for business</a> page.</li>\n</ul>\n<p>This guide does not price a custom agent project or an application build: for that, the estimate goes through the <a href=\"/audit-ia-pme\">audit</a>. It prices what most SMBs buy first: choosing the plan, opening accounts, writing the rules, connecting one or two tools, training a lead.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les licences",
+      "kicker_en": "§ Licences",
+      "heading_fr": "La grille des offres Claude, en dollars",
+      "heading_en": "The Claude plan grid, in dollars",
+      "caption_fr": "Sources : claude.com/pricing, aide Claude (articles 9266767 pour Team Premium et 13393991 pour le minimum Enterprise), lus le 5 octobre 2026. Hors TVA et taux de change. Le multiple est celui de l'usage d'un abonnement Pro, par session.",
+      "caption_en": "Sources: claude.com/pricing, Claude help (articles 9266767 for Team Premium and 13393991 for the Enterprise minimum), read on 5 October 2026. Excluding VAT and exchange rate. The multiple is that of a Pro subscription's usage, per session.",
+      "columns_fr": [
+        "Offre",
+        "Prix affiché",
+        "Ce que cela change pour une PME"
+      ],
+      "columns_en": [
+        "Plan",
+        "Listed price",
+        "What it means for an SMB"
+      ],
+      "rows_fr": [
+        [
+          "Pro",
+          "20 $ par mois ; 17 $ en annuel (200 $ par an)",
+          "Compte individuel, conditions grand public. Inclut Claude Code, Projets, Docs, Slides et Design. Aucune administration d'équipe."
+        ],
+        [
+          "Max",
+          "À partir de 100 $ par mois (5x ou 20x l'usage de Pro ; 200 $ par mois pour 20x)",
+          "Pour un utilisateur très intensif. Même cadre grand public que Pro."
+        ],
+        [
+          "Team Standard",
+          "25 $ par siège et par mois ; 20 $ en annuel. 2 à 150 sièges",
+          "Administration, authentification unique, conditions commerciales sans entraînement par défaut. Usage de 1,25x Pro par session."
+        ],
+        [
+          "Team Premium",
+          "125 $ par siège et par mois ; 100 $ en annuel",
+          "Mêmes fonctions que Standard, usage de 6,25x Pro par session, soit cinq fois celui de Standard pour cinq fois le prix."
+        ],
+        [
+          "Enterprise",
+          "20 $ par siège et par mois facturés à l'année, plus l'usage au tarif de l'API. Minimum 20 sièges",
+          "Provisionnement SCIM, journaux d'audit, Compliance API, rétention personnalisée, filtrage par adresse IP. Budget variable : à chiffrer sur vos volumes."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Pro",
+          "$20 per month; $17 billed annually ($200 a year)",
+          "Individual account, consumer terms. Includes Claude Code, Projects, Docs, Slides and Design. No team administration."
+        ],
+        [
+          "Max",
+          "From $100 per month (5x or 20x Pro usage; $200 per month for 20x)",
+          "For a very heavy user. Same consumer framework as Pro."
+        ],
+        [
+          "Team Standard",
+          "$25 per seat per month; $20 annually. 2 to 150 seats",
+          "Administration, single sign-on, commercial terms with no training by default. Usage of 1.25x Pro per session."
+        ],
+        [
+          "Team Premium",
+          "$125 per seat per month; $100 annually",
+          "Same features as Standard, usage of 6.25x Pro per session: five times Standard for five times the price."
+        ],
+        [
+          "Enterprise",
+          "$20 per seat per month billed annually, plus usage at API rates. Minimum 20 seats",
+          "SCIM provisioning, audit logs, Compliance API, custom retention, IP allowlisting. Variable budget: to be costed on your volumes."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/cout-claude-pme-sieges-paper.webp",
+          "alt_fr": "Sept fauteuils suspendus à un rail par un fil et une étiquette, trois occupés, quatre vides",
+          "alt_en": "Seven armchairs hanging from a rail by a string and a tag, three occupied, four empty",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Licences Claude : le calcul, et l'endroit où il dérape</h2>\n<p>La formule est simple. Pour Team, facturé à l'année : <strong>(nombre de sièges Standard × 20 $ + nombre de sièges Premium × 100 $) × 12</strong>. En mensuel, remplacez 20 par 25 et 100 par 125. Pour Enterprise : <strong>sièges × 20 $ × 12, plus l'usage au tarif de l'API</strong>. La deuxième moitié de cette phrase est celle que les devis oublient.</p>\n<p>Le calcul dérape à trois endroits.</p>\n<p><strong>Le siège que personne n'ouvre.</strong> Une licence achetée « pour tout le monde » est une dépense fixe tant qu'elle n'est pas utilisée. Commencez par les personnes qui ont une tâche précise à confier à Claude, élargissez ensuite. La <a href=\"/ressources/outils/checklist-90-jours-claude\">checklist des 90 jours</a> suit cet ordre.</p>\n<p><strong>Premium pour tout le monde.</strong> Premium offre cinq fois le quota de Standard pour cinq fois le prix. Il se justifie pour un analyste ou un développeur qui épuise son quota, pas pour une équipe entière. Anthropic le permet explicitement : une organisation Team peut mélanger les deux types de sièges, Premium pour les gros utilisateurs, Standard pour les autres.</p>\n<p><strong>Enterprise choisi pour son prix.</strong> Le siège à 20 $ attire, l'usage à l'API est ce qui compte. Enterprise se choisit pour ses contrôles (SCIM, journaux d'audit, rétention, filtrage IP), rarement pour économiser. Le <a href=\"/ressources/guides/claude-pme\">guide Claude pour les PME</a> détaille ce que chaque offre permet, et la <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">comparaison Claude et ChatGPT</a> situe le prix face à l'alternative.</p>\n<p>Un repère de bon sens : cinq comptes Pro en annuel coûtent 1 000 $ par an, cinq sièges Team Standard 1 200 $. Ces 200 $ d'écart paient les conditions commerciales, l'administration et la possibilité de retirer un accès quand quelqu'un part. Pour une équipe qui touche des données de l'entreprise, ils sont rarement de trop.</p>",
+      "html_en": "<h2>Claude licences: the calculation, and where it slips</h2>\n<p>The formula is simple. For Team billed annually: <strong>(Standard seats × $20 + Premium seats × $100) × 12</strong>. Monthly, replace 20 with 25 and 100 with 125. For Enterprise: <strong>seats × $20 × 12, plus usage at API rates</strong>. The second half of that sentence is the one quotes forget.</p>\n<p>The calculation slips in three places.</p>\n<p><strong>The seat nobody opens.</strong> A licence bought \"for everyone\" is a fixed cost as long as it goes unused. Start with the people who have a precise task to hand to Claude, then widen. The <a href=\"/ressources/outils/checklist-90-jours-claude\">90-day checklist</a> follows that order.</p>\n<p><strong>Premium for everyone.</strong> Premium gives five times Standard's quota for five times the price. It is justified for an analyst or developer who exhausts their quota, not for a whole team. Anthropic explicitly allows it: a Team organisation can mix both seat types, Premium for heavy users, Standard for everyone else.</p>\n<p><strong>Enterprise chosen for its price.</strong> The $20 seat is attractive, API usage is what counts. Enterprise is chosen for its controls (SCIM, audit logs, retention, IP filtering), rarely to save money. The <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a> details what each plan allows, and the <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT comparison</a> places the price against the alternative.</p>\n<p>A common-sense benchmark: five Pro accounts billed annually cost $1,000 a year, five Team Standard seats $1,200. That $200 gap pays for commercial terms, administration and the ability to remove access when someone leaves. For a team handling company data, it is rarely too much.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/cout-claude-pme-sablier-paper.webp",
+          "alt_fr": "Un sablier géant dans une plaine, une silhouette le montre du doigt, trois autres regardent",
+          "alt_en": "A giant hourglass on a plain, one figure pointing at it, three others watching",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Le temps de mise en place : où partent les heures</h2>\n<p>Une intégration de Claude n'est pas un projet informatique lourd. C'est une suite de petits travaux, chacun avec son livrable : ouvrir l'organisation, régler l'administration, écrire les règles d'usage, transformer les bonnes consignes en <a href=\"/ressources/guides/claude-skills\">skills</a>, brancher un outil, former un référent.</p>\n<p>Deux durées à ne pas confondre. Les <strong>heures de travail</strong> se chiffrent et se facturent. La <strong>durée calendaire</strong> dépend de votre disponibilité : qui valide, qui donne les accès, qui teste. Notre page <a href=\"/services/integration-claude\">intégration</a> indique habituellement 2 à 8 semaines pour une équipe pilote (ouverture des comptes, connexion des outils, consignes partagées, charte et formation), sans promesse de délai au-delà.</p>\n<p>Le sprint de cadrage couvre le premier bloc : cartographie des usages, budget licences, choix de l'offre, un premier usage branché et mesuré. Dix heures, 999 € HT, à prix fixe. Tout ce qui suit s'estime en heures, que vous validez avant de démarrer. Le tableau ci-dessous donne des exemples d'heures par poste, pour construire un premier budget. Ce ne sont ni des forfaits ni un devis : le chiffrage réel se fait au sprint, sur vos outils et vos procédures.</p>\n<p>Un <a href=\"/ressources/guides/claude-plugins-entreprise\">plugin privé</a> diffuse ensuite skills et connecteurs aux équipes qui en ont besoin. Pour savoir quelles tâches méritent un skill, un connecteur ou rien du tout, la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a> classe les candidats par heures économisées. Le guide <a href=\"/ressources/guides/roi-automatisation\">ROI de l'automatisation</a> explique comment mesurer le retour avant de payer.</p>",
+      "html_en": "<h2>Setup time: where the hours go</h2>\n<p>A Claude integration is not a heavy IT project. It is a series of small jobs, each with its deliverable: opening the organisation, configuring administration, writing the usage rules, turning good instructions into <a href=\"/ressources/guides/claude-skills\">skills</a>, connecting a tool, training a lead.</p>\n<p>Two durations not to be confused. <strong>Working hours</strong> are costed and billed. <strong>Calendar time</strong> depends on your availability: who approves, who grants access, who tests. Our <a href=\"/services/integration-claude\">integration</a> page usually states 2 to 8 weeks for a pilot team (opening accounts, connecting tools, shared instructions, policy and training), with no promise of a deadline beyond that.</p>\n<p>The scoping sprint covers the first block: mapping uses, licence budget, choice of plan, a first use connected and measured. Ten hours, €999 excl. VAT, fixed price. Everything after is estimated in hours that you approve before starting. The table below gives example hours per item, to build a first budget. They are neither packages nor a quote: the real costing is done during the sprint, on your tools and procedures.</p>\n<p>A <a href=\"/ressources/guides/claude-plugins-entreprise\">private plugin</a> then distributes skills and connectors to the teams that need them. To know which tasks deserve a skill, a connector or nothing at all, the <a href=\"/ressources/outils/grille-taches-a-automatiser\">task grid</a> ranks candidates by hours saved. The <a href=\"/ressources/guides/roi-automatisation\">automation ROI</a> guide explains how to measure the return before paying.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Exemples de chiffrage",
+      "kicker_en": "§ Costing examples",
+      "heading_fr": "Les heures par poste : des exemples, pas un devis",
+      "heading_en": "Hours per item: examples, not a quote",
+      "caption_fr": "Exemples de calcul, non contractuels : le chiffrage de votre projet se fait au sprint de cadrage. Au-delà du sprint, les heures se facturent {{prix.horaire}} € HT de l'heure au-delà du sprint. Les formations élargies suivent deux formats : {{prix.formation.f1.heures}} heures à {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures à {{prix.formation.f2}} € HT ({{prix.formation.note}}), dispensées via Akigora, organisme certifié Qualiopi.",
+      "caption_en": "Worked examples, not contractual: your project is costed during the scoping sprint. Hours beyond the sprint are billed at €{{prix.horaire}} excl. VAT per hour. Wider training follows two formats: {{prix.formation.f1.heures}} hours at €{{prix.formation.f1.en}} excl. VAT or {{prix.formation.f2.heures}} hours at €{{prix.formation.f2.en}} excl. VAT ({{prix.formation.note.en}}), delivered via Akigora, a Qualiopi-certified organisation.",
+      "columns_fr": [
+        "Poste",
+        "Exemple d'heures",
+        "Ce qui fait varier"
+      ],
+      "columns_en": [
+        "Item",
+        "Example hours",
+        "What makes it vary"
+      ],
+      "rows_fr": [
+        [
+          "Cadrage, budget licences, choix de l'offre, premier usage branché",
+          "Inclus dans le sprint (10 heures, 999 € HT)",
+          "Nombre d'équipes, maturité d'usage"
+        ],
+        [
+          "Ouverture de l'organisation, authentification unique, réglages d'administration",
+          "2 à 4 heures, dans le sprint",
+          "Team ou Enterprise, fournisseur d'identité"
+        ],
+        [
+          "Charte d'usage et règles sur les données",
+          "2 à 3 heures avec le modèle de charte, dans le sprint",
+          "Secteur, données sensibles"
+        ],
+        [
+          "Un skill par tâche récurrente, testé",
+          "3 à 5 heures par skill",
+          "Procédure déjà écrite ou à écrire"
+        ],
+        [
+          "Un connecteur vers un logiciel existant, en lecture seule d'abord",
+          "6 à 12 heures par connecteur",
+          "Connecteur officiel existant ou non, qualité de l'interface du logiciel"
+        ],
+        [
+          "Un plugin privé pour diffuser skills et connecteurs",
+          "6 à 10 heures",
+          "Nombre de skills, niveaux de diffusion"
+        ],
+        [
+          "Réglages Enterprise supplémentaires (SCIM, journaux d'audit, rétention)",
+          "4 à 8 heures",
+          "Fournisseur d'identité, exigences de conformité"
+        ],
+        [
+          "Formation du référent et de l'équipe pilote",
+          "Incluse dans la mission d'intégration",
+          "Taille de l'équipe pilote"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Scoping, licence budget, choice of plan, first use connected",
+          "Included in the sprint (10 hours, €999 excl. VAT)",
+          "Number of teams, usage maturity"
+        ],
+        [
+          "Opening the organisation, single sign-on, administration settings",
+          "2 to 4 hours, within the sprint",
+          "Team or Enterprise, identity provider"
+        ],
+        [
+          "Usage policy and data rules",
+          "2 to 3 hours with the policy template, within the sprint",
+          "Sector, sensitive data"
+        ],
+        [
+          "One skill per recurring task, tested",
+          "3 to 5 hours per skill",
+          "Procedure already written or still to write"
+        ],
+        [
+          "A connector to an existing piece of software, read-only first",
+          "6 to 12 hours per connector",
+          "Whether an official connector exists, quality of the software's interface"
+        ],
+        [
+          "A private plugin to distribute skills and connectors",
+          "6 to 10 hours",
+          "Number of skills, distribution levels"
+        ],
+        [
+          "Extra Enterprise settings (SCIM, audit logs, retention)",
+          "4 to 8 hours",
+          "Identity provider, compliance requirements"
+        ],
+        [
+          "Training the lead and the pilot team",
+          "Included in the integration engagement",
+          "Pilot team size"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "ink",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/cout-claude-pme-sous-plancher-ink.webp",
+          "alt_fr": "Coupe de terrain : un petit bureau en surface, une échelle descend vers une cave pleine de caisses",
+          "alt_en": "Cross-section of the ground: a small office on top, a ladder going down to a cellar full of crates",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Les coûts cachés : huit lignes que les devis oublient</h2>\n<ol>\n<li><strong>Les sièges vides.</strong> Team est facturé par siège. Une licence que personne n'ouvre coûte autant qu'une licence utilisée. Le test : combien de personnes ont ouvert Claude cette semaine ?</li>\n<li><strong>Le quota partagé.</strong> Sur Team et Enterprise, chaque siège a un quota sur une fenêtre glissante de 5 heures et sur la semaine, partagé entre le chat, Claude Code et Cowork. <a href=\"/ressources/guides/claude-cowork\">Cowork</a>, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Au-delà du quota, des crédits d'usage sont facturés, avec des plafonds à poser par organisation, groupe ou membre. Sans plafond, la facture varie.</li>\n<li><strong>L'usage à l'API.</strong> Sur Enterprise, l'usage s'ajoute au siège. Pour <a href=\"/ressources/comparatifs/claude-code-vs-cursor\">Claude Code facturé à l'API</a>, Anthropic observe environ 13 $ par développeur et par jour actif en entreprise, soit 150 à 250 $ par mois, et moins de 30 $ par jour pour 90 % des utilisateurs. Voir le guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</li>\n<li><strong>La résidence des données.</strong> D'après Anthropic, les applications Claude stockent les données aux États-Unis par défaut, et aucun hébergement européen n'est confirmé pour elles. Une résidence européenne passe par des clouds tiers (AWS Bedrock, Google Vertex), et l'API affiche un tarif « data residency » à 1,1x. Cela change l'architecture, donc la facture.</li>\n<li><strong>Le temps du référent.</strong> Personne ne l'écrit dans le devis, c'est pourtant un coût salarial réel : des heures par semaine, à nommer dès le cadrage. Sans référent, ce que nous livrons s'étiole.</li>\n<li><strong>La conformité.</strong> Charte d'usage, registre RGPD, situation au regard de l'AI Act : c'est un travail, pas une case. Un point précis : l'historique local des sessions Cowork n'est pas soumis à la politique de rétention standard, et les administrateurs ne peuvent ni le gérer ni le supprimer de façon centralisée. Voir le <a href=\"/conformite-ia\">cadre de conformité IA</a> et le <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">kit conformité</a>.</li>\n<li><strong>La sécurité des connecteurs.</strong> Anthropic examine les connecteurs de son annuaire mais n'audite pas la sécurité des serveurs MCP. La relecture est à votre charge, ou à celle du prestataire, en heures. Le guide <a href=\"/ressources/guides/mcp-claude\">MCP expliqué aux dirigeants</a> donne les questions à poser.</li>\n<li><strong>Les mises à jour.</strong> Anthropic publie de nouveaux modèles à un rythme rapide. Des skills et des plugins écrits aujourd'hui demandent une revue périodique. Un forfait de suivi facultatif existe (paliers sur la page <a href=\"/tarifs\">tarifs</a>) ; un référent formé peut aussi s'en charger.</li>\n</ol>",
+      "html_en": "<h2>Hidden costs: eight lines that quotes forget</h2>\n<ol>\n<li><strong>Empty seats.</strong> Team is billed per seat. A licence nobody opens costs as much as one in use. The test: how many people opened Claude this week?</li>\n<li><strong>The shared quota.</strong> On Team and Enterprise, each seat has a quota over a rolling 5-hour window and over the week, shared between chat, Claude Code and Cowork. <a href=\"/ressources/guides/claude-cowork\">Cowork</a>, Claude's agent that carries out tasks in your files and tools, is now being merged into Claude (rollout under way on Pro and Max; Team and Enterprise keep Cowork separate for now). Beyond the quota, usage credits are billed, with caps to set per organisation, group or member. Without a cap, the bill varies.</li>\n<li><strong>API usage.</strong> On Enterprise, usage is added to the seat. For Claude Code billed on the API, Anthropic observes about $13 per developer per active day in enterprise, i.e. $150 to $250 a month, and under $30 a day for 90% of users. See the guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business</a>.</li>\n<li><strong>Data residency.</strong> According to Anthropic, Claude apps store data in the United States by default, and no European hosting is confirmed for them. European residency goes through third-party clouds (AWS Bedrock, Google Vertex), and the API lists a \"data residency\" rate at 1.1x. That changes the architecture, hence the bill.</li>\n<li><strong>The lead's time.</strong> Nobody writes it in the quote, yet it is a real salary cost: hours per week, to be named at scoping. Without a lead, what we deliver withers.</li>\n<li><strong>Compliance.</strong> Usage policy, GDPR register, position under the AI Act: that is work, not a tick box. One precise point: the local history of Cowork sessions is not subject to the standard retention policy, and administrators cannot manage or delete it centrally. See the <a href=\"/conformite-ia\">AI compliance framework</a> and the <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">compliance kit</a>.</li>\n<li><strong>Connector security.</strong> Anthropic reviews the connectors in its directory but does not audit the security of MCP servers. The review is on you, or on the supplier, in hours. The guide <a href=\"/ressources/guides/mcp-claude\">MCP explained to business owners</a> gives the questions to ask.</li>\n<li><strong>Updates.</strong> Anthropic ships new models at a fast pace. Skills and plugins written today need a periodic review. An optional follow-up plan exists (tiers on the <a href=\"/tarifs\">pricing</a> page); a trained lead can also take it on.</li>\n</ol>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Trois exemples chiffrés : la méthode de calcul, pas un devis</h2>\n<p><strong>Ces trois cas sont des exemples construits, pas des clients.</strong> Les licences reprennent les prix d'Anthropic au 5 octobre 2026 (dollars, hors TVA). Les heures de mise en place viennent du tableau précédent : ce sont des exemples, que le sprint de cadrage remplace par un chiffrage réel. Chaque heure au-delà du sprint se facture {{prix.horaire}} € HT. Le <a href=\"/ressources/outils/guide-achat-claude-pme\">guide d'achat Claude pour PME</a> (PDF de 14 pages, par e-mail) reprend ces trois cas en détail.</p>\n<p><strong>Exemple A : 5 personnes, aucun outil à connecter.</strong> Team, 4 sièges Standard et 1 Premium, facturés à l'année : (4 × 20 + 1 × 100) × 12 = 2 160 $ par an, ou 2 700 $ en mensuel. Mise en place : le sprint seul, 999 € HT. À cette taille, je vous conseille souvent de vous passer de prestataire : des comptes Team, une charte d'une page et la checklist des 90 jours suffisent. Le sprint vaut le coup si vous voulez un premier usage branché et mesuré sans y passer vos propres semaines.</p>\n<p><strong>Exemple B : 15 personnes, un logiciel à connecter.</strong> Team, 12 Standard et 3 Premium, à l'année : (12 × 20 + 3 × 100) × 12 = 6 480 $ par an, ou 8 100 $ en mensuel. L'annuel économise 1 620 $. Mise en place : le sprint (999 € HT), puis trois skills (3 à 5 heures chacun) et un connecteur (6 à 12 heures), soit 15 à 27 heures × {{prix.horaire}} € HT. Le poste à surveiller est ailleurs : les trois sièges Premium pèsent 300 $ sur 540 $ de budget mensuel.</p>\n<p><strong>Exemple C : 40 personnes, six développeurs, deux logiciels à connecter.</strong> Option Team, 34 Standard et 6 Premium, à l'année : (34 × 20 + 6 × 100) × 12 = 15 360 $ par an. Option Enterprise : 40 sièges × 20 $ × 12 = 9 600 $ par an, plus l'usage ; avec six développeurs à 150 à 250 $ par mois, on arrive à 20 400 à 27 600 $ par an avant l'usage des 34 autres personnes. Les deux options s'équilibrent à 480 $ d'usage par mois, soit 12 $ par personne. Mise en place : le sprint (999 € HT), puis six skills (18 à 30 heures), deux connecteurs (12 à 24 heures), un plugin privé (6 à 10 heures) et les réglages Enterprise (4 à 8 heures), soit 40 à 72 heures × {{prix.horaire}} € HT.</p>",
+      "html_en": "<h2>Three worked examples: the calculation method, not a quote</h2>\n<p><strong>These three cases are constructed examples, not clients.</strong> Licences use Anthropic's prices as of 5 October 2026 (dollars, excluding VAT). Setup hours come from the previous table: they are examples, which the scoping sprint replaces with a real costing. Each hour beyond the sprint is billed €{{prix.horaire}} excl. VAT. The <a href=\"/ressources/outils/guide-achat-claude-pme\">Claude buying guide for SMBs</a> (14-page PDF, sent by email) covers these three cases in detail.</p>\n<p><strong>Example A: 5 people, no tool to connect.</strong> Team, 4 Standard seats and 1 Premium, billed annually: (4 × 20 + 1 × 100) × 12 = $2,160 a year, or $2,700 monthly. Setup: the sprint alone, €999 excl. VAT. At this size I often advise doing without a supplier: Team accounts, a one-page policy and the 90-day checklist are enough. The sprint is worth it if you want a first use connected and measured without spending your own weeks on it.</p>\n<p><strong>Example B: 15 people, one piece of software to connect.</strong> Team, 12 Standard and 3 Premium, annually: (12 × 20 + 3 × 100) × 12 = $6,480 a year, or $8,100 monthly. Annual billing saves $1,620. Setup: the sprint (€999 excl. VAT), then three skills (3 to 5 hours each) and one connector (6 to 12 hours), i.e. 15 to 27 hours × €{{prix.horaire}} excl. VAT. The item to watch is elsewhere: the three Premium seats weigh $300 of a $540 monthly budget.</p>\n<p><strong>Example C: 40 people, six developers, two pieces of software to connect.</strong> Team option, 34 Standard and 6 Premium, annually: (34 × 20 + 6 × 100) × 12 = $15,360 a year. Enterprise option: 40 seats × $20 × 12 = $9,600 a year, plus usage; with six developers at $150 to $250 a month, that reaches $20,400 to $27,600 a year before the other 34 people's usage. The two options break even at $480 of usage a month, or $12 per person. Setup: the sprint (€999 excl. VAT), then six skills (18 to 30 hours), two connectors (12 to 24 hours), a private plugin (6 to 10 hours) and the Enterprise settings (4 to 8 hours), i.e. 40 to 72 hours × €{{prix.horaire}} excl. VAT.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Récapitulatif",
+      "kicker_en": "§ Summary",
+      "heading_fr": "Les trois exemples côte à côte, sans les additionner",
+      "heading_en": "The three examples side by side, without adding them up",
+      "caption_fr": "Les dollars (licences, récurrent) et les euros (mise en place, ponctuelle) ne s'additionnent pas : TVA, taux de change et nature de la dépense diffèrent. Exemples construits ; les heures sont chiffrées pour de vrai au sprint de cadrage.",
+      "caption_en": "Dollars (licences, recurring) and euros (setup, one-off) are not added together: VAT, exchange rate and the nature of the expense differ. Constructed examples; the hours are costed for real during the scoping sprint.",
+      "columns_fr": [
+        "Scénario",
+        "Licences Claude par an, hors TVA",
+        "Mise en place",
+        "Lecture"
+      ],
+      "columns_en": [
+        "Scenario",
+        "Claude licences per year, excl. VAT",
+        "Setup",
+        "Reading"
+      ],
+      "rows_fr": [
+        [
+          "A · 5 personnes",
+          "2 160 $ (Team, 4 Standard + 1 Premium, annuel). 2 700 $ en mensuel",
+          "999 € HT (sprint seul)",
+          "Cinq sièges Standard annuels coûtent 1 200 $, soit 200 $ de plus que cinq comptes Pro : le prix des conditions commerciales et de l'administration."
+        ],
+        [
+          "B · 15 personnes",
+          "6 480 $ (Team, 12 Standard + 3 Premium, annuel). 8 100 $ en mensuel",
+          "Sprint (999 € HT) + 15 à 27 heures × {{prix.horaire}} € HT",
+          "Les trois Premium pèsent plus de la moitié du budget mensuel. Rétrograder un siège qui n'épuise pas son quota fait économiser 80 $ par mois."
+        ],
+        [
+          "C · 40 personnes",
+          "15 360 $ (Team, 34 + 6, annuel) ou 20 400 à 27 600 $ (Enterprise, 40 sièges + usage des six développeurs)",
+          "Sprint (999 € HT) + 40 à 72 heures × {{prix.horaire}} € HT",
+          "Enterprise se choisit pour ses contrôles, rarement pour son prix. Posez des plafonds d'usage dès le départ."
+        ]
+      ],
+      "rows_en": [
+        [
+          "A · 5 people",
+          "$2,160 (Team, 4 Standard + 1 Premium, annual). $2,700 monthly",
+          "€999 excl. VAT (sprint only)",
+          "Five annual Standard seats cost $1,200, i.e. $200 more than five Pro accounts: the price of commercial terms and administration."
+        ],
+        [
+          "B · 15 people",
+          "$6,480 (Team, 12 Standard + 3 Premium, annual). $8,100 monthly",
+          "Sprint (€999 excl. VAT) + 15 to 27 hours × €{{prix.horaire}} excl. VAT",
+          "The three Premium seats weigh more than half the monthly budget. Downgrading a seat that does not exhaust its quota saves $80 a month."
+        ],
+        [
+          "C · 40 people",
+          "$15,360 (Team, 34 + 6, annual) or $20,400 to $27,600 (Enterprise, 40 seats + the six developers' usage)",
+          "Sprint (€999 excl. VAT) + 40 to 72 hours × €{{prix.horaire}} excl. VAT",
+          "Enterprise is chosen for its controls, rarely for its price. Set usage caps from the start."
+        ]
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "guide-achat-claude-pme",
+      "background": "ink",
+      "kicker_fr": "§ Guide gratuit, envoyé par e-mail",
+      "kicker_en": "§ Free guide, sent by email",
+      "h2_fr": "Recevez le guide d'achat Claude pour PME, avec les budgets calculés",
+      "h2_en": "Get the Claude buying guide for SMBs, with the budgets worked out",
+      "body_fr": "Un PDF A4 de 14 pages : la grille des offres en une page, une matrice de décision pour huit profils d'entreprise, les formules de coût Team et Enterprise, trois budgets calculés pour 5, 15 et 40 personnes, douze pièges d'achat et la configuration du premier jour en douze étapes. Le fichier arrive par e-mail, en pièce jointe.",
+      "body_en": "A 14-page A4 PDF: the plan grid on one page, a decision matrix for eight company profiles, the Team and Enterprise cost formulas, three budgets worked out for 5, 15 and 40 people, twelve buying traps and day-one setup in twelve steps. The file arrives by email, as an attachment."
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Seul ou accompagné",
+      "kicker_en": "§ On your own or supported",
+      "title_fr": "Quand le faire soi-même, quand payer un accompagnement",
+      "title_en": "When to do it yourself, when to pay for support",
+      "aside_fr": "Avis de Waimia, qui vend l'accompagnement : si vous cochez la colonne de gauche, gardez votre budget.",
+      "aside_en": "Waimia's opinion, and Waimia sells the support: if you tick the left column, keep your budget.",
+      "use_title_fr": "Le faire vous-même suffit si",
+      "use_title_en": "Doing it yourself is enough if",
+      "use_items_fr": [
+        "Vous êtes moins de cinq, sans outil à connecter : comptes Team, charte d'une page, checklist des 90 jours.",
+        "Quelqu'un chez vous a quelques heures par semaine et aime cela.",
+        "Vous n'avez besoin que de skills simples, sur des procédures déjà écrites.",
+        "Aucune donnée sensible ne circule dans les premiers usages.",
+        "Vous voulez d'abord tester, avant d'engager un budget."
+      ],
+      "use_items_en": [
+        "You are fewer than five, with no tool to connect: Team accounts, a one-page policy, the 90-day checklist.",
+        "Someone on your side has a few hours a week and enjoys it.",
+        "You only need simple skills, on procedures already written.",
+        "No sensitive data circulates in the first uses.",
+        "You want to test first, before committing a budget."
+      ],
+      "avoid_title_fr": "Un accompagnement se justifie si",
+      "avoid_title_en": "Paid support is justified if",
+      "avoid_items_fr": [
+        "Plusieurs outils doivent être reliés à Claude, avec des droits limités et des règles écrites.",
+        "Vos équipes utilisent déjà des comptes personnels avec des données de l'entreprise.",
+        "Personne n'a le temps de lire la documentation, les changements d'offre et les réglages d'administration.",
+        "Vous voulez un référent formé qui tienne seul à la fin.",
+        "Un enjeu de conformité (RGPD, AI Act, secteur régulé) exige un cadrage écrit."
+      ],
+      "avoid_items_en": [
+        "Several tools must be linked to Claude, with limited rights and written rules.",
+        "Your teams already use personal accounts with company data.",
+        "Nobody has time to read the documentation, plan changes and admin settings.",
+        "You want a trained lead who holds on alone at the end.",
+        "A compliance issue (GDPR, AI Act, regulated sector) calls for written scoping."
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Choisir une agence IA en PME",
+          "title_en": "Choosing an AI agency for an SMB",
+          "lead_fr": "Grille de décision, signaux d'alerte, contrat et propriété du système.",
+          "lead_en": "Decision grid, warning signs, contract and system ownership.",
+          "href": "/ressources/guides/choisir-agence-ia-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude pour les PME : le guide complet",
+          "title_en": "Claude for SMBs: the complete guide",
+          "lead_fr": "Offres, fonctions, données et déploiement, dans l'ordre où on les décide.",
+          "lead_en": "Plans, features, data and rollout, in the order you decide them.",
+          "href": "/ressources/guides/claude-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Code en entreprise",
+          "title_en": "Claude Code for business",
+          "lead_fr": "Coût à l'API, sécurité et déploiement pour vos développeurs.",
+          "lead_en": "API cost, security and rollout for your developers.",
+          "href": "/ressources/guides/claude-code-entreprise"
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "ink",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Quand les prix de Claude bougent, vous le savez avant votre prochain devis",
+      "h2_en": "When Claude prices move, you know before your next quote",
+      "body_fr": "Offres, prix, quotas, données : ce qui a changé, daté et sourcé, et ce qu'il faut en faire. Une fois par mois.",
+      "body_en": "Plans, prices, quotas, data: what changed, dated and sourced, and what to do about it. Once a month.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Coût d'une intégration Claude : vos questions",
+      "h2_en": "Cost of a Claude integration: your questions",
+      "items": [
+        {
+          "q_fr": "Combien coûte Claude pour une PME de 15 personnes ?",
+          "a_fr": "Prenons un exemple construit : 12 sièges Team Standard et 3 Premium, facturés à l'année. Les licences font 6 480 dollars par an hors TVA, 8 100 en mensuel. La mise en place : le sprint de cadrage à 999 € HT pour 10 heures, puis, pour trois skills et un connecteur, de l'ordre de 15 à 27 heures à {{prix.horaire}} € HT. Le chiffrage réel de votre cas se fait au sprint.",
+          "q_en": "How much does Claude cost an SMB of 15 people?",
+          "a_en": "Take a constructed example: 12 Team Standard seats and 3 Premium, billed annually. Licences come to $6,480 a year excluding VAT, $8,100 monthly. Setup: the scoping sprint at €999 excl. VAT for 10 hours, then, for three skills and one connector, around 15 to 27 hours at €{{prix.horaire}} excl. VAT. Your own case is costed for real during the sprint."
+        },
+        {
+          "q_fr": "Team ou Enterprise : lequel est le moins cher ?",
+          "a_fr": "Enterprise affiche le siège le moins cher (20 dollars par siège et par mois, facturés à l'année, 20 sièges minimum), mais s'y ajoute l'usage au tarif de l'API. Dans notre exemple C, l'équilibre avec Team se situe à 480 dollars d'usage par mois, soit 12 dollars par personne. Au-delà, Team est moins cher ; en deçà, Enterprise. Enterprise se choisit surtout pour ses contrôles : SCIM, journaux d'audit, Compliance API, rétention personnalisée, filtrage par adresse IP.",
+          "q_en": "Team or Enterprise: which is cheaper?",
+          "a_en": "Enterprise lists the cheapest seat ($20 per seat per month billed annually, 20 seats minimum), but usage at API rates is added. In our example C, break-even with Team sits at $480 of usage a month, or $12 per person. Above that, Team is cheaper; below, Enterprise. Enterprise is mainly chosen for its controls: SCIM, audit logs, Compliance API, custom retention, IP allowlisting."
+        },
+        {
+          "q_fr": "Combien de temps faut-il pour mettre en place Claude dans une équipe ?",
+          "a_fr": "Il faut distinguer les heures de travail et la durée calendaire. Notre page intégration indique habituellement 2 à 8 semaines pour une équipe pilote : ouverture des comptes, connexion des outils, consignes partagées, charte et formation. Nous ne promettons pas de délai au-delà : il dépend de votre disponibilité pour valider, donner les accès et tester. Le sprint de cadrage représente 10 heures de travail.",
+          "q_en": "How long does it take to set Claude up in a team?",
+          "a_en": "Working hours and calendar time are different things. Our integration page usually states 2 to 8 weeks for a pilot team: opening accounts, connecting tools, shared instructions, policy and training. We promise no deadline beyond that: it depends on your availability to approve, grant access and test. The scoping sprint is 10 hours of work."
+        },
+        {
+          "q_fr": "Qui achète les licences : nous ou le prestataire ?",
+          "a_fr": "Idéalement vous, directement chez Anthropic, au nom de l'entreprise : le compte et l'organisation restent à vous. Chez Waimia, l'intégration est facturée en heures et la page intégration ne prévoit aucun abonnement chez nous ; les licences relèvent de votre contrat avec Anthropic. Si un devis inclut des licences revendues, demandez la marge et le nom du titulaire du compte.",
+          "q_en": "Who buys the licences: us or the supplier?",
+          "a_en": "Ideally you, directly from Anthropic, in the company's name: the account and organisation stay yours. At Waimia, integration is billed by the hour and the integration page provides no subscription with us; licences fall under your contract with Anthropic. If a quote includes resold licences, ask for the margin and the name of the account holder."
+        },
+        {
+          "q_fr": "La mise en place peut-elle être financée ou prise en charge ?",
+          "a_fr": "La formation, en partie : Waimia la dispense via Akigora, organisme certifié Qualiopi, ce qui remplit la condition pour un financement par l'OPCO de votre entreprise. La décision revient à votre OPCO ; le guide sur le financement d'une formation IA détaille le circuit et les délais. Le paramétrage et les connecteurs sont une prestation de conseil, pas une formation : nous ne les présentons pas à un OPCO.",
+          "q_en": "Can the setup be funded or covered?",
+          "a_en": "Training, partly: Waimia delivers it via Akigora, a Qualiopi-certified organisation, which meets the condition for funding by your company's OPCO. The decision rests with your OPCO; the guide on funding AI training covers the circuit and the deadlines. Configuration and connectors are consulting work, not training: we do not submit them to an OPCO."
+        },
+        {
+          "q_fr": "Les prix en dollars : et la TVA, et le taux de change ?",
+          "a_fr": "Les prix de cette page sont ceux d'Anthropic au 5 octobre 2026, en dollars, hors TVA. Au 6 octobre 2026, la page tarifs n'affiche aucun prix en euros, même en français. L'aide d'Anthropic indique que la facturation peut se faire en devise locale là où elle est proposée, la taxe étant incluse ou ajoutée selon la région. Budgétez en dollars, avec une marge de change.",
+          "q_en": "Prices in dollars: what about VAT and the exchange rate?",
+          "a_en": "The prices on this page are Anthropic's as of 5 October 2026, in dollars, excluding VAT. As of 6 October 2026, the pricing page shows no euro price, even in French. Anthropic's help pages say billing may be in local currency where supported, with tax included or added depending on the region. Budget in dollars, with an exchange-rate margin."
+        },
+        {
+          "q_fr": "Quels coûts oublie-t-on le plus souvent ?",
+          "a_fr": "Les sièges que personne n'ouvre, le quota partagé entre chat, Claude Code et Cowork avec des crédits d'usage facturés au-delà, l'usage à l'API sur Enterprise, le temps du référent et la revue périodique des skills et des plugins. La section sur les coûts cachés en détaille huit, avec leur source.",
+          "q_en": "Which costs are most often forgotten?",
+          "a_en": "Seats nobody opens, the quota shared between chat, Claude Code and Cowork with usage credits billed beyond it, API usage on Enterprise, the lead's time and the periodic review of skills and plugins. The hidden costs section details eight, with their source."
+        },
+        {
+          "q_fr": "Claude Code coûte-t-il en plus ?",
+          "a_fr": "Claude Code est inclus dans Pro, Max, Team et Enterprise, pas dans Free. Sur Team et Enterprise, il consomme le même quota par siège que le chat. Facturé à l'API, Anthropic observe environ 13 dollars par développeur et par jour actif en entreprise, soit 150 à 250 dollars par mois, et moins de 30 dollars par jour pour 90 % des utilisateurs. Le guide Claude Code en entreprise détaille le sujet.",
+          "q_en": "Does Claude Code cost extra?",
+          "a_en": "Claude Code is included in Pro, Max, Team and Enterprise, not in Free. On Team and Enterprise it draws on the same per-seat quota as chat. Billed on the API, Anthropic observes about $13 per developer per active day in enterprise, i.e. $150 to $250 a month, and under $30 a day for 90% of users. The guide Claude Code for business covers the topic."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Chiffrer son projet Claude",
+      "kicker_en": "§ Costing your Claude project",
+      "h2_fr": "Un budget écrit avant d'acheter la première licence. L'audit est gratuit.",
+      "h2_en": "A budget written before you buy the first licence. The audit is free.",
+      "subtitle_fr": "En 45 minutes, on pose ce que vous voulez acheter, on estime l'ordre de grandeur des licences et de la mise en place, et on vous dit si vous pouvez vous en passer.",
+      "subtitle_en": "In 45 minutes, we state what you want to buy, estimate the order of magnitude of licences and setup, and tell you whether you can do without.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'offre d'intégration Claude",
+          "label_en": "See the Claude integration offer",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

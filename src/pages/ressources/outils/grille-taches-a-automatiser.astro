@@ -3,7 +3,8 @@ export const prerender = true;
 
 // Page SSG · /ressources/outils/grille-taches-a-automatiser · lead magnet « Grille :
 // quelles tâches automatiser en premier ». Outil utilisable sans e-mail (organism
-// TaskPriorityGrid), capture facultative pour recevoir le classement (LeadCapture).
+// TaskPriorityGrid) ; juste dessous, la section lead-capture-band (mode open) invite à recevoir
+// le classement par e-mail.
 // Route explicite : l'entrée `outils/grille-taches-a-automatiser` (JSON) ne sert qu'au
 // listing du hub ; [...slug].astro l'exclut.
 
@@ -12,7 +13,7 @@ import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
 import TaskPriorityGrid from '../../../components/ui/organisms/conversion/TaskPriorityGrid.astro';
-import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
+import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
 import { SITE } from '../../../site.config';
 import { buildWebApplication } from '../../../lib/seo/schema-builder';
@@ -46,18 +47,12 @@ const cta = auditCtaFinal(
     facts={[
       { label: 'Durée', value: '10 minutes pour 5 tâches' },
       { label: 'Résultat', value: 'Classement immédiat, export CSV' },
-      { label: 'E-mail', value: 'Non requis' },
+      { label: 'E-mail', value: 'Non requis pour le classement' },
       { label: 'Vos données', value: 'Restent dans votre navigateur' },
     ]}
   />
   <TaskPriorityGrid />
-  <LeadCapture
-    band
-        slug="grille-taches-a-automatiser"
-        title="Recevoir le classement par e-mail"
-        description="Vos tâches classées, avec les heures par mois et la priorité de chacune, pour les partager en interne."
-        buttonLabel="Recevoir le classement"
-  />
+  <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: 'grille-taches-a-automatiser', background: 'ink', anchor_id: 'recevoir-par-email' }} />
   <ResourceLinks exclude={['grille']} extra={['guide-taches', 'guide-roi']} title="La méthode, et les autres outils sans inscription" />
   <CtaFinal data={cta} lang="fr" />
 </Base>

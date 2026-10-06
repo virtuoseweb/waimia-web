@@ -95,6 +95,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/taches-a-automatiser-pme': { label_fr: "Guide : quelles tâches automatiser d'abord", label_en: 'Guide: which tasks to automate first', kind: 'guide', topics: ['automatisation', 'conseil'] },
   '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation classique', label_en: 'AI agent or classic automation', kind: 'article', topics: ['agents', 'automatisation'] },
   '/ressources/guides/agent-ia-definition': { label_fr: 'Agent IA : définition et limites', label_en: 'AI agent: definition and limits', kind: 'guide', topics: ['agents', 'automatisation'] },
+  '/blog/workflow-ia-exemples-pme': { label_fr: 'Workflow IA : cinq exemples concrets', label_en: 'AI workflow: five concrete examples', kind: 'article', topics: ['automatisation', 'agents'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
@@ -104,6 +105,17 @@ const PAGES: Record<string, PageDef> = {
   '/services/base-de-connaissance-ia': { label_fr: 'Base de connaissance IA', label_en: 'AI knowledge base', kind: 'service', topics: ['agents', 'claude'] },
   '/services/integration-claude': { label_fr: 'Claude en entreprise', label_en: 'Claude for business', kind: 'service', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-pme': { label_fr: 'Guide pilier : déployer Claude en PME', label_en: 'Pillar guide: deploying Claude in an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/choisir-agence-ia-pme': { label_fr: 'Choisir une agence IA en PME', label_en: 'Choosing an AI agency for an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/cout-integration-claude-pme': { label_fr: "Coût d'une intégration Claude en PME", label_en: 'Cost of a Claude integration for SMBs', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/financement-formation-ia-opco': { label_fr: 'Financer une formation IA avec un OPCO', label_en: 'Funding AI training through an OPCO', kind: 'guide', topics: ['formation', 'conformite', 'claude'] },
+  '/ressources/guides/claude-rgpd-pme': { label_fr: 'Claude et RGPD en PME', label_en: 'Claude and GDPR for SMBs', kind: 'guide', topics: ['claude', 'conformite'] },
+  '/ressources/guides/combien-coute-un-agent-ia-pme': { label_fr: 'Combien coûte un agent IA', label_en: 'How much an AI agent costs', kind: 'guide', topics: ['agents', 'automatisation'] },
+  '/ressources/comparatifs/n8n-vs-make-vs-zapier': { label_fr: 'n8n, Make ou Zapier : le comparatif', label_en: 'n8n vs Make vs Zapier', kind: 'comparatif', topics: ['automatisation'] },
+  '/blog/automatiser-relance-devis-n8n': { label_fr: 'Automatiser la relance de devis avec n8n', label_en: 'Automate quote follow-ups with n8n', kind: 'article', topics: ['automatisation', 'commercial'] },
+  '/blog/trier-emails-entrant-claude-n8n': { label_fr: 'Trier ses e-mails avec Claude et n8n', label_en: 'Sort emails with Claude and n8n', kind: 'article', topics: ['automatisation', 'claude', 'agents'] },
+  '/blog/creer-agent-ia-claude': { label_fr: 'Agent IA Claude : quatre façons de le construire', label_en: 'Claude AI agent: four ways to build one', kind: 'article', topics: ['agents', 'claude'] },
+  '/blog/claude-microsoft-copilot-pme': { label_fr: 'Claude dans Microsoft Copilot', label_en: 'Claude in Microsoft Copilot', kind: 'article', topics: ['claude', 'conformite'] },
+  '/ressources/guides/claude-for-small-business': { label_fr: 'Claude for Small Business en France', label_en: 'Claude for Small Business in France', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-cowork': { label_fr: 'Claude Cowork est désormais Claude', label_en: 'Claude Cowork is now Claude', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/guides/mcp-claude': { label_fr: 'Guide MCP : brancher Claude à vos outils', label_en: 'MCP guide: connecting Claude to your tools', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-fonctionnalites-pme': { label_fr: 'Guide : fonctionnalités, offres et prix de Claude', label_en: 'Guide: Claude features, plans and pricing', kind: 'guide', topics: ['claude', 'conseil'] },
@@ -154,6 +166,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/outils/charte-ia-entreprise': { label_fr: 'Modèle de charte IA pour PME', label_en: 'AI charter template for SMBs', kind: 'guide', topics: ['conformite', 'conseil'] },
   '/blog/essai-pillar-ia-pme-2026': { label_fr: "L'IA appliquée aux PME en 2026", label_en: 'Applied AI for SMBs in 2026', kind: 'article', topics: ['conseil'] },
   '/blog/forward-deployed-engineer': { label_fr: "Forward deployed engineer : le rôle", label_en: 'Forward deployed engineer: the role', kind: 'article', topics: ['conseil', 'studio'] },
+  '/blog/architecte-ia-role-pme': { label_fr: 'Architecte IA : le rôle en PME', label_en: 'AI architect: the role in an SMB', kind: 'article', topics: ['conseil', 'claude'] },
   '/tarifs': { label_fr: 'Tarifs', label_en: 'Pricing', kind: 'studio', topics: ['conseil', 'studio'], emit: false },
 
   // ── Formation ──
@@ -163,6 +176,8 @@ const PAGES: Record<string, PageDef> = {
   '/formations/make': { label_fr: 'Formation Make', label_en: 'Make training', kind: 'formation', topics: ['formation', 'automatisation'] },
   '/formations/claude': { label_fr: 'Formation Claude', label_en: 'Claude training', kind: 'formation', topics: ['formation', 'claude'] },
   '/formations/chatgpt': { label_fr: 'Formation ChatGPT', label_en: 'ChatGPT training', kind: 'formation', topics: ['formation', 'claude'] },
+  '/blog/formation-ia-cpf-qualiopi': { label_fr: 'Formation IA éligible au CPF', label_en: 'CPF-eligible AI training', kind: 'article', topics: ['formation', 'conseil'] },
+  '/blog/formation-ia-finance-pme': { label_fr: 'Formation IA pour une équipe finance', label_en: 'AI training for finance teams', kind: 'article', topics: ['formation', 'donnees'] },
 
   // ── Acquisition : site, SEO et GEO ──
   '/services/systeme-acquisition': { label_fr: "Système d'acquisition", label_en: 'Acquisition system', kind: 'service', topics: ['acquisition'] },

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « un chemin jalonné de trois bornes avant la porte de la formation ». -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="post"><rect x="-7" y="-150" width="14" height="150" fill="{{deep}}"/><rect x="-46" y="-168" width="92" height="40" fill="{{light}}"/><rect x="-46" y="-168" width="92" height="40" fill="none" stroke="{{deep}}" stroke-width="2"/><rect x="-30" y="-156" width="60" height="4" fill="{{pale}}"/><rect x="-30" y="-144" width="40" height="4" fill="{{pale}}"/></g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1150" cy="330" r="200" fill="{{shape}}"/>
+  <rect y="480" width="1456" height="144" fill="{{ground}}"/>
+  <rect y="480" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
+  <path d="M0 600 Q420 520 760 530 T1456 505 L1456 540 Q1000 560 760 570 T0 640 Z" fill="{{detail}}" opacity="0.7"/>
+  <use href="#post" transform="translate(330 540) scale(0.9)"/>
+  <use href="#post" transform="translate(620 520) scale(1)"/>
+  <use href="#post" transform="translate(930 505) scale(1.1)"/>
+  <rect x="1090" y="250" width="130" height="230" fill="{{light}}"/>
+  <rect x="1090" y="250" width="130" height="230" fill="none" stroke="{{deep}}" stroke-width="3"/>
+  <rect x="1110" y="270" width="90" height="210" fill="{{deep}}"/>
+  <circle cx="1188" cy="380" r="5" fill="{{light}}"/>
+  <use href="#man" transform="translate(180 565) scale(1.15)"/>
+</svg>

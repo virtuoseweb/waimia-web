@@ -11,6 +11,7 @@ import { Component as featureComparisonGridComponent, meta as featureComparisonG
 import { Component as featureAccordionComponent, meta as featureAccordionMeta } from '../sections/feature-accordion';
 import { Component as faqCtaAsideComponent, meta as faqCtaAsideMeta } from '../sections/faq-cta-aside';
 import { Component as ctaFormInlineComponent, meta as ctaFormInlineMeta } from '../sections/cta-form-inline';
+import { Component as leadCaptureBandComponent, meta as leadCaptureBandMeta } from '../sections/lead-capture-band';
 import { Component as contactFormComponent, meta as contactFormMeta } from '../sections/contact-form';
 import { Component as bookingEmbedComponent, meta as bookingEmbedMeta } from '../sections/booking-embed';
 import { Component as newsletterSignupSectionComponent, meta as newsletterSignupSectionMeta } from '../sections/newsletter-signup-section';
@@ -253,6 +254,10 @@ export const SECTIONS: Record<SectionType, SectionDescriptor> = {
   'cta-form-inline': {
     component: ctaFormInlineComponent,
     ...ctaFormInlineMeta,
+  },
+  'lead-capture-band': {
+    component: leadCaptureBandComponent,
+    ...leadCaptureBandMeta,
   },
   'contact-form': {
     component: contactFormComponent,

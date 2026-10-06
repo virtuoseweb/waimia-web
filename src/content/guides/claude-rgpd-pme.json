@@ -1,0 +1,735 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude et RGPD : utiliser Claude en conformité en PME",
+  "title_en": "Claude and GDPR: using Claude in compliance in an SMB",
+  "description_fr": "Claude et RGPD au 6 octobre 2026 : entraînement, DPA et clauses types, stockage aux États-Unis, registre, AIPD et données à ne pas envoyer.",
+  "description_en": "Claude and GDPR as of 6 October 2026: training, the DPA and standard clauses, US storage, the register, DPIAs and the data you should not send.",
+  "slug": "claude-rgpd-pme",
+  "publishedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "category": "gouvernance",
+  "cluster": "claude-pme",
+  "tags": [
+    "claude",
+    "rgpd",
+    "donnees-entreprise",
+    "dpa",
+    "conformite",
+    "registre",
+    "aipd",
+    "gouvernance-ia",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, conformité et résidence des données (claude.com/regional-compliance), lue le 5 octobre 2026",
+      "url": "https://claude.com/regional-compliance",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, centre de confidentialité : localisation des données (article 7996890, mis à jour le 15 juin 2026), lu le 5 octobre 2026",
+      "url": "https://privacy.claude.com/en/articles/7996890",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, centre de confidentialité : entraînement et rétention des comptes grand public (article 10023548), lu le 5 octobre 2026",
+      "url": "https://privacy.claude.com/en/articles/10023548",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, mises à jour des conditions grand public, lues le 5 octobre 2026",
+      "url": "https://www.anthropic.com/news/updates-to-our-consumer-terms",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, centre d'aide : réglages d'administration Cowork pour Team et Enterprise (article 13455879), lu le 5 octobre 2026",
+      "url": "https://support.claude.com/en/articles/13455879",
+      "type": "enterprise",
+      "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "Anthropic, Data Processing Addendum (en vigueur depuis le 24 février 2025), lu le 6 octobre 2026",
+      "url": "https://www.anthropic.com/legal/data-processing-addendum",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Anthropic, liste des sous-traitants ultérieurs, consultée le 6 octobre 2026",
+      "url": "https://trust.anthropic.com/subprocessors",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "CNIL, texte du RGPD (chapitres II, IV et V : articles 5, 28, 30, 33, 35 et 46), lu le 6 octobre 2026",
+      "url": "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4",
+      "type": "state",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "CNIL, analyse d'impact relative à la protection des données (AIPD) et listes des traitements concernés, lue le 6 octobre 2026",
+      "url": "https://www.cnil.fr/fr/RGPD-analyse-impact-protection-des-donnees-aipd",
+      "type": "state",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "AWS, Amazon Bedrock : protection et rétention des données, lu le 6 octobre 2026",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Anthropic, documentation Agent Skills (rétention et ZDR), lue le 6 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Claude et <i class=\"acc\">RGPD</i> : utiliser Claude en conformité dans une PME",
+      "h1_en": "Claude and <i class=\"acc\">GDPR</i>: using Claude in compliance in an SMB",
+      "lede_fr": "Le RGPD ne se joue pas dans l'outil, il se joue dans le compte que vous ouvrez. Voici ce qu'Anthropic écrit dans ses propres pages et dans son DPA, ce que le texte du RGPD vous demande en face, et la courte liste des données qui ne passent pas par Claude. C'est un cadrage technique, pas un avis juridique.",
+      "lede_en": "GDPR is not decided by the tool but by the account you open. Here is what Anthropic states in its own pages and its DPA, what the GDPR text asks of you in return, and the short list of data that does not go through Claude. This is technical framing, not legal advice.",
+      "badges": [
+        {
+          "label_fr": "Sources Anthropic, CNIL et AWS lues les 5 et 6 octobre 2026",
+          "label_en": "Anthropic, CNIL and AWS sources read on 5 and 6 October 2026"
+        },
+        {
+          "label_fr": "Pas un avis juridique",
+          "label_en": "Not legal advice"
+        },
+        {
+          "label_fr": "Pour dirigeants, DSI, DPO de PME",
+          "label_en": "For SMB owners, IT leads, DPOs"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Le kit de conformité (PDF)",
+        "label_en": "The compliance kit (PDF)",
+        "href": "/ressources/outils/kit-conformite-claude-entreprise",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-rgpd-pme-frontiere-paper.webp",
+        "alt_fr": "Une personne portant une caisse approche d'une barrière de frontière gardée, devant des immeubles lointains",
+        "alt_en": "A person carrying a crate approaches a guarded border barrier in front of distant buildings",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "6 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Peut-on utiliser Claude en conformité avec le RGPD ?",
+      "question_en": "Can you use Claude in compliance with GDPR?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Oui, avec un compte professionnel et un cadre écrit. En Team, Enterprise et API, Anthropic n'entraîne pas ses modèles sur vos données par défaut, et son DPA, intégré aux conditions commerciales, encadre le transfert par les clauses contractuelles types. Limite nette : les données de claude.ai sont stockées aux États-Unis, sans option européenne pour l'application.",
+      "answer_en": "Yes, with a business account and a written framework. On Team, Enterprise and API, Anthropic does not train its models on your data by default, and its DPA, part of the commercial terms, covers the transfer with standard contractual clauses. The hard limit: claude.ai data is stored in the United States, with no European option for the app."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Quatre faits à retenir",
+      "eyebrow_en": "§ Four facts to remember",
+      "title_fr": "Ce qu'Anthropic établit, au 5 octobre 2026",
+      "title_en": "What Anthropic establishes, as of 5 October 2026",
+      "metrics": [
+        {
+          "value": "0",
+          "label_fr": "entraînement sur vos données par défaut en Team, Enterprise et API (conditions commerciales)",
+          "label_en": "training on your data by default on Team, Enterprise and API (commercial terms)"
+        },
+        {
+          "value": "30 j",
+          "label_fr": "de rétention sur un compte Free, Pro ou Max si le réglage d'entraînement est désactivé ; jusqu'à 5 ans s'il est activé",
+          "label_en": "retention on a Free, Pro or Max account if the training setting is off; up to 5 years if it is on"
+        },
+        {
+          "value": "États-Unis",
+          "label_fr": "lieu de stockage par défaut des données des applications Claude",
+          "label_en": "default storage location for Claude app data"
+        },
+        {
+          "value": "UE : non",
+          "label_fr": "pas d'hébergement européen pour claude.ai ; l'UE passe par AWS Bedrock ou Google Vertex, Microsoft Foundry y est annoncé",
+          "label_en": "no European hosting for claude.ai; the EU goes through AWS Bedrock or Google Vertex, with Microsoft Foundry announced"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Le premier tri : quel compte, quelles conditions</h2>\n<p>« Claude est-il conforme au RGPD ? » n'appelle pas une réponse unique, parce que Claude n'est pas un contrat unique. Deux jeux de conditions coexistent, et ce choix pèse plus que tous les réglages qui suivent.</p>\n<p><strong>Les comptes Free, Pro et Max</strong> relèvent des conditions grand public. Ils portent un réglage d'entraînement : activé, Anthropic conserve des données dé-identifiées jusqu'à cinq ans ; désactivé, la rétention est de 30 jours. Cela vaut aussi pour Claude Code utilisé depuis ces comptes (<a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">annonce des conditions grand public</a> et <a href=\"https://privacy.claude.com/en/articles/10023548\" rel=\"noopener noreferrer\" target=\"_blank\">aide sur la confidentialité</a>, lues le 5 octobre 2026). Un collaborateur qui colle un dossier client dans son compte Pro personnel est dans cette famille.</p>\n<p><strong>Les offres Team, Enterprise et l'API</strong> relèvent des conditions commerciales. D'après la page de conformité d'Anthropic (<a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">claude.com/regional-compliance</a>, lue le 5 octobre 2026), Anthropic n'utilise pas par défaut les données des déploiements commerciaux pour entraîner ses modèles. La même page indique qu'un DPA est disponible et liste les certifications : SOC 2 Type 2, ISO 27001, 27017, 27018 et CSA STAR.</p>\n<p>Première décision, donc : aucun usage professionnel sur un compte personnel. Le choix de l'offre (Team ou Enterprise) se traite dans le <a href=\"/ressources/guides/claude-pme\">guide Claude pour les PME</a> et dans le <a href=\"/ressources/outils/guide-achat-claude-pme\">guide d'achat</a>. Un détail compte : « pas d'entraînement par défaut » est une position affichée par Anthropic. Ce qui vous engage, ce sont les conditions commerciales et le DPA qui en fait partie. Archivez-en la version datée le jour où vous ouvrez les comptes.</p>",
+      "html_en": "<h2>The first sort: which account, which terms</h2>\n<p>\"Is Claude GDPR-compliant?\" has no single answer, because Claude is not a single contract. Two sets of terms coexist, and that choice matters more than every setting that follows.</p>\n<p><strong>Free, Pro and Max accounts</strong> fall under consumer terms. They carry a training setting: on, Anthropic keeps de-identified data for up to five years; off, retention is 30 days. This also applies to Claude Code used from those accounts (<a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">consumer terms announcement</a> and <a href=\"https://privacy.claude.com/en/articles/10023548\" rel=\"noopener noreferrer\" target=\"_blank\">privacy help article</a>, read on 5 October 2026). An employee who pastes a client file into a personal Pro account is in this family.</p>\n<p><strong>Team, Enterprise and the API</strong> fall under commercial terms. According to Anthropic's compliance page (<a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">claude.com/regional-compliance</a>, read on 5 October 2026), Anthropic does not use data from commercial deployments to train its models by default. The same page says a DPA is available and lists the certifications: SOC 2 Type 2, ISO 27001, 27017, 27018 and CSA STAR.</p>\n<p>First decision, then: no professional use on a personal account. Choosing the plan (Team or Enterprise) is covered in the <a href=\"/ressources/guides/claude-pme\">guide to Claude for SMBs</a> and the <a href=\"/ressources/outils/guide-achat-claude-pme\">buying guide</a>. One detail matters: \"no training by default\" is a position Anthropic publishes. What binds you is the commercial terms and the DPA that forms part of them. Archive the dated version on the day you open the accounts.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Lecture par offre",
+      "kicker_en": "§ Reading by plan",
+      "heading_fr": "Entraînement, rétention, contrat : offre par offre",
+      "heading_en": "Training, retention, contract: plan by plan",
+      "caption_fr": "Sources : claude.com/regional-compliance, privacy.claude.com (articles 7996890 et 10023548), conditions grand public d'Anthropic, documentation AWS Bedrock, lues les 5 et 6 octobre 2026. Grille datée : ces pages changent, nous la mettons à jour avec elles.",
+      "caption_en": "Sources: claude.com/regional-compliance, privacy.claude.com (articles 7996890 and 10023548), Anthropic consumer terms, AWS Bedrock documentation, read on 5 and 6 October 2026. A dated grid: these pages change and we update it with them.",
+      "columns_fr": [
+        "Offre",
+        "Conditions",
+        "Entraînement sur vos données",
+        "Rétention",
+        "Ce que vous faites"
+      ],
+      "columns_en": [
+        "Plan",
+        "Terms",
+        "Training on your data",
+        "Retention",
+        "What you do"
+      ],
+      "rows_fr": [
+        [
+          "Free, Pro, Max",
+          "Grand public",
+          "Réglage au choix de l'utilisateur",
+          "30 jours si désactivé ; dé-identifié jusqu'à 5 ans si activé",
+          "Interdire pour le travail, le dire dans la politique d'usage"
+        ],
+        [
+          "Team, Enterprise",
+          "Commerciales",
+          "Pas par défaut, d'après Anthropic",
+          "À lire dans le contrat ; personnalisable en Enterprise",
+          "Archiver la version datée du DPA (intégré aux conditions commerciales), noter les réglages d'administration"
+        ],
+        [
+          "API (Console)",
+          "Commerciales",
+          "Pas par défaut, d'après Anthropic",
+          "À lire dans le contrat",
+          "Choisir la région si l'UE est exigée, voir plus bas"
+        ],
+        [
+          "Claude via AWS Bedrock",
+          "Contrat AWS, en plus des conditions du modèle",
+          "D'après AWS, Anthropic n'a accès ni aux prompts ni aux réponses",
+          "Réglable par région ; jusqu'à 30 jours chez AWS pour les modèles qui exigent une revue humaine",
+          "Choisir une région UE et le mode de rétention, faire valider par votre conseil"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Free, Pro, Max",
+          "Consumer",
+          "Setting chosen by the user",
+          "30 days if off; de-identified up to 5 years if on",
+          "Ban for work, say so in the usage policy"
+        ],
+        [
+          "Team, Enterprise",
+          "Commercial",
+          "Not by default, according to Anthropic",
+          "Read the contract; customisable on Enterprise",
+          "Archive the dated DPA (part of the commercial terms), record the admin settings"
+        ],
+        [
+          "API (Console)",
+          "Commercial",
+          "Not by default, according to Anthropic",
+          "Read the contract",
+          "Choose the region if the EU is required, see below"
+        ],
+        [
+          "Claude via AWS Bedrock",
+          "AWS contract, on top of the model terms",
+          "According to AWS, Anthropic has no access to prompts or completions",
+          "Set per Region; up to 30 days at AWS for models that require human review",
+          "Pick an EU Region and the retention mode, have counsel validate"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Où sont les données, qui les traite, et le contrat qui l'encadre</h2> <p><strong>Le lieu.</strong> La page de confidentialité d'Anthropic (<a href=\"https://privacy.claude.com/en/articles/7996890\" rel=\"noopener noreferrer\" target=\"_blank\">privacy.claude.com, article 7996890</a>, mise à jour le 15 juin 2026, relue le 6 octobre 2026) est claire : les données sont stockées aux États-Unis. Le trafic peut être routé vers des pays des États-Unis, d'Europe, d'Asie et d'Australie, sauf accord contraire. Les offres Enterprise facturées à l'usage peuvent limiter l'inférence aux États-Unis ; <a href=\"/blog/claude-microsoft-copilot-pme\">il n'existe pas d'option « Europe seulement » pour l'application claude.ai</a>.</p> <p>La résidence européenne existe, mais par un fournisseur de cloud. Au 6 octobre 2026, la page de conformité d'Anthropic (<a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">claude.com/regional-compliance</a>) marque l'Europe comme incluse pour AWS Bedrock et Google Vertex, et « coming soon » pour Microsoft Foundry. Foundry n'est donc pas une option européenne aujourd'hui. Sur Bedrock, on choisit une inférence limitée à l'UE (profil géographique, pas « Global ») ; d'après la <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html\" rel=\"noopener noreferrer\" target=\"_blank\">documentation AWS</a>, Anthropic n'a accès ni aux journaux ni aux prompts.</p> <p>Conséquence : si un client ou un appel d'offres exige que les données restent dans l'Union, on ne déploie pas claude.ai. On construit une intégration par Bedrock ou Vertex, ce que nous faisons dans le cadre de l'<a href=\"/services/integration-claude\">intégration de Claude</a>.</p> <p><strong>Le transfert.</strong> Un stockage aux États-Unis est un transfert hors de l'Union, encadré par le chapitre V du RGPD. Le <a href=\"https://www.anthropic.com/legal/data-processing-addendum\" rel=\"noopener noreferrer\" target=\"_blank\">DPA d'Anthropic</a> (en vigueur depuis le 24 février 2025) s'appuie sur les clauses contractuelles types de la Commission européenne, module 2 (responsable vers sous-traitant) et module 3 (sous-traitant vers sous-traitant), soumises au droit irlandais. C'est le mécanisme de l'article 46, paragraphe 2, point c. Le DPA ne s'appuie pas sur le cadre de protection des données UE-États-Unis. Votre DPO a donc un texte précis à examiner.</p> <p><strong>Les sous-traitants.</strong> Anthropic est votre sous-traitant au sens de l'article 28. Son DPA renvoie à une <a href=\"https://trust.anthropic.com/subprocessors\" rel=\"noopener noreferrer\" target=\"_blank\">liste publique de sous-traitants ultérieurs</a>. Quand un nouveau s'ajoute, vous êtes prévenu et vous avez 15 jours pour vous y opposer ; passé ce délai, vous êtes réputé accepter. En cas de violation de données, Anthropic s'engage à vous prévenir par écrit sous 48 heures au plus. De votre côté, l'article 33 vous donne 72 heures, si possible, pour notifier la CNIL. Écrivez ces deux délais dans votre procédure d'incident.</p> <p>Chaque connecteur ou plugin ajoute un flux, parfois un sous-traitant, que le registre doit nommer. Anthropic examine les connecteurs de son annuaire mais n'audite pas la sécurité des serveurs MCP : ce contrôle vous revient (voir le guide <a href=\"/ressources/guides/mcp-claude\">Claude et MCP</a>).</p>",
+      "html_en": "<h2>Where the data is, who processes it, and the contract around it</h2> <p><strong>The place.</strong> Anthropic's privacy page (<a href=\"https://privacy.claude.com/en/articles/7996890\" rel=\"noopener noreferrer\" target=\"_blank\">privacy.claude.com, article 7996890</a>, updated 15 June 2026, reread on 6 October 2026) is plain: data is stored in the US. Traffic can be routed to countries in the US, Europe, Asia and Australia unless agreed otherwise. Enterprise plans billed by usage can restrict inference to the US; there is no \"Europe only\" option for the claude.ai app.</p> <p>European residency exists, but through a cloud provider. As of 6 October 2026, Anthropic's compliance page (<a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">claude.com/regional-compliance</a>) lists Europe as included for AWS Bedrock and Google Vertex, and \"coming soon\" for Microsoft Foundry. Foundry is therefore not a European option today. On Bedrock you select EU-limited inference (a geographic profile, not \"Global\"); according to the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html\" rel=\"noopener noreferrer\" target=\"_blank\">AWS documentation</a>, Anthropic has no access to the logs or the prompts.</p> <p>The consequence: if a client or a tender requires data to stay in the Union, you do not roll out claude.ai. You build an integration through Bedrock or Vertex, which we do as part of our <a href=\"/services/integration-claude\">Claude integration</a> service.</p> <p><strong>The transfer.</strong> US storage is a transfer outside the Union, governed by chapter V of GDPR. <a href=\"https://www.anthropic.com/legal/data-processing-addendum\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's DPA</a> (effective 24 February 2025) relies on the European Commission's standard contractual clauses, Module Two (controller to processor) and Module Three (processor to processor), under Irish law. That is the Article 46(2)(c) mechanism. The DPA does not rely on the EU-US Data Privacy Framework. Your DPO has a precise text to review.</p> <p><strong>The subprocessors.</strong> Anthropic is your processor under Article 28. Its DPA points to a <a href=\"https://trust.anthropic.com/subprocessors\" rel=\"noopener noreferrer\" target=\"_blank\">public subprocessor list</a>. When one is added, you are notified and have 15 days to object; after that you are deemed to accept. In a data breach, Anthropic commits to notify you in writing within 48 hours at most. On your side, Article 33 gives you 72 hours, where feasible, to notify your supervisory authority. Put both deadlines in your incident procedure.</p> <p>Each connector or plugin adds a data flow, sometimes a processor, that the register must name. Anthropic reviews the connectors in its directory but does not audit the security of MCP servers: that check is yours (see the <a href=\"/ressources/guides/mcp-claude\">Claude and MCP</a> guide).</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-3",
+      "kicker_fr": "§ Les quatre documents",
+      "kicker_en": "§ The four documents",
+      "heading_fr": "Registre, analyse d'impact, politique d'usage, DPA : ce que chacun fait",
+      "heading_en": "Register, impact assessment, usage policy, DPA: what each one does",
+      "caption_fr": "Articles relus le 6 octobre 2026 sur le texte du RGPD publié par la CNIL. La CNIL publie aussi la liste des traitements pour lesquels une AIPD est obligatoire, et celle des traitements dispensés : c'est la grille que votre DPO applique.",
+      "caption_en": "Articles reread on 6 October 2026 in the GDPR text published by the CNIL. The CNIL also publishes the list of processing that requires a DPIA, and the list of processing exempt from it: that is the grid your DPO applies.",
+      "columns_fr": [
+        "Document",
+        "À quoi il sert",
+        "Ce que votre DPO examine",
+        "Par où commencer"
+      ],
+      "columns_en": [
+        "Document",
+        "What it is for",
+        "What your DPO reviews",
+        "Where to start"
+      ],
+      "rows_fr": [
+        [
+          "DPA",
+          "Encadrer Anthropic comme sous-traitant (art. 28)",
+          "Clauses contractuelles types (modules 2 et 3), sous-traitants ultérieurs, 15 jours pour s'opposer, alerte sous 48 h",
+          "Le DPA fait partie des conditions commerciales : archiver la version datée avec le contrat"
+        ],
+        [
+          "Registre des traitements",
+          "Dire quels usages de Claude existent, avec quelles données (art. 30)",
+          "L'exemption des moins de 250 salariés tombe dès que le traitement n'est pas occasionnel (art. 30.5) : un usage quotidien de Claude ne l'est pas",
+          "Une ligne par usage : service, surface, données, connecteurs, validation humaine"
+        ],
+        [
+          "Analyse d'impact (AIPD)",
+          "Évaluer un traitement à risque élevé pour les personnes (art. 35)",
+          "Si un usage figure sur la liste publiée par la CNIL, ou présente un risque élevé pour les personnes",
+          "Une fiche de décision par usage, même quand elle n'est pas obligatoire"
+        ],
+        [
+          "Politique d'usage",
+          "Dire aux équipes ce qui passe par Claude, ce qui n'y passe pas",
+          "Cohérence avec le règlement intérieur et les contrats clients",
+          "Une page, signée, revue tous les six mois"
+        ]
+      ],
+      "rows_en": [
+        [
+          "DPA",
+          "Frame Anthropic as a processor (Art. 28)",
+          "Standard contractual clauses (Modules Two and Three), subprocessors, 15 days to object, notice within 48 h",
+          "The DPA is part of the commercial terms: archive the dated version with the contract"
+        ],
+        [
+          "Register of processing",
+          "State which Claude uses exist, with which data (Art. 30)",
+          "The under-250-employee exemption falls away once processing is not occasional (Art. 30(5)): daily use of Claude is not occasional",
+          "One line per use: team, surface, data, connectors, human validation"
+        ],
+        [
+          "Impact assessment (DPIA)",
+          "Assess processing that is high-risk for individuals (Art. 35)",
+          "Whether a use appears on the CNIL's published list, or carries a high risk for individuals",
+          "One decision sheet per use, even when not mandatory"
+        ],
+        [
+          "Usage policy",
+          "Tell teams what goes through Claude and what does not",
+          "Consistency with house rules and client contracts",
+          "One page, signed, reviewed every six months"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Le registre : une ligne par usage, pas un roman</h2>\n<p>Le registre est le document que les PME repoussent, et celui qui répond le plus vite à un client ou un auditeur qui demande « où passent mes données ? ». Une ligne par usage de Claude suffit : le service et son référent, la surface (chat, tâche automatisée, Claude Code, plugin), les catégories de données, les connecteurs avec leurs droits (lecture ou écriture), et qui valide avant que quelque chose parte à l'extérieur.</p>\n<p>Un registre à jour sert à trois choses : répondre vite, savoir quoi revoir quand une offre, un plugin ou un réglage change, et préparer les obligations de l'AI Act qui vous concernent (voir le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act pour les PME</a>). Le <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">kit de conformité</a> fournit un modèle de registre à remplir, une trame d'analyse d'impact d'une page et un modèle de politique d'usage. La <a href=\"/ressources/outils/charte-ia-entreprise\">charte IA</a> en donne la version longue.</p>",
+      "html_en": "<h2>The register: one line per use, not a novel</h2>\n<p>The register is the document SMBs put off, and the one that answers fastest when a client or auditor asks \"where does my data go?\". One line per use of Claude is enough: the team and its lead, the surface (chat, automated task, Claude Code, plugin), the categories of data, the connectors with their rights (read or write), and who validates before anything leaves the company.</p>\n<p>An up-to-date register does three things: answer quickly, know what to review when a plan, plugin or setting changes, and prepare the AI Act obligations that apply to you (see the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline for SMBs</a>). The <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">compliance kit</a> provides a register template to fill in, a one-page impact assessment outline and a usage policy template. The <a href=\"/ressources/outils/charte-ia-entreprise\">AI charter</a> gives the long version.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-rgpd-pme-registre-paper.webp",
+          "alt_fr": "Une personne monte à l'échelle d'un mur de registres pendant qu'une autre consulte un livre ouvert",
+          "alt_en": "A person climbs the ladder of a wall of registers while another reads an open book"
+        }
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "kit-conformite-claude-entreprise",
+      "background": "ink",
+      "anchor_id": "kit-conformite",
+      "kicker_fr": "§ Ressource gratuite · envoyée par e-mail",
+      "kicker_en": "§ Free resource · sent by email",
+      "h2_fr": "Recevez le kit de conformité Claude en entreprise",
+      "h2_en": "Get the Claude compliance kit for business",
+      "body_fr": "Un PDF de 11 pages : les réglages Team et Enterprise à vérifier (avec la valeur par défaut et notre recommandation de départ), les points RGPD par sujet, une trame d'analyse d'impact, un modèle de politique d'usage d'une page, un registre à remplir et les questions à poser au fournisseur. Chaque affirmation sur Claude porte la source et la date de lecture. Ce n'est pas un avis juridique.",
+      "body_en": "An 11-page PDF: the Team and Enterprise settings to check (with the default value and our starting recommendation), GDPR points by topic, an impact assessment outline, a one-page usage policy template, a register to fill in and the questions to ask the vendor. Every statement about Claude carries its source and reading date. It is not legal advice."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Les cas où la donnée ne doit pas partir</h2>\n<p>La règle la plus utile d'une politique d'usage est une liste courte de données qui ne passent pas par Claude, quel que soit le compte. Dans le kit que nous diffusons, la liste de départ est : données de santé, <a href=\"/blog/formation-ia-finance-pme\">données bancaires</a>, pièces d'identité, dossiers RH, mots de passe et clés d'accès, documents sous accord de confidentialité sans accord écrit. Ajoutez ce que votre métier impose : secret professionnel, données de mineurs, pièces d'un contentieux en cours.</p>\n<p><a href=\"/blog/trier-emails-entrant-claude-n8n\">Le principe de minimisation du RGPD donne la méthode</a> : l'usage fonctionne-t-il avec moins de données ? Un extrait, un nom remplacé par une référence, un total au lieu de la liste des clients ? Beaucoup d'usages utiles (reformuler, résumer, préparer une réponse, classer) n'ont pas besoin du nom de la personne.</p>\n<p>Deux cas supplémentaires sont propres aux outils qui agissent. Un contenu reçu de l'extérieur (e-mail, page web, pièce jointe) peut contenir des consignes cachées : on ne laisse pas Claude agir sur un tel contenu sans relire ce qu'il propose. Et la <a href=\"https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation des skills</a> l'écrit : ils ne sont pas couverts par les accords de rétention zéro (ZDR) d'Anthropic, et suivent la rétention standard. Pas de donnée sensible dans un skill.</p>",
+      "html_en": "<h2>The cases where data must not leave</h2>\n<p>The most useful rule in a usage policy is a short list of data that does not go through Claude, whatever the account. In the kit we distribute, the starting list is: health data, banking data, identity documents, HR files, passwords and access keys, documents under a non-disclosure agreement without written consent. Add whatever your trade imposes: professional secrecy, data about minors, documents from ongoing litigation.</p>\n<p>The GDPR data minimisation principle gives the method: does the use work with less data? An extract, a name replaced by a reference, a total instead of the client list? Many useful uses (rewording, summarising, drafting a reply, sorting) do not need the person's name.</p>\n<p>Two further cases are specific to tools that act. Content received from outside (email, web page, attachment) can contain hidden instructions: do not let Claude act on such content without rereading what it proposes. And the <a href=\"https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview\" rel=\"noopener noreferrer\" target=\"_blank\">skills documentation</a> says it plainly: skills are not covered by Anthropic's zero data retention (ZDR) arrangements and follow standard retention. No sensitive data in a skill.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-rgpd-pme-cloche-paper.webp",
+          "alt_fr": "Une caisse reste sous cloche, cadenassée, pendant qu'une autre avance vers une grande arche",
+          "alt_en": "A padlocked crate stays under a dome while another moves towards a large archway"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Le tri en pratique",
+      "kicker_en": "§ Sorting in practice",
+      "h2_fr": "Ce qui passe par Claude, ce qui reste dehors",
+      "h2_en": "What goes through Claude, what stays out",
+      "without_label_fr": "Passe, avec un compte pro",
+      "without_label_en": "Goes through, with a business account",
+      "without_title_fr": "Des contenus à faible risque, relus par une personne",
+      "without_title_en": "Low-risk content, reviewed by a person",
+      "without_items": [
+        {
+          "text_fr": "Reformuler, résumer ou traduire un texte sans donnée personnelle.",
+          "text_en": "Rewording, summarising or translating text without personal data."
+        },
+        {
+          "text_fr": "Préparer une réponse client à partir d'un cas anonymisé.",
+          "text_en": "Drafting a client reply from an anonymised case."
+        },
+        {
+          "text_fr": "Classer des demandes entrantes dont les champs ont été limités au strict nécessaire.",
+          "text_en": "Sorting incoming requests with fields limited to what is strictly needed."
+        },
+        {
+          "text_fr": "Écrire ou relire du code sans secret ni jeu de données réelles.",
+          "text_en": "Writing or reviewing code with no secret or real dataset."
+        }
+      ],
+      "with_label_fr": "Reste dehors, ou change d'architecture",
+      "with_label_en": "Stays out, or the architecture changes",
+      "with_title_fr": "Des données qu'un compte standard ne doit pas recevoir",
+      "with_title_en": "Data a standard account must not receive",
+      "with_items": [
+        {
+          "text_fr": "Dossiers RH, santé, données bancaires, pièces d'identité, mots de passe.",
+          "text_en": "HR files, health data, banking data, identity documents, passwords."
+        },
+        {
+          "text_fr": "Contrat client sous confidentialité sans accord écrit du client.",
+          "text_en": "Client contract under confidentiality without the client's written consent."
+        },
+        {
+          "text_fr": "Toute donnée qu'un client exige de garder dans l'Union : intégration par Bedrock ou Vertex, validée par votre conseil.",
+          "text_en": "Any data a client requires to keep in the Union: an integration through Bedrock or Vertex, validated by counsel."
+        },
+        {
+          "text_fr": "Toute décision qui touche une personne (recrutement, crédit, sanction) prise sans relecture humaine.",
+          "text_en": "Any decision that affects a person (hiring, credit, sanction) taken without human review."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Cowork, Claude Code, plugins : là où la vigilance change</h2>\n<p><a href=\"/blog/creer-agent-ia-claude\">Les outils qui agissent</a> (tâches dans vos fichiers, navigateur, connecteurs) posent des questions que le chat seul ne pose pas. Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Dans l'aide d'administration Team et Enterprise (<a href=\"https://support.claude.com/en/articles/13455879\" rel=\"noopener noreferrer\" target=\"_blank\">support.claude.com, article 13455879</a>, lue le 5 octobre 2026), un point intéresse directement le RGPD : l'historique local des sessions Cowork n'est pas soumis à la politique de rétention standard et ne peut pas être géré ni supprimé centralement par les administrateurs. Règle de poste : pas de donnée sensible dans Cowork en local. Voir le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>.</p>\n<p>Les réglages à contrôler avant le premier compte (exécution dans le cloud, navigateur intégré, Claude in Chrome, approbation automatique, « Always allow » des connecteurs) sont détaillés dans le <a href=\"/ressources/guides/claude-fonctionnalites-pme\">guide des fonctionnalités</a> et dans le kit. Pour la diffusion de plugins et de skills par marketplace privée, voir <a href=\"/ressources/guides/claude-plugins-entreprise\">les plugins Claude en entreprise</a>. Pour les développeurs, voir <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</p>\n<p>La recommandation de départ tient en une phrase : validation manuelle par défaut, exceptions écrites, et rien ne part à l'extérieur (e-mail, publication, devis, paiement) sans qu'une personne l'ait validé.</p>",
+      "html_en": "<h2>Cowork, Claude Code, plugins: where vigilance changes</h2>\n<p>Tools that act (tasks in your files, browser, connectors) raise questions that chat alone does not. Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). In the Team and Enterprise administration help (<a href=\"https://support.claude.com/en/articles/13455879\" rel=\"noopener noreferrer\" target=\"_blank\">support.claude.com, article 13455879</a>, read on 5 October 2026), one point bears directly on GDPR: the local history of Cowork sessions is not subject to the standard retention policy and cannot be managed or deleted centrally by administrators. Workstation rule: no sensitive data in local Cowork. See the <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a> guide.</p>\n<p>The settings to check before the first account (cloud execution, built-in browser, Claude in Chrome, automatic approval, \"Always allow\" on connectors) are detailed in the <a href=\"/ressources/guides/claude-fonctionnalites-pme\">features guide</a> and in the kit. For distributing plugins and skills through a private marketplace, see <a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins in business</a>. For developers, see <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>.</p>\n<p>The starting recommendation fits in one sentence: manual approval by default, written exceptions, and nothing leaves the company (email, publication, quote, payment) without a person validating it.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Avis Waimia",
+      "kicker_en": "§ Waimia's view",
+      "title_fr": "Quand avancer seul, quand faire intervenir un DPO ou Waimia",
+      "title_en": "When to proceed alone, when to bring in a DPO or Waimia",
+      "aside_fr": "Waimia n'est pas un cabinet juridique et ne rend pas d'avis de droit. Nous cadrons l'usage technique de Claude ; la qualification juridique reste celle de votre DPO ou de votre conseil.",
+      "aside_en": "Waimia is not a law firm and does not give legal opinions. We frame the technical use of Claude; the legal qualification remains that of your DPO or counsel.",
+      "use_title_fr": "Vous pouvez avancer seul si",
+      "use_title_en": "You can proceed alone if",
+      "use_items_fr": [
+        "Vous utilisez Claude en Team ou Enterprise, pour des usages à faible risque, sans donnée sensible",
+        "Vous avez un DPO ou un conseil qui lit le DPA et valide le registre",
+        "Les clients ne demandent aucune garantie de résidence des données"
+      ],
+      "use_items_en": [
+        "You use Claude on Team or Enterprise, for low-risk uses, with no sensitive data",
+        "You have a DPO or counsel who reads the DPA and validates the register",
+        "Clients ask for no data residency guarantee"
+      ],
+      "avoid_title_fr": "Faites-vous accompagner si",
+      "avoid_title_en": "Get support if",
+      "avoid_items_fr": [
+        "Un client ou un appel d'offres impose que les données restent dans l'Union",
+        "Vous voulez brancher Claude à votre CRM, votre messagerie ou vos fichiers avec des droits d'écriture",
+        "Un usage touche des décisions sur des personnes : recrutement, crédit, évaluation",
+        "Vous ne savez pas qui dans l'entreprise détient le registre"
+      ],
+      "avoid_items_en": [
+        "A client or tender requires data to stay in the Union",
+        "You want to connect Claude to your CRM, mailbox or files with write access",
+        "A use affects decisions about people: hiring, credit, assessment",
+        "You do not know who in the company holds the register"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Comment Waimia s'y prend",
+      "h2_en": "How Waimia goes about it",
+      "intro_fr": "On part de vos usages réels, pas d'un modèle de contrat. Aucune promesse de conformité : un cadre technique documenté, que votre DPO valide.",
+      "intro_en": "We start from your real uses, not a contract template. No compliance promise: a documented technical framework that your DPO validates.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit de 45 minutes",
+          "title_en": "Free 45-minute audit",
+          "body_fr": "On liste les usages de Claude déjà en place (y compris les comptes personnels) et ceux que vous voulez.",
+          "body_en": "We list the Claude uses already in place (including personal accounts) and the ones you want.",
+          "meta_fr": "45 minutes, gratuit",
+          "meta_en": "45 minutes, free"
+        },
+        {
+          "title_fr": "Sprint de cadrage",
+          "title_en": "Scoping sprint",
+          "body_fr": "Registre, fiches de décision par usage, réglages d'administration, architecture si l'UE est exigée.",
+          "body_en": "Register, one decision sheet per use, administration settings, architecture if the EU is required.",
+          "meta_fr": "10 h, 999 € HT, prix fixe",
+          "meta_en": "10 h, €999 excl. VAT, fixed price"
+        },
+        {
+          "title_fr": "Mise en place",
+          "title_en": "Setup",
+          "body_fr": "Comptes, plugins et connecteurs autorisés, politique d'usage, formation des équipes.",
+          "body_en": "Accounts, approved plugins and connectors, usage policy, team training.",
+          "meta_fr": "Régie : {{prix.horaire}} € HT de l'heure",
+          "meta_en": "Time and materials: €{{prix.horaire}} excl. VAT per hour"
+        },
+        {
+          "title_fr": "Revue périodique",
+          "title_en": "Periodic review",
+          "body_fr": "Relecture quand une offre, un plugin ou un réglage change, avec les sources à jour.",
+          "body_en": "Review when a plan, plugin or setting changes, with updated sources.",
+          "meta_fr": "À la demande",
+          "meta_en": "On request"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "AI Act pour PME : le calendrier à jour",
+          "title_en": "AI Act for SMBs: the current timeline",
+          "lead_fr": "Ce qui s'applique, à quelle date, et ce que votre registre doit déjà préparer.",
+          "lead_en": "What applies, from when, and what your register should already prepare.",
+          "href": "/ressources/guides/ai-act-pme-calendrier"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Conformité IA : RGPD et AI Act",
+          "title_en": "AI compliance: GDPR and AI Act",
+          "lead_fr": "Cadrer les usages, la politique et les preuves avant le premier incident.",
+          "lead_en": "Frame uses, policy and evidence before the first incident.",
+          "href": "/conformite-ia"
+        },
+        {
+          "kicker_fr": "Outil",
+          "kicker_en": "Tool",
+          "title_fr": "Kit conformité Claude en entreprise",
+          "title_en": "Claude compliance kit for business",
+          "lead_fr": "Réglages, trame d'analyse d'impact, registre, questions au fournisseur.",
+          "lead_en": "Settings, impact assessment outline, register, vendor questions.",
+          "href": "/ressources/outils/kit-conformite-claude-entreprise"
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "ink",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Les changements de Claude qui touchent vos données, une fois par mois",
+      "h2_en": "The Claude changes that affect your data, once a month",
+      "body_fr": "Offres, réglages d'administration, hébergement, rétention : ce qui a changé, ce que ça change pour vous, avec la source. Sans relance commerciale.",
+      "body_en": "Plans, administration settings, hosting, retention: what changed and what it means for you, with the source. No sales follow-ups.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Claude et RGPD : questions fréquentes",
+      "h2_en": "Claude and GDPR: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Claude est-il conforme au RGPD ?",
+          "a_fr": "Claude peut s'utiliser en conformité, pas n'importe comment. En Team, Enterprise ou API, Anthropic n'entraîne pas ses modèles sur vos données par défaut et fournit un DPA appuyé sur les clauses contractuelles types. Le reste dépend de vous : registre, données envoyées, analyse d'impact si elle s'impose. Ce guide n'est pas un avis juridique.",
+          "q_en": "Is Claude GDPR-compliant?",
+          "a_en": "Claude can be used in compliance, but not any old way. On Team, Enterprise or API, Anthropic does not train its models on your data by default and provides a DPA based on standard contractual clauses. The rest is on you: the register, the data you send, a DPIA where one is required. This guide is not legal advice."
+        },
+        {
+          "q_fr": "Anthropic entraîne-t-il ses modèles sur mes données ?",
+          "a_fr": "Pas par défaut en Team, Enterprise et API, d'après la page de conformité d'Anthropic relue le 6 octobre 2026. Sur un compte Free, Pro ou Max, c'est un réglage : activé, des données dé-identifiées peuvent être conservées jusqu'à cinq ans ; désactivé, les conversations supprimées quittent les serveurs sous 30 jours. Raison de plus pour interdire les comptes personnels au travail.",
+          "q_en": "Does Anthropic train its models on my data?",
+          "a_en": "Not by default on Team, Enterprise and API, according to Anthropic's compliance page reread on 6 October 2026. On a Free, Pro or Max account it is a setting: on, de-identified data can be kept for up to five years; off, deleted conversations leave the servers within 30 days. One more reason to ban personal accounts for work."
+        },
+        {
+          "q_fr": "Mes données restent-elles en Europe ?",
+          "a_fr": "Pas avec l'application claude.ai : Anthropic indique un stockage aux États-Unis, sans option européenne. La résidence européenne passe par AWS Bedrock ou Google Vertex, donc par une intégration. Microsoft Foundry est annoncé en Europe mais pas disponible au 6 octobre 2026.",
+          "q_en": "Does my data stay in Europe?",
+          "a_en": "Not with the claude.ai app: Anthropic states US storage, with no European option. European residency goes through AWS Bedrock or Google Vertex, which means an integration. Microsoft Foundry is announced for Europe but not available as of 6 October 2026."
+        },
+        {
+          "q_fr": "Faut-il un DPA avec Anthropic ?",
+          "a_fr": "Oui. Dès que vous traitez des données personnelles, l'article 28 du RGPD exige un contrat avec votre sous-traitant. Chez Anthropic, le DPA fait partie des conditions commerciales (Team, Enterprise, API) : pas de signature séparée. Archivez la version datée et faites lire à votre DPO les clauses types de transfert et la liste des sous-traitants ultérieurs.",
+          "q_en": "Do I need a DPA with Anthropic?",
+          "a_en": "Yes. Once you process personal data, Article 28 of GDPR requires a contract with your processor. At Anthropic, the DPA is part of the commercial terms (Team, Enterprise, API): no separate signature. Archive the dated version and have your DPO review the standard transfer clauses and the subprocessor list."
+        },
+        {
+          "q_fr": "Dois-je faire une analyse d'impact pour utiliser Claude ?",
+          "a_fr": "Pas systématiquement. L'article 35 l'impose pour les traitements susceptibles d'engendrer un risque élevé pour les personnes, et la CNIL publie la liste des cas où elle est obligatoire. Trier des candidatures avec Claude s'en approche ; reformuler des e-mails sans donnée sensible, non. Votre DPO tranche, une fiche de décision par usage garde la trace.",
+          "q_en": "Do I need an impact assessment to use Claude?",
+          "a_en": "Not systematically. Article 35 requires one for processing likely to result in a high risk to individuals, and the CNIL publishes the list of cases where it is mandatory. Screening job applications with Claude comes close; rewording emails without sensitive data does not. Your DPO decides, and a decision sheet per use keeps the record."
+        },
+        {
+          "q_fr": "Quelles données ne jamais envoyer à Claude ?",
+          "a_fr": "Données de santé, bancaires, pièces d'identité, dossiers RH, mots de passe et clés d'accès, documents sous confidentialité sans accord écrit. Ajoutez ce que votre métier impose, comme le secret professionnel. Pour le reste, appliquez la minimisation : l'usage fonctionne-t-il avec moins de données ?",
+          "q_en": "Which data should never be sent to Claude?",
+          "a_en": "Health data, banking data, identity documents, HR files, passwords and access keys, documents under confidentiality without written consent. Add whatever your trade imposes, such as professional secrecy. For the rest, apply minimisation: does the use work with less data?"
+        },
+        {
+          "q_fr": "Cowork et les tâches automatisées posent-ils un risque particulier ?",
+          "a_fr": "Oui, deux : l'historique local des sessions Cowork n'est pas géré par la politique de rétention standard et les administrateurs ne peuvent pas le supprimer centralement ; et un contenu reçu de l'extérieur peut contenir des consignes cachées. D'où la règle de départ : validation manuelle, rien ne part sans relecture.",
+          "q_en": "Do Cowork and automated tasks carry a particular risk?",
+          "a_en": "Yes, two: the local history of Cowork sessions is not managed by the standard retention policy and administrators cannot delete it centrally; and content received from outside can contain hidden instructions. Hence the starting rule: manual approval, nothing leaves without review."
+        },
+        {
+          "q_fr": "Waimia peut-il garantir ma conformité ?",
+          "a_fr": "Non, et méfiez-vous de qui le promet. Waimia cadre l'usage technique de Claude (comptes, réglages, connecteurs, registre, formation) et date chaque source. La qualification juridique reste celle de votre DPO ou de votre conseil. L'audit de 45 minutes est gratuit, le sprint de cadrage coûte 999 € HT.",
+          "q_en": "Can Waimia guarantee my compliance?",
+          "a_en": "No, and be wary of anyone who promises it. Waimia frames the technical use of Claude (accounts, settings, connectors, register, training) and dates every source. The legal qualification stays with your DPO or counsel. The 45-minute audit is free; the scoping sprint costs €999 excl. VAT."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Cadrer avant de déployer",
+      "kicker_en": "§ Frame before deploying",
+      "h2_fr": "Savoir quelles données passent par Claude, avant que ce soit trop tard.",
+      "h2_en": "Know which data goes through Claude, before it is too late.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste vos usages de Claude, on repère ceux qui posent question et vous repartez avec un registre de départ. Pas un avis juridique.",
+      "subtitle_en": "The 45-minute audit is free. We list your Claude uses, spot the ones that raise questions, and you leave with a starting register. Not legal advice.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégration de Claude",
+          "label_en": "See the Claude integration",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Claude est-il conforme au RGPD ?",
+      "a": "Claude peut s'utiliser en conformité, pas n'importe comment. En Team, Enterprise ou API, Anthropic n'entraîne pas ses modèles sur vos données par défaut et fournit un DPA appuyé sur les clauses contractuelles types. Le reste dépend de vous : registre, données envoyées, analyse d'impact si elle s'impose. Ce guide n'est pas un avis juridique."
+    },
+    {
+      "q": "Anthropic entraîne-t-il ses modèles sur mes données ?",
+      "a": "Pas par défaut en Team, Enterprise et API, d'après la page de conformité d'Anthropic relue le 6 octobre 2026. Sur un compte Free, Pro ou Max, c'est un réglage : activé, des données dé-identifiées peuvent être conservées jusqu'à cinq ans ; désactivé, les conversations supprimées quittent les serveurs sous 30 jours. Raison de plus pour interdire les comptes personnels au travail."
+    },
+    {
+      "q": "Mes données restent-elles en Europe ?",
+      "a": "Pas avec l'application claude.ai : Anthropic indique un stockage aux États-Unis, sans option européenne. La résidence européenne passe par AWS Bedrock ou Google Vertex, donc par une intégration. Microsoft Foundry est annoncé en Europe mais pas disponible au 6 octobre 2026."
+    },
+    {
+      "q": "Faut-il un DPA avec Anthropic ?",
+      "a": "Oui. Dès que vous traitez des données personnelles, l'article 28 du RGPD exige un contrat avec votre sous-traitant. Chez Anthropic, le DPA fait partie des conditions commerciales (Team, Enterprise, API) : pas de signature séparée. Archivez la version datée et faites lire à votre DPO les clauses types de transfert et la liste des sous-traitants ultérieurs."
+    },
+    {
+      "q": "Dois-je faire une analyse d'impact pour utiliser Claude ?",
+      "a": "Pas systématiquement. L'article 35 l'impose pour les traitements susceptibles d'engendrer un risque élevé pour les personnes, et la CNIL publie la liste des cas où elle est obligatoire. Trier des candidatures avec Claude s'en approche ; reformuler des e-mails sans donnée sensible, non. Votre DPO tranche, une fiche de décision par usage garde la trace."
+    },
+    {
+      "q": "Quelles données ne jamais envoyer à Claude ?",
+      "a": "Données de santé, bancaires, pièces d'identité, dossiers RH, mots de passe et clés d'accès, documents sous confidentialité sans accord écrit. Ajoutez ce que votre métier impose, comme le secret professionnel. Pour le reste, appliquez la minimisation : l'usage fonctionne-t-il avec moins de données ?"
+    },
+    {
+      "q": "Cowork et les tâches automatisées posent-ils un risque particulier ?",
+      "a": "Oui, deux : l'historique local des sessions Cowork n'est pas géré par la politique de rétention standard et les administrateurs ne peuvent pas le supprimer centralement ; et un contenu reçu de l'extérieur peut contenir des consignes cachées. D'où la règle de départ : validation manuelle, rien ne part sans relecture."
+    },
+    {
+      "q": "Waimia peut-il garantir ma conformité ?",
+      "a": "Non, et méfiez-vous de qui le promet. Waimia cadre l'usage technique de Claude (comptes, réglages, connecteurs, registre, formation) et date chaque source. La qualification juridique reste celle de votre DPO ou de votre conseil. L'audit de 45 minutes est gratuit, le sprint de cadrage coûte 999 € HT."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is Claude GDPR-compliant?",
+      "a": "Claude can be used in compliance, but not any old way. On Team, Enterprise or API, Anthropic does not train its models on your data by default and provides a DPA based on standard contractual clauses. The rest is on you: the register, the data you send, a DPIA where one is required. This guide is not legal advice."
+    },
+    {
+      "q": "Does Anthropic train its models on my data?",
+      "a": "Not by default on Team, Enterprise and API, according to Anthropic's compliance page reread on 6 October 2026. On a Free, Pro or Max account it is a setting: on, de-identified data can be kept for up to five years; off, deleted conversations leave the servers within 30 days. One more reason to ban personal accounts for work."
+    },
+    {
+      "q": "Does my data stay in Europe?",
+      "a": "Not with the claude.ai app: Anthropic states US storage, with no European option. European residency goes through AWS Bedrock or Google Vertex, which means an integration. Microsoft Foundry is announced for Europe but not available as of 6 October 2026."
+    },
+    {
+      "q": "Do I need a DPA with Anthropic?",
+      "a": "Yes. Once you process personal data, Article 28 of GDPR requires a contract with your processor. At Anthropic, the DPA is part of the commercial terms (Team, Enterprise, API): no separate signature. Archive the dated version and have your DPO review the standard transfer clauses and the subprocessor list."
+    },
+    {
+      "q": "Do I need an impact assessment to use Claude?",
+      "a": "Not systematically. Article 35 requires one for processing likely to result in a high risk to individuals, and the CNIL publishes the list of cases where it is mandatory. Screening job applications with Claude comes close; rewording emails without sensitive data does not. Your DPO decides, and a decision sheet per use keeps the record."
+    },
+    {
+      "q": "Which data should never be sent to Claude?",
+      "a": "Health data, banking data, identity documents, HR files, passwords and access keys, documents under confidentiality without written consent. Add whatever your trade imposes, such as professional secrecy. For the rest, apply minimisation: does the use work with less data?"
+    },
+    {
+      "q": "Do Cowork and automated tasks carry a particular risk?",
+      "a": "Yes, two: the local history of Cowork sessions is not managed by the standard retention policy and administrators cannot delete it centrally; and content received from outside can contain hidden instructions. Hence the starting rule: manual approval, nothing leaves without review."
+    },
+    {
+      "q": "Can Waimia guarantee my compliance?",
+      "a": "No, and be wary of anyone who promises it. Waimia frames the technical use of Claude (accounts, settings, connectors, register, training) and dates every source. The legal qualification stays with your DPO or counsel. The 45-minute audit is free; the scoping sprint costs €999 excl. VAT."
+    }
+  ]
+}

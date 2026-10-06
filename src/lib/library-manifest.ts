@@ -62,6 +62,8 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   // Famille CONVERSION (audit-conversion) · catalogue-only (0 consommateur live)
   { id: 'faq-cta-aside',             consumers: [] },
   { id: 'cta-form-inline',           consumers: [] },
+  // Capture e-mail des ressources (2026-10-06) : bande lead magnet (mode required|open), moteur LeadCapture.
+  { id: 'lead-capture-band',         consumers: ['src/components/templates/LeadMagnetLanding.astro', 'src/components/ui/organisms/conversion/MaturityDiagnostic.astro', 'src/pages/ressources/outils/[...slug].astro', 'src/pages/ressources/outils/charte-ia-entreprise.astro', 'src/pages/ressources/outils/checklist-90-jours-claude.astro', 'src/pages/ressources/outils/grille-taches-a-automatiser.astro'] },
   { id: 'contact-form',              consumers: [] },
   { id: 'booking-embed',             consumers: [] },
   { id: 'newsletter-signup-section', consumers: [] },

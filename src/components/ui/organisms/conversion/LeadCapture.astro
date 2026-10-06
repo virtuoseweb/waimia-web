@@ -2,10 +2,15 @@
 import FormGuard from '../../atoms/FormGuard.astro';
 // Organism · LeadCapture · capture d'e-mail d'une ressource (hors catalogue).
 //
-// Deux modes. Par défaut (diagnostic, calculateur, grille) : e-mail FACULTATIF, la valeur de la
-// page reste accessible sans e-mail et ce bloc ne sert qu'à recevoir une copie à garder.
-// `required` (checklist, charte : PDF verrouillé) : e-mail OBLIGATOIRE pour obtenir le PDF, livré
-// en pièce jointe et jamais par un lien public ; la partie en ligne de la page reste utilisable. POST JSON vers /api/lead-magnet { email, slug, summary?, headline? }.
+// Deux modes. Par défaut (diagnostic, calculateur, grille) : le résultat de la page reste visible
+// sans e-mail ; ce bloc en envoie la version à garder (récapitulatif, lien de retour).
+// `required` (checklist, charte, PDF verrouillés) : e-mail OBLIGATOIRE pour obtenir le fichier,
+// livré en pièce jointe et jamais par un lien public. POST JSON vers /api/lead-magnet
+// { email, slug, summary?, headline? }.
+//
+// `bare` : formulaire seul (ni cadre, ni titre, ni description), bouton primaire et mention
+// RGPD courte. Utilisé par la section catalogue `lead-capture-band`, qui porte le titre, la
+// liste de ce que l'e-mail apporte et l'aperçu ; `describedBy` pointe vers son accroche.
 //
 // Récupération des résultats de la page : avant l'envoi, le composant émet l'événement
 // `cv:collect` (bubbles) avec `detail = { slug, summary: [], headline: '' }`. L'outil de
@@ -25,7 +30,7 @@ interface Props {
   /** Titre court du bloc. */
   title?: string;
   /** Ce que contient l'e-mail, en une phrase. */
-  description: string;
+  description?: string;
   buttonLabel?: string;
   /** Rend le bloc masqué (attribut hidden) : la page l'affiche quand un résultat existe. */
   initiallyHidden?: boolean;
@@ -35,41 +40,54 @@ interface Props {
   required?: boolean;
   /** Id d'ancre de la bande (lien « Recevoir le PDF » depuis le document). */
   anchorId?: string;
+  /** Formulaire seul, sans cadre ni texte d'en-tête (section `lead-capture-band`). */
+  bare?: boolean;
+  /** Id de l'élément qui décrit le formulaire quand `bare` (accroche de la section). */
+  describedBy?: string;
 }
 const {
   slug,
   title = 'Recevoir une copie par e-mail',
-  description,
+  description = '',
   buttonLabel = 'Envoyer la copie',
   initiallyHidden = false,
   band = false,
   required = false,
   anchorId,
+  bare = false,
+  describedBy,
 } = Astro.props as Props;
 const fid = `lc-${slug}`;
+const descId = bare ? describedBy : `${fid}-desc`;
 ---
 <div id={anchorId} class:list={[band && 'lc-band']}><div class:list={[band && 'wrap-wide']}>
-<div class="lc" data-lead-capture data-slug={slug} data-required={required ? '1' : undefined} hidden={initiallyHidden}>
+<div class:list={['lc', bare && 'lc--bare']} data-lead-capture data-slug={slug} data-required={required ? '1' : undefined} hidden={initiallyHidden}>
   <form class="lc-form" method="POST" action="/api/lead-magnet" novalidate data-lead-form>
-    <div class="lc-text">
-      <p class="lc-title">{title} {!required && <span class="lc-opt">(facultatif)</span>}</p>
-      <p class="cv-note" id={`${fid}-desc`}>{description}</p>
-    </div>
+    {!bare && (
+      <div class="lc-text">
+        <p class="lc-title">{title}</p>
+        <p class="cv-note" id={`${fid}-desc`}>{description}</p>
+      </div>
+    )}
     <div class="lc-row">
       <FormGuard />
       <input type="hidden" name="slug" value={slug} />
       <div class="cv-field lc-field">
         <label class="cv-label" for={`${fid}-email`}>Votre e-mail</label>
-        <input class="cv-input" id={`${fid}-email`} name="email" type="email" autocomplete="email" inputmode="email" required placeholder="prenom@entreprise.fr" aria-describedby={`${fid}-desc ${fid}-err`} />
+        <input class="cv-input" id={`${fid}-email`} name="email" type="email" autocomplete="email" inputmode="email" required placeholder="prenom@entreprise.fr" aria-describedby={[descId, `${fid}-err`].filter(Boolean).join(' ')} />
       </div>
-      <button class="btn btn-ghost cv-btn lc-btn" type="submit" data-label={buttonLabel} data-label-busy="Envoi en cours…">{buttonLabel}</button>
+      <button class:list={['btn', bare ? 'btn-primary' : 'btn-ghost', 'cv-btn', 'lc-btn']} type="submit" data-label={buttonLabel} data-label-busy="Envoi en cours…">{buttonLabel}</button>
     </div>
     <p class="cv-error" id={`${fid}-err`} data-lead-error hidden></p>
     <label class="lc-optin">
       <input type="checkbox" name="newsletter" />
       <span>Recevoir aussi la lettre mensuelle de Waimia (un envoi par mois, désinscription en un clic).</span>
     </label>
-    <p class="cv-note lc-legal">{required ? "Le fichier est envoyé en pièce jointe, uniquement par e-mail : il n'existe pas de lien de téléchargement public. " : ''}Sans cette case, vous recevez un seul e-mail et votre adresse n'est ajoutée à aucune liste. Responsable du traitement : Waimia (VirtuoseWeb), pour vous envoyer ce que vous demandez. <a href="/politique-confidentialite">Confidentialité</a>.</p>
+    {bare ? (
+      <p class="cv-note lc-legal">Sans cette case : un seul e-mail, aucune liste. Responsable : Waimia (VirtuoseWeb). <a href="/politique-confidentialite">Confidentialité</a>.</p>
+    ) : (
+      <p class="cv-note lc-legal">{required ? "Le fichier est envoyé en pièce jointe, uniquement par e-mail : il n'existe pas de lien de téléchargement public. " : ''}Sans cette case, vous recevez un seul e-mail et votre adresse n'est ajoutée à aucune liste. Responsable du traitement : Waimia (VirtuoseWeb), pour vous envoyer ce que vous demandez. <a href="/politique-confidentialite">Confidentialité</a>.</p>
+    )}
   </form>
   <p class="cv-status" data-kind="success" data-lead-success tabindex="-1" hidden></p>
 </div>
@@ -107,7 +125,7 @@ const fid = `lc-${slug}`;
       e.preventDefault();
       clear();
       var email = input.value.trim();
-      if (!email) { fail('Saisissez votre adresse e-mail pour recevoir la copie.'); input.focus(); return; }
+      if (!email) { fail(root.dataset.required ? 'Saisissez votre adresse e-mail : le fichier n\'est envoyé que par e-mail.' : 'Saisissez votre adresse e-mail pour recevoir votre résultat.'); input.focus(); return; }
       if (!EMAIL_RE.test(email)) { fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr'); input.focus(); return; }
 
       var detail = { slug: root.dataset.slug, summary: [], headline: '' };
@@ -143,7 +161,9 @@ const fid = `lc-${slug}`;
         if (data.code === 'invalid_email') fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr');
         else if (res.status === 429) fail('Trop de demandes en peu de temps. Réessayez dans quelques minutes.');
         else if (data.code === 'resource_unavailable') fail('Ce fichier est momentanément indisponible. Écrivez à ' + mail + ', nous vous l\'envoyons.');
-        else if (data.code === 'email_not_configured') fail('L\'envoi par e-mail est indisponible pour le moment : rien n\'a été envoyé. Tout reste consultable sur cette page, ou écrivez à ' + mail + '.');
+        else if (data.code === 'email_not_configured') fail(root.dataset.required
+          ? 'L\'envoi par e-mail est indisponible pour le moment : rien n\'a été envoyé. Écrivez à ' + mail + ', nous vous envoyons le fichier.'
+          : 'L\'envoi par e-mail est indisponible pour le moment : rien n\'a été envoyé. Votre résultat reste affiché sur cette page, ou écrivez à ' + mail + '.');
         else fail('L\'e-mail n\'est pas parti (erreur ' + res.status + '). Réessayez, ou écrivez à ' + mail + '.');
         busy(false);
       } catch (_) {
@@ -167,10 +187,11 @@ const fid = `lc-${slug}`;
   }
   .lc[hidden] { display: none; }
   .lc-band { padding: var(--space-8) 0; }
+  .lc--bare { border: 0; border-radius: 0; padding: 0; background: transparent; }
+  .lc--bare .lc-form { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
   .lc-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-4) var(--space-6); align-items: end; }
   .lc-form[hidden] { display: none; }
   .lc-title { margin: 0 0 var(--space-1); font-size: var(--text-body); font-weight: var(--fw-semibold); }
-  .lc-opt { font-weight: var(--fw-regular); color: var(--muted); }
   .lc-row { display: flex; gap: var(--space-3); align-items: flex-end; position: relative; }
   .lc-field { flex: 1; }
   .lc-btn { white-space: nowrap; padding-top: 13px; padding-bottom: 13px; }
