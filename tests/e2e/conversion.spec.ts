@@ -104,19 +104,19 @@ test("calculateur ROI : hypothèses éditables, CTA audit", async ({ page }) => 
   await expect(page.locator(".tw-cta")).toHaveAttribute("href", AUDIT_BOOKING);
 });
 
-test("charte IA : texte lisible, champs personnalisables, PDF servi", async ({ page, request }) => {
+test("charte IA : texte lisible, champs personnalisables, PDF verrouillé (e-mail requis)", async ({ page, request }) => {
   await page.goto("/ressources/outils/charte-ia-entreprise");
   await expect(page.locator("[data-charter-article]")).toHaveCount(9);
   await page.locator("#ch-entreprise").fill("Menuiserie Durand");
   await expect(page.locator(".ch-preamble")).toContainText("Menuiserie Durand");
-  const href = await page.locator(".ch-actions a[download]").getAttribute("href");
-  const pdf = await request.get(href!);
-  expect(pdf.status()).toBe(200);
-  // Signature du fichier plutôt que l'en-tête : le serveur de test ne type pas les .pdf.
-  expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  // Le PDF n'est plus servi : aucun lien de téléchargement direct, l'e-mail est requis.
+  await expect(page.locator("a[download]")).toHaveCount(0);
+  await expect(page.locator('.ch-actions a[href="#recevoir-le-pdf"]')).toBeVisible();
+  const old = await request.get("/telechargements/charte-ia-pme-modele-waimia.pdf", { maxRedirects: 0 });
+  expect(old.status()).not.toBe(200);
 });
 
-test("checklist 90 jours : cases cochables et conservées, PDF servi", async ({ page, request }) => {
+test("checklist 90 jours : cases cochables et conservées, PDF verrouillé (e-mail requis)", async ({ page, request }) => {
   await page.goto("/ressources/outils/checklist-90-jours-claude");
   await expect(page.locator("[data-ck-sheet] h3")).toHaveCount(3);
   await expect(page.locator("[data-ck-sheet] h4")).toHaveCount(12);
@@ -126,8 +126,8 @@ test("checklist 90 jours : cases cochables et conservées, PDF servi", async ({ 
   await expect(page.locator("[data-ck-done]")).toHaveText("1");
   await page.reload();
   await expect(page.locator("#ck-p1")).toBeChecked();
-  const href = await page.locator(".ck-actions a[download]").getAttribute("href");
-  const pdf = await request.get(href!);
-  expect(pdf.status()).toBe(200);
-  expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  await expect(page.locator("a[download]")).toHaveCount(0);
+  await expect(page.locator('.ck-actions a[href="#recevoir-le-pdf"]')).toBeVisible();
+  const old = await request.get("/telechargements/checklist-90-jours-claude-pme-waimia.pdf", { maxRedirects: 0 });
+  expect(old.status()).not.toBe(200);
 });

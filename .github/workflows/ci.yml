@@ -81,6 +81,12 @@ jobs:
         run: node scripts/check-honeypot.mjs
 
       # Livraison des ressources verrouillées (pièce jointe, 503 honnêtes, honeypot) : faux serveur Resend.
+      # node:module registerHooks exige Node >= 22.15 (le build reste sur .nvmrc).
+      - name: Node récent pour le test de livraison
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.18'
+
       - name: Test · livraison lead magnet (faux Resend)
         run: node --test scripts/tests/lead-magnet-delivery.test.mjs
 
