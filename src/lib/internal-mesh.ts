@@ -88,6 +88,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/automatisation-make': { label_fr: 'Automatisation Make', label_en: 'Make automation', kind: 'service', topics: ['automatisation'] },
   '/ressources/comparatifs/n8n-vs-make': { label_fr: 'n8n ou Make : le comparatif', label_en: 'n8n vs Make', kind: 'comparatif', topics: ['automatisation'] },
   '/ressources/guides/n8n-prix': { label_fr: 'n8n : prix et coût complet', label_en: 'n8n: pricing and full cost', kind: 'guide', topics: ['automatisation'] },
+  '/blog/n8n-c-est-quoi': { label_fr: "n8n, c'est quoi", label_en: 'What is n8n', kind: 'article', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
   '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
   '/cas-usages/finance-comptabilite': { label_fr: 'IA et automatisation de la comptabilité', label_en: 'AI and accounting automation', kind: 'cas-usage', topics: ['automatisation', 'donnees'] },

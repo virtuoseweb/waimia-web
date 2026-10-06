@@ -5457,6 +5457,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/n8n-c-est-quoi",
+    "title": "n8n c'est quoi ? Définition, usages et limites pour une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/n8n-c-est-quoi.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/seo-geo-etre-cite-par-les-ia-generatives",
     "title": "Être cité par les IA : les mécaniques du GEO",
     "group": "blog",
@@ -6149,6 +6158,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/forward-deployed-engineer",
       "/blog/google-ads-vs-meta-ads-pme-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
+      "/blog/n8n-c-est-quoi",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/trier-emails-entrant-claude-n8n",
