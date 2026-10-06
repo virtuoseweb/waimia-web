@@ -30733,6 +30733,290 @@
     "agentGuide": "Layout : `pad`, `tone` (schema, 0 CSS). Espacement : --space-12 --space-6 --space-8. Couleur : --accent-text --ink --muted. Typographie : --font-mono --text-small. Dette : 4 litteral(s) hardcode(s) (0.12em, 1px, 32px)."
   },
   {
+    "id": "lead-capture-band",
+    "component": {
+      "name": "LeadCaptureBand",
+      "path": "src/sections/lead-capture-band/Component.astro"
+    },
+    "usage": "site",
+    "consumers": [
+      "src/components/templates/LeadMagnetLanding.astro",
+      "src/components/ui/organisms/conversion/MaturityDiagnostic.astro",
+      "src/pages/ressources/outils/[...slug].astro",
+      "src/pages/ressources/outils/charte-ia-entreprise.astro",
+      "src/pages/ressources/outils/checklist-90-jours-claude.astro",
+      "src/pages/ressources/outils/grille-taches-a-automatiser.astro"
+    ],
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "tags": [
+      "capture",
+      "conversion",
+      "email",
+      "form",
+      "lead",
+      "lead-magnet",
+      "pdf",
+      "rgpd"
+    ],
+    "status": "stable",
+    "description_fr": "Bande de capture d'e-mail d'une ressource (lead magnet) : titre fort, accroche, liste de ce que l'e-mail apporte, un seul champ, bouton primaire, mention RGPD courte et aperçu (couverture dessinée ou illustration). Mode `required` (fichier verrouillé, envoyé en pièce jointe) ou `open` (résultat d'un outil déjà affiché, l'e-mail en garde la version). Variantes `band` (pleine largeur) et `card` (dans un article). Moteur : organism LeadCapture → POST /api/lead-magnet.",
+    "description_en": "Email capture band for a resource (lead magnet): strong title, hook, list of what the email brings, a single field, primary button, short GDPR notice and a preview (drawn cover or illustration). `required` mode (locked file, sent as an attachment) or `open` (tool result already shown, the email keeps a copy). `band` (full width) and `card` (inside an article) variants. Engine: LeadCapture organism → POST /api/lead-magnet.",
+    "schemaFields": [
+      {
+        "name": "anchor_id",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "benefits_en",
+        "type": "array",
+        "required": false,
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "benefits_fr",
+        "type": "array",
+        "required": false,
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "body_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "body_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "h2_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "initially_hidden",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "kicker_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "lead_magnet",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "mode",
+        "type": "enum",
+        "required": false,
+        "constraint": "required | open"
+      },
+      {
+        "name": "preview",
+        "type": "unknown",
+        "required": false
+      },
+      {
+        "name": "submit_label_en",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "submit_label_fr",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "required": false,
+        "constraint": "band | card"
+      }
+    ],
+    "scopedClasses": [
+      "cv-btn",
+      "cv-label",
+      "cv-note",
+      "lc-optin",
+      "lcb",
+      "lcb__body",
+      "lcb__cover",
+      "lcb__cover-f",
+      "lcb__cover-k",
+      "lcb__cover-m",
+      "lcb__cover-rule",
+      "lcb__cover-t",
+      "lcb__form",
+      "lcb__h2",
+      "lcb__head",
+      "lcb__img",
+      "lcb__in",
+      "lcb__list",
+      "lcb__preview"
+    ],
+    "tokensUsed": [
+      {
+        "name": "--accent",
+        "value": "#C94F2E"
+      },
+      {
+        "name": "--accent-sur-clair",
+        "value": "#A83D20"
+      },
+      {
+        "name": "--accent-text",
+        "value": "var(--accent-sur-clair)"
+      },
+      {
+        "name": "--font-display",
+        "value": "\"Instrument Serif\", ui-serif, Georgia, serif"
+      },
+      {
+        "name": "--font-mono",
+        "value": "\"JetBrains Mono\", ui-monospace, Menlo, monospace"
+      },
+      {
+        "name": "--font-sans",
+        "value": "\"Inter Tight\", ui-sans-serif, system-ui, sans-serif"
+      },
+      {
+        "name": "--fw-regular",
+        "value": "400"
+      },
+      {
+        "name": "--fw-semibold",
+        "value": "600"
+      },
+      {
+        "name": "--hairline-strong",
+        "value": "rgba(var(--ink-rgb), 0.18)"
+      },
+      {
+        "name": "--header-height",
+        "value": "72px"
+      },
+      {
+        "name": "--ink",
+        "value": "#0C0B09"
+      },
+      {
+        "name": "--leading-body",
+        "value": "1.5"
+      },
+      {
+        "name": "--muted",
+        "value": "#6B6560"
+      },
+      {
+        "name": "--muted-2",
+        "value": "#746C63"
+      },
+      {
+        "name": "--paper",
+        "value": "#F6F1E8"
+      },
+      {
+        "name": "--paper-2",
+        "value": "#EFE9DD"
+      },
+      {
+        "name": "--paper-3",
+        "value": "#E6E0D0"
+      },
+      {
+        "name": "--paper-rgb",
+        "value": "246, 241, 232"
+      },
+      {
+        "name": "--radius-sm",
+        "value": "4px"
+      },
+      {
+        "name": "--section-base",
+        "value": "var(--space-11)"
+      },
+      {
+        "name": "--space-10",
+        "value": "clamp(calc(5rem * var(--fl-space-shrink)), calc((5rem * var(--fl-space-shrink)) + (5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 5rem)"
+      },
+      {
+        "name": "--space-2",
+        "value": "0.5rem"
+      },
+      {
+        "name": "--space-3",
+        "value": "0.75rem"
+      },
+      {
+        "name": "--space-4",
+        "value": "1rem"
+      },
+      {
+        "name": "--space-5",
+        "value": "1.5rem"
+      },
+      {
+        "name": "--space-6",
+        "value": "2rem"
+      },
+      {
+        "name": "--space-7",
+        "value": "clamp(calc(2.5rem * var(--fl-space-shrink)), calc((2.5rem * var(--fl-space-shrink)) + (2.5rem * (1 - var(--fl-space-shrink))) * (100vw - (var(--fl-min-vw) * 1px)) / ((var(--fl-max-vw) - var(--fl-min-vw)) * 1px)), 2.5rem)"
+      },
+      {
+        "name": "--text-body",
+        "value": "clamp(15px, 1vw, 17px)"
+      },
+      {
+        "name": "--text-h2",
+        "value": "clamp(26px, 3.6vw, 52px)"
+      },
+      {
+        "name": "--text-h3",
+        "value": "clamp(19px, 1.8vw, 26px)"
+      },
+      {
+        "name": "--text-small",
+        "value": "13px"
+      },
+      {
+        "name": "--tracking-mono",
+        "value": "0.12em"
+      }
+    ],
+    "tailwindUtils": [],
+    "hardcodedLiterals": {
+      "count": 20,
+      "samples": [
+        "-0.01em",
+        "-0.024em",
+        "-1px",
+        "0.42em",
+        "100%",
+        "11px",
+        "12px",
+        "16px"
+      ]
+    },
+    "agentGuide": "Layout : `mode`, `variant` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-sur-clair --accent-text. Typographie : --font-display --font-mono. Dette : 20 litteral(s) hardcode(s) (-0.01em, -0.024em, -1px)."
+  },
+  {
     "id": "learning-path-list",
     "component": {
       "name": "LearningPathList",

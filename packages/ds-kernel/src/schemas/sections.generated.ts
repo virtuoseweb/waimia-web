@@ -131,6 +131,7 @@ import { schema as integrationsGridSchema } from '../sections/integrations-grid/
 import { schema as journeyStepsSchema } from '../sections/journey-steps/schema';
 import { schema as keyMetricGridSchema } from '../sections/key-metric-grid/schema';
 import { schema as keywordStripSchema } from '../sections/keyword-strip/schema';
+import { schema as leadCaptureBandSchema } from '../sections/lead-capture-band/schema';
 import { schema as learningPathListSchema } from '../sections/learning-path-list/schema';
 import { schema as listIndexSectionSchema } from '../sections/list-index-section/schema';
 import { schema as logoMarqueeSchema } from '../sections/logo-marquee/schema';
@@ -356,6 +357,7 @@ export {
   journeyStepsSchema,
   keyMetricGridSchema,
   keywordStripSchema,
+  leadCaptureBandSchema,
   learningPathListSchema,
   listIndexSectionSchema,
   logoMarqueeSchema,
@@ -582,6 +584,7 @@ export const sectionSchema = z.discriminatedUnion('type', [
   journeyStepsSchema,
   keyMetricGridSchema,
   keywordStripSchema,
+  leadCaptureBandSchema,
   learningPathListSchema,
   listIndexSectionSchema,
   logoMarqueeSchema,

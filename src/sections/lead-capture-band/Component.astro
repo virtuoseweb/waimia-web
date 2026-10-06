@@ -1,0 +1,230 @@
+---
+// Waimia · module `lead-capture-band` · Component.
+// Bande de capture d'e-mail d'une ressource : titre fort, accroche, liste de ce que l'e-mail
+// apporte, formulaire (un seul champ, bouton primaire, mention RGPD courte) et aperçu
+// (illustration ou couverture dessinée en CSS). Le formulaire est l'organism LeadCapture en
+// mode `bare` : même endpoint (/api/lead-magnet), même FormGuard, mêmes états, jamais de faux
+// succès. Le texte du formulaire est en français (site monolingue).
+// Variantes : `band` (pleine largeur, aperçu à droite) · `card` (dans une colonne d'article).
+// Fonds : paper / paper-2 / paper-3 / ink (idiome [data-bg='ink'] de global.css). Tokens DS
+// uniquement, 0 nouvelle variable. Spécificité : les règles sont imbriquées sous `.lcb.lcb`
+// pour résister aux styles de prose (lettrine, listes) quand la carte vit dans un article.
+import type { SectionByType } from '@waimia/ds-kernel';
+import Kicker from '../../components/ui/atoms/Kicker.astro';
+import LeadCapture from '../../components/ui/organisms/conversion/LeadCapture.astro';
+import { LEAD_MAGNETS, LEAD_CAPTURE_COPY, type LeadMagnetSlug } from '../../data/conversion';
+
+interface Props {
+  data: SectionByType<'lead-capture-band'>;
+  lang: 'fr' | 'en';
+}
+
+const { data, lang } = Astro.props;
+const isFr = lang === 'fr';
+
+if (!Object.prototype.hasOwnProperty.call(LEAD_MAGNETS, data.lead_magnet)) {
+  throw new Error(`lead-capture-band : « ${data.lead_magnet} » absent de LEAD_MAGNETS (src/data/conversion.ts).`);
+}
+const slug = data.lead_magnet as LeadMagnetSlug;
+// Texte par défaut de la ressource (GLOBAL), remplacé champ par champ par la section (INSTANCE).
+const copy = LEAD_CAPTURE_COPY[slug];
+const c = isFr ? copy.fr : copy.en;
+const required = (data.mode ?? copy.mode) === 'required';
+const variant = data.variant ?? 'band';
+const bg = data.background ?? 'paper-2';
+const uid = `lcb-${slug}`;
+
+const kicker = (isFr ? data.kicker_fr : data.kicker_en) ?? c.kicker;
+const h2 = (isFr ? data.h2_fr : data.h2_en) ?? c.h2;
+const body = (isFr ? data.body_fr : data.body_en) ?? c.body;
+const benefits = (isFr ? data.benefits_fr : data.benefits_en) ?? c.benefits;
+const submit = (isFr ? data.submit_label_fr : data.submit_label_en) ?? c.submit;
+
+// Aperçu : illustration de la section, sinon couverture (section, sinon celle de la ressource).
+const pv = data.preview;
+const img = pv?.image_src ? { src: pv.image_src, alt: (isFr ? pv.image_alt_fr : pv.image_alt_en) ?? '' } : null;
+const cover = img
+  ? null
+  : {
+      kicker: (isFr ? pv?.cover_kicker_fr : pv?.cover_kicker_en) ?? c.cover.kicker,
+      title: (isFr ? pv?.cover_title_fr : pv?.cover_title_en) ?? c.cover.title,
+      meta: (isFr ? pv?.cover_meta_fr : pv?.cover_meta_en) ?? c.cover.meta,
+    };
+---
+
+<section
+  class="lcb lcb"
+  id={data.anchor_id}
+  data-lcb
+  data-slug={slug}
+  data-bg={bg}
+  data-variant={variant}
+  data-mode={required ? 'required' : 'open'}
+  aria-labelledby={`${uid}-h`}
+  hidden={data.initially_hidden}
+>
+  <div class:list={[variant === 'band' && 'wrap-wide', 'lcb__in']}>
+    <div class="lcb__head">
+      {kicker && <Kicker tone="accent">{kicker}</Kicker>}
+      <h2 class="lcb__h2" id={`${uid}-h`} set:html={h2} />
+      {body && <div class="lcb__body" id={`${uid}-d`}>{body}</div>}
+    </div>
+
+    <ul class="lcb__list" aria-label={isFr ? "Ce que l'e-mail contient" : 'What the email contains'}>
+      {benefits.map((b) => <li set:html={b} />)}
+    </ul>
+
+    <div class="lcb__form">
+      <LeadCapture bare slug={slug} required={required} buttonLabel={submit} describedBy={body ? `${uid}-d` : `${uid}-h`} />
+    </div>
+
+    <div class="lcb__preview" aria-hidden={img ? undefined : 'true'}>
+      {img ? (
+        <img class="lcb__img" src={img.src} alt={img.alt} width="1200" height="514" loading="lazy" decoding="async" />
+      ) : cover && (
+        <div class="lcb__cover">
+          <div class="lcb__cover-k">{cover.kicker}</div>
+          <div class="lcb__cover-t">{cover.title}</div>
+          <div class="lcb__cover-rule"></div>
+          <div class="lcb__cover-m">{cover.meta}</div>
+          <div class="lcb__cover-lines"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="lcb__cover-f">waimia.com</div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .lcb.lcb { padding: var(--section-base) 0; border-top: 1px solid var(--hairline-strong); scroll-margin-top: var(--header-height); }
+  .lcb.lcb[hidden] { display: none; }
+  .lcb[data-bg='paper'] { background: var(--paper); }
+  .lcb[data-bg='paper-2'] { background: var(--paper-2); }
+  .lcb[data-bg='paper-3'] { background: var(--paper-3); }
+  .lcb[data-bg='ink'] { background: var(--ink); color: var(--paper); border-top-color: var(--ink); }
+
+  /* Grille : en-tête, liste, formulaire à gauche ; aperçu à droite (band). */
+  .lcb.lcb .lcb__in {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'head' 'list' 'form';
+    gap: var(--space-5);
+  }
+  .lcb.lcb[data-variant='band'] .lcb__in {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-areas: 'head preview' 'list preview' 'form preview';
+    column-gap: var(--space-10);
+    align-items: start;
+  }
+  .lcb.lcb .lcb__head { grid-area: head; max-width: 60ch; }
+  .lcb.lcb .lcb__list { grid-area: list; }
+  .lcb.lcb .lcb__form { grid-area: form; max-width: 560px; }
+  .lcb.lcb .lcb__preview { grid-area: preview; align-self: center; }
+
+  .lcb.lcb .lcb__h2 {
+    font-family: var(--font-sans);
+    font-size: calc(var(--text-h2) * 0.76);
+    line-height: 1.08;
+    letter-spacing: -0.024em;
+    font-weight: var(--fw-semibold);
+    color: inherit;
+    margin: var(--space-2) 0 var(--space-3);
+    padding: 0;
+    text-wrap: balance;
+  }
+  .lcb.lcb .lcb__h2::before { content: none; }
+  .lcb.lcb .lcb__h2 :global(i) { font-family: var(--font-display); font-weight: var(--fw-regular); color: var(--accent-text); }
+  .lcb.lcb .lcb__body { font-size: var(--text-body); line-height: var(--leading-body); color: var(--muted); max-width: 56ch; text-wrap: pretty; }
+
+  .lcb.lcb .lcb__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); border-top: 1px solid var(--hairline-strong); padding-top: var(--space-4); }
+  .lcb.lcb .lcb__list li {
+    position: relative;
+    margin: 0;
+    padding-left: var(--space-6);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: inherit;
+  }
+  .lcb.lcb .lcb__list li::marker { content: none; }
+  .lcb.lcb .lcb__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 12px;
+    height: 7px;
+    border-left: 2px solid var(--accent-text);
+    border-bottom: 2px solid var(--accent-text);
+    transform: rotate(-45deg);
+  }
+
+  /* Formulaire (organism LeadCapture `bare`) : neutralise la lettrine et les marges de prose. */
+  .lcb.lcb :global(p) { margin: 0; }
+  .lcb.lcb :global(p:first-of-type::first-letter) { float: none; font: inherit; margin: 0; color: inherit; font-style: inherit; }
+  .lcb.lcb :global(.cv-btn) { justify-content: center; }
+
+  /* Aperçu : couverture dessinée (pile de pages) ou illustration. */
+  .lcb.lcb .lcb__img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); }
+  .lcb.lcb .lcb__cover {
+    position: relative;
+    aspect-ratio: 210 / 297;
+    max-width: 270px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--hairline-strong);
+    box-shadow:
+      8px 8px 0 -1px var(--paper-2),
+      8px 8px 0 0 var(--hairline-strong),
+      16px 16px 0 -1px var(--paper-3),
+      16px 16px 0 0 var(--hairline-strong);
+  }
+  .lcb.lcb .lcb__cover::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--accent); }
+  .lcb.lcb .lcb__cover-k { font-family: var(--font-mono); font-size: var(--text-kicker); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--accent-sur-clair); }
+  .lcb.lcb .lcb__cover-t { font-family: var(--font-display); font-size: calc(var(--text-h3) * 1.15); line-height: var(--leading-h3); letter-spacing: -0.01em; }
+  .lcb.lcb .lcb__cover-rule { width: 48px; height: 1px; background: var(--ink); }
+  .lcb.lcb .lcb__cover-m { font-size: var(--text-small); line-height: var(--leading-body); color: var(--muted); }
+  .lcb.lcb .lcb__cover-lines { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
+  .lcb.lcb .lcb__cover-lines span { display: block; height: 6px; border-radius: var(--radius-xs); background: var(--paper-3); }
+  .lcb.lcb .lcb__cover-lines span:nth-child(2n) { width: 82%; }
+  .lcb.lcb .lcb__cover-lines span:last-child { width: 56%; }
+  .lcb.lcb .lcb__cover-f { margin-top: auto; font-family: var(--font-mono); font-size: var(--text-kicker); letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--muted); }
+  .lcb[data-bg='ink'] .lcb__cover { --muted: var(--muted-2); border-color: transparent; box-shadow: 8px 8px 0 0 rgba(var(--paper-rgb), 0.28), 16px 16px 0 0 rgba(var(--paper-rgb), 0.14); }
+
+  /* Fond ink : textes du formulaire en clair, champ et succès restent sur papier. */
+  .lcb[data-bg='ink'] :global(.cv-label),
+  .lcb[data-bg='ink'] :global(.lc-optin) { color: var(--paper); }
+  .lcb[data-bg='ink'] :global(.lc-optin input) { accent-color: var(--paper); }
+  .lcb[data-bg='ink'] :global(.cv-note a) { color: var(--paper); }
+
+  /* Carte (corps d'article) : bloc encadré, sans aperçu ni pleine largeur. */
+  .lcb.lcb[data-variant='card'] {
+    margin: var(--space-7) 0;
+    padding: var(--space-6);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+  }
+  .lcb.lcb[data-variant='card'][data-bg='ink'] { border-color: var(--ink); }
+  .lcb.lcb[data-variant='card'] .lcb__preview { display: none; }
+  .lcb.lcb[data-variant='card'] .lcb__h2 { font-size: var(--text-h3); }
+
+  @media (max-width: 900px) {
+    .lcb.lcb[data-variant='band'] .lcb__in {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: 'head' 'preview' 'list' 'form';
+    }
+    .lcb.lcb .lcb__cover { max-width: 200px; padding: var(--space-4); }
+    .lcb.lcb .lcb__cover-t { font-size: var(--text-h3); }
+    .lcb.lcb .lcb__cover-lines { display: none; }
+    .lcb.lcb .lcb__img { max-width: 420px; }
+  }
+  @media (max-width: 600px) {
+    .lcb.lcb[data-variant='card'] { padding: var(--space-5); }
+    .lcb.lcb .lcb__cover { max-width: 150px; aspect-ratio: auto; min-height: 190px; gap: var(--space-2); }
+    .lcb.lcb .lcb__cover-t { font-size: var(--text-body); }
+  }
+</style>

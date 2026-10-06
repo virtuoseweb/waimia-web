@@ -1135,6 +1135,17 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/components/templates/AuthorPageTemplate.astro"
     ]
   },
+  "lead-capture-band": {
+    "count": 6,
+    "pages": [
+      "src/components/templates/LeadMagnetLanding.astro",
+      "src/components/ui/organisms/conversion/MaturityDiagnostic.astro",
+      "src/pages/ressources/outils/[...slug].astro",
+      "src/pages/ressources/outils/charte-ia-entreprise.astro",
+      "src/pages/ressources/outils/checklist-90-jours-claude.astro",
+      "src/pages/ressources/outils/grille-taches-a-automatiser.astro"
+    ]
+  },
   "market-cases": {
     "count": 4,
     "pages": [

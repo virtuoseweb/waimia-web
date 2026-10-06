@@ -60,6 +60,7 @@ test("diagnostic maturité IA : questions → score → restitution → CTA audi
   await page.goto("/ressources/diagnostics/maturite-ia");
   const result = page.locator("[data-md-result]");
   await expect(result).toBeHidden();
+  await expect(page.locator('[data-lcb][data-slug="diagnostic-maturite-ia"]')).toBeHidden();
   // Soumission incomplète : pas de résultat.
   await page.locator("[data-md-form] button[type=submit]").click();
   await expect(page.locator("[data-md-missing]")).toBeVisible();
@@ -75,8 +76,11 @@ test("diagnostic maturité IA : questions → score → restitution → CTA audi
   await expect(page.locator("[data-md-score]")).toHaveText("7");
   await expect(page.locator("[data-md-weak-name]")).toHaveText("Gouvernance");
   await expect(result.locator(`a[href="${AUDIT_BOOKING}"]`)).toBeVisible();
-  // L'e-mail est facultatif : le résultat est affiché sans l'avoir saisi.
-  await expect(result.locator('input[name="email"]')).toHaveValue("");
+  // Le résultat s'affiche sans e-mail ; la bande de capture (lead-capture-band) n'apparaît
+  // qu'une fois le résultat calculé, champ vide.
+  const band = page.locator('[data-lcb][data-slug="diagnostic-maturite-ia"]');
+  await expect(band).toBeVisible();
+  await expect(band.locator('input[name="email"]')).toHaveValue("");
 });
 
 test("grille des tâches : calcul et classement", async ({ page }) => {

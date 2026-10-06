@@ -2,8 +2,8 @@
 // Template · LeadMagnetLanding · page d'une ressource VERROUILLÉE (hors catalogue).
 //
 // Montre la promesse, le sommaire, un extrait court et une FAQ ; UN seul formulaire d'obtention
-// (e-mail obligatoire, case lettre facultative, mention RGPD) via l'organism LeadCapture en mode
-// `required` → POST /api/lead-magnet. Le fichier part en pièce jointe, uniquement par e-mail :
+// (e-mail obligatoire, case lettre facultative, mention RGPD) : section catalogue lead-capture-band
+// (couverture, ce que contient l'envoi ; texte dans LEAD_CAPTURE_COPY) → POST /api/lead-magnet. Le fichier part en pièce jointe, uniquement par e-mail :
 // aucune URL de fichier dans le HTML, aucun `DownloadAction` dans le JSON-LD.
 // Données : src/data/lead-magnets/<slug>.ts (type LeadMagnetPage). Page : trois lignes.
 //   ---
@@ -17,7 +17,7 @@ import Base from '../../layouts/Base.astro';
 import MastheadBar from '../sections/MastheadBar.astro';
 import CtaFinal from '../sections/CtaFinal.astro';
 import ToolIntro from '../ui/organisms/conversion/ToolIntro.astro';
-import LeadCapture from '../ui/organisms/conversion/LeadCapture.astro';
+import LeadCaptureBand from '../../sections/lead-capture-band/Component.astro';
 import { buildArticle } from '../../lib/seo/schema-builder';
 import { SITE } from '../../site.config';
 import { LEAD_MAGNETS, auditCtaFinal, type LeadMagnetSlug } from '../../data/conversion';
@@ -98,14 +98,9 @@ const cta = auditCtaFinal(
     <a slot="actions" class="btn btn-primary" href="#recevoir-le-fichier">{pick('Recevoir par e-mail', 'Get it by email')}</a>
   </ToolIntro>
 
-  <LeadCapture
-    band
-    required
-    anchorId="recevoir-le-fichier"
-    slug={data.slug as LeadMagnetSlug}
-    title={`Recevoir « ${title} » par e-mail`}
-    description={`${pick(data.format_fr, data.format_en)}, envoyé en pièce jointe. Il n'est pas disponible en téléchargement direct.`}
-    buttonLabel="Recevoir le fichier"
+  <LeadCaptureBand
+    lang={lang}
+    data={{ type: 'lead-capture-band', lead_magnet: data.slug, mode: 'required', background: 'ink', anchor_id: 'recevoir-le-fichier' }}
   />
 
   <section class="lml" aria-labelledby="lml-inside-h">

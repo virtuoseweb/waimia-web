@@ -6,7 +6,7 @@ export const prerender = true;
 //
 // Refonte 4 octobre 2026 : la page était un contenu de lecture sans questionnaire. Elle
 // porte désormais le diagnostic interactif de bout en bout (organism MaturityDiagnostic :
-// questions, score, restitution à l'écran, e-mail facultatif, CTA audit), suivi du contenu
+// questions, score, restitution à l'écran, CTA audit, puis capture e-mail lead-capture-band), suivi du contenu
 // d'explication (niveaux, dimensions, FAQ) rendu depuis l'entrée `diagnostics/maturite-ia`.
 
 import { getEntry } from 'astro:content';
@@ -58,7 +58,7 @@ const [first, ...rest] = data.sections!;
     facts={[
       { label: 'Durée', value: '4 minutes' },
       { label: 'Résultat', value: "Affiché sur la page" },
-      { label: 'E-mail', value: 'Facultatif, pour garder le détail' },
+      { label: 'E-mail', value: 'Non requis pour voir le résultat' },
       { label: 'Vos réponses', value: 'Restent dans votre navigateur' },
     ]}
   />

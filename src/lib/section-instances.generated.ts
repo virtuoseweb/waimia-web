@@ -10635,6 +10635,14 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   "keyword-strip": [
     "src/components/templates/AuthorPageTemplate.astro"
   ],
+  "lead-capture-band": [
+    "src/components/templates/LeadMagnetLanding.astro",
+    "src/components/ui/organisms/conversion/MaturityDiagnostic.astro",
+    "src/pages/ressources/outils/[...slug].astro",
+    "src/pages/ressources/outils/charte-ia-entreprise.astro",
+    "src/pages/ressources/outils/checklist-90-jours-claude.astro",
+    "src/pages/ressources/outils/grille-taches-a-automatiser.astro"
+  ],
   "market-cases": [
     "src/pages/cas-usages/index.astro"
   ],

@@ -4,7 +4,7 @@ export const prerender = true;
 import { getCollection, type CollectionEntry } from 'astro:content';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
 import ToolWidget from '../../../components/ui/organisms/ToolWidget.astro';
-import LeadCapture from '../../../components/ui/organisms/conversion/LeadCapture.astro';
+import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
 import { LEAD_MAGNETS, type LeadMagnetSlug } from '../../../data/conversion';
 import { outilHeroIllustration } from '../../../lib/hero-illustrations';
 import { SITE } from '../../../site.config';
@@ -35,7 +35,8 @@ const bodyHtml = d.body_sections?.[0]?.html_fr ?? '';
 const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const categoryKicker = d.category_fr ? ` · ${d.category_fr}` : '';
 const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
-// Capture d'e-mail facultative : seulement si l'outil la demande ET que son slug est servi par /api/lead-magnet.
+// Capture d'e-mail (section lead-capture-band, mode open : le résultat reste affiché sans e-mail) :
+// seulement si l'outil la demande ET que son slug est servi par /api/lead-magnet.
 const captureSlug = d.captureEmail && entry.id in LEAD_MAGNETS ? (entry.id as LeadMagnetSlug) : null;
 
 // JSON-LD WebApplication · décrit l'outil interactif (calculateur/score) comme une vraie
@@ -70,12 +71,7 @@ const webAppLd = buildWebApplication({ name: d.title_fr, description: d.descript
       <ToolWidget inputs={d.inputs} outputs={d.outputs} lang="fr" />
     )}
     {captureSlug && (
-      <LeadCapture
-        slug={captureSlug}
-        title="Recevoir ce calcul par e-mail"
-        description="Vos hypothèses et les résultats affichés, dans un e-mail à garder ou à transférer."
-        buttonLabel="Recevoir le calcul"
-      />
+      <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: captureSlug, mode: 'open', variant: 'card', background: 'ink', anchor_id: 'recevoir-par-email' }} />
     )}
     <Fragment set:html={bodyHtml} />
   </Fragment>
@@ -172,7 +168,7 @@ const webAppLd = buildWebApplication({ name: d.title_fr, description: d.descript
     });
   }
 
-  // Copie par e-mail (organism LeadCapture) : on fournit hypothèses + résultats affichés.
+  // Copie par e-mail (section lead-capture-band → organism LeadCapture) : hypothèses + résultats affichés.
   document.addEventListener('cv:collect', (ev) => {
     const detail = (ev as CustomEvent).detail as { summary: { label: string; value: string }[]; headline: string };
     const widget = document.querySelector<HTMLElement>('[data-tool-widget]');
