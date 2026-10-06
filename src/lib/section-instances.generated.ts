@@ -4115,7 +4115,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
       "index": 7,
-      "label": "Prix de Claude Cowork : inclus dans les offres payantes",
+      "label": "Claude Cowork prix : inclus dans les offres payantes",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -7358,7 +7358,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "conformite-ia",
       "route": "/conformite-ia",
       "index": 0,
-      "label": "Déployer l'IA en conformité : AI Act et RGPD pour les PME",
+      "label": "Conformité IA : AI Act et RGPD pour les PME",
       "background": "paper"
     },
     {
@@ -7817,7 +7817,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "formations",
       "route": "src/content/formations/index.json",
       "index": 0,
-      "label": "Formations IA et automatisation pour vos équipes",
+      "label": "Formation IA et automatisation pour vos équipes",
       "background": "paper"
     },
     {

@@ -58,7 +58,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/agents-ia",
-    "title": "Agents IA pour entreprise : conception et mise en production",
+    "title": "Agence agents IA pour entreprise : conception et production",
     "group": "offres",
     "collection": "services",
     "file": "services/agents-ia.json",
@@ -263,7 +263,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisation-make",
-    "title": "Agence Make : automatisation de vos processus · Waimia",
+    "title": "Agence Make : automatisation Make pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisation-make.json",
@@ -398,7 +398,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisations/automatisation-n8n",
-    "title": "Agence n8n : automatisation de vos processus · Waimia",
+    "title": "Agence n8n : expert en automatisation n8n pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisations/automatisation-n8n.json",
@@ -1330,7 +1330,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/systemes-operationnels-ia",
-    "title": "Agence d'automatisation IA pour PME · Waimia",
+    "title": "Agence automatisation IA pour PME : workflows et agents · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/systemes-operationnels-ia.json",
@@ -1982,7 +1982,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/finance-comptabilite",
-    "title": "IA en comptabilité : automatiser sans perdre le contrôle",
+    "title": "IA expert-comptable et automatisation de la comptabilité",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/finance-comptabilite.json",
@@ -2209,7 +2209,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/rh",
-    "title": "IA en ressources humaines : ce qu’on automatise · Waimia",
+    "title": "Automatisation RH par l'IA : ce qu’on automatise · Waimia",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/rh.json",
@@ -3529,7 +3529,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/claude-code-entreprise",
-    "title": "Claude Code en entreprise : fonctions, prix et déploiement",
+    "title": "Claude Code entreprise : fonctions, prix et déploiement",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/claude-code-entreprise.json",
@@ -3633,7 +3633,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/claude-cowork",
-    "title": "Claude Cowork est désormais Claude : ce qui change",
+    "title": "Claude Cowork : fusion dans Claude, prix et Windows (2026)",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/claude-cowork.json",
@@ -3678,7 +3678,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Prix de Claude Cowork : inclus dans les offres payantes",
+        "label": "Claude Cowork prix : inclus dans les offres payantes",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -5386,7 +5386,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/claude-microsoft-copilot-pme",
-    "title": "Claude dans Microsoft Copilot : ce que ça change en PME",
+    "title": "Claude Copilot : ce que ça change en PME",
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-microsoft-copilot-pme.json",
@@ -5413,7 +5413,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/formation-ia-cpf-qualiopi",
-    "title": "Formation IA éligible au CPF : ce qu'il faut vérifier",
+    "title": "Formation IA CPF : ce qu'il faut vérifier",
     "group": "blog",
     "collection": "blog",
     "file": "blog/formation-ia-cpf-qualiopi.json",
@@ -5422,7 +5422,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/formation-ia-finance-pme",
-    "title": "Formation IA pour la finance : quel programme exiger",
+    "title": "Formation IA finance : quel programme exiger",
     "group": "blog",
     "collection": "blog",
     "file": "blog/formation-ia-finance-pme.json",
@@ -5643,7 +5643,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/conformite-ia",
-    "title": "IA conforme en PME : AI Act et RGPD · Waimia",
+    "title": "Conformité IA en PME : AI Act et RGPD · Waimia",
     "group": "conversion",
     "collection": "audits",
     "file": "audits/conformite-ia.json",
@@ -5651,7 +5651,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Déployer l'IA en conformité : AI Act et RGPD pour les PME",
+        "label": "Conformité IA : AI Act et RGPD pour les PME",
         "background": "paper"
       },
       {
