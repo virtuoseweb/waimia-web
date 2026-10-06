@@ -110,15 +110,15 @@
       "requeteCible": "guide claude pme",
       "intention": "Apprendre à déployer Claude dans une PME.",
       "urlCible": "/ressources/guides/claude-pme",
-      "angle": "Hypothèse à vérifier en ligne : « guide claude pme » et « claude pme » sont classées sur /services/consultant-ia-claude et non sur le guide ; clarifier title, H1 et lien interne de la page service vers le guide ; réponse directe en tête.",
+      "angle": "Fait le 5 octobre 2026 : le guide devient le hub du cluster Claude (plan des 6 pages enfants avec la question d'acheteur, par où commencer selon le profil, coût réel, faire seul ou faire faire, 14 questions, 4 ressources verrouillées par e-mail). Remplace l'angle initial.",
       "sourcesALire": [
         "Premiers résultats de « guide claude pme », « claude pme », « cours claude pme »",
         "https://www.anthropic.com/news et les pages listées dans feeds.json > noFeed (faits sur Claude)",
         "Contenus de claudin.tech sur Claude en entreprise (competitors.json)",
         "docs/seo/data/<semaine>/gsc-performance.json, byPageQuery"
       ],
-      "semainePrevue": "2026-W43",
-      "statut": "planifié",
+      "semainePrevue": "2026-W41",
+      "statut": "en cours",
       "pr": null,
       "mesureAttendue": "Page : 10 impressions et position 25,3 sur 28 jours ; « guide claude pme » classée sur /services/consultant-ia-claude (3 impressions, position 8,3) à la collecte du 4 octobre 2026. Attendu : le guide devient la page classée sur la requête. À juger deux collectes après la mise en production.",
       "resultat": null,
@@ -623,6 +623,126 @@
       "mesureAttendue": "Requête : 18 impressions, position 39,1, classée sur /ressources, à la collecte du 4 octobre 2026. À définir si l'idée est retenue.",
       "resultat": null,
       "origine": "docs/seo/data/latest.json (collecte du 4 octobre 2026), performance.topQueries : requête réelle la plus vue, sans page dédiée."
+    },
+    {
+      "id": "w41-guide-claude-fonctionnalites-pme",
+      "type": "guide",
+      "titreProvisoire": "Claude : fonctionnalités, offres et prix pour une PME",
+      "requeteCible": "claude prix",
+      "intention": "Choisir et chiffrer un abonnement Claude pour une équipe (transactionnelle).",
+      "urlCible": "/ressources/guides/claude-fonctionnalites-pme",
+      "angle": "Team dès 2 sièges, Enterprise 20 $ le siège plus usage, quota partagé entre chat, Cowork et Code : les chiffres que les pages françaises ratent ; ressource verrouillée : guide d'achat PDF.",
+      "sourcesALire": [
+        "Faits Anthropic relevés le 5 octobre 2026 (claude.com, support.claude.com, code.claude.com, platform.claude.com).",
+        "https://claude.com/pricing"
+      ],
+      "semainePrevue": "2026-W41",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée puis impressions sur « claude prix » et « claude pro vs team ».",
+      "resultat": null,
+      "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
+    },
+    {
+      "id": "w41-guide-claude-skills",
+      "type": "guide",
+      "titreProvisoire": "Skills Claude : créer, partager et déployer en entreprise",
+      "requeteCible": "skills claude",
+      "intention": "commerciale (se faire accompagner, déployer à une équipe)",
+      "urlCible": "/ressources/guides/claude-skills",
+      "angle": "Limites officielles que les pages FR ignorent (pas de synchro entre surfaces, partage claude.ai contradictoire entre doc dev et centre d'aide, plugins pour une équipe), sécurité, coût réel, 6 exemples PME + pack de 8 skills verrouillé",
+      "sourcesALire": [
+        "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+        "https://support.claude.com/en/articles/12512180-using-skills-in-claude",
+        "https://support.claude.com/en/articles/12512198-creating-custom-skills",
+        "https://code.claude.com/docs/en/skills"
+      ],
+      "semainePrevue": "2026-W41",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "impressions GSC sur « skills claude » et téléchargements du pack",
+      "resultat": null,
+      "origine": "brief cluster Claude 2026-10-05"
+    },
+    {
+      "id": "w41-guide-claude-code-entreprise",
+      "type": "guide",
+      "titreProvisoire": "Claude Code en entreprise : fonctions, prix et déploiement",
+      "requeteCible": "claude code entreprise",
+      "intention": "Comparer, chiffrer et décider qui déploie Claude Code (faire, former, faire faire).",
+      "urlCible": "/ressources/guides/claude-code-entreprise",
+      "angle": "Coût réel d'un poste (13 $ par jour actif selon Anthropic, quota partagé chat/Cowork/Code) contre les grilles recopiées des concurrents ; format court dirigeant/équipe non tech ; cas où Waimia n'est pas nécessaire.",
+      "sourcesALire": [
+        "https://code.claude.com/docs/en/overview",
+        "https://code.claude.com/docs/en/costs",
+        "https://code.claude.com/docs/en/security",
+        "https://claude.com/pricing",
+        "scratchpad faits-claude-2026-10-05.md §3 et §8"
+      ],
+      "semainePrevue": "2026-W41",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Impressions et position sur claude code entreprise / claude code prix à 4 et 8 semaines (GSC).",
+      "resultat": null,
+      "origine": "Cluster Claude décidé par Simon le 5 octobre 2026 (lot D)."
+    },
+    {
+      "id": "w41-guide-claude-plugins-entreprise",
+      "type": "guide",
+      "titreProvisoire": "Plugins et connecteurs Claude pour l'entreprise",
+      "requeteCible": "claude plugins",
+      "intention": "Choisir, administrer et faire construire des plugins Claude pour une équipe.",
+      "urlCible": "/ressources/guides/claude-plugins-entreprise",
+      "angle": "Marketplaces Financial Services, Legal et Life Sciences, administration Team et Enterprise, plugin privé sur mesure ; ressource verrouillée : kit conformité PDF.",
+      "sourcesALire": [
+        "Faits Anthropic relevés le 5 octobre 2026 (claude.com, support.claude.com, code.claude.com, platform.claude.com).",
+        "https://support.claude.com/en/articles/13837440"
+      ],
+      "semainePrevue": "2026-W41",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée puis impressions sur « claude plugins ».",
+      "resultat": null,
+      "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
+    },
+    {
+      "id": "w41-guide-claude-design",
+      "type": "guide",
+      "titreProvisoire": "Claude Design : usages en PME, limites et alternatives",
+      "requeteCible": "claude design",
+      "intention": "Évaluer Claude Design, son prix réel et ce qui reste à confier à un designer ou une agence.",
+      "urlCible": "/ressources/guides/claude-design",
+      "angle": "Corrige « research preview » et « quota séparé » (faux au 5 octobre 2026) ; usages PME ; limites ; sous-traitance honnête.",
+      "sourcesALire": [
+        "Faits Anthropic relevés le 5 octobre 2026 (claude.com, support.claude.com, code.claude.com, platform.claude.com).",
+        "https://support.claude.com/en/articles/14604416"
+      ],
+      "semainePrevue": "2026-W41",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée puis impressions sur « claude design » et « claude design avis ».",
+      "resultat": null,
+      "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
+    },
+    {
+      "id": "w41-requalification-guide-claude-cowork",
+      "type": "révision",
+      "titreProvisoire": "Claude Cowork est désormais Claude : ce qui change",
+      "requeteCible": "claude cowork",
+      "intention": "Comprendre la fusion de Cowork dans Claude, où retrouver les fonctions, ce qui change pour l'administration.",
+      "urlCible": "/ressources/guides/claude-cowork",
+      "angle": "Fusion annoncée le 16 septembre 2026, déploiement en cours (Pro et Max d'abord ; Team et Enterprise gardent Cowork séparé) : aucun résultat français vu ne la traite ; garde la requête 14 800 par mois sans parier sur le nom.",
+      "sourcesALire": [
+        "Faits Anthropic relevés le 5 octobre 2026 (claude.com, support.claude.com, code.claude.com, platform.claude.com).",
+        "https://claude.com/blog/cowork-is-now-claude",
+        "https://support.claude.com/en/articles/16761823"
+      ],
+      "semainePrevue": "2026-W41",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Maintenir ou gagner des positions sur « claude cowork » ; départ : page inconnue de Google à la dernière collecte.",
+      "resultat": null,
+      "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
     }
   ]
 }

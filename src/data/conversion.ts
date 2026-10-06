@@ -16,6 +16,9 @@ export const ROI_HREF = '/ressources/outils/calculateur-roi-ia';
 export const CHARTE_HREF = '/ressources/outils/charte-ia-entreprise';
 export const GRILLE_HREF = '/ressources/outils/grille-taches-a-automatiser';
 export const CHECKLIST_HREF = '/ressources/outils/checklist-90-jours-claude';
+export const GUIDE_ACHAT_CLAUDE_HREF = '/ressources/outils/guide-achat-claude-pme';
+export const PACK_SKILLS_CLAUDE_HREF = '/ressources/outils/pack-skills-claude-pme';
+export const KIT_CONFORMITE_CLAUDE_HREF = '/ressources/outils/kit-conformite-claude-entreprise';
 
 /** Objets de demande proposés dans le formulaire de contact (`subject`). */
 export const CONTACT_SUBJECTS = [
@@ -26,6 +29,22 @@ export const CONTACT_SUBJECTS = [
 ] as const;
 
 export type ContactSubject = (typeof CONTACT_SUBJECTS)[number]['value'];
+
+/**
+ * Pièce jointe d'une ressource VERROUILLÉE : fichier PRIVÉ (hors `public/`, jamais servi par
+ * le site), lu par POST /api/lead-magnet et envoyé en pièce jointe Resend.
+ * `file` : chemin relatif à la racine du projet, sous `private/telechargements/`.
+ */
+export interface LeadMagnetAttachment {
+  file: string;
+  filename: string;
+}
+
+export interface LeadMagnetEntry {
+  title: string;
+  path: string;
+  attachments?: readonly LeadMagnetAttachment[];
+}
 
 /** Lead magnets servis par POST /api/lead-magnet (clé = `slug` du payload). */
 export const LEAD_MAGNETS = {
@@ -40,7 +59,9 @@ export const LEAD_MAGNETS = {
   'charte-ia-entreprise': {
     title: 'Modèle de charte IA pour PME',
     path: CHARTE_HREF,
-    file: '/telechargements/charte-ia-pme-modele-waimia.pdf',
+    attachments: [
+      { file: 'private/telechargements/charte-ia-pme-modele-waimia.pdf', filename: 'charte-ia-pme-modele-waimia.pdf' },
+    ],
   },
   'grille-taches-a-automatiser': {
     title: 'Votre grille des tâches à automatiser',
@@ -49,9 +70,33 @@ export const LEAD_MAGNETS = {
   'checklist-90-jours-claude': {
     title: 'Checklist 90 jours pour déployer Claude en PME',
     path: CHECKLIST_HREF,
-    file: '/telechargements/checklist-90-jours-claude-pme-waimia.pdf',
+    attachments: [
+      { file: 'private/telechargements/checklist-90-jours-claude-pme-waimia.pdf', filename: 'checklist-90-jours-claude-pme-waimia.pdf' },
+    ],
   },
-} as const satisfies Record<string, { title: string; path: string; file?: string }>;
+  'guide-achat-claude-pme': {
+    title: "Guide d'achat Claude pour PME : plan, coût, configuration",
+    path: GUIDE_ACHAT_CLAUDE_HREF,
+    attachments: [
+      { file: 'private/telechargements/guide-achat-claude-pme.pdf', filename: 'guide-achat-claude-pme.pdf' },
+    ],
+  },
+  'pack-skills-claude-pme': {
+    title: 'Pack de 8 skills Claude pour PME',
+    path: PACK_SKILLS_CLAUDE_HREF,
+    attachments: [
+      { file: 'private/telechargements/pack-skills-claude-pme.pdf', filename: 'pack-skills-claude-pme.pdf' },
+      { file: 'private/telechargements/pack-skills-claude-pme.zip', filename: 'pack-skills-claude-pme.zip' },
+    ],
+  },
+  'kit-conformite-claude-entreprise': {
+    title: 'Kit conformité et administration de Claude en entreprise',
+    path: KIT_CONFORMITE_CLAUDE_HREF,
+    attachments: [
+      { file: 'private/telechargements/kit-conformite-claude-entreprise.pdf', filename: 'kit-conformite-claude-entreprise.pdf' },
+    ],
+  },
+} as const satisfies Record<string, LeadMagnetEntry>;
 
 export type LeadMagnetSlug = keyof typeof LEAD_MAGNETS;
 

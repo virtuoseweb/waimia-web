@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · claude-skills · le faire soi-même ou le faire faire : un homme à une bifurcation à l’aube, un établi à gauche, un atelier sur la colline à droite -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="seated">
+      <circle cx="0" cy="-62" r="7" fill="{{subject}}"/>
+      <path d="M-10 -53 Q0 -57 10 -53 L11 -20 L-11 -20 Z" fill="{{subject}}"/>
+      <rect x="-11" y="-22" width="26" height="8" fill="{{subject}}"/>
+      <rect x="9" y="-22" width="7" height="22" fill="{{subject}}"/>
+      <rect x="-14" y="-16" width="4" height="16" fill="{{deep}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <clipPath id="sky"><rect width="1456" height="410"/></clipPath>
+  <circle cx="728" cy="410" r="120" fill="{{shape}}" clip-path="url(#sky)"/>
+  <path d="M960 410 Q1080 250 1240 240 Q1360 250 1456 300 L1456 410 Z" fill="{{mid}}"/>
+  <rect y="410" width="1456" height="214" fill="{{ground}}"/>
+  <path d="M640 624 L816 624 L740 480 L716 480 Z" fill="{{pale}}"/>
+  <path d="M716 482 L740 482 L420 414 L396 414 Z" fill="{{pale}}"/>
+  <path d="M716 482 L740 482 L1080 414 L1056 414 Z" fill="{{pale}}"/>
+  <rect x="300" y="378" width="120" height="12" fill="{{subject}}"/><rect x="306" y="390" width="8" height="24" fill="{{subject}}"/><rect x="406" y="390" width="8" height="24" fill="{{subject}}"/>
+  <rect x="320" y="362" width="30" height="16" fill="{{detail}}"/><rect x="360" y="352" width="8" height="26" fill="{{detail}}"/>
+  <rect x="1150" y="166" width="120" height="78" fill="{{subject}}"/>
+  <path d="M1136 170 L1210 120 L1284 170 Z" fill="{{subject}}"/>
+  <rect x="1196" y="200" width="28" height="44" fill="{{detail}}"/>
+  <use href="#man" transform="translate(728 560) scale(1.5)"/>
+
+</svg>

@@ -1,6 +1,6 @@
 // Checklist « 90 jours pour déployer Claude en PME » · texte source (unique) de la page
 // /ressources/outils/checklist-90-jours-claude et du PDF
-// public/telechargements/checklist-90-jours-claude-pme-waimia.pdf (scripts/gen-checklist-pdf.mjs).
+// private/telechargements/checklist-90-jours-claude-pme-waimia.pdf (scripts/gen-checklist-pdf.mjs).
 //
 // Reprend la trame du guide /ressources/guides/claude-pme (6 prérequis, 3 phases de 30 jours)
 // et la rend actionnable : une case par action, un livrable par semaine, des indicateurs à

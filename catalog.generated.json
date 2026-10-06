@@ -89,7 +89,6 @@
     "description_en": "Signature architecture diagram: N input channels flowing into a central system with M outputs, plus a continuous improvement loop.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
     "hasDemo": {
@@ -210,6 +209,32 @@
     "description_en": "Booking section embedding the Cal.com widget (CalEmbed) with reassurance copy, to book an audit or a call.",
     "rendering": "catalogue-only",
     "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "bordered-pullquote",
+    "category": "marketing",
+    "categorySlug": "manifesto-sections",
+    "subcategory": "Editorial Sections",
+    "component": "borderedPullquoteComponent",
+    "status": "stable",
+    "tags": [
+      "pullquote",
+      "quote",
+      "manifesto",
+      "editorial",
+      "bordered",
+      "author"
+    ],
+    "description_fr": "Citation manifeste a filet gauche : corps large avec accent italique + signature mono. Rendu du corps en HTML (accent <i>).",
+    "description_en": "Bordered manifesto pull-quote: large body with italic accent + mono signature. Body rendered as HTML (<i> accent).",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -383,6 +408,32 @@
     }
   },
   {
+    "id": "closing-cta-band",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "component": "closingCtaBandComponent",
+    "status": "stable",
+    "tags": [
+      "cta",
+      "closing",
+      "ink",
+      "band",
+      "author",
+      "conversion"
+    ],
+    "description_fr": "Bande CTA de cloture sur fond ink : kicker + titre display-lg (accent italique) + bouton primaire. Titre rendu en HTML (accent <em>).",
+    "description_en": "Closing CTA band on ink: kicker + display-lg title (italic accent) + primary button. Title rendered as HTML (<em> accent).",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "code-showcase",
     "category": "marketing",
     "categorySlug": "terminal-sections",
@@ -423,7 +474,7 @@
     "description_en": "Paper-2 teaser band with kicker, headline, and pill list for upcoming items.",
     "rendering": "live",
     "consumers": [
-      "src/pages/secteurs/index.astro"
+      "src/pages/secteurs/_index.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -605,7 +656,6 @@
     "rendering": "live",
     "consumers": [
       "src/components/templates/ConversionFunnelTemplate.astro",
-      "src/components/templates/CaseStudyTemplate.astro",
       "src/components/templates/UtilityTemplate.astro",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro"
@@ -629,10 +679,11 @@
       "email",
       "newsletter",
       "lead",
-      "capture"
+      "capture",
+      "lead-magnet"
     ],
-    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention.",
-    "description_en": "CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent.",
+    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention. Prop optionnelle `lead_magnet` (slug) : le fichier est livré par e-mail en pièce jointe.",
+    "description_en": "CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent. Optional `lead_magnet` prop (slug): the file is delivered by email as an attachment.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -700,6 +751,32 @@
     "description_en": "Asymmetric 2-column CTA banner: kicker/title/body/buttons on the left, decorative SVG visual on the right. Distinct from centered CTAs.",
     "rendering": "catalogue-only",
     "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "curriculum-timeline",
+    "category": "marketing",
+    "categorySlug": "timelines",
+    "subcategory": "Editorial Sections",
+    "component": "curriculumTimelineComponent",
+    "status": "stable",
+    "tags": [
+      "curriculum",
+      "timeline",
+      "experience",
+      "education",
+      "author",
+      "eeat"
+    ],
+    "description_fr": "Bloc curriculum : entete + frise verticale (experience / formation / distinctions) sur fond paper-2. Compose l’atome Timeline.",
+    "description_en": "Curriculum block: heading + vertical timeline (experience / education / awards) on paper-2. Composes the Timeline atom.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -855,12 +932,15 @@
       "maturity",
       "stages",
       "conversion",
-      "self-assessment"
+      "self-assessment",
+      "quiz-cta"
     ],
-    "description_fr": "Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales cliquables, le stade courant relevé en accent (« vous êtes ici »). Situe le visiteur et l’oriente vers l’étape suivante (conversion + qualification).",
-    "description_en": "A “Where do you stand?” self-assessment: 4 to 6 maturity stages as clickable horizontal cards, the current stage highlighted in accent (“you are here”). Places the visitor and points them to the next step (conversion + qualification).",
-    "rendering": "catalogue-only",
-    "consumers": [],
+    "description_fr": "Auto-diagnostic « Où en êtes-vous ? » : 4 à 6 stades de maturité en cards horizontales cliquables, le stade courant relevé en accent (« vous êtes ici »). Situe le visiteur et l’oriente vers l’étape suivante (conversion + qualification). Déclinaison optionnelle `quizCta` : bande CTA (carte ink illustration + bouton) sous la piste, qui pousse au quiz d’auto-positionnement.",
+    "description_en": "A “Where do you stand?” self-assessment: 4 to 6 maturity stages as clickable horizontal cards, the current stage highlighted in accent (“you are here”). Places the visitor and points them to the next step (conversion + qualification). Optional `quizCta` variant: a CTA band (ink card, illustration + button) below the track that drives to the self-positioning quiz.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -937,6 +1017,32 @@
     }
   },
   {
+    "id": "editorial-case-grid",
+    "category": "marketing",
+    "categorySlug": "testimonial-sections",
+    "subcategory": "Testimonial Sections",
+    "component": "editorialCaseGridComponent",
+    "status": "stable",
+    "tags": [
+      "case-study",
+      "editorial",
+      "cards",
+      "stagger",
+      "proof",
+      "manifesto"
+    ],
+    "description_fr": "Grille editoriale de cas clients : en-tete numerote + titre + intro, puis cartes EditorialCaseCard en 2 colonnes avec decalage vertical alterne (signature /manifesto Acte IV).",
+    "description_en": "Editorial case-study grid: numbered header + title + intro, then EditorialCaseCard cards in 2 columns with alternating vertical offset (the /manifesto Act IV signature).",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/manifesto.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "editorial-dingbat-rule",
     "category": "marketing",
     "categorySlug": "content-sections",
@@ -1002,7 +1108,6 @@
     "description_en": "Editorial publication index as numbered rows (num · date · tag · italic title · arrow), sourced from FieldNotes.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
       "src/pages/en/index.astro",
       "src/pages/atlas.astro",
       "src/pages/en/atlas.astro"
@@ -1034,8 +1139,8 @@
       "secteurs/[...slug]"
     ],
     "hasDemo": {
-      "fr": false,
-      "en": false
+      "fr": true,
+      "en": true
     }
   },
   {
@@ -1151,11 +1256,38 @@
     ],
     "description_fr": "Panneau E-E-A-T auteur/autorité à 4 variantes (media, columns, light, hero) : dashboard bento ou colonnes accent qui rassemblent auteur, repères, secteurs, articles, services, outil et engagements. Contenu single-source (EEAT_PACK), avis honnête (engagements + note studio solo, 0 témoignage). Variantes ink/paper, reveal-stagger, responsive.",
     "description_en": "E-E-A-T author/authority panel with 4 variants (media, columns, light, hero): a bento dashboard or accent columns gathering author, milestones, sectors, articles, services, tool and commitments. Single-source content (EEAT_PACK), honest proof (commitments + solo-studio note, no testimonial). Ink/paper variants, reveal-stagger, responsive.",
-    "rendering": "catalogue-only",
-    "consumers": [],
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
     "hasDemo": {
       "fr": false,
       "en": false
+    }
+  },
+  {
+    "id": "engagement-ledger",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "component": "engagementLedgerComponent",
+    "status": "stable",
+    "tags": [
+      "pricing",
+      "ledger",
+      "engagement",
+      "steps",
+      "rate-card"
+    ],
+    "description_fr": "Registre tarifaire : un parcours d’engagement lu ligne à ligne (repère d’étape, prestation, contenu, durée, prix aligné à droite, action). Ni cartes ni onglets : tout le parcours visible d’un regard, avec un bloc de lignes secondaires en retrait.",
+    "description_en": "Pricing ledger: an engagement path read row by row (step marker, service, contents, duration, right-aligned price, action). No cards, no tabs: the whole path visible at a glance, with a block of secondary lines set back.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/tarifs.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
     }
   },
   {
@@ -1290,7 +1422,6 @@
     "description_en": "Feature grid for structuring the core benefits or capabilities of an offer.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
     "hasDemo": {
@@ -1634,7 +1765,7 @@
     "description_en": "Case study hero with geometric decoration, headline, and a specification bar (client, sector, duration).",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro"
+      "src/pages/cas-clients/[...slug].astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -1985,8 +2116,7 @@
     "description_en": "Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.",
     "rendering": "live",
     "consumers": [
-      "src/pages/agence-web-montpellier.astro",
-      "src/pages/expertise-claude.astro",
+      "src/pages/_expertise-claude.astro",
       "src/pages/agence/index.astro"
     ],
     "hasDemo": {
@@ -2082,6 +2212,33 @@
     "description_en": "Full-viewport \"magazine cover\" hero: 4-column mono masthead band at the top, dominant centered giant serif title, thin accent rule, italic display tagline, a single centered CTA. Paper and ink variants, responsive (2-column masthead on mobile).",
     "rendering": "catalogue-only",
     "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "hero-manifesto",
+    "category": "marketing",
+    "categorySlug": "hero-header-sections",
+    "subcategory": "Hero Header Sections",
+    "component": "heroManifestoComponent",
+    "status": "stable",
+    "tags": [
+      "hero",
+      "manifesto",
+      "editorial",
+      "canvas",
+      "react-island",
+      "dark",
+      "full-viewport"
+    ],
+    "description_fr": "Hero editorial de page de marque : fond canvas liquide + 3 zones (meta band, titre display italique + sous-titre, intro + CTA + rangee de pied), plein viewport sombre.",
+    "description_en": "Editorial brand hero: liquid-canvas background + 3 zones (meta band, italic display headline + subhead, intro + CTA + foot row), full-viewport dark.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/manifesto.astro"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -2770,6 +2927,34 @@
     }
   },
   {
+    "id": "keyword-strip",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "component": "keywordStripComponent",
+    "status": "stable",
+    "tags": [
+      "keyword",
+      "tags",
+      "inline",
+      "strip",
+      "social",
+      "contact",
+      "expertise",
+      "author"
+    ],
+    "description_fr": "Bande d’items inline mono-majuscule separes par « · » : mots-cles (sans lien) ou liens sociaux/contact. Generique, reutilisable pour tout profil.",
+    "description_en": "Inline mono-uppercase item strip separated by « · »: keywords (no link) or social/contact links. Generic, reusable for any profile.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "learning-path-list",
     "category": "marketing",
     "categorySlug": "index-sections",
@@ -2929,6 +3114,32 @@
     }
   },
   {
+    "id": "market-cases",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "component": "marketCasesComponent",
+    "status": "stable",
+    "tags": [
+      "market",
+      "third-party",
+      "sources",
+      "case-study",
+      "eeat",
+      "citation"
+    ],
+    "description_fr": "Rubrique « Études de cas du marché » : cas réels documentés et réalisés par des tiers. Chaque fiche porte le libellé « Cas documenté, non réalisé par Waimia », la citation exacte du résultat, ses limites, le lien vers la source et la date de lecture. Registre froid (filet complémentaire, pointillés) distinct des preuves Waimia. Contenu global lu dans src/data/market-cases.ts.",
+    "description_en": "Market case studies: real, documented cases delivered by third parties. Each entry carries the label \"Documented case, not delivered by Waimia\", the exact quoted result, its limits, the source link and the date it was read. Cold register (complementary rule, dashed lines) distinct from Waimia proof. Global content read from src/data/market-cases.ts.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/cas-usages/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "marquee-band",
     "category": "marketing",
     "categorySlug": "logo-sections",
@@ -2990,7 +3201,6 @@
     "description_en": "Four-tier maturity pyramid with a steps timeline, a progressive SVG, and an asymmetric card grid.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
     "hasDemo": {
@@ -3067,6 +3277,32 @@
     }
   },
   {
+    "id": "method-diagram-list",
+    "category": "marketing",
+    "categorySlug": "process-sections",
+    "subcategory": "Process Sections",
+    "component": "methodDiagramListComponent",
+    "status": "stable",
+    "tags": [
+      "method",
+      "process",
+      "diagram",
+      "steps",
+      "numbered",
+      "author"
+    ],
+    "description_fr": "Bloc methode : entete + diagramme de process (SVG de marque) + liste numerotee de phases (numero mono + titre + corps).",
+    "description_en": "Method block: heading + process diagram (brand SVG) + numbered phase list (mono number + title + body).",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "method-stepline",
     "category": "marketing",
     "categorySlug": "timelines",
@@ -3105,7 +3341,7 @@
     "description_en": "Method timeline for explaining the steps of a service process or engagement.",
     "rendering": "live",
     "consumers": [
-      "src/components/templates/CaseStudyTemplate.astro"
+      "src/pages/cas-clients/[...slug].astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -3205,6 +3441,33 @@
     }
   },
   {
+    "id": "numbered-layer-list",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "component": "numberedLayerListComponent",
+    "status": "stable",
+    "tags": [
+      "layers",
+      "numbered",
+      "stack",
+      "list",
+      "ranked",
+      "editorial",
+      "deliverables"
+    ],
+    "description_fr": "Liste de couches numerotees : rang serif accent + titre + intro + sous-puces « → ». Ideale pour presenter une stack, des livrables ou des rangs par couche.",
+    "description_en": "Numbered layer list: serif accent rank + title + intro + « → » sub-bullets. Ideal to present a stack, deliverables or ranked layers.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/technologies.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "objection-handler",
     "category": "marketing",
     "categorySlug": "faq-sections",
@@ -3249,6 +3512,32 @@
     }
   },
   {
+    "id": "offer-rail",
+    "category": "marketing",
+    "categorySlug": "feature-sections",
+    "subcategory": "Feature Sections",
+    "component": "offerRailComponent",
+    "status": "stable",
+    "tags": [
+      "offers",
+      "tabs",
+      "pricing-adjacent",
+      "rail",
+      "services",
+      "interactive"
+    ],
+    "description_fr": "Offres en onglets (familles) : diptyque ou trio de cartes relie a une rangee de services par une dorsale line-art dessinee au scroll. Une branche peut etre teintee (token --complementary). Vanilla JS aria, 0 dependance.",
+    "description_en": "Tabbed offers (families): a diptych or trio of cards linked to a services row by a scroll-drawn line-art spine. One branch can be tinted (--complementary token). Vanilla JS aria, zero dependencies.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "offer-tier-grid",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -3265,7 +3554,7 @@
     "description_en": "Offer-tier section with eyebrow, headline, lede, card grid, and optional dark featured hero variant.",
     "rendering": "live",
     "consumers": [
-      "src/content/services/systeme-complet.json",
+      "src/content/services/systeme-acquisition.json",
       "src/pages/services/index.astro"
     ],
     "hasDemo": {
@@ -3481,6 +3770,29 @@
     }
   },
   {
+    "id": "pricing-tabs-showcase",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "component": "pricingTabsShowcaseComponent",
+    "status": "stable",
+    "tags": [
+      "pricing",
+      "tabs",
+      "plans",
+      "offers",
+      "conversion"
+    ],
+    "description_fr": "Showcase de formules avec onglets, cartes illustrées, listes de livrables et bande sur mesure.",
+    "description_en": "Plan showcase with tabs, illustrated cards, deliverable lists and custom-plan callout.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "pricing-toggle",
     "category": "marketing",
     "categorySlug": "pricing-sections",
@@ -3614,8 +3926,84 @@
     "description_en": "Compact proof bar for displaying key metrics and reinforcing credibility.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
       "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "prose-aside",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Editorial Sections",
+    "component": "proseAsideComponent",
+    "status": "stable",
+    "tags": [
+      "prose",
+      "editorial",
+      "aside",
+      "kicker",
+      "mdx",
+      "author"
+    ],
+    "description_fr": "Colonne de prose editoriale (corps MDX) precedee d’un kicker en aside. Le corps vit dans le MDX, pas le frontmatter. Generique pour tout bloc prose + eyebrow lateral.",
+    "description_en": "Editorial prose column (MDX body) with a kicker in an aside. Body lives in MDX, not frontmatter. Generic for any prose + side-eyebrow block.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "provenance-chip",
+    "category": "marketing",
+    "categorySlug": "trust-sections",
+    "subcategory": "Trust Sections",
+    "component": "provenanceChipComponent",
+    "status": "stable",
+    "tags": [
+      "provenance",
+      "badge",
+      "chip",
+      "eeat",
+      "trust",
+      "case-study"
+    ],
+    "description_fr": "Chip de provenance E-E-A-T : badge plein (projet realise) ou outline (etude sources tierces), cliquable vers la page methodologie.",
+    "description_en": "E-E-A-T provenance chip: solid badge (completed project) or outline (third-party study), linking to the methodology page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "publications-panel",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Editorial Sections",
+    "component": "publicationsPanelComponent",
+    "status": "stable",
+    "tags": [
+      "publications",
+      "resources",
+      "index",
+      "manifesto",
+      "author",
+      "eeat",
+      "byline"
+    ],
+    "description_fr": "Panneau publications d’un profil : entete + callout manifeste + liste de publications + index de ressources recentes + lien « tout voir ».",
+    "description_en": "Profile publications panel: heading + manifesto callout + publications list + recent resources index + « see all » link.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -3681,6 +4069,30 @@
     ],
     "description_fr": "Bande de trois cards connexes pour relier cas, offres ou ressources en fin de page.",
     "description_en": "Three-card related band for linking cases, offers, or resources near the end of a page.",
+    "rendering": "catalogue-only",
+    "consumers": [],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "related-links",
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "component": "relatedLinksComponent",
+    "status": "stable",
+    "tags": [
+      "maillage",
+      "liens internes",
+      "navigation",
+      "seo",
+      "explorer",
+      "compact"
+    ],
+    "description_fr": "Bloc compact de maillage interne : groupes de liens internes contextuels en colonnes, avec petit label de groupe et description optionnelle. Renforce le SEO et oriente la navigation en fin de page.",
+    "description_en": "Compact internal-linking block: contextual internal links grouped in columns, with a small group label and an optional description. Strengthens SEO and guides navigation at the end of a page.",
     "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
@@ -3783,6 +4195,32 @@
     }
   },
   {
+    "id": "sector-card-grid",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Content Listing Sections",
+    "component": "sectorCardGridComponent",
+    "status": "stable",
+    "tags": [
+      "sectors",
+      "industries",
+      "hub",
+      "navigation",
+      "cards",
+      "grid"
+    ],
+    "description_fr": "Grille de hubs sectoriels en cartes cliquables : ICP en kicker, secteur, douleur en une phrase et CTA, en 3 colonnes sur fond hairline.",
+    "description_en": "Grid of sector hubs as clickable cards: ICP kicker, sector, one-line pain point and CTA, in a 3-column hairline layout.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/secteurs/_index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
     "id": "service-catalog-list",
     "category": "marketing",
     "categorySlug": "feature-sections",
@@ -3822,8 +4260,60 @@
     "description_en": "Editorial 3×2 services grid with figure index, metric, body, and a connectors line at the foot of each cell.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
       "src/pages/en/index.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "signed-writing-list",
+    "category": "marketing",
+    "categorySlug": "content-listing-sections",
+    "subcategory": "Editorial Sections",
+    "component": "signedWritingListComponent",
+    "status": "stable",
+    "tags": [
+      "articles",
+      "essays",
+      "list",
+      "long-form",
+      "index",
+      "author",
+      "byline"
+    ],
+    "description_fr": "Index chronologique d’ecrits long-form signes : date + titre (lien) + extrait. Date formatee par langue.",
+    "description_en": "Chronological index of signed long-form writing: date + title (link) + excerpt. Date formatted per language.",
+    "rendering": "live",
+    "consumers": [
+      "src/components/templates/AuthorPageTemplate.astro"
+    ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "site-showcase",
+    "category": "marketing",
+    "categorySlug": "gallery-sections",
+    "subcategory": "Gallery Sections",
+    "component": "siteShowcaseComponent",
+    "status": "stable",
+    "tags": [
+      "showcase",
+      "screenshots",
+      "browser-frame",
+      "case-study",
+      "result",
+      "nofollow"
+    ],
+    "description_fr": "Vitrine du site livre : captures reelles dans des cadres navigateur, capture pleine page qui defile au survol, lien nofollow vers le site en production.",
+    "description_en": "Delivered-site showcase: real screenshots in browser frames, a full-page capture that scrolls on hover, and a nofollow link to the live site.",
+    "rendering": "live",
+    "consumers": [
+      "src/pages/cas-clients/[...slug].astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -3844,10 +4334,8 @@
     ],
     "description_fr": "Section de logos clients ou partenaires pour installer une preuve sociale immédiate.",
     "description_en": "Client or partner logo section for establishing immediate social proof.",
-    "rendering": "live",
-    "consumers": [
-      "src/pages/index.astro"
-    ],
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -4026,12 +4514,19 @@
       "narrative",
       "method",
       "steps",
-      "media"
+      "media",
+      "expand-ink",
+      "inline-media",
+      "bleed",
+      "ledger",
+      "editorial"
     ],
     "description_fr": "Storytelling au scroll : rail de texte sticky dont l'etape active passe en accent, colonne media sticky dont l'image change en fondu. Mobile = stepper empile.",
     "description_en": "Scroll storytelling: a sticky text rail whose active step turns accent, with a sticky media column that crossfades its image. Mobile becomes a stacked stepper.",
-    "rendering": "catalogue-only",
-    "consumers": [],
+    "rendering": "live",
+    "consumers": [
+      "src/pages/index.astro"
+    ],
     "hasDemo": {
       "fr": true,
       "en": true
@@ -4126,7 +4621,7 @@
     "description_en": "Technical inventory as a spec table (capability, description, status) with a kicker header and aside.",
     "rendering": "live",
     "consumers": [
-      "src/pages/expertise-claude.astro"
+      "src/pages/_expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -4151,7 +4646,7 @@
     "description_en": "Position in the stack as a numbered vertical timeline (Timeline + Dingbat), one node per integration step.",
     "rendering": "live",
     "consumers": [
-      "src/pages/expertise-claude.astro"
+      "src/pages/_expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -4176,7 +4671,7 @@
     "description_en": "Five-column model comparison table (Model, Profile, Cost, Context, Uses) built on EditorialTable.",
     "rendering": "live",
     "consumers": [
-      "src/pages/expertise-claude.astro"
+      "src/pages/_expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -4201,7 +4696,7 @@
     "description_en": "Technology positioning in a 50/50 split: kicker, display heading, aside, manifesto statement, and mono key/value facts.",
     "rendering": "live",
     "consumers": [
-      "src/pages/expertise-claude.astro"
+      "src/pages/_expertise-claude.astro"
     ],
     "hasDemo": {
       "fr": true,
@@ -4430,7 +4925,7 @@
     ],
     "description_fr": "Mur d'avis masonry : citations clients surlignées, note moyenne et profils LinkedIn pour une preuve sociale dense.",
     "description_en": "Masonry wall of reviews: highlighted client quotes, average rating and LinkedIn profiles for dense social proof.",
-    "rendering": "unknown",
+    "rendering": "catalogue-only",
     "consumers": [],
     "hasDemo": {
       "fr": true,
@@ -4615,9 +5110,31 @@
     "description_en": "Editorial use-case index as numbered rows with italic label, mono tag, and solution anchor link.",
     "rendering": "live",
     "consumers": [
-      "src/pages/index.astro",
       "src/pages/en/index.astro"
     ],
+    "hasDemo": {
+      "fr": true,
+      "en": true
+    }
+  },
+  {
+    "id": "used-service-callout",
+    "category": "marketing",
+    "categorySlug": "index-sections",
+    "subcategory": "Index Sections",
+    "component": "usedServiceCalloutComponent",
+    "status": "stable",
+    "tags": [
+      "services",
+      "cross-link",
+      "internal-mesh",
+      "callout",
+      "case-study"
+    ],
+    "description_fr": "Encadre compact « offre(s) utilisee(s) » : liste de cross-liens vers les services mobilises sur un projet, bord gauche accent.",
+    "description_en": "Compact used-service callout: a list of cross-links to the services deployed on a project, with an accent left border.",
+    "rendering": "catalogue-only",
+    "consumers": [],
     "hasDemo": {
       "fr": true,
       "en": true

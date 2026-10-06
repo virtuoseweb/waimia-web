@@ -1,148 +1,214 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Guide Claude pour PME : déployer Claude en 90 jours (2026)",
-  "title_en": "Claude guide for SMBs: deploy Claude in 90 days (2026)",
-  "description_fr": "Guide Claude PME : 6 prérequis, 5 cas d'usage rentables, Claude for Small Business et plan des 90 jours. Kit gratuit : charte IA, grille, calculateur ROI.",
-  "description_en": "Claude SMB guide: 6 prerequisites, 5 profitable use cases, Claude for Small Business and a 90-day plan. Free kit: AI policy, task grid, ROI calculator.",
+  "title_fr": "Déployer Claude en PME : le guide complet (2026)",
+  "title_en": "Deploying Claude in an SMB: the complete guide (2026)",
+  "description_fr": "Déployer Claude en PME : par où commencer selon votre profil, prérequis, coût réel, risques, plan 90 jours et 6 guides par produit. Ressources gratuites.",
+  "description_en": "Deploying Claude in an SMB: where to start by role, prerequisites, real cost, risks, a 90-day plan and 6 product guides. Free resources.",
   "slug": "claude-pme",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-10-05T00:00:00.000Z",
   "category": "productivite",
+  "cluster": "claude",
   "tags": [
     "claude-pme",
     "deploiement-claude",
-    "deploiement-ia",
+    "claude-entreprise",
     "integrateur-claude",
     "cas-usage-ia",
     "gouvernance-ia",
     "roi-ia",
     "productivite"
   ],
+  "sources": [
+    {
+      "name": "Anthropic, page tarifs de Claude, lue le 5 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Cowork is now Claude",
+      "url": "https://claude.com/blog/cowork-is-now-claude",
+      "type": "enterprise",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "Centre d'aide Claude, Claude Cowork and chat are one Claude",
+      "url": "https://support.claude.com/en/articles/16761823",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Cowork sur les offres Team et Enterprise",
+      "url": "https://support.claude.com/en/articles/13455879",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, plugins",
+      "url": "https://support.claude.com/en/articles/13837440",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Agent Skills (documentation développeurs)",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude Code : vue d'ensemble",
+      "url": "https://code.claude.com/docs/en/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude Code : coûts",
+      "url": "https://code.claude.com/docs/en/costs",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude Code : sécurité",
+      "url": "https://code.claude.com/docs/en/security",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Claude Design",
+      "url": "https://support.claude.com/en/articles/14604416",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, conformité régionale et résidence des données",
+      "url": "https://claude.com/regional-compliance",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, confidentialité : lieu de stockage des données",
+      "url": "https://privacy.claude.com/en/articles/7996890",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, mise à jour des conditions grand public",
+      "url": "https://www.anthropic.com/news/updates-to-our-consumer-terms",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, notes de version",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "type": "enterprise"
+    }
+  ],
   "seo": {
     "noindex": false
   },
   "faq_fr": [
     {
-      "q": "Par où commencer pour déployer Claude dans une PME ?",
-      "a": "On ne commence pas par l'outil mais par un process. Choisissez une tâche récurrente, chronophage et à faible risque : tri d'emails, rédaction de comptes-rendus, réponses de premier niveau. Cadrez le résultat attendu, donnez à Claude le contexte dont il a besoin, puis mesurez le temps gagné. Un premier cas d'usage réussi vaut mieux que dix pilotes abandonnés."
+      "q": "Comment déployer Claude dans une PME, concrètement ?",
+      "a": "En partant d'un process, pas de l'outil. Choisissez une tâche répétée chaque semaine, à faible risque et mesurable, et notez le temps qu'elle prend aujourd'hui. Ouvrez des comptes professionnels (Team dès deux personnes) avec une règle d'usage écrite, donnez à Claude le contexte nécessaire, puis mesurez après quatre à six semaines. Une fois ce premier cas tenu, formez l'équipe et étendez à un deuxième usage. Le plan des 90 jours de ce guide détaille chaque étape."
     },
     {
-      "q": "Par quels cas d'usage commencer avec Claude en PME ?",
-      "a": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que le gain se mesure le plus facilement."
+      "q": "Combien coûte Claude pour une PME, tout compris ?",
+      "a": "Quatre postes : les sièges, l'usage au-delà du quota, le temps interne de mise en place, et l'accompagnement si vous en prenez un. Au 5 octobre 2026, Anthropic affiche Team Standard à 20 dollars par siège et par mois en annuel (25 dollars en mensuel), hors TVA et taux de change. Le détail des offres est dans notre guide des fonctionnalités et prix ; trois budgets calculés pour 5, 15 et 40 personnes sont dans le guide d'achat en PDF."
     },
     {
-      "q": "Qu'est-ce que Claude for Small Business ?",
-      "a": "C'est l'offre d'Anthropic lancée en mai 2026 pour les petites entreprises : des workflows prêts à l'emploi et des connecteurs vers les outils courants, qui tournent dans Claude Cowork avec un mode approbation par défaut. Elle accélère les cas d'usage génériques, mais ne remplace pas les prérequis : choix du premier cas, données propres, politique d'usage et mesure du gain."
+      "q": "Quelle offre Claude choisir pour une petite équipe ?",
+      "a": "Dès deux personnes qui mettent des documents de travail dans Claude, Team plutôt que des comptes Pro individuels : conditions commerciales (pas d'entraînement sur vos données par défaut), administration et authentification unique. Premium seulement pour les profils intensifs. Enterprise quand il faut provisionner les comptes, auditer les accès et régler la rétention. Si vos données doivent rester en Europe, ce n'est pas une question d'offre : il faut passer par l'API via AWS Bedrock ou Google Vertex."
     },
     {
-      "q": "Faut-il structurer ses données avant de déployer Claude ?",
-      "a": "Oui, au moins partiellement. Claude est aussi bon que le contexte qu'on lui donne. Des données éparpillées, en doublon ou périmées produisent des réponses floues. Commencez par centraliser ce qui sert au premier cas d'usage : une base de connaissances, des procédures, un historique propre. Inutile de tout ranger d'un coup, rangez ce que l'agent va lire."
-    },
-    {
-      "q": "Comment gérer la sécurité et la confidentialité avec Claude ?",
-      "a": "Trois leviers : une politique d'usage claire qui dit quelles données peuvent passer dans l'outil, des comptes professionnels avec données non utilisées pour l'entraînement, et un cadrage des accès via MCP plutôt que des copier-coller manuels. La gouvernance n'est pas un frein, c'est ce qui permet de déployer sans que des données sensibles fuitent par des comptes personnels."
-    },
-    {
-      "q": "Quelles sont les erreurs les plus fréquentes au démarrage ?",
-      "a": "Vouloir tout automatiser d'un coup, choisir l'outil avant d'avoir clarifié le process, négliger la formation des équipes, et oublier de mesurer. Une autre erreur classique : automatiser un process déjà inefficace, ce qui ne fait que l'accélérer. La bonne approche reste un cas d'usage cadré, mesuré, puis étendu une fois prouvé."
-    },
-    {
-      "q": "Combien de temps pour voir des résultats concrets ?",
-      "a": "Sur un cas d'usage bien choisi, les premiers gains sont visibles en quelques semaines. Le plan des 90 jours sert à enchaîner trois phases : cadrer et lancer un premier agent, le fiabiliser et former les équipes, puis étendre à un deuxième usage. L'objectif n'est pas la vitesse mais une montée en maturité qui tient dans la durée."
+      "q": "Claude Cowork existe-t-il encore ?",
+      "a": "Oui, sous une autre forme. Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Anthropic l'a annoncé le 16 septembre 2026. Le nom Cowork reste dans l'aide officielle et dans les réglages d'administration, et ses fonctions demeurent : tâches, dossiers locaux de confiance, tâches planifiées, réglage d'autonomie. Notre guide dédié explique où retrouver chacune."
     },
     {
       "q": "Faut-il un profil technique pour déployer Claude ?",
-      "a": "Pour les premiers cas d'usage conversationnels, non : une bonne compréhension métier et des process clairs suffisent. Pour brancher Claude à vos outils via MCP et automatiser des workflows, un accompagnement technique accélère et sécurise. L'enjeu est moins de coder que de bien cadrer ce que l'agent doit faire, voir et ne jamais toucher."
+      "a": "Non pour les premiers usages : rédaction, synthèse, tâches sur des fichiers. Il faut surtout quelqu'un qui connaît le métier et sait décrire un résultat attendu. Un profil technique devient utile pour brancher un connecteur à un outil interne, construire un plugin privé ou utiliser Claude Code. À ce stade, se faire accompagner va plus vite que d'apprendre en production."
     },
     {
-      "q": "Quelle différence entre utiliser Claude et l'intégrer vraiment ?",
-      "a": "Utiliser Claude, c'est l'ouvrir au cas par cas pour aider un collaborateur. L'intégrer, c'est le brancher à vos données et vos outils pour qu'il agisse dans vos process, de façon mesurée et gouvernée. La première étape sensibilise, la seconde produit de la valeur en production. Ce guide vise la seconde, sans brûler la première."
+      "q": "Par quel cas d'usage commencer ?",
+      "a": "Celui qui coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, un résultat qu'on sait mesurer. Les comptes rendus de réunion, le tri des e-mails entrants, la première réponse au support, la synthèse de documents et l'extraction de données de factures sont de bons candidats. Gardez pour plus tard tout ce qui engage l'entreprise sans relecture : paiement, envoi au nom de quelqu'un, décision irréversible."
     },
     {
-      "q": "Mes données restent-elles confidentielles avec Claude ?",
-      "a": "Sur les offres entreprise et API d'Anthropic, vos données ne sont pas utilisées pour entraîner les modèles par défaut, et la rétention peut être encadrée par contrat. Le vrai risque n'est pas le modèle, c'est l'usage non gouverné : des collaborateurs qui collent des données sensibles dans des comptes personnels gratuits. La parade est une politique d'usage claire et des accès cadrés, pas l'interdiction."
+      "q": "Nos données sont-elles protégées, et restent-elles en Europe ?",
+      "a": "Sur Team, Enterprise et l'API, Anthropic n'entraîne pas ses modèles sur vos données par défaut, et un DPA est disponible. Sur Free, Pro et Max, cela dépend d'un réglage de chaque utilisateur. Les apps Claude stockent les données aux États-Unis par défaut, sans hébergement européen proposé au 5 octobre 2026 ; la résidence en Europe passe par l'API via AWS Bedrock ou Google Vertex. Autre point : l'historique local de Cowork échappe à la rétention gérée par les administrateurs."
     },
     {
-      "q": "Comment choisir le premier cas d'usage à déployer ?",
-      "a": "Le bon premier cas coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, et un résultat mesurable. Rédaction de comptes rendus, tri d'emails entrants, première réponse au support, synthèse de documents sont d'excellents candidats. On évite pour le pilote tout ce qui touche une décision irréversible ou une donnée très sensible."
+      "q": "Combien de temps avant de voir un résultat ?",
+      "a": "Sur un cas bien choisi, quelques semaines suffisent pour mesurer un premier gain, à condition d'avoir noté le temps passé avant. Le plan de ce guide compte 90 jours pour passer d'un premier cas à un usage d'équipe, gouverné et mesuré. Sur nos missions d'intégration, nous constatons habituellement 2 à 8 semaines entre le cadrage et un premier usage installé dans une équipe pilote."
     },
     {
-      "q": "Faut-il former les équipes ou Claude suffit-il seul ?",
-      "a": "La formation décide de l'adoption. Un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité. Comptez une demi-journée pour les bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais. Désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines."
+      "q": "Faut-il former les équipes ?",
+      "a": "Oui, c'est ce qui décide de l'adoption. Une demi-journée pour les bons réflexes (formuler une demande, vérifier une réponse, savoir ce qu'on ne colle jamais) et un référent interne qui répond aux questions et tient les consignes partagées. Pour les développeurs, Anthropic propose une formation gratuite à Claude Code (Claude Academy). Pour une équipe métier, une formation sur ses propres tâches s'oublie moins vite qu'un exemple générique."
     },
     {
-      "q": "Comment mesurer le ROI d'un déploiement de Claude ?",
-      "a": "On mesure avant de déployer, sinon le gain reste une impression. Sur le cas pilote, on note le temps passé et le taux d'erreur actuels, puis on compare après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes, en délais raccourcis et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité et finit par être coupé."
+      "q": "Quelle différence entre skills, plugins et connecteurs ?",
+      "a": "Un skill est une procédure écrite que Claude charge quand la tâche s'y prête : votre façon de chiffrer un devis ou de relancer un impayé. Un connecteur relie Claude à un outil (CRM, messagerie, stockage) par le protocole MCP. Un plugin est le paquet qui regroupe skills, connecteurs et sous-agents pour les diffuser à une équipe ; en Team et Enterprise, l'administrateur choisit qui le reçoit. Chacun a son guide détaillé."
     },
     {
-      "q": "Qu'est-ce que le protocole MCP et pourquoi il compte ?",
-      "a": "Le MCP, Model Context Protocol, est le standard ouvert qui connecte Claude à vos outils : CRM, base documentaire, agenda, ticketing. C'est ce qui fait passer Claude d'un assistant de conversation à un agent qui agit sur vos données réelles. Bien posée, cette couche d'intégration est ce qui transforme un pilote sympathique en gain durable et mesurable."
+      "q": "Claude ou ChatGPT pour une PME ?",
+      "a": "Les deux font l'essentiel du travail de bureau. La différence se joue sur vos outils, vos règles de données et l'usage visé : rédaction, analyse, code, tâches dans des fichiers. Choisissez sur un cas réel, testé deux semaines par les personnes concernées, plutôt que sur un classement. Notre comparatif Claude ou ChatGPT pour une PME pose les critères ; ce guide suppose que vous avez retenu Claude."
     },
     {
-      "q": "Ce guide remplace-t-il un accompagnement ?",
-      "a": "Non. Il vous donne la trame pour ne rien oublier et discuter d'égal à égal avec un intégrateur. Si vous voulez la transformer en plan daté pour votre contexte, l'audit IA gratuit de 45 min part de votre réalité, identifie le premier process à automatiser et chiffre le gain attendu. Et si vous préférez faire déployer Claude par Waimia, l'intégrateur prend le relais du cadrage à la gouvernance. Sans engagement."
+      "q": "Intégrateur, consultant ou formation : que choisir ?",
+      "a": "Cela dépend de ce qui vous manque. Si vous savez quoi faire mais pas comment le brancher, c'est de l'intégration. Si vous ne savez pas encore par où commencer ni dans quel ordre, c'est du conseil. Si l'outil est en place mais peu utilisé, c'est de la formation. Et si vous êtes moins de dix, sans connecteur métier ni donnée sensible, ce guide et la checklist des 90 jours suffisent souvent."
+    },
+    {
+      "q": "Qui fait quoi si Waimia déploie Claude chez nous ?",
+      "a": "On commence par un audit gratuit de 45 minutes. Si un déploiement se justifie, le sprint découverte (999 euros HT pour 10 heures) choisit l'offre et les sièges, pose les règles d'usage et cadre le cas pilote. La suite se chiffre sur devis et s'exécute en régie à {{prix.horaire}} euros HT de l'heure, sur estimation validée par vous. Vous gardez les comptes, la configuration, les consignes et la documentation : vous pouvez changer de prestataire."
+    },
+    {
+      "q": "Comment mesurer le retour sur investissement ?",
+      "a": "En notant, avant de déployer, le temps passé et le taux d'erreur sur le cas pilote, puis en comparant après quatre à six semaines d'usage réel. Le gain se lit en heures rendues, en délais raccourcis et en tâches qui ne reviennent plus. Mettez-le en face du coût complet : sièges, usage, temps de mise en place. Le calculateur de ROI de Waimia donne un ordre de grandeur avant même de commencer."
     }
   ],
   "faq_en": [
     {
-      "q": "Where do you start to deploy Claude in an SMB?",
-      "a": "You don't start with the tool but with a process. Pick a recurring, time-consuming, low-risk task: email triage, meeting notes, first-level replies. Frame the expected result, give Claude the context it needs, then measure the time saved. One successful first use case beats ten abandoned pilots."
+      "q": "How do you deploy Claude in an SMB, in practice?",
+      "a": "Start from a process, not the tool. Pick a weekly, low-risk, measurable task and time it today. Open business accounts (Team from two people) with a written usage rule, give Claude the context it needs, then measure after four to six weeks. Once that case holds, train the team and add a second use. The 90-day plan in this guide covers each step."
     },
     {
-      "q": "Which Claude use cases have the highest ROI in an SMB?",
-      "a": "Five come up constantly: writing and rewriting content, summarising documents and meetings, first-level customer support, extracting data from documents, and automating repetitive tasks via the MCP protocol. The common thread: high volume, clear rules and a significant hourly cost. That's where AI pays off fastest."
+      "q": "What does Claude cost an SMB, all in?",
+      "a": "Four lines: seats, usage beyond the quota, internal setup time and support if you take any. As of 5 October 2026, Anthropic lists Team Standard at 20 dollars per seat per month billed annually (25 monthly), excluding VAT. Plan details are in our features and pricing guide; three budgets for 5, 15 and 40 people are in the buyer's guide PDF."
     },
     {
-      "q": "What is Claude for Small Business?",
-      "a": "It's Anthropic's offer launched in May 2026 for small businesses: ready-to-run workflows and connectors to common tools, running in Claude Cowork with approval mode on by default. It speeds up generic use cases, but doesn't replace the prerequisites: choosing the first case, clean data, a usage policy and measuring the gain."
+      "q": "Which Claude plan for a small team?",
+      "a": "From two people putting work documents into Claude, Team rather than individual Pro accounts: business terms (no training on your data by default), administration and single sign-on. Premium only for heavy users. Enterprise when you must provision accounts, audit access and set retention. If data must stay in Europe, use the API via AWS Bedrock or Google Vertex."
     },
     {
-      "q": "Do you need to structure your data before deploying Claude?",
-      "a": "Yes, at least partially. Claude is only as good as the context you give it. Scattered, duplicated or outdated data produces fuzzy answers. Start by centralising what serves the first use case: a knowledge base, procedures, a clean history. No need to tidy everything at once, tidy what the agent will read."
+      "q": "Does Claude Cowork still exist?",
+      "a": "Yes, in another form. Cowork, the Claude agent that carries out tasks in your files and tools, is now part of Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). Anthropic announced it on 16 September 2026. The Cowork name remains in the help centre and admin settings, and its features stay: tasks, trusted local folders, scheduled tasks, autonomy setting."
     },
     {
-      "q": "How do you handle security and confidentiality with Claude?",
-      "a": "Three levers: a clear usage policy stating which data can go into the tool, professional accounts with data not used for training, and access framed via MCP rather than manual copy-pasting. Governance isn't a brake, it's what lets you deploy without sensitive data leaking through personal accounts."
+      "q": "Do you need technical staff to deploy Claude?",
+      "a": "Not for first uses: drafting, summarising, tasks on files. You mainly need someone who knows the business and can describe the expected result. Technical skills matter for connecting an internal tool, building a private plugin or using Claude Code."
     },
     {
-      "q": "What are the most frequent mistakes at the start?",
-      "a": "Wanting to automate everything at once, picking the tool before clarifying the process, neglecting team training, and forgetting to measure. Another classic mistake: automating an already inefficient process, which only accelerates it. The right approach stays a framed, measured use case, then expanded once proven."
+      "q": "Which use case should we start with?",
+      "a": "One that ticks three boxes: weekly volume, low risk if wrong, a measurable result. Meeting minutes, inbound email triage, first-line support replies, document summaries and invoice data extraction are good candidates. Leave anything that commits the company without review for later."
     },
     {
-      "q": "How long to see concrete results?",
-      "a": "On a well-chosen use case, the first gains are visible within a few weeks. The 90-day plan chains three phases: frame and launch a first agent, make it reliable and train the teams, then expand to a second use. The goal isn't speed but a maturity ramp that holds over time."
+      "q": "Is our data protected, and does it stay in Europe?",
+      "a": "On Team, Enterprise and the API, Anthropic does not train on your data by default, and a DPA is available. On Free, Pro and Max it depends on each user's setting. Claude apps store data in the US by default, with no EU hosting offered as of 5 October 2026; EU residency goes through the API via AWS Bedrock or Google Vertex. Cowork local history sits outside admin-managed retention."
     },
     {
-      "q": "Do you need a technical profile to deploy Claude?",
-      "a": "For the first conversational use cases, no: a good business understanding and clear processes are enough. To wire Claude to your tools via MCP and automate workflows, technical support speeds things up and secures them. The challenge is less coding than framing well what the agent must do, see and never touch."
+      "q": "How long before we see results?",
+      "a": "On a well-chosen case, a few weeks are enough to measure a first gain, provided you timed the task before. This guide's plan takes 90 days from a first case to governed team use. On our integration work we usually see 2 to 8 weeks from scoping to a first use running in a pilot team."
     },
     {
-      "q": "What's the difference between using Claude and truly integrating it?",
-      "a": "Using Claude means opening it case by case to help an employee. Integrating it means wiring it to your data and tools so it acts within your processes, in a measured and governed way. The first step raises awareness, the second produces value in production. This guide aims for the second, without skipping the first."
+      "q": "Do teams need training?",
+      "a": "Yes, it decides adoption. Half a day for the right habits and an internal lead who answers questions and maintains shared instructions. For developers, Anthropic offers free Claude Code training (Claude Academy). For business teams, training on their own tasks sticks better."
     },
     {
-      "q": "Does my data stay confidential with Claude?",
-      "a": "On Anthropic's enterprise and API offers, your data isn't used to train the models by default, and retention can be governed by contract. The real risk isn't the model, it's ungoverned usage: employees pasting sensitive data into free personal accounts. The fix is a clear usage policy and framed access, not a ban."
+      "q": "What is the difference between skills, plugins and connectors?",
+      "a": "A skill is a written procedure Claude loads when a task calls for it. A connector links Claude to a tool (CRM, email, storage) through MCP. A plugin is the bundle of skills, connectors and sub-agents you roll out to a team; on Team and Enterprise, the admin decides who gets it."
     },
     {
-      "q": "How do you choose the first use case to deploy?",
-      "a": "A good first case ticks three boxes: a volume repeated each week, low risk if it errs, and a measurable result. Drafting minutes, triaging inbound email, first support reply and document summarisation are excellent candidates. For the pilot you avoid anything touching an irreversible decision or very sensitive data."
+      "q": "Claude or ChatGPT for an SMB?",
+      "a": "Both handle most office work. The difference lies in your tools, data rules and target use. Choose on a real case tested for two weeks by the people concerned, not on a ranking. Our Claude or ChatGPT comparison sets out the criteria."
     },
     {
-      "q": "Do teams need training or does Claude work alone?",
-      "a": "Training decides adoption. A tool no one masters stays on the shelf, whatever its quality. Count half a day for the right reflexes: phrasing a request, checking a response, spotting what you never paste in. Appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks."
+      "q": "Integrator, consultant or training: which one?",
+      "a": "It depends on what you lack. Know what to do but not how to connect it: integration. Not sure where to start: consulting. Tool in place but little used: training. Under ten people, no business connector or sensitive data: this guide and the 90-day checklist are often enough."
     },
     {
-      "q": "How do you measure the ROI of a Claude deployment?",
-      "a": "You measure before deploying, otherwise the gain stays a feeling. On the pilot case, you note the current time spent and error rate, then compare after a few weeks of real use. ROI reads in hours given back to teams, shortened delays and tasks that no longer come back. An unmeasured case can't be defended in committee and ends up cut."
+      "q": "Who does what if Waimia deploys Claude for us?",
+      "a": "We start with a free 45-minute audit. If deployment makes sense, the discovery sprint (€999 excl. VAT for 10 hours) picks the plan and seats, sets usage rules and frames the pilot. The rest is quoted and run as time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. You keep accounts, configuration, instructions and documentation."
     },
     {
-      "q": "What is the MCP protocol and why does it matter?",
-      "a": "MCP, the Model Context Protocol, is the open standard that connects Claude to your tools: CRM, document base, calendar, ticketing. It's what turns Claude from a conversation assistant into an agent that acts on your real data. Done well, this integration layer is what turns a pleasant pilot into a durable, measurable gain."
-    },
-    {
-      "q": "Does this guide replace hands-on support?",
-      "a": "No. It gives you the frame to forget nothing and talk on equal terms with an integrator. If you want to turn it into a dated plan for your context, the free 45-min AI audit starts from your reality, identifies the first process to automate and sizes the expected gain. And if you'd rather have Waimia deploy Claude for you, the integrator takes over from scoping to governance. No commitment."
+      "q": "How do we measure ROI?",
+      "a": "Record time spent and error rate on the pilot before deploying, then compare after four to six weeks of real use. Weigh the gain against full cost: seats, usage, setup time. Waimia's ROI calculator gives a rough figure before you start."
     }
   ],
   "sections": [
@@ -150,45 +216,56 @@
       "type": "hero-split-media",
       "background": "paper",
       "illustration": {
-        "src": "/images/illustrations/ds/style-st-paper.webp",
-        "alt_fr": "Illustration : des mains au travail sur un clavier, le plan de déploiement de Claude en PME",
-        "alt_en": "Illustration: hands at work on a keyboard, the plan to deploy Claude in an SMB",
+        "src": "/images/illustrations/ds/claude-pme-hub-carrefour-paper.webp",
+        "alt_fr": "Une petite silhouette au pied d'un grand poteau indicateur à six flèches, six chemins vers six bâtiments",
+        "alt_en": "A small figure at the foot of a tall signpost with six arrows, six paths to six buildings",
         "side": "left"
       },
-      "kicker_fr": "§ Guide pratique",
-      "kicker_en": "§ Practical guide",
-      "h1_fr": "Déployer <i class=\"acc\">Claude</i> dans votre PME.",
-      "h1_en": "Deploying <i class=\"acc\">Claude</i> in your SMB.",
-      "definition_kicker_fr": "De quoi parle <i class=\"acc\">ce guide</i> ?",
-      "definition_kicker_en": "What is <i class=\"acc\">this guide</i> about?",
-      "lede_fr": "Pas une démo de chatbot, un <i>plan de déploiement</i> : par où commencer, les cinq cas d'usage par lesquels commencer, comment structurer vos données, cadrer la gouvernance et tenir les premiers 90 jours sans dérapage. Tout ce qu'on aurait aimé qu'on nous dise avant de se lancer.",
-      "lede_en": "Not a chatbot demo, a <i>deployment plan</i>: where to start, the five use cases that pay off fastest, how to structure your data, frame governance and hold the first 90 days without drift. Everything we'd have liked to be told before starting.",
+      "kicker_fr": "§ Guide pratique · Claude en PME",
+      "kicker_en": "§ Practical guide · Claude for SMBs",
+      "h1_fr": "Déployer <i class=\"acc\">Claude</i> dans votre PME : le guide complet",
+      "h1_en": "Deploying <i class=\"acc\">Claude</i> in your SMB: the complete guide",
+      "definition_kicker_fr": "De quoi parle ce guide ?",
+      "definition_kicker_en": "What is this guide about?",
+      "lede_fr": "Par où commencer selon votre profil, les six prérequis, les usages qui se mesurent vite, le coût réel, les risques à cadrer et le plan des 90 premiers jours. Puis un guide détaillé par produit : offres et prix, Claude Code, skills, plugins, Claude Design et Cowork. Faits relus le 5 octobre 2026 sur les sources d'Anthropic.",
+      "lede_en": "Where to start for your profile, the six prerequisites, the uses that pay off fast, the real cost, the risks to frame and the first 90 days. Then one detailed guide per product: plans and pricing, Claude Code, skills, plugins, Claude Design and Cowork. Facts checked on 5 October 2026 against Anthropic sources.",
       "badges": [
         {
-          "label_fr": "5 cas d'usage par où commencer",
-          "label_en": "5 high-ROI use cases"
+          "label_fr": "6 guides détaillés, un par produit",
+          "label_en": "6 detailed guides, one per product"
         },
         {
-          "label_fr": "Plan des 90 premiers jours",
-          "label_en": "First 90-day plan"
+          "label_fr": "Faits relus le 5 octobre 2026",
+          "label_en": "Facts checked on 5 October 2026"
         },
         {
-          "label_fr": "Gouvernance et sécurité cadrées",
-          "label_en": "Governance and security framed"
+          "label_fr": "4 ressources gratuites par e-mail",
+          "label_en": "4 free resources by email"
         }
       ],
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
-        "label_en": "Book the AI audit (45 min) →",
+        "label_en": "Book a free AI audit →",
         "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Télécharger la checklist 90 jours",
-        "label_en": "Download the 90-day checklist",
-        "href": "/ressources/outils/checklist-90-jours-claude",
+        "label_fr": "Recevoir le guide d'achat (PDF)",
+        "label_en": "Get the buyer's guide (PDF)",
+        "href": "#guide-achat",
         "variant": "ghost"
       }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "29 juin 2026",
+      "updatedDate": "5 octobre 2026"
     },
     {
       "type": "direct-answer",
@@ -196,13 +273,115 @@
       "question_fr": "Comment déployer Claude dans une PME ?",
       "question_en": "How do you deploy Claude in an SMB?",
       "term_fr": "Déploiement de Claude",
-      "term_en": "Claude deployment",
-      "answer_fr": "On déploie Claude dans une PME en partant d'un process, pas de l'outil. On choisit une tâche récurrente, chronophage et à faible risque, on donne à Claude le contexte et les données dont il a besoin, on cadre ce qu'il peut faire et ce qu'il ne touche jamais, puis on mesure le temps gagné. Une fois ce premier cas d'usage prouvé en production, on le fiabilise, on forme les équipes et on l'étend à un deuxième usage. Le bon déploiement avance par marches mesurées, pas par grand soir technologique : un agent qui marche vaut mieux que dix pilotes oubliés. Waimia est l'intégrateur Claude qui déploie ce dispositif de bout en bout, du premier cas d'usage cadré à la gouvernance.",
-      "answer_en": "You deploy Claude in an SMB by starting from a process, not the tool. You pick a recurring, time-consuming, low-risk task, give Claude the context and data it needs, frame what it can do and what it never touches, then measure the time saved. Once this first use case is proven in production, you make it reliable, train the teams and expand to a second use. A good deployment advances in measured steps, not a technological big bang: one agent that works beats ten forgotten pilots. Waimia is the Claude integrator that deploys this setup end to end, from the first framed use case to governance."
+      "term_en": "Deploying Claude",
+      "answer_fr": "On part d'un process, pas de l'outil : une tâche répétée chaque semaine, à faible risque et mesurable. On ouvre des comptes professionnels (Team dès deux personnes), on écrit une règle d'usage, on mesure le temps passé avant et après. Une fois ce premier cas tenu, on forme l'équipe et on étend. Comptez environ 90 jours pour un usage d'équipe.",
+      "answer_en": "Start from a process, not the tool: a weekly, low-risk, measurable task. Open business accounts (Team from two people), write a usage rule, measure time spent before and after. Once that first use case holds, train the team and expand. Allow about 90 days for team-wide use."
+    },
+    {
+      "type": "resource-card-grid",
+      "background": "paper",
+      "columns": "3",
+      "kicker_fr": "§ Le plan du cluster",
+      "kicker_en": "§ The cluster map",
+      "h2_fr": "Six guides détaillés, une question d'acheteur chacun",
+      "h2_en": "Six detailed guides, one buyer question each",
+      "intro_fr": "Cette page donne la méthode d'ensemble. Chaque guide détaillé répond à une question précise qu'on nous pose en audit, avec les faits d'Anthropic relus le 5 octobre 2026, les limites et le coût.",
+      "intro_en": "This page gives the overall method. Each detailed guide answers one question we hear in audits, with Anthropic facts checked on 5 October 2026, the limits and the cost.",
+      "resources": [
+        {
+          "kind_fr": "Choisir et chiffrer",
+          "kind_en": "Choose and budget",
+          "title_fr": "Fonctionnalités, offres et prix de Claude",
+          "title_en": "Claude features, plans and pricing",
+          "desc_fr": "« Quelle offre prendre, et combien ça coûte vraiment ? » Free, Pro, Max, Team et Enterprise, ce que chacune débloque, le quota partagé et vos données.",
+          "desc_en": "\"Which plan, and what does it really cost?\" Free, Pro, Max, Team and Enterprise, what each unlocks, the shared quota and your data.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-fonctionnalites-pme",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Équipe technique",
+          "kind_en": "Technical team",
+          "title_fr": "Claude Code en entreprise",
+          "title_en": "Claude Code for business",
+          "desc_fr": "« Faut-il équiper nos développeurs, et à quel coût par poste ? » Surfaces, dix fonctions, sécurité, coût par jour actif et usages hors code.",
+          "desc_en": "\"Should we equip our developers, and at what cost per seat?\" Surfaces, ten features, security, cost per active day and non-code uses.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-code-entreprise",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Procédures",
+          "kind_en": "Procedures",
+          "title_fr": "Skills Claude : créer et partager",
+          "title_en": "Claude skills: create and share",
+          "desc_fr": "« Comment écrire nos procédures une fois pour toute l'équipe ? » Fonctionnement, limites de partage, sécurité, six exemples pour PME.",
+          "desc_en": "\"How do we write our procedures once for the whole team?\" How they work, sharing limits, security, six SMB examples.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-skills",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Diffusion et administration",
+          "kind_en": "Rollout and admin",
+          "title_fr": "Plugins Claude en entreprise",
+          "title_en": "Claude plugins for business",
+          "desc_fr": "« Comment diffuser skills et connecteurs à toute une équipe, en sécurité ? » Marketplaces, quatre niveaux de diffusion, plugin privé.",
+          "desc_en": "\"How do we roll out skills and connectors to a whole team, safely?\" Marketplaces, four rollout levels, private plugin.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-plugins-entreprise",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Supports visuels",
+          "kind_en": "Visual material",
+          "title_fr": "Claude Design en PME",
+          "title_en": "Claude Design for SMBs",
+          "desc_fr": "« Peut-on produire nos decks et maquettes sans agence ? » Ce qu'il produit, son prix réel, ses limites, quand un designer reste utile.",
+          "desc_en": "\"Can we make our decks and mock-ups without an agency?\" What it makes, its real price, its limits, when a designer still matters.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-design",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Changement 2026",
+          "kind_en": "2026 change",
+          "title_fr": "Claude Cowork est désormais Claude",
+          "title_en": "Claude Cowork is now Claude",
+          "desc_fr": "« Qu'est devenu Cowork, et que doit vérifier l'administrateur ? » La fusion du 16 septembre 2026, où retrouver chaque fonction, les réglages.",
+          "desc_en": "\"What happened to Cowork, and what should admins check?\" The 16 September 2026 merge, where each feature went, the settings.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-cowork",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        }
+      ]
+    },
+    {
+      "type": "cta-form-inline",
+      "anchor": "guide-achat",
+      "background": "paper-2",
+      "lead_magnet": "guide-achat-claude-pme",
+      "kicker_fr": "§ Guide d'achat gratuit, envoyé par e-mail",
+      "kicker_en": "§ Free buyer's guide, sent by email",
+      "h2_fr": "Le guide d'achat Claude pour PME : plan, coût, configuration",
+      "h2_en": "The Claude buyer's guide for SMBs: plan, cost, setup",
+      "body_fr": "Un PDF A4 de 14 pages, envoyé en pièce jointe : la grille des offres en une page, une matrice de décision pour huit situations (du dirigeant seul à 40 personnes avec exigences de données), la méthode et les formules pour estimer le coût, trois budgets calculés pour 5, 15 et 40 personnes, douze pièges d'achat, la configuration du premier jour en douze étapes, les questions à poser avant de signer, et quand passer par l'API, Bedrock ou Vertex.",
+      "body_en": "A 14-page A4 PDF, sent as an attachment: the plans on one page, a decision matrix for eight situations (from a solo owner to 40 people with data requirements), the method and formulas to estimate cost, three budgets worked out for 5, 15 and 40 people, twelve buying traps, a twelve-step day-one setup, questions to ask before signing, and when to use the API, Bedrock or Vertex.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir le guide d'achat →",
+      "submit_label_en": "Get the buyer's guide →",
+      "hint_fr": "Un seul e-mail avec le PDF. Pas d'inscription à la lettre sans votre accord.",
+      "hint_en": "One email with the PDF. No newsletter sign-up without your consent."
     },
     {
       "type": "key-metric-grid",
-      "background": "paper",
       "variant": "accent",
       "columns": 4,
       "eyebrow_fr": "§ Le guide en clair",
@@ -213,450 +392,180 @@
         {
           "value": "6",
           "label_fr": "Prérequis à poser avant le premier compte",
-          "label_en": "Prerequisites to lay before the first account"
+          "label_en": "Prerequisites before the first account"
         },
         {
-          "value": "5",
-          "label_fr": "Cas d'usage par où commencer",
-          "label_en": "High-ROI use cases"
+          "value": "1",
+          "label_fr": "Cas pilote pour commencer, pas dix",
+          "label_en": "Pilot use case to start with, not ten"
         },
         {
-          "value": "3",
-          "label_fr": "Phases de 30 jours",
-          "label_en": "Phases of 30 days"
+          "value": "90 jours",
+          "label_fr": "Pour passer du test à l'usage d'équipe",
+          "label_en": "To go from a test to team-wide use"
         },
         {
-          "value": "90",
-          "label_fr": "Jours pour un agent qui tourne",
-          "label_en": "Days to a running agent"
+          "value": "6",
+          "label_fr": "Guides détaillés, un par produit Claude",
+          "label_en": "Detailed guides, one per Claude product"
         }
       ]
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Ce qui change en 2026 : Claude for Small Business</h2><p>Anthropic a lancé le 13 mai 2026 <strong>Claude for Small Business</strong>, un ensemble de connecteurs et de workflows prêts à l'emploi qui tournent dans <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>. Au lancement : 15 workflows (finance, opérations, ventes, marketing, RH, service client) et des intégrations avec QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace et Microsoft 365. Le 15 septembre 2026, selon la presse spécialisée, l'offre est passée à 43 workflows et 27 intégrations supplémentaires (Shopify, Salesforce, Stripe, Zapier, Xero…).</p><ul><li><strong>Ce que ça simplifie :</strong> les cas d'usage génériques (relances, propositions commerciales, clôture mensuelle, brief hebdomadaire) démarrent sans développement.</li><li><strong>Ce que ça ne fait pas à votre place :</strong> choisir le bon premier cas, nettoyer vos données, écrire votre politique d'usage et mesurer le gain. Les six prérequis ci-dessous restent la condition de réussite.</li><li><strong>Le garde-fou par défaut :</strong> le mode approbation. Claude prépare, vous validez avant tout envoi, publication ou paiement. Gardez-le activé pendant tout le pilote.</li><li><strong>Le point d'attention pour une PME française :</strong> la plupart des intégrations visent des outils anglo-saxons. Si votre stack repose sur Pennylane, Sellsy, Axonaut ou un ERP métier, il faudra un connecteur <a href=\"/ressources/guides/mcp-claude\">MCP</a> sur mesure.</li></ul><p>Sources : <a href=\"https://www.anthropic.com/news/claude-for-small-business\" rel=\"noopener\">annonce officielle Anthropic</a> (13 mai 2026) ; extension de septembre rapportée par Forbes et la presse tech (15 septembre 2026). Dernière vérification : 5 octobre 2026.</p>",
-      "html_en": "<h2>What changes in 2026: Claude for Small Business</h2><p>On 13 May 2026 Anthropic launched <strong>Claude for Small Business</strong>, a set of connectors and ready-to-run workflows that run in <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>. At launch: 15 workflows (finance, operations, sales, marketing, HR, customer service) and integrations with QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace and Microsoft 365. On 15 September 2026, according to the trade press, the offer grew to 43 workflows and 27 additional integrations (Shopify, Salesforce, Stripe, Zapier, Xero…).</p><ul><li><strong>What it simplifies:</strong> generic use cases (follow-ups, proposals, month-end close, weekly brief) start without development.</li><li><strong>What it doesn't do for you:</strong> pick the right first case, clean your data, write your usage policy and measure the gain. The six prerequisites below remain the condition for success.</li><li><strong>The default safeguard:</strong> approval mode. Claude prepares, you approve before anything is sent, posted or paid. Keep it on for the whole pilot.</li><li><strong>The watch-out for a French SMB:</strong> most integrations target English-speaking tools. If your stack relies on Pennylane, Sellsy, Axonaut or a vertical ERP, you'll need a custom <a href=\"/ressources/guides/mcp-claude\">MCP</a> connector.</li></ul><p>Sources: <a href=\"https://www.anthropic.com/news/claude-for-small-business\" rel=\"noopener\">official Anthropic announcement</a> (13 May 2026); September expansion reported by Forbes and the tech press (15 September 2026). Last checked: 5 October 2026.</p>"
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-pme-hub-girouette-paper.webp",
+          "alt_fr": "Une immense girouette sans lettres tourne au-dessus des toits, des passants lèvent la tête",
+          "alt_en": "A huge weathervane without letters turns above the rooftops while passers-by look up",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce qui a changé en 2026, et ce qui reste vrai</h2><p>Claude a plus bougé en neuf mois que dans les deux années précédentes. Pour une PME, quatre changements comptent. Le reste relève du communiqué.</p><h3>Cowork est désormais intégré à Claude</h3><p>Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Annoncé le 16 septembre 2026, le changement est simple sur les comptes déjà migrés : vous ne choisissez plus entre « discuter » et « confier une tâche ». Vous demandez, Claude décide s'il répond ou s'il prend la tâche. Les tâches planifiées, les dossiers locaux de confiance et le réglage d'autonomie restent. Ce qui change, et ce que l'administrateur doit vérifier, est dans le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork est désormais Claude</a>.</p><h3>Des livrables, plus seulement du texte</h3><p>Claude produit de vrais fichiers Word, Excel, PowerPoint et PDF. La même annonce de septembre a lancé Claude Docs et Claude Slides en bêta, et intégré Claude Design aux conversations : maquettes, decks et one-pagers aux couleurs de votre marque, sans quota séparé. Ce que Design fait bien, et où il s'arrête, est dans le guide <a href=\"/ressources/guides/claude-design\">Claude Design en PME</a>.</p><h3>Des procédures et des accès partagés à l'échelle d'une équipe</h3><p>Les skills (des procédures écrites que Claude charge à la demande) et les plugins (des paquets de skills, de connecteurs et de sous-agents) sont passés de l'expérimentation à l'administration. En Team et Enterprise, une marketplace privée diffuse vos plugins à ceux qui doivent les avoir. Pour une PME qui veut que tout le monde travaille de la même façon, c'est le vrai changement de l'année : voir <a href=\"/ressources/guides/claude-plugins-entreprise\">les plugins Claude en entreprise</a>.</p><h3>Une grille qui ne se lit plus en sièges seuls</h3><p>Team s'ouvre dès deux sièges, avec deux types de siège. Enterprise se paie au siège plus l'usage. Et le quota d'un siège est partagé entre la conversation, les tâches et Claude Code. Plusieurs pages françaises recopient encore l'ancienne grille. Les montants datés et sourcés sont dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix de Claude</a>.</p><h3>Et Claude for Small Business ?</h3><p>Une offre de workflows prêts à l'emploi pour petites entreprises, annoncée au printemps 2026, est souvent citée. Nous ne l'avons pas revérifiée sur les sources d'Anthropic au 5 octobre 2026 : regardez ce qui est réellement disponible sur votre offre avant de bâtir dessus. Notre lecture des connecteurs prêts à l'emploi en général : beaucoup visent des logiciels anglo-saxons. Si votre gestion tourne sur un logiciel français ou un ERP métier, prévoyez un connecteur sur mesure.</p><h3>Ce qui ne change pas</h3><p>La méthode. Un cas d'usage choisi, des données propres, une règle d'usage écrite, une mesure avant et après. Aucune nouveauté produit ne dispense de ces quatre points.</p>",
+      "html_en": "<h2>What changed in 2026, and what still holds</h2><p>Claude moved more in nine months than in the two previous years. For an SMB, four changes matter. The rest is press release.</p><h3>Cowork is now part of Claude</h3><p>Cowork, the Claude agent that carries out tasks in your files and tools, is now part of Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). Announced on 16 September 2026, the change is simple on migrated accounts: you no longer choose between chatting and handing over a task. You ask, Claude decides whether to answer or take on the task. Scheduled tasks, trusted local folders and the autonomy setting remain. What changes, and what admins should check, is in <a href=\"/ressources/guides/claude-cowork\">Claude Cowork is now Claude</a>.</p><h3>Deliverables, not just text</h3><p>Claude produces real Word, Excel, PowerPoint and PDF files. The same September announcement launched Claude Docs and Claude Slides in beta and brought Claude Design into conversations: mock-ups, decks and one-pagers in your brand colours, with no separate quota. See <a href=\"/ressources/guides/claude-design\">Claude Design for SMBs</a>.</p><h3>Procedures and access shared across a team</h3><p>Skills (written procedures Claude loads on demand) and plugins (bundles of skills, connectors and sub-agents) moved from experiments to administration. On Team and Enterprise, a private marketplace rolls your plugins out to the people who need them. See <a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins for business</a>.</p><h3>Pricing no longer reads in seats alone</h3><p>Team starts at two seats, with two seat types. Enterprise is billed per seat plus usage. And a seat's quota is shared between chat, tasks and Claude Code. Dated, sourced amounts are in <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and pricing</a>.</p><h3>What about Claude for Small Business?</h3><p>A ready-made workflow offer for small businesses, announced in spring 2026, is often cited. We have not re-checked it against Anthropic sources as of 5 October 2026: check what is actually available on your plan before building on it. Many integrations target English-language software; if you run French accounting software or an industry ERP, plan for a custom connector.</p><h3>What does not change</h3><p>The method. One chosen use case, clean data, a written usage rule, a before-and-after measurement.</p>"
     },
     {
       "type": "feature-zigzag",
       "background": "paper-2",
-      "kicker_fr": "§ Les 5 cas d'usage",
-      "kicker_en": "§ The 5 use cases",
-      "h2_fr": "Les cinq usages par lesquels commencer",
-      "h2_en": "Where Claude pays off fastest",
-      "lede_fr": "Tous les usages ne se valent pas au démarrage. Visez le volume élevé, des règles claires et un coût horaire réel. Ces cinq familles cochent les trois cases et se mesurent facilement.",
-      "lede_en": "Not all uses are equal at the start. Aim for high volume, clear rules and a real hourly cost. These five families tick all three boxes and deliver a measurable return within a few weeks.",
+      "kicker_fr": "§ Choisir par où commencer",
+      "kicker_en": "§ Choosing where to start",
+      "h2_fr": "Par où commencer selon votre profil",
+      "h2_en": "Where to start, depending on your role",
+      "lede_fr": "Trois profils reviennent dans nos audits. Chacun a son point d'entrée, sa première erreur à éviter et sa page à lire ensuite.",
+      "lede_en": "Three profiles come up in our audits. Each has its own entry point, first mistake to avoid and next page to read.",
       "rows": [
         {
-          "kicker_fr": "Cas d'usage 01",
-          "kicker_en": "Use case 01",
-          "h3_fr": "Rédaction et reformulation",
-          "h3_en": "Writing and rewriting",
-          "body_fr": "Emails, propositions, descriptions produit, posts : tout ce qui se rédige à la chaîne. Claude part de vos notes brutes et produit un premier jet propre, dans votre ton. Le collaborateur relit et valide au lieu d'écrire de zéro.",
-          "body_en": "Emails, proposals, product descriptions, posts: everything written in volume. Claude starts from your raw notes and produces a clean first draft, in your tone. The employee reviews and approves instead of writing from scratch, and drafting time melts away.",
+          "kicker_fr": "Profil 01",
+          "kicker_en": "Profile 01",
+          "h3_fr": "Dirigeant d'une PME sans équipe technique",
+          "h3_en": "SMB owner without a technical team",
+          "body_fr": "Vous voulez savoir si Claude vaut l'investissement, sans y passer vos soirées. Commencez petit : une organisation Team pour vous et une ou deux personnes, une tâche que vous faites vous-même chaque semaine (comptes rendus, relances, synthèse de devis) et une règle d'usage d'une page. Première erreur probable : acheter des licences pour tout le monde avant d'avoir un cas qui marche. Première lecture : le guide des offres et prix, pour choisir sans surpayer, puis le guide d'achat pour chiffrer.",
+          "body_en": "You want to know whether Claude is worth it without spending your evenings on it. Start small: a Team organisation for you and one or two people, a task you do yourself every week (minutes, follow-ups, quote summaries) and a one-page usage rule. Likely first mistake: buying licences for everyone before one use case works. First read: the plans and pricing guide.",
           "points": [
             {
-              "label_fr": "Premier jet en quelques secondes",
-              "label_en": "First draft in seconds"
+              "label_fr": "Team dès deux personnes",
+              "label_en": "Team from two people"
             },
             {
-              "label_fr": "Ton et style maison respectés",
-              "label_en": "House tone and style kept"
+              "label_fr": "Une tâche à vous, mesurée",
+              "label_en": "One task of your own, measured"
             },
             {
-              "label_fr": "Relecture humaine, pas saisie",
-              "label_en": "Human review, not typing"
+              "label_fr": "Aucune licence de masse avant un cas prouvé",
+              "label_en": "No mass licences before a proven case"
             }
           ],
-          "media_src": "/images/illustrations/ds/woman-computer-paper.webp",
-          "media_alt_fr": "Une femme au bureau dont l'ombre tape à sa place sur l'ordinateur : Claude rédige le premier jet",
-          "media_alt_en": "A woman at her desk whose shadow types for her: Claude writes the first draft",
-          "link_label_fr": "Claude ou ChatGPT pour rédiger en PME ?",
-          "link_label_en": "Claude or ChatGPT for SMB writing?",
-          "link_href": "/ressources/comparatifs/claude-vs-chatgpt-pme"
+          "link_label_fr": "Choisir l'offre et le budget",
+          "link_label_en": "Choose the plan and budget",
+          "link_href": "/ressources/guides/claude-fonctionnalites-pme",
+          "media_src": "/images/illustrations/ds/claude-pme-hub-premiere-marche-paper.webp",
+          "media_alt_fr": "Une femme pose le pied sur la première marche, très basse, d'un grand escalier qui monte vers un soleil",
+          "media_alt_en": "A woman steps onto the very low first step of a tall staircase rising toward a sun"
         },
         {
-          "kicker_fr": "Cas d'usage 02",
-          "kicker_en": "Use case 02",
-          "h3_fr": "Synthèse de documents et réunions",
-          "h3_en": "Document and meeting synthesis",
-          "body_fr": "Contrats, rapports, transcriptions, fils d'emails interminables : Claude lit et restitue l'essentiel en points actionnables. Plus besoin de parcourir quarante pages pour trouver les trois décisions qui comptent.",
-          "body_en": "Contracts, reports, transcripts, endless email threads: Claude reads and returns the essentials as actionable points. No more skimming forty pages to find the three decisions that matter. The summary is ready before the coffee break ends.",
+          "kicker_fr": "Profil 02",
+          "kicker_en": "Profile 02",
+          "h3_fr": "Responsable d'équipe ou de service",
+          "h3_en": "Team or department manager",
+          "body_fr": "Vos collègues utilisent déjà Claude, chacun à sa façon, parfois sur des comptes personnels. Votre enjeu est l'homogénéité : les mêmes consignes, les mêmes modèles, les mêmes garde-fous. Écrivez d'abord les deux ou trois procédures qui comptent (devis, compte rendu, réponse client) sous forme de skills, nommez un référent, puis passez au plugin dès que plus de trois personnes s'en servent. Première erreur probable : laisser chacun bricoler ses propres consignes, qui divergent en un mois.",
+          "body_en": "Your colleagues already use Claude, each in their own way, sometimes on personal accounts. Your goal is consistency: same instructions, same templates, same guardrails. Write the two or three procedures that matter as skills, name a lead, then move to a plugin once more than three people use them. Likely first mistake: letting everyone tinker with their own instructions.",
           "points": [
             {
-              "label_fr": "L'essentiel, pas le bruit",
-              "label_en": "The essentials, not the noise"
+              "label_fr": "Procédures écrites en skills",
+              "label_en": "Procedures written as skills"
             },
             {
-              "label_fr": "Décisions et actions extraites",
-              "label_en": "Decisions and actions extracted"
+              "label_fr": "Un référent nommé",
+              "label_en": "A named lead"
             },
             {
-              "label_fr": "Compte-rendu prêt à envoyer",
-              "label_en": "Summary ready to send"
+              "label_fr": "Plugin au-delà de trois personnes",
+              "label_en": "Plugin beyond three people"
             }
           ],
-          "media_src": "/images/illustrations/ds/pretty-woman-paper.webp",
-          "media_alt_fr": "Une femme pensive entourée de documents et de graphiques : la synthèse de l'essentiel",
-          "media_alt_en": "A thoughtful woman surrounded by documents and charts: summarising what matters",
-          "link_label_fr": "Brancher Claude à votre base documentaire",
-          "link_label_en": "Connect Claude to your document base",
-          "link_href": "/services/base-de-connaissance-ia"
+          "link_label_fr": "Écrire vos procédures en skills",
+          "link_label_en": "Write your procedures as skills",
+          "link_href": "/ressources/guides/claude-skills",
+          "media_src": "/images/illustrations/ds/claude-pme-hub-lanternes-paper.webp",
+          "media_alt_fr": "De nuit, une file de collègues tient des lanternes ; la lumière passe de l'une à l'autre",
+          "media_alt_en": "At night, a line of colleagues holds lanterns; the light passes from one to the next"
         },
         {
-          "kicker_fr": "Cas d'usage 03",
-          "kicker_en": "Use case 03",
-          "h3_fr": "Support client de premier niveau",
-          "h3_en": "First-level customer support",
-          "body_fr": "Branché à votre base de connaissances, Claude répond aux questions récurrentes avec vos propres réponses, et passe la main à l'humain dès que c'est sensible. Vos équipes traitent les cas complexes au lieu de répéter les mêmes réponses dix fois par jour.",
-          "body_en": "Wired to your knowledge base, Claude answers recurring questions with your own responses, and hands off to a human as soon as it's sensitive. Your teams handle complex cases instead of repeating the same answers ten times a day.",
+          "kicker_fr": "Profil 03",
+          "kicker_en": "Profile 03",
+          "h3_fr": "DSI ou responsable informatique",
+          "h3_en": "IT director or IT lead",
+          "body_fr": "Vous décidez ce qui se connecte à quoi, qui y a accès et ce qui reste tracé. Vos sujets : Team ou Enterprise, l'authentification unique, la marketplace privée de plugins et ses niveaux de diffusion, des connecteurs MCP en lecture seule d'abord, les réglages Cowork et leur historique local, la résidence des données. Si des développeurs sont concernés, ajoutez les permissions et les secrets de Claude Code. Première erreur probable : ouvrir un connecteur en écriture avant d'avoir listé les actions permises.",
+          "body_en": "You decide what connects to what, who has access and what stays logged. Your topics: Team or Enterprise, single sign-on, the private plugin marketplace and its rollout levels, MCP connectors read-only first, Cowork settings and local history, data residency. If developers are involved, add Claude Code permissions and secrets. Likely first mistake: write access before the allowed actions are listed.",
           "points": [
             {
-              "label_fr": "Réponses tirées de votre base",
-              "label_en": "Answers drawn from your base"
+              "label_fr": "Lecture seule d'abord",
+              "label_en": "Read-only first"
             },
             {
-              "label_fr": "Passage de main si sensible",
-              "label_en": "Handoff if sensitive"
+              "label_fr": "Plugins diffusés par groupe",
+              "label_en": "Plugins rolled out by group"
             },
             {
-              "label_fr": "Équipes sur les cas complexes",
-              "label_en": "Teams on the complex cases"
+              "label_fr": "Rétention et résidence vérifiées",
+              "label_en": "Retention and residency checked"
             }
           ],
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Deux personnes se tendent la main : le support client qui garde le lien humain",
-          "media_alt_en": "Two people reaching out to shake hands: customer support that keeps the human link",
-          "link_label_fr": "Le cas d'usage support et SAV",
-          "link_label_en": "The support and after-sales use case",
-          "link_href": "/cas-usages/support-sav"
-        },
-        {
-          "kicker_fr": "Cas d'usage 04",
-          "kicker_en": "Use case 04",
-          "h3_fr": "Extraction de données",
-          "h3_en": "Data extraction",
-          "body_fr": "Factures, devis, formulaires, PDF mal foutus : Claude lit des documents non structurés et en sort des données propres, prêtes pour votre CRM ou votre tableur. La saisie manuelle, source d'erreurs et de fatigue, disparaît du quotidien.",
-          "body_en": "Invoices, quotes, forms, messy PDFs: Claude reads unstructured documents and pulls out clean data, ready for your CRM or spreadsheet. Manual entry, a source of errors and fatigue, disappears from daily life.",
-          "points": [
-            {
-              "label_fr": "Documents non structurés lus",
-              "label_en": "Unstructured documents read"
-            },
-            {
-              "label_fr": "Données propres et exploitables",
-              "label_en": "Clean, usable data"
-            },
-            {
-              "label_fr": "Fin de la saisie manuelle",
-              "label_en": "End of manual entry"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Billets, graphique et documents côte à côte : des données extraites et exploitables",
-          "media_alt_en": "Banknotes, a chart and documents side by side: data extracted and usable",
-          "link_label_fr": "Le cas d'usage finance et comptabilité",
-          "link_label_en": "The finance and accounting use case",
-          "link_href": "/cas-usages/finance-comptabilite"
-        },
-        {
-          "kicker_fr": "Cas d'usage 05",
-          "kicker_en": "Use case 05",
-          "h3_fr": "Automatisation via MCP",
-          "h3_en": "Automation via MCP",
-          "body_fr": "Le protocole MCP branche Claude à vos outils : CRM, agenda, messagerie, base de données. Il ne se contente plus de répondre, il agit : crée une fiche, planifie un suivi, met à jour un statut. C'est le passage de l'assistant à l'agent qui fait le travail.",
-          "body_en": "The MCP protocol wires Claude to your tools: CRM, calendar, messaging, database. It no longer just answers, it acts: creates a record, schedules a follow-up, updates a status. That's the shift from assistant to agent that does the work.",
-          "points": [
-            {
-              "label_fr": "Branché à vos outils existants",
-              "label_en": "Wired to your existing tools"
-            },
-            {
-              "label_fr": "Agit, ne se contente pas de répondre",
-              "label_en": "Acts, doesn't just answer"
-            },
-            {
-              "label_fr": "Accès cadrés et tracés",
-              "label_en": "Framed and traced access"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-8-paper.webp",
-          "media_alt_fr": "Des personnes aiguillées dans des tubes parallèles : des tâches routées automatiquement vers le bon outil",
-          "media_alt_en": "People routed through parallel tubes: tasks routed automatically to the right tool",
-          "link_label_fr": "Le guide MCP : brancher Claude à vos outils",
-          "link_label_en": "The MCP guide: connect Claude to your tools",
-          "link_href": "/ressources/guides/mcp-claude"
+          "link_label_fr": "Administrer plugins et connecteurs",
+          "link_label_en": "Administer plugins and connectors",
+          "link_href": "/ressources/guides/claude-plugins-entreprise",
+          "media_src": "/images/illustrations/ds/claude-pme-hub-vannes-paper.webp",
+          "media_alt_fr": "Un homme tourne une grande vanne sur une conduite qui alimente quatre maisons par quatre colonnes",
+          "media_alt_en": "A man turns a large valve on a pipe that feeds four houses through four risers"
         }
       ]
     },
     {
-      "type": "pull-quote-block",
-      "background": "ink",
-      "variant": "centered",
-      "quote_fr": "Un agent qui marche vaut mieux que dix pilotes oubliés.",
-      "quote_en": "One agent that works beats ten forgotten pilots.",
-      "cite_fr": "La règle du déploiement en PME",
-      "cite_en": "The SMB deployment rule"
-    },
-    {
-      "type": "process-steps",
+      "type": "editorial-prose",
       "background": "paper",
-      "kicker_fr": "§ Les 90 premiers jours",
-      "kicker_en": "§ The first 90 days",
-      "h2_fr": "Trois phases pour démarrer juste",
-      "h2_en": "Three phases to start right",
-      "intro_fr": "Le déploiement ne se joue pas en une semaine ni en un grand chantier. Trois phases de trente jours suffisent à transformer une intention en agent qui tourne, mesuré et adopté.",
-      "intro_en": "Deployment isn't won in a week nor in one big project. Three phases of thirty days are enough to turn an intention into a running agent, measured and adopted.",
-      "steps": [
+      "figures": [
         {
-          "title_fr": "Jours 1 à 30 : cadrer et lancer",
-          "title_en": "Days 1 to 30: frame and launch",
-          "body_fr": "On choisit un seul cas d'usage à fort volume, on rassemble les données et le contexte dont l'agent a besoin, on pose la politique d'usage et on lance un premier agent sur un périmètre limité. Objectif : un résultat mesurable, pas un projet parfait.",
-          "body_en": "You pick a single high-ROI use case, gather the data and context the agent needs, set the usage policy and launch a first agent on a limited scope. Goal: a measurable result, not a perfect project.",
-          "meta_fr": "Cadrage",
-          "meta_en": "Framing"
-        },
-        {
-          "title_fr": "Jours 31 à 60 : fiabiliser et former",
-          "title_en": "Days 31 to 60: make reliable and train",
-          "body_fr": "On affine l'agent sur les cas réels, on corrige ce qui dérape et on forme les équipes à formuler et vérifier. On désigne un référent IA interne pour que la compétence reste chez vous. La confiance se gagne sur des résultats répétés, pas sur une démo.",
-          "body_en": "You refine the agent on real cases, fix what drifts and train teams to phrase and verify. You appoint an internal AI lead so the skill stays with you. Trust is earned on repeated results, not on a demo.",
-          "meta_fr": "Fiabilisation",
-          "meta_en": "Reliability"
-        },
-        {
-          "title_fr": "Jours 61 à 90 : étendre et gouverner",
-          "title_en": "Days 61 to 90: expand and govern",
-          "body_fr": "Le premier agent prouvé, on ouvre un deuxième cas d'usage et on renforce la gouvernance : accès, traçabilité, mesure du gain. L'extension s'appuie sur ce qui marche déjà, jamais sur un pari neuf. La maturité monte d'une marche.",
-          "body_en": "With the first agent proven, you open a second use case and reinforce governance: access, traceability, gain measurement. Expansion builds on what already works, never on a fresh bet. Maturity moves up a step.",
-          "meta_fr": "Extension",
-          "meta_en": "Expansion"
+          "src": "/images/illustrations/ds/claude-pme-hub-fondations-paper.webp",
+          "alt_fr": "Cinq blocs de fondation en ligne, deux personnes portent le sixième vers la place vide sous une charpente",
+          "alt_en": "Five foundation blocks in a row, two people carry the sixth into the gap under a roof frame",
+          "side": "left"
         }
-      ]
-    },
-    {
-      "type": "feature-zigzag",
-      "background": "paper-2",
-      "kicker_fr": "§ La checklist",
-      "kicker_en": "§ The checklist",
-      "h2_fr": "Les 6 prérequis à poser avant le premier compte",
-      "h2_en": "The 6 prerequisites to lay before the first account",
-      "lede_fr": "Avant d'ouvrir la moindre licence, six prérequis conditionnent la réussite, dans cet ordre. Sauter une étape ne fait pas gagner du temps, ça déplace le problème plus loin, là où il coûte plus cher à corriger.",
-      "lede_en": "Before opening a single licence, six prerequisites decide success, in this order. Skipping a step doesn't save time, it pushes the problem further down, where it costs more to fix.",
-      "rows": [
-        {
-          "kicker_fr": "Prérequis 01",
-          "kicker_en": "Prerequisite 01",
-          "h3_fr": "Données",
-          "h3_en": "Data",
-          "body_fr": "Avant tout, cartographiez ce que Claude devra lire : CRM, base documentaire, emails, agenda. Où vivent ces données, dans quel état, et lesquelles ne doivent jamais sortir ? Des données éparpillées et sales produisent des réponses floues, quel que soit le modèle branché dessus.",
-          "body_en": "First, map what Claude will read: CRM, document base, emails, calendar. Where does this data live, in what state, and which must never leave? Scattered, dirty data produces fuzzy answers, whatever model is wired to it.",
-          "points": [
-            {
-              "label_fr": "Sources cartographiées",
-              "label_en": "Sources mapped"
-            },
-            {
-              "label_fr": "Données sensibles repérées",
-              "label_en": "Sensitive data flagged"
-            },
-            {
-              "label_fr": "Accessibles via MCP",
-              "label_en": "Accessible via MCP"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/fruits-paper.webp",
-          "media_alt_fr": "Trois pommes de la plus saine à la plus abîmée : des données qui se dégradent sans entretien",
-          "media_alt_en": "Three apples from fresh to rotten: data that decays without upkeep",
-          "link_label_fr": "Centraliser vos données avant l'IA",
-          "link_label_en": "Centralise your data before AI",
-          "link_href": "/cas-usages/centraliser-donnees"
-        },
-        {
-          "kicker_fr": "Prérequis 02",
-          "kicker_en": "Prerequisite 02",
-          "h3_fr": "Sécurité et confidentialité",
-          "h3_en": "Security and confidentiality",
-          "body_fr": "Décidez quelles données peuvent passer dans Claude et lesquelles non, et écrivez-le. Sur les offres entreprise, vos données n'entraînent pas les modèles par défaut. Le vrai risque, c'est l'usage non cadré : des comptes personnels gratuits où circulent des données sensibles. Cadrez les accès plutôt que d'interdire.",
-          "body_en": "Decide which data can go into Claude and which can't, and write it down. On enterprise offers, your data doesn't train the models by default. The real risk is unframed usage: free personal accounts where sensitive data flows. Frame access rather than ban it.",
-          "points": [
-            {
-              "label_fr": "Politique d'usage écrite",
-              "label_en": "Written usage policy"
-            },
-            {
-              "label_fr": "Conformité RGPD vérifiée",
-              "label_en": "GDPR compliance checked"
-            },
-            {
-              "label_fr": "Comptes pro, pas personnels",
-              "label_en": "Pro accounts, not personal"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/men-on-hand-paper.webp",
-          "media_alt_fr": "Une main géante qui porte une équipe : un cadre de sécurité qui protège sans bloquer",
-          "media_alt_en": "A giant hand carrying a team: a security frame that protects without blocking",
-          "link_label_fr": "Télécharger le modèle de charte IA (gratuit)",
-          "link_label_en": "Download the AI policy template (free)",
-          "link_href": "/ressources/outils/charte-ia-entreprise"
-        },
-        {
-          "kicker_fr": "Prérequis 03",
-          "kicker_en": "Prerequisite 03",
-          "h3_fr": "Choix du cas d'usage",
-          "h3_en": "Use-case selection",
-          "body_fr": "Choisissez un seul cas pour le pilote, pas dix. Le bon coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, un résultat mesurable. Comptes rendus, tri d'emails, première réponse au support : d'excellents candidats. On garde les décisions irréversibles pour plus tard.",
-          "body_en": "Pick a single case for the pilot, not ten. The good one ticks three boxes: a volume repeated each week, low risk if it errs, a measurable result. Minutes, email triage, first support reply: excellent candidates. Irreversible decisions are kept for later.",
-          "points": [
-            {
-              "label_fr": "Volume répété, hebdomadaire",
-              "label_en": "Repeated, weekly volume"
-            },
-            {
-              "label_fr": "Risque faible en cas d'erreur",
-              "label_en": "Low risk if it errs"
-            },
-            {
-              "label_fr": "Résultat mesurable",
-              "label_en": "Measurable result"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Non, non, oui : trier les cas d'usage pour ne garder que le bon pilote",
-          "media_alt_en": "No, no, yes: sorting use cases to keep only the right pilot",
-          "link_label_fr": "Remplir la grille des tâches à automatiser",
-          "link_label_en": "Fill in the task automation grid",
-          "link_href": "/ressources/outils/grille-taches-a-automatiser"
-        },
-        {
-          "kicker_fr": "Prérequis 04",
-          "kicker_en": "Prerequisite 04",
-          "h3_fr": "Formation des équipes",
-          "h3_en": "Team training",
-          "body_fr": "La formation décide de l'adoption : un outil que personne ne maîtrise reste sur l'étagère. Comptez une demi-journée pour les bons réflexes, puis désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines.",
-          "body_en": "Training decides adoption: a tool no one masters stays on the shelf. Count half a day for the right reflexes, then appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks.",
-          "points": [
-            {
-              "label_fr": "Formuler et vérifier",
-              "label_en": "Phrase and check"
-            },
-            {
-              "label_fr": "Un référent IA interne",
-              "label_en": "An internal AI lead"
-            },
-            {
-              "label_fr": "Bibliothèque de prompts",
-              "label_en": "Prompt library"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un formateur au clavier devant une salle attentive : la formation des équipes",
-          "media_alt_en": "A trainer at the keyboard in front of an attentive room: training the teams",
-          "link_label_fr": "Voir la formation Claude en entreprise",
-          "link_label_en": "See the in-company Claude training",
-          "link_href": "/formations/claude"
-        },
-        {
-          "kicker_fr": "Prérequis 05",
-          "kicker_en": "Prerequisite 05",
-          "h3_fr": "Mesure du ROI",
-          "h3_en": "ROI measurement",
-          "body_fr": "Mesurez avant de déployer, sinon le gain reste une impression. Notez le temps passé et le taux d'erreur actuels sur le cas pilote, puis comparez après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité.",
-          "body_en": "Measure before deploying, otherwise the gain stays a feeling. Note current time spent and error rate on the pilot case, then compare after a few weeks of real use. ROI reads in hours given back to teams and tasks that no longer come back. An unmeasured case can't be defended in committee.",
-          "points": [
-            {
-              "label_fr": "Baseline avant déploiement",
-              "label_en": "Baseline before deployment"
-            },
-            {
-              "label_fr": "Heures rendues mesurées",
-              "label_en": "Hours given back measured"
-            },
-            {
-              "label_fr": "Comparaison avant/après",
-              "label_en": "Before/after comparison"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/money-money-paper.webp",
-          "media_alt_fr": "Un personnage gravit des piles de pièces de plus en plus hautes : le ROI qui se mesure",
-          "media_alt_en": "A figure climbing ever-taller stacks of coins: ROI you can measure",
-          "link_label_fr": "Estimer votre ROI avec le calculateur",
-          "link_label_en": "Estimate your ROI with the calculator",
-          "link_href": "/ressources/outils/calculateur-roi-ia"
-        },
-        {
-          "kicker_fr": "Prérequis 06",
-          "kicker_en": "Prerequisite 06",
-          "h3_fr": "Gouvernance",
-          "h3_en": "Governance",
-          "body_fr": "La gouvernance pérennise ce qui marche : qui valide un nouveau cas d'usage, qui révise la politique, comment on étend sans recréer le chaos. Ce n'est pas un frein, c'est ce qui permet de passer du pilote à l'échelle sans que chaque équipe réinvente ses propres règles dans son coin.",
-          "body_en": "Governance sustains what works: who validates a new use case, who revises the policy, how you scale without recreating chaos. It isn't a brake, it's what lets you move from pilot to scale without each team reinventing its own rules in a corner.",
-          "points": [
-            {
-              "label_fr": "Validation des nouveaux cas",
-              "label_en": "New-case validation"
-            },
-            {
-              "label_fr": "Politique révisée régulièrement",
-              "label_en": "Policy revised regularly"
-            },
-            {
-              "label_fr": "Extension par paliers",
-              "label_en": "Expansion in steps"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-15-paper.webp",
-          "media_alt_fr": "Une équipe devant des tableaux de pilotage : la gouvernance qui organise l'extension",
-          "media_alt_en": "A team in front of planning boards: governance that organises expansion",
-          "link_label_fr": "AI Act : le calendrier pour les PME",
-          "link_label_en": "AI Act: the timeline for SMBs",
-          "link_href": "/ressources/guides/ai-act-pme-calendrier"
-        }
-      ]
+      ],
+      "html_fr": "<h2>Les six prérequis à poser avant le premier compte</h2><p>Avant d'ouvrir la moindre licence, six points conditionnent la réussite, dans cet ordre. Sauter une étape ne fait pas gagner de temps : le problème revient plus loin, là où il coûte plus cher à corriger.</p><h3>1. Les données</h3><p>Listez ce que Claude devra lire : CRM, documents, e-mails, agenda. Où vivent ces données, dans quel état, et lesquelles ne doivent jamais sortir ? Des données éparpillées et périmées donnent des réponses floues, quel que soit le modèle. Inutile de tout ranger d'un coup : rangez ce que le premier cas va lire. La page <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a> montre par où commencer.</p><h3>2. La sécurité et la confidentialité</h3><p>Décidez quelles données peuvent passer dans Claude, et écrivez-le. Le vrai risque n'est pas le modèle, c'est l'usage non cadré : des comptes personnels gratuits où circulent des fichiers clients. Cadrez les accès plutôt que d'interdire. Le <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA pour PME</a> donne une base à adapter en une heure.</p><h3>3. Le cas pilote</h3><p>Un seul cas, pas dix. Le bon coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, un résultat mesurable. Comptes rendus, tri des e-mails, première réponse au support : d'excellents candidats. Gardez les décisions irréversibles pour plus tard.</p><h3>4. La formation</h3><p>Un outil que personne ne maîtrise reste sur l'étagère. Comptez une demi-journée pour les bons réflexes (formuler, vérifier, savoir ce qu'on ne colle jamais), puis nommez un référent interne qui répond aux questions et entretient les consignes partagées. Sans cette personne, l'élan retombe en quelques semaines.</p><h3>5. La mesure</h3><p>Notez le temps passé et le taux d'erreur actuels sur le cas pilote avant de commencer. Sans cette base, le gain reste une impression, et une impression ne se défend pas en comité de direction. Un cas non mesuré finit coupé au premier arbitrage budgétaire.</p><h3>6. La gouvernance</h3><p>Qui valide un nouveau cas d'usage, qui révise la règle, qui installe un plugin ou ouvre un connecteur. Ce n'est pas un frein : c'est ce qui permet de passer du pilote à l'équipe sans que chaque service invente ses propres règles. Le cadre réglementaire à garder en tête est dans le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier AI Act pour les PME</a>.</p>",
+      "html_en": "<h2>The six prerequisites before the first account</h2><p>Before opening a single licence, six points decide success, in this order. Skipping one saves no time: the problem comes back later, where it costs more.</p><h3>1. Data</h3><p>List what Claude will need to read: CRM, documents, email, calendar. Where does that data live, in what state, and what must never leave? Tidy what the first use case reads, not everything. See <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a>.</p><h3>2. Security and confidentiality</h3><p>Decide which data may go into Claude, and write it down. The real risk is unframed use: free personal accounts carrying client files. Frame access rather than ban. The <a href=\"/ressources/outils/charte-ia-entreprise\">SMB AI policy template</a> is a base to adapt.</p><h3>3. The pilot use case</h3><p>One case, not ten: weekly volume, low risk if wrong, a measurable result. Minutes, email triage and first-line support replies are good candidates.</p><h3>4. Training</h3><p>A tool nobody masters stays on the shelf. Half a day for the right habits, then a named internal lead who answers questions and maintains shared instructions.</p><h3>5. Measurement</h3><p>Record current time spent and error rate on the pilot before you start. Without that baseline, the gain stays an impression.</p><h3>6. Governance</h3><p>Who approves a new use case, revises the rule, installs a plugin or opens a connector. It is what lets you scale from pilot to team. Keep the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline for SMBs</a> in mind.</p>"
     },
     {
       "type": "resource-card-grid",
-      "background": "paper",
-      "columns": "3",
-      "kicker_fr": "§ Le kit de déploiement gratuit",
-      "kicker_en": "§ The free deployment kit",
-      "h2_fr": "Cinq outils pour passer du guide au plan",
-      "h2_en": "Five tools to turn the guide into a plan",
-      "intro_fr": "Chaque prérequis a son outil. Utilisables en ligne sans inscription ; laissez votre e-mail seulement si vous voulez garder une copie de vos résultats.",
-      "intro_en": "Each prerequisite has its tool. Usable online without signing up; leave your email only if you want to keep a copy of your results.",
+      "background": "paper-2",
+      "columns": "2",
+      "kicker_fr": "§ Les outils des prérequis",
+      "kicker_en": "§ Tools for the prerequisites",
+      "h2_fr": "Quatre outils pour poser les prérequis",
+      "h2_en": "Four tools to put the prerequisites in place",
+      "intro_fr": "Trois s'utilisent en ligne, sans inscription. Le modèle de charte se lit à l'écran ; sa version PDF arrive par e-mail.",
+      "intro_en": "Three work online, no sign-up. The policy template reads on screen; its PDF version comes by email.",
       "resources": [
         {
-          "kind_fr": "Checklist PDF",
-          "kind_en": "PDF checklist",
-          "title_fr": "Checklist des 90 jours",
-          "title_en": "The 90-day checklist",
-          "desc_fr": "Les 3 phases du guide en 12 semaines : une case par action, un livrable par semaine, les indicateurs à suivre.",
-          "desc_en": "The guide's 3 phases in 12 weeks: one box per action, one deliverable per week, the metrics to track.",
-          "format": "PDF",
-          "href": "/ressources/outils/checklist-90-jours-claude",
-          "cta_label_fr": "Télécharger la checklist",
-          "cta_label_en": "Download the checklist"
-        },
-        {
-          "kind_fr": "Modèle PDF",
-          "kind_en": "PDF template",
+          "kind_fr": "Modèle",
+          "kind_en": "Template",
           "title_fr": "Charte IA pour PME",
           "title_en": "AI policy for SMBs",
-          "desc_fr": "La politique d'usage du prérequis 02, prête à adapter : données autorisées, comptes, validation humaine.",
-          "desc_en": "The usage policy from prerequisite 02, ready to adapt: allowed data, accounts, human review.",
-          "format": "PDF",
+          "desc_fr": "La règle d'usage du prérequis 2 : données autorisées, comptes, validation humaine, à adapter.",
+          "desc_en": "The usage rule for prerequisite 2: allowed data, accounts, human approval, ready to adapt.",
+          "format": "PDF par e-mail",
           "href": "/ressources/outils/charte-ia-entreprise",
-          "cta_label_fr": "Télécharger le modèle",
-          "cta_label_en": "Download the template"
+          "cta_label_fr": "Voir le modèle",
+          "cta_label_en": "See the template",
+          "gated": true
         },
         {
           "kind_fr": "Grille",
           "kind_en": "Grid",
           "title_fr": "Grille des tâches à automatiser",
-          "title_en": "Task automation grid",
-          "desc_fr": "Notez vos tâches sur le volume, le risque et le gain pour choisir votre premier cas d'usage.",
-          "desc_en": "Score your tasks on volume, risk and gain to pick your first use case.",
+          "title_en": "Tasks-to-automate grid",
+          "desc_fr": "Notez vos tâches sur le volume, le risque et le gain pour choisir le cas pilote du prérequis 3.",
+          "desc_en": "Score your tasks on volume, risk and gain to pick the pilot for prerequisite 3.",
           "format": "En ligne",
           "href": "/ressources/outils/grille-taches-a-automatiser",
           "cta_label_fr": "Remplir la grille",
@@ -667,8 +576,8 @@
           "kind_en": "Calculator",
           "title_fr": "Calculateur de ROI IA",
           "title_en": "AI ROI calculator",
-          "desc_fr": "La baseline du prérequis 05 : heures récupérables et gain annuel estimé sur votre cas pilote.",
-          "desc_en": "The baseline from prerequisite 05: recoverable hours and estimated yearly gain on your pilot case.",
+          "desc_fr": "La base du prérequis 5 : heures récupérables et gain annuel estimé sur votre cas pilote.",
+          "desc_en": "The baseline for prerequisite 5: recoverable hours and estimated yearly gain on your pilot.",
           "format": "En ligne",
           "href": "/ressources/outils/calculateur-roi-ia",
           "cta_label_fr": "Calculer mon ROI",
@@ -689,36 +598,394 @@
       ]
     },
     {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Les cinq usages par lesquels commencer",
+      "kicker_en": "§ The five uses to start with",
+      "heading_fr": "Cinq usages qui se mesurent vite",
+      "heading_en": "Five uses that show results fast",
+      "caption_fr": "Familles d'usages relevées dans nos audits de PME. Exemples illustratifs : le gain dépend de votre volume et de la qualité du contexte fourni. Au démarrage, aucune de ces tâches ne part sans relecture humaine.",
+      "caption_en": "Use families seen in our SMB audits. Illustrative examples: the gain depends on your volume and the context you provide. At the start, none of these tasks goes out without human review.",
+      "columns_fr": [
+        "Usage",
+        "Exemple en PME",
+        "Ce que Claude doit recevoir",
+        "L'étape suivante"
+      ],
+      "columns_en": [
+        "Use",
+        "SMB example",
+        "What Claude needs",
+        "Next step"
+      ],
+      "rows_fr": [
+        [
+          "Rédaction et reformulation",
+          "Devis, relances, réponses clients, fiches produit, dans votre ton",
+          "Vos modèles, votre ton, vos mots interdits",
+          "Un skill de charte rédactionnelle"
+        ],
+        [
+          "Synthèse de documents et de réunions",
+          "Compte rendu avec décisions et actions, première lecture d'un contrat ou d'un appel d'offres",
+          "Notes ou transcription, documents de référence",
+          "Un projet par sujet récurrent"
+        ],
+        [
+          "Support client de premier niveau",
+          "Brouillon de réponse à un ticket, tiré de vos procédures",
+          "Base de procédures, réponses déjà validées",
+          "Connecteur en lecture vers l'outil de tickets"
+        ],
+        [
+          "Extraction de données",
+          "Factures, bons de commande, formulaires transformés en tableau propre",
+          "Le format de sortie, des exemples corrects",
+          "Contrôle automatique des totaux"
+        ],
+        [
+          "Tâches sur fichiers et outils",
+          "Rapport hebdomadaire assemblé à partir de trois exports, dossier partagé rangé",
+          "Un dossier de confiance dédié, le format du livrable",
+          "Tâche planifiée, relue avant diffusion"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Drafting and rewriting",
+          "Quotes, follow-ups, client replies, product sheets, in your tone",
+          "Your templates, tone and banned words",
+          "A writing-style skill"
+        ],
+        [
+          "Summarising documents and meetings",
+          "Minutes with decisions and actions, first read of a contract or tender",
+          "Notes or transcript, reference documents",
+          "One project per recurring topic"
+        ],
+        [
+          "First-line customer support",
+          "Draft reply to a ticket, based on your procedures",
+          "Procedure base, approved replies",
+          "Read-only connector to the ticketing tool"
+        ],
+        [
+          "Data extraction",
+          "Invoices, purchase orders, forms turned into a clean table",
+          "The output format, correct examples",
+          "Automatic total checks"
+        ],
+        [
+          "Tasks on files and tools",
+          "Weekly report built from three exports, shared folder tidied",
+          "A dedicated trusted folder, the deliverable format",
+          "Scheduled task, reviewed before sending"
+        ]
+      ]
+    },
+    {
+      "type": "cta-form-inline",
+      "anchor": "pack-skills",
+      "background": "paper-2",
+      "lead_magnet": "pack-skills-claude-pme",
+      "kicker_fr": "§ Pack gratuit, envoyé par e-mail",
+      "kicker_en": "§ Free pack, sent by email",
+      "h2_fr": "Recevez le pack de 8 skills Claude pour PME",
+      "h2_en": "Get the pack of 8 Claude skills for SMBs",
+      "body_fr": "Un fichier ZIP avec huit procédures prêtes à adapter : devis commercial, compte rendu de réunion, relance de facture impayée, fiche de poste, veille concurrentielle, rapport mensuel de pilotage, charte rédactionnelle et tri des e-mails entrants. Chaque skill a ses fichiers à compléter, et un zip par skill est prêt à téléverser sur claude.ai. S'y ajoute un mode d'emploi PDF de 11 pages : installer, adapter, tester en trois essais, éviter les erreurs fréquentes, sécuriser, passer au plugin.",
+      "body_en": "A ZIP file with eight procedures to adapt: sales quote, meeting minutes, unpaid invoice follow-up, job description, competitive watch, monthly KPI report, writing style guide and inbound email triage. Each skill comes with files to complete, plus one zip per skill ready to upload to claude.ai, and an 11-page PDF guide: install, adapt, test in three runs, avoid common mistakes, secure, move to a plugin.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir le pack par e-mail →",
+      "submit_label_en": "Get the pack by email →",
+      "hint_fr": "Envoi immédiat, en pièce jointe. Pas d'inscription à la lettre sans votre accord.",
+      "hint_en": "Sent right away, as an attachment. No newsletter sign-up without your consent."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-pme-hub-etages-paper.webp",
+          "alt_fr": "Un immeuble en coupe à quatre étages, une activité par étage, des câbles partent du toit vers des maisons",
+          "alt_en": "A cut-away four-storey building, one activity per floor, cables running from the top to small houses",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Où Claude travaille : de la conversation aux agents</h2><p>« Claude » désigne aujourd'hui un ensemble de briques. Les confondre mène à acheter la mauvaise chose, ou à attendre d'un outil ce qu'il ne fait pas. De la plus simple à la plus technique :</p><ul><li><strong>La conversation</strong>, avec les projets (documents de référence et consignes permanentes), la mémoire et les fichiers produits. C'est là que démarrent la plupart des usages d'une PME.</li><li><strong>Les tâches</strong> (Cowork) : Claude planifie, travaille dans vos dossiers de confiance et vos outils connectés, puis rend un livrable. Une tâche peut être planifiée et tourner dans le cloud, ordinateur éteint. Elle consomme plus de quota qu'une question.</li><li><strong>Les skills</strong> : vos procédures écrites, chargées seulement quand la tâche s'y prête. Le guide <a href=\"/ressources/guides/claude-skills\">skills Claude</a> explique comment les écrire, les tester et ce qui bloque quand on les partage.</li><li><strong>Les connecteurs</strong> : l'accès à vos logiciels par le protocole MCP. Anthropic examine les connecteurs de son annuaire mais n'audite pas la sécurité des serveurs MCP : chaque connecteur se choisit comme un fournisseur. Le <a href=\"/ressources/guides/mcp-claude\">guide MCP pour dirigeants</a> détaille le tri.</li><li><strong>Les plugins</strong> : le paquet qui réunit skills, connecteurs et sous-agents. C'est l'unité de diffusion à une équipe, administrée en Team et Enterprise.</li><li><strong>Claude Code</strong> : l'agent de développement, dans le terminal, l'éditeur, l'application de bureau ou le web. Inclus dans les offres payantes, il sert d'abord à ceux qui maintiennent du code. Son coût par poste et ses réglages de sécurité sont dans <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</li></ul><p>La règle pratique : montez d'un étage seulement quand le précédent tient. Une équipe qui n'utilise pas encore bien la conversation ne gagnera rien à un plugin, et un connecteur en écriture ne rattrape pas une procédure floue.</p>",
+      "html_en": "<h2>Where Claude works: from chat to agents</h2><p>\"Claude\" now means a set of building blocks. Mixing them up leads to buying the wrong thing. From simplest to most technical:</p><ul><li><strong>Chat</strong>, with projects (reference documents and standing instructions), memory and generated files. Most SMB uses start here.</li><li><strong>Tasks</strong> (Cowork): Claude plans, works in your trusted folders and connected tools, and returns a deliverable. Tasks can be scheduled in the cloud.</li><li><strong>Skills</strong>: your written procedures, loaded only when needed. See <a href=\"/ressources/guides/claude-skills\">Claude skills</a>.</li><li><strong>Connectors</strong>: access to your software through MCP. Anthropic reviews its directory connectors but does not audit MCP server security. See the <a href=\"/ressources/guides/mcp-claude\">MCP guide for leaders</a>.</li><li><strong>Plugins</strong>: the bundle of skills, connectors and sub-agents, and the unit you roll out to a team.</li><li><strong>Claude Code</strong>: the coding agent, in the terminal, editor, desktop app or web. See <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business</a>.</li></ul><p>Rule of thumb: move up one level only when the previous one holds.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Les 90 premiers jours",
+      "kicker_en": "§ The first 90 days",
+      "h2_fr": "Trois phases de 30 jours, du test à l'usage d'équipe",
+      "h2_en": "Three 30-day phases, from test to team-wide use",
+      "intro_fr": "Le déploiement ne se joue ni en une semaine ni en un grand chantier. Trois phases suffisent à transformer une intention en usage mesuré et adopté. Chacune se termine par un point de passage : on avance, on corrige ou on arrête.",
+      "intro_en": "Deployment is neither a one-week job nor a big-bang project. Three phases turn an intention into measured, adopted use. Each ends with a checkpoint: go on, fix or stop.",
+      "steps": [
+        {
+          "title_fr": "Jours 1 à 30 : cadrer et lancer",
+          "title_en": "Days 1 to 30: frame and launch",
+          "body_fr": "Un seul cas d'usage, les données et le contexte qu'il demande, une règle d'usage d'une page, des comptes professionnels. Le pilote tourne en conditions réelles avec deux ou trois personnes, et on note le temps passé avant et après. Objectif : un résultat mesurable, pas un projet parfait.",
+          "body_en": "One use case, the data and context it needs, a one-page usage rule, business accounts. The pilot runs for real with two or three people, timed before and after.",
+          "meta_fr": "Point J30 : le cas tient-il ?",
+          "meta_en": "Day 30: does the case hold?"
+        },
+        {
+          "title_fr": "Jours 31 à 60 : fiabiliser et former",
+          "title_en": "Days 31 to 60: make it reliable, train",
+          "body_fr": "On corrige ce qui dérape sur les cas réels, on écrit la procédure en skill, on forme l'équipe à formuler et à vérifier. Le référent interne prend la main. La confiance se gagne sur des résultats répétés, pas sur une démonstration.",
+          "body_en": "Fix what goes wrong on real cases, write the procedure as a skill, train the team to ask and to check. The internal lead takes over.",
+          "meta_fr": "Point J60 : l'équipe s'en sert-elle seule ?",
+          "meta_en": "Day 60: does the team use it alone?"
+        },
+        {
+          "title_fr": "Jours 61 à 90 : étendre et gouverner",
+          "title_en": "Days 61 to 90: extend and govern",
+          "body_fr": "Le premier cas prouvé, on ouvre un deuxième usage, on branche un premier connecteur en lecture seule si besoin, et on écrit qui valide quoi. On compare le coût complet au temps gagné avant de renouveler ou d'ajouter des sièges.",
+          "body_en": "With the first case proven, open a second use, add a read-only connector if needed and write down who approves what. Compare full cost to time saved before renewing.",
+          "meta_fr": "Bilan J90 : étendre, ajuster ou arrêter",
+          "meta_en": "Day 90: extend, adjust or stop"
+        }
+      ]
+    },
+    {
+      "type": "cta-form-inline",
+      "anchor": "checklist",
+      "background": "paper-2",
+      "lead_magnet": "checklist-90-jours-claude",
+      "kicker_fr": "§ Checklist gratuite, envoyée par e-mail",
+      "kicker_en": "§ Free checklist, sent by email",
+      "h2_fr": "Le plan des 90 jours, case par case",
+      "h2_en": "The 90-day plan, box by box",
+      "body_fr": "Vous recevez « Déployer Claude en 90 jours : la checklist PME », un PDF de 5 pages : les 6 prérequis à cocher avant le premier compte, 12 semaines réparties en 3 phases de 30 jours, une action par case, un livrable attendu chaque semaine, un point de passage à J30, J60 et J90, et les champs à remplir en tête (référent, sponsor, cas pilote, date de départ). Imprimable, pour le bureau du référent.",
+      "body_en": "You receive \"Deploy Claude in 90 days: the SMB checklist\", a 5-page PDF: the 6 prerequisites to tick before the first account, 12 weeks in 3 phases of 30 days, one action per box, one deliverable per week, checkpoints at day 30, 60 and 90, and header fields to fill in (lead, sponsor, pilot, start date). Printable.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir la checklist par e-mail →",
+      "submit_label_en": "Get the checklist by email →",
+      "hint_fr": "Un seul e-mail avec le PDF en pièce jointe. Pas d'inscription à la lettre sans votre accord.",
+      "hint_en": "One email with the PDF attached. No newsletter sign-up without your consent."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-pme-hub-iceberg-paper.webp",
+          "alt_fr": "Un iceberg en coupe : petite pointe hors de l'eau, grande masse dessous, un homme en barque regarde la pointe",
+          "alt_en": "A cut-away iceberg: a small tip above water, a large mass below, a man in a boat looking at the tip",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Combien ça coûte, en vrai</h2><p>Le prix d'un siège est la partie visible. Il représente rarement l'essentiel de ce qu'un déploiement coûte à une PME. Quatre postes, à chiffrer séparément, avant de signer.</p><h3>1. Les sièges</h3><p>Le poste le plus facile à lire. Team s'ouvre dès deux sièges, en version Standard ou Premium ; Enterprise se paie au siège plus l'usage ; Pro et Max sont des comptes individuels aux conditions grand public. Les montants bougent : nous les tenons à jour, avec leur source et leur date, dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix</a>. Ne recopiez pas une grille trouvée sur un blog : plusieurs affichent encore l'ancien modèle Enterprise ou un minimum Team faux.</p><h3>2. L'usage au-delà du quota</h3><p>En Team et Enterprise, chaque siège a un quota mesuré sur une fenêtre glissante de 5 heures et sur la semaine, partagé entre la conversation, les tâches et Claude Code. Au-delà, l'organisation achète des crédits d'usage, avec des plafonds par organisation, par groupe ou par membre. Fixez ces plafonds le premier jour : sans eux, un seul utilisateur enthousiaste fait déraper le mois. Pour un poste de développeur, Anthropic publie un repère de coût par jour actif, repris dans le guide Claude Code.</p><h3>3. Le temps interne</h3><p>C'est le poste que personne ne budgète. Choisir le cas, écrire la règle d'usage, préparer le contexte, former, mesurer : comptez le temps d'un référent pendant trois mois, et celui des personnes qui écrivent les procédures avec lui. Notre estimation, à prendre comme un ordre de grandeur et non comme une mesure : quelques heures par semaine pour le référent pendant le pilote, davantage s'il faut nettoyer des données.</p><h3>4. L'accompagnement, si vous en prenez un</h3><p>Il n'est pas obligatoire, et la section suivante dit quand il ne sert à rien. Chez Waimia, l'audit est gratuit, le sprint découverte coûte 999 € HT pour 10 heures, et la suite se fait en régie à {{prix.horaire}} € HT de l'heure, sur une estimation que vous validez avant. Tous les prix sont publics sur la page <a href=\"/tarifs\">tarifs</a>. Les licences Claude, elles, se paient directement à Anthropic.</p><p>Pour poser ces quatre postes sur votre cas, le <a href=\"/ressources/outils/guide-achat-claude-pme\">guide d'achat Claude pour PME</a> calcule trois budgets types, pour 5, 15 et 40 personnes, avec les formules visibles, mensuel contre annuel et le seuil entre Team et Enterprise.</p>",
+      "html_en": "<h2>What it really costs</h2><p>The seat price is the visible part. Four cost lines, to budget separately before signing.</p><h3>1. Seats</h3><p>Team starts at two seats, Standard or Premium; Enterprise is per seat plus usage; Pro and Max are individual consumer accounts. Dated, sourced amounts are in <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and pricing</a>. Do not copy a price list from a blog.</p><h3>2. Usage beyond the quota</h3><p>On Team and Enterprise, each seat has a quota over a rolling 5-hour window and a week, shared between chat, tasks and Claude Code. Beyond it, usage credits apply, with caps per organisation, group or member. Set the caps on day one.</p><h3>3. Internal time</h3><p>The line nobody budgets: choosing the case, writing the rule, preparing context, training, measuring. Our rough estimate: a few hours a week for the lead during the pilot.</p><h3>4. Support, if you take any</h3><p>Not mandatory. At Waimia the audit is free, the discovery sprint costs €999 excl. VAT for 10 hours, then time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. All prices are on the <a href=\"/tarifs\">pricing</a> page. Claude licences are paid to Anthropic.</p><p>The <a href=\"/ressources/outils/guide-achat-claude-pme\">Claude buyer's guide for SMBs</a> works out three budgets, for 5, 15 and 40 people.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-pme-hub-filet-paper.webp",
+          "alt_fr": "Un funambule avance sur un câble tendu entre deux mâts, un grand filet de sécurité est tendu en dessous",
+          "alt_en": "A tightrope walker crosses a wire between two masts, with a large safety net stretched below",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Les risques à cadrer avant d'ouvrir les comptes</h2><p>Claude n'est ni plus ni moins risqué qu'un autre logiciel en ligne. Les incidents viennent presque toujours d'un usage non cadré, rarement de l'outil. Cinq points à régler, par ordre d'urgence.</p><ul><li><strong>Les comptes personnels.</strong> Sur Free, Pro et Max, les conditions grand public s'appliquent : chaque utilisateur règle lui-même si ses échanges servent à l'entraînement (conservation jusqu'à 5 ans s'il accepte, 30 jours sinon). Sur Team, Enterprise et l'API, pas d'entraînement par défaut. Des fichiers clients sur un compte gratuit personnel : c'est le premier risque réel d'une PME, et le plus fréquent.</li><li><strong>Le lieu de stockage.</strong> Les apps Claude stockent les données aux États-Unis par défaut, sans hébergement européen proposé au 5 octobre 2026. Anthropic affiche SOC 2 Type 2, ISO 27001 et un accord de traitement des données (DPA). Si vos contrats imposent l'Europe, la voie est l'API via AWS Bedrock ou Google Vertex, ce qui change d'architecture et de budget.</li><li><strong>Les connecteurs.</strong> Un connecteur donne des droits réels sur un outil. Lecture seule d'abord, un compte de service dédié plutôt que celui d'un dirigeant, et l'option « Always allow » laissée désactivée tant que les actions permises ne sont pas listées.</li><li><strong>L'agent qui agit.</strong> Une tâche confiée à Claude modifie de vrais fichiers. Gardez le réglage Manual, celui par défaut, où Claude demande avant d'agir, pour tout ce qui envoie un message, paie ou supprime.</li><li><strong>L'historique local de Cowork.</strong> Il n'est pas soumis à la politique de rétention standard, et les administrateurs ne peuvent ni le gérer ni le supprimer centralement. Si votre registre prévoit une durée de conservation, il faut une consigne écrite côté postes.</li></ul><p>Le cadre légal (RGPD, AI Act, registre des traitements) est résumé sur notre page <a href=\"/conformite-ia\">conformité IA</a>. Le détail des réglages d'administration, offre par offre, est dans le kit ci-dessous.</p>",
+      "html_en": "<h2>The risks to frame before opening accounts</h2><p>Claude is no more and no less risky than other online software. Incidents almost always come from unframed use. Five points, by urgency.</p><ul><li><strong>Personal accounts.</strong> Free, Pro and Max follow consumer terms: each user sets whether chats train the models (kept up to 5 years if accepted, 30 days otherwise). Team, Enterprise and the API: no training by default.</li><li><strong>Storage location.</strong> Claude apps store data in the United States by default, with no EU hosting offered as of 5 October 2026. EU residency means the API via AWS Bedrock or Google Vertex.</li><li><strong>Connectors.</strong> Read-only first, a dedicated service account, \"Always allow\" left off until actions are listed.</li><li><strong>The agent acts.</strong> Keep the default Manual setting for anything that sends, pays or deletes.</li><li><strong>Cowork local history.</strong> It sits outside standard retention and admins cannot manage or delete it centrally.</li></ul><p>The legal frame is summarised on our <a href=\"/conformite-ia\">AI compliance</a> page.</p>"
+    },
+    {
+      "type": "cta-form-inline",
+      "anchor": "kit-conformite",
+      "background": "paper-2",
+      "lead_magnet": "kit-conformite-claude-entreprise",
+      "kicker_fr": "§ Kit gratuit pour dirigeant ou DSI",
+      "kicker_en": "§ Free kit for leaders and IT",
+      "h2_fr": "Recevez le kit conformité et administration de Claude",
+      "h2_en": "Get the Claude compliance and admin kit",
+      "body_fr": "Un PDF A4 de 11 pages, envoyé en pièce jointe : les réglages d'administration à vérifier un par un (Cowork, exécution dans le cloud, navigateur intégré, Claude in Chrome, approbation automatique, « Always allow » des connecteurs), ce qui dépend de l'offre, les quatre niveaux de diffusion des plugins, les points RGPD, une mini trame d'analyse d'impact en huit questions, un modèle de politique d'usage d'une page, un registre des usages à remplir, douze questions à poser au fournisseur et le calendrier AI Act utile.",
+      "body_en": "An 11-page A4 PDF, sent as an attachment: the admin settings to check one by one (Cowork, cloud execution, built-in browser, Claude in Chrome, auto-approval, connectors' \"Always allow\"), what depends on the plan, the four plugin rollout levels, GDPR points, an eight-question impact assessment frame, a one-page usage policy template, a usage register, twelve questions for the vendor and the relevant AI Act timeline.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir le kit (PDF) →",
+      "submit_label_en": "Get the kit (PDF) →",
+      "hint_fr": "Un seul e-mail avec le PDF. Pas d'inscription à la lettre sans votre accord. Ce kit n'est pas un avis juridique.",
+      "hint_en": "One email with the PDF. No newsletter sign-up without your consent. This kit is not legal advice."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-pme-hub-trois-voies-paper.webp",
+          "alt_fr": "Trois façons de gravir une montagne : un grimpeur seul, deux marcheurs encordés, un téléphérique",
+          "alt_en": "Three ways up a mountain: a lone climber, two hikers roped together, a cable car",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Faire seul, se faire accompagner ou faire faire</h2><p>Trois façons de gravir la même montagne. Aucune n'est meilleure dans l'absolu : le bon choix dépend de ce qui vous manque, pas de la taille de l'entreprise.</p><p><strong>Faire seul</strong> marche quand le besoin est simple et que quelqu'un a du temps : moins de dix personnes, de la rédaction et de la synthèse, aucune donnée sensible, aucun connecteur métier. Ce guide, la <a href=\"/ressources/outils/checklist-90-jours-claude\">checklist des 90 jours</a> et les guides détaillés suffisent. C'est le cas d'une bonne partie des petites équipes que nous rencontrons, et nous le leur disons.</p><p><strong>Se faire accompagner</strong> sert quand vous savez où aller mais pas dans quel ordre, ou quand l'équipe doit monter en compétence. C'est le rôle d'un <a href=\"/services/consultant-ia-claude\">consultant IA indépendant</a> (état des lieux, cas d'usage chiffrés, feuille de route, règles d'usage) ou d'une <a href=\"/formations/claude\">formation Claude</a> construite sur vos propres tâches plutôt que sur un catalogue.</p><p><strong>Faire faire</strong> se justifie quand Claude doit lire ou écrire dans votre CRM, votre ERP ou votre messagerie, quand il faut un plugin privé diffusé par groupe, ou quand personne en interne n'a le temps. C'est l'<a href=\"/services/integration-claude\">intégration de Claude en entreprise</a> : offre, connecteurs, consignes partagées, charte et référent formé, livrés et documentés.</p><p>Dans les trois cas, le premier pas peut être l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> : 45 minutes pour savoir lequel des trois vous concerne, y compris quand la réponse est « faites-le vous-même ».</p>",
+      "html_en": "<h2>Do it yourself, get support, or have it done</h2><p>Three ways up the same mountain. The right one depends on what you lack, not on company size.</p><p><strong>Doing it yourself</strong> works for under ten people, drafting and summarising, no sensitive data, no business connector. This guide, the <a href=\"/ressources/outils/checklist-90-jours-claude\">90-day checklist</a> and the detailed guides are enough.</p><p><strong>Getting support</strong> helps when you know where to go but not in what order, or when the team must build skills: an <a href=\"/services/consultant-ia-claude\">independent AI consultant</a> or <a href=\"/formations/claude\">Claude training</a> on your own tasks.</p><p><strong>Having it done</strong> makes sense when Claude must read or write in your CRM, ERP or email, when you need a private plugin per group, or when nobody has time: <a href=\"/services/integration-claude\">Claude integration for business</a>.</p><p>In all three cases, the first step can be the <a href=\"/audit-ia-pme\">free AI audit</a>: 45 minutes to find out which applies, even when the answer is \"do it yourself\".</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Trois façons de démarrer",
+      "kicker_en": "§ Three ways to start",
+      "heading_fr": "Ce que chaque option demande, et ce qu'elle coûte",
+      "heading_en": "What each option takes, and what it costs",
+      "caption_fr": "Prix Waimia hors taxes, publics sur la page tarifs. Licences Claude en sus, payées directement à Anthropic. Délai indicatif constaté sur nos missions d'intégration (2 à 8 semaines pour une équipe pilote), pas un engagement.",
+      "caption_en": "Waimia prices excl. VAT, published on the pricing page. Claude licences extra, paid to Anthropic. Typical lead time seen on our integration work (2 to 8 weeks for a pilot team), not a commitment.",
+      "columns_fr": [
+        "Option",
+        "Le bon choix si",
+        "Ce que ça coûte",
+        "Ce que vous gardez"
+      ],
+      "columns_en": [
+        "Option",
+        "Right choice if",
+        "What it costs",
+        "What you keep"
+      ],
+      "rows_fr": [
+        [
+          "Faire seul",
+          "Moins de dix personnes, rédaction et synthèse, aucune donnée sensible, quelqu'un a du temps",
+          "Les licences et le temps du référent ; ce guide, la checklist et les guides détaillés sont gratuits",
+          "La compétence, tant que le référent reste"
+        ],
+        [
+          "Conseil",
+          "Vous ne savez pas par où commencer ni dans quel ordre ; plusieurs services sont concernés",
+          "Sprint découverte à 999 € HT pour 10 heures, puis régie à {{prix.horaire}} € HT de l'heure sur estimation validée",
+          "Une feuille de route chiffrée et une charte d'usage"
+        ],
+        [
+          "Formation",
+          "L'outil est en place mais peu ou mal utilisé",
+          "{{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT, {{prix.formation.base}}, via Akigora (Qualiopi)",
+          "Des équipes autonomes sur leurs propres cas"
+        ],
+        [
+          "Intégration",
+          "Connecteurs vers vos outils, plugin privé, données sensibles, personne de disponible en interne",
+          "Sprint découverte à 999 € HT pour 10 heures, puis régie à {{prix.horaire}} € HT de l'heure sur estimation validée",
+          "Comptes, configuration, consignes, documentation"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Do it yourself",
+          "Under ten people, drafting and summarising, no sensitive data, someone has time",
+          "Licences and the lead's time; this guide, the checklist and the detailed guides are free",
+          "The know-how, as long as the lead stays"
+        ],
+        [
+          "Consulting",
+          "You do not know where to start or in what order; several departments involved",
+          "Discovery sprint at €999 excl. VAT for 10 hours, then {{prix.horaire}} € excl. VAT per hour on an approved estimate",
+          "A costed roadmap and a usage policy"
+        ],
+        [
+          "Training",
+          "The tool is in place but little or poorly used",
+          "{{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € excl. VAT or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € excl. VAT, {{prix.formation.base.en}}, via Akigora (Qualiopi)",
+          "Teams autonomous on their own cases"
+        ],
+        [
+          "Integration",
+          "Connectors to your tools, private plugin, sensitive data, nobody available in-house",
+          "Discovery sprint at €999 excl. VAT for 10 hours, then {{prix.horaire}} € excl. VAT per hour on an approved estimate",
+          "Accounts, configuration, instructions, documentation"
+        ]
+      ]
+    },
+    {
       "type": "decision-list",
       "background": "paper",
-      "kicker_fr": "§ Avant de vous lancer",
-      "kicker_en": "§ Before you start",
-      "heading_fr": "Six questions pour partir du bon pied",
-      "heading_en": "Six questions to start on the right foot",
+      "kicker_fr": "§ Honnêtement",
+      "kicker_en": "§ Honestly",
+      "heading_fr": "Six cas où vous n'avez pas besoin de Waimia",
+      "heading_en": "Six cases where you don't need Waimia",
       "items": [
         {
-          "label_fr": "Quel process récurrent et chronophage choisiriez-vous comme premier cas d'usage ?",
-          "label_en": "Which recurring, time-consuming process would you pick as a first use case?"
+          "label_fr": "Vous êtes moins de dix, sans connecteur métier, et vos usages sont la rédaction et la synthèse : Team Standard, ce guide et la checklist suffisent.",
+          "label_en": "You are under ten, with no business connector, drafting and summarising: Team Standard, this guide and the checklist are enough."
         },
         {
-          "label_fr": "Les données dont l'agent a besoin sont-elles centralisées, à jour et accessibles ?",
-          "label_en": "Is the data the agent needs centralised, up to date and accessible?"
+          "label_fr": "Vous cherchez un ou deux skills personnels : le pack gratuit et une demi-journée font l'affaire.",
+          "label_en": "You want one or two personal skills: the free pack and half a day will do."
         },
         {
-          "label_fr": "Avez-vous une politique d'usage qui dit quelles données peuvent passer dans l'outil ?",
-          "label_en": "Do you have a usage policy stating which data can go into the tool?"
+          "label_fr": "Un développeur relit déjà chaque changement et vos secrets sont protégés : la formation gratuite d'Anthropic sur Claude Code et le guide dédié suffisent pour démarrer.",
+          "label_en": "A developer already reviews every change and your secrets are protected: Anthropic's free Claude Code course and our guide are enough to start."
         },
         {
-          "label_fr": "Vos équipes savent-elles formuler une demande et vérifier une réponse d'IA ?",
-          "label_en": "Do your teams know how to phrase a request and check an AI answer?"
+          "label_fr": "Vous faites trois decks par an avec un modèle PowerPoint propre : une offre Pro et une prise en main suffisent pour Claude Design.",
+          "label_en": "You make three decks a year from a clean PowerPoint template: a Pro plan and some practice are enough for Claude Design."
         },
         {
-          "label_fr": "Avez-vous désigné un référent interne pour porter le sujet dans la durée ?",
-          "label_en": "Have you appointed an internal lead to carry the topic over time?"
+          "label_fr": "La tâche visée revient moins d'une fois par mois : le gain ne couvrira pas la mise en place.",
+          "label_en": "The target task comes up less than once a month: the gain will not cover the setup."
         },
         {
-          "label_fr": "Saurez-vous mesurer le gain : temps économisé, erreurs évitées, volume traité ?",
-          "label_en": "Will you be able to measure the gain: time saved, errors avoided, volume handled?"
+          "label_fr": "Votre vrai sujet est un process mal défini : écrivez-le d'abord, l'outil viendra après.",
+          "label_en": "Your real issue is a poorly defined process: write it down first, the tool comes later."
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Comment Waimia s'y prend",
+      "kicker_en": "§ How Waimia works",
+      "h2_fr": "Du premier rendez-vous à l'équipe autonome",
+      "h2_en": "From first meeting to an autonomous team",
+      "intro_fr": "Cinq étapes, chacune avec un livrable que vous gardez, même si vous arrêtez après. Délai habituel : 2 à 8 semaines entre le cadrage et un premier usage installé dans une équipe pilote.",
+      "intro_en": "Five steps, each with a deliverable you keep, even if you stop afterwards. Usually 2 to 8 weeks from scoping to a first use running in a pilot team.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit de 45 minutes",
+          "title_en": "Free 45-minute audit",
+          "body_fr": "Vos usages actuels, vos données, vos outils. On vous dit si Claude est le bon outil, quelle offre prendre et si vous avez besoin de nous. Parfois, la réponse est non.",
+          "body_en": "Your current use, data and tools. We tell you whether Claude fits, which plan to take and whether you need us. Sometimes the answer is no.",
+          "meta_fr": "Gratuit",
+          "meta_en": "Free"
+        },
+        {
+          "title_fr": "Sprint découverte",
+          "title_en": "Discovery sprint",
+          "body_fr": "Cartographie des cas d'usage, choix du cas pilote, répartition des sièges, premières règles d'usage, estimation de la suite en heures.",
+          "body_en": "Use case mapping, pilot choice, seat split, first usage rules, estimate of the next steps in hours.",
+          "meta_fr": "999 € HT · 10 h",
+          "meta_en": "€999 excl. VAT · 10 h"
+        },
+        {
+          "title_fr": "Pilote en conditions réelles",
+          "title_en": "Real-world pilot",
+          "body_fr": "Configuration de l'organisation, consignes et skills du cas pilote, connecteurs en lecture seule si besoin, mesure avant et après.",
+          "body_en": "Organisation setup, instructions and skills for the pilot, read-only connectors if needed, before-and-after measurement.",
+          "meta_fr": "Régie, sur estimation validée",
+          "meta_en": "Time and materials, approved estimate"
+        },
+        {
+          "title_fr": "Formation et référent",
+          "title_en": "Training and internal lead",
+          "body_fr": "Les personnes qui vont s'en servir apprennent sur ce qui vient d'être construit. Un référent interne sait modifier les consignes et ajouter un cas.",
+          "body_en": "The people who will use it learn on what was just built. An internal lead can edit instructions and add a case.",
+          "meta_fr": "Sur vos cas réels",
+          "meta_en": "On your real cases"
+        },
+        {
+          "title_fr": "Mesure et décision",
+          "title_en": "Measure and decide",
+          "body_fr": "Usage par siège, quota consommé, temps gagné. On ajuste les sièges, on étend à un deuxième cas ou on arrête. Vous gardez les accès et la documentation.",
+          "body_en": "Usage per seat, quota used, time saved. Adjust seats, extend to a second case or stop. You keep access and documentation.",
+          "meta_fr": "Avant de renouveler",
+          "meta_en": "Before renewing"
         }
       ]
     },
@@ -729,131 +996,138 @@
       "kicker_en": "§ Go further",
       "cards": [
         {
-          "kicker_fr": "Guide",
-          "kicker_en": "Guide",
-          "title_fr": "Claude Cowork : guide pour les PME",
-          "title_en": "Claude Cowork: a guide for SMBs",
-          "lead_fr": "Ce que c'est, ce qui change depuis la fusion avec Claude, prix, limites et règles d'usage. Sources officielles vérifiées.",
-          "lead_en": "What it is, what changes since the merger with Claude, pricing, limits and usage rules. Official sources checked.",
-          "href": "/ressources/guides/claude-cowork"
-        },
-        {
-          "kicker_fr": "Guide",
-          "kicker_en": "Guide",
-          "title_fr": "MCP : brancher Claude à vos outils",
-          "title_en": "MCP: connecting Claude to your tools",
-          "lead_fr": "Le cas d'usage 05 en détail : ce que fait un connecteur MCP, lesquels existent, quand en développer un sur mesure.",
-          "lead_en": "Use case 05 in detail: what an MCP connector does, which exist, when to build a custom one.",
-          "href": "/ressources/guides/mcp-claude"
-        },
-        {
           "kicker_fr": "Service",
           "kicker_en": "Service",
-          "title_fr": "Faire déployer Claude par Waimia",
-          "title_en": "Have Waimia deploy Claude",
-          "lead_fr": "Quand les fondations sont là : Waimia déploie Claude et ses agents dans votre entreprise, branchés à vos outils via MCP, du cadrage à la gouvernance.",
-          "lead_en": "When the foundations are there: Waimia deploys Claude and its agents in your company, wired to your tools via MCP, from scoping to governance.",
+          "title_fr": "Intégration de Claude en entreprise",
+          "title_en": "Claude integration for business",
+          "lead_fr": "Offre, connecteurs, consignes partagées, charte et référent formé, livrés et documentés.",
+          "lead_en": "Plan, connectors, shared instructions, policy and a trained lead, delivered and documented.",
           "href": "/services/integration-claude"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation Claude et agents IA",
+          "title_en": "Claude and AI agents training",
+          "lead_fr": "Trois niveaux, de l'application à Claude Code, sur les tâches réelles de vos équipes.",
+          "lead_en": "Three levels, from the app to Claude Code, on your teams' real tasks.",
+          "href": "/formations/claude"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Claude ou ChatGPT pour une PME",
+          "title_en": "Claude or ChatGPT for an SMB",
+          "lead_fr": "Les critères pour choisir entre les deux avant de déployer l'un ou l'autre.",
+          "lead_en": "The criteria to choose between them before rolling one out.",
+          "href": "/ressources/comparatifs/claude-vs-chatgpt-pme"
         }
       ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "ink",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Claude change chaque mois. Recevez seulement ce qui touche une PME.",
+      "h2_en": "Claude changes every month. Get only what affects an SMB.",
+      "body_fr": "Une lettre courte quand une offre, un prix, un réglage d'administration ou une règle de données change : ce que ça change pour vous, avec la source. L'arrivée de la fusion Cowork en Team et Enterprise y sera signalée.",
+      "body_en": "A short letter when a plan, price, admin setting or data rule changes: what it means for you, with the source.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
     },
     {
       "type": "faq-accordion",
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ FAQ",
+      "h2_fr": "Déployer Claude en PME : les questions des acheteurs",
+      "h2_en": "Deploying Claude in an SMB: buyer questions",
+      "open_first": true,
       "items": [
         {
-          "q_fr": "Par où commencer pour déployer Claude dans une PME ?",
-          "q_en": "Where do you start to deploy Claude in an SMB?",
-          "a_fr": "On ne commence pas par l'outil mais par un process. Choisissez une tâche récurrente, chronophage et à faible risque : tri d'emails, rédaction de comptes-rendus, réponses de premier niveau. Cadrez le résultat attendu, donnez à Claude le contexte dont il a besoin, puis mesurez le temps gagné. Un premier cas d'usage réussi vaut mieux que dix pilotes abandonnés.",
-          "a_en": "You don't start with the tool but with a process. Pick a recurring, time-consuming, low-risk task: email triage, meeting notes, first-level replies. Frame the expected result, give Claude the context it needs, then measure the time saved. One successful first use case beats ten abandoned pilots."
+          "q_fr": "Comment déployer Claude dans une PME, concrètement ?",
+          "q_en": "How do you deploy Claude in an SMB, in practice?",
+          "a_fr": "En partant d'un process, pas de l'outil. Choisissez une tâche répétée chaque semaine, à faible risque et mesurable, et notez le temps qu'elle prend aujourd'hui. Ouvrez des comptes professionnels (Team dès deux personnes) avec une règle d'usage écrite, donnez à Claude le contexte nécessaire, puis mesurez après quatre à six semaines. Une fois ce premier cas tenu, formez l'équipe et étendez à un deuxième usage. Le plan des 90 jours de ce guide détaille chaque étape.",
+          "a_en": "Start from a process, not the tool. Pick a weekly, low-risk, measurable task and time it today. Open business accounts (Team from two people) with a written usage rule, give Claude the context it needs, then measure after four to six weeks. Once that case holds, train the team and add a second use. The 90-day plan in this guide covers each step."
         },
         {
-          "q_fr": "Par quels cas d'usage commencer avec Claude en PME ?",
-          "q_en": "Which Claude use cases have the highest ROI in an SMB?",
-          "a_fr": "Cinq reviennent constamment : la rédaction et reformulation de contenus, la synthèse de documents et de réunions, le support client de premier niveau, l'extraction de données depuis des documents, et l'automatisation de tâches répétitives via le protocole MCP. Le point commun : un volume élevé, des règles claires et un coût horaire significatif. C'est là que le gain se mesure le plus facilement.",
-          "a_en": "Five come up constantly: writing and rewriting content, summarising documents and meetings, first-level customer support, extracting data from documents, and automating repetitive tasks via the MCP protocol. The common thread: high volume, clear rules and a significant hourly cost. That's where AI pays off fastest."
+          "q_fr": "Combien coûte Claude pour une PME, tout compris ?",
+          "q_en": "What does Claude cost an SMB, all in?",
+          "a_fr": "Quatre postes : les sièges, l'usage au-delà du quota, le temps interne de mise en place, et l'accompagnement si vous en prenez un. Au 5 octobre 2026, Anthropic affiche Team Standard à 20 dollars par siège et par mois en annuel (25 dollars en mensuel), hors TVA et taux de change. Le détail des offres est dans notre guide des fonctionnalités et prix ; trois budgets calculés pour 5, 15 et 40 personnes sont dans le guide d'achat en PDF.",
+          "a_en": "Four lines: seats, usage beyond the quota, internal setup time and support if you take any. As of 5 October 2026, Anthropic lists Team Standard at 20 dollars per seat per month billed annually (25 monthly), excluding VAT. Plan details are in our features and pricing guide; three budgets for 5, 15 and 40 people are in the buyer's guide PDF."
         },
         {
-          "q_fr": "Qu'est-ce que Claude for Small Business ?",
-          "q_en": "What is Claude for Small Business?",
-          "a_fr": "C'est l'offre d'Anthropic lancée en mai 2026 pour les petites entreprises : des workflows prêts à l'emploi et des connecteurs vers les outils courants, qui tournent dans Claude Cowork avec un mode approbation par défaut. Elle accélère les cas d'usage génériques, mais ne remplace pas les prérequis : choix du premier cas, données propres, politique d'usage et mesure du gain.",
-          "a_en": "It's Anthropic's offer launched in May 2026 for small businesses: ready-to-run workflows and connectors to common tools, running in Claude Cowork with approval mode on by default. It speeds up generic use cases, but doesn't replace the prerequisites: choosing the first case, clean data, a usage policy and measuring the gain."
+          "q_fr": "Quelle offre Claude choisir pour une petite équipe ?",
+          "q_en": "Which Claude plan for a small team?",
+          "a_fr": "Dès deux personnes qui mettent des documents de travail dans Claude, Team plutôt que des comptes Pro individuels : conditions commerciales (pas d'entraînement sur vos données par défaut), administration et authentification unique. Premium seulement pour les profils intensifs. Enterprise quand il faut provisionner les comptes, auditer les accès et régler la rétention. Si vos données doivent rester en Europe, ce n'est pas une question d'offre : il faut passer par l'API via AWS Bedrock ou Google Vertex.",
+          "a_en": "From two people putting work documents into Claude, Team rather than individual Pro accounts: business terms (no training on your data by default), administration and single sign-on. Premium only for heavy users. Enterprise when you must provision accounts, audit access and set retention. If data must stay in Europe, use the API via AWS Bedrock or Google Vertex."
         },
         {
-          "q_fr": "Faut-il structurer ses données avant de déployer Claude ?",
-          "q_en": "Do you need to structure your data before deploying Claude?",
-          "a_fr": "Oui, au moins partiellement. Claude est aussi bon que le contexte qu'on lui donne. Des données éparpillées, en doublon ou périmées produisent des réponses floues. Commencez par centraliser ce qui sert au premier cas d'usage : une base de connaissances, des procédures, un historique propre. Inutile de tout ranger d'un coup, rangez ce que l'agent va lire.",
-          "a_en": "Yes, at least partially. Claude is only as good as the context you give it. Scattered, duplicated or outdated data produces fuzzy answers. Start by centralising what serves the first use case: a knowledge base, procedures, a clean history. No need to tidy everything at once, tidy what the agent will read."
-        },
-        {
-          "q_fr": "Comment gérer la sécurité et la confidentialité avec Claude ?",
-          "q_en": "How do you handle security and confidentiality with Claude?",
-          "a_fr": "Trois leviers : une politique d'usage claire qui dit quelles données peuvent passer dans l'outil, des comptes professionnels avec données non utilisées pour l'entraînement, et un cadrage des accès via MCP plutôt que des copier-coller manuels. La gouvernance n'est pas un frein, c'est ce qui permet de déployer sans que des données sensibles fuitent par des comptes personnels.",
-          "a_en": "Three levers: a clear usage policy stating which data can go into the tool, professional accounts with data not used for training, and access framed via MCP rather than manual copy-pasting. Governance isn't a brake, it's what lets you deploy without sensitive data leaking through personal accounts."
-        },
-        {
-          "q_fr": "Quelles sont les erreurs les plus fréquentes au démarrage ?",
-          "q_en": "What are the most frequent mistakes at the start?",
-          "a_fr": "Vouloir tout automatiser d'un coup, choisir l'outil avant d'avoir clarifié le process, négliger la formation des équipes, et oublier de mesurer. Une autre erreur classique : automatiser un process déjà inefficace, ce qui ne fait que l'accélérer. La bonne approche reste un cas d'usage cadré, mesuré, puis étendu une fois prouvé.",
-          "a_en": "Wanting to automate everything at once, picking the tool before clarifying the process, neglecting team training, and forgetting to measure. Another classic mistake: automating an already inefficient process, which only accelerates it. The right approach stays a framed, measured use case, then expanded once proven."
-        },
-        {
-          "q_fr": "Combien de temps pour voir des résultats concrets ?",
-          "q_en": "How long to see concrete results?",
-          "a_fr": "Sur un cas d'usage bien choisi, les premiers gains sont visibles en quelques semaines. Le plan des 90 jours sert à enchaîner trois phases : cadrer et lancer un premier agent, le fiabiliser et former les équipes, puis étendre à un deuxième usage. L'objectif n'est pas la vitesse mais une montée en maturité qui tient dans la durée.",
-          "a_en": "On a well-chosen use case, the first gains are visible within a few weeks. The 90-day plan chains three phases: frame and launch a first agent, make it reliable and train the teams, then expand to a second use. The goal isn't speed but a maturity ramp that holds over time."
+          "q_fr": "Claude Cowork existe-t-il encore ?",
+          "q_en": "Does Claude Cowork still exist?",
+          "a_fr": "Oui, sous une autre forme. Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Anthropic l'a annoncé le 16 septembre 2026. Le nom Cowork reste dans l'aide officielle et dans les réglages d'administration, et ses fonctions demeurent : tâches, dossiers locaux de confiance, tâches planifiées, réglage d'autonomie. Notre guide dédié explique où retrouver chacune.",
+          "a_en": "Yes, in another form. Cowork, the Claude agent that carries out tasks in your files and tools, is now part of Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). Anthropic announced it on 16 September 2026. The Cowork name remains in the help centre and admin settings, and its features stay: tasks, trusted local folders, scheduled tasks, autonomy setting."
         },
         {
           "q_fr": "Faut-il un profil technique pour déployer Claude ?",
-          "q_en": "Do you need a technical profile to deploy Claude?",
-          "a_fr": "Pour les premiers cas d'usage conversationnels, non : une bonne compréhension métier et des process clairs suffisent. Pour brancher Claude à vos outils via MCP et automatiser des workflows, un accompagnement technique accélère et sécurise. L'enjeu est moins de coder que de bien cadrer ce que l'agent doit faire, voir et ne jamais toucher.",
-          "a_en": "For the first conversational use cases, no: a good business understanding and clear processes are enough. To wire Claude to your tools via MCP and automate workflows, technical support speeds things up and secures them. The challenge is less coding than framing well what the agent must do, see and never touch."
+          "q_en": "Do you need technical staff to deploy Claude?",
+          "a_fr": "Non pour les premiers usages : rédaction, synthèse, tâches sur des fichiers. Il faut surtout quelqu'un qui connaît le métier et sait décrire un résultat attendu. Un profil technique devient utile pour brancher un connecteur à un outil interne, construire un plugin privé ou utiliser Claude Code. À ce stade, se faire accompagner va plus vite que d'apprendre en production.",
+          "a_en": "Not for first uses: drafting, summarising, tasks on files. You mainly need someone who knows the business and can describe the expected result. Technical skills matter for connecting an internal tool, building a private plugin or using Claude Code."
         },
         {
-          "q_fr": "Quelle différence entre utiliser Claude et l'intégrer vraiment ?",
-          "q_en": "What's the difference between using Claude and truly integrating it?",
-          "a_fr": "Utiliser Claude, c'est l'ouvrir au cas par cas pour aider un collaborateur. L'intégrer, c'est le brancher à vos données et vos outils pour qu'il agisse dans vos process, de façon mesurée et gouvernée. La première étape sensibilise, la seconde produit de la valeur en production. Ce guide vise la seconde, sans brûler la première.",
-          "a_en": "Using Claude means opening it case by case to help an employee. Integrating it means wiring it to your data and tools so it acts within your processes, in a measured and governed way. The first step raises awareness, the second produces value in production. This guide aims for the second, without skipping the first."
+          "q_fr": "Par quel cas d'usage commencer ?",
+          "q_en": "Which use case should we start with?",
+          "a_fr": "Celui qui coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, un résultat qu'on sait mesurer. Les comptes rendus de réunion, le tri des e-mails entrants, la première réponse au support, la synthèse de documents et l'extraction de données de factures sont de bons candidats. Gardez pour plus tard tout ce qui engage l'entreprise sans relecture : paiement, envoi au nom de quelqu'un, décision irréversible.",
+          "a_en": "One that ticks three boxes: weekly volume, low risk if wrong, a measurable result. Meeting minutes, inbound email triage, first-line support replies, document summaries and invoice data extraction are good candidates. Leave anything that commits the company without review for later."
         },
         {
-          "q_fr": "Mes données restent-elles confidentielles avec Claude ?",
-          "q_en": "Does my data stay confidential with Claude?",
-          "a_fr": "Sur les offres entreprise et API d'Anthropic, vos données ne sont pas utilisées pour entraîner les modèles par défaut, et la rétention peut être encadrée par contrat. Le vrai risque n'est pas le modèle, c'est l'usage non gouverné : des collaborateurs qui collent des données sensibles dans des comptes personnels gratuits. La parade est une politique d'usage claire et des accès cadrés, pas l'interdiction.",
-          "a_en": "On Anthropic's enterprise and API offers, your data isn't used to train the models by default, and retention can be governed by contract. The real risk isn't the model, it's ungoverned usage: employees pasting sensitive data into free personal accounts. The fix is a clear usage policy and framed access, not a ban."
+          "q_fr": "Nos données sont-elles protégées, et restent-elles en Europe ?",
+          "q_en": "Is our data protected, and does it stay in Europe?",
+          "a_fr": "Sur Team, Enterprise et l'API, Anthropic n'entraîne pas ses modèles sur vos données par défaut, et un DPA est disponible. Sur Free, Pro et Max, cela dépend d'un réglage de chaque utilisateur. Les apps Claude stockent les données aux États-Unis par défaut, sans hébergement européen proposé au 5 octobre 2026 ; la résidence en Europe passe par l'API via AWS Bedrock ou Google Vertex. Autre point : l'historique local de Cowork échappe à la rétention gérée par les administrateurs.",
+          "a_en": "On Team, Enterprise and the API, Anthropic does not train on your data by default, and a DPA is available. On Free, Pro and Max it depends on each user's setting. Claude apps store data in the US by default, with no EU hosting offered as of 5 October 2026; EU residency goes through the API via AWS Bedrock or Google Vertex. Cowork local history sits outside admin-managed retention."
         },
         {
-          "q_fr": "Comment choisir le premier cas d'usage à déployer ?",
-          "q_en": "How do you choose the first use case to deploy?",
-          "a_fr": "Le bon premier cas coche trois cases : un volume répété chaque semaine, un risque faible en cas d'erreur, et un résultat mesurable. Rédaction de comptes rendus, tri d'emails entrants, première réponse au support, synthèse de documents sont d'excellents candidats. On évite pour le pilote tout ce qui touche une décision irréversible ou une donnée très sensible.",
-          "a_en": "A good first case ticks three boxes: a volume repeated each week, low risk if it errs, and a measurable result. Drafting minutes, triaging inbound email, first support reply and document summarisation are excellent candidates. For the pilot you avoid anything touching an irreversible decision or very sensitive data."
+          "q_fr": "Combien de temps avant de voir un résultat ?",
+          "q_en": "How long before we see results?",
+          "a_fr": "Sur un cas bien choisi, quelques semaines suffisent pour mesurer un premier gain, à condition d'avoir noté le temps passé avant. Le plan de ce guide compte 90 jours pour passer d'un premier cas à un usage d'équipe, gouverné et mesuré. Sur nos missions d'intégration, nous constatons habituellement 2 à 8 semaines entre le cadrage et un premier usage installé dans une équipe pilote.",
+          "a_en": "On a well-chosen case, a few weeks are enough to measure a first gain, provided you timed the task before. This guide's plan takes 90 days from a first case to governed team use. On our integration work we usually see 2 to 8 weeks from scoping to a first use running in a pilot team."
         },
         {
-          "q_fr": "Faut-il former les équipes ou Claude suffit-il seul ?",
-          "q_en": "Do teams need training or does Claude work alone?",
-          "a_fr": "La formation décide de l'adoption. Un outil que personne ne maîtrise reste sur l'étagère, quelle que soit sa qualité. Comptez une demi-journée pour les bons réflexes : formuler une demande, vérifier une réponse, repérer ce qu'on ne colle jamais. Désignez un référent interne qui répond aux questions et entretient la bibliothèque de prompts. Sans cette personne, l'élan retombe en quelques semaines.",
-          "a_en": "Training decides adoption. A tool no one masters stays on the shelf, whatever its quality. Count half a day for the right reflexes: phrasing a request, checking a response, spotting what you never paste in. Appoint an internal lead who answers questions and maintains the prompt library. Without that person, momentum fades in a few weeks."
+          "q_fr": "Faut-il former les équipes ?",
+          "q_en": "Do teams need training?",
+          "a_fr": "Oui, c'est ce qui décide de l'adoption. Une demi-journée pour les bons réflexes (formuler une demande, vérifier une réponse, savoir ce qu'on ne colle jamais) et un référent interne qui répond aux questions et tient les consignes partagées. Pour les développeurs, Anthropic propose une formation gratuite à Claude Code (Claude Academy). Pour une équipe métier, une formation sur ses propres tâches s'oublie moins vite qu'un exemple générique.",
+          "a_en": "Yes, it decides adoption. Half a day for the right habits and an internal lead who answers questions and maintains shared instructions. For developers, Anthropic offers free Claude Code training (Claude Academy). For business teams, training on their own tasks sticks better."
         },
         {
-          "q_fr": "Comment mesurer le ROI d'un déploiement de Claude ?",
-          "q_en": "How do you measure the ROI of a Claude deployment?",
-          "a_fr": "On mesure avant de déployer, sinon le gain reste une impression. Sur le cas pilote, on note le temps passé et le taux d'erreur actuels, puis on compare après quelques semaines d'usage réel. Le ROI se lit en heures rendues aux équipes, en délais raccourcis et en tâches qui ne reviennent plus. Un cas non mesuré ne se défend pas en comité et finit par être coupé.",
-          "a_en": "You measure before deploying, otherwise the gain stays a feeling. On the pilot case, you note the current time spent and error rate, then compare after a few weeks of real use. ROI reads in hours given back to teams, shortened delays and tasks that no longer come back. An unmeasured case can't be defended in committee and ends up cut."
+          "q_fr": "Quelle différence entre skills, plugins et connecteurs ?",
+          "q_en": "What is the difference between skills, plugins and connectors?",
+          "a_fr": "Un skill est une procédure écrite que Claude charge quand la tâche s'y prête : votre façon de chiffrer un devis ou de relancer un impayé. Un connecteur relie Claude à un outil (CRM, messagerie, stockage) par le protocole MCP. Un plugin est le paquet qui regroupe skills, connecteurs et sous-agents pour les diffuser à une équipe ; en Team et Enterprise, l'administrateur choisit qui le reçoit. Chacun a son guide détaillé.",
+          "a_en": "A skill is a written procedure Claude loads when a task calls for it. A connector links Claude to a tool (CRM, email, storage) through MCP. A plugin is the bundle of skills, connectors and sub-agents you roll out to a team; on Team and Enterprise, the admin decides who gets it."
         },
         {
-          "q_fr": "Qu'est-ce que le protocole MCP et pourquoi il compte ?",
-          "q_en": "What is the MCP protocol and why does it matter?",
-          "a_fr": "Le MCP, Model Context Protocol, est le standard ouvert qui connecte Claude à vos outils : CRM, base documentaire, agenda, ticketing. C'est ce qui fait passer Claude d'un assistant de conversation à un agent qui agit sur vos données réelles. Bien posée, cette couche d'intégration est ce qui transforme un pilote sympathique en gain durable et mesurable.",
-          "a_en": "MCP, the Model Context Protocol, is the open standard that connects Claude to your tools: CRM, document base, calendar, ticketing. It's what turns Claude from a conversation assistant into an agent that acts on your real data. Done well, this integration layer is what turns a pleasant pilot into a durable, measurable gain."
+          "q_fr": "Claude ou ChatGPT pour une PME ?",
+          "q_en": "Claude or ChatGPT for an SMB?",
+          "a_fr": "Les deux font l'essentiel du travail de bureau. La différence se joue sur vos outils, vos règles de données et l'usage visé : rédaction, analyse, code, tâches dans des fichiers. Choisissez sur un cas réel, testé deux semaines par les personnes concernées, plutôt que sur un classement. Notre comparatif Claude ou ChatGPT pour une PME pose les critères ; ce guide suppose que vous avez retenu Claude.",
+          "a_en": "Both handle most office work. The difference lies in your tools, data rules and target use. Choose on a real case tested for two weeks by the people concerned, not on a ranking. Our Claude or ChatGPT comparison sets out the criteria."
         },
         {
-          "q_fr": "Ce guide remplace-t-il un accompagnement ?",
-          "q_en": "Does this guide replace hands-on support?",
-          "a_fr": "Non. Il vous donne la trame pour ne rien oublier et discuter d'égal à égal avec un intégrateur. Si vous voulez la transformer en plan daté pour votre contexte, l'audit IA gratuit de 45 min part de votre réalité, identifie le premier process à automatiser et chiffre le gain attendu. Et si vous préférez faire déployer Claude par Waimia, l'intégrateur prend le relais du cadrage à la gouvernance. Sans engagement.",
-          "a_en": "No. It gives you the frame to forget nothing and talk on equal terms with an integrator. If you want to turn it into a dated plan for your context, the free 45-min AI audit starts from your reality, identifies the first process to automate and sizes the expected gain. And if you'd rather have Waimia deploy Claude for you, the integrator takes over from scoping to governance. No commitment."
+          "q_fr": "Intégrateur, consultant ou formation : que choisir ?",
+          "q_en": "Integrator, consultant or training: which one?",
+          "a_fr": "Cela dépend de ce qui vous manque. Si vous savez quoi faire mais pas comment le brancher, c'est de l'intégration. Si vous ne savez pas encore par où commencer ni dans quel ordre, c'est du conseil. Si l'outil est en place mais peu utilisé, c'est de la formation. Et si vous êtes moins de dix, sans connecteur métier ni donnée sensible, ce guide et la checklist des 90 jours suffisent souvent.",
+          "a_en": "It depends on what you lack. Know what to do but not how to connect it: integration. Not sure where to start: consulting. Tool in place but little used: training. Under ten people, no business connector or sensitive data: this guide and the 90-day checklist are often enough."
+        },
+        {
+          "q_fr": "Qui fait quoi si Waimia déploie Claude chez nous ?",
+          "q_en": "Who does what if Waimia deploys Claude for us?",
+          "a_fr": "On commence par un audit gratuit de 45 minutes. Si un déploiement se justifie, le sprint découverte (999 euros HT pour 10 heures) choisit l'offre et les sièges, pose les règles d'usage et cadre le cas pilote. La suite se chiffre sur devis et s'exécute en régie à {{prix.horaire}} euros HT de l'heure, sur estimation validée par vous. Vous gardez les comptes, la configuration, les consignes et la documentation : vous pouvez changer de prestataire.",
+          "a_en": "We start with a free 45-minute audit. If deployment makes sense, the discovery sprint (€999 excl. VAT for 10 hours) picks the plan and seats, sets usage rules and frames the pilot. The rest is quoted and run as time and materials at {{prix.horaire}} € excl. VAT per hour on an estimate you approve. You keep accounts, configuration, instructions and documentation."
+        },
+        {
+          "q_fr": "Comment mesurer le retour sur investissement ?",
+          "q_en": "How do we measure ROI?",
+          "a_fr": "En notant, avant de déployer, le temps passé et le taux d'erreur sur le cas pilote, puis en comparant après quatre à six semaines d'usage réel. Le gain se lit en heures rendues, en délais raccourcis et en tâches qui ne reviennent plus. Mettez-le en face du coût complet : sièges, usage, temps de mise en place. Le calculateur de ROI de Waimia donne un ordre de grandeur avant même de commencer.",
+          "a_en": "Record time spent and error rate on the pilot before deploying, then compare after four to six weeks of real use. Weigh the gain against full cost: seats, usage, setup time. Waimia's ROI calculator gives a rough figure before you start."
         }
       ]
     },
@@ -861,22 +1135,22 @@
       "type": "footer-cta-band",
       "background": "ink",
       "rounded": true,
-      "kicker_fr": "§ Prêt à passer du guide à l'action ?",
-      "kicker_en": "§ Ready to go from guide to action?",
-      "h2_fr": "Vous savez par où commencer. Cadrons votre premier agent.",
-      "h2_en": "You know where to start. Let's frame your first agent.",
-      "subtitle_fr": "L'audit IA gratuit de 45 min transforme ce guide en plan concret : on part de votre réalité pour identifier le premier process à automatiser et chiffrer le gain. Sans engagement.",
-      "subtitle_en": "The free 45-min AI audit turns this guide into a concrete plan: we start from your reality to identify the first process to automate and size the gain. No commitment.",
+      "kicker_fr": "§ Passer du guide au plan",
+      "kicker_en": "§ From guide to plan",
+      "h2_fr": "Vous savez par où commencer. Cadrons votre premier cas.",
+      "h2_en": "You know where to start. Let us frame your first case.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On part de vos tâches, de vos données et de vos outils, et vous repartez avec un premier cas d'usage, une offre et un budget écrits. Sans engagement.",
+      "subtitle_en": "The 45-minute audit is free. We start from your tasks, data and tools; you leave with a first use case, a plan and a written budget.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",
-          "label_en": "Book the AI audit (45 min) →",
+          "label_en": "Book a free AI audit →",
           "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Faire déployer par Waimia →",
-          "label_en": "Have Waimia deploy it →",
+          "label_fr": "Faire déployer Claude par Waimia →",
+          "label_en": "Have Waimia deploy Claude →",
           "href": "/services/integration-claude",
           "variant": "ghost"
         }

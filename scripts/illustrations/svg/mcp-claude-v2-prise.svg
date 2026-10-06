@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- duotone degrade-aube · un grand mur nu avec une seule prise ronde normalisée ; une silhouette approche avec la fiche assortie ; à l'écart, un tas de vieilles fiches toutes différentes. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="530" width="1456" height="94" fill="{{ground}}"/>
+  <!-- mur nu -->
+  <rect x="640" y="70" width="640" height="462" fill="{{shape}}"/>
+  <rect x="1280" y="70" width="22" height="462" fill="{{soft}}"/>
+  <rect x="640" y="510" width="640" height="22" fill="{{pale}}"/>
+  <!-- la prise, grande et ronde -->
+  <circle cx="960" cy="290" r="104" fill="{{soft}}"/>
+  <circle cx="960" cy="290" r="84" fill="{{pale}}"/>
+  <circle cx="960" cy="290" r="62" fill="{{mid}}"/>
+  <circle cx="934" cy="290" r="11" fill="{{shadow}}"/>
+  <circle cx="986" cy="290" r="11" fill="{{shadow}}"/>
+  <!-- câble qui traîne au sol derrière la silhouette -->
+  <path d="M540 436 C 520 480, 470 540, 380 548 C 300 556, 240 540, 170 552" fill="none" stroke="{{subject}}" stroke-width="5" stroke-linecap="round"/>
+  <!-- silhouette qui avance, la fiche tendue -->
+  <use href="#man" transform="translate(520 532) scale(1.2)"/>
+  <path d="M532 448 L568 424" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+  <path d="M540 436 L566 424" stroke="{{subject}}" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="590" cy="420" r="24" fill="{{subject}}"/>
+  <circle cx="590" cy="420" r="12" fill="{{deep}}"/>
+  <rect x="612" y="409" width="18" height="6" rx="3" fill="{{subject}}"/><rect x="612" y="425" width="18" height="6" rx="3" fill="{{subject}}"/>
+  <!-- petit tas de vieilles fiches dépareillées -->
+  <g transform="translate(-60 -290) scale(1.55)">
+    <rect x="96" y="512" width="34" height="20" fill="{{subject}}"/><rect x="104" y="500" width="4" height="12" fill="{{subject}}"/><rect x="118" y="500" width="4" height="12" fill="{{subject}}"/>
+    <path d="M140 532 L168 496 L196 532 Z" fill="{{subject}}"/><rect x="164" y="482" width="3" height="16" fill="{{subject}}"/><rect x="172" y="482" width="3" height="16" fill="{{subject}}"/>
+    <rect x="200" y="508" width="26" height="24" rx="8" fill="{{pale}}"/><rect x="208" y="494" width="10" height="14" fill="{{pale}}"/>
+    <rect x="128" y="488" width="30" height="18" fill="{{pale}}" transform="rotate(-24 143 497)"/><rect x="118" y="478" width="3" height="10" fill="{{pale}}" transform="rotate(-24 143 497)"/>
+    <path d="M232 532 L262 532 L254 508 L240 508 Z" fill="{{subject}}"/><rect x="242" y="496" width="3" height="12" fill="{{subject}}"/><rect x="250" y="496" width="3" height="12" fill="{{subject}}"/>
+    <path d="M70 532 Q60 500 80 500 Q96 500 90 532 Z" fill="{{deep}}"/>
+  </g>
+</svg>

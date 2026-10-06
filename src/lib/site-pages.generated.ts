@@ -65,7 +65,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Agents IA pour votre entreprise",
         "background": "paper"
       },
@@ -205,7 +205,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Application métier et logiciel sur mesure",
         "background": "paper"
       },
@@ -540,7 +540,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Consultant IA indépendant pour PME",
         "background": "paper"
       },
@@ -560,6 +560,27 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "feature-zigzag",
+        "label": "Ce que la mission tranche pour vous",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Six questions à poser à un consultant IA avant de signer",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
+        "background": "paper-2"
+      },
+      {
         "type": "comparison-duo",
         "label": "Exemple type : une PME de négoce de 60 personnes",
         "background": "paper"
@@ -575,19 +596,29 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "process-steps",
+        "label": "Comment se déroule une mission de conseil IA",
+        "background": "paper-3"
+      },
+      {
         "type": "pricing-cards",
         "label": "Combien coûte un accompagnement IA",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#13",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
         "label": "Consultant IA : vos questions",
         "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
       },
       {
         "type": "footer-cta-band",
@@ -675,7 +706,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Un tableau de bord à jour, sans reporting refait à la main.",
         "background": "paper"
       },
@@ -740,7 +771,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Intégrer Claude dans votre entreprise",
         "background": "paper"
       },
@@ -760,6 +791,27 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-table-block",
+        "label": "Quelle offre Claude pour votre équipe",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "feature-zigzag",
+        "label": "Trois chantiers, dans cet ordre",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
+        "background": "paper-2"
+      },
+      {
         "type": "comparison-duo",
         "label": "Exemple type : un bureau d'études de 40 personnes",
         "background": "paper"
@@ -768,6 +820,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "deliverables-grid",
         "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand déployer Claude vous-même, et quand nous appeler",
+        "background": "paper"
       },
       {
         "type": "decision-list",
@@ -781,17 +838,27 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Combien coûte Claude en entreprise",
+        "label": "Combien coûte une intégration de Claude",
         "background": "paper"
       },
       {
+        "type": "process-steps",
+        "label": "Le déroulé d'un déploiement",
+        "background": "paper-3"
+      },
+      {
         "type": "eeat-panel",
-        "label": "#9",
+        "label": "#15",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
         "label": "Claude en entreprise : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
         "background": "paper-2"
       },
       {
@@ -810,7 +877,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Des landing pages qui convertissent, un tunnel qui trie vos leads.",
         "background": "paper"
       },
@@ -875,7 +942,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Prospection automatisée par l'IA",
         "background": "paper"
       },
@@ -1010,7 +1077,7 @@ export const SITE_PAGES: SitePage[] = [
     "editable": true,
     "sections": [
       {
-        "type": "hero-masthead-card",
+        "type": "hero-split-media",
         "label": "Devis automatisés et relances sans oubli",
         "background": "paper"
       },
@@ -2590,13 +2657,28 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand l'abonnement suffit, quand passer par la plateforme",
+        "background": "paper"
+      },
+      {
         "type": "decision-list",
         "label": "Dans quels cas chacune convient",
         "background": "paper"
       },
       {
+        "type": "cta-form-inline",
+        "label": "Abonnement, API, Bedrock ou Vertex : recevez le guide d'achat Claude (PDF, 14 pages)",
+        "background": "paper-2"
+      },
+      {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#10",
         "background": "paper-2"
       },
       {
@@ -2645,9 +2727,30 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-table-block",
+        "label": "Ce qui a bougé chez Claude, et ce que ça change pour vous",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Vous penchez pour Claude ? Recevez le guide d'achat pour PME (PDF, 14 pages)",
+        "background": "paper"
+      },
+      {
         "type": "decision-list",
         "label": "Choisir selon votre situation",
         "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment trancher en deux semaines, sur vos documents",
+        "background": "paper-2"
       },
       {
         "type": "related-cards-band",
@@ -3250,88 +3353,16 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/ressources/guides/claude-cowork",
-    "title": "Claude Cowork : prix, fonctions et limites pour une PME",
+    "route": "/ressources/guides/claude-code-entreprise",
+    "title": "Claude Code en entreprise : fonctions, prix et déploiement",
     "group": "ressources",
     "collection": "guides",
-    "file": "guides/claude-cowork.json",
+    "file": "guides/claude-code-entreprise.json",
     "editable": true,
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Claude Cowork : prix, fonctions et limites pour une PME",
-        "background": "paper"
-      },
-      {
-        "type": "direct-answer",
-        "label": "#1",
-        "background": "paper-2"
-      },
-      {
-        "type": "editorial-table-block",
-        "label": "Prix de Claude Cowork : il est inclus dans les offres payantes de Claude",
-        "variant": "editorial",
-        "background": "paper"
-      },
-      {
-        "type": "editorial-prose",
-        "label": "#3",
-        "background": "paper-2"
-      },
-      {
-        "type": "editorial-prose",
-        "label": "#4",
-        "background": "paper"
-      },
-      {
-        "type": "editorial-table-block",
-        "label": "Où Cowork est disponible, selon Anthropic",
-        "variant": "editorial",
-        "background": "paper-2"
-      },
-      {
-        "type": "tech-when-dual",
-        "label": "Quand l'utiliser en PME, et quand s'abstenir",
-        "background": "paper"
-      },
-      {
-        "type": "process-steps",
-        "label": "Démarrer en PME en quatre étapes",
-        "background": "paper-3"
-      },
-      {
-        "type": "editorial-prose",
-        "label": "#8",
-        "background": "paper"
-      },
-      {
-        "type": "related-cards-band",
-        "label": "Pour aller plus loin",
-        "background": "paper-2"
-      },
-      {
-        "type": "faq-accordion",
-        "label": "Questions fréquentes",
-        "background": "paper"
-      },
-      {
-        "type": "footer-cta-band",
-        "label": "Savoir quelles tâches confier à Claude, et avec quelles règles.",
-        "background": "ink"
-      }
-    ]
-  },
-  {
-    "route": "/ressources/guides/claude-pme",
-    "title": "Guide Claude pour PME : déployer Claude en 90 jours (2026)",
-    "group": "ressources",
-    "collection": "guides",
-    "file": "guides/claude-pme.json",
-    "editable": true,
-    "sections": [
-      {
-        "type": "hero-split-media",
-        "label": "Déployer Claude dans votre PME.",
+        "label": "Claude Code en entreprise : fonctionnalités, coût et déploiement",
         "background": "paper"
       },
       {
@@ -3341,7 +3372,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "key-metric-grid",
-        "label": "Un plan, pas une promesse",
+        "label": "Les chiffres à connaître avant d'équiper une équipe",
         "variant": "accent",
         "background": "paper"
       },
@@ -3351,35 +3382,62 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Les cinq usages par lesquels commencer",
+        "type": "editorial-table-block",
+        "label": "Dix fonctions de Claude Code, et à quoi elles servent en entreprise",
+        "variant": "editorial",
         "background": "paper-2"
       },
       {
-        "type": "pull-quote-block",
-        "label": "#5",
-        "variant": "centered",
-        "background": "ink"
+        "type": "feature-zigzag",
+        "label": "Trois fonctions qui font d'un outil individuel un outil d'équipe",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Où Claude Code est inclus, et à quel prix",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Avant d'ouvrir Claude Code à une équipe : la checklist 90 jours",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Claude Code ou un IDE assisté comme Cursor : pas le même métier",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Trois façons de démarrer avec Claude Code, et quand chacune est la bonne",
+        "variant": "editorial",
+        "background": "paper-2"
       },
       {
         "type": "process-steps",
-        "label": "Trois phases pour démarrer juste",
+        "label": "On cadre d'abord, on code ensuite",
         "background": "paper"
       },
       {
-        "type": "feature-zigzag",
-        "label": "Les 6 prérequis à poser avant le premier compte",
-        "background": "paper-2"
-      },
-      {
-        "type": "resource-card-grid",
-        "label": "Cinq outils pour passer du guide au plan",
-        "background": "paper"
-      },
-      {
-        "type": "decision-list",
-        "label": "Six questions pour partir du bon pied",
-        "background": "paper"
+        "type": "newsletter-signup-section",
+        "label": "Les changements de Claude, triés pour une PME",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -3388,12 +3446,668 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Claude Code en entreprise : les questions des acheteurs",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Vous savez par où commencer. Cadrons votre premier agent.",
+        "label": "Claude Code chez vous : on vérifie d'abord que c'est le bon outil.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-cowork",
+    "title": "Claude Cowork est désormais Claude : ce qui change",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-cowork.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Cowork est désormais Claude : ce qui change",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quatre repères avant de changer quoi que ce soit",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Claude Cowork avant et après la fusion",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-timeline",
+        "label": "Claude Cowork en six étapes, de janvier à septembre 2026",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Prix de Claude Cowork : inclus dans les offres payantes",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quelles tâches confier à Claude en PME, et lesquelles garder",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Les réglages d'administration de Cowork, vérifiés un par un",
+        "background": "paper-3"
+      },
+      {
+        "type": "process-steps",
+        "label": "Démarrer, ou passer la fusion, en quatre étapes",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur Claude Cowork",
+        "background": "paper-2"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "La fusion n'est pas finie. Soyez prévenu quand elle touche votre offre.",
+        "background": "paper-3"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir quelles tâches confier à Claude, et avec quels réglages.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-design",
+    "title": "Claude Design : usages en PME, prix, limites, alternatives",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-design.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Design : usages en PME, limites et alternatives",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quatre faits à connaître avant d'ouvrir l'outil",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Idées reçues sur Claude Design, corrigées au 5 octobre 2026",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "feature-zigzag",
+        "label": "Ce que Claude Design produit, et ce que vous devez apporter",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Claude Design prix : inclus dans les offres payantes de Claude",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quatre usages concrets en PME, et ce qui reste à faire",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Quelle offre Claude donne accès à Design, et à quel coût réel ?",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Claude Design suffit, ou il faut un professionnel ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia s'y prend",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur Claude Design",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Claude change chaque mois. Recevez seulement ce qui compte pour une PME.",
+        "background": "paper-3"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir ce que Claude Design peut produire chez vous, et ce qu'il faut confier à un pro.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-fonctionnalites-pme",
+    "title": "Claude : fonctionnalités, offres et prix pour une PME",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-fonctionnalites-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude : fonctionnalités, offres et prix pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Offres entreprise, prix par siège et par mois, hors TVA",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les offres Claude, ligne par ligne",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "feature-zigzag",
+        "label": "Trois fonctionnalités qui changent le travail d'une PME",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Fonctionnalités, administration et données : la matrice par offre",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "La règle de choix, cas par cas",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Quand acheter et configurer Claude seul, quand se faire accompagner",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia déploie Claude dans une PME",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Les offres Claude changent vite. Soyez prévenu quand ça vous concerne.",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Prix et offres de Claude : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir quelle offre Claude prendre, et pour combien de sièges, avant la première facture.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-plugins-entreprise",
+    "title": "Plugins Claude en entreprise : le guide 2026",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-plugins-entreprise.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Plugins et connecteurs Claude pour l'entreprise : le guide",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Ce qu'il faut retenir en quatre chiffres",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les cinq briques d'un plugin et où chacune fonctionne",
+        "background": "paper-2"
+      },
+      {
+        "type": "feature-zigzag",
+        "label": "Marketplaces officielles, dépôt ouvert, Claude Marketplace",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Six usages concrets en PME, plugin par plugin",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "ink"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le kit conformité et administration de Claude en entreprise",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand prendre un plugin officiel, quand en faire construire un",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia construit et déploie un plugin privé",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur les plugins Claude",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un plugin qui porte votre méthode, diffusé à ceux qui en ont besoin.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-pme",
+    "title": "Déployer Claude en PME : le guide complet (2026)",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Déployer Claude dans votre PME : le guide complet",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "resource-card-grid",
+        "label": "Six guides détaillés, une question d'acheteur chacun",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Un plan, pas une promesse",
+        "variant": "accent"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "feature-zigzag",
+        "label": "Par où commencer selon votre profil",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "resource-card-grid",
+        "label": "Quatre outils pour poser les prérequis",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Cinq usages qui se mesurent vite",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le pack de 8 skills Claude pour PME",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-3"
+      },
+      {
+        "type": "process-steps",
+        "label": "Trois phases de 30 jours, du test à l'usage d'équipe",
+        "background": "paper"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Le plan des 90 jours, case par case",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#15",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#16",
+        "background": "paper-3"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le kit conformité et administration de Claude",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#18",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce que chaque option demande, et ce qu'elle coûte",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Six cas où vous n'avez pas besoin de Waimia",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Du premier rendez-vous à l'équipe autonome",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Claude change chaque mois. Recevez seulement ce qui touche une PME.",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Déployer Claude en PME : les questions des acheteurs",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vous savez par où commencer. Cadrons votre premier cas.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-skills",
+    "title": "Skills Claude : créer, partager et déployer en entreprise",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-skills.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Skills Claude : créer, partager et déployer vos procédures en entreprise",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Ce qu'Anthropic fixe, au 5 octobre 2026",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "code-showcase",
+        "label": "Un en-tête de deux champs, puis une procédure en texte",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quatre surfaces, quatre façons d'installer et de partager",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Six exemples concrets, avec ce qu'il faut leur donner",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "feature-zigzag",
+        "label": "Écrire, sécuriser, diffuser",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le pack de 8 skills Claude pour PME",
+        "background": "accent"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Quand le faire vous-même, quand le faire faire",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Les cas où vous n'avez pas besoin de nous",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "De la procédure orale au plugin qui tourne",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+        "background": "ink"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Skills Claude : les questions des dirigeants",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vos procédures en skills qui tournent, pour toute l'équipe",
         "background": "ink"
       }
     ]
@@ -3530,6 +4244,16 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Avant de brancher un connecteur : recevez le kit conformité Claude (PDF, 11 pages)",
+        "background": "paper"
+      },
+      {
         "type": "editorial-table-block",
         "label": "MCP dans les plateformes de Claude et d'OpenAI",
         "variant": "editorial",
@@ -3537,7 +4261,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#9",
+        "label": "#11",
         "background": "paper-2"
       },
       {
@@ -3859,6 +4583,33 @@ export const SITE_PAGES: SitePage[] = [
     "group": "ressources",
     "collection": "outils",
     "file": "outils/grille-taches-a-automatiser.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/ressources/outils/guide-achat-claude-pme",
+    "title": "Guide d'achat Claude pour PME : plan, coût, configuration",
+    "group": "ressources",
+    "collection": "outils",
+    "file": "outils/guide-achat-claude-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/ressources/outils/kit-conformite-claude-entreprise",
+    "title": "Kit conformité et administration de Claude en entreprise",
+    "group": "ressources",
+    "collection": "outils",
+    "file": "outils/kit-conformite-claude-entreprise.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/ressources/outils/pack-skills-claude-pme",
+    "title": "Pack de 8 skills Claude pour PME",
+    "group": "ressources",
+    "collection": "outils",
+    "file": "outils/pack-skills-claude-pme.json",
     "editable": false,
     "sections": []
   },
@@ -4585,8 +5336,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/ai-act-pme-calendrier",
+      "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
+      "/ressources/guides/claude-design",
+      "/ressources/guides/claude-fonctionnalites-pme",
+      "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
+      "/ressources/guides/claude-skills",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
@@ -4596,7 +5352,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/outils/calculateur-roi-ia",
       "/ressources/outils/charte-ia-entreprise",
       "/ressources/outils/checklist-90-jours-claude",
-      "/ressources/outils/grille-taches-a-automatiser"
+      "/ressources/outils/grille-taches-a-automatiser",
+      "/ressources/outils/guide-achat-claude-pme",
+      "/ressources/outils/kit-conformite-claude-entreprise",
+      "/ressources/outils/pack-skills-claude-pme"
     ]
   },
   {

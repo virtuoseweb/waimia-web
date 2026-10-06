@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · claude-skills · une source, la même version pour tous : un mât central sous un grand disque, ses cordes tenues par une rangée d’employés -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="seated">
+      <circle cx="0" cy="-62" r="7" fill="{{subject}}"/>
+      <path d="M-10 -53 Q0 -57 10 -53 L11 -20 L-11 -20 Z" fill="{{subject}}"/>
+      <rect x="-11" y="-22" width="26" height="8" fill="{{subject}}"/>
+      <rect x="9" y="-22" width="7" height="22" fill="{{subject}}"/>
+      <rect x="-14" y="-16" width="4" height="16" fill="{{deep}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="270" r="215" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <path d="M728 112 L374 438" stroke="{{light}}" stroke-width="4"/><path d="M728 112 L484 438" stroke="{{light}}" stroke-width="4"/><path d="M728 112 L594 438" stroke="{{light}}" stroke-width="4"/><path d="M728 112 L890 438" stroke="{{light}}" stroke-width="4"/><path d="M728 112 L1000 438" stroke="{{light}}" stroke-width="4"/><path d="M728 112 L1110 438" stroke="{{light}}" stroke-width="4"/>
+  <rect x="720" y="100" width="16" height="400" fill="{{subject}}"/>
+  <circle cx="728" cy="96" r="16" fill="{{subject}}"/>
+  <path d="M700 500 L756 500 L746 480 L710 480 Z" fill="{{subject}}"/>
+  <use href="#man" transform="translate(360 520) scale(1.3)"/><rect x="366" y="436" width="20" height="16" fill="{{light}}"/><use href="#woman" transform="translate(470 520) scale(1.3)"/><rect x="476" y="436" width="20" height="16" fill="{{light}}"/><use href="#man" transform="translate(580 520) scale(1.3)"/><rect x="586" y="436" width="20" height="16" fill="{{light}}"/><use href="#woman" transform="translate(876 520) scale(1.3)"/><rect x="882" y="436" width="20" height="16" fill="{{light}}"/><use href="#man" transform="translate(986 520) scale(1.3)"/><rect x="992" y="436" width="20" height="16" fill="{{light}}"/><use href="#woman" transform="translate(1096 520) scale(1.3)"/><rect x="1102" y="436" width="20" height="16" fill="{{light}}"/>
+
+</svg>

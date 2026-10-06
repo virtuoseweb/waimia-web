@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- tritone touche-bleue · un long tapis roulant chargé d'enveloppes ; une silhouette tient une lanterne dont le faisceau bleu inspecte ; une enveloppe est sombre. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+
+    <g id="env">
+      <rect x="-30" y="-22" width="60" height="22" fill="{{light}}"/>
+      <path d="M-30 -22 L0 -8 L30 -22" fill="none" stroke="{{soft}}" stroke-width="3"/>
+    </g>
+  
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1190" cy="520" r="250" fill="{{pale}}"/>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <!-- faisceau bleu de la lanterne vers le tapis -->
+  <path d="M1088 344 L700 422 L900 430 Z" fill="{{detail}}"/>
+  <!-- tapis roulant -->
+  <rect x="0" y="430" width="1100" height="22" fill="{{shape}}"/>
+  <rect x="0" y="452" width="1100" height="8" fill="{{deep}}"/>
+  <circle cx="1100" cy="441" r="11" fill="{{subject}}"/>
+  <g fill="{{subject}}">
+    <rect x="60" y="460" width="10" height="60"/><rect x="330" y="460" width="10" height="60"/><rect x="600" y="460" width="10" height="60"/><rect x="870" y="460" width="10" height="60"/><rect x="1080" y="460" width="10" height="60"/>
+  </g>
+  <!-- enveloppes qui arrivent de la gauche -->
+  <use href="#env" transform="translate(70 430)"/>
+  <use href="#env" transform="translate(190 430)"/>
+  <use href="#env" transform="translate(310 430)"/>
+  <use href="#env" transform="translate(430 430)"/>
+  <use href="#env" transform="translate(550 430)"/>
+  <use href="#env" transform="translate(670 430)"/>
+  <!-- l'enveloppe sombre, sous le faisceau -->
+  <rect x="760" y="408" width="60" height="22" fill="{{shadow}}"/>
+  <path d="M760 408 L790 422 L820 408" fill="none" stroke="{{deep}}" stroke-width="3"/>
+  <use href="#env" transform="translate(910 430)"/>
+  <use href="#env" transform="translate(1030 430)"/>
+  <!-- inspecteur, lanterne levée -->
+  <use href="#man" transform="translate(1180 522) scale(1.5)"/>
+  <path d="M1168 410 L1110 352" stroke="{{subject}}" stroke-width="8" stroke-linecap="round"/>
+  <rect x="1104" y="316" width="3" height="20" fill="{{subject}}"/>
+  <rect x="1088" y="334" width="34" height="40" fill="{{subject}}"/>
+  <rect x="1094" y="340" width="22" height="28" fill="{{light}}"/>
+  <path d="M1086 334 L1105 320 L1124 334 Z" fill="{{subject}}"/>
+</svg>

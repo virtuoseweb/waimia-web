@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Claude Cowork : deux rivières (chat et Cowork) se rejoignent en une seule ; deux silhouettes au confluent. -->
+  <defs><g id="man"><circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/><path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/><rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/><rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/></g> <g id="woman"><circle cx="0" cy="-90" r="7" fill="{{subject}}"/><circle cx="-5" cy="-96" r="5" fill="{{subject}}"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/><rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/><rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect width="1456" height="84" fill="{{pale}}"/>
+  <rect y="80" width="1456" height="6" fill="{{deep}}"/>
+  <!-- Parcelles -->
+  <g fill="{{shape}}">
+    <path d="M60 130 L300 118 L320 210 L80 230 Z"/><path d="M1130 120 L1400 130 L1380 230 L1150 214 Z"/>
+    <path d="M120 400 L420 380 L440 520 L140 560 Z"/><path d="M1040 390 L1360 410 L1340 560 L1060 530 Z"/>
+    <path d="M520 110 L680 104 L690 180 L540 190 Z"/><path d="M820 104 L960 110 L950 190 L830 182 Z"/>
+  </g>
+  <g fill="{{deep}}"><path d="M120 400 L420 380 L422 392 L122 412 Z"/><path d="M1040 390 L1360 410 L1359 422 L1041 402 Z"/></g>
+  <!-- Les deux rivières puis le fleuve -->
+  <g fill="none" stroke="{{ground}}" stroke-linecap="round">
+    <path d="M-20 270 C 200 220, 300 330, 480 300 S 640 300, 728 352" stroke-width="44"/>
+    <path d="M1476 250 C 1250 230, 1170 330, 990 300 S 820 300, 728 352" stroke-width="44"/>
+    <path d="M728 352 C 720 430, 760 500, 728 640" stroke-width="110"/>
+  </g>
+  <!-- Les deux silhouettes au confluent -->
+  <use href="#man" transform="translate(818 372) scale(0.7)"/>
+  <use href="#woman" transform="translate(842 374) scale(0.7)"/>
+  <g fill="{{detail}}"><rect x="700" y="420" width="18" height="3"/><rect x="740" y="470" width="24" height="3"/><rect x="712" y="540" width="20" height="3"/></g>
+</svg>

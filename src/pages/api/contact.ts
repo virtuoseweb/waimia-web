@@ -8,6 +8,7 @@ import { upsertSubscriber } from "../../lib/mailerlite";
 import ContactConfirmation from "../../lib/emails/ContactConfirmation";
 import InternalLeadAlert from "../../lib/emails/InternalLeadAlert";
 import { z } from "zod";
+import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
 
 export const prerender = false;
@@ -99,6 +100,12 @@ export const ALL: APIRoute = async ({ request }) => {
     }
   } catch {
     return Response.json({ ok: false, error: msg("invalid_body") }, { status: 400, headers: CORS_HEADERS });
+  }
+
+  // Anti-robots (champ piège `website`, soumission trop rapide `_t`) : faux succès silencieux,
+  // AVANT toute validation, tout e-mail et tout appel externe.
+  if (isBotSubmission(rawPayload)) {
+    return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
   }
 
   const parsed = ContactSchema.safeParse(rawPayload);

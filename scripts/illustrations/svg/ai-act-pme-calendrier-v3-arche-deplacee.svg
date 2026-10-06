@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot IMG1 · deux silhouettes portent une longue banderole vers une arche plus lointaine, les trous des anciens poteaux restent au sol -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pusher">
+      <circle cx="10" cy="-86" r="7.5" fill="{{subject}}"/>
+      <path d="M-6 -78 Q4 -82 14 -76 L4 -42 L-18 -44 Z" fill="{{subject}}"/>
+      <rect x="2" y="-74" width="34" height="6" rx="3" fill="{{subject}}" transform="rotate(8 2 -74)"/>
+      <path d="M-18 -44 L-4 -44 L-14 -2 L-26 -2 Z" fill="{{subject}}"/>
+      <path d="M-6 -44 L6 -44 L14 -2 L2 -2 Z" fill="{{subject}}"/>
+      <rect x="-30" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="2" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1050" cy="300" r="190" fill="{{shape}}"/>
+  <rect y="480" width="1456" height="144" fill="{{ground}}"/>
+  <rect y="508" width="1456" height="6" fill="{{detail}}"/>
+  <ellipse cx="300" cy="492" rx="20" ry="6" fill="{{subject}}"/><ellipse cx="440" cy="492" rx="20" ry="6" fill="{{subject}}"/>
+  <g fill="{{subject}}">
+    <rect x="1000" y="250" width="14" height="240"/><rect x="1176" y="250" width="14" height="240"/>
+  </g>
+  <rect x="1000" y="250" width="190" height="34" fill="{{detail}}"/>
+  <rect x="560" y="398" width="300" height="20" fill="{{detail}}" transform="rotate(-3 710 408)"/>
+  <use href="#man" transform="translate(600 500) scale(1.2)"/>
+  <use href="#woman" transform="translate(830 500) scale(1.2)"/>
+  <rect x="582" y="398" width="8" height="40" fill="{{subject}}"/><rect x="822" y="394" width="8" height="40" fill="{{subject}}"/>
+
+</svg>

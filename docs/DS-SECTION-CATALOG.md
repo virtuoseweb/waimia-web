@@ -2,7 +2,7 @@
 
 > Machine-readable catalog of all registry section types.
 > Source : `gen-section-manifest.mjs` (deterministic, do not edit by hand).
-> Sections : 221
+> Sections : 223
 
 ---
 
@@ -29,9 +29,9 @@
 | `paragraphs_en` | array | oui |  | min:1 max:5 |
 | `paragraphs_fr` | array | oui |  | min:1 max:5 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .about-story .about-story__aside .about-story__aside-title .about-story__body .about-story__grid .about-story__label .about-story__milestone .about-story__narrative .about-story__timeline .about-story__year
+**Classes scoped** : .about-story .about-story__aside .about-story__aside-title .about-story__body .about-story__grid .about-story__milestone .about-story__year
 
 **Dette hardcode** : 4 valeur(s) — 1px, 860px, clamp(var(--space-5), clamp(var(--space-8)
 
@@ -66,9 +66,9 @@
 
 **Classes scoped** : .announce .announce__badge .announce__close .announce__inner .announce__link .announce__text
 
-**Dette hardcode** : 5 valeur(s) — #fff, 1px, 2px, 3px, 640px
+**Dette hardcode** : 4 valeur(s) — 1px, 2px, 3px, 640px
 
-**Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (#fff, 1px, 2px).
+**Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 2px, 3px).
 
 ---
 
@@ -143,7 +143,7 @@
 | `without_title_en` | string | oui |  |  |
 | `without_title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-sm` `--shadow-paper-lift` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-sm` `--shadow-paper-lift` `--space-1` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h3` `--text-small`
 
 **Classes scoped** : .comparison-duo .comparison-duo__badge .comparison-duo__badge--with .comparison-duo__badge--without .comparison-duo__card .comparison-duo__card--with .comparison-duo__card-header .comparison-duo__card-title .comparison-duo__card-title--with .comparison-duo__glyph .comparison-duo__grid .comparison-duo__header .comparison-duo__item .comparison-duo__item--with .comparison-duo__item--without .comparison-duo__list
 
@@ -175,13 +175,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-5` `--space-6` `--spacing-block` `--text-h3` `--text-small`
 
-**Classes scoped** : .cmp-callout .cmp-callout__bridge .cmp-callout__col .cmp-callout__col-body .cmp-callout__col-title .cmp-callout__cols .cmp-callout__glyph .cmp-callout__header .cmp-callout__note
+**Classes scoped** : .cmp-callout .cmp-callout__bridge .cmp-callout__col .cmp-callout__col-body .cmp-callout__col-title .cmp-callout__cols .cmp-callout__glyph .cmp-callout__note
 
 **Dette hardcode** : 2 valeur(s) — 1px, 860px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 860px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 860px).
 
 ---
 
@@ -204,7 +204,7 @@
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--ease-out` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__header .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
+**Classes scoped** : .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
 
 **Tailwind** : sr-only
 
@@ -237,7 +237,7 @@
 | `h2_fr` | string | oui |  |  |
 | `rows` | array | oui |  | min:1 max:12 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-small`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1`
 
 **Classes scoped** : .astro .callout .ed-table .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-caption .ed-table-editorial .ed-table-figure .ed-table-td .ed-table-th .ed-table-tr .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
@@ -272,7 +272,7 @@
 | `rows_fr` | array | oui |  | min:2 max:6 |
 | `variant` | enum | non | editorial | default | compact | editorial |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-small`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1`
 
 **Classes scoped** : .astro .callout .ed-table .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-caption .ed-table-editorial .ed-table-figure .ed-table-td .ed-table-th .ed-table-tr .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
@@ -341,7 +341,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-small`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--space-9` `--text-h1`
 
 **Classes scoped** : .astro .callout .ed-table .ed-table-block .ed-table-block-h2 .ed-table-block-kicker .ed-table-caption .ed-table-editorial .ed-table-figure .ed-table-td .ed-table-th .ed-table-tr .eyebrow .section-eyebrow .sol-aside .sol-sec .sol-sec-hd .sol-sec-paper .sol-stack-grid .sol-tools .tech-aside .tech-models-table-wrap .tech-sec .tech-sec-hd .tech-sec-paper .wrap
 
@@ -379,13 +379,13 @@
 | `use_title_en` | string | oui |  |  |
 | `use_title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-4` `--space-6` `--space-9` `--text-glyph` `--text-h1` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-4` `--space-6` `--space-9` `--text-glyph` `--text-h1` `--text-h3`
 
 **Classes scoped** : .astro .tech-aside .tech-sec .tech-sec-hd .tech-when-col--avoid .tech-when-col--use .tech-when-dual .tech-when-kicker .tech-when-list .tech-when-list--avoid .tech-when-list--use .wrap
 
 **Dette hardcode** : 7 valeur(s) — -0.018em, 1240px, 18px, 1px, 20px, 480px, 800px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 18px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.018em, 1240px, 18px).
 
 ---
 
@@ -407,9 +407,9 @@
 | `kicker_fr` | string | non |  |  |
 | `rows` | array | oui |  | min:3 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-rgb` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--ink-rgb` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--text-body` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .versus .versus__cell .versus__colhead .versus__corner .versus__feature .versus__group .versus__grouprow .versus__h2 .versus__head .versus__icon .versus__icon--no .versus__icon--yes .versus__kicker .versus__row .versus__scroll .versus__table .versus__text
+**Classes scoped** : .versus .versus__cell .versus__colhead .versus__corner .versus__feature .versus__group .versus__grouprow .versus__h2 .versus__icon .versus__icon--no .versus__icon--yes .versus__kicker .versus__row .versus__scroll .versus__table .versus__text
 
 **Dette hardcode** : 7 valeur(s) — -0.02em, 100%, 1px, 34%, 390px, 640px, 768px
 
@@ -514,9 +514,7 @@
 
 **Tokens** : `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--radius-sm` `--space-10` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-small` `--tracking-mono-tight`
 
-**Classes scoped** : .contact-form .contact-form__body .contact-form__btn .contact-form__confirm .contact-form__detail .contact-form__details .contact-form__error .contact-form__field .contact-form__form .contact-form__grid .contact-form__hint .contact-form__input .contact-form__input--error .contact-form__intro .contact-form__textarea .sr-only
-
-**Tailwind** : sr-only
+**Classes scoped** : .contact-form .contact-form__body .contact-form__btn .contact-form__confirm .contact-form__detail .contact-form__details .contact-form__error .contact-form__field .contact-form__form .contact-form__grid .contact-form__input .contact-form__input--error .contact-form__textarea .sr-only
 
 **Dette hardcode** : 10 valeur(s) — -1px, 0.06em, 0.1em, 100%, 110px, 1px, 2px, 3px
 
@@ -546,13 +544,15 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--ink-3` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--section-base` `--shadow-lift` `--space-1` `--space-3` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--ink-3` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--section-base` `--shadow-lift` `--space-1` `--space-3` `--space-6` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .acc .article-card .article-card__author .article-card__body .article-card__excerpt .article-card__media .article-card__meta .article-card__tag .article-card__title .article-grid .article-grid__h2 .article-grid__hd .article-grid__intro .article-grid__list
+**Classes scoped** : .acc .article-card .article-card__author .article-card__body .article-card__excerpt .article-card__media .article-card__meta .article-card__tag .article-card__title .article-grid .article-grid__h2 .article-grid__intro .article-grid__list .sr-only
 
-**Dette hardcode** : 9 valeur(s) — -0.01em, -0.02em, -4px, 100%, 1px, 2px, 640px, 760px
+**Tailwind** : sr-only
 
-**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (-0.01em, -0.02em, -4px).
+**Dette hardcode** : 8 valeur(s) — -0.01em, -1px, -4px, 100%, 1px, 2px, 640px, 980px
+
+**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-1 --space-3 --space-6. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, -1px, -4px).
 
 ---
 
@@ -611,13 +611,13 @@
 | `kicker_fr` | string | non |  |  |
 | `resources` | array | oui |  | min:2 max:9 |
 
-**Tokens** : `--accent` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--radius-pill` `--section-base` `--shadow-lift` `--space-3` `--space-4` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent` `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-card` `--radius-pill` `--section-base` `--shadow-lift` `--space-3` `--space-4` `--space-6` `--space-7` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .acc .resource-card .resource-card__cta .resource-card__desc .resource-card__foot .resource-card__format .resource-card__gated .resource-card__title .resource-card__top .resource-grid .resource-grid__h2 .resource-grid__hd .resource-grid__intro .resource-grid__list
+**Classes scoped** : .acc .resource-card .resource-card__cta .resource-card__desc .resource-card__foot .resource-card__format .resource-card__gated .resource-card__title .resource-card__top .resource-grid .resource-grid__h2 .resource-grid__intro .resource-grid__list
 
-**Dette hardcode** : 8 valeur(s) — -0.01em, -0.02em, -4px, 1px, 2px, 640px, 760px, 980px
+**Dette hardcode** : 6 valeur(s) — -0.01em, -4px, 1px, 2px, 640px, 980px
 
-**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.01em, -0.02em, -4px).
+**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --accent --accent-text --ink. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.01em, -4px, 1px).
 
 ---
 
@@ -716,13 +716,13 @@
 | `term_en` | string | non |  |  |
 | `term_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-3` `--space-4` `--space-6` `--space-9` `--text-h2` `--text-h3` `--text-lede` `--text-small` `--tracking-mono` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-compact` `--space-12` `--space-3` `--space-4` `--space-6` `--space-9` `--text-h2` `--text-h3` `--text-lede` `--text-small` `--tracking-mono` `--wrap-prose`
 
 **Classes scoped** : .direct-answer .direct-answer__answer .direct-answer__answer--dropcap .direct-answer__eyebrow .direct-answer__question .direct-answer__term .direct-answer__text
 
-**Dette hardcode** : 6 valeur(s) — -0.018em, -0.01em, 0.06em, 0.12em, 1px, 2.8em
+**Dette hardcode** : 5 valeur(s) — -0.018em, -0.01em, 0.06em, 0.12em, 2.8em
 
-**Agent** : Espacement : --space-12 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.018em, -0.01em, 0.06em).
+**Agent** : Espacement : --space-12 --space-3 --space-4. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-0.018em, -0.01em, 0.06em).
 
 ---
 
@@ -743,13 +743,11 @@
 | `size` | enum | non |  | sm | md | lg |
 | `variant` | enum | non |  | info | quote | note | warn | manifesto |
 
-**Tokens** : `--gut` `--hairline` `--ink` `--paper` `--paper-2` `--paper-3` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-9` `--wrap-prose`
+**Tokens** : `--ink` `--paper` `--paper-2` `--paper-3` `--section-ample` `--section-compact` `--space-12` `--space-9`
 
-**Classes scoped** : .editorial-callout .editorial-callout__col
+**Classes scoped** : .editorial-callout
 
-**Dette hardcode** : 1 valeur(s) — 1px
-
-**Agent** : Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-9. Couleur : --ink --paper --paper-2. Dette : 1 litteral(s) hardcode(s) (1px).
+**Agent** : Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-9. Couleur : --ink --paper --paper-2.
 
 ---
 
@@ -770,13 +768,13 @@
 | `size` | enum | non |  | sm | md | lg |
 | `variant` | enum | non |  | default | section | end | rule | asterism |
 
-**Tokens** : `--font-mono` `--gut` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-2` `--space-9` `--text-small` `--tracking-mono` `--wrap-prose`
+**Tokens** : `--font-mono` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-compact` `--space-12` `--space-2` `--space-9` `--text-small` `--tracking-mono` `--wrap-prose`
 
 **Classes scoped** : .editorial-dingbat .editorial-dingbat__caption .editorial-dingbat__caption--below .editorial-dingbat__col
 
-**Dette hardcode** : 2 valeur(s) — 0.12em, 1px
+**Dette hardcode** : 1 valeur(s) — 0.12em
 
-**Agent** : Layout : `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --text-small. Dette : 2 litteral(s) hardcode(s) (0.12em, 1px).
+**Agent** : Layout : `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --text-small. Dette : 1 litteral(s) hardcode(s) (0.12em).
 
 ---
 
@@ -796,13 +794,13 @@
 | `paragraphs_fr` | array | non |  |  |
 | `variant` | enum | non |  | serif | mono | accent |
 
-**Tokens** : `--font-sans` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--paper` `--paper-2` `--paper-3` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-4` `--space-9` `--text-body-md` `--wrap-prose`
+**Tokens** : `--font-sans` `--ink` `--ink-2` `--leading-body` `--paper` `--paper-2` `--paper-3` `--section-ample` `--section-compact` `--space-12` `--space-4` `--space-9` `--text-body-md`
 
-**Classes scoped** : .editorial-dropcap .editorial-dropcap__col .editorial-dropcap__lead .editorial-dropcap__p
+**Classes scoped** : .editorial-dropcap .editorial-dropcap__lead .editorial-dropcap__p
 
-**Dette hardcode** : 2 valeur(s) — 17px, 1px
+**Dette hardcode** : 1 valeur(s) — 17px
 
-**Agent** : Layout : `variant` (schema, 0 CSS). Espacement : --space-12 --space-4 --space-9. Couleur : --ink --ink-2 --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (17px, 1px).
+**Agent** : Layout : `variant` (schema, 0 CSS). Espacement : --space-12 --space-4 --space-9. Couleur : --ink --ink-2 --paper. Typographie : --font-sans --leading-body. Dette : 1 litteral(s) hardcode(s) (17px).
 
 ---
 
@@ -822,7 +820,7 @@
 | `html_fr` | string | non |  |  |
 | `maxWidth` | enum | non |  | prose | wide |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-lg` `--section-base` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-kicker` `--tracking-kicker` `--wrap-prose` `--wrap-wide`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-lg` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-kicker` `--tracking-kicker` `--wrap-prose` `--wrap-wide`
 
 **Classes scoped** : .editorial-prose .editorial-prose__col .editorial-prose__figure .sector-body
 
@@ -876,6 +874,35 @@
 **Dette hardcode** : 4 valeur(s) — 0.12em, 1px, 32px, 900px
 
 **Agent** : Layout : `pad`, `tone` (schema, 0 CSS). Espacement : --space-12 --space-6 --space-8. Couleur : --accent-text --ink --muted. Typographie : --font-mono --text-small. Dette : 4 litteral(s) hardcode(s) (0.12em, 1px, 32px).
+
+---
+
+### `market-cases`
+
+> Rubrique « Études de cas du marché » : cas réels documentés et réalisés par des tiers. Chaque fiche porte le libellé « Cas documenté, non réalisé par Waimia », la citation exacte du résultat, ses limites, le lien vers la source et la date de lecture. Registre froid (filet complémentaire, pointillés) distinct des preuves Waimia. Contenu global lu dans src/data/market-cases.ts.
+> MarketCases · src/sections/market-cases/Component.astro · marketing/content-sections
+> status : stable · tags : case-study, citation, eeat, market, sources, third-party
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `groups` | array | oui |  | min:1 max:6 |
+| `h2_en` | string | oui |  |  |
+| `h2_fr` | string | oui |  |  |
+| `intro_en` | string | non |  |  |
+| `intro_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `variant` | enum | non |  | full | digest |
+
+**Tokens** : `--complementary` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-h3` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--text-title-lg` `--tracking-display` `--tracking-mono-tight` `--wrap-read`
+
+**Classes scoped** : .mkt .mkt__attribution .mkt__case .mkt__company .mkt__fact .mkt__facts .mkt__group .mkt__group-title .mkt__head .mkt__id .mkt__intro .mkt__label .mkt__list .mkt__more .mkt__notice .mkt__profile .mkt__quote .mkt__quote-label .mkt__read .mkt__sources .mkt__sr .mkt__title
+
+**Dette hardcode** : 8 valeur(s) — 0.25em, 1000px, 11rem, 1px, 2px, 3px, 50%, 640px
+
+**Agent** : Layout : `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --ink --ink-2 --ink-rgb. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (0.25em, 1000px, 11rem).
 
 ---
 
@@ -1077,7 +1104,7 @@
 
 **Tokens** : `--accent` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-tight` `--space-10` `--space-3` `--space-4` `--space-6` `--space-9` `--spacing-block` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-mono`
 
-**Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec .sol-sec-dark .wrap .wrap-tight
+**Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec-dark .wrap .wrap-tight
 
 **Dette hardcode** : 6 valeur(s) — -2px, 1240px, 1px, 540px, 560px, 880px
 
@@ -1087,9 +1114,9 @@
 
 ### `cta-form-inline`
 
-> Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention.
+> Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention. Prop optionnelle `lead_magnet` (slug) : le fichier est livré par e-mail en pièce jointe.
 > CtaFormInline · src/components/sections/CtaFormInline.astro · marketing/cta-sections
-> status : stable · tags : capture, cta, email, form, inline, lead, newsletter
+> status : stable · tags : capture, cta, email, form, inline, lead, lead-magnet, newsletter
 
 **Props**
 
@@ -1105,20 +1132,21 @@
 | `hint_fr` | string | non |  |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
+| `lead_magnet` | string | non |  |  |
 | `placeholder_en` | string | non | your@email.com |  |
 | `placeholder_fr` | string | non | votre@email.com |  |
 | `submit_label_en` | string | non | Sign up → |  |
 | `submit_label_fr` | string | non | S'inscrire → |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--section-base` `--space-10` `--space-3` `--space-4` `--space-5` `--space-7` `--text-body` `--text-small`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--text-body` `--text-small`
 
-**Classes scoped** : .cta-form .cta-form__body .cta-form__btn .cta-form__confirm .cta-form__error .cta-form__form .cta-form__hint .cta-form__inner .cta-form__input .cta-form__input--error .cta-form__row .cta-form__text .sr-only
+**Classes scoped** : .cta-form .cta-form__body .cta-form__btn .cta-form__confirm .cta-form__error .cta-form__form .cta-form__inner .cta-form__input .cta-form__input--error .cta-form__optin .cta-form__row .sr-only
 
 **Tailwind** : sr-only
 
-**Dette hardcode** : 8 valeur(s) — -1px, 0.01em, 0.06em, 10px, 1px, 200px, 2px, 860px
+**Dette hardcode** : 10 valeur(s) — -1px, 0.01em, 0.06em, 10px, 15px, 1px, 200px, 2px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 8 litteral(s) hardcode(s) (-1px, 0.01em, 0.06em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (-1px, 0.01em, 0.06em).
 
 ---
 
@@ -1167,13 +1195,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-1` `--space-10` `--space-3` `--space-5` `--space-8` `--text-body`
+**Tokens** : `--accent` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-10` `--space-8` `--text-body`
 
-**Classes scoped** : .cta-split .cta-split__body .cta-split__ctas .cta-split__inner .cta-split__kicker .cta-split__svg .cta-split__text .cta-split__visual
+**Classes scoped** : .cta-split .cta-split__body .cta-split__inner .cta-split__kicker .cta-split__svg .cta-split__visual
 
-**Dette hardcode** : 5 valeur(s) — 100%, 1px, 240px, 320px, 768px
+**Dette hardcode** : 4 valeur(s) — 100%, 240px, 320px, 768px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-3. Couleur : --accent --ink --muted. Typographie : --font-sans --leading-body. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 240px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-8. Couleur : --accent --ink --muted. Typographie : --font-sans --leading-body. Dette : 4 litteral(s) hardcode(s) (100%, 240px, 320px).
 
 ---
 
@@ -1200,7 +1228,7 @@
 
 **Tokens** : `--accent` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-base` `--section-tight` `--space-10` `--space-3` `--space-4` `--space-6` `--space-9` `--spacing-block` `--text-h1` `--text-h3` `--text-small` `--tracking-body` `--tracking-mono`
 
-**Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec .sol-sec-dark .wrap .wrap-tight
+**Classes scoped** : .astro .btn-accent .btn-light .cta-final .cta-final__avail .cta-final__chapter .cta-final__ctas .cta-final__inner .cta-final__sub .sol-cta .sol-cta-body .sol-cta-btns .sol-cta-final .sol-sec-dark .wrap .wrap-tight
 
 **Dette hardcode** : 6 valeur(s) — -2px, 1240px, 1px, 540px, 560px, 880px
 
@@ -1238,7 +1266,7 @@
 | `subtitle_html_fr` | string | non |  |  |
 | `texture` | enum | non |  | signature-grid |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-band` `--section-grand` `--space-10` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1`
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h2` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-band` `--section-grand` `--space-10` `--space-12` `--space-3` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1`
 
 **Classes scoped** : .actions .align .footer-cta .footer-cta__actions .footer-cta__copy .footer-cta__inner .footer-cta__subtitle .footer-cta--rounded .header .justify .signature-grid
 
@@ -1335,13 +1363,13 @@
 | `kicker_fr` | string | non |  |  |
 | `open_first` | boolean | non |  |  |
 
-**Tokens** : `--dur-fast` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h3` `--text-small`
+**Tokens** : `--dur-fast` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-4` `--space-5` `--text-body` `--text-h3` `--text-small`
 
-**Classes scoped** : .faq-accordion .faq-accordion__a .faq-accordion__arrow .faq-accordion__header .faq-accordion__intro .faq-accordion__item .faq-accordion__q .faq-accordion__q-label
+**Classes scoped** : .faq-accordion .faq-accordion__a .faq-accordion__arrow .faq-accordion__intro .faq-accordion__item .faq-accordion__q .faq-accordion__q-label
 
 **Dette hardcode** : 3 valeur(s) — 1px, 2px, 56px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 2px, 56px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 2px, 56px).
 
 ---
 
@@ -1372,11 +1400,11 @@
 
 **Tokens** : `--dur-fast` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-base` `--space-10` `--space-4` `--space-5` `--space-7` `--space-8` `--text-body` `--text-h3` `--text-small`
 
-**Classes scoped** : .faq-cta .faq-cta__a .faq-cta__arrow .faq-cta__aside .faq-cta__card .faq-cta__card-body .faq-cta__card-note .faq-cta__card-title .faq-cta__grid .faq-cta__header .faq-cta__item .faq-cta__q .faq-cta__q-label
+**Classes scoped** : .faq-cta .faq-cta__a .faq-cta__arrow .faq-cta__aside .faq-cta__card .faq-cta__card-body .faq-cta__card-title .faq-cta__grid .faq-cta__header .faq-cta__item .faq-cta__q .faq-cta__q-label
 
-**Dette hardcode** : 6 valeur(s) — -0.015em, 0.06em, 1px, 2px, 56px, 900px
+**Dette hardcode** : 5 valeur(s) — -0.015em, 1px, 2px, 56px, 900px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.015em, 0.06em, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.015em, 1px, 2px).
 
 ---
 
@@ -1397,13 +1425,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-2` `--space-4` `--space-5` `--space-6` `--space-8` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-12` `--space-2` `--space-5` `--space-6` `--space-8` `--text-h3` `--text-small`
 
-**Classes scoped** : .faq-two-col .faq-two-col__a .faq-two-col__grid .faq-two-col__header .faq-two-col__item .faq-two-col__q
+**Classes scoped** : .faq-two-col .faq-two-col__a .faq-two-col__grid .faq-two-col__item .faq-two-col__q
 
 **Dette hardcode** : 3 valeur(s) — 1px, 760px, clamp(var(--space-8)
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-4. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-semibold. Dette : 3 litteral(s) hardcode(s) (1px, 760px, clamp(var(--space-8)).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-12 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-semibold. Dette : 3 litteral(s) hardcode(s) (1px, 760px, clamp(var(--space-8)).
 
 ---
 
@@ -1472,13 +1500,13 @@
 | `system_label` | string | oui |  |  |
 | `system_subtitle` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--dur-fast` `--dur-reveal` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-2` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h2` `--text-h3` `--tracking-display` `--wrap-prose`
 
 **Classes scoped** : .css .in .is-visible .reveal-fade .sysarch .sysarch-cap .sysarch-fig .sysarch-flow .sysarch-h2 .sysarch-hd .sysarch-head .sysarch-loop .sysarch-node .sysarch-spec .sysarch-svg .sysarch-wrap
 
-**Dette hardcode** : 10 valeur(s) — 0.1em, 100%, 1px, 240px, 320px, 700px, 768px, 860px
+**Dette hardcode** : 9 valeur(s) — 100%, 1px, 240px, 320px, 700px, 768px, 860px, 880px
 
-**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 10 litteral(s) hardcode(s) (0.1em, 100%, 1px).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `proportion` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-display --font-mono. Dette : 9 litteral(s) hardcode(s) (100%, 1px, 240px).
 
 ---
 
@@ -1505,7 +1533,7 @@
 | `layout` | enum | non |  | bento | bento-feature | mosaic | matrix-2x2 | matrix-3x3 | grid-uniform |
 | `placement` | unknown | oui |  |  |
 
-**Tokens** : `--accent-text` `--bento-grid-gap` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-h2` `--text-h3` `--text-small` `--tile-min`
+**Tokens** : `--accent-text` `--bento-grid-gap` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--gut` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--shadow-card-hover` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h2` `--text-h3` `--text-small` `--tile-min`
 
 **Classes scoped** : .align .bento-fluid .bento-grid .bento-grid__body .bento-grid__cell .bento-grid__glyph .bento-grid__header .bento-grid__mosaic .bento-grid__title .css .header .N .span- .span-lg .span-sm .span-wide .wrap-wide
 
@@ -1534,7 +1562,7 @@
 
 **Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-hover` `--ease-out` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--shadow-card-rest` `--shadow-lift` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .challenges .challenges__body .challenges__card .challenges__grid .challenges__head .challenges__icon .challenges__inner .challenges__num .challenges__title
+**Classes scoped** : .challenges .challenges__body .challenges__card .challenges__grid .challenges__head .challenges__inner .challenges__num .challenges__title
 
 **Dette hardcode** : 4 valeur(s) — -4px, 1px, 3px, 640px
 
@@ -1593,7 +1621,7 @@
 
 **Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--sec-col-min` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose` `--wrap-read`
 
-**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
 **Dette hardcode** : 22 valeur(s) — -0.015em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
@@ -1656,7 +1684,7 @@
 
 **Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--sec-col-min` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose` `--wrap-read`
 
-**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
 **Dette hardcode** : 22 valeur(s) — -0.015em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
@@ -1693,9 +1721,9 @@
 
 **Classes scoped** : .aside .css .notes-foot .notes-foot-link .notes-index .notes-row .notes-row-arr .notes-row-date .notes-row-num .notes-row-tag .notes-row-text .sec .sec-hd
 
-**Dette hardcode** : 13 valeur(s) — -0.015em, 0.14em, 0.1em, 110px, 12px, 1px, 2px, 32px
+**Dette hardcode** : 12 valeur(s) — -0.015em, 0.14em, 110px, 12px, 1px, 2px, 32px, 48px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.015em, 0.14em, 0.1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-mono --font-sans. Dette : 12 litteral(s) hardcode(s) (-0.015em, 0.14em, 110px).
 
 ---
 
@@ -1743,7 +1771,7 @@
 | `lede_fr` | string | non |  |  |
 | `open_first` | boolean | non | false |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-4` `--space-5` `--space-9` `--spacing-block` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-3` `--space-4` `--space-5` `--space-9` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
 
 **Classes scoped** : .fa .fa__a .fa__arrow .fa__body .fa__header .fa__item .fa__lede .fa__meta .fa__q .fa__q-label .fa__q-title
 
@@ -1772,7 +1800,7 @@
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--c` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-7` `--spacing-block` `--text-body` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--c` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-7` `--text-body` `--text-h3` `--text-small`
 
 **Classes scoped** : .fcg .fcg__col .fcg__col-label .fcg__grid .fcg__header .fcg__lede .fcg__mark .fcg__row .fcg__rows .is-highlighted .is-in .is-out
 
@@ -1809,7 +1837,7 @@
 
 **Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--sec-col-min` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose` `--wrap-read`
 
-**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
 **Dette hardcode** : 22 valeur(s) — -0.015em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
@@ -1918,13 +1946,13 @@
 | `proportion` | enum | non |  | 1-1 | 1-2 | 2-1 | 2-3 | 3-2 |
 | `rows` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-12` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent` `--accent-rgb` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--space-10` `--space-12` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h3` `--text-small`
 
-**Classes scoped** : .align .fz .fz__art .fz__cell .fz__header .fz__img .fz__lede .fz__link .fz__points .fz__row .fz__rows .fz__svg .fz__text .fz__visual .header .in .is-visible .webp
+**Classes scoped** : .align .fz .fz__art .fz__cell .fz__header .fz__img .fz__link .fz__points .fz__row .fz__rows .fz__text .fz__visual .header .in .is-visible .webp
 
 **Dette hardcode** : 20 valeur(s) — -24px, 0.55em, 100%, 120%, 14px, 16%, 1px, 24px
 
-**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%).
+**Agent** : Layout : `background`, `contentAlign`, `density`, `layout`, `mediaSide`, `proportion` (schema, 0 CSS). Espacement : --space-10 --space-12 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 20 litteral(s) hardcode(s) (-24px, 0.55em, 100%).
 
 ---
 
@@ -1941,13 +1969,13 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `guarantees` | array | oui |  | min:1 max:4 |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--text-body` `--text-h3`
+**Tokens** : `--font-sans` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--text-body`
 
-**Classes scoped** : .guarantee-block .guarantee-block__content .guarantee-block__item .guarantee-block__list .guarantee-block__num .guarantee-block__title
+**Classes scoped** : .guarantee-block .guarantee-block__content .guarantee-block__item .guarantee-block__list .guarantee-block__num
 
 **Dette hardcode** : 3 valeur(s) — 1px, 56px, 600px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 3 litteral(s) hardcode(s) (1px, 56px, 600px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --leading-relaxed. Dette : 3 litteral(s) hardcode(s) (1px, 56px, 600px).
 
 ---
 
@@ -1970,9 +1998,9 @@
 | `lede_fr` | string | non |  |  |
 | `panels` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h1` `--text-h3` `--text-small`
+**Tokens** : `--accent` `--accent-sur-sombre` `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h1` `--text-small`
 
-**Classes scoped** : .fz__points .hsh .hsh__body .hsh__header .hsh__index .hsh__index-btn .hsh__index-label .hsh__index-num .hsh__lede .hsh__link .hsh__media .hsh__panel .hsh__panel-index .hsh__points .hsh__text .hsh__title .hsh__track
+**Classes scoped** : .fz__points .hsh .hsh__body .hsh__header .hsh__index .hsh__index-btn .hsh__index-label .hsh__index-num .hsh__lede .hsh__link .hsh__media .hsh__panel .hsh__panel-index .hsh__points .hsh__title .hsh__track
 
 **Dette hardcode** : 9 valeur(s) — 0.55em, 100%, 1px, 3px, 640px, 6px, 768px, clamp(82%, 88vw, 92%)
 
@@ -2000,13 +2028,13 @@
 | `lede_fr` | string | non |  |  |
 | `reveal_mode` | enum | non |  | cursor | fixed |
 
-**Tokens** : `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--shadow-lift` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-h3` `--text-small` `--text-title-lg`
+**Tokens** : `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--shadow-lift` `--space-2` `--space-3` `--space-5` `--text-h3` `--text-small` `--text-title-lg`
 
-**Classes scoped** : .hrl .hrl__header .hrl__img .hrl__item .hrl__label .hrl__lede .hrl__list .hrl__meta .hrl__reveal .hrl__row .hrl__thumb .is-on
+**Classes scoped** : .hrl .hrl__header .hrl__img .hrl__item .hrl__label .hrl__list .hrl__meta .hrl__reveal .hrl__row .hrl__thumb .is-on
 
 **Dette hardcode** : 7 valeur(s) — -50%, 100%, 1px, 50%, 640px, 768px, clamp(220px, 22vw, 340px)
 
-**Agent** : Layout : `background`, `reveal_mode` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1px).
+**Agent** : Layout : `background`, `reveal_mode` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (-50%, 100%, 1px).
 
 ---
 
@@ -2029,7 +2057,7 @@
 
 **Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--sec-col-min` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose` `--wrap-read`
 
-**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
 **Dette hardcode** : 22 valeur(s) — -0.015em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
@@ -2055,7 +2083,7 @@
 | `title_en` | string | non |  |  |
 | `title_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--inclusions-list-pad` `--ink` `--leading-body` `--leading-h3` `--paper` `--paper-2` `--paper-3` `--section-loose` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h2` `--text-small` `--tracking-display`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--hairline` `--inclusions-list-pad` `--ink` `--leading-body` `--paper` `--paper-2` `--paper-3` `--section-loose` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-small`
 
 **Classes scoped** : .inclusions-list .inclusions-list__hd .inclusions-list__items .inclusions-list__kicker .inclusions-list__title
 
@@ -2149,13 +2177,13 @@
 | `lede_fr` | string | non |  |  |
 | `swap_mode` | enum | non |  | auto | hover |
 
-**Tokens** : `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-1` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-1` `--space-7` `--space-9` `--text-h3`
 
-**Classes scoped** : .is-active .msb .msb__col .msb__col-head .msb__cols .msb__cta .msb__fig .msb__frame .msb__header .msb__label .msb__lede .msb__sublabel
+**Classes scoped** : .is-active .msb .msb__col-head .msb__cols .msb__cta .msb__fig .msb__frame .msb__header .msb__label
 
 **Dette hardcode** : 4 valeur(s) — 100%, 1px, 640px, 768px
 
-**Agent** : Layout : `background`, `swap_mode` (schema, 0 CSS). Espacement : --space-1 --space-4 --space-7. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 640px).
+**Agent** : Layout : `background`, `swap_mode` (schema, 0 CSS). Espacement : --space-1 --space-7 --space-9. Couleur : --ink --paper --paper-2. Typographie : --font-sans --fw-medium. Dette : 4 litteral(s) hardcode(s) (100%, 1px, 640px).
 
 ---
 
@@ -2358,13 +2386,13 @@
 | `note_fr` | string | non |  |  |
 | `photos` | array | oui |  | min:1 max:5 |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-2` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-kicker` `--text-micro` `--text-small`
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-2` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-kicker` `--text-micro`
 
 **Classes scoped** : .is-visible .pcl .pcl__caption .pcl__cluster .pcl__grid .pcl__header .pcl__img .pcl__lead .pcl__lede .pcl__note .pcl__photo .reveal
 
 **Dette hardcode** : 7 valeur(s) — 0.16em, 0.1em, 100%, 1px, 60%, 640px, 768px
 
-**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (0.16em, 0.1em, 100%).
+**Agent** : Layout : `background`, `layout` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --ink --muted --paper. Typographie : --font-sans --fw-medium. Dette : 7 litteral(s) hardcode(s) (0.16em, 0.1em, 100%).
 
 ---
 
@@ -2413,7 +2441,7 @@
 
 **Tokens** : `--accent` `--accent-text` `--col-min` `--deliverables-grid-col-gap` `--deliverables-grid-inline` `--deliverables-grid-pad` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-prose` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--radius-xs` `--sec-col-min` `--section-base` `--section-loose` `--space-1` `--space-10` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose` `--wrap-read`
 
-**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__intro-desc .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .icon-trio__title .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
+**Classes scoped** : .align .astro .commitments-grid .commitments-grid__body .commitments-grid__cell .commitments-grid__cell-body .commitments-grid__cell-title .commitments-grid__grid .commitments-grid__h2 .commitments-grid__kicker .css .deliverables-grid .deliverables-grid__art .deliverables-grid__card .deliverables-grid__grid .deliverables-grid__hd .deliverables-grid__kicker .deliverables-grid__lead .deliverables-grid__tag .deliverables-grid__title .feature-grid .feature-grid__cta .feature-grid__fill .feature-grid__fill-art .feature-grid__header .feature-grid__header-cta .feature-grid__icon .feature-grid__item .feature-grid__lede .feature-grid__list .feature-grid__media .feature-grid__meta .feature-grid__title .header .icon-trio .icon-trio__body .icon-trio__col .icon-trio__cols .icon-trio__glyph .kicker .N .problems-grid .problems-grid__art .problems-grid__card .problems-grid__cards .problems-grid__h2 .problems-grid__kicker .problems-grid__num .sec-base-h2 .sec-collection .sec-grid .sec-intro .sec-item .wrap-wide
 
 **Dette hardcode** : 22 valeur(s) — -0.015em, -0.018em, -1px, -2px, .06em, .08em, 100%, 1200px
 
@@ -2439,11 +2467,13 @@
 
 **Tokens** : `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--hairline-strong` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--related-cards-band-pad` `--section-loose` `--space-6`
 
-**Classes scoped** : .related-card .related-cards-band .related-cards-band__grid .related-cards-band__kicker .related-go .related-k .related-lead .related-title .wrap-wide
+**Classes scoped** : .related-card .related-cards-band .related-cards-band__grid .related-cards-band__kicker .related-go .related-k .related-lead .related-title .sr-only .wrap-wide
 
-**Dette hardcode** : 2 valeur(s) — -2px, 1px
+**Tailwind** : sr-only
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-6. Couleur : --accent-text --ink --muted. Dette : 2 litteral(s) hardcode(s) (-2px, 1px).
+**Dette hardcode** : 3 valeur(s) — -1px, -2px, 1px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-6. Couleur : --accent-text --ink --muted. Dette : 3 litteral(s) hardcode(s) (-1px, -2px, 1px).
 
 ---
 
@@ -2467,13 +2497,13 @@
 | `lede_fr` | string | non |  |  |
 | `media_side` | enum | non |  | left | right |
 
-**Tokens** : `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-10` `--space-2` `--space-3` `--space-4` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-10` `--space-3` `--space-4` `--space-7` `--space-9` `--text-h3` `--text-small`
 
-**Classes scoped** : .sgal .sgal__body .sgal__fig .sgal__frame .sgal__grid .sgal__header .sgal__index .sgal__inline-img .sgal__item .sgal__lede .sgal__link .sgal__list .sgal__media .u-serif-accent
+**Classes scoped** : .sgal .sgal__body .sgal__fig .sgal__frame .sgal__grid .sgal__header .sgal__index .sgal__inline-img .sgal__item .sgal__link .sgal__list .sgal__media .u-serif-accent
 
 **Dette hardcode** : 5 valeur(s) — 100%, 1px, 3px, 640px, 768px
 
-**Agent** : Layout : `background`, `media_side` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-3. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px).
+**Agent** : Layout : `background`, `media_side` (schema, 0 CSS). Espacement : --space-10 --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-sans --fw-medium. Dette : 5 litteral(s) hardcode(s) (100%, 1px, 3px).
 
 ---
 
@@ -2506,9 +2536,9 @@
 
 **Classes scoped** : .aside .astro .dept-sector .sec .sec-hd .svc-arr .svc-cat-footer .svc-cat-list .svc-cat-sec .svc-desc .svc-meta .svc-num .svc-row .svc-title
 
-**Dette hardcode** : 14 valeur(s) — -0.022em, -2px, .14em, 0.1em, 100%, 110px, 12px, 180px
+**Dette hardcode** : 13 valeur(s) — -0.022em, -2px, .14em, 100%, 110px, 12px, 180px, 1px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 14 litteral(s) hardcode(s) (-0.022em, -2px, .14em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent-text --ink --ink-2. Typographie : --font-mono --font-sans. Dette : 13 litteral(s) hardcode(s) (-0.022em, -2px, .14em).
 
 ---
 
@@ -2538,7 +2568,7 @@
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .css .qgrid .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__illus .services-grid__illus-art .services-grid__illus-cap .services-grid__num .services-grid__sep .services-grid__spec
+**Classes scoped** : .css .qgrid .services-grid .services-grid__cell .services-grid__cell-arr .services-grid__cell-body .services-grid__cell-fig .services-grid__cell-foot .services-grid__cell-foot-key .services-grid__cell-foot-val .services-grid__cell-head .services-grid__cell-metric .services-grid__cell-rule .services-grid__cell-title .services-grid__cell-uc .services-grid__chapter .services-grid__dot .services-grid__foot .services-grid__foot-link .services-grid__grid .services-grid__h2 .services-grid__hd .services-grid__illus .services-grid__illus-art .services-grid__illus-cap .services-grid__num .services-grid__sep
 
 **Dette hardcode** : 23 valeur(s) — -0.02em, -1px, -2px, 0.04em, 0.14em, 0.1em, 100%, 1023px
 
@@ -2565,13 +2595,13 @@
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--i` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent` `--font-sans` `--fw-medium` `--hairline` `--i` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-lg` `--radius-md` `--shadow-lift` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-h3` `--text-small`
 
-**Classes scoped** : .stk .stk__art .stk__card .stk__header .stk__img .stk__index .stk__item .stk__lede .stk__link .stk__list .stk__points .stk__text .stk__visual .u-serif-accent .wrap-wide
+**Classes scoped** : .stk .stk__art .stk__card .stk__header .stk__img .stk__item .stk__link .stk__list .stk__points .stk__text .stk__visual .u-serif-accent .wrap-wide
 
 **Dette hardcode** : 11 valeur(s) — 0.55em, 100%, 1px, 3px, 640px, 6px, 767px, 768px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-text --ink. Typographie : --font-sans --fw-medium. Dette : 11 litteral(s) hardcode(s) (0.55em, 100%, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent --ink --muted. Typographie : --font-sans --fw-medium. Dette : 11 litteral(s) hardcode(s) (0.55em, 100%, 1px).
 
 ---
 
@@ -2674,13 +2704,13 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-4` `--space-5` `--space-9` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--ink-rgb` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-4` `--space-5` `--text-h1` `--text-small` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .astro .tech-aside .tech-cap-table-wrap .tech-sec .tech-sec-hd .tt-spec-desc .tt-spec-name .tt-spec-status .tt-specs .wrap
 
 **Dette hardcode** : 9 valeur(s) — -0.018em, 10%, 100%, 1240px, 1px, 22%, 480px, 700px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.018em, 10%, 100%).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 9 litteral(s) hardcode(s) (-0.018em, 10%, 100%).
 
 ---
 
@@ -2705,9 +2735,9 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--gut` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-1` `--space-10` `--space-2` `--space-4` `--space-5` `--space-8` `--text-h1` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--gut` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-10` `--space-2` `--space-4` `--space-5` `--space-8` `--text-h1` `--text-h3` `--text-small`
 
-**Classes scoped** : .astro .callout .fact .fact-k .fact-v .tech-aside .tech-pos-facts .tech-pos-right .tech-pos-split .tech-pos-statement .tech-pos-title .tech-positioning .tech-sec .tech-sec-paper .wrap
+**Classes scoped** : .astro .callout .fact .fact-k .fact-v .tech-aside .tech-pos-facts .tech-pos-right .tech-pos-split .tech-pos-statement .tech-pos-title .tech-positioning .tech-sec-paper .wrap
 
 **Dette hardcode** : 11 valeur(s) — -0.012em, -0.02em, 0.1em, 100%, 1240px, 140px, 1px, 28px
 
@@ -2829,7 +2859,7 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--dur-base` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-md` `--space-1` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h3` `--text-small`
+**Tokens** : `--dur-base` `--dur-reveal` `--ease` `--font-sans` `--fw-medium` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-md` `--space-1` `--space-3` `--space-4` `--space-5` `--text-body` `--text-h3` `--text-small`
 
 **Classes scoped** : .gallery-masonry .gallery-masonry__caption .gallery-masonry__caption-body .gallery-masonry__caption-title .gallery-masonry__grid .gallery-masonry__header .gallery-masonry__intro .gallery-masonry__item .gallery-masonry__media .gallery-masonry__placeholder .gallery-masonry__tag
 
@@ -2860,13 +2890,13 @@
 | `src` | string | oui |  |  |
 | `width` | number | non |  |  |
 
-**Tokens** : `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-4` `--text-small` `--wrap-prose`
+**Tokens** : `--hairline` `--ink` `--paper` `--paper-2` `--paper-3` `--section-base` `--space-4` `--wrap-prose`
 
 **Classes scoped** : .media-block .media-block__caption .media-block__embed .media-block__img .media-block__svg-wrap .media-block__video
 
 **Dette hardcode** : 2 valeur(s) — 100%, 1px
 
-**Agent** : Layout : `background`, `display`, `media_kind` (schema, 0 CSS). Espacement : --space-4. Couleur : --ink --muted --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (100%, 1px).
+**Agent** : Layout : `background`, `display`, `media_kind` (schema, 0 CSS). Espacement : --space-4. Couleur : --ink --paper --paper-2. Dette : 2 litteral(s) hardcode(s) (100%, 1px).
 
 ---
 
@@ -2958,7 +2988,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-md` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-md` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .acc .hag .hag-arrow .hag-bullet .hag-bullets .hag-ctas .hag-kpi .hag-kpi-cap .hag-kpi-num .hag-kpis .hag-label .hag-lede .hag-left .hag-row2 .hag-title
 
@@ -3029,7 +3059,7 @@
 
 **Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-mono` `--wrap`
 
-**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
+**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
 
 **Dette hardcode** : 30 valeur(s) — -0.015em, -0.03em, -8px, 0.1em, 100%, 120%, 1200px, 12px
 
@@ -3122,7 +3152,7 @@
 | `media_alt_fr` | string | non |  |  |
 | `media_src` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--shadow-lift` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-display` `--text-h1` `--text-numeral-sm` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-rgb` `--radius-lg` `--radius-md` `--radius-pill` `--shadow-lift` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-display` `--text-h1` `--text-numeral-sm` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .acc .btn .hcc .hcc-badge .hcc-badges .hcc-card .hcc-card-kpis .hcc-card-media .hcc-card-media__art .hcc-col .hcc-ctas .hcc-grid .hcc-kicker .hcc-kpi .hcc-kpi-cap .hcc-kpi-num .hcc-lede .hcc-title
 
@@ -3149,6 +3179,8 @@
 | `h1_en` | string | oui |  |  |
 | `h1_fr` | string | oui |  |  |
 | `illustration` | enum | non |  | left | right |
+| `num_label_en` | string | non |  |  |
+| `num_label_fr` | string | non |  |  |
 | `specs` | array | non |  | min:2 max:6 |
 
 **Tokens** : `--accent` `--accent-text` `--dur-fast` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--gut` `--hahub-top-pad` `--hairline` `--hairline-strong` `--hcs-h1-gap` `--hcs-top-pad` `--he-top-pad` `--header-height` `--hero-course-top-pad` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-h2` `--leading-lede` `--leading-prose` `--leading-relaxed` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--sec-grid` `--sec-pad` `--section-base` `--space-1` `--space-10` `--space-11` `--space-13` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--spec-cols` `--text-body` `--text-display` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
@@ -3210,7 +3242,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-lg` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-small` `--tracking-display` `--tracking-mono` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-lg` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .acc .hcb .hcb-band .hcb-cap .hcb-cap-desc .hcb-cap-label .hcb-caps .hcb-ctas .hcb-hero .hcb-kicker .hcb-lede .hcb-title
 
@@ -3253,9 +3285,9 @@
 
 **Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__art .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
-**Dette hardcode** : 34 valeur(s) — -0.015em, -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 120%
+**Dette hardcode** : 35 valeur(s) — -0.015em, -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 120%
 
-**Agent** : Layout : `background`, `media_register`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%).
+**Agent** : Layout : `background`, `media_register`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 35 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%).
 
 ---
 
@@ -3371,7 +3403,7 @@
 | `lede_fr` | string | oui |  |  |
 | `meta` | array | non |  | max:3 |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-1` `--space-3` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-1` `--space-3` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight`
 
 **Classes scoped** : .acc .hem .hem-crumb .hem-ctas .hem-here .hem-kpi .hem-kpi-cap .hem-kpi-num .hem-kpis .hem-lede .hem-lede-col .hem-masthead .hem-meta--end .hem-row .hem-sep .hem-title
 
@@ -3496,7 +3528,7 @@
 | `lede_fr` | string | oui |  |  |
 | `sigil` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--space-3` `--space-4` `--space-5` `--space-6` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display`
 
 **Classes scoped** : .acc .btn .hg12 .hg12-bullet .hg12-bullets .hg12-ctas .hg12-grid .hg12-kicker .hg12-lede .hg12-sig .hg12-title
 
@@ -3632,9 +3664,9 @@
 
 **Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__art .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
-**Dette hardcode** : 34 valeur(s) — -0.015em, -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 120%
+**Dette hardcode** : 35 valeur(s) — -0.015em, -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 120%
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 35 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%).
 
 ---
 
@@ -3699,7 +3731,7 @@
 
 **Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-mono` `--wrap`
 
-**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
+**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
 
 **Dette hardcode** : 30 valeur(s) — -0.015em, -0.03em, -8px, 0.1em, 100%, 120%, 1200px, 12px
 
@@ -3759,7 +3791,7 @@
 | `tagline_en` | string | oui |  |  |
 | `tagline_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-pill` `--space-10` `--space-11` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--leading-h1` `--leading-lede` `--muted` `--paper` `--radius-pill` `--space-10` `--space-11` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono-tight`
 
 **Classes scoped** : .acc .btn .hmc .hmc-cover .hmc-cta .hmc-inner .hmc-kicker .hmc-mast-cell .hmc-masthead .hmc-rule .hmc-tagline .hmc-title
 
@@ -3865,7 +3897,7 @@
 | `media_alt_fr` | string | non |  |  |
 | `media_src` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--hero-chrome-above` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--radius-lg` `--shadow-card-rest` `--space-10` `--space-15` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight` `--viewport-h`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--header-height` `--ink` `--ink-2` `--leading-body` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--radius-lg` `--shadow-card-rest` `--space-10` `--space-15` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-numeral-md` `--text-small` `--tracking-display` `--tracking-mono-tight`
 
 **Classes scoped** : .acc .btn .hmm .hmm-aside .hmm-ctas .hmm-grid .hmm-kicker .hmm-kpi .hmm-kpi-cap .hmm-kpi-num .hmm-kpis .hmm-lead .hmm-lede .hmm-medallion .hmm-medallion__art .hmm-title
 
@@ -3971,9 +4003,9 @@
 
 **Classes scoped** : .astro .hero-cf-minimal .hero-cf-minimal__cta .hero-cf-minimal__h1 .hero-cf-minimal__lede .hero-cf-minimal__stat .hero-cf-minimal__stat-label .hero-cf-minimal__stat-value .hero-cf-minimal__stats .hero-cf-split .hero-cf-split__art .hero-cf-split__media .hero-cf-split__meta .hero-cf-split__text .hero-cf-sumie .hero-cf-sumie__art .hero-cf-sumie__bg .hero-cf-sumie__inner .hero-conversion-funnel .hero-conversion-funnel__benefits .hero-conversion-funnel__cta .hero-conversion-funnel__h1 .hero-conversion-funnel__lede .hero-conversion-funnel__meta .hero-conversion-funnel__num .hero-conversion-funnel__proof .hero-conversion-funnel__stat--lead .hero-conversion-funnel__stat-label .hero-conversion-funnel__stat-value .hero-conversion-funnel__stats .hero-conversion-funnel-- .hero-conversion-funnel--minimal .hero-conversion-funnel--split .hero-conversion-funnel--sumie .hero-hub-stats .hero-hub-stats__cell .hero-hub-stats__cell--accent .hero-hub-stats__cell--lead .hero-hub-stats__grid .hero-hub-stats__h1 .hero-hub-stats__label .hero-hub-stats__lede .hero-hub-stats__meta .hero-hub-stats__num .hero-hub-stats__value .hero-pillar-hub .hero-pillar-hub__h1 .hero-pillar-hub__lede .hero-pillar-hub__meta .hero-pillar-hub__num .hero-pillar-hub__stats .key-metric .key-metric-accent .key-metric-value .variant .wrap-wide
 
-**Dette hardcode** : 34 valeur(s) — -0.015em, -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 120%
+**Dette hardcode** : 35 valeur(s) — -0.015em, -0.035em, -50%, 0.1em, 0.7em, 0.9em, 100%, 120%
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 34 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-10 --space-2. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 35 litteral(s) hardcode(s) (-0.015em, -0.035em, -50%).
 
 ---
 
@@ -4187,7 +4219,7 @@
 
 **Tokens** : `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--gut` `--hairline` `--hairline-strong` `--header-height` `--ink` `--ink-2` `--ink-rgb` `--leading-h2` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--radius-sm` `--sec-grid` `--sec-pad` `--section-base` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-lede` `--text-small` `--tracking-mono` `--wrap`
 
-**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__ctas .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
+**Classes scoped** : .author-hero .author-portrait .css .g12 .g12--full .hero-author .hero-author__bc .hero-author__copy .hero-author__eyebrow .hero-author__h1 .hero-author__lede .hero-author__portrait .hero-author__portrait-frame .hero-lead-magnet .hero-lead-magnet__cover .hero-lead-magnet__download .hero-lead-magnet__download-label .hero-lead-magnet__grid .hero-lead-magnet__h1 .hero-lead-magnet__kicker .hero-lead-magnet__lede .hero-lead-magnet__meta .hero-lead-magnet__panel .hero-split .hero-split__inner .hero-split__left .hero-split__meta .hero-split__right .hero-split__right-inner .start-9 .wrap-wide
 
 **Dette hardcode** : 30 valeur(s) — -0.015em, -0.03em, -8px, 0.1em, 100%, 120%, 1200px, 12px
 
@@ -4255,7 +4287,7 @@
 | `lede_en` | string | oui |  |  |
 | `lede_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--header-height` `--hero-chrome-above` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-display` `--text-h1` `--text-numeral-sm` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--viewport-h` `--wrap-tight`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--header-height` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-9` `--text-body` `--text-display` `--text-h1` `--text-numeral-sm` `--text-small` `--tracking-display` `--tracking-mono` `--tracking-mono-tight` `--wrap-tight`
 
 **Classes scoped** : .acc .btn .hsr .hsr-badge .hsr-badges .hsr-crumbs .hsr-ctas .hsr-kicker .hsr-kpi .hsr-kpi-cap .hsr-kpi-num .hsr-kpis .hsr-lede .hsr-sep .hsr-stack .hsr-title
 
@@ -4556,7 +4588,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-sur-clair` `--accent-text` `--dur-fast` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--gut` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-tight` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body` `--text-small` `--tracking-mono-tight` `--wrap-wide`
+**Tokens** : `--accent` `--accent-rgb` `--accent-sur-clair` `--accent-text` `--dur-fast` `--font-mono` `--fw-regular` `--gut` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--section-tight` `--space-2` `--space-3` `--space-4` `--space-5` `--space-8` `--text-small` `--tracking-mono-tight` `--wrap-wide`
 
 **Classes scoped** : .arrow .catalogue .catalogue-table .col-duree .col-niveau .col-num .mono .pill .pill--avance .pill--debutant .pill--expert .pill--intermediaire .row-title .section-title .table-header .table-row
 
@@ -4564,7 +4596,7 @@
 
 **Dette hardcode** : 10 valeur(s) — 0.06em, 130px, 1px, 32px, 3px, 4%, 40px, 700px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-sur-clair. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (0.06em, 130px, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-rgb --accent-sur-clair. Typographie : --font-mono --fw-regular. Dette : 10 litteral(s) hardcode(s) (0.06em, 130px, 1px).
 
 ---
 
@@ -4583,7 +4615,7 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--gut` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--space-2` `--space-4` `--space-5` `--space-9` `--text-body` `--text-small` `--tracking-mono-tight` `--wrap-wide`
+**Tokens** : `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--gut` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--space-2` `--space-4` `--space-5` `--space-9` `--text-body` `--text-small` `--tracking-mono-tight` `--wrap-wide`
 
 **Classes scoped** : .parcours-desc .parcours-item .parcours-list .parcours-section .parcours-title .section-title
 
@@ -4726,9 +4758,9 @@
 | `lede_en` | string | non |  |  |
 | `lede_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--space-3` `--space-4` `--space-5` `--space-8` `--spacing-block` `--text-body` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-xs` `--space-3` `--space-4` `--space-5` `--space-8` `--text-body` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .integrations .integrations__cell .integrations__group .integrations__group-title .integrations__groups .integrations__header .integrations__lede .integrations__list .integrations__name
+**Classes scoped** : .integrations .integrations__cell .integrations__group-title .integrations__groups .integrations__lede .integrations__list .integrations__name
 
 **Dette hardcode** : 6 valeur(s) — -2px, 100%, 180px, 1px, 24px, 600px
 
@@ -4750,7 +4782,6 @@
 | `grayscale` | boolean | non | true |  |
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
-| `logoIds` | array | non |  |  |
 | `logos` | array | non |  | min:4 max:24 |
 | `speed` | enum | non | base | slow | base |
 
@@ -4781,13 +4812,13 @@
 | `kicker_fr` | string | non |  |  |
 | `logos` | array | oui |  | min:3 max:20 |
 
-**Tokens** : `--accent` `--dur-fast` `--ease` `--hairline` `--ink` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--space-4` `--space-5` `--spacing-block`
+**Tokens** : `--accent` `--dur-fast` `--ease` `--hairline` `--ink` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--space-4` `--space-5`
 
-**Classes scoped** : .logo-wall .logo-wall__cell .logo-wall__grid .logo-wall__header .logo-wall__img .logo-wall__link
+**Classes scoped** : .logo-wall .logo-wall__cell .logo-wall__grid .logo-wall__img .logo-wall__link
 
 **Dette hardcode** : 13 valeur(s) — -1px, 100%, 110px, 120px, 140px, 1px, 2px, 3px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5 --spacing-block. Couleur : --accent --ink --paper. Dette : 13 litteral(s) hardcode(s) (-1px, 100%, 110px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-4 --space-5. Couleur : --accent --ink --paper. Dette : 13 litteral(s) hardcode(s) (-1px, 100%, 110px).
 
 ---
 
@@ -4808,13 +4839,13 @@
 | `scale` | enum | non |  | default | display |
 | `separator` | string | non | · |  |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--ink` `--ink-rgb` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-4` `--space-6` `--text-h3` `--text-small`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--ink` `--ink-rgb` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-4` `--space-6` `--space-7` `--text-h3` `--text-small`
 
 **Classes scoped** : .marquee-band .marquee-band__item .marquee-band__sep .marquee-band__track
 
-**Dette hardcode** : 6 valeur(s) — -0.01em, -50%, .1em, 1px, 28px, 40px
+**Dette hardcode** : 5 valeur(s) — -0.01em, -50%, .1em, 1px, 28px
 
-**Agent** : Layout : `background`, `scale` (schema, 0 CSS). Espacement : --space-4 --space-6. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.01em, -50%, .1em).
+**Agent** : Layout : `background`, `scale` (schema, 0 CSS). Espacement : --space-4 --space-6 --space-7. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.01em, -50%, .1em).
 
 ---
 
@@ -4992,7 +5023,7 @@
 | `subtitle_en` | string | non |  |  |
 | `subtitle_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--section-base` `--space-10` `--space-3` `--space-4` `--space-6` `--text-body` `--text-h2` `--text-small`
+**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-sm` `--space-10` `--space-3` `--space-4` `--space-6` `--text-body` `--text-h2` `--text-small`
 
 **Classes scoped** : .cta-newsletter .cta-newsletter__consent .cta-newsletter__copy .cta-newsletter__form .cta-newsletter__form-col .cta-newsletter__grid .cta-newsletter__input .cta-newsletter__subtitle .sr-only
 
@@ -5024,17 +5055,50 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--space-6` `--text-body` `--text-small`
+**Tokens** : `--font-sans` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-3` `--space-4` `--space-6` `--text-body`
 
-**Classes scoped** : .nl-btn .nl-input .nl-section .nl-section__body .nl-section__form .nl-section__head .nl-section__hint .nl-section__inner
+**Classes scoped** : .nl-btn .nl-input .nl-section .nl-section__body .nl-section__form .nl-section__head .nl-section__inner
 
-**Dette hardcode** : 4 valeur(s) — 0.06em, 100%, 1px, 480px
+**Dette hardcode** : 2 valeur(s) — 100%, 480px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (0.06em, 100%, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-6. Couleur : --ink --muted --paper. Typographie : --font-sans --leading-body. Dette : 2 litteral(s) hardcode(s) (100%, 480px).
 
 ---
 
 ## Pricing Sections
+
+### `engagement-ledger`
+
+> Registre tarifaire : un parcours d’engagement lu ligne à ligne (repère d’étape, prestation, contenu, durée, prix aligné à droite, action). Ni cartes ni onglets : tout le parcours visible d’un regard, avec un bloc de lignes secondaires en retrait.
+> EngagementLedger · src/sections/engagement-ledger/Component.astro · marketing/pricing-sections
+> status : stable · tags : engagement, ledger, pricing, rate-card, steps
+
+**Props**
+
+| Champ | Type | Req | Default | Contrainte |
+|---|---|---|---|---|
+| `aside` | array | non |  | min:1 max:6 |
+| `footnote_en` | string | non |  |  |
+| `footnote_fr` | string | non |  |  |
+| `h1_en` | string | non |  |  |
+| `h1_fr` | string | non |  |  |
+| `h2_en` | string | non |  |  |
+| `h2_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
+| `rows` | array | oui |  | min:2 max:8 |
+
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-h3` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-rgb` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--text-title-lg` `--tracking-display` `--tracking-mono-tight` `--wrap-read`
+
+**Classes scoped** : .is-entry .ledger .ledger__aside .ledger__aside-body .ledger__aside-head .ledger__aside-items .ledger__aside-price .ledger__aside-title .ledger__body .ledger__cost .ledger__cta .ledger__footnote .ledger__head .ledger__includes .ledger__lede .ledger__name .ledger__price .ledger__row .ledger__rows .ledger__step .ledger__terms .ledger__title
+
+**Dette hardcode** : 12 valeur(s) — 0.25em, 0.35em, 0.45em, 0.7em, 1100px, 15rem, 18rem, 1px
+
+**Agent** : Espacement : --space-1 --space-2 --space-3. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-mono. Dette : 12 litteral(s) hardcode(s) (0.25em, 0.35em, 0.45em).
+
+---
 
 ### `pricing-cards`
 
@@ -5097,7 +5161,7 @@
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-text` `--dur-fast` `--ease-out` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--muted-2` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__header .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
+**Classes scoped** : .comparison-table .comparison-table__bool .comparison-table__bool--no .comparison-table__bool--yes .comparison-table__cell .comparison-table__feature .comparison-table__wrap .pcm .pcm__body .pcm__btn .pcm__cell .pcm__cell--featured .pcm__col-feature .pcm__col-plan .pcm__col-plan--featured .pcm__feature .pcm__feature-label .pcm__glyph .pcm__glyph--no .pcm__glyph--yes .pcm__group .pcm__plan-cta .pcm__plan-name .pcm__plan-note .pcm__plan-price .pcm__row .pcm__scroll .pcm__table .pcm__value .sr-only
 
 **Tailwind** : sr-only
 
@@ -5140,9 +5204,9 @@
 | `secondary_note_en` | string | non |  |  |
 | `secondary_note_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--spacing-block` `--text-h1` `--text-small` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-7` `--space-8` `--text-h1` `--text-small` `--tracking-mono-tight`
 
-**Classes scoped** : .pricing-single .pricing-single__anchor .pricing-single__anchor-label .pricing-single__benefits .pricing-single__benefits-label .pricing-single__btn .pricing-single__card .pricing-single__check .pricing-single__desc .pricing-single__guarantee .pricing-single__header .pricing-single__lead .pricing-single__list .pricing-single__name .pricing-single__note .pricing-single__period .pricing-single__price .pricing-single__price-k .sec-base-h2
+**Classes scoped** : .pricing-single .pricing-single__anchor .pricing-single__anchor-label .pricing-single__benefits .pricing-single__benefits-label .pricing-single__btn .pricing-single__card .pricing-single__desc .pricing-single__guarantee .pricing-single__header .pricing-single__lead .pricing-single__list .pricing-single__name .pricing-single__note .pricing-single__period .pricing-single__price .pricing-single__price-k .sec-base-h2
 
 **Dette hardcode** : 10 valeur(s) — -0.015em, 0.04em, 0.06em, 0.14em, 100%, 16px, 1px, 24px
 
@@ -5167,9 +5231,9 @@
 | `kicker_fr` | string | non |  |  |
 | `tiers` | array | oui |  | min:1 max:5 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--col-count` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-3` `--space-4` `--space-5` `--spacing-block` `--text-h2` `--text-small`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--col-count` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-3` `--space-4` `--space-5` `--text-h2` `--text-small`
 
-**Classes scoped** : .pricing-table .pricing-table__btn .pricing-table__check .pricing-table__cta .pricing-table__features .pricing-table__grid .pricing-table__header .pricing-table__price .pricing-table__tier .pricing-table__tier--featured .pricing-table__tier-header .pricing-table__tier-name
+**Classes scoped** : .pricing-table .pricing-table__btn .pricing-table__cta .pricing-table__features .pricing-table__grid .pricing-table__price .pricing-table__tier .pricing-table__tier--featured .pricing-table__tier-header .pricing-table__tier-name
 
 **Dette hardcode** : 7 valeur(s) — -0.015em, -1px, .14em, 100%, 1px, 2px, 768px
 
@@ -5199,13 +5263,15 @@
 | `lede_fr` | string | non |  |  |
 | `tabs` | array | oui |  | min:3 max:5 |
 
-**Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h2` `--text-h3` `--text-small`
+**Tokens** : `--accent-rgb` `--accent-text` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-body` `--text-h2` `--text-h3` `--text-small`
 
-**Classes scoped** : .is-active .is-featured .pricing-tabs .pricing-tabs__card .pricing-tabs__content .pricing-tabs__cta .pricing-tabs__eyebrow .pricing-tabs__features .pricing-tabs__grid .pricing-tabs__header .pricing-tabs__highlight .pricing-tabs__highlight-kicker .pricing-tabs__lede .pricing-tabs__media .pricing-tabs__note .pricing-tabs__note-aside .pricing-tabs__note-body .pricing-tabs__note-kicker .pricing-tabs__note-price .pricing-tabs__panel .pricing-tabs__price .pricing-tabs__shell .pricing-tabs__tab .pricing-tabs__tablist .pricing-tabs__title
+**Classes scoped** : .is-active .is-featured .pricing-tabs .pricing-tabs__card .pricing-tabs__content .pricing-tabs__cta .pricing-tabs__eyebrow .pricing-tabs__features .pricing-tabs__grid .pricing-tabs__header .pricing-tabs__highlight .pricing-tabs__highlight-kicker .pricing-tabs__lede .pricing-tabs__media .pricing-tabs__note .pricing-tabs__note-aside .pricing-tabs__note-body .pricing-tabs__note-kicker .pricing-tabs__note-price .pricing-tabs__panel .pricing-tabs__price .pricing-tabs__shell .pricing-tabs__tab .pricing-tabs__tablist .pricing-tabs__title .sr-only
 
-**Dette hardcode** : 28 valeur(s) — -4px, .12em, 100%, 10px, 112px, 144px, 156px, 18%
+**Tailwind** : sr-only
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 28 litteral(s) hardcode(s) (-4px, .12em, 100%).
+**Dette hardcode** : 27 valeur(s) — -1px, -4px, .12em, 100%, 10px, 112px, 144px, 156px
+
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent-rgb --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 27 litteral(s) hardcode(s) (-1px, -4px, .12em).
 
 ---
 
@@ -5234,7 +5300,7 @@
 
 **Tokens** : `--accent` `--accent-rgb` `--accent-sur-clair` `--accent-text` `--col-count` `--dur-fast` `--dur-hover` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--ink-2` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-pill` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--spacing-block` `--text-h1` `--text-small` `--tracking-mono-tight`
 
-**Classes scoped** : .is-featured .pricing-toggle .pricing-toggle__badge .pricing-toggle__btn .pricing-toggle__card .pricing-toggle__card-hd .pricing-toggle__check .pricing-toggle__features .pricing-toggle__grid .pricing-toggle__header .pricing-toggle__idx .pricing-toggle__input .pricing-toggle__knob .pricing-toggle__name .pricing-toggle__price .pricing-toggle__price-k .pricing-toggle__save .pricing-toggle__suffix .pricing-toggle__switch .pricing-toggle__switch-label .pricing-toggle__switch-row .sec-base-h2
+**Classes scoped** : .is-featured .pricing-toggle .pricing-toggle__badge .pricing-toggle__btn .pricing-toggle__card .pricing-toggle__card-hd .pricing-toggle__features .pricing-toggle__grid .pricing-toggle__header .pricing-toggle__idx .pricing-toggle__input .pricing-toggle__knob .pricing-toggle__name .pricing-toggle__price .pricing-toggle__price-k .pricing-toggle__save .pricing-toggle__suffix .pricing-toggle__switch .pricing-toggle__switch-label .pricing-toggle__switch-row .sec-base-h2
 
 **Dette hardcode** : 16 valeur(s) — -0.015em, -12px, -3px, 0.06em, 0.14em, 0.1em, 100%, 14px
 
@@ -5269,9 +5335,9 @@
 | `quizCta` | string | non |  |  |
 | `stages` | array | oui |  | min:4 max:6 |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--diag-cols` `--dur-trim` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--diag-cols` `--dur-trim` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--rail` `--rail-to` `--section-base` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono` `--tracking-mono-tight` `--wrap-prose`
 
-**Classes scoped** : .acc .align .diag .diag__body .diag__card .diag__glyph .diag__h2 .diag__head .diag__here .diag__kicker .diag__lede .diag__num .diag__phase .diag__stage .diag__title .diag__top .diag__track .header .N .wrap-wide
+**Classes scoped** : .acc .align .diag .diag__body .diag__card .diag__glyph .diag__h2 .diag__head .diag__here .diag__kicker .diag__lede .diag__num .diag__phase .diag__stage .diag__title .diag__top .diag__track .header .N .reveal-stagger .ts .wrap-wide
 
 **Dette hardcode** : 12 valeur(s) — -0.01em, -0.02em, -1px, 100%, 1000px, 18px, 1px, 2px
 
@@ -5353,13 +5419,13 @@
 | `kicker_fr` | string | non |  |  |
 | `steps` | array | oui |  | min:2 max:8 |
 
-**Tokens** : `--accent` `--accent-ink` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
+**Tokens** : `--accent` `--accent-ink` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-2` `--space-3` `--space-4` `--space-6` `--space-9` `--text-h3` `--text-small` `--wrap-prose`
 
-**Classes scoped** : .acc .process-steps .process-steps__body .process-steps__connector .process-steps__content .process-steps__h2 .process-steps__hd .process-steps__intro .process-steps__list .process-steps__num .process-steps__row .process-steps__step .process-steps__title .process-steps__track
+**Classes scoped** : .acc .process-steps .process-steps__body .process-steps__connector .process-steps__content .process-steps__h2 .process-steps__list .process-steps__num .process-steps__row .process-steps__step .process-steps__title .process-steps__track
 
-**Dette hardcode** : 6 valeur(s) — -0.02em, 1px, 40px, 48px, 640px, 760px
+**Dette hardcode** : 4 valeur(s) — 1px, 40px, 48px, 640px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-ink --accent-text. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, 1px, 40px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-4. Couleur : --accent --accent-ink --accent-text. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (1px, 40px, 48px).
 
 ---
 
@@ -5385,13 +5451,13 @@
 | `title_fr` | string | non |  |  |
 | `variant` | enum | non |  | default | inverted | accent |
 
-**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--kmg-cols` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-3` `--space-6` `--space-7` `--space-9` `--text-h2` `--text-small` `--tracking-mono` `--wrap-prose`
+**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--ink` `--kmg-cols` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-compact` `--space-12` `--space-3` `--space-6` `--space-7` `--space-9` `--text-h2` `--text-small` `--tracking-mono` `--wrap-prose`
 
 **Classes scoped** : .key-metric-grid .key-metric-grid__eyebrow .key-metric-grid__grid .key-metric-grid__title
 
-**Dette hardcode** : 5 valeur(s) — -0.018em, 0.12em, 1px, 520px, 900px
+**Dette hardcode** : 4 valeur(s) — -0.018em, 0.12em, 520px, 900px
 
-**Agent** : Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.018em, 0.12em, 1px).
+**Agent** : Layout : `align`, `size`, `variant` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-6. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 4 litteral(s) hardcode(s) (-0.018em, 0.12em, 520px).
 
 ---
 
@@ -5412,13 +5478,13 @@
 | `kicker_fr` | string | non |  |  |
 | `metrics` | array | oui |  | min:1 max:3 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--tracking-display`
+**Tokens** : `--accent-text` `--font-display` `--font-sans` `--hairline` `--ink` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-5` `--space-6` `--text-body` `--text-h1` `--tracking-display`
 
-**Classes scoped** : .metric-callout .metric-callout__context .metric-callout__head .metric-callout__item .metric-callout__label .metric-callout__list .metric-callout__value
+**Classes scoped** : .metric-callout .metric-callout__context .metric-callout__item .metric-callout__label .metric-callout__list .metric-callout__value
 
 **Dette hardcode** : 2 valeur(s) — 1px, 760px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 760px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-sans. Dette : 2 litteral(s) hardcode(s) (1px, 760px).
 
 ---
 
@@ -5441,7 +5507,7 @@
 | `lede_fr` | string | non |  |  |
 | `shifts` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .metric-shift .metric-shift__after .metric-shift__arrow .metric-shift__before .metric-shift__delta .metric-shift__delta--down .metric-shift__delta--flat .metric-shift__delta--up .metric-shift__hd .metric-shift__kicker .metric-shift__label .metric-shift__lede .metric-shift__row .metric-shift__rows .metric-shift__title .metric-shift__values .metric-shift--ink .metric-shift--paper-2 .metric-shift--paper-3
 
@@ -5470,9 +5536,9 @@
 | `link_label_fr` | string | non |  |  |
 | `metrics` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--text-body` `--text-h1` `--text-h2` `--text-small`
 
-**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
+**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
 **Dette hardcode** : 11 valeur(s) — -0.015em, -1px, 0.1em, 14rem, 16rem, 1px, 2px, 480px
 
@@ -5499,7 +5565,7 @@
 
 **Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h1` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-10` `--space-2` `--space-3` `--space-4` `--space-6` `--space-8` `--spacing-block` `--text-h1` `--text-small`
 
-**Classes scoped** : .eyebrow .key-metric-accent .key-metric-label .key-metric-value .kicker .roi-cell .roi-l .roi-v .section-eyebrow .sol-proof .sol-roi-grid .sol-roi-hd .sol-sec .sol-sec-dark .start-10 .start-9
+**Classes scoped** : .eyebrow .key-metric-accent .key-metric-label .key-metric-value .kicker .roi-cell .roi-l .roi-v .section-eyebrow .sol-proof .sol-roi-grid .sol-roi-hd .sol-sec-dark .start-10 .start-9
 
 **Tailwind** : col-12
 
@@ -5556,9 +5622,9 @@
 | `quote_en` | string | non |  |  |
 | `quote_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h1` `--text-h2` `--text-small`
+**Tokens** : `--accent` `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-tight` `--space-10` `--space-2` `--space-4` `--space-5` `--space-6` `--text-body` `--text-h1` `--text-h2` `--text-small`
 
-**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__header .stat-block__item .stat-block__label .stat-block__split .stat-block__value
+**Classes scoped** : .astro .proof-bar .proof-bar__item .proof-bar__kicker .proof-bar__label .proof-bar__link .proof-bar__list .proof-bar__value .pull-quote .pull-quote-attr .pull-quote-body .pull-quote-cite .pull-quote-mark .stat-block .stat-block__grid .stat-block__item .stat-block__label .stat-block__split .stat-block__value
 
 **Dette hardcode** : 11 valeur(s) — -0.015em, -1px, 0.1em, 14rem, 16rem, 1px, 2px, 480px
 
@@ -5584,13 +5650,13 @@
 | `kicker_fr` | string | non |  |  |
 | `stats` | array | oui |  | min:2 max:4 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--sc-cols` `--section-base` `--space-3` `--space-5` `--space-6` `--space-8` `--text-h1` `--text-h3` `--text-small` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--sc-cols` `--section-base` `--space-3` `--space-5` `--space-6` `--text-h1` `--text-small`
 
-**Classes scoped** : .stat-counter .stat-counter__cell .stat-counter__grid .stat-counter__h2 .stat-counter__head .stat-counter__kicker .stat-counter__label .stat-counter__num
+**Classes scoped** : .stat-counter .stat-counter__cell .stat-counter__grid .stat-counter__kicker .stat-counter__label .stat-counter__num
 
-**Dette hardcode** : 7 valeur(s) — -0.01em, -0.02em, .1em, 220px, 2px, 520px, 900px
+**Dette hardcode** : 6 valeur(s) — -0.02em, .1em, 220px, 2px, 520px, 900px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-0.01em, -0.02em, .1em).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-5 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 6 litteral(s) hardcode(s) (-0.02em, .1em, 220px).
 
 ---
 
@@ -5617,7 +5683,7 @@
 | `placement` | unknown | oui |  |  |
 | `stats` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--ink-2` `--leading-body` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--spacing-block` `--stats-bento-gap` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tile-min` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-hover` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--gut` `--hairline` `--ink` `--ink-2` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-xs` `--shadow-card-hover` `--space-12` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--stats-bento-gap` `--text-body` `--text-h1` `--text-h2` `--text-small` `--tile-min` `--tracking-mono`
 
 **Classes scoped** : .bento-fluid .css .span-lg .stats-bento .stats-bento__cell .stats-bento__delta .stats-bento__grid .stats-bento__header .stats-bento__label .stats-bento__number .wrap-wide
 
@@ -5652,13 +5718,13 @@
 | `rows` | array | oui |  | min:2 max:8 |
 | `striped` | boolean | non | false |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-caps`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-regular` `--fw-semibold` `--hairline` `--hairline-strong` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-3` `--space-4` `--text-small` `--tracking-caps`
 
-**Classes scoped** : .acc .data-table .data-table__caption .data-table__h2 .data-table__hd .data-table__intro .data-table__scroll .data-table__table
+**Classes scoped** : .acc .data-table .data-table__caption .data-table__h2 .data-table__scroll .data-table__table
 
-**Dette hardcode** : 4 valeur(s) — -0.02em, 100%, 1px, 760px
+**Dette hardcode** : 2 valeur(s) — 100%, 1px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-9. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (-0.02em, 100%, 1px). data-coupling : data-table data-table__caption data-table__h2.
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4. Couleur : --accent-text --ink --muted. Typographie : --font-display --font-mono. Dette : 2 litteral(s) hardcode(s) (100%, 1px). data-coupling : data-table data-table__caption data-table__h2.
 
 ---
 
@@ -5778,13 +5844,13 @@
 | `lede_fr` | string | non |  |  |
 | `members` | array | oui |  | min:2 max:12 |
 
-**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--space-2` `--space-4` `--space-6` `--spacing-block` `--text-body` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--dur-fast` `--ease` `--font-mono` `--font-sans` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--space-2` `--space-6` `--text-body` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .team-bio-grid .team-bio-grid__avatar .team-bio-grid__bio .team-bio-grid__card .team-bio-grid__header .team-bio-grid__initials .team-bio-grid__lede .team-bio-grid__list .team-bio-grid__name .team-bio-grid__role
+**Classes scoped** : .team-bio-grid .team-bio-grid__avatar .team-bio-grid__bio .team-bio-grid__card .team-bio-grid__initials .team-bio-grid__lede .team-bio-grid__list .team-bio-grid__name .team-bio-grid__role
 
 **Dette hardcode** : 5 valeur(s) — 100%, 1023px, 1px, 600px, 64px
 
-**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (100%, 1023px, 1px).
+**Agent** : Layout : `background`, `columns` (schema, 0 CSS). Espacement : --space-2 --space-6. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 5 litteral(s) hardcode(s) (100%, 1023px, 1px).
 
 ---
 
@@ -5857,13 +5923,13 @@
 | `show_line_numbers` | boolean | non | true |  |
 | `tone` | enum | non | ink | ink | paper |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--leading-body` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-rgb` `--radius-card` `--radius-pill` `--section-base` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--hairline` `--hairline-strong` `--ink` `--ink-rgb` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-rgb` `--radius-card` `--radius-pill` `--section-base` `--space-3` `--space-4` `--space-5` `--space-7` `--space-9` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .acc .code-showcase .code-showcase__bar .code-showcase__cmt .code-showcase__code .code-showcase__copy .code-showcase__dots .code-showcase__file .code-showcase__frame .code-showcase__grid .code-showcase__h2 .code-showcase__intro .code-showcase__lang .code-showcase__line .code-showcase__ln .code-showcase__text
+**Classes scoped** : .acc .code-showcase .code-showcase__bar .code-showcase__cmt .code-showcase__code .code-showcase__dots .code-showcase__file .code-showcase__frame .code-showcase__grid .code-showcase__h2 .code-showcase__lang .code-showcase__line .code-showcase__ln .code-showcase__text
 
-**Dette hardcode** : 5 valeur(s) — -0.02em, 10px, 1px, 44px, 880px
+**Dette hardcode** : 4 valeur(s) — 10px, 1px, 44px, 880px
 
-**Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 5 litteral(s) hardcode(s) (-0.02em, 10px, 1px).
+**Agent** : Layout : `background`, `tone` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --ink-rgb. Typographie : --font-display --font-mono. Dette : 4 litteral(s) hardcode(s) (10px, 1px, 44px).
 
 ---
 
@@ -5961,7 +6027,6 @@
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `case_label_en` | string | non | CASE |  |
 | `case_label_fr` | string | non | CASE |  |
-| `caseRefs` | array | non |  |  |
 | `cases` | array | non |  | max:6 |
 | `colRatio` | enum | non |  | equal | 1-2 | 2-1 | 1-1-2 | 2-3 |
 | `columns` | enum | non |  | auto | 2 | 3 | 4 |
@@ -6009,18 +6074,27 @@
 
 | Champ | Type | Req | Default | Contrainte |
 |---|---|---|---|---|
+| `anchor_id` | string | non |  |  |
 | `background` | enum | non |  | paper | paper-2 | paper-3 | ink |
 | `cases` | array | oui |  | min:1 |
 | `first_party_label_en` | string | non |  |  |
 | `first_party_label_fr` | string | non |  |  |
+| `h2_en` | string | non |  |  |
+| `h2_fr` | string | non |  |  |
+| `item_label_en` | string | non |  |  |
+| `item_label_fr` | string | non |  |  |
+| `kicker_en` | string | non |  |  |
+| `kicker_fr` | string | non |  |  |
+| `lede_en` | string | non |  |  |
+| `lede_fr` | string | non |  |  |
 | `read_label_en` | string | non |  |  |
 | `read_label_fr` | string | non |  |  |
 | `second_party_label_en` | string | non |  |  |
 | `second_party_label_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--cookie-banner-height` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-rgb` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--cookie-banner-height` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--ink-rgb` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-rgb` `--space-1` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--space-9` `--text-body` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tracking-mono-tight` `--wrap-prose`
 
-**Classes scoped** : .cas-card .cas-card--featured .cas-card--row .cas-card-body .cas-card-cta .cas-card-headline .cas-card-img .cas-card-index .cas-card-kicker .cas-card-provenance .cas-card-title .cas-grid .cas-grid-outer .cas-secondary
+**Classes scoped** : .cas-card .cas-card--featured .cas-card--row .cas-card-body .cas-card-cta .cas-card-headline .cas-card-img .cas-card-index .cas-card-kicker .cas-card-provenance .cas-card-title .cas-grid .cas-grid-head .cas-grid-head__lede .cas-grid-head__title .cas-grid-outer .cas-secondary
 
 **Dette hardcode** : 12 valeur(s) — -0.015em, -0.02em, -2px, 0.04em, 0px, 100%, 12px, 1px
 
@@ -6090,7 +6164,7 @@
 
 **Tokens** : `--accent` `--accent-text` `--cs-mcols` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--radius-full` `--section-base` `--shadow-card-rest` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--space-9` `--text-h1` `--text-h2` `--text-h3` `--text-small`
 
-**Classes scoped** : .acc .cspot .cspot__body .cspot__card .cspot__cite .cspot__cta .cspot__kicker .cspot__media .cspot__media-art .cspot__metric .cspot__metric-k .cspot__metric-l .cspot__metrics .cspot__quote .cspot__tags .cspot__title
+**Classes scoped** : .acc .cspot .cspot__card .cspot__cite .cspot__cta .cspot__kicker .cspot__media .cspot__media-art .cspot__metric .cspot__metric-k .cspot__metric-l .cspot__metrics .cspot__quote .cspot__tags .cspot__title
 
 **Dette hardcode** : 11 valeur(s) — -0.02em, -0.03em, .1em, 100%, 1px, 2px, 3px, 480px
 
@@ -6124,9 +6198,9 @@
 
 **Classes scoped** : .accent .ecg .ecg__accent .ecg__acte .ecg__grid .ecg__intro .ecg__title
 
-**Dette hardcode** : 6 valeur(s) — -0.015em, -32px, 1200px, 32px, 768px, 820px
+**Dette hardcode** : 5 valeur(s) — -0.015em, -32px, 1200px, 768px, 820px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-6 --space-9. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-sans. Dette : 6 litteral(s) hardcode(s) (-0.015em, -32px, 1200px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-6 --space-9. Couleur : --accent-text --ink --ink-2. Typographie : --font-display --font-sans. Dette : 5 litteral(s) hardcode(s) (-0.015em, -32px, 1200px).
 
 ---
 
@@ -6150,9 +6224,9 @@
 | `quote_en` | string | oui |  |  |
 | `quote_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--ink` `--leading-h1` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-h1`
+**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--ink` `--leading-h1` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-8` `--text-h1`
 
-**Classes scoped** : .dingbat-rule .eyebrow .key-metric .key-metric-accent .key-metric-label .key-metric-value .off-proof .off-proof-aside .off-proof-band .off-proof-main .off-proof-metric-cell .off-proof-metrics .off-proof-metrics-rule .off-sec .off-sec-hd .pull-quote .section-eyebrow .start-N
+**Classes scoped** : .dingbat-rule .eyebrow .key-metric .key-metric-accent .key-metric-label .key-metric-value .off-proof .off-proof-aside .off-proof-band .off-proof-main .off-proof-metric-cell .off-proof-metrics .off-proof-metrics-rule .off-sec-hd .pull-quote .section-eyebrow .start-N
 
 **Tailwind** : col-12 col-5 col-7
 
@@ -6209,7 +6283,7 @@
 | `role_en` | string | oui |  |  |
 | `role_fr` | string | oui |  |  |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--section-base` `--space-1` `--space-4` `--space-5` `--space-7` `--text-display` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--space-1` `--space-4` `--space-5` `--space-7` `--text-display` `--text-h2` `--text-h3` `--text-small` `--wrap-prose`
 
 **Classes scoped** : .qs-author .qs-author-name .qs-author-role .qs-avatar .qs-avatar--placeholder .qs-caption .qs-figure .qs-mark .qs-quote .quote-spotlight .wrap-wide
 
@@ -6266,9 +6340,9 @@
 | `layout` | enum | non | grid-2 | carousel | grid-2 | rows |
 | `testimonials` | array | oui |  | min:1 max:6 |
 
-**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-4` `--space-5` `--space-7` `--spacing-block` `--text-h3`
+**Tokens** : `--accent-text` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-4` `--space-5` `--space-7` `--text-h3`
 
-**Classes scoped** : .testimonial-block .testimonial-block__author .testimonial-block__footer .testimonial-block__header .testimonial-block__item .testimonial-block__list .testimonial-block__quote
+**Classes scoped** : .testimonial-block .testimonial-block__author .testimonial-block__footer .testimonial-block__item .testimonial-block__list .testimonial-block__quote
 
 **Dette hardcode** : 4 valeur(s) — -1px, 1px, 2px, 640px
 
@@ -6293,13 +6367,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--shadow-card-hover` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body-md` `--text-h2` `--text-h3` `--text-small` `--tlm-cols` `--tracking-mono` `--wrap-prose`
+**Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-mono` `--font-sans` `--fw-semibold` `--hairline` `--ink` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-card` `--section-base` `--shadow-card-hover` `--shadow-card-rest` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--text-body-md` `--text-h2` `--text-small` `--tlm-cols` `--tracking-mono`
 
-**Classes scoped** : .tlm .tlm__author .tlm__author-name .tlm__author-role .tlm__card .tlm__grid .tlm__h2 .tlm__head .tlm__inner .tlm__kicker .tlm__logo .tlm__logo-text .tlm__metric .tlm__metric-label .tlm__metric-value .tlm__quote
+**Classes scoped** : .tlm .tlm__author .tlm__author-name .tlm__author-role .tlm__card .tlm__grid .tlm__inner .tlm__kicker .tlm__logo .tlm__logo-text .tlm__metric .tlm__metric-label .tlm__metric-value .tlm__quote
 
-**Dette hardcode** : 11 valeur(s) — -0.015em, -0.01em, -2px, .1em, 100%, 17px, 180px, 1px
+**Dette hardcode** : 10 valeur(s) — -0.015em, -2px, .1em, 100%, 17px, 180px, 1px, 28px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 11 litteral(s) hardcode(s) (-0.015em, -0.01em, -2px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-3 --space-4 --space-5. Couleur : --accent-text --ink --muted. Typographie : --font-mono --font-sans. Dette : 10 litteral(s) hardcode(s) (-0.015em, -2px, .1em).
 
 ---
 
@@ -6325,7 +6399,7 @@
 | `role_fr` | string | oui |  |  |
 | `variant` | enum | non |  | quote-left | quote-right |
 
-**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-base` `--space-12` `--space-2` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h2` `--text-h3` `--text-small` `--tm-cols` `--tracking-mono-tight`
+**Tokens** : `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-body` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-12` `--space-2` `--space-5` `--space-6` `--space-7` `--space-8` `--text-h1` `--text-h2` `--text-small` `--tm-cols` `--tracking-mono-tight`
 
 **Classes scoped** : .tmet .tmet__attr .tmet__grid .tmet__kicker .tmet__metric .tmet__metric-k .tmet__metric-l .tmet__metrics-col .tmet__name .tmet__quote .tmet__quote-col .tmet__role
 
@@ -6357,9 +6431,9 @@
 | `role_en` | string | oui |  |  |
 | `role_fr` | string | oui |  |  |
 
-**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-grand` `--space-1` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-lede` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-grand` `--space-1` `--space-12` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .testimonial-spotlight .testimonial-spotlight__attr .testimonial-spotlight__author .testimonial-spotlight__grid .testimonial-spotlight__initials .testimonial-spotlight__logo .testimonial-spotlight__main .testimonial-spotlight__name .testimonial-spotlight__portrait .testimonial-spotlight__quote .testimonial-spotlight__role
+**Classes scoped** : .testimonial-spotlight .testimonial-spotlight__attr .testimonial-spotlight__author .testimonial-spotlight__grid .testimonial-spotlight__initials .testimonial-spotlight__logo .testimonial-spotlight__name .testimonial-spotlight__portrait .testimonial-spotlight__quote .testimonial-spotlight__role
 
 **Dette hardcode** : 7 valeur(s) — 100%, 1px, 22px, 860px, 88px, clamp(var(--space-5), clamp(var(--space-8)
 
@@ -6445,13 +6519,13 @@
 | `title_en` | string | non |  |  |
 | `title_fr` | string | non |  |  |
 
-**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--gut` `--hairline` `--ink` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-base` `--section-compact` `--space-12` `--space-3` `--space-9` `--text-h2` `--text-small` `--tracking-mono` `--wrap-prose`
+**Tokens** : `--font-mono` `--font-sans` `--fw-medium` `--ink` `--leading-h2` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-ample` `--section-compact` `--space-12` `--space-3` `--space-9` `--text-h2` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .editorial-timeline .editorial-timeline__col .editorial-timeline__eyebrow .editorial-timeline__title .timeline-body .timeline-meta .timeline-title
+**Classes scoped** : .editorial-timeline .editorial-timeline__eyebrow .editorial-timeline__title .timeline-body .timeline-meta .timeline-title
 
-**Dette hardcode** : 3 valeur(s) — -0.018em, 0.12em, 1px
+**Dette hardcode** : 2 valeur(s) — -0.018em, 0.12em
 
-**Agent** : Layout : `orientation` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (-0.018em, 0.12em, 1px).
+**Agent** : Layout : `orientation` (schema, 0 CSS). Espacement : --space-12 --space-3 --space-9. Couleur : --ink --muted --paper. Typographie : --font-mono --font-sans. Dette : 2 litteral(s) hardcode(s) (-0.018em, 0.12em).
 
 ---
 
@@ -6575,7 +6649,7 @@
 | `placement` | unknown | oui |  |  |
 | `steps` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--spacing-block` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
+**Tokens** : `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-lede` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-md` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-display` `--tracking-mono`
 
 **Classes scoped** : .align .header .method-timeline .method-timeline__aside .method-timeline__content .method-timeline__header .method-timeline__label .method-timeline__list .method-timeline__meta .method-timeline__sn .method-timeline__step .N .wrap-wide
 
@@ -6602,13 +6676,13 @@
 | `kicker_fr` | string | non |  |  |
 | `steps` | array | oui |  | min:2 max:6 |
 
-**Tokens** : `--accent` `--accent-ink` `--font-mono` `--font-sans` `--fw-medium` `--hairline-strong` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--space-2` `--space-4` `--space-5` `--space-6` `--space-9` `--spacing-block` `--text-h3` `--text-small`
+**Tokens** : `--accent` `--accent-ink` `--font-mono` `--font-sans` `--fw-medium` `--hairline-strong` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--radius-full` `--space-2` `--space-5` `--space-6` `--space-9` `--text-h3` `--text-small`
 
-**Classes scoped** : .steps-horizontal .steps-horizontal__connector .steps-horizontal__content .steps-horizontal__header .steps-horizontal__list .steps-horizontal__pill .steps-horizontal__step .steps-horizontal__title .steps-horizontal__track
+**Classes scoped** : .steps-horizontal .steps-horizontal__connector .steps-horizontal__content .steps-horizontal__list .steps-horizontal__pill .steps-horizontal__step .steps-horizontal__title .steps-horizontal__track
 
 **Dette hardcode** : 3 valeur(s) — 1px, 40px, 760px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-ink --ink. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 40px, 760px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-5 --space-6. Couleur : --accent --accent-ink --ink. Typographie : --font-mono --font-sans. Dette : 3 litteral(s) hardcode(s) (1px, 40px, 760px).
 
 ---
 
@@ -6631,13 +6705,13 @@
 | `title_en` | string | oui |  |  |
 | `title_fr` | string | oui |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--font-sans` `--fw-medium` `--gut` `--ink` `--leading-body` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-4` `--space-5` `--space-9` `--text-h1` `--text-small`
+**Tokens** : `--accent` `--accent-rgb` `--font-sans` `--fw-medium` `--gut` `--ink` `--leading-h1` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--space-2` `--space-4` `--space-5` `--text-h1`
 
-**Classes scoped** : .astro .dingbat .tech-aside .tech-int-flow .tech-integration .tech-sec .tech-sec-hd .tech-sec-paper .timeline-content .timeline-item-highlight .timeline-vertical .wrap
+**Classes scoped** : .astro .dingbat .tech-aside .tech-int-flow .tech-integration .tech-sec-hd .tech-sec-paper .timeline-content .timeline-item-highlight .timeline-vertical .wrap
 
 **Dette hardcode** : 6 valeur(s) — -0.018em, 1240px, 1px, 480px, 800px, 820px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-10 --space-2 --space-4. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 1240px, 1px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-2 --space-4 --space-5. Couleur : --accent --accent-rgb --ink. Typographie : --font-sans --fw-medium. Dette : 6 litteral(s) hardcode(s) (-0.018em, 1240px, 1px).
 
 ---
 
@@ -6656,7 +6730,7 @@
 | `h2_en` | string | oui |  |  |
 | `h2_fr` | string | oui |  |  |
 
-**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h2` `--text-h3`
+**Tokens** : `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-2` `--paper-3` `--space-1` `--space-2` `--space-5` `--space-6` `--spacing-block` `--text-body` `--text-h2`
 
 **Classes scoped** : .timeline-block .timeline-block__content .timeline-block__date .timeline-block__event .timeline-block__list .timeline-block__title
 
@@ -6685,13 +6759,13 @@
 | `kicker_en` | string | non |  |  |
 | `kicker_fr` | string | non |  |  |
 
-**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline-strong` `--ink` `--leading-body` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-11` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-9` `--text-body` `--text-h2` `--text-h3` `--text-small` `--tracking-mono`
+**Tokens** : `--accent` `--accent-rgb` `--accent-text` `--font-display` `--font-mono` `--font-sans` `--fw-semibold` `--hairline-strong` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-base` `--space-1` `--space-11` `--space-2` `--space-4` `--space-5` `--space-6` `--text-h3` `--text-small` `--tracking-mono`
 
-**Classes scoped** : .acc .timeline-h .timeline-h__body .timeline-h__card .timeline-h__date .timeline-h__dot .timeline-h__event .timeline-h__h2 .timeline-h__hd .timeline-h__intro .timeline-h__label .timeline-h__rail .timeline-h__status .timeline-h__track
+**Classes scoped** : .acc .timeline-h .timeline-h__card .timeline-h__date .timeline-h__dot .timeline-h__event .timeline-h__h2 .timeline-h__label .timeline-h__rail .timeline-h__status .timeline-h__track
 
-**Dette hardcode** : 8 valeur(s) — -0.02em, -50%, 14px, 240px, 2px, 3px, 50%, 760px
+**Dette hardcode** : 7 valeur(s) — -50%, 14px, 240px, 2px, 3px, 50%, 760px
 
-**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-11 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 8 litteral(s) hardcode(s) (-0.02em, -50%, 14px).
+**Agent** : Layout : `background` (schema, 0 CSS). Espacement : --space-1 --space-11 --space-2. Couleur : --accent --accent-rgb --accent-text. Typographie : --font-display --font-mono. Dette : 7 litteral(s) hardcode(s) (-50%, 14px, 240px).
 
 ---
 
@@ -6714,13 +6788,13 @@
 | `title` | string | non |  |  |
 | `variant` | enum | non | media | media | columns | light | hero |
 
-**Tokens** : `--accent` `--accent-ink` `--accent-sur-clair` `--accent-sur-sombre` `--accent-text` `--dur-reveal` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--hairline` `--ink` `--leading-h2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-rgb` `--radius-full` `--radius-lg` `--radius-md` `--radius-pill` `--section-base` `--shadow-lift` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-glyph` `--text-h2` `--text-h3` `--text-micro` `--text-numeral-md` `--text-small` `--tracking-mono` `--tracking-mono-tight`
+**Tokens** : `--accent` `--accent-ink` `--accent-sur-clair` `--accent-sur-sombre` `--accent-text` `--dur-reveal` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--ink-rgb` `--leading-h2` `--leading-h3` `--leading-relaxed` `--muted` `--paper` `--paper-rgb` `--radius-full` `--radius-lg` `--radius-md` `--radius-pill` `--section-base` `--shadow-lift` `--space-1` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-glyph` `--text-h2` `--text-h3` `--text-micro` `--text-numeral-md` `--text-small` `--tracking-mono` `--tracking-mono-tight`
 
-**Classes scoped** : .eep .eep--columns .eep--hero .eep--light .eep--media .eep-band .eep-band__cap .eep-band__img .eep-bio .eep-bio--sm .eep-cap .eep-cell .eep-cell--author .eep-cell--commit .eep-cell--cta .eep-cell--focus .eep-cell--hero .eep-cell--media .eep-cell--media-a .eep-cell--media-b .eep-cell--read .eep-cell--reperes .eep-cell--sectors .eep-cell--services .eep-celllabel .eep-celllabel--ink .eep-chip .eep-chips .eep-col .eep-col--accent .eep-colbody .eep-colhd .eep-colhd--accent .eep-collabel .eep-collabel--ink .eep-cols .eep-commit .eep-commit__detail .eep-commit__label .eep-commits .eep-creds .eep-creds__badge .eep-creds__item .eep-creds__label .eep-creds__list .eep-cta .eep-cta__glyph .eep-cta__title .eep-exp .eep-exp__item .eep-focus__label .eep-focus__num .eep-grid .eep-hd .eep-hero__cap .eep-hero__img .eep-hero__kicker .eep-hero__line .eep-honesty .eep-hub .eep-hub__glyph .eep-hubs .eep-hubs--row .eep-img .eep-kicker .eep-kicker__dot .eep-lead .eep-link .eep-link__kicker .eep-link__label .eep-link--flat .eep-links .eep-meta .eep-mlabel .eep-mlist .eep-mrow .eep-myear .eep-name .eep-name--ink .eep-name--sm .eep-reveal .eep-reveal__img .eep-role .eep-role--ink .is-on .reveal-stagger
+**Classes scoped** : .eep .eep--columns .eep--hero .eep--light .eep--media .eep-band .eep-band__cap .eep-band__img .eep-bio .eep-bio--sm .eep-cap .eep-cell .eep-cell--author .eep-cell--commit .eep-cell--cta .eep-cell--focus .eep-cell--hero .eep-cell--media .eep-cell--media-a .eep-cell--media-b .eep-cell--read .eep-cell--reperes .eep-cell--sectors .eep-cell--services .eep-celllabel .eep-celllabel--ink .eep-chip .eep-chips .eep-col .eep-col--accent .eep-colbody .eep-colhd .eep-colhd--accent .eep-collabel .eep-collabel--ink .eep-cols .eep-commit .eep-commit__detail .eep-commit__label .eep-commits .eep-creds .eep-creds__badge .eep-creds__item .eep-creds__label .eep-creds__list .eep-creds__scope .eep-creds__text .eep-cta .eep-cta__glyph .eep-cta__title .eep-exp .eep-exp__item .eep-focus__label .eep-focus__num .eep-grid .eep-hd .eep-hero__cap .eep-hero__img .eep-hero__kicker .eep-hero__line .eep-honesty .eep-hub .eep-hub__glyph .eep-hubs .eep-hubs--row .eep-img .eep-kicker .eep-kicker__dot .eep-lead .eep-link .eep-link__kicker .eep-link__label .eep-link--flat .eep-links .eep-meta .eep-mlabel .eep-mlist .eep-mrow .eep-myear .eep-name .eep-name--ink .eep-name--sm .eep-reveal .eep-reveal__img .eep-role .eep-role--ink .is-on .reveal-stagger .ts
 
-**Dette hardcode** : 17 valeur(s) — -0.015em, 0.5em, 100%, 12rem, 14rem, 16rem, 18rem, 1px
+**Dette hardcode** : 19 valeur(s) — -0.015em, -28px, 0.5em, 100%, 12rem, 14rem, 16rem, 18rem
 
-**Agent** : Layout : `background`, `silo`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 17 litteral(s) hardcode(s) (-0.015em, 0.5em, 100%).
+**Agent** : Layout : `background`, `silo`, `variant` (schema, 0 CSS). Espacement : --space-1 --space-2 --space-3. Couleur : --accent --accent-ink --accent-sur-clair. Typographie : --font-display --font-mono. Dette : 19 litteral(s) hardcode(s) (-0.015em, -28px, 0.5em).
 
 ---
 
@@ -6767,13 +6841,13 @@
 | `kicker_fr` | string | non |  |  |
 | `variant` | enum | non | cells | cells | strip |
 
-**Tokens** : `--accent` `--accent-text` `--font-mono` `--font-sans` `--fw-medium` `--fw-semibold` `--hairline` `--ink` `--leading-h3` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-tight` `--space-2` `--space-3` `--space-5` `--space-6` `--tb-cols` `--text-body` `--text-glyph` `--text-h3` `--text-small` `--wrap-prose`
+**Tokens** : `--accent` `--accent-text` `--font-mono` `--hairline` `--ink` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--radius-full` `--section-tight` `--space-2` `--space-3` `--space-5` `--space-6` `--tb-cols` `--text-glyph` `--text-small` `--wrap-prose`
 
-**Classes scoped** : .trust-badges .trust-badges__cell .trust-badges__glyph .trust-badges__grid .trust-badges__h2 .trust-badges__head .trust-badges__item .trust-badges__item-glyph .trust-badges__item-label .trust-badges__kicker .trust-badges__label .trust-badges__strip .trust-badges__value
+**Classes scoped** : .trust-badges .trust-badges__cell .trust-badges__glyph .trust-badges__grid .trust-badges__head .trust-badges__item .trust-badges__item-glyph .trust-badges__item-label .trust-badges__kicker .trust-badges__label .trust-badges__strip .trust-badges__value
 
-**Dette hardcode** : 7 valeur(s) — -0.01em, .04em, .1em, 1px, 4px, 560px, 900px
+**Dette hardcode** : 6 valeur(s) — .04em, .1em, 1px, 4px, 560px, 900px
 
-**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-mono --font-sans. Dette : 7 litteral(s) hardcode(s) (-0.01em, .04em, .1em).
+**Agent** : Layout : `background`, `variant` (schema, 0 CSS). Espacement : --space-2 --space-3 --space-5. Couleur : --accent --accent-text --ink. Typographie : --font-mono --text-glyph. Dette : 6 litteral(s) hardcode(s) (.04em, .1em, 1px).
 
 ---
 
@@ -6804,7 +6878,7 @@
 
 **Tokens** : `--accent-text` `--dur-trim` `--ease` `--font-display` `--font-mono` `--font-sans` `--fw-medium` `--fw-regular` `--fw-semibold` `--hairline` `--ink` `--ink-2` `--leading-h2` `--leading-lede` `--leading-prose` `--muted` `--paper` `--paper-2` `--paper-3` `--paper-rgb` `--section-loose` `--space-10` `--space-2` `--space-3` `--space-4` `--space-5` `--space-6` `--space-7` `--space-8` `--text-body` `--text-display` `--text-h1` `--text-h3` `--text-small` `--tracking-mono-tight`
 
-**Classes scoped** : .trust-body .trust-footer-version .trust-grid .trust-h1 .trust-hd .trust-kicker .trust-lede .trust-legal-footer .trust-meta .trust-sections .trust-toc .trust-toc-k .trust-toc-num
+**Classes scoped** : .trust-body .trust-footer-version .trust-grid .trust-h1 .trust-hd .trust-kicker .trust-lede .trust-legal-footer .trust-meta .trust-sections .trust-toc .trust-toc-k
 
 **Dette hardcode** : 19 valeur(s) — -0.028em, -0.02em, #118, 0.1em, 0.5em, 1.2em, 1.4em, 1.5em
 

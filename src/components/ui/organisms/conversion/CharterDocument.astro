@@ -6,8 +6,11 @@
 // comme un document. Texte source unique : src/data/charte-ia-pme.ts.
 //
 // Sorties :
-//   - PDF        : fichier statique public/telechargements/… (modèle vierge, avec les notes
-//                  d'adaptation), régénéré par scripts/gen-charte-pdf.mjs.
+//   - PDF        : VERROUILLÉ. Fichier privé (private/telechargements/…, jamais servi par le
+//                  site), envoyé en pièce jointe par e-mail via LeadCapture (e-mail
+//                  obligatoire) ; modèle vierge avec les notes d'adaptation, régénéré par
+//                  scripts/gen-charte-pdf.mjs. Le texte en ligne, l'export Word et la copie
+//                  restent utilisables sans e-mail.
 //   - Word       : fichier .doc généré dans le navigateur (HTML lu par Word, LibreOffice,
 //                  Google Docs), avec les champs remplis, sans les notes d'adaptation.
 //   - Copie      : texte brut dans le presse-papiers, mêmes règles que l'export Word.
@@ -22,7 +25,6 @@ import {
   charterClosing,
   charterSources,
 } from '../../../../data/charte-ia-pme';
-import { LEAD_MAGNETS } from '../../../../data/conversion';
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const placeholders = Object.fromEntries(charterVars.map((v) => [v.key, v.placeholder]));
@@ -30,14 +32,13 @@ const placeholders = Object.fromEntries(charterVars.map((v) => [v.key, v.placeho
 const tok = (s: string) =>
   esc(s).replace(/\{\{([a-z]+)\}\}/g, (_m, k) => `<span class="ch-var" data-var="${k}">[${esc(placeholders[k] ?? k)}]</span>`);
 
-const pdfHref = LEAD_MAGNETS['charte-ia-entreprise'].file;
 ---
 <section class="ch" aria-label="Modèle de charte IA" data-charter>
   <div class="wrap-wide ch-in">
     <aside class="ch-side" aria-labelledby="ch-side-h2">
       <h2 class="ch-side-h2" id="ch-side-h2">Personnaliser le modèle</h2>
       <p class="cv-note">Ce que vous saisissez remplace les champs entre crochets dans le texte. Rien n'est envoyé : tout reste dans votre navigateur.</p>
-      <form class="ch-fields" data-charter-form onsubmit="return false">
+      <form class="ch-fields" data-charter-form data-form-local onsubmit="return false">
         {charterVars.map((v) => (
           <div class="cv-field">
             <label class="cv-label" for={`ch-${v.key}`}>{v.label}</label>
@@ -46,13 +47,13 @@ const pdfHref = LEAD_MAGNETS['charte-ia-entreprise'].file;
         ))}
       </form>
       <div class="ch-actions">
-        <a class="btn btn-primary" href={pdfHref} download>Télécharger le PDF</a>
+        <a class="btn btn-primary" href="#recevoir-le-pdf">Recevoir le PDF par e-mail</a>
         <button class="btn btn-ghost cv-btn" type="button" data-charter-doc>Télécharger en Word (.doc)</button>
         <button class="btn btn-ghost cv-btn" type="button" data-charter-copy>Copier le texte</button>
         <button class="btn btn-ghost cv-btn" type="button" data-charter-print>Imprimer</button>
       </div>
       <p class="cv-note ch-feedback" role="status" data-charter-feedback></p>
-      <p class="cv-note">Le PDF est le modèle vierge avec ses notes d'adaptation. L'export Word et la copie reprennent vos champs et retirent les notes.</p>
+      <p class="cv-note">Le texte en ligne, l'export Word et la copie s'utilisent sans e-mail ; ils reprennent vos champs et retirent les notes. Le PDF, modèle vierge avec ses notes d'adaptation, s'obtient par e-mail (formulaire en bas de page).</p>
     </aside>
 
     <article class="ch-sheet" data-charter-sheet>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot IMG1 · une silhouette perchée sur une haute échelle tend un mètre pliant vers un gros nuage -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pusher">
+      <circle cx="10" cy="-86" r="7.5" fill="{{subject}}"/>
+      <path d="M-6 -78 Q4 -82 14 -76 L4 -42 L-18 -44 Z" fill="{{subject}}"/>
+      <rect x="2" y="-74" width="34" height="6" rx="3" fill="{{subject}}" transform="rotate(8 2 -74)"/>
+      <path d="M-18 -44 L-4 -44 L-14 -2 L-26 -2 Z" fill="{{subject}}"/>
+      <path d="M-6 -44 L6 -44 L14 -2 L2 -2 Z" fill="{{subject}}"/>
+      <rect x="-30" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="2" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <path d="M700 260 Q690 180 780 176 Q810 110 900 132 Q960 80 1040 130 Q1130 120 1130 200 Q1200 220 1170 280 Q1150 320 1080 310 L760 310 Q690 310 700 260 Z" fill="{{shape}}"/>
+  <rect y="480" width="1456" height="144" fill="{{ground}}"/>
+  <g stroke="{{subject}}" stroke-width="8"><line x1="470" y1="480" x2="540" y2="250"/><line x1="530" y1="480" x2="600" y2="250"/></g>
+  <g stroke="{{subject}}" stroke-width="5"><line x1="477.77777777777777" y1="454.44444444444446" x2="537.7777777777778" y2="454.44444444444446"/><line x1="485.55555555555554" y1="428.8888888888889" x2="545.5555555555555" y2="428.8888888888889"/><line x1="493.3333333333333" y1="403.33333333333337" x2="553.3333333333334" y2="403.33333333333337"/><line x1="501.1111111111111" y1="377.77777777777777" x2="561.1111111111111" y2="377.77777777777777"/><line x1="508.8888888888889" y1="352.22222222222223" x2="568.8888888888889" y2="352.22222222222223"/><line x1="516.6666666666666" y1="326.6666666666667" x2="576.6666666666666" y2="326.6666666666667"/><line x1="524.4444444444445" y1="301.1111111111111" x2="584.4444444444445" y2="301.1111111111111"/><line x1="532.2222222222222" y1="275.55555555555554" x2="592.2222222222222" y2="275.55555555555554"/></g>
+  <use href="#man" transform="translate(566 300) scale(1.1)"/>
+  <g transform="rotate(-14 590 220)">
+    <rect x="590" y="214" width="62" height="12" fill="{{subject}}"/><rect x="652" y="214" width="62" height="12" fill="{{detail}}"/><rect x="714" y="214" width="62" height="12" fill="{{subject}}"/>
+  </g>
+  <rect x="570" y="198" width="6" height="30" rx="3" fill="{{subject}}" transform="rotate(60 573 228)"/>
+  <use href="#woman" transform="translate(380 500) scale(1.2)"/>
+
+</svg>

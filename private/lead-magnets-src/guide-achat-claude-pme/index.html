@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Guide d'achat Claude pour PME : plan, coût, configuration · Waimia</title>
+<style>
+  @font-face { font-family: "Instrument Serif"; src: url("../../../public/fonts/instrument-serif-regular.woff2") format("woff2"); font-style: normal; }
+  @font-face { font-family: "Instrument Serif"; src: url("../../../public/fonts/instrument-serif-italic.woff2") format("woff2"); font-style: italic; }
+  @font-face { font-family: "Inter Tight"; src: url("../../../public/fonts/inter-tight-regular.woff2") format("woff2"); font-style: normal; font-weight: 100 900; }
+  @font-face { font-family: "Inter Tight"; src: url("../../../public/fonts/inter-tight-italic.woff2") format("woff2"); font-style: italic; font-weight: 100 900; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../../../public/fonts/jetbrains-mono-regular.woff2") format("woff2"); }
+
+  :root {
+    --paper: #F6F1E8; --paper-2: #EFE9DD; --paper-3: #E6E0D0;
+    --ink: #0C0B09; --ink-2: #1A1814; --muted: #6B6560;
+    --accent: #C94F2E; --accent-sur-clair: #A83D20;
+    --rule: rgba(12, 11, 9, 0.14);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: "Inter Tight", system-ui, sans-serif; font-size: 10pt; line-height: 1.48; color: var(--ink); background: #fff; hyphens: auto; }
+  h1, h2, h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; line-height: 1.1; margin: 0; hyphens: none; }
+  h1 { font-size: 42pt; letter-spacing: -0.01em; }
+  h2 { font-size: 24pt; margin-bottom: 8pt; break-after: avoid; }
+  h3 { font-size: 14pt; margin: 12pt 0 4pt; break-after: avoid; }
+  h1 i, h2 i { color: var(--accent); }
+  p { margin: 0 0 6.5pt; }
+  ul, ol { margin: 0 0 8pt; padding-left: 15pt; }
+  li { margin-bottom: 2.5pt; }
+  strong { font-weight: 600; }
+  .mono { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.4pt; }
+  .kicker { font-family: "JetBrains Mono", Menlo, monospace; font-size: 7.8pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-sur-clair); margin-bottom: 5pt; }
+  .page { break-before: page; }
+  .lede { font-size: 11pt; color: var(--ink-2); }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.6pt; }
+  figure { margin: 6pt 0 10pt; }
+  figure img { width: 100%; display: block; border-radius: 3pt; }
+  figure.slim { width: 74%; margin: 4pt auto 0; }
+  th, td:first-child, h1, h2, h3 { hyphens: manual; }
+  .box { background: var(--paper); border-left: 3pt solid var(--accent); padding: 7pt 10pt; margin: 7pt 0 9pt; break-inside: avoid; }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .warn { background: var(--paper-2); border-left-color: var(--ink); }
+  table { width: 100%; border-collapse: collapse; margin: 5pt 0 9pt; font-size: 8.8pt; line-height: 1.38; }
+  tr { break-inside: avoid; }
+  th { text-align: left; font-weight: 600; background: var(--paper-2); }
+  th, td { padding: 4.5pt 6pt; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; }
+  .keep { break-inside: avoid; }
+
+  /* Formules */
+  .calc { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.4pt; line-height: 1.6; background: var(--ink); color: var(--paper); padding: 8pt 11pt; border-radius: 4pt; margin: 5pt 0 8pt; break-inside: avoid; }
+  .calc b { color: #D96A47; font-weight: 400; }
+  .scenario { border-top: 2px solid var(--ink); padding-top: 7pt; margin-top: 12pt; break-inside: avoid; }
+  .scenario h3 { margin-top: 0; }
+  .tag { display: inline-block; font-family: "JetBrains Mono", Menlo, monospace; font-size: 7.2pt; letter-spacing: 0.06em; text-transform: uppercase; background: var(--paper-2); padding: 1.5pt 5pt; border-radius: 2pt; margin-right: 4pt; }
+
+  /* Listes numérotées et cases */
+  .steps { list-style: none; padding: 0; counter-reset: s; }
+  .steps > li { counter-increment: s; position: relative; padding: 5pt 0 5pt 26pt; border-bottom: 1px solid var(--rule); break-inside: avoid; margin: 0; }
+  .steps > li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 5pt; font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.4pt; color: var(--accent-sur-clair); }
+  .check { list-style: none; padding-left: 0; }
+  .check li { padding-left: 14pt; position: relative; break-inside: avoid; }
+  .check li::before { content: "\2610"; position: absolute; left: 0; color: var(--accent); }
+  .pitfall { break-inside: avoid; padding: 5pt 0 5pt 0; border-bottom: 1px solid var(--rule); }
+  .pitfall b { display: block; font-weight: 600; }
+
+  /* Couverture */
+  .cover { height: 258mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .brand { font-family: "JetBrains Mono", Menlo, monospace; font-size: 9pt; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cover .sub { font-size: 13pt; color: var(--ink-2); max-width: 150mm; margin-top: 12pt; }
+  .cover .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; font-size: 9pt; border-top: 1px solid var(--ink); padding-top: 8pt; }
+  .cover .meta b { display: block; font-family: "JetBrains Mono", Menlo, monospace; font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-sur-clair); font-weight: 400; }
+  .toc { list-style: none; padding: 0; margin-top: 8pt; }
+  .toc li { display: flex; justify-content: space-between; gap: 10pt; border-bottom: 1px dotted var(--rule); padding: 5pt 0; font-size: 10.6pt; margin: 0; }
+  .toc li span:last-child { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.6pt; color: var(--muted); }
+  .end { background: var(--ink); color: var(--paper); padding: 14pt 16pt; border-radius: 4pt; break-inside: avoid; }
+  .end h2 { color: var(--paper); }
+  .end a { color: #D96A47; }
+  .end, .end p { hyphens: manual; }
+  a { color: var(--accent-sur-clair); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="cover">
+  <div>
+    <div class="brand">Waimia · Guide d'achat · Octobre 2026</div>
+  </div>
+  <div>
+    <div class="kicker">Pour dirigeants et responsables de PME</div>
+    <h1>Guide d'achat <i>Claude</i><br>pour PME</h1>
+    <p class="sub">Plan, coût, configuration. Choisir la bonne offre, chiffrer le budget de votre équipe et configurer Claude correctement dès le premier jour.</p>
+  </div>
+  <figure><img src="../../../public/images/illustrations/ds/guide-achat-claude-pme-balance-paper.webp" alt=""></figure>
+  <div class="meta">
+    <div><b>Prix</b>Grille Anthropic relevée le 5 octobre 2026, en dollars, hors TVA</div>
+    <div><b>Méthode</b>Sources primaires Anthropic, calculs et hypothèses écrits</div>
+    <div><b>Auteur</b>Simon Beros, Waimia, studio IA pour PME · waimia.com</div>
+  </div>
+</section>
+
+<!-- 2. Sommaire -->
+<section class="page">
+  <div class="kicker">Sommaire</div>
+  <h2>Ce que contient ce guide</h2>
+  <ol class="toc">
+    <li><span>1. La grille Claude en une page</span><span>p. 3</span></li>
+    <li><span>2. Matrice de décision par profil</span><span>p. 4</span></li>
+    <li><span>3. Estimer le coût&nbsp;: méthode et formules</span><span>p. 5</span></li>
+    <li><span>4. Trois budgets illustratifs&nbsp;: 5, 15 et 40 personnes</span><span>p. 6</span></li>
+    <li><span>5. Les pièges d'achat</span><span>p. 8</span></li>
+    <li><span>6. Configuration du jour 1, pas à pas</span><span>p. 9</span></li>
+    <li><span>7. Questions à poser avant de signer</span><span>p. 11</span></li>
+    <li><span>8. Quand passer par l'API, Bedrock ou Vertex</span><span>p. 12</span></li>
+    <li><span>9. Mini plan de déploiement sur 90 jours</span><span>p. 13</span></li>
+    <li><span>Sources et contact</span><span>p. 14</span></li>
+  </ol>
+
+  <h3>Comment lire ce guide</h3>
+  <p>Ce guide sert à une décision d'achat&nbsp;: quelle offre, combien de sièges, quel budget, quelle configuration. Il ne remplace pas la page tarifs d'Anthropic, qui fait foi. Anthropic modifie ses offres souvent&nbsp;: plusieurs sorties de modèles cet été, une fusion de produits annoncée le 16 septembre. Relisez la grille le jour où vous signez.</p>
+  <div class="box warn">
+    <p><strong>Trois conventions tenues partout.</strong></p>
+    <ul>
+      <li>Tous les prix Claude sont en <strong>dollars américains, hors TVA</strong>, tels qu'affichés par Anthropic le 5 octobre 2026. Nous ne publions pas de conversion en euros&nbsp;: votre page de paiement affichera la devise et la TVA applicables à votre pays.</li>
+      <li>Les budgets du chapitre 4 sont des <strong>scénarios illustratifs</strong>, pas des cas clients. Les hypothèses sont écrites à côté de chaque calcul&nbsp;: remplacez-les par les vôtres.</li>
+      <li>Quand un point n'est confirmé que partiellement par Anthropic, il est signalé par «&nbsp;d'après Anthropic&nbsp;» ou «&nbsp;à confirmer à l'achat&nbsp;».</li>
+    </ul>
+  </div>
+
+  <h3>Le résumé en cinq lignes</h3>
+  <ol>
+    <li>Dès deux personnes qui mettent des documents de travail dans Claude, prenez Team, pas des comptes Pro personnels.</li>
+    <li>Team Standard suffit à la majorité des postes. Réservez Premium aux profils intensifs, développeurs en tête.</li>
+    <li>Le chat, Cowork et Claude Code partagent le même quota par siège&nbsp;: c'est lui qui décide de la répartition.</li>
+    <li>Enterprise se choisit pour ses contrôles (SCIM, audit, rétention), rarement pour son prix&nbsp;: 20 $ par siège plus l'usage.</li>
+    <li>Si vos données doivent rester en Europe, les apps Claude ne suffisent pas&nbsp;: il faut l'API via Bedrock ou Vertex.</li>
+  </ol>
+</section>
+
+<!-- 3. Grille -->
+<section class="page">
+  <div class="kicker">Chapitre 1</div>
+  <h2>La grille Claude en une page</h2>
+  <p class="lede">Cinq offres, dont deux types de siège pour Team. Source&nbsp;: claude.com/pricing et aide Anthropic, lues le 5 octobre 2026.</p>
+  <table>
+    <thead><tr><th>Offre</th><th class="num">Mensuel</th><th class="num">Annuel, par mois</th><th>Usage</th><th>Conditions</th><th>Ce qui compte pour une PME</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Free</strong></td><td class="num">0 $</td><td class="num">0 $</td><td>Limité</td><td>Grand public</td><td>Pour tester. Pas de Claude Code, pas de Projets.</td></tr>
+      <tr><td><strong>Pro</strong></td><td class="num">20 $</td><td class="num">17 $ (200 $ par an)</td><td>Référence 1x</td><td>Grand public</td><td>Claude Code, Projets, Docs, Slides, Design. Compte individuel, sans administration.</td></tr>
+      <tr><td><strong>Max</strong></td><td class="num">dès 100 $</td><td class="num">non affiché</td><td>5x ou 20x Pro</td><td>Grand public</td><td>Max 20x à 200 $ par mois. Pour un utilisateur seul très intensif.</td></tr>
+      <tr><td><strong>Team Standard</strong></td><td class="num">25 $ / siège</td><td class="num">20 $ / siège</td><td>1,25x Pro par session</td><td>Commerciales</td><td>2 à 150 sièges. Administration, authentification unique, pas d'entraînement par défaut.</td></tr>
+      <tr><td><strong>Team Premium</strong></td><td class="num">125 $ / siège</td><td class="num">100 $ / siège</td><td>6,25x Pro par session</td><td>Commerciales</td><td>Mêmes fonctions, quota cinq fois plus large que Standard.</td></tr>
+      <tr><td><strong>Enterprise</strong></td><td class="num">facturé à l'année</td><td class="num">20 $ / siège + usage</td><td>Au tarif de l'API</td><td>Commerciales</td><td>SCIM, journaux d'audit, Compliance API, rétention personnalisée, filtrage IP. Achat en ligne possible.</td></tr>
+    </tbody>
+  </table>
+  <p class="small muted">«&nbsp;Usage&nbsp;»&nbsp;: multiple de l'offre Pro, par session, tel qu'exprimé par Anthropic. Ce guide ne reprend pas de nombre de messages par offre, faute de l'avoir vérifié&nbsp;: ces multiples sont la base de comparaison retenue. Enterprise, libre-service compris&nbsp;: 20 sièges minimum, selon l'aide d'Anthropic.</p>
+
+  <h3>Trois chiffres que beaucoup de pages françaises donnent faux</h3>
+  <div class="two">
+    <div>
+      <p><strong>Team commence à 2 sièges.</strong> Pas à 5, comme on le lit souvent. Un dirigeant et son associé peuvent ouvrir une organisation Team.</p>
+      <p><strong>Enterprise = 20 $ par siège plus l'usage.</strong> Le modèle «&nbsp;50 sièges à 125 $&nbsp;» cité ici et là est ancien. Le prix dépend désormais de la consommation réelle.</p>
+    </div>
+    <div>
+      <p><strong>Le quota est partagé.</strong> En Team et Enterprise, le chat, Cowork et Claude Code puisent dans le même quota par siège, sur une fenêtre glissante de 5 heures et une limite hebdomadaire. Au-delà, des crédits d'usage s'achètent, avec des plafonds par organisation, groupe ou membre.</p>
+    </div>
+  </div>
+
+  <h3>Ce que vous payez en plus du siège</h3>
+  <ul>
+    <li><strong>Les crédits d'usage</strong> au-delà du quota, si vous les autorisez.</li>
+    <li><strong>La TVA et le change</strong>&nbsp;: la facture peut être en devise locale là où Anthropic le propose, TVA incluse ou ajoutée selon le pays.</li>
+    <li><strong>Le temps de mise en place</strong>&nbsp;: configuration, connecteurs, règles d'usage, formation. C'est souvent le premier poste de coût réel.</li>
+  </ul>
+</section>
+
+<!-- 4. Matrice -->
+<section class="page">
+  <div class="kicker">Chapitre 2</div>
+  <h2>Matrice de décision par profil</h2>
+  <p class="lede">Repérez la ligne qui vous ressemble. Si deux lignes s'appliquent, la plus exigeante l'emporte.</p>
+  <table>
+    <thead><tr><th style="width:24%">Votre situation</th><th style="width:20%">Offre</th><th style="width:30%">Pourquoi</th><th style="width:26%">Le piège à éviter</th></tr></thead>
+    <tbody>
+      <tr><td>Dirigeant seul, quelques usages par semaine</td><td>Free, puis Pro</td><td>Pro dès que Claude devient quotidien&nbsp;: Projets, fichiers, Claude Code.</td><td>Conditions grand public&nbsp;: vérifiez le réglage d'entraînement.</td></tr>
+      <tr><td>Dirigeant seul, plusieurs heures par jour</td><td>Max, ou Team à 2 sièges</td><td>Max donne 5 ou 20 fois Pro. Team passe sous conditions commerciales.</td><td>Max reste un compte grand public, sans administration.</td></tr>
+      <tr><td>Équipe de 2 à 10, bureautique, commerce, administration</td><td>Team Standard</td><td>Administration, authentification unique, pas d'entraînement par défaut.</td><td>Payer au mois pendant un an&nbsp;: l'annuel coûte 20 % de moins.</td></tr>
+      <tr><td>Équipe avec 1 à 3 profils intensifs (analyste, chef de projet, développeur)</td><td>Team Standard et Premium</td><td>Premium seulement pour ceux qui épuisent le quota Standard.</td><td>Premium pour tout le monde. Combinaison des deux sièges à confirmer à l'achat.</td></tr>
+      <tr><td>Équipe de développement sur Claude Code</td><td>Team Premium, ou Enterprise</td><td>Claude Code consomme le même quota que le chat et Cowork.</td><td>Un siège Standard bloqué en milieu de journée.</td></tr>
+      <tr><td>20 personnes ou plus, service informatique exigeant</td><td>Enterprise</td><td>SCIM, journaux d'audit, Compliance API, rétention personnalisée, filtrage IP.</td><td>Budgéter sur l'ancien modèle par siège sans usage.</td></tr>
+      <tr><td>Données qui doivent rester en Europe</td><td>API via AWS Bedrock ou Google Vertex</td><td>Les apps Claude stockent aux États-Unis par défaut, sans option européenne.</td><td>Croire qu'un contrat Enterprise suffit à héberger en Europe.</td></tr>
+      <tr><td>Claude intégré à vos logiciels ou workflows</td><td>API, à l'usage</td><td>Facturation au volume traité, sans siège.</td><td>Prendre des sièges pour un traitement automatique.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box">
+    <p><strong>La question qui tranche Pro contre Team.</strong> Est-ce qu'un document client, un devis, un contrat ou un fichier de paie passera par Claude&#8239;? Si oui, prenez Team. Les comptes Pro relèvent des conditions grand public&nbsp;: chaque personne règle seule l'entraînement sur ses conversations, et l'entreprise ne peut ni retirer un accès au départ d'un salarié ni voir qui utilise quoi.</p>
+  </div>
+</section>
+
+<!-- 5. Méthode -->
+<section class="page">
+  <div class="kicker">Chapitre 3</div>
+  <h2>Estimer le coût&nbsp;: méthode et formules</h2>
+  <p class="lede">Un budget Claude se calcule en trois lignes. La première est simple, les deux autres sont celles qu'on oublie.</p>
+
+  <div class="calc">
+    Coût annuel Team = (nb Standard × <b>20 $</b> + nb Premium × <b>100 $</b>) × 12 &nbsp; [facturation annuelle]<br>
+    Coût annuel Team = (nb Standard × <b>25 $</b> + nb Premium × <b>125 $</b>) × 12 &nbsp; [facturation mensuelle]<br>
+    Coût annuel Enterprise = nb sièges × <b>20 $</b> × 12 + usage annuel au tarif de l'API<br>
+    Budget total = abonnement + crédits au-delà du quota + mise en place
+  </div>
+
+  <h3>Étape 1&nbsp;: classer les utilisateurs en trois groupes</h3>
+  <ul>
+    <li><strong>Occasionnels</strong>&nbsp;: quelques demandes par jour, rédaction, synthèse, recherche. Siège Standard.</li>
+    <li><strong>Réguliers</strong>&nbsp;: Claude ouvert toute la journée, fichiers, projets, tâches. Standard, et surveillance du quota le premier mois.</li>
+    <li><strong>Intensifs</strong>&nbsp;: Claude Code, longues tâches agentiques, tâches planifiées quotidiennes. Premium, ou usage Enterprise.</li>
+  </ul>
+
+  <h3>Étape 2&nbsp;: choisir le rythme de facturation</h3>
+  <p>En Team, l'annuel ramène le siège Standard de 25 à 20 $ par mois et le Premium de 125 à 100 $, soit 20 % d'économie. En échange, vous vous engagez sur douze mois. Pratique raisonnable&nbsp;: un ou deux mois en mensuel pour valider la répartition, puis l'annuel au moment où les usages sont stables.</p>
+
+  <h3>Étape 3&nbsp;: estimer l'usage au-delà du quota</h3>
+  <p>Nous n'avons pas de nombre de messages vérifié par siège. Les repères officiels retenus sont les multiples d'usage (Standard 1,25 fois Pro, Premium 6,25 fois) et, pour le développement, le coût observé de Claude Code en facturation à l'usage&nbsp;: environ <strong>13 $ par développeur et par jour actif</strong>, soit <strong>150 à 250 $ par mois</strong>, et moins de 30 $ par jour pour 90 % des utilisateurs. Ces chiffres servent à estimer la part «&nbsp;usage&nbsp;» d'Enterprise.</p>
+
+  <h3>Étape 4&nbsp;: ne pas oublier la mise en place</h3>
+  <p>Configurer l'organisation, relier un ou deux outils, écrire les règles d'usage et former un référent demande du temps interne ou un prestataire. À titre de repère, chez Waimia, le sprint de cadrage est à prix fixe&nbsp;: 999 € HT pour 10 heures, puis 99 € HT de l'heure. D'autres prestataires facturent autrement&nbsp;: comparez sur le livrable, pas sur le taux.</p>
+
+  <div class="box warn">
+    <p><strong>Limites de la méthode.</strong> Les multiples d'usage s'entendent par session, pas en volume garanti. Le prix des crédits d'usage au-delà du quota n'est pas repris ici&nbsp;: demandez-le avant de signer (chapitre 7). Les calculs n'incluent ni la TVA, ni le change, ni d'éventuelles remises négociées.</p>
+  </div>
+  <figure class="slim"><img src="../../../public/images/illustrations/ds/guide-achat-claude-pme-piles-paper.webp" alt=""></figure>
+</section>
+
+<!-- 6. Scénarios -->
+<section class="page">
+  <div class="kicker">Chapitre 4 · Scénarios illustratifs, pas des cas clients</div>
+  <h2>Trois budgets&nbsp;: 5, 15 et 40 personnes</h2>
+  <p class="lede">Prix publics au 5 octobre 2026, en dollars hors TVA. Hypothèse commune&nbsp;: une même organisation Team peut combiner sièges Standard et Premium (à confirmer à l'achat).</p>
+
+  <div class="scenario">
+    <span class="tag">Scénario A</span><span class="tag">5 personnes</span>
+    <h3>Un cabinet de conseil&nbsp;: dirigeant, trois consultants, une assistante</h3>
+    <p><strong>Hypothèses.</strong> Quatre utilisateurs réguliers sur la rédaction, les synthèses et les fichiers Office. Un consultant passe ses journées dans Claude, avec des tâches longues. Pas de développeur. Documents clients dans Claude, donc conditions commerciales requises.</p>
+    <div class="calc">
+      Option retenue&nbsp;: Team, 4 Standard + 1 Premium, annuel<br>
+      (4 × 20 $ + 1 × 100 $) = <b>180 $ par mois</b> &nbsp;→&nbsp; 180 $ × 12 = <b>2 160 $ par an</b><br>
+      Même équipe en mensuel&nbsp;: (4 × 25 $ + 1 × 125 $) = 225 $ par mois → 2 700 $ par an<br>
+      Variante tout Standard, annuel&nbsp;: 5 × 20 $ × 12 = 1 200 $ par an<br>
+      Pour comparer, 5 comptes Pro en annuel&nbsp;: 5 × 200 $ = 1 000 $ par an
+    </div>
+    <p><strong>Lecture.</strong> Team tout Standard coûte 200 $ par an de plus que cinq comptes Pro. C'est le prix des conditions commerciales, de l'administration et du retrait d'accès au départ d'un salarié. Le siège Premium (960 $ de plus par an que Standard) ne se justifie que si le consultant intensif bute sur le quota Standard&nbsp;: commencez sans, regardez le premier mois.</p>
+  </div>
+
+  <div class="scenario">
+    <span class="tag">Scénario B</span><span class="tag">15 personnes</span>
+    <h3>Une PME de services&nbsp;: 12 postes de bureau, 2 analystes, 1 développeur</h3>
+    <p><strong>Hypothèses.</strong> Douze utilisateurs occasionnels à réguliers. Deux analystes sur Excel et les tâches planifiées. Un développeur sur Claude Code chaque jour. Tous sous Team.</p>
+    <div class="calc">
+      Team, 12 Standard + 3 Premium, annuel<br>
+      (12 × 20 $ + 3 × 100 $) = 240 $ + 300 $ = <b>540 $ par mois</b> → <b>6 480 $ par an</b><br>
+      Même équipe en mensuel&nbsp;: (12 × 25 $ + 3 × 125 $) = 675 $ par mois → 8 100 $ par an<br>
+      Économie de l'annuel&nbsp;: 8 100 $ − 6 480 $ = 1 620 $ par an<br>
+      Variante tout Standard, annuel&nbsp;: 15 × 20 $ × 12 = 3 600 $ par an, plus crédits éventuels
+    </div>
+    <p><strong>Lecture.</strong> Les trois sièges Premium représentent plus de la moitié du budget (300 $ sur 540 $ par mois). C'est normal&nbsp;: ils concentrent l'usage. Si l'un des analystes n'épuise pas son quota Standard au bout d'un mois, rétrogradez-le&nbsp;: 80 $ par mois économisés.</p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="kicker">Chapitre 4 · suite</div>
+  <div class="scenario" style="margin-top:0">
+    <span class="tag">Scénario C</span><span class="tag">40 personnes</span>
+    <h3>Une PME industrielle&nbsp;: 30 postes de bureau, 4 managers intensifs, 6 développeurs</h3>
+    <p><strong>Hypothèses.</strong> Trente utilisateurs occasionnels ou réguliers. Quatre managers sur des tâches longues et planifiées. Six développeurs sur Claude Code. Le service informatique souhaite provisionner les comptes depuis l'annuaire et disposer de journaux d'audit. Deux options sont comparées.</p>
+    <div class="calc">
+      Option 1 · Team, 34 Standard + 6 Premium, annuel<br>
+      (34 × 20 $ + 6 × 100 $) = 680 $ + 600 $ = <b>1 280 $ par mois</b> → <b>15 360 $ par an</b><br>
+      <br>
+      Option 2 · Enterprise, 40 sièges<br>
+      Sièges&nbsp;: 40 × 20 $ = 800 $ par mois → 9 600 $ par an, plus l'usage au tarif de l'API<br>
+      Seuil d'équilibre&nbsp;: 1 280 $ − 800 $ = <b>480 $ d'usage par mois</b>, soit 12 $ par personne<br>
+      Usage des 6 développeurs selon Anthropic&nbsp;: 6 × 150 $ à 6 × 250 $ = 900 $ à 1 500 $ par mois<br>
+      Enterprise estimé&nbsp;: 800 $ + 900 $ à 1 500 $ = <b>1 700 $ à 2 300 $ par mois</b>, avant l'usage des 34 autres
+    </div>
+    <p><strong>Lecture.</strong> Sur ce profil, Enterprise coûte plus cher que Team dès que les développeurs travaillent&nbsp;: leur seul usage dépasse le seuil d'équilibre. On choisit donc Enterprise pour ses contrôles, pas pour son prix. Si le provisionnement depuis l'annuaire, les journaux d'audit ou une rétention personnalisée sont exigés par votre informatique ou vos clients, l'écart de coût est le prix de ces contrôles. Sinon, Team suffit, jusqu'à 150 sièges.</p>
+    <p><strong>Ce que ce calcul ne dit pas.</strong> L'usage des 34 autres personnes en Enterprise n'a pas de repère officiel&nbsp;: mesurez-le sur un pilote avant de basculer. En Team, des crédits s'ajoutent si des sièges dépassent leur quota.</p>
+  </div>
+
+  <h3>Récapitulatif des trois scénarios</h3>
+  <table>
+    <thead><tr><th>Scénario</th><th>Répartition</th><th class="num">Par mois</th><th class="num">Par an</th><th class="num">Par personne et par mois</th></tr></thead>
+    <tbody>
+      <tr><td>A · 5 personnes</td><td>Team, 4 Standard + 1 Premium, annuel</td><td class="num">180 $</td><td class="num">2 160 $</td><td class="num">36 $</td></tr>
+      <tr><td>B · 15 personnes</td><td>Team, 12 Standard + 3 Premium, annuel</td><td class="num">540 $</td><td class="num">6 480 $</td><td class="num">36 $</td></tr>
+      <tr><td>C · 40 personnes</td><td>Team, 34 Standard + 6 Premium, annuel</td><td class="num">1 280 $</td><td class="num">15 360 $</td><td class="num">32 $</td></tr>
+      <tr><td>C · 40 personnes</td><td>Enterprise, 40 sièges + usage estimé des développeurs</td><td class="num">1 700 à 2 300 $</td><td class="num">20 400 à 27 600 $</td><td class="num">43 à 58 $</td></tr>
+    </tbody>
+  </table>
+  <p class="small muted">Dollars hors TVA, hors change, hors crédits au-delà du quota et hors mise en place. Par personne&nbsp;: total mensuel divisé par l'effectif, arrondi au dollar. Scénarios construits pour ce guide, sans lien avec un client.</p>
+
+  <div class="box">
+    <p><strong>Refaire le calcul avec vos chiffres.</strong> Comptez vos utilisateurs par groupe (occasionnels, réguliers, intensifs), appliquez la formule du chapitre 3, puis ajoutez une ligne «&nbsp;crédits&nbsp;» que vous fixez vous-même comme plafond. Ce plafond devient votre budget maximal, pas une estimation.</p>
+  </div>
+</section>
+
+<!-- 8. Pièges -->
+<section class="page">
+  <div class="kicker">Chapitre 5</div>
+  <h2>Les pièges d'achat</h2>
+  <p class="lede">Ceux que nous voyons le plus souvent, et ce qu'ils coûtent.</p>
+  <div class="pitfall"><b>1. Payer des comptes Pro personnels pour une équipe.</b>Conditions grand public, réglage d'entraînement laissé à chacun, aucun retrait d'accès au départ d'un salarié. Le seul gain&nbsp;: quelques dollars par mois.</div>
+  <div class="pitfall"><b>2. Attendre d'être cinq pour prendre Team.</b>Le minimum officiel est de 2 sièges. Plusieurs pages françaises disent 5.</div>
+  <div class="pitfall"><b>3. Budgéter Enterprise sur l'ancien modèle.</b>«&nbsp;50 sièges à 125 $&nbsp;» n'est plus la grille. Enterprise coûte 20 $ par siège plus l'usage au tarif de l'API&nbsp;: sans estimation d'usage, pas de budget.</div>
+  <div class="pitfall"><b>4. Oublier que le quota est partagé.</b>Chat, Cowork et Claude Code puisent dans le même quota par siège. Un développeur sur un siège Standard peut se retrouver bloqué pour écrire un e-mail.</div>
+  <div class="pitfall"><b>5. Mettre tout le monde en Premium.</b>Cinq fois le prix de Standard. La majorité des postes de bureau n'en a pas besoin.</div>
+  <div class="pitfall"><b>6. Ne fixer aucun plafond de crédits.</b>Les crédits au-delà du quota se plafonnent par organisation, groupe ou membre. Sans plafond, la facture suit l'utilisateur le plus enthousiaste.</div>
+  <div class="pitfall"><b>7. Convertir les dollars de tête.</b>Le prix affiché à la caisse peut être en devise locale, TVA incluse ou ajoutée selon le pays. Budgétez sur la page de paiement.</div>
+  <div class="pitfall"><b>8. Supposer un hébergement européen.</b>Les données des apps Claude sont stockées aux États-Unis par défaut. La résidence en Europe passe par l'API via Bedrock ou Vertex.</div>
+  <div class="pitfall"><b>9. Ignorer l'historique local de Cowork.</b>Il n'est pas soumis à la politique de rétention standard, et les administrateurs ne peuvent ni le gérer ni le supprimer centralement. À traiter dans la charte et sur les postes.</div>
+  <div class="pitfall"><b>10. Distribuer des skills en fichiers zip.</b>Si chacun charge sa copie, les versions divergent. Sur Team et Enterprise, faites provisionner le skill par un propriétaire pour toute l'organisation, ou passez par un plugin de marketplace privée pour cibler un groupe.</div>
+  <div class="pitfall"><b>11. Tout autoriser pour aller vite.</b>Le réglage «&nbsp;Toujours autoriser&nbsp;» des connecteurs est désactivé par défaut&nbsp;: gardez-le ainsi. Anthropic examine les connecteurs de son annuaire mais n'audite pas les serveurs MCP tiers.</div>
+  <div class="pitfall"><b>12. Figer un nom de produit dans vos procédures.</b>Cowork est en cours de fusion dans Claude, Docs et Slides sont en bêta, les modèles changent chaque trimestre. Décrivez des usages, pas des noms.</div>
+</section>
+
+<!-- 9. Configuration -->
+<section class="page">
+  <div class="kicker">Chapitre 6</div>
+  <h2>Configuration du jour 1, pas à pas</h2>
+  <p class="lede">Pour une organisation Team. Les noms de menus sont ceux de l'aide Anthropic au 5 octobre 2026.</p>
+  <ol class="steps">
+    <li><strong>Nommer deux administrateurs.</strong> Un propriétaire et un suppléant. Jamais une seule personne&nbsp;: congés et départs arrivent.</li>
+    <li><strong>Ouvrir l'organisation avec une adresse professionnelle.</strong> Facturation mensuelle le premier mois si la répartition des sièges n'est pas encore sûre.</li>
+    <li><strong>Brancher l'authentification unique</strong> si vous avez un annuaire d'entreprise. Les départs se gèrent alors au même endroit que le reste.</li>
+    <li><strong>Attribuer les sièges.</strong> Standard par défaut. Premium seulement pour les profils intensifs identifiés au chapitre 3.</li>
+    <li><strong>Fixer les plafonds de crédits</strong> par organisation, et par groupe ou par membre pour les profils intensifs. Notez le plafond dans votre budget.</li>
+    <li><strong>Régler Cowork</strong> dans «&nbsp;Organization settings > Cowork&nbsp;»&nbsp;: exécution dans le cloud (activée par défaut en Team), navigateur intégré et Claude in Chrome, mode d'approbation automatique. Activez seulement ce que vous savez expliquer.</li>
+    <li><strong>Laisser «&nbsp;Toujours autoriser&nbsp;» désactivé</strong> pour les connecteurs. Chaque action d'écriture reste soumise à validation.</li>
+    <li><strong>Relier un ou deux outils, pas dix.</strong> Messagerie et stockage de fichiers d'abord. Le connecteur Microsoft 365 peut écrire e-mails, événements, fichiers et messages Teams si l'administrateur l'active&nbsp;: décidez qui en a besoin.</li>
+    <li><strong>Créer trois projets de référence</strong> sur vos cas d'usage prioritaires, avec les documents et instructions qui servent à toute l'équipe.</li>
+    <li><strong>Choisir les plugins.</strong> La marketplace Knowledge Work est ajoutée par défaut. Dans une marketplace privée, classez chaque plugin&nbsp;: installé par défaut, disponible, requis ou indisponible.</li>
+    <li><strong>Écrire la charte d'usage</strong>&nbsp;: données interdites, relecture humaine obligatoire, mémoire relue chaque mois, historique local de Cowork. Une page suffit.</li>
+    <li><strong>Former un référent interne</strong> et planifier les points de mesure à 30, 60 et 90 jours.</li>
+  </ol>
+</section>
+
+<section class="page">
+  <div class="kicker">Chapitre 6 · suite</div>
+  <h3 style="margin-top:0">La liste à cocher avant d'inviter l'équipe</h3>
+  <ul class="check">
+    <li>Deux administrateurs nommés, et leurs suppléants connus</li>
+    <li>Authentification unique branchée, ou procédure de départ écrite</li>
+    <li>Répartition Standard et Premium justifiée par l'usage, pas par la fonction</li>
+    <li>Plafonds de crédits fixés et reportés dans le budget</li>
+    <li>Réglages Cowork revus&nbsp;: cloud, navigateur, approbation automatique</li>
+    <li>«&nbsp;Toujours autoriser&nbsp;» des connecteurs désactivé</li>
+    <li>Un ou deux connecteurs testés sur un compte pilote</li>
+    <li>Trois projets de référence prêts</li>
+    <li>Plugins classés dans la marketplace privée</li>
+    <li>Charte d'usage diffusée et signée</li>
+    <li>Référent formé, dates de mesure dans l'agenda</li>
+  </ul>
+
+  <h3>Les réglages par défaut à connaître</h3>
+  <table>
+    <thead><tr><th>Réglage</th><th>Team</th><th>Enterprise</th><th>Notre conseil</th></tr></thead>
+    <tbody>
+      <tr><td>Cowork activé</td><td>Oui</td><td>Oui (non pour les organisations HIPAA)</td><td>Le garder, avec une charte</td></tr>
+      <tr><td>Exécution de Cowork dans le cloud</td><td>Activée</td><td>Désactivée</td><td>Activée si les tâches planifiées servent</td></tr>
+      <tr><td>«&nbsp;Toujours autoriser&nbsp;» des connecteurs</td><td>Désactivé</td><td>Désactivé</td><td>Le laisser désactivé</td></tr>
+      <tr><td>Claude Design</td><td>Actif</td><td>À activer par un propriétaire</td><td>Utile pour les supports commerciaux</td></tr>
+      <tr><td>Claude in Chrome</td><td>Disponible</td><td>Si l'administrateur l'active</td><td>Pilote sur deux ou trois personnes</td></tr>
+      <tr><td>Entraînement sur vos données</td><td>Non par défaut</td><td>Non par défaut</td><td>Vérifier dans le contrat</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box">
+    <p><strong>Pour une organisation Enterprise</strong>, ajoutez&nbsp;: provisionnement des comptes par SCIM, activation des journaux d'audit, politique de rétention personnalisée, filtrage des adresses IP si votre informatique l'exige, et décision explicite sur Claude Design et Claude in Chrome, désactivés tant que l'organisation ne les active pas.</p>
+  </div>
+</section>
+
+<!-- 10. Questions -->
+<section class="page">
+  <div class="kicker">Chapitre 7</div>
+  <h2>Questions à poser avant de signer</h2>
+  <p class="lede">À Anthropic, à votre revendeur ou à votre prestataire. Une réponse écrite vaut mieux qu'une promesse orale.</p>
+  <div class="two">
+    <div>
+      <h3>Prix et contrat</h3>
+      <ul>
+        <li>Dans quelle devise serons-nous facturés, et la TVA est-elle incluse ou ajoutée&#8239;?</li>
+        <li>Peut-on combiner sièges Standard et Premium, et changer un siège en cours d'engagement&#8239;?</li>
+        <li>Quel est le prix des crédits d'usage au-delà du quota, et comment se règlent les plafonds&#8239;?</li>
+        <li>Enterprise&nbsp;: quel minimum de sièges, quelle durée d'engagement, quel tarif d'usage&#8239;?</li>
+        <li>Que se passe-t-il si nous réduisons le nombre de sièges au renouvellement&#8239;?</li>
+      </ul>
+      <h3>Données et conformité</h3>
+      <ul>
+        <li>Où nos données sont-elles stockées et traitées&#8239;? Une inférence limitée à une région est-elle possible&#8239;?</li>
+        <li>Quelle est la durée de rétention des conversations, et peut-on la régler&#8239;?</li>
+        <li>Comment traiter l'historique local de Cowork, hors politique de rétention&#8239;?</li>
+        <li>Pouvez-vous nous fournir le DPA et les certifications (SOC 2 Type 2, ISO 27001)&#8239;?</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Produit et feuille de route</h3>
+      <ul>
+        <li>Quand la fusion Cowork arrive-t-elle sur notre offre, et avec quel préavis&#8239;?</li>
+        <li>Quelles fonctionnalités sont encore en bêta sur notre offre (Docs, Slides, Design, Outlook)&#8239;?</li>
+        <li>Quels connecteurs sont dans l'annuaire Anthropic, et lesquels seraient des serveurs tiers&#8239;?</li>
+        <li>Comment diffuser nos skills et plugins à toute l'équipe&#8239;?</li>
+      </ul>
+      <h3>Questions à vous poser à vous-même</h3>
+      <ul>
+        <li>Quels sont nos trois premiers cas d'usage, et qui en est responsable&#8239;?</li>
+        <li>Quelles données ne passeront jamais par Claude&#8239;?</li>
+        <li>Qui administre, et qui le remplace&#8239;?</li>
+        <li>Qui a réellement besoin de Claude Code&#8239;?</li>
+        <li>Comment mesurerons-nous le temps gagné à 90 jours&#8239;?</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box warn">
+    <p><strong>Signal d'alerte.</strong> Un interlocuteur qui ne sait pas dire où sont stockées vos données, ou qui vous propose des comptes Pro pour une équipe «&nbsp;parce que c'est moins cher&nbsp;», ne vous fait pas gagner d'argent&nbsp;: il vous en fera perdre au premier incident.</p>
+  </div>
+</section>
+
+<!-- 11. API / Bedrock -->
+<section class="page">
+  <div class="kicker">Chapitre 8</div>
+  <h2>Quand passer par l'API, Bedrock ou Vertex</h2>
+  <p class="lede">Les abonnements donnent l'application Claude. L'API donne le modèle, à brancher dans vos propres outils, facturé à l'usage. Ce n'est pas le même achat.</p>
+  <table>
+    <thead><tr><th style="width:34%">Votre besoin</th><th style="width:28%">Voie</th><th>Ce qu'il faut savoir</th></tr></thead>
+    <tbody>
+      <tr><td>Données hébergées et traitées en Europe</td><td>API via AWS Bedrock (routage UE) ou Google Vertex</td><td>Les apps Claude n'ont pas d'option européenne. Microsoft Foundry en Europe est annoncé, pas encore ouvert.</td></tr>
+      <tr><td>Claude dans un CRM, un site, un workflow n8n ou Make</td><td>API Anthropic ou cloud</td><td>Facturation au volume traité, sans siège. Demande un développement ou un intégrateur.</td></tr>
+      <tr><td>Traitements en lot&nbsp;: classer des e-mails, lire des factures</td><td>API</td><td>Le coût dépend du volume et de la longueur des textes. Un siège n'est pas fait pour ça.</td></tr>
+      <tr><td>Résidence des données sur l'API d'Anthropic</td><td>Option de l'API</td><td>Facturée 1,1 fois le tarif standard, selon la documentation d'Anthropic.</td></tr>
+      <tr><td>Développeurs déjà sur un cloud</td><td>Claude Code via Bedrock, Vertex ou Foundry</td><td>Claude Code fonctionne aussi avec ces fournisseurs, en plus des abonnements.</td></tr>
+      <tr><td>Agents hébergés qui travaillent seuls</td><td>Claude Managed Agents</td><td>Bêta publique depuis avril 2026. À réserver aux équipes techniques.</td></tr>
+    </tbody>
+  </table>
+  <h3>Les cas où l'API n'est pas la bonne réponse</h3>
+  <ul>
+    <li>Votre équipe veut une application de travail prête à l'emploi&nbsp;: l'API n'a pas d'interface de chat, de projets ni de mémoire.</li>
+    <li>Personne ne peut développer ni maintenir une intégration&nbsp;: passez par un abonnement, ou par un prestataire qui assure la maintenance.</li>
+    <li>Le besoin européen ne concerne qu'une partie des données&nbsp;: un abonnement Team pour le travail courant et l'API en Europe pour le traitement sensible peuvent coexister.</li>
+  </ul>
+  <div class="box">
+    <p><strong>Une architecture fréquente en PME.</strong> Team pour les équipes, avec une charte qui interdit les données sensibles. Un flux automatisé à part, via l'API en région européenne, pour les documents qui ne doivent pas quitter l'Union. Deux achats, deux budgets, une règle claire pour savoir quoi va où.</p>
+  </div>
+  <p class="small muted">Pour comparer les plateformes d'API&nbsp;: waimia.com/ressources/comparatifs/claude-platform-vs-openai-platform. Pour le protocole qui relie Claude à vos outils&nbsp;: waimia.com/ressources/guides/mcp-claude.</p>
+</section>
+
+<!-- 12. Plan -->
+<section class="page">
+  <div class="kicker">Chapitre 9</div>
+  <h2>Mini plan de déploiement sur 90 jours</h2>
+  <p class="lede">La version courte. Le plan complet, semaine par semaine, est dans le guide «&nbsp;Déployer Claude dans votre PME&nbsp;» (waimia.com/ressources/guides/claude-pme) et sa checklist des 90 jours.</p>
+  <figure><img src="../../../public/images/illustrations/ds/guide-achat-claude-pme-chemin-paper.webp" alt=""></figure>
+  <table>
+    <thead><tr><th style="width:18%">Période</th><th style="width:42%">Ce qu'on fait</th><th>Ce qu'on obtient</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Avant de payer</strong></td><td>Choisir trois cas d'usage, compter les utilisateurs par groupe, appliquer la matrice et la formule.</td><td>Une offre, une répartition des sièges, un budget avec plafond.</td></tr>
+      <tr><td><strong>Jours 1 à 30</strong></td><td>Configuration du jour 1, charte, référent formé, trois projets de référence, pilote sur les trois cas.</td><td>Une équipe qui utilise Claude sur du vrai travail, avec des règles.</td></tr>
+      <tr><td><strong>Jours 31 à 60</strong></td><td>Un ou deux connecteurs, premiers plugins, tâches planifiées sur un cas récurrent.</td><td>Claude qui agit dans vos outils, sous contrôle.</td></tr>
+      <tr><td><strong>Jours 61 à 90</strong></td><td>Mesure du temps gagné, revue du quota par siège, ajustement Standard et Premium, décision sur l'annuel.</td><td>Un renouvellement fondé sur des chiffres.</td></tr>
+    </tbody>
+  </table>
+  <div class="box">
+    <p><strong>Le critère de réussite à 90 jours.</strong> Pas «&nbsp;tout le monde utilise Claude&nbsp;». Trois cas d'usage mesurés, avec le temps gagné par semaine et la personne qui en répond. Si un cas ne gagne rien, on l'arrête.</p>
+  </div>
+</section>
+
+<!-- 13. Sources -->
+<section class="page">
+  <div class="kicker">Sources et contact</div>
+  <h2>Sources, lues le 5 octobre 2026</h2>
+  <ul class="small">
+    <li>Anthropic, page tarifs de Claude&nbsp;: claude.com/pricing</li>
+    <li>Anthropic, aide, offre Team et usage par siège&nbsp;: support.claude.com/en/articles/9266767</li>
+    <li>Anthropic, Enterprise en libre-service&nbsp;: claude.com/blog/self-serve-enterprise&#8239;; aide Enterprise&nbsp;: support.claude.com/en/articles/11526368</li>
+    <li>Anthropic, aide, devise et TVA&nbsp;: support.claude.com/en/articles/8325606</li>
+    <li>Anthropic, «&nbsp;Cowork is now Claude&nbsp;», 16 septembre 2026&nbsp;: claude.com/blog/cowork-is-now-claude&#8239;; aide&nbsp;: support.claude.com/en/articles/16761823</li>
+    <li>Anthropic, aide, administration de Cowork en Team et Enterprise&nbsp;: support.claude.com/en/articles/13455879</li>
+    <li>Anthropic, aide, tâches planifiées&nbsp;: support.claude.com/en/articles/13345190</li>
+    <li>Anthropic, plugins et marketplaces&nbsp;: support.claude.com/en/articles/13837440 et 13837433</li>
+    <li>Anthropic, notes de version de Claude&nbsp;: support.claude.com/en/articles/12138966</li>
+    <li>Anthropic, documentation Claude Code, coûts&nbsp;: code.claude.com/docs/en/costs&#8239;; sécurité&nbsp;: code.claude.com/docs/en/security</li>
+    <li>Anthropic, conformité régionale&nbsp;: claude.com/regional-compliance</li>
+    <li>Anthropic, lieu de stockage des données&nbsp;: privacy.claude.com/en/articles/7996890</li>
+    <li>Anthropic, conditions grand public&nbsp;: anthropic.com/news/updates-to-our-consumer-terms</li>
+  </ul>
+  <p class="small muted">Les prix et fonctionnalités évoluent vite. Ce guide reflète l'état des sources primaires au 5 octobre 2026. Il n'engage pas Anthropic.</p>
+
+  <div class="end" style="margin-top:16pt">
+    <div class="kicker" style="color:#D96A47">Waimia · studio IA pour PME</div>
+    <h2>Choisir l'offre et le nombre de sièges avant la première facture.</h2>
+    <p>L'audit de 45 minutes est gratuit. On regarde vos usages, vos données et vos outils. Vous repartez avec une offre, une répartition des sièges et un budget écrit.</p>
+    <p>Ensuite, si vous voulez de l'aide&nbsp;: sprint de cadrage à 999 € HT pour 10 heures (cas d'usage, sièges, connecteurs, premières règles), puis 99 € HT de l'heure.</p>
+    <p><strong>Réserver l'audit&nbsp;:</strong> <a href="https://waimia.com/contact?offer=audit-ia-pme&amp;intent=audit">waimia.com/contact</a> · <strong>Intégration Claude&nbsp;:</strong> <a href="https://waimia.com/services/integration-claude">waimia.com/services/integration-claude</a> · <strong>Formation&nbsp;:</strong> <a href="https://waimia.com/formations/claude">waimia.com/formations/claude</a></p>
+  </div>
+</section>
+
+</body>
+</html>

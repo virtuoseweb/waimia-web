@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot IMG1 · de nuit, deux réverbères croisent leurs cônes de lumière ; une silhouette se tient dans la zone éclairée par les deux -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{shadow}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{shadow}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pusher">
+      <circle cx="10" cy="-86" r="7.5" fill="{{shadow}}"/>
+      <path d="M-6 -78 Q4 -82 14 -76 L4 -42 L-18 -44 Z" fill="{{shadow}}"/>
+      <rect x="2" y="-74" width="34" height="6" rx="3" fill="{{shadow}}" transform="rotate(8 2 -74)"/>
+      <path d="M-18 -44 L-4 -44 L-14 -2 L-26 -2 Z" fill="{{shadow}}"/>
+      <path d="M-6 -44 L6 -44 L14 -2 L2 -2 Z" fill="{{shadow}}"/>
+      <rect x="-30" y="-3" width="12" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="2" y="-3" width="12" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <path d="M560 150 L380 500 L900 500 Z" fill="{{shape}}"/>
+  <path d="M896 150 L556 500 L1076 500 Z" fill="{{shape}}"/>
+  <path d="M728 323 L556 500 L900 500 Z" fill="{{soft}}"/>
+  <g fill="{{subject}}">
+    <rect x="452" y="110" width="14" height="390"/><path d="M459 116 Q470 100 560 112 L560 126 Q480 116 466 130 Z"/>
+    <path d="M534 126 L586 126 L576 150 L544 150 Z"/>
+    <rect x="990" y="110" width="14" height="390"/><path d="M997 116 Q986 100 896 112 L896 126 Q976 116 990 130 Z"/>
+    <path d="M870 126 L922 126 L912 150 L880 150 Z"/>
+  </g>
+  <circle cx="200" cy="100" r="4" fill="{{detail}}"/><circle cx="1250" cy="80" r="4" fill="{{detail}}"/><circle cx="1330" cy="180" r="3" fill="{{detail}}"/><circle cx="130" cy="230" r="3" fill="{{detail}}"/>
+  <use href="#man" transform="translate(728 498) scale(1.3)"/>
+
+</svg>

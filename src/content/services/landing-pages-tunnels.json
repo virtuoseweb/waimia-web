@@ -67,8 +67,14 @@
   ],
   "sections": [
     {
-      "type": "hero-masthead-card",
+      "type": "hero-split-media",
       "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/landing-pages-tunnels-v3-entonnoir-paper.webp",
+        "alt_fr": "Illustration : des billes tombent dans un grand entonnoir ; en bas, une personne oriente celles qui sortent vers deux paniers",
+        "alt_en": "Illustration: marbles fall into a large funnel; below, a person directs those coming out into two baskets",
+        "side": "right"
+      },
       "kicker_fr": "§ Landing pages · un outil du système",
       "kicker_en": "§ Landing pages · a tool in the system",
       "h1_fr": "Des landing pages qui <i class=\"acc\">convertissent</i>, un tunnel qui trie vos leads.",
@@ -93,8 +99,6 @@
           "label_en": "Conversion tracking"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
-      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -106,10 +110,7 @@
         "label_en": "How the audit works",
         "href": "/audit-ia-pme",
         "variant": "ghost"
-      },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : un visiteur arrive sur une landing à paliers, est capté et qualifié, puis remonté priorisé dans le CRM.",
-      "media_alt_en": "Diagram: a visitor lands on a tiered landing, gets captured and qualified, then handed to the CRM prioritised."
+      }
     },
     {
       "type": "proof-bar",
@@ -191,6 +192,14 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/landing-pages-tunnels-v3-porte-chemin-paper.webp",
+          "alt_fr": "Illustration : une personne franchit une porte isolée ; un chemin de pierres mène ensuite à une maison où l'on attend",
+          "alt_en": "Illustration: a person walks through a lone door; a stepping-stone path then leads to a house where someone waits",
+          "side": "right"
+        }
+      ],
       "html_fr": "<h2>À quoi ça sert dans le système</h2>\n<p>Une landing page ne vaut que par ce qui se passe ensuite. La demande arrive dans le <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> avec les réponses du formulaire, reçoit un score, est affectée à un commercial, et entre dans une <a href=\"/services/sequences-de-suivi\">séquence de relance</a> si elle reste sans suite. Sans cette chaîne, une meilleure page produit seulement plus de demandes non traitées. C'est l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>\n<h2>Ce qui est livré</h2>\n<p>Une page par offre ou par cible, écrite autour d'une seule action. Un formulaire en quelques étapes qui pose les questions que votre commercial poserait au premier appel. La mesure des conversions, configurée avec le consentement. On ne gère pas vos campagnes publicitaires : on construit ce vers quoi elles pointent.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Trop de questions : le visiteur abandonne. Trop peu de trafic pour tirer une conclusion d'un test de variantes : dans ce cas on ne teste pas, on applique les bonnes pratiques et on observe. Une promesse de page qui ne correspond pas à l'annonce. Pour vérifier que le problème est bien la page, et pas ce qui suit, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>What it is for in the system</h2>\n<p>A landing page is only worth what happens next. The request lands in the <a href=\"/services/crm-scoring-routing\">automated CRM</a> with the form answers, gets a score, is assigned to a salesperson, and enters a <a href=\"/services/sequences-de-suivi\">follow-up sequence</a> if left unanswered. Without that chain, a better page just produces more unhandled requests. It is the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>\n<h2>What is delivered</h2>\n<p>One page per offer or target, written around a single action. A few-step form asking the questions your salesperson would ask on the first call. Conversion tracking, configured with consent. We do not manage your ad campaigns: we build what they point to.</p>\n<h2>What can go wrong</h2>\n<p>Too many questions: the visitor drops out. Too little traffic to conclude from a variant test: in that case we do not test, we apply good practice and observe. A page promise that does not match the ad. To check that the problem is the page, and not what follows, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },

@@ -20,4 +20,8 @@ export const schema = z.object({
   hint_fr: z.string().optional(),
   hint_en: z.string().optional(),
   form_action: z.string().optional(),
+  // Slug d'une ressource verrouillée (clé de LEAD_MAGNETS, src/data/conversion.ts). Présent : le
+  // formulaire poste { email, lang, website, slug } vers /api/lead-magnet et le fichier arrive
+  // par e-mail en pièce jointe (jamais en téléchargement). Absent : inscription à la lettre.
+  lead_magnet: z.string().optional(),
 });

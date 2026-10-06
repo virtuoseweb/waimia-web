@@ -6,7 +6,7 @@
   "description_en": "MCP (Model Context Protocol): what it is, what it changes versus a classic integration, risks, and questions to ask before connecting a server.",
   "slug": "mcp-claude",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-05",
   "category": "data",
   "tags": [
     "mcp",
@@ -35,6 +35,21 @@
       "name": "OpenAI, API documentation, MCP servers",
       "url": "https://developers.openai.com/api/docs/guides/tools-connectors-mcp",
       "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude Code, security",
+      "url": "https://code.claude.com/docs/en/security",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, help center, plugins",
+      "url": "https://support.claude.com/en/articles/13837440",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, help center, Team and Enterprise administration",
+      "url": "https://support.claude.com/en/articles/13455879",
+      "type": "enterprise"
     }
   ],
   "seo": {
@@ -54,12 +69,16 @@
       "a": "Le protocole ne sécurise rien à lui seul. Sa spécification écrit qu'il ne peut pas imposer ses principes de sécurité au niveau du protocole : le consentement, les droits et la validation des actions dépendent de la façon dont l'application et le serveur sont réalisés. La sécurité d'un branchement MCP se juge donc serveur par serveur : qui l'édite, quels droits porte son jeton, quelles actions demandent une validation."
     },
     {
+      "q": "Les connecteurs de l'annuaire de Claude sont-ils sûrs ?",
+      "a": "Ils sont examinés par Anthropic, mais Anthropic précise ne pas auditer la sécurité des serveurs MCP (documentation de sécurité de Claude Code, lue le 5 octobre 2026). Traitez chaque connecteur comme un accès donné à un tiers : lecture seule d'abord, compte dédié, option « Always allow » laissée désactivée, et une personne qui sait le couper."
+    },
+    {
       "q": "Quelle différence entre MCP et une API ?",
       "a": "Une API est la porte d'entrée d'un logiciel, faite pour être appelée par du code écrit à l'avance. Un serveur MCP se place devant une ou plusieurs API et les décrit dans un format qu'un modèle d'IA comprend : nom de l'outil, ce qu'il fait, paramètres attendus. Le modèle choisit alors quel outil appeler selon la demande. MCP ne remplace pas l'API, il la rend utilisable par un assistant."
     },
     {
       "q": "Faut-il un développeur pour utiliser MCP ?",
-      "a": "Pour développer un serveur sur un outil interne, ou pour l'appeler depuis l'API d'un éditeur, oui : les documentations d'Anthropic et d'OpenAI s'adressent à des développeurs. Brancher un serveur existant dans une application d'assistant demande moins de technique, mais la procédure dépend de l'application et de votre offre : nous ne l'avons pas vérifiée pour cette page. Dans les deux cas, la décision qui compte n'est pas technique : c'est le choix des droits accordés."
+      "a": "Pour développer un serveur sur un outil interne, ou pour l'appeler depuis l'API d'un éditeur, oui : les documentations d'Anthropic et d'OpenAI s'adressent à des développeurs. Pour utiliser un connecteur existant de l'annuaire de Claude, non : il s'active depuis l'application, et en Team ou Enterprise l'administrateur garde la main sur ce qui est autorisé. Dans les deux cas, la décision qui compte n'est pas technique : c'est le choix des droits accordés."
     },
     {
       "q": "Combien coûte un serveur MCP ?",
@@ -80,12 +99,16 @@
       "a": "The protocol secures nothing by itself. Its specification says it cannot enforce its security principles at the protocol level: consent, permissions and approval of actions depend on how the application and the server are built. The security of an MCP connection is therefore judged server by server: who publishes it, what rights its token carries, which actions require approval."
     },
     {
+      "q": "Are the connectors in Claude's directory safe?",
+      "a": "They are reviewed by Anthropic, but Anthropic states it does not audit the security of MCP servers (Claude Code security documentation, read on 5 October 2026). Treat each connector as access given to a third party: read-only first, a dedicated account, the \"Always allow\" option left off, and someone who knows how to switch it off."
+    },
+    {
       "q": "What is the difference between MCP and an API?",
       "a": "An API is a piece of software's front door, made to be called by code written in advance. An MCP server sits in front of one or more APIs and describes them in a format an AI model understands: tool name, what it does, expected parameters. The model then chooses which tool to call depending on the request. MCP does not replace the API, it makes it usable by an assistant."
     },
     {
       "q": "Do you need a developer to use MCP?",
-      "a": "To develop a server on an internal tool, or to call it from a vendor's API, yes: Anthropic's and OpenAI's documentation is written for developers. Connecting an existing server in an assistant application takes less technical skill, but the procedure depends on the application and your plan: we did not check it for this page. In both cases, the decision that matters is not technical: it is the choice of the rights granted."
+      "a": "To develop a server on an internal tool, or call one from a vendor's API, yes: the Anthropic and OpenAI documentation is written for developers. To use an existing connector from Claude's directory, no: it is enabled from the app, and on Team or Enterprise the administrator keeps control over what is allowed. Either way, the decision that matters is not technical: it is the choice of rights granted."
     },
     {
       "q": "How much does an MCP server cost?",
@@ -128,9 +151,12 @@
         "href": "/audit-ia-pme",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/livrable-connecteurs-mcp.svg",
-      "media_alt_fr": "Schéma : un assistant relié à plusieurs outils par des connecteurs MCP",
-      "media_alt_en": "Diagram: an assistant linked to several tools through MCP connectors"
+      "illustration": {
+        "src": "/images/illustrations/ds/mcp-claude-v2-prise-paper.webp",
+        "alt_fr": "Illustration : un grand mur nu avec une seule prise ronde, une personne approche avec la fiche assortie",
+        "alt_en": "Illustration: a large bare wall with a single round socket, a person approaches with the matching plug",
+        "side": "right"
+      }
     },
     {
       "type": "author-byline",
@@ -237,8 +263,16 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>À quoi ça sert dans une PME</h2><p>Quatre usages reviennent. Ce sont des exemples de ce que le protocole permet, pas des résultats mesurés.</p><ul><li><strong>Interroger le CRM en langage courant.</strong> « Quels devis envoyés il y a plus de quinze jours sont restés sans réponse ? » L'assistant lit, il n'écrit rien.</li><li><strong>Chercher dans la base documentaire.</strong> Procédures, contrats types, fiches produit : l'assistant répond en citant le document source.</li><li><strong>Préparer un rapport à partir de l'outil de gestion.</strong> Lecture des chiffres, mise en forme, livraison à relire.</li><li><strong>Préparer une action, sans la faire.</strong> Brouillon d'e-mail, ticket pré-rempli, ligne de devis : une personne valide avant l'envoi.</li></ul><p>Le point commun des trois premiers : lecture seule. C'est par là qu'on commence. Et pour une opération refaite à l'identique des centaines de fois, un workflow reste plus sûr qu'un assistant : voir <a href=\"/ressources/guides/taches-a-automatiser-pme\">quelles tâches automatiser en premier</a>.</p><h2>Les trois risques à connaître</h2><p><strong>1. Les droits accordés.</strong> Un serveur agit avec le jeton qu'on lui donne. Le <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">guide de sécurité du protocole</a> décrit le problème des jetons trop larges : s'ils fuient, tout ce qu'ils ouvrent est exposé, et les révoquer coupe tous les usages d'un coup. Il recommande le moindre privilège : commencer par la lecture, élever les droits seulement quand une action le demande.</p><p><strong>2. L'injection de consignes.</strong> Un modèle lit du contenu qu'il n'a pas écrit : un e-mail entrant, une page web, un ticket client. Ce contenu peut contenir des instructions cachées. La <a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">documentation d’OpenAI</a> donne l'exemple d'une demande de support piégée, et précise que faire confiance à l'éditeur du serveur ne suffit pas : il faut pouvoir faire confiance à tout le contenu accessible par ce serveur. Le scénario à éviter : un assistant qui lit du contenu extérieur et dispose, dans la même session, d'un outil capable d'envoyer des données dehors.</p><p><strong>3. Les données et le code qui sortent de chez vous.</strong> Anthropic rappelle dans sa <a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> que les serveurs distants tiers ne sont ni détenus, ni exploités, ni approuvés par lui, et qu'il ne faut se connecter qu'à des serveurs de confiance. Pour les serveurs locaux, le guide de sécurité est plus direct : ils s'exécutent avec les mêmes droits que l'application qui les lance, et un serveur malveillant peut exécuter n'importe quelle commande sur le poste.</p><p>La <a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">spécification</a> le dit sans détour : le protocole ne peut pas imposer ces principes de sécurité à son niveau. Ils reposent sur l'application, sur le serveur et sur vos réglages. Si des données personnelles passent par le serveur, le RGPD s'applique en plus : voir <a href=\"/conformite-ia\">IA conforme en PME</a> et le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l’AI Act</a>.</p>",
-      "html_en": "<h2>What it is for in an SME</h2><p>Four uses come up again and again. They are examples of what the protocol allows, not measured results.</p><ul><li><strong>Query the CRM in plain language.</strong> \"Which quotes sent more than fifteen days ago have had no reply?\" The assistant reads; it writes nothing.</li><li><strong>Search the knowledge base.</strong> Procedures, contract templates, product sheets: the assistant answers and cites the source document.</li><li><strong>Prepare a report from the management tool.</strong> Reading the figures, formatting, a deliverable to check.</li><li><strong>Prepare an action, without performing it.</strong> Email draft, pre-filled ticket, quote line: a person approves before sending.</li></ul><p>What the first three have in common: read-only. That is where you start. And for an operation redone identically hundreds of times, a workflow remains safer than an assistant: see <a href=\"/ressources/guides/taches-a-automatiser-pme\">which tasks to automate first</a>.</p><h2>The three risks to know</h2><p><strong>1. The rights granted.</strong> A server acts with the token it is given. The <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">protocol security guide</a> describes the problem of overly broad tokens: if they leak, everything they open is exposed, and revoking them cuts every use at once. It recommends least privilege: start with read access, raise rights only when an action requires it.</p><p><strong>2. Prompt injection.</strong> A model reads content it did not write: an incoming email, a web page, a customer ticket. That content may contain hidden instructions. <a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI documentation</a> gives the example of a booby-trapped support request, and states that trusting the server's developer is not enough: you need to be able to trust all the content accessible through that server. The scenario to avoid: an assistant that reads outside content and has, in the same session, a tool able to send data out.</p><p><strong>3. Data and code leaving your premises.</strong> Anthropic notes in its <a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> that third-party remote servers are not owned, operated or endorsed by it, and that you should only connect to servers you trust. For local servers, the security guide is blunter: they run with the same privileges as the application that launches them, and a malicious server can execute any command on the machine.</p><p>The <a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">specification</a> says it plainly: the protocol cannot enforce these security principles at its own level. They rest on the application, on the server and on your settings. If personal data goes through the server, the GDPR applies on top: see <a href=\"/conformite-ia\">compliant AI in an SME</a> and the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline</a>.</p>"
+      "html_fr": "<h2>À quoi ça sert dans une PME</h2><p>Quatre usages reviennent. Ce sont des exemples de ce que le protocole permet, pas des résultats mesurés.</p><ul><li><strong>Interroger le CRM en langage courant.</strong> « Quels devis envoyés il y a plus de quinze jours sont restés sans réponse ? » L'assistant lit, il n'écrit rien.</li><li><strong>Chercher dans la base documentaire.</strong> Procédures, contrats types, fiches produit : l'assistant répond en citant le document source.</li><li><strong>Préparer un rapport à partir de l'outil de gestion.</strong> Lecture des chiffres, mise en forme, livraison à relire.</li><li><strong>Préparer une action, sans la faire.</strong> Brouillon d'e-mail, ticket pré-rempli, ligne de devis : une personne valide avant l'envoi.</li></ul><p>Le point commun des trois premiers : lecture seule. C'est par là qu'on commence. Et pour une opération refaite à l'identique des centaines de fois, un workflow reste plus sûr qu'un assistant : voir <a href=\"/ressources/guides/taches-a-automatiser-pme\">quelles tâches automatiser en premier</a>.</p><h2>Les trois risques à connaître</h2><p><strong>1. Les droits accordés.</strong> Un serveur agit avec le jeton qu'on lui donne. Le <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">guide de sécurité du protocole</a> décrit le problème des jetons trop larges : s'ils fuient, tout ce qu'ils ouvrent est exposé, et les révoquer coupe tous les usages d'un coup. Il recommande le moindre privilège : commencer par la lecture, élever les droits seulement quand une action le demande.</p><p><strong>2. L'injection de consignes.</strong> Un modèle lit du contenu qu'il n'a pas écrit : un e-mail entrant, une page web, un ticket client. Ce contenu peut contenir des instructions cachées. La <a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">documentation d'OpenAI</a> donne l'exemple d'une demande de support piégée, et précise que faire confiance à l'éditeur du serveur ne suffit pas : il faut pouvoir faire confiance à tout le contenu accessible par ce serveur. Le scénario à éviter : un assistant qui lit du contenu extérieur et dispose, dans la même session, d'un outil capable d'envoyer des données dehors.</p><p><strong>3. Les données et le code qui sortent de chez vous.</strong> Anthropic rappelle dans sa <a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> que les serveurs distants tiers ne sont ni détenus, ni exploités, ni approuvés par lui, et qu'il ne faut se connecter qu'à des serveurs de confiance. Pour les serveurs locaux, le guide de sécurité est plus direct : ils s'exécutent avec les mêmes droits que l'application qui les lance, et un serveur malveillant peut exécuter n'importe quelle commande sur le poste.</p><p>La <a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">spécification</a> le dit sans détour : le protocole ne peut pas imposer ces principes de sécurité à son niveau. Ils reposent sur l'application, sur le serveur et sur vos réglages. Si des données personnelles passent par le serveur, le RGPD s'applique en plus : voir <a href=\"/conformite-ia\">IA conforme en PME</a> et le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act</a>.</p>",
+      "html_en": "<h2>What it is for in an SME</h2><p>Four uses come up again and again. They are examples of what the protocol allows, not measured results.</p><ul><li><strong>Query the CRM in plain language.</strong> \"Which quotes sent more than fifteen days ago have had no reply?\" The assistant reads; it writes nothing.</li><li><strong>Search the knowledge base.</strong> Procedures, contract templates, product sheets: the assistant answers and cites the source document.</li><li><strong>Prepare a report from the management tool.</strong> Reading the figures, formatting, a deliverable to check.</li><li><strong>Prepare an action, without performing it.</strong> Email draft, pre-filled ticket, quote line: a person approves before sending.</li></ul><p>What the first three have in common: read-only. That is where you start. And for an operation redone identically hundreds of times, a workflow remains safer than an assistant: see <a href=\"/ressources/guides/taches-a-automatiser-pme\">which tasks to automate first</a>.</p><h2>The three risks to know</h2><p><strong>1. The rights granted.</strong> A server acts with the token it is given. The <a href=\"https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices\" rel=\"noopener noreferrer\" target=\"_blank\">protocol security guide</a> describes the problem of overly broad tokens: if they leak, everything they open is exposed, and revoking them cuts every use at once. It recommends least privilege: start with read access, raise rights only when an action requires it.</p><p><strong>2. Prompt injection.</strong> A model reads content it did not write: an incoming email, a web page, a customer ticket. That content may contain hidden instructions. <a href=\"https://developers.openai.com/api/docs/mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI documentation</a> gives the example of a booby-trapped support request, and states that trusting the server's developer is not enough: you need to be able to trust all the content accessible through that server. The scenario to avoid: an assistant that reads outside content and has, in the same session, a tool able to send data out.</p><p><strong>3. Data and code leaving your premises.</strong> Anthropic notes in its <a href=\"https://platform.claude.com/docs/en/agents-and-tools/remote-mcp-servers\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> that third-party remote servers are not owned, operated or endorsed by it, and that you should only connect to servers you trust. For local servers, the security guide is blunter: they run with the same privileges as the application that launches them, and a malicious server can execute any command on the machine.</p><p>The <a href=\"https://modelcontextprotocol.io/specification/2026-07-28\" rel=\"noopener noreferrer\" target=\"_blank\">specification</a> says it plainly: the protocol cannot enforce these security principles at its own level. They rest on the application, on the server and on your settings. If personal data goes through the server, the GDPR applies on top: see <a href=\"/conformite-ia\">compliant AI in an SME</a> and the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline</a>.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/mcp-claude-v2-tri-courrier-paper.webp",
+          "alt_fr": "Illustration : sur un tapis roulant d'enveloppes claires, une personne braque sa lanterne sur la seule enveloppe sombre",
+          "alt_en": "Illustration: on a conveyor of pale envelopes, a person shines a lantern on the only dark one",
+          "side": "right"
+        }
+      ]
     },
     {
       "type": "decision-list",
@@ -319,6 +353,37 @@
         "A single program calls the tool, with no assistant: a plain API call is enough",
         "Nobody in-house or at a contractor is named to maintain it"
       ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/mcp-claude-v2-guichet-paper.webp",
+          "alt_fr": "Illustration : devant une armoire fermée, une seule feuille passe par la fente d'un guichet, d'une personne à l'autre",
+          "alt_en": "Illustration: in front of a locked cabinet, a single sheet passes through a counter slot from one person to another",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>MCP dans Claude, au quotidien</h2>\n<p>Pour la plupart des PME, MCP ne se voit pas : il passe par les <strong>connecteurs</strong> de Claude. L'annuaire d'Anthropic en propose pour les outils courants, et depuis le 7 juillet 2026, le connecteur Microsoft 365 peut écrire des e-mails, des rendez-vous et des fichiers (et aujourd'hui des messages Teams), une fois que l'administrateur Microsoft a donné son accord et que l'organisation a activé l'écriture. Écrire, pas seulement lire : c'est exactement le moment de relire les droits accordés.</p>\n<p>Un point à ne pas mal comprendre : Anthropic examine les connecteurs de son annuaire, mais <strong>n'audite pas la sécurité des serveurs MCP</strong>, selon la <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de sécurité de Claude Code</a>. Un connecteur listé n'est pas un connecteur validé pour vos données.</p>\n<p>Trois réglages comptent dans une organisation Team ou Enterprise, d'après l'<a href=\"https://support.claude.com/en/articles/13455879\" rel=\"noopener noreferrer\" target=\"_blank\">aide d'administration d'Anthropic</a>. L'option « Always allow » des connecteurs, qui laisse Claude agir sans demander à chaque fois, est désactivée par défaut : laissez-la ainsi tant que vous n'avez pas une raison écrite. Le mode d'approbation automatique se règle séparément. Et Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé) : un connecteur branché sert aussi à ces tâches, pas seulement aux réponses. Voir <a href=\"/ressources/guides/claude-cowork\">ce que la fusion de Cowork change</a>.</p>\n<p>Les connecteurs voyagent aussi dans des <strong>plugins</strong>, qui regroupent skills, connecteurs et sous-agents. En Team et Enterprise, l'administrateur les diffuse depuis une marketplace privée, avec quatre niveaux : installé par défaut, disponible, requis, indisponible. C'est le bon endroit pour imposer un connecteur en lecture seule à toute une équipe : le guide <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins Claude en entreprise</a> détaille la mécanique. Côté développeurs, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> demande une approbation avant d'utiliser les serveurs MCP déclarés dans un projet, et l'organisation peut imposer des paramètres gérés.</p>\n<p>Chaque réglage, sa valeur par défaut et notre recommandation sont dans le <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">kit conformité et administration de Claude</a>. Pour faire brancher vos outils avec des droits limités, c'est le cœur d'une <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a>.</p>",
+      "html_en": "<h2>MCP in Claude, day to day</h2>\n<p>For most SMBs, MCP is invisible: it comes through Claude's <strong>connectors</strong>. Anthropic's directory offers them for common tools, and since 7 July 2026, the Microsoft 365 connector can write emails, meetings and files (and now Teams messages), once the Microsoft administrator has given consent and the organisation has turned on write access. Write, not just read: that is exactly when to re-read the rights granted.</p>\n<p>One point not to misread: Anthropic reviews the connectors in its directory, but <strong>does not audit the security of MCP servers</strong>, according to the <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Code security documentation</a>. A listed connector is not a connector cleared for your data.</p>\n<p>Three settings matter in a Team or Enterprise organisation, according to <a href=\"https://support.claude.com/en/articles/13455879\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's admin help</a>. The connectors' \"Always allow\" option, which lets Claude act without asking each time, is off by default: leave it that way until you have a written reason. Automatic approval mode is set separately. And Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now): a connected connector also serves these tasks, not just answers. See <a href=\"/ressources/guides/claude-cowork\">what the Cowork merger changes</a>.</p>\n<p>Connectors also travel inside <strong>plugins</strong>, which bundle skills, connectors and sub-agents. On Team and Enterprise, the administrator rolls them out from a private marketplace, with four levels: installed by default, available, required, unavailable. It is the right place to impose a read-only connector on a whole team: the guide <a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins in business</a> explains the mechanics. On the developer side, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> asks for approval before using MCP servers declared in a project, and the organisation can enforce managed settings.</p>\n<p>Each setting, its default value and our recommendation are in the <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">Claude compliance and administration kit</a>. Having your tools connected with limited rights is the core of a <a href=\"/services/integration-claude\">Claude integration in business</a>.</p>"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper",
+      "anchor": "kit-conformite",
+      "kicker_fr": "§ Kit conformité · PDF gratuit",
+      "kicker_en": "§ Compliance kit · free PDF",
+      "h2_fr": "Avant de brancher un connecteur : recevez le kit conformité Claude (PDF, 11 pages)",
+      "h2_en": "Before connecting a connector: get the Claude compliance kit (PDF, 11 pages)",
+      "body_fr": "Les réglages de connecteurs et de plugins à vérifier avec leur valeur par défaut, sept décisions à prendre avant d'installer, les points RGPD (stockage, résidence, historique local de Cowork), une trame d'analyse d'impact en huit questions et douze questions à poser au fournisseur ou à l'intégrateur. Le fichier arrive par e-mail, en pièce jointe.",
+      "body_en": "The connector and plugin settings to check with their default value, seven decisions to make before installing, the GDPR points (storage, residency, local Cowork history), an eight-question impact assessment template and twelve questions to ask the vendor or integrator. The file arrives by email, as an attachment.",
+      "submit_label_fr": "Recevoir le kit conformité →",
+      "submit_label_en": "Get the compliance kit →",
+      "hint_fr": "Pas un avis juridique. Un seul envoi : le PDF ; la lettre mensuelle seulement si vous cochez la case.",
+      "hint_en": "Not legal advice. One email: the PDF; the monthly newsletter only if you tick the box.",
+      "lead_magnet": "kit-conformite-claude-entreprise"
     },
     {
       "type": "editorial-table-block",
@@ -402,9 +467,18 @@
           "kicker_en": "Service",
           "title_fr": "Claude en entreprise",
           "title_en": "Claude in the workplace",
-          "lead_fr": "Connecteurs à vos outils, droits limités, règles d’usage.",
+          "lead_fr": "Connecteurs à vos outils, droits limités, règles d'usage.",
           "lead_en": "Connectors to your tools, limited rights, usage rules.",
           "href": "/services/integration-claude"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Plugins Claude en entreprise",
+          "title_en": "Claude plugins in business",
+          "lead_fr": "Diffuser connecteurs et skills à une équipe, avec les bons droits.",
+          "lead_en": "Roll out connectors and skills to a team, with the right rights.",
+          "href": "/ressources/guides/claude-plugins-entreprise"
         },
         {
           "kicker_fr": "Comparatif",
@@ -414,15 +488,6 @@
           "lead_fr": "Modèles, prix, agents, données : critère par critère.",
           "lead_en": "Models, prices, agents, data: criterion by criterion.",
           "href": "/ressources/comparatifs/claude-platform-vs-openai-platform"
-        },
-        {
-          "kicker_fr": "Service",
-          "kicker_en": "Service",
-          "title_fr": "Base de connaissance IA",
-          "title_en": "AI knowledge base",
-          "lead_fr": "Vos documents interrogeables, avec la source citée.",
-          "lead_en": "Your documents made searchable, with the source cited.",
-          "href": "/services/base-de-connaissance-ia"
         }
       ]
     },
@@ -451,6 +516,12 @@
           "a_en": "The protocol secures nothing by itself. Its specification says it cannot enforce its security principles at the protocol level: consent, permissions and approval of actions depend on how the application and the server are built. The security of an MCP connection is therefore judged server by server: who publishes it, what rights its token carries, which actions require approval."
         },
         {
+          "q_fr": "Les connecteurs de l'annuaire de Claude sont-ils sûrs ?",
+          "q_en": "Are the connectors in Claude's directory safe?",
+          "a_fr": "Ils sont examinés par Anthropic, mais Anthropic précise ne pas auditer la sécurité des serveurs MCP (documentation de sécurité de Claude Code, lue le 5 octobre 2026). Traitez chaque connecteur comme un accès donné à un tiers : lecture seule d'abord, compte dédié, option « Always allow » laissée désactivée, et une personne qui sait le couper.",
+          "a_en": "They are reviewed by Anthropic, but Anthropic states it does not audit the security of MCP servers (Claude Code security documentation, read on 5 October 2026). Treat each connector as access given to a third party: read-only first, a dedicated account, the \"Always allow\" option left off, and someone who knows how to switch it off."
+        },
+        {
           "q_fr": "Quelle différence entre MCP et une API ?",
           "a_fr": "Une API est la porte d'entrée d'un logiciel, faite pour être appelée par du code écrit à l'avance. Un serveur MCP se place devant une ou plusieurs API et les décrit dans un format qu'un modèle d'IA comprend : nom de l'outil, ce qu'il fait, paramètres attendus. Le modèle choisit alors quel outil appeler selon la demande. MCP ne remplace pas l'API, il la rend utilisable par un assistant.",
           "q_en": "What is the difference between MCP and an API?",
@@ -458,9 +529,9 @@
         },
         {
           "q_fr": "Faut-il un développeur pour utiliser MCP ?",
-          "a_fr": "Pour développer un serveur sur un outil interne, ou pour l'appeler depuis l'API d'un éditeur, oui : les documentations d'Anthropic et d'OpenAI s'adressent à des développeurs. Brancher un serveur existant dans une application d'assistant demande moins de technique, mais la procédure dépend de l'application et de votre offre : nous ne l'avons pas vérifiée pour cette page. Dans les deux cas, la décision qui compte n'est pas technique : c'est le choix des droits accordés.",
+          "a_fr": "Pour développer un serveur sur un outil interne, ou pour l'appeler depuis l'API d'un éditeur, oui : les documentations d'Anthropic et d'OpenAI s'adressent à des développeurs. Pour utiliser un connecteur existant de l'annuaire de Claude, non : il s'active depuis l'application, et en Team ou Enterprise l'administrateur garde la main sur ce qui est autorisé. Dans les deux cas, la décision qui compte n'est pas technique : c'est le choix des droits accordés.",
           "q_en": "Do you need a developer to use MCP?",
-          "a_en": "To develop a server on an internal tool, or to call it from a vendor's API, yes: Anthropic's and OpenAI's documentation is written for developers. Connecting an existing server in an assistant application takes less technical skill, but the procedure depends on the application and your plan: we did not check it for this page. In both cases, the decision that matters is not technical: it is the choice of the rights granted."
+          "a_en": "To develop a server on an internal tool, or call one from a vendor's API, yes: the Anthropic and OpenAI documentation is written for developers. To use an existing connector from Claude's directory, no: it is enabled from the app, and on Team or Enterprise the administrator keeps control over what is allowed. Either way, the decision that matters is not technical: it is the choice of rights granted."
         },
         {
           "q_fr": "Combien coûte un serveur MCP ?",

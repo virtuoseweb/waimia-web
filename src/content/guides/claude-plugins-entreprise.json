@@ -1,0 +1,791 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Plugins Claude en entreprise : le guide 2026",
+  "title_en": "Claude plugins for business: the 2026 guide",
+  "description_fr": "Plugins Claude en entreprise : skills, connecteurs MCP, marketplaces officielles, diffusion Team et Enterprise, sécurité et plugin privé sur mesure.",
+  "description_en": "Claude plugins for business: skills, MCP connectors, official marketplaces, Team and Enterprise rollout, security and custom private plugins.",
+  "slug": "claude-plugins-entreprise",
+  "publishedAt": "2026-10-05",
+  "updatedAt": "2026-10-05",
+  "category": "productivite",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "plugins-claude",
+    "connecteurs-claude",
+    "marketplace-claude",
+    "mcp",
+    "claude-entreprise"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, aide Claude : plugins (contenu, offres, marketplaces)",
+      "url": "https://support.claude.com/en/articles/13837440",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : gérer les plugins d'une organisation",
+      "url": "https://support.claude.com/en/articles/13837433",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, aide Claude : réglages Cowork pour Team et Enterprise",
+      "url": "https://support.claude.com/en/articles/13455879",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Agent Skills overview",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude Code security",
+      "url": "https://code.claude.com/docs/en/security",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, knowledge-work-plugins (GitHub)",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude Marketplace",
+      "url": "https://claude.com/marketplace",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, conformité régionale",
+      "url": "https://claude.com/regional-compliance",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude pricing",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, notes de version Claude",
+      "url": "https://support.claude.com/en/articles/12138966-release-notes",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Combien coûte un plugin Claude ?",
+      "a": "L'aide d'Anthropic ne mentionne pas de prix séparé pour les plugins de ses marketplaces : ils s'utilisent avec un abonnement payant (Pro, Max, Team ou Enterprise). Le coût réel est ailleurs : les sièges, le quota d'usage partagé, les licences des outils que les connecteurs relient, et le temps de mise en place. Un plugin privé sur mesure se chiffre en heures de construction."
+    },
+    {
+      "q": "Quelle différence entre un plugin, un skill et un connecteur ?",
+      "a": "Un skill est un dossier d'instructions et de ressources que Claude charge quand la tâche s'y prête. Un connecteur relie Claude à un outil (CRM, messagerie, stockage) via le protocole MCP. Un plugin est le paquet qui regroupe des skills, des connecteurs, des sous-agents, des commandes et des hooks, et qui s'installe en une fois. C'est le plugin qui se diffuse à une équipe."
+    },
+    {
+      "q": "Les plugins fonctionnent-ils avec un abonnement Pro ?",
+      "a": "Oui. D'après l'aide d'Anthropic lue le 5 octobre 2026, les plugins sont disponibles sur Pro, Max, Team et Enterprise, dans le chat web, l'application de bureau, Cowork et Claude Code. Ce qui manque en Pro, c'est l'administration : pas de marketplace privée ni de diffusion imposée à une équipe. Le plan gratuit n'y donne pas accès."
+    },
+    {
+      "q": "Peut-on imposer un plugin à toute l'équipe ?",
+      "a": "En Team et Enterprise, oui. L'administrateur choisit pour chaque plugin d'une marketplace un niveau de diffusion : installé par défaut, disponible, requis ou indisponible. En Enterprise, ce réglage peut être surchargé par groupe : le plugin juridique requis pour le service juridique, indisponible pour les autres."
+    },
+    {
+      "q": "Un plugin est-il sûr pour nos données ?",
+      "a": "Pas par principe. Anthropic examine les connecteurs de son annuaire mais écrit qu'il n'audite pas la sécurité des serveurs MCP. Un skill peut contenir des scripts et sert de vecteur possible d'exfiltration ; Anthropic recommande de n'utiliser que des skills de confiance. Une analyse du contenu des skills et plugins existe en bêta pour Enterprise. Pour le reste : droits minimaux, lecture seule d'abord, validation humaine des actions."
+    },
+    {
+      "q": "Nos données restent-elles en Europe ?",
+      "a": "Pas avec les applications Claude par défaut. Selon Anthropic, les données sont stockées aux États-Unis et aucun hébergement européen n'est annoncé pour claude.ai. Une résidence en Europe est possible en passant par AWS Bedrock ou Google Vertex, ce qui change d'architecture. Un DPA est disponible et les offres commerciales n'entraînent pas les modèles sur vos données par défaut."
+    },
+    {
+      "q": "Combien de temps faut-il pour faire construire un plugin privé ?",
+      "a": "Cela dépend du nombre de skills et surtout des connecteurs : un connecteur officiel se branche, un serveur MCP pour un outil interne se développe. Chez Waimia, le sprint découverte de 10 heures (999 € HT) cadre le premier plugin et chiffre la suite en heures ; vous validez l'estimation avant tout travail en régie."
+    },
+    {
+      "q": "Faut-il être développeur pour utiliser ou créer un plugin ?",
+      "a": "Pour l'utiliser, non : il s'installe depuis une marketplace et se déclenche en langage courant. Pour le créer, cela dépend : un skill est d'abord un fichier texte d'instructions, à la portée d'un référent métier ; un connecteur vers un outil sans serveur MCP, des hooks ou une marketplace privée bien gouvernée demandent un profil technique."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does a Claude plugin cost?",
+      "a": "Anthropic's help pages mention no separate price for the plugins in its marketplaces: they are used with a paid plan (Pro, Max, Team or Enterprise). The real cost lies elsewhere: seats, the shared usage quota, licences for the tools the connectors reach, and set-up time. A custom private plugin is priced in build hours."
+    },
+    {
+      "q": "What is the difference between a plugin, a skill and a connector?",
+      "a": "A skill is a folder of instructions and resources Claude loads when the task calls for it. A connector links Claude to a tool (CRM, email, storage) through the MCP protocol. A plugin is the package that bundles skills, connectors, sub-agents, commands and hooks, installed in one go. The plugin is what gets rolled out to a team."
+    },
+    {
+      "q": "Do plugins work with a Pro plan?",
+      "a": "Yes. According to Anthropic's help pages read on 5 October 2026, plugins are available on Pro, Max, Team and Enterprise, in the web chat, the desktop app, Cowork and Claude Code. What Pro lacks is administration: no private marketplace and no mandatory rollout to a team. The free plan does not include them."
+    },
+    {
+      "q": "Can a plugin be enforced for the whole team?",
+      "a": "On Team and Enterprise, yes. The admin sets a rollout level for each plugin in a marketplace: installed by default, available, required or unavailable. On Enterprise, this setting can be overridden per group: the legal plugin required for the legal team, unavailable for everyone else."
+    },
+    {
+      "q": "Is a plugin safe for our data?",
+      "a": "Not by default. Anthropic reviews the connectors in its directory but states that it does not audit the security of MCP servers. A skill can contain scripts and is a possible exfiltration vector; Anthropic recommends using only trusted skills. Content scanning of skills and plugins exists in beta for Enterprise. Beyond that: least privilege, read-only first, human approval of actions."
+    },
+    {
+      "q": "Does our data stay in Europe?",
+      "a": "Not with the Claude apps by default. According to Anthropic, data is stored in the United States and no European hosting is announced for claude.ai. EU residency is possible through AWS Bedrock or Google Vertex, which means a different architecture. A DPA is available and commercial plans do not train models on your data by default."
+    },
+    {
+      "q": "How long does it take to have a private plugin built?",
+      "a": "It depends on the number of skills and above all on the connectors: an official connector is plugged in, an MCP server for an internal tool is developed. At Waimia, the 10-hour discovery sprint (€999 excl. VAT) scopes the first plugin and estimates the rest in hours; you approve the estimate before any time-and-materials work."
+    },
+    {
+      "q": "Do you need to be a developer to use or create a plugin?",
+      "a": "To use one, no: it is installed from a marketplace and triggered in plain language. To create one, it depends: a skill is first a text file of instructions, within reach of a business lead; a connector to a tool with no MCP server, hooks or a well-governed private marketplace call for a technical profile."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · Claude en entreprise",
+      "kicker_en": "§ Guide · Claude at work",
+      "h1_fr": "Plugins et connecteurs Claude pour l'entreprise : le guide",
+      "h1_en": "Claude plugins and connectors for business: the guide",
+      "lede_fr": "Un plugin Claude regroupe des skills, des connecteurs à vos outils et des sous-agents dans un seul paquet, installable par toute une équipe. Ce guide explique ce qu'il contient, où le trouver, comment l'administrer en Team et Enterprise, ce qu'il faut vérifier côté sécurité, et quand un plugin sur mesure vaut la commande.",
+      "lede_en": "A Claude plugin bundles skills, connectors to your tools and sub-agents into a single package a whole team can install. This guide explains what it contains, where to find one, how to administer it on Team and Enterprise, what to check on security, and when a custom plugin is worth commissioning.",
+      "badges": [
+        {
+          "label_fr": "Sources Anthropic",
+          "label_en": "Anthropic sources"
+        },
+        {
+          "label_fr": "Vérifié le 5 octobre 2026",
+          "label_en": "Checked on 5 October 2026"
+        },
+        {
+          "label_fr": "Pour dirigeants et DSI",
+          "label_en": "For owners and IT leads"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir le kit conformité",
+        "label_en": "Get the compliance kit",
+        "href": "/ressources/outils/kit-conformite-claude-entreprise",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-plugins-malle-paper.webp",
+        "alt_fr": "Une silhouette ouvre une grande malle dressée dont les compartiments rangent clé, boussole et registre",
+        "alt_en": "A figure opens a tall upright trunk whose compartments hold a key, a compass and a ledger",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "5 octobre 2026",
+      "updatedDate": "5 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "C'est quoi, un plugin Claude ?",
+      "question_en": "What is a Claude plugin?",
+      "term_fr": "Définition",
+      "term_en": "Definition",
+      "answer_fr": "Un plugin Claude est un paquet installable qui regroupe des skills (des savoir-faire écrits), des connecteurs MCP vers vos outils, des sous-agents, des commandes et des hooks. Il fonctionne sur les offres Pro, Max, Team et Enterprise. En Team et Enterprise, l'administrateur le diffuse depuis une marketplace privée et décide qui l'a, qui peut l'installer et qui ne le voit pas.",
+      "answer_en": "A Claude plugin is an installable package that bundles skills (written know-how), MCP connectors to your tools, sub-agents, commands and hooks. It works on the Pro, Max, Team and Enterprise plans. On Team and Enterprise, the admin rolls it out from a private marketplace and decides who has it, who can install it and who does not see it."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Ce qu'il faut retenir en quatre chiffres",
+      "title_en": "Four figures to remember",
+      "metrics": [
+        {
+          "value": "5",
+          "label_fr": "Briques possibles dans un plugin : skills, connecteurs, sous-agents, commandes, hooks",
+          "label_en": "Possible building blocks in a plugin: skills, connectors, sub-agents, commands, hooks"
+        },
+        {
+          "value": "4",
+          "label_fr": "Marketplaces publiées par Anthropic, dont Knowledge Work ajoutée par défaut",
+          "label_en": "Marketplaces published by Anthropic, Knowledge Work added by default"
+        },
+        {
+          "value": "4",
+          "label_fr": "Niveaux de diffusion réglables par l'administrateur Team ou Enterprise",
+          "label_en": "Rollout levels the Team or Enterprise admin can set"
+        },
+        {
+          "value": "0",
+          "label_fr": "Audit de sécurité des serveurs MCP par Anthropic : c'est à vous de vérifier",
+          "label_en": "Security audits of MCP servers by Anthropic: checking is your job"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-plugins-couteau-paper.webp",
+          "alt_fr": "Un couteau pliant géant aux lames déployées en éventail, deux petites silhouettes à côté",
+          "alt_en": "A giant folding knife with its blades fanned out, two small figures standing beside it",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce qu'est un plugin, brique par brique</h2><p>Anthropic définit le plugin comme un paquet de <strong>skills</strong>, de <strong>connecteurs</strong> et de <strong>sous-agents</strong>, auxquels peuvent s'ajouter des <strong>commandes</strong> et des <strong>hooks</strong> (<a href=\"https://support.claude.com/en/articles/13837440\" rel=\"noopener noreferrer\" target=\"_blank\">aide Claude, plugins</a>). Chaque brique a un rôle précis.</p><ul><li><strong>Le skill</strong> est un savoir-faire écrit : un dossier avec un fichier d'instructions, parfois des scripts et des modèles. Claude ne le charge que quand la tâche s'y prête. C'est là que vit votre méthode : la trame de vos devis, votre ton, vos règles de relance. Le détail est dans notre <a href=\"/ressources/guides/claude-skills\">guide des skills Claude</a>.</li><li><strong>Le connecteur</strong> relie Claude à un outil (CRM, messagerie, stockage, outil métier) par le protocole MCP. Il définit ce que Claude peut lire et faire dans l'outil. Le fonctionnement et les risques du protocole sont expliqués dans le <a href=\"/ressources/guides/mcp-claude\">guide MCP pour dirigeants</a>.</li><li><strong>Le sous-agent</strong> est un assistant spécialisé, avec ses propres consignes, auquel Claude délègue une partie du travail.</li><li><strong>La commande</strong> est un raccourci qui lance une procédure connue, toujours la même.</li><li><strong>Le hook</strong> est une règle qui s'exécute automatiquement à un moment donné, par exemple avant une action, pour contrôler ou journaliser.</li></ul><h3>Pourquoi le paquet compte plus que les briques</h3><p>Sur Team et Enterprise, un propriétaire peut mettre un skill à disposition de toute l'organisation, et les membres peuvent partager les leurs si un propriétaire l'autorise (<a href=\"https://support.claude.com/en/articles/13119606\" rel=\"noopener noreferrer\" target=\"_blank\">aide Claude sur les skills d'organisation</a>). Le plugin reste la bonne voie dès qu'il faut cibler un groupe, joindre un connecteur ou rendre un ensemble obligatoire. Un skill ne se synchronise pas entre l'API et l'application ; les skills provisionnés par l'organisation se chargent aussi dans Claude Code pour les comptes connectés à Claude. Pour une équipe, <i>le plugin est l'unité de diffusion</i>, pas le skill isolé.</p><h3>Où ça fonctionne</h3><p>Les plugins sont disponibles sur les offres Pro, Max, Team et Enterprise, dans le chat web, l'application de bureau, Cowork et Claude Code. Les hooks et les sous-agents ne tournent que dans Cowork et Claude Code. Rappel sur Cowork : l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Le point complet est dans le <a href=\"/ressources/guides/claude-cowork\">guide Claude Cowork</a>.</p><p>Côté développeurs, Claude Code lit les mêmes plugins et y ajoute ses propres usages : voir le <a href=\"/ressources/guides/claude-code-entreprise\">guide Claude Code en entreprise</a>. Pour situer les plugins parmi les autres fonctions de Claude (projets, mémoire, tâches planifiées, Docs et Slides), lisez le <a href=\"/ressources/guides/claude-fonctionnalites-pme\">panorama des fonctionnalités de Claude pour PME</a>.</p>",
+      "html_en": "<h2>What a plugin is, block by block</h2><p>Anthropic defines a plugin as a package of <strong>skills</strong>, <strong>connectors</strong> and <strong>sub-agents</strong>, to which <strong>commands</strong> and <strong>hooks</strong> can be added (<a href=\"https://support.claude.com/en/articles/13837440\" rel=\"noopener noreferrer\" target=\"_blank\">Claude help, plugins</a>). Each block has a precise role.</p><ul><li><strong>A skill</strong> is written know-how: a folder with an instruction file, sometimes scripts and templates. Claude only loads it when the task calls for it. That is where your method lives: your quote structure, your tone, your follow-up rules. Details in our <a href=\"/ressources/guides/claude-skills\">Claude skills guide</a>.</li><li><strong>A connector</strong> links Claude to a tool (CRM, email, storage, line-of-business software) through the MCP protocol. It defines what Claude can read and do in the tool. See the <a href=\"/ressources/guides/mcp-claude\">MCP guide for business owners</a>.</li><li><strong>A sub-agent</strong> is a specialised assistant with its own instructions, to which Claude delegates part of the work.</li><li><strong>A command</strong> is a shortcut that runs a known, repeatable procedure.</li><li><strong>A hook</strong> is a rule that runs automatically at a given moment, for instance before an action, to check or log it.</li></ul><h3>Why the package matters more than the blocks</h3><p>On Team and Enterprise, an owner can make a skill available to the whole organisation, and members can share their own if an owner allows it (<a href=\"https://support.claude.com/en/articles/13119606\" rel=\"noopener noreferrer\" target=\"_blank\">Claude help on organisation skills</a>). The plugin remains the right route as soon as you need to target a group, bundle a connector or make a set mandatory. A skill does not sync between the API and the app; skills provisioned by the organisation also load in Claude Code for users signed in with their Claude account. For a team, <i>the plugin is the unit of rollout</i>, not the standalone skill.</p><h3>Where it works</h3><p>Plugins are available on Pro, Max, Team and Enterprise, in the web chat, the desktop app, Cowork and Claude Code. Hooks and sub-agents only run in Cowork and Claude Code. On Cowork: Claude's agent that carries out tasks in your files and tools is now part of Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). See the <a href=\"/ressources/guides/claude-cowork\">Claude Cowork guide</a>.</p><p>For developers, Claude Code reads the same plugins and adds its own uses: see the <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business guide</a>. To place plugins among Claude's other features, read the <a href=\"/ressources/guides/claude-fonctionnalites-pme\">overview of Claude features for SMBs</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Anatomie",
+      "kicker_en": "§ Anatomy",
+      "heading_fr": "Les cinq briques d'un plugin et où chacune fonctionne",
+      "heading_en": "The five building blocks of a plugin and where each one works",
+      "caption_fr": "Disponibilité lue dans l'aide Claude le 5 octobre 2026. Les exemples sont illustratifs. Pour les commandes, l'aide lue ne précise pas la surface : testez sur la vôtre avant de diffuser.",
+      "caption_en": "Availability read in the Claude help pages on 5 October 2026. Examples are illustrative. For commands, the help page read does not specify the surface: test on yours before rolling out.",
+      "columns_fr": [
+        "Brique",
+        "Ce qu'elle apporte",
+        "Exemple dans une PME",
+        "Où elle fonctionne"
+      ],
+      "columns_en": [
+        "Block",
+        "What it brings",
+        "SMB example",
+        "Where it works"
+      ],
+      "rows_fr": [
+        [
+          "Skill",
+          "Une méthode écrite, chargée à la demande",
+          "La trame de vos propositions commerciales et vos tarifs de référence",
+          "Chat web, bureau, Cowork, Claude Code"
+        ],
+        [
+          "Connecteur (MCP)",
+          "Un accès en lecture ou en écriture à un outil",
+          "Lire les fiches du CRM, retrouver un contrat dans le stockage partagé",
+          "Chat web, bureau, Cowork, Claude Code"
+        ],
+        [
+          "Sous-agent",
+          "Un assistant spécialisé qui prend une sous-tâche",
+          "Un vérificateur qui relit chaque devis avant présentation",
+          "Cowork et Claude Code seulement"
+        ],
+        [
+          "Commande",
+          "Un raccourci vers une procédure fixe",
+          "Lancer la préparation du point commercial du lundi",
+          "À vérifier selon la surface"
+        ],
+        [
+          "Hook",
+          "Une règle automatique avant ou après une action",
+          "Bloquer l'envoi d'un e-mail sans validation, journaliser une écriture",
+          "Cowork et Claude Code seulement"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Skill",
+          "A written method, loaded on demand",
+          "Your sales proposal structure and reference prices",
+          "Web chat, desktop, Cowork, Claude Code"
+        ],
+        [
+          "Connector (MCP)",
+          "Read or write access to a tool",
+          "Reading CRM records, finding a contract in shared storage",
+          "Web chat, desktop, Cowork, Claude Code"
+        ],
+        [
+          "Sub-agent",
+          "A specialised assistant handling a sub-task",
+          "A checker that reviews each quote before it is presented",
+          "Cowork and Claude Code only"
+        ],
+        [
+          "Command",
+          "A shortcut to a fixed procedure",
+          "Kicking off the Monday sales review prep",
+          "Check per surface"
+        ],
+        [
+          "Hook",
+          "An automatic rule before or after an action",
+          "Blocking an email sent without approval, logging a write",
+          "Cowork and Claude Code only"
+        ]
+      ]
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper",
+      "kicker_fr": "§ Où les trouver",
+      "kicker_en": "§ Where to find them",
+      "h2_fr": "Marketplaces officielles, dépôt ouvert, Claude Marketplace",
+      "h2_en": "Official marketplaces, open repository, Claude Marketplace",
+      "lede_fr": "Une marketplace est un catalogue de plugins que Claude sait installer. Trois sources sérieuses existent au 5 octobre 2026, et elles ne jouent pas le même rôle.",
+      "lede_en": "A marketplace is a catalogue of plugins Claude can install. Three serious sources exist as of 5 October 2026, and they do not play the same role.",
+      "rows": [
+        {
+          "kicker_fr": "Source 01",
+          "kicker_en": "Source 01",
+          "h3_fr": "Les quatre marketplaces d'Anthropic",
+          "h3_en": "Anthropic's four marketplaces",
+          "body_fr": "Anthropic publie Knowledge Work, ajoutée par défaut, puis Financial Services, Legal et Life Sciences. Les fonctions couvertes, selon son aide : ventes, finance, juridique, marketing, RH, ingénierie, design, opérations et data. Ce sont des points de départ génériques : ils connaissent le métier, pas votre entreprise. D'après les notes de version d'Anthropic au 5 octobre 2026, un plugin Salesforce est aussi proposé en bêta.",
+          "body_en": "Anthropic publishes Knowledge Work, added by default, then Financial Services, Legal and Life Sciences. Functions covered, per its help pages: sales, finance, legal, marketing, HR, engineering, design, operations and data. They are generic starting points: they know the trade, not your company. According to Anthropic's release notes as of 5 October 2026, a Salesforce plugin is also offered in beta.",
+          "points": [
+            {
+              "label_fr": "Knowledge Work : présente par défaut",
+              "label_en": "Knowledge Work: present by default"
+            },
+            {
+              "label_fr": "Financial Services, Legal, Life Sciences : métiers régulés",
+              "label_en": "Financial Services, Legal, Life Sciences: regulated trades"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/claude-plugins-etals-paper.webp",
+          "media_alt_fr": "Quatre étals de marché à auvents rayés sur une place vide, dont un seul bleu, des silhouettes qui flânent",
+          "media_alt_en": "Four market stalls with striped awnings on an empty square, only one blue, figures browsing"
+        },
+        {
+          "kicker_fr": "Source 02",
+          "kicker_en": "Source 02",
+          "h3_fr": "Le dépôt open source des plugins métier",
+          "h3_en": "The open-source repository of business plugins",
+          "body_fr": "Le dépôt GitHub anthropics/knowledge-work-plugins rend lisible le contenu des plugins : productivité, ventes, support client, gestion de produit, marketing, juridique, finance, data, recherche d'entreprise, recherche biologique, et un plugin pour gérer les plugins Cowork. C'est la meilleure base pour un plugin privé : on lit ce que fait le plugin officiel, on garde ce qui sert, on remplace le générique par votre méthode.",
+          "body_en": "The GitHub repository anthropics/knowledge-work-plugins makes plugin contents readable: productivity, sales, customer support, product management, marketing, legal, finance, data, enterprise search, bio research, and a plugin to manage Cowork plugins. It is the best base for a private plugin: read what the official plugin does, keep what serves, replace the generic with your method.",
+          "link_label_fr": "Comparer avec un skill seul",
+          "link_label_en": "Compare with a single skill",
+          "link_href": "/ressources/guides/claude-skills",
+          "media_src": "/images/illustrations/ds/claude-plugins-fichier-ouvert-paper.webp",
+          "media_alt_fr": "Un grand meuble à fiches au milieu d'un champ à l'aube, tiroirs ouverts, des silhouettes rangent des fiches",
+          "media_alt_en": "A large card-catalogue cabinet in a field at dawn, drawers open, figures filing index cards"
+        },
+        {
+          "kicker_fr": "Source 03",
+          "kicker_en": "Source 03",
+          "h3_fr": "Claude Marketplace : plugins, connecteurs et partenaires",
+          "h3_en": "Claude Marketplace: plugins, connectors and partners",
+          "body_fr": "Claude Marketplace rassemble des plugins, des connecteurs, des produits construits sur Claude et un annuaire de partenaires de services. Utile pour savoir si l'éditeur de votre CRM ou de votre outil de gestion publie déjà un connecteur : s'il existe, on part de lui plutôt que d'en développer un.",
+          "body_en": "Claude Marketplace gathers plugins, connectors, products built on Claude and a directory of service partners. Useful to know whether your CRM or management software vendor already publishes a connector: if it does, start from it rather than building one.",
+          "media_src": "/images/line-art/livrable-connecteurs-mcp.svg",
+          "media_alt_fr": "Schéma : un assistant relié à plusieurs outils par des connecteurs",
+          "media_alt_en": "Diagram: an assistant linked to several tools through connectors"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Par métier",
+      "kicker_en": "§ By function",
+      "heading_fr": "Six usages concrets en PME, plugin par plugin",
+      "heading_en": "Six concrete SMB uses, plugin by plugin",
+      "caption_fr": "Scénarios illustratifs construits par Waimia à partir des noms de plugins du dépôt Knowledge Work : ni clients réels, ni gains mesurés. Le contenu exact de chaque plugin évolue : lisez-le avant de l'installer.",
+      "caption_en": "Illustrative scenarios built by Waimia from the plugin names in the Knowledge Work repository: no real clients, no measured gains. Each plugin's exact content changes: read it before installing.",
+      "columns_fr": [
+        "Métier",
+        "Plugin de départ",
+        "Scénario illustratif",
+        "À brancher chez vous",
+        "Garde-fou"
+      ],
+      "columns_en": [
+        "Function",
+        "Starting plugin",
+        "Illustrative scenario",
+        "To connect on your side",
+        "Safeguard"
+      ],
+      "rows_fr": [
+        [
+          "Ventes",
+          "sales",
+          "Préparer un rendez-vous : historique du compte, derniers échanges, trois questions à poser",
+          "CRM en lecture, messagerie",
+          "Aucune écriture dans le CRM sans validation"
+        ],
+        [
+          "Marketing",
+          "marketing",
+          "Décliner une annonce produit en e-mail, post et page, dans le ton de la marque",
+          "Charte éditoriale en skill, stockage des visuels",
+          "Relecture humaine avant publication"
+        ],
+        [
+          "Juridique",
+          "legal",
+          "Comparer un contrat reçu à votre modèle et lister les clauses qui s'en écartent",
+          "Bibliothèque de modèles de contrats",
+          "Avis final d'un juriste, pas de l'outil"
+        ],
+        [
+          "Finance",
+          "finance",
+          "Expliquer l'écart d'un poste de charges entre deux mois à partir des exports",
+          "Exports comptables en lecture seule",
+          "Aucun accès bancaire ni écriture comptable"
+        ],
+        [
+          "Support client",
+          "customer-support",
+          "Rédiger la réponse à un ticket en citant la procédure interne",
+          "Outil de tickets, base de procédures",
+          "Envoi validé par l'agent du support"
+        ],
+        [
+          "Data",
+          "data",
+          "Interroger un tableau de suivi en langage courant et sortir un graphique",
+          "Entrepôt ou tableur de référence",
+          "Compte de service limité aux tables utiles"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Sales",
+          "sales",
+          "Preparing a meeting: account history, last exchanges, three questions to ask",
+          "CRM read access, email",
+          "No CRM writes without approval"
+        ],
+        [
+          "Marketing",
+          "marketing",
+          "Turning a product announcement into an email, a post and a page, in the brand's tone",
+          "Editorial guidelines as a skill, image storage",
+          "Human review before publishing"
+        ],
+        [
+          "Legal",
+          "legal",
+          "Comparing an incoming contract with your template and listing the deviating clauses",
+          "Contract template library",
+          "Final call by a lawyer, not the tool"
+        ],
+        [
+          "Finance",
+          "finance",
+          "Explaining a cost line variance between two months from the exports",
+          "Read-only accounting exports",
+          "No banking access, no accounting writes"
+        ],
+        [
+          "Customer support",
+          "customer-support",
+          "Drafting a ticket reply that cites the internal procedure",
+          "Ticketing tool, procedure base",
+          "Sending approved by the support agent"
+        ],
+        [
+          "Data",
+          "data",
+          "Querying a tracking sheet in plain language and producing a chart",
+          "Reference warehouse or spreadsheet",
+          "Service account limited to the needed tables"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-plugins-aiguillage-paper.webp",
+          "alt_fr": "Un aiguilleur actionne un levier ; une voie ferrée se divise en quatre sur une plaine claire",
+          "alt_en": "A switchman pulls a lever; one railway track splits into four across a pale plain",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Administrer les plugins en Team et Enterprise</h2><p>C'est ici que les offres d'équipe se distinguent de Pro et Max. L'aide d'Anthropic sur l'administration (<a href=\"https://support.claude.com/en/articles/13837433\" rel=\"noopener noreferrer\" target=\"_blank\">gestion des plugins</a>, <a href=\"https://support.claude.com/en/articles/13455879\" rel=\"noopener noreferrer\" target=\"_blank\">réglages Cowork</a>) décrit trois leviers.</p><h3>1. Une marketplace privée</h3><p>Team et Enterprise peuvent ajouter leur propre marketplace : le catalogue de vos plugins, à côté de ceux d'Anthropic. Vos skills, vos connecteurs et vos règles y sont versionnés en un seul endroit, au lieu de vivre dans les comptes de chacun.</p><h3>2. Quatre niveaux de diffusion</h3><ul><li><strong>Installé par défaut</strong> : chacun l'a dès l'arrivée, peut le retirer. Pour les plugins transverses (productivité, recherche interne).</li><li><strong>Disponible</strong> : visible dans le catalogue, installé par ceux qui en ont besoin. Le bon niveau pour tester.</li><li><strong>Requis</strong> : installé et non retirable. À réserver à ce qui porte une règle (le plugin qui contient vos garde-fous).</li><li><strong>Indisponible</strong> : masqué. Pour un plugin public dont vous ne voulez pas, ou un plugin métier hors périmètre.</li></ul><h3>3. La surcharge par groupe, en Enterprise</h3><p>En Enterprise, le niveau se règle par groupe : le plugin juridique requis pour le service juridique, indisponible ailleurs. En Team, le réglage s'applique à toute l'organisation. Pour une PME de 30 personnes avec un service commercial et un service administratif aux besoins très différents, c'est souvent ce point qui fait pencher vers Enterprise, plus que le volume.</p><h3>Les réglages voisins à ne pas oublier</h3><p>D'après les mêmes pages, Cowork est activé par défaut pour les organisations ; l'exécution dans le cloud est activée par défaut en Team et désactivée en Enterprise ; le navigateur intégré et Claude in Chrome ont des contrôles séparés ; l'option « Always allow » des connecteurs, qui évite de valider chaque action, est désactivée par défaut. Laissez-la désactivée tant que vous n'avez pas listé les actions concernées. Un plugin hérite de ces réglages : un bon plugin dans une organisation mal réglée reste un risque.</p><p>La liste complète des réglages à vérifier, avec les points RGPD, est dans le <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">kit conformité et administration</a>. Le cadrage plus large du déploiement est dans le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>.</p>",
+      "html_en": "<h2>Administering plugins on Team and Enterprise</h2><p>This is where team plans differ from Pro and Max. Anthropic's admin help pages (<a href=\"https://support.claude.com/en/articles/13837433\" rel=\"noopener noreferrer\" target=\"_blank\">managing plugins</a>, <a href=\"https://support.claude.com/en/articles/13455879\" rel=\"noopener noreferrer\" target=\"_blank\">Cowork settings</a>) describe three levers.</p><h3>1. A private marketplace</h3><p>Team and Enterprise can add their own marketplace: the catalogue of your plugins, next to Anthropic's. Your skills, connectors and rules are versioned in one place instead of living in each person's account.</p><h3>2. Four rollout levels</h3><ul><li><strong>Installed by default</strong>: everyone has it from day one and can remove it. For cross-cutting plugins.</li><li><strong>Available</strong>: visible in the catalogue, installed by those who need it. The right level to test.</li><li><strong>Required</strong>: installed and not removable. Keep it for what carries a rule.</li><li><strong>Unavailable</strong>: hidden. For a public plugin you do not want, or one out of scope.</li></ul><h3>3. Per-group override, on Enterprise</h3><p>On Enterprise, the level is set per group: the legal plugin required for legal, unavailable elsewhere. On Team, the setting applies to the whole organisation. For a 30-person SMB whose sales and admin teams have very different needs, this point often tips the balance towards Enterprise more than volume does.</p><h3>Neighbouring settings not to forget</h3><p>According to the same pages, Cowork is on by default for organisations; cloud execution is on by default on Team and off on Enterprise; the built-in browser and Claude in Chrome have separate controls; the connectors' \"Always allow\" option, which skips approving each action, is off by default. Keep it off until you have listed the actions concerned. A plugin inherits these settings.</p><p>The full list of settings to check, with GDPR points, is in the <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">compliance and admin kit</a>. The wider rollout plan is in the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "ink",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-plugins-poste-garde-ink.webp",
+          "alt_fr": "De nuit, un garde à lanterne inspecte une caisse qui arrive à la porte d'un haut mur",
+          "alt_en": "At night, a guard with a lantern inspects a crate arriving at the gate of a tall wall",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Sécurité : ce qu'Anthropic vérifie, et ce qui reste à votre charge</h2><p>Un plugin installé donne à Claude des savoir-faire et des accès. La question n'est pas « le plugin est-il officiel ? » mais « qu'est-ce qu'il peut lire, et qu'est-ce qu'il peut faire ? ». Quatre faits, tous lus dans la documentation d'Anthropic le 5 octobre 2026.</p><ul><li><strong>Les serveurs MCP ne sont pas audités.</strong> La <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener noreferrer\" target=\"_blank\">page sécurité de Claude Code</a> indique qu'Anthropic examine les connecteurs de son annuaire mais n'audite pas la sécurité des serveurs MCP. Un connecteur tiers se juge comme un logiciel tiers.</li><li><strong>Un skill peut contenir du code.</strong> La documentation Agent Skills recommande de n'utiliser que des skills de confiance et cite le risque d'exfiltration de données. Les skills ne sont pas couverts par la conservation zéro (ZDR).</li><li><strong>Une analyse de contenu existe, en bêta.</strong> Depuis le 6 août 2026, d'après les notes de version, Enterprise dispose d'une analyse du contenu des skills et des plugins. C'est une aide, pas une garantie.</li><li><strong>La validation reste la règle par défaut.</strong> L'option « Always allow » des connecteurs est désactivée par défaut côté administration.</li></ul><h3>Les cinq règles que nous appliquons</h3><ol><li>Lecture seule d'abord ; l'écriture s'ouvre action par action.</li><li>Un compte de service dédié par connecteur, jamais le compte d'un dirigeant.</li><li>Aucun skill ni plugin installé sans que quelqu'un ait lu son contenu.</li><li>Tout envoi vers l'extérieur (e-mail, publication, paiement) validé par une personne.</li><li>Une marketplace privée tenue par un responsable nommé, avec un historique des versions.</li></ol><p>Côté données : les applications Claude stockent aux États-Unis par défaut et aucun hébergement européen n'est annoncé pour claude.ai ; la résidence en Europe passe par AWS Bedrock ou Google Vertex (<a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">conformité régionale Anthropic</a>). Les règles internes d'usage relèvent de votre <a href=\"/ressources/outils/charte-ia-entreprise\">charte IA</a> et de la page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>Security: what Anthropic checks, and what remains yours</h2><p>An installed plugin gives Claude know-how and access. The question is not \"is the plugin official?\" but \"what can it read, and what can it do?\". Four facts, all read in Anthropic's documentation on 5 October 2026.</p><ul><li><strong>MCP servers are not audited.</strong> The <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Code security page</a> states that Anthropic reviews the connectors in its directory but does not audit the security of MCP servers.</li><li><strong>A skill can contain code.</strong> The Agent Skills documentation recommends using only trusted skills and cites the risk of data exfiltration. Skills are not covered by zero data retention (ZDR).</li><li><strong>Content scanning exists, in beta.</strong> Since 6 August 2026, per the release notes, Enterprise has content scanning of skills and plugins. A help, not a guarantee.</li><li><strong>Approval remains the default.</strong> The connectors' \"Always allow\" option is off by default in admin settings.</li></ul><h3>The five rules we apply</h3><ol><li>Read-only first; write access opens action by action.</li><li>One dedicated service account per connector, never an executive's account.</li><li>No skill or plugin installed until someone has read its content.</li><li>Anything going outside (email, publication, payment) approved by a person.</li><li>A private marketplace run by a named owner, with version history.</li></ol><p>On data: the Claude apps store data in the United States by default and no European hosting is announced for claude.ai; EU residency goes through AWS Bedrock or Google Vertex (<a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic regional compliance</a>). Internal usage rules belong in your <a href=\"/ressources/outils/charte-ia-entreprise\">AI policy</a> and on the <a href=\"/conformite-ia\">AI compliance</a> page.</p>"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper-2",
+      "lead_magnet": "kit-conformite-claude-entreprise",
+      "kicker_fr": "§ Kit gratuit, envoyé par e-mail",
+      "kicker_en": "§ Free kit, sent by email",
+      "h2_fr": "Recevez le kit conformité et administration de Claude en entreprise",
+      "h2_en": "Get the Claude compliance and administration kit for business",
+      "body_fr": "Un PDF A4 de 11 pages, pour le dirigeant ou le DSI : les réglages Team et Enterprise à vérifier (Cowork, exécution cloud, connecteurs, marketplaces de plugins, rétention), les points RGPD, une mini trame d'analyse d'impact, un modèle de politique d'usage d'une page, un registre des usages à remplir et les questions à poser au fournisseur. Envoyé à votre adresse, en pièce jointe.",
+      "body_en": "An 11-page A4 PDF for the owner or IT lead: the Team and Enterprise settings to check (Cowork, cloud execution, connectors, plugin marketplaces, retention), GDPR points, a short impact assessment frame, a one-page usage policy template, a usage register to fill in and the questions to ask the vendor. Sent to your address as an attachment.",
+      "placeholder_fr": "votre@entreprise.fr",
+      "placeholder_en": "you@company.com",
+      "submit_label_fr": "Recevoir le kit (PDF) →",
+      "submit_label_en": "Get the kit (PDF) →",
+      "hint_fr": "Un seul e-mail avec le PDF. Pas d'inscription à la lettre sans votre accord. Ce kit n'est pas un avis juridique.",
+      "hint_en": "One email with the PDF. No newsletter sign-up without your consent. This kit is not legal advice."
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Officiel ou sur mesure",
+      "kicker_en": "§ Official or custom",
+      "title_fr": "Quand prendre un plugin officiel, quand en faire construire un",
+      "title_en": "When to take an official plugin, when to have one built",
+      "aside_fr": "Recommandations de Waimia. Dans beaucoup de PME, la bonne réponse est : les deux, l'officiel d'abord.",
+      "aside_en": "Waimia's recommendations. In many SMBs the right answer is both, official first.",
+      "use_title_fr": "Le plugin officiel suffit si",
+      "use_title_en": "The official plugin is enough if",
+      "use_items_fr": [
+        "Le besoin est générique : rédiger, résumer, préparer un rendez-vous, analyser un fichier",
+        "Vos outils ont déjà un connecteur officiel dans l'annuaire ou sur Claude Marketplace",
+        "Moins de dix personnes l'utilisent et elles acceptent d'adapter leur façon de demander",
+        "Vous êtes en Pro ou Max : sans administration, un plugin privé apporte peu",
+        "Vous voulez d'abord mesurer l'usage réel pendant quelques semaines"
+      ],
+      "use_items_en": [
+        "The need is generic: writing, summarising, meeting prep, analysing a file",
+        "Your tools already have an official connector in the directory or on Claude Marketplace",
+        "Fewer than ten people use it and they accept adapting how they ask",
+        "You are on Pro or Max: without administration, a private plugin adds little",
+        "You first want to measure real usage for a few weeks"
+      ],
+      "avoid_title_fr": "Un plugin sur mesure se justifie si",
+      "avoid_title_en": "A custom plugin is justified if",
+      "avoid_items_fr": [
+        "Votre méthode fait votre marge : trame de devis, grille tarifaire, règles de relance",
+        "Un outil métier ou interne n'a aucun connecteur et doit être interrogé depuis Claude",
+        "Plusieurs services ont des besoins et des droits différents (diffusion par groupe)",
+        "Des garde-fous doivent s'imposer à tous : validation avant envoi, journalisation",
+        "Vous voulez un seul endroit versionné au lieu de skills éparpillés dans les comptes"
+      ],
+      "avoid_items_en": [
+        "Your method is your margin: quote structure, price grid, follow-up rules",
+        "An internal or business tool has no connector and must be queried from Claude",
+        "Several teams have different needs and rights (per-group rollout)",
+        "Safeguards must apply to everyone: approval before sending, logging",
+        "You want one versioned place instead of skills scattered across accounts"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-plugins-tailleur-paper.webp",
+          "alt_fr": "Un tailleur mesure une ceinture à outils géante posée sur un mannequin de couture",
+          "alt_en": "A tailor measures a giant tool belt hung on a dressmaker's mannequin",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Faire construire un plugin privé : ce que contient la commande</h2><p>Sous-traiter un plugin, ce n'est pas acheter un logiciel. C'est faire écrire votre savoir-faire dans un format que Claude sait charger, et faire relier vos outils avec des droits que vous avez décidés. Une commande sérieuse contient cinq livrables.</p><ol><li><strong>Les skills de l'entreprise</strong>, écrits à partir de vos documents réels : modèles, procédures, exemples bons et mauvais.</li><li><strong>Les connecteurs</strong> : officiels quand ils existent, serveur MCP sur mesure seulement pour l'outil qui n'en a pas, avec un compte de service limité.</li><li><strong>Les garde-fous</strong> : hooks de validation et de journalisation là où Cowork et Claude Code tournent, consignes explicites ailleurs.</li><li><strong>La marketplace privée</strong> et le plan de diffusion : quel plugin, quel niveau, pour quel groupe.</li><li><strong>La gouvernance</strong> : un responsable nommé, une règle de mise à jour, une formation courte des utilisateurs et d'un référent.</li></ol><h3>Ce que ça coûte vraiment</h3><p>Trois postes, à ne pas confondre.</p><ul><li><strong>Les licences Claude.</strong> Prix lus sur <a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">claude.com/pricing</a> le 5 octobre 2026, en dollars, hors TVA et taux de change : Team Standard 25 $ par siège et par mois (20 $ en annuel), Team Premium 125 $ (100 $ en annuel), Enterprise 20 $ par siège et par mois en annuel, plus l'usage facturé au tarif de l'API. Le quota d'un siège est partagé entre chat, Cowork et Claude Code.</li><li><strong>Les outils reliés.</strong> Un connecteur ne remplace pas la licence du CRM ou de l'outil métier ; il faut parfois un accès API que l'offre actuelle n'inclut pas.</li><li><strong>La construction.</strong> Chez Waimia : un sprint découverte à prix fixe, 999 € HT pour 10 heures, qui cadre le premier plugin et chiffre la suite ; puis une régie à {{prix.horaire}} € HT de l'heure, sur estimation validée par vous. Le détail est sur la page <a href=\"/tarifs\">tarifs</a>.</li></ul><p>Le poste le plus sous-estimé n'est aucun des trois : c'est la maintenance. Les plugins officiels changent, les outils reliés changent, les modèles changent. Un plugin sans responsable se périme en silence.</p><h3>Faire seul, se faire accompagner, ou faire faire</h3><p>Si vous avez en interne quelqu'un de technique et du temps, le dépôt open source et la documentation suffisent à monter un premier plugin : la <a href=\"/formations/claude\">formation Claude</a> donne la méthode à ce référent. Si la question est d'abord de savoir quoi déployer, dans quel ordre et avec quelles règles, c'est un travail de <a href=\"/services/consultant-ia-claude\">conseil</a>. Si vous voulez le résultat livré et maintenu, c'est de l'<a href=\"/services/integration-claude\">intégration</a>. Le calendrier réglementaire à garder en tête est dans le <a href=\"/ressources/guides/ai-act-pme-calendrier\">guide AI Act pour PME</a>.</p>",
+      "html_en": "<h2>Having a private plugin built: what the order contains</h2><p>Outsourcing a plugin is not buying software. It is having your know-how written in a format Claude can load, and your tools connected with rights you decided. A serious order contains five deliverables.</p><ol><li><strong>The company's skills</strong>, written from your real documents: templates, procedures, good and bad examples.</li><li><strong>The connectors</strong>: official ones when they exist, a custom MCP server only for the tool that has none, with a limited service account.</li><li><strong>The safeguards</strong>: approval and logging hooks where Cowork and Claude Code run, explicit instructions elsewhere.</li><li><strong>The private marketplace</strong> and rollout plan: which plugin, which level, for which group.</li><li><strong>Governance</strong>: a named owner, an update rule, short training for users and an internal lead.</li></ol><h3>What it really costs</h3><p>Three cost lines, not to be confused.</p><ul><li><strong>Claude licences.</strong> Prices read on <a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">claude.com/pricing</a> on 5 October 2026, in dollars, excluding VAT and exchange rate: Team Standard $25 per seat per month ($20 annually), Team Premium $125 ($100 annually), Enterprise $20 per seat per month billed annually, plus usage at API rates. A seat's quota is shared between chat, Cowork and Claude Code.</li><li><strong>Connected tools.</strong> A connector does not replace the CRM or business tool licence; it sometimes needs API access your current plan does not include.</li><li><strong>The build.</strong> At Waimia: a fixed-price discovery sprint, €999 excl. VAT for 10 hours, which scopes the first plugin and estimates the rest; then time and materials at €{{prix.horaire}} excl. VAT an hour, on an estimate you approve. Details on the <a href=\"/tarifs\">pricing</a> page.</li></ul><p>The most underestimated line is none of the three: it is maintenance. Official plugins change, connected tools change, models change. A plugin without an owner goes stale silently.</p><h3>Do it yourself, get guidance, or have it done</h3><p>If you have a technical person in-house and time, the open-source repository and documentation are enough to build a first plugin: the <a href=\"/formations/claude\">Claude training</a> gives that lead the method. If the question is first what to deploy, in what order and with which rules, that is <a href=\"/services/consultant-ia-claude\">consulting</a> work. If you want the result delivered and maintained, that is <a href=\"/services/integration-claude\">integration</a>. The regulatory timeline to keep in mind is in the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act guide for SMBs</a>.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Comment Waimia construit et déploie un plugin privé",
+      "h2_en": "How Waimia builds and rolls out a private plugin",
+      "intro_fr": "Cinq étapes, chacune avec un livrable que vous gardez, même si vous arrêtez après.",
+      "intro_en": "Five steps, each with a deliverable you keep, even if you stop afterwards.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit de 45 minutes",
+          "title_en": "Free 45-minute audit",
+          "body_fr": "On liste les usages actuels de Claude, les outils à relier et ce qui doit rester hors de portée. Vous repartez avec une première liste de plugins officiels à tester.",
+          "body_en": "We list current Claude usage, the tools to connect and what must stay out of reach. You leave with a first list of official plugins to test.",
+          "meta_fr": "Gratuit",
+          "meta_en": "Free"
+        },
+        {
+          "title_fr": "Sprint découverte",
+          "title_en": "Discovery sprint",
+          "body_fr": "Lecture des plugins officiels utiles, choix d'un ou deux métiers, spécification du plugin privé : skills, connecteurs, droits, niveau de diffusion. Estimation de la construction en heures.",
+          "body_en": "Review of the useful official plugins, choice of one or two functions, private plugin specification: skills, connectors, rights, rollout level. Build estimate in hours.",
+          "meta_fr": "999 € HT · 10 h",
+          "meta_en": "€999 excl. VAT · 10 h"
+        },
+        {
+          "title_fr": "Construction",
+          "title_en": "Build",
+          "body_fr": "Écriture des skills avec vos documents, branchement des connecteurs officiels, serveur MCP seulement si un outil n'en a pas, hooks de validation. Tout est versionné dans votre marketplace privée.",
+          "body_en": "Skills written from your documents, official connectors plugged in, an MCP server only if a tool has none, approval hooks. Everything versioned in your private marketplace.",
+          "meta_fr": "Régie, sur estimation validée",
+          "meta_en": "Time and materials, approved estimate"
+        },
+        {
+          "title_fr": "Groupe pilote",
+          "title_en": "Pilot group",
+          "body_fr": "Le plugin passe en niveau « disponible » pour quelques personnes. On corrige les skills sur leurs vraies demandes avant d'élargir.",
+          "body_en": "The plugin goes to the \"available\" level for a few people. Skills are corrected on their real requests before widening.",
+          "meta_fr": "Mesure de l'usage",
+          "meta_en": "Usage measured"
+        },
+        {
+          "title_fr": "Diffusion et passation",
+          "title_en": "Rollout and handover",
+          "body_fr": "Niveaux réglés par groupe, règles d'usage écrites, formation d'un référent qui maintient le plugin. Vous gardez tout : le dépôt, les skills, la documentation.",
+          "body_en": "Levels set per group, usage rules written down, training of an internal lead who maintains the plugin. You keep everything: the repository, the skills, the documentation.",
+          "meta_fr": "Sans abonnement",
+          "meta_en": "No subscription"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Skills Claude : écrire le savoir-faire de l'équipe",
+          "title_en": "Claude skills: writing down the team's know-how",
+          "lead_fr": "Ce qu'un skill contient, ses limites de partage et comment l'écrire.",
+          "lead_en": "What a skill contains, its sharing limits and how to write one.",
+          "href": "/ressources/guides/claude-skills"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "MCP expliqué aux dirigeants",
+          "title_en": "MCP explained to business owners",
+          "lead_fr": "Le protocole des connecteurs, ses risques et huit questions à poser.",
+          "lead_en": "The connector protocol, its risks and eight questions to ask.",
+          "href": "/ressources/guides/mcp-claude"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégration de Claude en entreprise",
+          "title_en": "Claude integration for business",
+          "lead_fr": "Plugins privés, connecteurs à vos outils, règles d'usage, référent formé.",
+          "lead_en": "Private plugins, connectors to your tools, usage rules, trained lead.",
+          "href": "/services/integration-claude"
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "ink",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+      "h2_en": "The Claude changes that matter to an SMB, once a month",
+      "body_fr": "Nouveaux plugins, réglages d'administration, prix, données : ce qui a changé et ce qu'il faut faire. Sans relais de communiqués.",
+      "body_en": "New plugins, admin settings, pricing, data: what changed and what to do. No press-release recycling.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes sur les plugins Claude",
+      "h2_en": "Frequently asked questions about Claude plugins",
+      "items": [
+        {
+          "q_fr": "Combien coûte un plugin Claude ?",
+          "a_fr": "L'aide d'Anthropic ne mentionne pas de prix séparé pour les plugins de ses marketplaces : ils s'utilisent avec un abonnement payant (Pro, Max, Team ou Enterprise). Le coût réel est ailleurs : les sièges, le quota d'usage partagé, les licences des outils que les connecteurs relient, et le temps de mise en place. Un plugin privé sur mesure se chiffre en heures de construction.",
+          "q_en": "How much does a Claude plugin cost?",
+          "a_en": "Anthropic's help pages mention no separate price for the plugins in its marketplaces: they are used with a paid plan (Pro, Max, Team or Enterprise). The real cost lies elsewhere: seats, the shared usage quota, licences for the tools the connectors reach, and set-up time. A custom private plugin is priced in build hours."
+        },
+        {
+          "q_fr": "Quelle différence entre un plugin, un skill et un connecteur ?",
+          "a_fr": "Un skill est un dossier d'instructions et de ressources que Claude charge quand la tâche s'y prête. Un connecteur relie Claude à un outil (CRM, messagerie, stockage) via le protocole MCP. Un plugin est le paquet qui regroupe des skills, des connecteurs, des sous-agents, des commandes et des hooks, et qui s'installe en une fois. C'est le plugin qui se diffuse à une équipe.",
+          "q_en": "What is the difference between a plugin, a skill and a connector?",
+          "a_en": "A skill is a folder of instructions and resources Claude loads when the task calls for it. A connector links Claude to a tool (CRM, email, storage) through the MCP protocol. A plugin is the package that bundles skills, connectors, sub-agents, commands and hooks, installed in one go. The plugin is what gets rolled out to a team."
+        },
+        {
+          "q_fr": "Les plugins fonctionnent-ils avec un abonnement Pro ?",
+          "a_fr": "Oui. D'après l'aide d'Anthropic lue le 5 octobre 2026, les plugins sont disponibles sur Pro, Max, Team et Enterprise, dans le chat web, l'application de bureau, Cowork et Claude Code. Ce qui manque en Pro, c'est l'administration : pas de marketplace privée ni de diffusion imposée à une équipe. Le plan gratuit n'y donne pas accès.",
+          "q_en": "Do plugins work with a Pro plan?",
+          "a_en": "Yes. According to Anthropic's help pages read on 5 October 2026, plugins are available on Pro, Max, Team and Enterprise, in the web chat, the desktop app, Cowork and Claude Code. What Pro lacks is administration: no private marketplace and no mandatory rollout to a team. The free plan does not include them."
+        },
+        {
+          "q_fr": "Peut-on imposer un plugin à toute l'équipe ?",
+          "a_fr": "En Team et Enterprise, oui. L'administrateur choisit pour chaque plugin d'une marketplace un niveau de diffusion : installé par défaut, disponible, requis ou indisponible. En Enterprise, ce réglage peut être surchargé par groupe : le plugin juridique requis pour le service juridique, indisponible pour les autres.",
+          "q_en": "Can a plugin be enforced for the whole team?",
+          "a_en": "On Team and Enterprise, yes. The admin sets a rollout level for each plugin in a marketplace: installed by default, available, required or unavailable. On Enterprise, this setting can be overridden per group: the legal plugin required for the legal team, unavailable for everyone else."
+        },
+        {
+          "q_fr": "Un plugin est-il sûr pour nos données ?",
+          "a_fr": "Pas par principe. Anthropic examine les connecteurs de son annuaire mais écrit qu'il n'audite pas la sécurité des serveurs MCP. Un skill peut contenir des scripts et sert de vecteur possible d'exfiltration ; Anthropic recommande de n'utiliser que des skills de confiance. Une analyse du contenu des skills et plugins existe en bêta pour Enterprise. Pour le reste : droits minimaux, lecture seule d'abord, validation humaine des actions.",
+          "q_en": "Is a plugin safe for our data?",
+          "a_en": "Not by default. Anthropic reviews the connectors in its directory but states that it does not audit the security of MCP servers. A skill can contain scripts and is a possible exfiltration vector; Anthropic recommends using only trusted skills. Content scanning of skills and plugins exists in beta for Enterprise. Beyond that: least privilege, read-only first, human approval of actions."
+        },
+        {
+          "q_fr": "Nos données restent-elles en Europe ?",
+          "a_fr": "Pas avec les applications Claude par défaut. Selon Anthropic, les données sont stockées aux États-Unis et aucun hébergement européen n'est annoncé pour claude.ai. Une résidence en Europe est possible en passant par AWS Bedrock ou Google Vertex, ce qui change d'architecture. Un DPA est disponible et les offres commerciales n'entraînent pas les modèles sur vos données par défaut.",
+          "q_en": "Does our data stay in Europe?",
+          "a_en": "Not with the Claude apps by default. According to Anthropic, data is stored in the United States and no European hosting is announced for claude.ai. EU residency is possible through AWS Bedrock or Google Vertex, which means a different architecture. A DPA is available and commercial plans do not train models on your data by default."
+        },
+        {
+          "q_fr": "Combien de temps faut-il pour faire construire un plugin privé ?",
+          "a_fr": "Cela dépend du nombre de skills et surtout des connecteurs : un connecteur officiel se branche, un serveur MCP pour un outil interne se développe. Chez Waimia, le sprint découverte de 10 heures (999 € HT) cadre le premier plugin et chiffre la suite en heures ; vous validez l'estimation avant tout travail en régie.",
+          "q_en": "How long does it take to have a private plugin built?",
+          "a_en": "It depends on the number of skills and above all on the connectors: an official connector is plugged in, an MCP server for an internal tool is developed. At Waimia, the 10-hour discovery sprint (€999 excl. VAT) scopes the first plugin and estimates the rest in hours; you approve the estimate before any time-and-materials work."
+        },
+        {
+          "q_fr": "Faut-il être développeur pour utiliser ou créer un plugin ?",
+          "a_fr": "Pour l'utiliser, non : il s'installe depuis une marketplace et se déclenche en langage courant. Pour le créer, cela dépend : un skill est d'abord un fichier texte d'instructions, à la portée d'un référent métier ; un connecteur vers un outil sans serveur MCP, des hooks ou une marketplace privée bien gouvernée demandent un profil technique.",
+          "q_en": "Do you need to be a developer to use or create a plugin?",
+          "a_en": "To use one, no: it is installed from a marketplace and triggered in plain language. To create one, it depends: a skill is first a text file of instructions, within reach of a business lead; a connector to a tool with no MCP server, hooks or a well-governed private marketplace call for a technical profile."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Plugins Claude",
+      "kicker_en": "§ Claude plugins",
+      "h2_fr": "Un plugin qui porte votre méthode, diffusé à ceux qui en ont besoin.",
+      "h2_en": "A plugin that carries your method, rolled out to those who need it.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On repart avec les plugins officiels à tester, ce qui mérite un plugin privé et les réglages à corriger.",
+      "subtitle_en": "The 45-minute audit is free. You leave with the official plugins to test, what deserves a private plugin and the settings to fix.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Faire déployer Claude par Waimia",
+          "label_en": "Have Waimia deploy Claude",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

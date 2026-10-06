@@ -74,6 +74,12 @@
     {
       "type": "hero-split-media",
       "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/base-de-connaissance-ia-v3-fichier-paper.webp",
+        "alt_fr": "Illustration : sur une échelle, une personne tire un tiroir d'un immense meuble à fiches et en sort une seule fiche",
+        "alt_en": "Illustration: on a ladder, a person pulls a drawer from a huge card cabinet and takes out a single card",
+        "side": "right"
+      },
       "kicker_fr": "§ Base de connaissance IA",
       "kicker_en": "§ AI knowledge base",
       "h1_fr": "Base de connaissance IA : le second cerveau de votre entreprise",
@@ -105,10 +111,7 @@
         "label_en": "How the audit works",
         "href": "/audit-ia-pme",
         "variant": "ghost"
-      },
-      "media_src": "/images/line-art/probleme-donnees-eparpillees.svg",
-      "media_alt_fr": "Schéma : des documents éparpillés dans plusieurs outils, rassemblés en une seule base interrogeable",
-      "media_alt_en": "Diagram: documents scattered across several tools, gathered into one searchable base"
+      }
     },
     {
       "type": "proof-bar",
@@ -191,6 +194,14 @@
     {
       "type": "editorial-prose",
       "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/base-de-connaissance-ia-v3-puits-paper.webp",
+          "alt_fr": "Illustration : une personne tourne la manivelle d'un puits ; le seau remonte une seule feuille qu'une autre attend",
+          "alt_en": "Illustration: a person cranks a well; the bucket brings up a single sheet that another person is waiting for",
+          "side": "right"
+        }
+      ],
       "html_fr": "<h2>RAG : ce que c'est, en mots simples</h2>\n<p>RAG signifie « génération augmentée par la recherche ». Anthropic le définit ainsi : une méthode qui retrouve les informations pertinentes dans une base de connaissance et les ajoute à la question posée au modèle. Le modèle ne répond plus de mémoire. Il répond avec les bons passages sous les yeux.</p>\n<p>En pratique, quatre étapes :</p>\n<ol>\n<li><strong>Découper.</strong> Vos documents sont découpés en passages.</li>\n<li><strong>Indexer.</strong> Chaque passage est rangé dans un index qui permet de le retrouver par le sens, pas seulement par mot-clé.</li>\n<li><strong>Retrouver.</strong> À chaque question, le système cherche les passages les plus proches, parmi ceux que la personne a le droit de lire.</li>\n<li><strong>Répondre.</strong> Le modèle rédige la réponse à partir de ces passages et cite les documents d'origine.</li>\n</ol>\n<p>Le RAG n'est pas toujours nécessaire. Toujours selon Anthropic, une base de moins de 200 000 tokens (environ 500 pages) peut être donnée en entier au modèle. C'est la première chose que l'on vérifie : si vos procédures tiennent dans ce volume, la solution est plus simple et moins chère.</p>",
       "html_en": "<h2>RAG: what it is, in plain words</h2>\n<p>RAG stands for retrieval-augmented generation. Anthropic defines it as a method that retrieves relevant information from a knowledge base and appends it to the user's prompt. The model no longer answers from memory. It answers with the right passages in front of it.</p>\n<p>In practice, four steps:</p>\n<ol>\n<li><strong>Split.</strong> Your documents are split into passages.</li>\n<li><strong>Index.</strong> Each passage is stored in an index that finds it by meaning, not only by keyword.</li>\n<li><strong>Retrieve.</strong> For each question, the system looks for the closest passages, among those the person is allowed to read.</li>\n<li><strong>Answer.</strong> The model writes the answer from those passages and cites the original documents.</li>\n</ol>\n<p>RAG is not always needed. Also according to Anthropic, a knowledge base under 200,000 tokens (about 500 pages) can be given to the model in full. That is the first thing we check: if your procedures fit in that volume, the solution is simpler and cheaper.</p>"
     },
@@ -234,6 +245,14 @@
     {
       "type": "editorial-prose",
       "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/base-de-connaissance-ia-v3-elagage-paper.webp",
+          "alt_fr": "Illustration : sur une échelle, une personne coupe une branche sèche d'un grand arbre rond",
+          "alt_en": "Illustration: on a ladder, a person cuts a dry branch from a large round tree",
+          "side": "left"
+        }
+      ],
       "html_fr": "<h2>Les limites à connaître avant de se lancer</h2>\n<ul>\n<li><strong>La qualité des réponses suit celle des documents.</strong> Deux procédures contradictoires donnent une réponse hésitante. Le tri documentaire fait partie de la mission.</li>\n<li><strong>Un document périmé reste une source.</strong> Sans règle de mise à jour, la base vieillit. On désigne un responsable par famille de documents.</li>\n<li><strong>Les tableaux, plans et scans se lisent mal.</strong> Certains formats demandent une préparation spécifique, parfois une ressaisie.</li>\n<li><strong>Une réponse citée n'est pas une réponse vérifiée.</strong> Pour une décision qui engage (juridique, sécurité, paie), la personne ouvre le document source.</li>\n</ul>\n<h2>Sources, vérifiées le 4 octobre 2026</h2><ul><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Introducing Contextual Retrieval » (définition du RAG, seuil de 200 000 tokens), 19 septembre 2024</a></li></ul>",
       "html_en": "<h2>Limits to know before starting</h2>\n<ul>\n<li><strong>Answer quality follows document quality.</strong> Two contradictory procedures give a hesitant answer. Sorting documents is part of the engagement.</li>\n<li><strong>An outdated document is still a source.</strong> Without an update rule, the base ages. We name an owner per document family.</li>\n<li><strong>Tables, drawings and scans read poorly.</strong> Some formats need specific preparation, sometimes re-keying.</li>\n<li><strong>A cited answer is not a verified answer.</strong> For a binding decision (legal, safety, payroll), the person opens the source document.</li>\n</ul>\n<h2>Sources, checked on 4 October 2026</h2><ul><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Introducing Contextual Retrieval\" (RAG definition, 200,000-token threshold), 19 September 2024</a></li></ul>"
     },

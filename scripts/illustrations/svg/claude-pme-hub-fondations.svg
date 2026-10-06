@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Prérequis : cinq grands blocs de fondation posés en ligne, deux personnes portent le sixième vers l espace vide, une charpente attend au-dessus. -->
+  <defs><g id="man"><circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/><path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/><rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/><rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/></g><g id="woman"><circle cx="0" cy="-90" r="7" fill="{{subject}}"/><circle cx="-5" cy="-96" r="5" fill="{{subject}}"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/><rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/><rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect x="0" y="470" width="1456" height="154" fill="{{ground}}"/>
+  <g fill="{{shape}}">
+    <rect x="260" y="410" width="120" height="60"/><rect x="390" y="410" width="120" height="60"/><rect x="520" y="410" width="120" height="60"/>
+    <rect x="780" y="410" width="120" height="60"/><rect x="910" y="410" width="120" height="60"/>
+  </g>
+  <g fill="{{pale}}"><rect x="260" y="410" width="120" height="8"/><rect x="390" y="410" width="120" height="8"/><rect x="520" y="410" width="120" height="8"/><rect x="780" y="410" width="120" height="8"/><rect x="910" y="410" width="120" height="8"/></g>
+  <g fill="none" stroke="{{subject}}" stroke-width="6" stroke-linejoin="round">
+    <path d="M270 410 L270 220 L1020 220 L1020 410"/>
+    <path d="M640 410 L640 220"/>
+    <path d="M270 320 L640 320"/><path d="M900 320 L1020 320"/>
+    <path d="M258 222 L645 92 L1032 222"/>
+    <path d="M455 158 L455 220"/><path d="M835 158 L835 220"/>
+  </g>
+  <g stroke="{{detail}}" stroke-width="3"><line x1="645" y1="96" x2="645" y2="300"/></g>
+  <path d="M637 300 L645 290 L653 300 L645 316 Z" fill="{{detail}}"/>
+  <rect x="290" y="398" width="60" height="12" fill="{{detail}}"/>
+  <use href="#man" transform="translate(668 470) scale(1.05)"/>
+  <use href="#woman" transform="translate(762 470) scale(1)"/>
+  <rect x="674" y="412" width="84" height="36" fill="{{shape}}"/>
+  <rect x="674" y="412" width="84" height="7" fill="{{pale}}"/>
+  <use href="#man" transform="translate(1180 560) scale(0.8)"/>
+</svg>

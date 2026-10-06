@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot EXIST · « trois niveaux, de l’usage au développement » : trois énormes blocs en escalier, une personne au pied, une sur le premier bloc, une au sommet qui regarde l’horizon. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="man-walk">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{light}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="man-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="man-walk-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="woman-l">
+      <circle cx="0" cy="-90" r="7" fill="{{light}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{light}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{light}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{light}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{light}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{light}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{light}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="490" width="1456" height="134" fill="{{ground}}"/>
+  <rect x="380" y="500" width="760" height="16" fill="{{shadow}}"/>
+  <path d="M1100 200 L1134 178 L1134 478 L1100 500 Z" fill="{{soft}}"/><path d="M820 200 L854 178 L1134 178 L1100 200 Z" fill="{{pale}}"/><rect x="820" y="200" width="280" height="300" fill="{{shape}}"/>
+  <path d="M820 300 L854 278 L854 478 L820 500 Z" fill="{{soft}}"/><path d="M600 300 L634 278 L854 278 L820 300 Z" fill="{{pale}}"/><rect x="600" y="300" width="220" height="200" fill="{{shape}}"/>
+  <path d="M600 388 L634 366 L634 478 L600 500 Z" fill="{{soft}}"/><path d="M430 388 L464 366 L634 366 L600 388 Z" fill="{{pale}}"/><rect x="430" y="388" width="170" height="112" fill="{{shape}}"/>
+  <g transform="translate(370 500) scale(1.3)"><rect x="-3" y="-78" width="6" height="38" rx="3" fill="{{subject}}" transform="rotate(8 0 -78)"/><rect x="-3" y="-78" width="6" height="38" rx="3" fill="{{subject}}" transform="rotate(-8 0 -78)"/><use href="#man"/></g>
+  <g transform="translate(512 380) scale(1.25)"><rect x="-3" y="-79" width="6" height="38" rx="3" fill="{{subject}}" transform="rotate(8 0 -79)"/><rect x="-3" y="-79" width="6" height="38" rx="3" fill="{{subject}}" transform="rotate(-8 0 -79)"/><use href="#woman"/></g>
+  <g transform="translate(980 190) scale(1.3)"><rect x="-3" y="-78" width="6" height="34" rx="3" fill="{{subject}}" transform="rotate(8 0 -78)"/><rect x="-3" y="-78" width="6" height="34" rx="3" fill="{{subject}}" transform="rotate(-100 0 -78)"/><use href="#man"/></g>
+
+</svg>

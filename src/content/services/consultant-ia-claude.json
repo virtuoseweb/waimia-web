@@ -6,14 +6,15 @@
   "description_en": "Independent AI consultant for SMBs: assessment, costed use cases, roadmap and usage rules. Then implementation by the same person.",
   "slug": "consultant-ia-claude",
   "publishedAt": "2026-06-22T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-05",
   "category": "pilotage",
   "tags": [
     "consultant-ia-claude",
     "conseil-ia",
     "cadrage-ia",
     "feuille-de-route-ia",
-    "gouvernance-ia"
+    "gouvernance-ia",
+    "consultant-claude"
   ],
   "seo": {
     "noindex": false,
@@ -31,6 +32,14 @@
       "a": "Le consultant aide à décider quoi faire et dans quel ordre. Le freelance réalise un chantier déjà défini. Waimia fait les deux : le cadrage est mené par la personne qui construira, ce qui évite les recommandations irréalisables."
     },
     {
+      "q": "Comment choisir un consultant IA ?",
+      "a": "Demandez trois choses. Un livrable d'une mission passée, même anonymisé. Qui construit après le conseil, et à quel prix. Ce qu'il vous déconseillerait de faire. Un consultant qui ne sait pas chiffrer la réalisation de ses recommandations, ou qui n'en écarte aucune, vous vendra une étude. La grille complète des questions est plus haut sur cette page."
+    },
+    {
+      "q": "Un consultant Claude, ça sert à quoi si on a déjà les licences ?",
+      "a": "À ce que les licences servent. Choisir l'offre et le nombre de sièges, régler la console d'administration (Cowork, exécution dans le cloud, connecteurs, plugins), décider des données autorisées, transformer les bonnes consignes en skills diffusés par plugin, former un référent. Sans ce travail, la plupart des comptes restent un chat de plus."
+    },
+    {
       "q": "Par où commencer un projet IA en PME ?",
       "a": "Par l'inventaire des tâches récurrentes d'une seule équipe, chiffrées en heures. On retient celle où le gain est le plus net et le risque le plus faible, on la met en production, on mesure, puis on passe à la suivante."
     },
@@ -41,6 +50,10 @@
     {
       "q": "Combien de temps dure une mission de conseil IA ?",
       "a": "Quelques jours pour un état des lieux sur une équipe, quelques semaines pour une feuille de route sur plusieurs services. La durée dépend surtout de la disponibilité des personnes à interroger."
+    },
+    {
+      "q": "Le conseil couvre-t-il le RGPD et l'AI Act ?",
+      "a": "Il couvre ce qu'une PME utilisatrice doit organiser : la charte d'usage, le recensement des traitements de données personnelles pour votre registre, la situation de vos usages au regard de l'AI Act, les réglages de l'outil choisi. Ce n'est pas un avis juridique : pour un contrat ou un traitement sensible, votre DPO ou votre avocat tranche."
     },
     {
       "q": "Intervenez-vous à distance ou sur site ?",
@@ -57,6 +70,14 @@
       "a": "The consultant helps decide what to do and in what order. The freelancer delivers a project already defined. Waimia does both: scoping is led by the person who will build, which avoids unbuildable recommendations."
     },
     {
+      "q": "How do you choose an AI consultant?",
+      "a": "Ask three things. A deliverable from a past engagement, even anonymised. Who builds after the advice, and at what price. What they would advise you not to do. A consultant who cannot cost the delivery of their recommendations, or who discards none, will sell you a study. The full list of questions is higher up on this page."
+    },
+    {
+      "q": "What is a Claude consultant for if we already have the licences?",
+      "a": "For making the licences pay off. Choosing the plan and seat count, configuring the admin console (Cowork, cloud execution, connectors, plugins), deciding permitted data, turning good instructions into skills rolled out by plugin, training a lead. Without this work, most accounts stay one more chat."
+    },
+    {
       "q": "Where should an SMB start an AI project?",
       "a": "With the inventory of one team's recurring tasks, costed in hours. Keep the one with the clearest gain and lowest risk, put it into production, measure, then move to the next."
     },
@@ -69,23 +90,30 @@
       "a": "A few days for an assessment of one team, a few weeks for a multi-department roadmap. It depends mostly on the availability of the people to interview."
     },
     {
+      "q": "Does the advice cover GDPR and the AI Act?",
+      "a": "It covers what a user SMB must organise: the usage policy, the list of personal data processing for your register, where your uses stand under the AI Act, the settings of the chosen tool. It is not legal advice: for a contract or sensitive processing, your DPO or lawyer decides."
+    },
+    {
       "q": "Do you work remotely or on site?",
       "a": "Both. Waimia is based in Bordeaux and works remotely for companies across France, with on-site visits possible in Bordeaux, Montpellier, Lyon and Paris."
     }
   ],
   "sections": [
     {
-      "type": "hero-masthead-card",
+      "type": "hero-split-media",
       "background": "paper",
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : enjeux dispersés, cadrage central, feuille de route priorisée",
-      "media_alt_en": "Diagram: scattered stakes, central framing, prioritised roadmap",
+      "illustration": {
+        "src": "/images/illustrations/ds/consultant-ia-claude-v2-carte-paper.webp",
+        "alt_fr": "Illustration : une grande carte dépliée au sol, une personne pointe un endroit précis, une autre plante un drapeau",
+        "alt_en": "Illustration: a large map unfolded on the ground, one person points at a precise spot, another plants a flag",
+        "side": "right"
+      },
       "kicker_fr": "§ Consultant IA",
       "kicker_en": "§ AI consultant",
       "h1_fr": "Consultant IA <i class=\"acc\">indépendant</i> pour PME",
       "h1_en": "<i class=\"acc\">Independent</i> AI consultant for SMEs",
-      "lede_fr": "Un consultant IA aide une direction à décider où l'intelligence artificielle vaut un investissement, dans quel ordre, et avec quelles règles. Waimia fait ce travail pour les PME et ETI de 10 à 250 personnes : un état des lieux, des cas d'usage chiffrés, une feuille de route. La particularité : celui qui conseille est l'ingénieur qui construit ensuite, Simon Beros.",
-      "lede_en": "An AI consultant helps management decide where artificial intelligence is worth an investment, in what order, and under which rules. Waimia does this for SMBs of 10 to 250 people: an assessment, costed use cases, a roadmap. The specificity: the adviser is the engineer who then builds, Simon Beros.",
+      "lede_fr": "Un consultant IA aide une direction à décider où l'intelligence artificielle vaut un investissement, dans quel ordre, et avec quelles règles. Sans ce travail, une PME paie des licences que personne n'ouvre, empile les outils proposés par chaque éditeur et laisse ses données partir sur des comptes personnels. Waimia fait ce travail pour les PME et ETI de 10 à 250 personnes : état des lieux, cas d'usage chiffrés, feuille de route. Celui qui conseille est l'ingénieur qui construit ensuite, Simon Beros.",
+      "lede_en": "An AI consultant helps management decide where artificial intelligence is worth investing, in what order, and under which rules. Without it, an SMB pays for licences nobody opens, stacks the tools each vendor pitches and lets its data leave on personal accounts. Waimia does this for SMBs of 10 to 250 people: assessment, costed use cases, roadmap. The person who advises is the engineer who then builds, Simon Beros.",
       "badges": [
         {
           "label_fr": "Indépendant",
@@ -104,8 +132,6 @@
           "label_en": "Advice and delivery"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
-      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -113,9 +139,9 @@
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Comment se passe l'audit",
-        "label_en": "How the audit works",
-        "href": "/audit-ia-pme",
+        "label_fr": "Recevoir le kit conformité Claude",
+        "label_en": "Get the Claude compliance kit",
+        "href": "#kit-conformite",
         "variant": "ghost"
       }
     },
@@ -199,8 +225,174 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce que fait un consultant IA, concrètement</h2>\n<p>Il passe du temps avec les personnes qui font le travail. Pour chaque équipe, il liste les tâches récurrentes, le temps qu'elles prennent, les outils utilisés et les données manipulées. Il écarte ce qui ne mérite pas d'investissement et retient quelques cas où le gain est estimable et la mise en œuvre réaliste. Il chiffre : temps gagné estimé, coût de construction, coût d'usage, risque.</p>\n<p>Le livrable tient en quelques pages : la liste priorisée, le premier chantier détaillé, les règles d'usage et ce qu'il ne faut pas faire. Vous pouvez mesurer votre point de départ avec le <a href=\"/ressources/diagnostics/maturite-ia\">diagnostic de maturité IA</a>.</p>\n<h2>Consultant, freelance ou cabinet de conseil IA</h2>\n<p>Un cabinet de conseil apporte une équipe et une méthode, à un prix calibré pour de grands comptes. Un freelance IA est le plus souvent un développeur qu'on mobilise sur une réalisation déjà décidée. Waimia est un studio d'une personne qui fait les deux : le cadrage, puis la construction. L'avantage est qu'aucune recommandation n'est faite sans savoir ce qu'elle coûte à réaliser. La limite est la capacité : un seul chantier majeur à la fois par client.</p>\n<h2>Les règles : RGPD et AI Act</h2>\n<p>La mission inclut une charte d'usage de l'IA : quelles données peuvent être soumises à un modèle, quels usages exigent une relecture humaine, qui décide d'un nouveau cas d'usage. On recense les traitements de données personnelles concernés pour votre registre RGPD et on situe vos usages au regard de l'AI Act.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour l'état des lieux, quelques semaines pour une feuille de route complète dans une entreprise de plusieurs services. Le sprint découverte de 10 heures couvre un périmètre restreint : une équipe, ses tâches, un premier chantier cadré.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La feuille de route qui reste dans un tiroir : chaque cas retenu a un responsable interne et une date. La liste trop longue : on retient trois chantiers au plus. La décision prise sans les équipes : elles sont interrogées dès le départ, parce que ce sont elles qui utiliseront l'outil.</p>\n<p>La suite logique est la mise en œuvre : <a href=\"/services/automatisations\">automatisation des processus</a>, <a href=\"/services/agents-ia\">agents IA</a> ou <a href=\"/services/integration-claude\">déploiement de Claude</a>. Pour un premier échange sans engagement, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> dure 45 minutes.</p>",
-      "html_en": "<h2>What an AI consultant does, concretely</h2>\n<p>They spend time with the people who do the work. For each team, they list recurring tasks, the time they take, the tools used and the data handled. They discard what does not deserve investment and keep a few cases where the gain can be estimated and delivery is realistic. They cost it: estimated time saved, build cost, usage cost, risk.</p>\n<p>The deliverable fits in a few pages: the prioritised list, the first project in detail, usage rules and what not to do. You can measure your starting point with the <a href=\"/ressources/diagnostics/maturite-ia\">AI maturity diagnostic</a>.</p>\n<h2>Consultant, freelancer or AI consulting firm</h2>\n<p>A consulting firm brings a team and a method, priced for large accounts. An AI freelancer is most often a developer brought in on a build already decided. Waimia is a one-person studio that does both: scoping, then building. The benefit is that no recommendation is made without knowing what it costs to build. The limit is capacity: one major project at a time per client.</p>\n<h2>The rules: GDPR and AI Act</h2>\n<p>The engagement includes an AI usage policy: which data may be submitted to a model, which uses require human review, who decides on a new use case. We list the personal data processing involved for your GDPR register and place your uses with regard to the AI Act.</p>\n<h2>How long</h2>\n<p>A few days for the assessment, a few weeks for a full roadmap in a multi-department company. The 10-hour discovery sprint covers a narrow scope: one team, its tasks, a first scoped project.</p>\n<h2>What can go wrong</h2>\n<p>A roadmap left in a drawer: every retained case has an internal owner and a date. Too long a list: we keep three projects at most. A decision made without the teams: they are interviewed from the start, because they will use the tool.</p>\n<p>The logical next step is delivery: <a href=\"/services/automatisations\">process automation</a>, <a href=\"/services/agents-ia\">AI agents</a> or <a href=\"/services/integration-claude\">Claude rollout</a>. For a first no-commitment conversation, the <a href=\"/audit-ia-pme\">free AI audit</a> lasts 45 minutes.</p>"
+      "html_fr": "<h2>Ce que fait un consultant IA, concrètement</h2>\n<p>Il passe du temps avec les personnes qui font le travail. Pour chaque équipe, il liste les tâches récurrentes, le temps qu'elles prennent, les outils utilisés et les données manipulées. Il écarte ce qui ne mérite pas d'investissement et retient quelques cas où le gain est estimable et la mise en œuvre réaliste. Il chiffre : temps gagné estimé, coût de construction, coût d'usage, risque.</p>\n<p>Le livrable tient en quelques pages : la liste priorisée, le premier chantier détaillé, les règles d'usage et ce qu'il ne faut pas faire. Vous pouvez mesurer votre point de départ avec le <a href=\"/ressources/diagnostics/maturite-ia\">diagnostic de maturité IA</a>, et repérer les candidats avec la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a>.</p>\n<h2>Consultant, freelance ou cabinet de conseil IA</h2>\n<p>Un cabinet de conseil apporte une équipe et une méthode, à un prix calibré pour de grands comptes. Un freelance IA est le plus souvent un développeur qu'on mobilise sur une réalisation déjà décidée. Waimia est un studio d'une personne qui fait les deux : le cadrage, puis la construction. L'avantage est qu'aucune recommandation n'est faite sans savoir ce qu'elle coûte à réaliser. La limite est la capacité : un seul chantier majeur à la fois par client.</p>\n<h2>Les règles : RGPD et AI Act</h2>\n<p>La mission inclut une charte d'usage de l'IA : quelles données peuvent être soumises à un modèle, quels usages exigent une relecture humaine, qui décide d'un nouveau cas d'usage. On recense les traitements de données personnelles concernés pour votre registre RGPD et on situe vos usages au regard de l'AI Act.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour l'état des lieux, quelques semaines pour une feuille de route complète dans une entreprise de plusieurs services. Le sprint découverte de 10 heures couvre un périmètre restreint : une équipe, ses tâches, un premier chantier cadré.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La feuille de route qui reste dans un tiroir : chaque cas retenu a un responsable interne et une date. La liste trop longue : on retient trois chantiers au plus. La décision prise sans les équipes : elles sont interrogées dès le départ, parce que ce sont elles qui utiliseront l'outil.</p>\n<p>La suite logique est la mise en œuvre : <a href=\"/services/automatisations\">automatisation des processus</a>, <a href=\"/services/agents-ia\">agents IA</a> ou <a href=\"/services/integration-claude\">déploiement de Claude</a>. Pour un premier échange sans engagement, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> dure 45 minutes.</p>",
+      "html_en": "<h2>What an AI consultant does, concretely</h2>\n<p>They spend time with the people who do the work. For each team, they list recurring tasks, the time they take, the tools used and the data handled. They discard what does not deserve investment and keep a few cases where the gain can be estimated and delivery is realistic. They cost it: estimated time saved, build cost, usage cost, risk.</p>\n<p>The deliverable fits in a few pages: the prioritised list, the first project in detail, usage rules and what not to do. You can measure your starting point with the <a href=\"/ressources/diagnostics/maturite-ia\">AI maturity diagnostic</a>, and spot candidates with the <a href=\"/ressources/outils/grille-taches-a-automatiser\">grid of tasks to automate</a>.</p>\n<h2>Consultant, freelancer or AI consulting firm</h2>\n<p>A consulting firm brings a team and a method, priced for large accounts. An AI freelancer is most often a developer brought in on a build already decided. Waimia is a one-person studio that does both: scoping, then building. The benefit is that no recommendation is made without knowing what it costs to build. The limit is capacity: one major project at a time per client.</p>\n<h2>The rules: GDPR and AI Act</h2>\n<p>The engagement includes an AI usage policy: which data may be submitted to a model, which uses require human review, who decides on a new use case. We list the personal data processing involved for your GDPR register and place your uses with regard to the AI Act.</p>\n<h2>How long</h2>\n<p>A few days for the assessment, a few weeks for a full roadmap in a multi-department company. The 10-hour discovery sprint covers a narrow scope: one team, its tasks, a first scoped project.</p>\n<h2>What can go wrong</h2>\n<p>A roadmap left in a drawer: every retained case has an internal owner and a date. Too long a list: we keep three projects at most. A decision made without the teams: they are interviewed from the start, because they will use the tool.</p>\n<p>The logical next step is delivery: <a href=\"/services/automatisations\">process automation</a>, <a href=\"/services/agents-ia\">AI agents</a> or <a href=\"/services/integration-claude\">Claude rollout</a>. For a first no-commitment conversation, the <a href=\"/audit-ia-pme\">free AI audit</a> lasts 45 minutes.</p>"
+    },
+    {
+      "type": "feature-zigzag",
+      "background": "paper",
+      "kicker_fr": "§ Les deux décisions",
+      "kicker_en": "§ The two decisions",
+      "h2_fr": "Ce que la mission tranche pour vous",
+      "h2_en": "What the engagement decides for you",
+      "rows": [
+        {
+          "kicker_fr": "Priorités",
+          "kicker_en": "Priorities",
+          "h3_fr": "Trois chantiers au plus, les autres écartés par écrit",
+          "h3_en": "Three projects at most, the others discarded in writing",
+          "body_fr": "La liste des idées est toujours trop longue. On chiffre chaque tâche en heures par mois, on estime le coût de construction et d'usage, on note le risque, et on garde ce qui passe les trois filtres. Ce qui est écarté l'est avec sa raison : c'est ce qui évite de rouvrir le débat dans six mois. Le premier chantier retenu sort avec un périmètre, un responsable et une date.",
+          "body_en": "The list of ideas is always too long. We cost each task in hours per month, estimate build and usage cost, note the risk, and keep what passes all three filters. What is discarded comes with its reason: that is what stops the debate reopening in six months. The first project kept leaves with a scope, an owner and a date.",
+          "points": [
+            {
+              "label_fr": "Gain estimé en heures par mois",
+              "label_en": "Estimated gain in hours per month"
+            },
+            {
+              "label_fr": "Coût de construction et coût d'usage",
+              "label_en": "Build cost and usage cost"
+            }
+          ],
+          "link_label_fr": "Estimer votre temps récupérable",
+          "link_label_en": "Estimate your recoverable time",
+          "link_href": "/ressources/outils/calculateur-roi-ia",
+          "media_src": "/images/illustrations/ds/consultant-ia-claude-v2-tamis-paper.webp",
+          "media_alt_fr": "Illustration : une personne secoue un grand tamis suspendu ; les petits cailloux tombent, trois grosses pierres restent",
+          "media_alt_en": "Illustration: a person shakes a large hanging sieve; small pebbles fall through, three big stones remain"
+        },
+        {
+          "kicker_fr": "Règles",
+          "kicker_en": "Rules",
+          "h3_fr": "Des garde-fous posés avant le premier compte",
+          "h3_en": "Guardrails set before the first account",
+          "body_fr": "Quelles données ne sortent jamais. Quels usages exigent une relecture humaine. Qui valide un nouveau connecteur ou un nouveau plugin. Comment on réagit si un outil se trompe devant un client. Ces règles tiennent sur une page, signée par la direction, et s'appuient sur les réglages réels de l'outil choisi, pas sur une charte générique.",
+          "body_en": "Which data never leaves. Which uses require human review. Who approves a new connector or plugin. How to react if a tool gets it wrong in front of a client. These rules fit on one page, signed by management, and rest on the actual settings of the chosen tool, not a generic policy.",
+          "points": [
+            {
+              "label_fr": "Charte d'une page, signée",
+              "label_en": "One-page policy, signed"
+            },
+            {
+              "label_fr": "Registre des usages à jour",
+              "label_en": "Up-to-date register of uses"
+            }
+          ],
+          "link_label_fr": "IA conforme en PME",
+          "link_label_en": "Compliant AI for SMBs",
+          "link_href": "/conformite-ia",
+          "media_src": "/images/illustrations/ds/consultant-ia-claude-v2-garde-corps-paper.webp",
+          "media_alt_fr": "Illustration : une personne monte un grand escalier en tenant la rambarde, une autre attend sur la plateforme",
+          "media_alt_en": "Illustration: a person climbs a tall staircase holding the railing, another waits on the platform above"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Consultant Claude : quand l'outil est déjà choisi</h2>\n<p>Beaucoup de PME arrivent avec la décision prise : ce sera Claude. La mission change alors de nature. Il ne s'agit plus de comparer des éditeurs, mais de faire en sorte que l'outil rapporte plus qu'il ne coûte. Cinq décisions reviennent à chaque fois.</p>\n<p><strong>L'offre et le nombre de sièges.</strong> Team Standard pour la plupart, quelques sièges Premium là où l'usage le justifie, Enterprise seulement si une exigence de conformité l'impose. Les prix et les pièges sont détaillés dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix de Claude</a>.</p>\n<p><strong>Les réglages d'administration.</strong> Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Dans une organisation Team, il est activé par défaut, et son exécution dans le cloud aussi. Ce sont des choix à faire consciemment, pas des valeurs à découvrir après coup : voir <a href=\"/ressources/guides/claude-cowork\">ce que la fusion de Cowork change</a>.</p>\n<p><strong>Les données.</strong> Les applications Claude stockent les données aux États-Unis par défaut ; une résidence européenne passe par l'API sur Amazon Bedrock ou Google Vertex. L'historique local des sessions Cowork échappe à la politique de rétention de l'organisation. Ces deux faits pèsent dans une analyse d'impact, et presque aucune page française n'en parle.</p>\n<p><strong>La diffusion du savoir-faire.</strong> Un skill chargé sur claude.ai est personnel par défaut ; sur Team et Enterprise, un propriétaire peut le provisionner pour toute l'organisation. Pour cibler un groupe ou livrer un ensemble cohérent, on passe par des <a href=\"/ressources/guides/claude-skills\">skills</a> regroupés dans des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> diffusés depuis une marketplace privée, avec quatre niveaux : installé par défaut, disponible, requis ou indisponible.</p>\n<p><strong>Les profils techniques.</strong> Si vous avez des développeurs, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> est inclus dans Team, et son coût à l'API se pilote : Anthropic observe environ 13 dollars par développeur et par jour actif en entreprise.</p>\n<h2>Partenaire certifié ou pas : ce qu'il faut regarder</h2>\n<p>Anthropic a lancé en mars 2026 le Claude Partner Network, avec une certification « Claude Certified Architect, Foundations » et un <a href=\"https://claude.com/marketplace/service-partners\" rel=\"nofollow noopener\" target=\"_blank\">annuaire de partenaires de services</a>. C'est un signal utile, pas une garantie. Waimia ne s'en prévaut pas sur ce site : jugez-nous, comme tout prestataire, sur des livrables, des réalisations publiées et la franchise des recommandations. Si votre besoin est d'abord le déploiement, la page <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a> décrit la mission ; si c'est la montée en compétence, la <a href=\"/formations/claude\">formation Claude</a>.</p>",
+      "html_en": "<h2>Claude consultant: when the tool is already chosen</h2>\n<p>Many SMBs arrive with the decision made: it will be Claude. The engagement then changes nature. It is no longer about comparing vendors, but making the tool earn more than it costs. Five decisions come up every time.</p>\n<p><strong>Plan and seat count.</strong> Team Standard for most, a few Premium seats where usage justifies it, Enterprise only if a compliance requirement demands it. Prices and traps are detailed in the guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and prices</a>.</p>\n<p><strong>Admin settings.</strong> Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). In a Team organisation, it is on by default, and so is cloud execution. These are choices to make deliberately, not defaults to discover later: see <a href=\"/ressources/guides/claude-cowork\">what the Cowork merger changes</a>.</p>\n<p><strong>Data.</strong> Claude apps store data in the United States by default; European residency goes through the API on Amazon Bedrock or Google Vertex. The local history of Cowork sessions sits outside the organisation's retention policy. Both facts weigh in an impact assessment, and almost no French page mentions them.</p>\n<p><strong>Spreading know-how.</strong> A skill uploaded on claude.ai is personal by default; on Team and Enterprise, an owner can provision it for the whole organisation. To target a group or ship a consistent set, you use <a href=\"/ressources/guides/claude-skills\">skills</a> bundled in <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> rolled out from a private marketplace, with four levels: installed by default, available, required or unavailable.</p>\n<p><strong>Technical profiles.</strong> If you have developers, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> is included in Team, and its API cost can be steered: Anthropic observes around $13 per developer per active day in companies.</p>\n<h2>Certified partner or not: what to look at</h2>\n<p>In March 2026 Anthropic launched the Claude Partner Network, with a \"Claude Certified Architect, Foundations\" certification and a <a href=\"https://claude.com/marketplace/service-partners\" rel=\"nofollow noopener\" target=\"_blank\">directory of service partners</a>. It is a useful signal, not a guarantee. Waimia does not claim it on this site: judge us, like any provider, on deliverables, published work and how frank the recommendations are. If your need is first the rollout, the page <a href=\"/services/integration-claude\">Claude integration in business</a> describes the engagement; if it is upskilling, the <a href=\"/formations/claude\">Claude training</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Choisir",
+      "kicker_en": "§ Choosing",
+      "heading_fr": "Six questions à poser à un consultant IA avant de signer",
+      "heading_en": "Six questions to ask an AI consultant before signing",
+      "caption_fr": "Grille de Waimia, valable pour nous comme pour un concurrent. Une mauvaise réponse à une seule question suffit à creuser.",
+      "caption_en": "Waimia's checklist, valid for us as for a competitor. One bad answer is enough to dig deeper.",
+      "columns_fr": [
+        "Question",
+        "Bonne réponse",
+        "Signal d'alerte"
+      ],
+      "columns_en": [
+        "Question",
+        "Good answer",
+        "Warning sign"
+      ],
+      "rows_fr": [
+        [
+          "Que vais-je recevoir, concrètement ?",
+          "Des documents courts : inventaire, feuille de route chiffrée, charte, cadrage du premier chantier",
+          "Un rapport de 80 pages ou un atelier « d'acculturation » sans livrable"
+        ],
+        [
+          "Qui réalise ensuite, et à quel prix ?",
+          "Un prix ou une méthode de chiffrage écrite, et le droit de confier la suite à un autre",
+          "Une réalisation imposée, ou un silence sur le coût"
+        ],
+        [
+          "Que me déconseillez-vous ?",
+          "Des usages écartés, avec leur raison",
+          "Tout est faisable, tout est prioritaire"
+        ],
+        [
+          "Quelles données vont sortir de chez nous ?",
+          "Une liste par usage, et les réglages de l'outil qui les protègent",
+          "« Les éditeurs sont conformes RGPD »"
+        ],
+        [
+          "Comment mesure-t-on que ça marche ?",
+          "Un indicateur par chantier, mesuré avant et après",
+          "Des gains en pourcentage sans point de départ"
+        ],
+        [
+          "Que se passe-t-il quand vous partez ?",
+          "Un référent interne formé, tout documenté, aucun abonnement obligatoire",
+          "Des accès ou des outils au nom du prestataire"
+        ]
+      ],
+      "rows_en": [
+        [
+          "What will I actually receive?",
+          "Short documents: inventory, costed roadmap, policy, scoping of the first project",
+          "An 80-page report or an \"awareness\" workshop with no deliverable"
+        ],
+        [
+          "Who delivers next, and at what price?",
+          "A price or a written costing method, and the right to hand the rest to someone else",
+          "Imposed delivery, or silence on cost"
+        ],
+        [
+          "What would you advise against?",
+          "Discarded uses, with their reason",
+          "Everything is feasible, everything is a priority"
+        ],
+        [
+          "Which data will leave our company?",
+          "A list per use, and the tool settings that protect it",
+          "\"The vendors are GDPR compliant\""
+        ],
+        [
+          "How do we measure that it works?",
+          "One indicator per project, measured before and after",
+          "Percentage gains with no baseline"
+        ],
+        [
+          "What happens when you leave?",
+          "A trained internal lead, everything documented, no mandatory subscription",
+          "Access or tools in the provider's name"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper-2",
+      "anchor": "kit-conformite",
+      "kicker_fr": "§ Kit conformité · PDF gratuit",
+      "kicker_en": "§ Compliance kit · free PDF",
+      "h2_fr": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
+      "h2_en": "Get the Claude compliance and administration kit (PDF, 11 pages)",
+      "body_fr": "Ce qu'on vérifie en début de mission, à faire vous-même : les réglages Team et Enterprise avec leur valeur par défaut, les points RGPD qui comptent vraiment (stockage, résidence, entraînement, historique local de Cowork), une trame d'analyse d'impact en huit questions, un modèle de politique d'usage d'une page, un registre des usages et douze questions à poser au fournisseur. Chaque fait sur Claude est sourcé et daté. Le fichier arrive par e-mail, en pièce jointe.",
+      "body_en": "What we check at the start of an engagement, to do yourself: Team and Enterprise settings with their default value, the GDPR points that really matter (storage, residency, training, local Cowork history), an eight-question impact assessment template, a one-page usage policy, a register of uses and twelve questions to ask the vendor. Every fact about Claude is sourced and dated. The file arrives by email, as an attachment.",
+      "submit_label_fr": "Recevoir le kit conformité →",
+      "submit_label_en": "Get the compliance kit →",
+      "hint_fr": "Pas un avis juridique. Un seul envoi : le PDF ; la lettre mensuelle seulement si vous cochez la case.",
+      "hint_en": "Not legal advice. One email: the PDF; the monthly newsletter only if you tick the box.",
+      "lead_magnet": "kit-conformite-claude-entreprise"
     },
     {
       "type": "comparison-duo",
@@ -329,6 +521,58 @@
       ]
     },
     {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Déroulé",
+      "kicker_en": "§ How it runs",
+      "h2_fr": "Comment se déroule une mission de conseil IA",
+      "h2_en": "How an AI consulting engagement runs",
+      "intro_fr": "Durées indicatives : elles dépendent surtout de la disponibilité des personnes à interroger.",
+      "intro_en": "Indicative durations: they depend mostly on the availability of the people to interview.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit",
+          "title_en": "Free audit",
+          "meta_fr": "45 minutes",
+          "meta_en": "45 minutes",
+          "body_fr": "Le contexte, les idées déjà sur la table, les données en jeu. On vous dit si une mission de conseil est utile, ou si vous pouvez passer directement à la réalisation.",
+          "body_en": "Context, ideas already on the table, data at stake. We tell you whether a consulting engagement is useful, or whether you can go straight to delivery."
+        },
+        {
+          "title_fr": "Entretiens par équipe",
+          "title_en": "Interviews per team",
+          "meta_fr": "Quelques jours",
+          "meta_en": "A few days",
+          "body_fr": "Les personnes qui font le travail : tâches récurrentes, temps passé, outils, données manipulées.",
+          "body_en": "The people who do the work: recurring tasks, time spent, tools, data handled."
+        },
+        {
+          "title_fr": "Chiffrage et tri",
+          "title_en": "Costing and sorting",
+          "meta_fr": "Sprint découverte",
+          "meta_en": "Discovery sprint",
+          "body_fr": "Gain estimé, coût de construction et d'usage, risque. Trois chantiers au plus, les autres écartés par écrit.",
+          "body_en": "Estimated gain, build and usage cost, risk. Three projects at most, the others discarded in writing."
+        },
+        {
+          "title_fr": "Règles et outil",
+          "title_en": "Rules and tool",
+          "meta_fr": "En parallèle",
+          "meta_en": "In parallel",
+          "body_fr": "Charte d'une page, réglages de l'outil choisi, registre des usages, plan de formation.",
+          "body_en": "One-page policy, settings of the chosen tool, register of uses, training plan."
+        },
+        {
+          "title_fr": "Décision",
+          "title_en": "Decision",
+          "meta_fr": "Restitution",
+          "meta_en": "Debrief",
+          "body_fr": "Vous repartez avec la feuille de route et le cadrage du premier chantier, réalisable par nous ou par un autre prestataire.",
+          "body_en": "You leave with the roadmap and the scoping of the first project, deliverable by us or another provider."
+        }
+      ]
+    },
+    {
       "type": "pricing-cards",
       "background": "paper",
       "layout": "grid-asym",
@@ -421,6 +665,18 @@
           "a_en": "The consultant helps decide what to do and in what order. The freelancer delivers a project already defined. Waimia does both: scoping is led by the person who will build, which avoids unbuildable recommendations."
         },
         {
+          "q_fr": "Comment choisir un consultant IA ?",
+          "a_fr": "Demandez trois choses. Un livrable d'une mission passée, même anonymisé. Qui construit après le conseil, et à quel prix. Ce qu'il vous déconseillerait de faire. Un consultant qui ne sait pas chiffrer la réalisation de ses recommandations, ou qui n'en écarte aucune, vous vendra une étude. La grille complète des questions est plus haut sur cette page.",
+          "q_en": "How do you choose an AI consultant?",
+          "a_en": "Ask three things. A deliverable from a past engagement, even anonymised. Who builds after the advice, and at what price. What they would advise you not to do. A consultant who cannot cost the delivery of their recommendations, or who discards none, will sell you a study. The full list of questions is higher up on this page."
+        },
+        {
+          "q_fr": "Un consultant Claude, ça sert à quoi si on a déjà les licences ?",
+          "a_fr": "À ce que les licences servent. Choisir l'offre et le nombre de sièges, régler la console d'administration (Cowork, exécution dans le cloud, connecteurs, plugins), décider des données autorisées, transformer les bonnes consignes en skills diffusés par plugin, former un référent. Sans ce travail, la plupart des comptes restent un chat de plus.",
+          "q_en": "What is a Claude consultant for if we already have the licences?",
+          "a_en": "For making the licences pay off. Choosing the plan and seat count, configuring the admin console (Cowork, cloud execution, connectors, plugins), deciding permitted data, turning good instructions into skills rolled out by plugin, training a lead. Without this work, most accounts stay one more chat."
+        },
+        {
           "q_fr": "Par où commencer un projet IA en PME ?",
           "a_fr": "Par l'inventaire des tâches récurrentes d'une seule équipe, chiffrées en heures. On retient celle où le gain est le plus net et le risque le plus faible, on la met en production, on mesure, puis on passe à la suivante.",
           "q_en": "Where should an SMB start an AI project?",
@@ -439,10 +695,51 @@
           "a_en": "A few days for an assessment of one team, a few weeks for a multi-department roadmap. It depends mostly on the availability of the people to interview."
         },
         {
+          "q_fr": "Le conseil couvre-t-il le RGPD et l'AI Act ?",
+          "a_fr": "Il couvre ce qu'une PME utilisatrice doit organiser : la charte d'usage, le recensement des traitements de données personnelles pour votre registre, la situation de vos usages au regard de l'AI Act, les réglages de l'outil choisi. Ce n'est pas un avis juridique : pour un contrat ou un traitement sensible, votre DPO ou votre avocat tranche.",
+          "q_en": "Does the advice cover GDPR and the AI Act?",
+          "a_en": "It covers what a user SMB must organise: the usage policy, the list of personal data processing for your register, where your uses stand under the AI Act, the settings of the chosen tool. It is not legal advice: for a contract or sensitive processing, your DPO or lawyer decides."
+        },
+        {
           "q_fr": "Intervenez-vous à distance ou sur site ?",
           "a_fr": "Les deux. Waimia est basé à Bordeaux et travaille à distance pour des entreprises partout en France, avec des déplacements possibles à Bordeaux, Montpellier, Lyon et Paris.",
           "q_en": "Do you work remotely or on site?",
           "a_en": "Both. Waimia is based in Bordeaux and works remotely for companies across France, with on-site visits possible in Bordeaux, Montpellier, Lyon and Paris."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Déployer Claude en PME",
+          "title_en": "Deploying Claude in an SMB",
+          "lead_fr": "Les prérequis, les premiers usages et les 90 premiers jours.",
+          "lead_en": "Prerequisites, first uses and the first 90 days.",
+          "href": "/ressources/guides/claude-pme"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégration de Claude",
+          "title_en": "Claude integration",
+          "lead_fr": "Offre, connecteurs, skills, charte et référent formé.",
+          "lead_en": "Plan, connectors, skills, policy and trained lead.",
+          "href": "/services/integration-claude"
+        },
+        {
+          "kicker_fr": "Outil gratuit",
+          "kicker_en": "Free tool",
+          "title_fr": "Diagnostic de maturité IA",
+          "title_en": "AI maturity diagnostic",
+          "lead_fr": "Mesurer votre point de départ en quelques minutes.",
+          "lead_en": "Measure your starting point in a few minutes.",
+          "href": "/ressources/diagnostics/maturite-ia"
         }
       ]
     },

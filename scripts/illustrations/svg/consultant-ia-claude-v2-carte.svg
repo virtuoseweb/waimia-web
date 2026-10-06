@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot EXIST · « décider quoi faire et dans quel ordre » : une immense carte dépliée au sol, une personne pointe un endroit, une autre tient un drapeau planté. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="man-walk">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{light}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="man-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="man-walk-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="woman-l">
+      <circle cx="0" cy="-90" r="7" fill="{{light}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{light}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{light}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{light}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{light}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{light}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{light}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="230" width="1456" height="394" fill="{{ground}}"/>
+  <rect y="226" width="1456" height="5" fill="{{mid}}"/>
+  <!-- carte en perspective -->
+  <path d="M430 290 L1030 290 L1300 590 L160 590 Z" fill="{{shadow}}" transform="translate(10 12)" opacity="0.35"/>
+  <path d="M430 290 L1030 290 L1300 590 L160 590 Z" fill="{{shape}}"/>
+  <g>
+    <path d="M430 290 L620 290 L600 380 L380 380 Z" fill="{{mid}}"/>
+    <path d="M760 290 L1030 290 L1090 356 L790 356 Z" fill="{{deep}}"/>
+    <path d="M380 380 L600 380 L560 470 L300 470 Z" fill="{{light}}"/>
+    <path d="M820 420 L1150 420 L1210 490 L850 490 Z" fill="{{mid}}"/>
+    <path d="M300 470 L470 470 L440 590 L160 590 Z" fill="{{deep}}"/>
+    <path d="M690 500 L960 500 L1000 590 L700 590 Z" fill="{{light}}"/>
+  </g>
+  <path d="M700 290 C 690 360, 760 400, 720 470 S 640 560, 660 590" fill="none" stroke="{{pale}}" stroke-width="12"/>
+  <g stroke="{{mid}}" stroke-width="3" fill="none"><path d="M730 290 L700 590"/><path d="M290 500 L1230 500"/><path d="M370 400 L1110 400"/></g>
+  <!-- point visé -->
+  <circle cx="900" cy="456" r="22" fill="none" stroke="{{shadow}}" stroke-width="6"/>
+  <circle cx="900" cy="456" r="7" fill="{{shadow}}"/>
+  <!-- drapeau planté -->
+  <rect x="604" y="380" width="5" height="96" fill="{{shadow}}"/>
+  <path d="M609 382 L652 396 L609 410 Z" fill="{{detail}}"/>
+  <g transform="translate(790 530) scale(1.5)"><rect x="-3" y="-78" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-60 0 -78)"/><rect x="-3" y="-78" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(6 0 -78)"/><use href="#man"/></g>
+  <g transform="translate(580 476) scale(1.3)"><rect x="-3" y="-79" width="6" height="30" rx="3" fill="{{subject}}" transform="rotate(-50 0 -79)"/><rect x="-3" y="-79" width="6" height="30" rx="3" fill="{{subject}}" transform="rotate(8 0 -79)"/><use href="#woman"/></g>
+
+</svg>

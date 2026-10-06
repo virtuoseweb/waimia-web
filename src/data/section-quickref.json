@@ -1193,10 +1193,6 @@
         "default": "CASE"
       },
       {
-        "name": "caseRefs",
-        "type": "array"
-      },
-      {
         "name": "cases",
         "type": "array",
         "constraint": "max:6"
@@ -1301,6 +1297,10 @@
     ],
     "optionalProps": [
       {
+        "name": "anchor_id",
+        "type": "string"
+      },
+      {
         "name": "background",
         "type": "enum",
         "constraint": "paper | paper-2 | paper-3 | ink"
@@ -1311,6 +1311,38 @@
       },
       {
         "name": "first_party_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "item_label_en",
+        "type": "string"
+      },
+      {
+        "name": "item_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
         "type": "string"
       },
       {
@@ -2599,7 +2631,7 @@
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
     "status": "stable",
-    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention.",
+    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention. Prop optionnelle `lead_magnet` (slug) : le fichier est livré par e-mail en pièce jointe.",
     "requiredProps": [
       {
         "name": "h2_en",
@@ -2643,6 +2675,10 @@
       },
       {
         "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lead_magnet",
         "type": "string"
       },
       {
@@ -4636,6 +4672,164 @@
     "demo": {
       "type": "eeat-panel",
       "variant": "media"
+    }
+  },
+  {
+    "type": "engagement-ledger",
+    "category": "marketing",
+    "categorySlug": "pricing-sections",
+    "subcategory": "Pricing Sections",
+    "status": "stable",
+    "description_fr": "Registre tarifaire : un parcours d’engagement lu ligne à ligne (repère d’étape, prestation, contenu, durée, prix aligné à droite, action). Ni cartes ni onglets : tout le parcours visible d’un regard, avec un bloc de lignes secondaires en retrait.",
+    "requiredProps": [
+      {
+        "name": "rows",
+        "type": "array",
+        "constraint": "min:2 max:8"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "aside",
+        "type": "array",
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "footnote_en",
+        "type": "string"
+      },
+      {
+        "name": "footnote_fr",
+        "type": "string"
+      },
+      {
+        "name": "h1_en",
+        "type": "string"
+      },
+      {
+        "name": "h1_fr",
+        "type": "string"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "lede_en",
+        "type": "string"
+      },
+      {
+        "name": "lede_fr",
+        "type": "string"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "engagement-ledger",
+      "rows": [
+        {
+          "step_fr": "Étape 1",
+          "step_en": "Step 1",
+          "name_fr": "Audit IA",
+          "name_en": "AI audit",
+          "body_fr": "Quarante-cinq minutes en visio avec Simon Beros, qui réalisera la mission. On passe vos processus en revue et on repère ce qui mérite d'être automatisé.",
+          "body_en": "Forty-five minutes on a call with Simon Beros, who will do the work. We review your processes and spot what is worth automating.",
+          "includes_fr": [
+            "Revue de vos processus et de vos outils",
+            "Trois automatisations rentables identifiées",
+            "Un avis net : faire, attendre ou ne pas faire"
+          ],
+          "includes_en": [
+            "Review of your processes and tools",
+            "Three profitable automations identified",
+            "A clear opinion: do it, wait, or don't"
+          ],
+          "duration_fr": "45 min, en visio",
+          "duration_en": "45 min, on a call",
+          "price_fr": "0 €",
+          "price_en": "0 €",
+          "price_note_fr": "Sans engagement",
+          "price_note_en": "No commitment",
+          "cta": {
+            "label_fr": "Réserver un audit",
+            "label_en": "Book an audit",
+            "href": "/contact?offer=audit-ia-pme&intent=audit"
+          },
+          "entry": true
+        },
+        {
+          "step_fr": "Étape 2",
+          "step_en": "Step 2",
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "body_fr": "Dix heures pour cadrer le premier chantier : périmètre, données, outils à brancher, risques. Vous repartez avec un premier livrable en main, pas avec un rapport qui dort.",
+          "body_en": "Ten hours to scope the first project: perimeter, data, tools to connect, risks. You leave with a first deliverable in hand, not a report that sleeps.",
+          "includes_fr": [
+            "Cartographie du processus visé",
+            "Premier livrable actionnable",
+            "Plan d'action et temps estimé pour la suite",
+            "Points RGPD et AI Act repérés"
+          ],
+          "includes_en": [
+            "Map of the target process",
+            "A first actionable deliverable",
+            "Action plan and time estimate for what follows",
+            "GDPR and AI Act points flagged"
+          ],
+          "duration_fr": "10 h",
+          "duration_en": "10 h",
+          "price_fr": "999 € HT",
+          "price_en": "999 € ex VAT",
+          "price_note_fr": "Prix fixe",
+          "price_note_en": "Fixed price",
+          "cta": {
+            "label_fr": "Lancer un sprint de cadrage",
+            "label_en": "Start a scoping sprint",
+            "href": "/contact?offer=sprint-cadrage"
+          }
+        },
+        {
+          "step_fr": "Étape 3",
+          "step_en": "Step 3",
+          "name_fr": "Pilote",
+          "name_en": "Pilot",
+          "body_fr": "Un premier système en production : une automatisation, un agent IA ou une application métier, branché à vos outils et mesuré sur vos données.",
+          "body_en": "A first system in production: an automation, an AI agent or a business application, connected to your tools and measured on your data.",
+          "includes_fr": [
+            "Le module qui rend le plus de temps, mis en production",
+            "Branché à vos outils via API ou MCP",
+            "Validation humaine et journal des actions",
+            "Code et workflows livrés chez vous"
+          ],
+          "includes_en": [
+            "The module that gives back the most time, in production",
+            "Connected to your tools through API or MCP",
+            "Human validation and action log",
+            "Code and workflows delivered to you"
+          ],
+          "price_fr": "Dès 2 000 € HT",
+          "price_en": "From 2,000 € ex VAT",
+          "price_note_fr": "4 000 € HT indicatif pour une application de 3 à 5 écrans avec un premier agent",
+          "price_note_en": "4,000 € ex VAT indicative for a 3-to-5-screen application with a first agent",
+          "cta": {
+            "label_fr": "Cadrer un pilote",
+            "label_en": "Scope a pilot",
+            "href": "/contact?offer=pilote"
+          }
+        }
+      ]
     }
   },
   {
@@ -6661,6 +6855,14 @@
         "name": "illustration",
         "type": "enum",
         "constraint": "left | right"
+      },
+      {
+        "name": "num_label_en",
+        "type": "string"
+      },
+      {
+        "name": "num_label_fr",
+        "type": "string"
       },
       {
         "name": "specs",
@@ -10891,10 +11093,6 @@
         "type": "string"
       },
       {
-        "name": "logoIds",
-        "type": "array"
-      },
-      {
         "name": "logos",
         "type": "array",
         "constraint": "min:4 max:24"
@@ -11155,6 +11353,63 @@
       "kicker_en": "§ Manifesto · Interlude",
       "text_fr": "On écrit en <span class=\"acc\">français</span>, on lit la documentation Stripe, on livre du code le mardi, on mesure le pipeline le vendredi. Pas de <i>théâtre</i>. Et chaque ligne de prod a un humain qui l&rsquo;a relue.",
       "text_en": "We write <span class=\"acc\">French</span>, we read Stripe docs, we ship code on Tuesdays, we measure pipeline on Fridays. No <i>theatre</i>. And every line in prod has a human who reviewed it."
+    }
+  },
+  {
+    "type": "market-cases",
+    "category": "marketing",
+    "categorySlug": "content-sections",
+    "subcategory": "Content Sections",
+    "status": "stable",
+    "description_fr": "Rubrique « Études de cas du marché » : cas réels documentés et réalisés par des tiers. Chaque fiche porte le libellé « Cas documenté, non réalisé par Waimia », la citation exacte du résultat, ses limites, le lien vers la source et la date de lecture. Registre froid (filet complémentaire, pointillés) distinct des preuves Waimia. Contenu global lu dans src/data/market-cases.ts.",
+    "requiredProps": [
+      {
+        "name": "groups",
+        "type": "array",
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "intro_en",
+        "type": "string"
+      },
+      {
+        "name": "intro_fr",
+        "type": "string"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "full | digest"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "market-cases",
+      "h2_fr": "Ce que d’autres ont fait, et ce que leurs sources en disent",
+      "h2_en": "What others did, and what their sources say",
+      "groups": [
+        {
+          "function": "support-sav"
+        }
+      ]
     }
   },
   {
@@ -16747,7 +17002,7 @@
           "role_en": "Ops · Documentation",
           "description_fr": "Transforme les missions clients en SOP, checklists et livrables transmissibles.",
           "description_en": "Turns client work into SOPs, checklists, and transferable deliverables.",
-          "href": "/equipe",
+          "href": "/agence",
           "count": 6
         },
         {
@@ -16756,7 +17011,7 @@
           "role_en": "Growth · Content",
           "description_fr": "Relie acquisition, CRM et contenus pour rendre les systèmes mesurables.",
           "description_en": "Connects acquisition, CRM, and content so systems can be measured.",
-          "href": "/equipe",
+          "href": "/agence",
           "count": 3
         }
       ]

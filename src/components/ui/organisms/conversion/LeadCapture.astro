@@ -1,8 +1,11 @@
 ---
-// Organism · LeadCapture · capture d'e-mail OPTIONNELLE d'une ressource (hors catalogue).
+import FormGuard from '../../atoms/FormGuard.astro';
+// Organism · LeadCapture · capture d'e-mail d'une ressource (hors catalogue).
 //
-// La valeur de la page reste accessible sans e-mail : ce bloc ne sert qu'à recevoir une
-// copie à garder. POST JSON vers /api/lead-magnet { email, slug, summary?, headline? }.
+// Deux modes. Par défaut (diagnostic, calculateur, grille) : e-mail FACULTATIF, la valeur de la
+// page reste accessible sans e-mail et ce bloc ne sert qu'à recevoir une copie à garder.
+// `required` (checklist, charte : PDF verrouillé) : e-mail OBLIGATOIRE pour obtenir le PDF, livré
+// en pièce jointe et jamais par un lien public ; la partie en ligne de la page reste utilisable. POST JSON vers /api/lead-magnet { email, slug, summary?, headline? }.
 //
 // Récupération des résultats de la page : avant l'envoi, le composant émet l'événement
 // `cv:collect` (bubbles) avec `detail = { slug, summary: [], headline: '' }`. L'outil de
@@ -28,6 +31,10 @@ interface Props {
   initiallyHidden?: boolean;
   /** Rend le bloc dans sa propre bande pleine largeur (pages outil). */
   band?: boolean;
+  /** Fichier verrouillé : e-mail obligatoire, livraison en pièce jointe (retire « facultatif »). */
+  required?: boolean;
+  /** Id d'ancre de la bande (lien « Recevoir le PDF » depuis le document). */
+  anchorId?: string;
 }
 const {
   slug,
@@ -36,21 +43,20 @@ const {
   buttonLabel = 'Envoyer la copie',
   initiallyHidden = false,
   band = false,
+  required = false,
+  anchorId,
 } = Astro.props as Props;
 const fid = `lc-${slug}`;
 ---
-<div class:list={[band && 'lc-band']}><div class:list={[band && 'wrap-wide']}>
-<div class="lc" data-lead-capture data-slug={slug} hidden={initiallyHidden}>
+<div id={anchorId} class:list={[band && 'lc-band']}><div class:list={[band && 'wrap-wide']}>
+<div class="lc" data-lead-capture data-slug={slug} data-required={required ? '1' : undefined} hidden={initiallyHidden}>
   <form class="lc-form" method="POST" action="/api/lead-magnet" novalidate data-lead-form>
     <div class="lc-text">
-      <p class="lc-title">{title} <span class="lc-opt">(facultatif)</span></p>
+      <p class="lc-title">{title} {!required && <span class="lc-opt">(facultatif)</span>}</p>
       <p class="cv-note" id={`${fid}-desc`}>{description}</p>
     </div>
     <div class="lc-row">
-      <div class="cv-hp" aria-hidden="true">
-        <label for={`${fid}-website`}>Ne pas remplir</label>
-        <input type="text" id={`${fid}-website`} name="website" tabindex="-1" autocomplete="off" />
-      </div>
+      <FormGuard />
       <input type="hidden" name="slug" value={slug} />
       <div class="cv-field lc-field">
         <label class="cv-label" for={`${fid}-email`}>Votre e-mail</label>
@@ -63,7 +69,7 @@ const fid = `lc-${slug}`;
       <input type="checkbox" name="newsletter" />
       <span>Recevoir aussi la lettre mensuelle de Waimia (un envoi par mois, désinscription en un clic).</span>
     </label>
-    <p class="cv-note lc-legal">Sans cette case, vous recevez un seul e-mail et votre adresse n'est ajoutée à aucune liste. <a href="/politique-confidentialite">Confidentialité</a>.</p>
+    <p class="cv-note lc-legal">{required ? "Le fichier est envoyé en pièce jointe, uniquement par e-mail : il n'existe pas de lien de téléchargement public. " : ''}Sans cette case, vous recevez un seul e-mail et votre adresse n'est ajoutée à aucune liste. Responsable du traitement : Waimia (VirtuoseWeb), pour vous envoyer ce que vous demandez. <a href="/politique-confidentialite">Confidentialité</a>.</p>
   </form>
   <p class="cv-status" data-kind="success" data-lead-success tabindex="-1" hidden></p>
 </div>
@@ -120,19 +126,23 @@ const fid = `lc-${slug}`;
             headline: detail.headline || undefined,
             newsletter: form.elements.newsletter.checked,
             website: form.elements.website.value,
+            _t: form.elements._t ? form.elements._t.value : '',
             lang: 'fr',
           }),
         });
         var data = await res.json().catch(function () { return {}; });
         if (res.ok && data.ok) {
           form.hidden = true;
-          ok.textContent = 'C\'est envoyé à ' + email + '. Si rien n\'arrive d\'ici quelques minutes, regardez dans les indésirables.';
+          ok.textContent = root.dataset.required
+            ? 'C\'est parti : le fichier arrive en pièce jointe à ' + email + '. Pensez à vérifier vos courriers indésirables si rien n\'arrive d\'ici quelques minutes.'
+            : 'C\'est envoyé à ' + email + '. Si rien n\'arrive d\'ici quelques minutes, regardez dans les indésirables.';
           ok.hidden = false;
           ok.focus();
           return;
         }
         if (data.code === 'invalid_email') fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr');
         else if (res.status === 429) fail('Trop de demandes en peu de temps. Réessayez dans quelques minutes.');
+        else if (data.code === 'resource_unavailable') fail('Ce fichier est momentanément indisponible. Écrivez à ' + mail + ', nous vous l\'envoyons.');
         else if (data.code === 'email_not_configured') fail('L\'envoi par e-mail est indisponible pour le moment : rien n\'a été envoyé. Tout reste consultable sur cette page, ou écrivez à ' + mail + '.');
         else fail('L\'e-mail n\'est pas parti (erreur ' + res.status + '). Réessayez, ou écrivez à ' + mail + '.');
         busy(false);

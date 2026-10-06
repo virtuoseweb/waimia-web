@@ -1,4 +1,5 @@
 ---
+import FormGuard from '../atoms/FormGuard.astro';
 import { langFromPath } from '../../../lib/i18n';
 
 interface Props {
@@ -25,8 +26,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     </>
   )}
   <form class="nl-form" novalidate data-nl-form>
-    {/* Honeypot anti-spam — invisible, ne doit pas être rempli par un humain */}
-    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only">
+    <FormGuard />
     <div class="nl-row">
       <label for={`nl-email-${variant}`} class="sr-only">Email</label>
       <input
@@ -197,6 +197,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
         email: email,
         lang: lang,
         website: honeypot ? honeypot.value : '',
+        _t: (form.querySelector('input[name="_t"]') || {}).value || '',
       };
 
       try {

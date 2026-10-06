@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · claude-skills · six exemples concrets : un établi, six outils simples suspendus, une femme en tend la main vers un -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="reacher">
+      <use href="#woman"/>
+      <rect x="-3" y="-120" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(40 0 -80)"/>
+    </g>
+    <g id="pointer">
+      <use href="#man"/>
+      <rect x="-3" y="-118" width="6" height="40" rx="3" fill="{{subject}}" transform="rotate(-38 0 -78)"/>
+    </g>
+    <g id="seated">
+      <circle cx="0" cy="-62" r="7" fill="{{subject}}"/>
+      <path d="M-10 -53 Q0 -57 10 -53 L11 -20 L-11 -20 Z" fill="{{subject}}"/>
+      <rect x="-11" y="-22" width="26" height="8" fill="{{subject}}"/>
+      <rect x="9" y="-22" width="7" height="22" fill="{{subject}}"/>
+      <rect x="-14" y="-16" width="4" height="16" fill="{{deep}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect x="260" y="80" width="936" height="230" fill="{{shape}}"/>
+  
+  <g transform="rotate(-28 338 190)"><rect x="330" y="150" width="14" height="110" fill="{{subject}}"/><path d="M300 132 L372 132 L380 158 L300 158 Z" fill="{{subject}}"/></g>
+  <rect x="470" y="120" width="26" height="150" fill="{{subject}}"/><g fill="{{light}}"><rect x="474" y="132" width="10" height="3"/><rect x="474" y="152" width="14" height="3"/><rect x="474" y="172" width="10" height="3"/><rect x="474" y="192" width="14" height="3"/><rect x="474" y="212" width="10" height="3"/><rect x="474" y="232" width="14" height="3"/></g>
+  <circle cx="606" cy="150" r="22" fill="none" stroke="{{subject}}" stroke-width="9"/><circle cx="646" cy="150" r="22" fill="none" stroke="{{subject}}" stroke-width="9"/><path d="M618 168 L700 270 L688 276 L612 176 Z M634 168 L560 270 L572 276 L640 176 Z" fill="{{subject}}"/>
+  <path d="M790 120 L800 120 L846 270 L834 272 Z M790 120 L800 120 L760 272 L748 270 Z" fill="{{subject}}"/><circle cx="795" cy="118" r="12" fill="{{subject}}"/>
+  <rect x="910" y="150" width="120" height="84" fill="{{subject}}"/><path d="M910 150 L970 196 L1030 150" stroke="{{light}}" stroke-width="5" fill="none"/>
+  <rect x="1090" y="186" width="70" height="40" rx="6" fill="{{subject}}"/><rect x="1114" y="130" width="22" height="58" fill="{{subject}}"/><rect x="1104" y="118" width="42" height="18" rx="8" fill="{{subject}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect x="230" y="372" width="996" height="22" fill="{{subject}}"/>
+  <rect x="262" y="394" width="18" height="106" fill="{{subject}}"/><rect x="1176" y="394" width="18" height="106" fill="{{subject}}"/>
+  <rect x="300" y="350" width="90" height="22" fill="{{light}}"/><rect x="320" y="340" width="70" height="10" fill="{{detail}}"/>
+  <rect x="560" y="356" width="130" height="16" fill="{{light}}"/>
+  <use href="#reacher" transform="translate(1290 500) scale(1.9)"/>
+
+</svg>

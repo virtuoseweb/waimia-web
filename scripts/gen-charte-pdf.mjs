@@ -3,7 +3,7 @@
 //
 // Source unique du texte : src/data/charte-ia-pme.ts → page
 // /ressources/outils/charte-ia-entreprise → feuille d'impression (@media print de
-// l'organism CharterDocument) → public/telechargements/charte-ia-pme-modele-waimia.pdf.
+// l'organism CharterDocument) → private/telechargements/charte-ia-pme-modele-waimia.pdf.
 // À relancer après toute modification du texte de la charte, puis committer le PDF.
 //
 // Usage :
@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 const args = process.argv.slice(2);
 const base = args.includes('--base') ? args[args.indexOf('--base') + 1] : 'http://localhost:4321';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const out = resolve(root, 'public/telechargements/charte-ia-pme-modele-waimia.pdf');
+const out = resolve(root, 'private/telechargements/charte-ia-pme-modele-waimia.pdf');
 mkdirSync(dirname(out), { recursive: true });
 
 const browser = await chromium.launch(

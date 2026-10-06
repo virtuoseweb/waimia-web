@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot EXIST · « transmettre au référent » : une rangée de jeunes arbres en pots, une personne arrose le dernier, une autre la regarde. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="man-walk">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{light}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="man-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="man-walk-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="woman-l">
+      <circle cx="0" cy="-90" r="7" fill="{{light}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{light}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{light}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{light}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{light}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{light}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{light}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1250" cy="430" r="160" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <g transform="translate(160 512) scale(1)"><path d="M-46 0 L46 0 L56 -80 L-56 -80 Z" fill="{{soft}}"/><rect x="-62" y="-92" width="124" height="14" fill="{{mid}}"/><rect x="-5" y="-170" width="10" height="80" fill="{{subject}}"/><circle cx="0" cy="-200" r="62" fill="{{subject}}"/></g><g transform="translate(350 512) scale(0.96)"><path d="M-46 0 L46 0 L56 -80 L-56 -80 Z" fill="{{soft}}"/><rect x="-62" y="-92" width="124" height="14" fill="{{mid}}"/><rect x="-5" y="-170" width="10" height="80" fill="{{subject}}"/><circle cx="0" cy="-200" r="62" fill="{{subject}}"/></g><g transform="translate(535 512) scale(0.92)"><path d="M-46 0 L46 0 L56 -80 L-56 -80 Z" fill="{{soft}}"/><rect x="-62" y="-92" width="124" height="14" fill="{{mid}}"/><rect x="-5" y="-170" width="10" height="80" fill="{{subject}}"/><circle cx="0" cy="-200" r="62" fill="{{subject}}"/></g><g transform="translate(715 512) scale(0.86)"><path d="M-46 0 L46 0 L56 -80 L-56 -80 Z" fill="{{soft}}"/><rect x="-62" y="-92" width="124" height="14" fill="{{mid}}"/><rect x="-5" y="-170" width="10" height="80" fill="{{subject}}"/><circle cx="0" cy="-200" r="62" fill="{{subject}}"/></g><g transform="translate(895 512) scale(0.66)"><path d="M-46 0 L46 0 L56 -80 L-56 -80 Z" fill="{{soft}}"/><rect x="-62" y="-92" width="124" height="14" fill="{{mid}}"/><rect x="-5" y="-170" width="10" height="80" fill="{{subject}}"/><circle cx="0" cy="-200" r="62" fill="{{subject}}"/></g>
+  <!-- arrosoir tenu à bout de bras, eau sur la terre du pot -->
+  <g fill="{{subject}}">
+    <path d="M962 410 L1000 410 L997 448 L965 448 Z"/>
+    <path d="M968 414 Q981 392 994 414" fill="none" stroke="{{subject}}" stroke-width="5"/>
+    <path d="M966 436 L930 414 L926 420 L964 446 Z"/>
+    <rect x="918" y="406" width="14" height="10" transform="rotate(32 925 411)"/>
+  </g>
+  <g stroke="{{deep}}" stroke-width="3" stroke-linecap="round">
+    <path d="M920 420 L914 444"/><path d="M926 424 L922 446"/><path d="M914 424 L906 444"/>
+  </g>
+  <g transform="translate(1030 512) scale(1.55)"><rect x="-3" y="-78" width="6" height="34" rx="3" fill="{{subject}}" transform="rotate(55 0 -78)"/><rect x="-3" y="-78" width="6" height="34" rx="3" fill="{{subject}}" transform="rotate(-10 0 -78)"/><use href="#man"/></g>
+  <g transform="translate(1190 512) scale(1.5)"><rect x="-3" y="-79" width="6" height="38" rx="3" fill="{{subject}}" transform="rotate(8 0 -79)"/><rect x="-3" y="-79" width="6" height="38" rx="3" fill="{{subject}}" transform="rotate(-8 0 -79)"/><use href="#woman"/></g>
+
+</svg>

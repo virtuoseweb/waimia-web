@@ -1,0 +1,207 @@
+---
+// Template · LeadMagnetLanding · page d'une ressource VERROUILLÉE (hors catalogue).
+//
+// Montre la promesse, le sommaire, un extrait court et une FAQ ; UN seul formulaire d'obtention
+// (e-mail obligatoire, case lettre facultative, mention RGPD) via l'organism LeadCapture en mode
+// `required` → POST /api/lead-magnet. Le fichier part en pièce jointe, uniquement par e-mail :
+// aucune URL de fichier dans le HTML, aucun `DownloadAction` dans le JSON-LD.
+// Données : src/data/lead-magnets/<slug>.ts (type LeadMagnetPage). Page : trois lignes.
+//   ---
+//   import LeadMagnetLanding from '../../../components/templates/LeadMagnetLanding.astro';
+//   import { data } from '../../../data/lead-magnets/<slug>';
+//   ---
+//   <LeadMagnetLanding data={data} />
+// Le site est monolingue FR : `lang` existe pour la forme des données (champs _fr/_en) ; le
+// formulaire (LeadCapture) est en français.
+import Base from '../../layouts/Base.astro';
+import MastheadBar from '../sections/MastheadBar.astro';
+import CtaFinal from '../sections/CtaFinal.astro';
+import ToolIntro from '../ui/organisms/conversion/ToolIntro.astro';
+import LeadCapture from '../ui/organisms/conversion/LeadCapture.astro';
+import { buildArticle } from '../../lib/seo/schema-builder';
+import { SITE } from '../../site.config';
+import { LEAD_MAGNETS, auditCtaFinal, type LeadMagnetSlug } from '../../data/conversion';
+import type { LeadMagnetPage } from '../../data/lead-magnets/types';
+
+interface Props {
+  data: LeadMagnetPage;
+  lang?: 'fr' | 'en';
+}
+const { data, lang = 'fr' } = Astro.props as Props;
+const fr = lang === 'fr';
+function pick<T>(a: T, b: T): T {
+  return fr ? a : b;
+}
+
+if (!Object.prototype.hasOwnProperty.call(LEAD_MAGNETS, data.slug)) {
+  throw new Error(`LeadMagnetLanding : slug « ${data.slug} » absent de LEAD_MAGNETS (src/data/conversion.ts).`);
+}
+const magnet = LEAD_MAGNETS[data.slug as LeadMagnetSlug];
+const url = `${SITE.url}${magnet.path}`;
+const title = pick(data.title_fr, data.title_en);
+const faq = pick(data.faq_fr, data.faq_en);
+const inside = pick(data.inside_fr, data.inside_en);
+const forWho = pick(data.forWho_fr, data.forWho_en);
+const strip = (h: string) => h.replace(/<[^>]+>/g, '');
+
+const articleLd = {
+  ...buildArticle({
+    headline: pick(data.seoTitle_fr, data.seoTitle_en),
+    description: pick(data.seoDescription_fr, data.seoDescription_en),
+    datePublished: data.publishedAt ?? '2026-10-05',
+    dateModified: data.updatedAt ?? data.publishedAt ?? '2026-10-05',
+    mainEntityOfPage: url,
+  }),
+  ...(data.relatedPages.length > 0 ? { relatedLink: data.relatedPages.map((p) => `${SITE.url}${p}`) } : {}),
+};
+const faqLd = faq.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: strip(f.a) } })),
+    }
+  : null;
+
+const cta = auditCtaFinal(
+  pick("Le fichier donne la méthode. L'audit choisit votre premier chantier.", 'The file gives the method. The audit picks your first project.'),
+  pick(
+    "45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et le cas d'usage par lequel commencer, écrit noir sur blanc.",
+    '45 minutes by video, free: your processes reviewed task by task, and the use case to start with, in writing.',
+  ),
+);
+---
+<Base
+  title={pick(data.seoTitle_fr, data.seoTitle_en)}
+  description={pick(data.seoDescription_fr, data.seoDescription_en)}
+  jsonLd={faqLd ? [articleLd, faqLd] : [articleLd]}
+  ogType="article"
+  showUpdated={false}
+>
+  <MastheadBar
+    lang={lang}
+    items={[
+      { label: pick('Accueil', 'Home'), href: '/' },
+      { label: pick('Ressources', 'Resources'), href: '/ressources' },
+      { label: pick('Outils', 'Tools'), href: '/ressources/outils' },
+      { label: title },
+    ]}
+  />
+  <ToolIntro
+    h1={title}
+    lede={pick(data.promise_fr, data.promise_en)}
+    facts={[
+      { label: 'Format', value: pick(data.format_fr, data.format_en) },
+      { label: 'E-mail', value: pick('Requis : le fichier arrive en pièce jointe', 'Required: the file arrives as an attachment') },
+      { label: pick('Mise à jour', 'Updated'), value: data.updatedAt ?? data.publishedAt ?? '2026-10-05' },
+    ]}
+  >
+    <a slot="actions" class="btn btn-primary" href="#recevoir-le-fichier">{pick('Recevoir par e-mail', 'Get it by email')}</a>
+  </ToolIntro>
+
+  <LeadCapture
+    band
+    required
+    anchorId="recevoir-le-fichier"
+    slug={data.slug as LeadMagnetSlug}
+    title={`Recevoir « ${title} » par e-mail`}
+    description={`${pick(data.format_fr, data.format_en)}, envoyé en pièce jointe. Il n'est pas disponible en téléchargement direct.`}
+    buttonLabel="Recevoir le fichier"
+  />
+
+  <section class="lml" aria-labelledby="lml-inside-h">
+    <div class="wrap-wide lml-in">
+      <div class="lml-col">
+        <h2 class="lml-h2" id="lml-inside-h">{pick('Ce que contient le fichier', 'What is inside')}</h2>
+        <ol class="lml-list">
+          {inside.map((it) => (
+            <li><strong>{it.title}</strong><span>{it.desc}</span></li>
+          ))}
+        </ol>
+      </div>
+      <div class="lml-col">
+        <h2 class="lml-h2">{pick('Pour qui', 'Who it is for')}</h2>
+        <ul class="lml-bullets">
+          {forWho.map((w) => <li>{w}</li>)}
+        </ul>
+        {data.illustration && (
+          <img
+            class="lml-illu"
+            src={data.illustration.src}
+            alt={pick(data.illustration.alt_fr, data.illustration.alt_en)}
+            width="1200"
+            height="514"
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="lml lml-extract" aria-labelledby="lml-extract-h">
+    <div class="wrap-wide lml-in lml-in--one">
+      <h2 class="lml-h2" id="lml-extract-h">{pick('Un extrait', 'An extract')}</h2>
+      <div class="lml-prose" set:html={pick(data.extract_fr, data.extract_en)} />
+      <p class="lml-note">{pick("Ceci n'est qu'un extrait : le fichier complet est envoyé par e-mail.", 'This is only an extract: the full file is sent by email.')}</p>
+    </div>
+  </section>
+
+  {faq.length > 0 && (
+    <section class="lml" aria-labelledby="lml-faq-h">
+      <div class="wrap-wide lml-in lml-in--one">
+        <h2 class="lml-h2" id="lml-faq-h">{pick('Questions fréquentes', 'Frequently asked questions')}</h2>
+        <div class="lml-faq">
+          {faq.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <div class="lml-prose" set:html={f.a} />
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CtaFinal data={cta} lang={lang} />
+</Base>
+
+<style>
+  .lml { padding: var(--space-7) 0; }
+  .lml-in { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+  .lml-in--one { grid-template-columns: minmax(0, 1fr); max-width: 78ch; }
+  .lml-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    font-weight: var(--fw-semibold);
+    margin: 0 0 var(--space-4);
+  }
+  .lml-list { list-style: none; counter-reset: lml; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .lml-list li {
+    counter-increment: lml;
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  .lml-list li::before { content: counter(lml, decimal-leading-zero); color: var(--muted); font-size: var(--text-small); }
+  .lml-list strong { font-weight: var(--fw-semibold); }
+  .lml-list span, .lml-bullets { font-size: var(--text-small); line-height: var(--leading-body); color: var(--ink-3); }
+  .lml-bullets { margin: 0 0 var(--space-5); padding-left: 1.1em; }
+  .lml-bullets li { margin-bottom: var(--space-2); }
+  .lml-illu { width: 100%; height: auto; display: block; }
+  .lml-extract { background: var(--paper-2); }
+  .lml-prose { font-size: var(--text-body); line-height: var(--leading-body); color: var(--ink); }
+  .lml-prose :global(p) { margin: 0 0 var(--space-3); }
+  .lml-note { font-size: var(--text-small); color: var(--muted); margin: var(--space-4) 0 0; }
+  .lml-faq { border-top: 1px solid var(--ink); }
+  .lml-faq details { border-bottom: 1px solid var(--hairline-strong); padding: var(--space-3) 0; }
+  .lml-faq summary { cursor: pointer; font-weight: var(--fw-semibold); }
+  .lml-faq summary:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  .lml-faq details > .lml-prose { margin-top: var(--space-3); }
+  @media (max-width: 900px) {
+    .lml { padding: var(--space-6) 0; }
+    .lml-in { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+  }
+</style>

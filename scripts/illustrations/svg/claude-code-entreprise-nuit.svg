@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · fallback Claude · « le travail continue sans vous » : la nuit, une seule fenêtre éclairée où l'on travaille encore, un employé rentre sous la lune. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="sitter">
+      <circle cx="0" cy="-62" r="7" fill="{{subject}}"/>
+      <path d="M-10 -53 Q0 -57 10 -53 L9 -22 L-9 -22 Z" fill="{{subject}}"/>
+      <path d="M8 -46 L26 -36 L24 -31 L6 -40 Z" fill="{{subject}}"/>
+      <rect x="-9" y="-24" width="30" height="8" fill="{{subject}}"/>
+      <rect x="15" y="-24" width="7" height="24" fill="{{subject}}"/>
+      <rect x="-12" y="-20" width="4" height="20" fill="{{subject}}"/>
+    </g>
+<g id="manD">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="womanD">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+    <g id="sitterD">
+      <circle cx="0" cy="-62" r="7" fill="{{shadow}}"/>
+      <path d="M-10 -53 Q0 -57 10 -53 L9 -22 L-9 -22 Z" fill="{{shadow}}"/>
+      <path d="M8 -46 L26 -36 L24 -31 L6 -40 Z" fill="{{shadow}}"/>
+      <rect x="-9" y="-24" width="30" height="8" fill="{{shadow}}"/>
+      <rect x="15" y="-24" width="7" height="24" fill="{{shadow}}"/>
+      <rect x="-12" y="-20" width="4" height="20" fill="{{shadow}}"/>
+    </g>
+
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1120" cy="190" r="120" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect x="300" y="250" width="300" height="250" fill="{{deep}}"/>
+  <rect x="300" y="236" width="300" height="16" fill="{{mid}}"/>
+  <g fill="{{shadow}}"><rect x="330" y="280" width="44" height="54"/><rect x="330" y="380" width="44" height="54"/><rect x="400" y="280" width="44" height="54"/><rect x="400" y="380" width="44" height="54"/><rect x="470" y="280" width="44" height="54"/><rect x="540" y="280" width="44" height="54"/><rect x="540" y="380" width="44" height="54"/></g>
+  <rect x="460" y="372" width="64" height="70" fill="{{subject}}"/>
+  <use href="#sitterD" transform="translate(484 440) scale(0.75)"/>
+  <path d="M600 500 L1456 470 L1456 488 L620 512 Z" fill="{{soft}}" opacity="0.35"/>
+  <use href="#man" transform="translate(1040 490) scale(0.7)"/>
+  <rect x="1046" y="456" width="14" height="10" fill="{{subject}}"/>
+  <rect x="1030" y="421" width="20" height="4" fill="{{subject}}"/>
+</svg>

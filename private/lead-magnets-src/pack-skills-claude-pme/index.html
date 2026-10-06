@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Pack de 8 skills Claude pour PME · mode d'emploi · Waimia</title>
+<style>
+  @font-face { font-family: "Instrument Serif"; src: url("../../../public/fonts/instrument-serif-regular.woff2") format("woff2"); font-style: normal; }
+  @font-face { font-family: "Instrument Serif"; src: url("../../../public/fonts/instrument-serif-italic.woff2") format("woff2"); font-style: italic; }
+  @font-face { font-family: "Inter Tight"; src: url("../../../public/fonts/inter-tight-regular.woff2") format("woff2"); font-style: normal; font-weight: 100 900; }
+  @font-face { font-family: "Inter Tight"; src: url("../../../public/fonts/inter-tight-italic.woff2") format("woff2"); font-style: italic; font-weight: 100 900; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../../../public/fonts/jetbrains-mono-regular.woff2") format("woff2"); }
+
+  :root {
+    --paper: #F6F1E8; --paper-2: #EFE9DD; --paper-3: #E6E0D0;
+    --ink: #0C0B09; --ink-2: #1A1814; --muted: #6B6560;
+    --accent: #C94F2E; --accent-sur-clair: #A83D20;
+    --rule: rgba(12, 11, 9, 0.14);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: "Inter Tight", system-ui, sans-serif; font-size: 10.2pt; line-height: 1.5; color: var(--ink); background: #fff; }
+  h1, h2, h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; line-height: 1.1; margin: 0; }
+  h1 { font-size: 40pt; letter-spacing: -0.01em; }
+  h2 { font-size: 24pt; margin-bottom: 10pt; }
+  h3 { font-size: 14.5pt; margin: 14pt 0 5pt; }
+  h1 i, h2 i { color: var(--accent); }
+  p { margin: 0 0 7pt; }
+  ul, ol { margin: 0 0 8pt; padding-left: 16pt; }
+  li { margin-bottom: 3pt; }
+  code, .mono { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.6pt; }
+  code { background: var(--paper-2); padding: 0 3pt; border-radius: 2pt; }
+  pre { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.2pt; line-height: 1.45; background: var(--ink); color: var(--paper); padding: 9pt 11pt; border-radius: 4pt; margin: 6pt 0 10pt; white-space: pre-wrap; break-inside: avoid; }
+  .kicker { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-sur-clair); margin-bottom: 6pt; }
+  .page { break-before: page; }
+  .lede { font-size: 11.5pt; color: var(--ink-2); max-width: 150mm; }
+  .muted { color: var(--muted); }
+  .rule { border-top: 1px solid var(--rule); margin: 12pt 0; }
+  figure { margin: 8pt 0 12pt; }
+  figure img { width: 100%; display: block; border-radius: 3pt; }
+  .box { background: var(--paper); border-left: 3pt solid var(--accent); padding: 8pt 11pt; margin: 8pt 0 10pt; break-inside: avoid; }
+  .box p:last-child, .box ul:last-child { margin-bottom: 0; }
+  .warn { background: var(--paper-2); border-left-color: var(--ink); }
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.2pt; break-inside: avoid; }
+  th { text-align: left; font-weight: 600; background: var(--paper-2); }
+  th, td { padding: 5pt 7pt; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; }
+  .skill { break-inside: avoid; border-top: 1px solid var(--rule); padding-top: 8pt; margin-top: 10pt; }
+  .skill h3 { margin-top: 0; }
+  .skill .file { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8pt; color: var(--muted); }
+  .check li { list-style: none; margin-left: -14pt; }
+  .check li::before { content: "\2610\00a0"; color: var(--accent); }
+
+  /* Couverture */
+  .cover { height: 258mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .brand { font-family: "JetBrains Mono", Menlo, monospace; font-size: 9pt; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cover .sub { font-size: 13pt; color: var(--ink-2); max-width: 150mm; margin-top: 12pt; }
+  .cover .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; font-size: 9pt; border-top: 1px solid var(--ink); padding-top: 8pt; }
+  .cover .meta b { display: block; font-family: "JetBrains Mono", Menlo, monospace; font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-sur-clair); font-weight: 400; }
+  .toc { list-style: none; padding: 0; counter-reset: toc; }
+  .toc li { display: flex; justify-content: space-between; border-bottom: 1px dotted var(--rule); padding: 2.5pt 0; font-size: 10pt; }
+  .toc li span:last-child { font-family: "JetBrains Mono", Menlo, monospace; font-size: 9pt; color: var(--muted); }
+  .end { background: var(--ink); color: var(--paper); padding: 22pt; border-radius: 6pt; margin-top: 14pt; }
+  .end h2 { color: var(--paper); }
+  .end a { color: #D96A47; }
+  a { color: var(--accent-sur-clair); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="cover">
+  <div class="brand">Waimia · Ressource PME</div>
+  <div>
+    <div class="kicker">Mode d'emploi · 8 skills prêts à adapter</div>
+    <h1>Pack de 8 skills Claude<br>pour <i>PME</i></h1>
+    <p class="sub">Installer, adapter à votre entreprise, tester, éviter les erreurs fréquentes et décider quand passer à un plugin d'équipe.</p>
+    <figure><img src="img/pack-skills-boite-paper.webp" alt="Une grande boîte à outils bleue ouverte, huit objets dans ses compartiments, une échelle et une petite silhouette"></figure>
+  </div>
+  <div class="meta">
+    <div><b>Contenu</b>8 skills, leurs fichiers à compléter et ce mode d'emploi</div>
+    <div><b>Pour qui</b>Dirigeants et responsables de PME qui utilisent déjà Claude</div>
+    <div><b>Version</b>5 octobre 2026. Les chemins d'installation ont été vérifiés ce jour-là dans la documentation d'Anthropic.</div>
+  </div>
+</section>
+
+<!-- 2. Sommaire et principe -->
+<section class="page">
+  <div class="kicker">Sommaire</div>
+  <ol class="toc">
+    <li><span>1. Ce qu'est un skill, en une page</span><span>p. 2</span></li>
+    <li><span>2. Installer sur claude.ai et dans Claude Code</span><span>p. 3</span></li>
+    <li><span>3. Adapter les 8 skills à votre entreprise</span><span>p. 5</span></li>
+    <li><span>4. Tester avant de s'en servir</span><span>p. 8</span></li>
+    <li><span>5. Les erreurs fréquentes</span><span>p. 9</span></li>
+    <li><span>6. Sécurité et données</span><span>p. 10</span></li>
+    <li><span>7. Aller plus loin : plugins et équipe</span><span>p. 11</span></li>
+  </ol>
+  <div class="rule"></div>
+  <div class="kicker">1 · Le principe</div>
+  <h2>Un skill, c'est une <i>procédure écrite</i> que Claude relit au bon moment</h2>
+  <p class="lede">Un skill est un dossier. Il contient un fichier <code>SKILL.md</code> (les instructions), et parfois des fichiers de référence : votre grille de prix, vos modèles de courrier, vos indicateurs. Claude ne lit pas tout en permanence.</p>
+  <table>
+    <tr><th>Niveau</th><th>Ce que Claude charge</th><th>Quand</th></tr>
+    <tr><td>1. Nom et description</td><td>Environ 100 tokens par skill, d'après Anthropic</td><td>Toujours : c'est ce qui lui permet de savoir que le skill existe</td></tr>
+    <tr><td>2. Corps du <code>SKILL.md</code></td><td>La procédure (Anthropic conseille moins de 5 000 tokens)</td><td>Quand votre demande correspond à la description</td></tr>
+    <tr><td>3. Fichiers du dossier</td><td>Grille, modèles, listes</td><td>Seulement si la procédure les cite et que la tâche en a besoin</td></tr>
+  </table>
+  <p style="font-size:9.6pt">Anthropic appelle ce fonctionnement la divulgation progressive. Conséquence pratique : <strong>la description décide de tout</strong>. Si elle est vague, le skill ne se déclenche pas ou se déclenche à tort. Les 8 descriptions du pack disent ce que fait le skill et quand l'utiliser ; si vous les modifiez, gardez cette forme.</p>
+  <h3 style="margin-top:8pt">Anatomie d'un SKILL.md du pack</h3>
+<pre>---
+name: relance-facture-impayee
+description: Rédige la relance adaptée à une facture impayée selon son
+  retard (rappel courtois, relance ferme, mise en demeure à valider).
+  À utiliser pour relancer un client, un retard de paiement ou un impayé.
+---
+# Relance de facture impayée
+Tu rédiges des brouillons. Une personne vérifie et envoie.
+## Informations à réunir ...</pre>
+</section>
+
+<!-- 3. Installer -->
+<section class="page">
+  <div class="kicker">2 · Installer</div>
+  <h2>Installer sur <i>chaque surface</i> que vous utilisez</h2>
+  <p class="lede">Les skills ne se synchronisent pas entre claude.ai, Claude Code et l'API : un skill téléversé sur claude.ai n'apparaît pas dans Claude Code, et l'inverse. Installez-les là où vos équipes travaillent.</p>
+
+  <h3>Sur claude.ai (web, application de bureau, mobile)</h3>
+  <ol>
+    <li><strong>Activer l'exécution de code.</strong> Sur Free, Pro et Max : Paramètres &gt; Capacités, option « Exécution de code et création de fichiers ». Sur Team et Enterprise, un propriétaire de l'organisation active l'exécution de code et les Skills dans Paramètres de l'organisation &gt; Plugins &amp; skills, onglet « Policy ».</li>
+    <li><strong>Ouvrir</strong> Personnaliser &gt; Skills (« Customize &gt; Skills » dans l'interface anglaise).</li>
+    <li><strong>Ajouter</strong> : bouton « + », puis « Create skill », puis « Upload a skill ».</li>
+    <li><strong>Choisir un zip</strong> du dossier <code>pour-claude-ai/</code>. Un zip par skill.</li>
+    <li><strong>Vérifier</strong> que le skill est activé dans la liste, puis faire les tests du chapitre 4.</li>
+  </ol>
+  <div class="box warn">
+    <p><strong>Le zip doit avoir la bonne forme.</strong> Il contient le dossier du skill à sa racine, et ce dossier porte le nom du skill : <code>devis-commercial.zip</code> contient <code>devis-commercial/SKILL.md</code>. Un zip qui contient directement <code>SKILL.md</code>, sans dossier, est refusé. Après avoir modifié un dossier, refaites le zip : sur Mac, clic droit sur le dossier &gt; Compresser ; sur Windows, clic droit &gt; Envoyer vers &gt; Dossier compressé.</p>
+  </div>
+  <p class="muted">Ces chemins viennent du centre d'aide d'Anthropic, lu le 5 octobre 2026. L'interface change souvent : si un libellé a bougé, cherchez « Skills » dans les réglages.</p>
+
+  <h3>Qui voit le skill sur claude.ai</h3>
+  <p>Par défaut, un skill téléversé est <strong>personnel</strong> : vos collègues ne le voient pas. Sur Team et Enterprise, le centre d'aide décrit deux voies de partage : un propriétaire peut mettre un skill à disposition de toute l'organisation, et chaque membre peut partager le sien si le réglage « Skill sharing » est actif. La documentation développeurs d'Anthropic dit encore l'inverse, mais elle cite aussi un ancien chemin de menu ; la page tarifs d'Anthropic confirme le déploiement de skills à l'échelle de l'organisation sur Team et Enterprise. Le partage entre membres dépend d'un réglage du propriétaire : vérifiez-le.</p>
+</section>
+
+<section class="page">
+  <h3>Dans Claude Code</h3>
+  <p>Claude Code lit les skills sur le disque, sans téléversement. Copiez le <strong>dossier</strong> du skill (pas le zip) :</p>
+  <table>
+    <tr><th>Emplacement</th><th>Portée</th></tr>
+    <tr><td><code>~/.claude/skills/&lt;nom&gt;/</code></td><td>Vous, dans tous vos projets sur cette machine</td></tr>
+    <tr><td><code>.claude/skills/&lt;nom&gt;/</code> dans un projet</td><td>Toutes les personnes qui travaillent sur ce projet, si le dossier est versionné avec lui</td></tr>
+    <tr><td>Dans un plugin, <code>skills/&lt;nom&gt;/</code></td><td>Partout où le plugin est activé (voir chapitre 7)</td></tr>
+  </table>
+<pre>mkdir -p ~/.claude/skills
+cp -R skills/devis-commercial ~/.claude/skills/
+cp -R skills/compte-rendu-reunion ~/.claude/skills/</pre>
+  <p>Claude Code utilise le skill quand la demande correspond à la description, ou quand vous tapez son nom précédé d'une barre oblique : <code>/devis-commercial</code>.</p>
+  <p>Différence à connaître : les skills de documents fournis par Anthropic (Word, Excel, PowerPoint, PDF) existent sur claude.ai et dans l'API, pas dans Claude Code. Les skills du pack qui proposent de produire un fichier Word ou Excel le feront pleinement sur claude.ai ; dans Claude Code, Claude produira le contenu sous une autre forme.</p>
+
+  <h3>Par l'API</h3>
+  <p>Pour un développeur : les skills se téléversent par les points d'accès <code>/v1/skills</code> et s'utilisent avec l'outil d'exécution de code. Ils sont alors partagés à tout l'espace de travail API. Dans ce cas, l'environnement n'a pas d'accès réseau : le skill <code>veille-concurrentielle</code> y fonctionnera seulement sur des documents fournis.</p>
+
+  <div class="box">
+    <p><strong>Par où commencer.</strong> Installez d'abord un seul skill, celui qui vous fait gagner le plus de temps cette semaine. Adaptez-le, testez-le, utilisez-le dix fois. Puis passez au suivant. Huit skills installés et jamais adaptés font moins qu'un seul bien réglé.</p>
+  </div>
+</section>
+
+<!-- 4. Adapter -->
+<section class="page">
+  <div class="kicker">3 · Adapter</div>
+  <h2>Ce qu'il faut changer dans <i>chaque skill</i></h2>
+  <p class="lede">Un skill générique produit un résultat générique. Ce qui le rend utile, ce sont vos prix, vos modèles, vos indicateurs, vos mots. Comptez 15 à 45 minutes par skill pour la première adaptation : c'est une estimation de notre part, elle dépend de ce que vous avez déjà écrit.</p>
+  <figure style="max-height:62mm;overflow:hidden"><img src="img/pack-skills-ajustement-paper.webp" alt="Un tailleur à lunettes rondes ajuste une veste sur un mannequin, une bobine de fil géante à côté de lui"></figure>
+  <p>Six skills ont un fichier compagnon qui contient des champs <code>[À COMPLÉTER]</code>. Tant qu'un champ reste vide, la procédure demande à Claude de le signaler au lieu d'inventer. Les deux autres (compte rendu, fiche de poste) s'utilisent tels quels et s'améliorent si vous y ajoutez vos modèles maison.</p>
+
+  <div class="skill">
+    <h3>1. devis-commercial</h3>
+    <div class="file">À compléter : grille-tarifaire.md, modele-devis.md</div>
+    <p><strong>Ce qu'il fait.</strong> Lit une demande en texte libre (e-mail, formulaire, notes d'appel), pose les questions qui manquent, rapproche chaque ligne de votre grille, calcule les totaux et rend un brouillon marqué « à valider », plus une note interne.</p>
+    <p><strong>À adapter.</strong> Votre grille : codes, unités, prix HT, remises autorisées sans validation, minimum de commande, frais de déplacement. Vos mentions et conditions (faites relire les mentions légales par votre expert-comptable). La mise en page du modèle si vous avez déjà un devis type.</p>
+    <p><strong>Point de vigilance.</strong> Une prestation absente de la grille sort en « HORS GRILLE » : c'est voulu. Ne demandez pas à Claude de « trouver un prix » : enrichissez la grille.</p>
+  </div>
+
+  <div class="skill">
+    <h3>2. compte-rendu-reunion</h3>
+    <div class="file">Aucun fichier obligatoire</div>
+    <p><strong>Ce qu'il fait.</strong> Transforme des notes ou une transcription en compte rendu : sujets, décisions, tableau des actions (responsable, échéance), points ouverts, et une liste « à vérifier avant diffusion ».</p>
+    <p><strong>À adapter.</strong> Si vous avez des formats maison (comité de direction, réunion de chantier, point client), ajoutez-les dans le <code>SKILL.md</code> sous une rubrique « Modèles maison », un bloc par type de réunion.</p>
+    <p><strong>Point de vigilance.</strong> Une transcription contient des propos de personnes qui ne savent pas forcément qu'ils sont traités par une IA : prévenez les participants, et évitez d'y faire passer des sujets RH individuels.</p>
+  </div>
+</section>
+
+<section>
+  <div class="skill">
+    <h3>3. relance-facture-impayee</h3>
+    <div class="file">À compléter : modeles-relance.md</div>
+    <p><strong>Ce qu'il fait.</strong> Choisit le niveau de relance selon le retard (rappel, relance ferme, mise en demeure), rédige le brouillon et liste ce qu'il faut vérifier avant l'envoi. S'arrête si un litige est signalé.</p>
+    <p><strong>À adapter.</strong> Vos seuils de jours, vos signataires, vos coordonnées de paiement, et surtout les pénalités et l'indemnité de recouvrement telles qu'elles figurent dans vos CGV. Le skill reprend vos montants, il n'en calcule pas d'autres.</p>
+    <p><strong>Point de vigilance.</strong> Le niveau 3 est un courrier formel : faites relire le modèle une fois par votre expert-comptable ou votre avocat, puis gardez la validation de la direction avant chaque envoi.</p>
+  </div>
+
+  <div class="skill">
+    <h3>4. fiche-de-poste</h3>
+    <div class="file">Aucun fichier obligatoire</div>
+    <p><strong>Ce qu'il fait.</strong> Pose les sept questions d'un recrutement, puis rédige la fiche de poste interne et, si demandé, l'offre publique (250 à 400 mots), en écartant les critères discriminatoires.</p>
+    <p><strong>À adapter.</strong> Ajoutez à la fin du <code>SKILL.md</code> trois lignes sur votre entreprise (activité, taille, ce que vous offrez) pour éviter de les retaper, et votre convention collective si elle fixe des intitulés.</p>
+    <p><strong>Point de vigilance.</strong> Le skill refuse « jeune et dynamique » et les critères du même ordre. Si un responsable insiste, c'est une conversation à avoir avec lui, pas un réglage à changer.</p>
+  </div>
+
+  <div class="skill">
+    <h3>5. veille-concurrentielle</h3>
+    <div class="file">À compléter : concurrents.md</div>
+    <p><strong>Ce qu'il fait.</strong> Produit une note où chaque fait porte sa source et sa date, sépare faits et interprétation, et termine par trois questions à trancher.</p>
+    <p><strong>À adapter.</strong> La liste de vos concurrents, leurs sites, les sujets qui comptent pour vous et la fréquence. Plus la liste des sujets est précise, plus la note est courte et utile.</p>
+    <p><strong>Point de vigilance.</strong> Le skill a besoin de la recherche web pour aller chercher l'information ; sans elle, il travaille sur les documents que vous lui donnez et le dit. Il ne collecte pas de données personnelles sur les salariés des concurrents.</p>
+  </div>
+</section>
+
+<section>
+  <div class="skill">
+    <h3>6. rapport-mensuel-pilotage</h3>
+    <div class="file">À compléter : indicateurs.md</div>
+    <p><strong>Ce qu'il fait.</strong> Inventorie vos exports, signale les trous et les doublons, calcule chaque indicateur par code, compare au mois précédent et à l'objectif, commente trois écarts et propose des décisions.</p>
+    <p><strong>À adapter.</strong> La définition exacte de chaque indicateur, sa source (quel export, quelle colonne) et son objectif. C'est le travail le plus long du pack, et le plus rentable : deux personnes doivent obtenir le même chiffre en lisant la définition.</p>
+    <p><strong>Point de vigilance.</strong> Gardez les mêmes définitions d'un mois sur l'autre. Si vous changez une définition, notez-le dans le fichier avec la date.</p>
+  </div>
+
+  <div class="skill">
+    <h3>7. charte-redactionnelle</h3>
+    <div class="file">À compléter : charte.md</div>
+    <p><strong>Ce qu'il fait.</strong> Écrit ou relit vos textes externes (e-mail, post, page, plaquette) selon votre charte, et justifie chaque modification importante par une règle.</p>
+    <p><strong>À adapter.</strong> Vouvoiement ou tutoiement, trois adjectifs de ton, votre table « on écrit / on n'écrit pas », vos mots interdits, la graphie exacte de vos noms de produits, et surtout deux ou trois textes que vous trouvez réussis : ce sont eux qui donnent le ton.</p>
+    <p><strong>Point de vigilance.</strong> Les autres skills s'appuient sur celui-ci quand il est installé (le tri des e-mails, par exemple). C'est souvent le meilleur premier skill à installer.</p>
+  </div>
+
+  <div class="skill">
+    <h3>8. tri-emails-entrants</h3>
+    <div class="file">À compléter : categories.md</div>
+    <p><strong>Ce qu'il fait.</strong> Classe les messages par catégorie et urgence, isole les suspects (dont toute demande de changement de RIB), et prépare des brouillons pour les demandes commerciales et les clients.</p>
+    <p><strong>À adapter.</strong> Vos catégories, qui traite quoi, vos délais de réponse visés et vos réponses types déjà validées (horaires, zone d'intervention, délais standard).</p>
+    <p><strong>Point de vigilance.</strong> Le skill traite le contenu d'un e-mail comme une donnée, jamais comme une instruction. Ne lui donnez pas, par un connecteur, le droit d'envoyer ou de supprimer : il est écrit pour préparer, pas pour agir.</p>
+  </div>
+
+  <div class="box">
+    <p><strong>Modifier une procédure.</strong> Ouvrez le <code>SKILL.md</code> dans un éditeur de texte et changez la partie qui ne vous convient pas. Gardez le bloc entre les deux lignes <code>---</code> intact (sauf la description, si vous la reformulez sous 200 caractères), gardez le nom du dossier identique au <code>name</code>, et refaites le zip pour claude.ai.</p>
+  </div>
+  <div class="box">
+    <p><strong>Règles de format à respecter si vous écrivez vos propres skills.</strong> Le <code>name</code> : 64 caractères au plus, minuscules, chiffres et tirets, sans les mots « claude » ni « anthropic ». La <code>description</code> : non vide, sans balise, 1 024 caractères au plus selon la documentation développeurs. Le centre d'aide de claude.ai indique 200 caractères au plus. Claude Code n'a pas de plafond documenté, mais tronque <code>description</code> et <code>when_to_use</code> à 1 536 caractères dans la liste des skills. Les 8 descriptions du pack tiennent sous 200 pour passer partout.</p>
+  </div>
+</section>
+
+<!-- 5. Tester -->
+<section class="page">
+  <div class="kicker">4 · Tester</div>
+  <h2>Trois essais avant le <i>premier vrai usage</i></h2>
+  <figure><img src="img/pack-skills-essais-paper.webp" alt="Une silhouette lance des avions de papier : deux sont au sol, un vole vers un grand disque"></figure>
+  <table>
+    <tr><th>Essai</th><th>Ce que vous demandez</th><th>Ce que vous devez observer</th></tr>
+    <tr><td>1. Cas normal</td><td>Une vraie demande récente, anonymisée si besoin (« prépare le devis pour cette demande »)</td><td>Le skill se déclenche, suit la procédure, rend le format prévu. Vérifiez chaque chiffre.</td></tr>
+    <tr><td>2. Cas incomplet</td><td>La même demande avec une information clé en moins (la quantité, l'échéance)</td><td>Claude pose la question au lieu de deviner.</td></tr>
+    <tr><td>3. Cas hors sujet</td><td>Une demande voisine qui ne relève pas du skill (« résume cet article »)</td><td>Le skill ne se déclenche pas.</td></tr>
+  </table>
+  <p>Si le skill ne se déclenche pas à l'essai 1, la description ne contient pas les mots que vous utilisez : ajoutez-les (« chiffrage », « proposition », « estimation »). S'il se déclenche à l'essai 3, la description est trop large : resserrez-la.</p>
+  <p>Gardez vos trois essais dans un document. Après chaque modification du skill, rejouez-les : c'est votre test de non-régression, sans outil particulier.</p>
+  <h3>Grille de recette, à cocher par skill</h3>
+  <ul class="check">
+    <li>Les trois essais donnent le résultat attendu.</li>
+    <li>Aucun chiffre, prix, nom ou date inventé dans les sorties.</li>
+    <li>Les fichiers compagnons ne contiennent plus de <code>[À COMPLÉTER]</code>.</li>
+    <li>Une deuxième personne de l'équipe a fait l'essai 1 et obtient un résultat équivalent.</li>
+    <li>La personne qui valide les sorties (devis, relances, offres) est désignée.</li>
+  </ul>
+</section>
+
+<!-- 6. Erreurs -->
+<section class="page">
+  <div class="kicker">5 · Erreurs fréquentes</div>
+  <h2>Ce qui fait <i>échouer</i> un skill</h2>
+  <table>
+    <tr><th>Symptôme</th><th>Cause probable</th><th>Correction</th></tr>
+    <tr><td>Le téléversement est refusé sur claude.ai</td><td>Zip sans dossier racine, dossier renommé, description trop longue ou contenant un caractère invalide</td><td>Refaire le zip depuis le dossier ; vérifier que le dossier porte exactement le <code>name</code></td></tr>
+    <tr><td>Le skill n'est jamais utilisé</td><td>Description vague, ou exécution de code désactivée</td><td>Reformuler la description avec vos mots ; vérifier le réglage Capacités</td></tr>
+    <tr><td>Le skill se déclenche à tort</td><td>Description trop large (« aide à rédiger »)</td><td>Nommer le document produit et les situations précises</td></tr>
+    <tr><td>Claude invente un prix ou un taux</td><td>Fichier compagnon resté incomplet</td><td>Compléter la grille ; la procédure demande déjà de signaler les trous</td></tr>
+    <tr><td>Un collègue n'a pas le skill</td><td>Sur claude.ai, un skill est personnel par défaut</td><td>Chacun l'installe, ou partage d'organisation sur Team/Enterprise, ou plugin (chapitre 7)</td></tr>
+    <tr><td>Le skill marche sur claude.ai, pas dans Claude Code</td><td>Pas de synchronisation entre surfaces</td><td>Copier le dossier dans <code>.claude/skills/</code></td></tr>
+    <tr><td>Deux versions circulent dans l'équipe</td><td>Chacun a modifié sa copie</td><td>Un responsable du skill, une version de référence datée, un plugin pour la diffuser</td></tr>
+    <tr><td>Le frontmatter casse après modification</td><td>Un deux-points suivi d'une espace dans la description</td><td>Reformuler sans « : », ou mettre la description entre guillemets</td></tr>
+  </table>
+  <div class="box">
+    <p><strong>L'erreur de fond.</strong> Écrire un skill pour une tâche que personne ne fait de la même façon deux fois. Un skill fixe une procédure : si l'entreprise n'en a pas, le skill n'en crée pas. Écrivez d'abord la procédure avec la personne qui fait le travail, ensuite le skill.</p>
+  </div>
+</section>
+
+<!-- 7. Sécurité -->
+<section class="page">
+  <div class="kicker">6 · Sécurité et données</div>
+  <h2>Un skill s'installe comme un <i>logiciel</i></h2>
+  <p class="lede">Anthropic le dit dans sa documentation : un skill donne à Claude des instructions, et parfois du code. Un skill malveillant peut lui faire utiliser ses outils d'une façon qui ne correspond pas à ce qu'il annonce, jusqu'à faire sortir des données.</p>
+  <h3>Les règles que nous appliquons</h3>
+  <ul>
+    <li><strong>N'installer que des skills de confiance</strong> : écrits par vous, par Anthropic, ou par un prestataire dont vous avez lu le travail. Les 8 skills de ce pack sont du texte seul : aucun script, aucun appel réseau. Lisez-les quand même, c'est rapide.</li>
+    <li><strong>Lire tous les fichiers</strong> d'un skill tiers avant de l'installer, pas seulement le <code>SKILL.md</code>. Méfiance envers tout script, toute adresse web, toute instruction du type « envoie », « transfère », « ignore ».</li>
+    <li><strong>Se méfier des skills qui vont chercher du contenu en ligne</strong> : ce contenu peut contenir des instructions cachées, et une source fiable aujourd'hui peut changer demain.</li>
+    <li><strong>Limiter les droits des connecteurs</strong> : un skill de tri d'e-mails n'a besoin que de lire. Les droits d'envoi et de suppression restent humains.</li>
+    <li><strong>Garder une validation humaine</strong> sur tout ce qui engage l'entreprise : devis, relance, offre d'emploi, réponse client.</li>
+  </ul>
+  <h3>Données</h3>
+  <ul>
+    <li>Les fichiers compagnons contiennent vos prix et vos procédures : ce sont des informations d'entreprise. Préférez un compte Team ou Enterprise, sur lequel Anthropic indique ne pas entraîner ses modèles par défaut sur les données de ses offres commerciales.</li>
+    <li>Pour les comptes Free, Pro et Max, un réglage d'entraînement existe dans les paramètres de confidentialité : vérifiez-le.</li>
+    <li>Ne mettez dans un skill ni mot de passe, ni clé d'accès, ni donnée personnelle de client ou de salarié.</li>
+    <li>D'après la documentation développeurs, les skills ne sont pas couverts par les accords de conservation zéro des données (ZDR) proposés sur l'API.</li>
+  </ul>
+  <div class="box warn">
+    <p><strong>Pour une organisation Enterprise.</strong> Anthropic propose une analyse du contenu des skills téléversés sur claude.ai. Elle ne remplace pas la relecture humaine, et elle ne couvre pas les skills envoyés par l'API.</p>
+  </div>
+</section>
+
+<!-- 8. Aller plus loin -->
+<section class="page">
+  <div class="kicker">7 · Aller plus loin</div>
+  <h2>Du skill personnel au <i>plugin d'équipe</i></h2>
+  <p class="lede">Un skill installé par chacun, à la main, convient à une personne ou à une équipe de trois. Au-delà, les versions divergent. La réponse d'Anthropic s'appelle un plugin.</p>
+  <p>Un plugin est un paquet qui regroupe des skills, des connecteurs vers vos outils et, selon les surfaces, des sous-agents, des commandes et des automatismes. Sur les offres Team et Enterprise, l'organisation peut publier ses plugins dans une marketplace privée et choisir, pour chacun, s'il est installé par défaut, disponible, requis ou indisponible. Une modification faite une fois arrive chez tout le monde.</p>
+  <table>
+    <tr><th>Situation</th><th>La bonne forme</th></tr>
+    <tr><td>Une personne, une tâche répétée</td><td>Un skill personnel, installé à la main</td></tr>
+    <tr><td>Une petite équipe, un projet de code</td><td>Des skills de projet versionnés dans <code>.claude/skills/</code></td></tr>
+    <tr><td>Plusieurs équipes, des skills qui doivent rester identiques</td><td>Un plugin privé, diffusé par l'administration</td></tr>
+    <tr><td>Un skill qui doit lire ou écrire dans vos outils (CRM, facturation, messagerie)</td><td>Un plugin qui associe le skill et le connecteur, avec des droits limités</td></tr>
+  </table>
+  <h3>Quand le faire vous-même, quand vous faire aider</h3>
+  <p><strong>Seul</strong>, si vous avez une procédure déjà écrite, une ou deux personnes concernées, et le temps de faire les trois essais. Ce pack est fait pour ça.</p>
+  <p><strong>Accompagné</strong>, quand la procédure n'existe que dans la tête d'une personne, quand plusieurs équipes doivent partager les mêmes skills, quand il faut brancher un outil métier, ou quand des données sensibles circulent. Le travail consiste alors à observer le processus, l'écrire, tester sur vos cas réels et déployer par plugin, avec un responsable désigné chez vous.</p>
+  <div class="end">
+    <div class="kicker" style="color:#D96A47">Waimia · studio IA pour PME</div>
+    <h2>Vos processus, en skills et plugins qui tournent</h2>
+    <p>Le guide complet, avec les limites et les coûts : <a href="https://waimia.com/ressources/guides/claude-skills">waimia.com/ressources/guides/claude-skills</a></p>
+    <p>Déployer Claude dans l'entreprise : <a href="https://waimia.com/services/integration-claude">waimia.com/services/integration-claude</a></p>
+    <p>Un audit IA gratuit pour savoir par où commencer : <a href="https://waimia.com/contact?offer=audit-ia-pme&amp;intent=audit">waimia.com/contact</a></p>
+    <p class="mono" style="color:#A8A096;margin-top:10pt">Informations vérifiées le 5 octobre 2026 dans la documentation d'Anthropic (platform.claude.com, code.claude.com, support.claude.com). Elles évoluent : relisez la source avant une décision.</p>
+  </div>
+</section>
+
+</body>
+</html>

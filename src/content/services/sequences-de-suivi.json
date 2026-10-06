@@ -75,8 +75,14 @@
   ],
   "sections": [
     {
-      "type": "hero-masthead-card",
+      "type": "hero-split-media",
       "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/sequences-de-suivi-v3-horloge-paper.webp",
+        "alt_fr": "Illustration : à côté d'une grande horloge, une personne glisse une lettre dans une haute boîte aux lettres",
+        "alt_en": "Illustration: next to a large clock, a person slips a letter into a tall mailbox",
+        "side": "right"
+      },
       "kicker_fr": "§ Devis automatisé et relances",
       "kicker_en": "§ Automated quotes and follow-ups",
       "h1_fr": "<i class=\"acc\">Devis automatisés</i> et relances sans oubli",
@@ -101,8 +107,6 @@
           "label_en": "Wired to the CRM"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
-      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -114,10 +118,7 @@
         "label_en": "How the audit works",
         "href": "/audit-ia-pme",
         "variant": "ghost"
-      },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma du dispositif : un lead se refroidit, la séquence de suivi se déclenche sur son comportement, le relance par email et multicanal, puis le ramène chaud au CRM.",
-      "media_alt_en": "Device diagram: a lead cools, the follow-up sequence triggers on its behaviour, re-engages by email and multichannel, then brings it back warm to the CRM."
+      }
     },
     {
       "type": "proof-bar",
@@ -199,6 +200,14 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/sequences-de-suivi-v3-pont-levant-paper.webp",
+          "alt_fr": "Illustration : les deux moitiés d'un pont levant se rejoignent ; une personne sur chaque moitié se passent une enveloppe",
+          "alt_en": "Illustration: the two halves of a drawbridge meet; a person on each half hands over an envelope",
+          "side": "right"
+        }
+      ],
       "html_fr": "<h2>Deux moitiés : produire le devis, puis le suivre</h2>\n<p>Première moitié, la production. Les informations existent déjà : le client les a données dans un formulaire ou le commercial les a saisies dans le CRM. Le système les reprend, remplit le modèle de devis, calcule les lignes selon votre grille, et soumet le document au commercial. Il relit, ajuste et envoie. Pour les devis complexes (métré, visite technique), l'automatisation prépare le dossier ; le chiffrage reste humain.</p>\n<p>Seconde moitié, le suivi. Une fois le devis envoyé, une séquence démarre : un rappel après quelques jours, un second avec une information utile, un dernier avant l'échéance de validité. Chaque message est rédigé dans votre ton et s'arrête dès que le client répond ou signe.</p>\n<h2>Avec quels outils</h2>\n<p>Votre CRM pour l'état de chaque devis, votre outil de devis ou de facturation s'il a une API, n8n ou Make pour l'enchaînement, et un modèle d'IA pour adapter le texte des relances au contexte. La base est un <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> : sans statut fiable sur chaque devis, aucune relance ne peut se déclencher au bon moment. L'ensemble forme le <a href=\"/services/systeme-commercial\">système commercial</a>, alimenté en amont par la <a href=\"/services/prospection-automatisee\">prospection automatisée</a>.</p>\n<h2>Combien de temps</h2>\n<p>Une première séquence de relance est habituellement en service en 2 à 4 semaines. La génération du devis demande plus de travail quand votre grille tarifaire comporte beaucoup d'exceptions : on commence par les devis les plus standards.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La relance envoyée à un client qui a déjà répondu par téléphone : le commercial doit pouvoir arrêter la séquence d'un clic, et le CRM doit être tenu à jour. Le ton trop insistant : trois messages espacés, pas dix. Le devis faux parti sans relecture : aucun devis n'est envoyé sans validation humaine.</p>\n<p>La démarche est détaillée dans <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automatiser les relances B2B</a>. Pour regarder votre cas, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>Two halves: produce the quote, then follow it</h2>\n<p>First half, production. The information already exists: the client gave it in a form or the salesperson entered it in the CRM. The system takes it, fills in the quote template, computes the lines from your price grid, and submits the document to the salesperson. They review, adjust and send. For complex quotes (measurements, site visit), automation prepares the file; pricing stays human.</p>\n<p>Second half, follow-up. Once the quote is sent, a sequence starts: a reminder after a few days, a second with useful information, a last one before the validity date. Each message is written in your tone and stops as soon as the client replies or signs.</p>\n<h2>With which tools</h2>\n<p>Your CRM for each quote's status, your quoting or invoicing tool if it has an API, n8n or Make for the chain, and an AI model to adapt follow-up text to context. The foundation is an <a href=\"/services/crm-scoring-routing\">automated CRM</a>: without a reliable status on each quote, no follow-up can fire at the right time. Together they form the <a href=\"/services/systeme-commercial\">sales system</a>, fed upstream by <a href=\"/services/prospection-automatisee\">automated prospecting</a>.</p>\n<h2>How long</h2>\n<p>A first follow-up sequence is usually live within 2 to 4 weeks. Quote generation takes more work when your price grid has many exceptions: we start with the most standard quotes.</p>\n<h2>What can go wrong</h2>\n<p>A reminder sent to a client who already replied by phone: the salesperson must be able to stop the sequence in one click, and the CRM must be kept up to date. Too pushy a tone: three spaced messages, not ten. A wrong quote sent unreviewed: no quote goes out without human approval.</p>\n<p>The approach is detailed in <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automating B2B follow-ups</a>. To look at your case, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },

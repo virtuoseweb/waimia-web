@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · fallback Claude · « un agent, huit surfaces » : un long mur percé de fenêtres toutes différentes, la même silhouette travaille derrière chacune. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="sitter">
+      <circle cx="0" cy="-62" r="7" fill="{{subject}}"/>
+      <path d="M-10 -53 Q0 -57 10 -53 L9 -22 L-9 -22 Z" fill="{{subject}}"/>
+      <path d="M8 -46 L26 -36 L24 -31 L6 -40 Z" fill="{{subject}}"/>
+      <rect x="-9" y="-24" width="30" height="8" fill="{{subject}}"/>
+      <rect x="15" y="-24" width="7" height="24" fill="{{subject}}"/>
+      <rect x="-12" y="-20" width="4" height="20" fill="{{subject}}"/>
+    </g>
+
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect x="40" y="70" width="1376" height="400" fill="{{shape}}"/>
+  <rect x="40" y="70" width="1376" height="14" fill="{{deep}}"/>
+  <circle cx="150" cy="250" r="62" fill="{{field}}"/><use href="#sitter" transform="translate(142 306) scale(0.8)"/><rect x="270" y="160" width="90" height="170" fill="{{field}}"/><use href="#sitter" transform="translate(307.0 326) scale(0.85)"/><path d="M420 360 V218.0 A48.0 48.0 0 0 1 516 218.0 V360 Z" fill="{{field}}"/><use href="#sitter" transform="translate(460.0 356) scale(0.9)"/><rect x="570" y="250" width="70" height="70" fill="{{field}}"/><use href="#sitter" transform="translate(597.0 316) scale(0.85)"/><rect x="690" y="200" width="200" height="70" fill="{{field}}"/><use href="#sitter" transform="translate(782.0 266) scale(0.85)"/><rect x="940" y="150" width="34" height="200" fill="{{field}}"/><use href="#sitter" transform="translate(949.0 346) scale(0.85)"/><path d="M1030 360 V245.0 A55.0 55.0 0 0 1 1140 245.0 V360 Z" fill="{{field}}"/><use href="#sitter" transform="translate(1077.0 356) scale(0.9)"/><circle cx="1260" cy="260" r="70" fill="{{field}}"/><use href="#sitter" transform="translate(1252 324) scale(0.8)"/>
+  <rect y="470" width="1456" height="154" fill="{{ground}}"/>
+  <rect y="470" width="1456" height="10" fill="{{soft}}"/>
+  <use href="#man" transform="translate(860 580) scale(0.9)"/>
+  <ellipse cx="860" cy="582" rx="20" ry="3.5" fill="{{shadow}}" opacity="0.4"/>
+</svg>

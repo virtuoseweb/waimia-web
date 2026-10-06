@@ -1,4 +1,5 @@
 ---
+import FormGuard from '../ui/atoms/FormGuard.astro';
 // ContactForm · section CONVERSION · formulaire contact (nom/email/message) + colonne coordonnées
 // Action vers /api/contact (le champ message est envoyé comme `brief`, contrat de l'API). Bilingue.
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -44,7 +45,7 @@ const details = data.details ?? [];
     </div>
 
     <form class="contact-form__form" action={action} method="post" novalidate data-cf-form>
-      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
+      <FormGuard />
       <div class="contact-form__field">
         <label for="cf-name">{nameLabel}</label>
         <input id="cf-name" name="name" type="text" autocomplete="name" required class="contact-form__input" aria-describedby="cf-error" />
@@ -227,7 +228,7 @@ const details = data.details ?? [];
       if (!emailVal || !EMAIL_RE.test(emailVal)) { showError(lang === 'fr' ? 'Adresse email invalide.' : 'Invalid email address.', email); if (email) email.focus(); return; }
       if (!briefVal) { showError(lang === 'fr' ? 'Écrivez un message.' : 'Write a message.', brief); if (brief) brief.focus(); return; }
       if (btn) btn.disabled = true;
-      var payload = { name: nameVal, email: emailVal, brief: briefVal, lang: lang, website: honeypot ? honeypot.value : '' };
+      var payload = { name: nameVal, email: emailVal, brief: briefVal, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '' };
       try {
         var res = await fetch(form.getAttribute('action') || '/api/contact', {
           method: 'POST',

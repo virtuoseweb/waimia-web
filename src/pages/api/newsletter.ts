@@ -7,6 +7,7 @@ import { sendEmail, emitEvent } from "../../lib/resend";
 import { upsertSubscriber } from "../../lib/mailerlite";
 import WelcomeNewsletter from "../../lib/emails/WelcomeNewsletter";
 import { z } from "zod";
+import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
 
 export const prerender = false;
@@ -31,6 +32,7 @@ const MSGS = {
     send_failed: "Erreur lors de l'envoi. Veuillez réessayer.",
     too_many_requests: "Trop de tentatives. Veuillez patienter.",
     invalid_body: "Corps de la requête invalide.",
+    not_configured: `L'inscription est indisponible pour le moment. Écrivez-nous à ${SITE.email}.`,
   },
   en: {
     missing_email: "Missing or invalid email.",
@@ -40,6 +42,7 @@ const MSGS = {
     send_failed: "Send error. Please try again.",
     too_many_requests: "Too many attempts. Please wait.",
     invalid_body: "Invalid request body.",
+    not_configured: `Signup is unavailable right now. Write to ${SITE.email}.`,
   },
 } as const;
 
@@ -83,6 +86,12 @@ export const ALL: APIRoute = async ({ request }) => {
     return Response.json({ ok: false, error: msg("invalid_body") }, { status: 400, headers: CORS_HEADERS });
   }
 
+  // Anti-robots (champ piège `website`, soumission trop rapide `_t`) : faux succès silencieux,
+  // AVANT toute validation, tout e-mail et tout appel externe.
+  if (isBotSubmission(rawPayload)) {
+    return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
+  }
+
   const parsed = NewsletterSchema.safeParse(rawPayload);
   if (!parsed.success) {
     const rawLang = (rawPayload as Record<string, string>).lang === "en" ? "en" : "fr";
@@ -99,12 +108,20 @@ export const ALL: APIRoute = async ({ request }) => {
   const { firstName } = rawPayload as Record<string, string>;
 
   try {
-    await sendEmail({
+    const welcome = await sendEmail({
       to: email,
       subject: "Bienvenue · Waimia",
       html: WelcomeNewsletter({ firstName }),
       tags: [{ name: "event", value: "newsletter_signup" }],
     });
+    // Pas de clé d'envoi : rien n'est parti. Réponse honnête, pas de faux succès, pas d'inscription.
+    if (welcome.skipped) {
+      console.error("[api/newsletter] RESEND_API_KEY absente : inscription non traitée");
+      return Response.json(
+        { ok: false, code: "email_not_configured", error: msg("not_configured", lang) },
+        { status: 503, headers: CORS_HEADERS },
+      );
+    }
     await emitEvent("contact_submitted", { email, firstName });
     await upsertSubscriber({ email, name: firstName, groups: ["114701253078942792"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
