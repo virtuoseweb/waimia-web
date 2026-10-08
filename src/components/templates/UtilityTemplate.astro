@@ -63,7 +63,6 @@ const isList = variant === 'list';
 
 /* ── Branche LIST (ex-ListIndexTemplate, markup verbatim) ─────────────────── */
 // Slot-forwarding : les slots headline/lede (rich text `<i>`) → champs `set:html` du composant.
-const listLabel = title.split(' · ')[0];
 const hasFilters = Astro.slots.has('filters');
 const h1Html = isList ? await Astro.slots.render('headline') : '';
 const ledeHtml = isList ? await Astro.slots.render('lede') : '';
@@ -81,8 +80,8 @@ const listHeroData = {
 
 const listCtaData = {
   type: 'cta-band',
-  text_fr: `Après ${listLabel}, passons à votre cas réel et à votre premier livrable utile.`,
-  text_en: `After ${listLabel}, let us move to your real use case and your first useful deliverable.`,
+  text_fr: "Passons à votre cas réel : un audit gratuit de 45 minutes pour choisir le premier chantier à automatiser.",
+  text_en: "Now to your real case: a free 45-minute audit to pick the first thing to automate.",
   cta: {
     label_fr: 'Réserver un audit →',
     label_en: 'Book an audit →',

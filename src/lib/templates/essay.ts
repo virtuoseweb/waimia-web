@@ -215,12 +215,11 @@ export const essayTemplate = defineTemplate<EssayContext>({
     // 7 · CTA final (cta-band catalogué, fond paper-2).
     {
       id: 'cta',
-      build: ({ data, lang }) => {
-        const section = data.category ?? essayKicker(data).replace(/^§\s*/, '').split('·')[0]?.trim();
+      build: () => {
         return {
           type: 'cta-band',
-          text_fr: `Si ${section} touche votre équipe, on le traduit en plan d'action opérable plutôt qu'en débat abstrait.`,
-          text_en: `If ${section} matters to your team, we turn it into an operational plan instead of an abstract debate.`,
+          text_fr: "Vous voulez savoir ce que ce sujet change chez vous ? En 45 minutes, l'audit gratuit part de vos tâches réelles et dit quoi automatiser en premier, ou s'il vaut mieux ne rien faire.",
+          text_en: "Want to know what this changes for you? The free 45-minute audit starts from your real tasks and says what to automate first, or whether to leave it alone.",
           cta: {
             label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
             label_en: `${AUDIT_BOOKING_LABEL.en} →`,
