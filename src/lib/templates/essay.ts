@@ -36,6 +36,7 @@ import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { localizeHref } from '../i18n';
+import { siloCtaText, siloLabel } from '../../data/taxonomies';
 
 /** Frontmatter typé d'un article (source de vérité = schéma `blog` de content.config.ts). */
 export type EssayData = CollectionEntry<'blog'>['data'];
@@ -134,9 +135,9 @@ export function resolveEssayLead(slug: string, articleId: string): EssayLeadSect
   } satisfies SectionByType<'lead-capture-band'>;
 }
 
-/** Kicker éditorial « § Blog · <catégorie> » (parité route legacy). */
+/** Kicker éditorial « § Blog · <libellé du silo> ». */
 function essayKicker(data: EssayData): string {
-  return `§ Blog · ${data.category}`;
+  return `§ Blog · ${siloLabel(data.category)}`;
 }
 
 /**
@@ -215,11 +216,11 @@ export const essayTemplate = defineTemplate<EssayContext>({
     // 7 · CTA final (cta-band catalogué, fond paper-2).
     {
       id: 'cta',
-      build: () => {
+      build: ({ data }) => {
         return {
           type: 'cta-band',
-          text_fr: "Vous voulez savoir ce que ce sujet change chez vous ? En 45 minutes, l'audit gratuit part de vos tâches réelles et dit quoi automatiser en premier, ou s'il vaut mieux ne rien faire.",
-          text_en: "Want to know what this changes for you? The free 45-minute audit starts from your real tasks and says what to automate first, or whether to leave it alone.",
+          text_fr: siloCtaText(data.category, 'fr'),
+          text_en: siloCtaText(data.category, 'en'),
           cta: {
             label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
             label_en: `${AUDIT_BOOKING_LABEL.en} →`,
@@ -248,6 +249,8 @@ export function buildEssayProps(ctx: EssayContext) {
     title: `${data.title_fr} · Waimia`,
     description: data.description_fr,
     kicker: essayKicker(data),
+    silo: data.category,
+    category: siloLabel(data.category),
     date: dateStr,
     datePublished: publishedISO,
     dateModified: modifiedISO,

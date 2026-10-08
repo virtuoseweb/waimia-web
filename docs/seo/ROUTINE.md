@@ -178,7 +178,7 @@ Une page se nomme comme sa requête (URL, title et H1 alignés) : c'est ce qui f
 
 **Ce qui ne se crée pas sans Simon.** Une page service, une page de formation ou une page locale qui suppose une offre, un prix ou une présence que le site n'affiche pas déjà. L'entrée reste une « idée », et la question va dans « Ce qui demande ta décision » (section 11). Les guides, articles, comparatifs et cas d'usage ne posent pas ce problème tant qu'ils ne promettent rien de neuf.
 
-Après création : ajoute la page au registre `src/lib/internal-mesh.ts`, renseigne ou corrige `target` du mot-clé dans `docs/seo/keywords.json` (puis `node scripts/seo-routine/check-config.mjs`), et écris le brouillon LinkedIn (5.7).
+Après création : ajoute la page au registre `src/lib/internal-mesh.ts` et donne à son JSON le `category` égal au premier thème de la page dans ce registre (section 5.6, silos), renseigne ou corrige `target` du mot-clé dans `docs/seo/keywords.json` (puis `node scripts/seo-routine/check-config.mjs`), et écris le brouillon LinkedIn (5.7).
 
 ### 4.3 Fusionner ou rediriger quand
 
@@ -302,6 +302,7 @@ Un moteur IA cite un passage qui se comprend seul, qui nomme ce dont il parle et
 - Le contenu vit en JSON sous `src/content/` (aucun fichier `.mdx`). Regarde une page voisine de la même collection avant d'écrire.
 - Les pages se composent avec les sections du catalogue (`src/sections/<type>/`). Aucun markup neuf dans une page ou un gabarit, aucun nouveau token ni nouvelle variable du design system. Si une section manque vraiment, ne la crée pas dans cette routine : signale-le à Simon.
 - Maillage interne : déclare ou mets à jour la page dans `src/lib/internal-mesh.ts`. Pas de liste de liens écrite à la main.
+- Silo : tout article, guide ou comparatif porte un `category` obligatoire, clé de `SILOS` (`src/data/taxonomies.ts` : automatisation, agents, claude, applications, commercial, acquisition, donnees, conseil, conformite, formation, studio). C'est le premier thème de la page au registre du maillage : choisis d'abord le silo dont la page relève vraiment, puis place-la en tête de ce thème dans `internal-mesh.ts`. Le silo pilote le libellé du kicker, la question du bandeau d'appel à l'action, l'illustration par défaut et les filtres des hubs. `node scripts/check-silos.mjs` refuse un contenu sans silo, un silo inconnu ou un silo qui contredit le maillage. Ne crée pas de silo dans la routine : un sujet qui n'entre dans aucun silo se signale à Simon.
 - Appel à l'action : le bouton de prise de rendez-vous pointe vers `/contact?offer=audit-ia-pme&intent=audit`. Les liens « En savoir plus sur l'audit » pointent vers `/audit-ia-pme`.
 - Ne touche ni aux mentions légales ni aux adresses des données structurées.
 - Fichiers générés (`src/lib/*.generated.ts`, `src/data/ds-*.json`, `src/data/lastmod.generated.json`) : jamais à la main, toujours par le script du repo.
@@ -343,6 +344,7 @@ node scripts/check-public-surface.mjs --prod
 node scripts/check-seo.mjs
 node scripts/check-static-quality.mjs
 node scripts/check-internal-mesh.mjs        # rapport, ne bloque pas
+node scripts/check-silos.mjs                # silo de chaque contenu = premier thème au maillage
 
 # Gates de contenu et de catalogue
 node scripts/check-no-emdash.mjs

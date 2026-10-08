@@ -34,6 +34,9 @@ export const schema = z.object({
         read_time_en: z.string().optional(),
         author: z.string().optional(),
         href: z.string(),
+        // Clé de silo éditorial (src/data/taxonomies.ts) : posée en data-silo sur la carte,
+        // consommée par le filtre SiloFilter des hubs. OPTIONNEL → rétrocompatible.
+        silo: z.string().optional(),
       }),
     )
     .min(2)

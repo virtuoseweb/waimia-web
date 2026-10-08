@@ -36,6 +36,9 @@ interface Props {
   /** Kicker section (Trust Center, Governance, Docs) */
   kickerFr: string;
   kickerEn: string;
+  /** Sujet injecté dans le bandeau CTA, avec déterminant (« nos mentions légales »). */
+  ctaSubjectFr: string;
+  ctaSubjectEn: string;
   /** Date de dernière révision (ISO) */
   revisedAt: string;
   /** Versionnage doc (ex: v2.4.1) */
@@ -46,7 +49,7 @@ interface Props {
   legalFooterFr?: string;
   legalFooterEn?: string;
 }
-const { title, description, kickerFr, kickerEn, revisedAt, version, sections, legalFooterFr, legalFooterEn } = Astro.props as Props;
+const { title, description, kickerFr, kickerEn, ctaSubjectFr, ctaSubjectEn, revisedAt, version, sections, legalFooterFr, legalFooterEn } = Astro.props as Props;
 
 const webPageLd = {
   '@context': 'https://schema.org',
@@ -64,8 +67,8 @@ const isFr = lang === 'fr';
 
 const ctaData = {
   type: 'cta-band',
-  text_fr: "Un projet d'IA ou d'automatisation ? Tout commence par un audit gratuit de 45 minutes sur vos tâches réelles.",
-  text_en: "An AI or automation project? It starts with a free 45-minute audit of your real tasks.",
+  text_fr: `Une question sur ${ctaSubjectFr} ? Écrivez à ${SITE.email}. Pour un projet d'IA ou d'automatisation, tout commence par un audit gratuit de 45 minutes.`,
+  text_en: `A question about ${ctaSubjectEn}? Write to ${SITE.email}. For an AI or automation project, it all starts with a free 45-minute audit.`,
   cta: {
     label_fr: 'Réserver un audit →',
     label_en: 'Book an audit →',

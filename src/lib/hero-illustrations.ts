@@ -14,6 +14,8 @@
 //    (woman-computer / money-money / men-on-hand / chess). Les assignations ci-dessous
 //    respectent cette contrainte par slug.
 
+import type { Silo } from '../data/taxonomies';
+
 export interface HeroIllustration {
   src: string;
   alt_fr: string;
@@ -50,16 +52,22 @@ function build(motif: string, side: 'left' | 'right', bg: 'paper' | 'ink' = 'pap
   };
 }
 
-// ── Blog · par categorie editoriale (content-matched) ──
-const BLOG_BY_CATEGORY: Record<string, HeroIllustration> = {
-  'contenu-seo-geo': build('style-11', 'right'),
-  pilotage: build('style-12', 'left'),
-  crm: build('man-and-woman-hi', 'right'),
-  acquisition: build('computer-health', 'left'),
-  gouvernance: build('men-on-hand', 'right'),
+// ── Blog · par silo editorial (SILOS, src/data/taxonomies.ts) ──
+const BLOG_BY_CATEGORY: Record<Silo, HeroIllustration> = {
+  automatisation: build('computer-health', 'right'),
+  agents: build('man-and-woman-hi', 'left'),
+  claude: build('style-11', 'right'),
+  applications: build('woman-computer', 'left'),
+  commercial: build('man-and-woman-hi', 'right'),
+  acquisition: build('money-in-the-pig', 'left'),
+  donnees: build('style-12', 'right'),
+  conseil: build('chess', 'left'),
+  conformite: build('men-on-hand', 'right'),
+  formation: build('woman-and-people', 'left'),
+  studio: build('style-8', 'right'),
 };
 export function blogHeroIllustration(category?: string): HeroIllustration {
-  return (category && BLOG_BY_CATEGORY[category]) || build('style-8', 'right');
+  return (category && BLOG_BY_CATEGORY[category as Silo]) || build('style-8', 'right');
 }
 
 // ── Outils · par slug ──

@@ -27,6 +27,7 @@ interface Card {
   lead_fr: string;
   lead_en: string;
   href: string;
+  silo?: string;
 }
 interface Props {
   cards: Card[];
@@ -36,7 +37,7 @@ const { cards, class: extraClass = '' } = Astro.props;
 ---
 <div class={`related-grid qgrid ${extraClass}`.trim()}>
   {cards.map((c) => (
-    <a class="related-card" href={c.href}>
+    <a class="related-card" href={c.href} data-silo={c.silo}>
       <span class="related-k">{c.kicker}</span>
       <h3 class="related-title"><Bi fr={c.title_fr} en={c.title_en} /></h3>
       <p class="related-lead"><Bi fr={c.lead_fr} en={c.lead_en} /></p>

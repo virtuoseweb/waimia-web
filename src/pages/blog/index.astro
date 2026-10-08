@@ -13,6 +13,7 @@ import { resolveBlogVisual } from '../../lib/blog-taxo-visuals';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import { meshForBlogHub } from '../../lib/internal-mesh';
 import { SITE } from '../../site.config';
+import SiloFilter from '../../components/ui/molecules/SiloFilter.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -71,6 +72,7 @@ const articles = sortedBlog.map((entry) => {
     read_time_en: readTime,
     author: authorLabel(d.author),
     href: blogEntryHref(entry),
+    silo: d.category,
   };
 });
 
@@ -160,6 +162,7 @@ const ctaSection = {
 
   <section class="list-body">
     <div class="wrap-wide">
+      <SiloFilter silos={sortedBlog.map((e) => e.data.category)} lang={lang} class="blog-silos" />
       <div class="blog-grid">
         <SectionsRenderer sections={[feedSection]} lang={lang} />
       </div>
@@ -187,6 +190,8 @@ const ctaSection = {
   .blog-grid {
     margin-top: calc(-1 * var(--space-7));
   }
+  /* Puces de silo : posées avant la grille, au-dessus du rattrapage de marge négative. */
+  .blog-silos { position: relative; z-index: 1; margin-bottom: var(--space-2); }
   /* CTA newsletter inline dans le lede hero : lien accent, tokens DS existants,
      0 nouveau token (rule 60). */
   /* `:global` requis : le lede est rendu par le composant masthead via set:html →

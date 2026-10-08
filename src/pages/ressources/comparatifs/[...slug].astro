@@ -11,6 +11,7 @@ import SectionsRenderer from '../../../components/sections/SectionsRenderer.astr
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
+import { siloLabel } from '../../../data/taxonomies';
 
 export async function getStaticPaths() {
   const entries = await getLiveCollection('comparatifs');
@@ -39,6 +40,7 @@ const articleLd = buildArticle({
   datePublished: new Date(data.publishedAt).toISOString().slice(0, 10),
   dateModified: data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : undefined,
   mainEntityOfPage: canonicalUrl,
+  articleSection: siloLabel(data.category, lang),
 });
 // FAQPage JSON-LD émis une seule fois par la section catalogue `faq-accordion`
 // (source canonique, cf docs/audits #56). La page ne le duplique plus ici.

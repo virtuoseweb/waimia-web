@@ -23,6 +23,8 @@ export const schema = z.object({
         lead_fr: z.string(),
         lead_en: z.string(),
         href: z.string(),
+        // Clé de silo éditorial : posée en data-silo sur la carte (filtre SiloFilter). OPTIONNEL.
+        silo: z.string().optional(),
       }),
     )
     .min(2)

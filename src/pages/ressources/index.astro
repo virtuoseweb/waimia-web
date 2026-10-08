@@ -24,6 +24,7 @@ import type { SectionByType } from '@waimia/ds-kernel';
 import CtaFinal from '../../components/sections/CtaFinal.astro';
 import Button from '../../components/ui/atoms/Button.astro';
 import Bi from '../../components/ui/atoms/Bi.astro';
+import SiloFilter from '../../components/ui/molecules/SiloFilter.astro';
 import ListIndexSection from '../../components/sections/ListIndexSection.astro';
 import ArticleGrid from '../../components/sections/ArticleGrid.astro';
 import { langFromPath } from '../../lib/i18n';
@@ -45,6 +46,7 @@ type Item = {
   date: Date;
   read_time?: string;
   href: string;
+  silo?: string;
 };
 
 // Titre court : la partie avant « · » (même règle que les hubs guides et comparatifs).
@@ -67,6 +69,7 @@ const items: Item[] = [
     excerpt_en: e.data.description_en,
     date: e.data.publishedAt,
     href: `/ressources/guides/${e.data.slug ?? e.id}`,
+    silo: e.data.category,
   })),
   ...comparatifs.filter(isIndexableEntry).map((e) => ({
     kind: 'comparatifs' as const,
@@ -76,6 +79,7 @@ const items: Item[] = [
     excerpt_en: e.data.description_en,
     date: e.data.publishedAt,
     href: `/ressources/comparatifs/${e.data.slug ?? e.id}`,
+    silo: e.data.category,
   })),
   ...outils.filter((e) => !e.data.seo?.noindex).map((e) => ({
     kind: 'outils' as const,
@@ -107,6 +111,7 @@ const items: Item[] = [
     date: e.data.publishedAt,
     read_time: e.data.readingTime ? `${e.data.readingTime} min` : undefined,
     href: blogEntryHref(e),
+    silo: e.data.category,
   })),
 ].sort((a, b) => b.date.getTime() - a.date.getTime() || a.title_fr.localeCompare(b.title_fr, 'fr'));
 
@@ -134,6 +139,7 @@ for (let i = 0; i < items.length; i += GRID_MAX) {
       read_time_fr: it.read_time,
       read_time_en: it.read_time,
       href: it.href,
+      silo: it.silo,
     })),
   });
 }
@@ -164,6 +170,7 @@ const collectionLd = buildCollectionPage(
             </a>
           ))}
         </nav>
+        <SiloFilter silos={items.map((i) => i.silo)} lang={lang} class="res-silos" />
       </Fragment>
       <Fragment slot="list">
         {/* Ancres de filtre : cibles :target, placées en tête de liste (le saut d'ancre
@@ -228,6 +235,7 @@ const collectionLd = buildCollectionPage(
   }
   .res-chip:hover { border-color: var(--ink); }
   .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  :global(.res-silos) { margin-top: var(--space-4); margin-bottom: 0; }
   .res-chip-n { font-family: var(--font-mono); color: var(--muted); }
 
   /* Pastille active : « Tous » par défaut, sinon celle dont l'ancre est ciblée. */
