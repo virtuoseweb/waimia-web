@@ -14,6 +14,7 @@ import { computeReadingTime } from '../../lib/seo/reading-time';
 import { isLegacyRoutedType } from '../../lib/blog-routing';
 import { blogHeroIllustration } from '../../lib/hero-illustrations';
 import { buildEssayProps, type EssayContext } from '../../lib/templates/essay';
+import { siloLabel } from '../../data/taxonomies';
 
 export async function getStaticPaths() {
   const entries = await getLiveCollection('blog');
@@ -92,7 +93,7 @@ const relatedCards = d.relatedPosts.length > 0
       .map((id) => allBlog.find((b) => b.id === id))
       .filter(Boolean)
       .map((c) => ({
-        kicker: `§ Blog · ${c!.data.category}`,
+        kicker: `§ Blog · ${siloLabel(c!.data.category)}`,
         title_fr: c!.data.title_fr,
         title_en: c!.data.title_en,
         lead_fr: c!.data.description_fr,

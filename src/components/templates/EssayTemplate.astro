@@ -33,6 +33,7 @@ import { localizeHref } from '../../lib/i18n';
 import AuthorByline from '../ui/molecules/AuthorByline.astro';
 import { splitLocaleHtml, filterHeadingsForHtml } from '../../lib/blog-locale-split';
 import { SITE } from '../../site.config';
+import { siloCtaText } from '../../data/taxonomies';
 
 interface RelatedCard {
   kicker: string;
@@ -69,8 +70,10 @@ interface Props {
   dateModified?: string;
   /** Canonical absolue optionnelle. */
   canonical?: string;
-  /** Catégorie éditoriale FR/EN. */
+  /** Libellé du silo (JSON-LD articleSection). */
   category?: string;
+  /** Clé du silo (SILOS) : choisit la question du bandeau CTA. Absent = question générique. */
+  silo?: string;
   /** Tags SEO/GEO. */
   tags?: string[];
   /** Breadcrumb custom (si absent, calcule automatiquement depuis kicker) */
@@ -116,6 +119,7 @@ const {
   dateModified,
   canonical,
   category,
+  silo,
   tags = [],
   breadcrumbItems,
   lang = 'fr',
@@ -171,8 +175,8 @@ const absoluteImage = image
 const articleSection = category ?? kicker.replace(/^§\s*/, '').split('·')[0]?.trim();
 const ctaData = {
   type: 'cta-band',
-  text_fr: `Si ${articleSection} touche votre équipe, on le traduit en plan d'action opérable plutôt qu'en débat abstrait.`,
-  text_en: `If ${articleSection} matters to your team, we turn it into an operational plan instead of an abstract debate.`,
+  text_fr: siloCtaText(silo, 'fr'),
+  text_en: siloCtaText(silo, 'en'),
   cta: {
     label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
     label_en: `${AUDIT_BOOKING_LABEL.en} →`,

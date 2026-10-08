@@ -35,17 +35,19 @@ const kicker  = `§ Outils · ${count} disponible${count > 1 ? 's' : ''}`;
 const outilsItems = entries.map((entry) => `${SITE.url}/ressources/outils/${entry.id}`);
 const collectionLd = buildCollectionPage(
   'Outils IA gratuits pour PME · Waimia',
-  'Calculateurs ROI et maturité IA gratuits pour PME B2B, sans inscription : un résultat immédiat à l\'écran.',
+  'Calculateur ROI, score de maturité IA, grille de priorisation, charte et checklists : des outils gratuits pour PME B2B, pensés pour passer à l\'action.',
   outilsItems,
 );
 ---
 <UtilityTemplate
   variant="list"
   title="Outils IA gratuits pour PME : ROI, maturité · Waimia"
-  description="Calculateurs ROI et maturité IA gratuits pour PME B2B, sans inscription : un résultat immédiat à l'écran."
+  description="Calculateur ROI, score de maturité IA, grille de priorisation, charte et checklists : des outils gratuits pour PME B2B, pensés pour passer à l'action."
   kicker={kicker}
   jsonLd={collectionLd}
   noindex={hubNoindex(count)}
+  ctaSubjectFr={hubCopy.ctaSubjectFr}
+  ctaSubjectEn={hubCopy.ctaSubjectEn}
 >
   <Fragment slot="headline" set:html={hubCopy.headlineHtml} />
   <Fragment slot="lede" set:html={hubCopy.ledeHtml} />

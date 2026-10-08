@@ -36,6 +36,7 @@ import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { localizeHref } from '../i18n';
+import { siloCtaText, siloLabel } from '../../data/taxonomies';
 
 /** Frontmatter typé d'un article (source de vérité = schéma `blog` de content.config.ts). */
 export type EssayData = CollectionEntry<'blog'>['data'];
@@ -134,9 +135,9 @@ export function resolveEssayLead(slug: string, articleId: string): EssayLeadSect
   } satisfies SectionByType<'lead-capture-band'>;
 }
 
-/** Kicker éditorial « § Blog · <catégorie> » (parité route legacy). */
+/** Kicker éditorial « § Blog · <libellé du silo> ». */
 function essayKicker(data: EssayData): string {
-  return `§ Blog · ${data.category}`;
+  return `§ Blog · ${siloLabel(data.category)}`;
 }
 
 /**
@@ -215,12 +216,11 @@ export const essayTemplate = defineTemplate<EssayContext>({
     // 7 · CTA final (cta-band catalogué, fond paper-2).
     {
       id: 'cta',
-      build: ({ data, lang }) => {
-        const section = data.category ?? essayKicker(data).replace(/^§\s*/, '').split('·')[0]?.trim();
+      build: ({ data }) => {
         return {
           type: 'cta-band',
-          text_fr: `Si ${section} touche votre équipe, on le traduit en plan d'action opérable plutôt qu'en débat abstrait.`,
-          text_en: `If ${section} matters to your team, we turn it into an operational plan instead of an abstract debate.`,
+          text_fr: siloCtaText(data.category, 'fr'),
+          text_en: siloCtaText(data.category, 'en'),
           cta: {
             label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
             label_en: `${AUDIT_BOOKING_LABEL.en} →`,
@@ -249,6 +249,8 @@ export function buildEssayProps(ctx: EssayContext) {
     title: `${data.title_fr} · Waimia`,
     description: data.description_fr,
     kicker: essayKicker(data),
+    silo: data.category,
+    category: siloLabel(data.category),
     date: dateStr,
     datePublished: publishedISO,
     dateModified: modifiedISO,

@@ -49,6 +49,10 @@ interface Props {
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
   /** Exclure la page de l'index (robots noindex) · forwarded to Base */
   noindex?: boolean;
+  /** [list] Sujet injecté dans le bandeau CTA (« Au-delà de <sujet>, … »), avec
+   *  déterminant : « ces outils gratuits ». Absent = phrase sans sujet. */
+  ctaSubjectFr?: string;
+  ctaSubjectEn?: string;
 }
 const {
   variant = 'utility',
@@ -56,6 +60,7 @@ const {
   headlineFr = '', headlineEn = '', ledeFr = '', ledeEn = '',
   align = 'left', showCta = true, breadcrumb, jsonLd,
   noindex = false,
+  ctaSubjectFr, ctaSubjectEn,
 } = Astro.props as Props;
 
 const lang = langFromPath(Astro.url.pathname);
@@ -63,7 +68,6 @@ const isList = variant === 'list';
 
 /* ── Branche LIST (ex-ListIndexTemplate, markup verbatim) ─────────────────── */
 // Slot-forwarding : les slots headline/lede (rich text `<i>`) → champs `set:html` du composant.
-const listLabel = title.split(' · ')[0];
 const hasFilters = Astro.slots.has('filters');
 const h1Html = isList ? await Astro.slots.render('headline') : '';
 const ledeHtml = isList ? await Astro.slots.render('lede') : '';
@@ -81,8 +85,12 @@ const listHeroData = {
 
 const listCtaData = {
   type: 'cta-band',
-  text_fr: `Après ${listLabel}, passons à votre cas réel et à votre premier livrable utile.`,
-  text_en: `After ${listLabel}, let us move to your real use case and your first useful deliverable.`,
+  text_fr: ctaSubjectFr
+    ? `Au-delà de ${ctaSubjectFr}, passons à votre cas réel : un audit gratuit de 45 minutes pour choisir le premier chantier à automatiser.`
+    : 'Passons à votre cas réel : un audit gratuit de 45 minutes pour choisir le premier chantier à automatiser.',
+  text_en: ctaSubjectEn
+    ? `Beyond ${ctaSubjectEn}, let's look at your real case: a free 45-minute audit to pick the first thing to automate.`
+    : "Now to your real case: a free 45-minute audit to pick the first thing to automate.",
   cta: {
     label_fr: 'Réserver un audit →',
     label_en: 'Book an audit →',

@@ -32,7 +32,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
         const excerpt = isFr ? a.excerpt_fr : a.excerpt_en;
         const readTime = isFr ? a.read_time_fr : a.read_time_en;
         return (
-          <a class="article-card" href={a.href}>
+          <a class="article-card" href={a.href} data-silo={a.silo}>
             {a.image && (
               <div class="article-card__media">
                 <img

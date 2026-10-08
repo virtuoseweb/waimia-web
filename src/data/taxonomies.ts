@@ -2,67 +2,85 @@ import type { Lang } from '../lib/i18n';
 
 export type BiText = Record<Lang, string>;
 
-export const CATEGORIES: Record<
-  string,
-  { label: BiText; description: BiText; color?: string }
-> = {
+/**
+ * SILOS · taxonomie éditoriale unique du site (champ `category` des contenus).
+ *
+ * Un silo = un thème du maillage interne (`Topic` de src/lib/internal-mesh.ts) : la
+ * catégorie d'un contenu est le PREMIER thème de sa page au registre du maillage
+ * (garde `check:silos`). Chaque silo porte :
+ *  - `label` : libellé affiché (kicker d'article, puces de filtre des hubs) ;
+ *  - `pillar` : page pilier du silo (cible des liens « tout le silo ») ;
+ *  - `question` : question injectée en tête du bandeau CTA des articles, écrite pour
+ *    que la phrase garde un sens quel que soit l'article du silo.
+ * Ajouter un silo = ajouter son thème au maillage ET une entrée ici (le schéma Zod
+ * de `category` dérive de ces clés).
+ */
+export const SILOS = {
+  automatisation: {
+    label: { fr: 'Automatisation', en: 'Automation' },
+    pillar: '/services/automatisations',
+    question: { fr: 'Quelles tâches automatiser en premier chez vous ?', en: 'Which tasks should you automate first?' },
+  },
+  agents: {
+    label: { fr: 'Agents IA', en: 'AI agents' },
+    pillar: '/services/agents-ia',
+    question: { fr: 'Un agent IA aurait-il sa place dans votre équipe ?', en: 'Would an AI agent earn its place in your team?' },
+  },
+  claude: {
+    label: { fr: 'Claude et assistants IA', en: 'Claude and AI assistants' },
+    pillar: '/ressources/guides/claude-pme',
+    question: { fr: "Comment Claude s'intégrerait-il à vos outils et à vos équipes ?", en: 'How would Claude fit your tools and your team?' },
+  },
+  applications: {
+    label: { fr: 'Applications métier', en: 'Business apps' },
+    pillar: '/services/applications-internes',
+    question: { fr: 'Une application métier remplacerait-elle vos tableurs ?', en: 'Could a business app replace your spreadsheets?' },
+  },
+  commercial: {
+    label: { fr: 'Prospection et CRM', en: 'Prospecting and CRM' },
+    pillar: '/services/systeme-commercial',
+    question: { fr: 'Combien de relances et de devis vous échappent chaque mois ?', en: 'How many follow-ups and quotes slip through each month?' },
+  },
   acquisition: {
-    label: { fr: 'Acquisition', en: 'Acquisition' },
-    description: {
-      fr: 'Systèmes d\'acquisition B2B automatisés pour PME : pipeline commercial, scoring de leads et qualification IA sur HubSpot ou Salesforce.',
-      en: 'Automated B2B acquisition systems for SMBs: sales pipeline, AI lead scoring and qualification on HubSpot or Salesforce.',
-    },
+    label: { fr: 'Acquisition et visibilité', en: 'Acquisition and visibility' },
+    pillar: '/services/systeme-acquisition',
+    question: { fr: 'Votre site attire-t-il les bons prospects ?', en: 'Does your website attract the right prospects?' },
   },
-  crm: {
-    label: { fr: 'CRM & Relances', en: 'CRM & Follow-ups' },
-    description: {
-      fr: 'CRM nettoyé et relances automatisées par IA : scoring de contacts, séquences email personnalisées et suivi pipeline pour PME B2B.',
-      en: 'Clean CRM and AI-automated follow-ups: contact scoring, personalised email sequences and pipeline tracking for B2B SMBs.',
-    },
+  donnees: {
+    label: { fr: 'Données et pilotage', en: 'Data and reporting' },
+    pillar: '/services/donnees-reporting',
+    question: { fr: 'Vos chiffres arrivent-ils à temps pour décider ?', en: 'Do your numbers arrive in time to decide?' },
   },
-  'contenu-seo-geo': {
-    label: { fr: 'Contenu SEO/GEO', en: 'SEO/GEO Content' },
-    description: {
-      fr: 'Stratégie de contenu B2B optimisée SEO et GEO : articles sectoriels, indexation Google et visibilité dans les IA génératives (ChatGPT, Perplexity).',
-      en: 'B2B content strategy optimised for SEO and GEO: sector articles, Google indexing and visibility in generative AI engines like ChatGPT and Perplexity.',
-    },
+  conseil: {
+    label: { fr: 'Stratégie IA', en: 'AI strategy' },
+    pillar: '/services/consultant-ia-claude',
+    question: { fr: "Par où commencer avec l'IA dans votre entreprise ?", en: 'Where should your company start with AI?' },
   },
-  productivite: {
-    label: { fr: 'Productivité', en: 'Productivity' },
-    description: {
-      fr: 'Automatisation des workflows internes pour PME : Excel augmenté, Office IA, agents de traitement documentaire et pipelines de tâches répétitives.',
-      en: 'Internal workflow automation for SMBs: AI-augmented Excel, Office automation, document-processing agents and repetitive-task pipelines.',
-    },
+  conformite: {
+    label: { fr: 'Conformité IA et RGPD', en: 'AI compliance and GDPR' },
+    pillar: '/conformite-ia',
+    question: { fr: "Vos usages de l'IA sont-ils en règle avec l'AI Act et le RGPD ?", en: 'Are your AI uses compliant with the AI Act and GDPR?' },
   },
-  support: {
-    label: { fr: 'Support client', en: 'Customer Support' },
-    description: {
-      fr: 'Triage IA et résolution N1 automatisée : agents de support qui qualifient, répondent et escaladent vers un humain uniquement sur les cas complexes.',
-      en: 'AI triage and automated L1 resolution: support agents that qualify, respond and escalate to a human only on complex cases.',
-    },
+  formation: {
+    label: { fr: 'Formation IA', en: 'AI training' },
+    pillar: '/formations',
+    question: { fr: "Vos équipes savent-elles se servir de l'IA au quotidien ?", en: 'Can your teams use AI day to day?' },
   },
-  pilotage: {
-    label: { fr: 'Pilotage data', en: 'Data Intelligence' },
-    description: {
-      fr: 'Pilotage data en temps réel pour PME : KPI consolidés, dashboards automatisés et alertes IA pour décider vite sur des chiffres fiables.',
-      en: 'Real-time data intelligence for SMBs: consolidated KPIs, automated dashboards and AI alerts to make fast decisions on reliable numbers.',
-    },
+  studio: {
+    label: { fr: 'Le studio', en: 'The studio' },
+    pillar: '/agence',
+    question: { fr: 'Envie de voir comment nous travaillerions ensemble ?', en: 'Want to see how we would work together?' },
   },
-  data: {
-    label: { fr: 'Data & ETL', en: 'Data & ETL' },
-    description: {
-      fr: 'Connecteurs ETL et structuration de données pour PME : pipelines fiables entre CRM, ERP et entrepôt, avec contrôle qualité automatisé à chaque étape.',
-      en: 'ETL connectors and data structuring for SMBs: reliable pipelines between CRM, ERP and warehouse, with automated quality checks at every step.',
-    },
-  },
-  gouvernance: {
-    label: { fr: 'Gouvernance IA', en: 'AI Governance' },
-    description: {
-      fr: 'Gouvernance IA pour PME en EU : conformité AI Act et RGPD, trail audit re-rejouable, garde-fous opérationnels et documentation pour les équipes juridiques.',
-      en: 'AI governance for EU SMBs: AI Act and GDPR compliance, replayable audit trail, operational guardrails and documentation for legal teams.',
-    },
-  },
-};
+} as const satisfies Record<string, { label: BiText; pillar: string; question: BiText }>;
+
+export type Silo = keyof typeof SILOS;
+export const SILO_KEYS = Object.keys(SILOS) as [Silo, ...Silo[]];
+
+/** Libellé d'un silo (repli : la clé brute, jamais une chaîne vide). */
+export function siloLabel(key: string | undefined, lang: Lang = 'fr'): string | undefined {
+  if (!key) return undefined;
+  return key in SILOS ? SILOS[key as Silo].label[lang] : key;
+}
 
 export const CLUSTERS: Record<
   string,
@@ -105,3 +123,16 @@ export const SOURCE_TYPES = {
     color: '#ea580c',
   },
 };
+
+/**
+ * Phrase du bandeau CTA d'un contenu : la question de son silo + l'offre d'audit.
+ * Sans silo (outil, page hors taxonomie), question générique.
+ */
+export function siloCtaText(key: string | undefined, lang: Lang = 'fr'): string {
+  const question = key && key in SILOS
+    ? SILOS[key as Silo].question[lang]
+    : lang === 'fr' ? 'Vous voulez savoir ce que ce sujet change chez vous ?' : 'Want to know what this changes for you?';
+  return lang === 'fr'
+    ? `${question} L'audit gratuit de 45 minutes part de vos tâches réelles et dit par où commencer, ou s'il vaut mieux ne rien faire.`
+    : `${question} The free 45-minute audit starts from your real tasks and says where to begin, or whether to leave it alone.`;
+}

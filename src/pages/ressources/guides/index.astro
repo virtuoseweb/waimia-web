@@ -13,6 +13,7 @@ import { getCollection } from 'astro:content';
 import { hubNoindex, isIndexableEntry } from '../../../lib/seo/hub-index';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import SiloFilter from '../../../components/ui/molecules/SiloFilter.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
 
@@ -35,6 +36,7 @@ const cards: Card[] = (await getCollection('guides'))
       lead_fr: d.description_fr,
       lead_en: d.description_en,
       href: `/ressources/guides/${d.slug ?? e.id}`,
+      silo: d.category,
     };
   });
 
@@ -119,7 +121,8 @@ const signature: SectionByType<'manifesto-statement'> = {
   pinned: false,
 };
 
-const sections: SectionData[] = [hero, signature, ...cardBands, ctaFinal];
+const headSections: SectionData[] = [hero, signature];
+const bodySections: SectionData[] = [...cardBands, ctaFinal];
 ---
 
 <Base
@@ -137,5 +140,13 @@ const sections: SectionData[] = [hero, signature, ...cardBands, ctaFinal];
       { label: 'Guides' },
     ]}
   />
-  <SectionsRenderer sections={sections} lang={lang} />
+  <SectionsRenderer sections={headSections} lang={lang} />
+  <div class="wrap-wide silo-bar">
+    <SiloFilter silos={cards.map((c) => c.silo)} lang={lang} />
+  </div>
+  <SectionsRenderer sections={bodySections} lang={lang} />
 </Base>
+
+<style>
+  .silo-bar { padding-top: var(--space-7); }
+</style>

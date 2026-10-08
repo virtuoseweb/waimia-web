@@ -1,0 +1,119 @@
+---
+// Molécule · SiloFilter · puces de filtre par silo éditorial (hubs blog, guides, comparatifs, ressources).
+//
+// Source des silos : src/data/taxonomies.ts (SILOS, siloLabel). Les cartes à filtrer portent
+// `data-silo="<clé>"` (champ optionnel `silo` des sections cataloguées article-grid et
+// related-cards-band). Amélioration progressive : le <nav> est `hidden` dans le HTML ; le script
+// le révèle, ce qui évite des puces mortes sans JS (toutes les cartes restent visibles).
+//
+// Comportement (script inline, ré-initialisé sur astro:page-load) :
+//  - clic = n'affiche que les cartes du silo (attribut `hidden`), « Tous » réinitialise ;
+//  - lien profond `?silo=<clé>` lu au chargement, mis à jour par history.replaceState ;
+//  - une <section> dont toutes les cartes sont masquées est masquée avec son titre.
+//
+// API : <SiloFilter silos={cartes.map((c) => c.silo)} lang={lang} />
+import { SILO_KEYS, siloLabel } from '../../../data/taxonomies';
+import type { Lang } from '../../../lib/i18n';
+
+interface Props {
+  /** Silo de chaque carte listée (undefined = carte sans silo, comptée dans « Tous » seulement). */
+  silos: Array<string | undefined>;
+  lang: Lang;
+  class?: string;
+}
+const { silos, lang, class: extraClass = '' } = Astro.props;
+const isFr = lang === 'fr';
+
+const chips = SILO_KEYS.map((key) => ({
+  key,
+  label: siloLabel(key, lang) ?? key,
+  n: silos.filter((s) => s === key).length,
+})).filter((c) => c.n > 0);
+---
+{chips.length > 1 && (
+  <nav class={`silo-filter ${extraClass}`.trim()} data-silo-filter hidden aria-label={isFr ? 'Filtrer par thème' : 'Filter by topic'}>
+    <button type="button" class="silo-chip" data-silo-key="" aria-pressed="true">
+      {isFr ? 'Tous' : 'All'} <span class="silo-chip-n">{silos.length}</span>
+    </button>
+    {chips.map((c) => (
+      <button type="button" class="silo-chip" data-silo-key={c.key} aria-pressed="false">
+        {c.label} <span class="silo-chip-n">{c.n}</span>
+      </button>
+    ))}
+  </nav>
+)}
+
+<style>
+  .silo-filter { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-6); }
+  .silo-filter[hidden] { display: none; }
+  .silo-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--ink);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .silo-chip:hover { border-color: var(--ink); }
+  .silo-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  .silo-chip-n { font-family: var(--font-mono); color: var(--muted); }
+  .silo-chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .silo-chip[aria-pressed='true'] .silo-chip-n { color: inherit; }
+  /* Les cartes (display:flex côté section) ignorent l'attribut hidden : on le fait respecter. */
+  :global([data-silo][hidden]) { display: none !important; }
+</style>
+
+<script is:inline>
+(function () {
+  function apply(nav, key) {
+    var cards = document.querySelectorAll('[data-silo]');
+    var sections = [];
+    cards.forEach(function (card) {
+      card.hidden = key !== '' && card.getAttribute('data-silo') !== key;
+      var sec = card.closest('section');
+      if (sec && sections.indexOf(sec) === -1) sections.push(sec);
+    });
+    // Une section dont toutes les cartes sont masquées disparaît avec son titre.
+    sections.forEach(function (sec) {
+      var any = sec.querySelector('[data-silo]:not([hidden])');
+      sec.hidden = !any;
+    });
+    nav.querySelectorAll('[data-silo-key]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-silo-key') === key));
+    });
+    try {
+      var url = new URL(window.location.href);
+      if (key) url.searchParams.set('silo', key); else url.searchParams.delete('silo');
+      history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+    } catch (_) {}
+  }
+
+  function init() {
+    var nav = document.querySelector('[data-silo-filter]');
+    if (!nav || nav.dataset.siloBound) return;
+    nav.dataset.siloBound = '1';
+    nav.hidden = false;
+    nav.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('[data-silo-key]');
+      if (b) apply(nav, b.getAttribute('data-silo-key'));
+    });
+    var wanted = new URLSearchParams(window.location.search).get('silo') || '';
+    var known = nav.querySelector('[data-silo-key="' + wanted.replace(/"/g, '') + '"]');
+    if (wanted && known) apply(nav, wanted);
+  }
+
+  // Le script suit le <nav> : les cartes (plus bas dans le HTML) ne sont pas encore parsées.
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  if (!window.__siloFilterBound) {
+    window.__siloFilterBound = true;
+    document.addEventListener('astro:page-load', init);
+  }
+})();
+</script>

@@ -13,6 +13,7 @@ import { getLiveCollection } from '../../../lib/live-collection';
 import { hubNoindex, isIndexableEntry } from '../../../lib/seo/hub-index';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
+import SiloFilter from '../../../components/ui/molecules/SiloFilter.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import type { SectionData, SectionByType } from '@waimia/ds-kernel';
 
@@ -57,6 +58,7 @@ const cards: Card[] = (await getLiveCollection('comparatifs'))
       lead_fr: curation[slug]?.fr ?? d.description_fr,
       lead_en: curation[slug]?.en ?? d.description_en,
       href: `/ressources/comparatifs/${slug}`,
+      silo: d.category,
     };
   });
 
@@ -125,7 +127,8 @@ const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
   cards: chunk,
 }) satisfies SectionByType<'related-cards-band'>);
 
-const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
+const headSections: SectionData[] = [hero];
+const bodySections: SectionData[] = [...cardBands, ctaFinal];
 ---
 
 <Base
@@ -143,5 +146,13 @@ const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
       { label: 'Comparatifs' },
     ]}
   />
-  <SectionsRenderer sections={sections} lang={lang} />
+  <SectionsRenderer sections={headSections} lang={lang} />
+  <div class="wrap-wide silo-bar">
+    <SiloFilter silos={cards.map((c) => c.silo)} lang={lang} />
+  </div>
+  <SectionsRenderer sections={bodySections} lang={lang} />
 </Base>
+
+<style>
+  .silo-bar { padding-top: var(--space-7); }
+</style>

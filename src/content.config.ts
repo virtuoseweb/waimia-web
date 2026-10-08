@@ -3,6 +3,7 @@
 // V2 (2026-05-15) : extension pour CMS headless complet · cf docs/13-CONTENT-ARCHITECTURE.md + 14-MASTER-PLAN
 
 import { defineCollection, reference, z } from 'astro:content';
+import { SILO_KEYS } from './data/taxonomies';
 import { glob as rawGlob } from 'astro/loaders';
 import { applyPricingTokens, PRICING_TOKENS_SIGNATURE } from './data/pricing';
 import { sectionsArraySchema } from '@waimia/ds-kernel';
@@ -58,18 +59,9 @@ const baseFields = {
 
 // ─── Mixin taxonomies ───
 const taxonomyFields = {
-  category: z
-    .enum([
-      'acquisition',
-      'crm',
-      'contenu-seo-geo',
-      'productivite',
-      'support',
-      'pilotage',
-      'data',
-      'gouvernance',
-    ])
-    .optional(),
+  // Silo éditorial (clés de SILOS, src/data/taxonomies.ts) = premier thème de la page au
+  // maillage interne (garde check:silos). Obligatoire sur les collections éditoriales.
+  category: z.enum(SILO_KEYS).optional(),
   cluster: z
     .string()
     .regex(/^[a-z0-9-]+$/, 'kebab-case')
@@ -398,6 +390,7 @@ const guides = defineCollection({
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
+    category: z.enum(SILO_KEYS),
     sections: sectionsArraySchema.optional(),
   }),
 });
@@ -416,6 +409,7 @@ const comparatifs = defineCollection({
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
+    category: z.enum(SILO_KEYS),
     sections: sectionsArraySchema.optional(),
   }),
 });
@@ -451,6 +445,7 @@ const blog = defineCollection({
   schema: z.object({
     ...baseFields,
     ...taxonomyFields,
+    category: z.enum(SILO_KEYS),
     // H1 distinct du title (optionnel) : le title reste court pour la SERP, le H1 peut
     // porter la formulation complète de la requête. Absent → H1 = title_fr.
     h1_fr: z.string().optional(),
@@ -935,6 +930,10 @@ const legal = defineCollection({
     // ── kind: 'legal' (TrustLegalTemplate) ──
     kickerFr: z.string().optional(),
     kickerEn: z.string().optional(),
+    // Sujet injecté dans le bandeau CTA (« Une question sur <sujet> ? ») : groupe nominal
+    // avec déterminant, ex. « nos mentions légales ». Requis par TrustLegalTemplate.
+    ctaSubjectFr: z.string().optional(),
+    ctaSubjectEn: z.string().optional(),
     revisedAt: z.string().optional(),
     version: z.string().optional(),
     legalFooterFr: z.string().optional(),
