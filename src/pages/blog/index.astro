@@ -190,8 +190,10 @@ const ctaSection = {
   .blog-grid {
     margin-top: calc(-1 * var(--space-7));
   }
-  /* Puces de silo : posées avant la grille, au-dessus du rattrapage de marge négative. */
-  .blog-silos { position: relative; z-index: 1; margin-bottom: var(--space-2); }
+  /* Puces de silo (composant enfant → :global) : posées avant la grille, dont la marge
+     négative les recouvrirait ; la marge basse compense ce rattrapage. Sans JS, la nav est
+     masquée et la grille retrouve sa position d'origine. */
+  :global(.list-body .silo-filter.blog-silos) { margin-bottom: calc(var(--space-7) + var(--space-5)); }
   /* CTA newsletter inline dans le lede hero : lien accent, tokens DS existants,
      0 nouveau token (rule 60). */
   /* `:global` requis : le lede est rendu par le composant masthead via set:html →
