@@ -105,5 +105,5 @@ Termine par les chemins de fichiers cles. Ne dis pas "valide": l'orchestrateur r
 
 Retour (ton message final): chemin du doc ecrit + le TL;DR + le backlog priorise (pour que l'orchestrateur le relaie).`
 
-const report = await agent(synthPrompt, { label: 'synthese', phase: 'Synthese', model: 'opus' })
+const report = await agent(synthPrompt, { label: 'synthese', phase: 'Synthese', model: 'sonnet' })
 return { report }

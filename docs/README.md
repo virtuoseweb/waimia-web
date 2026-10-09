@@ -150,7 +150,7 @@ Toute la connaissance n'est pas dans `docs/`. Voici où trouver le reste :
 | `README.md` (racine) | Readme dépôt : install, build, stack, commandes | Setup poste / commandes |
 | `CONTRIBUTING.md` (racine) | Conventions de contribution | Avant une PR |
 | **`tasks/ORCH-STATE.md`** | Journal d'orchestration horodaté (état le + frais) | Reprise de session |
-| `tasks/lessons.md`, `tasks/todo.md` | Leçons capitalisées + todo courant | Reprise / capitalisation |
+| `AGENTS.md` § Leçons actives, `tasks/todo.md` | Leçons actives (20 max) + todo courant | Reprise / capitalisation |
 | **`projects/instincts/*.md`** (3) | Patterns d'agent réutilisables (SEO validation, worktrees parallèles, task-phase workflow) | Avant d'orchestrer une phase |
 | **`skills/`** (5 + README) | Skills contenu projet : `article-add`, `calendrier-editorial`, `newsletter-mensuelle`, `post-linkedin`, `imported` | Production de contenu marketing |
 | `tina/` | Config TinaCMS | Travail CMS |

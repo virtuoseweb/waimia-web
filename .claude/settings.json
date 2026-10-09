@@ -13,14 +13,17 @@
     }
   },
   "enabledPlugins": {
-    "vw-guardrails@virtuoseweb": true
+    "vw-guardrails@virtuoseweb": false
   },
   "hooks": {
     "PostToolUse": [
       {
         "matcher": "Bash",
         "hooks": [
-          { "type": "command", "command": "bash .claude/hooks/board-sync.sh" }
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/board-sync.sh\""
+          }
         ]
       }
     ]
