@@ -61,7 +61,7 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // noindex (seo.noindex:true frontmatter) → caseRef amploi hors-ICP SaaS. Réindexable
   // dès qu'un vrai cas éditeur/SaaS remplace le caseRef.
   "/secteurs/startup-logiciel",
-  // Hubs /ressources/guides et /ressources/comparatifs : indexation calculée depuis le
+  // Hub /ressources/comparatifs (le hub guides est supprimé, 301 vers /ressources) : indexation calculée depuis le
   // 5 octobre 2026 (src/lib/seo/hub-index.ts), donc retirés de cette liste.
   // Hub diagnostics (V7-FOLD Phase C) : noindex tant que < 3-5 enfants réels (2 pour l'instant :
   // maturite-ia, site-web-intelligent) → hors sitemap pour cohérence. Retirer quand le hub

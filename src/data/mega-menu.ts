@@ -111,6 +111,21 @@ export interface MegaMenuGroup {
   links: MegaMenuLink[];
 }
 
+/**
+ * Carte illustrée sous les liens d'une colonne (2026-10-11) : illustration 7:3
+ * (1456×624, `public/images/illustrations/ds/<slug>-paper.webp`), titre, une ligne
+ * et un lien. Un seul `<a>` porte toute la carte. Rendue dans les colonnes
+ * classiques (`links`) du mega panel desktop ET du sheet mobile.
+ */
+export interface MegaMenuCard {
+  title: BiText;
+  body: BiText;
+  cta: BiText;
+  href: string;
+  /** Chemin public/ de l'illustration, ratio 7:3 (1456×624). */
+  image: string;
+}
+
 export interface MegaMenuColumn {
   title: BiText;
   kicker?: BiText;
@@ -125,6 +140,10 @@ export interface MegaMenuColumn {
    */
   goal?: BiText;
   quote?: BiText;
+  /**
+   * Carte illustrée sous les liens de la colonne (cf `MegaMenuCard`).
+   */
+  card?: MegaMenuCard;
   /**
    * Colonne « sélecteur de systèmes » (directive Simon 2026-07-13). Liste les
    * systèmes (catégories) : survol/clic/focus d'un système → le panneau jumeau
@@ -166,6 +185,11 @@ export interface MegaMenuFeatured {
    * cadre `.img` reste rendu tel quel (parité DOM avec les panels existants).
    */
   image?: string;
+  /**
+   * Dimensions réelles `[largeur, hauteur]` de `image` (attributs width/height, CLS) ;
+   * défaut 1536×1024 (visuels `besoins/`). Illustrations DS `ds/` : 1456×624.
+   */
+  imageSize?: [number, number];
 }
 
 export interface MegaMenuSection {
@@ -208,8 +232,9 @@ function mapLegacyFeatured(featured: LegacyFeaturedCard, image?: string): MegaMe
 // PRÉSENTE l'audit (liens « Audit IA PME ») ; les « Réserver un audit » mènent au contact.
 
 // ─── RESSOURCES · allégé (2026-10-06, demande Simon : « un hub, quelques liens importants,
-// Tout voir »). Quatre entrées seulement, chacune vers son hub (guides, comparatifs, outils,
-// blog), plus le guide pilier en bloc mis en avant. Le détail (tous les guides, comparatifs,
+// Tout voir »). Hubs comparatifs, outils et blog, plus le guide pilier en bloc mis en avant ;
+// le hub guides est supprimé (2026-10-11, les guides se filtrent dans /ressources) et deux
+// cartes illustrées (diagnostic, calculateur) occupent le bas des colonnes. Le détail (tous les guides, comparatifs,
 // outils et articles, filtrables par type) vit sur l'index unifié /ressources, lié par
 // « Tout voir ». Les hubs sont indexables dès 3 pages filles (règle calculée, hub-index.ts).
 const RESSOURCES: MegaMenuSection = {
@@ -227,14 +252,6 @@ const RESSOURCES: MegaMenuSection = {
       title: { fr: 'Apprendre', en: 'Learn' },
       links: [
         {
-          label: { fr: 'Guides', en: 'Guides' },
-          href: '/ressources/guides',
-          description: {
-            fr: 'Un chantier de bout en bout, étape par étape.',
-            en: 'One project end to end, step by step.',
-          },
-        },
-        {
           label: { fr: 'Blog', en: 'Blog' },
           href: '/blog',
           description: {
@@ -243,6 +260,16 @@ const RESSOURCES: MegaMenuSection = {
           },
         },
       ],
+      card: {
+        title: { fr: 'Diagnostic de maturité IA', en: 'AI maturity diagnostic' },
+        body: {
+          fr: 'Dix questions, un niveau de 1 à 5 et le point à traiter en premier.',
+          en: 'Ten questions, a level from 1 to 5 and the first point to fix.',
+        },
+        cta: { fr: 'Faire le diagnostic →', en: 'Take the diagnostic →' },
+        href: '/ressources/diagnostics/maturite-ia',
+        image: '/images/illustrations/ds/outil-diagnostic-maturite-ia-paper.webp',
+      },
     },
     {
       kicker: { fr: 'DÉCIDER', en: 'DECIDE' },
@@ -265,6 +292,16 @@ const RESSOURCES: MegaMenuSection = {
           },
         },
       ],
+      card: {
+        title: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' },
+        body: {
+          fr: 'Vos heures et votre coût horaire : le temps récupérable, chiffré en deux minutes.',
+          en: 'Your hours and hourly cost: the recoverable time, priced in two minutes.',
+        },
+        cta: { fr: 'Calculer mon ROI →', en: 'Calculate my ROI →' },
+        href: '/ressources/outils/calculateur-roi-ia',
+        image: '/images/illustrations/ds/outil-calculateur-roi-ia-paper.webp',
+      },
     },
   ],
   featured: {
@@ -277,6 +314,7 @@ const RESSOURCES: MegaMenuSection = {
     cta: { fr: 'Lire le guide →', en: 'Read the guide →' },
     href: '/ressources/guides/claude-pme',
     image: '/images/illustrations/ds/claude-pme-hub-carrefour-paper.webp',
+    imageSize: [1456, 624],
   },
 };
 
@@ -566,6 +604,7 @@ const CAS_USAGES: MegaMenuSection = {
     cta: { fr: 'Réserver un audit →', en: 'Book an audit →' },
     href: AUDIT_BOOKING_HREF,
     image: '/images/editorial/image-style-12.webp',
+    imageSize: [1456, 624],
   },
 };
 

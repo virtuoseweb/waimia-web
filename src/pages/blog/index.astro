@@ -14,6 +14,7 @@ import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import { meshForBlogHub } from '../../lib/internal-mesh';
 import { SITE } from '../../site.config';
 import SiloFilter from '../../components/ui/molecules/SiloFilter.astro';
+import { manifestoData } from '../../data/ressources-hub-sections';
 
 const lang = langFromPath(Astro.url.pathname);
 
@@ -171,6 +172,9 @@ const ctaSection = {
       </div>
     </div>
   </section>
+
+  {/* « La promesse » : même section que le hub Ressources (source unique en donnée) */}
+  <SectionsRenderer sections={[manifestoData]} lang={lang} />
 
   <SectionsRenderer sections={[ctaSection]} lang={lang} />
 </Base>

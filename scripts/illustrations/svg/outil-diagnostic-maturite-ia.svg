@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · outil diagnostic de maturité IA · une pyramide à cinq paliers, les trois premiers pleins, les deux derniers en creux ; une silhouette se tient sur le troisième. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="300" r="250" fill="{{shape}}"/>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+
+  <!-- paliers non atteints : creux, contour seul -->
+  <rect x="588" y="296" width="280" height="56" fill="{{light}}" stroke="{{detail}}" stroke-width="5"/>
+  <rect x="668" y="240" width="120" height="56" fill="{{light}}" stroke="{{detail}}" stroke-width="5"/>
+  <!-- paliers atteints : pleins -->
+  <rect x="348" y="464" width="760" height="56" fill="{{detail}}"/>
+  <rect x="428" y="408" width="600" height="56" fill="{{detail}}"/>
+  <rect x="508" y="352" width="440" height="56" fill="{{detail}}"/>
+  <!-- tranches claires entre paliers -->
+  <rect x="348" y="462" width="760" height="4" fill="{{light}}"/>
+  <rect x="428" y="406" width="600" height="4" fill="{{light}}"/>
+  <rect x="508" y="350" width="440" height="4" fill="{{light}}"/>
+
+  <!-- fanion sur le dernier palier atteint -->
+  <rect x="860" y="262" width="5" height="90" fill="{{subject}}"/>
+  <path d="M865 264 L912 280 L865 296 Z" fill="{{subject}}"/>
+
+  <use href="#man" transform="translate(640 352) scale(1.15)"/>
+  <use href="#woman" transform="translate(300 520) scale(1.1)"/>
+  <use href="#man" transform="translate(236 520) scale(0.95)"/>
+  <use href="#man" transform="translate(1210 520) scale(0.9)"/>
+</svg>

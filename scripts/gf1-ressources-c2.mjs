@@ -15,9 +15,8 @@ const urls = [
   '/demonstrations/avant-apres',
   '/implantations/montpellier',
   '/implantations/bordeaux',
-  // hubs (4)
+  // hubs (3)
   '/ressources/comparatifs/',
-  '/ressources/guides/',
   '/demonstrations/',
   '/implantations/',
   // hub Solutions v7 (correction nav /offres→/services)

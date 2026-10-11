@@ -1,158 +1,36 @@
 ---
+// Page · /ressources/comparatifs · vue filtrée du hub Ressources (2026-10-11).
 export const prerender = true;
 
-// Page SSG · /ressources/comparatifs · HUB comparatifs · rendu 100 % composable.
-// Indexation CALCULÉE (src/lib/seo/hub-index.ts) : le hub s'indexe dès qu'il liste au moins
-// 3 comparatifs eux-mêmes indexables. Les comparatifs en noindex ne sont pas listés.
-// Hero court + cartes via section catalogue `related-cards-band` (.min(2)/.max(3)).
-// Collection vide → 0 carte → 0 band (pas de crash).
-// Profondeur 3 niveaux (ressources/comparatifs/) → imports en `../../../`.
-
-import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL } from '../../../data/conversion';
-import { getLiveCollection } from '../../../lib/live-collection';
-import { hubNoindex, isIndexableEntry } from '../../../lib/seo/hub-index';
+// Même composant que /ressources (ResourcesHub), HTML filtré côté serveur sur le type
+// « comparatifs » : URL propre, canonical auto-référent, title/description/H1 uniques.
+// Indexation CALCULÉE (src/lib/seo/hub-index.ts) : indexée dès 3 items indexables.
 import Base from '../../../layouts/Base.astro';
-import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
-import SiloFilter from '../../../components/ui/molecules/SiloFilter.astro';
-import MastheadBar from '../../../components/sections/MastheadBar.astro';
-import type { SectionData, SectionByType } from '@waimia/ds-kernel';
+import ResourcesHub from '../../../components/ui/organisms/ResourcesHub.astro';
+import { SITE } from '../../../site.config';
+import { buildCollectionPage } from '../../../lib/seo/schema-builder';
+import { getResourceItems } from '../../../lib/resources-hub';
+import { hubNoindex } from '../../../lib/seo/hub-index';
+import { RESOURCE_VIEWS } from '../../../data/ressources-hub-sections';
+import { langFromPath } from '../../../lib/i18n';
 
-const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
+const lang = langFromPath(Astro.url.pathname);
 const isFr = lang === 'fr';
+const v = RESOURCE_VIEWS.comparatifs;
+const items = await getResourceItems();
+const shown = items.filter((i) => i.kind === 'comparatifs');
 
-type Card = SectionByType<'related-cards-band'>['cards'][number];
-
-// Curation par comparatif : l'arbitrage tranché en une phrase (fidèle au verdict de
-// chaque page), pour guider le lecteur au-delà d'un titre « X vs Y ».
-const curation: Record<string, { fr: string; en: string }> = {
-  'claude-code-vs-cursor': {
-    fr: 'Cursor pour garder le contrôle ligne à ligne, Claude Code pour déléguer des tâches entières à un agent. Le bon choix dépend de votre façon de coder.',
-    en: 'Cursor to keep line-by-line control, Claude Code to hand whole tasks to an agent. The right pick depends on how you code.',
-  },
-  'claude-vs-chatgpt-pme': {
-    fr: 'Le choix se joue sur votre besoin prioritaire, pas sur un classement : ChatGPT en assistant polyvalent, Claude pour brancher l\'IA à vos outils et vos données.',
-    en: 'It comes down to your priority need, not a ranking: ChatGPT as an all-round assistant, Claude to wire AI into your tools and data.',
-  },
-  'geo-vs-seo': {
-    fr: 'Le SEO vous fait trouver sur Google, le GEO vous fait citer par les IA. Deux leviers complémentaires, pas un remplacement.',
-    en: 'SEO gets you found on Google, GEO gets you cited by AIs. Two complementary levers, not a replacement.',
-  },
-  'site-web-intelligent-vs-wordpress': {
-    fr: 'Pour une PME qui veut un actif et pas une dette, le site web intelligent l\'emporte sur WordPress sur cinq critères : performance, SEO/GEO, maintenance, sécurité et coût total.',
-    en: 'For an SMB that wants an asset, not a debt, the intelligent website beats WordPress on five criteria: performance, SEO/GEO, maintenance, security and total cost.',
-  },
-};
-
-const cards: Card[] = (await getLiveCollection('comparatifs'))
-  .filter(isIndexableEntry)
-  .sort((a, b) => (a.data.slug ?? a.id).localeCompare(b.data.slug ?? b.id))
-  .map((e) => {
-    const d = e.data;
-    const slug = d.slug ?? e.id;
-    const shortTitle = (full: string) => full.split(' · ')[0].trim();
-    return {
-      kicker_fr: 'Comparatif',
-      kicker_en: 'Comparison',
-      title_fr: shortTitle(d.title_fr),
-      title_en: shortTitle(d.title_en),
-      lead_fr: curation[slug]?.fr ?? d.description_fr,
-      lead_en: curation[slug]?.en ?? d.description_en,
-      href: `/ressources/comparatifs/${slug}`,
-      silo: d.category,
-    };
-  });
-
-// Chunker équilibré 2-3 (jamais de singleton) : respecte .min(2)/.max(3) du schéma.
-function chunkCards(items: Card[]): Card[][] {
-  if (items.length < 2) return [];
-  const chunks: Card[][] = [];
-  let rest = [...items];
-  while (rest.length > 0) {
-    if (rest.length === 4) {
-      chunks.push(rest.slice(0, 2));
-      chunks.push(rest.slice(2, 4));
-      rest = [];
-    } else if (rest.length <= 3) {
-      chunks.push(rest);
-      rest = [];
-    } else {
-      chunks.push(rest.slice(0, 3));
-      rest = rest.slice(3);
-    }
-  }
-  return chunks;
-}
-
-const hero: SectionByType<'hero-hub-masthead'> = {
-  type: 'hero-hub-masthead',
-  background: 'paper',
-  variant: 'listing',
-  decoration: false,
-  align: 'left',
-  kicker_fr: '§ Comparatifs · comparez avant de choisir',
-  kicker_en: '§ Comparisons · compare before you choose',
-  h1_fr: '<span>Comparatifs</span><br/><span><i>objectifs</i>.</span>',
-  h1_en: '<span>Objective</span><br/><span><i>comparisons</i>.</span>',
-  lede_fr: "Des comparatifs clairs pour trancher entre outils, approches et fournisseurs. On pose les critères, on documente les écarts, vous décidez en connaissance de cause.",
-  lede_en: 'Clear comparisons to decide between tools, approaches and vendors. We set the criteria, document the gaps, you choose with full context.',
-};
-
-const ctaFinal: SectionByType<'cta-final'> = {
-  type: 'cta-final',
-  background: 'ink',
-  h2_fr: 'Envie d\'en parler ?',
-  h2_en: 'Want to talk about it?',
-  body_fr: 'Un audit de 45 minutes, gratuit et sans engagement : on part de vos processus réels et on repère trois automatisations rentables.',
-  body_en: 'A free 45-minute audit, with no commitment: we start from your real processes and spot three profitable automations.',
-  cta_primary: {
-    label_fr: AUDIT_BOOKING_LABEL.fr,
-    label_en: AUDIT_BOOKING_LABEL.en,
-    href: AUDIT_BOOKING_HREF,
-    variant: 'primary',
-  },
-  cta_secondary: {
-    label_fr: AUDIT_PAGE_LABEL.fr,
-    label_en: AUDIT_PAGE_LABEL.en,
-    href: AUDIT_PAGE_HREF,
-    variant: 'ghost',
-  },
-};
-
-const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
-  type: 'related-cards-band',
-  background: i % 2 === 0 ? 'paper' : 'paper-2',
-  ...(i === 0
-    ? { kicker_fr: '§ Les comparatifs disponibles', kicker_en: '§ Available comparisons' }
-    : {}),
-  cards: chunk,
-}) satisfies SectionByType<'related-cards-band'>);
-
-const headSections: SectionData[] = [hero];
-const bodySections: SectionData[] = [...cardBands, ctaFinal];
+const collectionLd = buildCollectionPage(
+  isFr ? v.collection_name_fr : v.collection_name_en,
+  isFr ? v.collection_desc_fr : v.collection_desc_en,
+  shown.map((i) => `${SITE.url}${i.href}`),
+);
 ---
-
 <Base
-  title={isFr ? 'Comparatifs IA : Claude, ChatGPT, n8n, Make · Waimia' : 'AI comparisons: Claude, ChatGPT, n8n, Make · Waimia'}
-  description={isFr
-    ? 'Comparatifs objectifs pour trancher entre outils, approches et fournisseurs IA. Des critères clairs, les écarts documentés, votre décision éclairée.'
-    : 'Objective comparisons to decide between AI tools, approaches and vendors. Clear criteria, documented gaps, your informed decision.'}
-  noindex={hubNoindex(cards.length)}
+  title={isFr ? v.title_fr : v.title_en}
+  description={isFr ? v.description_fr : v.description_en}
+  jsonLd={collectionLd}
+  noindex={hubNoindex(shown.length)}
 >
-  <MastheadBar
-    lang={lang}
-    items={[
-      { label: isFr ? 'Accueil' : 'Home', href: isFr ? '/' : '/en' },
-      { label: isFr ? 'Ressources' : 'Resources', href: isFr ? '/ressources' : '/en/ressources' },
-      { label: 'Comparatifs' },
-    ]}
-  />
-  <SectionsRenderer sections={headSections} lang={lang} />
-  <div class="wrap-wide silo-bar">
-    <SiloFilter silos={cards.map((c) => c.silo)} lang={lang} />
-  </div>
-  <SectionsRenderer sections={bodySections} lang={lang} />
+  <ResourcesHub items={items} activeKind="comparatifs" />
 </Base>
-
-<style>
-  .silo-bar { padding-top: var(--space-7); }
-</style>
