@@ -85,67 +85,9 @@ const webAppLd = buildWebApplication({ name: d.title_fr, description: d.descript
     est capturé via Astro.slots.render() puis réinjecté en set:html, ce qui rend
     inerte un <script> porté par le composant). Cible générique [data-tool-widget]. */}
 <script>
-  function evalExpr(expr: string, vars: Record<string, number>): number {
-    let i = 0;
-    const s = expr;
-    const skip = () => { while (i < s.length && s[i] === ' ') i++; };
-    function primary(): number {
-      skip();
-      const c = s[i];
-      if (c === '(') {
-        i++;
-        const v = add();
-        skip();
-        if (s[i] === ')') i++;
-        return v;
-      }
-      const start = i;
-      if (/[a-zA-Z_]/.test(c)) {
-        while (i < s.length && /[a-zA-Z0-9_]/.test(s[i])) i++;
-        return Number(vars[s.slice(start, i)] ?? 0);
-      }
-      while (i < s.length && /[0-9.]/.test(s[i])) i++;
-      return Number(s.slice(start, i));
-    }
-    function mul(): number {
-      let v = primary();
-      skip();
-      while (s[i] === '*' || s[i] === '/') {
-        const op = s[i++];
-        const r = primary();
-        v = op === '*' ? v * r : v / r;
-        skip();
-      }
-      return v;
-    }
-    function add(): number {
-      let v = mul();
-      skip();
-      while (s[i] === '+' || s[i] === '-') {
-        const op = s[i++];
-        const r = mul();
-        v = op === '+' ? v + r : v - r;
-        skip();
-      }
-      return v;
-    }
-    return add();
-  }
-
-  function fmtResult(v: number, format: string, unit: string, lang: string): string {
-    const loc = lang === 'en' ? 'en-US' : 'fr-FR';
-    if (!isFinite(v)) v = 0;
-    if (format === 'currency-eur') {
-      return new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(v));
-    }
-    if (format === 'percent') {
-      return new Intl.NumberFormat(loc, { style: 'percent', maximumFractionDigits: 0 }).format(v);
-    }
-    const n = format === 'decimal2'
-      ? new Intl.NumberFormat(loc, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(v)
-      : new Intl.NumberFormat(loc, { maximumFractionDigits: 0 }).format(Math.round(v));
-    return unit ? `${n} ${unit}` : n;
-  }
+  // Formules et mise en forme : src/lib/lead-tools (source unique, partagée avec l'API et le PDF).
+  import { evalFormula as evalExpr, formatToolValue as fmtResult } from '../../../lib/lead-tools/formula';
+  import { ROI_INPUTS, ROI_TOOL, roiInputErrors } from '../../../lib/lead-tools/roi';
 
   function initToolWidgets(): void {
     document.querySelectorAll<HTMLElement>('[data-tool-widget]').forEach((widget) => {
@@ -172,9 +114,31 @@ const webAppLd = buildWebApplication({ name: d.title_fr, description: d.descript
 
   // Copie par e-mail (section lead-capture-band → organism LeadCapture) : hypothèses + résultats affichés.
   document.addEventListener('cv:collect', (ev) => {
-    const detail = (ev as CustomEvent).detail as { summary: { label: string; value: string }[]; headline: string };
+    const detail = (ev as CustomEvent).detail as {
+      slug: string;
+      summary: { label: string; value: string }[];
+      headline: string;
+      result?: { tool: string; inputs: Record<string, number> };
+      error?: string;
+    };
     const widget = document.querySelector<HTMLElement>('[data-tool-widget]');
     if (!widget) return;
+    // Calculateur ROI : hypothèses BRUTES pour le rapport PDF (recalculé par le serveur), bornes
+    // du JSON vérifiées avant l'envoi (le champ number laisse saisir au-delà de max).
+    if (detail.slug === ROI_TOOL) {
+      const inputs: Record<string, number> = {};
+      widget.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[data-key]').forEach((f) => {
+        inputs[f.dataset.key as string] = f.value.trim() === '' ? NaN : Number(f.value);
+      });
+      const bad = roiInputErrors(inputs);
+      if (bad.length) {
+        const d = ROI_INPUTS.find((x) => x.key === bad[0])!;
+        detail.error = `« ${d.label} » doit être compris entre ${d.min} et ${d.max} ${d.unit}. Corrigez la valeur pour recevoir le rapport.`;
+        widget.querySelector<HTMLElement>(`[data-key="${d.key}"]`)?.focus();
+        return;
+      }
+      detail.result = { tool: ROI_TOOL, inputs };
+    }
     widget.querySelectorAll<HTMLElement>('.tw-field').forEach((f) => {
       const label = f.querySelector('label')?.textContent?.trim() ?? '';
       const field = f.querySelector<HTMLInputElement | HTMLSelectElement>('[data-key]');

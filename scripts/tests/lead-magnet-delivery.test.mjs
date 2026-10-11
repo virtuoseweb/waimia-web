@@ -10,7 +10,6 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import http from 'node:http';
-import { registerHooks } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, existsSync, readFileSync } from 'node:fs';
@@ -18,33 +17,8 @@ import { tmpdir } from 'node:os';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
-// Crochet de chargement : reproduit ce que Vite fait pour src/ (extensions .ts, import.meta.env).
-registerHooks({
-  resolve(specifier, context, nextResolve) {
-    try {
-      return nextResolve(specifier, context);
-    } catch (err) {
-      if (specifier.startsWith('.') && context.parentURL?.includes('/src/')) {
-        for (const suffix of ['.ts', '/index.ts']) {
-          try {
-            return nextResolve(specifier + suffix, context);
-          } catch {
-            /* suivant */
-          }
-        }
-      }
-      throw err;
-    }
-  },
-  load(url, context, nextLoad) {
-    const result = nextLoad(url, context);
-    if (url.includes('/src/') && url.endsWith('.ts') && result.source != null) {
-      const text = Buffer.from(result.source).toString('utf8').replaceAll('import.meta.env', 'process.env');
-      return { ...result, source: text };
-    }
-    return result;
-  },
-});
+// Crochet de chargement partagé : extensions .ts, import.meta.env, JSON (cf _src-hooks.mjs).
+import './_src-hooks.mjs';
 
 const srcUrl = (p) => pathToFileURL(join(ROOT, 'src', p)).href;
 const { processLeadMagnet } = await import(srcUrl('lib/lead-magnet-delivery.ts'));
