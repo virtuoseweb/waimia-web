@@ -678,6 +678,8 @@ const articleLd = buildArticle({
 .essay--tool :global(.hero-essay__h1) { font-size: var(--text-h2); }
 .essay--tool :global(.hero-essay__hd) { padding-bottom: var(--space-8); }
 .essay--tool :global(.hero-essay__hd--illus) { min-height: clamp(300px, 28vw, 420px); }
+/* Chapô plus étroit : il ne vient plus toucher l'illustration à droite (mesuré à 1440 px). */
+.essay--tool :global(.hero-essay__lede) { max-width: 640px; }
 .essay--tool .essay-body { padding-top: var(--space-9); }
 @media (max-width: 768px) {
   .essay--tool :global(.hero-essay__illus) { display: none; }
