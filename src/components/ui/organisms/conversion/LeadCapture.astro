@@ -240,6 +240,8 @@ const descId = bare ? describedBy : `${fid}-desc`;
   .lc .cv-error, .lc-legal, .lc-optin { grid-column: 1 / -1; }
   .lc-optin { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-small); line-height: var(--leading-body); color: var(--ink); cursor: pointer; }
   .lc-optin input { margin: 3px 0 0; accent-color: var(--ink); width: 15px; height: 15px; flex-shrink: 0; }
+  /* Bouton de téléchargement du rapport : créé par le script après l'envoi, donc :global. */
+  :global(.lc-pdf) { margin: var(--space-4) 0 0; }
   .lc-optin input:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
   @media (max-width: 760px) {
     .lc-form { grid-template-columns: 1fr; }

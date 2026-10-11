@@ -17,17 +17,6 @@ import LeadCaptureBand from '../../../../sections/lead-capture-band/Component.as
 import { dimensions, levels, MAX_SCORE, QUESTION_COUNT } from '../../../../data/diagnostic-maturite-ia';
 import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF } from '../../../../data/conversion';
 
-const clientData = {
-  max: MAX_SCORE,
-  levels,
-  dimensions: dimensions.map((d) => ({
-    key: d.key,
-    name: d.name,
-    advice: d.advice,
-    link: d.link ?? null,
-    questions: d.questions.map((q) => ({ id: q.id, text: q.text, options: q.options.map((x) => x.label) })),
-  })),
-};
 let n = 0;
 ---
 <section class="md" id="questionnaire" aria-labelledby="md-h2" data-maturity-diagnostic>
@@ -125,7 +114,6 @@ let n = 0;
     </div>
   </div>
 
-  <script type="application/json" data-md-data set:html={JSON.stringify(clientData)} />
 </section>
 
 <LeadCaptureBand
