@@ -16,7 +16,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const src = (p) => pathToFileURL(join(ROOT, 'src', p)).href;
 const { computeDiagnostic, computeRoi, computeLeadTool } = await import(src('lib/lead-tools/index.ts'));
 const { LeadToolPayloadSchema } = await import(src('lib/lead-tools/schema.ts'));
-const { gmailComposeUrl } = await import(src('lib/lead-tools/digest.ts'));
+const { gmailComposeUrl, digestLeadTool, replyDraft } = await import(src('lib/lead-tools/digest.ts'));
 const { AUDIT_RDV_URL } = await import(src('lib/lead-tools/links.ts'));
 const { renderLeadToolPdf } = await import(src('lib/pdf/index.ts'));
 const { fr } = await import(src('lib/pdf/kit.ts'));
@@ -242,7 +242,7 @@ test('API diagnostic : recalcul serveur, PDF joint au visiteur ET à l’alerte,
   assert.ok(v.html.includes('Votre rapport est prêt'));
   assert.ok(v.html.includes(`href="${RDV}"`), 'bouton vers le rendez-vous');
   const t = toTeam();
-  assert.equal(t.subject, 'Lead diagnostic maturité IA · claire.martin@atelier-durand.fr');
+  assert.equal(t.subject, '[Lead] diagnostic maturité IA · claire.martin@atelier-durand.fr');
   assert.equal(t.attachments[0].content, r.body.pdf.base64, 'même PDF dans l’alerte');
   assert.ok(t.html.includes('Niveau 1 sur 5 (Exploration)'), 'niveau recalculé');
   assert.ok(!t.html.includes('Niveau 5'), 'le niveau du client est ignoré');
@@ -264,7 +264,7 @@ test('API ROI : hypothèses et résultats complets dans l’alerte, PDF 3 pages'
   assert.equal(r.status, 200);
   assert.equal((await PDFDocument.load(Buffer.from(r.body.pdf.base64, 'base64'))).getPageCount(), 3);
   const t = toTeam();
-  assert.equal(t.subject, 'Lead calculateur ROI IA · claire.martin@atelier-durand.fr');
+  assert.equal(t.subject, '[Lead] calculateur ROI IA · claire.martin@atelier-durand.fr');
   assert.ok(t.html.includes('Hypothèses saisies') && t.html.includes('Sensibilité'));
   assert.ok(t.html.includes('460'), 'heures récupérables');
   assert.ok(toVisitor().subject.startsWith('Votre estimation · 460 heures'));
@@ -297,7 +297,7 @@ test('API : échec du PDF jamais silencieux (e-mail sans pièce jointe, alerte e
 });
 
 test('API : ressources statiques inchangées (pas de champ pdf), clé absente = 503 sans PDF', async () => {
-  const r = await post({ slug: 'diagnostic-maturite-ia' });
+  const r = await post({ slug: 'grille-taches-a-automatiser' });
   assert.equal(r.status, 200);
   assert.ok(!('pdf' in r.body));
   delete process.env.RESEND_API_KEY;
@@ -310,4 +310,122 @@ test('API : ressources statiques inchangées (pas de champ pdf), clé absente = 
   } finally {
     process.env.RESEND_API_KEY = 'test_key_factice';
   }
+});
+
+/* ───── Revue indépendante : faux point faible, budget nul, résultat obligatoire, aperçu sans PDF ───── */
+
+const digestText = (res) => {
+  const d = digestLeadTool(res);
+  const dr = replyDraft(res);
+  return {
+    d,
+    all: [d.headline, d.preview, ...d.metrics.map((m) => `${m.label} ${m.value}`), ...d.angle, ...d.sections.flatMap((s) => s.rows.map((r) => `${r.label} ${r.value}`)), ...dr.paragraphs].join('\n'),
+    draft: dr.paragraphs.join('\n'),
+  };
+};
+
+test('digest diagnostic : niveau 5 à 30/30, aucun faux point faible ni « blocage »', () => {
+  const res = computeLeadTool(DIAG.fort);
+  assert.equal(res.total, 30);
+  const { d, all, draft } = digestText(res);
+  // Le texte « suggestion » du niveau 5 (données du diagnostic) dit « si un sujet précis bloque » : exclu.
+  assert.ok(!/dimension la plus faible|point faible|la plus faible|bloque|À traiter en premier/.test(all.replace(res.level.next, '')), all);
+  assert.ok(d.headline.includes('niveau maximal'));
+  assert.ok(d.angle.some((a) => a.includes('industrialisation et de gouvernance, pas d\'un blocage')));
+  assert.ok(draft.includes('industrialiser et de gouverner'));
+  assert.ok(!d.sections[0].rows.some((r) => r.emphasis));
+  assert.ok(!/—/.test(all));
+});
+
+test('digest diagnostic : dimensions toutes égales (hors maximum), aucune dimension en retrait', () => {
+  for (const fx of [DIAG.uniforme, DIAG.faible]) {
+    const res = computeLeadTool(fx);
+    const { d, all, draft } = digestText(res);
+    assert.ok(!/la plus faible|point faible|bloque|À traiter en premier/.test(all), all);
+    assert.ok(d.angle[0].includes('aucune dimension en retrait'));
+    assert.ok(d.angle[0].includes('au même niveau'));
+    assert.ok(d.angle[1].includes('premier chantier visé'));
+    assert.ok(draft.includes('premier chantier'));
+  }
+});
+
+test('digest diagnostic : un vrai point faible garde l’angle et la question habituels', () => {
+  const res = computeLeadTool(DIAG.competences);
+  const { d, draft } = digestText(res);
+  assert.ok(d.angle[0].includes('la dimension la plus faible est Compétences'));
+  assert.ok(d.headline.includes('point faible : Compétences'));
+  assert.ok(draft.includes('Qu\'est-ce qui bloque'));
+});
+
+test('digest ROI : budget négatif, jamais de montant négatif ni « à ne pas dépasser »', () => {
+  const res = computeLeadTool(ROI.negatif);
+  assert.ok(res.values.plafond < 0);
+  const { d, all, draft } = digestText(res);
+  assert.ok(!/[-−]\s?\d/.test(all.replace(/·/g, '')), `montant négatif : ${all}`);
+  assert.ok(!draft.includes('à ne pas dépasser'));
+  assert.ok(d.metrics[2].value.startsWith('Aucun'));
+  assert.ok(d.headline.includes('pas de retour en 12 mois'));
+  assert.ok(d.angle[2].includes('annuel') && d.angle[2].includes('supérieur à') && !d.angle[2].includes('mensuel supérieur'));
+  assert.ok(draft.includes('pas de retour en 12 mois'));
+});
+
+test('digest ROI : coût annuel égal à la valeur écrit « égal », jamais « supérieur »', () => {
+  const res = computeLeadTool(ROI.coutEgal);
+  assert.equal(res.values.plafond, 0);
+  const { d, all, draft } = digestText(res);
+  assert.ok(d.angle[2].includes('égal à') && !d.angle[2].includes('supérieur'));
+  assert.ok(draft.includes('égal à') && !draft.includes('supérieur'));
+  assert.ok(!draft.includes('à ne pas dépasser'));
+  assert.ok(!all.includes('0 €  ') && d.metrics[2].value.startsWith('Aucun'));
+});
+
+test('digest ROI : heures ou taux à 0, plafond nul dit en clair, pas « surestimé »', () => {
+  for (const fx of [ROI.heuresZero, ROI.tauxZero, ROI.zero]) {
+    const res = computeLeadTool(fx);
+    const { d, all, draft } = digestText(res);
+    assert.ok(!all.includes('surestimé'), all);
+    assert.ok(d.angle[2].includes('plafond est nul'), d.angle[2]);
+    assert.equal(d.metrics[2].value, 'Nul, aucune valeur à investir');
+    assert.ok(!draft.includes('à ne pas dépasser'));
+    assert.ok(draft.includes('budget maximal est donc nul'));
+  }
+  // Coût à zéro avec une valeur réelle : le plafond surestimé reste signalé.
+  assert.ok(digestLeadTool(computeLeadTool(ROI.moyen)).angle[2].includes('surestimé'));
+});
+
+test('digest : texte d’aperçu sans pièce jointe quand le PDF manque', () => {
+  for (const fx of [DIAG.moyen, ROI.moyen]) {
+    const res = computeLeadTool(fx);
+    assert.ok(digestLeadTool(res).preview.includes('en pièce jointe'), 'par défaut : PDF annoncé');
+    assert.ok(digestLeadTool(res, { hasPdf: true }).preview.includes('en pièce jointe'));
+    const sans = digestLeadTool(res, { hasPdf: false }).preview;
+    assert.ok(!sans.includes('pièce jointe'), sans);
+    assert.ok(!/—/.test(sans));
+  }
+});
+
+test('API : result OBLIGATOIRE pour un slug d’outil, 400 invalid_result, rien envoyé, headline/summary ignorés', async () => {
+  for (const slug of ['diagnostic-maturite-ia', 'calculateur-roi-ia']) {
+    const r = await post({ slug, headline: 'Niveau 5 · 30/30 FAUX', summary: [{ label: 'Faux', value: 'FAUX' }] });
+    assert.equal(r.status, 400, slug);
+    assert.equal(r.body.code, 'invalid_result');
+    assert.equal(received.length, 0, 'aucun e-mail');
+  }
+  // Slug non outil : headline et summary clients toujours tolérés.
+  const ok = await post({ slug: 'grille-taches-a-automatiser', headline: 'Grille : 12 h par mois', summary: [{ label: 'Tâche', value: 'Relances' }] });
+  assert.equal(ok.status, 200);
+  assert.ok(toTeam().html.includes('Grille : 12 h par mois'));
+  assert.ok(toVisitor().html.includes('Relances'));
+  // Slug d'outil avec result : le headline client n'est jamais repris.
+  const r = await post({ slug: 'calculateur-roi-ia', result: ROI.moyen, headline: 'HEADLINE_CLIENT', summary: [{ label: 'SUMMARY_CLIENT', value: 'x' }] });
+  assert.equal(r.status, 200);
+  assert.ok(!toTeam().html.includes('HEADLINE_CLIENT') && !toVisitor().html.includes('SUMMARY_CLIENT'));
+});
+
+test('API : PDF absent, l’aperçu de l’e-mail visiteur n’annonce pas de pièce jointe', async () => {
+  const r = await post({ slug: 'calculateur-roi-ia', result: ROI.moyen }, { renderPdf: async () => { throw new Error('panne'); } });
+  assert.equal(r.status, 200);
+  const html = toVisitor().html;
+  assert.ok(!html.includes('Votre rapport complet est en pièce jointe'));
+  assert.ok(html.includes('Votre résultat est détaillé dans cet e-mail'));
 });

@@ -380,11 +380,10 @@ const listTitle = activeKind
   }
 
   document.querySelectorAll('form[data-newsletter-form]').forEach(bindForm);
+  // Après une navigation ClientRouter : on ne branche que les formulaires neufs (le drapeau
+  // nlBound évite un second écouteur, donc un second POST, sur le formulaire déjà branché).
   document.addEventListener('astro:page-load', function () {
-    document.querySelectorAll('form[data-newsletter-form]').forEach(function (form) {
-      delete form.dataset.nlBound;
-      bindForm(form);
-    });
+    document.querySelectorAll('form[data-newsletter-form]').forEach(bindForm);
   });
 })();
 </script>

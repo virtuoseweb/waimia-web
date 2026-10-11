@@ -277,3 +277,15 @@ test('newsletter sans clé Resend : 503 honnête (plus de faux succès)', async 
   assert.equal((await res.json()).code, 'email_not_configured');
   process.env.RESEND_API_KEY = 'test_key_factice';
 });
+
+test('slug d’outil sans result : 400 invalid_result, rien envoyé, même avec headline et summary clients', async () => {
+  reset();
+  const toolMagnets = { ...magnets, 'calculateur-roi-ia': { title: 'Estimation', path: '/ressources/outils/calculateur-roi-ia' } };
+  const r = await processLeadMagnet(
+    { ...good, slug: 'calculateur-roi-ia', headline: 'FAUX', summary: [{ label: 'Faux', value: 'FAUX' }] },
+    { ...deps, magnets: toolMagnets },
+  );
+  assert.equal(r.status, 400);
+  assert.equal(r.body.code, 'invalid_result');
+  assert.equal(received.length, 0);
+});

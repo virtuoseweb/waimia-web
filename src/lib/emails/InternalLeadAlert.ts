@@ -26,7 +26,7 @@ export type LeadSource = "contact" | "lead-magnet" | "academy" | "devis" | "news
  */
 export function internalLeadSubject(label: string, email: string): string {
   const clean = (s: string) => s.replace(/[\r\n]+/g, " ").replace(/\s+/g, " ").trim();
-  return `Lead ${clean(label)} · ${clean(email)}`;
+  return `[Lead] ${clean(label)} · ${clean(email)}`;
 }
 
 interface Row {

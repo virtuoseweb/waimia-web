@@ -116,6 +116,9 @@ export interface DeliveryResult {
   body: Record<string, unknown>;
 }
 
+/** Slugs des outils gratuits : leur contenu d'e-mail vient UNIQUEMENT du résultat recalculé. */
+const TOOL_SLUGS = ["diagnostic-maturite-ia", "calculateur-roi-ia"] as const;
+
 const PRIVATE_FILE_RE = /^private\/telechargements\/[A-Za-z0-9._-]+$/;
 /** Plafond de sécurité sur la somme des fichiers (Resend : 40 Mo après Base64 ; Base64 = x1,33). */
 const MAX_TOTAL_BYTES = 25 * 1024 * 1024;
@@ -182,7 +185,14 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
   const magnet = magnets[slug];
 
   // 2 bis. Résultat d'outil : validation stricte, puis recalcul serveur (jamais le score du client).
+  // Pour un slug d'outil, `result` est OBLIGATOIRE : sans lui, `headline` et `summary` (écrits par le
+  // client) passeraient dans l'alerte interne et l'e-mail visiteur. Même famille d'erreur que
+  // « résultat invalide » (400 `invalid_result`).
   let toolResult: LeadToolResult | null = null;
+  const isToolSlug = (TOOL_SLUGS as readonly string[]).includes(slug);
+  if (isToolSlug && parsed.data.result === undefined) {
+    return { status: 400, body: { ok: false, code: "invalid_result", error: msg("invalid_result", lang) } };
+  }
   if (parsed.data.result !== undefined) {
     const r = LeadToolPayloadSchema.safeParse(parsed.data.result);
     if (!r.success) {
@@ -214,7 +224,6 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
 
   // 3 bis. Rapport PDF de l'outil. Un échec n'est JAMAIS silencieux : l'e-mail part sans pièce
   // jointe et le dit, l'alerte interne l'indique en tête, la réponse porte `pdf: null` + `warning`.
-  const digest = toolResult ? digestLeadTool(toolResult) : null;
   let report: { filename: string; base64: string; sizeBytes: number } | null = null;
   let pdfError: string | null = null;
   if (toolResult) {
@@ -227,6 +236,8 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
       console.error("[lead-magnet] PDF non généré", { slug, error: pdfError });
     }
   }
+  // Digest APRÈS le PDF : le texte d'aperçu n'annonce une pièce jointe que si elle existe.
+  const digest = toolResult ? digestLeadTool(toolResult, { hasPdf: report !== null }) : null;
 
   const pageUrl = `${SITE.url}${magnet.path}`;
   const hasFiles = attachments.length > 0 || report !== null;
@@ -248,7 +259,7 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
         pageUrl,
         attachments: attachments.map((a) => ({ filename: a.filename, sizeBytes: a.sizeBytes })),
         lang,
-        summary,
+        summary: isToolSlug ? undefined : summary,
         auditUrl: `${SITE.url}${AUDIT_BOOKING_HREF}`,
         ...(digest
           ? {
@@ -301,11 +312,11 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
           toolLabel: digest ? digest.toolLabel : magnet.title,
           receivedAt,
           ...(toolResult && !report ? { warning: `PDF non généré : ${pdfError ?? "raison inconnue"}` } : {}),
-          headline: digest?.headline ?? headline,
+          headline: digest?.headline ?? (isToolSlug ? undefined : headline),
           details: [
             { label: "Ressource", value: magnet.title },
             { label: "Lettre mensuelle", value: optIn ? "inscription demandée" : "non (ne pas ajouter à une liste)" },
-            ...(digest ? [] : [...(headline ? [{ label: "Résultat", value: headline }] : []), ...(summary ?? [])]),
+            ...(digest || isToolSlug ? [] : [...(headline ? [{ label: "Résultat", value: headline }] : []), ...(summary ?? [])]),
           ],
           sections: digest?.sections,
           attachments: report ? [report.filename] : [],
