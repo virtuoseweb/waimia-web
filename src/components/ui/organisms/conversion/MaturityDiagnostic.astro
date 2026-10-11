@@ -17,17 +17,6 @@ import LeadCaptureBand from '../../../../sections/lead-capture-band/Component.as
 import { dimensions, levels, MAX_SCORE, QUESTION_COUNT } from '../../../../data/diagnostic-maturite-ia';
 import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF } from '../../../../data/conversion';
 
-const clientData = {
-  max: MAX_SCORE,
-  levels,
-  dimensions: dimensions.map((d) => ({
-    key: d.key,
-    name: d.name,
-    advice: d.advice,
-    link: d.link ?? null,
-    questions: d.questions.map((q) => ({ id: q.id, text: q.text, options: q.options.map((x) => x.label) })),
-  })),
-};
 let n = 0;
 ---
 <section class="md" id="questionnaire" aria-labelledby="md-h2" data-maturity-diagnostic>
@@ -125,7 +114,6 @@ let n = 0;
     </div>
   </div>
 
-  <script type="application/json" data-md-data set:html={JSON.stringify(clientData)} />
 </section>
 
 <LeadCaptureBand
@@ -133,159 +121,152 @@ let n = 0;
   data={{ type: 'lead-capture-band', lead_magnet: 'diagnostic-maturite-ia', background: 'ink', anchor_id: 'recevoir-le-diagnostic', initially_hidden: true }}
 />
 
-<script is:inline>
-(function () {
-  var KEY = 'waimia:diagnostic-maturite-ia:v1';
+<script>
+  // Calcul : src/lib/lead-tools (source unique, partagée avec l'API, le PDF et les e-mails).
+  // Script traité (module) et non `is:inline` : il importe computeDiagnostic.
+  import { computeDiagnostic, DIAGNOSTIC_QUESTION_IDS, type DiagnosticAnswers, type DiagnosticResult } from '../../../../lib/lead-tools/diagnostic';
 
-  function init(root) {
+  const KEY = 'waimia:diagnostic-maturite-ia:v1';
+  const ids = DIAGNOSTIC_QUESTION_IDS;
+
+  function init(root: HTMLElement): void {
     if (root.dataset.bound) return;
     root.dataset.bound = '1';
-    var data = JSON.parse(root.querySelector('[data-md-data]').textContent);
-    var form = root.querySelector('[data-md-form]');
-    var result = root.querySelector('[data-md-result]');
-    var progress = root.querySelector('[data-md-progress]');
-    var missing = root.querySelector('[data-md-missing]');
-    var ids = [];
-    data.dimensions.forEach(function (d) { d.questions.forEach(function (q) { ids.push(q.id); }); });
-    var last = null;
+    const form = root.querySelector<HTMLFormElement>('[data-md-form]')!;
+    const result = root.querySelector<HTMLElement>('[data-md-result]')!;
+    const progress = root.querySelector<HTMLElement>('[data-md-progress]')!;
+    const missing = root.querySelector<HTMLElement>('[data-md-missing]')!;
+    let last: { a: DiagnosticAnswers; r: DiagnosticResult } | null = null;
 
-    function answers() {
-      var a = {};
-      ids.forEach(function (id) {
-        var c = form.querySelector('input[name="' + id + '"]:checked');
+    function answers(): DiagnosticAnswers {
+      const a: DiagnosticAnswers = {};
+      ids.forEach((id) => {
+        const c = form.querySelector<HTMLInputElement>(`input[name="${id}"]:checked`);
         if (c) a[id] = Number(c.value);
       });
       return a;
     }
-    function count(a) { return Object.keys(a).length; }
-    function updateProgress() {
-      var c = count(answers());
+    function updateProgress(): void {
+      const c = Object.keys(answers()).length;
       progress.textContent = c + (c > 1 ? ' réponses sur ' : ' réponse sur ') + ids.length;
     }
-    function save(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (_) {} }
-    function restore() {
+    function save(a: DiagnosticAnswers): void {
+      try { localStorage.setItem(KEY, JSON.stringify(a)); } catch { /* stockage indisponible */ }
+    }
+    function restore(): void {
       try {
-        var a = JSON.parse(localStorage.getItem(KEY) || '{}');
-        ids.forEach(function (id) {
+        const a = JSON.parse(localStorage.getItem(KEY) || '{}') as DiagnosticAnswers;
+        ids.forEach((id) => {
           if (a[id] === undefined) return;
-          var el = form.querySelector('input[name="' + id + '"][value="' + a[id] + '"]');
+          const el = form.querySelector<HTMLInputElement>(`input[name="${id}"][value="${a[id]}"]`);
           if (el) el.checked = true;
         });
-      } catch (_) {}
+      } catch { /* réponses illisibles : on repart de zéro */ }
     }
 
-    function compute(a) {
-      var total = 0;
-      var dims = data.dimensions.map(function (d) {
-        var s = d.questions.reduce(function (acc, q) { return acc + a[q.id]; }, 0);
-        total += s;
-        return { key: d.key, name: d.name, score: s, advice: d.advice, link: d.link, questions: d.questions };
-      });
-      var level = data.levels.filter(function (l) { return total >= l.min && total <= l.max; })[0];
-      // Point faible : la dimension la plus basse (première en cas d'égalité, dans l'ordre
-      // Données → Process → Compétences → Gouvernance → Direction, du socle vers le pilotage).
-      var weak = dims.slice().sort(function (x, y) { return x.score - y.score; })[0];
-      return { total: total, dims: dims, level: level, weak: weak };
-    }
-
-    function render(r) {
-      root.querySelector('[data-md-level]').textContent = r.level.level;
-      root.querySelector('[data-md-name]').textContent = r.level.name;
-      root.querySelector('[data-md-score]').textContent = r.total;
-      root.querySelector('[data-md-reading]').textContent = r.level.reading;
-      root.querySelector('[data-md-next]').textContent = r.level.next;
-      root.querySelectorAll('[data-md-scale] li').forEach(function (li) {
+    function render(r: DiagnosticResult): void {
+      root.querySelector('[data-md-level]')!.textContent = String(r.level.level);
+      root.querySelector('[data-md-name]')!.textContent = r.level.name;
+      root.querySelector('[data-md-score]')!.textContent = String(r.total);
+      root.querySelector('[data-md-reading]')!.textContent = r.level.reading;
+      root.querySelector('[data-md-next]')!.textContent = r.level.next;
+      root.querySelectorAll<HTMLElement>('[data-md-scale] li').forEach((li) => {
         if (Number(li.dataset.level) === r.level.level) li.setAttribute('aria-current', 'true');
         else li.removeAttribute('aria-current');
       });
-      var bars = root.querySelector('[data-md-bars]');
+      const bars = root.querySelector<HTMLElement>('[data-md-bars]')!;
       bars.innerHTML = '';
-      r.dims.forEach(function (d) {
-        var li = document.createElement('li');
+      r.dims.forEach((d) => {
+        const li = document.createElement('li');
         if (d.key === r.weak.key) li.className = 'is-weak';
-        var name = document.createElement('span'); name.className = 'md-bar-name'; name.textContent = d.name;
-        var track = document.createElement('span'); track.className = 'md-bar-track'; track.setAttribute('aria-hidden', 'true');
-        var fill = document.createElement('span'); fill.className = 'md-bar-fill'; fill.style.width = Math.round((d.score / 6) * 100) + '%';
+        const name = document.createElement('span'); name.className = 'md-bar-name'; name.textContent = d.name;
+        const track = document.createElement('span'); track.className = 'md-bar-track'; track.setAttribute('aria-hidden', 'true');
+        const fill = document.createElement('span'); fill.className = 'md-bar-fill'; fill.style.width = Math.round((d.score / d.max) * 100) + '%';
         track.appendChild(fill);
-        var val = document.createElement('span'); val.className = 'md-bar-val'; val.textContent = d.score + ' sur 6';
+        const val = document.createElement('span'); val.className = 'md-bar-val'; val.textContent = d.score + ' sur ' + d.max;
         li.appendChild(name); li.appendChild(track); li.appendChild(val);
         bars.appendChild(li);
       });
-      root.querySelector('[data-md-weak-name]').textContent = r.weak.name;
-      root.querySelector('[data-md-weak-advice]').textContent = r.weak.advice;
-      var link = root.querySelector('[data-md-weak-link]');
+      root.querySelector('[data-md-weak-name]')!.textContent = r.weak.name;
+      root.querySelector('[data-md-weak-advice]')!.textContent = r.weak.advice;
+      const link = root.querySelector<HTMLElement>('[data-md-weak-link]')!;
       link.innerHTML = '';
       if (r.weak.link) {
-        var a = document.createElement('a'); a.href = r.weak.link.href; a.textContent = r.weak.link.label;
+        const a = document.createElement('a'); a.href = r.weak.link.href; a.textContent = r.weak.link.label;
         link.appendChild(a); link.hidden = false;
       } else link.hidden = true;
     }
 
-    form.addEventListener('change', function (e) {
+    form.addEventListener('change', (e) => {
       updateProgress();
-      var fs = e.target.closest('fieldset');
-      if (fs) { fs.removeAttribute('data-invalid'); var er = fs.querySelector('[data-q-error]'); if (er) er.hidden = true; }
+      const fs = (e.target as HTMLElement).closest('fieldset');
+      if (fs) { fs.removeAttribute('data-invalid'); const er = fs.querySelector<HTMLElement>('[data-q-error]'); if (er) er.hidden = true; }
       save(answers());
     });
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      var a = answers();
-      var miss = ids.filter(function (id) { return a[id] === undefined; });
-      form.querySelectorAll('fieldset').forEach(function (fs) {
-        var bad = miss.indexOf(fs.dataset.q) !== -1;
+      const a = answers();
+      const miss = ids.filter((id) => a[id] === undefined);
+      form.querySelectorAll<HTMLFieldSetElement>('fieldset').forEach((fs) => {
+        const bad = miss.indexOf(fs.dataset.q ?? '') !== -1;
         if (bad) fs.setAttribute('data-invalid', 'true'); else fs.removeAttribute('data-invalid');
-        fs.querySelector('[data-q-error]').hidden = !bad;
+        fs.querySelector<HTMLElement>('[data-q-error]')!.hidden = !bad;
       });
       if (miss.length) {
         missing.textContent = miss.length === 1
           ? 'Il manque 1 réponse (question ' + (ids.indexOf(miss[0]) + 1) + ').'
-          : 'Il manque ' + miss.length + ' réponses (questions ' + miss.map(function (id) { return ids.indexOf(id) + 1; }).join(', ') + ').';
+          : 'Il manque ' + miss.length + ' réponses (questions ' + miss.map((id) => ids.indexOf(id) + 1).join(', ') + ').';
         missing.hidden = false;
-        var first = form.querySelector('fieldset[data-q="' + miss[0] + '"] input');
+        const first = form.querySelector<HTMLInputElement>(`fieldset[data-q="${miss[0]}"] input`);
         if (first) first.focus();
         return;
       }
       missing.hidden = true;
-      last = { a: a, r: compute(a) };
+      last = { a, r: computeDiagnostic(a) };
       render(last.r);
       result.hidden = false;
       // Capture e-mail (lead-capture-band) : révélée dès qu'un résultat existe.
-      document.querySelectorAll('[data-lcb][data-slug="diagnostic-maturite-ia"]').forEach(function (el) { el.hidden = false; });
+      document.querySelectorAll<HTMLElement>('[data-lcb][data-slug="diagnostic-maturite-ia"]').forEach((el) => { el.hidden = false; });
       result.focus({ preventScroll: true });
       result.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     });
 
-    root.querySelector('[data-md-redo]').addEventListener('click', function () {
-      var first = form.querySelector('input');
+    root.querySelector('[data-md-redo]')!.addEventListener('click', () => {
+      const first = form.querySelector<HTMLInputElement>('input');
       form.scrollIntoView({ block: 'start' });
       if (first) first.focus({ preventScroll: true });
     });
 
-    // Copie par e-mail : on fournit le détail au formulaire (la bande vit hors de `root`).
-    document.addEventListener('cv:collect', function (e) {
-      if (!last || e.detail.slug !== 'diagnostic-maturite-ia') return;
-      var r = last.r;
-      e.detail.headline = 'Niveau ' + r.level.level + ' (' + r.level.name + ') · ' + r.total + '/' + data.max;
-      var s = e.detail.summary;
+    // Copie par e-mail : le formulaire (la bande vit hors de `root`) reçoit les réponses BRUTES
+    // (`result`, recalculées par le serveur pour le PDF) et un récapitulatif de secours.
+    document.addEventListener('cv:collect', (ev) => {
+      const detail = (ev as CustomEvent).detail as {
+        slug: string;
+        headline: string;
+        summary: { label: string; value: string }[];
+        result?: { tool: string; answers: DiagnosticAnswers };
+      };
+      if (!last || detail.slug !== 'diagnostic-maturite-ia') return;
+      const r = last.r;
+      detail.result = { tool: 'diagnostic-maturite-ia', answers: last.a };
+      detail.headline = 'Niveau ' + r.level.level + ' (' + r.level.name + ') · ' + r.total + '/' + r.max;
+      const s = detail.summary;
       s.push({ label: 'Niveau', value: r.level.level + ' sur 5 · ' + r.level.name });
-      s.push({ label: 'Score total', value: r.total + ' sur ' + data.max });
-      r.dims.forEach(function (d) { s.push({ label: d.name, value: d.score + ' sur 6' }); });
-      s.push({ label: 'À traiter en premier : ' + r.weak.name, value: r.weak.advice });
+      s.push({ label: 'Score total', value: r.total + ' sur ' + r.max });
+      r.dims.forEach((d) => { s.push({ label: d.name, value: d.score + ' sur ' + d.max }); });
+      s.push({ label: ('À traiter en premier : ' + r.weak.name).slice(0, 120), value: r.weak.advice });
       s.push({ label: 'Prochaine étape', value: r.level.next });
-      r.dims.forEach(function (d) {
-        d.questions.forEach(function (q) { s.push({ label: q.text, value: q.options[last.a[q.id]] }); });
-      });
+      r.dims.forEach((d) => { d.questions.forEach((q) => { s.push({ label: q.text, value: q.answer }); }); });
     });
 
     restore();
     updateProgress();
   }
 
-  function boot() { document.querySelectorAll('[data-maturity-diagnostic]').forEach(init); }
+  function boot(): void { document.querySelectorAll<HTMLElement>('[data-maturity-diagnostic]').forEach(init); }
   boot();
   document.addEventListener('astro:page-load', boot);
-})();
 </script>
 
 <style>

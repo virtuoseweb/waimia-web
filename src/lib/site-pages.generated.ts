@@ -3230,14 +3230,6 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
-    "route": "/ressources/guides",
-    "title": "Guides",
-    "group": "ressources",
-    "collection": "bespoke",
-    "editable": false,
-    "sections": []
-  },
-  {
     "route": "/ressources/guides/agent-ia-definition",
     "title": "Agent IA : c'est quoi ? Définition, coût et limites",
     "group": "ressources",
@@ -6106,7 +6098,6 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
-      "/ressources/guides",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/choisir-agence-ia-pme",

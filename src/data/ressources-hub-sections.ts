@@ -8,6 +8,7 @@
 //   • l'en-tête de l'index (section cataloguée `list-index-section`, ses filtres sont passés
 //     en slot par la page car ils portent des compteurs réels) ;
 //   • les libellés des filtres par type (ordre d'affichage, préfixes d'URL qui les définissent) ;
+//   • le manifesto (« La promesse ») ;
 //   • le CTA final.
 import type { SectionByType } from '@waimia/ds-kernel';
 
@@ -21,6 +22,73 @@ export const indexHeadData = {
   lede_fr: 'Guides, comparatifs, outils gratuits et articles, du plus récent au plus ancien. Filtrez par type : chaque contenu est daté, signé et relu.',
   lede_en: 'Guides, comparisons, free tools and articles, newest first. Filter by type: every piece is dated, signed and reviewed.',
 } satisfies SectionByType<'list-index-section'>;
+
+// ── VUES DU HUB · /ressources (toutes), /ressources/outils et /ressources/comparatifs sont
+// rendues par le MÊME composant (ResourcesHub.astro) ; chaque vue a sa propre URL, son
+// title/description et sa tête éditoriale. Les H1/lede d'« outils » viennent de l'entrée
+// `outils-hub` de la collection `legal` (source unique, conservée) ; ceux d'« all » et de
+// « comparatifs » sont ci-dessous. ──
+export type ResourceView = 'all' | 'outils' | 'comparatifs';
+
+export const RESOURCE_VIEWS: Record<ResourceView, {
+  href: string;
+  title_fr: string;
+  title_en: string;
+  description_fr: string;
+  description_en: string;
+  label_fr?: string;
+  label_en?: string;
+  h1_fr?: string;
+  h1_en?: string;
+  lede_fr?: string;
+  lede_en?: string;
+  collection_name_fr: string;
+  collection_name_en: string;
+  collection_desc_fr: string;
+  collection_desc_en: string;
+}> = {
+  all: {
+    href: '/ressources',
+    title_fr: 'Ressources IA pour PME : guides, outils, comparatifs · Waimia',
+    title_en: 'AI resources for SMEs: guides, tools, comparisons · Waimia',
+    description_fr: 'Toutes les ressources IA pour PME en une page : guides pratiques, comparatifs, outils gratuits et articles, triés par date et filtrables par type.',
+    description_en: 'All AI resources for SMEs on one page: practical guides, comparisons, free tools and articles, sorted by date and filterable by type.',
+    collection_name_fr: 'Ressources IA pour PME · Waimia',
+    collection_name_en: 'AI resources for SMEs · Waimia',
+    collection_desc_fr: 'Index de toutes les ressources Waimia : guides, comparatifs, outils gratuits et articles, triés par date.',
+    collection_desc_en: 'Index of all Waimia resources: guides, comparisons, free tools and articles, sorted by date.',
+  },
+  outils: {
+    href: '/ressources/outils',
+    title_fr: 'Outils IA gratuits pour PME : ROI, maturité · Waimia',
+    title_en: 'Free AI tools for SMEs: ROI, maturity · Waimia',
+    description_fr: "Calculateur ROI, score de maturité IA, grille de priorisation, charte et checklists : des outils gratuits pour PME B2B, pensés pour passer à l'action.",
+    description_en: 'ROI calculator, AI maturity score, prioritisation grid, charter and checklists: free tools for B2B SMEs, built to get you moving.',
+    label_fr: 'Outils',
+    label_en: 'Tools',
+    collection_name_fr: 'Outils IA gratuits pour PME · Waimia',
+    collection_name_en: 'Free AI tools for SMEs · Waimia',
+    collection_desc_fr: "Calculateur ROI, score de maturité IA, grille de priorisation, charte et checklists : des outils gratuits pour PME B2B, pensés pour passer à l'action.",
+    collection_desc_en: 'ROI calculator, AI maturity score, prioritisation grid, charter and checklists: free tools for B2B SMEs.',
+  },
+  comparatifs: {
+    href: '/ressources/comparatifs',
+    title_fr: 'Comparatifs IA : Claude, ChatGPT, n8n, Make · Waimia',
+    title_en: 'AI comparisons: Claude, ChatGPT, n8n, Make · Waimia',
+    description_fr: 'Comparatifs objectifs pour trancher entre outils, approches et fournisseurs IA. Des critères clairs, les écarts documentés, votre décision éclairée.',
+    description_en: 'Objective comparisons to decide between AI tools, approaches and vendors. Clear criteria, documented gaps, your informed decision.',
+    label_fr: 'Comparatifs',
+    label_en: 'Comparisons',
+    h1_fr: 'Comparatifs <i>objectifs</i>.',
+    h1_en: 'Objective <i>comparisons</i>.',
+    lede_fr: 'Des comparatifs clairs pour trancher entre outils, approches et fournisseurs. On pose les critères, on documente les écarts, vous décidez en connaissance de cause.',
+    lede_en: 'Clear comparisons to decide between tools, approaches and vendors. We set the criteria, document the gaps, you choose with full context.',
+    collection_name_fr: 'Comparatifs IA · Waimia',
+    collection_name_en: 'AI comparisons · Waimia',
+    collection_desc_fr: 'Comparatifs objectifs pour trancher entre outils, approches et fournisseurs IA.',
+    collection_desc_en: 'Objective comparisons to decide between AI tools, approaches and vendors.',
+  },
+};
 
 // ── FILTRES PAR TYPE · ordre d'affichage. `prefixes` = débuts d'URL qui définissent le type
 // (le filtre CSS de la page s'appuie sur l'attribut href des cartes). Le type « articles »
@@ -40,6 +108,19 @@ export const RESOURCE_KINDS: ReadonlyArray<{
   { key: 'outils', label_fr: 'Outils', label_en: 'Tools', tag_fr: 'OUTIL', tag_en: 'TOOL', prefixes: ['/ressources/outils/', '/ressources/diagnostics/'] },
   { key: 'articles', label_fr: 'Articles', label_en: 'Articles', tag_fr: 'ARTICLE', tag_en: 'ARTICLE', prefixes: [] },
 ];
+
+// ── MANIFESTO · manifesto-statement (ink, statique) · conservé du hub guides supprimé ;
+// rendu par le hub Ressources (ResourcesHub.astro, 3 vues) et par le hub /blog. ──
+export const manifestoData = {
+  type: 'manifesto-statement' as const,
+  kicker_fr: '§ La promesse',
+  kicker_en: '§ The promise',
+  text_fr: 'Pas de théorie creuse. Des <i>étapes</i>, des exemples, des pièges à <span class="acc">éviter</span>.',
+  text_en: 'No empty theory. <i>Steps</i>, examples, pitfalls to <span class="acc">avoid</span>.',
+  tone: 'ink' as const,
+  show_grid: false,
+  pinned: false,
+} satisfies SectionByType<'manifesto-statement'>;
 
 // ── CTA final · cta-final (paper, statique) ──
 export const ctaData = {

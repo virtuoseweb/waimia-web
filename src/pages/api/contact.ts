@@ -6,7 +6,7 @@ import type { APIRoute } from "astro";
 import { sendEmail, EMAIL_INTERNAL_TO, emitEvent } from "../../lib/resend";
 import { upsertSubscriber } from "../../lib/mailerlite";
 import ContactConfirmation from "../../lib/emails/ContactConfirmation";
-import InternalLeadAlert from "../../lib/emails/InternalLeadAlert";
+import InternalLeadAlert, { internalLeadSubject } from "../../lib/emails/InternalLeadAlert";
 import { z } from "zod";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
@@ -140,7 +140,7 @@ export const ALL: APIRoute = async ({ request }) => {
       }),
       sendEmail({
         to: EMAIL_INTERNAL_TO,
-        subject: `[Lead] contact${subject ? " · " + subject : ""} · ${email}${company ? " · " + company : ""}`,
+        subject: internalLeadSubject(subject ? `contact ${subject}` : "contact", email),
         html: InternalLeadAlert({
           source: "contact",
           email,

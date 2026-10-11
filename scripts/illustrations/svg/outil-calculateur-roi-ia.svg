@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · outil calculateur ROI IA · une balance : une pile de feuilles (la tâche) en haut à gauche, un sablier bleu (le temps récupéré) qui l'emporte à droite. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="330" r="236" fill="{{shape}}"/>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+
+  <!-- fléau incliné : la droite descend -->
+  <path d="M363 95 L1093 185" stroke="{{subject}}" stroke-width="12" stroke-linecap="round"/>
+  <!-- montant et socle -->
+  <rect x="721" y="132" width="14" height="388" fill="{{subject}}"/>
+  <circle cx="728" cy="140" r="16" fill="{{subject}}"/>
+  <path d="M648 520 L808 520 L772 484 L684 484 Z" fill="{{subject}}"/>
+
+  <!-- plateau gauche (haut) : pile de feuilles -->
+  <path d="M363 95 L253 338 M363 95 L473 338" stroke="{{subject}}" stroke-width="3" fill="none"/>
+  <path d="M243 336 L483 336 Q363 380 243 336 Z" fill="{{subject}}"/>
+  <rect x="303" y="252" width="120" height="14" fill="{{light}}"/>
+  <rect x="297" y="266" width="126" height="14" fill="{{mid}}"/>
+  <rect x="305" y="280" width="118" height="14" fill="{{light}}"/>
+  <rect x="299" y="294" width="124" height="14" fill="{{mid}}"/>
+  <rect x="303" y="308" width="120" height="14" fill="{{light}}"/>
+  <rect x="297" y="322" width="126" height="14" fill="{{mid}}"/>
+
+  <!-- plateau droit (bas) : le sablier -->
+  <path d="M1093 185 L983 428 M1093 185 L1203 428" stroke="{{subject}}" stroke-width="3" fill="none"/>
+  <path d="M973 426 L1213 426 Q1093 470 973 426 Z" fill="{{subject}}"/>
+  <g transform="translate(1093 326) scale(1.1)">
+    <rect x="-70" y="-101" width="140" height="11" fill="{{subject}}"/>
+    <rect x="-70" y="90" width="140" height="11" fill="{{subject}}"/>
+    <path d="M-60 -90 L60 -90 L6 -4 L6 4 L60 90 L-60 90 L-6 4 L-6 -4 Z" fill="{{detail}}"/>
+    <path d="M-42 -78 L42 -78 L0 -22 Z" fill="{{light}}"/>
+    <rect x="-2" y="-6" width="4" height="52" fill="{{light}}"/>
+    <path d="M-50 90 L50 90 L0 44 Z" fill="{{light}}"/>
+  </g>
+
+  <use href="#man" transform="translate(190 520) scale(1.3)"/>
+  <use href="#woman" transform="translate(1290 520) scale(1.15)"/>
+  <use href="#man" transform="translate(1350 520) scale(0.9)"/>
+</svg>

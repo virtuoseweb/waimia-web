@@ -127,6 +127,11 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   // système. Si aucune carte système (sections hors Solutions) → fallback sur le
   // `featured` de section statique.
   const defaultSysKey = selectableSystems[0]?.key ?? '';
+  // Un menu dont au moins un lien a une description réserve la ligne de description pour
+  // TOUS les liens de ses colonnes classiques : même hauteur de rangée, même pas vertical.
+  const menuHasSub = item.columns.some(
+    (c) => !(c.goal || c.quote) && (c.links ?? []).some((l) => Boolean(l.description)),
+  );
   const sysFeatured = selectableSystems
     .map((sys) => ({ key: sys.key ?? '', card: sys.featured }))
     .filter((s) => Boolean(s.card));
@@ -176,7 +181,9 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                       </div>
                       {blocks.map((block) => (
                         <div class="mega-sys-block">
-                          {block.label && <div class="mega-sys-k">{t(block.label, lang)}</div>}
+                          {/* Ligne de libellé RÉSERVÉE (vide sans intertitre) : les premières lignes de
+                              liens restent au même Y que celles des autres colonnes. */}
+                          <div class:list={['mega-sys-k', { 'is-empty': !block.label }]} aria-hidden={block.label ? undefined : 'true'}>{block.label ? t(block.label, lang) : ''}</div>
                           <ul>
                             {block.links.map((sub) => (
                               <li>
@@ -232,11 +239,13 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                 <div class="mega-col-hd">
                   <div class="t">{t(col.title, lang)}</div>
                 </div>
+                <div class="mega-sys-k is-empty" aria-hidden="true"></div>
                 <div class="mega-sys-list">
                   {col.systems.map((sys) => {
                     if (!isSelectable(sys)) {
                       return (
                         <span class="mega-sys-opt is-soon">
+                          <span class="arr" aria-hidden="true">→</span>
                           <span class="t">{t(sys.label, lang)}</span>
                           {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
                         </span>
@@ -252,6 +261,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                         aria-controls={groupId}
                         aria-current={isActive ? 'true' : undefined}
                       >
+                        <span class="arr" aria-hidden="true">→</span>
                         <span class="t">{t(sys.label, lang)}</span>
                         {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
                         <span class="ind" aria-hidden="true">›</span>
@@ -264,6 +274,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                         aria-controls={groupId}
                         aria-current={isActive ? 'true' : undefined}
                       >
+                        <span class="arr" aria-hidden="true">→</span>
                         <span class="t">{t(sys.label, lang)}</span>
                         {sys.badge && <span class="flag">{t(sys.badge, lang)}</span>}
                         <span class="ind" aria-hidden="true">›</span>
@@ -347,6 +358,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                       <span class="t">{t(sub.label, lang)}</span>
                       {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
                       {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                      {!isNeed && !sub.description && menuHasSub && <span class="sub" aria-hidden="true">&nbsp;</span>}
                     </span>
                   ) : (
                     <a class="mega-link" href={lh(sub.href)}>
@@ -354,6 +366,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                       <span class="t">{t(sub.label, lang)}</span>
                       {sub.badge && <span class="flag">{t(sub.badge, lang)}</span>}
                       {!isNeed && sub.description && <span class="sub">{t(sub.description, lang)}</span>}
+                      {!isNeed && !sub.description && menuHasSub && <span class="sub" aria-hidden="true">&nbsp;</span>}
                     </a>
                   )}
                 </li>
@@ -365,6 +378,18 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
               ) : (
                 <a class="mega-col-footer" href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>
               )
+            )}
+            {col.card && (
+              /* Carte illustrée (2026-10-11) : un seul lien porte image + titre + ligne + CTA.
+                 Image décorative (alt vide) : le titre de la carte nomme déjà le lien. */
+              <a class="mega-card" href={lh(col.card.href)}>
+                <span class="img">
+                  <img src={col.card.image} alt="" width="1456" height="624" loading="lazy" decoding="async" />
+                </span>
+                <span class="ttl">{t(col.card.title, lang)}</span>
+                <span class="bd">{t(col.card.body, lang)}</span>
+                <span class="cta">{t(col.card.cta, lang)}</span>
+              </a>
             )}
           </div>
           );
@@ -385,7 +410,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                 <div class="bd">{t(m.card.body, lang)}</div>
                 {m.card.image && (
                   <a class="img lift" href={lh(m.card.href)} aria-hidden="true" tabindex="-1">
-                    <img src={m.card.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+                    <img src={m.card.image} alt="" width={m.card.imageSize?.[0] ?? 1536} height={m.card.imageSize?.[1] ?? 1024} loading="lazy" decoding="async" />
                   </a>
                 )}
                 <a class="cta btn btn-primary" href={lh(m.card.href)}>
@@ -401,7 +426,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
             <div class="bd">{t(item.featured.body, lang)}</div>
             {item.featured.image && (
               <a class="img lift" href={lh(item.featured.href)} aria-hidden="true" tabindex="-1">
-                <img src={item.featured.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+                <img src={item.featured.image} alt="" width={item.featured.imageSize?.[0] ?? 1536} height={item.featured.imageSize?.[1] ?? 1024} loading="lazy" decoding="async" />
               </a>
             )}
             <a class="cta btn btn-primary" href={lh(item.featured.href)}>
@@ -596,6 +621,16 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
                 {col.footer && (col.footer.soon
                   ? <span class="is-soon">{t(col.footer.label, lang)}</span>
                   : <a href={lh(col.footer.href)}>{t(col.footer.label, lang)}</a>)}
+                {col.card && (
+                  <a class="m-card" href={lh(col.card.href)}>
+                    <span class="img">
+                      <img src={col.card.image} alt="" width="1456" height="624" loading="lazy" decoding="async" />
+                    </span>
+                    <span class="ttl">{t(col.card.title, lang)}</span>
+                    <span class="bd">{t(col.card.body, lang)}</span>
+                    <span class="cta">{t(col.card.cta, lang)}</span>
+                  </a>
+                )}
               </div>
               );
             })}
@@ -1074,15 +1109,20 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   .mega-sys-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
+    gap: 0;
   }
+  /* Même traitement de ligne que .mega-link[data-need] (flèche de tête, gap 10px,
+     padding 11px, filet bas) : début de texte et pas vertical identiques entre colonnes.
+     Les lignes (fond actif + filet) démarrent à l'x de la colonne, comme le titre ; le
+     retrait de var(--space-3) est un PADDING (symétrique), repris par les lignes des
+     colonnes 2 et 3 ci-dessous (même début de flèche et de texte). */
   .mega-sys-opt {
     display: flex;
     align-items: baseline;
-    gap: var(--space-2);
+    gap: 10px;
     width: 100%;
-    padding: 10px var(--space-3);
-    margin-left: calc(var(--space-3) * -1);
+    padding: 11px var(--space-3);
+    border-bottom: 1px solid var(--hairline);
     border-radius: var(--radius-sm);
     text-align: left;
     font-family: var(--font-sans);
@@ -1101,6 +1141,12 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     color: var(--accent-text);
   }
   .mega-sys-opt .t { flex: 1; }
+  .mega-sys-opt .arr {
+    flex: none;
+    color: var(--accent-text);
+    font-size: var(--text-small);
+  }
+  .mega-sys-opt.is-soon .arr { color: var(--muted); }
   /* Chevron indicateur : discret, révélé sur hover/actif. */
   .mega-sys-opt .ind {
     flex: none;
@@ -1139,6 +1185,18 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
     background: var(--paper-2);
+  }
+
+  /* Cols 2 et 3 : mêmes lignes que le sélecteur col 1 (retrait de padding identique, le
+     survol ajoute space-2 à ce retrait au lieu de le remplacer). */
+  .mega .mega-col.mega-col--panel .mega-link,
+  .mega .mega-col.mega-col--detail .mega-link {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+  .mega .mega-col.mega-col--panel .mega-link:hover,
+  .mega .mega-col.mega-col--detail .mega-link:hover {
+    padding-left: calc(var(--space-3) + var(--space-2));
   }
 
   /* Panneau dynamique · stack grid (groupes superposés en 1/1) : la colonne
@@ -1196,9 +1254,12 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     font-family: var(--font-mono);
     font-size: var(--text-micro);
     letter-spacing: var(--tracking-caps);
+    line-height: var(--leading-body);
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: var(--space-1);
+    /* Ligne RÉSERVÉE : même hauteur avec ou sans texte (cols 1-2-3 alignées). */
+    min-height: calc(var(--text-micro) * var(--leading-body));
   }
   /* « Voir le système → » : même idiome que .mega-col-footer. */
   .mega-sys-cta {
@@ -1218,35 +1279,25 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     border-bottom-color: var(--accent-text);
   }
 
-  /* ─ Alignement vertical des 4 colonnes (fix 2026-07-14, v2) ─────────────────
-     Corrige l'escalier constaté en prod : séparateurs, baselines de titres et
-     lignes de départ des listes ne partageaient pas le même Y (col 2 décalée par
-     le sous-texte système ET par le titre « Systèmes opérationnels et IA » qui
-     wrappe sur 2 lignes ; col 3 sans séparateur car l'idiome `data-need` le
-     retirait ; kicker featured col 4 hors de la bande de titres).
-     Technique : ZONE D'EN-TÊTE de hauteur COMMUNE et ANCRÉE EN BAS
-     (flex-end) sur les cols 1-2-3 = slot titre 2 lignes + gap + slot sous-texte
-     2 lignes + padding bas (14px = valeur structurelle déjà portée par
-     .mega-col-hd). Ancrer en bas rend la baseline des titres invariante au
-     nombre de lignes du titre (1 ou 2) ET au système actif → hauteur de panneau
-     stable. Le sous-texte (col 2) et le kicker (col 3) vivent dans cette zone.
-     100% tokens DS existants + valeurs structurelles déjà en place. */
+  /* ─ Alignement des colonnes (refonte 2026-10-11, v3) ─────────────────────────
+     Lignes COMMUNES à toutes les colonnes du panneau Solutions : titre (haut commun),
+     sous-texte (hauteur RÉSERVÉE de 2 lignes, vide ou non), filet, ligne de libellé
+     (.mega-sys-k, réservée, vide ou non), puis les liens au même pas (11px + filet).
+     Les titres sont alignés par le HAUT ; la zone d'en-tête a la même hauteur partout
+     (slot titre 2 lignes + gap + slot sous-texte 2 lignes + padding bas 14px) → filets
+     et premiers liens au même Y. Aucune hauteur magique : tout dérive des tokens.
+     `box-sizing: content-box` : le padding et le filet s'ajoutent au min-height
+     (sinon col 2, dont le contenu remplit le slot, ressortait 1px plus bas). */
   .mega .mega-col--systems .mega-col-hd,
   .mega .mega-col--panel .mega-sys-hd,
   .mega .mega-col--detail .mega-col-hd {
+    box-sizing: content-box;
     min-height: calc(
       var(--text-h3) * var(--leading-h3) * 2
       + var(--space-2)
       + var(--text-micro) * var(--leading-body) * 2
-      + 14px
     );
-    justify-content: flex-end;
-  }
-  /* Cols 1 et 3 (pas de sous-texte) : le padding bas absorbe le slot sous-texte
-     + le gap → la baseline de leur titre tombe exactement sur celle de la col 2. */
-  .mega .mega-col--systems .mega-col-hd,
-  .mega .mega-col.mega-col--detail .mega-col-hd {
-    padding-bottom: calc(14px + var(--space-2) + var(--text-micro) * var(--leading-body) * 2);
+    justify-content: flex-start;
   }
   /* Col 3 : neutralise l'idiome `data-need` (qui retirait le séparateur,
      réduisait la marge et modifiait la line-height/tracking du titre) pour
@@ -1255,6 +1306,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
   .mega .mega-col.mega-col--detail .mega-col-hd {
     border-bottom: 1px solid var(--hairline);
     margin-bottom: 18px;
+    padding-bottom: 14px;
   }
   .mega .mega-col.mega-col--detail .mega-col-hd .t {
     line-height: var(--leading-h3);
@@ -1280,13 +1332,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
     line-clamp: 2;
     overflow: hidden;
   }
-  /* Kicker featured « LE MODULE » (col 4) : calé sur la baseline commune des
-     titres (boîte de la hauteur du slot titre 2 lignes, texte ancré en bas). */
-  .mega .mega-featured-stack .mega-featured .badge {
-    min-height: calc(var(--text-h3) * var(--leading-h3) * 2);
-    display: flex;
-    align-items: flex-end;
-  }
+  /* Kicker featured (col 4) : même haut que les titres de colonnes (aucun slot). */
 
   /* ─ Col 3 « le module en détail » (par MODULE) + col 4 featured (STATIQUE par
      SYSTÈME) — refonte V8.3 2026-07-16 ──────────────────────────────────────────

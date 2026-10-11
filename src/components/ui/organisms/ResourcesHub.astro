@@ -1,0 +1,389 @@
+---
+import FormGuard from '../atoms/FormGuard.astro';
+import Kicker from '../atoms/Kicker.astro';
+import Button from '../atoms/Button.astro';
+import Bi from '../atoms/Bi.astro';
+import SiloFilter from '../molecules/SiloFilter.astro';
+import ListIndexSection from '../../sections/ListIndexSection.astro';
+import ArticleGrid from '../../sections/ArticleGrid.astro';
+import CtaFinal from '../../sections/CtaFinal.astro';
+import ManifestoStatement from '../../sections/ManifestoStatement.astro';
+import MastheadBar from '../../sections/MastheadBar.astro';
+import type { SectionByType } from '@waimia/ds-kernel';
+import { getEntry } from 'astro:content';
+import { langFromPath } from '../../../lib/i18n';
+import type { ResourceItem } from '../../../lib/resources-hub';
+import {
+  indexHeadData,
+  manifestoData,
+  ctaData,
+  RESOURCE_KINDS,
+  RESOURCE_VIEWS,
+  type ResourceKind,
+} from '../../../data/ressources-hub-sections';
+
+// Organism · ResourcesHub · corps du hub Ressources (en-tête + pastilles + liste + newsletter
+// + CTA), partagé par /ressources, /ressources/outils et /ressources/comparatifs.
+//   • `items` = liste complète (src/lib/resources-hub.ts) : même source pour les trois pages.
+//   • `activeKind` absent = index de tous les types ; sinon vue filtrée côté serveur (seules
+//     les cartes du type sont dans le HTML). Les pastilles sont de vrais liens.
+// Le fil d'Ariane (MastheadBar) n'est rendu que sur les vues filtrées.
+interface Props {
+  items: ResourceItem[];
+  activeKind?: Extract<ResourceKind, 'outils' | 'comparatifs'>;
+}
+const { items, activeKind } = Astro.props as Props;
+const lang = langFromPath(Astro.url.pathname);
+const isFr = lang === 'fr';
+
+const kindOf = (k: ResourceKind) => RESOURCE_KINDS.find((r) => r.key === k)!;
+const count = (k: ResourceKind) => items.filter((i) => i.kind === k).length;
+const shown = activeKind ? items.filter((i) => i.kind === activeKind) : items;
+const fmtDate = (d: Date) =>
+  `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
+
+// ── Tête éditoriale de la vue ──
+let head: SectionByType<'list-index-section'> = indexHeadData;
+if (activeKind) {
+  const v = RESOURCE_VIEWS[activeKind];
+  const n = shown.length;
+  const label = isFr ? v.label_fr : v.label_en;
+  const kicker = isFr
+    ? `§ ${label} · ${n} disponible${n > 1 ? 's' : ''}`
+    : `§ ${label} · ${n} available`;
+  head = {
+    ...indexHeadData,
+    kicker_fr: kicker,
+    kicker_en: kicker,
+    h1_fr: v.h1_fr ?? '',
+    h1_en: v.h1_en ?? '',
+    lede_fr: v.lede_fr ?? '',
+    lede_en: v.lede_en ?? '',
+  };
+  if (activeKind === 'outils') {
+    // H1 et chapô des outils : entrée `outils-hub` de la collection `legal` (source conservée).
+    const hubCopy = await getEntry('legal', 'outils-hub');
+    if (!hubCopy) throw new Error('Collection "legal" · entrée "outils-hub" introuvable.');
+    head = {
+      ...head,
+      h1_fr: hubCopy.data.headlineHtml ?? '',
+      h1_en: hubCopy.data.headlineHtml ?? '',
+      lede_fr: hubCopy.data.ledeHtml ?? '',
+      lede_en: hubCopy.data.ledeHtml ?? '',
+    };
+  }
+}
+
+// Grilles successives de 12 cartes (borne du schéma article-grid), ordre chronologique conservé.
+const GRID_MAX = 12;
+const grids: SectionByType<'article-grid'>[] = [];
+for (let i = 0; i < shown.length; i += GRID_MAX) {
+  grids.push({
+    type: 'article-grid',
+    background: 'paper',
+    columns: '3',
+    articles: shown.slice(i, i + GRID_MAX).map((it) => ({
+      tag_fr: kindOf(it.kind).tag_fr,
+      tag_en: kindOf(it.kind).tag_en,
+      title_fr: it.title_fr,
+      title_en: it.title_en,
+      excerpt_fr: it.excerpt_fr,
+      excerpt_en: it.excerpt_en,
+      date: fmtDate(it.date),
+      read_time_fr: it.read_time,
+      read_time_en: it.read_time,
+      href: it.href,
+      silo: it.silo,
+    })),
+  });
+}
+
+// ── Pastilles : de vrais liens. « Guides » reste une ancre CSS sur /ressources (le hub
+// /ressources/guides n'existe plus) ; « Articles » mène au hub des articles, /blog. ──
+const chips = [
+  { key: 'all', label: isFr ? 'Tous' : 'All', n: items.length, href: '/ressources', current: !activeKind },
+  { key: 'comparatifs', label: isFr ? 'Comparatifs' : 'Comparisons', n: count('comparatifs'), href: '/ressources/comparatifs', current: activeKind === 'comparatifs' },
+  { key: 'outils', label: isFr ? 'Outils' : 'Tools', n: count('outils'), href: '/ressources/outils', current: activeKind === 'outils' },
+  { key: 'guides', label: isFr ? 'Guides' : 'Guides', n: count('guides'), href: '/ressources#type-guides', current: false },
+  { key: 'articles', label: isFr ? 'Articles' : 'Articles', n: count('articles'), href: '/blog', current: false },
+].filter((c) => c.n > 0);
+
+const crumbs = [
+  { label: isFr ? 'Accueil' : 'Home', href: isFr ? '/' : '/en' },
+  { label: isFr ? 'Ressources' : 'Resources', href: isFr ? '/ressources' : '/en/ressources' },
+  { label: activeKind ? (isFr ? RESOURCE_VIEWS[activeKind].label_fr : RESOURCE_VIEWS[activeKind].label_en) ?? '' : '' },
+];
+const listTitle = activeKind
+  ? (isFr ? `${RESOURCE_VIEWS[activeKind].label_fr}, de la plus récente à la plus ancienne` : `${RESOURCE_VIEWS[activeKind].label_en}, newest first`)
+  : (isFr ? 'Toutes les ressources, de la plus récente à la plus ancienne' : 'All resources, newest first');
+---
+{activeKind && <MastheadBar lang={lang} items={crumbs} />}
+<div class:list={['res-index', { 'res-index--view': activeKind }]}>
+  <ListIndexSection data={head} lang={lang}>
+    <Fragment slot="filters">
+      <div class="res-filters-stack">
+      <nav class="res-filters" aria-label={isFr ? 'Filtrer par type' : 'Filter by type'}>
+        {chips.map((c) => (
+          <a class="res-chip" href={c.href} aria-current={c.current ? 'page' : undefined}>
+            {c.label} <span class="res-chip-n">{c.n}</span>
+          </a>
+        ))}
+      </nav>
+      <SiloFilter silos={shown.map((i) => i.silo)} lang={lang} class="res-silos" />
+      </div>
+    </Fragment>
+    <Fragment slot="list">
+      {/* Ancre du filtre « Guides » (vue /ressources uniquement) : cible :target, placée en
+          tête de liste ; le saut d'ancre amène le lecteur sur la liste filtrée. */}
+      {!activeKind && <span class="res-anchor" id="type-guides" aria-hidden="true"></span>}
+      <h2 class="sr-only">{listTitle}</h2>
+      <div class="res-list">
+        {grids.map((g) => <ArticleGrid data={g} lang={lang} />)}
+      </div>
+    </Fragment>
+  </ListIndexSection>
+</div>
+
+  {/* MANIFESTO · « La promesse », conservé du hub guides (ink, source unique en donnée) */}
+  <ManifestoStatement data={manifestoData} lang={lang} />
+
+  {/* NEWSLETTER BAND · ink (ancre #newsletter liée depuis /blog) */}
+  <section id="newsletter" class="hub-nl">
+    <div class="wrap-wide hub-nl-wrap">
+      <div>
+        <Kicker tone="accent" class="hub-nl-k">§ Newsletter · une fois par mois</Kicker>
+        <h2 class="hub-nl-h2">Un essai par mois. Jamais de promotion.</h2>
+        <p class="hub-nl-lead">
+          Notes longues, cas concrets, recettes pratiques. Désabonnement en 1 clic, RGPD-compliant.
+        </p>
+      </div>
+      <form class="hub-nl-form" method="POST" action="/api/newsletter" data-newsletter-form novalidate>
+        <FormGuard />
+        <input type="hidden" name="lang" value={lang} />
+        <label for="nl-email" class="sr-only">Email professionnel</label>
+        <input id="nl-email" name="email" type="email" required placeholder="prénom@entreprise.com" autocomplete="email" aria-describedby="nl-hint" />
+        <Button as="button" type="submit" variant="primary" size="md">S'abonner →</Button>
+        <p class="form-error-global" role="alert" aria-live="assertive" hidden data-newsletter-error></p>
+      </form>
+      <p class="nl-hint" id="nl-hint">
+        <Bi fr="Sans spam · Désinscription en 1 clic" en="No spam · Unsubscribe anytime" />
+        {' · '}
+        <a href="/politique-confidentialite">
+          <Bi fr="Politique de confidentialité" en="Privacy policy" />
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <CtaFinal data={ctaData} lang={lang} />
+
+<style>
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  /* En-tête et corps de liste : ListIndexSection ajoute un padding latéral en plus du
+     gabarit .wrap-wide ; on le retire pour aligner kicker, titre et pastilles sur le fil
+     d'Ariane, le logo et la grille de cartes (même x, 3 vues). */
+  .res-index :global(.list-hd),
+  .res-index :global(.list-body) { padding-inline: 0; }
+  /* Vue filtrée : le fil d'Ariane (MastheadBar) occupe déjà le haut sous l'en-tête fixe. */
+  .res-index--view :global(.list-hd) { padding-top: var(--space-9); }
+
+  /* Pastilles de type puis pastilles de thème : EMPILÉES (le conteneur .list-filters de
+     ListIndexSection est une rangée flex qui les mettait côte à côte). */
+  .res-filters-stack { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+
+  /* ── Filtres · pastilles (tokens DS existants, aucun token neuf) ── */
+  .res-filters { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .res-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    color: var(--ink);
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .res-chip:hover { border-color: var(--ink); }
+  .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  :global(.res-silos) { margin-top: var(--space-4); margin-bottom: 0; }
+  .res-chip-n { font-family: var(--font-mono); color: var(--muted); }
+
+  /* Pastille active : celle de la vue courante (aria-current="page"). Sur /ressources, le
+     filtre « Guides » est une ancre CSS (#type-guides) : quand elle est ciblée, c'est la
+     pastille Guides qui devient active et « Tous » reprend l'aspect neutre. */
+  .res-chip[aria-current='page'],
+  .res-index:has(#type-guides:target) .res-chip[href$='#type-guides'] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .res-chip[aria-current='page'] .res-chip-n,
+  .res-index:has(#type-guides:target) .res-chip[href$='#type-guides'] .res-chip-n { color: inherit; }
+  .res-index:has(#type-guides:target) .res-chip[aria-current='page'] {
+    background: transparent;
+    border-color: var(--hairline);
+    color: var(--ink);
+  }
+  .res-index:has(#type-guides:target) .res-chip[aria-current='page'] .res-chip-n { color: var(--muted); }
+
+  /* Ancres : la cible de saut tient compte de l'en-tête fixe. */
+  .res-anchor { display: block; scroll-margin-top: 96px; }
+
+  /* Grilles successives fondues en UNE grille : les sections article-grid (12 cartes au plus
+     chacune) et leurs conteneurs passent en `display: contents`, les cartes deviennent les
+     enfants directs de .res-list. Un filtre ne laisse donc pas de trous entre les grilles.
+     Mêmes colonnes et points de rupture que le composant (3 / 2 / 1). */
+  .res-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: calc(-1 * var(--space-7));
+  }
+  .res-list :global(.article-grid),
+  .res-list :global(.article-grid > .wrap-wide),
+  .res-list :global(.article-grid__list) { display: contents; }
+  @media (max-width: 980px) { .res-list { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .res-list { margin-top: calc(-1 * var(--space-5)); } }
+  @media (max-width: 640px) { .res-list { grid-template-columns: 1fr; } }
+
+  /* ── Filtre « Guides » sur /ressources (ancre CSS) : masque les cartes hors guides.
+     Les autres types sont de vraies pages filtrées côté serveur (aucun masquage CSS). ── */
+  .res-index:has(#type-guides:target) .res-list :global(.article-card:not([href^='/ressources/guides/'])) {
+    display: none;
+  }
+
+  .hub-nl { padding: var(--space-12) var(--space-6); background: var(--ink); color: var(--paper); }
+  .hub-nl-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-10); align-items: center; }
+  :global(.hub-nl-k) { display: block; margin-bottom: 18px; }
+  .hub-nl-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-h1);
+    line-height: 1;
+    letter-spacing: -0.024em;
+    color: var(--paper);
+    margin: 0 0 18px;
+    text-wrap: balance;
+    font-weight: var(--fw-semibold);
+  }
+  .hub-nl-h2 :global(i) { font-style: italic; color: var(--accent-text); }
+  .hub-nl-lead {
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: rgba(var(--paper-rgb), 0.7);
+    max-width: 520px;
+    margin: 0;
+  }
+  .hub-nl-form {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .hub-nl-form input {
+    flex: 1;
+    min-width: 240px;
+    padding: 14px 18px;
+    background: rgba(var(--paper-rgb), 0.08);
+    border: 1px solid rgba(var(--paper-rgb), 0.2);
+    border-radius: var(--radius-xs);
+    color: var(--paper);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+  }
+  .hub-nl-form input:focus { outline: none; border-color: var(--accent-text); }
+  .hub-nl-form input:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; border-color: var(--accent-text); }
+  .nl-hint {
+    font-size: var(--text-small);
+    color: rgba(var(--paper-rgb), 0.5);
+    margin: 10px 0 0;
+    line-height: var(--leading-body);
+  }
+  .nl-hint a { color: rgba(var(--paper-rgb), 0.7); text-decoration: underline; }
+  .nl-hint a:hover { color: var(--paper); }
+  .hub-nl-form .form-error-global {
+    flex-basis: 100%;
+    color: var(--accent-text);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    margin: 0;
+  }
+
+  @media (max-width: 800px) {
+    .hub-nl-wrap { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function bindForm(form) {
+    if (form.dataset.nlBound) return;
+    form.dataset.nlBound = '1';
+
+    var langInput = form.querySelector('input[name="lang"]');
+    var lang = langInput ? langInput.value : 'fr';
+    var emailInput = form.querySelector('input[name="email"]');
+    var errorEl = form.querySelector('[data-newsletter-error]');
+    var btn = form.querySelector('button[type="submit"]');
+
+    function showError(msg) {
+      if (!errorEl) return;
+      errorEl.textContent = msg;
+      errorEl.removeAttribute('hidden');
+    }
+    function clearError() {
+      if (!errorEl) return;
+      errorEl.setAttribute('hidden', '');
+      errorEl.textContent = '';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+
+      var email = emailInput ? emailInput.value.trim() : '';
+      if (!email || !EMAIL_RE.test(email)) {
+        showError(lang === 'fr' ? 'Adresse email invalide.' : 'Invalid email address.');
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      if (btn) btn.disabled = true;
+
+      var payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        var res = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        var data = await res.json();
+        if (data.ok) {
+          document.cookie = 'waimia_newsletter_signed=true; path=/; max-age=31536000; SameSite=Lax';
+          if (data.redirect) {
+            window.location.href = data.redirect;
+          }
+        } else {
+          showError(data.error || (lang === 'fr' ? 'Erreur, veuillez réessayer.' : 'Error, please try again.'));
+          if (btn) btn.disabled = false;
+        }
+      } catch (_) {
+        showError(lang === 'fr' ? 'Erreur réseau, veuillez réessayer.' : 'Network error, please try again.');
+        if (btn) btn.disabled = false;
+      }
+    });
+  }
+
+  document.querySelectorAll('form[data-newsletter-form]').forEach(bindForm);
+  // Après une navigation ClientRouter : on ne branche que les formulaires neufs (le drapeau
+  // nlBound évite un second écouteur, donc un second POST, sur le formulaire déjà branché).
+  document.addEventListener('astro:page-load', function () {
+    document.querySelectorAll('form[data-newsletter-form]').forEach(bindForm);
+  });
+})();
+</script>

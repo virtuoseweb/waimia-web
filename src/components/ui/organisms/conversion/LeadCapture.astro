@@ -121,6 +121,41 @@ const descId = bare ? describedBy : `${fid}-desc`;
     }
     input.addEventListener('input', function () { if (!err.hidden) clear(); });
 
+    // Succès d'un outil : rapport PDF envoyé par e-mail ET téléchargeable tout de suite
+    // (octets renvoyés en base64 par l'API, aucun stockage côté serveur).
+    function showReport(email, data) {
+      var pdf = data.pdf;
+      ok.textContent = pdf
+        ? 'Votre rapport complet est envoyé à ' + email + ', en pièce jointe. Vous pouvez aussi le télécharger tout de suite. Si l\'e-mail n\'arrive pas d\'ici quelques minutes, regardez dans les indésirables.'
+        : 'Votre résultat est envoyé à ' + email + '. Le rapport PDF n\'a pas pu être généré cette fois : nous vous l\'envoyons à la main dans la journée.';
+      ok.hidden = false;
+      if (pdf && pdf.base64) {
+        var wrap = document.createElement('p');
+        wrap.className = 'lc-pdf';
+        var dl = document.createElement('button');
+        dl.type = 'button';
+        dl.className = 'btn btn-primary cv-btn';
+        dl.setAttribute('data-lead-pdf', '');
+        dl.textContent = 'Télécharger mon rapport (PDF)';
+        dl.addEventListener('click', function () {
+          var bin = atob(pdf.base64);
+          var bytes = new Uint8Array(bin.length);
+          for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+          var url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = pdf.filename || 'rapport-waimia.pdf';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+        });
+        wrap.appendChild(dl);
+        ok.insertAdjacentElement('afterend', wrap);
+      }
+      ok.focus();
+    }
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       clear();
@@ -128,8 +163,12 @@ const descId = bare ? describedBy : `${fid}-desc`;
       if (!email) { fail(root.dataset.required ? 'Saisissez votre adresse e-mail : le fichier n\'est envoyé que par e-mail.' : 'Saisissez votre adresse e-mail pour recevoir votre résultat.'); input.focus(); return; }
       if (!EMAIL_RE.test(email)) { fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr'); input.focus(); return; }
 
-      var detail = { slug: root.dataset.slug, summary: [], headline: '' };
+      // L'outil de la page remplit `summary`, `headline` et, pour le diagnostic et le calculateur,
+      // `result` (réponses BRUTES, recalculées par le serveur pour le rapport PDF). Il peut aussi
+      // poser `error` (saisie hors limites) : rien n'est envoyé.
+      var detail = { slug: root.dataset.slug, summary: [], headline: '', result: undefined, error: '' };
       root.dispatchEvent(new CustomEvent('cv:collect', { bubbles: true, detail: detail }));
+      if (detail.error) { fail(detail.error); return; }
 
       busy(true);
       var mail = '<a href="mailto:' + fallbackEmail + '">' + fallbackEmail + '</a>';
@@ -146,11 +185,13 @@ const descId = bare ? describedBy : `${fid}-desc`;
             website: form.elements.website.value,
             _t: form.elements._t ? form.elements._t.value : '',
             lang: 'fr',
+            result: detail.result,
           }),
         });
         var data = await res.json().catch(function () { return {}; });
         if (res.ok && data.ok) {
           form.hidden = true;
+          if (detail.result) { showReport(email, data); return; }
           ok.textContent = root.dataset.required
             ? 'C\'est parti : le fichier arrive en pièce jointe à ' + email + '. Pensez à vérifier vos courriers indésirables si rien n\'arrive d\'ici quelques minutes.'
             : 'C\'est envoyé à ' + email + '. Si rien n\'arrive d\'ici quelques minutes, regardez dans les indésirables.';
@@ -158,7 +199,8 @@ const descId = bare ? describedBy : `${fid}-desc`;
           ok.focus();
           return;
         }
-        if (data.code === 'invalid_email') fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr');
+        if (data.code === 'invalid_result' || data.code === 'result_mismatch') fail('Vos réponses n\'ont pas pu être prises en compte (une valeur manque ou sort des limites). Vérifiez le formulaire, puis réessayez.');
+        else if (data.code === 'invalid_email') fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr');
         else if (res.status === 429) fail('Trop de demandes en peu de temps. Réessayez dans quelques minutes.');
         else if (data.code === 'resource_unavailable') fail('Ce fichier est momentanément indisponible. Écrivez à ' + mail + ', nous vous l\'envoyons.');
         else if (data.code === 'email_not_configured') fail(root.dataset.required
@@ -198,6 +240,8 @@ const descId = bare ? describedBy : `${fid}-desc`;
   .lc .cv-error, .lc-legal, .lc-optin { grid-column: 1 / -1; }
   .lc-optin { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-small); line-height: var(--leading-body); color: var(--ink); cursor: pointer; }
   .lc-optin input { margin: 3px 0 0; accent-color: var(--ink); width: 15px; height: 15px; flex-shrink: 0; }
+  /* Bouton de téléchargement du rapport : créé par le script après l'envoi, donc :global. */
+  :global(.lc-pdf) { margin: var(--space-4) 0 0; }
   .lc-optin input:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
   @media (max-width: 760px) {
     .lc-form { grid-template-columns: 1fr; }

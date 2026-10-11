@@ -10,7 +10,6 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import http from 'node:http';
-import { registerHooks } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, existsSync, readFileSync } from 'node:fs';
@@ -18,33 +17,8 @@ import { tmpdir } from 'node:os';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
-// Crochet de chargement : reproduit ce que Vite fait pour src/ (extensions .ts, import.meta.env).
-registerHooks({
-  resolve(specifier, context, nextResolve) {
-    try {
-      return nextResolve(specifier, context);
-    } catch (err) {
-      if (specifier.startsWith('.') && context.parentURL?.includes('/src/')) {
-        for (const suffix of ['.ts', '/index.ts']) {
-          try {
-            return nextResolve(specifier + suffix, context);
-          } catch {
-            /* suivant */
-          }
-        }
-      }
-      throw err;
-    }
-  },
-  load(url, context, nextLoad) {
-    const result = nextLoad(url, context);
-    if (url.includes('/src/') && url.endsWith('.ts') && result.source != null) {
-      const text = Buffer.from(result.source).toString('utf8').replaceAll('import.meta.env', 'process.env');
-      return { ...result, source: text };
-    }
-    return result;
-  },
-});
+// Crochet de chargement partagé : extensions .ts, import.meta.env, JSON (cf _src-hooks.mjs).
+import './_src-hooks.mjs';
 
 const srcUrl = (p) => pathToFileURL(join(ROOT, 'src', p)).href;
 const { processLeadMagnet } = await import(srcUrl('lib/lead-magnet-delivery.ts'));
@@ -302,4 +276,16 @@ test('newsletter sans clé Resend : 503 honnête (plus de faux succès)', async 
   assert.equal(res.status, 503);
   assert.equal((await res.json()).code, 'email_not_configured');
   process.env.RESEND_API_KEY = 'test_key_factice';
+});
+
+test('slug d’outil sans result : 400 invalid_result, rien envoyé, même avec headline et summary clients', async () => {
+  reset();
+  const toolMagnets = { ...magnets, 'calculateur-roi-ia': { title: 'Estimation', path: '/ressources/outils/calculateur-roi-ia' } };
+  const r = await processLeadMagnet(
+    { ...good, slug: 'calculateur-roi-ia', headline: 'FAUX', summary: [{ label: 'Faux', value: 'FAUX' }] },
+    { ...deps, magnets: toolMagnets },
+  );
+  assert.equal(r.status, 400);
+  assert.equal(r.body.code, 'invalid_result');
+  assert.equal(received.length, 0);
 });

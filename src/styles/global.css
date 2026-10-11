@@ -1028,8 +1028,66 @@ a:not([class]):hover,
    (.btn .btn-primary portés en HTML). Ici, positionnement seul (le visuel vient du DS). */
 .mega-featured .cta {
   align-self: flex-start;
-  margin-top: var(--space-1);
+  margin-top: auto;
 }
+
+/* Carte illustrée sous les liens d'une colonne (2026-10-11) : illustration 7:3, titre,
+   une ligne, lien. Un seul <a> porte toute la carte ; hover = titre et CTA en accent. */
+.mega-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: auto;
+  color: var(--ink);
+}
+/* Colonne portant une carte : flex colonne, carte calée EN BAS de la colonne (donc au même
+   Y d'une colonne à l'autre, cartes de même hauteur : corps réservé sur 2 lignes). */
+.mega-col:has(> .mega-card) {
+  display: flex;
+  flex-direction: column;
+}
+.mega-col:has(> .mega-card) > ul,
+.mega-col:has(> .mega-card) > .mega-col-footer { margin-bottom: var(--space-6); }
+.mega-col:has(> .mega-card) > .mega-col-footer { align-self: flex-start; }
+.mega-card .img {
+  display: block;
+  aspect-ratio: 7 / 3;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+  border: 1px solid var(--hairline);
+}
+.mega-card .img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mega-card .ttl {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+  letter-spacing: -0.008em;
+  line-height: var(--leading-body);
+  color: var(--ink);
+}
+.mega-card .bd {
+  font-size: var(--text-small);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  min-height: calc(var(--text-small) * var(--leading-relaxed) * 2);
+}
+.mega-card .cta {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: var(--tracking-mono-tight);
+  color: var(--ink);
+}
+.mega-card:hover .ttl,
+.mega-card:hover .cta,
+.mega-card:focus-visible .ttl,
+.mega-card:focus-visible .cta { color: var(--accent-text); }
 
 .mega-bottom {
   border-top: 1px solid var(--hairline);
@@ -1238,6 +1296,39 @@ a:not([class]):hover,
   font-size: var(--text-small);
   line-height: var(--leading-lede);
   color: var(--ink);
+}
+/* Carte illustrée mobile (2026-10-11) : jumelle de .mega-card, hors idiome « lien hairline »
+   de .m-sheet-acc-col a (pas de bordure ni de padding de ligne). */
+.m-sheet-acc-col a.m-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: 0;
+  border-bottom: none;
+}
+.m-card .img {
+  display: block;
+  aspect-ratio: 7 / 3;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+  border: 1px solid var(--hairline);
+}
+.m-card .img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.m-card .ttl { font-weight: var(--fw-medium); color: var(--ink); }
+.m-card .bd { font-size: var(--text-small); line-height: var(--leading-relaxed); color: var(--muted); }
+.m-card .cta {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  letter-spacing: var(--tracking-mono-tight);
+  color: var(--accent-text);
 }
 /* Pill « Offre phare » mobile · inline après le label, suit le wrap naturel */
 .m-sheet-acc-col a .flag {

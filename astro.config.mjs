@@ -318,6 +318,9 @@ export default defineConfig({
     '/cas-clients/resultats/reduction-temps-marketing': '/cas-usages/centraliser-donnees',
     // Cluster « déployer Claude » dédupliqué : la checklist est absorbée par le guide pilier.
     '/ressources/guides/checklist-deploiement-claude': '/ressources/guides/claude-pme',
+    // Hub /ressources/guides supprimé (2026-10-11) : les guides vivent dans l'index unifié
+    // /ressources (filtre « Guides »). Les pages /ressources/guides/<slug> restent en place.
+    '/ressources/guides': '/ressources',
     // Pivot IA 2026-10 · fusions (validées Simon). 16 pages dépubliées, fichiers de contenu
     // conservés ; même mécanisme que template-service-ref / services-b2b (exclusion du
     // routing + 301 ici). Source des ids exclus : src/data/depublished.ts.

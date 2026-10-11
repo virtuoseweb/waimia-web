@@ -103,6 +103,9 @@ interface Props {
    *  `lead-capture-band` en carte à la fin de la prose (PDF verrouillé) ou `cta-final`
    *  après le corps (outil interactif). Absent = 0 rendu. */
   leadSection?: SectionByType<'lead-capture-band'> | SectionByType<'cta-final'>;
+  /** Variante de page. `tool` (route /ressources/outils/[...slug] seulement) : héros compact
+   *  et slot `stage` rendu pleine largeur entre le héros et la prose. Défaut `essay` = rendu inchangé. */
+  variant?: 'essay' | 'tool';
 }
 const {
   title,
@@ -134,7 +137,9 @@ const {
   faqItems,
   leadSection,
   noindex = false,
+  variant = 'essay',
 } = Astro.props as Props;
+const isTool = variant === 'tool';
 
 const headlineHtml = (await Astro.slots.render('headline')).trim();
 const ledeHtml = (await Astro.slots.render('lede')).trim();
@@ -207,15 +212,18 @@ const articleLd = buildArticle({
   {breadcrumbItems && breadcrumbItems.length > 0 && (
     <MastheadBar lang={lang ?? 'fr'} items={breadcrumbItems} />
   )}
-  <article class="essay">
+  <article class:list={['essay', { 'essay--tool': isTool }]}>
     {/* MASTHEAD */}
     <HeroCentered
       data={heroData}
       lang={lang}
       transitionId={pageTransitionId}
       cardTransitionId={pageTransitionId}
-      topPad="140px"
+      topPad={isTool ? undefined : '140px'}
     />
+
+    {/* STAGE · outil interactif pleine largeur (variante tool), hors colonne de lecture */}
+    {isTool && Astro.slots.has('stage') && <slot name="stage" />}
 
     {/* BODY */}
     <div class="essay-body">
@@ -662,6 +670,19 @@ const articleLd = buildArticle({
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Variante outil (prop variant="tool", route /ressources/outils seule) ──
+   Héros compact : l'outil doit apparaître dès l'arrivée, le titre redevient
+   une étiquette de page et non une couverture d'essai. */
+.essay--tool :global(.hero-essay__h1) { font-size: var(--text-h2); }
+.essay--tool :global(.hero-essay__hd) { padding-bottom: var(--space-8); }
+.essay--tool :global(.hero-essay__hd--illus) { min-height: clamp(300px, 28vw, 420px); }
+/* Chapô plus étroit : il ne vient plus toucher l'illustration à droite (mesuré à 1440 px). */
+.essay--tool :global(.hero-essay__lede) { max-width: 640px; }
+.essay--tool .essay-body { padding-top: var(--space-9); }
+@media (max-width: 768px) {
+  .essay--tool :global(.hero-essay__illus) { display: none; }
 }
 
 /* ── Responsive ───────────────────────────────────────── */

@@ -9,6 +9,11 @@
  *  - jamais de faux succès : sans clé Resend → 503 `email_not_configured` ; échec Resend → 502
  *    `send_failed` ; fichier absent → 503 `resource_unavailable` (le chemin n'est écrit que
  *    dans le log serveur, jamais dans la réponse) ;
+ *  - outils gratuits (diagnostic, calculateur) : champ `result` = réponses BRUTES, validées
+ *    strictement (lead-tools/schema.ts) puis RECALCULÉES ici ; rapport PDF (src/lib/pdf) joint
+ *    au visiteur ET à l'alerte interne, renvoyé en base64 (`pdf`) pour téléchargement immédiat,
+ *    jamais stocké. Échec du PDF : e-mail sans pièce jointe, alerte marquée, `pdf: null` + `warning`
+ *    (décision Simon, 11 octobre 2026) ;
  *  - honeypot `website` ou soumission trop rapide : faux succès silencieux, AVANT toute
  *    validation, lecture de fichier, e-mail ou appel externe.
  *
@@ -29,9 +34,14 @@ import { sendEmail, EMAIL_INTERNAL_TO, emitEvent } from "./resend";
 import { upsertSubscriber } from "./mailerlite";
 import { isBotSubmission } from "./honeypot";
 import LeadMagnetDelivery from "./emails/LeadMagnetDelivery";
-import InternalLeadAlert from "./emails/InternalLeadAlert";
+import InternalLeadAlert, { internalLeadSubject } from "./emails/InternalLeadAlert";
 import { SITE } from "../site.config";
 import { LEAD_MAGNETS, AUDIT_BOOKING_HREF, type LeadMagnetEntry } from "../data/conversion";
+import { computeLeadTool, type LeadToolPayload, type LeadToolResult } from "./lead-tools";
+import { LeadToolPayloadSchema } from "./lead-tools/schema";
+import { digestLeadTool, gmailComposeUrl, replyDraft } from "./lead-tools/digest";
+import { AUDIT_RDV_URL } from "./lead-tools/links";
+import { renderLeadToolPdf } from "./pdf";
 
 export const MSGS = {
   fr: {
@@ -42,6 +52,7 @@ export const MSGS = {
     invalid_body: "Corps de la requête invalide.",
     not_configured: `L'envoi d'e-mail est indisponible pour le moment. Écrivez-nous à ${SITE.email}.`,
     resource_unavailable: `Ce fichier est momentanément indisponible. Écrivez-nous à ${SITE.email}, nous vous l'envoyons.`,
+    invalid_result: "Les réponses envoyées sont incomplètes ou hors limites. Vérifiez le formulaire et réessayez.",
   },
   en: {
     invalid_email: "Invalid email address.",
@@ -51,6 +62,7 @@ export const MSGS = {
     invalid_body: "Invalid request body.",
     not_configured: `Email delivery is unavailable right now. Write to ${SITE.email}.`,
     resource_unavailable: `This file is temporarily unavailable. Write to ${SITE.email} and we will send it to you.`,
+    invalid_result: "The answers sent are incomplete or out of range. Check the form and try again.",
   },
 } as const;
 
@@ -80,6 +92,11 @@ export const LeadMagnetSchema = z.object({
   lang: z.enum(["fr", "en"]).optional().default("fr"),
   /** Champ piège (honeypot) : vide pour un humain. Lu par isBotSubmission. */
   website: z.string().optional(),
+  /**
+   * Réponses BRUTES d'un outil gratuit (diagnostic, calculateur). Validées à part
+   * (LeadToolPayloadSchema) pour renvoyer un code dédié ; le serveur recalcule tout.
+   */
+  result: z.unknown().optional(),
 });
 
 export interface DeliveryDeps {
@@ -90,12 +107,17 @@ export interface DeliveryDeps {
   /** Horloge (tests du délai minimal). */
   now?: number;
   ip?: string;
+  /** Génération du rapport PDF (injectable pour tester l'échec). */
+  renderPdf?: typeof renderLeadToolPdf;
 }
 
 export interface DeliveryResult {
   status: number;
   body: Record<string, unknown>;
 }
+
+/** Slugs des outils gratuits : leur contenu d'e-mail vient UNIQUEMENT du résultat recalculé. */
+const TOOL_SLUGS = ["diagnostic-maturite-ia", "calculateur-roi-ia"] as const;
 
 const PRIVATE_FILE_RE = /^private\/telechargements\/[A-Za-z0-9._-]+$/;
 /** Plafond de sécurité sur la somme des fichiers (Resend : 40 Mo après Base64 ; Base64 = x1,33). */
@@ -162,6 +184,26 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
   }
   const magnet = magnets[slug];
 
+  // 2 bis. Résultat d'outil : validation stricte, puis recalcul serveur (jamais le score du client).
+  // Pour un slug d'outil, `result` est OBLIGATOIRE : sans lui, `headline` et `summary` (écrits par le
+  // client) passeraient dans l'alerte interne et l'e-mail visiteur. Même famille d'erreur que
+  // « résultat invalide » (400 `invalid_result`).
+  let toolResult: LeadToolResult | null = null;
+  const isToolSlug = (TOOL_SLUGS as readonly string[]).includes(slug);
+  if (isToolSlug && parsed.data.result === undefined) {
+    return { status: 400, body: { ok: false, code: "invalid_result", error: msg("invalid_result", lang) } };
+  }
+  if (parsed.data.result !== undefined) {
+    const r = LeadToolPayloadSchema.safeParse(parsed.data.result);
+    if (!r.success) {
+      return { status: 400, body: { ok: false, code: "invalid_result", error: msg("invalid_result", lang) } };
+    }
+    if (r.data.tool !== slug) {
+      return { status: 400, body: { ok: false, code: "result_mismatch", error: msg("invalid_request", lang) } };
+    }
+    toolResult = computeLeadTool(r.data as LeadToolPayload);
+  }
+
   // 3. Pièces jointes : lues AVANT d'envoyer quoi que ce soit.
   const baseDirs = deps.baseDirs ?? defaultBaseDirs();
   const attachments: { filename: string; content: string; sizeBytes: number }[] = [];
@@ -180,9 +222,28 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
     return { status: 503, body: { ok: false, code: "resource_unavailable", error: msg("resource_unavailable", lang) } };
   }
 
+  // 3 bis. Rapport PDF de l'outil. Un échec n'est JAMAIS silencieux : l'e-mail part sans pièce
+  // jointe et le dit, l'alerte interne l'indique en tête, la réponse porte `pdf: null` + `warning`.
+  let report: { filename: string; base64: string; sizeBytes: number } | null = null;
+  let pdfError: string | null = null;
+  if (toolResult) {
+    try {
+      const render = deps.renderPdf ?? renderLeadToolPdf;
+      const out = await render(toolResult, { email, date: new Date(deps.now ?? Date.now()), lang });
+      report = { filename: out.filename, base64: Buffer.from(out.bytes).toString("base64"), sizeBytes: out.bytes.length };
+    } catch (err) {
+      pdfError = err instanceof Error ? err.message : String(err);
+      console.error("[lead-magnet] PDF non généré", { slug, error: pdfError });
+    }
+  }
+  // Digest APRÈS le PDF : le texte d'aperçu n'annonce une pièce jointe que si elle existe.
+  const digest = toolResult ? digestLeadTool(toolResult, { hasPdf: report !== null }) : null;
+
   const pageUrl = `${SITE.url}${magnet.path}`;
-  const hasFiles = attachments.length > 0;
-  const subject = hasFiles
+  const hasFiles = attachments.length > 0 || report !== null;
+  const subject = digest
+    ? digest.visitorSubject
+    : hasFiles
     ? lang === "en"
       ? `${magnet.title} · your file`
       : `${magnet.title} · votre fichier en pièce jointe`
@@ -198,10 +259,28 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
         pageUrl,
         attachments: attachments.map((a) => ({ filename: a.filename, sizeBytes: a.sizeBytes })),
         lang,
-        summary,
+        summary: isToolSlug ? undefined : summary,
         auditUrl: `${SITE.url}${AUDIT_BOOKING_HREF}`,
+        ...(digest
+          ? {
+              report: {
+                toolLabel: digest.toolLabel,
+                metrics: digest.metrics,
+                preview: digest.preview,
+                pdf: report ? { filename: report.filename, sizeBytes: report.sizeBytes, pages: digest.pages } : null,
+                bookingUrl: AUDIT_RDV_URL,
+              },
+            }
+          : {}),
       }),
-      ...(hasFiles ? { attachments: attachments.map((a) => ({ filename: a.filename, content: a.content })) } : {}),
+      ...(hasFiles
+        ? {
+            attachments: [
+              ...attachments.map((a) => ({ filename: a.filename, content: a.content })),
+              ...(report ? [{ filename: report.filename, content: report.base64 }] : []),
+            ],
+          }
+        : {}),
       tags: [
         { name: "event", value: "lead_magnet_downloaded" },
         { name: "magnet", value: slug },
@@ -215,23 +294,37 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
 
     // 5. Alerte interne (non bloquante : le visiteur a déjà son fichier).
     try {
+      const receivedAt = new Intl.DateTimeFormat("fr-FR", {
+        dateStyle: "full",
+        timeStyle: "short",
+        timeZone: "Europe/Paris",
+      }).format(new Date(deps.now ?? Date.now()));
+      const draft = toolResult ? replyDraft(toolResult) : null;
       await sendEmail({
         to: EMAIL_INTERNAL_TO,
-        subject: `[Lead] ressource · ${slug} · ${email}`,
+        subject: internalLeadSubject(digest ? digest.toolLabel : slug, email),
         html: InternalLeadAlert({
           source: "lead-magnet",
           email,
           company,
           role,
           tags: [slug],
+          toolLabel: digest ? digest.toolLabel : magnet.title,
+          receivedAt,
+          ...(toolResult && !report ? { warning: `PDF non généré : ${pdfError ?? "raison inconnue"}` } : {}),
+          headline: digest?.headline ?? (isToolSlug ? undefined : headline),
           details: [
             { label: "Ressource", value: magnet.title },
-            ...(hasFiles ? [{ label: "Pièces jointes", value: attachments.map((a) => a.filename).join(", ") }] : []),
-            ...(headline ? [{ label: "Résultat", value: headline }] : []),
             { label: "Lettre mensuelle", value: optIn ? "inscription demandée" : "non (ne pas ajouter à une liste)" },
-            ...(summary ?? []).slice(0, 12),
+            ...(digest || isToolSlug ? [] : [...(headline ? [{ label: "Résultat", value: headline }] : []), ...(summary ?? [])]),
           ],
+          sections: digest?.sections,
+          attachments: report ? [report.filename] : [],
+          angle: digest?.angle,
+          replyUrl: draft ? gmailComposeUrl(email, draft.subject, draft.paragraphs) : undefined,
         }),
+        // Le rapport PDF de l'outil est joint à l'alerte (les fichiers statiques, connus, non).
+        ...(report ? { attachments: [{ filename: report.filename, content: report.base64 }] } : {}),
         tags: [
           { name: "event", value: "lead_magnet_downloaded" },
           { name: "kind", value: "internal" },
@@ -251,9 +344,24 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
     }
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(
-      JSON.stringify({ ts: new Date().toISOString(), action: "lead_magnet_delivered", slug, ip: deps.ip, email: maskedEmail, files: attachments.length }),
+      JSON.stringify({ ts: new Date().toISOString(), action: "lead_magnet_delivered", slug, ip: deps.ip, email: maskedEmail, files: attachments.length + (report ? 1 : 0), pdf: toolResult ? Boolean(report) : undefined }),
     );
-    return { status: 200, body: { ok: true, delivered: true, slug, attached: hasFiles, subscribed: optIn } };
+    return {
+      status: 200,
+      body: {
+        ok: true,
+        delivered: true,
+        slug,
+        attached: hasFiles,
+        subscribed: optIn,
+        ...(toolResult
+          ? {
+              pdf: report ? { filename: report.filename, base64: report.base64 } : null,
+              ...(report ? {} : { warning: "pdf_not_generated" }),
+            }
+          : {}),
+      },
+    };
   } catch (err) {
     console.error("[api/lead-magnet] error", err);
     return { status: 502, body: { ok: false, code: "send_failed", error: msg("send_failed", lang) } };
