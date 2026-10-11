@@ -63,13 +63,15 @@ const webAppLd = buildWebApplication({ name: d.title_fr, description: d.descript
     { label: d.title_fr },
   ]}
   illustration={heroIllustration}
+  variant="tool"
 >
   <Fragment slot="headline">{d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>
+  {/* Outil pleine largeur (.wrap-wide) entre le héros et la prose, hors colonne de lecture. */}
+  {d.inputs.length > 0 && d.outputs.length > 0 && (
+    <ToolWidget slot="stage" inputs={d.inputs} outputs={d.outputs} lang="fr" />
+  )}
   <Fragment slot="body">
-    {d.inputs.length > 0 && d.outputs.length > 0 && (
-      <ToolWidget inputs={d.inputs} outputs={d.outputs} lang="fr" />
-    )}
     {captureSlug && (
       <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: captureSlug, mode: 'open', variant: 'card', background: 'ink', anchor_id: 'recevoir-par-email' }} />
     )}

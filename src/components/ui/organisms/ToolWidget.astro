@@ -1,23 +1,23 @@
 ---
 // Organism · ToolWidget · calculateur/score interactif data-driven (hors catalogue).
 //
-// Rend un formulaire piloté par les `inputs` du frontmatter d'un outil
-// (`src/content/outils/*.mdx`) et affiche les `outputs` calculés côté client
-// (vanilla JS, aucune île React, site SSG). Un seul composant sert les 2 outils
-// (calculateur ROI + score maturité) : tout vient des données, pas de recette
-// par outil. Le calcul se met à jour à chaque saisie.
+// Rend un formulaire piloté par les `inputs` du JSON d'un outil (`src/content/outils/*.json`)
+// et affiche les `outputs` calculés côté client (vanilla JS, aucune île React, site SSG).
+// Un seul composant sert tous les outils : tout vient des données, pas de recette par outil.
 //
-// Placement : rendu en tête du slot body d'EssayTemplate (après le hero, avant la
-// prose). Le composant est défensif face aux styles :global de `.essay-prose`
-// (neutralise le gradient de lien sur le CTA, n'utilise ni <p>/<h2>/<ul> nus).
+// Mise en page « produit » : bande pleine largeur (.wrap-wide) rendue dans le slot `stage`
+// d'EssayTemplate (variant="tool"), entre le héros et la prose. Hypothèses à gauche,
+// panneau de résultat collant à droite. Règle data-driven : le DERNIER output est le
+// chiffre-clé (héros du panneau) ; les précédents en sont le détail. L'ordre DOM des outputs
+// est conservé (le récapitulatif e-mail et son titre en dépendent) : seul l'ordre visuel change.
+// Sous 900 px : une colonne, panneau en premier pour que le résultat soit vu sans défiler.
 //
-// Comportement : le <script> de calcul vit dans la page hôte
-// (`src/pages/ressources/outils/[...slug].astro`), pas ici. Raison : EssayTemplate
-// capture le slot body via `Astro.slots.render()` puis le réinjecte en set:html,
-// ce qui rend inerte tout <script> porté par un composant du slot (script inséré
-// via innerHTML = non exécuté). Le script page cible `[data-tool-widget]` de façon
-// générique (data-driven), le composant reste réutilisable. Styles scopés : OK
-// (bundlés via l'import du composant, indépendamment du slot).
+// Contrat avec le script (page hôte, `src/pages/ressources/outils/[...slug].astro`), NE PAS
+// renommer : `[data-tool-widget]` ancêtre commun des champs et des résultats, `[data-key]`,
+// `[data-output]` + `data-formula/format/unit/lang`, `[data-result-value]`, `.tw-field` avec un
+// seul <label>, `.tw-input__unit`, `.tw-result__label`.
+// Le script vit dans la page (et non ici) : historiquement le slot body d'EssayTemplate est
+// réinjecté en set:html, ce qui rend inerte un <script> porté par un composant du slot.
 
 import { AUDIT_BOOKING_HREF } from '../../../data/conversion';
 
@@ -68,77 +68,90 @@ const pick = (fr: string, en: string) => (isEn ? en : fr);
 const active = inputs.length > 0 && outputs.length > 0;
 
 const eyebrow = pick('Vos hypothèses, modifiables', 'Your assumptions, editable');
+const panelLabel = pick('Résultat selon vos hypothèses', 'Result under your assumptions');
 const hint = pick('Le résultat se recalcule à chaque saisie. Il découle de vos hypothèses : ce n\'est pas une promesse de gain.', 'The result recalculates as you type. It follows from your assumptions: it is not a promised gain.');
 const ctaText = pick(ctaLabel_fr ?? "Vérifier ces hypothèses en audit (45 min, gratuit)", ctaLabel_en ?? 'Check these assumptions in an audit (45 min, free)');
 ---
 {active && (
   <section class="tool-widget" data-tool-widget aria-label={eyebrow}>
-    <span class="tw-eyebrow">{eyebrow}</span>
-
-    <div class="tw-grid">
-      {inputs.map((inp) => (
-        <div class="tw-field">
-          <label class="tw-field__label" for={`tw-${inp.key}`}>{pick(inp.label_fr, inp.label_en)}</label>
-          {inp.type === 'select' ? (
-            <select id={`tw-${inp.key}`} class="tw-select" data-key={inp.key}>
-              {inp.options?.map((o) => (
-                <option value={o.value} selected={String(inp.defaultValue) === o.value}>
-                  {pick(o.label_fr, o.label_en)}
-                </option>
-              ))}
-            </select>
-          ) : (
-            <div class="tw-input-wrap">
-              <input
-                id={`tw-${inp.key}`}
-                class="tw-input"
-                type="number"
-                data-key={inp.key}
-                value={inp.defaultValue as number | string | undefined}
-                min={inp.min}
-                max={inp.max}
-                inputmode="decimal"
-              />
-              {inp.unit && <span class="tw-input__unit">{inp.unit}</span>}
+    <div class="wrap-wide tw-layout">
+      <div class="tw-inputs">
+        <span class="tw-eyebrow">{eyebrow}</span>
+        <div class="tw-grid">
+          {inputs.map((inp) => (
+            <div class="tw-field">
+              <label class="tw-field__label" for={`tw-${inp.key}`}>{pick(inp.label_fr, inp.label_en)}</label>
+              {inp.type === 'select' ? (
+                <select id={`tw-${inp.key}`} class="tw-select" data-key={inp.key}>
+                  {inp.options?.map((o) => (
+                    <option value={o.value} selected={String(inp.defaultValue) === o.value}>
+                      {pick(o.label_fr, o.label_en)}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <div class="tw-input-wrap">
+                  <input
+                    id={`tw-${inp.key}`}
+                    class="tw-input"
+                    type="number"
+                    data-key={inp.key}
+                    value={inp.defaultValue as number | string | undefined}
+                    min={inp.min}
+                    max={inp.max}
+                    inputmode="decimal"
+                  />
+                  {inp.unit && <span class="tw-input__unit">{inp.unit}</span>}
+                </div>
+              )}
             </div>
-          )}
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
 
-    <div class="tw-results">
-      {outputs.map((o) => (
-        <div
-          class="tw-result"
-          data-output
-          data-formula={o.formula}
-          data-format={o.format ?? 'integer'}
-          data-unit={o.unit ?? ''}
-          data-lang={lang}
-        >
-          <span class="tw-result__label">{pick(o.label_fr, o.label_en)}</span>
-          <span class="tw-result__value" data-result-value aria-live="polite">…</span>
+      <div class="tw-panel" role="group" aria-label={panelLabel}>
+        <div class="tw-results">
+          {outputs.map((o) => (
+            <div
+              class="tw-result"
+              data-output
+              data-formula={o.formula}
+              data-format={o.format ?? 'integer'}
+              data-unit={o.unit ?? ''}
+              data-lang={lang}
+            >
+              <span class="tw-result__label">{pick(o.label_fr, o.label_en)}</span>
+              <span class="tw-result__value" data-result-value aria-live="polite">…</span>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
 
-    <div class="tw-cta-row">
-      <span class="tw-hint">{hint}</span>
-      <a class="btn btn-primary tw-cta" href={ctaHref}>{ctaText}</a>
+        <div class="tw-cta-row">
+          <a class="btn btn-primary tw-cta" href={ctaHref}>{ctaText}</a>
+          <span class="tw-hint">{hint}</span>
+        </div>
+      </div>
     </div>
   </section>
 )}
 
 <style>
+  /* ── Bande pleine largeur (même idiome que MaturityDiagnostic : encart paper-2) ── */
   .tool-widget {
-    margin: 0 0 var(--space-9);
-    padding: var(--space-6);
+    padding: var(--space-8) 0 var(--space-9);
     background: var(--paper-2);
-    border: 1px solid var(--hairline-strong);
-    border-radius: var(--radius-lg);
+    border-bottom: 1px solid var(--hairline-strong);
     font-family: var(--font-sans);
   }
 
+  .tw-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--space-9);
+    align-items: start;
+  }
+
+  /* ── Hypothèses (secondaires) : registre de lignes label / valeur ── */
   .tw-eyebrow {
     display: block;
     font-family: var(--font-mono);
@@ -146,144 +159,203 @@ const ctaText = pick(ctaLabel_fr ?? "Vérifier ces hypothèses en audit (45 min,
     text-transform: uppercase;
     letter-spacing: var(--tracking-mono);
     color: var(--accent-text);
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-4);
   }
 
   .tw-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--ink);
   }
 
   .tw-field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(10rem, 13rem);
+    align-items: center;
+    gap: var(--space-3) var(--space-6);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline-strong);
     min-width: 0;
   }
   .tw-field__label {
     font-size: var(--text-body);
     font-weight: var(--fw-medium);
     color: var(--ink);
-    line-height: 1.3;
+    line-height: var(--leading-lede);
   }
 
+  /* Champ + unité dans une même boîte : l'unité ne peut plus recouvrir la saisie. */
   .tw-input-wrap {
-    position: relative;
     display: flex;
     align-items: center;
-  }
-  .tw-input,
-  .tw-select {
-    width: 100%;
-    padding: var(--space-3) var(--space-4);
-    font-family: var(--font-sans);
-    font-size: var(--text-body);
-    color: var(--ink);
     background: var(--paper);
     border: 1px solid var(--hairline-strong);
     border-radius: var(--radius-sm);
     transition: border-color var(--dur-trim) var(--ease);
   }
-  .tw-input__unit {
-    position: absolute;
-    right: var(--space-4);
-    font-family: var(--font-mono);
-    font-size: var(--text-small);
-    color: var(--muted);
-    pointer-events: none;
+  .tw-input-wrap:hover,
+  .tw-select:hover { border-color: rgba(var(--ink-rgb), 0.45); }
+  .tw-input-wrap:focus-within {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
+    border-color: var(--ink);
+  }
+  .tw-input,
+  .tw-select {
+    width: 100%;
+    min-width: 0;
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
   }
   .tw-input {
-    padding-right: calc(var(--space-4) * 3);
+    flex: 1 1 auto;
+    background: transparent;
+    border: 0;
+    text-align: right;
     -webkit-appearance: none;
     -moz-appearance: textfield;
     appearance: none;
   }
+  .tw-input:focus { outline: none; }
   .tw-input::-webkit-outer-spin-button,
   .tw-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  .tw-input:focus-visible,
+  .tw-input__unit {
+    flex: 0 0 auto;
+    padding-right: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    color: var(--muted);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .tw-select {
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--dur-trim) var(--ease);
+  }
   .tw-select:focus-visible {
     outline: 2px solid var(--accent-text);
     outline-offset: 2px;
     border-color: var(--ink);
   }
 
+  /* ── Panneau de résultat (collant) ── */
+  .tw-panel {
+    position: sticky;
+    /* --header-height vaut 0 dans l'article (neutralisation après la barre de fil
+       d'Ariane, global.css) : même dégagement que .essay-toc d'EssayTemplate. */
+    top: var(--space-11);
+    align-self: start;
+    container-type: inline-size;
+    padding: var(--space-6);
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-sm);
+  }
+
   .tw-results {
-    margin-top: var(--space-6);
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
   }
+  /* Détail : lignes label / valeur. */
   .tw-result {
     display: flex;
-    flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
-    gap: var(--space-3);
-    padding: var(--space-5) var(--space-6);
-    background: var(--paper);
-    border: 1px solid var(--complementary);
-    border-radius: var(--radius-md);
-    box-shadow: inset 4px 0 0 var(--complementary);
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline-strong);
   }
   .tw-result__label {
-    font-size: var(--text-body);
+    font-size: var(--text-small);
     color: var(--ink-2);
-    max-width: 60%;
-    line-height: 1.35;
+    line-height: var(--leading-lede);
+    max-width: 30ch;
   }
   .tw-result__value {
-    font-family: var(--font-display);
-    font-size: var(--text-h2);
-    font-weight: var(--fw-medium);
-    line-height: 1;
-    color: var(--complementary);
-    letter-spacing: -0.01em;
+    font-family: var(--font-sans);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-semibold);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    letter-spacing: -0.012em;
+    color: var(--ink);
     white-space: nowrap;
+  }
+
+  /* Chiffre-clé = dernier output (data-driven), remonté en tête du panneau. */
+  .tw-result:last-child {
+    order: -1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--space-3);
+    padding: 0 0 var(--space-5);
+    border-bottom: 1px solid var(--ink);
+  }
+  .tw-result:last-child .tw-result__label {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: var(--fw-regular);
+    color: var(--ink);
+    max-width: 32ch;
+    text-wrap: balance;
+  }
+  .tw-result:last-child .tw-result__value {
+    font-size: min(var(--text-numeral), 14cqi);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--accent-text);
   }
 
   .tw-cta-row {
     margin-top: var(--space-6);
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--hairline);
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--space-4);
   }
   .tw-hint {
     font-size: var(--text-small);
     color: var(--muted);
-    max-width: 42ch;
+    max-width: 52ch;
     line-height: var(--leading-lede);
   }
-
-  /* CTA : neutralise le gradient de lien hérité de .essay-prose :global(a)
-     (spécificité 0,1,1) via .tool-widget .tw-cta (0,2,0). */
+  /* Défensif : si le widget est un jour rendu dans .essay-prose, neutralise
+     le soulignement en dégradé de :global(a) (spécificité 0,2,0 > 0,1,1). */
   .tool-widget .tw-cta,
   .tool-widget .tw-cta:hover {
     background-image: none;
     text-decoration: none;
-    padding: 14px var(--space-5);
     color: var(--paper);
   }
-  .tool-widget .tw-cta:hover {
-    color: #fff;
+
+  @media (max-width: 900px) {
+    .tw-layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-7);
+    }
+    /* Résultat d'abord : visible sans défiler ; non collant (il couvrirait la saisie). */
+    .tw-panel {
+      order: -1;
+      position: static;
+    }
   }
 
   @media (max-width: 640px) {
-    .tw-grid {
-      grid-template-columns: 1fr;
+    .tool-widget { padding: var(--space-6) 0 var(--space-8); }
+    .tw-panel { padding: var(--space-5); }
+    .tw-field {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-2);
     }
-    .tool-widget {
-      padding: var(--space-5);
-    }
-    .tw-result__label {
-      max-width: 100%;
-    }
+    .tw-result:last-child .tw-result__value { font-size: min(var(--text-numeral-md), 15cqi); }
   }
 </style>
