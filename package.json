@@ -50,6 +50,8 @@
     "check:form-endpoints": "node scripts/check-form-endpoints.mjs",
     "check:honeypot": "node scripts/check-honeypot.mjs",
     "test:lead-magnet": "node --test scripts/tests/lead-magnet-delivery.test.mjs",
+    "test:lead-tools": "node --test scripts/tests/lead-tools.test.mjs",
+    "gen:pdf-assets": "node scripts/gen-pdf-assets.mjs",
     "check:ds-presets": "node scripts/check-ds-presets.mjs",
     "check:usage-manifest": "node scripts/check-usage-manifest.mjs",
     "check:semantic": "node scripts/check-semantic-coherence.mjs",
@@ -88,6 +90,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vercel": "^10.0.5",
     "@calcom/embed-react": "^1.5.3",
+    "@pdf-lib/fontkit": "1.1.1",
     "@resvg/resvg-js": "^2.6.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -97,6 +100,7 @@
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^1.1.0",
     "gsap": "^3.15.0",
+    "pdf-lib": "1.17.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
