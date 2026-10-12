@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « le modèle chez soi » : de nuit, une personne pousse un moteur sur un
+       chariot vers un petit atelier éclairé, au bord d'un champ. Pas de texte.
+       Distribution prévue : contre-jour (fond sombre, sujets en crème). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <clipPath id="above-ground"><rect width="1456" height="500"/></clipPath>
+  </defs>
+
+  <!-- Nuit, lune, étoiles -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="300" cy="240" r="140" fill="{{shape}}" clip-path="url(#above-ground)"/>
+  <g fill="{{detail}}">
+    <circle cx="620" cy="130" r="3"/><circle cx="760" cy="90" r="2.5"/><circle cx="960" cy="150" r="3"/>
+    <circle cx="1180" cy="100" r="2.5"/><circle cx="1320" cy="190" r="3"/><circle cx="520" cy="210" r="2.5"/>
+    <circle cx="140" cy="110" r="2.5"/><circle cx="1090" cy="230" r="2.5"/>
+  </g>
+
+  <!-- Sol et sillons du champ -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <g stroke="{{shape}}" stroke-width="3" opacity="0.7">
+    <line x1="0" y1="520" x2="1456" y2="520"/><line x1="0" y1="548" x2="1456" y2="548"/>
+    <line x1="0" y1="582" x2="1456" y2="582"/><line x1="0" y1="620" x2="1456" y2="620"/>
+  </g>
+
+  <!-- Faisceau de lumière qui sort de la porte, sur le sol -->
+  <path d="M1004 404 L760 500 L760 538 L1004 500 Z" fill="{{detail}}" opacity="0.35"/>
+
+  <!-- Atelier : corps, toit, porte éclairée, fenêtre -->
+  <g>
+    <rect x="1000" y="330" width="320" height="170" fill="{{detail}}"/>
+    <path d="M980 330 L1160 240 L1340 330 Z" fill="{{shape}}"/>
+    <rect x="1030" y="390" width="104" height="110" fill="{{subject}}"/>
+    <rect x="1190" y="380" width="78" height="56" fill="{{subject}}"/>
+    <rect x="1226" y="380" width="4" height="56" fill="{{detail}}"/>
+    <rect x="1190" y="406" width="78" height="4" fill="{{detail}}"/>
+    <!-- cheminée -->
+    <rect x="1250" y="258" width="34" height="62" fill="{{shape}}"/>
+  </g>
+
+  <!-- Chariot et moteur poussé vers l'atelier -->
+  <g>
+    <rect x="800" y="452" width="150" height="14" rx="3" fill="{{subject}}"/>
+    <circle cx="824" cy="478" r="16" fill="{{subject}}"/><circle cx="926" cy="478" r="16" fill="{{subject}}"/>
+    <circle cx="824" cy="478" r="6" fill="{{field}}"/><circle cx="926" cy="478" r="6" fill="{{field}}"/>
+    <rect x="828" y="394" width="104" height="58" fill="{{detail}}"/>
+    <rect x="846" y="372" width="30" height="22" fill="{{detail}}"/>
+    <circle cx="904" cy="424" r="17" fill="{{field}}"/>
+    <circle cx="904" cy="424" r="8" fill="{{detail}}"/>
+    <!-- poignée -->
+    <path d="M800 456 L750 410" stroke="{{subject}}" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <use href="#man" transform="translate(722 500) scale(1.05)"/>
+
+  <!-- Petit témoin au loin, près de la clôture -->
+  <g stroke="{{detail}}" stroke-width="4">
+    <line x1="80" y1="470" x2="80" y2="500"/><line x1="140" y1="470" x2="140" y2="500"/>
+    <line x1="200" y1="470" x2="200" y2="500"/><line x1="60" y1="480" x2="220" y2="480"/>
+  </g>
+  <use href="#man" transform="translate(470 566) scale(0.42)"/>
+</svg>

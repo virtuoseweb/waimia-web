@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « changer de modèle sans tout rebrancher » : un grand panneau à deux
+       prises identiques, une personne tient la fiche bleue entre les deux, le câble repart vers
+       une lampe posée au sol. Pas de texte. Distribution prévue : objet-bleu-terracotta
+       (câble, fiche = {{subject}} bleu ; personnages = {{shadow}}). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="socket">
+      <circle r="76" fill="{{detail}}"/>
+      <circle r="62" fill="{{pale}}"/>
+      <rect x="-26" y="-14" width="10" height="28" rx="3" fill="{{shadow}}"/>
+      <rect x="16" y="-14" width="10" height="28" rx="3" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
+
+  <!-- Grand panneau mural et ses deux prises -->
+  <rect x="330" y="96" width="640" height="404" fill="{{shape}}"/>
+  <rect x="330" y="96" width="640" height="10" fill="{{soft}}" opacity="0.8"/>
+  <use href="#socket" transform="translate(540 260)"/>
+  <use href="#socket" transform="translate(760 260)"/>
+
+  <!-- Câble bleu : de la fiche tenue en main jusqu'à la lampe, en passant par le sol -->
+  <path d="M652 372 C652 470 700 520 820 520 C980 520 1060 540 1160 500" fill="none" stroke="{{subject}}" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Fiche bleue, entre les deux prises -->
+  <g>
+    <rect x="624" y="336" width="56" height="40" rx="6" fill="{{subject}}"/>
+    <rect x="636" y="318" width="8" height="20" fill="{{shadow}}"/>
+    <rect x="660" y="318" width="8" height="20" fill="{{shadow}}"/>
+  </g>
+
+  <!-- Personnage, de dos, qui tient la fiche -->
+  <use href="#man" transform="translate(652 500) scale(1.08)"/>
+  <path d="M646 424 L650 380" stroke="{{shadow}}" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Lampe sur pied, à droite, allumée par la fiche -->
+  <g>
+    <circle cx="1180" cy="330" r="96" fill="{{light}}" opacity="0.7"/>
+    <rect x="1177" y="352" width="6" height="148" fill="{{shadow}}"/>
+    <rect x="1148" y="494" width="64" height="8" rx="4" fill="{{shadow}}"/>
+    <path d="M1136 360 L1224 360 L1204 296 L1156 296 Z" fill="{{detail}}"/>
+    <path d="M1136 360 L1224 360" stroke="{{shadow}}" stroke-width="4"/>
+  </g>
+
+  <!-- Petit témoin au loin -->
+  <use href="#man" transform="translate(190 566) scale(0.42)"/>
+</svg>

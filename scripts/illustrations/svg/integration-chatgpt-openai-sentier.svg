@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « partir du chemin que vos équipes empruntent déjà » : un sentier usé
+       serpente sur la pelouse jusqu'à une porte, une personne trace à côté une allée droite.
+       Pas de texte. Distribution prévue : degrade-bleu (ciel en bandes bleu → crème). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <clipPath id="above-lawn"><rect width="1456" height="430"/></clipPath>
+  </defs>
+
+  <!-- Ciel en bandes -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque pâle, à gauche -->
+  <circle cx="330" cy="250" r="150" fill="{{shape}}" clip-path="url(#above-lawn)"/>
+
+  <!-- Mur et porte, au fond à droite -->
+  <rect x="820" y="250" width="440" height="180" fill="{{shape}}"/>
+  <rect x="820" y="244" width="440" height="10" fill="{{ground}}"/>
+  <rect x="1010" y="300" width="84" height="130" fill="{{subject}}"/>
+  <circle cx="1078" cy="368" r="4" fill="{{light}}"/>
+
+  <!-- Pelouse -->
+  <rect y="430" width="1456" height="194" fill="{{ground}}"/>
+  <rect y="430" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
+
+  <!-- Sentier usé : un ruban sinueux de la gauche jusqu'à la porte -->
+  <path d="M140 624 Q380 560 520 520 Q720 470 800 500 Q900 528 1010 470 Q1040 452 1042 432 L1078 432 Q1078 470 1040 500 Q930 580 790 548 Q640 520 520 580 Q420 624 340 624 Z" fill="{{detail}}"/>
+
+  <!-- Allée droite en cours de pose : dalles claires vers la porte -->
+  <g fill="{{detail}}" stroke="{{deep}}" stroke-width="1.5" opacity="0.95">
+    <path d="M1030 438 L1082 438 L1096 456 L1020 456 Z"/>
+    <path d="M1010 464 L1100 464 L1118 490 L992 490 Z"/>
+    <path d="M980 500 L1130 500 L1156 540 L952 540 Z"/>
+    <path d="M934 552 L1176 552 L1212 612 L894 612 Z"/>
+  </g>
+  <!-- Cordeau tendu le long de l'allée -->
+  <g stroke="{{subject}}" stroke-width="2" stroke-dasharray="6 6">
+    <line x1="1010" y1="438" x2="860" y2="624"/>
+    <line x1="1102" y1="438" x2="1230" y2="624"/>
+  </g>
+
+  <!-- Personne qui pose les dalles, au milieu de l'allée -->
+  <use href="#man" transform="translate(990 604) scale(1.15)"/>
+  <!-- Personne qui suit encore le sentier, plus loin -->
+  <use href="#woman" transform="translate(640 538) scale(0.62)"/>
+</svg>
