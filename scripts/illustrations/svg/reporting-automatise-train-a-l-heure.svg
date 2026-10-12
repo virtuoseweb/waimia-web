@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · reporting automatisé : un train de wagons identiques passe à heure fixe devant une horloge de quai ; trois voyageurs l'attendent, mallette à la main.
+       Rôles de couleur remplacés par render-svg.mjs (paper / ink). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="14" y="-46" width="16" height="12" fill="{{subject}}"/>
+    </g>
+    <!-- Wagon : caisse, bandeau, six fenêtres, deux bogies -->
+    <g id="wagon">
+      <rect x="0" y="0" width="300" height="108" fill="{{subject}}"/>
+      <rect x="0" y="74" width="300" height="8" fill="{{light}}"/>
+      <g fill="{{light}}">
+        <rect x="18" y="18" width="34" height="38"/><rect x="66" y="18" width="34" height="38"/><rect x="114" y="18" width="34" height="38"/>
+        <rect x="162" y="18" width="34" height="38"/><rect x="210" y="18" width="34" height="38"/><rect x="258" y="18" width="26" height="38"/>
+      </g>
+      <g>
+        <circle cx="52" cy="112" r="20" fill="{{subject}}"/><circle cx="52" cy="112" r="8" fill="{{light}}"/>
+        <circle cx="248" cy="112" r="20" fill="{{subject}}"/><circle cx="248" cy="112" r="8" fill="{{light}}"/>
+      </g>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1010" cy="300" r="205" fill="{{shape}}"/>
+
+  <!-- Quai -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="488" width="1456" height="14" fill="{{subject}}"/>
+
+  <!-- Le train : trois wagons identiques, une locomotive en tête -->
+  <use href="#wagon" transform="translate(-30 384)"/>
+  <rect x="268" y="440" width="22" height="8" fill="{{subject}}"/>
+  <use href="#wagon" transform="translate(290 384)"/>
+  <rect x="588" y="440" width="22" height="8" fill="{{subject}}"/>
+  <use href="#wagon" transform="translate(610 384)"/>
+  <rect x="908" y="440" width="22" height="8" fill="{{subject}}"/>
+  <g transform="translate(930 354)">
+    <rect x="0" y="30" width="200" height="108" fill="{{subject}}"/>
+    <rect x="130" y="0" width="70" height="40" fill="{{subject}}"/>
+    <rect x="144" y="12" width="40" height="22" fill="{{light}}"/>
+    <rect x="22" y="-14" width="30" height="46" fill="{{subject}}"/>
+    <rect x="14" y="-22" width="46" height="10" fill="{{subject}}"/>
+    <rect x="0" y="104" width="200" height="8" fill="{{light}}"/>
+    <circle cx="48" cy="142" r="20" fill="{{subject}}"/><circle cx="48" cy="142" r="8" fill="{{light}}"/>
+    <circle cx="150" cy="142" r="20" fill="{{subject}}"/><circle cx="150" cy="142" r="8" fill="{{light}}"/>
+  </g>
+
+  <!-- Horloge de quai -->
+  <rect x="1306" y="268" width="9" height="320" fill="{{subject}}"/>
+  <circle cx="1310" cy="248" r="46" fill="{{light}}" stroke="{{subject}}" stroke-width="7"/>
+  <g stroke="{{subject}}" stroke-linecap="round">
+    <line x1="1310" y1="248" x2="1310" y2="216" stroke-width="5"/>
+    <line x1="1310" y1="248" x2="1332" y2="258" stroke-width="5"/>
+  </g>
+  <g fill="{{subject}}">
+    <circle cx="1310" cy="208" r="3"/><circle cx="1310" cy="288" r="3"/><circle cx="1270" cy="248" r="3"/><circle cx="1350" cy="248" r="3"/>
+  </g>
+
+  <!-- Trois voyageurs sur le quai, de dos, mallette à la main -->
+  <use href="#man" transform="translate(1150 606) scale(1.35)"/>
+  <use href="#man" transform="translate(1225 600) scale(1.25)"/>
+  <use href="#man" transform="translate(1385 610) scale(1.4)"/>
+</svg>
