@@ -6802,7 +6802,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
       "index": 9,
-      "label": "Tableau de bord et reporting automatisé : vos questions",
+      "label": "Données et pilotage : vos questions",
       "background": "paper-2"
     },
     {
@@ -9439,7 +9439,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
       "index": 0,
-      "label": "Un tableau de bord à jour, sans reporting refait à la main.",
+      "label": "Le pilotage par la donnée, sans tableur refait à la main.",
       "background": "paper"
     },
     {
@@ -10740,7 +10740,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "donnees-reporting",
       "route": "/services/donnees-reporting",
       "index": 7,
-      "label": "Prix d'un tableau de bord automatisé",
+      "label": "Prix : un sprint de cadrage, puis sur devis",
       "background": "paper"
     },
     {

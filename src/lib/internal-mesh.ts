@@ -518,8 +518,38 @@ function chunkGroups(groups: RelatedGroupOut[]): RelatedGroupOut[] {
 const KICKER = { fr: 'Explorer aussi', en: 'Explore more' };
 const DEFAULT_H2 = { fr: 'Sur le même sujet', en: 'On the same topic' };
 
+/** Plafond de groupes par section du schéma `related-links` (`.max(5)`). */
+const MAX_GROUPS = 5;
+
+/**
+ * Ramène la liste à 5 groupes : les deux derniers sont fusionnés en « Pour aller plus loin »
+ * (6 liens au plus, les premiers de l'ordre d'affichage) jusqu'à respecter le plafond.
+ */
+function capGroups(groups: RelatedGroupOut[]): RelatedGroupOut[] {
+  const out = [...groups];
+  while (out.length > MAX_GROUPS) {
+    const b = out.pop()!;
+    const a = out.pop()!;
+    out.push({
+      label_fr: 'Pour aller plus loin',
+      label_en: 'Keep exploring',
+      links: [...a.links, ...b.links].slice(0, MAX_LINKS_PER_GROUP),
+    });
+  }
+  return out;
+}
+
 function assemble(groups: RelatedGroupOut[], h2: { fr: string; en: string } = DEFAULT_H2): RelatedLinksData {
-  return { type: 'related-links', kicker_fr: KICKER.fr, kicker_en: KICKER.en, h2_fr: h2.fr, h2_en: h2.en, groups };
+  // Le plafond du schéma n'est jamais appliqué à l'exécution (donnée passée en `as any`) :
+  // il est imposé ici, pour toutes les routes de maillage.
+  return {
+    type: 'related-links',
+    kicker_fr: KICKER.fr,
+    kicker_en: KICKER.en,
+    h2_fr: h2.fr,
+    h2_en: h2.en,
+    groups: capGroups(chunkGroups(groups)),
+  };
 }
 
 // ───────────────────────────── API ─────────────────────────────
@@ -537,7 +567,7 @@ export function meshForPath(pathname: string, _lang: Lang = 'fr'): RelatedLinksD
   const links = graph().out.get(normalize(pathname));
   if (!links || links.length === 0) return null;
   const hub = HUB_GROUPS[normalize(pathname)];
-  if (!hub) return assemble(chunkGroups(groupByKind(links)));
+  if (!hub) return assemble(groupByKind(links));
   // Hub de service : ses enfants sont répartis en groupes titrés par domaine ; les liens
   // d'anneau (autres natures de page) suivent, groupés par nature comme ailleurs.
   const placed = new Set<string>();
@@ -548,7 +578,7 @@ export function meshForPath(pathname: string, _lang: Lang = 'fr'): RelatedLinksD
     if (inGroup.length > 0) groups.push({ label_fr: g.label_fr, label_en: g.label_en, links: inGroup.map(toLink) });
   }
   const rest = links.filter((l) => !placed.has(l));
-  return assemble(chunkGroups([...groups, ...groupByKind(rest)]));
+  return assemble([...groups, ...groupByKind(rest)]);
 }
 
 /** Liens du registre filtrés : vivants, sans la page courante, sans doublon. */

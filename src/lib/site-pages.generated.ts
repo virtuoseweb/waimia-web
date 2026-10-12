@@ -1444,7 +1444,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/donnees-reporting",
-    "title": "Tableau de bord automatisé pour PME · reporting temps réel",
+    "title": "Données et pilotage d'activité pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/donnees-reporting.json",
@@ -1452,7 +1452,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Un tableau de bord à jour, sans reporting refait à la main.",
+        "label": "Le pilotage par la donnée, sans tableur refait à la main.",
         "background": "paper"
       },
       {
@@ -1487,7 +1487,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Prix d'un tableau de bord automatisé",
+        "label": "Prix : un sprint de cadrage, puis sur devis",
         "background": "paper"
       },
       {
@@ -1497,7 +1497,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Tableau de bord et reporting automatisé : vos questions",
+        "label": "Données et pilotage : vos questions",
         "background": "paper-2"
       },
       {
