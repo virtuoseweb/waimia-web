@@ -535,7 +535,7 @@ const SOLUTIONS: MegaMenuSection = {
                     { label: { fr: 'Prospection automatisée, vue d\'ensemble', en: 'Automated prospecting, overview' }, href: '/services/prospection-automatisee' },
                     { label: { fr: 'Prospection LinkedIn', en: 'LinkedIn prospecting' }, href: '/services/prospection-linkedin' },
                     { label: { fr: 'Social selling avec l\'IA', en: 'Social selling with AI' }, href: '/services/social-selling-ia' },
-                    { label: { fr: 'Automatisation des réseaux sociaux', en: 'Social media automation' }, href: '/services/automatisation-reseaux-sociaux' },
+                    { label: { fr: 'Réseaux sociaux', en: 'Social media' }, href: '/services/automatisation-reseaux-sociaux' },
                     { label: { fr: 'Cold email B2B', en: 'B2B cold email' }, href: '/services/cold-email-b2b' },
                   ],
                 },

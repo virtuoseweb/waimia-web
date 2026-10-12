@@ -119,7 +119,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
         { href: '/services/prospection-automatisee', label: { en: 'Automated prospecting, overview', fr: "Prospection automatisée, vue d'ensemble" } },
         { href: '/services/prospection-linkedin', label: { en: 'LinkedIn prospecting', fr: 'Prospection LinkedIn' } },
         { href: '/services/social-selling-ia', label: { en: 'Social selling with AI', fr: "Social selling avec l'IA" } },
-        { href: '/services/automatisation-reseaux-sociaux', label: { en: 'Social media automation', fr: 'Automatisation des réseaux sociaux' } },
+        { href: '/services/automatisation-reseaux-sociaux', label: { en: 'Social media', fr: 'Réseaux sociaux' } },
         { href: '/services/cold-email-b2b', label: { en: 'B2B cold email', fr: 'Cold email B2B' } },
         { href: '/services/crm-scoring-routing', label: { en: 'CRM, scoring and routing', fr: 'CRM, scoring et routing' } },
         { href: '/services/sequences-de-suivi', label: { en: 'Follow-up sequences', fr: 'Séquences de suivi' } },

@@ -741,9 +741,12 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       }
     }
 
+    let hoverOpenedKey = '';
+
     function setOpen(nextKey) {
       clearCloseTimer();
       if (nextKey === openKey) return;
+      if (!nextKey) hoverOpenedKey = '';
 
       if (openKey) {
         const t = triggerByKey.get(openKey); if (t) t.setAttribute('aria-expanded', 'false');
@@ -776,12 +779,23 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       const item = trigger.closest('[data-nav-item]');
       if (!item) continue;
 
-      item.addEventListener('mouseenter', () => setOpen(key));
+      item.addEventListener('mouseenter', () => {
+        if (openKey !== key) hoverOpenedKey = key;
+        setOpen(key);
+      });
       item.addEventListener('focusin', () => setOpen(key));
 
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         clearCloseTimer();
+        // Le survol a déjà ouvert le panneau : le clic qui suit le confirme au lieu de le refermer
+        // (sinon l'utilisateur clique sur « Solutions » et voit le menu disparaître). Un second
+        // clic, ou un clic sur un panneau ouvert au clavier, le referme.
+        if (openKey === key && hoverOpenedKey === key) {
+          hoverOpenedKey = '';
+          return;
+        }
+        hoverOpenedKey = '';
         setOpen(openKey === key ? '' : key);
       });
 
