@@ -382,11 +382,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 7,
+      "label": "Deux projets voisins : le routage des demandes, et l'agent sous validation",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 7,
       "label": "Un cas en cours, et le projet interne qui pose les garde-fous",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
+      "index": 7,
+      "label": "Pas de cas de facturation publié : deux projets où l'agent lit, extrait puis passe la main",
       "background": "ink"
     },
     {
@@ -400,6 +418,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 9,
+      "label": "Deux projets où la technique a compté",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 8,
+      "label": "Deux chantiers où du contenu est produit et publié avec l'IA",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
@@ -409,11 +445,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 8,
+      "label": "Des outils internes déjà construits, pour le studio",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
       "index": 8,
       "label": "Deux réalisations avec une base de connaissance",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 9,
+      "label": "Un connecteur en production : du formulaire au CRM, sans ressaisie",
       "background": "ink"
     },
     {
@@ -436,11 +490,65 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 9,
+      "label": "Un abonnement payant, des prototypes, un produit en construction",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 9,
+      "label": "Un espace membre déjà livré",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 8,
+      "label": "Deux projets où le contenu est au cœur du travail",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 9,
+      "label": "Deux projets avec une couche GEO",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 7,
-      "label": "Cinq projets de ce volet",
+      "label": "Trois projets de ce volet",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 9,
+      "label": "Deux projets où la proximité a compté",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 9,
+      "label": "Aucune boutique Shopify publiée : un SAV branché à Shopify, et une migration e-commerce mesurée",
       "background": "ink"
     },
     {
@@ -450,6 +558,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/site-web-ia",
       "index": 7,
       "label": "Trois projets de ce volet",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 8,
+      "label": "Un site Astro livré, et un retour du headless vers WordPress",
       "background": "ink"
     },
     {
@@ -481,11 +598,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 8,
+      "label": "Aucune fiche Webflow publiée : un branchement CRM et une migration, sur d'autres plateformes",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
       "index": 9,
-      "label": "Résultats sur le terrain",
+      "label": "Deux projets WordPress publiés",
       "background": "ink"
     },
     {
@@ -517,15 +643,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 12,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -535,55 +652,10 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 11,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 9,
-      "label": "Résultats sur le terrain",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 9,
       "label": "Résultats sur le terrain",
       "background": "ink"
     }
@@ -773,11 +845,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 4,
+      "label": "Exemple type : les demandes du site d'une PME de services",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 4,
       "label": "Exemple type : le SAV d'un distributeur B2B",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
+      "index": 4,
+      "label": "Exemple type : les factures fournisseurs d'une PME de services",
       "background": "paper"
     },
     {
@@ -800,6 +890,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 7,
+      "label": "Un audit se juge à ce qu'on en corrige",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
@@ -815,6 +914,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 4,
       "label": "Exemple type : la demande de devis reçue par formulaire",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 6,
+      "label": "Exemple type : une PME avec cinq outils",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 3,
+      "label": "Exemple type : une charte qui sert, ou qui dort",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -845,11 +962,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 4,
+      "label": "Exemple type : un cabinet de trois personnes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 6,
+      "label": "Exemple type : une équipe commerciale qui utilise ChatGPT chacune de son côté",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 8,
       "label": "Exemple type : un bureau d'études de 40 personnes",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 6,
+      "label": "Exemple type : un cabinet qui traite des dossiers confidentiels",
       "background": "paper"
     },
     {
@@ -863,11 +1007,74 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 4,
+      "label": "Exemple type : nommer une nouvelle offre",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 4,
+      "label": "Ce que change un portail pour vos clients",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 4,
       "label": "Exemple type : un éditeur de logiciel B2B sans équipe de prospection",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 6,
+      "label": "Un robot d'envoi ou une file de tâches validée",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 5,
+      "label": "Un texte pour la requête, ou un texte pour remplir",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 5,
+      "label": "Pourquoi un passage citable change l'équation",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 4,
+      "label": "Exemple type : une PME de services de douze ans",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 6,
+      "label": "Exemple type : le rapport mensuel d'un prestataire à son client",
       "background": "paper"
     },
     {
@@ -881,11 +1088,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 5,
+      "label": "Pourquoi un maillage local change l'équation",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 4,
       "label": "Exemple type : les devis d'une entreprise du bâtiment",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 5,
+      "label": "Exemple type : une boutique de produits d'entretien",
       "background": "paper"
     },
     {
@@ -899,12 +1124,39 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 6,
+      "label": "Exemple type : un éditeur de logiciel B2B de petite taille",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 5,
+      "label": "Exemple type : le site d'une société de conseil industriel",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 3,
       "label": "Externaliser à une agence de SDR, ou installer un système",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 6,
+      "label": "Un tableau qui informe, ou un tableau qui décore",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -917,12 +1169,21 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
-      "index": 4,
-      "label": "Pourquoi un MVP change le lancement",
-      "background": "paper-2"
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 5,
+      "label": "Exemple type : le site d'un cabinet d'architectes",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 5,
+      "label": "Exemple type : le site d'un cabinet comptable",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -953,15 +1214,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 5,
-      "label": "Pourquoi un cold email outillé change l'équation",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -971,56 +1223,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 4,
-      "label": "Pourquoi un contenu citable change l'équation",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 4,
-      "label": "Pourquoi un maillage local change l'équation",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 4,
       "label": "Pourquoi une relance instrumentée change l'équation",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 4,
-      "label": "Quand passer du clé-en-main au sur-mesure",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 4,
-      "label": "De Webflow seul au Webflow qui qualifie",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 4,
-      "label": "Le même WordPress, deux trajectoires",
       "background": "paper-2"
     }
   ],
@@ -1059,6 +1266,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
       "index": 2,
       "label": "Le face-à-face, critère par critère",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 4,
+      "label": "Ce que contient chaque offre",
       "background": "paper"
     }
   ],
@@ -1209,6 +1425,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/diagnostics/site-web-intelligent",
       "index": 3,
       "label": "Vitrine subie ou site qui qualifie",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 5,
+      "label": "Quelle offre pour quelle situation",
       "background": "paper-2"
     }
   ],
@@ -1404,11 +1629,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 6,
+      "label": "Un agent de qualification n'est pas utile si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 6,
       "label": "Un chatbot de support n'est pas utile si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
+      "index": 6,
+      "label": "Un agent de traitement de documents n'est pas utile si",
       "background": "paper"
     },
     {
@@ -1431,6 +1674,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 8,
+      "label": "Ce n'est pas le bon investissement si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
@@ -1440,12 +1692,66 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 7,
+      "label": "Ce qu'on refuse, et quand ne pas le faire",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 6,
       "label": "N'automatisez pas si",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 7,
+      "label": "Prenez un outil du marché si",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 8,
+      "label": "Ne nous confiez pas votre marque si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 8,
+      "label": "Ne centralisez pas si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 7,
+      "label": "Ne commandez pas de charte si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 8,
+      "label": "Le cold email ne convient pas si",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -1476,6 +1782,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 8,
+      "label": "Cette offre n'est pas la bonne si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
@@ -1494,6 +1809,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 8,
+      "label": "Ne faites pas développer de MVP SaaS si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 8,
+      "label": "Ne changez pas de nom si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 8,
+      "label": "Ne faites pas développer de portail si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
@@ -1503,10 +1845,64 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 8,
+      "label": "La prospection LinkedIn préparée ne convient pas si",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 7,
+      "label": "Ce n'est pas le bon investissement si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 8,
+      "label": "Ce n'est pas le bon investissement si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 8,
+      "label": "Une refonte n'est pas utile si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 8,
+      "label": "Ne l'automatisez pas si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 6,
+      "label": "Ce n'est pas le bon investissement si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 8,
       "label": "Ce n'est pas le bon investissement si",
       "background": "paper"
     },
@@ -1526,6 +1922,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/site-web-ia",
       "index": 6,
       "label": "Ne nous confiez pas votre site si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 8,
+      "label": "Le social selling assisté par IA ne convient pas si",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 8,
+      "label": "Ne commandez pas ce tableau si",
       "background": "paper"
     },
     {
@@ -1622,9 +2036,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "definition-extract": [
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
       "index": 2,
       "label": "Définition",
       "background": "paper"
@@ -1649,6 +2081,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
@@ -1658,9 +2099,63 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
       "index": 2,
       "label": "Définition",
       "background": "paper"
@@ -1694,9 +2189,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
       "index": 2,
       "label": "Définition",
       "background": "paper"
@@ -1712,9 +2234,81 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
       "index": 2,
       "label": "Définition",
       "background": "paper"
@@ -1730,6 +2324,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
@@ -1739,9 +2342,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
       "index": 2,
       "label": "Définition",
       "background": "paper"
@@ -1775,11 +2405,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
       "index": 2,
-      "label": "Définition · format extractible",
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 2,
+      "label": "Définition",
       "background": "paper"
     },
     {
@@ -1811,15 +2459,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 2,
-      "label": "Définition · format extractible",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -1829,54 +2468,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 2,
-      "label": "Définition · format extractible",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 2,
-      "label": "Définition · format extractible",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
-      "index": 2,
-      "label": "Définition · format extractible",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 2,
-      "label": "Définition · format extractible",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 2,
-      "label": "Définition · format extractible",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
       "index": 2,
       "label": "Définition · format extractible",
       "background": "paper"
@@ -1939,9 +2533,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
+      "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
       "index": 5,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
@@ -1966,6 +2578,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 6,
+      "label": "Ce que vous recevez",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
@@ -1984,6 +2605,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 6,
+      "label": "Ce qui vous reste si vous arrêtez",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
@@ -1993,12 +2623,48 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 6,
+      "label": "Ce que vous récupérez",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
       "index": 5,
       "label": "L'architecture en mots simples",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 7,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 5,
+      "label": "Les livrables",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 7,
+      "label": "Ce qui vous reste si vous arrêtez",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -2029,10 +2695,37 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 6,
+      "label": "Les livrables",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 7,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 9,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 7,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -2047,11 +2740,83 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 6,
+      "label": "Ce que vous récupérez",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 6,
+      "label": "Les livrables",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 6,
+      "label": "Ce que vous récupérez",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 5,
       "label": "Ce qui vous reste si vous arrêtez",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 7,
+      "label": "Ce qui vous reste si vous arrêtez",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 6,
+      "label": "Ce que vous gardez",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 7,
+      "label": "Ce que vous récupérez concrètement",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 6,
+      "label": "Les livrables",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 7,
+      "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
     {
@@ -2065,10 +2830,28 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 7,
+      "label": "Ce que vous récupérez concrètement",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 6,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -2083,12 +2866,39 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 7,
+      "label": "Ce qui vous reste si vous arrêtez",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 6,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 4,
       "label": "Ce que vous récupérez concrètement",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 7,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
@@ -2101,12 +2911,21 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
       "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 6,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
     },
     {
       "collection": "services",
@@ -2137,15 +2956,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 7,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -2155,54 +2965,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 6,
-      "label": "Ce que vous récupérez concrètement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
       "index": 6,
       "label": "Ce que vous récupérez concrètement",
       "background": "paper"
@@ -3690,9 +4455,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
@@ -3711,6 +4494,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
@@ -3744,9 +4536,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
@@ -3768,6 +4578,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 6,
       "label": "#6",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -3807,6 +4653,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
@@ -3825,11 +4689,65 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
       "index": 3,
       "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 7,
+      "label": "#7",
       "background": "paper-2"
     },
     {
@@ -3843,9 +4761,63 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
@@ -3861,12 +4833,84 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
     },
     {
       "collection": "formations",
@@ -4450,11 +5494,31 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 4,
+      "label": "De l'application d'équipe à l'agent sur mesure",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 4,
       "label": "Quelle offre Claude pour votre équipe",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 4,
+      "label": "Les critères qui décident, un par un",
       "variant": "editorial",
       "background": "paper"
     },
@@ -4661,9 +5725,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "eeat-panel": [
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 9,
+      "label": "#9",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
+      "index": 9,
+      "label": "#9",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
       "index": 9,
       "label": "#9",
       "variant": "media"
@@ -4688,6 +5770,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
@@ -4697,11 +5788,65 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 9,
       "label": "#9",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 9,
+      "label": "#9",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -4733,11 +5878,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 15,
       "label": "#15",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -4751,11 +5923,83 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 8,
       "label": "#8",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -4769,6 +6013,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
@@ -4778,11 +6031,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 9,
       "label": "#9",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 11,
+      "label": "#11",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -4814,9 +6094,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
       "index": 11,
       "label": "#11",
       "variant": "media"
@@ -4850,15 +6148,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 14,
-      "label": "#14",
-      "variant": "media"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -4868,56 +6157,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 11,
-      "label": "#11",
-      "variant": "media"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 12,
-      "label": "#12",
-      "variant": "media"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 13,
       "label": "#13",
-      "variant": "media"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 11,
-      "label": "#11",
-      "variant": "media"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 11,
-      "label": "#11",
-      "variant": "media"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 11,
-      "label": "#11",
       "variant": "media"
     }
   ],
@@ -5392,11 +6636,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 10,
+      "label": "Agent de qualification de leads : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 10,
       "label": "Chatbot et agent de service client : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
+      "index": 10,
+      "label": "Agent de traitement de documents : vos questions",
       "background": "paper-2"
     },
     {
@@ -5419,6 +6681,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 12,
+      "label": "Audit SEO technique : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
@@ -5437,11 +6708,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 12,
+      "label": "Ce que vous nous demandez",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 10,
       "label": "Automatisation des processus : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 11,
+      "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
     {
@@ -5452,6 +6741,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "Questions fréquentes",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 11,
+      "label": "Agence de branding : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 12,
+      "label": "Centralisation des données : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 10,
+      "label": "Charte graphique et brand book : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 12,
+      "label": "Ce que vous nous demandez",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -5482,11 +6807,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 11,
+      "label": "Création d'identité de marque : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 11,
+      "label": "Intégration de ChatGPT et d'OpenAI : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 16,
       "label": "Claude en entreprise : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 11,
+      "label": "Intégration de Mistral AI : vos questions",
       "background": "paper-2"
     },
     {
@@ -5500,6 +6852,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 12,
+      "label": "Ce que vous nous demandez",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 11,
+      "label": "Naming et positionnement : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 12,
+      "label": "Ce que vous nous demandez",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
@@ -5509,11 +6888,65 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 12,
+      "label": "Ce que vous nous demandez",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 11,
+      "label": "Rédaction SEO : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 12,
+      "label": "Référencement IA : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 11,
+      "label": "Refonte de marque : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 11,
+      "label": "Reporting automatisé : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 10,
-      "label": "SEO et GEO : vos questions",
+      "label": "Agence SEO et référencement naturel : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 12,
+      "label": "SEO local : vos questions",
       "background": "paper-2"
     },
     {
@@ -5527,11 +6960,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 12,
+      "label": "Shopify : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 10,
       "label": "Création de site internet : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 12,
+      "label": "Ce que vous nous demandez",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 11,
+      "label": "Site sur mesure : vos questions",
       "background": "paper-2"
     },
     {
@@ -5563,11 +7023,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 11,
+      "label": "Tableau de bord de direction : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/template-service-ref.json",
       "slug": "template-service-ref",
       "route": "/services/template-service-ref",
       "index": 12,
       "label": "Ce que vous nous demandez",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 11,
+      "label": "Webflow : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 12,
+      "label": "WordPress : vos questions",
       "background": "paper-2"
     },
     {
@@ -5635,15 +7122,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
       "file": "services/crm-scoring-routing/integration-crm.json",
       "slug": "integration-crm",
       "route": "src/content/services/crm-scoring-routing/integration-crm.json",
@@ -5671,15 +7149,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 15,
-      "label": "Ce que vous nous demandez",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -5689,55 +7158,10 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 13,
-      "label": "Ce que vous nous demandez",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 14,
-      "label": "Ce que vous nous demandez",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 12,
-      "label": "Webflow, ce que vous nous demandez",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 12,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     }
@@ -5772,20 +7196,47 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 4,
+      "label": "Six briques, de l'idée à la mesure",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 4,
+      "label": "Cold email B2B et RGPD : ce qu'on applique",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 5,
+      "label": "Conditions de LinkedIn et RGPD : ce qu'on applique",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 4,
+      "label": "Les signaux qu'on suit",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 3,
       "label": "Trois outils, branchés au reste",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
-      "index": 7,
-      "label": "Les briques d'un MVP SaaS qui se vend",
       "background": "paper"
     },
     {
@@ -5817,24 +7268,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 3,
-      "label": "Cold email B2B et RGPD : est-ce légal en France ?",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 8,
-      "label": "Les briques d'un cold email qui arrive en boîte",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -5844,56 +7277,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 7,
-      "label": "Les briques d'un référencement IA qui cite",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 7,
-      "label": "Les briques d'un référencement local qui capte",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 7,
       "label": "Les briques d'une relance de devis qui signe",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 7,
-      "label": "Les briques du sur-mesure",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 7,
-      "label": "Ce qu'on branche sur Webflow",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 7,
-      "label": "Ce qu'on branche sur WordPress",
       "background": "paper"
     }
   ],
@@ -6141,15 +7529,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/services/crm-scoring-routing/integration-crm.json",
       "index": 10,
       "label": "Le CRM reste propre après le branchement",
-      "background": "paper-2"
-    },
-    {
-      "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 11,
-      "label": "Les campagnes continuent de s'affiner après le lancement",
       "background": "paper-2"
     },
     {
@@ -6642,11 +8021,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 11,
+      "label": "Combien de demandes lisez-vous avant de trouver la bonne ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 11,
       "label": "Combien de demandes identiques recevez-vous chaque semaine ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
+      "index": 11,
+      "label": "Combien de pièces ressaisissez-vous chaque semaine ?",
       "background": "ink"
     },
     {
@@ -6669,6 +8066,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 13,
+      "label": "Combien de vos pages Google a-t-il réellement indexées ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
@@ -6687,6 +8093,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 13,
+      "label": "Combien de temps passez-vous à republier le même contenu ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
@@ -6696,11 +8111,56 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 12,
+      "label": "Quelle ressaisie vous coûte le plus de temps ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
       "index": 11,
       "label": "Vérifions d'abord si vous en avez besoin.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 12,
+      "label": "Où votre marque est-elle appliquée aujourd'hui ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 13,
+      "label": "Combien de fois par mois exportez-vous le même fichier ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 11,
+      "label": "Votre marque est-elle appliquée pareil partout ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 13,
+      "label": "Vos e-mails froids arrivent-ils jusqu'à la boîte de réception ?",
       "background": "ink"
     },
     {
@@ -6732,11 +8192,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 12,
+      "label": "Que dit votre marque de vous aujourd'hui ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 12,
+      "label": "Vos équipes utilisent déjà ChatGPT : qui encadre, et avec quelles règles ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 18,
       "label": "Claude est déjà utilisé chez vous. Reste à l'encadrer.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 12,
+      "label": "Quelle exigence de données pèse sur votre choix de modèle ?",
       "background": "ink"
     },
     {
@@ -6750,11 +8237,83 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 13,
+      "label": "Quel est le premier client que votre produit doit convaincre ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 12,
+      "label": "Votre nom dit-il ce que vous faites ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 13,
+      "label": "Que vous demandent vos clients par e-mail, chaque semaine ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 10,
       "label": "Votre prospection s'arrête-t-elle quand vous êtes occupés ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 13,
+      "label": "Votre cible répond-elle sur LinkedIn ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 12,
+      "label": "Quels articles vos clients attendent-ils de vous ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 13,
+      "label": "Que répondent les assistants IA quand on les interroge sur votre marché ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 12,
+      "label": "Votre marque mérite-t-elle une refonte, ou un ajustement ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 12,
+      "label": "Quel rapport refaites-vous à chaque période sans l'avoir choisi ?",
       "background": "ink"
     },
     {
@@ -6768,6 +8327,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 13,
+      "label": "Vos clients proches vous trouvent-ils quand ils cherchent ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
@@ -6777,11 +8345,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 13,
+      "label": "Combien d'heures par semaine vont aux commandes, aux stocks et au SAV ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 11,
       "label": "Que devient une demande après le formulaire ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 13,
+      "label": "Quels signaux vos prospects émettent-ils déjà ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 12,
+      "label": "Votre besoin justifie-t-il vraiment du sur mesure ?",
       "background": "ink"
     },
     {
@@ -6813,11 +8408,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 12,
+      "label": "Quelle décision attend un chiffre que vous n'avez pas ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/template-service-ref.json",
       "slug": "template-service-ref",
       "route": "/services/template-service-ref",
       "index": 13,
       "label": "Câbler votre pipeline.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 12,
+      "label": "Votre site actuel est-il le bon outil pour la suite ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 13,
+      "label": "Votre WordPress est-il à entretenir, à relier ou à refaire ?",
       "background": "ink"
     },
     {
@@ -6885,15 +8507,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
-      "index": 13,
-      "label": "Sortez un MVP vendable, pas une démo.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/crm-scoring-routing/integration-crm.json",
       "slug": "integration-crm",
       "route": "src/content/services/crm-scoring-routing/integration-crm.json",
@@ -6921,15 +8534,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 16,
-      "label": "Faites arriver vos cold emails en boîte.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -6939,56 +8543,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 13,
-      "label": "Cité par ChatGPT, Claude et Perplexity.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 14,
-      "label": "Trouvé par vos clients de proximité.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 15,
       "label": "Faites signer les devis que vous oubliez.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 13,
-      "label": "Un site qui se modifie brique par brique.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 13,
-      "label": "Donnez de l'intelligence à votre Webflow.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 13,
-      "label": "Mettez votre WordPress au travail.",
       "background": "ink"
     }
   ],
@@ -7082,11 +8641,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "hero-masthead-card": [
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 0,
+      "label": "Agent IA de qualification de leads",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 0,
       "label": "Chatbot et agent IA pour votre service client",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
+      "index": 0,
+      "label": "Agent IA de traitement de documents : factures, devis, contrats",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 0,
+      "label": "Audit SEO technique : ce qui freine vos pages, classé par priorité.",
       "background": "paper"
     },
     {
@@ -7109,6 +8695,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 0,
+      "label": "Back-office sur mesure et outil interne pour PME",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 0,
+      "label": "Agence de branding : une marque qu'on applique.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 0,
+      "label": "La centralisation des données de votre PME, sans usine à gaz",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 0,
+      "label": "Charte graphique et brand book pour PME.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/crm-scoring-routing.json",
       "slug": "crm-scoring-routing",
       "route": "/services/crm-scoring-routing",
@@ -7118,11 +8740,101 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 0,
+      "label": "Création d'identité de marque pour PME.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 0,
+      "label": "Développement de MVP SaaS pour PME",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 0,
+      "label": "Naming et positionnement de marque pour PME.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 0,
+      "label": "Portail client sur mesure pour PME",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 0,
+      "label": "Rédaction SEO : des articles qui répondent à une requête, relus et signés.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 0,
+      "label": "Référencement IA : être cité par ChatGPT, Perplexity et Gemini.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 0,
+      "label": "Refonte de marque pour PME : garder ce qui fonctionne.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 0,
+      "label": "Reporting automatisé : le rapport est prêt, vous le relisez, il part",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 0,
-      "label": "Visible sur Google, cité par les IA : le référencement double couche.",
+      "label": "Agence SEO et référencement naturel, l'inbound marketing mesuré.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 0,
+      "label": "SEO local : être trouvé par les clients de votre zone.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 0,
+      "label": "Agence Shopify : une boutique qui vend, un SAV qui suit.",
       "background": "paper"
     },
     {
@@ -7131,7 +8843,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 0,
-      "label": "Un site internet qui vend, pas une vitrine qui dort.",
+      "label": "Agence site web : un site qui vend, pas une vitrine qui dort.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 0,
+      "label": "Création de site sur mesure : un code qui vous appartient.",
       "background": "paper"
     },
     {
@@ -7163,11 +8884,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
       "index": 0,
-      "label": "Développement de MVP SaaS.",
+      "label": "Un tableau de bord de direction qui tient sur un écran",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 0,
+      "label": "Agence Webflow : un site que votre équipe fait vivre.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 0,
+      "label": "Agence WordPress : un site tenu à jour, que vous maîtrisez.",
       "background": "paper"
     },
     {
@@ -7199,15 +8938,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 0,
-      "label": "Cold email B2B pour PME.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -7217,56 +8947,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 0,
-      "label": "Référencement IA et agence GEO pour PME.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 0,
-      "label": "Référencement local pour PME et artisans.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 0,
       "label": "Relance de devis automatique.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 0,
-      "label": "Site sur mesure & CMS headless.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 0,
-      "label": "Votre site Webflow, rendu intelligent.",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 0,
-      "label": "Création et refonte de site WordPress.",
       "background": "paper"
     }
   ],
@@ -7714,11 +9399,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 0,
+      "label": "Automatisation des réseaux sociaux pour PME",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
       "index": 0,
       "label": "Base de connaissance IA : le second cerveau de votre entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 0,
+      "label": "Cold email B2B pour PME",
       "background": "paper"
     },
     {
@@ -7741,6 +9444,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 0,
+      "label": "Intégrer ChatGPT et OpenAI à vos outils métier",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
@@ -7750,11 +9462,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 0,
+      "label": "Intégrer Mistral AI à vos outils métier",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
       "index": 0,
-      "label": "Des landing pages qui convertissent, un tunnel qui trie vos leads.",
+      "label": "Une landing page de site web qui convertit et qui trie vos leads.",
       "background": "paper"
     },
     {
@@ -7768,11 +9489,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 0,
+      "label": "Prospection LinkedIn B2B automatisée",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 0,
       "label": "Devis automatisés et relances sans oubli",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 0,
+      "label": "Social selling avec l'IA pour PME B2B",
       "background": "paper"
     },
     {
@@ -7842,6 +9581,69 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "hover-reveal-list": [
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 9,
+      "label": "Vos publications nourrissent les autres canaux",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 6,
+      "label": "Une page par offre, avec ses livrables",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 9,
+      "label": "Le cold email s'assemble aux autres canaux",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 9,
+      "label": "LinkedIn s'assemble aux autres canaux",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 8,
+      "label": "Shopify, ou une autre base",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 9,
+      "label": "Le social selling nourrit les autres canaux",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 7,
+      "label": "Sur mesure, ou une autre base",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
@@ -7860,11 +9662,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 7,
+      "label": "Webflow, ou une autre base",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
       "index": 8,
-      "label": "Le MVP SaaS est une brique du système",
+      "label": "WordPress, ou une autre base",
       "background": "paper-3"
     },
     {
@@ -7887,47 +9698,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 9,
-      "label": "Le cold email s'assemble au reste du système commercial",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 8,
       "label": "La relance de devis s'assemble au reste du système commercial",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 8,
-      "label": "Sur mesure, ou une autre base",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 8,
-      "label": "Webflow, ou une autre base",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 8,
-      "label": "WordPress, ou une autre base",
       "background": "paper-3"
     }
   ],
@@ -8269,11 +10044,155 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 5,
+      "label": "Un audit en six étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 5,
+      "label": "Du contenu source aux publications, en cinq étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 5,
+      "label": "Un process à la fois",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 5,
+      "label": "De l'inventaire au socle, en cinq étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 4,
+      "label": "Quatre étapes, du constat aux fichiers",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 6,
+      "label": "Six étapes, dans cet ordre",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 5,
+      "label": "Cinq étapes, dans cet ordre",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "route": "/services/mvp-saas",
       "index": 5,
-      "label": "Les 6 niveaux d'un produit SaaS",
+      "label": "De l'idée au produit qui encaisse",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 5,
+      "label": "Cinq étapes, de la génération au dossier",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 5,
+      "label": "Comment on le construit",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 4,
+      "label": "De la liste au rendez-vous, en cinq étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 4,
+      "label": "Du sujet à la mise à jour",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 6,
+      "label": "Un chantier GEO en six étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 5,
+      "label": "Six étapes, du constat au contrôle",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 5,
+      "label": "De la collecte à l'archive, en six étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 6,
+      "label": "Un chantier de SEO local en six étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 5,
+      "label": "De la décision à l'écran, en cinq étapes",
       "background": "paper-3"
     },
     {
@@ -8305,15 +10224,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 6,
-      "label": "Les 6 niveaux d'un cold email",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -8323,56 +10233,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 5,
-      "label": "Les 6 niveaux de citabilité IA",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 5,
-      "label": "Les 6 niveaux de visibilité locale",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 5,
       "label": "Les 6 niveaux d'une relance de devis",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 5,
-      "label": "Les 6 niveaux d'un site qui reste le vôtre",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 5,
-      "label": "Les 6 niveaux d'un Webflow",
-      "background": "paper-3"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 5,
-      "label": "Les 6 états d'un WordPress",
       "background": "paper-3"
     }
   ],
@@ -8527,11 +10392,119 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 4,
+      "label": "Pourquoi un site soigné ne se trouve pas",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 4,
+      "label": "Quatre habitudes qu'un back-office retire",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 7,
+      "label": "Ce qui rend une marque inutilisable.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 3,
+      "label": "Ce que la dispersion coûte.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 5,
+      "label": "Quatre causes fréquentes de mails en spam",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 3,
+      "label": "Ce que coûte une marque faite en une soirée.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "route": "/services/mvp-saas",
+      "index": 4,
+      "label": "Ce qu'un MVP évite",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
       "index": 3,
-      "label": "Le lancement qu'un MVP corrige.",
+      "label": "Les noms qui coûtent cher plus tard.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 4,
+      "label": "Pourquoi les IA ne vous citent pas",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 3,
+      "label": "Là où une refonte tourne mal.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 3,
+      "label": "Ce que coûte un reporting refait à chaque période.",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 4,
+      "label": "Pourquoi vos clients de proximité ne vous trouvent pas",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 3,
+      "label": "Comment un tableau de direction échoue.",
       "background": "ink"
     },
     {
@@ -8563,15 +10536,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 4,
-      "label": "Pourquoi vos mails finissent en spam",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -8581,56 +10545,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 3,
-      "label": "Pourquoi les IA ne vous citent pas",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 3,
-      "label": "Pourquoi vos clients de proximité ne vous trouvent pas",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 3,
       "label": "Pourquoi vos devis restent sans réponse",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 3,
-      "label": "Quand le clé-en-main ne suffit plus.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 3,
-      "label": "Là où Webflow seul plafonne.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 3,
-      "label": "Le WordPress qu'on refond.",
       "background": "ink"
     }
   ],
@@ -8673,11 +10592,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 8,
+      "label": "Prix d'un agent de qualification de leads",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 8,
       "label": "Prix d'un chatbot de service client",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
+      "index": 8,
+      "label": "Prix d'un agent de traitement de documents",
       "background": "paper"
     },
     {
@@ -8700,6 +10637,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 10,
+      "label": "Prix d'un audit SEO technique",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
@@ -8709,11 +10655,65 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 10,
+      "label": "Prix de l'automatisation des réseaux sociaux",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 8,
       "label": "Combien coûte l'automatisation d'un processus",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 9,
+      "label": "Combien coûte un back-office sur mesure",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 9,
+      "label": "Combien coûte un branding pour une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 10,
+      "label": "Prix d'une centralisation de données",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 8,
+      "label": "Prix d'une charte graphique et d'un brand book",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
+      "index": 10,
+      "label": "Un essai gratuit, puis un abonnement sans engagement",
       "background": "paper"
     },
     {
@@ -8745,11 +10745,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 9,
+      "label": "Prix d'une création d'identité de marque",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 9,
+      "label": "Prix d'une intégration de ChatGPT ou d'OpenAI",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 13,
       "label": "Combien coûte une intégration de Claude",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 9,
+      "label": "Prix d'une intégration de Mistral AI",
       "background": "paper"
     },
     {
@@ -8763,6 +10790,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 10,
+      "label": "Combien coûte un MVP SaaS",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 9,
+      "label": "Prix d'un naming et d'un positionnement",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 10,
+      "label": "Combien coûte un portail client sur mesure",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
@@ -8772,11 +10826,65 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 10,
+      "label": "Prix de la prospection LinkedIn préparée",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 9,
+      "label": "Prix d'une rédaction SEO",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 10,
+      "label": "Deux façons de rendre vos pages citables",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 9,
+      "label": "Prix d'une refonte de marque",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
+      "index": 9,
+      "label": "Prix d'un reporting automatisé",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 8,
-      "label": "Prix d'une prestation SEO et GEO",
+      "label": "Prix d'une prestation SEO",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 10,
+      "label": "Deux façons de gagner en visibilité locale",
       "background": "paper"
     },
     {
@@ -8790,11 +10898,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 10,
+      "label": "Combien coûte une boutique Shopify",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 8,
       "label": "Combien coûte un site internet qui vend",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 10,
+      "label": "Prix du social selling assisté par IA",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 9,
+      "label": "Combien coûte un site sur mesure",
       "background": "paper"
     },
     {
@@ -8826,6 +10961,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 9,
+      "label": "Prix d'un tableau de bord de direction",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/template-service-ref.json",
       "slug": "template-service-ref",
       "route": "/services/template-service-ref",
@@ -8835,11 +10979,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 9,
+      "label": "Combien coûte un site Webflow",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
       "index": 10,
-      "label": "Combien coûte un MVP SaaS",
+      "label": "Combien coûte un site WordPress",
       "background": "paper"
     },
     {
@@ -8871,15 +11024,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 13,
-      "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -8889,56 +11033,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 10,
-      "label": "Deux façons de rendre votre marque citable",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 11,
-      "label": "Deux façons de gagner en visibilité locale",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
       "index": 12,
       "label": "Deux façons de relancer vos devis",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 10,
-      "label": "Quatre façons de construire sur mesure",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 10,
-      "label": "Quatre façons de rendre votre Webflow intelligent",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
-      "index": 10,
-      "label": "Quatre façons de poser votre WordPress",
       "background": "paper"
     }
   ],
@@ -9237,12 +11336,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 8,
+      "label": "De l'usage éparpillé à l'outil branché",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 14,
       "label": "Le déroulé d'un déploiement",
       "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 8,
+      "label": "Du choix du modèle à l'outil branché",
+      "background": "paper"
     },
     {
       "collection": "demonstrations",
@@ -9311,9 +11428,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-qualification-leads.json",
+      "slug": "agent-qualification-leads",
+      "route": "/services/agent-qualification-leads",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agent-traitement-documents.json",
+      "slug": "agent-traitement-documents",
+      "route": "/services/agent-traitement-documents",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -9338,6 +11473,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/audit-seo-technique.json",
+      "slug": "audit-seo-technique",
+      "route": "/services/audit-seo-technique",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
       "route": "/services/automatisation-make",
@@ -9356,6 +11500,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+      "slug": "automatisation-reseaux-sociaux",
+      "route": "/services/automatisation-reseaux-sociaux",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
@@ -9365,9 +11518,54 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/back-office-sur-mesure.json",
+      "slug": "back-office-sur-mesure",
+      "route": "/services/back-office-sur-mesure",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/base-de-connaissance-ia.json",
       "slug": "base-de-connaissance-ia",
       "route": "/services/base-de-connaissance-ia",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding.json",
+      "slug": "branding",
+      "route": "/services/branding",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/centralisation-donnees.json",
+      "slug": "centralisation-donnees",
+      "route": "/services/centralisation-donnees",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/charte-graphique-brand-book.json",
+      "slug": "charte-graphique-brand-book",
+      "route": "/services/charte-graphique-brand-book",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/cold-email-b2b.json",
+      "slug": "cold-email-b2b",
+      "route": "/services/cold-email-b2b",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -9401,9 +11599,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/branding/identite-de-marque.json",
+      "slug": "identite-de-marque",
+      "route": "/services/identite-de-marque",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -9419,9 +11644,81 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/applications-internes/mvp-saas.json",
+      "slug": "mvp-saas",
+      "route": "/services/mvp-saas",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/naming-et-positionnement.json",
+      "slug": "naming-et-positionnement",
+      "route": "/services/naming-et-positionnement",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes/portail-client.json",
+      "slug": "portail-client",
+      "route": "/services/portail-client",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/prospection-linkedin.json",
+      "slug": "prospection-linkedin",
+      "route": "/services/prospection-linkedin",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+      "slug": "redaction-seo-contenu",
+      "route": "/services/redaction-seo-contenu",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu/referencement-ia.json",
+      "slug": "referencement-ia",
+      "route": "/services/referencement-ia",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/branding/refonte-de-marque.json",
+      "slug": "refonte-de-marque",
+      "route": "/services/refonte-de-marque",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/donnees-reporting/reporting-automatise.json",
+      "slug": "reporting-automatise",
+      "route": "/services/reporting-automatise",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -9437,6 +11734,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/seo-geo-contenu/seo-local.json",
+      "slug": "seo-local",
+      "route": "/services/seo-local",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
@@ -9446,9 +11752,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -9482,6 +11815,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+      "slug": "tableau-de-bord-direction",
+      "route": "/services/tableau-de-bord-direction",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/template-service-ref.json",
       "slug": "template-service-ref",
       "route": "/services/template-service-ref",
@@ -9491,9 +11833,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "src/content/services/applications-internes/mvp-saas.json",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -9527,15 +11878,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 1,
-      "label": "En bref",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
@@ -9545,54 +11887,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 1,
-      "label": "En bref",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 1,
-      "label": "En bref",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/sequences-de-suivi/relance-devis.json",
       "slug": "relance-devis",
       "route": "src/content/services/sequences-de-suivi/relance-devis.json",
-      "index": 1,
-      "label": "En bref",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/sur-mesure.json",
-      "slug": "sur-mesure-headless",
-      "route": "src/content/services/site-web-ia/sur-mesure.json",
-      "index": 1,
-      "label": "En bref",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "src/content/services/site-web-ia/webflow.json",
-      "index": 1,
-      "label": "En bref",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
-      "file": "services/site-web-ia/wordpress.json",
-      "slug": "wordpress",
-      "route": "src/content/services/site-web-ia/wordpress.json",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -10268,6 +12565,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/prospection-automatisee/social-selling-ia.json",
+      "slug": "social-selling-ia",
+      "route": "/services/social-selling-ia",
+      "index": 5,
+      "label": "Du signal au premier message",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/systeme-commercial.json",
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
@@ -10295,36 +12601,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/prospection-automatisee/cold-email-b2b.json",
-      "slug": "cold-email-b2b",
-      "route": "src/content/services/prospection-automatisee/cold-email-b2b.json",
-      "index": 10,
-      "label": "Comment un cold email arrive en boîte et répond",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
-      "index": 8,
-      "label": "Comment tout fonctionne ensemble",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/referencement-ia.json",
-      "slug": "referencement-ia",
-      "route": "src/content/services/seo-geo-contenu/referencement-ia.json",
-      "index": 8,
-      "label": "Comment une marque se met à être citée",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
       "index": 8,
       "label": "Comment tout fonctionne ensemble",
       "background": "ink"
@@ -10531,23 +12810,66 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/integration-claude/integration-chatgpt-openai.json",
+      "slug": "integration-chatgpt-openai",
+      "route": "/services/integration-chatgpt-openai",
+      "index": 5,
+      "label": "Quand passer par ChatGPT et OpenAI, quand préférer Claude",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude.json",
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 10,
       "label": "Quand déployer Claude vous-même, et quand nous appeler",
       "background": "paper"
-    }
-  ],
-  "testimonial-wall": [
+    },
     {
       "collection": "services",
-      "file": "services/seo-geo-contenu/seo-local.json",
-      "slug": "seo-local",
-      "route": "src/content/services/seo-geo-contenu/seo-local.json",
-      "index": 10,
-      "label": "Ce que disent les équipes enfin visibles localement",
+      "file": "services/integration-claude/integration-mistral-ai.json",
+      "slug": "integration-mistral-ai",
+      "route": "/services/integration-mistral-ai",
+      "index": 5,
+      "label": "Quand choisir Mistral AI, quand rester sur Claude",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/shopify.json",
+      "slug": "shopify",
+      "route": "/services/shopify",
+      "index": 4,
+      "label": "Shopify, ou une autre plateforme",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/sur-mesure.json",
+      "slug": "sur-mesure-headless",
+      "route": "/services/sur-mesure-headless",
+      "index": 4,
+      "label": "Sur mesure, ou une autre plateforme",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/webflow.json",
+      "slug": "webflow",
+      "route": "/services/webflow",
+      "index": 4,
+      "label": "Webflow, ou une autre plateforme",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/wordpress.json",
+      "slug": "wordpress",
+      "route": "/services/wordpress",
+      "index": 4,
+      "label": "WordPress, ou une autre plateforme",
+      "background": "paper"
     }
   ],
   "versus-competitors": [

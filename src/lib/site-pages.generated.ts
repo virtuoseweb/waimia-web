@@ -127,6 +127,76 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/agents-ia/agent-qualification-leads",
+    "title": "Agent IA de qualification de leads · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/agents-ia/agent-qualification-leads.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agent IA de qualification de leads",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : les demandes du site d'une PME de services",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Un agent de qualification n'est pas utile si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Deux projets voisins : le routage des demandes, et l'agent sous validation",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'un agent de qualification de leads",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#9",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Agent de qualification de leads : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Combien de demandes lisez-vous avant de trouver la bonne ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/agents-ia/agent-support-client",
     "title": "Agence chatbot et agent IA de service client · Waimia",
     "group": "offres",
@@ -197,6 +267,76 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/agents-ia/agent-traitement-documents",
+    "title": "Agent IA de traitement de documents · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/agents-ia/agent-traitement-documents.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agent IA de traitement de documents : factures, devis, contrats",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : les factures fournisseurs d'une PME de services",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Un agent de traitement de documents n'est pas utile si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Pas de cas de facturation publié : deux projets où l'agent lit, extrait puis passe la main",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'un agent de traitement de documents",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#9",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Agent de traitement de documents : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Combien de pièces ressaisissez-vous chaque semaine ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/applications-internes",
     "title": "Application métier sur mesure pour PME · Waimia",
     "group": "offres",
@@ -257,6 +397,241 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Quel tableur fait office de logiciel chez vous ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/applications-internes/back-office-sur-mesure",
+    "title": "Back-office sur mesure et outil interne pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/applications-internes/back-office-sur-mesure.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Back-office sur mesure et outil interne pour PME",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Quatre habitudes qu'un back-office retire",
+        "background": "ink"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Un process à la fois",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que vous récupérez",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Prenez un outil du marché si",
+        "background": "paper-2"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Des outils internes déjà construits, pour le studio",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un back-office sur mesure",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Ce que vous nous demandez",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quelle ressaisie vous coûte le plus de temps ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/applications-internes/mvp-saas",
+    "title": "Développement de MVP SaaS pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/applications-internes/mvp-saas.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Développement de MVP SaaS pour PME",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Ce qu'un MVP évite",
+        "background": "ink"
+      },
+      {
+        "type": "method-stepline",
+        "label": "De l'idée au produit qui encaisse",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que vous récupérez",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne faites pas développer de MVP SaaS si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Un abonnement payant, des prototypes, un produit en construction",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un MVP SaaS",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Ce que vous nous demandez",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quel est le premier client que votre produit doit convaincre ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/applications-internes/portail-client",
+    "title": "Portail client sur mesure pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/applications-internes/portail-client.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Portail client sur mesure pour PME",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Ce que change un portail pour vos clients",
+        "background": "paper"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Comment on le construit",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que vous récupérez",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne faites pas développer de portail si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Un espace membre déjà livré",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un portail client sur mesure",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Ce que vous nous demandez",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Que vous demandent vos clients par e-mail, chaque semaine ?",
         "background": "ink"
       }
     ]
@@ -532,6 +907,376 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/branding",
+    "title": "Agence de branding pour PME : identité de marque · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/branding.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agence de branding : une marque qu'on applique.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-table",
+        "label": "Ce que contient chaque offre",
+        "background": "paper"
+      },
+      {
+        "type": "data-table",
+        "label": "Quelle offre pour quelle situation",
+        "background": "paper-2"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Une page par offre, avec ses livrables",
+        "background": "paper-3"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Ce qui rend une marque inutilisable.",
+        "background": "ink"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne nous confiez pas votre marque si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un branding pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Agence de branding : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Où votre marque est-elle appliquée aujourd'hui ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/branding/charte-graphique-brand-book",
+    "title": "Charte graphique et brand book pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/branding/charte-graphique-brand-book.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Charte graphique et brand book pour PME.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : une charte qui sert, ou qui dort",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Quatre étapes, du constat aux fichiers",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Les livrables",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne commandez pas de charte si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une charte graphique et d'un brand book",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#9",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Charte graphique et brand book : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre marque est-elle appliquée pareil partout ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/branding/identite-de-marque",
+    "title": "Création d'identité de marque pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/branding/identite-de-marque.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Création d'identité de marque pour PME.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Ce que coûte une marque faite en une soirée.",
+        "background": "ink"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : un cabinet de trois personnes",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Cinq étapes, dans cet ordre",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Les livrables",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Cette offre n'est pas la bonne si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une création d'identité de marque",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Création d'identité de marque : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Que dit votre marque de vous aujourd'hui ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/branding/naming-et-positionnement",
+    "title": "Naming et positionnement de marque pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/branding/naming-et-positionnement.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Naming et positionnement de marque pour PME.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Les noms qui coûtent cher plus tard.",
+        "background": "ink"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : nommer une nouvelle offre",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Cinq étapes, de la génération au dossier",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Les livrables",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne changez pas de nom si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'un naming et d'un positionnement",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Naming et positionnement : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre nom dit-il ce que vous faites ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/branding/refonte-de-marque",
+    "title": "Refonte de marque pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/branding/refonte-de-marque.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Refonte de marque pour PME : garder ce qui fonctionne.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Là où une refonte tourne mal.",
+        "background": "ink"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : une PME de services de douze ans",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Six étapes, du constat au contrôle",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Les livrables",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Une refonte n'est pas utile si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une refonte de marque",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Refonte de marque : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre marque mérite-t-elle une refonte, ou un ajustement ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/consultant-ia-claude",
     "title": "Consultant IA pour PME : conseil et mise en œuvre · Waimia",
     "group": "offres",
@@ -763,6 +1508,236 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/donnees-reporting/centralisation-donnees",
+    "title": "Centralisation des données pour PME : un socle unique · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/donnees-reporting/centralisation-donnees.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "La centralisation des données de votre PME, sans usine à gaz",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Ce que la dispersion coûte.",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "De l'inventaire au socle, en cinq étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : une PME avec cinq outils",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne centralisez pas si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Un connecteur en production : du formulaire au CRM, sans ressaisie",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une centralisation de données",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Centralisation des données : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Combien de fois par mois exportez-vous le même fichier ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/donnees-reporting/reporting-automatise",
+    "title": "Reporting automatisé hebdomadaire et mensuel pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/donnees-reporting/reporting-automatise.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Reporting automatisé : le rapport est prêt, vous le relisez, il part",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Ce que coûte un reporting refait à chaque période.",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "De la collecte à l'archive, en six étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : le rapport mensuel d'un prestataire à son client",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne l'automatisez pas si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'un reporting automatisé",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Reporting automatisé : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quel rapport refaites-vous à chaque période sans l'avoir choisi ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/donnees-reporting/tableau-de-bord-direction",
+    "title": "Tableau de bord de direction pour dirigeant de PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/donnees-reporting/tableau-de-bord-direction.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Un tableau de bord de direction qui tient sur un écran",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Comment un tableau de direction échoue.",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "De la décision à l'écran, en cinq étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Un tableau qui informe, ou un tableau qui décore",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ne commandez pas ce tableau si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'un tableau de bord de direction",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Tableau de bord de direction : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quelle décision attend un chiffre que vous n'avez pas ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/integration-claude",
     "title": "Claude en entreprise : intégration et déploiement · Waimia",
     "group": "offres",
@@ -869,8 +1844,160 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/integration-claude/integration-chatgpt-openai",
+    "title": "Intégration ChatGPT et OpenAI aux outils métier · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/integration-claude/integration-chatgpt-openai.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Intégrer ChatGPT et OpenAI à vos outils métier",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "De l'application d'équipe à l'agent sur mesure",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand passer par ChatGPT et OpenAI, quand préférer Claude",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : une équipe commerciale qui utilise ChatGPT chacune de son côté",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "process-steps",
+        "label": "De l'usage éparpillé à l'outil branché",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une intégration de ChatGPT ou d'OpenAI",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Intégration de ChatGPT et d'OpenAI : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vos équipes utilisent déjà ChatGPT : qui encadre, et avec quelles règles ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/integration-claude/integration-mistral-ai",
+    "title": "Intégration Mistral AI aux outils métier · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/integration-claude/integration-mistral-ai.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Intégrer Mistral AI à vos outils métier",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les critères qui décident, un par un",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand choisir Mistral AI, quand rester sur Claude",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : un cabinet qui traite des dossiers confidentiels",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "process-steps",
+        "label": "Du choix du modèle à l'outil branché",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une intégration de Mistral AI",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Intégration de Mistral AI : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quelle exigence de données pèse sur votre choix de modèle ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/landing-pages-tunnels",
-    "title": "Landing pages qui convertissent · tunnels de qualification",
+    "title": "Landing page de site web et tunnel de conversion · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/landing-pages-tunnels.json",
@@ -878,7 +2005,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Des landing pages qui convertissent, un tunnel qui trie vos leads.",
+        "label": "Une landing page de site web qui convertit et qui trie vos leads.",
         "background": "paper"
       },
       {
@@ -999,8 +2126,328 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/prospection-automatisee/automatisation-reseaux-sociaux",
+    "title": "Automatisation des réseaux sociaux pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/prospection-automatisee/automatisation-reseaux-sociaux.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Automatisation des réseaux sociaux pour PME",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "feature-grid",
+        "label": "Six briques, de l'idée à la mesure",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Du contenu source aux publications, en cinq étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste si vous arrêtez",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ce qu'on refuse, et quand ne pas le faire",
+        "background": "paper-2"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Deux chantiers où du contenu est produit et publié avec l'IA",
+        "background": "ink"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Vos publications nourrissent les autres canaux",
+        "background": "paper-3"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix de l'automatisation des réseaux sociaux",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Ce que vous nous demandez",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Combien de temps passez-vous à republier le même contenu ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/prospection-automatisee/cold-email-b2b",
+    "title": "Cold email B2B pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/prospection-automatisee/cold-email-b2b.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Cold email B2B pour PME",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "feature-grid",
+        "label": "Cold email B2B et RGPD : ce qu'on applique",
+        "background": "paper-2"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Quatre causes fréquentes de mails en spam",
+        "background": "ink"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Six étapes, dans cet ordre",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste si vous arrêtez",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Le cold email ne convient pas si",
+        "background": "paper-2"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Le cold email s'assemble aux autres canaux",
+        "background": "paper-3"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Un essai gratuit, puis un abonnement sans engagement",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Ce que vous nous demandez",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vos e-mails froids arrivent-ils jusqu'à la boîte de réception ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/prospection-automatisee/prospection-linkedin",
+    "title": "Prospection LinkedIn B2B automatisée · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/prospection-automatisee/prospection-linkedin.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Prospection LinkedIn B2B automatisée",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "De la liste au rendez-vous, en cinq étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "feature-grid",
+        "label": "Conditions de LinkedIn et RGPD : ce qu'on applique",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Un robot d'envoi ou une file de tâches validée",
+        "background": "paper-2"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste si vous arrêtez",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "La prospection LinkedIn préparée ne convient pas si",
+        "background": "paper-2"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "LinkedIn s'assemble aux autres canaux",
+        "background": "paper-3"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix de la prospection LinkedIn préparée",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Ce que vous nous demandez",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre cible répond-elle sur LinkedIn ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/prospection-automatisee/social-selling-ia",
+    "title": "Social selling avec l'IA pour PME B2B · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/prospection-automatisee/social-selling-ia.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Social selling avec l'IA pour PME B2B",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "feature-grid",
+        "label": "Les signaux qu'on suit",
+        "background": "paper-2"
+      },
+      {
+        "type": "system-flow",
+        "label": "Du signal au premier message",
+        "background": "ink"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : un éditeur de logiciel B2B de petite taille",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste si vous arrêtez",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Le social selling assisté par IA ne convient pas si",
+        "background": "paper-2"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Le social selling nourrit les autres canaux",
+        "background": "paper-3"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix du social selling assisté par IA",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Ce que vous nous demandez",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quels signaux vos prospects émettent-ils déjà ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/seo-geo-contenu",
-    "title": "Agence SEO et GEO pour PME : visible sur Google et les IA",
+    "title": "Agence SEO et référencement naturel pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/seo-geo-contenu.json",
@@ -1008,7 +2455,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Visible sur Google, cité par les IA : le référencement double couche.",
+        "label": "Agence SEO et référencement naturel, l'inbound marketing mesuré.",
         "background": "paper"
       },
       {
@@ -1043,12 +2490,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Cinq projets de ce volet",
+        "label": "Trois projets de ce volet",
         "background": "ink"
       },
       {
         "type": "pricing-cards",
-        "label": "Prix d'une prestation SEO et GEO",
+        "label": "Prix d'une prestation SEO",
         "background": "paper"
       },
       {
@@ -1058,12 +2505,327 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "SEO et GEO : vos questions",
+        "label": "Agence SEO et référencement naturel : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
         "label": "Vos pages répondent-elles aux questions de vos clients ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/seo-geo-contenu/audit-seo-technique",
+    "title": "Audit SEO technique et sémantique pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/seo-geo-contenu/audit-seo-technique.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Audit SEO technique : ce qui freine vos pages, classé par priorité.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Pourquoi un site soigné ne se trouve pas",
+        "background": "ink"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Un audit en six étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que vous recevez",
+        "background": "paper-3"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Un audit se juge à ce qu'on en corrige",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ce n'est pas le bon investissement si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Deux projets où la technique a compté",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'un audit SEO technique",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Audit SEO technique : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Combien de vos pages Google a-t-il réellement indexées ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/seo-geo-contenu/redaction-seo-contenu",
+    "title": "Rédaction SEO et calendrier éditorial pour PME · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Rédaction SEO : des articles qui répondent à une requête, relus et signés.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Du sujet à la mise à jour",
+        "background": "paper-3"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Un texte pour la requête, ou un texte pour remplir",
+        "background": "paper-2"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que vous gardez",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ce n'est pas le bon investissement si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Deux projets où le contenu est au cœur du travail",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une rédaction SEO",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Rédaction SEO : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Quels articles vos clients attendent-ils de vous ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/seo-geo-contenu/referencement-ia",
+    "title": "Référencement IA (GEO) : être cité par les IA · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/seo-geo-contenu/referencement-ia.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Référencement IA : être cité par ChatGPT, Perplexity et Gemini.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Pourquoi les IA ne vous citent pas",
+        "background": "ink"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Pourquoi un passage citable change l'équation",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Un chantier GEO en six étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que vous récupérez concrètement",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ce n'est pas le bon investissement si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Deux projets avec une couche GEO",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Deux façons de rendre vos pages citables",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Référencement IA : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Que répondent les assistants IA quand on les interroge sur votre marché ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/seo-geo-contenu/seo-local",
+    "title": "SEO local : fiche Google, pages par ville et avis · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/seo-geo-contenu/seo-local.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "SEO local : être trouvé par les clients de votre zone.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "pain-severity-list",
+        "label": "Pourquoi vos clients de proximité ne vous trouvent pas",
+        "background": "ink"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Pourquoi un maillage local change l'équation",
+        "background": "paper-2"
+      },
+      {
+        "type": "method-stepline",
+        "label": "Un chantier de SEO local en six étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce que vous récupérez concrètement",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ce n'est pas le bon investissement si",
+        "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Deux projets où la proximité a compté",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Deux façons de gagner en visibilité locale",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "SEO local : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vos clients proches vous trouvent-ils quand ils cherchent ?",
         "background": "ink"
       }
     ]
@@ -1135,7 +2897,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/site-web-ia",
-    "title": "Création de site internet pour PME · un site qui vend",
+    "title": "Agence site web pour PME : création et refonte · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/site-web-ia.json",
@@ -1143,7 +2905,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Un site internet qui vend, pas une vitrine qui dort.",
+        "label": "Agence site web : un site qui vend, pas une vitrine qui dort.",
         "background": "paper"
       },
       {
@@ -1199,6 +2961,316 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Que devient une demande après le formulaire ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/site-web-ia/shopify",
+    "title": "Agence Shopify pour PME : boutique, refonte et migration · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/site-web-ia/shopify.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agence Shopify : une boutique qui vend, un SAV qui suit.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Shopify, ou une autre plateforme",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : une boutique de produits d'entretien",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Shopify, ou une autre base",
+        "background": "paper-3"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Aucune boutique Shopify publiée : un SAV branché à Shopify, et une migration e-commerce mesurée",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte une boutique Shopify",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Shopify : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Combien d'heures par semaine vont aux commandes, aux stocks et au SAV ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/site-web-ia/sur-mesure",
+    "title": "Création de site sur mesure : Astro et CMS headless · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/site-web-ia/sur-mesure.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Création de site sur mesure : un code qui vous appartient.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Sur mesure, ou une autre plateforme",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : le site d'une société de conseil industriel",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Sur mesure, ou une autre base",
+        "background": "paper-3"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Un site Astro livré, et un retour du headless vers WordPress",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un site sur mesure",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Site sur mesure : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre besoin justifie-t-il vraiment du sur mesure ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/site-web-ia/webflow",
+    "title": "Agence Webflow pour PME : création et refonte · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/site-web-ia/webflow.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agence Webflow : un site que votre équipe fait vivre.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Webflow, ou une autre plateforme",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : le site d'un cabinet d'architectes",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Webflow, ou une autre base",
+        "background": "paper-3"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Aucune fiche Webflow publiée : un branchement CRM et une migration, sur d'autres plateformes",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un site Webflow",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Webflow : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre site actuel est-il le bon outil pour la suite ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/site-web-ia/wordpress",
+    "title": "Agence WordPress pour PME : création et refonte · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/site-web-ia/wordpress.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agence WordPress : un site tenu à jour, que vous maîtrisez.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "WordPress, ou une autre plateforme",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : le site d'un cabinet comptable",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "WordPress, ou une autre base",
+        "background": "paper-3"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Deux projets WordPress publiés",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un site WordPress",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "WordPress : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre WordPress est-il à entretenir, à relier ou à refaire ?",
         "background": "ink"
       }
     ]
@@ -3228,6 +5300,14 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       }
     ]
+  },
+  {
+    "route": "/ressources/guides",
+    "title": "Guides",
+    "group": "ressources",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
   },
   {
     "route": "/ressources/guides/agent-ia-definition",
@@ -5995,21 +8075,48 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "routes": [
       "/services",
       "/services/agents-ia",
+      "/services/agents-ia/agent-qualification-leads",
       "/services/agents-ia/agent-support-client",
+      "/services/agents-ia/agent-traitement-documents",
       "/services/applications-internes",
+      "/services/applications-internes/back-office-sur-mesure",
+      "/services/applications-internes/mvp-saas",
+      "/services/applications-internes/portail-client",
       "/services/automatisation-make",
       "/services/automatisations",
       "/services/automatisations/automatisation-n8n",
       "/services/base-de-connaissance-ia",
+      "/services/branding",
+      "/services/branding/charte-graphique-brand-book",
+      "/services/branding/identite-de-marque",
+      "/services/branding/naming-et-positionnement",
+      "/services/branding/refonte-de-marque",
       "/services/consultant-ia-claude",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
+      "/services/donnees-reporting/centralisation-donnees",
+      "/services/donnees-reporting/reporting-automatise",
+      "/services/donnees-reporting/tableau-de-bord-direction",
       "/services/integration-claude",
+      "/services/integration-claude/integration-chatgpt-openai",
+      "/services/integration-claude/integration-mistral-ai",
       "/services/landing-pages-tunnels",
       "/services/prospection-automatisee",
+      "/services/prospection-automatisee/automatisation-reseaux-sociaux",
+      "/services/prospection-automatisee/cold-email-b2b",
+      "/services/prospection-automatisee/prospection-linkedin",
+      "/services/prospection-automatisee/social-selling-ia",
       "/services/seo-geo-contenu",
+      "/services/seo-geo-contenu/audit-seo-technique",
+      "/services/seo-geo-contenu/redaction-seo-contenu",
+      "/services/seo-geo-contenu/referencement-ia",
+      "/services/seo-geo-contenu/seo-local",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/shopify",
+      "/services/site-web-ia/sur-mesure",
+      "/services/site-web-ia/webflow",
+      "/services/site-web-ia/wordpress",
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia"
@@ -6098,6 +8205,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/maturite-ia",
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
+      "/ressources/guides",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/choisir-agence-ia-pme",
