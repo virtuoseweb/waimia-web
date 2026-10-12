@@ -6,7 +6,7 @@
   "description_en": "AI agent: definition, a table to tell it from a chatbot and an automation, a worked running cost, questions to ask a vendor, limits.",
   "slug": "agent-ia-definition",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
   "category": "agents",
   "tags": [
     "agents-ia",
@@ -385,8 +385,8 @@
       "kicker_en": "§ Illustrative example · not a client case",
       "heading_fr": "Ce que coûte l'usage : la même tâche en automatisation et en agent",
       "heading_en": "What running it costs: the same task as an automation and as an agent",
-      "caption_fr": "Hypothèses : 500 demandes par mois, 3 000 jetons lus et 400 jetons écrits par appel au modèle. Prix de la page tarifs de l'API d'Anthropic au 6 octobre 2026 : Claude Haiku 4.5 à 1 dollar par million de jetons en entrée et 5 en sortie, Claude Sonnet 5.5 à 2 et 10 dollars. La même page précise que les modèles depuis Claude 4.7 comptent environ 30 % de jetons de plus pour un même texte : à texte égal, la ligne agent approche 39 dollars. Hors construction, hors taxes.",
-      "caption_en": "Assumptions: 500 requests a month, 3,000 tokens read and 400 tokens written per model call. Prices from Anthropic's API pricing page on 6 October 2026: Claude Haiku 4.5 at 1 dollar per million input tokens and 5 per million output tokens, Claude Sonnet 5.5 at 2 and 10 dollars. The same page notes that models from Claude 4.7 onwards count about 30% more tokens for the same text: for identical text, the agent line comes close to 39 dollars. Excluding build, excluding tax.",
+      "caption_fr": "Hypothèses : 500 demandes par mois, 3 000 jetons lus et 400 jetons écrits par appel au modèle. Prix de la page tarifs de l'API d'Anthropic au 12 octobre 2026 : Claude Haiku 5.5 à 0,10 dollar par million de jetons en entrée et 0,50 en sortie (pour les prompts de moins de 100 000 jetons), Claude Sonnet 5.5 à 2 et 10 dollars. La même page précise que les modèles depuis Claude 4.7 comptent environ 30 % de jetons de plus pour un même texte : à texte égal, la ligne agent approche 39 dollars et la ligne automatisation 0,33 dollar. Hors construction, hors taxes.",
+      "caption_en": "Assumptions: 500 requests a month, 3,000 tokens read and 400 tokens written per model call. Prices from Anthropic's API pricing page on 12 October 2026: Claude Haiku 5.5 at 0.10 dollars per million input tokens and 0.50 per million output tokens (for prompts under 100,000 tokens), Claude Sonnet 5.5 at 2 and 10 dollars. The same page notes that models from Claude 4.7 onwards count about 30% more tokens for the same text: for identical text, the agent line comes close to 39 dollars and the automation line 0.33 dollars. Excluding build, excluding tax.",
       "columns_fr": [
         "Montage",
         "Appels au modèle par mois",
@@ -403,11 +403,11 @@
       ],
       "rows_fr": [
         [
-          "Automatisation : un appel pour classer la demande, Claude Haiku 4.5",
+          "Automatisation : un appel pour classer la demande, Claude Haiku 5.5",
           "500",
           "1,5 million",
           "0,2 million",
-          "2,50 dollars"
+          "0,25 dollar"
         ],
         [
           "Agent : six étapes par demande, Claude Sonnet 5.5",
@@ -419,11 +419,11 @@
       ],
       "rows_en": [
         [
-          "Automation: one call to classify the request, Claude Haiku 4.5",
+          "Automation: one call to classify the request, Claude Haiku 5.5",
           "500",
           "1.5 million",
           "0.2 million",
-          "2.50 dollars"
+          "0.25 dollars"
         ],
         [
           "Agent: six steps per request, Claude Sonnet 5.5",
@@ -616,8 +616,8 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Sources, relues le 6 octobre 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Building effective agents », 19 décembre 2024</a> : définitions des workflows et des agents, conseil de commencer simple, conditions d'arrêt, points de validation humaine, tests en environnement isolé</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation de l'API, page « Agents »</a> : description des agents</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, tarifs de l'API</a> : prix de Claude Haiku 4.5 et Claude Sonnet 5.5, écart de comptage des jetons des modèles récents</li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, aide : fusion de Cowork et du chat</a> : déploiement progressif, Pro et Max d'abord</li><li>Fiches <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> et <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a> : état des projets cités</li></ul><p>Pour décider tâche par tâche, l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation classique</a> détaille où passe la frontière. Le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork est désormais Claude</a> décrit l'agent d'Anthropic, aujourd'hui intégré à Claude, et le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a> donne le cadre pour le déployer dans une équipe. La prestation est décrite sur la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a>.</p>",
-      "html_en": "<h2>Sources, re-read on 6 October 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, “Building effective agents”, 19 December 2024</a>: definitions of workflows and agents, the advice to start simple, stopping conditions, human checkpoints, sandbox testing</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation, “Agents” page</a>: description of agents</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, API pricing</a>: Claude Haiku 4.5 and Claude Sonnet 5.5 prices, token count difference of recent models</li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic help centre: Cowork and chat merger</a>: gradual rollout, Pro and Max first</li><li>Case pages <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> and <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>: status of the projects cited</li></ul><p>On the decision side, the article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or classic automation</a> details where the line falls task by task. The guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork is now Claude</a> describes Anthropic's agent, now built into Claude, and the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a> sets the framework to roll it out to a team. The service is described on the <a href=\"/services/agents-ia\">AI agents for business</a> page.</p>"
+      "html_fr": "<h2>Sources, relues le 6 octobre 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Building effective agents », 19 décembre 2024</a> : définitions des workflows et des agents, conseil de commencer simple, conditions d'arrêt, points de validation humaine, tests en environnement isolé</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation de l'API, page « Agents »</a> : description des agents</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, tarifs de l'API</a> : prix de Claude Haiku 5.5 et Claude Sonnet 5.5 (relus le 12 octobre 2026), écart de comptage des jetons des modèles récents</li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, aide : fusion de Cowork et du chat</a> : déploiement progressif, Pro et Max d'abord</li><li>Fiches <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> et <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a> : état des projets cités</li></ul><p>Pour décider tâche par tâche, l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation classique</a> détaille où passe la frontière. Le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork est désormais Claude</a> décrit l'agent d'Anthropic, aujourd'hui intégré à Claude, et le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a> donne le cadre pour le déployer dans une équipe. La prestation est décrite sur la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a>.</p>",
+      "html_en": "<h2>Sources, re-read on 6 October 2026</h2><ul><li><a href=\"https://www.anthropic.com/engineering/building-effective-agents\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, “Building effective agents”, 19 December 2024</a>: definitions of workflows and agents, the advice to start simple, stopping conditions, human checkpoints, sandbox testing</li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation, “Agents” page</a>: description of agents</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, API pricing</a>: Claude Haiku 5.5 and Claude Sonnet 5.5 prices (re-read on 12 October 2026), token count difference of recent models</li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic help centre: Cowork and chat merger</a>: gradual rollout, Pro and Max first</li><li>Case pages <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> and <a href=\"/cas-clients/les-carnets-de-montpellier\">Les Carnets de Montpellier</a>: status of the projects cited</li></ul><p>On the decision side, the article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or classic automation</a> details where the line falls task by task. The guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork is now Claude</a> describes Anthropic's agent, now built into Claude, and the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a> sets the framework to roll it out to a team. The service is described on the <a href=\"/services/agents-ia\">AI agents for business</a> page.</p>"
     },
     {
       "type": "related-cards-band",

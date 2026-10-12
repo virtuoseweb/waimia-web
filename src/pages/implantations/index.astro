@@ -63,11 +63,11 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   variant: 'listing',
   decoration: false,
   align: 'left',
-  kicker_fr: '§ Implantations · Bordeaux, Montpellier, Lyon, Paris',
+  kicker_fr: '§ Implantations · Bordeaux, Montpellier, Lyon, Toulouse, Paris',
   kicker_en: '§ Locations · AI near you',
   h1_fr: '<span>Où le studio</span><br/><span><i>intervient</i>.</span>',
   h1_en: '<span>Our</span><br/><span><i>locations</i>.</span>',
-  lede_fr: "Waimia est basé à Bordeaux et travaille à distance pour des PME et ETI partout en France. Sur site à Bordeaux, Montpellier, Lyon et Paris quand la mission le demande.",
+  lede_fr: "Waimia est basé à Bordeaux et travaille à distance pour des PME et ETI partout en France. Sur site à Bordeaux, Montpellier, Lyon, Toulouse et Paris quand la mission le demande.",
   lede_en: 'Where we operate and support SMBs in their AI transformation. Local roots, territorial references.',
 };
 
@@ -105,10 +105,10 @@ const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
 ---
 
 <Base
-  title={isFr ? 'Agence IA à Bordeaux, Montpellier, Lyon et Paris · Waimia' : 'Locations · Waimia'}
+  title={isFr ? 'Agence IA à Bordeaux, Montpellier, Lyon, Toulouse et Paris · Waimia' : 'Locations · Waimia'}
   description={isFr
-    ? "Studio IA basé à Bordeaux : automatisation, agents IA et applications métier pour PME et ETI. À distance ou sur site à Bordeaux, Montpellier, Lyon et Paris."
-    : 'AI studio based in Bordeaux: automation, AI agents and business applications for SMEs. Remote or on-site engagements in Bordeaux, Montpellier, Lyon and Paris.'}
+    ? "Studio IA à Bordeaux : automatisation, agents IA, applications métier pour PME et ETI. À distance ou sur site à Bordeaux, Montpellier, Lyon, Toulouse, Paris."
+    : 'AI studio based in Bordeaux: automation, AI agents and business applications for SMEs. Remote or on-site engagements in Bordeaux, Montpellier, Lyon, Toulouse and Paris.'}
 >
   <MastheadBar
     lang={lang}

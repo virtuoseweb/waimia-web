@@ -279,7 +279,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 67,
+    "count": 68,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -341,6 +341,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
@@ -492,7 +493,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 50,
+    "count": 52,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -504,6 +505,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/lyon",
       "/implantations/montpellier",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -541,17 +543,19 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
     ]
   },
   "editorial-callout": {
-    "count": 6,
+    "count": 7,
     "pages": [
       "/conformite-ia",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
@@ -572,7 +576,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 167,
+    "count": 170,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -585,6 +589,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/lyon",
       "/implantations/montpellier",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
@@ -656,6 +661,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "secteurs/[...slug]",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -670,7 +676,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 65,
+    "count": 68,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -706,13 +712,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
     ]
   },
   "editorial-timeline": {
-    "count": 13,
+    "count": 14,
     "pages": [
       "/conformite-ia",
       "/ressources/guides/claude-cowork",
@@ -720,6 +727,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/base-de-connaissance-ia",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
@@ -787,7 +795,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 114,
+    "count": 116,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -806,6 +814,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/lyon",
       "/implantations/montpellier",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
@@ -892,6 +901,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -963,7 +973,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 113,
+    "count": 115,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -982,6 +992,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/lyon",
       "/implantations/montpellier",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/lp/hub",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -1069,6 +1080,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -1202,7 +1214,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 70,
+    "count": 72,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1220,6 +1232,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/lyon",
       "/implantations/montpellier",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -1270,6 +1283,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/index.json",
       "src/content/formations/make.json",
@@ -1687,7 +1701,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 57,
+    "count": 59,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1705,6 +1719,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/lyon",
       "/implantations/montpellier",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -1743,6 +1758,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
+      "src/content/formations/claude-code.json",
       "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
@@ -1865,13 +1881,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 28,
+    "count": 29,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
       "/cas-usages/support-sav",
       "/implantations/lyon",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/ai-act-pme-calendrier",

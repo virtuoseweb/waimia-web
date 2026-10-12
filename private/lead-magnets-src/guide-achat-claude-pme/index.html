@@ -96,7 +96,7 @@
   </div>
   <figure><img src="../../../public/images/illustrations/ds/guide-achat-claude-pme-balance-paper.webp" alt=""></figure>
   <div class="meta">
-    <div><b>Prix</b>Grille Anthropic relevée le 5 octobre 2026, en dollars, hors TVA</div>
+    <div><b>Prix</b>Grille Anthropic relevée le 5 octobre 2026, crédits API et prix des modèles mis à jour le 12 octobre 2026, en dollars, hors TVA</div>
     <div><b>Méthode</b>Sources primaires Anthropic, calculs et hypothèses écrits</div>
     <div><b>Auteur</b>Simon Beros, Waimia, studio IA pour PME · waimia.com</div>
   </div>
@@ -192,7 +192,7 @@
       <tr><td>Équipe de développement sur Claude Code</td><td>Team Premium, ou Enterprise</td><td>Claude Code consomme le même quota que le chat et Cowork.</td><td>Un siège Standard bloqué en milieu de journée.</td></tr>
       <tr><td>20 personnes ou plus, service informatique exigeant</td><td>Enterprise</td><td>SCIM, journaux d'audit, Compliance API, rétention personnalisée, filtrage IP.</td><td>Budgéter sur l'ancien modèle par siège sans usage.</td></tr>
       <tr><td>Données qui doivent rester en Europe</td><td>API via AWS Bedrock ou Google Vertex</td><td>Les apps Claude stockent aux États-Unis par défaut, sans option européenne.</td><td>Croire qu'un contrat Enterprise suffit à héberger en Europe.</td></tr>
-      <tr><td>Claude intégré à vos logiciels ou workflows</td><td>API, à l'usage</td><td>Facturation au volume traité, sans siège.</td><td>Prendre des sièges pour un traitement automatique.</td></tr>
+      <tr><td>Claude intégré à vos logiciels ou workflows</td><td>API, à l'usage</td><td>Facturation au volume traité, sans siège.</td><td>Prendre des sièges pour un traitement automatique. Les crédits API inclus en Max et Team (20 $ par siège Standard) peuvent suffire pour un petit volume.</td></tr>
     </tbody>
   </table>
 
@@ -438,13 +438,16 @@
     <thead><tr><th style="width:34%">Votre besoin</th><th style="width:28%">Voie</th><th>Ce qu'il faut savoir</th></tr></thead>
     <tbody>
       <tr><td>Données hébergées et traitées en Europe</td><td>API via AWS Bedrock (routage UE) ou Google Vertex</td><td>Les apps Claude n'ont pas d'option européenne. Microsoft Foundry en Europe est annoncé, pas encore ouvert.</td></tr>
-      <tr><td>Claude dans un CRM, un site, un workflow n8n ou Make</td><td>API Anthropic ou cloud</td><td>Facturation au volume traité, sans siège. Demande un développement ou un intégrateur.</td></tr>
+      <tr><td>Claude dans un CRM, un site, un workflow n8n ou Make</td><td>API Anthropic ou cloud</td><td>Facturation au volume traité, sans siège. Demande un développement ou un intégrateur. Depuis le 7 octobre 2026, les plans Max et Team incluent des crédits mensuels pour l'API (voir ci-dessous).</td></tr>
       <tr><td>Traitements en lot&nbsp;: classer des e-mails, lire des factures</td><td>API</td><td>Le coût dépend du volume et de la longueur des textes. Un siège n'est pas fait pour ça.</td></tr>
       <tr><td>Résidence des données sur l'API d'Anthropic</td><td>Option de l'API</td><td>Facturée 1,1 fois le tarif standard, selon la documentation d'Anthropic.</td></tr>
       <tr><td>Développeurs déjà sur un cloud</td><td>Claude Code via Bedrock, Vertex ou Foundry</td><td>Claude Code fonctionne aussi avec ces fournisseurs, en plus des abonnements.</td></tr>
       <tr><td>Agents hébergés qui travaillent seuls</td><td>Claude Managed Agents</td><td>Bêta publique depuis avril 2026. À réserver aux équipes techniques.</td></tr>
     </tbody>
   </table>
+  <h3>Nouveau : des crédits API inclus dans Max et Team</h3>
+  <p class="small">Depuis le 7 octobre 2026 (lu le 12) : 100 $ par mois en Max 5x, 200 $ en Max 20x, et en Team 20 $ par siège Standard et 100 $ par siège Premium, mis en commun et plafonnés à 500 $. Trois Standard et deux Premium donnent 260 $. Ils couvrent l'API, Managed Agents et le Claude Agent SDK, pas Claude Code, expirent chaque mois sans report, et exigent de relier une organisation Console. Ne les budgétez pas comme un revenu fixe : ils disparaissent si le plan change. Claude Haiku 5.5 est facturé 0,10 $ par million de jetons lus et 0,50 $ écrits (prompts de moins de 100&#8239;000 jetons) : un petit volume de classement peut tenir dans ces crédits.</p>
+
   <h3>Les cas où l'API n'est pas la bonne réponse</h3>
   <ul>
     <li>Votre équipe veut une application de travail prête à l'emploi&nbsp;: l'API n'a pas d'interface de chat, de projets ni de mémoire.</li>
@@ -491,12 +494,13 @@
     <li>Anthropic, aide, tâches planifiées&nbsp;: support.claude.com/en/articles/13345190</li>
     <li>Anthropic, plugins et marketplaces&nbsp;: support.claude.com/en/articles/13837440 et 13837433</li>
     <li>Anthropic, notes de version de Claude&nbsp;: support.claude.com/en/articles/12138966</li>
+    <li>Anthropic, crédits API mensuels des plans Max et Team, lus le 12 octobre 2026&nbsp;: support.claude.com/en/articles/17154008&#8239;; tarifs de l'API, lus le 12 octobre 2026&nbsp;: platform.claude.com/docs/en/about-claude/pricing</li>
     <li>Anthropic, documentation Claude Code, coûts&nbsp;: code.claude.com/docs/en/costs&#8239;; sécurité&nbsp;: code.claude.com/docs/en/security</li>
     <li>Anthropic, conformité régionale&nbsp;: claude.com/regional-compliance</li>
     <li>Anthropic, lieu de stockage des données&nbsp;: privacy.claude.com/en/articles/7996890</li>
     <li>Anthropic, conditions grand public&nbsp;: anthropic.com/news/updates-to-our-consumer-terms</li>
   </ul>
-  <p class="small muted">Les prix et fonctionnalités évoluent vite. Ce guide reflète l'état des sources primaires au 5 octobre 2026. Il n'engage pas Anthropic.</p>
+  <p class="small muted">Les prix et fonctionnalités évoluent vite. Ce guide reflète l'état des sources primaires au 5 octobre 2026, hors la section sur les crédits API et les prix des modèles, relus le 12 octobre 2026. Il n'engage pas Anthropic.</p>
 
   <div class="end" style="margin-top:16pt">
     <div class="kicker" style="color:#D96A47">Waimia · studio IA pour PME</div>
