@@ -15,6 +15,9 @@
  *      de ses thèmes (donc des pages du même sujet), puis une passe d'équilibrage garantit
  *      que toute page du registre reçoit au moins `MIN_INBOUND` liens entrants.
  *
+ * Hubs de service : un hub (SERVICE_HUB_PATHS) lie en plus TOUS ses enfants du catalogue
+ * (hubChildren, alimenté par sitemap.ts), pas seulement trois par thème.
+ *
  * Garanties : 0 lien fabriqué (routes du registre, vérifiées sur disque), 0 lien vers soi,
  * 0 lien vers une page noindex ou redirigée, aucune page du registre orpheline.
  * Rendu : section cataloguée `related-links` (packages/ds-kernel/.../related-links/schema.ts),
@@ -29,6 +32,7 @@ import { join } from 'node:path';
 import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS, isRedirectedPath } from '../data/depublished';
 import { NOINDEX_SITEMAP_PATHS } from '../data/sitemap-noindex-exclude';
 import { listRouteSources } from './seo/lastmod.mjs';
+import { SERVICE_HUB_PATHS, hubChildren } from './seo/service-catalog';
 
 type Lang = 'fr' | 'en';
 
@@ -101,10 +105,14 @@ const PAGES: Record<string, PageDef> = {
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
   '/services/agent-support-client': { label_fr: 'Chatbot et agent de service client', label_en: 'Customer service agent', kind: 'service', topics: ['agents'] },
+  '/services/agent-qualification-leads': { label_fr: 'Agent IA de qualification de leads', label_en: 'AI lead qualification agent', kind: 'service', topics: ['agents', 'commercial'] },
+  '/services/agent-traitement-documents': { label_fr: 'Agent IA de traitement de documents', label_en: 'AI document processing agent', kind: 'service', topics: ['agents', 'automatisation'] },
   '/cas-usages/support-sav': { label_fr: 'Automatiser le service client et le SAV', label_en: 'Automating customer service', kind: 'cas-usage', topics: ['agents', 'automatisation'] },
   '/cas-clients/brow-x-professionnel': { label_fr: 'Cas client : Brow.X Professionnel', label_en: 'Case: Brow.X Professionnel', kind: 'cas-client', topics: ['agents', 'automatisation'] },
   '/services/base-de-connaissance-ia': { label_fr: 'Base de connaissance IA', label_en: 'AI knowledge base', kind: 'service', topics: ['agents', 'claude'] },
   '/services/integration-claude': { label_fr: 'Claude en entreprise', label_en: 'Claude for business', kind: 'service', topics: ['claude', 'agents'] },
+  '/services/integration-mistral-ai': { label_fr: 'Intégration Mistral AI aux outils métier', label_en: 'Mistral AI integration for business tools', kind: 'service', topics: ['claude', 'agents'] },
+  '/services/integration-chatgpt-openai': { label_fr: 'Intégration ChatGPT et OpenAI aux outils métier', label_en: 'ChatGPT and OpenAI integration for business tools', kind: 'service', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-pme': { label_fr: 'Guide pilier : déployer Claude en PME', label_en: 'Pillar guide: deploying Claude in an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/choisir-agence-ia-pme': { label_fr: 'Choisir une agence IA en PME', label_en: 'Choosing an AI agency for an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/cout-integration-claude-pme': { label_fr: "Coût d'une intégration Claude en PME", label_en: 'Cost of a Claude integration for SMBs', kind: 'guide', topics: ['claude', 'conseil'] },
@@ -135,20 +143,32 @@ const PAGES: Record<string, PageDef> = {
 
   // ── Applications métier et données ──
   '/services/applications-internes': { label_fr: 'Application métier sur mesure', label_en: 'Custom business application', kind: 'service', topics: ['applications', 'donnees'] },
+  '/services/mvp-saas': { label_fr: 'Développement de MVP SaaS', label_en: 'SaaS MVP development', kind: 'service', topics: ['applications'] },
+  '/services/portail-client': { label_fr: 'Portail client sur mesure', label_en: 'Custom client portal', kind: 'service', topics: ['applications', 'donnees'] },
+  '/services/back-office-sur-mesure': { label_fr: 'Back-office sur mesure', label_en: 'Custom back office', kind: 'service', topics: ['applications', 'donnees'] },
   '/blog/applications-internes-build-vs-buy-pme': { label_fr: 'Développer ou acheter son outil interne', label_en: 'Build or buy your internal tool', kind: 'article', topics: ['applications'] },
   '/cas-clients/les-carnets-de-montpellier': { label_fr: 'Cas client : Les Carnets de Montpellier', label_en: 'Case: Les Carnets de Montpellier', kind: 'cas-client', topics: ['applications', 'agents'] },
   '/cas-clients/waimia-os': { label_fr: 'Projet interne : Waimia OS', label_en: 'Internal project: Waimia OS', kind: 'cas-client', topics: ['agents', 'applications'] },
   '/cas-clients/virtuoseos': { label_fr: 'Projet interne : VirtuoseOS', label_en: 'Internal project: VirtuoseOS', kind: 'cas-client', topics: ['applications', 'agents'] },
   '/cas-clients/prototypes-internes': { label_fr: 'Projets internes : trois prototypes', label_en: 'Internal projects: three prototypes', kind: 'cas-client', topics: ['applications', 'agents'] },
   '/services/donnees-reporting': { label_fr: 'Tableau de bord automatisé', label_en: 'Automated dashboard', kind: 'service', topics: ['donnees', 'applications'] },
+  '/services/tableau-de-bord-direction': { label_fr: 'Tableau de bord de direction', label_en: 'Management dashboard', kind: 'service', topics: ['donnees'] },
+  '/services/centralisation-donnees': { label_fr: 'Centralisation des données', label_en: 'Data centralisation', kind: 'service', topics: ['donnees'] },
+  '/services/reporting-automatise': { label_fr: 'Reporting automatisé', label_en: 'Automated reporting', kind: 'service', topics: ['donnees'] },
   '/blog/tableau-de-bord-pme-quelles-donnees-suivre': { label_fr: 'Tableau de bord : quelles données suivre', label_en: 'Dashboard: which data to track', kind: 'article', topics: ['donnees'] },
   '/cas-usages/centraliser-donnees': { label_fr: 'Centraliser données et reporting', label_en: 'Centralise your data', kind: 'cas-usage', topics: ['donnees'] },
 
   // ── Commercial : prospection, CRM, suivi ──
   '/services/systeme-commercial': { label_fr: 'Système commercial', label_en: 'Sales system', kind: 'service', topics: ['commercial'] },
   '/services/prospection-automatisee': { label_fr: 'Prospection automatisée', label_en: 'Automated prospecting', kind: 'service', topics: ['commercial'] },
+  '/services/prospection-linkedin': { label_fr: 'Prospection LinkedIn B2B', label_en: 'B2B LinkedIn prospecting', kind: 'service', topics: ['commercial'] },
+  '/services/social-selling-ia': { label_fr: "Social selling avec l'IA", label_en: 'Social selling with AI', kind: 'service', topics: ['commercial'] },
+  '/services/automatisation-reseaux-sociaux': { label_fr: 'Automatisation des réseaux sociaux', label_en: 'Social media automation', kind: 'service', topics: ['commercial'] },
+  '/services/cold-email-b2b': { label_fr: 'Cold email B2B', label_en: 'B2B cold email', kind: 'service', topics: ['commercial'] },
   '/services/crm-scoring-routing': { label_fr: 'Automatisation CRM', label_en: 'CRM automation', kind: 'service', topics: ['commercial', 'donnees'] },
+  '/services/integration-crm': { label_fr: 'Intégration et migration CRM', label_en: 'CRM integration and migration', kind: 'service', topics: ['commercial', 'donnees'] },
   '/services/sequences-de-suivi': { label_fr: 'Devis automatisé et relances', label_en: 'Automated quotes and follow-ups', kind: 'service', topics: ['commercial'] },
+  '/services/relance-devis': { label_fr: 'Relance de devis automatique', label_en: 'Automatic quote follow-up', kind: 'service', topics: ['commercial'] },
   '/ressources/guides/devis-automatise': { label_fr: 'Guide : automatiser ses devis', label_en: 'Guide: automating your quotes', kind: 'guide', topics: ['commercial', 'automatisation'] },
   '/blog/cabler-son-crm-en-10-jours': { label_fr: 'Câbler son CRM en 10 jours', label_en: 'Wire your CRM in 10 days', kind: 'article', topics: ['commercial', 'donnees'] },
   '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil': { label_fr: 'Automatiser ses relances B2B', label_en: 'Automate B2B follow-ups', kind: 'article', topics: ['commercial'] },
@@ -182,9 +202,23 @@ const PAGES: Record<string, PageDef> = {
 
   // ── Acquisition : site, SEO et GEO ──
   '/services/systeme-acquisition': { label_fr: "Système d'acquisition", label_en: 'Acquisition system', kind: 'service', topics: ['acquisition'] },
-  '/services/site-web-ia': { label_fr: 'Création de site internet', label_en: 'Website creation', kind: 'service', topics: ['acquisition'] },
-  '/services/seo-geo-contenu': { label_fr: 'SEO, GEO et contenu', label_en: 'SEO, GEO and content', kind: 'service', topics: ['acquisition'] },
+  '/services/site-web-ia': { label_fr: 'Agence site web', label_en: 'Web agency', kind: 'service', topics: ['acquisition'] },
+  '/services/webflow': { label_fr: 'Agence Webflow', label_en: 'Webflow agency', kind: 'service', topics: ['acquisition'] },
+  '/services/wordpress': { label_fr: 'Agence WordPress', label_en: 'WordPress agency', kind: 'service', topics: ['acquisition'] },
+  '/services/shopify': { label_fr: 'Agence Shopify', label_en: 'Shopify agency', kind: 'service', topics: ['acquisition'] },
+  '/services/sur-mesure-headless': { label_fr: 'Site sur mesure : Astro et CMS headless', label_en: 'Custom website: Astro and headless CMS', kind: 'service', topics: ['acquisition'] },
   '/services/landing-pages-tunnels': { label_fr: 'Landing pages et tunnels', label_en: 'Landing pages and funnels', kind: 'service', topics: ['acquisition', 'commercial'] },
+  '/services/landing-page-google-ads': { label_fr: 'Landing page Google Ads', label_en: 'Google Ads landing page', kind: 'service', topics: ['acquisition', 'commercial'] },
+  '/services/seo-geo-contenu': { label_fr: 'Agence SEO et référencement naturel', label_en: 'SEO and organic search agency', kind: 'service', topics: ['acquisition'] },
+  '/services/audit-seo-technique': { label_fr: 'Audit SEO technique', label_en: 'Technical SEO audit', kind: 'service', topics: ['acquisition'] },
+  '/services/referencement-ia': { label_fr: 'GEO : être cité par les IA', label_en: 'GEO: get cited by AI', kind: 'service', topics: ['acquisition'] },
+  '/services/redaction-seo-contenu': { label_fr: 'Rédaction SEO et contenu', label_en: 'SEO writing and content', kind: 'service', topics: ['acquisition'] },
+  '/services/seo-local': { label_fr: 'SEO local', label_en: 'Local SEO', kind: 'service', topics: ['acquisition'] },
+  '/services/branding': { label_fr: 'Agence de branding', label_en: 'Branding agency', kind: 'service', topics: ['acquisition'] },
+  '/services/identite-de-marque': { label_fr: 'Identité de marque', label_en: 'Brand identity', kind: 'service', topics: ['acquisition'] },
+  '/services/refonte-de-marque': { label_fr: 'Refonte de marque', label_en: 'Rebranding', kind: 'service', topics: ['acquisition'] },
+  '/services/naming-et-positionnement': { label_fr: 'Naming et positionnement', label_en: 'Naming and positioning', kind: 'service', topics: ['acquisition'] },
+  '/services/charte-graphique-brand-book': { label_fr: 'Charte graphique et brand book', label_en: 'Brand guidelines and brand book', kind: 'service', topics: ['acquisition'] },
   '/ressources/comparatifs/geo-vs-seo': { label_fr: 'GEO ou SEO', label_en: 'GEO or SEO', kind: 'comparatif', topics: ['acquisition'] },
   '/ressources/comparatifs/site-web-intelligent-vs-wordpress': { label_fr: 'Site web intelligent ou WordPress', label_en: 'Smart website or WordPress', kind: 'comparatif', topics: ['acquisition'] },
   '/blog/seo-geo-etre-cite-par-les-ia-generatives': { label_fr: 'Être cité par les IA génératives', label_en: 'Get cited by generative AI', kind: 'article', topics: ['acquisition'] },
@@ -313,6 +347,15 @@ function buildGraph(root: string): Graph {
   const out = new Map<string, string[]>(emitters.map((r) => [r, []]));
   for (const route of emitters) {
     const links = out.get(route)!;
+    // Un HUB de service émet d'abord TOUS ses enfants du catalogue (colonne du menu Solutions,
+    // sitemap.ts : même source que l'OfferCatalog JSON-LD), puis complète par les anneaux.
+    if ((SERVICE_HUB_PATHS as readonly string[]).includes(route)) {
+      for (const child of hubChildren(route)) {
+        if (child.url !== route && live.has(child.url) && !links.includes(child.url) && allowed(route, child.url)) {
+          links.push(child.url);
+        }
+      }
+    }
     for (const topic of PAGES[route].topics) {
       const ring = rings.get(topic)!;
       const at = ring.indexOf(route);
