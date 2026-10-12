@@ -45,7 +45,7 @@
   <!-- Sol et petit cabanon -->
   <rect y="500" width="1456" height="124" fill="{{ground}}"/>
   <rect y="500" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
-  <g>
+  <g transform="translate(280 0)">
     <rect x="360" y="418" width="250" height="82" fill="{{subject}}"/>
     <path d="M340 418 L485 352 L630 418 Z" fill="{{subject}}"/>
     <rect x="470" y="448" width="30" height="52" fill="{{detail}}"/>
@@ -53,7 +53,7 @@
   </g>
 
   <!-- Mât et girouette -->
-  <g>
+  <g transform="translate(280 0)">
     <rect x="481" y="150" width="8" height="204" fill="{{subject}}"/>
     <!-- croisillon -->
     <rect x="445" y="206" width="80" height="6" fill="{{subject}}"/>
@@ -66,6 +66,6 @@
   </g>
 
   <!-- Deux personnes au pied du cabanon -->
-  <use href="#man" transform="translate(690 500) scale(1.05)"/>
-  <use href="#woman" transform="translate(745 500) scale(1.05)"/>
+  <use href="#man" transform="translate(970 500) scale(1.05)"/>
+  <use href="#woman" transform="translate(1025 500) scale(1.05)"/>
 </svg>

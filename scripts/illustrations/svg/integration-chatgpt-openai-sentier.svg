@@ -27,18 +27,21 @@
   <!-- Ciel en bandes -->
   <rect width="1456" height="624" fill="{{field}}"/>
   <!-- Grand disque pâle, à gauche -->
-  <circle cx="330" cy="250" r="150" fill="{{shape}}" clip-path="url(#above-lawn)"/>
+  <circle cx="520" cy="250" r="150" fill="{{shape}}" clip-path="url(#above-lawn)"/>
 
-  <!-- Mur et porte, au fond à droite -->
+  <!-- Mur et porte, au fond à droite (groupe décalé pour rester dans le cadrage tall du hero) -->
+  <g transform="translate(-200 0)">
   <rect x="820" y="250" width="440" height="180" fill="{{shape}}"/>
   <rect x="820" y="244" width="440" height="10" fill="{{ground}}"/>
   <rect x="1010" y="300" width="84" height="130" fill="{{subject}}"/>
   <circle cx="1078" cy="368" r="4" fill="{{light}}"/>
+  </g>
 
   <!-- Pelouse -->
   <rect y="430" width="1456" height="194" fill="{{ground}}"/>
   <rect y="430" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
 
+  <g transform="translate(-200 0)">
   <!-- Sentier usé : un ruban sinueux de la gauche jusqu'à la porte -->
   <path d="M140 624 Q380 560 520 520 Q720 470 800 500 Q900 528 1010 470 Q1040 452 1042 432 L1078 432 Q1078 470 1040 500 Q930 580 790 548 Q640 520 520 580 Q420 624 340 624 Z" fill="{{detail}}"/>
 
@@ -59,4 +62,5 @@
   <use href="#man" transform="translate(990 604) scale(1.15)"/>
   <!-- Personne qui suit encore le sentier, plus loin -->
   <use href="#woman" transform="translate(640 538) scale(0.62)"/>
+  </g>
 </svg>
