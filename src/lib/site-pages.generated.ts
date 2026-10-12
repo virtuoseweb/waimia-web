@@ -2770,6 +2770,76 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+    "title": "CRM sur mesure ou CRM du marché : comment choisir · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "CRM sur mesure ou CRM du marché : comment choisir pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "CRM du marché, troisième voie, CRM sur mesure : critère par critère",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Notre verdict, situation par situation",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le bon CRM se choisit sur votre processus, pas sur une démo.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/geo-vs-seo",
     "title": "GEO vs SEO · être cité par les IA ou trouvé sur Google",
     "group": "ressources",
@@ -6089,6 +6159,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",

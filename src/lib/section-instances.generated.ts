@@ -1269,6 +1269,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 5,
+      "label": "Notre verdict, situation par situation",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/geo-vs-seo.json",
       "slug": "geo-vs-seo",
       "route": "/ressources/comparatifs/geo-vs-seo",
@@ -2375,6 +2384,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/geo-vs-seo.json",
       "slug": "geo-vs-seo",
       "route": "/ressources/comparatifs/geo-vs-seo",
@@ -2931,6 +2949,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "#5",
       "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -3982,6 +4045,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Ce qui a bougé chez Claude et ChatGPT, et ce que ça change",
       "variant": "editorial",
       "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 3,
+      "label": "CRM du marché, troisième voie, CRM sur mesure : critère par critère",
+      "background": "paper-2"
     },
     {
       "collection": "comparatifs",
@@ -5136,6 +5208,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 10,
       "label": "Claude vs ChatGPT : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 10,
+      "label": "Questions fréquentes",
       "background": "paper"
     },
     {
@@ -6390,6 +6471,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 11,
+      "label": "Le bon CRM se choisit sur votre processus, pas sur une démo.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/geo-vs-seo.json",
       "slug": "geo-vs-seo",
       "route": "/ressources/comparatifs/geo-vs-seo",
@@ -7440,6 +7530,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 0,
       "label": "Claude vs ChatGPT pour une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "index": 0,
+      "label": "CRM sur mesure ou CRM du marché : comment choisir pour une PME",
       "background": "paper"
     },
     {
@@ -9818,6 +9917,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 9,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
+      "slug": "crm-sur-mesure-vs-crm-du-marche",
+      "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "index": 9,
       "label": "Pour aller plus loin",
       "background": "paper-2"

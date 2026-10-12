@@ -254,7 +254,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 45,
+    "count": 46,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -262,6 +262,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
@@ -406,7 +407,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 49,
+    "count": 50,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -421,6 +422,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
@@ -485,7 +487,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 131,
+    "count": 136,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -500,6 +502,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/paris",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "/ressources/guides/agent-ia-definition",
@@ -555,13 +558,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 62,
+    "count": 63,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
       "/cas-usages/support-sav",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "/ressources/guides/agent-ia-definition",
@@ -649,7 +653,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 93,
+    "count": 94,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -675,6 +679,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
@@ -808,7 +813,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 92,
+    "count": 93,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -835,6 +840,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
@@ -1012,7 +1018,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 63,
+    "count": 64,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1033,6 +1039,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
@@ -1428,7 +1435,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 56,
+    "count": 57,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1449,6 +1456,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",

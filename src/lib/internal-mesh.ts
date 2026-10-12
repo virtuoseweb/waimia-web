@@ -148,6 +148,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/systeme-commercial': { label_fr: 'Système commercial', label_en: 'Sales system', kind: 'service', topics: ['commercial'] },
   '/services/prospection-automatisee': { label_fr: 'Prospection automatisée', label_en: 'Automated prospecting', kind: 'service', topics: ['commercial'] },
   '/services/crm-scoring-routing': { label_fr: 'Automatisation CRM', label_en: 'CRM automation', kind: 'service', topics: ['commercial', 'donnees'] },
+  '/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche': { label_fr: 'CRM sur mesure ou CRM du marché', label_en: 'Custom or off-the-shelf CRM', kind: 'comparatif', topics: ['commercial', 'applications'] },
   '/services/sequences-de-suivi': { label_fr: 'Devis automatisé et relances', label_en: 'Automated quotes and follow-ups', kind: 'service', topics: ['commercial'] },
   '/ressources/guides/devis-automatise': { label_fr: 'Guide : automatiser ses devis', label_en: 'Guide: automating your quotes', kind: 'guide', topics: ['commercial', 'automatisation'] },
   '/blog/cabler-son-crm-en-10-jours': { label_fr: 'Câbler son CRM en 10 jours', label_en: 'Wire your CRM in 10 days', kind: 'article', topics: ['commercial', 'donnees'] },

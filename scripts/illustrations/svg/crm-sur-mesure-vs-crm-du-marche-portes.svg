@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · CRM sur mesure ou CRM du marché : une petite silhouette de dos hésite entre une rangée de casiers identiques (le standard, à gauche) et une seule grande porte découpée sur mesure, au contour irrégulier (à droite). Porte sur mesure = {{shape}}. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="locker">
+      <rect x="0" y="0" width="62" height="196" fill="{{soft}}"/>
+      <rect x="12" y="16" width="38" height="4" fill="{{deep}}"/>
+      <rect x="12" y="26" width="38" height="4" fill="{{deep}}"/>
+      <rect x="12" y="36" width="38" height="4" fill="{{deep}}"/>
+      <rect x="48" y="96" width="6" height="22" rx="3" fill="{{detail}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- le standard : un bloc de casiers identiques -->
+  <rect x="150" y="276" width="520" height="224" fill="{{deep}}"/>
+  <rect x="150" y="262" width="520" height="16" fill="{{subject}}"/>
+  <use href="#locker" transform="translate(164 292)"/>
+  <use href="#locker" transform="translate(248 292)"/>
+  <use href="#locker" transform="translate(332 292)"/>
+  <use href="#locker" transform="translate(416 292)"/>
+  <use href="#locker" transform="translate(500 292)"/>
+  <use href="#locker" transform="translate(584 292)"/>
+  <rect x="150" y="500" width="520" height="12" fill="{{deep}}"/>
+
+  <!-- le sur mesure : une seule grande porte au contour irrégulier -->
+  <path d="M1000 512 L1330 512 L1300 500 L1010 500 Z" fill="{{deep}}"/>
+  <path d="M1010 500 L1010 330 Q1004 280 1040 262 Q1062 250 1060 214 Q1058 168 1102 150 Q1150 132 1178 168 Q1196 192 1228 186 Q1272 178 1284 222 Q1292 254 1272 286 Q1258 310 1280 340 Q1300 372 1290 420 L1290 500 Z" fill="{{subject}}"/>
+  <path d="M1030 500 L1030 336 Q1026 296 1056 280 Q1082 264 1080 222 Q1080 184 1110 172 Q1146 158 1166 186 Q1188 214 1226 206 Q1258 202 1264 228 Q1270 254 1252 282 Q1234 314 1260 348 Q1276 378 1270 420 L1270 500 Z" fill="{{shape}}"/>
+  <circle cx="1242" cy="410" r="10" fill="{{detail}}"/>
+
+  <!-- la silhouette qui choisit, de dos, au milieu -->
+  <use href="#man" transform="translate(830 568) scale(1.6)"/>
+  <rect x="848" y="506" width="26" height="20" fill="{{subject}}"/>
+  <rect x="857" y="499" width="8" height="8" fill="{{subject}}"/>
+</svg>
