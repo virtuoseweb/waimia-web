@@ -100,16 +100,9 @@ const COLLECTIONS = {
 // src/data/depublished.ts ; ids = chemins relatifs des fichiers, cf note « route = entry.id »).
 const EXCLUDED_ENTRY_IDS = new Set([
   'template-service-ref',
-  'applications-internes/mvp-saas',
-  'prospection-automatisee/cold-email-b2b',
   'crm-scoring-routing/integration-crm',
   'sequences-de-suivi/relance-devis',
-  'site-web-ia/wordpress',
-  'site-web-ia/webflow',
-  'site-web-ia/sur-mesure',
   'maintenance-growth',
-  'seo-geo-contenu/referencement-ia',
-  'seo-geo-contenu/seo-local',
   'landing-pages-tunnels/landing-page-google-ads',
   'publicite-en-ligne',
   'score-maturite-ia',

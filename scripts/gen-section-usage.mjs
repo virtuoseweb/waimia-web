@@ -88,8 +88,7 @@ function entrySlug(collectionRoot, filePath) {
 // mais plus de route publique (301) → chemin source, jamais un lien vers une URL redirigée.
 const DEPUBLISHED = {
   services: new Set([
-    'mvp-saas', 'cold-email-b2b', 'integration-crm', 'relance-devis', 'wordpress', 'webflow',
-    'sur-mesure-headless', 'maintenance-growth', 'referencement-ia', 'seo-local',
+    'integration-crm', 'relance-devis', 'maintenance-growth',
     'landing-page-google-ads', 'publicite-en-ligne',
   ]),
   demonstrations: new Set(['integration-claude']),

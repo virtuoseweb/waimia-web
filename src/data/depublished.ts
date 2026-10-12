@@ -15,16 +15,9 @@
 
 /** Services dépubliés : id d'entrée (= `slug`) → slug du service cible de la 301. */
 export const DEPUBLISHED_SERVICES: Readonly<Record<string, string>> = {
-  'mvp-saas': 'applications-internes',
-  'cold-email-b2b': 'prospection-automatisee',
   'integration-crm': 'crm-scoring-routing',
   'relance-devis': 'sequences-de-suivi',
-  wordpress: 'site-web-ia',
-  webflow: 'site-web-ia',
-  'sur-mesure-headless': 'site-web-ia',
   'maintenance-growth': 'site-web-ia',
-  'referencement-ia': 'seo-geo-contenu',
-  'seo-local': 'seo-geo-contenu',
   'landing-page-google-ads': 'landing-pages-tunnels',
   'publicite-en-ligne': 'landing-pages-tunnels',
 };

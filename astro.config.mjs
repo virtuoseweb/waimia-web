@@ -269,8 +269,8 @@ export default defineConfig({
     // site-web-intelligent/ à site-web-ia/ → 301 des anciennes routes enfants.
     // MAJ pivot IA 2026-10 · les 3 déclinaisons sont fusionnées dans /services/site-web-ia :
     // destinations re-ciblées directement (évite une chaîne de 301).
-    '/services/site-web-intelligent/wordpress': '/services/site-web-ia',
-    '/services/site-web-intelligent/webflow': '/services/site-web-ia',
+    '/services/site-web-intelligent/wordpress': '/services/wordpress',
+    '/services/site-web-intelligent/webflow': '/services/webflow',
     '/services/site-web-intelligent/sur-mesure': '/services/site-web-ia',
     // Wave #34 2026-06-28 · nettoyage taxonomie dégénérée du catalogue DS.
     // Catégories dé-dupliquées (slug singleton fusionné dans son équivalent) et
@@ -325,16 +325,9 @@ export default defineConfig({
     // conservés ; même mécanisme que template-service-ref / services-b2b (exclusion du
     // routing + 301 ici). Source des ids exclus : src/data/depublished.ts.
     // Déclinaisons de service repliées dans leur page parente.
-    '/services/mvp-saas': '/services/applications-internes',
-    '/services/cold-email-b2b': '/services/prospection-automatisee',
     '/services/integration-crm': '/services/crm-scoring-routing',
     '/services/relance-devis': '/services/sequences-de-suivi',
-    '/services/wordpress': '/services/site-web-ia',
-    '/services/webflow': '/services/site-web-ia',
-    '/services/sur-mesure-headless': '/services/site-web-ia',
     '/services/maintenance-growth': '/services/site-web-ia',
-    '/services/referencement-ia': '/services/seo-geo-contenu',
-    '/services/seo-local': '/services/seo-geo-contenu',
     '/services/landing-page-google-ads': '/services/landing-pages-tunnels',
     '/services/publicite-en-ligne': '/services/landing-pages-tunnels',
     // Pages Claude en doublon de la page service (pages statiques renommées `_…astro`
