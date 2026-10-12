@@ -1,0 +1,620 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Centralisation des données pour PME : un socle unique · Waimia",
+  "title_en": "Data centralisation for SMEs: one lean base · Waimia",
+  "description_fr": "Centralisation des données de PME : CRM, compta et tableurs réunis dans un socle unique, dédoublonné, avec droits d'accès et RGPD documenté. Dès 999 € HT.",
+  "description_en": "SME data centralisation: CRM, accounting and spreadsheets gathered in one deduplicated base, with access rights and documented GDPR. From €999 excl. VAT.",
+  "slug": "centralisation-donnees",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "category": "donnees",
+  "tags": [
+    "centralisation-donnees",
+    "socle-de-donnees",
+    "connecteurs",
+    "dedoublonnage",
+    "rgpd-donnees"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Centralisation des données de PME dans un socle unique",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Faut-il une base de données pour centraliser ses données ?",
+      "a": "Oui, mais légère : en général une base relationnelle hébergée à votre nom, qui reçoit des copies de vos outils. Vos logiciels restent l'endroit où l'on saisit ; le socle sert à lire, croiser et mesurer."
+    },
+    {
+      "q": "Quels outils peut-on connecter ?",
+      "a": "CRM, facturation, comptabilité, tableurs, boîte email, outil de paie ou outil métier, tant qu'ils exposent une API, un export planifié ou une base lisible. Ceux qui n'exposent rien sont listés à l'audit, avec la solution de contournement."
+    },
+    {
+      "q": "Comment traitez-vous les doublons et les données sales ?",
+      "a": "Par des règles écrites : une clé de rapprochement (email, SIRET, référence), des règles de fusion et un rapport des cas ambigus que quelqu'un tranche à la main. Un cas douteux n'est jamais fusionné en silence."
+    },
+    {
+      "q": "Qui a accès à quoi dans le socle ?",
+      "a": "Les droits se définissent par rôle et par jeu de données : la paie n'est pas lisible par l'équipe commerciale. Les accès sont nominatifs et révocables, et la liste est remise avec la documentation."
+    },
+    {
+      "q": "Est-ce conforme au RGPD ?",
+      "a": "Le socle est construit pour permettre la conformité, il ne la garantit pas à lui seul. On documente les données personnelles copiées, leur finalité, leur durée de conservation et leur hébergement. Ce qui relève du droit se valide avec votre juriste ou votre DPO."
+    },
+    {
+      "q": "Quelle différence avec le cas d'usage « centraliser ses données » ?",
+      "a": "Le cas d'usage décrit le problème et ce qu'on met en place. Cette page décrit la prestation : périmètre, livrables et prix. Si vous cherchez d'abord à comprendre, commencez par le cas d'usage."
+    },
+    {
+      "q": "Combien de temps pour brancher une source ?",
+      "a": "Quelques heures pour une source qui expose une API propre, davantage pour un export à nettoyer. C'est estimé source par source à l'audit, puis facturé {{prix.horaire}} € HT de l'heure au-delà du sprint de cadrage."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Do you need a database to centralise your data?",
+      "a": "Yes, but a light one: usually a relational database hosted in your name, receiving copies from your tools. Your software remains where data is entered; the base is for reading, crossing and measuring."
+    },
+    {
+      "q": "Which tools can be connected?",
+      "a": "CRM, invoicing, accounting, spreadsheets, mailbox, payroll or business tool, as long as they expose an API, a scheduled export or a readable database. Those that expose nothing are listed at the audit, with the workaround."
+    },
+    {
+      "q": "How do you handle duplicates and dirty data?",
+      "a": "With written rules: a matching key (email, company ID, reference), merge rules and a report of ambiguous cases that someone settles by hand. A doubtful case is never merged silently."
+    },
+    {
+      "q": "Who has access to what in the base?",
+      "a": "Rights are defined by role and by data set: payroll is not readable by the sales team. Access is named and revocable, and the list is handed over with the documentation."
+    },
+    {
+      "q": "Is it GDPR compliant?",
+      "a": "The base is built to allow compliance, it does not guarantee it by itself. We document the personal data copied, its purpose, its retention period and its hosting. What is a legal matter is validated with your lawyer or DPO."
+    },
+    {
+      "q": "How is this different from the \"centralise your data\" use case?",
+      "a": "The use case describes the problem and what we set up. This page describes the service: scope, deliverables and price. If you first want to understand, start with the use case."
+    },
+    {
+      "q": "How long does it take to connect a source?",
+      "a": "A few hours for a source with a clean API, more for an export that needs cleaning. It is estimated source by source at the audit, then billed at €{{prix.horaire}} per hour excl. VAT beyond the scoping sprint."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Centralisation des données",
+      "kicker_en": "§ Data centralisation",
+      "h1_fr": "La <i class=\"acc\">centralisation des données</i> de votre PME, sans usine à gaz",
+      "h1_en": "<i class=\"acc\">Data centralisation</i> for your SME, without the heavy machinery",
+      "lede_fr": "Centraliser ses données, c'est copier à intervalle régulier vos CRM, facturation, tableurs et outils métier vers un socle unique, dédoublonné, avec des droits par rôle. Waimia le met en place pour les PME : des connecteurs plutôt qu'un entrepôt, sur les seules sources qui servent.",
+      "lede_en": "Centralising your data means copying your CRM, invoicing, spreadsheets and business tools at regular intervals into one deduplicated base, with rights by role. Waimia sets it up for SMEs: connectors rather than a warehouse, on the only sources that serve.",
+      "badges": [
+        {
+          "label_fr": "Dédoublonnage par règles",
+          "label_en": "Rule-based deduplication"
+        },
+        {
+          "label_fr": "Droits par rôle",
+          "label_en": "Rights by role"
+        },
+        {
+          "label_fr": "RGPD documenté",
+          "label_en": "GDPR documented"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. On liste vos sources, leur qualité et le socle le plus léger qui tienne.",
+      "cta_sub_en": "Free 45-minute audit by video call. We list your sources, their quality and the lightest base that holds.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/illustrations/ds/centralisation-donnees-ecluse-ink.webp",
+      "media_alt_fr": "Illustration : trois ruisseaux se rejoignent dans un bassin, une écluse les laisse passer vers un seul canal, un éclusier à la vanne.",
+      "media_alt_en": "Illustration: three streams join in a basin, a lock lets them through to a single canal, a lock keeper at the sluice."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 h : sources prioritaires branchées, règles de rapprochement écrites",
+          "label_en": "10-hour scoping sprint: priority sources connected, matching rules written",
+          "emphasis": true
+        },
+        {
+          "value": "1 socle",
+          "label_fr": "une base unique, lue par vos tableaux et vos automatisations",
+          "label_en": "a single base, read by your dashboards and automations",
+          "emphasis": false
+        },
+        {
+          "value": "Par rôle",
+          "label_fr": "droits d'accès nominatifs, révocables, listés",
+          "label_en": "named, revocable, listed access rights",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "base, connecteurs et documentation à votre nom",
+          "label_en": "database, connectors and documentation in your name",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">socle de données</i> est une base unique et légère qui reçoit des copies régulières de vos outils, rapproche les enregistrements qui désignent la même chose (un client, un produit, une facture) et applique des droits d'accès. Vos logiciels restent l'endroit où l'on saisit ; le socle sert à lire, croiser et mesurer.",
+      "statement_en": "A <i class=\"acc\">data base</i> is a single, light database that receives regular copies from your tools, matches records that designate the same thing (a customer, a product, an invoice) and applies access rights. Your software remains where data is entered; the base is for reading, crossing and measuring.",
+      "pills": [
+        {
+          "label_fr": "Connecteurs",
+          "label_en": "Connectors"
+        },
+        {
+          "label_fr": "Rapprochement des doublons",
+          "label_en": "Duplicate matching"
+        },
+        {
+          "label_fr": "Nettoyage par règles",
+          "label_en": "Rule-based cleaning"
+        },
+        {
+          "label_fr": "Droits par rôle",
+          "label_en": "Rights by role"
+        },
+        {
+          "label_fr": "Historique conservé",
+          "label_en": "History kept"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "CRM",
+          "label_en": "CRM"
+        },
+        {
+          "label_fr": "Facturation et comptabilité",
+          "label_en": "Invoicing and accounting"
+        },
+        {
+          "label_fr": "Tableurs",
+          "label_en": "Spreadsheets"
+        },
+        {
+          "label_fr": "Outils métier",
+          "label_en": "Business tools"
+        },
+        {
+          "label_fr": "API ou export planifié",
+          "label_en": "API or scheduled export"
+        },
+        {
+          "label_fr": "Base relationnelle",
+          "label_en": "Relational database"
+        }
+      ]
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "columns": "2",
+      "kicker_fr": "§ Dispersion · par sévérité",
+      "kicker_en": "§ Dispersion · by severity",
+      "h2_fr": "Ce que la dispersion <i class=\"acc\">coûte</i>.",
+      "h2_en": "What dispersion <i class=\"acc\">costs</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Le même client à trois endroits",
+          "title_en": "The same customer in three places",
+          "desc_fr": "Le CRM, la facturation et le tableur du commercial ont chacun leur fiche, orthographiée différemment. Aucun total par client n'est fiable.",
+          "desc_en": "The CRM, invoicing and the salesperson's spreadsheet each have their own record, spelled differently. No per-customer total is reliable.",
+          "fix_fr": "Une clé de rapprochement et une fiche de référence.",
+          "fix_en": "A matching key and a reference record."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Des tableurs qui font office de base",
+          "title_en": "Spreadsheets acting as a database",
+          "desc_fr": "Un fichier partagé, des versions « final_v3 », des formules que seule une personne comprend.",
+          "desc_en": "A shared file, \"final_v3\" versions, formulas only one person understands.",
+          "fix_fr": "Les tableurs critiques sont lus par connecteur, puis remplacés si besoin.",
+          "fix_en": "Critical spreadsheets are read by connector, then replaced if needed."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Des accès accordés au cas par cas",
+          "title_en": "Access granted case by case",
+          "desc_fr": "Des exports circulent par email avec des données personnelles que tout le monde peut ouvrir.",
+          "desc_en": "Exports circulate by email with personal data that anyone can open.",
+          "fix_fr": "Droits par rôle, accès nominatifs, registre des données.",
+          "fix_en": "Rights by role, named access, data register."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Des exports que personne ne date",
+          "title_en": "Exports nobody dates",
+          "desc_fr": "On ne sait plus si le fichier date de lundi ou du mois dernier.",
+          "desc_en": "Nobody knows whether the file is from Monday or last month.",
+          "fix_fr": "Synchronisation planifiée, date de la dernière mise à jour affichée.",
+          "fix_en": "Scheduled sync, date of the last update displayed."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Un socle léger, pas un entrepôt de données</h2>\n<p>Un entrepôt de données d'entreprise se justifie avec de nombreuses sources et une équipe pour l'exploiter. Pour une PME, on vise l'inverse : quelques sources prioritaires, une base relationnelle hébergée à votre nom, des connecteurs que vous pouvez lire et un schéma que vous pouvez comprendre. Si cinq tables suffisent, il n'y en aura pas vingt.</p>\n<h2>Les connecteurs</h2>\n<p>Chaque source est reliée par le moyen le plus stable qu'elle propose : une API, un export planifié ou, à défaut, une lecture directe de la base. Les workflows sont le plus souvent construits avec <a href=\"/services/automatisation-n8n\">n8n</a>, hébergés chez vous, et alertent quand une source ne répond plus. Les outils qui n'exposent aucune donnée exploitable sont listés à l'audit, avec la solution de contournement.</p>\n<h2>Nettoyage et dédoublonnage</h2>\n<p>Le rapprochement suit des règles écrites : une clé (email, SIRET, référence interne), des règles de fusion, et un rapport des cas ambigus que quelqu'un tranche à la main. Un cas douteux n'est jamais fusionné en silence. Les champs vides ou mal typés sont signalés plutôt que corrigés au hasard.</p>\n<h2>Droits d'accès et RGPD</h2>\n<p>Les droits se définissent par rôle et par jeu de données : la paie n'est pas lisible par l'équipe commerciale. Les accès sont nominatifs et révocables. Le socle copie des données personnelles, donc on documente lesquelles, pourquoi, pour combien de temps et où elles sont hébergées. C'est une base pour votre registre des traitements, pas une garantie juridique : ce qui relève du droit se valide avec votre juriste ou votre DPO. Le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et le RGPD en PME</a> et la page <a href=\"/conformite-ia\">conformité IA</a> cadrent le sujet côté IA.</p>\n<h2>Prérequis et limites</h2>\n<p>La qualité de la donnée à la source reste le prérequis : un socle propre copie fidèlement des saisies sales. Il faut aussi quelqu'un chez vous qui tranche les fusions ambiguës. Le problème, vu côté usage, est décrit dans le cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données et automatiser le reporting</a> ; cette page décrit la prestation.</p>\n<p>Une fois posé, le socle alimente un <a href=\"/services/tableau-de-bord-direction\">tableau de bord de direction</a>, un <a href=\"/services/reporting-automatise\">reporting automatisé</a> ou une <a href=\"/services/applications-internes\">application métier</a>. Les demandes entrantes du site le rejoignent depuis le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>. Le cadre général est sur la page <a href=\"/services/donnees-reporting\">données et reporting</a>.</p>",
+      "html_en": "<h2>A lean base, not a data warehouse</h2>\n<p>An enterprise data warehouse is justified with many sources and a team to run it. For an SME we aim for the opposite: a few priority sources, a relational database hosted in your name, connectors you can read and a schema you can understand. If five tables are enough, there will not be twenty.</p>\n<h2>The connectors</h2>\n<p>Each source is linked by the most stable means it offers: an API, a scheduled export or, failing that, a direct read of the database. Workflows are most often built with <a href=\"/services/automatisation-n8n\">n8n</a>, hosted on your side, and alert when a source stops responding. Tools that expose no usable data are listed at the audit, with the workaround.</p>\n<h2>Cleaning and deduplication</h2>\n<p>Matching follows written rules: a key (email, company ID, internal reference), merge rules, and a report of ambiguous cases that someone settles by hand. A doubtful case is never merged silently. Empty or badly typed fields are flagged rather than corrected at random.</p>\n<h2>Access rights and GDPR</h2>\n<p>Rights are defined by role and by data set: payroll is not readable by the sales team. Access is named and revocable. The base copies personal data, so we document which, why, for how long and where it is hosted. It is a basis for your record of processing activities, not a legal guarantee: what is a legal matter is validated with your lawyer or DPO. The guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMEs</a> and the <a href=\"/conformite-ia\">AI compliance</a> page frame the subject on the AI side.</p>\n<h2>Prerequisites and limits</h2>\n<p>Source data quality remains the prerequisite: a clean base faithfully copies dirty entries. You also need someone on your side who settles ambiguous merges. The problem, seen from the usage side, is described in the use case <a href=\"/cas-usages/centraliser-donnees\">centralise your data and automate reporting</a>; this page describes the service.</p>\n<p>Once in place, the base feeds a <a href=\"/services/tableau-de-bord-direction\">management dashboard</a>, <a href=\"/services/reporting-automatise\">automated reporting</a> or a <a href=\"/services/applications-internes\">business application</a>. Inbound requests from the site join it from the <a href=\"/services/systeme-acquisition\">acquisition system</a>. The general frame is on the <a href=\"/services/donnees-reporting\">data and reporting</a> page.</p>"
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "duration_fr": "Sprint de cadrage, puis source par source",
+      "duration_en": "Scoping sprint, then source by source",
+      "h2_fr": "De l'inventaire au socle, en cinq étapes",
+      "h2_en": "From inventory to base, in five steps",
+      "lede_fr": "On avance source par source, par ordre d'utilité : une source branchée et propre vaut mieux que dix à moitié.",
+      "lede_en": "We go source by source, in order of usefulness: one connected, clean source is worth more than ten half-done.",
+      "steps": [
+        {
+          "title_fr": "Inventaire",
+          "title_en": "Inventory",
+          "sub_fr": "Sources, volumes, qui saisit quoi",
+          "sub_en": "Sources, volumes, who enters what"
+        },
+        {
+          "title_fr": "Mesure",
+          "title_en": "Measure",
+          "sub_fr": "Retards, doublons, champs vides sur un échantillon",
+          "sub_en": "Delays, duplicates, empty fields on a sample"
+        },
+        {
+          "title_fr": "Schéma",
+          "title_en": "Schema",
+          "sub_fr": "Les entités et leurs clés, en une page",
+          "sub_en": "Entities and their keys, on one page"
+        },
+        {
+          "title_fr": "Connecteurs",
+          "title_en": "Connectors",
+          "sub_fr": "Sources branchées par ordre d'utilité",
+          "sub_en": "Sources connected in order of usefulness"
+        },
+        {
+          "title_fr": "Droits",
+          "title_en": "Rights",
+          "sub_fr": "Rôles, accès nominatifs, registre des données",
+          "sub_en": "Roles, named access, data register"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : une PME avec cinq outils",
+      "h2_en": "Typical example: an SME with five tools",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Cinq outils, cinq vérités",
+      "without_title_en": "Five tools, five truths",
+      "without_items": [
+        {
+          "text_fr": "Un client existe sous trois orthographes dans trois logiciels.",
+          "text_en": "A customer exists under three spellings in three tools."
+        },
+        {
+          "text_fr": "Les exports se font à la main, à des dates différentes.",
+          "text_en": "Exports are done by hand, on different dates."
+        },
+        {
+          "text_fr": "Un fichier circule par email avec toutes les données personnelles.",
+          "text_en": "A file circulates by email with all the personal data."
+        },
+        {
+          "text_fr": "Personne ne sait qui a accès à quoi.",
+          "text_en": "Nobody knows who has access to what."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un socle, une fiche par client",
+      "with_title_en": "One base, one record per customer",
+      "with_items": [
+        {
+          "text_fr": "Une fiche de référence par client, liée à chaque outil.",
+          "text_en": "One reference record per customer, linked to each tool."
+        },
+        {
+          "text_fr": "Les copies sont planifiées et datées.",
+          "text_en": "Copies are scheduled and dated."
+        },
+        {
+          "text_fr": "Les accès sont par rôle, nominatifs, listés.",
+          "text_en": "Access is by role, named, listed."
+        },
+        {
+          "text_fr": "Les cas ambigus arrivent dans une file que quelqu'un tranche.",
+          "text_en": "Ambiguous cases land in a queue that someone settles."
+        },
+        {
+          "text_fr": "Les outils sources continuent d'être utilisés tels quels.",
+          "text_en": "Source tools keep being used as they are."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Le socle est à votre nom, avec de quoi le comprendre et le faire évoluer sans nous.",
+      "lead_en": "The base is in your name, with what you need to understand it and evolve it without us.",
+      "items": [
+        {
+          "title_fr": "Le schéma des données",
+          "title_en": "The data schema",
+          "body_fr": "Les entités, leurs clés et leurs liens, sur une page lisible par un non-technicien.",
+          "body_en": "Entities, their keys and links, on one page readable by a non-technical person.",
+          "format_fr": "SCHÉMA",
+          "format_en": "SCHEMA"
+        },
+        {
+          "title_fr": "Les connecteurs documentés",
+          "title_en": "The documented connectors",
+          "body_fr": "Un workflow par source, avec une alerte quand elle ne répond plus.",
+          "body_en": "One workflow per source, with an alert when it stops responding.",
+          "format_fr": "CONNECTEURS",
+          "format_en": "CONNECTORS"
+        },
+        {
+          "title_fr": "Les règles de nettoyage",
+          "title_en": "The cleaning rules",
+          "body_fr": "Clés de rapprochement, règles de fusion, rapport des cas ambigus.",
+          "body_en": "Matching keys, merge rules, report of ambiguous cases.",
+          "format_fr": "RÈGLES",
+          "format_en": "RULES"
+        },
+        {
+          "title_fr": "La matrice des droits et le registre",
+          "title_en": "The rights matrix and the register",
+          "body_fr": "Qui lit quoi, et la liste des données personnelles copiées avec leur finalité.",
+          "body_en": "Who reads what, and the list of personal data copied with its purpose.",
+          "format_fr": "DROITS",
+          "format_en": "RIGHTS"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ne centralisez pas si",
+      "heading_en": "Do not centralise if",
+      "items": [
+        {
+          "label_fr": "Vous n'avez que deux sources et un seul logiciel qui les lit déjà.",
+          "label_en": "You only have two sources and a single tool that already reads them."
+        },
+        {
+          "label_fr": "Personne chez vous ne peut trancher une fusion de fiches ambiguë.",
+          "label_en": "Nobody on your side can settle an ambiguous record merge."
+        },
+        {
+          "label_fr": "Le besoin est un seul rapport mensuel : un reporting branché directement suffit.",
+          "label_en": "The need is a single monthly report: reporting wired directly is enough."
+        },
+        {
+          "label_fr": "Vos données sont dans un outil qui n'expose ni API ni export.",
+          "label_en": "Your data sits in a tool that exposes neither API nor export."
+        },
+        {
+          "label_fr": "Vous voulez tout copier « au cas où » : on commence par les sources qui servent un usage nommé.",
+          "label_en": "You want to copy everything \"just in case\": we start with sources that serve a named use."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises de la fiche publiée",
+      "spec_en": "Work · data taken from the published page",
+      "h2_fr": "Un connecteur en production : du formulaire au CRM, sans ressaisie",
+      "h2_en": "A connector in production: from form to CRM, no re-entry",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · État",
+      "sector_label_en": "Sector · Status",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
+      "cases": [
+        {
+          "ref": "cases/amploi"
+        }
+      ],
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'une centralisation de données",
+      "h2_en": "Price of a data centralisation",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : inventaire des sources, mesure de leur qualité et premières sources branchées sur une base à votre nom. La suite se cale sur devis : on estime ensemble le temps nécessaire source par source, on le valide, puis on l'exécute en sprints en régie. Vous gardez votre base, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price scoping sprint: inventory of sources, measure of their quality and first sources connected to a base in your name. What follows is quoted: we estimate the time needed source by source together, validate it, then run it in sprints within the time and materials frame. You keep your base, your access and the documentation.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Inventaire des sources et mesure de leur qualité",
+            "Règles de rapprochement écrites",
+            "Premières sources branchées sur une base à votre nom",
+            "Droits d'accès et registre des données personnelles posés"
+          ],
+          "features_en": [
+            "Inventory of sources and measure of their quality",
+            "Matching rules written",
+            "First sources connected to a base in your name",
+            "Access rights and personal data register in place"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps estimé source par source, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Sources et règles ajoutées sur preuve d'usage",
+            "Vous gardez base, accès et documentation"
+          ],
+          "features_en": [
+            "Time estimated source by source, then validated",
+            "Run in sprints, time and materials frame",
+            "Sources and rules added on proof of use",
+            "You keep the base, access and documentation"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=centralisation-donnees&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : inventaire des sources, règles de rapprochement et premières sources branchées, avec un socle qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps de chaque source supplémentaire, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, votre base, vos accès et la documentation sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: inventory of sources, matching rules and first sources connected, with a base that runs by the end. What follows is quoted: we estimate together the time of each additional source, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your base, your access and the documentation are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Centralisation des données : vos questions",
+      "h2_en": "Data centralisation: your questions",
+      "items": [
+        {
+          "q_fr": "Faut-il une base de données pour centraliser ses données ?",
+          "a_fr": "Oui, mais légère : en général une base relationnelle hébergée à votre nom, qui reçoit des copies de vos outils. Vos logiciels restent l'endroit où l'on saisit ; le socle sert à lire, croiser et mesurer.",
+          "q_en": "Do you need a database to centralise your data?",
+          "a_en": "Yes, but a light one: usually a relational database hosted in your name, receiving copies from your tools. Your software remains where data is entered; the base is for reading, crossing and measuring."
+        },
+        {
+          "q_fr": "Quels outils peut-on connecter ?",
+          "a_fr": "CRM, facturation, comptabilité, tableurs, boîte email, outil de paie ou outil métier, tant qu'ils exposent une API, un export planifié ou une base lisible. Ceux qui n'exposent rien sont listés à l'audit, avec la solution de contournement.",
+          "q_en": "Which tools can be connected?",
+          "a_en": "CRM, invoicing, accounting, spreadsheets, mailbox, payroll or business tool, as long as they expose an API, a scheduled export or a readable database. Those that expose nothing are listed at the audit, with the workaround."
+        },
+        {
+          "q_fr": "Comment traitez-vous les doublons et les données sales ?",
+          "a_fr": "Par des règles écrites : une clé de rapprochement (email, SIRET, référence), des règles de fusion et un rapport des cas ambigus que quelqu'un tranche à la main. Un cas douteux n'est jamais fusionné en silence.",
+          "q_en": "How do you handle duplicates and dirty data?",
+          "a_en": "With written rules: a matching key (email, company ID, reference), merge rules and a report of ambiguous cases that someone settles by hand. A doubtful case is never merged silently."
+        },
+        {
+          "q_fr": "Qui a accès à quoi dans le socle ?",
+          "a_fr": "Les droits se définissent par rôle et par jeu de données : la paie n'est pas lisible par l'équipe commerciale. Les accès sont nominatifs et révocables, et la liste est remise avec la documentation.",
+          "q_en": "Who has access to what in the base?",
+          "a_en": "Rights are defined by role and by data set: payroll is not readable by the sales team. Access is named and revocable, and the list is handed over with the documentation."
+        },
+        {
+          "q_fr": "Est-ce conforme au RGPD ?",
+          "a_fr": "Le socle est construit pour permettre la conformité, il ne la garantit pas à lui seul. On documente les données personnelles copiées, leur finalité, leur durée de conservation et leur hébergement. Ce qui relève du droit se valide avec votre juriste ou votre DPO.",
+          "q_en": "Is it GDPR compliant?",
+          "a_en": "The base is built to allow compliance, it does not guarantee it by itself. We document the personal data copied, its purpose, its retention period and its hosting. What is a legal matter is validated with your lawyer or DPO."
+        },
+        {
+          "q_fr": "Quelle différence avec le cas d'usage « centraliser ses données » ?",
+          "a_fr": "Le cas d'usage décrit le problème et ce qu'on met en place. Cette page décrit la prestation : périmètre, livrables et prix. Si vous cherchez d'abord à comprendre, commencez par le cas d'usage.",
+          "q_en": "How is this different from the \"centralise your data\" use case?",
+          "a_en": "The use case describes the problem and what we set up. This page describes the service: scope, deliverables and price. If you first want to understand, start with the use case."
+        },
+        {
+          "q_fr": "Combien de temps pour brancher une source ?",
+          "a_fr": "Quelques heures pour une source qui expose une API propre, davantage pour un export à nettoyer. C'est estimé source par source à l'audit, puis facturé {{prix.horaire}} € HT de l'heure au-delà du sprint de cadrage.",
+          "q_en": "How long does it take to connect a source?",
+          "a_en": "A few hours for a source with a clean API, more for an export that needs cleaning. It is estimated source by source at the audit, then billed at €{{prix.horaire}} per hour excl. VAT beyond the scoping sprint."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de fois par mois exportez-vous le même fichier ?",
+      "h2_en": "How many times a month do you export the same file?",
+      "subtitle_fr": "En 45 minutes, on dresse la liste de vos sources, on mesure leur qualité sur un échantillon et on vous dit s'il faut un socle ou si un export automatique suffit.",
+      "subtitle_en": "In 45 minutes, we list your sources, measure their quality on a sample and tell you whether you need a base or whether an automatic export is enough.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Cadrer la centralisation",
+          "label_en": "Scope the centralisation",
+          "href": "/contact?offer=centralisation-donnees&intent=cadrage",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
